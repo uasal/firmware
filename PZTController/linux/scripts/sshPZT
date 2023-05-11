@@ -1,0 +1,2 @@
+#!/bin/bash
+xfce4-terminal --maximize -e "ssh -t root@$1 'cd /home/root ; bash'" & #so we can run random stuff

@@ -1,0 +1,12 @@
+[Unit]
+Description=Zen Initializer
+After=multi-user.target
+ 
+[Service]
+Type=simple
+ExecStart=/home/root/Zen457Init
+WorkingDirectory=/home/root
+Restart=always
+ 
+[Install]
+WantedBy=multi-user.target

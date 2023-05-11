@@ -1,0 +1,2 @@
+#include MakefileXilinx
+include MakefileAltera

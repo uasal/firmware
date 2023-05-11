@@ -1,0 +1,6 @@
+bsdl path /home/summer/.jtag/bsdl
+cable ARM-USB-OCD
+pod reset=0
+detect
+svf CGraphPZTBit.svf progress
+bsdl path \home\summer\.jtag\bsdl:c:\projects\home\summer\.jtag\bsdl

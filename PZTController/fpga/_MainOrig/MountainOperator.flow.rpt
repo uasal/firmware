@@ -1,0 +1,117 @@
+Flow report for MountainOperator
+Mon Feb 28 15:35:09 2022
+Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++------------------------------------+---------------------------------------------+
+; Flow Status                        ; Successful - Mon Feb 28 15:35:09 2022       ;
+; Quartus Prime Version              ; 15.1.0 Build 185 10/21/2015 SJ Lite Edition ;
+; Revision Name                      ; MountainOperator                            ;
+; Top-level Entity Name              ; MountainOperatorPorts                       ;
+; Family                             ; MAX 10                                      ;
+; Device                             ; 10M08DAF256I7G                              ;
+; Timing Models                      ; Final                                       ;
+; Total logic elements               ; 3,216 / 8,064 ( 40 % )                      ;
+;     Total combinational functions  ; 2,746 / 8,064 ( 34 % )                      ;
+;     Dedicated logic registers      ; 2,015 / 8,064 ( 25 % )                      ;
+; Total registers                    ; 2015                                        ;
+; Total pins                         ; 112 / 178 ( 63 % )                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 280,576 / 387,072 ( 72 % )                  ;
+; Embedded Multiplier 9-bit elements ; 0 / 48 ( 0 % )                              ;
+; Total PLLs                         ; 2 / 2 ( 100 % )                             ;
+; UFM blocks                         ; 0 / 1 ( 0 % )                               ;
+; ADC blocks                         ; 0 / 1 ( 0 % )                               ;
++------------------------------------+---------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 02/28/2022 15:33:47 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; MountainOperator    ;
++-------------------+---------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                            ;
++-----------------------+-----------------------+------------------+-------------+------------+
+; Assignment Name       ; Value                 ; Default Value    ; Entity Name ; Section Id ;
++-----------------------+-----------------------+------------------+-------------+------------+
+; COMPILER_SIGNATURE_ID ; 0.164608762734686     ; --               ; --          ; --         ;
+; TOP_LEVEL_ENTITY      ; MountainOperatorPorts ; MountainOperator ; --          ; --         ;
++-----------------------+-----------------------+------------------+-------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:17     ; 1.0                     ; 1220 MB             ; 00:00:29                           ;
+; Fitter               ; 00:00:52     ; 1.0                     ; 1374 MB             ; 00:00:52                           ;
+; Assembler            ; 00:00:01     ; 1.0                     ; 998 MB              ; 00:00:01                           ;
+; Total                ; 00:01:10     ; --                      ; --                  ; 00:01:22                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; trabajo          ; Linux Mint ; 20         ; x86_64         ;
+; Fitter               ; trabajo          ; Linux Mint ; 20         ; x86_64         ;
+; Assembler            ; trabajo          ; Linux Mint ; 20         ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --source=Main.vhd --source=DataMapper.vhd --source=../BuildNumber.vhd --source=../../../../../include/xilinx/DnaRegisterAltera.vhd --source=../../../../../include/xilinx/IOBufP3Generic.vhd --source=../../../../../include/xilinx/IOBufP2Generic.vhd --source=../../../../../include/xilinx/ZBusAddrTx.vhd --source=../../../../../include/xilinx/VariableClockDivider.vhd --source=../../../../../include/xilinx/UartTxFifoParity.vhd --source=../../../../../include/xilinx/UartTxFifo.vhd --source=../../../../../include/xilinx/UartTxParity.vhd --source=../../../../../include/xilinx/UartTx.vhd --source=../../../../../include/xilinx/UartRxRaw.vhd --source=../../../../../include/xilinx/UartRxParity.vhd --source=../../../../../include/xilinx/UartRxFifoParity.vhd --source=../../../../../include/xilinx/UartRxFifo.vhd --source=../../../../../include/xilinx/ltc2378fifo.vhd --source=../../../../../include/xilinx/UartRx.vhd --source=../../../../../include/xilinx/SRamSlaveBus.vhd --source=../../../../../include/xilinx/SpiRegisters.vhd --source=../../../../../include/xilinx/SpiMaster.vhd --source=../../../../../include/xilinx/SpiBus.vhd --source=../../../../../include/xilinx/RtcCounter.vhd --source=../../../../../include/xilinx/RamBus.vhd --source=../../../../../include/xilinx/PPSCount.vhd --source=../../../../../include/xilinx/PhaseComparator.vhd --source=../../../../../include/xilinx/OneShot.vhd --source=../../../../../include/xilinx/IBufP3.vhd --source=../../../../../include/xilinx/IBufP2.vhd --source=../../../../../include/xilinx/gated_fifo.vhd --source=../../../../../include/xilinx/fifo_gen.vhd --source=../../../../../include/xilinx/fifo_fram.vhd --source=../../../../../include/xilinx/ClockDivider.vhd --source=../../../../../include/xilinx/ClockMultiplierAltera.vhd --source=../../../../../include/xilinx/SpiDac.vhd --source=/usr/local/altera/ip/altera/altchip_id/source/altchip_id.v --source=../../../../../include/xilinx/ZBus.vhd MountainOperator
+quartus_fit --part=10M08DAF256I7G --read_settings_files=on MountainOperator
+quartus_asm MountainOperator
+
+
+

@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo umount -lf /home/steve/projects/zonge/457/457
+sshfs root@$1:/ /home/steve/projects/zonge/457/457 -ouid=1000 -ogid=1000 -o reconnect,ServerAliveInterval=1,ServerAliveCountMax=3,TCPKeepAlive=yes,cache_timeout=3

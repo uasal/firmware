@@ -1,0 +1,117 @@
+Flow report for CGraphPZT
+Wed Aug  3 10:40:37 2022
+Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++------------------------------------+---------------------------------------------+
+; Flow Status                        ; Successful - Wed Aug  3 10:40:37 2022       ;
+; Quartus Prime Version              ; 15.1.0 Build 185 10/21/2015 SJ Lite Edition ;
+; Revision Name                      ; CGraphPZT                                   ;
+; Top-level Entity Name              ; CGraphPZTPorts                              ;
+; Family                             ; MAX 10                                      ;
+; Device                             ; 10M08DAF256I7G                              ;
+; Timing Models                      ; Final                                       ;
+; Total logic elements               ; 618 / 8,064 ( 8 % )                         ;
+;     Total combinational functions  ; 335 / 8,064 ( 4 % )                         ;
+;     Dedicated logic registers      ; 500 / 8,064 ( 6 % )                         ;
+; Total registers                    ; 500                                         ;
+; Total pins                         ; 36 / 178 ( 20 % )                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0 / 387,072 ( 0 % )                         ;
+; Embedded Multiplier 9-bit elements ; 0 / 48 ( 0 % )                              ;
+; Total PLLs                         ; 1 / 2 ( 50 % )                              ;
+; UFM blocks                         ; 0 / 1 ( 0 % )                               ;
+; ADC blocks                         ; 0 / 1 ( 0 % )                               ;
++------------------------------------+---------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 08/03/2022 10:40:02 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; CGraphPZT           ;
++-------------------+---------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                     ;
++-----------------------+-------------------+---------------+-------------+------------+
+; Assignment Name       ; Value             ; Default Value ; Entity Name ; Section Id ;
++-----------------------+-------------------+---------------+-------------+------------+
+; COMPILER_SIGNATURE_ID ; 0.165954840260520 ; --            ; --          ; --         ;
+; TOP_LEVEL_ENTITY      ; CGraphPZTPorts    ; CGraphPZT     ; --          ; --         ;
++-----------------------+-------------------+---------------+-------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 1189 MB             ; 00:00:23                           ;
+; Fitter               ; 00:00:13     ; 1.0                     ; 1332 MB             ; 00:00:13                           ;
+; Assembler            ; 00:00:01     ; 1.0                     ; 983 MB              ; 00:00:01                           ;
+; Total                ; 00:00:25     ; --                      ; --                  ; 00:00:37                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; trabajo          ; Linux Mint ; 20         ; x86_64         ;
+; Fitter               ; trabajo          ; Linux Mint ; 20         ; x86_64         ;
+; Assembler            ; trabajo          ; Linux Mint ; 20         ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --source=Main.vhd --source=RegisterSpace.vhd --source=../BuildNumber.vhd --source=../../../../../../../include/fpga/DnaRegisterAltera.vhd --source=../../../../../../../include/fpga/IOBufP2Generic.vhd --source=../../../../../../../include/fpga/SRamSlaveBus.vhd --source=../../../../../../../include/fpga/SpiRegisters.vhd --source=../../../../../../../include/fpga/SpiMaster.vhd --source=../../../../../../../include/fpga/SpiBus.vhd --source=../../../../../../../include/fpga/RamBus.vhd --source=../../../../../../../include/fpga/OneShot.vhd --source=../../../../../../../include/fpga/IBufP2.vhd --source=../../../../../../../include/fpga/ClockDivider.vhd --source=../../../../../../../include/fpga/ClockMultiplierAltera.vhd --source=../../../../../../../include/fpga/SpiDacTrio.vhd --source=/usr/local/altera/ip/altera/altchip_id/source/altchip_id.v CGraphPZT
+quartus_fit --part=10M08DAF256I7G --read_settings_files=on CGraphPZT
+quartus_asm CGraphPZT
+
+
+

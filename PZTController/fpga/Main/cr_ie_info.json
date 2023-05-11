@@ -1,0 +1,22 @@
+{
+	"system" : {
+		"platform" : "linux64",
+		"os_name" : "Linux Mint",
+		"os_version" : "20"
+	},
+	"error" : {
+		"executable" : "quartus_map",
+		"comment" : "not_applicable",
+		"error_message" : "pos < _size",
+		"source_file" : "/quartus/synth/vrfx/verific/containers/array.cpp",
+		"line" : "285",
+		"stack_trace" : "\t0x7f5e7b453f6f: synth_vrfx + 0x12cf6f (_Z18vrfx_altera_assertbPKciS0_ + 0x20)\n\t0x7f5e7b4ad37e: synth_vrfx + 0x18637e (_ZNK5Array2AtEj + 0x36)\n\t0x7f5e7b629d35: synth_vrfx + 0x302d35 (_ZN9VhdlValue8SelectorEP5ArrayS1_PK12VhdlTreeNode + 0x423)\n\t0x7f5e7b629c2a: synth_vrfx + 0x302c2a (_ZN9VhdlValue8SelectorEP5ArrayS1_PK12VhdlTreeNode + 0x318)\n\t0x7f5e7b601039: synth_vrfx + 0x2da039 (_ZN12VhdlDataFlow22PopOutOfCaseWithEqualsEP12VhdlNonconstP3MapPS_P12VhdlTreeNode + 0xf45)\n\t0x7f5e7b63f6e2: synth_vrfx + 0x3186e2 (_ZN17VhdlCaseStatement7ExecuteEP12VhdlDataFlowP22VhdlBlockConfiguration + 0x6d4)\n\t0x7f5e7b64051b: synth_vrfx + 0x31951b (_ZN15VhdlIfStatement7ExecuteEP12VhdlDataFlowP22VhdlBlockConfiguration + 0x555)\n\t0x7f5e7b64051b: synth_vrfx + 0x31951b (_ZN15VhdlIfStatement7ExecuteEP12VhdlDataFlowP22VhdlBlockConfiguration + 0x555)\n\t0x7f5e7b6409ec: synth_vrfx + 0x3199ec (_ZN15VhdlIfStatement7ExecuteEP12VhdlDataFlowP22VhdlBlockConfiguration + 0xa26)\n\t0x7f5e7b63fa57: synth_vrfx + 0x318a57 (_ZN20VhdlProcessStatement7ExecuteEP12VhdlDataFlowP22VhdlBlockConfiguration + 0x1cf)\n\t0x7f5e7b5e10de: synth_vrfx + 0x2ba0de (_ZN20VhdlArchitectureBody9ElaborateEP22VhdlBlockConfiguration + 0xfc)\n\t0x7f5e7b5e1a2d: synth_vrfx + 0x2baa2d (_ZN14VhdlEntityDecl13CoreElaborateEP17VhdlSecondaryUnitPKcP22VhdlBlockConfiguration + 0x453)\n\t0x7f5e7b5e700e: synth_vrfx + 0x2c000e (_ZN14VhdlEntityDecl9ElaborateEPKcP5ArrayP3MapP22VhdlBlockConfiguration + 0x3f0)\n\t0x7f5e7b4763dc: synth_vrfx + 0x14f3dc (_ZN28VRFX_VERIFIC_VHDL_ELABORATOR9elaborateEP20BASEX_ELABORATE_INFO + 0x1c8)\n\t0x7f5e7b46bd77: synth_vrfx + 0x144d77 (_ZN15VRFX_ELABORATOR9elaborateEP20BASEX_ELABORATE_INFO + 0x97)\n\t0x7f5e7d023627: synth_sgn + 0x176627 (_ZNK10SGN_FN_LIB9elaborateEP20BASEX_ELAB_INFO_CORE + 0x157)\n\t0x7f5e7d02c39e: synth_sgn + 0x17f39e (_ZNK10SGN_FN_LIB14start_vrf_flowEv + 0xe)\n\t0x7f5e7d02c9f4: synth_sgn + 0x17f9f4 (_ZN10SGN_FN_LIB5startEP16SGN_WRAPPER_INFO + 0x574)\n\t0x7f5e7d031171: synth_sgn + 0x184171 (_ZNK13SGN_EXTRACTOR24single_module_extractionEP17HDB_INSTANCE_NAMEP10HDB_ENTITYP16SGN_WRAPPER_INFO + 0x101)\n\t0x7f5e7d038ec8: synth_sgn + 0x18bec8 (_ZN13SGN_EXTRACTOR20recursive_extractionEP17HDB_INSTANCE_NAMEP16SGN_WRAPPER_INFOPKc + 0x1f8)\n\t0x7f5e7d039e86: synth_sgn + 0x18ce86 (_ZN13SGN_EXTRACTOR36recurse_into_newly_extracted_netlistEP10HDB_ENTITYP17HDB_INSTANCE_NAMEmP16SGN_WRAPPER_INFO + 0x546)\n\t0x7f5e7d038fac: synth_sgn + 0x18bfac (_ZN13SGN_EXTRACTOR20recursive_extractionEP17HDB_INSTANCE_NAMEP16SGN_WRAPPER_INFOPKc + 0x2dc)\n\t0x7f5e7d03f193: synth_sgn + 0x192193 (_ZN13SGN_EXTRACTOR7extractEv + 0x3a3)\n\t0x7f5e7d04fa40: synth_sgn + 0x1a2a40 (_Z12sgn_qic_fullP10CMP_FACADERSt6vectorISsSaISsEERS1_IdSaIdEE + 0x440)\n\t   0x420559: quartus_map + 0x20559 (_Z16qsyn_execute_sgnP10CMP_FACADERSt6vectorISsSaISsEERKSsP14THR_NAMED_PIPES8_ + 0x159)\n\t   0x43c1f1: quartus_map + 0x3c1f1 (_ZN14QSYN_FRAMEWORK12execute_coreEP14THR_NAMED_PIPES1_ + 0x231)\n\t   0x43feec: quartus_map + 0x3feec (_ZN14QSYN_FRAMEWORK7executeEv + 0xc2c)\n\t0x7f5e6c5763fb: comp_qexe + 0x1c3fb (_Z18qexe_standard_mainP14QEXE_FRAMEWORKPPK22QEXE_OPTION_DEFINITIONiPPKc + 0x888)\n\t   0x434a3c: quartus_map + 0x34a3c (_Z9qsyn_mainiPPKc + 0x13c)\n\t0x7f5e39aabe60: ccl_msg + 0x3fe60 (_Z15msg_main_threadPv + 0x10)\n\t0x7f5e3703402c: ccl_thr + 0x602c (thr_final_wrapper + 0xc)\n\t0x7f5e39aabf1c: ccl_msg + 0x3ff1c (_Z18msg_thread_wrapperPFPvS_ES_ + 0x62)\n\t   0x451199: quartus_map + 0x51199 (_Z18mem_thread_wrapperPFPvS_ES_ + 0x99)\n\t0x7f5e37471def: ccl_err + 0x8def (_Z18err_thread_wrapperPFPvS_ES_ + 0x27)\n\t0x7f5e370343f2: ccl_thr + 0x63f2 (thr_thread_wrapper + 0x15)\n\t0x7f5e39aae122: ccl_msg + 0x42122 (_Z12msg_exe_mainiPPKcPFiiS1_E + 0xa3)\n\t0x7f5e32a64083: c.so.6 + 0x24083 (__libc_start_main + 0xf3)\n\t   0x4196dd: quartus_map + 0x196dd\n",
+		"subsystem" : "VRFX"
+	},
+	"quartus" : {
+		"quartus_bits" : "64",
+		"version" : "15.1.0",
+		"build" : "185",
+		"edition" : "Lite Edition"
+	}
+}

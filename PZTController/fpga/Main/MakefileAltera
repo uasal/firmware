@@ -1,0 +1,61 @@
+###################################################################
+# Project Configuration: 
+# 
+# Specify the name of the design (project) and the Quartus II
+# Settings File (.qsf)
+###################################################################
+
+PROJECT = CGraphPZT
+TOP_LEVEL_ENTITY = CGraphPZTPorts
+ASSIGNMENT_FILES = altera/$(PROJECT).qpf altera/$(PROJECT).qsf
+FAMILY = "Max 10"
+PART = 10M08DAF256I7G
+BOARDFILE = ../BoardCGraphPZT.pins
+BUILDNUMISIN := ../BuildNumber.vhd
+
+###################################################################
+# Setup your sources here
+#SRCS = 	Main.vhd \
+#		RegisterSpace.vhd \
+#		../BuildNumber.vhd \
+#		../../../../../include/fpga/DnaRegisterAltera.vhd \
+#		../../../../../include/fpga/IOBufP3Generic.vhd \
+#		../../../../../include/fpga/IOBufP2Generic.vhd \
+#		../../../../../include/fpga/VariableClockDivider.vhd \
+#		../../../../../include/fpga/SRamSlaveBus.vhd \
+#		../../../../../include/fpga/SpiRegisters.vhd \
+#		../../../../../include/fpga/SpiMaster.vhd \
+#		../../../../../include/fpga/SpiBus.vhd \
+#		../../../../../include/fpga/RtcCounter.vhd \
+#		../../../../../include/fpga/RamBus.vhd \
+#		../../../../../include/fpga/PPSCount.vhd \
+#		../../../../../include/fpga/PhaseComparator.vhd \
+#		../../../../../include/fpga/OneShot.vhd \
+#		../../../../../include/fpga/IBufP3.vhd \
+#		../../../../../include/fpga/IBufP2.vhd \
+#		../../../../../include/fpga/gated_fifo.vhd \
+#		../../../../../include/fpga/fifo_gen.vhd \
+#		../../../../../include/fpga/fifo_fram.vhd \
+#		../../../../../include/fpga/ClockDivider.vhd \
+#		../../../../../include/fpga/ClockMultiplierAltera.vhd \
+#		../../../../../include/fpga/SpiDac.vhd \
+#		/usr/local/altera/ip/altera/altchip_id/source/altchip_id.v \
+
+SRCS = 	Main.vhd \
+		RegisterSpace.vhd \
+		../BuildNumber.vhd \
+		../../../../../../../include/fpga/DnaRegisterAltera.vhd \
+		../../../../../../../include/fpga/IOBufP2Generic.vhd \
+		../../../../../../../include/fpga/SRamSlaveBus.vhd \
+		../../../../../../../include/fpga/SpiRegisters.vhd \
+		../../../../../../../include/fpga/SpiMaster.vhd \
+		../../../../../../../include/fpga/SpiBus.vhd \
+		../../../../../../../include/fpga/RamBus.vhd \
+		../../../../../../../include/fpga/OneShot.vhd \
+		../../../../../../../include/fpga/IBufP2.vhd \
+		../../../../../../../include/fpga/ClockDivider.vhd \
+		../../../../../../../include/fpga/ClockMultiplierAltera.vhd \
+		../../../../../../../include/fpga/SpiDacTrio.vhd \
+		/usr/local/altera/ip/altera/altchip_id/source/altchip_id.v \
+
+include ./../../../../../../include/fpga/AlteraMakefile

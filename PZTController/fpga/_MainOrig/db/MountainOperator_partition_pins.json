@@ -1,0 +1,381 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "TxduC0",
+					"strict" : false
+				},
+				{
+					"name" : "TxduC1",
+					"strict" : false
+				},
+				{
+					"name" : "X0",
+					"strict" : false
+				},
+				{
+					"name" : "UConnuC",
+					"strict" : false
+				},
+				{
+					"name" : "TxdUsb",
+					"strict" : false
+				},
+				{
+					"name" : "UsbSw",
+					"strict" : false
+				},
+				{
+					"name" : "RstZig",
+					"strict" : false
+				},
+				{
+					"name" : "TxdZig",
+					"strict" : false
+				},
+				{
+					"name" : "RtsZig",
+					"strict" : false
+				},
+				{
+					"name" : "SyncDCDC",
+					"strict" : false
+				},
+				{
+					"name" : "PwrSD",
+					"strict" : false
+				},
+				{
+					"name" : "PwrRadio",
+					"strict" : false
+				},
+				{
+					"name" : "RxdGps",
+					"strict" : false
+				},
+				{
+					"name" : "TxdAClk",
+					"strict" : false
+				},
+				{
+					"name" : "nCsClk",
+					"strict" : false
+				},
+				{
+					"name" : "SckClk",
+					"strict" : false
+				},
+				{
+					"name" : "MosiClk",
+					"strict" : false
+				},
+				{
+					"name" : "SarAdcTrig",
+					"strict" : false
+				},
+				{
+					"name" : "SarAdcSck",
+					"strict" : false
+				},
+				{
+					"name" : "SarAdcnCs",
+					"strict" : false
+				},
+				{
+					"name" : "AdcGainMux[0]",
+					"strict" : false
+				},
+				{
+					"name" : "AdcGainMux[1]",
+					"strict" : false
+				},
+				{
+					"name" : "AdcGainMux[2]",
+					"strict" : false
+				},
+				{
+					"name" : "AdcGainMux[3]",
+					"strict" : false
+				},
+				{
+					"name" : "AdcGainMux[4]",
+					"strict" : false
+				},
+				{
+					"name" : "AdcGainMux[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ChopperMuxPos",
+					"strict" : false
+				},
+				{
+					"name" : "ChopperMuxNeg",
+					"strict" : false
+				},
+				{
+					"name" : "TxdXMT",
+					"strict" : false
+				},
+				{
+					"name" : "LedR",
+					"strict" : false
+				},
+				{
+					"name" : "LedG",
+					"strict" : false
+				},
+				{
+					"name" : "TP4",
+					"strict" : false
+				},
+				{
+					"name" : "TP7",
+					"strict" : false
+				},
+				{
+					"name" : "TP8",
+					"strict" : false
+				},
+				{
+					"name" : "RstuC",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusData[0]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusData[1]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusData[2]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusData[3]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusData[4]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusData[5]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusData[6]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusData[7]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusData[8]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusData[9]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusData[10]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusData[11]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusData[12]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusData[13]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusData[14]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusData[15]",
+					"strict" : false
+				},
+				{
+					"name" : "SckSpiExt",
+					"strict" : false
+				},
+				{
+					"name" : "MosiSpiExt",
+					"strict" : false
+				},
+				{
+					"name" : "MisoSpiExt",
+					"strict" : false
+				},
+				{
+					"name" : "nCsSpiExt0",
+					"strict" : false
+				},
+				{
+					"name" : "nCsSpiExt1",
+					"strict" : false
+				},
+				{
+					"name" : "nCsSpiExt2",
+					"strict" : false
+				},
+				{
+					"name" : "GpsRxdSpiExt",
+					"strict" : false
+				},
+				{
+					"name" : "GpsPpsSpiExt",
+					"strict" : false
+				},
+				{
+					"name" : "RxdUsb",
+					"strict" : false
+				},
+				{
+					"name" : "RxduC1",
+					"strict" : false
+				},
+				{
+					"name" : "TxdGps",
+					"strict" : false
+				},
+				{
+					"name" : "PpsGps",
+					"strict" : false
+				},
+				{
+					"name" : "UsbConn",
+					"strict" : false
+				},
+				{
+					"name" : "RxduC0",
+					"strict" : false
+				},
+				{
+					"name" : "X1",
+					"strict" : false
+				},
+				{
+					"name" : "X2",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusAddress[5]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusAddress[4]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusAddress[8]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusAddress[9]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusAddress[10]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusAddress[12]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusAddress[13]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusAddress[14]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusAddress[15]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusAddress[11]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusAddress[2]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusAddress[0]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusAddress[3]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusAddress[1]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusAddress[6]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusAddress[7]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusnCs[0]",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusWE",
+					"strict" : false
+				},
+				{
+					"name" : "SarAdcnDrdy",
+					"strict" : false
+				},
+				{
+					"name" : "SarAdcMiso",
+					"strict" : false
+				},
+				{
+					"name" : "RamBusOE",
+					"strict" : false
+				},
+				{
+					"name" : "MisoClk",
+					"strict" : false
+				},
+				{
+					"name" : "CtsZig",
+					"strict" : false
+				},
+				{
+					"name" : "RxdZig",
+					"strict" : false
+				},
+				{
+					"name" : "RxdAClk",
+					"strict" : false
+				},
+				{
+					"name" : "RxdXMT",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
