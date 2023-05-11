@@ -78,14 +78,7 @@ BinaryUart UartParser(LocalPortPinout, SocketProtocol, BinaryCmds, NumBinaryCmds
 
 bool Process()
 {
-    bool Bored = true;
-
-    if (ProcessUserInterface())
-    {
-        Bored = false;
-    }
-    
-    return(Bored);
+    return(ProcessUserInterface());
 }
 
 int main(int argc, char *argv[])

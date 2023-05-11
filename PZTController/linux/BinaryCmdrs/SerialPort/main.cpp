@@ -81,14 +81,7 @@ BinaryUart UartParser(LocalPortPinout, SocketProtocol, BinaryCmds, NumBinaryCmds
 
 bool Process()
 {
-    bool Bored = true;
-
-    if (ProcessUserInterface())
-    {
-        Bored = false;
-    }
-    
-    return(Bored);
+    return(ProcessUserInterface());
 }
 
 int main(int argc, char *argv[])
@@ -150,7 +143,7 @@ int main(int argc, char *argv[])
         }
 
 		//give up our timeslice so as not to bog the system
-		//~ if (Bored)
+		if (Bored)
 		{
 			#ifdef WIN32
 			Sleep(50);
