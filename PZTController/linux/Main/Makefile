@@ -2,7 +2,7 @@ OS := $(shell uname -a)
 ifeq (,$(findstring imx6,$(OS)))
 	INCLUDE_LOCAL = /home/summer/projects/include
 	#~ INCLUDE_LOCAL2 = /home/summer/projects/MountainOps/software/CGraph/Sanford/apps
-	INCLUDE_LOCAL2 = /home/summer/projects/MountainOps/firmware/CGraph/include
+	INCLUDE_LOCAL2 = /home/summer/projects/CGraph/firmware/include
 	CROSS_COMPILE ?= /home/summer/gcc-linaro-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
 	CC = $(CROSS_COMPILE)gcc
 else
@@ -55,6 +55,7 @@ PZT: Main.o ../MonitorAdc.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o C
 all: PZT
 
 program: PZT
+	-ssh root@192.168.1.223 systemctl stop PZT
 	-ssh root@192.168.1.223 killall PZT
 	-scp PZT root@192.168.1.223:/home/root
 	

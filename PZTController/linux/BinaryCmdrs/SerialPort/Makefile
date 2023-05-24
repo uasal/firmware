@@ -5,7 +5,7 @@ else
 	INCLUDE_LOCAL = /cygdrive/n/firmware/include
 endif
 #~ INCLUDE_LOCAL2 = /home/summer/projects/MountainOps/software/CGraph/Sanford/apps
-INCLUDE_LOCAL2 = /home/summer/projects/MountainOps/firmware/CGraph/include/
+INCLUDE_LOCAL2 = /home/summer/projects/CGraph/firmware/include
 LIB_LOCAL = /home/summer/projects/firmware/include
 vpath %.h $(INCLUDE_LOCAL) $(INCLUDE_LOCAL2)
 vpath %.hpp $(INCLUDE_LOCAL) $(INCLUDE_LOCAL2)

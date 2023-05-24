@@ -36,16 +36,16 @@
 ///The actual table (array) of commands for the system - links with CmdSystem.cpp.o
 const Cmd AsciiCmds[] =
 {
-    Cmd (
-        "X",
-        "X: quit running this program.",
-        ExitCommand
-    ),
-    Cmd (
-        "Q",
-        "Q: exit this running program.",
-        ExitCommand
-    ),
+    //~ Cmd (
+        //~ "X",
+        //~ "X: quit running this program.",
+        //~ ExitCommand
+    //~ ),
+    //~ Cmd (
+        //~ "Q",
+        //~ "Q: exit this running program.",
+        //~ ExitCommand
+    //~ ),
 	
 	Cmd(
         "VERSION",
