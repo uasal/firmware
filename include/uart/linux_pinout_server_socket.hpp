@@ -1,0 +1,324 @@
+/// \file
+/// $Source: /raincloud/src/projects/include/server_socket/linux_pinout_server_socket.hpp,v $
+/// $Revision: 1.9 $
+/// $Date: 2009/11/14 00:20:04 $
+/// $Author: steve $
+
+#ifndef _linux_pinout_server_socket_h
+#define _linux_pinout_server_socket_h
+#pragma once
+
+#include <stdio.h>   /* Standard input/output definitions */
+#include <string.h>  /* String function definitions */
+#ifdef WIN32
+	//~ #include <windows.h>
+	#include <io.h>
+	#include <winsock.h>
+#else
+	#include <unistd.h>  /* UNIX standard function definitions */
+	#include <fcntl.h>   /* File control definitions */
+	#include <errno.h>   /* Error number definitions */
+	#include <termios.h> /* POSIX terminal control definitions */
+	#include <sys/ioctl.h> /* ioctl() */
+	#include <sys/socket.h> /* FIONREAD on cygwin */
+	#include <netinet/in.h> /* struct sockaddr_in */
+	#include <netinet/ip.h> 
+	#include <netdb.h>
+	#include <sys/types.h>
+	#include <sys/stat.h>
+#endif
+
+#include "format/formatf.h"
+
+#include "IUart.h"
+
+#define HOST_NAME_SIZE      255
+
+class linux_pinout_server_socket : public IUart
+{
+public:
+
+	linux_pinout_server_socket() : IUart(), hSocket(-1), hServer(-1), nAddressSize(sizeof(struct sockaddr_in)), nHostAddress(-1), Silent(false) { }
+	virtual ~linux_pinout_server_socket() { deinit(); }
+
+	virtual int init(const uint32_t HostPort, const char* HostName)
+	{
+		//~ struct hostent* pHostInfo;   /* holds info about a machine */
+		char strHostName[HOST_NAME_SIZE];
+		int nHostPort = 20339;
+		
+		if (-1 != hSocket) { deinit(); }
+		
+		if (-1 == hServer)		
+		{
+			strcpy(strHostName, "localhost");
+
+			if (NULL != HostName)
+			{
+				strncpy(strHostName, HostName, HOST_NAME_SIZE);
+				strHostName[HOST_NAME_SIZE - 1] = '\0';
+			}
+			if (0 != HostPort)
+			{
+				nHostPort = HostPort;
+			}
+				
+			formatf("\nlinux_pinout_server_socket: Making socket");
+			hServer=socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK, 0);
+			if(hServer == -1)
+			{
+				perror("\nlinux_pinout_server_socket: Could not make a socket");
+				return(errno);
+			}
+			
+			// According to "Linux Socket Programming by Example" p. 319, we must call
+			// setsockopt w/ SO_REUSEADDR option BEFORE calling bind.
+			// Make the address is reuseable so we don't get the nasty message.
+			int so_reuseaddr = 1; // Enabled.
+			int reuseAddrResult = setsockopt(hServer, SOL_SOCKET, SO_REUSEADDR, &so_reuseaddr, sizeof(so_reuseaddr));
+			if(reuseAddrResult == -1)
+			{
+				perror("\nlinux_pinout_server_socket: Could not re-use socket");
+				hServer = -1;
+				return(errno);
+			}
+			
+			int so_reuseport = 1; // Enabled.
+			int reuseAddrResult = setsockopt(hServer, SOL_SOCKET, SO_REUSEPORT, &so_reuseport, sizeof(so_reuseport));
+			if(reuseAddrResult == -1)
+			{
+				perror("\nlinux_pinout_server_socket: Could not re-use port");
+				hServer = -1;
+				return(errno);
+			}
+			
+			formatf("\nlinux_pinout_server_socket: Binding to port %d",nHostPort);
+			Address.sin_addr.s_addr = INADDR_ANY;
+			Address.sin_port = htons(nHostPort);
+			Address.sin_family = AF_INET;
+			if (bind(hServer,(struct sockaddr*)&Address,sizeof(Address)) == -1)
+			{
+				perror("\nlinux_pinout_server_socket: Could not connect to host");
+				hServer = -1;
+				return(errno);
+			}
+			
+			/*  get port number */
+			getsockname( hServer, (struct sockaddr*) &Address, (socklen_t*)&nAddressSize);
+			formatf("\nlinux_pinout_server_socket: opened socket as fd (%d) on port (%d) for stream i/o",hServer, ntohs(Address.sin_port) );
+			//~ formatf("Server\n
+				//~ sin_family        = %d\n
+				//~ sin_addr.s_addr   = %d\n
+				//~ sin_port          = %d\n"
+				//~ , Address.sin_family
+				//~ , Address.sin_addr.s_addr
+				//~ , ntohs(Address.sin_port)
+			//~ );
+			
+			formatf("\nlinux_pinout_server_socket: Making a listen queue of %d elements.", 2);
+			if(listen(hServer, 2) == -1)
+			{
+				perror("\nlinux_pinout_server_socket: Could not listen");
+				hServer = -1;
+				return(errno);
+			}
+		}
+		
+		return(SocketConnect());
+	}
+	
+	int SocketConnect()
+	{
+		/* get the connected socket */
+		hSocket=accept4((int)hServer, (struct sockaddr*)&Address, (socklen_t*)&nAddressSize, SOCK_NONBLOCK);
+		if (hSocket < 0)
+		{
+			if ((errno != EAGAIN) && (errno != EWOULDBLOCK))
+			{
+				perror("\nlinux_pinout_server_socket: connection error; ");
+				hSocket = -1;
+			}
+			return(errno);
+		}
+		else { formatf("\nlinux_pinout_server_socket: Got a connection.\n"); }
+		
+		return(hSocket);
+	}
+
+	virtual void deinit()
+	{
+		formatf("\nClosing socket\n");
+		if (-1 != hSocket) 
+		{ 
+			close(hSocket);
+			close(hServer);
+			hSocket = -1;
+			hServer = -1;
+		}
+	}
+	
+	virtual bool dataready() const
+	{
+		fd_set sockset;
+		struct timeval  nowait;
+		memset((char *)&nowait,0,sizeof(nowait));
+		//~ if (-1 == hSocket) { SocketConnect(); }
+		if (-1 == hSocket) { return(false); }
+		FD_ZERO(&sockset);
+		FD_SET(hSocket, &sockset);	
+		int result = select(hSocket + 1, &sockset, NULL, NULL, &nowait);
+		if (result < 0)	
+		{ 
+			if ((errno != EAGAIN) && (errno != EWOULDBLOCK))
+			{
+				perror("\nlinux_pinout_server_socket: select from socket error: ");
+				close(hSocket);
+				formatf("\nlinux_pinout_server_socket: Closed old socket; looking for new connections.\n\n"); 
+				//~ SocketConnect();
+			}
+		}
+	
+		else if (result == 1)
+		{
+			if (FD_ISSET(hSocket, &sockset)) // The socket has data. For good measure, it's not a bad idea to test further
+			{
+				return(true);
+			}
+		}
+		return(false);
+	}
+
+	virtual char getcqq()
+	{
+		char c = (char)(-1);
+		fd_set sockset;
+		struct timeval  nowait;
+		memset((char *)&nowait,0,sizeof(nowait));
+		
+		if (-1 != hSocket)
+		{			
+			FD_ZERO(&sockset);
+			FD_SET(hSocket, &sockset);	
+			int result = select(hSocket + 1, &sockset, NULL, NULL, &nowait);
+			if (result < 0)	
+			{ 
+				if ((errno != EAGAIN) && (errno != EWOULDBLOCK))
+				{
+					perror("\nlinux_pinout_server_socket: select from socket error: ");
+					close(hSocket);
+					formatf("\nlinux_pinout_server_socket: Closed old socket; looking for new connections.\n\n"); 
+					SocketConnect();
+				}
+				else
+				{
+					//~ formatf("\nlinux_pinout_server_socket: getcqq() : EAGAIN\n"); 
+				}
+			}
+			else if (result == 1)
+			{
+				if (FD_ISSET(hSocket, &sockset)) // The socket has data. For good measure, it's not a bad idea to test further
+				{
+					int numbytes = recv(hSocket,&c,1,0);
+					if (1 != numbytes)
+					{
+						if ((errno != EAGAIN) && (errno != EWOULDBLOCK))
+						{
+							formatf("\nlinux_pinout_server_socket: read from socket error or empty read (%d bytes gave: %u)\n", numbytes, errno);
+							perror("\nlinux_pinout_server_socket: errno: ");
+							#ifdef WIN32
+							closesocket(hSocket);
+							#else
+							close(hSocket);
+							#endif
+							formatf("\nlinux_pinout_server_socket: Closed old socket; looking for new connections.\n\n"); 
+							SocketConnect();
+						}
+						else
+						{
+							//~ formatf("\nlinux_pinout_server_socket: getcqq() : EAGAIN\n"); 
+						}
+					}
+					else
+					{
+						//Do nothing, just return(c), below...
+						//~ formatf("\nlinux_pinout_server_socket: getcqq(x%.2X)\n", c); 
+					}
+				}
+			}
+			else
+			{
+				//~ formatf("\nlinux_pinout_server_socket: getcqq() : != 1\n"); 
+			}
+		}
+		else
+		{
+			printf("\nlinux_pinout_server_socket::putcqq(): read on uninitialized socket; please open socket!\n");
+			SocketConnect();
+		}
+
+  		return(c);
+	}
+
+	virtual char putcqq(char c)
+	{
+		if (-1 != hSocket)
+		{
+			int numbytes = send(hSocket,&c,1,0);
+			if (1 != numbytes)
+			{
+				formatf("\nlinux_pinout_server_socket: write to socket error (%d bytes gave: %u)\n", numbytes, errno);
+				#ifdef WIN32
+				closesocket(hSocket);
+				#else
+				close(hSocket);
+				#endif
+				formatf("\nlinux_pinout_server_socket: Closed old socket; looking for new connections.\n\n"); 
+				SocketConnect();
+			}
+			//~ else { formatf("->'%c'", c); fflush(stdout); }
+			//~ else { formatf("->'x%.2X'", c); fflush(stdout); }
+		}
+		else
+		{
+			printf("linux_pinout_server_socket::putcqq(): write on uninitialized socket; please open socket!\n");
+			SocketConnect();
+		}
+
+ 		return (c);
+	}
+
+	virtual void flushoutput()
+	{
+		if (-1 != hSocket)
+		{
+			#ifdef WIN32
+			#else
+			fsync(hSocket);
+			#endif
+		}
+		else
+		{
+			printf("linux_pinout_server_socket::flushout(): fflush on uninitialized socket; please open socket!\n");
+		}
+	}
+	
+	virtual void purgeinput()
+	{
+		//~ if(dataready)
+	}
+	
+	virtual bool connected() { return(hSocket > 0); }	
+	virtual bool isopen() const { return(hSocket > 0); }	
+	void silent(const bool s) { Silent = s; }
+	
+	private:
+
+		int hSocket;                 /* handle to socket */
+		int hServer; 
+		struct sockaddr_in Address;  /* Internet socket address stuct */
+		int nAddressSize;
+		long nHostAddress;
+		bool Silent;
+};
+
+#endif //linux_pinout_server_socket_h
