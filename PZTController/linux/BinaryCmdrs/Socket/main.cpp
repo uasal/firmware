@@ -164,6 +164,7 @@ int main(int argc, char *argv[])
     return(0);
 }
 
+//This technically is a "BZIP2CRC32", not an "ANSICRC32"; seealso: https://crccalc.com/
 uint32_t CRC32(const uint8_t* data, const size_t length)
 {
 	static const uint32_t table[256] = 
