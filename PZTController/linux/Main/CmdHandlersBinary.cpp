@@ -77,7 +77,6 @@ int8_t BinaryPZTDacsCommand(const uint32_t Name, char const* Params, const size_
 	//~ }
     //~ return(ParamsLen);
 	
-	//~ if (sizeof(ZongeProtocolFilenameParam) <= ZenBinaryPacketHeader::PayloadLengthFromSerialNumberOffsetPointer(Params))
 	if (ParamsLen >= (3 * sizeof(uint32_t)))
 	{
 		//~ const ZongeProtocolFilenameParam PacketData = *((const ZongeProtocolFilenameParam*)ZenBinaryPacketHeader::PayloadDataPointerFromSerialNumberOffsetPointer(Params));
@@ -122,6 +121,60 @@ int8_t BinaryPZTAdcsFloatingPointCommand(const uint32_t Name, char const* Params
 	AdcVals[2] = (8.192 * ((C.Samples - 0) / C.NumAccums)) / 16777216.0;
 	printf("\nBinaryPZTAdcsFloatingPointCommand  Replying (%lf, %lf, %lf)...\n\n", AdcVals[0], AdcVals[1], AdcVals[2]);
 	TxBinaryPacket(Argument, CGraphPayloadTypePZTAdcsFloatingPoint, 0, AdcVals, 3 * sizeof(double));
+
+    return(ParamsLen);
+}
+
+int8_t BinaryPZTDacsFloatingPointCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	double VA = 0.0, VB = 0.0, VC = 0.0;	
+	unsigned long A = 0, B = 0, C = 0;	
+	
+	//~ printf("\nBinaryPZTDacsFloatingPointCommand processing(%u)...\n\n", ParamsLen);
+	
+	//~ if (ValidateZenBinaryRfPacket(SerialNum, Params, ParamsLen))
+	//~ {
+		//~ GlobalSave();
+		//~ TxBinaryResponsePacket(Argument, PayloadTypeGlobalSave, SerialNum, 0, 0);
+	//~ }
+    //~ return(ParamsLen);
+	
+	if (ParamsLen >= (3 * sizeof(double)))
+	{
+		//~ const ZongeProtocolFilenameParam PacketData = *((const ZongeProtocolFilenameParam*)ZenBinaryPacketHeader::PayloadDataPointerFromSerialNumberOffsetPointer(Params));
+		const double* DacSetpoints = (const double*)Params;
+		
+		VA = DacSetpoints[0];
+		VB = DacSetpoints[1];
+		VC = DacSetpoints[2];
+		
+		A = (VA * (double)(0x00FFFFFFUL) * 60.0) / 4.096;
+		B = (VB * (double)(0x00FFFFFFUL) * 60.0) / 4.096;
+		C = (VC * (double)(0x00FFFFFFUL) * 60.0) / 4.096;
+		
+		printf("\n\nBinaryPZTDacsCommand: Setting to: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C);
+		
+		FSM->DacASetpoint = DacSetpoints[0];
+		FSM->DacBSetpoint = DacSetpoints[1];
+		FSM->DacCSetpoint = DacSetpoints[2];		
+	}
+	
+	uint32_t DacSetpoints[3];
+	
+	A = FSM->DacASetpoint;
+	B = FSM->DacBSetpoint;
+	C = FSM->DacCSetpoint;	
+	
+	VA = 4.096 * (double)(A) / ((double)(0x00FFFFFFUL) * 60.0);
+	VB = 4.096 * (double)(B) / ((double)(0x00FFFFFFUL) * 60.0);
+	VC = 4.096 * (double)(C) / ((double)(0x00FFFFFFUL) * 60.0);
+	
+	DacSetpoints[0] = VA;
+	DacSetpoints[1] = VB;
+	DacSetpoints[2] = VC;	
+	
+	printf("\n\nBinaryPZTDacsCommand: Replying: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C);
+	TxBinaryPacket(Argument, CGraphPayloadTypePZTDacs, 0, DacSetpoints, 3 * sizeof(double));
 
     return(ParamsLen);
 }

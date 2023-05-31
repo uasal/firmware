@@ -97,26 +97,38 @@ const Cmd AsciiCmds[] =
 	
 	Cmd (
         "R",
-        "(R)ReadFpga <address>",
+        "R(eadFpga) <address>",
         ReadFpgaCommand
     ),
 
 	Cmd (
         "W",
-        "(W)WriteFpga <address>,<value>",
+        "W(riteFpga) <address>,<value>",
         WriteFpgaCommand
     ),
 
     Cmd(
         "PZTDACS",
-        "\"PZTDacs <A>,<B>,<C>\": Sets/queries the PZT D/A's.",
+        "\"PZTDacs <A>,<B>,<C>\": Sets/queries the PZT D/A's (hexadecimal lsb units).",
         PZTDacsCommand
     ),
 	
 	Cmd(
         "D",
-        "\"(D)PZTDacs <A>,<B>,<C>\": Sets/queries the PZT D/A's.",
+        "\"D(PZTDacs) <A>,<B>,<C>\": Sets/queries the PZT D/A's (hexadecimal lsb units).",
         PZTDacsCommand
+    ),
+	
+	Cmd(
+        "VOLTAGE",
+        "\"Voltage <A>,<B>,<C>\": Sets/queries the PZT D/A's (decimal voltage units).",
+        VoltageCommand
+    ),
+	
+	Cmd(
+        "V",
+        "\"V(oltage) <A>,<B>,<C>\": Sets/queries the PZT D/A's (decimal voltage units).",
+        VoltageCommand
     ),
 	
 	Cmd(
@@ -127,7 +139,7 @@ const Cmd AsciiCmds[] =
 	
 	Cmd(
         "A",
-        "\"(A)PZTAdcs <A>,<B>,<C>\": Sets/queries the PZT A/D's.",
+        "\"A(PZTAdcs) <A>,<B>,<C>\": Sets/queries the PZT A/D's.",
         PZTAdcsCommand
     ),
 	
@@ -175,7 +187,7 @@ const Cmd AsciiCmds[] =
 	
 	Cmd(
         "C",
-        "\"(C)ircles.",
+        "\"C(ircles).",
         CirclesCommand
     ),
 	
@@ -193,7 +205,7 @@ const Cmd AsciiCmds[] =
 	
 	Cmd(
         "U",
-        "\"(U)Uart\": Twiddle the uart.",
+        "\"U(art)\": Twiddle the uart.",
         UartCommand
     ),
 	

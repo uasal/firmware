@@ -41,6 +41,7 @@ int8_t DeInitFpgaCommand(char const* Name, char const* Params, const size_t Para
 int8_t ReadFpgaCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t WriteFpgaCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t PZTDacsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t VoltageCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t PZTAdcsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t CirclesCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);

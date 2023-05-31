@@ -197,11 +197,10 @@ int8_t WriteFpgaCommand(char const* Name, char const* Params, const size_t Param
 
 int8_t PZTDacsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-    unsigned long A = 0, B = 0, C = 0;
-	
+    unsigned long A = 0, B = 0, C = 0;	
 	if (NULL == FSM)
 	{
-		printf("\n\nPZTdaca: Fpga interface is not initialized! Please call InitFpga first!.");
+		printf("\n\nPZTDacs: Fpga interface is not initialized! Please call InitFpga first!.");
 		return(ParamsLen);
 	}
 	
@@ -212,7 +211,7 @@ int8_t PZTDacsCommand(char const* Name, char const* Params, const size_t ParamsL
 		FSM->DacASetpoint = A;
 		FSM->DacBSetpoint = B;
 		FSM->DacCSetpoint = C;
-		printf("\n\nPZTdaca: set to: %lx, %lx, %lx.\n", A, B, C);
+		printf("\n\nPZTDacs: set to: %lx, %lx, %lx.\n", A, B, C);
 		return(ParamsLen);
     }
 	if (numfound >= 1)
@@ -222,14 +221,14 @@ int8_t PZTDacsCommand(char const* Name, char const* Params, const size_t ParamsL
 		//~ FSM->DacBSetpoint = 0x006FFFFFUL; //Sometimes this is 100V
 		//~ FSM->DacBSetpoint = 0x00CFFFFFUL; //Aaaaaand, sometimes this is 100V
 		FSM->DacCSetpoint = A;
-		printf("\n\nPZTdaca: set to: %lx, %lx, %lx.\n", A, A, A);
+		printf("\n\nPZTDacs: set to: %lx, %lx, %lx.\n", A, A, A);
 		return(ParamsLen);
     }
 
 	A = FSM->DacASetpoint;
 	B = FSM->DacBSetpoint;
 	C = FSM->DacCSetpoint;
-	printf("\n\nPZTdaca: current value: %lx, %lx, %lx.\n", A, B, C);
+	printf("\n\nPZTDacs: current value: %lx, %lx, %lx.\n", A, B, C);
 	
 	//Show current A/D values:
 	{
@@ -245,12 +244,62 @@ int8_t PZTDacsCommand(char const* Name, char const* Params, const size_t ParamsL
 		
 			
 		//~ printf("\n\nPZTAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 16777216.0, (4.096 * (B.Samples / B.NumAccums)) / 16777216.0, (4.096 * (C.Samples / C.NumAccums)) / 16777216.0);
-		printf("\nPZTdaca: Sensor A/D's: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, Av, Bv, Cv);
+		printf("\nPZTDacs: Sensor A/D's: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, Av, Bv, Cv);
 	}
 	
 	//~ printf("\n\nPZTdaca: D/A registers at: %u, %u, %u.\n", offsetof(CGraphFSMHardwareInterface, DacASetpoint), offsetof(CGraphFSMHardwareInterface, DacBSetpoint), offsetof(CGraphFSMHardwareInterface, DacCSetpoint));
 	
     return(ParamsLen);
+}
+
+int8_t VoltageCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	double VA = 0.0, VB = 0.0, VC = 0.0;	
+	unsigned long A = 0, B = 0, C = 0;	
+	
+	if (NULL == FSM)
+	{
+		printf("\n\nVoltage: Fpga interface is not initialized! Please call InitFpga first!.");
+		return(ParamsLen);
+	}
+	
+	//Convert parameters
+    int8_t numfound = sscanf(Params, "%lf,%lf,%lf", &VA, &VB, &VC);
+	
+	A = (VA * (double)(0x00FFFFFFUL) * 60.0) / 4.096;
+	B = (VB * (double)(0x00FFFFFFUL) * 60.0) / 4.096;
+	C = (VC * (double)(0x00FFFFFFUL) * 60.0) / 4.096;
+	
+    if (numfound >= 3)
+    {
+		FSM->DacASetpoint = A;
+		FSM->DacBSetpoint = B;
+		FSM->DacCSetpoint = C;
+		printf("\n\nVoltage: set to: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C);
+		return(ParamsLen);
+    }
+	if (numfound >= 1)
+    {
+		FSM->DacASetpoint = A;
+		FSM->DacBSetpoint = A;
+		//~ FSM->DacBSetpoint = 0x006FFFFFUL; //Sometimes this is 100V
+		//~ FSM->DacBSetpoint = 0x00CFFFFFUL; //Aaaaaand, sometimes this is 100V
+		FSM->DacCSetpoint = A;
+		printf("\n\nVoltage: set to: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C);
+		return(ParamsLen);
+    }
+
+	A = FSM->DacASetpoint;
+	B = FSM->DacBSetpoint;
+	C = FSM->DacCSetpoint;
+	
+	VA = 4.096 * (double)(A) / ((double)(0x00FFFFFFUL) * 60.0);
+	VB = 4.096 * (double)(A) / ((double)(0x00FFFFFFUL) * 60.0);
+	VC = 4.096 * (double)(A) / ((double)(0x00FFFFFFUL) * 60.0);
+	
+	printf("\n\nVoltage: current values: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C);
+	
+	return(ParamsLen);	
 }
 
 int8_t PZTAdcsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)

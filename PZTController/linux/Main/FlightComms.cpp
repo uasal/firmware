@@ -238,6 +238,7 @@ BinaryUart FpgaUartParser2(FPGAUartPinout2, FPGAUartProtocol, BinaryCmds, NumBin
 BinaryUart FpgaUartParser1(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 BinaryUart FpgaUartParser0(FPGAUartPinout0, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 
+//This technically is a "BZIP2CRC32", not an "ANSICRC32"; seealso: https://crccalc.com/
 uint32_t CRC32(const uint8_t* data, const size_t length)
 {
 	static const uint32_t table[256] = 
