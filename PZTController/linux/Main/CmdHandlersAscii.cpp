@@ -780,5 +780,48 @@ int8_t PrintBuffersCommand(char const* Name, char const* Params, const size_t Pa
 	return(ParamsLen);
 }
 
+extern bool MonitorSerial0;
+extern bool MonitorSerial1;
+extern bool MonitorSerial2;
+
+int8_t MonitorSerialCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	unsigned long port = 0;
+	char seperator[8];
+	char onoff;
+    bool OnOff = false;
+
+	//Convert parameters
+    int8_t numfound = sscanf(Params, "%lu%2[,\t ]%c", &port, seperator, &onoff);
+    if (numfound >= 3)
+    {
+		if ( ('Y' == onoff) || ('y' == onoff) || ('T' == onoff) || ('t' == onoff) || ('1' == onoff) ) { OnOff = true; }
+		
+		printf("\n\nMonitorSerialCommand: Monitoring port %lu: %c.\n", port, OnOff?'Y':'N');
+		
+		switch(port)
+		{
+			case 0 : { MonitorSerial0 = OnOff; break; }			
+			case 1 : { MonitorSerial1 = OnOff; break; }			
+			case 2 : { MonitorSerial2 = OnOff; break; }			
+			default : 
+			{ 
+				printf("\n\nMonitorSerialCommand: Invalid port %lu; max is #2.\n", port);
+			}
+		}
+			
+		return(strlen(Params));
+    }
+	
+	printf("\n\nMonitorSerialCommand: Insufficient parameters (%u; should be 2); querying...", numfound);
+
+	printf("\nMonitorSerialCommand: Monitoring port 0: %c.\n", MonitorSerial0?'Y':'N');
+	printf("\nMonitorSerialCommand: Monitoring port 1: %c.\n", MonitorSerial1?'Y':'N');
+	printf("\nMonitorSerialCommand: Monitoring port 2: %c.\n", MonitorSerial2?'Y':'N');	
+	
+    return(strlen(Params));
+}
+
+
 //EOF
 

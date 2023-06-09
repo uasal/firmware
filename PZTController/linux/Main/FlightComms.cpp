@@ -26,6 +26,9 @@ extern CGraphFSMHardwareInterface* FSM;
 #include "CmdTableBinary.hpp"
 
 //~ size_t LastUartCount = 0;
+bool MonitorSerial0 = false;
+bool MonitorSerial1 = false;
+bool MonitorSerial2 = false;
 		
 class PZT_pinout_FPGAUart2 : public IUart
 {
@@ -52,7 +55,7 @@ public:
 		c = FSM->UartFifo2;
 		c >>= 8;
 		//~ printf("|%c", c);
-		printf("|%.2x", c);
+		if (MonitorSerial2) { printf("|%.2x", c); }
 		//~ printf("|%.4x", c);
 		return((char)(c));
 	}
@@ -107,7 +110,7 @@ public:
 		c = FSM->UartFifo1;
 		c >>= 8;
 		//~ printf("|%c", c);
-		printf("!%.2x", c);
+		if (MonitorSerial1) { printf("!%.2x", c); }
 		//~ printf("|%.4x", c);
 		return((char)(c));
 	}
@@ -162,7 +165,7 @@ public:
 		c = FSM->UartFifo0;
 		c >>= 8;
 		//~ printf("|%c", c);
-		printf(":%.2x", c);
+		if (MonitorSerial0) { printf(":%.2x", c); }
 		//~ printf("|%.4x", c);
 		return((char)(c));
 	}

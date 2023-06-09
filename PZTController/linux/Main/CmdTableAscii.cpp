@@ -220,6 +220,12 @@ const Cmd AsciiCmds[] =
         "\"PrintBuffers\": Dump current contents of parsers for debug...",
         PrintBuffersCommand
     ),
+	
+	Cmd(
+        "MONITORSERIAL",
+        "\"MonitorSerial <0 | 1 | 2> <Y | N>\": Show/hide incoming serial bytes.",
+        MonitorSerialCommand
+    ),
 };
 
 //Calculate the number of commands instanciated in the system - links with CmdSystem.cpp.o
