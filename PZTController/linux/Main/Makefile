@@ -1,8 +1,8 @@
 OS := $(shell uname -a)
 ifeq (,$(findstring imx6,$(OS)))
-	INCLUDE_LOCAL = /home/summer/projects/include
+	INCLUDE_LOCAL = /home/summer/projects/CGraph/firmware/include
 	#~ INCLUDE_LOCAL2 = /home/summer/projects/MountainOps/software/CGraph/Sanford/apps
-	INCLUDE_LOCAL2 = /home/summer/projects/CGraph/firmware/include
+	#~ INCLUDE_LOCAL2 = /home/summer/projects/CGraph/firmware/include
 	CROSS_COMPILE ?= /home/summer/gcc-linaro-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
 	CC = $(CROSS_COMPILE)gcc
 else
@@ -46,9 +46,9 @@ CFLAGS += -DGITVERSION="\"${GITVERSION}\"" -DBUILDNUM="\"${BUILDNUM}\"" -static-
 %.o: %.c
 	$(CC) $(CFLAGS) -I. -c $< -o $@
 	
-PZT: Main.o ../MonitorAdc.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o CmdTableAscii.o CmdHandlersAscii.o FlightComms.o ClientSocket.o CmdTableBinary.o CmdHandlersBinary.o $(INCLUDE_LOCAL2)/CGraphFSMHardwareInterface.o $(INCLUDE_LOCAL)/DelayLinux.o $(INCLUDE_LOCAL)/stdintle.o $(INCLUDE_LOCAL)/arm/LinuxUtils.o $(INCLUDE_LOCAL)/arm/imx6-eim.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o #$(INCLUDE_LOCAL)/dbg/memwatch.o $(INCLUDE_LOCAL)/dbg/memwatchcpp.o $(INCLUDE_LOCAL)/gprof-helper.o 
+PZT: Main.o ../MonitorAdc.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o CmdTableAscii.o CmdHandlersAscii.o FlightComms.o ClientSocket.o CmdTableBinary.o CmdHandlersBinary.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o $(INCLUDE_LOCAL)/DelayLinux.o $(INCLUDE_LOCAL)/stdintle.o $(INCLUDE_LOCAL)/arm/LinuxUtils.o $(INCLUDE_LOCAL)/arm/imx6-eim.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o #$(INCLUDE_LOCAL)/dbg/memwatch.o $(INCLUDE_LOCAL)/dbg/memwatchcpp.o $(INCLUDE_LOCAL)/gprof-helper.o 
 	btracer ../PZT
-	$(CC) Main.o ../MonitorAdc.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o CmdTableAscii.o CmdHandlersAscii.o FlightComms.o ClientSocket.o CmdTableBinary.o CmdHandlersBinary.o $(INCLUDE_LOCAL2)/CGraphFSMHardwareInterface.o $(INCLUDE_LOCAL)/DelayLinux.o $(INCLUDE_LOCAL)/stdintle.o $(INCLUDE_LOCAL)/arm/LinuxUtils.o $(INCLUDE_LOCAL)/arm/imx6-eim.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o -o PZT $(CFLAGS) $(LDFLAGS) -L. -L/lib -L/usr/lib -L/usr/local/lib -pthread -lpthread -lc -lstdc++ -lm -ldl -lrt
+	$(CC) Main.o ../MonitorAdc.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o CmdTableAscii.o CmdHandlersAscii.o FlightComms.o ClientSocket.o CmdTableBinary.o CmdHandlersBinary.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o $(INCLUDE_LOCAL)/DelayLinux.o $(INCLUDE_LOCAL)/stdintle.o $(INCLUDE_LOCAL)/arm/LinuxUtils.o $(INCLUDE_LOCAL)/arm/imx6-eim.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o -o PZT $(CFLAGS) $(LDFLAGS) -L. -L/lib -L/usr/lib -L/usr/local/lib -pthread -lpthread -lc -lstdc++ -lm -ldl -lrt
 	$(CROSS_COMPILE)objdump -d -g -C -l -S --prefix-addresses PZT > builds/PZT.v$(GITVERSION).b$(BUILDNUM).lss
 	cp $@ builds/PZT.v$(GITVERSION).b$(BUILDNUM)
 	
@@ -71,6 +71,6 @@ clean:
 	-rm $(INCLUDE_LOCAL)/arm/*.o
 	-rm $(INCLUDE_LOCAL)/uart/*.o
 	-rm $(INCLUDE_LOCAL)/format/*.o
-	-rm $(INCLUDE_LOCAL2)/*.o
+	-rm $(INCLUDE_LOCAL)/cgraph/*.o
 	-rm PZT
 	-killall PZT

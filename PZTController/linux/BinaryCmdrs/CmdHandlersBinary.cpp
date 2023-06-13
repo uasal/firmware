@@ -39,7 +39,7 @@ using namespace std;
 
 #include "uart/BinaryUart.hpp"
 
-#include "CGraphFSMHardwareInterface.hpp"
+#include "cgraph/CGraphFSMHardwareInterface.hpp"
 
 #include "../PZTCmdrSerialBuildNum"
 

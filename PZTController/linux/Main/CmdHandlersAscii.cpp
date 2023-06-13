@@ -52,7 +52,7 @@ using namespace std;
 
 #include "uart/AsciiCmdUserInterfaceLinux.h"
 
-#include "CGraphFSMHardwareInterface.hpp"
+#include "cgraph/CGraphFSMHardwareInterface.hpp"
 extern int MmapHandle;
 extern CGraphFSMHardwareInterface* FSM;	
 
@@ -751,19 +751,22 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 	C = FSM->BaudDivider2;
 	printf("\n\nBaudDividers: current values: %lu, %lu, %lu.\n", A, B, C);
 	
-	printf("\nBaudDividers: (384 = 9600, 95 = 38400, 63 = 57600, 31 = 115200, 15 = 230400, 7 = 460800, 3 = 921600)\n");
+	//~ printf("\nBaudDividers: (331 = 9600, 83 = 38400, 55 = 57600, 27 = 115200, 13 = 230400, 7 = 460800, 3 = 921600)\n");
 	
-	double BaudClock = 118149038.462;
-	unsigned int ActualDividerA = (A + 1) * 2;
-	unsigned int ActualDividerB = (B + 1) * 2;
-	unsigned int ActualDividerC = (C + 1) * 2;
+	double BaudClock = 102000000.0;
+	//~ unsigned int ActualDividerA = (A + 1) * 2;
+	//~ unsigned int ActualDividerB = (B + 1) * 2;
+	//~ unsigned int ActualDividerC = (C + 1) * 2;
+	unsigned int ActualDividerA = (A + 1);
+	unsigned int ActualDividerB = (B + 1);
+	unsigned int ActualDividerC = (C + 1);
 	double BaudRateA = (BaudClock / ActualDividerA) / 16;
 	double BaudRateB = (BaudClock / ActualDividerB) / 16;
 	double BaudRateC = (BaudClock / ActualDividerC) / 16;
 	
-	printf("\nBaudDividers: Port0 final division ratio: %u (/16); Actual baudrate: %.5le", ActualDividerA, BaudRateA);
-	printf("\nBaudDividers: Port1 final division ratio: %u (/16); Actual baudrate: %.5le", ActualDividerB, BaudRateB);
-	printf("\nBaudDividers: Port2 final division ratio: %u (/16); Actual baudrate: %.5le\n", ActualDividerC, BaudRateC);
+	printf("\nBaudDividers: Port0 final division ratio: %u (/16); Actual baudrate: %.5lf", ActualDividerA, BaudRateA);
+	printf("\nBaudDividers: Port1 final division ratio: %u (/16); Actual baudrate: %.5lf", ActualDividerB, BaudRateB);
+	printf("\nBaudDividers: Port2 final division ratio: %u (/16); Actual baudrate: %.5lf\n", ActualDividerC, BaudRateC);
 	
 	return(ParamsLen);
 }

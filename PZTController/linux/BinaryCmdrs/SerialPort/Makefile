@@ -1,11 +1,10 @@
 OS := $(shell uname)
 ifeq ($(OS),Linux)
-	INCLUDE_LOCAL = /home/summer/projects/include
+	INCLUDE_LOCAL = /home/summer/projects/CGraph/firmware/include
 else
 	INCLUDE_LOCAL = /cygdrive/n/firmware/include
 endif
 #~ INCLUDE_LOCAL2 = /home/summer/projects/MountainOps/software/CGraph/Sanford/apps
-INCLUDE_LOCAL2 = /home/summer/projects/CGraph/firmware/include
 LIB_LOCAL = /home/summer/projects/firmware/include
 vpath %.h $(INCLUDE_LOCAL) $(INCLUDE_LOCAL2)
 vpath %.hpp $(INCLUDE_LOCAL) $(INCLUDE_LOCAL2)
@@ -31,15 +30,15 @@ CFLAGS += -DGITVERSION="\"${GITVERSION}\"" -DBUILDNUM="\"${BUILDNUM}\"" -static-
 %.o: %.c
 	gcc $(CFLAGS) -g -I. -c $< -o $@
 
-PZTCmdrSerial: main.o ../CmdTableAscii.o ../CmdHandlersAscii.o ../CmdTableBinary.o ../CmdHandlersBinary.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL2)/CGraphFSMHardwareInterface.o
+PZTCmdrSerial: main.o ../CmdTableAscii.o ../CmdHandlersAscii.o ../CmdTableBinary.o ../CmdHandlersBinary.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o
 	btracer ../PZTCmdrSerial
-	gcc main.o ../CmdTableAscii.o ../CmdHandlersAscii.o ../CmdTableBinary.o ../CmdHandlersBinary.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL2)/CGraphFSMHardwareInterface.o -g -o PZTCmdrSerial $(CFLAGS) $(LDFLAGS) -g -L. -L/lib -L/usr/lib -L/usr/local/lib -lc -lstdc++ -lm -lpthread -lncurses
+	gcc main.o ../CmdTableAscii.o ../CmdHandlersAscii.o ../CmdTableBinary.o ../CmdHandlersBinary.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o -g -o PZTCmdrSerial $(CFLAGS) $(LDFLAGS) -g -L. -L/lib -L/usr/lib -L/usr/local/lib -lc -lstdc++ -lm -lpthread -lncurses
 	cp $@ /home/summer/bin/
 	
 all: PZTCmdrSerial
 
-program:
-	mate-terminal -e "$(HERE)/PZTCmdrSerial"
+program: PZTCmdrSerial
+	mate-terminal -e "$(HERE)/PZTCmdrSerial /dev/ttyUSB2 38400"
 
 clean:
 	-rm ../*.o
@@ -48,7 +47,7 @@ clean:
 	-rm $(INCLUDE_LOCAL)/arm/*.o
 	-rm $(INCLUDE_LOCAL)/uart/*.o
 	-rm $(INCLUDE_LOCAL)/format/*.o
-	-rm $(INCLUDE_LOCAL2)/*.o
+	-rm $(INCLUDE_LOCAL)/cgraph/*.o
 	-rm PZTCmdrSerial
 	-killall PZTCmdrSerial
 	

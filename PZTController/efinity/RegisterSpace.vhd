@@ -152,10 +152,15 @@ architecture RegisterSpace of RegisterSpacePorts is
 	signal DacASetpoint_i :  std_logic_vector(23 downto 0) := x"000000";		
 	signal DacBSetpoint_i :  std_logic_vector(23 downto 0) := x"000000";		
 	signal DacCSetpoint_i :  std_logic_vector(23 downto 0) := x"000000";	
-	--~ signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(118149038) / ( real(1000000) * 32.0)) - 1.0), 8));	
-	signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8));	
-	signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(118149038) / ( real(921600) * 32.0)) - 1.0), 8));	
-	signal Uart2ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(118149038) / ( real(115200) * 32.0)) - 1.0), 8));	
+	--~ signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 32.0)) - 1.0), 8));	--38.4k
+	--~ signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 32.0)) - 1.0), 8));	--230k
+	--~ signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(38400) * 32.0)) - 1.0), 8));	--38.4k
+	--~ signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(230400) * 32.0)) - 1.0), 8));	--230k
+	signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 16.0)) - 1.0), 8));	--38.4k
+	signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));	--230k
+	--~ signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(38400) * 16.0)) - 1.0), 8));	--38.4k
+	--~ signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(230400) * 16.0)) - 1.0), 8));	--230k
+	signal Uart2ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8));	--"real fast"
 	
 	signal MonitorAdcChannelReadIndex_i : std_logic_vector(4 downto 0);	
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<efx:project name="CGraphPZT" description="" last_change_date="Wed May 31 2023 14:57:10" location="/home/summer/projects/CGraph/firmware/PZTController/efinity" sw_version="2022.1.226.1.9" last_run_state="pass" last_run_tool="efx_pgm" last_run_flow="bitstream" config_result_in_sync="true" design_ood="sync" place_ood="sync" route_ood="sync" xmlns:efx="http://www.efinixinc.com/enf_proj" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/enf_proj enf_proj.xsd">
+<efx:project name="CGraphPZT" description="" last_change_date="Tue June 13 2023 14:14:11" location="/home/summer/projects/CGraph/firmware/PZTController/efinity" sw_version="2022.1.226.1.9" last_run_state="pass" last_run_tool="efx_pgm" last_run_flow="bitstream" config_result_in_sync="true" design_ood="sync" place_ood="sync" route_ood="sync" xmlns:efx="http://www.efinixinc.com/enf_proj" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/enf_proj enf_proj.xsd">
     <efx:device_info>
         <efx:family name="Trion"/>
         <efx:device name="T20Q144"/>
@@ -10,31 +10,31 @@
         <efx:design_file name="BuildNumber.vhd" version="default" library="default"/>
         <efx:design_file name="Main.vhd" version="default" library="default"/>
         <efx:design_file name="RegisterSpace.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/OneShot.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/IBufP2.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/IBufP1.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/IOBufP1.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/IBufP3.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/VariableClockDivider.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/SpiMaster.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/SpiDac.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/SpiMasterTrio.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/SpiDacTrio.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/Ltc2378AccumTrio.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/ltc244x_types.vhd" version="default" library="efxlib"/>
-        <efx:design_file name="../../../../../include/fpga/ltc244xaccumulator_types.vhd" version="default" library="efxlib"/>
-        <efx:design_file name="../../../../../include/fpga/ltc244x_autoscan.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/ltc244xaccumulator.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/PPSCount.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/UartRxRaw.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/UartRxExtClk.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/UartRxFifoExtClk.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/UartTx.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/UartTxFifo.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/UartTxFifoExtClk.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/ClockDivider.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/gated_fifo.vhd" version="default" library="default"/>
-        <efx:design_file name="../../../../../include/fpga/fifo_gen.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/OneShot.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/IBufP2.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/IBufP1.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/IOBufP1.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/IBufP3.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/VariableClockDivider2X.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/SpiMaster.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/SpiDac.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/SpiMasterTrio.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/SpiDacTrio.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/Ltc2378AccumTrio.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/ltc244x_types.vhd" version="default" library="efxlib"/>
+        <efx:design_file name="../../include/fpga/ltc244xaccumulator_types.vhd" version="default" library="efxlib"/>
+        <efx:design_file name="../../include/fpga/ltc244x_autoscan.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/ltc244xaccumulator.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/PPSCount.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/UartRxRaw.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/UartRxExtClk.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/UartRxFifoExtClk.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/UartTx.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/UartTxFifo.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/UartTxFifoExtClk.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/ClockDivider.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/gated_fifo.vhd" version="default" library="default"/>
+        <efx:design_file name="../../include/fpga/fifo_gen.vhd" version="default" library="default"/>
         <efx:top_vhdl_arch name="CGraphPZT"/>
     </efx:design_info>
     <efx:constraint_info>

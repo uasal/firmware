@@ -16,6 +16,8 @@
 #include <termios.h> /* POSIX terminal control definitions */
 #include <sys/ioctl.h> /* ioctl() */
 #include <sys/socket.h> /* FIONREAD on cygwin */
+#include <linux/serial.h>
+
 
 #include <spawn.h>
 
@@ -169,9 +171,35 @@ public:
 			case   19200: com_settings.c_cflag |= B19200; cfsetispeed(&com_settings, B19200); cfsetospeed(&com_settings, B19200); break;
 			case    9600: com_settings.c_cflag |= B9600; cfsetispeed(&com_settings, B9600); cfsetospeed(&com_settings, B9600); break;
 			case    4800: com_settings.c_cflag |= B4800; cfsetispeed(&com_settings, B4800); cfsetospeed(&com_settings, B4800); break;
-			default: { printf("\nlinux_pinout_uart::init(): unknown baudrate %u\n", Baudrate); }
+			default: 
+			{ 
+				printf("\nlinux_pinout_uart::init(): non-standard baudrate %u; strap in we're goin' off-road!\n", Baudrate); 
+				
+				serial_struct serial;
+				if (ioctl(ComFileDescriptor, TIOCGSERIAL, &serial))
+				{
+					printf("\nlinux_pinout_uart::init(): non-standard baudrate ioctl(TIOCGSERIAL) failed."); 
+				}
+				serial.flags &= ~ASYNC_SPD_MASK;
+				serial.flags |= ASYNC_SPD_CUST;
+				serial.custom_divisor = serial.baud_base / Baudrate;
+				if (ioctl(ComFileDescriptor, TIOCSSERIAL, &serial))
+				{
+					printf("\nlinux_pinout_uart::init(): non-standard baudrate ioctl(TIOCSSERIAL) failed."); 
+				}
+				
+				printf("\nlinux_pinout_uart::init(): non-standard baudrate settings complete; Clock: %u, divider: %u, actual baud: %lf.\n", serial.baud_base, serial.custom_divisor, (double)serial.baud_base / (double)serial.custom_divisor); 
+			}
 		}
 		
+		//raw input mode:
+		//~ com_settings.c_lflag &= ~(ICANON | ECHO | ECHOE | ISIG);
+		com_settings.c_lflag = 0;
+
+		//raw output mode:
+		//~ com_settings.c_oflag &= ~OPOST;
+		com_settings.c_oflag = 0;
+				
 		//enable single-byte input & output:
 		cfmakeraw(&com_settings);
 
@@ -196,14 +224,6 @@ public:
 			com_settings.c_cflag &= ~PARENB; 
 			com_settings.c_cflag &= ~PARODD;
 		}
-		
-		//raw input mode:
-		//~ com_settings.c_lflag &= ~(ICANON | ECHO | ECHOE | ISIG);
-		com_settings.c_lflag = 0;
-
-		//raw output mode:
-		//~ com_settings.c_oflag &= ~OPOST;
-		com_settings.c_oflag = 0;
 		
 		//write settings to the port:
 		if(tcsetattr(ComFileDescriptor, TCSANOW, &com_settings))
@@ -339,13 +359,15 @@ public:
 
 		//~ if (len != 1) { return('\0'); }
 		
-		if (echo) { formatf("|%.2x", (uint8_t)c); }
+		if (echo) { formatf("<%.2x ", (uint8_t)c); }
 
   		return(c);
 	}
 
 	virtual char putcqq(char c)
 	{
+		if (echo) { formatf(">%.2x ", (uint8_t)c); }
+		
 		if (-1 != ComFileDescriptor)
 		{
 			size_t len = write(ComFileDescriptor, &c, 1);

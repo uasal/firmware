@@ -36,7 +36,7 @@
 #include "temp/TempLM35.hpp"
 #include "format/formatf.h"
 
-#include "CGraphFSMHardwareInterface.hpp"
+#include "cgraph/CGraphFSMHardwareInterface.hpp"
 extern CGraphFSMHardwareInterface* FSM;	
 
 const uint8_t MonitorAdcFpgaAdcSampleAddr = 104;

@@ -39,7 +39,7 @@ using namespace std;
 
 #include "uart/CGraphPacket.hpp"
 
-#include "CGraphFSMHardwareInterface.hpp"
+#include "cgraph/CGraphFSMHardwareInterface.hpp"
 extern CGraphFSMHardwareInterface* FSM;	
 
 #include "../PZTBuildNum"

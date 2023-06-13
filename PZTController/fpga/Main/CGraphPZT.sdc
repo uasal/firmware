@@ -18,11 +18,14 @@
 #derive_clock_uncertainty
 
 #create_clock -period 10.0  MasterClk
-create_clock -period 20.0  VCXO
+create_clock -period 19.608  VCXO
 #96 - 128 - 144 MHz
 #create_clock -period 10.4  pll0O #96MHz
 #create_clock -period 7.81  pll0O #128MHz
-create_clock -period 6.94  pll0O
+#create_clock -period 10.039  pll0O #99MHz
+#create_clock -period 9.8044  pll1O #102MHz
+create_clock -period 9.8044  pll0O #102MHz
+#create_clock -period 6.536  pll0O #153MHz
 
 #set_output_delay -clock clk 5 [ all_outputs ]
 #set_input_delay -clock clk 5 [ all_inputs ]

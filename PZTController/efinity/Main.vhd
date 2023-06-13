@@ -944,9 +944,12 @@ architecture CGraphPZT of CGraphPZTPorts is
 			--~ constant BoardMasterClockFreq : natural := BaseClockFreq * ClockFreqMultiplier; 
 			--~ constant BoardMasterClockFreq : natural := BaseClockFreq * ClockFreqMultiplier / ClockFreqDivider;
 			--~ constant BoardMasterClockFreq : natural := 139719000;
-			constant BoardMasterClockFreq : natural := 95996094; --95996093.75
+			--~ constant BoardMasterClockFreq : natural := 95996094; --95996093.75 --old 49.150 clock
+			--~ constant BoardMasterClockFreq : natural := 99609375; --99609375.0 --51.0 clock
+			constant BoardMasterClockFreq : natural := 102000000; -- --102.0 clock
+			--~ constant BoardMasterClockFreq : natural := 153000000; -- --102.0 clock
 			signal MasterClk : std_logic; --This is the main clock for *everything*
-			signal UartClk : std_logic; --This is the uart clock, it runs at 191992187.5Hz, and a lot of the regular logic won't run that fast, which is why we have a seperate clock. In practice, it immediately gets divided by 16 ny the uarts so it actually is slower than the other logic, but at a weird ratio...
+			signal UartClk : std_logic; --This is the uart clock, it runs at 102,000,000Hz, and a lot of the regular logic won't run that fast, which is why we have a seperate clock. In practice, it immediately gets divided by 16 ny the uarts so it actually is slower than the other logic, but at a weird ratio...
 			--~ signal DcDcClk_i : std_logic; --1Mhz clock for the switching power supplies
 			--~ signal DcDcClkDiv : std_logic; --temp to generate DC/DC clock from A/D clock
 
@@ -1131,7 +1134,8 @@ begin
     
 	--MasterClk <= VCXO;
     MasterClk <= pll0O;
-	UartClk <= pll1O;
+	--~ UartClk <= pll1O;
+	UartClk <= pll0O;
     
     --~ UserJmpJstnCse <= MasterClk;
     --UserJmpJstnCse <= '1';
@@ -1827,7 +1831,7 @@ begin
 	
 	IBufRxd2 : IBufP3Ports port map(clk => UartClk, I => Rxd2, O => Rxd2_i); --if you want to change the pin for this chip select, it's here
 	
-	UserJmpJstnCse <= Rxd2;
+	--~ UserJmpJstnCse <= Rxd2;
 	
 	RS422_Rx2 : UartRxFifoExtClk
 	generic map
@@ -1902,6 +1906,8 @@ begin
 	--~ UserJmpJstnCse <= UartRx2Dbg;
 	--~ SckMonitorAdcTP3 <= Txd2_i;
 	--~ MosiMonitorAdcTP1 <= Uart2TxFifoEmpty;
+	--~ UserJmpJstnCse <= UartTxClk0;
+	UserJmpJstnCse <= Txd0_i;	
 		
 	----------------------------- Timing ----------------------------------
 	

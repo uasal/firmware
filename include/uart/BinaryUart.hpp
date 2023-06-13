@@ -308,9 +308,9 @@ struct BinaryUart
 		uint8_t TxBuffer[TxBufferLenBytes];
 		size_t PacketLen = Packet.MakePacket(TxBuffer, TxBufferLenBytes, PayloadData, PayloadType, PayloadLen);
 		for (size_t i = 0; i < PacketLen; i++) { Pinout.putcqq(TxBuffer[i]); }
-		//~ ::formatf("\n\nBinary Uart: Sending packet(%u, %u): ", PayloadType, PayloadLen);
-		//~ for(size_t i = 0; i < PacketLen; i++) { printf("%.2X:", TxBuffer[i]); }
-		//~ printf("\n\n");
+		::formatf("\n\nBinary Uart: Sending packet(%u, %u): ", PayloadType, PayloadLen);
+		for(size_t i = 0; i < PacketLen; i++) { printf("%.2X:", TxBuffer[i]); }
+		printf("\n\n");
 
 	}
 	
