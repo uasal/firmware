@@ -182,6 +182,12 @@ public:
 				}
 				serial.flags &= ~ASYNC_SPD_MASK;
 				serial.flags |= ASYNC_SPD_CUST;
+				//ugly hack:
+				if (0 == serial.baud_base)
+				{
+					printf("\nlinux_pinout_uart::init(): non-standard baudrate clock of zero detected; fixing up for Nvidia Orin 408MHz clock..."); 
+					serial.baud_base = 408000000;
+				}
 				serial.custom_divisor = serial.baud_base / Baudrate;
 				if (ioctl(ComFileDescriptor, TIOCSSERIAL, &serial))
 				{
