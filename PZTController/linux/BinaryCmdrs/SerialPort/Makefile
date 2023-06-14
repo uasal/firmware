@@ -38,7 +38,7 @@ PZTCmdrSerial: main.o ../CmdTableAscii.o ../CmdHandlersAscii.o ../CmdTableBinary
 all: PZTCmdrSerial
 
 program: PZTCmdrSerial
-	-mate-terminal -e "$(HERE)/PZTCmdrSerial /dev/ttyUSB2 38400"
+	-mate-terminal -e "$(HERE)/PZTCmdrSerial /dev/ttyUSB0 38400"
 
 clean:
 	-rm ../*.o

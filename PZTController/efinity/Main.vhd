@@ -1897,6 +1897,10 @@ begin
 	);
 	Txd2 <= Txd2_i;
 	
+	--Debug monitors
+	--~ Txd2 <= Txd0_i;
+	--~ Txd1 <= Rxd0_i;
+	
 	--Mux master reset (boot) and user reset (datamapper)
 	Uart2FifoReset_i <= MasterReset or Uart2FifoReset;
 	
@@ -1907,7 +1911,7 @@ begin
 	--~ SckMonitorAdcTP3 <= Txd2_i;
 	--~ MosiMonitorAdcTP1 <= Uart2TxFifoEmpty;
 	--~ UserJmpJstnCse <= UartTxClk0;
-	UserJmpJstnCse <= Txd0_i;	
+	UserJmpJstnCse <= Rxd0_i;	
 		
 	----------------------------- Timing ----------------------------------
 	
