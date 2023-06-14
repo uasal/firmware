@@ -14,10 +14,10 @@
 #include <fcntl.h>   /* File control definitions */
 #include <errno.h>   /* Error number definitions */
 #include <termios.h> /* POSIX terminal control definitions */
+//~ #include <termbits.h>
 #include <sys/ioctl.h> /* ioctl() */
 #include <sys/socket.h> /* FIONREAD on cygwin */
 #include <linux/serial.h>
-
 
 #include <spawn.h>
 
@@ -173,28 +173,85 @@ public:
 			case    4800: com_settings.c_cflag |= B4800; cfsetispeed(&com_settings, B4800); cfsetospeed(&com_settings, B4800); break;
 			default: 
 			{ 
-				printf("\nlinux_pinout_uart::init(): non-standard baudrate %u; strap in we're goin' off-road!\n", Baudrate); 
+				bool useterm2 = false;
+				
+				printf("\nlinux_pinout_uart::init(): non-standard baudrate %u; strap in we're goin' off-roadin'\n", Baudrate); 
 				
 				serial_struct serial;
+				
 				if (ioctl(ComFileDescriptor, TIOCGSERIAL, &serial))
 				{
 					printf("\nlinux_pinout_uart::init(): non-standard baudrate ioctl(TIOCGSERIAL) failed."); 
+					useterm2 = true;
 				}
+				
 				serial.flags &= ~ASYNC_SPD_MASK;
 				serial.flags |= ASYNC_SPD_CUST;
+				serial.custom_divisor = serial.baud_base / Baudrate;
+				
 				//ugly hack:
 				if (0 == serial.baud_base)
 				{
-					printf("\nlinux_pinout_uart::init(): non-standard baudrate clock of zero detected; fixing up for Nvidia Orin 408MHz clock..."); 
-					serial.baud_base = 408000000;
+					useterm2 = true;
 				}
-				serial.custom_divisor = serial.baud_base / Baudrate;
-				if (ioctl(ComFileDescriptor, TIOCSSERIAL, &serial))
+				else
 				{
-					printf("\nlinux_pinout_uart::init(): non-standard baudrate ioctl(TIOCSSERIAL) failed."); 
+					if (ioctl(ComFileDescriptor, TIOCSSERIAL, &serial))
+					{
+						printf("\nlinux_pinout_uart::init(): non-standard baudrate ioctl(TIOCSSERIAL) failed."); 
+						useterm2 = true;
+					}
+				}
+				
+				if (useterm2)
+				{
+					printf("\nlinux_pinout_uart::init(): non-standard baudrate clock of zero detected; assuming Nvidia Orin 408MHz clock..."); 
+					
+					serial.baud_base = 408000000;
+					
+					//~ termios2 tty;
+					struct termios2
+					{
+					  tcflag_t c_iflag;
+					  tcflag_t c_oflag;
+					  tcflag_t c_cflag;
+					  tcflag_t c_lflag;
+					  cc_t c_cc[NCCS];
+					  cc_t c_line;
+					  speed_t c_ispeed;
+					  speed_t c_ospeed;
+					} tty;
+
+					// Read in the terminal settings using ioctl instead
+					// of tcsetattr (tcsetattr only works with termios, not termios2)
+					if (ioctl(ComFileDescriptor, TCGETS2, &tty))
+					{
+						perror("\nlinux_pinout_uart::init(): non-standard baudrate, ioctl(fd, TCGETS2, &tty) failed: ");
+					}
+
+					// Set everything but baud rate as usual
+					// ...
+					// ...
+
+					// Set custom baud rate
+					tty.c_cflag &= ~CBAUD;
+					tty.c_cflag |= CBAUDEX;
+					// On the internet there is also talk of using the "BOTHER" macro here:
+					// tty.c_cflag |= BOTHER;
+					// I never had any luck with it, so omitting in favour of using
+					// CBAUDEX
+					tty.c_ispeed = Baudrate; // What a custom baud rate!
+					tty.c_ospeed = Baudrate;
+
+					// Write terminal settings to file descriptor
+					if (ioctl(ComFileDescriptor, TCSETS2, &tty))
+					{
+						perror("\nlinux_pinout_uart::init(): non-standard baudrate, ioctl(fd, TCSETS2, &tty) failed: ");
+					}
 				}
 				
 				printf("\nlinux_pinout_uart::init(): non-standard baudrate settings complete; Clock: %u, divider: %u, actual baud: %lf.\n", serial.baud_base, serial.custom_divisor, (double)serial.baud_base / (double)serial.custom_divisor); 
+
 			}
 		}
 		

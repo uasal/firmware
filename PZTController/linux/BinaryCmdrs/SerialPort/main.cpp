@@ -5,9 +5,6 @@
 #include <math.h>
 #include <time.h>
 #include <ctype.h>
-//~ #include <cctype>
-
-//open files:
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
