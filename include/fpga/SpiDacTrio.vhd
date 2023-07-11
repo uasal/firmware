@@ -47,8 +47,8 @@ entity SpiDacTrioPorts is
 		DacWriteOutC : in std_logic_vector(23 downto 0);
 		DacReadbackA : out std_logic_vector(23 downto 0);
 		DacReadbackB : out std_logic_vector(23 downto 0);
-		DacReadbackC : out std_logic_vector(23 downto 0)--;
-		--~ TransferComplete : out std_logic;
+		DacReadbackC : out std_logic_vector(23 downto 0);
+		TransferComplete : out std_logic--;
 		
 	); end SpiDacTrioPorts;
 
@@ -95,6 +95,9 @@ architecture SpiDacTrio of SpiDacTrioPorts is
 		
 	--~ signal DacClk : std_logic;
 	signal LastWriteDac : std_logic;
+	signal DacWriteOutA_i : std_logic_vector(23 downto 0);
+	signal DacWriteOutB_i : std_logic_vector(23 downto 0);
+	signal DacWriteOutC_i : std_logic_vector(23 downto 0);
 	signal DacReadbackA_i : std_logic_vector(23 downto 0);
 	signal DacReadbackB_i : std_logic_vector(23 downto 0);
 	signal DacReadbackC_i : std_logic_vector(23 downto 0);
@@ -103,7 +106,7 @@ begin
 
 	Spi : SpiMasterTrioPorts
 	generic map (
-		CLOCK_DIVIDER => MASTER_CLOCK_FREQHZ / 10000,
+		CLOCK_DIVIDER => MASTER_CLOCK_FREQHZ / 4,
 		BYTE_WIDTH => 3,
 		CPOL => '0'--, --'inverted' SCK polarity?
 	)
@@ -111,16 +114,16 @@ begin
 	(
 		clk => clk, --runs off the same clock as the A/D to keep everything nicely aligned & quiet
 		rst => SpiRst, --every sample requires a set/rst sequence to run spimaster
-		MosiA => MosiA, --we don't actually send anything to the A/D, all it needs is the sample trigger/clock
-		MosiB => MosiB, --we don't actually send anything to the A/D, all it needs is the sample trigger/clock
-		MosiC => MosiC, --we don't actually send anything to the A/D, all it needs is the sample trigger/clock
+		MosiA => MosiA,
+		MosiB => MosiB,
+		MosiC => MosiC,
 		Sck => Sck,
 		MisoA => MisoA,
 		MisoB => MisoB,
 		MisoC => MisoC,
-		DataToMosiA => DacWriteOutA, --we don't actually send anything to the A/D
-		DataToMosiB => DacWriteOutB, --we don't actually send anything to the A/D
-		DataToMosiC => DacWriteOutC, --we don't actually send anything to the A/D
+		DataToMosiA => DacWriteOutA_i,
+		DataToMosiB => DacWriteOutB_i,
+		DataToMosiC => DacWriteOutC_i,
 		DataFromMisoA => DacReadbackA_i,
 		DataFromMisoB => DacReadbackB_i,
 		DataFromMisoC => DacReadbackC_i,
@@ -131,7 +134,7 @@ begin
 	nCsB <= SpiRst; --these concepts are synchronous in this design
 	nCsC <= SpiRst; --these concepts are synchronous in this design
 	
-	--~ TransferComplete <= SpiRst; --these concepts are synchronous in this design
+	TransferComplete <= SpiRst; --these concepts are synchronous in this design
 		
 	--Read A/D:
 	process (clk, rst, WriteDac, SpiXferComplete)
@@ -142,6 +145,9 @@ begin
 			SpiRst <= '1';			
 			LastWriteDac <= '0';
 			LastSpiXferComplete <= '0';
+			DacWriteOutA_i <= x"000000";
+			DacWriteOutB_i <= x"000000";
+			DacWriteOutC_i <= x"000000";
 			
 		else
 			
@@ -155,7 +161,10 @@ begin
 					--Here we go...
 					if (WriteDac = '1') then
 					
-						--Initiate reading the data.
+						--Latch inputs & initiate reading the data.
+						DacWriteOutA_i <= DacWriteOutA;
+						DacWriteOutB_i <= DacWriteOutB;
+						DacWriteOutC_i <= DacWriteOutC;
 						SpiRst <= '0';
 											
 					end if;

@@ -41,7 +41,8 @@ entity RegisterSpacePorts is
 		WriteDacs : out std_logic; --do we wanna write all three Dac's at once? Seems likely...
 		DacAReadback : in std_logic_vector(23 downto 0);
 		DacBReadback : in std_logic_vector(23 downto 0);
-		DacCReadback : in std_logic_vector(23 downto 0);			
+		DacCReadback : in std_logic_vector(23 downto 0);		
+		DacTransferComplete : in std_logic; --Prolly a bad idea if we try writing new data to the D/A's while a xfer is in progress...				
 
 		-- PZT Readback A/Ds
 		ReadAdcSample : out std_logic;
@@ -822,7 +823,7 @@ begin
 							when DacCSetpointAddr + std_logic_vector(to_unsigned(3, MAX_ADDRESS_BITS)) =>
 
 								--The $$$ question: does our processor hit the low addr last or the high one???
-								WriteDacs_i <= '1';
+								if ('0' = DacTransferComplete) then WriteDacs_i <= '1'; end if;
 								
 								
 							--~ --PZT Readback A/D's

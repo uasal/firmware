@@ -659,6 +659,7 @@ architecture CGraphPZT of CGraphPZTPorts is
 							DacAReadback : in std_logic_vector(23 downto 0);
 							DacBReadback : in std_logic_vector(23 downto 0);
 							DacCReadback : in std_logic_vector(23 downto 0);	
+							DacTransferComplete : in std_logic;
 
 							-- PZT Readback A/Ds
 							ReadAdcSample : out std_logic;
@@ -925,8 +926,9 @@ architecture CGraphPZT of CGraphPZTPorts is
 							DacWriteOutC : in std_logic_vector(23 downto 0);
 							DacReadbackA : out std_logic_vector(23 downto 0);
 							DacReadbackB : out std_logic_vector(23 downto 0);
-							DacReadbackC : out std_logic_vector(23 downto 0)--;
-								
+							DacReadbackC : out std_logic_vector(23 downto 0);
+							TransferComplete : out std_logic--;
+							
 						); end component;
 
 	--Signals /  Local variables
@@ -998,6 +1000,8 @@ architecture CGraphPZT of CGraphPZTPorts is
 			signal DacBReadback : std_logic_vector(23 downto 0);	
 			signal DacCReadback : std_logic_vector(23 downto 0);	
 			signal nLDacs_i : std_logic;	
+			signal DacTransferComplete : std_logic;	
+			
 			
 		-- PZT Readback A/Ds
 			
@@ -1279,6 +1283,7 @@ begin
 		--~ DacAReadback => DacASetpoint,
 		--~ DacBReadback => DacBSetpoint,
 		--~ DacCReadback => DacCSetpoint--,
+		DacTransferComplete => DacTransferComplete,
 		
 		--PZT A/D's
 		ReadAdcSample => ReadAdcSample,
@@ -1375,7 +1380,8 @@ begin
 		DacWriteOutC => DacCSetpoint,
 		DacReadbackA => DacAReadback,
 		DacReadbackB => DacBReadback,
-		DacReadbackC => DacCReadback
+		DacReadbackC => DacCReadback,
+		TransferComplete => DacTransferComplete
 	);
 
 	nCsDacA <= nCsDacA_i;
