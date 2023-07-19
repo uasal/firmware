@@ -474,14 +474,14 @@ int8_t CirclesCommand(char const* Name, char const* Params, const size_t ParamsL
 	int key = 0;
 	
 	double radius = 1.0;
-	unsigned long delayinms = 1; //1ms
-	sscanf(Params, "%lf,%lu", &radius, &delayinms);
+	double delayinms = 1.0; //1ms
+	sscanf(Params, "%lf,%lf", &radius, &delayinms);
 	if (radius < 0.0) { radius = 0.0; }
 	if (radius > 1.0) { radius = 1.0; }
-	if (delayinms < 1) { delayinms = 1; }
+	if (delayinms < 0.001) { delayinms = 0.001; }
 	if (delayinms > 10000) { delayinms = 10000; }
 	
-	printf("\n\nCircles: RunCircle(%lf, %ldms)...\n", radius, delayinms);	
+	printf("\n\nCircles: RunCircle(%lf, %lfms)...\n", radius, delayinms);	
 	    	
 	while(true)
 	{
@@ -552,7 +552,7 @@ int8_t CirclesCommand(char const* Name, char const* Params, const size_t ParamsL
 		//~ sleeptime.tv_nsec = 100000000; //100ms
 		//~ sleeptime.tv_nsec = 10000000; //10ms
 		//~ sleeptime.tv_nsec = 1000000; //1ms
-		sleeptime.tv_nsec = delayinms * 1000000;
+		sleeptime.tv_nsec = delayinms * 1000000.0;
 		//sleeptime.tv_sec = 1;
 		nanosleep(&sleeptime, NULL);
 	}

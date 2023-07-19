@@ -823,7 +823,7 @@ begin
 							when DacCSetpointAddr + std_logic_vector(to_unsigned(3, MAX_ADDRESS_BITS)) =>
 
 								--The $$$ question: does our processor hit the low addr last or the high one???
-								if ('0' = DacTransferComplete) then WriteDacs_i <= '1'; end if;
+								if ('1' = DacTransferComplete) then WriteDacs_i <= '1'; end if;
 								
 								
 							--~ --PZT Readback A/D's

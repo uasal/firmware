@@ -106,7 +106,12 @@ begin
 
 	Spi : SpiMasterTrioPorts
 	generic map (
-		CLOCK_DIVIDER => MASTER_CLOCK_FREQHZ / 4,
+		--~ CLOCK_DIVIDER => MASTER_CLOCK_FREQHZ / 4,
+		--~ CLOCK_DIVIDER => 100, --1MHz
+		CLOCK_DIVIDER => 10, --10MHz (50MHz max MAX5719)
+		--~ CLOCK_DIVIDER => 4, --25MHz
+		--~ CLOCK_DIVIDER => 3, --33MHz
+		--~ CLOCK_DIVIDER => 2, --50MHz
 		BYTE_WIDTH => 3,
 		CPOL => '0'--, --'inverted' SCK polarity?
 	)

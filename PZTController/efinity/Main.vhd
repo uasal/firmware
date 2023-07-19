@@ -1394,6 +1394,12 @@ begin
 	MosiDacA_ena <= '1';
 	MosiDacB_ena <= '1';
 	MosiDacC_ena <= '1';
+	
+	--~ nCsMonitorAdc <= '1';
+	UserJmpJstnCse <= nCsDacA_i;
+	--~ SckMonitorAdcTP3 <= SckDacs_i;
+	--~ MosiMonitorAdcTP1 <= MosiDacA_i;
+	--~ MosiMonitorAdcTP1 <= nLDacs_i;	
 
 	--~ nLDacs <= not(nCsDacA_i);
 	--not(nCs) prolly works, but this is more technically correct:
@@ -1401,7 +1407,7 @@ begin
 	generic map (
 		CLOCK_FREQHZ => BoardMasterClockFreq,
 		--~ DELAY_SECONDS => 0.000000025, --25ns
-		DELAY_SECONDS => 0.00025, --250us
+		DELAY_SECONDS => 0.00000005, --50ns (MAX5719 specifies 20ns min)
 		SHOT_RST_STATE => '1',
 		SHOT_PRETRIGGER_STATE => '1' --This is gonna hold nLDac low until the next SPI cycle, which doesn't look like the pic in the datasheet, but it doesn't say we can't, since the falling edge is what matters...ideally we'd toggle it back on the Rising edge of WriteDac at the very beginning, but we can sort the brass tacks later...
 	)
@@ -1917,7 +1923,7 @@ begin
 	--~ SckMonitorAdcTP3 <= Txd2_i;
 	--~ MosiMonitorAdcTP1 <= Uart2TxFifoEmpty;
 	--~ UserJmpJstnCse <= UartTxClk0;
-	UserJmpJstnCse <= Rxd0_i;	
+	--~ UserJmpJstnCse <= Rxd0_i;	
 		
 	----------------------------- Timing ----------------------------------
 	
