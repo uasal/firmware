@@ -622,6 +622,7 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	memset((char *)&sleeptime,0,sizeof(sleeptime));
 	sleeptime.tv_nsec = 1000000;
 	sleeptime.tv_sec = 0;
+	int key = 0;
 	
 	//Convert parameter to an integer
 	//~ size_t addr = 0;
@@ -632,9 +633,49 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		//~ printf("\nUartCommand: need 2 numeric parameters (address and value), got \"%s\" (%d params).\n", Params, numfound);
         //~ return(-1);
     //~ }
+	//~ char* cmd = 0;
+	//~ char* params = 0;
+	//~ int8_t numfound = sscanf(Params, "%s %s", cmd, params);
+	//~ if (numfound < 2)
+    //~ {
+		//~ printf("\nUartCommand: need 2 numeric parameters (address and value), got \"%s\" (%d params).\n", Params, numfound);
+        //~ return(-1);
+    //~ }
 	
 	//~ printf("\nUartCommand: FSM@0x%p, USR@%u, UF@%u, MAA@%u, ACF@%u, ACF is %u, ", (void*)FSM, offsetof(CGraphFSMHardwareInterface, UartStatusRegister), offsetof(CGraphFSMHardwareInterface, UartFifo), offsetof(CGraphFSMHardwareInterface, MonitorAdcAccumulator), offsetof(CGraphFSMHardwareInterface, AdcCFifo), sizeof(AdcFifo));
 	printf("\nUartCommand: %u, %u. ", offsetof(CGraphFSMHardwareInterface, UartFifo2), offsetof(CGraphFSMHardwareInterface, UartStatusRegister2));
+	
+	if (0 == strncmp(&(Params[1]), "loop", 4))
+	{
+		while(true)
+		{
+			//~ FSM->UartFifo0 = 0x55;
+			//~ FSM->UartFifo1 = 0x55;	
+			FSM->UartFifo2 = 0x55;
+			
+			//Quit on any keypress
+			{
+				struct termios argin, argout;
+				tcgetattr(0,&argin);
+				argout = argin;
+				argout.c_lflag &= ~(ICANON);
+				argout.c_iflag &= ~(ICRNL);
+				argout.c_oflag &= ~(OPOST);
+				argout.c_cc[VMIN] = 1;
+				argout.c_cc[VTIME] = 0;
+				tcsetattr(0,TCSADRAIN,&argout);
+				//read(0, &key, 1);
+				ioctl(0, FIONREAD, &key);
+				tcsetattr(0,TCSADRAIN,&argin);
+				if (0 != key) 
+				{ 
+					fflush(stdin);
+					printf("\n\nCircles: Keypress(%d); exiting.\n", key);
+					break; 
+				}			
+			}
+		}
+	}
 	
 	//~ CGraphFSMUartStatusRegister UartStatus = FSM->UartStatusRegister2;
 	//~ UartStatus.printf();	
