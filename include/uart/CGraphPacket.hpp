@@ -143,5 +143,23 @@ static const uint16_t CGraphPayloadTypePZTDacsFloatingPoint = 0x0003U; //Payload
 static const uint16_t CGraphPayloadTypePZTAdcs = 0x0004U; //Payload: 3 AdcAcumulators
 static const uint16_t CGraphPayloadTypePZTAdcsFloatingPoint = 0x0005U; //Payload: 3 double-precision floats
 
+static const uint16_t CGraphPayloadTypePZTStatus = 0x0006U;
+struct CGraphPZTStatusPayload
+{
+	double P1V2;
+	double P2V2;
+	double P24V;
+	double P2V5;
+	double P3V3A;
+	double P6V;
+	double P5V;
+	double P3V3D;
+	double P4V3;
+	double N5V;
+	double N6V;
+	double P150V;
+	//~ void formatf() const { ::printf("CGraphPZTStatusPayload: SerialNum: 0x%lX, ProcessorFirmwareBuildNum: %lu, FPGAFirmwareBuildNum: %lu", (long)SerialNum, (unsigned long)ProcessorFirmwareBuildNum, (unsigned long)FPGAFirmwareBuildNum); }
+};
+
 
 #endif // _IPacket_H_

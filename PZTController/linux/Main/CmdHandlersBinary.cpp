@@ -42,6 +42,9 @@ using namespace std;
 #include "cgraph/CGraphFSMHardwareInterface.hpp"
 extern CGraphFSMHardwareInterface* FSM;	
 
+#include "../MonitorAdc.hpp"
+extern CGraphFSMMonitorAdc MonitorAdc;
+
 #include "../PZTBuildNum"
 
 #include "CmdTableBinary.hpp"
@@ -177,4 +180,27 @@ int8_t BinaryPZTDacsFloatingPointCommand(const uint32_t Name, char const* Params
 	TxBinaryPacket(Argument, CGraphPayloadTypePZTDacs, 0, DacSetpoints, 3 * sizeof(double));
 
     return(ParamsLen);
+}
+
+int8_t BinaryPZTStatusCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	CGraphPZTStatusPayload Status;
+	
+	Status.P1V2 = MonitorAdc.GetP1V2();
+	Status.P2V2 = MonitorAdc.GetP2V2();
+	Status.P24V = MonitorAdc.GetP24V();
+	Status.P2V5 = MonitorAdc.GetP2V5();
+	Status.P3V3A = MonitorAdc.GetP3V3A();
+	Status.P6V = MonitorAdc.GetP6V();
+	Status.P5V = MonitorAdc.GetP5V();
+	Status.P3V3D = MonitorAdc.GetP3V3D();
+	Status.P4V3 = MonitorAdc.GetP4V3();
+	Status.N5V = MonitorAdc.GetN5V();
+	Status.N6V = MonitorAdc.GetN6V();
+	Status.P150V = MonitorAdc.GetP150V();
+	
+	printf("\n\nBinaryPZTStatusCommand: Replying...\n");
+	TxBinaryPacket(Argument, CGraphPayloadTypePZTStatus, 0, &Status, sizeof(CGraphPZTStatusPayload));
+
+	return(ParamsLen);
 }
