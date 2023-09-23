@@ -51,6 +51,12 @@ const BinaryCmd BinaryCmds[] =
 		"BinaryPZTAdcsFloatingPointCommand",
 		BinaryPZTAdcsFloatingPointCommand
     ),
+	
+	BinaryCmd (
+		CGraphPayloadTypePZTStatus,
+		"BinaryPZTStatusCommand",
+		BinaryPZTStatusCommand
+    ),
 };
 
 //Calculate the number of commands instanciated in the system - links with CmdSystem.cpp.o

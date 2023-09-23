@@ -101,11 +101,11 @@ const Cmd AsciiCmds[] =
         PZTAdcsCommand
     ),
 	
-	//~ Cmd(
-        //~ "BIST",
-        //~ "\"BIST\": Runs a self-test, logs values to terminal.",
-        //~ BISTCommand
-    //~ ),
+	Cmd(
+        "PZTSTATUS",
+        "\"PZTStatus\": Get monitor A/D values.",
+        PZTStatusCommand
+    ),
 };
 
 //Calculate the number of commands instanciated in the system - links with CmdSystem.cpp.o

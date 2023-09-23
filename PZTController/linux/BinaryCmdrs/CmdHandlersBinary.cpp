@@ -108,3 +108,31 @@ int8_t BinaryPZTAdcsFloatingPointCommand(const uint32_t Name, char const* Params
 	}
     return(ParamsLen);
 }
+
+int8_t BinaryPZTStatusCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	if ( (NULL != Params) && (ParamsLen >= (3 * sizeof(double))) )
+	{
+		const CGraphPZTStatusPayload* Status = reinterpret_cast<const CGraphPZTStatusPayload*>(Params);
+
+		formatf("\n\nBinaryPZTStatus Command: Values with corrected units follow:\n");
+		
+		formatf("P1V2: %3.6lf V\n", Status->P1V2);
+		formatf("P2V2: %3.6lf V\n", Status->P2V2);
+		formatf("P24V: %3.6lf V\n", Status->P24V);
+		formatf("P2V5: %3.6lf V\n", Status->P2V5);
+		formatf("P3V3A: %3.6lf V\n", Status->P3V3A);
+		formatf("P6V: %3.6lf V\n", Status->P6V);
+		formatf("P5V: %3.6lf V\n", Status->P5V);
+		formatf("P3V3D: %3.6lf V\n", Status->P3V3D);
+		formatf("P4V3: %3.6lf V\n", Status->P4V3);
+		formatf("N5V: %3.6lf V\n", Status->N5V);
+		formatf("N6V: %3.6lf V\n", Status->N6V);
+		formatf("P150V: %3.6lf V\n", Status->P150V);
+	}
+	else
+	{
+		printf("\nBinaryPZTAdcsFPCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (3 * sizeof(double)));
+	}
+    return(ParamsLen);
+}

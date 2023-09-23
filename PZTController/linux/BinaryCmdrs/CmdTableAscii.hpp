@@ -34,7 +34,7 @@ int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsL
 //~ int8_t WriteFpgaCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t PZTDacsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t PZTAdcsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
-//~ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t PZTStatusCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 
 ///The actual table (array) of commands for the system - links with CmdSystem.cpp.o
 extern const Cmd AsciiCmds[];

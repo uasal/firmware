@@ -31,6 +31,7 @@ int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_
 int8_t BinaryPZTDacsCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t BinaryPZTAdcsCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t BinaryPZTAdcsFloatingPointCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t BinaryPZTStatusCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument);
 
 ///The actual table (array) of commands for the system - links with CmdSystem.cpp.o
 extern const BinaryCmd BinaryCmds[];
