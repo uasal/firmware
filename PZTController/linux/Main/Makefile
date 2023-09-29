@@ -58,7 +58,7 @@ program: PZT
 	#~ -ssh root@192.168.1.223 systemctl stop PZT
 	#~ -ssh root@192.168.1.223 killall PZT
 	#~ -scp PZT root@192.168.1.223:/home/root
-	-ssh root@1fsm systemctl stop PZT
+	-ssh root@fsm systemctl stop PZT
 	-ssh root@fsm killall PZT
 	-scp PZT root@fsm:/home/root
 	

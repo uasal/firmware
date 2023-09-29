@@ -115,7 +115,7 @@ int8_t BinaryPZTStatusCommand(const uint32_t Name, char const* Params, const siz
 	{
 		const CGraphPZTStatusPayload* Status = reinterpret_cast<const CGraphPZTStatusPayload*>(Params);
 
-		formatf("\n\nBinaryPZTStatus Command: Values with corrected units follow:\n");
+		formatf("\n\nBinaryPZTStatus Command: Values with corrected units follow:\n\n");
 		
 		formatf("P1V2: %3.6lf V\n", Status->P1V2);
 		formatf("P2V2: %3.6lf V\n", Status->P2V2);
@@ -129,6 +129,8 @@ int8_t BinaryPZTStatusCommand(const uint32_t Name, char const* Params, const siz
 		formatf("N5V: %3.6lf V\n", Status->N5V);
 		formatf("N6V: %3.6lf V\n", Status->N6V);
 		formatf("P150V: %3.6lf V\n", Status->P150V);
+		
+		formatf("\n\nBinaryPZTStatus Command complete.\n\n");
 	}
 	else
 	{

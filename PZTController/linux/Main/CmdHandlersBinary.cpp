@@ -198,8 +198,24 @@ int8_t BinaryPZTStatusCommand(const uint32_t Name, char const* Params, const siz
 	Status.N5V = MonitorAdc.GetN5V();
 	Status.N6V = MonitorAdc.GetN6V();
 	Status.P150V = MonitorAdc.GetP150V();
+
+	printf("\n\nBinaryPZTStatusCommand: CurrentValues:\n\n");
 	
-	printf("\n\nBinaryPZTStatusCommand: Replying...\n");
+	formatf("P1V2: %3.6lf V\n", Status.P1V2);
+	formatf("P2V2: %3.6lf V\n", Status.P2V2);
+	formatf("P24V: %3.6lf V\n", Status.P24V);
+	formatf("P2V5: %3.6lf V\n", Status.P2V5);
+	formatf("P3V3A: %3.6lf V\n", Status.P3V3A);
+	formatf("P6V: %3.6lf V\n", Status.P6V);
+	formatf("P5V: %3.6lf V\n", Status.P5V);
+	formatf("P3V3D: %3.6lf V\n", Status.P3V3D);
+	formatf("P4V3: %3.6lf V\n", Status.P4V3);
+	formatf("N5V: %3.6lf V\n", Status.N5V);
+	formatf("N6V: %3.6lf V\n", Status.N6V);
+	formatf("P150V: %3.6lf V\n", Status.P150V);
+
+	
+	printf("\nBinaryPZTStatusCommand: Replying...\n");
 	TxBinaryPacket(Argument, CGraphPayloadTypePZTStatus, 0, &Status, sizeof(CGraphPZTStatusPayload));
 
 	return(ParamsLen);

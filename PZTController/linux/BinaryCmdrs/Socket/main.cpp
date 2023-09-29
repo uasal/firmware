@@ -90,6 +90,10 @@ int main(int argc, char *argv[])
 	//Tell C lib (stdio.h) not to buffer output, so we can ditch all the fflush(stdout) calls...
 	setvbuf(stdout, NULL, _IONBF, 0);
 	
+	formatf("\n\n\n\nWelcome to SerialPortBinaryCmdr!");
+	formatf("\n\nIn order to tunnel to the lab use the following command before running this program: \"ssh -L 1337:localhost:1337 -N -f fsm\" (where fsm is the ssh alias of the remote server)!\n\n");
+	
+	
 	//~ #ifdef WIN32
 	//~ // set to line buffered mode.
 	//~ SetConsoleMode(GetStdHandle(STD_INPUT_HANDLE),ENABLE_LINE_INPUT|ENABLE_ECHO_INPUT);
@@ -111,11 +115,11 @@ int main(int argc, char *argv[])
     int err = LocalPortPinout.init(nHostPort, PortName);
     if (IUart::IUartOK != err)
     {
-        formatf("SerialPortBinaryCmdr: can't open socket (%s:%l), exiting.\n", PortName, nHostPort);
+        formatf("SerialPortBinaryCmdr: can't open socket (%s:%u), exiting.\n", PortName, nHostPort);
         exit(-1);
     }
 	
-	printf("\n\nPZT: Start User Interface...");    
+	printf("\n\nSerialPortBinaryCmdr: Start User Interface...");    
 	
 	StartUserInterface();
 	
