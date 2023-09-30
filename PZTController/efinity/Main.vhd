@@ -949,9 +949,10 @@ architecture CGraphPZT of CGraphPZTPorts is
 			--~ constant BoardMasterClockFreq : natural := 95996094; --95996093.75 --old 49.150 clock
 			--~ constant BoardMasterClockFreq : natural := 99609375; --99609375.0 --51.0 clock
 			constant BoardMasterClockFreq : natural := 102000000; -- --102.0 clock
+			constant BoardUartClockFreq : natural := 136000000;
 			--~ constant BoardMasterClockFreq : natural := 153000000; -- --102.0 clock
 			signal MasterClk : std_logic; --This is the main clock for *everything*
-			signal UartClk : std_logic; --This is the uart clock, it runs at 102,000,000Hz, and a lot of the regular logic won't run that fast, which is why we have a seperate clock. In practice, it immediately gets divided by 16 ny the uarts so it actually is slower than the other logic, but at a weird ratio...
+			signal UartClk : std_logic; --This is the uart clock, it runs at 136MHz, and a lot of the regular logic won't run that fast, which is why we have a seperate clock. In practice, it immediately gets divided by 16 ny the uarts so it actually is slower than the other logic, but at a weird ratio...
 			--~ signal DcDcClk_i : std_logic; --1Mhz clock for the switching power supplies
 			--~ signal DcDcClkDiv : std_logic; --temp to generate DC/DC clock from A/D clock
 
@@ -1138,8 +1139,8 @@ begin
     
 	--MasterClk <= VCXO;
     MasterClk <= pll0O;
-	--~ UartClk <= pll1O;
-	UartClk <= pll0O;
+	UartClk <= pll1O;
+	--~ UartClk <= pll0O;
     
     --~ UserJmpJstnCse <= MasterClk;
     --UserJmpJstnCse <= '1';
