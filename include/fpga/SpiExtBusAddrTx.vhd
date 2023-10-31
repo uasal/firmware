@@ -10,7 +10,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.all;
 
-entity SpiExtBussAddrTxPorts is
+entity SpiExtBusAddrTxPorts is
 	generic (
 		MASTER_CLOCK_FREQHZ : natural := 10000000--; --The input clock
 	);
@@ -23,9 +23,9 @@ entity SpiExtBussAddrTxPorts is
 		SendingSpiExtBussAddr : out std_logic;
 		SpiExtBussAddrTxdPin : out std_logic--;
 	);
-end SpiExtBussAddrTxPorts;
+end SpiExtBusAddrTxPorts;
 
-architecture SpiExtBussAddrTx of SpiExtBussAddrTxPorts is
+architecture SpiExtBussAddrTx of SpiExtBusAddrTxPorts is
 
 	component ClockDividerPorts is
 	generic (

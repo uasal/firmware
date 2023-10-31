@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include <sys/types.h>
 
-union AdcAccumulator
+union 		
 {
     uint64_t all;
     struct 

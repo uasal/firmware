@@ -1,0 +1,12 @@
+#!/bin/bash
+sudo umount -lf /home/steve/projects/zonge/457/457
+
+rm -r /home/steve/projects/zonge/457/457/*
+
+sshfs root@$1:/home/root /home/steve/projects/zonge/457/457 -ouid=1000
+
+rsync -v TresCaminos/Zen457 /home/steve/projects/zonge/457/457
+
+chmod -R 775 /home/steve/projects/zonge/457/457
+
+sudo umount -lf /home/steve/projects/zonge/457/457

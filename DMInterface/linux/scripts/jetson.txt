@@ -1,0 +1,17 @@
+NIC=`connmanctl services | awk '{ print substr ($0, 11 ) }'`; echo $NIC
+connmanctl config $NIC --ipv4 manual 192.168.1.223 255.255.255.0 192.168.1.1 --nameservers 8.8.8.8 --timeservers pool.ntp.org
+echo CGraphFSMp001 > /etc/hostname
+useradd -G root,dialout,sudo,operator,plugdev,wheel summer
+useradd -G root,dialout,sudo,operator,plugdev,wheel sanford
+useradd -G root,dialout,sudo,operator,plugdev,wheel brian
+passwd summer
+passwd sanford drofnas%#@!
+passwd brian nairb*!$@
+su summer
+mkdir ~/.ssh
+echo ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIILXD3jn8XOTkcEgqmL9E6pkK3hu7joq7iwPxw97GeV7 summer@home >> ~/.ssh/authorized_keys
+echo ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEMAX0n0d1NLD+MPx1w4MUnwSLh9HlDjWksLiMf3OFYV summer@exao0.as.arizona.edu >> ~/.ssh/authorized_keys
+echo ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJTMUziL7HAf0yHO0wg2FTk/wwgoSX0BTqE2/dpdDdhT summer@exao0.as.arizona.edu >> ~/.ssh/authorized_keys
+echo ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDRnkWztTLxKGmAzzBKEJXoygs+TzYiXRKv1RpZfJEH9 summer@MountainOps >> ~/.ssh/authorized_keys
+echo ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDpBmI4UCW8YlHUGVVpCgXgClt5PE/s1OVZTgsIPUJ1wiqo4rBskvrCRw/dHy8/H26ySVTMUnheZISDL+0lBpsYY48HlV3QwbbDE5rkAtjvLn+nWXo+XYwj+20m3Cm4iDa64feuxI4M8POadnlnYx3r3DzcMmk6foBvMzXp+GNCCzCdDWmVKNjP35kJ89mfME0pj9mp/j+OdilsC+422RrAAtdI61CBUBZgJio1L2mP6lnZOS+A0IZ2HN/qhtlNLpUkr9SZ+IggnNLEM1CVZ8krrHRqDDoqvU8rtVDQqJEhn0LUJMO1tL0cKohJs6uF/LtFTl40M0j0ZLKy4y726PjolPyQvG0uEA813D2s0HP6btj4olZ2q+ZRgBsefBHJGU+TfJiEZP2GqlpLGxC0DKnMESCpyfLOpKCzD14JMgDJ5grlPIe9qtvqqsOhMHGH7/T9DuWnO4hdsfWOS9kJMovWMfEmewRZICOASNyKT5b/TeNGHMXh2DTRiZz44xSOruM= summer@trabajo >> ~/.ssh/authorized_keys
+chmod -R 700 ~/.ssh

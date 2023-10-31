@@ -1,0 +1,79 @@
+opkg update
+opkg install hostapd
+opkg install dhcp-server
+opkg install linux-firmware
+systemctl disable connman
+systemctl disable wpa_supplicant
+
+l3afpad /usr/lib/systemd/network/wired.network&   #!may also be in /etc/systemd instead of /usr/lib/systemd
+"
+[Match]
+Name=eth0
+
+[Network]
+DHCP=ipv4
+"
+
+l3afpad /usr/lib/systemd/network/rndis.network&
+"
+[Match]
+Name=usb0
+
+[Network]
+Address=10.157.1.1
+Gateway=10.157.1.1
+DNS=8.8.8.8
+"
+
+l3afpad /usr/lib/systemd/network/hostapd.network&
+"
+[Match]
+Name=wlan0
+
+[Network]
+Address=10.157.1.1
+Gateway=10.157.1.1
+DNS=8.8.8.8
+"
+
+l3afpad /etc/hostapd.conf&
+"
+...
+interface=wlan0
+...
+driver=nl80211
+...
+ssid=ZenX
+...
+auth_algs=0
+...
+"
+
+l3afpad /etc/dhcpd.conf
+"
+#
+#   DHCP Server Config File
+#
+ddns-update-style none;
+ignore client-updates;
+
+lease-file-name "/var/lib/dhcpd/dhcpd.leases";
+authoritative;
+
+option domain-name                      "example.com";
+default-lease-time                      86400;   # 24 hours
+max-lease-time                          172800;  # 48 hours
+
+subnet 192.168.1.0 netmask 255.255.255.0 {
+        option routers                  192.168.1.1;
+        option subnet-mask              255.255.255.0;
+        option broadcast-address        192.168.1.255;
+        option domain-name-servers      192.168.1.1;
+        option ntp-servers              192.168.1.1;
+        option netbios-name-servers     192.168.1.1;
+        option netbios-node-type        8;
+        range   192.168.1.101   192.168.1.200;
+}
+"
+
+

@@ -1,0 +1,54 @@
+//http://en.wikipedia.org/wiki/DOT_%28graph_description_language%29
+//http://stackoverflow.com/questions/7922960/block-diagram-layout-with-dot-graphviz
+//http://stackoverflow.com/questions/8042801/better-layout-of-nodes-for-block-diagrams-in-dot
+//http://blockdiag.com/en/blockdiag/examples.html#grouping-nodes
+//http://bl.ocks.org/d3noob/5141278
+//http://www.ibm.com/developerworks/aix/library/au-aix-graphviz/
+//http://www.graphviz.org/
+
+digraph Zen457ServerArchitecture
+{
+	//compound = true; 
+	fontsize=24;
+	label = "Zen.457.Server Architecture Documentation";
+	labelloc = t;
+	rank = source;
+	ratio = compress;
+	concentrate = true;
+	margin=5;
+	//nodesep = 5.0;
+	//node [shape=box];//,ranksep = "1.2 equally"]; //[color=Red];
+	//edge [color=Blue,shape=vee]; //, style=dotted];
+	//splines = ortho;
+	//clusterrank = local;
+	//compound = true; //If true, allow edges between clusters. (See lhead and ltail below.) 
+	//landscape = true;
+	//aspect = 1;
+	
+	//Threads
+	{
+		rank=same;
+		MainThread [label="Main Thread", shape=cds, margin=0.3, fontsize=18, penwidth=2];
+		ClientThreads [label="Client Threads [0...NClients-1]", shape=cds, margin=0.3, fontsize=18, penwidth=2];
+		ZenThreads [label="Zen Threads [0...NZens-1]", shape=cds, margin=0.3, fontsize=18, penwidth=2];
+	}		
+	
+	//Buffers
+	{
+		rank=same;
+		DataToClient [label="DataToClient Buffers [0...NClients-1]", shape=folder, margin=0.1];
+		DataFromClient [label="DataFromClient Buffers [0...NClients-1]", shape=folder, margin=0.1];
+		DataToZen [label="DataToZen Buffers [0...NZens-1]", shape=folder, margin=0.1];
+		DataFromZen [label="DataFromZen Buffers [0...NZens-1]", shape=folder, margin=0.1];
+	}	
+	
+	//Actions
+	ClientThreads -> DataFromClient [color=red, label="push"];
+	DataToClient -> ClientThreads [color=blue, label="pop"];
+	ZenThreads -> DataFromZen [color=red, label="push"];
+	DataToZen -> ZenThreads [color=blue, label="pop"];
+	DataFromClient -> MainThread [color=blue, label="pop"];
+	MainThread -> DataToClient [color=red, label="push"];
+	DataFromZen -> MainThread [color=blue, label="pop"];
+	MainThread -> DataToZen [color=red, label="push"];	
+}

@@ -1,0 +1,15 @@
+[Unit]
+Description=PZT Application
+After=multi-user.target
+ 
+[Service]
+Type=simple
+#ExecStartPre=/bin/cp /home/root/PZT.log /home/root/PZT.`date +"%Y.%m.%d.%H.%M.%S"`.log
+#ExecStart=/bin/sh -c "/home/root/PZT | tee /home/root/PZT.`date +'%Y.%m.%d.%H.%M.%S'`.log 2>&1"
+ExecStart=/home/root/PZT.service.sh
+WorkingDirectory=/home/root
+Restart=always
+User=root
+ 
+[Install]
+WantedBy=multi-user.target
