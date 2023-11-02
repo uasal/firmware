@@ -1,18 +1,18 @@
 OS := $(shell uname)
 ifeq ($(OS),Linux)
-	INCLUDE_LOCAL = /home/summer/projects/include
+	INCLUDE_LOCAL = ../../../../include
 else
 	INCLUDE_LOCAL = /cygdrive/n/firmware/include
 endif
-INCLUDE_LOCAL2 = /home/summer/projects/MountainOps/software/CGraph/Sanford/apps
-LIB_LOCAL = /home/summer/projects/firmware/include
-vpath %.h $(INCLUDE_LOCAL) $(INCLUDE_LOCAL2)
-vpath %.hpp $(INCLUDE_LOCAL) $(INCLUDE_LOCAL2)
+LIB_LOCAL = ../../../../include
+UTILS_LOCAL = ../../../../utils
+vpath %.h $(INCLUDE_LOCAL)
+vpath %.hpp $(INCLUDE_LOCAL)
 vpath %.c $(LIB_LOCAL)
 vpath %.cpp $(LIB_LOCAL)
 vpath %.o $(LIB_LOCAL)
 vpath %.a $(LIB_LOCAL)
-EXTRAINCDIRS = . ./../../../../include/ $(INCLUDE_LOCAL) $(INCLUDE_LOCAL2)
+EXTRAINCDIRS = . ./../../../../include/ $(INCLUDE_LOCAL)
 EXTRA_LIBDIRS = . ./../lib/ $(LIB_LOCAL)
 CFLAGS += $(patsubst %,-I%,$(EXTRAINCDIRS))
 LDFLAGS += $(patsubst %,-L%,$(EXTRA_LIBDIRS))
@@ -30,10 +30,10 @@ CFLAGS += -DGITVERSION="\"${GITVERSION}\"" -DBUILDNUM="\"${BUILDNUM}\"" -static-
 %.o: %.c
 	gcc $(CFLAGS) -g -I. -c $< -o $@
 
-PZTCmdrSocket: main.o ../CmdTableAscii.o ../CmdHandlersAscii.o ../CmdTableBinary.o ../CmdHandlersBinary.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL2)/CGraphFSMHardwareInterface/CGraphFSMHardwareInterface.o
+PZTCmdrSocket: main.o ../CmdTableAscii.o ../CmdHandlersAscii.o ../CmdTableBinary.o ../CmdHandlersBinary.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o
 	btracer ../PZTCmdrSocket
-	gcc main.o ../CmdTableAscii.o ../CmdHandlersAscii.o ../CmdTableBinary.o ../CmdHandlersBinary.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL2)/CGraphFSMHardwareInterface/CGraphFSMHardwareInterface.o -g -o PZTCmdrSocket $(CFLAGS) $(LDFLAGS) -g -L. -L/lib -L/usr/lib -L/usr/local/lib -lc -lstdc++ -lm -lpthread -lncurses
-	cp $@ /home/summer/bin/
+	gcc main.o ../CmdTableAscii.o ../CmdHandlersAscii.o ../CmdTableBinary.o ../CmdHandlersBinary.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o -g -o PZTCmdrSocket $(CFLAGS) $(LDFLAGS) -g -L. -L/lib -L/usr/lib -L/usr/local/lib -lc -lstdc++ -lm -lpthread -lncurses
+	cp $@ ~/bin/
 	
 all: PZTCmdrSocket
 
@@ -47,7 +47,7 @@ clean:
 	-rm $(INCLUDE_LOCAL)/arm/*.o
 	-rm $(INCLUDE_LOCAL)/uart/*.o
 	-rm $(INCLUDE_LOCAL)/format/*.o
-	-rm $(INCLUDE_LOCAL2)/CGraphFSMHardwareInterface/*.o
+	-rm $(INCLUDE_LOCAL)/cgraph/*.o
 	-rm PZTCmdrSocket
 	-killall PZTCmdrSocket
 	
