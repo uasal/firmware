@@ -85,7 +85,8 @@ int main(int argc, char *argv[])
 {
 	char PortName[255];
     int nHostPort = 65536 + 1337;	
-    strcpy(PortName, "192.168.1.223");
+    // strcpy(PortName, "192.168.1.223");
+    strcpy(PortName, "127.0.0.1");
 	
 	//Tell C lib (stdio.h) not to buffer output, so we can ditch all the fflush(stdout) calls...
 	setvbuf(stdout, NULL, _IONBF, 0);
