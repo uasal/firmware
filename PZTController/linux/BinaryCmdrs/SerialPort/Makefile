@@ -1,18 +1,17 @@
 OS := $(shell uname)
 ifeq ($(OS),Linux)
-	INCLUDE_LOCAL = /home/summer/projects/CGraph/firmware/include
+	INCLUDE_LOCAL = ../../../../include
 else
 	INCLUDE_LOCAL = /cygdrive/n/firmware/include
 endif
-#~ INCLUDE_LOCAL2 = /home/summer/projects/MountainOps/software/CGraph/Sanford/apps
-LIB_LOCAL = /home/summer/projects/firmware/include
-vpath %.h $(INCLUDE_LOCAL) $(INCLUDE_LOCAL2)
-vpath %.hpp $(INCLUDE_LOCAL) $(INCLUDE_LOCAL2)
+LIB_LOCAL = ../../../../include
+vpath %.h $(INCLUDE_LOCAL)
+vpath %.hpp $(INCLUDE_LOCAL)
 vpath %.c $(LIB_LOCAL)
 vpath %.cpp $(LIB_LOCAL)
 vpath %.o $(LIB_LOCAL)
 vpath %.a $(LIB_LOCAL)
-EXTRAINCDIRS = . ./../../../../include/ $(INCLUDE_LOCAL) $(INCLUDE_LOCAL2)
+EXTRAINCDIRS = . ./../../../../include/ $(INCLUDE_LOCAL)
 EXTRA_LIBDIRS = . ./../lib/ $(LIB_LOCAL)
 CFLAGS += $(patsubst %,-I%,$(EXTRAINCDIRS))
 LDFLAGS += $(patsubst %,-L%,$(EXTRA_LIBDIRS))
@@ -33,7 +32,7 @@ CFLAGS += -DGITVERSION="\"${GITVERSION}\"" -DBUILDNUM="\"${BUILDNUM}\"" -static-
 PZTCmdrSerial: main.o ../CmdTableAscii.o ../CmdHandlersAscii.o ../CmdTableBinary.o ../CmdHandlersBinary.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o
 	btracer ../PZTCmdrSerial
 	gcc main.o ../CmdTableAscii.o ../CmdHandlersAscii.o ../CmdTableBinary.o ../CmdHandlersBinary.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o -g -o PZTCmdrSerial $(CFLAGS) $(LDFLAGS) -g -L. -L/lib -L/usr/lib -L/usr/local/lib -lc -lstdc++ -lm -lpthread -lncurses
-	cp $@ /home/summer/bin/
+	cp $@ ~/bin/
 	
 all: PZTCmdrSerial
 
