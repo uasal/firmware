@@ -1,0 +1,188 @@
+#OPTIONS:"|-mixedhdl|-modhint|C:\\MicroSemiProj\\EvalBoardSandbox\\synthesis\\synwork\\_verilog_hintfile|-top|EvalBoardSandbox|-layerid|0|-orig_srs|C:\\MicroSemiProj\\EvalBoardSandbox\\synthesis\\synwork\\EvalBoardSandbox_comp.srs|-prodtype|synplify_pro|-infer_seqShift|-primux|-dspmac|-pqdpadd|-fixsmult|-sdff_counter|-divnmod|-nram|-actel|-I|C:\\MicroSemiProj\\EvalBoardSandbox\\synthesis\\|-I|C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib|-sysv|-devicelib|C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\generic\\smartfusion2.v|-encrypt|-pro|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-lib|COREAPBLSRAM_LIB|-lib|COREAPBLSRAM_LIB|-lib|COREAPBLSRAM_LIB|-lib|COREAPBLSRAM_LIB|-lib|COREAPBLSRAM_LIB|-lib|COREAPBLSRAM_LIB|-lib|COREAPBLSRAM_LIB|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|COREAPB3_LIB|-lib|COREAPB3_LIB|-lib|COREAPB3_LIB|-lib|work|-lib|work"
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\bin64\\c_ver.exe":1691490330
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\synthesis\\synwork\\_verilog_hintfile":1706555255
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\generic\\smartfusion2.v":1691490345
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\vlog\\hypermods.v":1691490346
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\vlog\\umr_capim.v":1691490346
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\vlog\\scemi_objects.v":1691490346
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\vlog\\scemi_pipes.svh":1691490346
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\COREAPBLSRAM_C0\\COREAPBLSRAM_C0_0\\rtl\\vlog\\core\\lsram_1024to70656x16.v":1701727727
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\COREAPBLSRAM_C0\\COREAPBLSRAM_C0_0\\rtl\\vlog\\core\\lsram_2048to141312x8.v":1701727727
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\COREAPBLSRAM_C0\\COREAPBLSRAM_C0_0\\rtl\\vlog\\core\\lsram_512to35328x32.v":1701727727
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\COREAPBLSRAM_C0\\COREAPBLSRAM_C0_0\\rtl\\vlog\\core\\usram_128to9216x8.v":1701727727
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\COREAPBLSRAM_C0\\COREAPBLSRAM_C0_0\\rtl\\vlog\\core\\usram_64to2304x32.v":1701727727
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\COREAPBLSRAM_C0\\COREAPBLSRAM_C0_0\\rtl\\vlog\\core\\usram_64to4608x16.v":1701727727
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\COREAPBLSRAM_C0\\COREAPBLSRAM_C0_0\\rtl\\vlog\\core\\CoreAPBLSRAM.v":1701727727
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\COREAPBLSRAM_C0\\COREAPBLSRAM_C0.v":1701727727
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\CoreUARTapb_C0\\CoreUARTapb_C0_0\\rtl\\vlog\\core_obfuscated\\Clock_gen.v":1704905420
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\CoreUARTapb_C0\\CoreUARTapb_C0_0\\rtl\\vlog\\core_obfuscated\\Rx_async.v":1704905420
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\CoreUARTapb_C0\\CoreUARTapb_C0_0\\rtl\\vlog\\core_obfuscated\\Tx_async.v":1704905420
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\CoreUARTapb_C0\\CoreUARTapb_C0_0\\rtl\\vlog\\core_obfuscated\\fifo_256x8_g4.v":1704905420
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\CoreUARTapb_C0\\CoreUARTapb_C0_0\\rtl\\vlog\\core_obfuscated\\CoreUART.v":1704905420
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\CoreUARTapb_C0\\CoreUARTapb_C0_0\\rtl\\vlog\\core_obfuscated\\CoreUARTapb.v":1704905420
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\CoreUARTapb_C0\\CoreUARTapb_C0.v":1704905420
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\EvalSandbox_MSS\\CCC_0\\EvalSandbox_MSS_CCC_0_FCCC.v":1706548635
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\Actel\\SgCore\\OSC\\2.0.101\\osc_comps.v":1695073416
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\EvalSandbox_MSS\\FABOSC_0\\EvalSandbox_MSS_FABOSC_0_OSC.v":1706548636
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\EvalSandbox_MSS_MSS\\EvalSandbox_MSS_MSS_syn.v":1706548632
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\EvalSandbox_MSS_MSS\\EvalSandbox_MSS_MSS.v":1706548633
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\Actel\\DirectCore\\CoreConfigP\\7.1.100\\rtl\\vlog\\core\\coreconfigp.v":1695409979
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\Actel\\DirectCore\\CoreResetP\\7.1.100\\rtl\\vlog\\core\\coreresetp_pcie_hotreset.v":1695073415
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\Actel\\DirectCore\\CoreResetP\\7.1.100\\rtl\\vlog\\core\\coreresetp.v":1695073415
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\Actel\\DirectCore\\corepwm\\4.1.106\\rtl\\vlog\\core_obfuscated\\pwm_gen.v":1695763448
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\Actel\\DirectCore\\corepwm\\4.1.106\\rtl\\vlog\\core_obfuscated\\reg_if.v":1695763448
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\Actel\\DirectCore\\corepwm\\4.1.106\\rtl\\vlog\\core_obfuscated\\timebase.v":1695763448
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\Actel\\DirectCore\\corepwm\\4.1.106\\rtl\\vlog\\core_obfuscated\\tach_if.v":1695763448
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\Actel\\DirectCore\\corepwm\\4.1.106\\rtl\\vlog\\core_obfuscated\\corepwm.v":1695763448
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\Actel\\DirectCore\\CoreAPB3\\4.1.100\\rtl\\vlog\\core\\coreapb3_muxptob3.v":1695145017
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\Actel\\DirectCore\\CoreAPB3\\4.1.100\\rtl\\vlog\\core\\coreapb3_iaddr_reg.v":1695145017
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\Actel\\DirectCore\\CoreAPB3\\4.1.100\\rtl\\vlog\\core\\coreapb3.v":1695145017
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\EvalSandbox_MSS\\EvalSandbox_MSS.v":1706548636
+#CUR:"C:\\MicroSemiProj\\EvalBoardSandbox\\component\\work\\EvalBoardSandbox\\EvalBoardSandbox.v":1706555165
+#numinternalfiles:5
+#defaultlanguage:verilog
+0			"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\lsram_1024to70656x16.v" verilog
+1			"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\lsram_2048to141312x8.v" verilog
+2			"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\lsram_512to35328x32.v" verilog
+3			"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\usram_128to9216x8.v" verilog
+4			"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\usram_64to2304x32.v" verilog
+5			"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\usram_64to4608x16.v" verilog
+6			"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v" verilog
+7			"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0.v" verilog
+8			"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Clock_gen.v" verilog
+9			"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v" verilog
+10			"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v" verilog
+11			"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\fifo_256x8_g4.v" verilog
+12			"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v" verilog
+13			"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v" verilog
+14			"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0.v" verilog
+15			"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS\CCC_0\EvalSandbox_MSS_CCC_0_FCCC.v" verilog
+16			"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\SgCore\OSC\2.0.101\osc_comps.v" verilog
+17			"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v" verilog
+18			"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS_syn.v" verilog
+19			"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS.v" verilog
+20			"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreConfigP\7.1.100\rtl\vlog\core\coreconfigp.v" verilog
+21			"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp_pcie_hotreset.v" verilog
+22			"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v" verilog
+23			"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\pwm_gen.v" verilog
+24			"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\reg_if.v" verilog
+25			"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\timebase.v" verilog
+26			"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\tach_if.v" verilog
+27			"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v" verilog
+28			"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_muxptob3.v" verilog
+29			"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_iaddr_reg.v" verilog
+30			"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v" verilog
+31			"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS\EvalSandbox_MSS.v" verilog
+32			"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v" verilog
+#Dependency Lists(Uses List)
+0 -1
+1 -1
+2 -1
+3 -1
+4 -1
+5 -1
+6 0 2 1 4 5 3
+7 6
+8 -1
+9 -1
+10 -1
+11 -1
+12 8 10 9 11
+13 12
+14 13
+15 -1
+16 -1
+17 16
+18 -1
+19 18
+20 -1
+21 -1
+22 21
+23 -1
+24 -1
+25 -1
+26 -1
+27 24 25 23 26
+28 -1
+29 -1
+30 28 29
+31 15 30 20 27 22 19 17
+32 7 14 31
+#Dependency Lists(Users Of)
+0 6
+1 6
+2 6
+3 6
+4 6
+5 6
+6 7
+7 32
+8 12
+9 12
+10 12
+11 12
+12 13
+13 14
+14 32
+15 31
+16 17
+17 31
+18 19
+19 31
+20 31
+21 22
+22 31
+23 27
+24 27
+25 27
+26 27
+27 31
+28 30
+29 30
+30 31
+31 32
+32 -1
+#Design Unit to File Association
+module work COREAPBLSRAM_C0 7
+module work CoreUARTapb_C0_CoreUARTapb_C0_0_Clock_gen 8
+module work CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async 9
+module work CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async 10
+module work CoreUARTapb_C0_CoreUARTapb_C0_0_fifo_256x8 11
+module work CoreUARTapb_C0_CoreUARTapb_C0_0_fifo_ctrl_128 11
+module work CoreUARTapb_C0_CoreUARTapb_C0_0_ram128x8_pa4 11
+module work CoreUARTapb_C0_CoreUARTapb_C0_0_COREUART 12
+module work CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb 13
+module work CoreUARTapb_C0 14
+module work EvalSandbox_MSS_CCC_0_FCCC 15
+module work RCOSC_1MHZ 16
+module work RCOSC_25_50MHZ 16
+module work XTLOSC 16
+module work RCOSC_1MHZ_FAB 16
+module work RCOSC_25_50MHZ_FAB 16
+module work XTLOSC_FAB 16
+module work EvalSandbox_MSS_FABOSC_0_OSC 17
+module work MSS_010 18
+module work EvalSandbox_MSS_MSS 19
+module work CoreConfigP 20
+module work coreresetp_pcie_hotreset 21
+module work CoreResetP 22
+module work pwm_gen 23
+module work reg_if 24
+module work timebase 25
+module work tach_if 26
+module work corepwm 27
+module work EvalSandbox_MSS 31
+module work EvalBoardSandbox 32
+module COREAPBLSRAM_LIB COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_lsram_1024to70656x16 0
+module COREAPBLSRAM_LIB COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_lsram_2048to141312x8 1
+module COREAPBLSRAM_LIB COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_lsram_512to35328x32 2
+module COREAPBLSRAM_LIB COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_usram_128to9216x8 3
+module COREAPBLSRAM_LIB COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_usram_64to2304x32 4
+module COREAPBLSRAM_LIB COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_usram_64to4608x16 5
+module COREAPBLSRAM_LIB COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_COREAPBLSRAM 6
+module COREAPB3_LIB COREAPB3_MUXPTOB3 28
+module COREAPB3_LIB coreapb3_iaddr_reg 29
+module COREAPB3_LIB CoreAPB3 30
+#Unbound instances to file Association.
+inst work EvalBoardSandbox SpiMasterTrioPorts 32
+inst work EvalBoardSandbox SpiMasterTrioPorts 32

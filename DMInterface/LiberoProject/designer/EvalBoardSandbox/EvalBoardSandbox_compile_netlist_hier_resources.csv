@@ -1,0 +1,21 @@
+Detailed Resource Usage
+Module Name,Fabric 4LUT,Fabric DFF,Interface 4LUT,Interface DFF,Single-Ended I/O,Differential I/O Pairs,LSRAM 18K,PLLs and CCCs,Chip Globals,MSS,10/100/1000 Ethernet,HS USB,Multi-Mode UART,RCOSC_50MHZ
+COREAPBLSRAM_C0_0/COREAPBLSRAM_C0_0/Primitives,9,16,0,0,0,0,0,0,0,0,0,0,0,0
+COREAPBLSRAM_C0_0/COREAPBLSRAM_C0_0/genblk1.genblk1.lsram_1024to70656x16_block0/Primitives,0,0,72,72,0,0,2,0,0,0,0,0,0,0
+CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTIO1/Primitives,32,18,0,0,0,0,0,0,0,0,0,0,0,0
+CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTO01/Primitives,73,41,0,0,0,0,0,0,0,0,0,0,0,0
+CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTOO1/Primitives,24,19,0,0,0,0,0,0,0,0,0,0,0,0
+CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/Primitives,5,9,0,0,0,0,0,0,0,0,0,0,0,0
+CoreUARTapb_C0_0/CoreUARTapb_C0_0/Primitives,27,24,0,0,0,0,0,0,0,0,0,0,0,0
+EvalSandbox_MSS_0/CCC_0/Primitives,0,0,0,0,0,0,0,1,1,0,0,0,0,0
+EvalSandbox_MSS_0/CORECONFIGP_0/Primitives,54,74,0,0,0,0,0,0,0,0,0,0,0,0
+EvalSandbox_MSS_0/CORERESETP_0/Primitives,34,68,0,0,0,0,0,0,2,0,0,0,0,0
+EvalSandbox_MSS_0/CoreAPB3_0/Primitives,5,0,0,0,0,0,0,0,0,0,0,0,0,0
+EvalSandbox_MSS_0/CoreAPB3_0/u_mux_p_to_b3/Primitives,68,0,0,0,0,0,0,0,0,0,0,0,0,0
+EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/Primitives,12,0,0,0,37,2,0,0,3,1,0,0,0,0
+EvalSandbox_MSS_0/FABOSC_0/Primitives,0,0,0,0,0,0,0,0,1,0,0,0,0,1
+EvalSandbox_MSS_0/corepwm_0_0/genblk2.reg_if/Primitives,79,131,0,0,0,0,0,0,0,0,0,0,0,0
+EvalSandbox_MSS_0/corepwm_0_0/genblk4.genblk1.timebase/Primitives,85,32,0,0,0,0,0,0,0,0,0,0,0,0
+EvalSandbox_MSS_0/corepwm_0_0/genblk5.pwm_gen/Primitives,64,2,0,0,0,0,0,0,0,0,0,0,0,0
+Primitives/Primitives,1,0,0,0,10,0,0,0,0,0,0,0,0,0
+SpiMasterTrioPorts_0/Primitives,38,24,0,0,0,0,0,0,1,0,0,0,0,0

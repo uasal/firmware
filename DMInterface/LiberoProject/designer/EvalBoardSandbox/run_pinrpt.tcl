@@ -1,0 +1,10 @@
+DESIGN=EvalBoardSandbox
+DESDIR=C:\MicroSemiProj\EvalBoardSandbox\designer\EvalBoardSandbox
+TARGET_DIR=C:\MicroSemiProj\EvalBoardSandbox\designer\EvalBoardSandbox
+FAM=SmartFusion2
+DIE=PA4M1000_N
+PACKAGE=vf256
+PINRPT_BY_NAME=1
+PINRPT_BY_NUMBER=1
+BANK_REPORT=1
+IOREG_REPORT=1

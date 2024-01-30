@@ -1,0 +1,10 @@
+SERNO,END_INSTANCE,END_CLOCK,START_CLOCK,START_INSTANCE,CDC_TYPE,SYNCHRONIZER,NUMBER_OF_SYNCHRONIZER_FFs,SAFE_CDC,DESCRIPTION
+1,EvalSandbox_MSS_0.CORERESETP_0.CONFIG1_DONE_q1,EvalSandbox_MSS_0/CCC_0/GL0,EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/CLK_CONFIG_APB,NA,False Path Constraint,YES,2,NO,Combinatorial logic detected at clock domain crossing.
+2,EvalSandbox_MSS_0.CORERESETP_0.CONFIG2_DONE_q1,EvalSandbox_MSS_0/CCC_0/GL0,EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/CLK_CONFIG_APB,NA,False Path Constraint,YES,2,NO,Combinatorial logic detected at clock domain crossing.
+3,EvalSandbox_MSS_0.CORERESETP_0.count_ddr_enable_q1,EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT,EvalSandbox_MSS_0/CCC_0/GL0,NA,False Path Constraint,YES,2,NO,Combinatorial logic detected at clock domain crossing.
+4,EvalSandbox_MSS_0.CORERESETP_0.ddr_settled_q1,EvalSandbox_MSS_0/CCC_0/GL0,EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT,NA,False Path Constraint,YES,2,NO,Combinatorial logic detected at clock domain crossing.
+5,EvalSandbox_MSS_0.CORERESETP_0.release_sdif0_core_q1,EvalSandbox_MSS_0/CCC_0/GL0,EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT,NA,False Path Constraint,YES,2,NO,Combinatorial logic detected at clock domain crossing.
+6,EvalSandbox_MSS_0.CORERESETP_0.release_sdif1_core_q1,EvalSandbox_MSS_0/CCC_0/GL0,EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT,NA,False Path Constraint,YES,2,NO,Combinatorial logic detected at clock domain crossing.
+7,EvalSandbox_MSS_0.CORERESETP_0.release_sdif2_core_q1,EvalSandbox_MSS_0/CCC_0/GL0,EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT,NA,False Path Constraint,YES,2,NO,Combinatorial logic detected at clock domain crossing.
+8,EvalSandbox_MSS_0.CORERESETP_0.release_sdif3_core_q1,EvalSandbox_MSS_0/CCC_0/GL0,EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT,NA,False Path Constraint,YES,2,NO,Combinatorial logic detected at clock domain crossing.
+9,EvalSandbox_MSS_0.CORECONFIGP_0.INIT_DONE_q1,EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/CLK_CONFIG_APB,EvalSandbox_MSS_0/CCC_0/GL0,NA,False Path Constraint,YES,2,NO,Combinatorial logic detected at clock domain crossing.

@@ -1,0 +1,110 @@
+# Microchip I/O Physical Design Constraints file
+
+# User I/O Constraints file 
+
+# Version: 2023.2 2023.2.0.8
+
+# Family: SmartFusion2 , Die: M2S010 , Package: 256 VF
+
+# Date generated: Mon Jan 29 11:39:20 2024 
+
+
+# 
+# User Locked I/O Bank Settings
+# 
+
+
+# 
+# Unlocked I/O Bank Settings
+# The I/O Bank Settings can be locked by directly editing this file
+# or by making changes in the I/O Attribute Editor
+# 
+
+
+# 
+# User Locked I/O settings
+# 
+
+set_io Mosi            \
+    -pinname H15       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io MosiB           \
+    -pinname H3        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {PWM[1]}        \
+    -pinname T12       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {PWM[2]}        \
+    -pinname T13       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io RX             \
+    -pinname H4       \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+
+set_io Sck             \
+    -pinname H14       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io TX              \
+    -pinname G16       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io XferComplete    \
+    -pinname P13       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io nCs             \
+    -pinname G14       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io nCsB            \
+    -pinname L13       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+
+# 
+# Dedicated Peripheral I/O Settings
+# 
+
+
+# 
+# Unlocked I/O settings
+# The I/Os in this section are unplaced or placed but are not locked
+# the other listed attributes have been applied
+# 
+
+
+#
+#Ports using Dedicated Pins
+
+#
+
+set_io DEVRST_N       \
+    -pinname M11      \
+    -DIRECTION INPUT
+
+

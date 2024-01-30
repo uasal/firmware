@@ -1,0 +1,161 @@
+
+Copyright (C) 1994-2022 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: T-2022.09M-SP2-1
+Install: C:\Microchip\Libero_SoC_v2023.2\SynplifyPro
+OS: Windows 10 or later
+Hostname: ASTR-ETS-001
+
+Implementation : synthesis
+Synopsys HDL compiler and linker, Version comp202209synp2, Build 179R, Built Jun 27 2023 09:29:56, @
+
+Modified Files: 2
+FID:  path (prevtimestamp, timestamp)
+23       C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05)
+85       C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd (2024-01-29 09:10:56, 2024-01-29 12:01:48)
+
+*******************************************************************
+Modules that may have changed as a result of file changes: 41
+MID:  lib.cell.view
+43       COREAPB3_LIB.COREAPB3_MUXPTOB3.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+13       COREAPB3_LIB.CoreAPB3.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+44       COREAPB3_LIB.coreapb3_iaddr_reg.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+62       COREAPBLSRAM_LIB.COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_COREAPBLSRAM.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+63       COREAPBLSRAM_LIB.COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_lsram_1024to70656x16.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+64       COREAPBLSRAM_LIB.COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_lsram_2048to141312x8.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+65       COREAPBLSRAM_LIB.COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_lsram_512to35328x32.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+66       COREAPBLSRAM_LIB.COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_usram_128to9216x8.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+67       COREAPBLSRAM_LIB.COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_usram_64to2304x32.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+68       COREAPBLSRAM_LIB.COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_usram_64to4608x16.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+77       homebrew.spimastertrioports.spimastertrio may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+                        C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd (2024-01-29 09:10:56, 2024-01-29 12:01:48) <-- (architecture and entity definition)
+69       work.COREAPBLSRAM_C0.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+14       work.CoreConfigP.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+15       work.CoreResetP.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+45       work.CoreUARTapb_C0.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+46       work.CoreUARTapb_C0_CoreUARTapb_C0_0_COREUART.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+47       work.CoreUARTapb_C0_CoreUARTapb_C0_0_Clock_gen.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+48       work.CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+49       work.CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+50       work.CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+51       work.CoreUARTapb_C0_CoreUARTapb_C0_0_fifo_256x8.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+52       work.CoreUARTapb_C0_CoreUARTapb_C0_0_fifo_ctrl_128.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+53       work.CoreUARTapb_C0_CoreUARTapb_C0_0_ram128x8_pa4.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+16       work.EvalBoardSandbox.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (module definition)
+17       work.EvalSandbox_MSS.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+18       work.EvalSandbox_MSS_CCC_0_FCCC.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+19       work.EvalSandbox_MSS_FABOSC_0_OSC.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+20       work.EvalSandbox_MSS_MSS.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+21       work.MSS_010.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+22       work.RCOSC_1MHZ.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+23       work.RCOSC_1MHZ_FAB.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+24       work.RCOSC_25_50MHZ.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+25       work.RCOSC_25_50MHZ_FAB.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+26       work.XTLOSC.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+27       work.XTLOSC_FAB.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+28       work.corepwm.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+29       work.coreresetp_pcie_hotreset.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+30       work.pwm_gen.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+31       work.reg_if.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+32       work.tach_if.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+33       work.timebase.verilog may have changed because the following files changed:
+                        C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v (2024-01-29 11:37:35, 2024-01-29 12:06:05) <-- (may instantiate this module)
+
+*******************************************************************
+Unmodified files: 47
+FID:  path (timestamp)
+45       C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v (2023-09-19 10:36:57)
+46       C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_iaddr_reg.v (2023-09-19 10:36:57)
+47       C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_muxptob3.v (2023-09-19 10:36:57)
+14       C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreConfigP\7.1.100\rtl\vlog\core\coreconfigp.v (2023-09-22 12:12:59)
+15       C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v (2023-09-18 14:43:35)
+16       C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp_pcie_hotreset.v (2023-09-18 14:43:35)
+17       C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v (2023-09-26 14:24:08)
+18       C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\pwm_gen.v (2023-09-26 14:24:08)
+19       C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\reg_if.v (2023-09-26 14:24:08)
+20       C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\tach_if.v (2023-09-26 14:24:08)
+21       C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\timebase.v (2023-09-26 14:24:08)
+22       C:\MicroSemiProj\EvalBoardSandbox\component\Actel\SgCore\OSC\2.0.101\osc_comps.v (2023-09-18 14:43:36)
+63       C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0.v (2023-12-04 15:08:47)
+64       C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v (2023-12-04 15:08:47)
+65       C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\lsram_1024to70656x16.v (2023-12-04 15:08:47)
+66       C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\lsram_2048to141312x8.v (2023-12-04 15:08:47)
+67       C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\lsram_512to35328x32.v (2023-12-04 15:08:47)
+68       C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\usram_128to9216x8.v (2023-12-04 15:08:47)
+69       C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\usram_64to2304x32.v (2023-12-04 15:08:47)
+70       C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\usram_64to4608x16.v (2023-12-04 15:08:47)
+48       C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0.v (2024-01-10 09:50:20)
+49       C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Clock_gen.v (2024-01-10 09:50:20)
+50       C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v (2024-01-10 09:50:20)
+51       C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v (2024-01-10 09:50:20)
+52       C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v (2024-01-10 09:50:20)
+53       C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v (2024-01-10 09:50:20)
+54       C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\fifo_256x8_g4.v (2024-01-10 09:50:20)
+24       C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS\CCC_0\EvalSandbox_MSS_CCC_0_FCCC.v (2024-01-29 10:17:15)
+25       C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS\EvalSandbox_MSS.v (2024-01-29 10:17:16)
+26       C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v (2024-01-29 10:17:16)
+27       C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS.v (2024-01-29 10:17:13)
+28       C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS_syn.v (2024-01-29 10:17:12)
+29       C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v (2023-08-08 03:25:45)
+74       C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vhd2008\arith.vhd (2023-08-08 03:25:46)
+75       C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vhd2008\location.map (2023-08-08 03:25:46)
+76       C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vhd2008\numeric.vhd (2023-08-08 03:25:46)
+77       C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vhd2008\std.vhd (2023-08-08 03:25:46)
+78       C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vhd2008\std1164.vhd (2023-08-08 03:25:46)
+79       C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vhd2008\std_textio.vhd (2023-08-08 03:25:46)
+80       C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vhd2008\unsigned.vhd (2023-08-08 03:25:46)
+81       C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vhd\hyperents.vhd (2023-08-08 03:25:46)
+82       C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vhd\snps_haps_pkg.vhd (2023-08-08 03:25:46)
+83       C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vhd\umr_capim.vhd (2023-08-08 03:25:46)
+30       C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vlog\hypermods.v (2023-08-08 03:25:46)
+31       C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vlog\scemi_objects.v (2023-08-08 03:25:46)
+32       C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vlog\scemi_pipes.svh (2023-08-08 03:25:46)
+33       C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vlog\umr_capim.v (2023-08-08 03:25:46)
+
+*******************************************************************
+Unchanged modules: 0
+MID:  lib.cell.view
