@@ -1,0 +1,87 @@
+/*
+ * MirrorMap.hpp
+ *
+ *  Created on: Jan 17, 2024
+ *      Author: SKaye (kaye2@arizona.edu)
+ */
+
+/* Includes */
+#include <stdio.h>
+#include "sextext_regs.h"
+#include "hal.h"
+#include "hal_assert.h"
+#include "mss_gpio.h"
+//#include "./hal/CortexM3/GNU/hw_macros.h"
+//#include "./hal/CortexM3/GNU/cpu_types.h"
+#include "EvalBoardSandbox_hw_platform.h"
+#include <string.h>
+
+
+#define DriverBoards 6
+#define DacPerBoard  4
+#define ChanPerDac   40
+#define NumSpiPorts  6
+#define NO_OFFSET            0x00u
+
+
+// Need a simple translation from mirror number to board, dac, and dac channel numbers
+
+struct DACspi {
+  uint16_t        dmdacWord[952]; // Host CPU will translate voltage to dacWord; 952 channels
+  spi_instance_t  dacSpi[6];      // SPI for each DM driver board
+  int             board;
+
+  // Assign the initial default values
+  // Still developing...
+  //  DACspi(struct mmap mirrorMap):
+
+  // Initialize and configure SPI ports
+  int Init() {
+    // Would like some error checking, but the init and configure routines don't return anything
+//    SPI_init(&dacSpi[0], CORESPI_C0_0, 8);  // Initialize first SPI port
+//    SPI_configure_master_mode(&dacSpi[0]);  // Make the master
+    return(0);
+  };
+
+  void sendSingleDacSpi(int board, int dacNum) {
+    int    xferDone=0;
+    
+    // Send data to a homebrew SPI peripheral
+    //HAL_set_8bit_reg(SPIMASTERTRIOPORTS_0_BIF_1, MOSIA, 0xf432);
+    //HW_set_16bit_reg(SPIMASTERTRIOPORTS_0_BIF_2, 0x234f);
+
+    MSS_GPIO_set_output(MSS_GPIO_1, 0); // begin a SPI transaction clear rst to low
+    // check on the MSS_GPIO_2 input to see if the xfer is done
+    while(!xferDone) {
+      xferDone = (MSS_GPIO_get_inputs() & MSS_GPIO_2_MASK);
+    }
+    MSS_GPIO_set_output(MSS_GPIO_1, 1); // SPI transaction done, set rst high
+    return;
+  };
+
+  void sendTwoDacSpi(int board, int dacNum) {
+    uint16_t    data1, data2;
+    int    xferDone=0;
+
+    // Send data to a homebrew SPI peripheral
+    //    HAL_set_16bit_reg(SPIMASTERTRIOPORTS_0_BIF_1, NO_OFFSET, 0xf432);
+    //HW_set_16bit_reg(SPIMASTERTRIOPORTS_0_BIF_2, 0x234f);
+
+    MSS_GPIO_set_output(MSS_GPIO_1, 0); // set rst on the SPI module to low to begin a SPI transaction
+    // The transaction should be going now
+        while(!xferDone) {
+      xferDone = (MSS_GPIO_get_inputs() & MSS_GPIO_2_MASK);
+    }
+    MSS_GPIO_set_output(MSS_GPIO_1, 1); // SPI transaction done, set rst high
+
+//    SPI_set_slave_select(&dacSpi[board], (spi_slave_t)dacNum);
+//    SPI_transfer_frame(&dacSpi[board], 0xf456);
+//    SPI_clear_slave_select(&dacSpi[board], (spi_slave_t)dacNum);
+
+    
+    return;
+  };
+
+};
+
+DACspi  SpiContainer;
