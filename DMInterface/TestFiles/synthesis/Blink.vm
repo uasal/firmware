@@ -1,0 +1,54 @@
+//
+// Written by Synplify Pro 
+// Product Version "T-2022.09M-SP2-1"
+// Program "Synplify Pro", Mapper "map202209actsp2, Build 145R"
+// Wed Jan 31 10:57:39 2024
+//
+// Source file index table:
+// Object locations will have the form <file>:<line>
+// file 0 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd2008\std.vhd "
+// file 1 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd\snps_haps_pkg.vhd "
+// file 2 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd2008\std1164.vhd "
+// file 3 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd2008\std_textio.vhd "
+// file 4 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd2008\numeric.vhd "
+// file 5 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd\umr_capim.vhd "
+// file 6 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd2008\arith.vhd "
+// file 7 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd2008\unsigned.vhd "
+// file 8 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd\hyperents.vhd "
+// file 9 "\c:\microsemiproj\ledtest\hdl\main.vhd "
+// file 10 "\c:\microsemiproj\ledtest\component\work\blink\blink.vhd "
+// file 11 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\generic\smartfusion2.vhd "
+// file 12 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\nlconst.dat "
+// file 13 "\c:\microsemiproj\ledtest\designer\blink\synthesis.fdc "
+
+`timescale 100 ps/100 ps
+module Blink (
+  port_name1,
+  port_name2
+)
+;
+input port_name1 ;
+output port_name2 ;
+wire port_name1 ;
+wire port_name2 ;
+wire GND ;
+wire VCC ;
+wire port_name1_c ;
+// @10:21
+  INBUF port_name1_ibuf (
+	.Y(port_name1_c),
+	.PAD(port_name1)
+);
+// @10:23
+  OUTBUF port_name2_obuf (
+	.PAD(port_name2),
+	.D(port_name1_c)
+);
+  GND GND_Z (
+	.Y(GND)
+);
+  VCC VCC_Z (
+	.Y(VCC)
+);
+endmodule /* Blink */
+

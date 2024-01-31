@@ -1,0 +1,21 @@
+@N: CD231 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vhd2008\std1164.vhd":889:16:889:17|Using onehot encoding for type mvl9plus. For example, enumeration 'U' is mapped to "1000000000".
+@N: CD630 :"C:\MicroSemiProj\LEDTest\component\work\Blink\Blink.vhd":17:7:17:11|Synthesizing work.blink.rtl.
+@N: CD630 :"C:\MicroSemiProj\LEDTest\hdl\Main.vhd":23:7:23:10|Synthesizing work.main.architecture_main.
+@W: CD638 :"C:\MicroSemiProj\LEDTest\hdl\Main.vhd":33:8:33:19|Signal signal_name1 is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"C:\MicroSemiProj\LEDTest\hdl\Main.vhd":34:8:34:19|Signal signal_name2 is undriven. Either assign the signal a value or remove the signal declaration.
+Post processing for work.main.architecture_main
+Running optimization stage 1 on Main .......
+Finished optimization stage 1 on Main (CPU Time 0h:00m:00s, Memory Used current: 93MB peak: 94MB)
+Post processing for work.blink.rtl
+Running optimization stage 1 on Blink .......
+Finished optimization stage 1 on Blink (CPU Time 0h:00m:00s, Memory Used current: 93MB peak: 94MB)
+Running optimization stage 2 on Main .......
+Finished optimization stage 2 on Main (CPU Time 0h:00m:00s, Memory Used current: 93MB peak: 94MB)
+Running optimization stage 2 on Blink .......
+Finished optimization stage 2 on Blink (CPU Time 0h:00m:00s, Memory Used current: 93MB peak: 94MB)
+
+For a summary of runtime per design unit, please see file:
+==========================================================
+@L: C:\MicroSemiProj\LEDTest\synthesis\synwork\layer0.duruntime
+
+
