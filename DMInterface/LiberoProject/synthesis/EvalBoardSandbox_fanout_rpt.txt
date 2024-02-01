@@ -7,14 +7,8 @@ GLOBAL THRESHOLD - 5000
 
 NET NAME                                                    CLOCK LOADS     ASYNC RST LOADS     DATA LOADS     TOTAL FANOUT     GLOBAL BUFFER PRESENT
 -----------------------------------------------------------------------------------------------------------------------------------------------------
-EvalSandbox_MSS_0_FIC_0_CLK                                 356             0                   0              356              YES                  
-EvalSandbox_MSS_0.CORECONFIGP_0_APB_S_PCLK                  75              0                   0              75               YES                  
-EvalSandbox_MSS_0.FABOSC_0_RCOSC_25_50MHZ_O2F               31              0                   0              31               YES                  
-SpiMasterTrioPorts_0.un1_rst_4_arst                         2               2                   0              4                YES                  
-EvalSandbox_MSS_0.MSS_HPMS_READY_int_arst                   0               165                 0              165              YES                  
-EvalSandbox_MSS_0.FIC_2_APB_M_PRESET_N_arst                 0               76                  0              76               YES                  
-EvalSandbox_MSS_0.CORERESETP_0.sm0_areset_n_clk_base        0               25                  0              25               YES                  
-EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.GPIO_1_M2F_arst     0               18                  0              18               YES                  
-EvalSandbox_MSS_0.CORERESETP_0.sm0_areset_n_rcosc           0               17                  0              17               YES                  
-EvalSandbox_MSS_0.CORERESETP_0.sm0_areset_n_arst            0               12                  0              12               YES                  
+EvalSandbox_MSS_0_FIC_0_CLK                                 148             0                   0              148              YES                  
+SpiMasterSextetPorts_0.un1_rst_7_arst                       6               6                   0              12               YES                  
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.GPIO_1_M2F_arst     0               24                  0              24               YES                  
+SpiMasterSextetPorts_0.un1_rst_12_arst                      0               12                  0              12               YES                  
 =====================================================================================================================================================

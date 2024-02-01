@@ -1,9 +1,9 @@
 probe \
-    -desdir {C:\MicroSemiProj\EvalBoardSandbox\designer\EvalBoardSandbox} \
+    -desdir {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\designer\EvalBoardSandbox} \
     -design EvalBoardSandbox \
     -fam SmartFusion2 \
-    -die PA4M1000_N \
+    -die PA4M2500_N \
     -pkg vf256 \
-    -speed STD \
+    -speed -1 \
     -use_mvn_pdc 0  \
     -use_last_placement 0 

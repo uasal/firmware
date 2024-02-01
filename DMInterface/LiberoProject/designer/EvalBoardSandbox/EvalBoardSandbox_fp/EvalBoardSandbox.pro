@@ -1,15 +1,15 @@
 <project name="EvalBoardSandbox" version="1.2">
     <ProjectDirectory>
-        C:\MicroSemiProj\EvalBoardSandbox\designer\EvalBoardSandbox\EvalBoardSandbox_fp
+        C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\designer\EvalBoardSandbox\EvalBoardSandbox_fp
     </ProjectDirectory>
     <View>
         ChainView
     </View>
     <LiberoTargetDevice>
-        M2S010
+        M2S025
     </LiberoTargetDevice>
     <LogFile>
-        C:\MicroSemiProj\EvalBoardSandbox\designer\EvalBoardSandbox\EvalBoardSandbox_fp\EvalBoardSandbox.log
+        C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\designer\EvalBoardSandbox\EvalBoardSandbox_fp\EvalBoardSandbox.log
     </LogFile>
     <SerializationOption>
         Skip
@@ -17,14 +17,6 @@
     <ProgrammingInterface>
         JTAGMode
     </ProgrammingInterface>
-    <programmer status="enable" type="FlashPro6" revision="UndefRev" connection="usb2.0">
-        <name>
-            16B03B1
-        </name>
-        <id>
-            16B03B1
-        </id>
-    </programmer>
     <Servers>
     </Servers>
     <configuration>
@@ -84,10 +76,10 @@
         </Hardware>
         <Device type="ACTEL">
             <Name>
-                M2S010
+                M2S025
             </Name>
             <Custom>
-                M2S010
+                M2S025
             </Custom>
             <SpiFlashFile>
                 

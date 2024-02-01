@@ -1,31 +1,27 @@
 @N: CD231 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vhd2008\std1164.vhd":889:16:889:17|Using onehot encoding for type mvl9plus. For example, enumeration 'U' is mapped to "1000000000".
 @N: Setting default value for generic clock_divider to 1000;
 @N: Setting default value for generic byte_width to 1;
-@N: CD630 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":15:7:15:24|Synthesizing homebrew.spimastertrioports.spimastertrio.
-Post processing for homebrew.spimastertrioports.spimastertrio
-Running optimization stage 1 on homebrew_spimastertrioports_spimastertrio_1000_1_'0'_'0'_1_CLOCK_DIVIDERBYTE_WIDTH .......
-@W: CL177 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Sharing sequential element nCsB and merging nCsC. Add a syn_preserve attribute to the element to prevent sharing.
-@W: CL177 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Sharing sequential element nCsA and merging nCsC. Add a syn_preserve attribute to the element to prevent sharing.
-@W: CL190 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Optimizing register bit DataToMosiA_i(0) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Optimizing register bit DataToMosiA_i(3) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Optimizing register bit DataToMosiB_i(4) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Optimizing register bit DataToMosiB_i(7) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL260 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Pruning register bit 3 of DataToMosiA_i(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL260 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Pruning register bit 0 of DataToMosiA_i(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL260 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Pruning register bit 7 of DataToMosiB_i(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL260 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Pruning register bit 4 of DataToMosiB_i(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-Finished optimization stage 1 on homebrew_spimastertrioports_spimastertrio_1000_1_'0'_'0'_1_CLOCK_DIVIDERBYTE_WIDTH (CPU Time 0h:00m:00s, Memory Used current: 94MB peak: 95MB)
-Running optimization stage 2 on homebrew_spimastertrioports_spimastertrio_1000_1_'0'_'0'_1_CLOCK_DIVIDERBYTE_WIDTH .......
-@W: CL279 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Pruning register bits 7 to 5 of DataToMosiA_i(7 downto 4). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL260 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Pruning register bit 6 of DataToMosiB_i(6 downto 5). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL279 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Pruning register bits 3 to 1 of DataToMosiB_i(3 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL260 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Pruning register bit 2 of DataToMosiA_i(2 downto 1). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL246 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":42:2:42:12|Input port bits 6 to 0 of datatomosia(7 downto 0) are unused. Assign logic for all port bits or change the input port size.
-@W: CL246 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":43:2:43:12|Input port bits 6 to 0 of datatomosib(7 downto 0) are unused. Assign logic for all port bits or change the input port size.
-Finished optimization stage 2 on homebrew_spimastertrioports_spimastertrio_1000_1_'0'_'0'_1_CLOCK_DIVIDERBYTE_WIDTH (CPU Time 0h:00m:00s, Memory Used current: 95MB peak: 95MB)
+@N: CD630 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":15:7:15:26|Synthesizing work.spimastersextetports.spimastersextet.
+@W: CD434 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":125:155:125:158|Signal ncsa in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
+@W: CD434 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":125:161:125:164|Signal ncsb in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
+@W: CD434 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":125:167:125:170|Signal ncsc in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
+@W: CD434 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":125:173:125:176|Signal ncsd in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
+@W: CD434 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":125:179:125:182|Signal ncse in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
+@W: CD434 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":125:185:125:188|Signal ncsf in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
+Post processing for work.spimastersextetports.spimastersextet
+Running optimization stage 1 on work_spimastersextetports_spimastersextet_1000_1_'0'_'0'_1_CLOCK_DIVIDERBYTE_WIDTH .......
+@W: CL240 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":53:16:53:19|Signal nCsF is floating; a simulation mismatch is possible.
+@W: CL240 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":52:16:52:19|Signal nCsE is floating; a simulation mismatch is possible.
+@W: CL240 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":51:16:51:19|Signal nCsD is floating; a simulation mismatch is possible.
+@W: CL240 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":50:16:50:19|Signal nCsC is floating; a simulation mismatch is possible.
+@W: CL240 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":49:16:49:19|Signal nCsB is floating; a simulation mismatch is possible.
+@W: CL240 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":48:16:48:19|Signal nCsA is floating; a simulation mismatch is possible.
+Finished optimization stage 1 on work_spimastersextetports_spimastersextet_1000_1_'0'_'0'_1_CLOCK_DIVIDERBYTE_WIDTH (CPU Time 0h:00m:00s, Memory Used current: 95MB peak: 96MB)
+Running optimization stage 2 on work_spimastersextetports_spimastersextet_1000_1_'0'_'0'_1_CLOCK_DIVIDERBYTE_WIDTH .......
+Finished optimization stage 2 on work_spimastersextetports_spimastersextet_1000_1_'0'_'0'_1_CLOCK_DIVIDERBYTE_WIDTH (CPU Time 0h:00m:00s, Memory Used current: 95MB peak: 96MB)
 
 For a summary of runtime per design unit, please see file:
 ==========================================================
-@L: C:\MicroSemiProj\EvalBoardSandbox\synthesis\synwork\layer1.duruntime
+@L: C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\synthesis\synwork\layer1.duruntime
 
 

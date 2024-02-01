@@ -1,7 +1,15 @@
-open_project -project {C:\MicroSemiProj\EvalBoardSandbox\designer\EvalBoardSandbox\EvalBoardSandbox_fp\EvalBoardSandbox.pro}
-enable_device -name {M2S010} -enable 1
-set_programming_file -name {M2S010} -file {C:\MicroSemiProj\EvalBoardSandbox\designer\EvalBoardSandbox\EvalBoardSandbox.ppd}
-set_programming_action -action {PROGRAM} -name {M2S010} 
-run_selected_actions
+open_project -project {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\designer\EvalBoardSandbox\EvalBoardSandbox_fp\EvalBoardSandbox.pro}\
+         -connect_programmers {FALSE}
+load_programming_data \
+    -name {M2S025} \
+    -fpga {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\designer\EvalBoardSandbox\EvalBoardSandbox.map} \
+    -header {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\designer\EvalBoardSandbox\EvalBoardSandbox.hdr} \
+    -envm {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\designer\EvalBoardSandbox\EvalBoardSandbox.efc} \
+    -spm {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\designer\EvalBoardSandbox\EvalBoardSandbox.spm} \
+    -dca {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\designer\EvalBoardSandbox\EvalBoardSandbox.dca}
+export_single_ppd \
+    -name {M2S025} \
+    -file {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\designer\EvalBoardSandbox\EvalBoardSandbox.ppd}
+
 save_project
 close_project

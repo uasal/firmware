@@ -1,7 +1,7 @@
-set_device -family {SmartFusion2} -die {M2S010} -speed {STD}
-read_adl {C:\MicroSemiProj\EvalBoardSandbox\designer\EvalBoardSandbox\EvalBoardSandbox.adl}
-read_afl {C:\MicroSemiProj\EvalBoardSandbox\designer\EvalBoardSandbox\EvalBoardSandbox.afl}
+set_device -family {SmartFusion2} -die {M2S025} -speed {-1}
+read_adl {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\designer\EvalBoardSandbox\EvalBoardSandbox.adl}
+read_afl {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\designer\EvalBoardSandbox\EvalBoardSandbox.afl}
 map_netlist
-read_sdc {C:\MicroSemiProj\EvalBoardSandbox\constraint\EvalBoardSandbox_derived_constraints.sdc}
-check_constraints {C:\MicroSemiProj\EvalBoardSandbox\constraint\placer_sdc_errors.log}
-write_sdc -mode layout {C:\MicroSemiProj\EvalBoardSandbox\designer\EvalBoardSandbox\place_route.sdc}
+read_sdc {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\constraint\EvalBoardSandbox_derived_constraints.sdc}
+check_constraints {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\constraint\placer_sdc_errors.log}
+write_sdc -mode layout {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\designer\EvalBoardSandbox\place_route.sdc}

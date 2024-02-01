@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Mon Jan 29 10:17:12 2024
+// Created by SmartDesign Wed Jan 31 15:56:25 2024
 // Version: 2023.2 2023.2.0.8
 //////////////////////////////////////////////////////////////////////
 
@@ -16,18 +16,8 @@ module EvalSandbox_MSS_MSS(
     FIC_2_APB_M_PSLVERR,
     GPIO_0_F2M,
     GPIO_2_F2M,
-    M3_RESET_N,
     MCCC_CLK_BASE,
     MCCC_CLK_BASE_PLL_LOCK,
-    MDDR_APB_S_PADDR,
-    MDDR_APB_S_PCLK,
-    MDDR_APB_S_PENABLE,
-    MDDR_APB_S_PRESET_N,
-    MDDR_APB_S_PSEL,
-    MDDR_APB_S_PWDATA,
-    MDDR_APB_S_PWRITE,
-    MDDR_DQS_TMATCH_0_IN,
-    MSS_INT_F2M,
     MSS_RESET_N_F2M,
     // Outputs
     FIC_0_APB_M_PADDR,
@@ -43,27 +33,7 @@ module EvalSandbox_MSS_MSS(
     FIC_2_APB_M_PWDATA,
     FIC_2_APB_M_PWRITE,
     GPIO_1_M2F,
-    MDDR_ADDR,
-    MDDR_APB_S_PRDATA,
-    MDDR_APB_S_PREADY,
-    MDDR_APB_S_PSLVERR,
-    MDDR_BA,
-    MDDR_CAS_N,
-    MDDR_CKE,
-    MDDR_CLK,
-    MDDR_CLK_N,
-    MDDR_CS_N,
-    MDDR_DQS_TMATCH_0_OUT,
-    MDDR_ODT,
-    MDDR_RAS_N,
-    MDDR_RESET_N,
-    MDDR_WE_N,
-    MSS_RESET_N_M2F,
-    // Inouts
-    MDDR_DM_RDQS,
-    MDDR_DQ,
-    MDDR_DQS,
-    MDDR_DQS_N
+    MSS_RESET_N_M2F
 );
 
 //--------------------------------------------------------------------
@@ -77,18 +47,8 @@ input         FIC_2_APB_M_PREADY;
 input         FIC_2_APB_M_PSLVERR;
 input         GPIO_0_F2M;
 input         GPIO_2_F2M;
-input         M3_RESET_N;
 input         MCCC_CLK_BASE;
 input         MCCC_CLK_BASE_PLL_LOCK;
-input  [10:2] MDDR_APB_S_PADDR;
-input         MDDR_APB_S_PCLK;
-input         MDDR_APB_S_PENABLE;
-input         MDDR_APB_S_PRESET_N;
-input         MDDR_APB_S_PSEL;
-input  [15:0] MDDR_APB_S_PWDATA;
-input         MDDR_APB_S_PWRITE;
-input         MDDR_DQS_TMATCH_0_IN;
-input  [15:0] MSS_INT_F2M;
 input         MSS_RESET_N_F2M;
 //--------------------------------------------------------------------
 // Output
@@ -106,282 +66,97 @@ output        FIC_2_APB_M_PSEL;
 output [31:0] FIC_2_APB_M_PWDATA;
 output        FIC_2_APB_M_PWRITE;
 output        GPIO_1_M2F;
-output [15:0] MDDR_ADDR;
-output [15:0] MDDR_APB_S_PRDATA;
-output        MDDR_APB_S_PREADY;
-output        MDDR_APB_S_PSLVERR;
-output [2:0]  MDDR_BA;
-output        MDDR_CAS_N;
-output        MDDR_CKE;
-output        MDDR_CLK;
-output        MDDR_CLK_N;
-output        MDDR_CS_N;
-output        MDDR_DQS_TMATCH_0_OUT;
-output        MDDR_ODT;
-output        MDDR_RAS_N;
-output        MDDR_RESET_N;
-output        MDDR_WE_N;
 output        MSS_RESET_N_M2F;
-//--------------------------------------------------------------------
-// Inout
-//--------------------------------------------------------------------
-inout  [0:0]  MDDR_DM_RDQS;
-inout  [7:0]  MDDR_DQ;
-inout  [0:0]  MDDR_DQS;
-inout  [0:0]  MDDR_DQS_N;
 //--------------------------------------------------------------------
 // Nets
 //--------------------------------------------------------------------
-wire   [31:0]  FIC_0_APB_MASTER_PADDR;
-wire           FIC_0_APB_MASTER_PENABLE;
-wire   [31:0]  FIC_0_APB_M_PRDATA;
-wire           FIC_0_APB_M_PREADY;
-wire           FIC_0_APB_MASTER_PSELx;
-wire           FIC_0_APB_M_PSLVERR;
-wire   [31:0]  FIC_0_APB_MASTER_PWDATA;
-wire           FIC_0_APB_MASTER_PWRITE;
-wire           FIC_2_APB_M_PCLK_0;
-wire           FIC_2_APB_M_PRESET_N_0;
-wire   [15:2]  FIC_2_APB_MASTER_0_PADDR;
-wire           FIC_2_APB_MASTER_0_PENABLE;
-wire   [31:0]  FIC_2_APB_M_PRDATA;
-wire           FIC_2_APB_M_PREADY;
-wire           FIC_2_APB_MASTER_0_PSELx;
-wire           FIC_2_APB_M_PSLVERR;
-wire   [31:0]  FIC_2_APB_MASTER_0_PWDATA;
-wire           FIC_2_APB_MASTER_0_PWRITE;
-wire           GPIO_0_F2M;
-wire           GPIO_1_M2F_net_0;
-wire           GPIO_2_F2M;
-wire           M3_RESET_N;
-wire           MCCC_CLK_BASE;
-wire           MCCC_CLK_BASE_PLL_LOCK;
-wire           MDDR_ADDR_net_0;
-wire           MDDR_ADDR_0;
-wire           MDDR_ADDR_1;
-wire           MDDR_ADDR_2;
-wire           MDDR_ADDR_3;
-wire           MDDR_ADDR_4;
-wire           MDDR_ADDR_5;
-wire           MDDR_ADDR_6;
-wire           MDDR_ADDR_7;
-wire           MDDR_ADDR_8;
-wire           MDDR_ADDR_9;
-wire           MDDR_ADDR_10;
-wire           MDDR_ADDR_11;
-wire           MDDR_ADDR_12;
-wire           MDDR_ADDR_13;
-wire           MDDR_ADDR_14;
-wire           MDDR_APB_S_PCLK;
-wire           MDDR_APB_S_PRESET_N;
-wire   [10:2]  MDDR_APB_S_PADDR;
-wire           MDDR_APB_S_PENABLE;
-wire   [15:0]  MDDR_APB_SLAVE_PRDATA;
-wire           MDDR_APB_SLAVE_PREADY;
-wire           MDDR_APB_S_PSEL;
-wire           MDDR_APB_SLAVE_PSLVERR;
-wire   [15:0]  MDDR_APB_S_PWDATA;
-wire           MDDR_APB_S_PWRITE;
-wire           MDDR_BA_net_0;
-wire           MDDR_BA_0;
-wire           MDDR_BA_1;
-wire           MDDR_CAS_N_net_0;
-wire           MDDR_CKE_net_0;
-wire           MDDR_CLK_net_0;
-wire           MDDR_CLK_N_net_0;
-wire           MDDR_CS_N_net_0;
-wire           MDDR_DM_RDQS_0_PAD_Y;
-wire           MDDR_DQ_0_PAD_Y;
-wire           MDDR_DQ_1_PAD_Y;
-wire           MDDR_DQ_2_PAD_Y;
-wire           MDDR_DQ_3_PAD_Y;
-wire           MDDR_DQ_4_PAD_Y;
-wire           MDDR_DQ_5_PAD_Y;
-wire           MDDR_DQ_6_PAD_Y;
-wire           MDDR_DQ_7_PAD_Y;
-wire           MDDR_DQS_0_PAD_Y;
-wire           MDDR_DQS_TMATCH_0_IN;
-wire           MDDR_DQS_TMATCH_0_IN_PAD_Y;
-wire           MDDR_DQS_TMATCH_0_OUT_net_0;
-wire           MDDR_ODT_net_0;
-wire           MDDR_RAS_N_net_0;
-wire           MDDR_RESET_N_net_0;
-wire           MDDR_WE_N_net_0;
-wire   [0:0]   MSS_ADLIB_INST_DM_OE0to0;
-wire   [0:0]   MSS_ADLIB_INST_DRAM_ADDR0to0;
-wire   [1:1]   MSS_ADLIB_INST_DRAM_ADDR1to1;
-wire   [2:2]   MSS_ADLIB_INST_DRAM_ADDR2to2;
-wire   [3:3]   MSS_ADLIB_INST_DRAM_ADDR3to3;
-wire   [4:4]   MSS_ADLIB_INST_DRAM_ADDR4to4;
-wire   [5:5]   MSS_ADLIB_INST_DRAM_ADDR5to5;
-wire   [6:6]   MSS_ADLIB_INST_DRAM_ADDR6to6;
-wire   [7:7]   MSS_ADLIB_INST_DRAM_ADDR7to7;
-wire   [8:8]   MSS_ADLIB_INST_DRAM_ADDR8to8;
-wire   [9:9]   MSS_ADLIB_INST_DRAM_ADDR9to9;
-wire   [10:10] MSS_ADLIB_INST_DRAM_ADDR10to10;
-wire   [11:11] MSS_ADLIB_INST_DRAM_ADDR11to11;
-wire   [12:12] MSS_ADLIB_INST_DRAM_ADDR12to12;
-wire   [13:13] MSS_ADLIB_INST_DRAM_ADDR13to13;
-wire   [14:14] MSS_ADLIB_INST_DRAM_ADDR14to14;
-wire   [15:15] MSS_ADLIB_INST_DRAM_ADDR15to15;
-wire   [0:0]   MSS_ADLIB_INST_DRAM_BA0to0;
-wire   [1:1]   MSS_ADLIB_INST_DRAM_BA1to1;
-wire   [2:2]   MSS_ADLIB_INST_DRAM_BA2to2;
-wire           MSS_ADLIB_INST_DRAM_CASN;
-wire           MSS_ADLIB_INST_DRAM_CKE;
-wire           MSS_ADLIB_INST_DRAM_CLK;
-wire           MSS_ADLIB_INST_DRAM_CSN;
-wire   [0:0]   MSS_ADLIB_INST_DRAM_DM_RDQS_OUT0to0;
-wire   [0:0]   MSS_ADLIB_INST_DRAM_DQ_OE0to0;
-wire   [1:1]   MSS_ADLIB_INST_DRAM_DQ_OE1to1;
-wire   [2:2]   MSS_ADLIB_INST_DRAM_DQ_OE2to2;
-wire   [3:3]   MSS_ADLIB_INST_DRAM_DQ_OE3to3;
-wire   [4:4]   MSS_ADLIB_INST_DRAM_DQ_OE4to4;
-wire   [5:5]   MSS_ADLIB_INST_DRAM_DQ_OE5to5;
-wire   [6:6]   MSS_ADLIB_INST_DRAM_DQ_OE6to6;
-wire   [7:7]   MSS_ADLIB_INST_DRAM_DQ_OE7to7;
-wire   [0:0]   MSS_ADLIB_INST_DRAM_DQ_OUT0to0;
-wire   [1:1]   MSS_ADLIB_INST_DRAM_DQ_OUT1to1;
-wire   [2:2]   MSS_ADLIB_INST_DRAM_DQ_OUT2to2;
-wire   [3:3]   MSS_ADLIB_INST_DRAM_DQ_OUT3to3;
-wire   [4:4]   MSS_ADLIB_INST_DRAM_DQ_OUT4to4;
-wire   [5:5]   MSS_ADLIB_INST_DRAM_DQ_OUT5to5;
-wire   [6:6]   MSS_ADLIB_INST_DRAM_DQ_OUT6to6;
-wire   [7:7]   MSS_ADLIB_INST_DRAM_DQ_OUT7to7;
-wire   [0:0]   MSS_ADLIB_INST_DRAM_DQS_OE0to0;
-wire   [0:0]   MSS_ADLIB_INST_DRAM_DQS_OUT0to0;
-wire   [0:0]   MSS_ADLIB_INST_DRAM_FIFO_WE_OUT0to0;
-wire           MSS_ADLIB_INST_DRAM_ODT;
-wire           MSS_ADLIB_INST_DRAM_RASN;
-wire           MSS_ADLIB_INST_DRAM_RSTN;
-wire           MSS_ADLIB_INST_DRAM_WEN;
-wire   [15:0]  MSS_INT_F2M;
-wire           MSS_RESET_N_F2M;
-wire           MSS_RESET_N_M2F_net_0;
-wire           MDDR_DQS_TMATCH_0_OUT_net_1;
-wire           MDDR_CAS_N_net_1;
-wire           MDDR_CLK_net_1;
-wire           MDDR_CLK_N_net_1;
-wire           MDDR_CKE_net_1;
-wire           MDDR_CS_N_net_1;
-wire           MDDR_ODT_net_1;
-wire           MDDR_RAS_N_net_1;
-wire           MDDR_RESET_N_net_1;
-wire           MDDR_WE_N_net_1;
-wire           MSS_RESET_N_M2F_net_1;
-wire           GPIO_1_M2F_net_1;
-wire           FIC_0_APB_MASTER_PSELx_net_0;
-wire           FIC_0_APB_MASTER_PWRITE_net_0;
-wire           FIC_0_APB_MASTER_PENABLE_net_0;
-wire           FIC_2_APB_M_PRESET_N_0_net_0;
-wire           FIC_2_APB_M_PCLK_0_net_0;
-wire           FIC_2_APB_MASTER_0_PWRITE_net_0;
-wire           FIC_2_APB_MASTER_0_PENABLE_net_0;
-wire           FIC_2_APB_MASTER_0_PSELx_net_0;
-wire           MDDR_APB_SLAVE_PREADY_net_0;
-wire           MDDR_APB_SLAVE_PSLVERR_net_0;
-wire   [0:0]   MDDR_ADDR_14_net_0;
-wire   [10:10] MDDR_ADDR_4_net_0;
-wire   [11:11] MDDR_ADDR_3_net_0;
-wire   [12:12] MDDR_ADDR_2_net_0;
-wire   [13:13] MDDR_ADDR_1_net_0;
-wire   [14:14] MDDR_ADDR_0_net_0;
-wire   [15:15] MDDR_ADDR_net_1;
-wire   [1:1]   MDDR_ADDR_13_net_0;
-wire   [2:2]   MDDR_ADDR_12_net_0;
-wire   [3:3]   MDDR_ADDR_11_net_0;
-wire   [4:4]   MDDR_ADDR_10_net_0;
-wire   [5:5]   MDDR_ADDR_9_net_0;
-wire   [6:6]   MDDR_ADDR_8_net_0;
-wire   [7:7]   MDDR_ADDR_7_net_0;
-wire   [8:8]   MDDR_ADDR_6_net_0;
-wire   [9:9]   MDDR_ADDR_5_net_0;
-wire   [0:0]   MDDR_BA_1_net_0;
-wire   [1:1]   MDDR_BA_0_net_0;
-wire   [2:2]   MDDR_BA_net_1;
-wire   [31:0]  FIC_0_APB_MASTER_PADDR_net_0;
-wire   [31:0]  FIC_0_APB_MASTER_PWDATA_net_0;
-wire   [15:2]  FIC_2_APB_MASTER_0_PADDR_net_0;
-wire   [31:0]  FIC_2_APB_MASTER_0_PWDATA_net_0;
-wire   [15:0]  MDDR_APB_SLAVE_PRDATA_net_0;
-wire   [1:1]   DRAM_DM_RDQS_OUT_slice_0;
-wire   [2:2]   DRAM_DM_RDQS_OUT_slice_1;
-wire   [10:10] DRAM_DQ_OUT_slice_0;
-wire   [11:11] DRAM_DQ_OUT_slice_1;
-wire   [12:12] DRAM_DQ_OUT_slice_2;
-wire   [13:13] DRAM_DQ_OUT_slice_3;
-wire   [14:14] DRAM_DQ_OUT_slice_4;
-wire   [15:15] DRAM_DQ_OUT_slice_5;
-wire   [16:16] DRAM_DQ_OUT_slice_6;
-wire   [17:17] DRAM_DQ_OUT_slice_7;
-wire   [8:8]   DRAM_DQ_OUT_slice_8;
-wire   [9:9]   DRAM_DQ_OUT_slice_9;
-wire   [1:1]   DRAM_DQS_OUT_slice_0;
-wire   [2:2]   DRAM_DQS_OUT_slice_1;
-wire   [1:1]   DRAM_FIFO_WE_OUT_slice_0;
-wire   [1:1]   DM_OE_slice_0;
-wire   [2:2]   DM_OE_slice_1;
-wire   [10:10] DRAM_DQ_OE_slice_0;
-wire   [11:11] DRAM_DQ_OE_slice_1;
-wire   [12:12] DRAM_DQ_OE_slice_2;
-wire   [13:13] DRAM_DQ_OE_slice_3;
-wire   [14:14] DRAM_DQ_OE_slice_4;
-wire   [15:15] DRAM_DQ_OE_slice_5;
-wire   [16:16] DRAM_DQ_OE_slice_6;
-wire   [17:17] DRAM_DQ_OE_slice_7;
-wire   [8:8]   DRAM_DQ_OE_slice_8;
-wire   [9:9]   DRAM_DQ_OE_slice_9;
-wire   [1:1]   DRAM_DQS_OE_slice_0;
-wire   [2:2]   DRAM_DQS_OE_slice_1;
-wire   [2:0]   DM_IN_net_0;
-wire   [17:0]  DRAM_DQ_IN_net_0;
-wire   [2:0]   DRAM_DQS_IN_net_0;
-wire   [1:0]   DRAM_FIFO_WE_IN_net_0;
-wire   [15:0]  DRAM_ADDR_net_0;
-wire   [2:0]   DRAM_BA_net_0;
-wire   [2:0]   DRAM_DM_RDQS_OUT_net_0;
-wire   [17:0]  DRAM_DQ_OUT_net_0;
-wire   [2:0]   DRAM_DQS_OUT_net_0;
-wire   [1:0]   DRAM_FIFO_WE_OUT_net_0;
-wire   [2:0]   DM_OE_net_0;
-wire   [17:0]  DRAM_DQ_OE_net_0;
-wire   [2:0]   DRAM_DQS_OE_net_0;
+wire   [31:0] FIC_0_APB_MASTER_PADDR;
+wire          FIC_0_APB_MASTER_PENABLE;
+wire   [31:0] FIC_0_APB_M_PRDATA;
+wire          FIC_0_APB_M_PREADY;
+wire          FIC_0_APB_MASTER_PSELx;
+wire          FIC_0_APB_M_PSLVERR;
+wire   [31:0] FIC_0_APB_MASTER_PWDATA;
+wire          FIC_0_APB_MASTER_PWRITE;
+wire          FIC_2_APB_M_PCLK_0;
+wire          FIC_2_APB_M_PRESET_N_0;
+wire   [15:2] FIC_2_APB_MASTER_0_PADDR;
+wire          FIC_2_APB_MASTER_0_PENABLE;
+wire   [31:0] FIC_2_APB_M_PRDATA;
+wire          FIC_2_APB_M_PREADY;
+wire          FIC_2_APB_MASTER_0_PSELx;
+wire          FIC_2_APB_M_PSLVERR;
+wire   [31:0] FIC_2_APB_MASTER_0_PWDATA;
+wire          FIC_2_APB_MASTER_0_PWRITE;
+wire          GPIO_0_F2M;
+wire          GPIO_1_M2F_net_0;
+wire          GPIO_2_F2M;
+wire          MCCC_CLK_BASE;
+wire          MCCC_CLK_BASE_PLL_LOCK;
+wire          MSS_RESET_N_F2M;
+wire          MSS_RESET_N_M2F_net_0;
+wire          MSS_RESET_N_M2F_net_1;
+wire          GPIO_1_M2F_net_1;
+wire          FIC_0_APB_MASTER_PSELx_net_0;
+wire          FIC_0_APB_MASTER_PWRITE_net_0;
+wire          FIC_0_APB_MASTER_PENABLE_net_0;
+wire          FIC_2_APB_M_PRESET_N_0_net_0;
+wire          FIC_2_APB_M_PCLK_0_net_0;
+wire          FIC_2_APB_MASTER_0_PWRITE_net_0;
+wire          FIC_2_APB_MASTER_0_PENABLE_net_0;
+wire          FIC_2_APB_MASTER_0_PSELx_net_0;
+wire   [31:0] FIC_0_APB_MASTER_PADDR_net_0;
+wire   [31:0] FIC_0_APB_MASTER_PWDATA_net_0;
+wire   [15:2] FIC_2_APB_MASTER_0_PADDR_net_0;
+wire   [31:0] FIC_2_APB_MASTER_0_PWDATA_net_0;
 //--------------------------------------------------------------------
 // TiedOff Nets
 //--------------------------------------------------------------------
-wire           GND_net;
-wire           VCC_net;
-wire   [1:0]   F2_DMAREADY_const_net_0;
-wire   [1:0]   F_DMAREADY_const_net_0;
-wire   [31:0]  F_FM0_ADDR_const_net_0;
-wire   [1:0]   F_FM0_SIZE_const_net_0;
-wire   [31:0]  F_FM0_WDATA_const_net_0;
-wire   [1:0]   FAB_LINESTATE_const_net_0;
-wire   [7:0]   FAB_VSTATUS_const_net_0;
-wire   [7:0]   FAB_XDATAIN_const_net_0;
-wire   [9:0]   RCGF_const_net_0;
-wire   [7:0]   RXDF_const_net_0;
-wire   [31:0]  F_ARADDR_HADDR1_const_net_0;
-wire   [1:0]   F_ARBURST_HTRANS1_const_net_0;
-wire   [3:0]   F_ARID_HSEL1_const_net_0;
-wire   [3:0]   F_ARLEN_HBURST1_const_net_0;
-wire   [1:0]   F_ARLOCK_HMASTLOCK1_const_net_0;
-wire   [1:0]   F_ARSIZE_HSIZE1_const_net_0;
-wire   [31:0]  F_AWADDR_HADDR0_const_net_0;
-wire   [1:0]   F_AWBURST_HTRANS0_const_net_0;
-wire   [3:0]   F_AWID_HSEL0_const_net_0;
-wire   [3:0]   F_AWLEN_HBURST0_const_net_0;
-wire   [1:0]   F_AWLOCK_HMASTLOCK0_const_net_0;
-wire   [1:0]   F_AWSIZE_HSIZE0_const_net_0;
-wire   [63:0]  F_WDATA_HWDATA01_const_net_0;
-wire   [3:0]   F_WID_HREADY01_const_net_0;
-wire   [7:0]   F_WSTRB_const_net_0;
+wire          GND_net;
+wire   [2:0]  DM_IN_const_net_0;
+wire   [17:0] DRAM_DQ_IN_const_net_0;
+wire   [2:0]  DRAM_DQS_IN_const_net_0;
+wire   [1:0]  DRAM_FIFO_WE_IN_const_net_0;
+wire          VCC_net;
+wire   [1:0]  F2_DMAREADY_const_net_0;
+wire   [15:0] F2H_INTERRUPT_const_net_0;
+wire   [1:0]  F_DMAREADY_const_net_0;
+wire   [31:0] F_FM0_ADDR_const_net_0;
+wire   [1:0]  F_FM0_SIZE_const_net_0;
+wire   [31:0] F_FM0_WDATA_const_net_0;
+wire   [1:0]  FAB_LINESTATE_const_net_0;
+wire   [7:0]  FAB_VSTATUS_const_net_0;
+wire   [7:0]  FAB_XDATAIN_const_net_0;
+wire   [9:0]  RCGF_const_net_0;
+wire   [7:0]  RXDF_const_net_0;
+wire   [31:0] F_ARADDR_HADDR1_const_net_0;
+wire   [1:0]  F_ARBURST_HTRANS1_const_net_0;
+wire   [3:0]  F_ARID_HSEL1_const_net_0;
+wire   [3:0]  F_ARLEN_HBURST1_const_net_0;
+wire   [1:0]  F_ARLOCK_HMASTLOCK1_const_net_0;
+wire   [1:0]  F_ARSIZE_HSIZE1_const_net_0;
+wire   [31:0] F_AWADDR_HADDR0_const_net_0;
+wire   [1:0]  F_AWBURST_HTRANS0_const_net_0;
+wire   [3:0]  F_AWID_HSEL0_const_net_0;
+wire   [3:0]  F_AWLEN_HBURST0_const_net_0;
+wire   [1:0]  F_AWLOCK_HMASTLOCK0_const_net_0;
+wire   [1:0]  F_AWSIZE_HSIZE0_const_net_0;
+wire   [63:0] F_WDATA_HWDATA01_const_net_0;
+wire   [3:0]  F_WID_HREADY01_const_net_0;
+wire   [7:0]  F_WSTRB_const_net_0;
+wire   [10:2] MDDR_FABRIC_PADDR_const_net_0;
+wire   [15:0] MDDR_FABRIC_PWDATA_const_net_0;
 //--------------------------------------------------------------------
 // Constant assignments
 //--------------------------------------------------------------------
 assign GND_net                         = 1'b0;
+assign DM_IN_const_net_0               = 3'h0;
+assign DRAM_DQ_IN_const_net_0          = 18'h00000;
+assign DRAM_DQS_IN_const_net_0         = 3'h0;
+assign DRAM_FIFO_WE_IN_const_net_0     = 2'h0;
 assign VCC_net                         = 1'b1;
 assign F2_DMAREADY_const_net_0         = 2'h3;
+assign F2H_INTERRUPT_const_net_0       = 16'h0000;
 assign F_DMAREADY_const_net_0          = 2'h3;
 assign F_FM0_ADDR_const_net_0          = 32'h00000000;
 assign F_FM0_SIZE_const_net_0          = 2'h0;
@@ -406,29 +181,11 @@ assign F_AWSIZE_HSIZE0_const_net_0     = 2'h0;
 assign F_WDATA_HWDATA01_const_net_0    = 64'hFFFFFFFFFFFFFFFF;
 assign F_WID_HREADY01_const_net_0      = 4'h0;
 assign F_WSTRB_const_net_0             = 8'h00;
+assign MDDR_FABRIC_PADDR_const_net_0   = 9'h1FF;
+assign MDDR_FABRIC_PWDATA_const_net_0  = 16'hFFFF;
 //--------------------------------------------------------------------
 // Top level output port assignments
 //--------------------------------------------------------------------
-assign MDDR_DQS_TMATCH_0_OUT_net_1      = MDDR_DQS_TMATCH_0_OUT_net_0;
-assign MDDR_DQS_TMATCH_0_OUT            = MDDR_DQS_TMATCH_0_OUT_net_1;
-assign MDDR_CAS_N_net_1                 = MDDR_CAS_N_net_0;
-assign MDDR_CAS_N                       = MDDR_CAS_N_net_1;
-assign MDDR_CLK_net_1                   = MDDR_CLK_net_0;
-assign MDDR_CLK                         = MDDR_CLK_net_1;
-assign MDDR_CLK_N_net_1                 = MDDR_CLK_N_net_0;
-assign MDDR_CLK_N                       = MDDR_CLK_N_net_1;
-assign MDDR_CKE_net_1                   = MDDR_CKE_net_0;
-assign MDDR_CKE                         = MDDR_CKE_net_1;
-assign MDDR_CS_N_net_1                  = MDDR_CS_N_net_0;
-assign MDDR_CS_N                        = MDDR_CS_N_net_1;
-assign MDDR_ODT_net_1                   = MDDR_ODT_net_0;
-assign MDDR_ODT                         = MDDR_ODT_net_1;
-assign MDDR_RAS_N_net_1                 = MDDR_RAS_N_net_0;
-assign MDDR_RAS_N                       = MDDR_RAS_N_net_1;
-assign MDDR_RESET_N_net_1               = MDDR_RESET_N_net_0;
-assign MDDR_RESET_N                     = MDDR_RESET_N_net_1;
-assign MDDR_WE_N_net_1                  = MDDR_WE_N_net_0;
-assign MDDR_WE_N                        = MDDR_WE_N_net_1;
 assign MSS_RESET_N_M2F_net_1            = MSS_RESET_N_M2F_net_0;
 assign MSS_RESET_N_M2F                  = MSS_RESET_N_M2F_net_1;
 assign GPIO_1_M2F_net_1                 = GPIO_1_M2F_net_0;
@@ -449,48 +206,6 @@ assign FIC_2_APB_MASTER_0_PENABLE_net_0 = FIC_2_APB_MASTER_0_PENABLE;
 assign FIC_2_APB_M_PENABLE              = FIC_2_APB_MASTER_0_PENABLE_net_0;
 assign FIC_2_APB_MASTER_0_PSELx_net_0   = FIC_2_APB_MASTER_0_PSELx;
 assign FIC_2_APB_M_PSEL                 = FIC_2_APB_MASTER_0_PSELx_net_0;
-assign MDDR_APB_SLAVE_PREADY_net_0      = MDDR_APB_SLAVE_PREADY;
-assign MDDR_APB_S_PREADY                = MDDR_APB_SLAVE_PREADY_net_0;
-assign MDDR_APB_SLAVE_PSLVERR_net_0     = MDDR_APB_SLAVE_PSLVERR;
-assign MDDR_APB_S_PSLVERR               = MDDR_APB_SLAVE_PSLVERR_net_0;
-assign MDDR_ADDR_14_net_0[0]            = MDDR_ADDR_14;
-assign MDDR_ADDR[0:0]                   = MDDR_ADDR_14_net_0[0];
-assign MDDR_ADDR_4_net_0[10]            = MDDR_ADDR_4;
-assign MDDR_ADDR[10:10]                 = MDDR_ADDR_4_net_0[10];
-assign MDDR_ADDR_3_net_0[11]            = MDDR_ADDR_3;
-assign MDDR_ADDR[11:11]                 = MDDR_ADDR_3_net_0[11];
-assign MDDR_ADDR_2_net_0[12]            = MDDR_ADDR_2;
-assign MDDR_ADDR[12:12]                 = MDDR_ADDR_2_net_0[12];
-assign MDDR_ADDR_1_net_0[13]            = MDDR_ADDR_1;
-assign MDDR_ADDR[13:13]                 = MDDR_ADDR_1_net_0[13];
-assign MDDR_ADDR_0_net_0[14]            = MDDR_ADDR_0;
-assign MDDR_ADDR[14:14]                 = MDDR_ADDR_0_net_0[14];
-assign MDDR_ADDR_net_1[15]              = MDDR_ADDR_net_0;
-assign MDDR_ADDR[15:15]                 = MDDR_ADDR_net_1[15];
-assign MDDR_ADDR_13_net_0[1]            = MDDR_ADDR_13;
-assign MDDR_ADDR[1:1]                   = MDDR_ADDR_13_net_0[1];
-assign MDDR_ADDR_12_net_0[2]            = MDDR_ADDR_12;
-assign MDDR_ADDR[2:2]                   = MDDR_ADDR_12_net_0[2];
-assign MDDR_ADDR_11_net_0[3]            = MDDR_ADDR_11;
-assign MDDR_ADDR[3:3]                   = MDDR_ADDR_11_net_0[3];
-assign MDDR_ADDR_10_net_0[4]            = MDDR_ADDR_10;
-assign MDDR_ADDR[4:4]                   = MDDR_ADDR_10_net_0[4];
-assign MDDR_ADDR_9_net_0[5]             = MDDR_ADDR_9;
-assign MDDR_ADDR[5:5]                   = MDDR_ADDR_9_net_0[5];
-assign MDDR_ADDR_8_net_0[6]             = MDDR_ADDR_8;
-assign MDDR_ADDR[6:6]                   = MDDR_ADDR_8_net_0[6];
-assign MDDR_ADDR_7_net_0[7]             = MDDR_ADDR_7;
-assign MDDR_ADDR[7:7]                   = MDDR_ADDR_7_net_0[7];
-assign MDDR_ADDR_6_net_0[8]             = MDDR_ADDR_6;
-assign MDDR_ADDR[8:8]                   = MDDR_ADDR_6_net_0[8];
-assign MDDR_ADDR_5_net_0[9]             = MDDR_ADDR_5;
-assign MDDR_ADDR[9:9]                   = MDDR_ADDR_5_net_0[9];
-assign MDDR_BA_1_net_0[0]               = MDDR_BA_1;
-assign MDDR_BA[0:0]                     = MDDR_BA_1_net_0[0];
-assign MDDR_BA_0_net_0[1]               = MDDR_BA_0;
-assign MDDR_BA[1:1]                     = MDDR_BA_0_net_0[1];
-assign MDDR_BA_net_1[2]                 = MDDR_BA_net_0;
-assign MDDR_BA[2:2]                     = MDDR_BA_net_1[2];
 assign FIC_0_APB_MASTER_PADDR_net_0     = FIC_0_APB_MASTER_PADDR;
 assign FIC_0_APB_M_PADDR[31:0]          = FIC_0_APB_MASTER_PADDR_net_0;
 assign FIC_0_APB_MASTER_PWDATA_net_0    = FIC_0_APB_MASTER_PWDATA;
@@ -499,517 +214,14 @@ assign FIC_2_APB_MASTER_0_PADDR_net_0   = FIC_2_APB_MASTER_0_PADDR;
 assign FIC_2_APB_M_PADDR[15:2]          = FIC_2_APB_MASTER_0_PADDR_net_0;
 assign FIC_2_APB_MASTER_0_PWDATA_net_0  = FIC_2_APB_MASTER_0_PWDATA;
 assign FIC_2_APB_M_PWDATA[31:0]         = FIC_2_APB_MASTER_0_PWDATA_net_0;
-assign MDDR_APB_SLAVE_PRDATA_net_0      = MDDR_APB_SLAVE_PRDATA;
-assign MDDR_APB_S_PRDATA[15:0]          = MDDR_APB_SLAVE_PRDATA_net_0;
-//--------------------------------------------------------------------
-// Slices assignments
-//--------------------------------------------------------------------
-assign MSS_ADLIB_INST_DM_OE0to0[0]            = DM_OE_net_0[0:0];
-assign MSS_ADLIB_INST_DRAM_ADDR0to0[0]        = DRAM_ADDR_net_0[0:0];
-assign MSS_ADLIB_INST_DRAM_ADDR1to1[1]        = DRAM_ADDR_net_0[1:1];
-assign MSS_ADLIB_INST_DRAM_ADDR2to2[2]        = DRAM_ADDR_net_0[2:2];
-assign MSS_ADLIB_INST_DRAM_ADDR3to3[3]        = DRAM_ADDR_net_0[3:3];
-assign MSS_ADLIB_INST_DRAM_ADDR4to4[4]        = DRAM_ADDR_net_0[4:4];
-assign MSS_ADLIB_INST_DRAM_ADDR5to5[5]        = DRAM_ADDR_net_0[5:5];
-assign MSS_ADLIB_INST_DRAM_ADDR6to6[6]        = DRAM_ADDR_net_0[6:6];
-assign MSS_ADLIB_INST_DRAM_ADDR7to7[7]        = DRAM_ADDR_net_0[7:7];
-assign MSS_ADLIB_INST_DRAM_ADDR8to8[8]        = DRAM_ADDR_net_0[8:8];
-assign MSS_ADLIB_INST_DRAM_ADDR9to9[9]        = DRAM_ADDR_net_0[9:9];
-assign MSS_ADLIB_INST_DRAM_ADDR10to10[10]     = DRAM_ADDR_net_0[10:10];
-assign MSS_ADLIB_INST_DRAM_ADDR11to11[11]     = DRAM_ADDR_net_0[11:11];
-assign MSS_ADLIB_INST_DRAM_ADDR12to12[12]     = DRAM_ADDR_net_0[12:12];
-assign MSS_ADLIB_INST_DRAM_ADDR13to13[13]     = DRAM_ADDR_net_0[13:13];
-assign MSS_ADLIB_INST_DRAM_ADDR14to14[14]     = DRAM_ADDR_net_0[14:14];
-assign MSS_ADLIB_INST_DRAM_ADDR15to15[15]     = DRAM_ADDR_net_0[15:15];
-assign MSS_ADLIB_INST_DRAM_BA0to0[0]          = DRAM_BA_net_0[0:0];
-assign MSS_ADLIB_INST_DRAM_BA1to1[1]          = DRAM_BA_net_0[1:1];
-assign MSS_ADLIB_INST_DRAM_BA2to2[2]          = DRAM_BA_net_0[2:2];
-assign MSS_ADLIB_INST_DRAM_DM_RDQS_OUT0to0[0] = DRAM_DM_RDQS_OUT_net_0[0:0];
-assign MSS_ADLIB_INST_DRAM_DQ_OE0to0[0]       = DRAM_DQ_OE_net_0[0:0];
-assign MSS_ADLIB_INST_DRAM_DQ_OE1to1[1]       = DRAM_DQ_OE_net_0[1:1];
-assign MSS_ADLIB_INST_DRAM_DQ_OE2to2[2]       = DRAM_DQ_OE_net_0[2:2];
-assign MSS_ADLIB_INST_DRAM_DQ_OE3to3[3]       = DRAM_DQ_OE_net_0[3:3];
-assign MSS_ADLIB_INST_DRAM_DQ_OE4to4[4]       = DRAM_DQ_OE_net_0[4:4];
-assign MSS_ADLIB_INST_DRAM_DQ_OE5to5[5]       = DRAM_DQ_OE_net_0[5:5];
-assign MSS_ADLIB_INST_DRAM_DQ_OE6to6[6]       = DRAM_DQ_OE_net_0[6:6];
-assign MSS_ADLIB_INST_DRAM_DQ_OE7to7[7]       = DRAM_DQ_OE_net_0[7:7];
-assign MSS_ADLIB_INST_DRAM_DQ_OUT0to0[0]      = DRAM_DQ_OUT_net_0[0:0];
-assign MSS_ADLIB_INST_DRAM_DQ_OUT1to1[1]      = DRAM_DQ_OUT_net_0[1:1];
-assign MSS_ADLIB_INST_DRAM_DQ_OUT2to2[2]      = DRAM_DQ_OUT_net_0[2:2];
-assign MSS_ADLIB_INST_DRAM_DQ_OUT3to3[3]      = DRAM_DQ_OUT_net_0[3:3];
-assign MSS_ADLIB_INST_DRAM_DQ_OUT4to4[4]      = DRAM_DQ_OUT_net_0[4:4];
-assign MSS_ADLIB_INST_DRAM_DQ_OUT5to5[5]      = DRAM_DQ_OUT_net_0[5:5];
-assign MSS_ADLIB_INST_DRAM_DQ_OUT6to6[6]      = DRAM_DQ_OUT_net_0[6:6];
-assign MSS_ADLIB_INST_DRAM_DQ_OUT7to7[7]      = DRAM_DQ_OUT_net_0[7:7];
-assign MSS_ADLIB_INST_DRAM_DQS_OE0to0[0]      = DRAM_DQS_OE_net_0[0:0];
-assign MSS_ADLIB_INST_DRAM_DQS_OUT0to0[0]     = DRAM_DQS_OUT_net_0[0:0];
-assign MSS_ADLIB_INST_DRAM_FIFO_WE_OUT0to0[0] = DRAM_FIFO_WE_OUT_net_0[0:0];
-assign DRAM_DM_RDQS_OUT_slice_0[1]            = DRAM_DM_RDQS_OUT_net_0[1:1];
-assign DRAM_DM_RDQS_OUT_slice_1[2]            = DRAM_DM_RDQS_OUT_net_0[2:2];
-assign DRAM_DQ_OUT_slice_0[10]                = DRAM_DQ_OUT_net_0[10:10];
-assign DRAM_DQ_OUT_slice_1[11]                = DRAM_DQ_OUT_net_0[11:11];
-assign DRAM_DQ_OUT_slice_2[12]                = DRAM_DQ_OUT_net_0[12:12];
-assign DRAM_DQ_OUT_slice_3[13]                = DRAM_DQ_OUT_net_0[13:13];
-assign DRAM_DQ_OUT_slice_4[14]                = DRAM_DQ_OUT_net_0[14:14];
-assign DRAM_DQ_OUT_slice_5[15]                = DRAM_DQ_OUT_net_0[15:15];
-assign DRAM_DQ_OUT_slice_6[16]                = DRAM_DQ_OUT_net_0[16:16];
-assign DRAM_DQ_OUT_slice_7[17]                = DRAM_DQ_OUT_net_0[17:17];
-assign DRAM_DQ_OUT_slice_8[8]                 = DRAM_DQ_OUT_net_0[8:8];
-assign DRAM_DQ_OUT_slice_9[9]                 = DRAM_DQ_OUT_net_0[9:9];
-assign DRAM_DQS_OUT_slice_0[1]                = DRAM_DQS_OUT_net_0[1:1];
-assign DRAM_DQS_OUT_slice_1[2]                = DRAM_DQS_OUT_net_0[2:2];
-assign DRAM_FIFO_WE_OUT_slice_0[1]            = DRAM_FIFO_WE_OUT_net_0[1:1];
-assign DM_OE_slice_0[1]                       = DM_OE_net_0[1:1];
-assign DM_OE_slice_1[2]                       = DM_OE_net_0[2:2];
-assign DRAM_DQ_OE_slice_0[10]                 = DRAM_DQ_OE_net_0[10:10];
-assign DRAM_DQ_OE_slice_1[11]                 = DRAM_DQ_OE_net_0[11:11];
-assign DRAM_DQ_OE_slice_2[12]                 = DRAM_DQ_OE_net_0[12:12];
-assign DRAM_DQ_OE_slice_3[13]                 = DRAM_DQ_OE_net_0[13:13];
-assign DRAM_DQ_OE_slice_4[14]                 = DRAM_DQ_OE_net_0[14:14];
-assign DRAM_DQ_OE_slice_5[15]                 = DRAM_DQ_OE_net_0[15:15];
-assign DRAM_DQ_OE_slice_6[16]                 = DRAM_DQ_OE_net_0[16:16];
-assign DRAM_DQ_OE_slice_7[17]                 = DRAM_DQ_OE_net_0[17:17];
-assign DRAM_DQ_OE_slice_8[8]                  = DRAM_DQ_OE_net_0[8:8];
-assign DRAM_DQ_OE_slice_9[9]                  = DRAM_DQ_OE_net_0[9:9];
-assign DRAM_DQS_OE_slice_0[1]                 = DRAM_DQS_OE_net_0[1:1];
-assign DRAM_DQS_OE_slice_1[2]                 = DRAM_DQS_OE_net_0[2:2];
-//--------------------------------------------------------------------
-// Concatenation assignments
-//--------------------------------------------------------------------
-assign DM_IN_net_0           = { 1'b0 , 1'b0 , MDDR_DM_RDQS_0_PAD_Y };
-assign DRAM_DQ_IN_net_0      = { 1'b0 , 1'b0 , 1'b0 , 1'b0 , 1'b0 , 1'b0 , 1'b0 , 1'b0 , 1'b0 , 1'b0 , MDDR_DQ_7_PAD_Y , MDDR_DQ_6_PAD_Y , MDDR_DQ_5_PAD_Y , MDDR_DQ_4_PAD_Y , MDDR_DQ_3_PAD_Y , MDDR_DQ_2_PAD_Y , MDDR_DQ_1_PAD_Y , MDDR_DQ_0_PAD_Y };
-assign DRAM_DQS_IN_net_0     = { 1'b0 , 1'b0 , MDDR_DQS_0_PAD_Y };
-assign DRAM_FIFO_WE_IN_net_0 = { 1'b0 , MDDR_DQS_TMATCH_0_IN_PAD_Y };
 //--------------------------------------------------------------------
 // Component instances
 //--------------------------------------------------------------------
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_ADDR_0_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_ADDR0to0 ),
-        // Outputs
-        .PAD ( MDDR_ADDR_14 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_ADDR_1_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_ADDR1to1 ),
-        // Outputs
-        .PAD ( MDDR_ADDR_13 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_ADDR_2_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_ADDR2to2 ),
-        // Outputs
-        .PAD ( MDDR_ADDR_12 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_ADDR_3_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_ADDR3to3 ),
-        // Outputs
-        .PAD ( MDDR_ADDR_11 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_ADDR_4_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_ADDR4to4 ),
-        // Outputs
-        .PAD ( MDDR_ADDR_10 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_ADDR_5_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_ADDR5to5 ),
-        // Outputs
-        .PAD ( MDDR_ADDR_9 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_ADDR_6_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_ADDR6to6 ),
-        // Outputs
-        .PAD ( MDDR_ADDR_8 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_ADDR_7_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_ADDR7to7 ),
-        // Outputs
-        .PAD ( MDDR_ADDR_7 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_ADDR_8_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_ADDR8to8 ),
-        // Outputs
-        .PAD ( MDDR_ADDR_6 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_ADDR_9_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_ADDR9to9 ),
-        // Outputs
-        .PAD ( MDDR_ADDR_5 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_ADDR_10_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_ADDR10to10 ),
-        // Outputs
-        .PAD ( MDDR_ADDR_4 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_ADDR_11_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_ADDR11to11 ),
-        // Outputs
-        .PAD ( MDDR_ADDR_3 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_ADDR_12_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_ADDR12to12 ),
-        // Outputs
-        .PAD ( MDDR_ADDR_2 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_ADDR_13_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_ADDR13to13 ),
-        // Outputs
-        .PAD ( MDDR_ADDR_1 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_ADDR_14_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_ADDR14to14 ),
-        // Outputs
-        .PAD ( MDDR_ADDR_0 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_ADDR_15_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_ADDR15to15 ),
-        // Outputs
-        .PAD ( MDDR_ADDR_net_0 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_BA_0_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_BA0to0 ),
-        // Outputs
-        .PAD ( MDDR_BA_1 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_BA_1_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_BA1to1 ),
-        // Outputs
-        .PAD ( MDDR_BA_0 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_BA_2_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_BA2to2 ),
-        // Outputs
-        .PAD ( MDDR_BA_net_0 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_CAS_N_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_CASN ),
-        // Outputs
-        .PAD ( MDDR_CAS_N_net_0 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_CKE_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_CKE ),
-        // Outputs
-        .PAD ( MDDR_CKE_net_0 ) 
-        );
-
-//--------OUTBUF_DIFF
-OUTBUF_DIFF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_CLK_PAD(
-        // Inputs
-        .D    ( MSS_ADLIB_INST_DRAM_CLK ),
-        // Outputs
-        .PADP ( MDDR_CLK_net_0 ),
-        .PADN ( MDDR_CLK_N_net_0 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_CS_N_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_CSN ),
-        // Outputs
-        .PAD ( MDDR_CS_N_net_0 ) 
-        );
-
-//--------BIBUF
-BIBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_DM_RDQS_0_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_DM_RDQS_OUT0to0 ),
-        .E   ( MSS_ADLIB_INST_DM_OE0to0 ),
-        // Outputs
-        .Y   ( MDDR_DM_RDQS_0_PAD_Y ),
-        // Inouts
-        .PAD ( MDDR_DM_RDQS[0:0] ) 
-        );
-
-//--------BIBUF
-BIBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_DQ_0_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_DQ_OUT0to0 ),
-        .E   ( MSS_ADLIB_INST_DRAM_DQ_OE0to0 ),
-        // Outputs
-        .Y   ( MDDR_DQ_0_PAD_Y ),
-        // Inouts
-        .PAD ( MDDR_DQ[0:0] ) 
-        );
-
-//--------BIBUF
-BIBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_DQ_1_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_DQ_OUT1to1 ),
-        .E   ( MSS_ADLIB_INST_DRAM_DQ_OE1to1 ),
-        // Outputs
-        .Y   ( MDDR_DQ_1_PAD_Y ),
-        // Inouts
-        .PAD ( MDDR_DQ[1:1] ) 
-        );
-
-//--------BIBUF
-BIBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_DQ_2_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_DQ_OUT2to2 ),
-        .E   ( MSS_ADLIB_INST_DRAM_DQ_OE2to2 ),
-        // Outputs
-        .Y   ( MDDR_DQ_2_PAD_Y ),
-        // Inouts
-        .PAD ( MDDR_DQ[2:2] ) 
-        );
-
-//--------BIBUF
-BIBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_DQ_3_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_DQ_OUT3to3 ),
-        .E   ( MSS_ADLIB_INST_DRAM_DQ_OE3to3 ),
-        // Outputs
-        .Y   ( MDDR_DQ_3_PAD_Y ),
-        // Inouts
-        .PAD ( MDDR_DQ[3:3] ) 
-        );
-
-//--------BIBUF
-BIBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_DQ_4_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_DQ_OUT4to4 ),
-        .E   ( MSS_ADLIB_INST_DRAM_DQ_OE4to4 ),
-        // Outputs
-        .Y   ( MDDR_DQ_4_PAD_Y ),
-        // Inouts
-        .PAD ( MDDR_DQ[4:4] ) 
-        );
-
-//--------BIBUF
-BIBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_DQ_5_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_DQ_OUT5to5 ),
-        .E   ( MSS_ADLIB_INST_DRAM_DQ_OE5to5 ),
-        // Outputs
-        .Y   ( MDDR_DQ_5_PAD_Y ),
-        // Inouts
-        .PAD ( MDDR_DQ[5:5] ) 
-        );
-
-//--------BIBUF
-BIBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_DQ_6_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_DQ_OUT6to6 ),
-        .E   ( MSS_ADLIB_INST_DRAM_DQ_OE6to6 ),
-        // Outputs
-        .Y   ( MDDR_DQ_6_PAD_Y ),
-        // Inouts
-        .PAD ( MDDR_DQ[6:6] ) 
-        );
-
-//--------BIBUF
-BIBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_DQ_7_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_DQ_OUT7to7 ),
-        .E   ( MSS_ADLIB_INST_DRAM_DQ_OE7to7 ),
-        // Outputs
-        .Y   ( MDDR_DQ_7_PAD_Y ),
-        // Inouts
-        .PAD ( MDDR_DQ[7:7] ) 
-        );
-
-//--------BIBUF_DIFF
-BIBUF_DIFF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_DQS_0_PAD(
-        // Inputs
-        .D    ( MSS_ADLIB_INST_DRAM_DQS_OUT0to0 ),
-        .E    ( MSS_ADLIB_INST_DRAM_DQS_OE0to0 ),
-        // Outputs
-        .Y    ( MDDR_DQS_0_PAD_Y ),
-        // Inouts
-        .PADP ( MDDR_DQS[0:0] ),
-        .PADN ( MDDR_DQS_N[0:0] ) 
-        );
-
-//--------INBUF
-INBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_DQS_TMATCH_0_IN_PAD(
-        // Inputs
-        .PAD ( MDDR_DQS_TMATCH_0_IN ),
-        // Outputs
-        .Y   ( MDDR_DQS_TMATCH_0_IN_PAD_Y ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_DQS_TMATCH_0_OUT_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_FIFO_WE_OUT0to0 ),
-        // Outputs
-        .PAD ( MDDR_DQS_TMATCH_0_OUT_net_0 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_ODT_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_ODT ),
-        // Outputs
-        .PAD ( MDDR_ODT_net_0 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_RAS_N_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_RASN ),
-        // Outputs
-        .PAD ( MDDR_RAS_N_net_0 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_RESET_N_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_RSTN ),
-        // Outputs
-        .PAD ( MDDR_RESET_N_net_0 ) 
-        );
-
-//--------OUTBUF
-OUTBUF #( 
-        .IOSTD ( "SSTL15I" ) )
-MDDR_WE_N_PAD(
-        // Inputs
-        .D   ( MSS_ADLIB_INST_DRAM_WEN ),
-        // Outputs
-        .PAD ( MDDR_WE_N_net_0 ) 
-        );
-
-//--------MSS_010
-MSS_010 #( 
+//--------MSS_025
+MSS_025 #( 
         .ACT_UBITS         ( 56'hFFFFFFFFFFFFFF ),
-        .DDR_CLK_FREQ      ( 300.0 ),
-        .INIT              ( 1438'h00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000E00000000F000000000000000000000000000000007FFFFFFFB000001007C33C00020400609240104003FFFFE4000000000000400000000F0F01C000000025FE4010842108421000001FE34001FF8000000400000000020091007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF ),
+        .DDR_CLK_FREQ      ( 100.0 ),
+        .INIT              ( 1438'h00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000E00000000F000000000000000000000000000000007FFFFFFFB000001007C33C000000006092C0104003FFFFE4000000000000100000000F0F01C000001825FE4010842108421000001FE34001FF8000000400000000020091007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF ),
         .MEMORYFILE        ( "ENVM_init.mem" ),
         .RTC_MAIN_XTL_FREQ ( 0.0 ),
         .RTC_MAIN_XTL_MODE ( "" ) )
@@ -1021,7 +233,7 @@ MSS_ADLIB_INST(
         .COLF                                    ( VCC_net ), // tied to 1'b1 from definition
         .CRSF                                    ( VCC_net ), // tied to 1'b1 from definition
         .F2_DMAREADY                             ( F2_DMAREADY_const_net_0 ), // tied to 2'h3 from definition
-        .F2H_INTERRUPT                           ( MSS_INT_F2M ),
+        .F2H_INTERRUPT                           ( F2H_INTERRUPT_const_net_0 ), // tied to 16'h0000 from definition
         .F2HCALIB                                ( VCC_net ), // tied to 1'b1 from definition
         .F_DMAREADY                              ( F_DMAREADY_const_net_0 ), // tied to 2'h3 from definition
         .F_FM0_ADDR                              ( F_FM0_ADDR_const_net_0 ), // tied to 32'h00000000 from definition
@@ -1040,7 +252,7 @@ MSS_ADLIB_INST(
         .FAB_HOSTDISCON                          ( VCC_net ), // tied to 1'b1 from definition
         .FAB_IDDIG                               ( VCC_net ), // tied to 1'b1 from definition
         .FAB_LINESTATE                           ( FAB_LINESTATE_const_net_0 ), // tied to 2'h3 from definition
-        .FAB_M3_RESET_N                          ( M3_RESET_N ),
+        .FAB_M3_RESET_N                          ( VCC_net ), // tied to 1'b1 from definition
         .FAB_PLL_LOCK                            ( MCCC_CLK_BASE_PLL_LOCK ),
         .FAB_RXACTIVE                            ( VCC_net ), // tied to 1'b1 from definition
         .FAB_RXERROR                             ( VCC_net ), // tied to 1'b1 from definition
@@ -1141,7 +353,7 @@ MSS_ADLIB_INST(
         .USER_MSS_RESET_N                        ( MSS_RESET_N_F2M ),
         .XCLK_FAB                                ( VCC_net ), // tied to 1'b1 from definition
         .CLK_BASE                                ( MCCC_CLK_BASE ),
-        .CLK_MDDR_APB                            ( MDDR_APB_S_PCLK ),
+        .CLK_MDDR_APB                            ( VCC_net ), // tied to 1'b1 from definition
         .F_ARADDR_HADDR1                         ( F_ARADDR_HADDR1_const_net_0 ), // tied to 32'hFFFFFFFF from definition
         .F_ARBURST_HTRANS1                       ( F_ARBURST_HTRANS1_const_net_0 ), // tied to 2'h0 from definition
         .F_ARID_HSEL1                            ( F_ARID_HSEL1_const_net_0 ), // tied to 4'h0 from definition
@@ -1165,23 +377,25 @@ MSS_ADLIB_INST(
         .F_WSTRB                                 ( F_WSTRB_const_net_0 ), // tied to 8'h00 from definition
         .F_WVALID                                ( GND_net ), // tied to 1'b0 from definition
         .FPGA_MDDR_ARESET_N                      ( VCC_net ), // tied to 1'b1 from definition
-        .MDDR_FABRIC_PADDR                       ( MDDR_APB_S_PADDR ),
-        .MDDR_FABRIC_PENABLE                     ( MDDR_APB_S_PENABLE ),
-        .MDDR_FABRIC_PSEL                        ( MDDR_APB_S_PSEL ),
-        .MDDR_FABRIC_PWDATA                      ( MDDR_APB_S_PWDATA ),
-        .MDDR_FABRIC_PWRITE                      ( MDDR_APB_S_PWRITE ),
-        .PRESET_N                                ( MDDR_APB_S_PRESET_N ),
+        .MDDR_FABRIC_PADDR                       ( MDDR_FABRIC_PADDR_const_net_0 ), // tied to 9'h1FF from definition
+        .MDDR_FABRIC_PENABLE                     ( VCC_net ), // tied to 1'b1 from definition
+        .MDDR_FABRIC_PSEL                        ( VCC_net ), // tied to 1'b1 from definition
+        .MDDR_FABRIC_PWDATA                      ( MDDR_FABRIC_PWDATA_const_net_0 ), // tied to 16'hFFFF from definition
+        .MDDR_FABRIC_PWRITE                      ( VCC_net ), // tied to 1'b1 from definition
+        .PRESET_N                                ( GND_net ), // tied to 1'b0 from definition
         .CAN_RXBUS_USBA_DATA1_MGPIO3A_IN         ( GND_net ),
         .CAN_TX_EBL_USBA_DATA2_MGPIO4A_IN        ( GND_net ),
         .CAN_TXBUS_USBA_DATA0_MGPIO2A_IN         ( GND_net ),
-        .DM_IN                                   ( DM_IN_net_0 ),
-        .DRAM_DQ_IN                              ( DRAM_DQ_IN_net_0 ),
-        .DRAM_DQS_IN                             ( DRAM_DQS_IN_net_0 ),
-        .DRAM_FIFO_WE_IN                         ( DRAM_FIFO_WE_IN_net_0 ),
+        .DM_IN                                   ( DM_IN_const_net_0 ),
+        .DRAM_DQ_IN                              ( DRAM_DQ_IN_const_net_0 ),
+        .DRAM_DQS_IN                             ( DRAM_DQS_IN_const_net_0 ),
+        .DRAM_FIFO_WE_IN                         ( DRAM_FIFO_WE_IN_const_net_0 ),
         .I2C0_SCL_USBC_DATA1_MGPIO31B_IN         ( GND_net ),
         .I2C0_SDA_USBC_DATA0_MGPIO30B_IN         ( GND_net ),
         .I2C1_SCL_USBA_DATA4_MGPIO1A_IN          ( GND_net ),
         .I2C1_SDA_USBA_DATA3_MGPIO0A_IN          ( GND_net ),
+        .MGPIO25A_IN                             ( GND_net ),
+        .MGPIO26A_IN                             ( GND_net ),
         .MMUART0_CTS_USBC_DATA7_MGPIO19B_IN      ( GND_net ),
         .MMUART0_DCD_MGPIO22B_IN                 ( GND_net ),
         .MMUART0_DSR_MGPIO20B_IN                 ( GND_net ),
@@ -1191,6 +405,12 @@ MSS_ADLIB_INST(
         .MMUART0_RXD_USBC_STP_MGPIO28B_IN        ( GND_net ),
         .MMUART0_SCK_USBC_NXT_MGPIO29B_IN        ( GND_net ),
         .MMUART0_TXD_USBC_DIR_MGPIO27B_IN        ( GND_net ),
+        .MMUART1_CTS_MGPIO13B_IN                 ( GND_net ),
+        .MMUART1_DCD_MGPIO16B_IN                 ( GND_net ),
+        .MMUART1_DSR_MGPIO14B_IN                 ( GND_net ),
+        .MMUART1_DTR_MGPIO12B_IN                 ( GND_net ),
+        .MMUART1_RI_MGPIO15B_IN                  ( GND_net ),
+        .MMUART1_RTS_MGPIO11B_IN                 ( GND_net ),
         .MMUART1_RXD_USBC_DATA3_MGPIO26B_IN      ( GND_net ),
         .MMUART1_SCK_USBC_DATA4_MGPIO25B_IN      ( GND_net ),
         .MMUART1_TXD_USBC_DATA2_MGPIO24B_IN      ( GND_net ),
@@ -1216,6 +436,10 @@ MSS_ADLIB_INST(
         .SPI0_SS1_USBA_DATA5_MGPIO8A_IN          ( GND_net ),
         .SPI0_SS2_USBA_DATA6_MGPIO9A_IN          ( GND_net ),
         .SPI0_SS3_USBA_DATA7_MGPIO10A_IN         ( GND_net ),
+        .SPI0_SS4_MGPIO19A_IN                    ( GND_net ),
+        .SPI0_SS5_MGPIO20A_IN                    ( GND_net ),
+        .SPI0_SS6_MGPIO21A_IN                    ( GND_net ),
+        .SPI0_SS7_MGPIO22A_IN                    ( GND_net ),
         .SPI1_SCK_IN                             ( GND_net ),
         .SPI1_SDI_MGPIO11A_IN                    ( GND_net ),
         .SPI1_SDO_MGPIO12A_IN                    ( GND_net ),
@@ -1379,30 +603,32 @@ MSS_ADLIB_INST(
         .F_RRESP_HRESP1                          (  ),
         .F_RVALID                                (  ),
         .F_WREADY                                (  ),
-        .MDDR_FABRIC_PRDATA                      ( MDDR_APB_SLAVE_PRDATA ),
-        .MDDR_FABRIC_PREADY                      ( MDDR_APB_SLAVE_PREADY ),
-        .MDDR_FABRIC_PSLVERR                     ( MDDR_APB_SLAVE_PSLVERR ),
+        .MDDR_FABRIC_PRDATA                      (  ),
+        .MDDR_FABRIC_PREADY                      (  ),
+        .MDDR_FABRIC_PSLVERR                     (  ),
         .CAN_RXBUS_USBA_DATA1_MGPIO3A_OUT        (  ),
         .CAN_TX_EBL_USBA_DATA2_MGPIO4A_OUT       (  ),
         .CAN_TXBUS_USBA_DATA0_MGPIO2A_OUT        (  ),
-        .DRAM_ADDR                               ( DRAM_ADDR_net_0 ),
-        .DRAM_BA                                 ( DRAM_BA_net_0 ),
-        .DRAM_CASN                               ( MSS_ADLIB_INST_DRAM_CASN ),
-        .DRAM_CKE                                ( MSS_ADLIB_INST_DRAM_CKE ),
-        .DRAM_CLK                                ( MSS_ADLIB_INST_DRAM_CLK ),
-        .DRAM_CSN                                ( MSS_ADLIB_INST_DRAM_CSN ),
-        .DRAM_DM_RDQS_OUT                        ( DRAM_DM_RDQS_OUT_net_0 ),
-        .DRAM_DQ_OUT                             ( DRAM_DQ_OUT_net_0 ),
-        .DRAM_DQS_OUT                            ( DRAM_DQS_OUT_net_0 ),
-        .DRAM_FIFO_WE_OUT                        ( DRAM_FIFO_WE_OUT_net_0 ),
-        .DRAM_ODT                                ( MSS_ADLIB_INST_DRAM_ODT ),
-        .DRAM_RASN                               ( MSS_ADLIB_INST_DRAM_RASN ),
-        .DRAM_RSTN                               ( MSS_ADLIB_INST_DRAM_RSTN ),
-        .DRAM_WEN                                ( MSS_ADLIB_INST_DRAM_WEN ),
+        .DRAM_ADDR                               (  ),
+        .DRAM_BA                                 (  ),
+        .DRAM_CASN                               (  ),
+        .DRAM_CKE                                (  ),
+        .DRAM_CLK                                (  ),
+        .DRAM_CSN                                (  ),
+        .DRAM_DM_RDQS_OUT                        (  ),
+        .DRAM_DQ_OUT                             (  ),
+        .DRAM_DQS_OUT                            (  ),
+        .DRAM_FIFO_WE_OUT                        (  ),
+        .DRAM_ODT                                (  ),
+        .DRAM_RASN                               (  ),
+        .DRAM_RSTN                               (  ),
+        .DRAM_WEN                                (  ),
         .I2C0_SCL_USBC_DATA1_MGPIO31B_OUT        (  ),
         .I2C0_SDA_USBC_DATA0_MGPIO30B_OUT        (  ),
         .I2C1_SCL_USBA_DATA4_MGPIO1A_OUT         (  ),
         .I2C1_SDA_USBA_DATA3_MGPIO0A_OUT         (  ),
+        .MGPIO25A_OUT                            (  ),
+        .MGPIO26A_OUT                            (  ),
         .MMUART0_CTS_USBC_DATA7_MGPIO19B_OUT     (  ),
         .MMUART0_DCD_MGPIO22B_OUT                (  ),
         .MMUART0_DSR_MGPIO20B_OUT                (  ),
@@ -1412,6 +638,12 @@ MSS_ADLIB_INST(
         .MMUART0_RXD_USBC_STP_MGPIO28B_OUT       (  ),
         .MMUART0_SCK_USBC_NXT_MGPIO29B_OUT       (  ),
         .MMUART0_TXD_USBC_DIR_MGPIO27B_OUT       (  ),
+        .MMUART1_CTS_MGPIO13B_OUT                (  ),
+        .MMUART1_DCD_MGPIO16B_OUT                (  ),
+        .MMUART1_DSR_MGPIO14B_OUT                (  ),
+        .MMUART1_DTR_MGPIO12B_OUT                (  ),
+        .MMUART1_RI_MGPIO15B_OUT                 (  ),
+        .MMUART1_RTS_MGPIO11B_OUT                (  ),
         .MMUART1_RXD_USBC_DATA3_MGPIO26B_OUT     (  ),
         .MMUART1_SCK_USBC_DATA4_MGPIO25B_OUT     (  ),
         .MMUART1_TXD_USBC_DATA2_MGPIO24B_OUT     (  ),
@@ -1437,6 +669,10 @@ MSS_ADLIB_INST(
         .SPI0_SS1_USBA_DATA5_MGPIO8A_OUT         (  ),
         .SPI0_SS2_USBA_DATA6_MGPIO9A_OUT         (  ),
         .SPI0_SS3_USBA_DATA7_MGPIO10A_OUT        (  ),
+        .SPI0_SS4_MGPIO19A_OUT                   (  ),
+        .SPI0_SS5_MGPIO20A_OUT                   (  ),
+        .SPI0_SS6_MGPIO21A_OUT                   (  ),
+        .SPI0_SS7_MGPIO22A_OUT                   (  ),
         .SPI1_SCK_OUT                            (  ),
         .SPI1_SDI_MGPIO11A_OUT                   (  ),
         .SPI1_SDO_MGPIO12A_OUT                   (  ),
@@ -1452,13 +688,15 @@ MSS_ADLIB_INST(
         .CAN_RXBUS_USBA_DATA1_MGPIO3A_OE         (  ),
         .CAN_TX_EBL_USBA_DATA2_MGPIO4A_OE        (  ),
         .CAN_TXBUS_USBA_DATA0_MGPIO2A_OE         (  ),
-        .DM_OE                                   ( DM_OE_net_0 ),
-        .DRAM_DQ_OE                              ( DRAM_DQ_OE_net_0 ),
-        .DRAM_DQS_OE                             ( DRAM_DQS_OE_net_0 ),
+        .DM_OE                                   (  ),
+        .DRAM_DQ_OE                              (  ),
+        .DRAM_DQS_OE                             (  ),
         .I2C0_SCL_USBC_DATA1_MGPIO31B_OE         (  ),
         .I2C0_SDA_USBC_DATA0_MGPIO30B_OE         (  ),
         .I2C1_SCL_USBA_DATA4_MGPIO1A_OE          (  ),
         .I2C1_SDA_USBA_DATA3_MGPIO0A_OE          (  ),
+        .MGPIO25A_OE                             (  ),
+        .MGPIO26A_OE                             (  ),
         .MMUART0_CTS_USBC_DATA7_MGPIO19B_OE      (  ),
         .MMUART0_DCD_MGPIO22B_OE                 (  ),
         .MMUART0_DSR_MGPIO20B_OE                 (  ),
@@ -1468,6 +706,12 @@ MSS_ADLIB_INST(
         .MMUART0_RXD_USBC_STP_MGPIO28B_OE        (  ),
         .MMUART0_SCK_USBC_NXT_MGPIO29B_OE        (  ),
         .MMUART0_TXD_USBC_DIR_MGPIO27B_OE        (  ),
+        .MMUART1_CTS_MGPIO13B_OE                 (  ),
+        .MMUART1_DCD_MGPIO16B_OE                 (  ),
+        .MMUART1_DSR_MGPIO14B_OE                 (  ),
+        .MMUART1_DTR_MGPIO12B_OE                 (  ),
+        .MMUART1_RI_MGPIO15B_OE                  (  ),
+        .MMUART1_RTS_MGPIO11B_OE                 (  ),
         .MMUART1_RXD_USBC_DATA3_MGPIO26B_OE      (  ),
         .MMUART1_SCK_USBC_DATA4_MGPIO25B_OE      (  ),
         .MMUART1_TXD_USBC_DATA2_MGPIO24B_OE      (  ),
@@ -1493,6 +737,10 @@ MSS_ADLIB_INST(
         .SPI0_SS1_USBA_DATA5_MGPIO8A_OE          (  ),
         .SPI0_SS2_USBA_DATA6_MGPIO9A_OE          (  ),
         .SPI0_SS3_USBA_DATA7_MGPIO10A_OE         (  ),
+        .SPI0_SS4_MGPIO19A_OE                    (  ),
+        .SPI0_SS5_MGPIO20A_OE                    (  ),
+        .SPI0_SS6_MGPIO21A_OE                    (  ),
+        .SPI0_SS7_MGPIO22A_OE                    (  ),
         .SPI1_SCK_OE                             (  ),
         .SPI1_SDI_MGPIO11A_OE                    (  ),
         .SPI1_SDO_MGPIO12A_OE                    (  ),

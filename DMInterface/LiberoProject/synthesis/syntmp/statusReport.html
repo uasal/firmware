@@ -9,7 +9,7 @@
  			
 <table style="border:none;" width="100%" ><tr> <td class="outline">
 <table width="100%" border="0" cellspacing="0" cellpadding="0"> 	     <thead class="tablehead"><tr><th colspan="4">Project Settings</th><tr> 
- <tr> <td class="optionTitle" align="left"> Project Name</td> <td> EvalBoardSandbox_syn</td> <td class="optionTitle" align="left"> Device Name</td> <td> synthesis: Microchip SmartFusion2 : M2S010</td> </tr>
+ <tr> <td class="optionTitle" align="left"> Project Name</td> <td> EvalBoardSandbox_syn</td> <td class="optionTitle" align="left"> Device Name</td> <td> synthesis: Microchip SmartFusion2 : M2S025</td> </tr>
 <tr> <td class="optionTitle" align="left"> Implementation Name</td> <td> synthesis</td> <td class="optionTitle" align="left"> Top Module</td> <td> EvalBoardSandbox</td> </tr>
  		 </thead> 
 		 <tbody> <tr> <td class="optionTitle" align="left"> Retiming</td> <td> 0</td> <td class="optionTitle" align="left"> Resource Sharing</td> <td> 1</td> </tr>
@@ -33,40 +33,38 @@
          </tr>
   <tr>
   <td class="optionTitle"> (compiler)</td><td>Complete</td>
- <td>130</td>
- <td>137</td>
+ <td>120</td>
+ <td>84</td>
 <td>0</td>
 <td>-</td>
-<td>00m:18s</td>
+<td>00m:01s</td>
 <td>-</td>
-<td><font size="-1">1/29/2024</font><br/><font size="-2">12:07:53 PM</font></td>
+<td><font size="-1">1/31/2024</font><br/><font size="-2">4:43:15 PM</font></td>
 </tr> 
 
  <tr>
   <td class="optionTitle"> (premap)</td><td>Complete</td>
- <td>116</td>
- <td>21</td>
+ <td>37</td>
+ <td>18</td>
 <td>0</td>
-<td>0m:02s</td>
-<td>0m:02s</td>
-<td>186MB</td>
-<td><font size="-1">1/29/2024</font><br/><font size="-2">12:07:57 PM</font></td>
+<td>0m:03s</td>
+<td>0m:03s</td>
+<td>183MB</td>
+<td><font size="-1">1/31/2024</font><br/><font size="-2">4:43:19 PM</font></td>
 </tr> 
 
  <tr>
   <td class="optionTitle"> (fpga_mapper)</td><td>Complete</td>
- <td>48</td>
- <td>18</td>
+ <td>31</td>
+ <td>27</td>
 <td>0</td>
-<td>0m:07s</td>
-<td>0m:08s</td>
-<td>198MB</td>
-<td><font size="-1">1/29/2024</font><br/><font size="-2">12:08:05 PM</font></td>
+<td>0m:04s</td>
+<td>0m:04s</td>
+<td>185MB</td>
+<td><font size="-1">1/31/2024</font><br/><font size="-2">4:43:24 PM</font></td>
 </tr> 
 
-<tr>
-  <td class="optionTitle">Multi-srs Generator</td>
-  <td>Complete</td><td class="empty"></td><td class="empty"></td><td class="empty"></td><td></td><td class="empty"></td><td class="empty"></td><td><font size="-1">1/29/2024</font><br/><font size="-2">12:07:54 PM</font></td> 		</tbody>
+ 		</tbody>
      </table>
  <br> 
  <table width="100%" border="1" cellspacing= "0" cellpadding= "0" >
@@ -74,23 +72,20 @@
 <tfoot> <tr> <td class="optionTitle" colspan="2"></td><td class="optionTitle" colspan="2"></td></tr> 
  </tfoot> 
  <tbody> <tr> 
-<td title ="Total Carry Cells used" class="optionTitle" align="left">Carry Cells</td> <td>212</td>
-<td title ="Total Sequential Cells used" class="optionTitle" align="left">Sequential Cells</td> <td>458</td>
+<td title ="Total Carry Cells used" class="optionTitle" align="left">Carry Cells</td> <td>33</td>
+<td title ="Total Sequential Cells used" class="optionTitle" align="left">Sequential Cells</td> <td>153</td>
 </tr>
 <tr> 
 <td title ="Total DSP Blocks used" class="optionTitle" align="left">DSP Blocks
 (dsp_used)</td> <td>0</td>
-<td title ="Total I/O Cells used" class="optionTitle" align="left">I/O Cells</td> <td>49</td>
+<td title ="Total I/O Cells used" class="optionTitle" align="left">I/O Cells</td> <td>39</td>
 </tr>
 <tr> 
-<td title ="Total Global Clock Buffers used" class="optionTitle" align="left">Global Clock Buffers</td> <td>10</td>
-<td title ="Total RAM1K18 used" class="optionTitle" align="left">RAM1K18
-(v_ram)</td> <td>2</td>
-</tr>
-<tr> 
+<td title ="Total Global Clock Buffers used" class="optionTitle" align="left">Global Clock Buffers</td> <td>4</td>
 <td title ="Total LUTs used" class="optionTitle" align="left">LUTs
-(total_luts)</td> <td>603</td>
-<td class="optionTitle"></td><td></td></tr> 
+(total_luts)</td> <td>220</td>
+</tr>
+ 
 </tbody>
     </table><br>
  <table width="100%" border="1" cellspacing= "0" cellpadding= "0" >
@@ -99,9 +94,8 @@
  </tfoot> 
 <tbody> 
    <tr><th class="optionTitle" align= "left ">Clock Name</th><th class="optionTitle" align= "left ">Req Freq</th><th class="optionTitle" align= "left ">Est Freq</th><th class="optionTitle" align= "left ">Slack</th></tr> 
-<tr> <td  align="left">EvalSandbox_MSS_0/CCC_0/GL0</td><td  align="left">100.0 MHz</td><td  align="left">99.6 MHz</td><td  align="left">-0.035</td></tr> 
-<tr> <td  align="left">EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/CLK_CONFIG_APB</td><td  align="left">25.0 MHz</td><td  align="left">124.1 MHz</td><td  align="left">16.312</td></tr> 
-<tr> <td  align="left">EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT</td><td  align="left">50.0 MHz</td><td  align="left">265.7 MHz</td><td  align="left">16.236</td></tr> 
+<tr> <td  align="left">EvalSandbox_MSS_0/CCC_0/GL0</td><td  align="left">100.0 MHz</td><td  align="left">115.5 MHz</td><td  align="left">1.339</td></tr> 
+<tr> <td  align="left">EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT</td><td  align="left">50.0 MHz</td><td  align="left">NA</td><td  align="left">NA</td></tr> 
 <tr> <td  align="left">System</td><td  align="left">100.0 MHz</td><td  align="left">NA</td><td  align="left">NA</td></tr> 
 </tbody> 
  </table>

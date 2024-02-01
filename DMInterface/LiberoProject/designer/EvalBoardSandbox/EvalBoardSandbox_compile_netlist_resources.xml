@@ -3,7 +3,7 @@
 <doc>
 <title>Resource Report</title>
 <text>Microchip Technology Inc. - Microchip Libero Software Release v2023.2 (Version 2023.2.0.8)</text>
-<text>Date: Mon Jan 29 12:08:10 2024
+<text>Date: Wed Jan 31 16:43:28 2024
 </text>
 <section><name>Device Selection</name></section>
 <table>
@@ -15,7 +15,7 @@
 </row>
 <row>
  <cell>Device</cell>
- <cell>M2S010</cell>
+ <cell>M2S025</cell>
 </row>
 <row>
  <cell>Package</cell>
@@ -23,11 +23,11 @@
 </row>
 <row>
  <cell>Speed Grade</cell>
- <cell>STD</cell>
+ <cell>-1</cell>
 </row>
 <row>
  <cell>Temp</cell>
- <cell>0:25:85</cell>
+ <cell>-40:25:100</cell>
 </row>
 <row>
  <cell>Voltage</cell>
@@ -55,7 +55,7 @@
 </row>
 <row>
  <cell>Restrict Probe Pins</cell>
- <cell>Yes</cell>
+ <cell>No</cell>
 </row>
 <row>
  <cell>Restrict SPI Pins</cell>
@@ -76,7 +76,7 @@
 </row>
 <row>
  <cell>Source</cell>
- <cell>C:\MicroSemiProj\EvalBoardSandbox\synthesis\EvalBoardSandbox.vm</cell>
+ <cell>C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\synthesis\EvalBoardSandbox.vm</cell>
 </row>
 </table>
 <section><name>Options</name></section>
@@ -106,15 +106,15 @@
 </header>
 <row>
  <cell>4LUT</cell>
- <cell>682</cell>
- <cell>12084</cell>
- <cell>5.64</cell>
+ <cell>218</cell>
+ <cell>27696</cell>
+ <cell>0.79</cell>
 </row>
 <row>
  <cell>DFF</cell>
- <cell>530</cell>
- <cell>12084</cell>
- <cell>4.39</cell>
+ <cell>153</cell>
+ <cell>27696</cell>
+ <cell>0.55</cell>
 </row>
 <row>
  <cell>I/O Register</cell>
@@ -124,51 +124,51 @@
 </row>
 <row>
  <cell>User I/O</cell>
- <cell>51</cell>
+ <cell>39</cell>
  <cell>138</cell>
- <cell>36.96</cell>
+ <cell>28.26</cell>
 </row>
 <row>
  <cell>-- Single-ended I/O</cell>
- <cell>47</cell>
+ <cell>39</cell>
  <cell>138</cell>
- <cell>34.06</cell>
+ <cell>28.26</cell>
 </row>
 <row>
  <cell>-- Differential I/O Pairs</cell>
- <cell>2</cell>
+ <cell>0</cell>
  <cell>65</cell>
- <cell>3.08</cell>
+ <cell>0.00</cell>
 </row>
 <row>
  <cell>RAM64x18</cell>
  <cell>0</cell>
- <cell>22</cell>
+ <cell>34</cell>
  <cell>0.00</cell>
 </row>
 <row>
  <cell>RAM1K18</cell>
- <cell>2</cell>
- <cell>21</cell>
- <cell>9.52</cell>
+ <cell>0</cell>
+ <cell>31</cell>
+ <cell>0.00</cell>
 </row>
 <row>
  <cell>MACC</cell>
  <cell>0</cell>
- <cell>22</cell>
+ <cell>34</cell>
  <cell>0.00</cell>
 </row>
 <row>
  <cell>Chip Globals</cell>
- <cell>8</cell>
- <cell>8</cell>
- <cell>100.00</cell>
+ <cell>4</cell>
+ <cell>16</cell>
+ <cell>25.00</cell>
 </row>
 <row>
  <cell>CCC</cell>
  <cell>1</cell>
- <cell>2</cell>
- <cell>50.00</cell>
+ <cell>6</cell>
+ <cell>16.67</cell>
 </row>
 <row>
  <cell>RCOSC_25_50MHZ</cell>
@@ -204,8 +204,8 @@
 </header>
 <row>
  <cell>Fabric Logic</cell>
- <cell>610</cell>
- <cell>458</cell>
+ <cell>218</cell>
+ <cell>153</cell>
 </row>
 <row>
  <cell>RAM64x18 Interface Logic</cell>
@@ -214,8 +214,8 @@
 </row>
 <row>
  <cell>RAM1K18 Interface Logic</cell>
- <cell>72</cell>
- <cell>72</cell>
+ <cell>0</cell>
+ <cell>0</cell>
 </row>
 <row>
  <cell>MACC Interface Logic</cell>
@@ -224,8 +224,8 @@
 </row>
 <row>
  <cell>Total Used</cell>
- <cell>682</cell>
- <cell>530</cell>
+ <cell>218</cell>
+ <cell>153</cell>
 </row>
 </table>
 <section><name>MSS Resource Usage</name></section>
@@ -287,7 +287,7 @@
 </row>
 <row>
  <cell>MDDR</cell>
- <cell>1</cell>
+ <cell>0</cell>
  <cell>1</cell>
 </row>
 <row>
@@ -312,28 +312,20 @@
  <cell>Used</cell>
 </row>
 <row>
- <cell>2</cell>
- <cell>16</cell>
-</row>
-<row>
  <cell>5</cell>
- <cell>1</cell>
+ <cell>2</cell>
 </row>
 <row>
  <cell>9</cell>
- <cell>8</cell>
+ <cell>1</cell>
 </row>
 <row>
  <cell>14</cell>
- <cell>2</cell>
-</row>
-<row>
- <cell>17</cell>
- <cell>5</cell>
+ <cell>1</cell>
 </row>
 <row>
  <cell>Total</cell>
- <cell>32</cell>
+ <cell>4</cell>
 </row>
 </table>
 <section><name>I/O Function</name></section>
@@ -346,19 +338,19 @@
 </header>
 <row>
  <cell>Input I/O</cell>
- <cell>2</cell>
+ <cell>1</cell>
  <cell>0</cell>
  <cell>0</cell>
 </row>
 <row>
  <cell>Output I/O</cell>
- <cell>36</cell>
+ <cell>38</cell>
  <cell>0</cell>
  <cell>0</cell>
 </row>
 <row>
  <cell>Bidirectional I/O</cell>
- <cell>9</cell>
+ <cell>0</cell>
  <cell>0</cell>
  <cell>0</cell>
 </row>
@@ -370,13 +362,7 @@
 </row>
 <row>
  <cell>Differential Output I/O Pairs</cell>
- <cell>1</cell>
  <cell>0</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>Differential Bidirectional I/O Pairs</cell>
- <cell>1</cell>
  <cell>0</cell>
  <cell>0</cell>
 </row>
@@ -396,23 +382,7 @@
  <cell> 3.30v</cell>
  <cell> N/A</cell>
  <cell> 1</cell>
- <cell> 9</cell>
- <cell> 0</cell>
-</row>
-<row>
- <cell>SSTL15I (Input/Bidirectional)</cell>
- <cell> 1.50v</cell>
- <cell> 0.75v</cell>
- <cell> 1</cell>
- <cell> 0</cell>
- <cell> 11</cell>
-</row>
-<row>
- <cell>SSTL15I (Output)</cell>
- <cell> 1.50v</cell>
- <cell> N/A</cell>
- <cell> 0</cell>
- <cell> 29</cell>
+ <cell> 38</cell>
  <cell> 0</cell>
 </row>
 </table>
@@ -424,7 +394,7 @@
  <cell>Name</cell>
 </header>
 <row>
- <cell>356</cell>
+ <cell>148</cell>
  <cell>INT_NET</cell>
  <cell>Net   : EvalSandbox_MSS_0_FIC_0_CLK</cell>
 </row>
@@ -439,39 +409,9 @@
  <cell>Source: NETLIST</cell>
 </row>
 <row>
- <cell>165</cell>
+ <cell>24</cell>
  <cell>INT_NET</cell>
- <cell>Net   : EvalSandbox_MSS_0/MSS_HPMS_READY_int_arst</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/CORERESETP_0/MSS_HPMS_READY_int_rep_RNID93C/U0_RGB1</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Source: NETLIST</cell>
-</row>
-<row>
- <cell>76</cell>
- <cell>INT_NET</cell>
- <cell>Net   : EvalSandbox_MSS_0/FIC_2_APB_M_PRESET_N_arst</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/FIC_2_APB_M_PRESET_N_netprop_RNI5S95/U0_RGB1</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Source: NETLIST</cell>
-</row>
-<row>
- <cell>75</cell>
- <cell>INT_NET</cell>
- <cell>Net   : EvalSandbox_MSS_0/CORECONFIGP_0_APB_S_PCLK</cell>
+ <cell>Net   : EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/GPIO_1_M2F_arst</cell>
 </row>
 <row>
  <cell></cell>
@@ -484,14 +424,14 @@
  <cell>Source: NETLIST</cell>
 </row>
 <row>
- <cell>31</cell>
+ <cell>12</cell>
  <cell>INT_NET</cell>
- <cell>Net   : EvalSandbox_MSS_0/FABOSC_0_RCOSC_25_50MHZ_O2F</cell>
+ <cell>Net   : SpiMasterSextetPorts_0/un1_rst_7_arst</cell>
 </row>
 <row>
  <cell></cell>
  <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ_FAB_CLKINT/U0_RGB1</cell>
+ <cell>Driver: SpiMasterSextetPorts_0/un1_rst_1_RNI6J8A/U0_RGB1</cell>
 </row>
 <row>
  <cell></cell>
@@ -499,44 +439,14 @@
  <cell>Source: NETLIST</cell>
 </row>
 <row>
- <cell>25</cell>
+ <cell>12</cell>
  <cell>INT_NET</cell>
- <cell>Net   : EvalSandbox_MSS_0/CORERESETP_0/sm0_areset_n_clk_base_Z</cell>
+ <cell>Net   : SpiMasterSextetPorts_0/un1_rst_12_arst</cell>
 </row>
 <row>
  <cell></cell>
  <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/CORERESETP_0/sm0_areset_n_clk_base_RNIIVKE/U0_RGB1</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Source: NETLIST</cell>
-</row>
-<row>
- <cell>18</cell>
- <cell>INT_NET</cell>
- <cell>Net   : EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/GPIO_1_M2F_arst</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST_RNI9OK7_0/U0_RGB1</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Source: NETLIST</cell>
-</row>
-<row>
- <cell>4</cell>
- <cell>INT_NET</cell>
- <cell>Net   : SpiMasterTrioPorts_0/un1_rst_4_arst</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: SpiMasterTrioPorts_0/un1_rst_4_RNIAEG7/U0_RGB1</cell>
+ <cell>Driver: SpiMasterSextetPorts_0/un1_rst_12_RNIOQR2/U0_RGB1</cell>
 </row>
 <row>
  <cell></cell>
@@ -560,56 +470,6 @@
  <cell>Name</cell>
 </header>
 <row>
- <cell>77</cell>
- <cell>INT_NET</cell>
- <cell>Net   : popfeedthru_unused_11</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST</cell>
-</row>
-<row>
- <cell>64</cell>
- <cell>INT_NET</cell>
- <cell>Net   : popfeedthru_unused_10</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST</cell>
-</row>
-<row>
- <cell>47</cell>
- <cell>INT_NET</cell>
- <cell>Net   : popfeedthru_unused_9</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST</cell>
-</row>
-<row>
- <cell>32</cell>
- <cell>INT_NET</cell>
- <cell>Net   : EvalSandbox_MSS_0/corepwm_0_0/genblk2.reg_if/prescale_reg6_Z</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/corepwm_0_0/genblk2.reg_if/prescale_reg6</cell>
-</row>
-<row>
- <cell>29</cell>
- <cell>INT_NET</cell>
- <cell>Net   : EvalSandbox_MSS_0_AMBA_SLAVE_0_3_PSELx</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/CoreAPB3_0/g0_2</cell>
-</row>
-<row>
  <cell>29</cell>
  <cell>INT_NET</cell>
  <cell>Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTIl</cell>
@@ -620,44 +480,94 @@
  <cell>Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTOO1/genblk1.CUARTI0</cell>
 </row>
 <row>
- <cell>29</cell>
+ <cell>17</cell>
  <cell>INT_NET</cell>
- <cell>Net   : EvalSandbox_MSS_0/CORECONFIGP_0/state_111_d</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/CORECONFIGP_0/state_s0_0_a2</cell>
-</row>
-<row>
- <cell>26</cell>
- <cell>INT_NET</cell>
- <cell>Net   : EvalSandbox_MSS_0/CORECONFIGP_0/state_Z[1]</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/CORECONFIGP_0/state[1]</cell>
-</row>
-<row>
- <cell>23</cell>
- <cell>INT_NET</cell>
- <cell>Net   : EvalSandbox_MSS_0/corepwm_0_0/CPWMlIlI_lcry</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/corepwm_0_0/genblk4.genblk1.timebase/un1_CPWMlIlI_cry_0</cell>
-</row>
-<row>
- <cell>22</cell>
- <cell>INT_NET</cell>
- <cell>Net   : EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_TMP_0_FIC_2_APB_MASTER_PADDR[2]</cell>
+ <cell>Net   : EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[4]</cell>
 </row>
 <row>
  <cell></cell>
  <cell></cell>
  <cell>Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST</cell>
+</row>
+<row>
+ <cell>17</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[3]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST</cell>
+</row>
+<row>
+ <cell>14</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[2]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST</cell>
+</row>
+<row>
+ <cell>14</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : EvalSandbox_MSS_0_AMBA_SLAVE_0_PSELx</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: EvalSandbox_MSS_0/CoreAPB3_0/iPSELS[0]</cell>
+</row>
+<row>
+ <cell>14</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTOO1/CUARTO07_1_RNI3H8P1_Y</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTOO1/genblk1.CUARTIOI.CUARTO07_1_RNI3H8P1</cell>
+</row>
+<row>
+ <cell>13</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTII1</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTO1OI[0]</cell>
+</row>
+<row>
+ <cell>12</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : SpiMasterSextetPorts_0/un1_MosiA_i_0_sqmuxa_1_i[0]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: SpiMasterSextetPorts_0/MosiA_i_0_sqmuxa_0_RNIOMUI2</cell>
+</row>
+<row>
+ <cell>12</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlI1</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTO1OI[1]</cell>
+</row>
+<row>
+ <cell>12</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTll</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTOO1/CUARTll</cell>
 </row>
 </table>
 <section><name>High fanout nets (through buffer trees)</name></section>
@@ -668,56 +578,6 @@
  <cell>Name</cell>
 </header>
 <row>
- <cell>77</cell>
- <cell>INT_NET</cell>
- <cell>Net   : popfeedthru_unused_11</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST</cell>
-</row>
-<row>
- <cell>64</cell>
- <cell>INT_NET</cell>
- <cell>Net   : popfeedthru_unused_10</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST</cell>
-</row>
-<row>
- <cell>47</cell>
- <cell>INT_NET</cell>
- <cell>Net   : popfeedthru_unused_9</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST</cell>
-</row>
-<row>
- <cell>32</cell>
- <cell>INT_NET</cell>
- <cell>Net   : EvalSandbox_MSS_0/corepwm_0_0/genblk2.reg_if/prescale_reg6_Z</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/corepwm_0_0/genblk2.reg_if/prescale_reg6</cell>
-</row>
-<row>
- <cell>29</cell>
- <cell>INT_NET</cell>
- <cell>Net   : EvalSandbox_MSS_0_AMBA_SLAVE_0_3_PSELx</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/CoreAPB3_0/g0_2</cell>
-</row>
-<row>
  <cell>29</cell>
  <cell>INT_NET</cell>
  <cell>Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTIl</cell>
@@ -728,44 +588,94 @@
  <cell>Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTOO1/genblk1.CUARTI0</cell>
 </row>
 <row>
- <cell>29</cell>
+ <cell>17</cell>
  <cell>INT_NET</cell>
- <cell>Net   : EvalSandbox_MSS_0/CORECONFIGP_0/state_111_d</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/CORECONFIGP_0/state_s0_0_a2</cell>
-</row>
-<row>
- <cell>26</cell>
- <cell>INT_NET</cell>
- <cell>Net   : EvalSandbox_MSS_0/CORECONFIGP_0/state_Z[1]</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/CORECONFIGP_0/state[1]</cell>
-</row>
-<row>
- <cell>23</cell>
- <cell>INT_NET</cell>
- <cell>Net   : EvalSandbox_MSS_0/corepwm_0_0/CPWMlIlI_lcry</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: EvalSandbox_MSS_0/corepwm_0_0/genblk4.genblk1.timebase/un1_CPWMlIlI_cry_0</cell>
-</row>
-<row>
- <cell>22</cell>
- <cell>INT_NET</cell>
- <cell>Net   : EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_TMP_0_FIC_2_APB_MASTER_PADDR[2]</cell>
+ <cell>Net   : EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[4]</cell>
 </row>
 <row>
  <cell></cell>
  <cell></cell>
  <cell>Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST</cell>
+</row>
+<row>
+ <cell>17</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[3]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST</cell>
+</row>
+<row>
+ <cell>14</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[2]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST</cell>
+</row>
+<row>
+ <cell>14</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : EvalSandbox_MSS_0_AMBA_SLAVE_0_PSELx</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: EvalSandbox_MSS_0/CoreAPB3_0/iPSELS[0]</cell>
+</row>
+<row>
+ <cell>14</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTOO1/CUARTO07_1_RNI3H8P1_Y</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTOO1/genblk1.CUARTIOI.CUARTO07_1_RNI3H8P1</cell>
+</row>
+<row>
+ <cell>13</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTII1</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTO1OI[0]</cell>
+</row>
+<row>
+ <cell>12</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : SpiMasterSextetPorts_0/un1_MosiA_i_0_sqmuxa_1_i[0]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: SpiMasterSextetPorts_0/MosiA_i_0_sqmuxa_0_RNIOMUI2</cell>
+</row>
+<row>
+ <cell>12</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlI1</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTO1OI[1]</cell>
+</row>
+<row>
+ <cell>12</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTll</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTOO1/CUARTll</cell>
 </row>
 </table>
 </doc>

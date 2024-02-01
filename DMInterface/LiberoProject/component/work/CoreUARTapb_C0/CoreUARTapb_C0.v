@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Wed Jan 10 09:50:20 2024
+// Created by SmartDesign Wed Jan 31 15:57:52 2024
 // Version: 2023.2 2023.2.0.8
 //////////////////////////////////////////////////////////////////////
 
@@ -11,7 +11,7 @@
 /*
 # Exporting Component Description of CoreUARTapb_C0 to TCL
 # Family: SmartFusion2
-# Part Number: M2S010-VF256
+# Part Number: M2S025-1VF256I
 # Create and Configure the core component CoreUARTapb_C0
 create_and_configure_core -core_vlnv {Actel:DirectCore:CoreUARTapb:5.7.100} -component_name {CoreUARTapb_C0} -params {\
 "BAUD_VAL_FRCTN:0"  \

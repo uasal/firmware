@@ -3,7 +3,7 @@
 <doc>
 <text>SmartTime Version 2023.2.0.8</text>
 <text>Microsemi Corporation - Microchip Libero Software Release v2023.2 (Version 2023.2.0.8)
-Date: Mon Jan 29 12:09:38 2024 </text>
+Date: Wed Jan 31 16:43:36 2024 </text>
 <table>
 <header>
 </header>
@@ -17,7 +17,7 @@ Date: Mon Jan 29 12:09:38 2024 </text>
 </row>
 <row>
  <cell>Die</cell>
- <cell>M2S010</cell>
+ <cell>M2S025</cell>
 </row>
 <row>
  <cell>Package</cell>
@@ -25,7 +25,7 @@ Date: Mon Jan 29 12:09:38 2024 </text>
 </row>
 <row>
  <cell>Temperature Range</cell>
- <cell>0 - 85 C</cell>
+ <cell>-40 - 100 C</cell>
 </row>
 <row>
  <cell>Voltage Range</cell>
@@ -33,7 +33,7 @@ Date: Mon Jan 29 12:09:38 2024 </text>
 </row>
 <row>
  <cell>Speed Grade</cell>
- <cell>STD</cell>
+ <cell>-1</cell>
 </row>
 </table>
 <text></text>
@@ -50,52 +50,52 @@ Date: Mon Jan 29 12:09:38 2024 </text>
 </header>
 <row>
  <cell>Setup</cell>
- <cell>          924</cell>
+ <cell>          261</cell>
  <cell>            1</cell>
- <cell>          925</cell>
+ <cell>          262</cell>
 </row>
 <row>
  <cell>Recovery</cell>
- <cell>          328</cell>
- <cell>            2</cell>
- <cell>          330</cell>
+ <cell>           36</cell>
+ <cell>            0</cell>
+ <cell>           36</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
  <cell>            0</cell>
- <cell>           49</cell>
- <cell>           49</cell>
+ <cell>           38</cell>
+ <cell>           38</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
- <cell>         1252</cell>
- <cell>           52</cell>
- <cell>         1304</cell>
+ <cell>          297</cell>
+ <cell>           39</cell>
+ <cell>          336</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
- <cell>          924</cell>
+ <cell>          261</cell>
  <cell>            1</cell>
- <cell>          925</cell>
+ <cell>          262</cell>
 </row>
 <row>
  <cell>Removal</cell>
- <cell>          328</cell>
- <cell>            2</cell>
- <cell>          330</cell>
+ <cell>           36</cell>
+ <cell>            0</cell>
+ <cell>           36</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
  <cell>            0</cell>
- <cell>           49</cell>
- <cell>           49</cell>
+ <cell>           38</cell>
+ <cell>           38</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
- <cell>         1252</cell>
- <cell>           52</cell>
- <cell>         1304</cell>
+ <cell>          297</cell>
+ <cell>           39</cell>
+ <cell>          336</cell>
 </row>
 </table>
 <section>
@@ -111,52 +111,52 @@ Date: Mon Jan 29 12:09:38 2024 </text>
 </header>
 <row>
  <cell>Setup</cell>
- <cell>          697</cell>
+ <cell>          261</cell>
  <cell>            1</cell>
- <cell>          698</cell>
+ <cell>          262</cell>
 </row>
 <row>
  <cell>Recovery</cell>
- <cell>          223</cell>
- <cell>            2</cell>
- <cell>          225</cell>
+ <cell>           36</cell>
+ <cell>            0</cell>
+ <cell>           36</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
  <cell>            0</cell>
- <cell>            9</cell>
- <cell>            9</cell>
+ <cell>           14</cell>
+ <cell>           14</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
- <cell>          920</cell>
- <cell>           12</cell>
- <cell>          932</cell>
+ <cell>          297</cell>
+ <cell>           15</cell>
+ <cell>          312</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
- <cell>          697</cell>
+ <cell>          261</cell>
  <cell>            1</cell>
- <cell>          698</cell>
+ <cell>          262</cell>
 </row>
 <row>
  <cell>Removal</cell>
- <cell>          223</cell>
- <cell>            2</cell>
- <cell>          225</cell>
+ <cell>           36</cell>
+ <cell>            0</cell>
+ <cell>           36</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
  <cell>            0</cell>
- <cell>            9</cell>
- <cell>            9</cell>
+ <cell>           14</cell>
+ <cell>           14</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
- <cell>          920</cell>
- <cell>           12</cell>
- <cell>          932</cell>
+ <cell>          297</cell>
+ <cell>           15</cell>
+ <cell>          312</cell>
 </row>
 </table>
 <section>
@@ -178,29 +178,39 @@ Date: Mon Jan 29 12:09:38 2024 </text>
 <text> - Max output delay constraint missing on ports:</text>
 <text>   </text>
 <list>
- <item>Mosi</item>
+ <item>MosiA</item>
  <item>MosiB</item>
- <item>PWM[1]</item>
- <item>PWM[2]</item>
- <item>Sck</item>
+ <item>MosiC</item>
+ <item>MosiD</item>
+ <item>MosiE</item>
+ <item>MosiF</item>
+ <item>SckA</item>
+ <item>SckB</item>
+ <item>SckC</item>
+ <item>SckD</item>
+ <item>SckE</item>
+ <item>SckF</item>
  <item>TX</item>
  <item>XferComplete</item>
- <item>nCs</item>
- <item>nCsB</item>
 </list>
 <text></text>
 <text> - Min output delay constraint missing on ports:</text>
 <text>   </text>
 <list>
- <item>Mosi</item>
+ <item>MosiA</item>
  <item>MosiB</item>
- <item>PWM[1]</item>
- <item>PWM[2]</item>
- <item>Sck</item>
+ <item>MosiC</item>
+ <item>MosiD</item>
+ <item>MosiE</item>
+ <item>MosiF</item>
+ <item>SckA</item>
+ <item>SckB</item>
+ <item>SckC</item>
+ <item>SckD</item>
+ <item>SckE</item>
+ <item>SckF</item>
  <item>TX</item>
  <item>XferComplete</item>
- <item>nCs</item>
- <item>nCsB</item>
 </list>
 <text></text>
 <text></text>
@@ -210,89 +220,13 @@ Date: Mon Jan 29 12:09:38 2024 </text>
  <item>CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTO01/CUARTI1Il[2]:D</item>
 </list>
 <text></text>
-<text> - Recovery unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>EvalSandbox_MSS_0/CORERESETP_0/RESET_N_M2F_clk_base:ALn</item>
- <item>EvalSandbox_MSS_0/CORERESETP_0/RESET_N_M2F_q1:ALn</item>
-</list>
-<text></text>
 <text> - Hold unconstrained for the following pin:</text>
 <text>   </text>
 <list>
  <item>CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTO01/CUARTI1Il[2]:D</item>
 </list>
 <text></text>
-<text> - Removal unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>EvalSandbox_MSS_0/CORERESETP_0/RESET_N_M2F_clk_base:ALn</item>
- <item>EvalSandbox_MSS_0/CORERESETP_0/RESET_N_M2F_q1:ALn</item>
-</list>
-<text></text>
 </section>
-</section>
-<section>
-<name>Clock domain: </name>
-<text>EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/CLK_CONFIG_APB</text>
-<text></text>
-<table>
-<header>
- <cell>Type of check</cell>
- <cell>Constrained</cell>
- <cell>UnConstrained</cell>
- <cell>Total</cell>
-</header>
-<row>
- <cell>Setup</cell>
- <cell>          191</cell>
- <cell>            0</cell>
- <cell>          191</cell>
-</row>
-<row>
- <cell>Recovery</cell>
- <cell>           74</cell>
- <cell>            0</cell>
- <cell>           74</cell>
-</row>
-<row>
- <cell>Output Setup</cell>
- <cell>            0</cell>
- <cell>            0</cell>
- <cell>            0</cell>
-</row>
-<row>
- <cell>Total Setup</cell>
- <cell>          265</cell>
- <cell>            0</cell>
- <cell>          265</cell>
-</row>
-<separator/>
-<row>
- <cell>Hold</cell>
- <cell>          191</cell>
- <cell>            0</cell>
- <cell>          191</cell>
-</row>
-<row>
- <cell>Removal</cell>
- <cell>           74</cell>
- <cell>            0</cell>
- <cell>           74</cell>
-</row>
-<row>
- <cell>Output Hold</cell>
- <cell>            0</cell>
- <cell>            0</cell>
- <cell>            0</cell>
-</row>
-<row>
- <cell>Total Hold</cell>
- <cell>          265</cell>
- <cell>            0</cell>
- <cell>          265</cell>
-</row>
-</table>
 </section>
 <section>
 <name>Clock domain: </name>
@@ -307,15 +241,15 @@ Date: Mon Jan 29 12:09:38 2024 </text>
 </header>
 <row>
  <cell>Setup</cell>
- <cell>           36</cell>
  <cell>            0</cell>
- <cell>           36</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
 </row>
 <row>
  <cell>Recovery</cell>
- <cell>           31</cell>
  <cell>            0</cell>
- <cell>           31</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
@@ -325,22 +259,22 @@ Date: Mon Jan 29 12:09:38 2024 </text>
 </row>
 <row>
  <cell>Total Setup</cell>
- <cell>           67</cell>
  <cell>            0</cell>
- <cell>           67</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
- <cell>           36</cell>
  <cell>            0</cell>
- <cell>           36</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
 </row>
 <row>
  <cell>Removal</cell>
- <cell>           31</cell>
  <cell>            0</cell>
- <cell>           31</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
@@ -350,9 +284,9 @@ Date: Mon Jan 29 12:09:38 2024 </text>
 </row>
 <row>
  <cell>Total Hold</cell>
- <cell>           67</cell>
  <cell>            0</cell>
- <cell>           67</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
 </row>
 </table>
 </section>
@@ -382,14 +316,14 @@ Date: Mon Jan 29 12:09:38 2024 </text>
 <row>
  <cell>Output Setup</cell>
  <cell>            0</cell>
- <cell>           40</cell>
- <cell>           40</cell>
+ <cell>           24</cell>
+ <cell>           24</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>           40</cell>
- <cell>           40</cell>
+ <cell>           24</cell>
+ <cell>           24</cell>
 </row>
 <separator/>
 <row>
@@ -407,14 +341,14 @@ Date: Mon Jan 29 12:09:38 2024 </text>
 <row>
  <cell>Output Hold</cell>
  <cell>            0</cell>
- <cell>           40</cell>
- <cell>           40</cell>
+ <cell>           24</cell>
+ <cell>           24</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>           40</cell>
- <cell>           40</cell>
+ <cell>           24</cell>
+ <cell>           24</cell>
 </row>
 </table>
 <section>

@@ -1,47 +1,33 @@
 #--  Synopsys, Inc.
 #--  Version T-2022.09M-SP2-1
-#--  Project file C:\MicroSemiProj\EvalBoardSandbox\synthesis\scratchproject.prs
+#--  Project file C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\synthesis\scratchproject.prs
 
 #project files
-add_file -verilog -lib COREAPBLSRAM_LIB "C:/MicroSemiProj/EvalBoardSandbox/component/work/COREAPBLSRAM_C0/COREAPBLSRAM_C0_0/rtl/vlog/core/lsram_1024to70656x16.v"
-add_file -verilog -lib COREAPBLSRAM_LIB "C:/MicroSemiProj/EvalBoardSandbox/component/work/COREAPBLSRAM_C0/COREAPBLSRAM_C0_0/rtl/vlog/core/lsram_2048to141312x8.v"
-add_file -verilog -lib COREAPBLSRAM_LIB "C:/MicroSemiProj/EvalBoardSandbox/component/work/COREAPBLSRAM_C0/COREAPBLSRAM_C0_0/rtl/vlog/core/lsram_512to35328x32.v"
-add_file -verilog -lib COREAPBLSRAM_LIB "C:/MicroSemiProj/EvalBoardSandbox/component/work/COREAPBLSRAM_C0/COREAPBLSRAM_C0_0/rtl/vlog/core/usram_128to9216x8.v"
-add_file -verilog -lib COREAPBLSRAM_LIB "C:/MicroSemiProj/EvalBoardSandbox/component/work/COREAPBLSRAM_C0/COREAPBLSRAM_C0_0/rtl/vlog/core/usram_64to2304x32.v"
-add_file -verilog -lib COREAPBLSRAM_LIB "C:/MicroSemiProj/EvalBoardSandbox/component/work/COREAPBLSRAM_C0/COREAPBLSRAM_C0_0/rtl/vlog/core/usram_64to4608x16.v"
-add_file -verilog -lib COREAPBLSRAM_LIB "C:/MicroSemiProj/EvalBoardSandbox/component/work/COREAPBLSRAM_C0/COREAPBLSRAM_C0_0/rtl/vlog/core/CoreAPBLSRAM.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/work/COREAPBLSRAM_C0/COREAPBLSRAM_C0.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/work/CoreUARTapb_C0/CoreUARTapb_C0_0/rtl/vlog/core_obfuscated/Clock_gen.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/work/CoreUARTapb_C0/CoreUARTapb_C0_0/rtl/vlog/core_obfuscated/Rx_async.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/work/CoreUARTapb_C0/CoreUARTapb_C0_0/rtl/vlog/core_obfuscated/Tx_async.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/work/CoreUARTapb_C0/CoreUARTapb_C0_0/rtl/vlog/core_obfuscated/fifo_256x8_g4.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/work/CoreUARTapb_C0/CoreUARTapb_C0_0/rtl/vlog/core_obfuscated/CoreUART.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/work/CoreUARTapb_C0/CoreUARTapb_C0_0/rtl/vlog/core_obfuscated/CoreUARTapb.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/work/CoreUARTapb_C0/CoreUARTapb_C0.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/work/EvalSandbox_MSS/CCC_0/EvalSandbox_MSS_CCC_0_FCCC.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/Actel/SgCore/OSC/2.0.101/osc_comps.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/work/EvalSandbox_MSS/FABOSC_0/EvalSandbox_MSS_FABOSC_0_OSC.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/work/EvalSandbox_MSS_MSS/EvalSandbox_MSS_MSS_syn.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/work/EvalSandbox_MSS_MSS/EvalSandbox_MSS_MSS.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/Actel/DirectCore/CoreConfigP/7.1.100/rtl/vlog/core/coreconfigp.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp_pcie_hotreset.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/Actel/DirectCore/corepwm/4.1.106/rtl/vlog/core_obfuscated/pwm_gen.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/Actel/DirectCore/corepwm/4.1.106/rtl/vlog/core_obfuscated/reg_if.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/Actel/DirectCore/corepwm/4.1.106/rtl/vlog/core_obfuscated/timebase.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/Actel/DirectCore/corepwm/4.1.106/rtl/vlog/core_obfuscated/tach_if.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/Actel/DirectCore/corepwm/4.1.106/rtl/vlog/core_obfuscated/corepwm.v"
-add_file -verilog -lib COREAPB3_LIB "C:/MicroSemiProj/EvalBoardSandbox/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3_muxptob3.v"
-add_file -verilog -lib COREAPB3_LIB "C:/MicroSemiProj/EvalBoardSandbox/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3_iaddr_reg.v"
-add_file -verilog -lib COREAPB3_LIB "C:/MicroSemiProj/EvalBoardSandbox/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3.v"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/work/EvalSandbox_MSS/EvalSandbox_MSS.v"
-add_file -vhdl -lib HomeBrew "C:/MicroSemiProj/EvalBoardSandbox/hdl/SpiMasterTrio.vhd"
-add_file -verilog "C:/MicroSemiProj/EvalBoardSandbox/component/work/EvalBoardSandbox/EvalBoardSandbox.v"
-add_file -fpga_constraint "C:/MicroSemiProj/EvalBoardSandbox/designer/EvalBoardSandbox/synthesis.fdc"
+add_file -verilog "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/work/CoreUARTapb_C0/CoreUARTapb_C0_0/rtl/vlog/core_obfuscated/Clock_gen.v"
+add_file -verilog "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/work/CoreUARTapb_C0/CoreUARTapb_C0_0/rtl/vlog/core_obfuscated/Rx_async.v"
+add_file -verilog "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/work/CoreUARTapb_C0/CoreUARTapb_C0_0/rtl/vlog/core_obfuscated/Tx_async.v"
+add_file -verilog "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/work/CoreUARTapb_C0/CoreUARTapb_C0_0/rtl/vlog/core_obfuscated/fifo_256x8_g4.v"
+add_file -verilog "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/work/CoreUARTapb_C0/CoreUARTapb_C0_0/rtl/vlog/core_obfuscated/CoreUART.v"
+add_file -verilog "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/work/CoreUARTapb_C0/CoreUARTapb_C0_0/rtl/vlog/core_obfuscated/CoreUARTapb.v"
+add_file -verilog "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/work/CoreUARTapb_C0/CoreUARTapb_C0.v"
+add_file -verilog "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/work/EvalSandbox_MSS/CCC_0/EvalSandbox_MSS_CCC_0_FCCC.v"
+add_file -verilog "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/Actel/SgCore/OSC/2.0.101/osc_comps.v"
+add_file -verilog "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/work/EvalSandbox_MSS/FABOSC_0/EvalSandbox_MSS_FABOSC_0_OSC.v"
+add_file -verilog "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/work/EvalSandbox_MSS_MSS/EvalSandbox_MSS_MSS_syn.v"
+add_file -verilog "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/work/EvalSandbox_MSS_MSS/EvalSandbox_MSS_MSS.v"
+add_file -verilog "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp_pcie_hotreset.v"
+add_file -verilog "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v"
+add_file -verilog -lib COREAPB3_LIB "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3_muxptob3.v"
+add_file -verilog -lib COREAPB3_LIB "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3_iaddr_reg.v"
+add_file -verilog -lib COREAPB3_LIB "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3.v"
+add_file -verilog "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/work/EvalSandbox_MSS/EvalSandbox_MSS.v"
+add_file -vhdl -lib work "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/hdl/SpiMasterSextet.vhd"
+add_file -verilog "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/work/EvalBoardSandbox/EvalBoardSandbox.v"
+add_file -fpga_constraint "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/designer/EvalBoardSandbox/synthesis.fdc"
 
 
 #implementation: "synthesis"
-impl -add C:\MicroSemiProj\EvalBoardSandbox\synthesis -type fpga
+impl -add C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\synthesis -type fpga
 
 #
 #implementation attributes
@@ -50,9 +36,9 @@ set_option -vlog_std sysv
 
 #device options
 set_option -technology SmartFusion2
-set_option -part M2S010
+set_option -part M2S025
 set_option -package VF400
-set_option -speed_grade STD
+set_option -speed_grade -1
 set_option -part_companion ""
 
 #compilation/mapping options
@@ -127,5 +113,5 @@ set_option -vhdl2008 1
 set_option -write_apr_constraint 1
 
 #set result format/file last
-project -result_file "C:/MicroSemiProj/EvalBoardSandbox/synthesis/EvalBoardSandbox.vm"
+project -result_file "C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/synthesis/EvalBoardSandbox.vm"
 impl -active "synthesis"

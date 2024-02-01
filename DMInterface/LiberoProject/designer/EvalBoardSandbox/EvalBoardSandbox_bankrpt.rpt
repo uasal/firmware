@@ -1,11 +1,11 @@
 ********************************************************************
-I/O Bank Report - Date: Mon Jan 29 12:10:23 2024
+I/O Bank Report - Date: Wed Jan 31 16:44:00 2024
 Product: Designer
 Release: v2023.2
 Version: 2023.2.0.8
 Design Name: EvalBoardSandbox
 Family: SmartFusion2
-Die: M2S010
+Die: M2S025
 Package: 256 VF
 ********************************************************************
 
@@ -14,12 +14,11 @@ I/O Function:
 
     Type                                  | w/o register  | w/ register  | w/ DDR register
     --------------------------------------|---------------|--------------|----------------
-    Input I/O                             | 2             | 0            | 0
-    Output I/O                            | 36            | 0            | 0
-    Bidirectional I/O                     | 9             | 0            | 0
+    Input I/O                             | 1             | 0            | 0
+    Output I/O                            | 38            | 0            | 0
+    Bidirectional I/O                     | 0             | 0            | 0
     Differential Input I/O Pairs          | 0             | 0            | 0
-    Differential Output I/O Pairs         | 1             | 0            | 0
-    Differential Bidirectional I/O Pairs  | 1             | 0            | 0
+    Differential Output I/O Pairs         | 0             | 0            | 0
 
 I/O Technology:
 
@@ -27,9 +26,7 @@ I/O Technology:
     --------------------------------|-------|-------|-------|--------|--------------
     I/O Standard(s)                 | Vddi  | Vref  | Input | Output | Bidirectional
     --------------------------------|-------|-------|-------|--------|--------------
-    LVCMOS33                        | 3.30v | N/A   | 1     | 9      | 0            
-    SSTL15I (Input/Bidirectional)   | 1.50v | 0.75v | 1     | 0      | 11           
-    SSTL15I (Output)                | 1.50v | N/A   | 0     | 29     | 0            
+    LVCMOS33                        | 3.30v | N/A   | 1     | 38     | 0            
 
 I/O Bank Resource Usage:
 
@@ -37,15 +34,14 @@ I/O Bank Resource Usage:
           |-------|-------|------|-------|-------|--------|------|-------|----------|---------
           | Vddi  | Vref  | Used | Total | Used  | Total  | Used | Total | Vref Pins|         
     ------|-------|-------|------|-------|-------|--------|------|-------|----------|---------
-    Bank0 | 1.50v | 0.75v | 0    | 64    | 2     | 32     | 37   | 64    | 0        | DDRIO   
-    Bank1 | N/A   | N/A   | 0    | 4     | 0     | 0      | N/A  | N/A   | N/A      | MSIO    
-    Bank2 | 3.30v | N/A   | 5    | 24    | 0     | 12     | N/A  | N/A   | N/A      | MSIO    
+    Bank0 | N/A   | N/A   | 0    | 64    | 0     | 32     | N/A  | N/A   | N/A      | DDRIO   
+    Bank1 | 3.30v | N/A   | 2    | 4     | 0     | 0      | N/A  | N/A   | N/A      | MSIO    
+    Bank2 | 3.30v | N/A   | 12   | 24    | 0     | 12     | N/A  | N/A   | N/A      | MSIO    
     Bank3 | N/A   | N/A   | 0    | 0     | 0     | 0      | N/A  | N/A   | N/A      | JTAG    
-    Bank4 | 3.30v | N/A   | 3    | 28    | 0     | 14     | N/A  | N/A   | N/A      | MSIO    
+    Bank4 | 3.30v | N/A   | 19   | 28    | 0     | 14     | N/A  | N/A   | N/A      | MSIO    
     Bank5 | N/A   | N/A   | 0    | 4     | 0     | 2      | N/A  | N/A   | N/A      | MSIOD   
     Bank6 | N/A   | N/A   | 0    | 4     | 0     | 0      | N/A  | N/A   | N/A      | MSIOD   
-    Bank7 | 3.30v | N/A   | 2    | 10    | 0     | 5      | N/A  | N/A   | N/A      | MSIO    
-
+    Bank7 | 3.30v | N/A   | 6    | 10    | 0     | 5      | N/A  | N/A   | N/A      | MSIO    
 
 I/O Voltage Usage:
 
@@ -53,7 +49,5 @@ I/O Voltage Usage:
     -------|-------|------|-------
      Vddi  | Vref  | Used | Total 
     -------|-------|------|-------
-     1.50v | N/A   | 41   | 64    
-     3.30v | N/A   | 10   | 62    
-     1.50v | 0.75v | 10   | 64    
+     3.30v | N/A   | 39   | 66    
 

@@ -1,8 +1,8 @@
 data HELP_TYPE_DES 2
 data DESIGN EvalBoardSandbox
-data HPATH 'C:/MicroSemiProj/EvalBoardSandbox/designer/EvalBoardSandbox'
-data CPATH 'C:/MicroSemiProj/EvalBoardSandbox/constraint/io'
-data CDIR 'C:/MicroSemiProj/EvalBoardSandbox/constraint'
+data HPATH 'C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/designer/EvalBoardSandbox'
+data CPATH 'C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/constraint/io'
+data CDIR 'C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/constraint'
 data NLV_HIDE_OPTION_DLG 1
 data REGION_DEFCOLOR_EMPTY 2143322112
 data REGION_DEFCOLOR_INCLUSIVE 2147442270
@@ -10,9 +10,9 @@ data REGION_DEFCOLOR_EXCLUSIVE 2143338688
 data REGION_DEFCOLOR_CLOCK 16735838
 data ETYPE IO
 data FAM SmartFusion2
-data DIE PA4M1000_N
+data DIE PA4M2500_N
 data PACKAGE vf256
-data SPEED STD
+data SPEED -1
 data HYDRA_EXPORT_DATA 1
 data HYDRA_PRESERVE_DATA_FILES 1
 data VCCI_1.2_VOLTR COM
@@ -22,16 +22,16 @@ data VCCI_2.5_VOLTR COM
 data VCCI_3.3_VOLTR COM
 data FLOW_TYPE NEW
 data PLANNER_IOMODE 1
-data AFL 'C:/MicroSemiProj/EvalBoardSandbox/designer/EvalBoardSandbox/COMPILE/EvalBoardSandbox.afl'
-data ADL 'C:/MicroSemiProj/EvalBoardSandbox/designer/EvalBoardSandbox/EvalBoardSandbox.adl'
-data LOC 'C:/MicroSemiProj/EvalBoardSandbox/designer/EvalBoardSandbox/COMPILE/EvalBoardSandbox.loc'
-data SEG 'C:/MicroSemiProj/EvalBoardSandbox/designer/EvalBoardSandbox/COMPILE/EvalBoardSandbox.seg'
+data AFL 'C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/designer/EvalBoardSandbox/EvalBoardSandbox.afl'
+data ADL 'C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/designer/EvalBoardSandbox/EvalBoardSandbox.adl'
+data LOC 'C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/designer/EvalBoardSandbox/EvalBoardSandbox.loc'
+data SEG 'C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/designer/EvalBoardSandbox/EvalBoardSandbox.seg'
+data NMAT_PDC 'C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/designer/EvalBoardSandbox/EvalBoardSandbox.nmatinit.pdc'
 
-data IO_PDC_0 'C:/MicroSemiProj/EvalBoardSandbox/constraint/io/user.pdc'
-data TARGET_IOPDC  'C:/MicroSemiProj/EvalBoardSandbox/constraint/io/user.pdc'
-data TARGET_FPPDC  'C:/MicroSemiProj/EvalBoardSandbox/constraint/fp/user.pdc'
-data TARGET_DEVICES_FOR_MIGRATION 'PA4M1000_N '
-data RESTRICTPROBEPINS 1
+data IO_PDC_0 'C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/constraint/io/user.pdc'
+data TARGET_IOPDC  'C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/constraint/io/user.pdc'
+data TARGET_FPPDC  'C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/constraint/fp/user.pdc'
+data RESTRICTPROBEPINS 0
 data RESTRICTSPIPINS 0
 data GDEV_SKIP_UNASSIGN_CMP_CHECK    1 
 data HIDE_MIGRATION_PINS_MENU        1 

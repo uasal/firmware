@@ -27,7 +27,7 @@
 /*==============================================================================
  * MDDR configuration
  */
-#define MSS_SYS_MDDR_CONFIG_BY_CORTEX       1
+#define MSS_SYS_MDDR_CONFIG_BY_CORTEX       0
 
 /*==============================================================================
  * FDDR configuration
@@ -63,5 +63,4 @@
 #define MSS_SYS_CACHE_CONFIG_BY_CORTEX      0
 
 #endif  /* MSS_SYSTEM_CONFIGURATION */
-
 

@@ -33,27 +33,33 @@ entity SpiMasterSextetPorts is
                 MosiD : out  std_logic;
 		MosiE : out  std_logic;
 		MosiF : out  std_logic;
-		Sck : out std_logic;
+		SckA : out std_logic;
+                SckB : out std_logic;
+                SckC : out std_logic;
+                SckD : out std_logic;
+                SckE : out std_logic;
+                SckF : out std_logic;
 		MisoA : in std_logic;
 		MisoB : in std_logic;
 		MisoC : in std_logic;
                 MisoD : in  std_logic;
 		MisoE : in  std_logic;
 		MisoF : in  std_logic;
---                nCsA : out std_logic_vector(3 downto 0);
---                nCsB : out std_logic_vector(3 downto 0);
---                nCsC : out std_logic_vector(3 downto 0);
---                nCsD : out std_logic_vector(3 downto 0);
---                nCsE : out std_logic_vector(3 downto 0);
---                nCsF : out std_logic_vector(3 downto 0);
-                nCsA : out std_logic;
-                nCsB : out std_logic;
-                nCsC : out std_logic;
-                nCsD : out std_logic;
-                nCsE : out std_logic;
-                nCsF : out std_logic;
+                nCsA : out std_logic_vector(3 downto 0);
+                nCsB : out std_logic_vector(3 downto 0);
+                nCsC : out std_logic_vector(3 downto 0);
+                nCsD : out std_logic_vector(3 downto 0);
+                nCsE : out std_logic_vector(3 downto 0);
+                nCsF : out std_logic_vector(3 downto 0);
+--                nCsA : out std_logic;
+--                nCsB : out std_logic;
+--                nCsC : out std_logic;
+--                nCsD : out std_logic;
+--                nCsE : out std_logic;
+--                nCsF : out std_logic;
 		
 		--Registers
+                MosiDataWrite : in std_logic;
 		DataToMosiA : in std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
 		DataToMosiB : in std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
 		DataToMosiC : in std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
@@ -76,7 +82,12 @@ architecture SpiMasterSextet of SpiMasterSextetPorts is
 	
 	signal ClkDiv : natural range 0 to ((CLOCK_DIVIDER / 2) - 1); --Hold the clock divider chain
 	
-	signal Sck_i : std_logic;
+	signal SckA_i : std_logic;
+        signal SckB_i : std_logic;
+        signal SckC_i : std_logic;
+        signal SckD_i : std_logic;
+        signal SckE_i : std_logic;
+        signal SckF_i : std_logic;
 	signal MosiA_i : std_logic;
 	signal MosiB_i : std_logic;
 	signal MosiC_i : std_logic;
@@ -97,7 +108,12 @@ architecture SpiMasterSextet of SpiMasterSextetPorts is
 begin
 
 	--~ Sck <= Sck_i xor CPOL; --Allow for Sck to be inverted
-	Sck <= Sck_i; --Allow for Sck to be inverted
+	SckA <= SckA_i; --Allow for Sck to be inverted
+        SckB <= SckB_i; --Allow for Sck to be inverted
+        SckC <= SckC_i; --Allow for Sck to be inverted
+        SckD <= SckD_i; --Allow for Sck to be inverted
+        SckE <= SckE_i; --Allow for Sck to be inverted
+        SckF <= SckF_i; --Allow for Sck to be inverted
 	MosiA <= MosiA_i;
 	MosiB <= MosiB_i;
 	MosiC <= MosiC_i;
@@ -106,13 +122,18 @@ begin
 	MosiF <= MosiF_i;
 	XferComplete <= XferComplete_i;
 	
-	process (clk, rst, MisoA, MisoB, MisoC, MisoD, MisoE, MisoF, DataToMosiA, DataToMosiB, DataToMosiC, DataToMosiD, DataToMosiE, DataToMosiF)
+	process (clk, rst, MisoA, MisoB, MisoC, MisoD, MisoE, MisoF, MosiDataWrite, DataToMosiA, DataToMosiB, DataToMosiC, DataToMosiD, DataToMosiE, DataToMosiF, nCsA, nCsB, nCsC, nCsD, nCsE, nCsF)
 	begin
 	
 		-- Chip select is reset, and starts transfer when it clocks to '0'.
 		if (rst = '1') then
 
-			Sck_i <= not(CPOL);
+			SckA_i <= not(CPOL);
+                        SckB_i <= not(CPOL);
+                        SckC_i <= not(CPOL);
+                        SckD_i <= not(CPOL);
+                        SckE_i <= not(CPOL);
+                        SckF_i <= not(CPOL);
 			MosiA_i <= DataToMosiA((BYTE_WIDTH * 8) - 1); --get the first bit out there asap
 			MosiB_i <= DataToMosiB((BYTE_WIDTH * 8) - 1); --get the first bit out there asap
 			MosiC_i <= DataToMosiC((BYTE_WIDTH * 8) - 1); --get the first bit out there asap
@@ -147,7 +168,7 @@ begin
 			if ( ( clk'event) and (clk = '1') ) then
 			
 				--Run latch
-				if (DataToMosiLatched = '0') then
+				if ((DataToMosiLatched = '0') and (MosiDataWrite = '1')) then
 			
 					DataToMosiA_i <= DataToMosiA;
 					DataToMosiB_i <= DataToMosiB;
@@ -185,7 +206,7 @@ begin
 					if (XferComplete_i = '0') then
 					
 						
-						if (Sck_i = ((not(CPOL)) xor CPHA)) then --transition mosi when SCK != CPOL
+						if (SckA_i = ((not(CPOL)) xor CPHA)) then --transition mosi when SCK != CPOL
 						
 							if (SpiBitPos > 0) then 
 						
@@ -226,7 +247,12 @@ begin
 						if (SpiBitPos /= 0) then
 						
 							--Toggle spi bus clock output on every divider rollover
-							Sck_i <= not(Sck_i);
+							SckA_i <= not(SckA_i);
+                                                        SckB_i <= not(SckB_i);
+                                                        SckC_i <= not(SckC_i);
+                                                        SckD_i <= not(SckD_i);
+                                                        SckE_i <= not(SckE_i);
+                                                        SckF_i <= not(SckF_i);
 							
 						end if;							
 						

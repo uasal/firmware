@@ -22,6 +22,7 @@ RM := rm -rf
 -include cgraph/subdir.mk
 -include CMSIS/startup_gcc/subdir.mk
 -include CMSIS/subdir.mk
+-include .metadata/.plugins/org.eclipse.cdt.make.core/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -56,38 +57,38 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 SECONDARY_FLASH += \
-EvalBoardSandbox.hex \
+SoftConsole.hex \
 
 SECONDARY_SIZE += \
-EvalBoardSandbox.siz \
+SoftConsole.siz \
 
 
 # All Target
-all: EvalBoardSandbox.elf secondary-outputs
+all: SoftConsole.elf secondary-outputs
 
 # Tool invocations
-EvalBoardSandbox.elf: $(OBJS) $(USER_OBJS)
+SoftConsole.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GNU ARM Cross C++ Linker'
-	arm-none-eabi-g++ -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Projects\Coronagraph\MicrosemiSmartFusion\Microchip_University_SF2_class\SC_WS\EvalBoardSandbox\CMSIS\startup_gcc\debug-in-microsemi-smartfusion2-esram.ld" -Xlinker --gc-sections -Wl,-Map,"EvalBoardSandbox.map" -o "EvalBoardSandbox.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-g++ -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\SKaye\repos\firmware\DMInterface\SoftConsole\CMSIS\startup_gcc\debug-in-microsemi-smartfusion2-esram.ld" -Xlinker --gc-sections -Wl,-Map,"SoftConsole.map" -o "SoftConsole.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-EvalBoardSandbox.hex: EvalBoardSandbox.elf
+SoftConsole.hex: SoftConsole.elf
 	@echo 'Invoking: GNU ARM Cross Create Flash Image'
-	arm-none-eabi-objcopy -O ihex "EvalBoardSandbox.elf"  "EvalBoardSandbox.hex"
+	arm-none-eabi-objcopy -O ihex "SoftConsole.elf"  "SoftConsole.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-EvalBoardSandbox.siz: EvalBoardSandbox.elf
+SoftConsole.siz: SoftConsole.elf
 	@echo 'Invoking: GNU ARM Cross Print Size'
-	arm-none-eabi-size --format=berkeley "EvalBoardSandbox.elf"
+	arm-none-eabi-size --format=berkeley "SoftConsole.elf"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(CC_DEPS)$(C++_DEPS)$(OBJS)$(C_UPPER_DEPS)$(CXX_DEPS)$(SECONDARY_FLASH)$(SECONDARY_SIZE)$(ASM_DEPS)$(S_UPPER_DEPS)$(C_DEPS)$(CPP_DEPS) EvalBoardSandbox.elf
+	-$(RM) $(CC_DEPS)$(C++_DEPS)$(OBJS)$(C_UPPER_DEPS)$(CXX_DEPS)$(SECONDARY_FLASH)$(SECONDARY_SIZE)$(ASM_DEPS)$(S_UPPER_DEPS)$(C_DEPS)$(CPP_DEPS) SoftConsole.elf
 	-@echo ' '
 
 secondary-outputs: $(SECONDARY_FLASH) $(SECONDARY_SIZE)

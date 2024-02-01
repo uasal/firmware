@@ -1,8 +1,8 @@
 DESIGN=EvalBoardSandbox
-DESDIR=C:\MicroSemiProj\EvalBoardSandbox\designer\EvalBoardSandbox
-TARGET_DIR=C:\MicroSemiProj\EvalBoardSandbox\designer\EvalBoardSandbox
+DESDIR=C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\designer\EvalBoardSandbox
+TARGET_DIR=C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\designer\EvalBoardSandbox
 FAM=SmartFusion2
-DIE=PA4M1000_N
+DIE=PA4M2500_N
 PACKAGE=vf256
 PINRPT_BY_NAME=1
 PINRPT_BY_NUMBER=1

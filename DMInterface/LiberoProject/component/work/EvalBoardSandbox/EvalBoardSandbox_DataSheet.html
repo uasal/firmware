@@ -226,7 +226,7 @@
                             <td>
                                 <b>Die: </b>
                             </td>
-                            <td>M2S010</td>
+                            <td>M2S025</td>
                         </tr>
                         <tr>
                             <td>
@@ -238,7 +238,7 @@
                             <td>
                                 <b>Speed Grade: </b>
                             </td>
-                            <td>STD</td>
+                            <td>-1</td>
                         </tr>
                         <tr>
                             <td>
@@ -256,19 +256,19 @@
                             <td>
                                 <b>Project Description: </b>
                             </td>
-                            <td/>
+                            <td>This project should have a UART port as well as a SPI port.</td>
                         </tr>
                         <tr>
                             <td>
                                 <b>Location: </b>
                             </td>
-                            <td>C:/MicroSemiProj/EvalBoardSandbox/component/work/EvalBoardSandbox</td>
+                            <td>C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/work/EvalBoardSandbox</td>
                         </tr>
                         <tr>
                             <td>
                                 <b>State (Time): </b>
                             </td>
-                            <td>GENERATED ( Mon Jan 29 12:13:46 2024 )</td>
+                            <td>GENERATED ( Wed Jan 31 16:45:14 2024 )</td>
                         </tr>
                     </table>
                 </div>
@@ -431,25 +431,25 @@
                             </tr>
                             <tr>
                                 <th cellspace="0" colspan="1">
-                                    <b>ENVM-PGM_store</b>
-                                </th>
-                                <td align="center">0x6000_0000 </td>
-                                <td align="center">5KB</td>
-                                <td align="center"> 0x6000_15FF</td>
-                                <td cellspace="0" colspan="1" bgcolor="#FFFFFF"/>
-                            </tr>
-                            <tr>
-                                <th cellspace="0" colspan="1">
                                     <b>ENVM-DAC_store</b>
                                 </th>
-                                <td align="center">0x6000_1600 </td>
+                                <td align="center">0x6000_2000 </td>
                                 <td align="center">2KB</td>
-                                <td align="center"> 0x6000_1DFF</td>
+                                <td align="center"> 0x6000_27FF</td>
                                 <td cellspace="0" colspan="1" bgcolor="#FFFFFF"/>
                             </tr>
                             <tr>
                                 <th cellspace="0" colspan="1">
-                                    <b>EvalSandbox_MSS_0/ corepwm_0_0:APBslave</b>
+                                    <b>ENVM-PGM_Store</b>
+                                </th>
+                                <td align="center">0x6000_0000 </td>
+                                <td align="center">8KB</td>
+                                <td align="center"> 0x6000_1FFF</td>
+                                <td cellspace="0" colspan="1" bgcolor="#FFFFFF"/>
+                            </tr>
+                            <tr>
+                                <th cellspace="0" colspan="1">
+                                    <b>CoreUARTapb_C0_0:APB_bif</b>
                                 </th>
                                 <td align="center">0x5000_0000 <br/>0x3000_0000 <br/>
                                 </td>
@@ -460,7 +460,7 @@
                             </tr>
                             <tr>
                                 <th cellspace="0" colspan="1">
-                                    <b>CoreUARTapb_C0_0:APB_bif</b>
+                                    <b>SpiMasterSextetPorts_0:BIF_1</b>
                                 </th>
                                 <td align="center">0x5000_1000 <br/>0x3000_1000 <br/>
                                 </td>
@@ -471,7 +471,7 @@
                             </tr>
                             <tr>
                                 <th cellspace="0" colspan="1">
-                                    <b>SpiMasterTrioPorts_0:BIF_1</b>
+                                    <b>SpiMasterSextetPorts_0:BIF_2</b>
                                 </th>
                                 <td align="center">0x5000_2000 <br/>0x3000_2000 <br/>
                                 </td>
@@ -482,7 +482,7 @@
                             </tr>
                             <tr>
                                 <th cellspace="0" colspan="1">
-                                    <b>SpiMasterTrioPorts_0:BIF_2</b>
+                                    <b>SpiMasterSextetPorts_0:BIF_3</b>
                                 </th>
                                 <td align="center">0x5000_3000 <br/>0x3000_3000 <br/>
                                 </td>
@@ -493,12 +493,34 @@
                             </tr>
                             <tr>
                                 <th cellspace="0" colspan="1">
-                                    <b>COREAPBLSRAM_C0_0:APBSlaveInterface</b>
+                                    <b>SpiMasterSextetPorts_0:BIF_4</b>
                                 </th>
                                 <td align="center">0x5000_4000 <br/>0x3000_4000 <br/>
                                 </td>
                                 <td align="center">4KB</td>
                                 <td align="center"> 0x5000_4FFF<br/> 0x3000_4FFF<br/>
+                                </td>
+                                <td cellspace="0" colspan="1" bgcolor="#FFFFFF"/>
+                            </tr>
+                            <tr>
+                                <th cellspace="0" colspan="1">
+                                    <b>SpiMasterSextetPorts_0:BIF_5</b>
+                                </th>
+                                <td align="center">0x5000_5000 <br/>0x3000_5000 <br/>
+                                </td>
+                                <td align="center">4KB</td>
+                                <td align="center"> 0x5000_5FFF<br/> 0x3000_5FFF<br/>
+                                </td>
+                                <td cellspace="0" colspan="1" bgcolor="#FFFFFF"/>
+                            </tr>
+                            <tr>
+                                <th cellspace="0" colspan="1">
+                                    <b>SpiMasterSextetPorts_0:BIF_6</b>
+                                </th>
+                                <td align="center">0x5000_6000 <br/>0x3000_6000 <br/>
+                                </td>
+                                <td align="center">4KB</td>
+                                <td align="center"> 0x5000_6FFF<br/> 0x3000_6FFF<br/>
                                 </td>
                                 <td cellspace="0" colspan="1" bgcolor="#FFFFFF"/>
                             </tr>
@@ -522,11 +544,11 @@
                             </tr>
                             <tr>
                                 <th cellspace="0" colspan="1">
-                                    <b>EvalSandbox_MSS_0/ EvalSandbox_MSS_MSS_0:MDDR_APB_SLAVE</b>
+                                    <b>MSSFIC2TOFABRIC</b>
                                 </th>
-                                <td align="center">0x4002_0800 </td>
-                                <td align="center">2KB</td>
-                                <td align="center"> 0x4002_0FFF</td>
+                                <td align="center">0x4002_0000 </td>
+                                <td align="center">96KB</td>
+                                <td align="center"> 0x4003_7FFF</td>
                                 <td cellspace="0" colspan="1" bgcolor="#FFFFFF"/>
                             </tr>
                             <tr>

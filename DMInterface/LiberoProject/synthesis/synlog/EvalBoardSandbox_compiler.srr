@@ -31,17 +31,16 @@ Implementation : synthesis
 Synopsys VHDL Compiler, Version comp202209synp2, Build 179R, Built Jun 27 2023 09:29:56, @
 
 @N|Running in 64-bit mode
-@N:"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":15:7:15:24|Top entity is set to SpiMasterTrioPorts.
-@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd'.
+@N:"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":15:7:15:26|Top entity is set to SpiMasterSextetPorts.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd'.
 VHDL syntax check successful!
 @N: CD231 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vhd2008\std1164.vhd":889:16:889:17|Using onehot encoding for type mvl9plus. For example, enumeration 'U' is mapped to "1000000000".
-File C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd changed - recompiling
 
-At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 91MB peak: 92MB)
+At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 92MB peak: 92MB)
 
 
 Process completed successfully.
-# Mon Jan 29 12:07:35 2024
+# Wed Jan 31 16:43:14 2024
 
 ###########################################################]
 ###########################################################[
@@ -68,60 +67,46 @@ Synopsys Verilog Compiler, Version comp202209synp2, Build 179R, Built Jun 27 202
 @I::"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vlog\umr_capim.v" (library snps_haps)
 @I::"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vlog\scemi_objects.v" (library snps_haps)
 @I::"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vlog\scemi_pipes.svh" (library snps_haps)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\lsram_1024to70656x16.v" (library COREAPBLSRAM_LIB)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\lsram_2048to141312x8.v" (library COREAPBLSRAM_LIB)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\lsram_512to35328x32.v" (library COREAPBLSRAM_LIB)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\usram_128to9216x8.v" (library COREAPBLSRAM_LIB)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\usram_64to2304x32.v" (library COREAPBLSRAM_LIB)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\usram_64to4608x16.v" (library COREAPBLSRAM_LIB)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v" (library COREAPBLSRAM_LIB)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Clock_gen.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\fifo_256x8_g4.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS\CCC_0\EvalSandbox_MSS_CCC_0_FCCC.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\SgCore\OSC\2.0.101\osc_comps.v" (library work)
-@W: CG100 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":4:13:4:25|User defined pragma syn_black_box detected
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Clock_gen.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\fifo_256x8_g4.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\CCC_0\EvalSandbox_MSS_CCC_0_FCCC.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\SgCore\OSC\2.0.101\osc_comps.v" (library work)
+@W: CG100 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":4:13:4:25|User defined pragma syn_black_box detected
 
-@W: CG100 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":14:13:14:25|User defined pragma syn_black_box detected
+@W: CG100 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":14:13:14:25|User defined pragma syn_black_box detected
 
-@W: CG100 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":27:13:27:25|User defined pragma syn_black_box detected
+@W: CG100 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":27:13:27:25|User defined pragma syn_black_box detected
 
-@W: CG100 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":43:13:43:25|User defined pragma syn_black_box detected
+@W: CG100 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":43:13:43:25|User defined pragma syn_black_box detected
 
-@W: CG100 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":55:13:55:25|User defined pragma syn_black_box detected
+@W: CG100 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":55:13:55:25|User defined pragma syn_black_box detected
 
-@W: CG100 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":67:13:67:25|User defined pragma syn_black_box detected
+@W: CG100 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":67:13:67:25|User defined pragma syn_black_box detected
 
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS_syn.v" (library work)
-@W: CG100 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS_syn.v":496:13:496:25|User defined pragma syn_black_box detected
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS_syn.v" (library work)
+@W: CG100 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS_syn.v":532:13:532:25|User defined pragma syn_black_box detected
 
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreConfigP\7.1.100\rtl\vlog\core\coreconfigp.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp_pcie_hotreset.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\pwm_gen.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\reg_if.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\timebase.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\tach_if.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_muxptob3.v" (library COREAPB3_LIB)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_iaddr_reg.v" (library COREAPB3_LIB)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v" (library COREAPB3_LIB)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS\EvalSandbox_MSS.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp_pcie_hotreset.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_muxptob3.v" (library COREAPB3_LIB)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_iaddr_reg.v" (library COREAPB3_LIB)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v" (library COREAPB3_LIB)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\EvalSandbox_MSS.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalBoardSandbox\EvalBoardSandbox.v" (library work)
 Verilog syntax check successful!
 
-At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 199MB peak: 199MB)
+At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 92MB peak: 93MB)
 
 
 Process completed successfully.
-# Mon Jan 29 12:07:36 2024
+# Wed Jan 31 16:43:14 2024
 
 ###########################################################]
 ###########################################################[
@@ -132,106 +117,51 @@ Process completed successfully.
 @I::"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vlog\umr_capim.v" (library snps_haps)
 @I::"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vlog\scemi_objects.v" (library snps_haps)
 @I::"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vlog\scemi_pipes.svh" (library snps_haps)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\lsram_1024to70656x16.v" (library COREAPBLSRAM_LIB)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\lsram_2048to141312x8.v" (library COREAPBLSRAM_LIB)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\lsram_512to35328x32.v" (library COREAPBLSRAM_LIB)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\usram_128to9216x8.v" (library COREAPBLSRAM_LIB)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\usram_64to2304x32.v" (library COREAPBLSRAM_LIB)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\usram_64to4608x16.v" (library COREAPBLSRAM_LIB)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v" (library COREAPBLSRAM_LIB)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Clock_gen.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\fifo_256x8_g4.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS\CCC_0\EvalSandbox_MSS_CCC_0_FCCC.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\SgCore\OSC\2.0.101\osc_comps.v" (library work)
-@W: CG100 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":4:13:4:25|User defined pragma syn_black_box detected
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Clock_gen.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\fifo_256x8_g4.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\CCC_0\EvalSandbox_MSS_CCC_0_FCCC.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\SgCore\OSC\2.0.101\osc_comps.v" (library work)
+@W: CG100 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":4:13:4:25|User defined pragma syn_black_box detected
 
-@W: CG100 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":14:13:14:25|User defined pragma syn_black_box detected
+@W: CG100 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":14:13:14:25|User defined pragma syn_black_box detected
 
-@W: CG100 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":27:13:27:25|User defined pragma syn_black_box detected
+@W: CG100 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":27:13:27:25|User defined pragma syn_black_box detected
 
-@W: CG100 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":43:13:43:25|User defined pragma syn_black_box detected
+@W: CG100 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":43:13:43:25|User defined pragma syn_black_box detected
 
-@W: CG100 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":55:13:55:25|User defined pragma syn_black_box detected
+@W: CG100 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":55:13:55:25|User defined pragma syn_black_box detected
 
-@W: CG100 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":67:13:67:25|User defined pragma syn_black_box detected
+@W: CG100 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":67:13:67:25|User defined pragma syn_black_box detected
 
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS_syn.v" (library work)
-@W: CG100 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS_syn.v":496:13:496:25|User defined pragma syn_black_box detected
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS_syn.v" (library work)
+@W: CG100 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS_syn.v":532:13:532:25|User defined pragma syn_black_box detected
 
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreConfigP\7.1.100\rtl\vlog\core\coreconfigp.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp_pcie_hotreset.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\pwm_gen.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\reg_if.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\timebase.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\tach_if.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_muxptob3.v" (library COREAPB3_LIB)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_iaddr_reg.v" (library COREAPB3_LIB)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v" (library COREAPB3_LIB)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS\EvalSandbox_MSS.v" (library work)
-@I::"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp_pcie_hotreset.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_muxptob3.v" (library COREAPB3_LIB)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_iaddr_reg.v" (library COREAPB3_LIB)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v" (library COREAPB3_LIB)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\EvalSandbox_MSS.v" (library work)
+@I::"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalBoardSandbox\EvalBoardSandbox.v" (library work)
 Verilog syntax check successful!
-File C:\MicroSemiProj\EvalBoardSandbox\synthesis\synwork\_verilog_hintfile changed - recompiling
-File C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v changed - recompiling
-@N: CG775 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v":29:7:29:52|Component COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_COREAPBLSRAM not found in library "work" or "__hyper__lib__", but found in library COREAPBLSRAM_LIB
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v":29:7:29:52|Synthesizing module COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_COREAPBLSRAM in library COREAPBLSRAM_LIB.
 
-	FAMILY=32'b00000000000000000000000000010011
-	APB_DWIDTH=32'b00000000000000000000000000010000
-	SEL_SRAM_TYPE=32'b00000000000000000000000000000000
-	USRAM_NUM_LOCATIONS_DWIDTH=32'b00000000000000000000000010000000
-	LSRAM_NUM_LOCATIONS_DWIDTH=32'b00000000000000000000100000000000
-	ADDR_SCHEME=32'b00000000000000000000000000000001
-   Generated name = COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_COREAPBLSRAM_19s_16s_0s_128s_2048s_1s
-@N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":382:7:382:13|Synthesizing module RAM1K18 in library work.
-Running optimization stage 1 on RAM1K18 .......
-Finished optimization stage 1 on RAM1K18 (CPU Time 0h:00m:00s, Memory Used current: 200MB peak: 201MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\lsram_1024to70656x16.v":28:7:28:60|Synthesizing module COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_lsram_1024to70656x16 in library COREAPBLSRAM_LIB.
+Compiler output is up to date.  No re-compile necessary
 
-	DEPTH=32'b00000000000000000000100000000000
-	APB_DWIDTH=32'b00000000000000000000000000010000
-   Generated name = COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_lsram_1024to70656x16_2048s_16s
-@W: CG134 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\lsram_1024to70656x16.v":79:40:79:47|No assignment to bit 8 of ckRdAddr
-Running optimization stage 1 on COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_lsram_1024to70656x16_2048s_16s .......
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\lsram_1024to70656x16.v":649:4:649:9|Pruning unused register ckRdAddr[16:9]. Make sure that there are no unused intermediate registers.
-Finished optimization stage 1 on COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_lsram_1024to70656x16_2048s_16s (CPU Time 0h:00m:00s, Memory Used current: 202MB peak: 203MB)
-@W: CG133 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v":88:32:88:41|Object PREADY_reg is declared but not assigned. Either assign a value or remove the declaration.
-@W: CG360 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v":92:32:92:49|Removing wire lsram_512_BUSY_all, as there is no assignment to it.
-@W: CG360 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v":93:32:93:54|Removing wire lsram_512to46k_BUSY_all, as there is no assignment to it.
-@W: CG360 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v":95:32:95:48|Removing wire lsram_2k_BUSY_all, as there is no assignment to it.
-@W: CG360 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v":98:32:98:48|Removing wire usram_2K_BUSY_all, as there is no assignment to it.
-@W: CG360 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v":99:32:99:48|Removing wire usram_3K_BUSY_all, as there is no assignment to it.
-@W: CG184 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v":100:32:100:48|Removing wire usram_4K_BUSY_all, as it has the load but no drivers.
-@W: CG360 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v":101:32:101:48|Removing wire usram_9K_BUSY_all, as there is no assignment to it.
-@W: CG360 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v":105:32:105:51|Removing wire lsram_width32_PRDATA, as there is no assignment to it.
-@W: CG360 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v":106:32:106:51|Removing wire lsram_width24_PRDATA, as there is no assignment to it.
-@W: CG360 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v":108:32:108:51|Removing wire lsram_width08_PRDATA, as there is no assignment to it.
-@W: CG360 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v":110:32:110:51|Removing wire usram_width32_PRDATA, as there is no assignment to it.
-@W: CG360 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v":111:32:111:51|Removing wire usram_width24_PRDATA, as there is no assignment to it.
-@W: CG360 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v":112:32:112:51|Removing wire usram_width16_PRDATA, as there is no assignment to it.
-@W: CG360 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v":113:32:113:51|Removing wire usram_width08_PRDATA, as there is no assignment to it.
-Running optimization stage 1 on COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_COREAPBLSRAM_19s_16s_0s_128s_2048s_1s .......
-Finished optimization stage 1 on COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_COREAPBLSRAM_19s_16s_0s_128s_2048s_1s (CPU Time 0h:00m:00s, Memory Used current: 202MB peak: 203MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0.v":25:7:25:21|Synthesizing module COREAPBLSRAM_C0 in library work.
-Running optimization stage 1 on COREAPBLSRAM_C0 .......
-Finished optimization stage 1 on COREAPBLSRAM_C0 (CPU Time 0h:00m:00s, Memory Used current: 202MB peak: 203MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Clock_gen.v":30:0:30:40|Synthesizing module CoreUARTapb_C0_CoreUARTapb_C0_0_Clock_gen in library work.
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Clock_gen.v":30:0:30:40|Synthesizing module CoreUARTapb_C0_CoreUARTapb_C0_0_Clock_gen in library work.
 
 	BAUD_VAL_FRCTN_EN=32'b00000000000000000000000000000000
 	SYNC_RESET=32'b00000000000000000000000000000000
    Generated name = CoreUARTapb_C0_CoreUARTapb_C0_0_Clock_gen_0s_0s
 Running optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_Clock_gen_0s_0s .......
-Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_Clock_gen_0s_0s (CPU Time 0h:00m:00s, Memory Used current: 202MB peak: 203MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":14:0:14:39|Synthesizing module CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async in library work.
+Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_Clock_gen_0s_0s (CPU Time 0h:00m:00s, Memory Used current: 95MB peak: 96MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":14:0:14:39|Synthesizing module CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async in library work.
 
 	SYNC_RESET=32'b00000000000000000000000000000000
 	TX_FIFO=32'b00000000000000000000000000000000
@@ -243,14 +173,14 @@ Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_Clock_gen_0s_0s
 	CUARTOI0l=32'b00000000000000000000000000000101
 	CUARTII0l=32'b00000000000000000000000000000110
    Generated name = CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async_0s_0s_0s_1s_2s_3s_4s_5s_6s
-@W: CG1340 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":605:0:605:5|Index into variable CUARTIl0l could be out of range ; a simulation mismatch is possible.
-@W: CG1340 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":605:0:605:5|Index into variable CUARTIl0l could be out of range ; a simulation mismatch is possible.
-@N: CG179 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":870:0:870:8|Removing redundant assignment.
+@W: CG1340 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":605:0:605:5|Index into variable CUARTIl0l could be out of range ; a simulation mismatch is possible.
+@W: CG1340 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":605:0:605:5|Index into variable CUARTIl0l could be out of range ; a simulation mismatch is possible.
+@N: CG179 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":870:0:870:8|Removing redundant assignment.
 Running optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async_0s_0s_0s_1s_2s_3s_4s_5s_6s .......
-@W: CL190 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":301:0:301:5|Optimizing register bit CUARTI00l to a constant 1. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":301:0:301:5|Pruning unused register CUARTI00l. Make sure that there are no unused intermediate registers.
-Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async_0s_0s_0s_1s_2s_3s_4s_5s_6s (CPU Time 0h:00m:00s, Memory Used current: 203MB peak: 204MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v":14:0:14:39|Synthesizing module CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async in library work.
+@W: CL190 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":301:0:301:5|Optimizing register bit CUARTI00l to a constant 1. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":301:0:301:5|Pruning unused register CUARTI00l. Make sure that there are no unused intermediate registers.
+Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async_0s_0s_0s_1s_2s_3s_4s_5s_6s (CPU Time 0h:00m:00s, Memory Used current: 96MB peak: 97MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v":14:0:14:39|Synthesizing module CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async in library work.
 
 	SYNC_RESET=32'b00000000000000000000000000000000
 	RX_FIFO=32'b00000000000000000000000000000000
@@ -259,11 +189,11 @@ Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async_0s_0s_
 	CUARTlIIl=32'b00000000000000000000000000000010
 	CUARTOlIl=32'b00000000000000000000000000000011
    Generated name = CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async_0s_0s_0s_1s_2s_3s
-@N: CG179 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v":750:0:750:7|Removing redundant assignment.
-@N: CG179 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v":857:0:857:8|Removing redundant assignment.
+@N: CG179 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v":750:0:750:7|Removing redundant assignment.
+@N: CG179 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v":857:0:857:8|Removing redundant assignment.
 Running optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async_0s_0s_0s_1s_2s_3s .......
-Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async_0s_0s_0s_1s_2s_3s (CPU Time 0h:00m:00s, Memory Used current: 203MB peak: 204MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":14:0:14:39|Synthesizing module CoreUARTapb_C0_CoreUARTapb_C0_0_COREUART in library work.
+Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async_0s_0s_0s_1s_2s_3s (CPU Time 0h:00m:00s, Memory Used current: 96MB peak: 97MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":14:0:14:39|Synthesizing module CoreUARTapb_C0_CoreUARTapb_C0_0_COREUART in library work.
 
 	TX_FIFO=32'b00000000000000000000000000000000
 	RX_FIFO=32'b00000000000000000000000000000000
@@ -272,21 +202,21 @@ Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async_0s_0s_
 	BAUD_VAL_FRCTN_EN=32'b00000000000000000000000000000000
 	SYNC_RESET=32'b00000000000000000000000000000000
    Generated name = CoreUARTapb_C0_CoreUARTapb_C0_0_COREUART_0s_0s_0s_19s_0s_0s
-@N: CG179 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":1338:0:1338:7|Removing redundant assignment.
-@W: CG133 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":333:0:333:7|Object CUARTlI0 is declared but not assigned. Either assign a value or remove the declaration.
+@N: CG179 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":1338:0:1338:7|Removing redundant assignment.
+@W: CG133 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":333:0:333:7|Object CUARTlI0 is declared but not assigned. Either assign a value or remove the declaration.
 Running optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_COREUART_0s_0s_0s_19s_0s_0s .......
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":1268:0:1268:5|Pruning unused register CUARTO10. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":1159:0:1159:5|Pruning unused register CUARTOl0. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":1159:0:1159:5|Pruning unused register CUARTIl0. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":1106:0:1106:5|Pruning unused register CUARTIOl[7:0]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":984:0:984:5|Pruning unused register CUARTll0[1:0]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":936:0:936:5|Pruning unused register CUARTOI0. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":936:0:936:5|Pruning unused register CUARTlO0. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":888:0:888:5|Pruning unused register CUARTOO0. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":888:0:888:5|Pruning unused register CUARTl1l. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":405:0:405:5|Pruning unused register CUARTIll. Make sure that there are no unused intermediate registers.
-Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_COREUART_0s_0s_0s_19s_0s_0s (CPU Time 0h:00m:00s, Memory Used current: 203MB peak: 204MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v":14:0:14:42|Synthesizing module CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb in library work.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":1268:0:1268:5|Pruning unused register CUARTO10. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":1159:0:1159:5|Pruning unused register CUARTOl0. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":1159:0:1159:5|Pruning unused register CUARTIl0. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":1106:0:1106:5|Pruning unused register CUARTIOl[7:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":984:0:984:5|Pruning unused register CUARTll0[1:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":936:0:936:5|Pruning unused register CUARTOI0. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":936:0:936:5|Pruning unused register CUARTlO0. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":888:0:888:5|Pruning unused register CUARTOO0. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":888:0:888:5|Pruning unused register CUARTl1l. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":405:0:405:5|Pruning unused register CUARTIll. Make sure that there are no unused intermediate registers.
+Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_COREUART_0s_0s_0s_19s_0s_0s (CPU Time 0h:00m:00s, Memory Used current: 96MB peak: 97MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v":14:0:14:42|Synthesizing module CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb in library work.
 
 	FAMILY=32'b00000000000000000000000000010011
 	TX_FIFO=32'b00000000000000000000000000000000
@@ -300,34 +230,34 @@ Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_COREUART_0s_0s_
 	BAUD_VAL_FRCTN_EN=32'b00000000000000000000000000000000
 	SYNC_RESET=32'b00000000000000000000000000000000
    Generated name = CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb_Z1_layer0
-@N: CG179 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v":785:0:785:8|Removing redundant assignment.
-@N: CG179 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v":868:0:868:8|Removing redundant assignment.
-@W: CG133 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v":283:0:283:8|Object CUARTI1OI is declared but not assigned. Either assign a value or remove the declaration.
+@N: CG179 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v":785:0:785:8|Removing redundant assignment.
+@N: CG179 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v":868:0:868:8|Removing redundant assignment.
+@W: CG133 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v":283:0:283:8|Object CUARTI1OI is declared but not assigned. Either assign a value or remove the declaration.
 Running optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb_Z1_layer0 .......
-Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb_Z1_layer0 (CPU Time 0h:00m:00s, Memory Used current: 203MB peak: 204MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0.v":31:7:31:20|Synthesizing module CoreUARTapb_C0 in library work.
+Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb_Z1_layer0 (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 97MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0.v":31:7:31:20|Synthesizing module CoreUARTapb_C0 in library work.
 Running optimization stage 1 on CoreUARTapb_C0 .......
-Finished optimization stage 1 on CoreUARTapb_C0 (CPU Time 0h:00m:00s, Memory Used current: 203MB peak: 204MB)
-@N: CG775 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":31:7:31:14|Component CoreAPB3 not found in library "work" or "__hyper__lib__", but found in library COREAPB3_LIB
+Finished optimization stage 1 on CoreUARTapb_C0 (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 97MB)
+@N: CG775 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":31:7:31:14|Component CoreAPB3 not found in library "work" or "__hyper__lib__", but found in library COREAPB3_LIB
 @N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":376:7:376:9|Synthesizing module VCC in library work.
 Running optimization stage 1 on VCC .......
-Finished optimization stage 1 on VCC (CPU Time 0h:00m:00s, Memory Used current: 203MB peak: 204MB)
+Finished optimization stage 1 on VCC (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 97MB)
 @N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":372:7:372:9|Synthesizing module GND in library work.
 Running optimization stage 1 on GND .......
-Finished optimization stage 1 on GND (CPU Time 0h:00m:00s, Memory Used current: 203MB peak: 204MB)
+Finished optimization stage 1 on GND (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 97MB)
 @N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":362:7:362:12|Synthesizing module CLKINT in library work.
 Running optimization stage 1 on CLKINT .......
-Finished optimization stage 1 on CLKINT (CPU Time 0h:00m:00s, Memory Used current: 203MB peak: 204MB)
+Finished optimization stage 1 on CLKINT (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 97MB)
 @N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":729:7:729:9|Synthesizing module CCC in library work.
 Running optimization stage 1 on CCC .......
-Finished optimization stage 1 on CCC (CPU Time 0h:00m:00s, Memory Used current: 203MB peak: 204MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS\CCC_0\EvalSandbox_MSS_CCC_0_FCCC.v":5:7:5:32|Synthesizing module EvalSandbox_MSS_CCC_0_FCCC in library work.
+Finished optimization stage 1 on CCC (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 97MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\CCC_0\EvalSandbox_MSS_CCC_0_FCCC.v":5:7:5:32|Synthesizing module EvalSandbox_MSS_CCC_0_FCCC in library work.
 Running optimization stage 1 on EvalSandbox_MSS_CCC_0_FCCC .......
-Finished optimization stage 1 on EvalSandbox_MSS_CCC_0_FCCC (CPU Time 0h:00m:00s, Memory Used current: 203MB peak: 204MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_muxptob3.v":30:7:30:23|Synthesizing module COREAPB3_MUXPTOB3 in library COREAPB3_LIB.
+Finished optimization stage 1 on EvalSandbox_MSS_CCC_0_FCCC (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 97MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_muxptob3.v":30:7:30:23|Synthesizing module COREAPB3_MUXPTOB3 in library COREAPB3_LIB.
 Running optimization stage 1 on COREAPB3_MUXPTOB3 .......
-Finished optimization stage 1 on COREAPB3_MUXPTOB3 (CPU Time 0h:00m:00s, Memory Used current: 205MB peak: 206MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":31:7:31:14|Synthesizing module CoreAPB3 in library COREAPB3_LIB.
+Finished optimization stage 1 on COREAPB3_MUXPTOB3 (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 99MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":31:7:31:14|Synthesizing module CoreAPB3 in library COREAPB3_LIB.
 
 	APB_DWIDTH=6'b100000
 	IADDR_OPTION=32'b00000000000000000000000000000000
@@ -336,8 +266,8 @@ Finished optimization stage 1 on COREAPB3_MUXPTOB3 (CPU Time 0h:00m:00s, Memory 
 	APBSLOT2ENABLE=1'b1
 	APBSLOT3ENABLE=1'b1
 	APBSLOT4ENABLE=1'b1
-	APBSLOT5ENABLE=1'b0
-	APBSLOT6ENABLE=1'b0
+	APBSLOT5ENABLE=1'b1
+	APBSLOT6ENABLE=1'b1
 	APBSLOT7ENABLE=1'b0
 	APBSLOT8ENABLE=1'b0
 	APBSLOT9ENABLE=1'b0
@@ -390,8 +320,8 @@ Finished optimization stage 1 on COREAPB3_MUXPTOB3 (CPU Time 0h:00m:00s, Memory 
 	SL2=16'b0000000000000100
 	SL3=16'b0000000000001000
 	SL4=16'b0000000000010000
-	SL5=16'b0000000000000000
-	SL6=16'b0000000000000000
+	SL5=16'b0000000000100000
+	SL6=16'b0000000001000000
 	SL7=16'b0000000000000000
 	SL8=16'b0000000000000000
 	SL9=16'b0000000000000000
@@ -404,247 +334,15 @@ Finished optimization stage 1 on COREAPB3_MUXPTOB3 (CPU Time 0h:00m:00s, Memory 
 	SC=16'b0000000000000000
 	SC_qual=16'b0000000000000000
    Generated name = CoreAPB3_Z2_layer0
-@W: CG360 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":244:12:244:20|Removing wire IA_PRDATA, as there is no assignment to it.
+@W: CG360 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":244:12:244:20|Removing wire IA_PRDATA, as there is no assignment to it.
 Running optimization stage 1 on CoreAPB3_Z2_layer0 .......
-Finished optimization stage 1 on CoreAPB3_Z2_layer0 (CPU Time 0h:00m:00s, Memory Used current: 205MB peak: 206MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreConfigP\7.1.100\rtl\vlog\core\coreconfigp.v":22:7:22:17|Synthesizing module CoreConfigP in library work.
-
-	FAMILY=32'b00000000000000000000000000010011
-	MDDR_IN_USE=32'b00000000000000000000000000000001
-	FDDR_IN_USE=32'b00000000000000000000000000000000
-	SDIF0_IN_USE=32'b00000000000000000000000000000000
-	SDIF1_IN_USE=32'b00000000000000000000000000000000
-	SDIF2_IN_USE=32'b00000000000000000000000000000000
-	SDIF3_IN_USE=32'b00000000000000000000000000000000
-	SDIF0_PCIE=32'b00000000000000000000000000000000
-	SDIF1_PCIE=32'b00000000000000000000000000000000
-	SDIF2_PCIE=32'b00000000000000000000000000000000
-	SDIF3_PCIE=32'b00000000000000000000000000000000
-	ENABLE_SOFT_RESETS=32'b00000000000000000000000000000001
-	DEVICE_090=32'b00000000000000000000000000000000
-	VERSION_MAJOR=32'b00000000000000000000000000000111
-	VERSION_MINOR=32'b00000000000000000000000000000000
-	VERSION_MAJOR_VECTOR=16'b0000000000000111
-	VERSION_MINOR_VECTOR=16'b0000000000000000
-	S0=2'b00
-	S1=2'b01
-	S2=2'b10
-   Generated name = CoreConfigP_Z3_layer0
-Running optimization stage 1 on CoreConfigP_Z3_layer0 .......
-Finished optimization stage 1 on CoreConfigP_Z3_layer0 (CPU Time 0h:00m:00s, Memory Used current: 206MB peak: 207MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":26:0:26:6|Synthesizing module corepwm in library work.
-
-	FAMILY=32'b00000000000000000000000000010001
-	CONFIG_MODE=32'b00000000000000000000000000000000
-	PWM_NUM=32'b00000000000000000000000000000010
-	APB_DWIDTH=32'b00000000000000000000000000010000
-	FIXED_PRESCALE_EN=32'b00000000000000000000000000000000
-	FIXED_PRESCALE=32'b00000000000000000000000000000000
-	FIXED_PERIOD_EN=32'b00000000000000000000000000000000
-	FIXED_PERIOD=32'b00000000000000000000000000000001
-	DAC_MODE1=32'b00000000000000000000000000000000
-	DAC_MODE2=32'b00000000000000000000000000000000
-	DAC_MODE3=32'b00000000000000000000000000000000
-	DAC_MODE4=32'b00000000000000000000000000000000
-	DAC_MODE5=32'b00000000000000000000000000000000
-	DAC_MODE6=32'b00000000000000000000000000000000
-	DAC_MODE7=32'b00000000000000000000000000000000
-	DAC_MODE8=32'b00000000000000000000000000000000
-	DAC_MODE9=32'b00000000000000000000000000000000
-	DAC_MODE10=32'b00000000000000000000000000000000
-	DAC_MODE11=32'b00000000000000000000000000000000
-	DAC_MODE12=32'b00000000000000000000000000000000
-	DAC_MODE13=32'b00000000000000000000000000000000
-	DAC_MODE14=32'b00000000000000000000000000000000
-	DAC_MODE15=32'b00000000000000000000000000000000
-	DAC_MODE16=32'b00000000000000000000000000000000
-	SHADOW_REG_EN1=32'b00000000000000000000000000000000
-	SHADOW_REG_EN2=32'b00000000000000000000000000000000
-	SHADOW_REG_EN3=32'b00000000000000000000000000000000
-	SHADOW_REG_EN4=32'b00000000000000000000000000000000
-	SHADOW_REG_EN5=32'b00000000000000000000000000000000
-	SHADOW_REG_EN6=32'b00000000000000000000000000000000
-	SHADOW_REG_EN7=32'b00000000000000000000000000000000
-	SHADOW_REG_EN8=32'b00000000000000000000000000000000
-	SHADOW_REG_EN9=32'b00000000000000000000000000000000
-	SHADOW_REG_EN10=32'b00000000000000000000000000000000
-	SHADOW_REG_EN11=32'b00000000000000000000000000000000
-	SHADOW_REG_EN12=32'b00000000000000000000000000000000
-	SHADOW_REG_EN13=32'b00000000000000000000000000000000
-	SHADOW_REG_EN14=32'b00000000000000000000000000000000
-	SHADOW_REG_EN15=32'b00000000000000000000000000000000
-	SHADOW_REG_EN16=32'b00000000000000000000000000000000
-	FIXED_PWM_POS_EN1=32'b00000000000000000000000000000000
-	FIXED_PWM_POS_EN2=32'b00000000000000000000000000000000
-	FIXED_PWM_POS_EN3=32'b00000000000000000000000000000001
-	FIXED_PWM_POS_EN4=32'b00000000000000000000000000000001
-	FIXED_PWM_POS_EN5=32'b00000000000000000000000000000001
-	FIXED_PWM_POS_EN6=32'b00000000000000000000000000000001
-	FIXED_PWM_POS_EN7=32'b00000000000000000000000000000001
-	FIXED_PWM_POS_EN8=32'b00000000000000000000000000000001
-	FIXED_PWM_POS_EN9=32'b00000000000000000000000000000001
-	FIXED_PWM_POS_EN10=32'b00000000000000000000000000000001
-	FIXED_PWM_POS_EN11=32'b00000000000000000000000000000001
-	FIXED_PWM_POS_EN12=32'b00000000000000000000000000000001
-	FIXED_PWM_POS_EN13=32'b00000000000000000000000000000001
-	FIXED_PWM_POS_EN14=32'b00000000000000000000000000000001
-	FIXED_PWM_POS_EN15=32'b00000000000000000000000000000001
-	FIXED_PWM_POS_EN16=32'b00000000000000000000000000000001
-	FIXED_PWM_POSEDGE1=32'b00000000000000000000000000000000
-	FIXED_PWM_POSEDGE2=32'b00000000000000000000000000000000
-	FIXED_PWM_POSEDGE3=32'b00000000000000000000000000000000
-	FIXED_PWM_POSEDGE4=32'b00000000000000000000000000000000
-	FIXED_PWM_POSEDGE5=32'b00000000000000000000000000000000
-	FIXED_PWM_POSEDGE6=32'b00000000000000000000000000000000
-	FIXED_PWM_POSEDGE7=32'b00000000000000000000000000000000
-	FIXED_PWM_POSEDGE8=32'b00000000000000000000000000000000
-	FIXED_PWM_POSEDGE9=32'b00000000000000000000000000000000
-	FIXED_PWM_POSEDGE10=32'b00000000000000000000000000000000
-	FIXED_PWM_POSEDGE11=32'b00000000000000000000000000000000
-	FIXED_PWM_POSEDGE12=32'b00000000000000000000000000000000
-	FIXED_PWM_POSEDGE13=32'b00000000000000000000000000000000
-	FIXED_PWM_POSEDGE14=32'b00000000000000000000000000000000
-	FIXED_PWM_POSEDGE15=32'b00000000000000000000000000000000
-	FIXED_PWM_POSEDGE16=32'b00000000000000000000000000000000
-	FIXED_PWM_NEG_EN1=32'b00000000000000000000000000000000
-	FIXED_PWM_NEG_EN2=32'b00000000000000000000000000000000
-	FIXED_PWM_NEG_EN3=32'b00000000000000000000000000000000
-	FIXED_PWM_NEG_EN4=32'b00000000000000000000000000000000
-	FIXED_PWM_NEG_EN5=32'b00000000000000000000000000000000
-	FIXED_PWM_NEG_EN6=32'b00000000000000000000000000000000
-	FIXED_PWM_NEG_EN7=32'b00000000000000000000000000000000
-	FIXED_PWM_NEG_EN8=32'b00000000000000000000000000000000
-	FIXED_PWM_NEG_EN9=32'b00000000000000000000000000000000
-	FIXED_PWM_NEG_EN10=32'b00000000000000000000000000000000
-	FIXED_PWM_NEG_EN11=32'b00000000000000000000000000000000
-	FIXED_PWM_NEG_EN12=32'b00000000000000000000000000000000
-	FIXED_PWM_NEG_EN13=32'b00000000000000000000000000000000
-	FIXED_PWM_NEG_EN14=32'b00000000000000000000000000000000
-	FIXED_PWM_NEG_EN15=32'b00000000000000000000000000000000
-	FIXED_PWM_NEG_EN16=32'b00000000000000000000000000000000
-	FIXED_PWM_NEGEDGE1=32'b00000000000000000000000000000000
-	FIXED_PWM_NEGEDGE2=32'b00000000000000000000000000000000
-	FIXED_PWM_NEGEDGE3=32'b00000000000000000000000000000000
-	FIXED_PWM_NEGEDGE4=32'b00000000000000000000000000000000
-	FIXED_PWM_NEGEDGE5=32'b00000000000000000000000000000000
-	FIXED_PWM_NEGEDGE6=32'b00000000000000000000000000000000
-	FIXED_PWM_NEGEDGE7=32'b00000000000000000000000000000000
-	FIXED_PWM_NEGEDGE8=32'b00000000000000000000000000000000
-	FIXED_PWM_NEGEDGE9=32'b00000000000000000000000000000000
-	FIXED_PWM_NEGEDGE10=32'b00000000000000000000000000000000
-	FIXED_PWM_NEGEDGE11=32'b00000000000000000000000000000000
-	FIXED_PWM_NEGEDGE12=32'b00000000000000000000000000000000
-	FIXED_PWM_NEGEDGE13=32'b00000000000000000000000000000000
-	FIXED_PWM_NEGEDGE14=32'b00000000000000000000000000000000
-	FIXED_PWM_NEGEDGE15=32'b00000000000000000000000000000000
-	FIXED_PWM_NEGEDGE16=32'b00000000000000000000000000000000
-	PWM_STRETCH_VALUE1=32'b00000000000000000000000000000000
-	PWM_STRETCH_VALUE2=32'b00000000000000000000000000000000
-	PWM_STRETCH_VALUE3=32'b00000000000000000000000000000000
-	PWM_STRETCH_VALUE4=32'b00000000000000000000000000000000
-	PWM_STRETCH_VALUE5=32'b00000000000000000000000000000000
-	PWM_STRETCH_VALUE6=32'b00000000000000000000000000000000
-	PWM_STRETCH_VALUE7=32'b00000000000000000000000000000000
-	PWM_STRETCH_VALUE8=32'b00000000000000000000000000000000
-	PWM_STRETCH_VALUE9=32'b00000000000000000000000000000000
-	PWM_STRETCH_VALUE10=32'b00000000000000000000000000000000
-	PWM_STRETCH_VALUE11=32'b00000000000000000000000000000000
-	PWM_STRETCH_VALUE12=32'b00000000000000000000000000000000
-	PWM_STRETCH_VALUE13=32'b00000000000000000000000000000000
-	PWM_STRETCH_VALUE14=32'b00000000000000000000000000000000
-	PWM_STRETCH_VALUE15=32'b00000000000000000000000000000000
-	PWM_STRETCH_VALUE16=32'b00000000000000000000000000000000
-	TACH_NUM=32'b00000000000000000000000000000001
-	TACH_EDGE1=32'b00000000000000000000000000000000
-	TACH_EDGE2=32'b00000000000000000000000000000000
-	TACH_EDGE3=32'b00000000000000000000000000000000
-	TACH_EDGE4=32'b00000000000000000000000000000000
-	TACH_EDGE5=32'b00000000000000000000000000000000
-	TACH_EDGE6=32'b00000000000000000000000000000000
-	TACH_EDGE7=32'b00000000000000000000000000000000
-	TACH_EDGE8=32'b00000000000000000000000000000000
-	TACH_EDGE9=32'b00000000000000000000000000000000
-	TACH_EDGE10=32'b00000000000000000000000000000000
-	TACH_EDGE11=32'b00000000000000000000000000000000
-	TACH_EDGE12=32'b00000000000000000000000000000000
-	TACH_EDGE13=32'b00000000000000000000000000000000
-	TACH_EDGE14=32'b00000000000000000000000000000000
-	TACH_EDGE15=32'b00000000000000000000000000000000
-	TACH_EDGE16=32'b00000000000000000000000000000000
-	TACHINT_ACT_LEVEL=32'b00000000000000000000000000000000
-	all_ones=16'b1111111111111111
-	DAC_MODE=16'b0000000000000000
-	SHADOW_REG_EN=16'b0000000000000000
-	FIXED_PWM_POS_EN=16'b1111111111111100
-	FIXED_PWM_NEG_EN=16'b0000000000000000
-	FIXED_PWM_POSEDGE=256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-	FIXED_PWM_NEGEDGE=256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-   Generated name = corepwm_Z4_layer0
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\reg_if.v":26:0:26:5|Synthesizing module reg_if in library work.
-
-	PWM_NUM=32'b00000000000000000000000000000010
-	APB_DWIDTH=32'b00000000000000000000000000010000
-	FIXED_PRESCALE_EN=32'b00000000000000000000000000000000
-	FIXED_PRESCALE=32'b00000000000000000000000000000000
-	FIXED_PERIOD_EN=32'b00000000000000000000000000000000
-	FIXED_PERIOD=32'b00000000000000000000000000000001
-	DAC_MODE=16'b0000000000000000
-	SHADOW_REG_EN=16'b0000000000000000
-	FIXED_PWM_POS_EN=16'b1111111111111100
-	FIXED_PWM_POSEDGE=256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-	FIXED_PWM_NEG_EN=16'b0000000000000000
-	FIXED_PWM_NEGEDGE=256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-   Generated name = reg_if_Z5_layer0
-Running optimization stage 1 on reg_if_Z5_layer0 .......
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\reg_if.v":1320:0:1320:5|Pruning unused register pwm_enable_reg[16:1]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\reg_if.v":760:0:760:5|Pruning unused register CPWMO1OI[2].pwm_posedge_reg[32:17]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\reg_if.v":760:0:760:5|Pruning unused register CPWMO1OI[2].pwm_negedge_reg[32:17]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\reg_if.v":760:0:760:5|Pruning unused register CPWMO1OI[1].pwm_posedge_reg[16:1]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\reg_if.v":760:0:760:5|Pruning unused register CPWMO1OI[1].pwm_negedge_reg[16:1]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\reg_if.v":377:0:377:5|Pruning unused register CPWMlIOI[16:9]. Make sure that there are no unused intermediate registers.
-@W: CL271 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\reg_if.v":377:0:377:5|Pruning unused bits 8 to 3 of CPWMIIOI[8:1]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-Finished optimization stage 1 on reg_if_Z5_layer0 (CPU Time 0h:00m:00s, Memory Used current: 206MB peak: 207MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\timebase.v":26:0:26:7|Synthesizing module timebase in library work.
-
-	APB_DWIDTH=32'b00000000000000000000000000010000
-   Generated name = timebase_16s
-Running optimization stage 1 on timebase_16s .......
-Finished optimization stage 1 on timebase_16s (CPU Time 0h:00m:00s, Memory Used current: 207MB peak: 207MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\pwm_gen.v":26:0:26:6|Synthesizing module pwm_gen in library work.
-
-	PWM_NUM=32'b00000000000000000000000000000010
-	APB_DWIDTH=32'b00000000000000000000000000010000
-	DAC_MODE=16'b0000000000000000
-   Generated name = pwm_gen_2s_16s_0
-@W: CG133 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\pwm_gen.v":114:0:114:6|Object CPWMOl1 is declared but not assigned. Either assign a value or remove the declaration.
-Running optimization stage 1 on pwm_gen_2s_16s_0 .......
-Finished optimization stage 1 on pwm_gen_2s_16s_0 (CPU Time 0h:00m:00s, Memory Used current: 207MB peak: 208MB)
-@W: CG360 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":769:0:769:6|Removing wire TACHINT, as there is no assignment to it.
-@W: CG133 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":830:0:830:4|Object CPWMI is declared but not assigned. Either assign a value or remove the declaration.
-@W: CG360 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":840:0:840:4|Removing wire CPWMl, as there is no assignment to it.
-@W: CG360 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":850:0:850:8|Removing wire TACH_EDGE, as there is no assignment to it.
-@W: CG360 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":853:0:853:5|Removing wire CPWMOI, as there is no assignment to it.
-@W: CG133 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":861:0:861:5|Object CPWMII is declared but not assigned. Either assign a value or remove the declaration.
-@W: CG133 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":871:0:871:10|Object PWM_STRETCH is declared but not assigned. Either assign a value or remove the declaration.
-@W: CG133 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":881:0:881:5|Object CPWMlI is declared but not assigned. Either assign a value or remove the declaration.
-@W: CG133 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":891:0:891:7|Object TACHMODE is declared but not assigned. Either assign a value or remove the declaration.
-@W: CG133 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":909:0:909:5|Object CPWMOl is declared but not assigned. Either assign a value or remove the declaration.
-@W: CG133 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":917:0:917:5|Object CPWMIl is declared but not assigned. Either assign a value or remove the declaration.
-@W: CG133 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":925:0:925:5|Object CPWMll is declared but not assigned. Either assign a value or remove the declaration.
-@W: CG133 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":928:0:928:11|Object tach_cnt_clk is declared but not assigned. Either assign a value or remove the declaration.
-@W: CG184 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":953:0:953:12|Removing wire update_status, as it has the load but no drivers.
-@W: CG133 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":8473:0:8473:6|Object CPWMII1 is declared but not assigned. Either assign a value or remove the declaration.
-Running optimization stage 1 on corepwm_Z4_layer0 .......
-@W: CL318 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":769:0:769:6|*Output TACHINT has undriven bits; assigning undriven bits to 'Z'.  Simulation mismatch possible. Assign all bits of the output.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":2119:0:2119:5|Pruning unused register CPWMO1[0].TACHSTATUS[0]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":2119:0:2119:5|Pruning unused register CPWMO1[0].status_clear[0]. Make sure that there are no unused intermediate registers.
-Finished optimization stage 1 on corepwm_Z4_layer0 (CPU Time 0h:00m:00s, Memory Used current: 207MB peak: 208MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":23:7:23:16|Synthesizing module CoreResetP in library work.
+Finished optimization stage 1 on CoreAPB3_Z2_layer0 (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 99MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":23:7:23:16|Synthesizing module CoreResetP in library work.
 
 	FAMILY=32'b00000000000000000000000000010011
 	EXT_RESET_CFG=32'b00000000000000000000000000000000
 	DEVICE_VOLTAGE=32'b00000000000000000000000000000010
-	MDDR_IN_USE=32'b00000000000000000000000000000001
+	MDDR_IN_USE=32'b00000000000000000000000000000000
 	FDDR_IN_USE=32'b00000000000000000000000000000000
 	SDIF0_IN_USE=32'b00000000000000000000000000000000
 	SDIF1_IN_USE=32'b00000000000000000000000000000000
@@ -662,7 +360,7 @@ Finished optimization stage 1 on corepwm_Z4_layer0 (CPU Time 0h:00m:00s, Memory 
 	SDIF1_PCIE_L2P2=32'b00000000000000000000000000000001
 	SDIF2_PCIE_L2P2=32'b00000000000000000000000000000001
 	SDIF3_PCIE_L2P2=32'b00000000000000000000000000000001
-	ENABLE_SOFT_RESETS=32'b00000000000000000000000000000001
+	ENABLE_SOFT_RESETS=32'b00000000000000000000000000000000
 	DEVICE_090=32'b00000000000000000000000000000000
 	DDR_WAIT=32'b00000000000000000000000011001000
 	RCOSC_MEGAHERTZ=32'b00000000000000000000000000110010
@@ -677,147 +375,120 @@ Finished optimization stage 1 on corepwm_Z4_layer0 (CPU Time 0h:00m:00s, Memory 
 	S4=32'b00000000000000000000000000000100
 	S5=32'b00000000000000000000000000000101
 	S6=32'b00000000000000000000000000000110
-   Generated name = CoreResetP_Z6_layer0
-Running optimization stage 1 on CoreResetP_Z6_layer0 .......
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1581:4:1581:9|Pruning unused register count_sdif3[12:0]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1549:4:1549:9|Pruning unused register count_sdif2[12:0]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1517:4:1517:9|Pruning unused register count_sdif1[12:0]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1485:4:1485:9|Pruning unused register count_sdif0[12:0]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1455:4:1455:9|Pruning unused register count_sdif0_enable_q1. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1455:4:1455:9|Pruning unused register count_sdif1_enable_q1. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1455:4:1455:9|Pruning unused register count_sdif2_enable_q1. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1455:4:1455:9|Pruning unused register count_sdif3_enable_q1. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1455:4:1455:9|Pruning unused register count_sdif0_enable_rcosc. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1455:4:1455:9|Pruning unused register count_sdif1_enable_rcosc. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1455:4:1455:9|Pruning unused register count_sdif2_enable_rcosc. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1455:4:1455:9|Pruning unused register count_sdif3_enable_rcosc. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1365:4:1365:9|Pruning unused register count_sdif3_enable. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1300:4:1300:9|Pruning unused register count_sdif2_enable. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1235:4:1235:9|Pruning unused register count_sdif1_enable. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1170:4:1170:9|Pruning unused register count_sdif0_enable. Make sure that there are no unused intermediate registers.
-@W: CL177 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1388:4:1388:9|Sharing sequential element M3_RESET_N_int and merging RESET_N_F2M_int. Add a syn_preserve attribute to the element to prevent sharing.
-@W: CL177 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Sharing sequential element sdif2_spll_lock_q1 and merging sdif3_spll_lock_q1. Add a syn_preserve attribute to the element to prevent sharing.
-@W: CL177 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Sharing sequential element sdif1_spll_lock_q1 and merging sdif3_spll_lock_q1. Add a syn_preserve attribute to the element to prevent sharing.
-@W: CL177 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Sharing sequential element sdif0_spll_lock_q1 and merging sdif3_spll_lock_q1. Add a syn_preserve attribute to the element to prevent sharing.
-@W: CL177 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Sharing sequential element fpll_lock_q1 and merging sdif3_spll_lock_q1. Add a syn_preserve attribute to the element to prevent sharing.
-@W: CL190 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1433:4:1433:9|Optimizing register bit EXT_RESET_OUT_int to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1089:4:1089:9|Pruning unused register release_ext_reset. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1433:4:1433:9|Pruning unused register EXT_RESET_OUT_int. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1433:4:1433:9|Pruning unused register sm2_state[2:0]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":783:4:783:9|Pruning unused register sm2_areset_n_q1. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":783:4:783:9|Pruning unused register sm2_areset_n_clk_base. Make sure that there are no unused intermediate registers.
-Finished optimization stage 1 on CoreResetP_Z6_layer0 (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 208MB)
-@N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":274:7:274:12|Synthesizing module OUTBUF in library work.
-Running optimization stage 1 on OUTBUF .......
-Finished optimization stage 1 on OUTBUF (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 208MB)
-@N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":326:7:326:17|Synthesizing module OUTBUF_DIFF in library work.
-Running optimization stage 1 on OUTBUF_DIFF .......
-Finished optimization stage 1 on OUTBUF_DIFF (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 208MB)
-@N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":286:7:286:11|Synthesizing module BIBUF in library work.
-Running optimization stage 1 on BIBUF .......
-Finished optimization stage 1 on BIBUF (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 208MB)
-@N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":338:7:338:16|Synthesizing module BIBUF_DIFF in library work.
-Running optimization stage 1 on BIBUF_DIFF .......
-Finished optimization stage 1 on BIBUF_DIFF (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 208MB)
-@N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":268:7:268:11|Synthesizing module INBUF in library work.
-Running optimization stage 1 on INBUF .......
-Finished optimization stage 1 on INBUF (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 208MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS_syn.v":5:7:5:13|Synthesizing module MSS_010 in library work.
-Running optimization stage 1 on MSS_010 .......
-Finished optimization stage 1 on MSS_010 (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS.v":9:7:9:25|Synthesizing module EvalSandbox_MSS_MSS in library work.
+   Generated name = CoreResetP_Z3_layer0
+Running optimization stage 1 on CoreResetP_Z3_layer0 .......
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1613:4:1613:9|Pruning unused register count_ddr[13:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1581:4:1581:9|Pruning unused register count_sdif3[12:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1549:4:1549:9|Pruning unused register count_sdif2[12:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1517:4:1517:9|Pruning unused register count_sdif1[12:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1485:4:1485:9|Pruning unused register count_sdif0[12:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1455:4:1455:9|Pruning unused register count_sdif0_enable_q1. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1455:4:1455:9|Pruning unused register count_sdif1_enable_q1. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1455:4:1455:9|Pruning unused register count_sdif2_enable_q1. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1455:4:1455:9|Pruning unused register count_sdif3_enable_q1. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1455:4:1455:9|Pruning unused register count_sdif0_enable_rcosc. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1455:4:1455:9|Pruning unused register count_sdif1_enable_rcosc. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1455:4:1455:9|Pruning unused register count_sdif2_enable_rcosc. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1455:4:1455:9|Pruning unused register count_sdif3_enable_rcosc. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1455:4:1455:9|Pruning unused register count_ddr_enable_q1. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1455:4:1455:9|Pruning unused register count_ddr_enable_rcosc. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1365:4:1365:9|Pruning unused register count_sdif3_enable. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1300:4:1300:9|Pruning unused register count_sdif2_enable. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1235:4:1235:9|Pruning unused register count_sdif1_enable. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1170:4:1170:9|Pruning unused register count_sdif0_enable. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1089:4:1089:9|Pruning unused register count_ddr_enable. Make sure that there are no unused intermediate registers.
+@W: CL177 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1388:4:1388:9|Sharing sequential element M3_RESET_N_int and merging RESET_N_F2M_int. Add a syn_preserve attribute to the element to prevent sharing.
+@W: CL177 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Sharing sequential element sdif2_spll_lock_q1 and merging sdif3_spll_lock_q1. Add a syn_preserve attribute to the element to prevent sharing.
+@W: CL177 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Sharing sequential element sdif1_spll_lock_q1 and merging sdif3_spll_lock_q1. Add a syn_preserve attribute to the element to prevent sharing.
+@W: CL177 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Sharing sequential element sdif0_spll_lock_q1 and merging sdif3_spll_lock_q1. Add a syn_preserve attribute to the element to prevent sharing.
+@W: CL177 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Sharing sequential element fpll_lock_q1 and merging sdif3_spll_lock_q1. Add a syn_preserve attribute to the element to prevent sharing.
+@W: CL190 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1433:4:1433:9|Optimizing register bit EXT_RESET_OUT_int to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1089:4:1089:9|Pruning unused register release_ext_reset. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1433:4:1433:9|Pruning unused register EXT_RESET_OUT_int. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1433:4:1433:9|Pruning unused register sm2_state[2:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":783:4:783:9|Pruning unused register sm2_areset_n_q1. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":783:4:783:9|Pruning unused register sm2_areset_n_clk_base. Make sure that there are no unused intermediate registers.
+Finished optimization stage 1 on CoreResetP_Z3_layer0 (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 99MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS_syn.v":5:7:5:13|Synthesizing module MSS_025 in library work.
+Running optimization stage 1 on MSS_025 .......
+Finished optimization stage 1 on MSS_025 (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS.v":9:7:9:25|Synthesizing module EvalSandbox_MSS_MSS in library work.
 Running optimization stage 1 on EvalSandbox_MSS_MSS .......
-Finished optimization stage 1 on EvalSandbox_MSS_MSS (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":51:7:51:24|Synthesizing module RCOSC_25_50MHZ_FAB in library work.
+Finished optimization stage 1 on EvalSandbox_MSS_MSS (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":51:7:51:24|Synthesizing module RCOSC_25_50MHZ_FAB in library work.
 Running optimization stage 1 on RCOSC_25_50MHZ_FAB .......
-Finished optimization stage 1 on RCOSC_25_50MHZ_FAB (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":11:7:11:20|Synthesizing module RCOSC_25_50MHZ in library work.
+Finished optimization stage 1 on RCOSC_25_50MHZ_FAB (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":11:7:11:20|Synthesizing module RCOSC_25_50MHZ in library work.
 Running optimization stage 1 on RCOSC_25_50MHZ .......
-Finished optimization stage 1 on RCOSC_25_50MHZ (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":5:7:5:34|Synthesizing module EvalSandbox_MSS_FABOSC_0_OSC in library work.
+Finished optimization stage 1 on RCOSC_25_50MHZ (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":5:7:5:34|Synthesizing module EvalSandbox_MSS_FABOSC_0_OSC in library work.
 Running optimization stage 1 on EvalSandbox_MSS_FABOSC_0_OSC .......
-@W: CL318 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":17:7:17:20|*Output RCOSC_1MHZ_CCC has undriven bits; assigning undriven bits to 'Z'.  Simulation mismatch possible. Assign all bits of the output.
-@W: CL318 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":18:7:18:20|*Output RCOSC_1MHZ_O2F has undriven bits; assigning undriven bits to 'Z'.  Simulation mismatch possible. Assign all bits of the output.
-@W: CL318 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":19:7:19:16|*Output XTLOSC_CCC has undriven bits; assigning undriven bits to 'Z'.  Simulation mismatch possible. Assign all bits of the output.
-@W: CL318 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":20:7:20:16|*Output XTLOSC_O2F has undriven bits; assigning undriven bits to 'Z'.  Simulation mismatch possible. Assign all bits of the output.
-Finished optimization stage 1 on EvalSandbox_MSS_FABOSC_0_OSC (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
+@W: CL318 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":17:7:17:20|*Output RCOSC_1MHZ_CCC has undriven bits; assigning undriven bits to 'Z'.  Simulation mismatch possible. Assign all bits of the output.
+@W: CL318 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":18:7:18:20|*Output RCOSC_1MHZ_O2F has undriven bits; assigning undriven bits to 'Z'.  Simulation mismatch possible. Assign all bits of the output.
+@W: CL318 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":19:7:19:16|*Output XTLOSC_CCC has undriven bits; assigning undriven bits to 'Z'.  Simulation mismatch possible. Assign all bits of the output.
+@W: CL318 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":20:7:20:16|*Output XTLOSC_O2F has undriven bits; assigning undriven bits to 'Z'.  Simulation mismatch possible. Assign all bits of the output.
+Finished optimization stage 1 on EvalSandbox_MSS_FABOSC_0_OSC (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
 @N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":720:7:720:14|Synthesizing module SYSRESET in library work.
 Running optimization stage 1 on SYSRESET .......
-Finished optimization stage 1 on SYSRESET (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS\EvalSandbox_MSS.v":9:7:9:21|Synthesizing module EvalSandbox_MSS in library work.
+Finished optimization stage 1 on SYSRESET (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\EvalSandbox_MSS.v":9:7:9:21|Synthesizing module EvalSandbox_MSS in library work.
 Running optimization stage 1 on EvalSandbox_MSS .......
-Finished optimization stage 1 on EvalSandbox_MSS (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
-@N: CG364 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v":9:7:9:22|Synthesizing module EvalBoardSandbox in library work.
-@N: CG794 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v":381:0:381:19|Using module SpiMasterTrioPorts from library homebrew
-@W: CG360 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v":127:14:127:38|Removing wire SpiDacPorts_0_DacReadback, as there is no assignment to it.
-@W: CG360 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v":128:14:128:38|Removing wire SpiDacPorts_1_DacReadback, as there is no assignment to it.
-@W: CG184 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v":151:14:151:48|Removing wire AMBA_SLAVE_0_1_PRDATAS2_const_net_0, as it has the load but no drivers.
-@W: CG184 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v":152:14:152:48|Removing wire AMBA_SLAVE_0_2_PRDATAS3_const_net_0, as it has the load but no drivers.
+Finished optimization stage 1 on EvalSandbox_MSS (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalBoardSandbox\EvalBoardSandbox.v":9:7:9:22|Synthesizing module EvalBoardSandbox in library work.
+@N: CG794 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalBoardSandbox\EvalBoardSandbox.v":383:0:383:21|Using module SpiMasterSextetPorts from library work
 Running optimization stage 1 on EvalBoardSandbox .......
-Finished optimization stage 1 on EvalBoardSandbox (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
+Finished optimization stage 1 on EvalBoardSandbox (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
 Running optimization stage 2 on EvalBoardSandbox .......
-@W: CL156 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v":151:14:151:48|*Input AMBA_SLAVE_0_1_PRDATAS2_const_net_0[31:0] to expression [instance] has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the input.
-@W: CL156 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalBoardSandbox\EvalBoardSandbox.v":152:14:152:48|*Input AMBA_SLAVE_0_2_PRDATAS3_const_net_0[31:0] to expression [instance] has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the input.
-Finished optimization stage 2 on EvalBoardSandbox (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
+Finished optimization stage 2 on EvalBoardSandbox (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 100MB)
 Running optimization stage 2 on EvalSandbox_MSS .......
-Finished optimization stage 2 on EvalSandbox_MSS (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
+Finished optimization stage 2 on EvalSandbox_MSS (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 100MB)
 Running optimization stage 2 on SYSRESET .......
-Finished optimization stage 2 on SYSRESET (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
+Finished optimization stage 2 on SYSRESET (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 100MB)
 Running optimization stage 2 on EvalSandbox_MSS_FABOSC_0_OSC .......
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":14:7:14:9|Input XTL is unused.
-Finished optimization stage 2 on EvalSandbox_MSS_FABOSC_0_OSC (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":14:7:14:9|Input XTL is unused.
+Finished optimization stage 2 on EvalSandbox_MSS_FABOSC_0_OSC (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 100MB)
 Running optimization stage 2 on RCOSC_25_50MHZ .......
-Finished optimization stage 2 on RCOSC_25_50MHZ (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
+Finished optimization stage 2 on RCOSC_25_50MHZ (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 100MB)
 Running optimization stage 2 on RCOSC_25_50MHZ_FAB .......
-Finished optimization stage 2 on RCOSC_25_50MHZ_FAB (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
+Finished optimization stage 2 on RCOSC_25_50MHZ_FAB (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 100MB)
 Running optimization stage 2 on EvalSandbox_MSS_MSS .......
-Finished optimization stage 2 on EvalSandbox_MSS_MSS (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
-Running optimization stage 2 on MSS_010 .......
-Finished optimization stage 2 on MSS_010 (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
-Running optimization stage 2 on INBUF .......
-Finished optimization stage 2 on INBUF (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
-Running optimization stage 2 on BIBUF_DIFF .......
-Finished optimization stage 2 on BIBUF_DIFF (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
-Running optimization stage 2 on BIBUF .......
-Finished optimization stage 2 on BIBUF (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
-Running optimization stage 2 on OUTBUF_DIFF .......
-Finished optimization stage 2 on OUTBUF_DIFF (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
-Running optimization stage 2 on OUTBUF .......
-Finished optimization stage 2 on OUTBUF (CPU Time 0h:00m:00s, Memory Used current: 208MB peak: 209MB)
-Running optimization stage 2 on CoreResetP_Z6_layer0 .......
-@W: CL177 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Sharing sequential element sdif0_spll_lock_q2 and merging sdif3_spll_lock_q2. Add a syn_preserve attribute to the element to prevent sharing.
-@W: CL177 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Sharing sequential element sdif1_spll_lock_q2 and merging sdif3_spll_lock_q2. Add a syn_preserve attribute to the element to prevent sharing.
-@W: CL177 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Sharing sequential element sdif2_spll_lock_q2 and merging sdif3_spll_lock_q2. Add a syn_preserve attribute to the element to prevent sharing.
-@W: CL177 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Sharing sequential element fpll_lock_q2 and merging sdif3_spll_lock_q2. Add a syn_preserve attribute to the element to prevent sharing.
-@N: CL201 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1365:4:1365:9|Trying to extract state machine for register sdif3_state.
+Finished optimization stage 2 on EvalSandbox_MSS_MSS (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 100MB)
+Running optimization stage 2 on MSS_025 .......
+Finished optimization stage 2 on MSS_025 (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 100MB)
+Running optimization stage 2 on CoreResetP_Z3_layer0 .......
+@W: CL177 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Sharing sequential element sdif0_spll_lock_q2 and merging sdif3_spll_lock_q2. Add a syn_preserve attribute to the element to prevent sharing.
+@W: CL177 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Sharing sequential element sdif1_spll_lock_q2 and merging sdif3_spll_lock_q2. Add a syn_preserve attribute to the element to prevent sharing.
+@W: CL177 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Sharing sequential element sdif2_spll_lock_q2 and merging sdif3_spll_lock_q2. Add a syn_preserve attribute to the element to prevent sharing.
+@W: CL177 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Sharing sequential element fpll_lock_q2 and merging sdif3_spll_lock_q2. Add a syn_preserve attribute to the element to prevent sharing.
+@N: CL201 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1365:4:1365:9|Trying to extract state machine for register sdif3_state.
 Extracted state machine for register sdif3_state
 State machine has 4 reachable states with original encodings of:
    000
    001
    010
    011
-@N: CL201 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1300:4:1300:9|Trying to extract state machine for register sdif2_state.
+@N: CL201 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1300:4:1300:9|Trying to extract state machine for register sdif2_state.
 Extracted state machine for register sdif2_state
 State machine has 4 reachable states with original encodings of:
    000
    001
    010
    011
-@N: CL201 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1235:4:1235:9|Trying to extract state machine for register sdif1_state.
+@N: CL201 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1235:4:1235:9|Trying to extract state machine for register sdif1_state.
 Extracted state machine for register sdif1_state
 State machine has 4 reachable states with original encodings of:
    000
    001
    010
    011
-@N: CL201 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1170:4:1170:9|Trying to extract state machine for register sdif0_state.
+@N: CL201 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1170:4:1170:9|Trying to extract state machine for register sdif0_state.
 Extracted state machine for register sdif0_state
 State machine has 4 reachable states with original encodings of:
    000
    001
    010
    011
-@N: CL201 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1089:4:1089:9|Trying to extract state machine for register sm0_state.
+@N: CL201 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1089:4:1089:9|Trying to extract state machine for register sm0_state.
 Extracted state machine for register sm0_state
 State machine has 7 reachable states with original encodings of:
    000
@@ -827,114 +498,104 @@ State machine has 7 reachable states with original encodings of:
    100
    101
    110
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":29:20:29:28|Input CLK_LTSSM is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":56:20:56:28|Input FPLL_LOCK is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":59:20:59:34|Input SDIF0_SPLL_LOCK is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":68:20:68:34|Input SDIF1_SPLL_LOCK is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":72:20:72:34|Input SDIF2_SPLL_LOCK is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":76:20:76:34|Input SDIF3_SPLL_LOCK is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":90:20:90:29|Input SDIF0_PSEL is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":91:20:91:31|Input SDIF0_PWRITE is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":92:20:92:31|Input SDIF0_PRDATA is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":93:20:93:29|Input SDIF1_PSEL is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":94:20:94:31|Input SDIF1_PWRITE is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":95:20:95:31|Input SDIF1_PRDATA is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":96:20:96:29|Input SDIF2_PSEL is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":97:20:97:31|Input SDIF2_PWRITE is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":98:20:98:31|Input SDIF2_PRDATA is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":99:20:99:29|Input SDIF3_PSEL is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":100:20:100:31|Input SDIF3_PWRITE is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":101:20:101:31|Input SDIF3_PRDATA is unused.
-Finished optimization stage 2 on CoreResetP_Z6_layer0 (CPU Time 0h:00m:00s, Memory Used current: 209MB peak: 209MB)
-Running optimization stage 2 on pwm_gen_2s_16s_0 .......
-Finished optimization stage 2 on pwm_gen_2s_16s_0 (CPU Time 0h:00m:00s, Memory Used current: 209MB peak: 210MB)
-Running optimization stage 2 on timebase_16s .......
-Finished optimization stage 2 on timebase_16s (CPU Time 0h:00m:00s, Memory Used current: 209MB peak: 210MB)
-Running optimization stage 2 on reg_if_Z5_layer0 .......
-Finished optimization stage 2 on reg_if_Z5_layer0 (CPU Time 0h:00m:00s, Memory Used current: 210MB peak: 210MB)
-Running optimization stage 2 on corepwm_Z4_layer0 .......
-@W: CL246 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":736:0:736:4|Input port bits 1 to 0 of PADDR[7:0] are unused. Assign logic for all port bits or change the input port size.
-@A: CL153 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":871:0:871:10|*Unassigned bits of PWM_STRETCH[1:0] are referenced and tied to 0 -- simulation mismatch possible.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\corepwm\4.1.106\rtl\vlog\core_obfuscated\corepwm.v":767:0:767:5|Input TACHIN is unused.
-Finished optimization stage 2 on corepwm_Z4_layer0 (CPU Time 0h:00m:00s, Memory Used current: 210MB peak: 210MB)
-Running optimization stage 2 on CoreConfigP_Z3_layer0 .......
-@N: CL201 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreConfigP\7.1.100\rtl\vlog\core\coreconfigp.v":447:4:447:9|Trying to extract state machine for register state.
-Extracted state machine for register state
-State machine has 3 reachable states with original encodings of:
-   00
-   01
-   10
-Finished optimization stage 2 on CoreConfigP_Z3_layer0 (CPU Time 0h:00m:00s, Memory Used current: 210MB peak: 211MB)
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":29:20:29:28|Input CLK_LTSSM is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":56:20:56:28|Input FPLL_LOCK is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":59:20:59:34|Input SDIF0_SPLL_LOCK is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":68:20:68:34|Input SDIF1_SPLL_LOCK is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":72:20:72:34|Input SDIF2_SPLL_LOCK is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":76:20:76:34|Input SDIF3_SPLL_LOCK is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":90:20:90:29|Input SDIF0_PSEL is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":91:20:91:31|Input SDIF0_PWRITE is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":92:20:92:31|Input SDIF0_PRDATA is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":93:20:93:29|Input SDIF1_PSEL is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":94:20:94:31|Input SDIF1_PWRITE is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":95:20:95:31|Input SDIF1_PRDATA is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":96:20:96:29|Input SDIF2_PSEL is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":97:20:97:31|Input SDIF2_PWRITE is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":98:20:98:31|Input SDIF2_PRDATA is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":99:20:99:29|Input SDIF3_PSEL is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":100:20:100:31|Input SDIF3_PWRITE is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":101:20:101:31|Input SDIF3_PRDATA is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":107:20:107:37|Input SOFT_EXT_RESET_OUT is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":108:20:108:33|Input SOFT_RESET_F2M is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":109:20:109:32|Input SOFT_M3_RESET is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":110:20:110:49|Input SOFT_MDDR_DDR_AXI_S_CORE_RESET is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":111:20:111:39|Input SOFT_FDDR_CORE_RESET is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":112:20:112:39|Input SOFT_SDIF0_PHY_RESET is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":113:20:113:40|Input SOFT_SDIF0_CORE_RESET is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":114:20:114:39|Input SOFT_SDIF1_PHY_RESET is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":115:20:115:40|Input SOFT_SDIF1_CORE_RESET is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":116:20:116:39|Input SOFT_SDIF2_PHY_RESET is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":117:20:117:40|Input SOFT_SDIF2_CORE_RESET is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":118:20:118:39|Input SOFT_SDIF3_PHY_RESET is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":119:20:119:40|Input SOFT_SDIF3_CORE_RESET is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":123:20:123:42|Input SOFT_SDIF0_0_CORE_RESET is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":124:20:124:42|Input SOFT_SDIF0_1_CORE_RESET is unused.
+Finished optimization stage 2 on CoreResetP_Z3_layer0 (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
 Running optimization stage 2 on CoreAPB3_Z2_layer0 .......
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":72:36:72:40|Input IADDR is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":73:13:73:19|Input PRESETN is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":74:13:74:16|Input PCLK is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":109:18:109:25|Input PRDATAS5 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":110:18:110:25|Input PRDATAS6 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":111:18:111:25|Input PRDATAS7 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":112:18:112:25|Input PRDATAS8 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":113:18:113:25|Input PRDATAS9 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":114:18:114:26|Input PRDATAS10 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":115:18:115:26|Input PRDATAS11 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":116:18:116:26|Input PRDATAS12 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":117:18:117:26|Input PRDATAS13 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":118:18:118:26|Input PRDATAS14 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":119:18:119:26|Input PRDATAS15 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":126:13:126:20|Input PREADYS5 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":127:13:127:20|Input PREADYS6 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":128:13:128:20|Input PREADYS7 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":129:13:129:20|Input PREADYS8 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":130:13:130:20|Input PREADYS9 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":131:13:131:21|Input PREADYS10 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":132:13:132:21|Input PREADYS11 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":133:13:133:21|Input PREADYS12 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":134:13:134:21|Input PREADYS13 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":135:13:135:21|Input PREADYS14 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":136:13:136:21|Input PREADYS15 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":143:13:143:21|Input PSLVERRS5 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":144:13:144:21|Input PSLVERRS6 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":145:13:145:21|Input PSLVERRS7 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":146:13:146:21|Input PSLVERRS8 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":147:13:147:21|Input PSLVERRS9 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":148:13:148:22|Input PSLVERRS10 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":149:13:149:22|Input PSLVERRS11 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":150:13:150:22|Input PSLVERRS12 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":151:13:151:22|Input PSLVERRS13 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":152:13:152:22|Input PSLVERRS14 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":153:13:153:22|Input PSLVERRS15 is unused.
-Finished optimization stage 2 on CoreAPB3_Z2_layer0 (CPU Time 0h:00m:00s, Memory Used current: 210MB peak: 211MB)
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":72:36:72:40|Input IADDR is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":73:13:73:19|Input PRESETN is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":74:13:74:16|Input PCLK is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":111:18:111:25|Input PRDATAS7 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":112:18:112:25|Input PRDATAS8 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":113:18:113:25|Input PRDATAS9 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":114:18:114:26|Input PRDATAS10 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":115:18:115:26|Input PRDATAS11 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":116:18:116:26|Input PRDATAS12 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":117:18:117:26|Input PRDATAS13 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":118:18:118:26|Input PRDATAS14 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":119:18:119:26|Input PRDATAS15 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":128:13:128:20|Input PREADYS7 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":129:13:129:20|Input PREADYS8 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":130:13:130:20|Input PREADYS9 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":131:13:131:21|Input PREADYS10 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":132:13:132:21|Input PREADYS11 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":133:13:133:21|Input PREADYS12 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":134:13:134:21|Input PREADYS13 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":135:13:135:21|Input PREADYS14 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":136:13:136:21|Input PREADYS15 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":145:13:145:21|Input PSLVERRS7 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":146:13:146:21|Input PSLVERRS8 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":147:13:147:21|Input PSLVERRS9 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":148:13:148:22|Input PSLVERRS10 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":149:13:149:22|Input PSLVERRS11 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":150:13:150:22|Input PSLVERRS12 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":151:13:151:22|Input PSLVERRS13 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":152:13:152:22|Input PSLVERRS14 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":153:13:153:22|Input PSLVERRS15 is unused.
+Finished optimization stage 2 on CoreAPB3_Z2_layer0 (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
 Running optimization stage 2 on COREAPB3_MUXPTOB3 .......
-Finished optimization stage 2 on COREAPB3_MUXPTOB3 (CPU Time 0h:00m:00s, Memory Used current: 211MB peak: 212MB)
+Finished optimization stage 2 on COREAPB3_MUXPTOB3 (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 102MB)
 Running optimization stage 2 on EvalSandbox_MSS_CCC_0_FCCC .......
-Finished optimization stage 2 on EvalSandbox_MSS_CCC_0_FCCC (CPU Time 0h:00m:00s, Memory Used current: 211MB peak: 212MB)
+Finished optimization stage 2 on EvalSandbox_MSS_CCC_0_FCCC (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 102MB)
 Running optimization stage 2 on CCC .......
-Finished optimization stage 2 on CCC (CPU Time 0h:00m:00s, Memory Used current: 211MB peak: 212MB)
+Finished optimization stage 2 on CCC (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 102MB)
 Running optimization stage 2 on CLKINT .......
-Finished optimization stage 2 on CLKINT (CPU Time 0h:00m:00s, Memory Used current: 211MB peak: 212MB)
+Finished optimization stage 2 on CLKINT (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 102MB)
 Running optimization stage 2 on GND .......
-Finished optimization stage 2 on GND (CPU Time 0h:00m:00s, Memory Used current: 211MB peak: 212MB)
+Finished optimization stage 2 on GND (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 102MB)
 Running optimization stage 2 on VCC .......
-Finished optimization stage 2 on VCC (CPU Time 0h:00m:00s, Memory Used current: 211MB peak: 212MB)
+Finished optimization stage 2 on VCC (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 102MB)
 Running optimization stage 2 on CoreUARTapb_C0 .......
-Finished optimization stage 2 on CoreUARTapb_C0 (CPU Time 0h:00m:00s, Memory Used current: 211MB peak: 212MB)
+Finished optimization stage 2 on CoreUARTapb_C0 (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 102MB)
 Running optimization stage 2 on CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb_Z1_layer0 .......
-@W: CL246 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v":126:0:126:4|Input port bits 1 to 0 of PADDR[4:0] are unused. Assign logic for all port bits or change the input port size.
-@A: CL153 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v":283:0:283:8|*Unassigned bits of CUARTI1OI[2:0] are referenced and tied to 0 -- simulation mismatch possible.
-Finished optimization stage 2 on CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb_Z1_layer0 (CPU Time 0h:00m:00s, Memory Used current: 211MB peak: 212MB)
+@W: CL246 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v":126:0:126:4|Input port bits 1 to 0 of PADDR[4:0] are unused. Assign logic for all port bits or change the input port size.
+@A: CL153 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v":283:0:283:8|*Unassigned bits of CUARTI1OI[2:0] are referenced and tied to 0 -- simulation mismatch possible.
+Finished optimization stage 2 on CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb_Z1_layer0 (CPU Time 0h:00m:00s, Memory Used current: 102MB peak: 103MB)
 Running optimization stage 2 on CoreUARTapb_C0_CoreUARTapb_C0_0_COREUART_0s_0s_0s_19s_0s_0s .......
-Finished optimization stage 2 on CoreUARTapb_C0_CoreUARTapb_C0_0_COREUART_0s_0s_0s_19s_0s_0s (CPU Time 0h:00m:00s, Memory Used current: 211MB peak: 212MB)
+Finished optimization stage 2 on CoreUARTapb_C0_CoreUARTapb_C0_0_COREUART_0s_0s_0s_19s_0s_0s (CPU Time 0h:00m:00s, Memory Used current: 102MB peak: 103MB)
 Running optimization stage 2 on CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async_0s_0s_0s_1s_2s_3s .......
-@W: CL177 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v":1613:0:1613:5|Sharing sequential element CUARTIO0 and merging CUARTI1l. Add a syn_preserve attribute to the element to prevent sharing.
-@N: CL201 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v":871:0:871:5|Trying to extract state machine for register CUARTll0.
+@W: CL177 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v":1613:0:1613:5|Sharing sequential element CUARTIO0 and merging CUARTI1l. Add a syn_preserve attribute to the element to prevent sharing.
+@N: CL201 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v":871:0:871:5|Trying to extract state machine for register CUARTll0.
 Extracted state machine for register CUARTll0
 State machine has 4 reachable states with original encodings of:
    00
    01
    10
    11
-Finished optimization stage 2 on CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async_0s_0s_0s_1s_2s_3s (CPU Time 0h:00m:00s, Memory Used current: 211MB peak: 212MB)
+Finished optimization stage 2 on CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async_0s_0s_0s_1s_2s_3s (CPU Time 0h:00m:00s, Memory Used current: 102MB peak: 103MB)
 Running optimization stage 2 on CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async_0s_0s_0s_1s_2s_3s_4s_5s_6s .......
-@N: CL201 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":301:0:301:5|Trying to extract state machine for register CUARTlI0l.
+@N: CL201 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":301:0:301:5|Trying to extract state machine for register CUARTlI0l.
 Extracted state machine for register CUARTlI0l
 State machine has 6 reachable states with original encodings of:
    00000000000000000000000000000000
@@ -943,84 +604,67 @@ State machine has 6 reachable states with original encodings of:
    00000000000000000000000000000011
    00000000000000000000000000000100
    00000000000000000000000000000101
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":81:0:81:7|Input CUARTI1I is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":84:0:84:7|Input CUARTlO1 is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":87:0:87:7|Input CUARTOI1 is unused.
-Finished optimization stage 2 on CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async_0s_0s_0s_1s_2s_3s_4s_5s_6s (CPU Time 0h:00m:00s, Memory Used current: 211MB peak: 212MB)
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":81:0:81:7|Input CUARTI1I is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":84:0:84:7|Input CUARTlO1 is unused.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":87:0:87:7|Input CUARTOI1 is unused.
+Finished optimization stage 2 on CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async_0s_0s_0s_1s_2s_3s_4s_5s_6s (CPU Time 0h:00m:00s, Memory Used current: 100MB peak: 103MB)
 Running optimization stage 2 on CoreUARTapb_C0_CoreUARTapb_C0_0_Clock_gen_0s_0s .......
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Clock_gen.v":75:0:75:16|Input BAUD_VAL_FRACTION is unused.
-Finished optimization stage 2 on CoreUARTapb_C0_CoreUARTapb_C0_0_Clock_gen_0s_0s (CPU Time 0h:00m:00s, Memory Used current: 211MB peak: 212MB)
-Running optimization stage 2 on COREAPBLSRAM_C0 .......
-Finished optimization stage 2 on COREAPBLSRAM_C0 (CPU Time 0h:00m:00s, Memory Used current: 211MB peak: 212MB)
-Running optimization stage 2 on COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_lsram_1024to70656x16_2048s_16s .......
-@W: CL246 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\lsram_1024to70656x16.v":61:40:61:48|Input port bits 17 to 11 of writeAddr[17:0] are unused. Assign logic for all port bits or change the input port size.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\lsram_1024to70656x16.v":60:40:60:42|Input ren is unused.
-@N: CL159 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\lsram_1024to70656x16.v":62:40:62:47|Input readAddr is unused.
-Finished optimization stage 2 on COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_lsram_1024to70656x16_2048s_16s (CPU Time 0h:00m:00s, Memory Used current: 211MB peak: 212MB)
-Running optimization stage 2 on RAM1K18 .......
-Finished optimization stage 2 on RAM1K18 (CPU Time 0h:00m:00s, Memory Used current: 211MB peak: 212MB)
-Running optimization stage 2 on COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_COREAPBLSRAM_19s_16s_0s_128s_2048s_1s .......
-@W: CL247 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v":75:32:75:36|Input port bit 19 of PADDR[19:0] is unused
-
-@W: CL247 :"C:\MicroSemiProj\EvalBoardSandbox\component\work\COREAPBLSRAM_C0\COREAPBLSRAM_C0_0\rtl\vlog\core\CoreAPBLSRAM.v":75:32:75:36|Input port bit 0 of PADDR[19:0] is unused
-
-Finished optimization stage 2 on COREAPBLSRAM_C0_COREAPBLSRAM_C0_0_COREAPBLSRAM_19s_16s_0s_128s_2048s_1s (CPU Time 0h:00m:00s, Memory Used current: 211MB peak: 212MB)
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Clock_gen.v":75:0:75:16|Input BAUD_VAL_FRACTION is unused.
+Finished optimization stage 2 on CoreUARTapb_C0_CoreUARTapb_C0_0_Clock_gen_0s_0s (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 103MB)
 
 For a summary of runtime per design unit, please see file:
 ==========================================================
-@L: C:\MicroSemiProj\EvalBoardSandbox\synthesis\synwork\layer0.duruntime
+@L: C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\synthesis\synwork\layer0.duruntime
 
 
 
-At c_ver Exit (Real Time elapsed 0h:00m:15s; CPU Time elapsed 0h:00m:15s; Memory used current: 212MB peak: 212MB)
+At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 93MB peak: 94MB)
 
 
 Process completed successfully.
-# Mon Jan 29 12:07:52 2024
+# Wed Jan 31 16:43:15 2024
 
 ###########################################################]
 ###########################################################[
-@N:"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":15:7:15:24|Top entity is set to SpiMasterTrioPorts.
-File C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd changed - recompiling
-@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd'.
+@N:"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":15:7:15:26|Top entity is set to SpiMasterSextetPorts.
+
+File Dependency file is up to date.  It will not be rewritten.
+
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd'.
 VHDL syntax check successful!
 @N: CD231 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vhd2008\std1164.vhd":889:16:889:17|Using onehot encoding for type mvl9plus. For example, enumeration 'U' is mapped to "1000000000".
 @N: Setting default value for generic clock_divider to 1000;
 @N: Setting default value for generic byte_width to 1;
-@N: CD630 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":15:7:15:24|Synthesizing homebrew.spimastertrioports.spimastertrio.
-Post processing for homebrew.spimastertrioports.spimastertrio
-Running optimization stage 1 on homebrew_spimastertrioports_spimastertrio_1000_1_'0'_'0'_1_CLOCK_DIVIDERBYTE_WIDTH .......
-@W: CL177 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Sharing sequential element nCsB and merging nCsC. Add a syn_preserve attribute to the element to prevent sharing.
-@W: CL177 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Sharing sequential element nCsA and merging nCsC. Add a syn_preserve attribute to the element to prevent sharing.
-@W: CL190 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Optimizing register bit DataToMosiA_i(0) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Optimizing register bit DataToMosiA_i(3) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Optimizing register bit DataToMosiB_i(4) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Optimizing register bit DataToMosiB_i(7) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL260 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Pruning register bit 3 of DataToMosiA_i(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL260 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Pruning register bit 0 of DataToMosiA_i(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL260 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Pruning register bit 7 of DataToMosiB_i(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL260 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Pruning register bit 4 of DataToMosiB_i(7 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-Finished optimization stage 1 on homebrew_spimastertrioports_spimastertrio_1000_1_'0'_'0'_1_CLOCK_DIVIDERBYTE_WIDTH (CPU Time 0h:00m:00s, Memory Used current: 94MB peak: 95MB)
-Running optimization stage 2 on homebrew_spimastertrioports_spimastertrio_1000_1_'0'_'0'_1_CLOCK_DIVIDERBYTE_WIDTH .......
-@W: CL279 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Pruning register bits 7 to 5 of DataToMosiA_i(7 downto 4). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL260 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Pruning register bit 6 of DataToMosiB_i(6 downto 5). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL279 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Pruning register bits 3 to 1 of DataToMosiB_i(3 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL260 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":83:2:83:3|Pruning register bit 2 of DataToMosiA_i(2 downto 1). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL246 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":42:2:42:12|Input port bits 6 to 0 of datatomosia(7 downto 0) are unused. Assign logic for all port bits or change the input port size.
-@W: CL246 :"C:\MicroSemiProj\EvalBoardSandbox\hdl\SpiMasterTrio.vhd":43:2:43:12|Input port bits 6 to 0 of datatomosib(7 downto 0) are unused. Assign logic for all port bits or change the input port size.
-Finished optimization stage 2 on homebrew_spimastertrioports_spimastertrio_1000_1_'0'_'0'_1_CLOCK_DIVIDERBYTE_WIDTH (CPU Time 0h:00m:00s, Memory Used current: 95MB peak: 95MB)
+@N: CD630 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":15:7:15:26|Synthesizing work.spimastersextetports.spimastersextet.
+@W: CD434 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":125:155:125:158|Signal ncsa in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
+@W: CD434 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":125:161:125:164|Signal ncsb in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
+@W: CD434 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":125:167:125:170|Signal ncsc in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
+@W: CD434 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":125:173:125:176|Signal ncsd in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
+@W: CD434 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":125:179:125:182|Signal ncse in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
+@W: CD434 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":125:185:125:188|Signal ncsf in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
+Post processing for work.spimastersextetports.spimastersextet
+Running optimization stage 1 on work_spimastersextetports_spimastersextet_1000_1_'0'_'0'_1_CLOCK_DIVIDERBYTE_WIDTH .......
+@W: CL240 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":53:16:53:19|Signal nCsF is floating; a simulation mismatch is possible.
+@W: CL240 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":52:16:52:19|Signal nCsE is floating; a simulation mismatch is possible.
+@W: CL240 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":51:16:51:19|Signal nCsD is floating; a simulation mismatch is possible.
+@W: CL240 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":50:16:50:19|Signal nCsC is floating; a simulation mismatch is possible.
+@W: CL240 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":49:16:49:19|Signal nCsB is floating; a simulation mismatch is possible.
+@W: CL240 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":48:16:48:19|Signal nCsA is floating; a simulation mismatch is possible.
+Finished optimization stage 1 on work_spimastersextetports_spimastersextet_1000_1_'0'_'0'_1_CLOCK_DIVIDERBYTE_WIDTH (CPU Time 0h:00m:00s, Memory Used current: 95MB peak: 96MB)
+Running optimization stage 2 on work_spimastersextetports_spimastersextet_1000_1_'0'_'0'_1_CLOCK_DIVIDERBYTE_WIDTH .......
+Finished optimization stage 2 on work_spimastersextetports_spimastersextet_1000_1_'0'_'0'_1_CLOCK_DIVIDERBYTE_WIDTH (CPU Time 0h:00m:00s, Memory Used current: 95MB peak: 96MB)
 
 For a summary of runtime per design unit, please see file:
 ==========================================================
-@L: C:\MicroSemiProj\EvalBoardSandbox\synthesis\synwork\layer1.duruntime
+@L: C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\synthesis\synwork\layer1.duruntime
 
 
 
-At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 94MB peak: 95MB)
+At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 91MB peak: 92MB)
 
 
 Process completed successfully.
-# Mon Jan 29 12:07:52 2024
+# Wed Jan 31 16:43:15 2024
 
 ###########################################################]
 ###########################################################[
@@ -1040,35 +684,30 @@ Implementation : synthesis
 Synopsys Synopsys Netlist Linker, Version comp202209synp2, Build 179R, Built Jun 27 2023 09:29:56, @
 
 @N|Running in 64-bit mode
-File C:\MicroSemiProj\EvalBoardSandbox\synthesis\synwork\layer0.srs changed - recompiling
-File C:\MicroSemiProj\EvalBoardSandbox\synthesis\synwork\layer1.srs changed - recompiling
 
-=======================================================================================
-For a summary of linker messages for components that did not bind, please see log file:
-@L: C:\MicroSemiProj\EvalBoardSandbox\synthesis\synwork\EvalBoardSandbox_comp.linkerlog
-=======================================================================================
+Linker output is up to date. No re-linking necessary
 
 
-At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 99MB)
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 92MB peak: 92MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Jan 29 12:07:53 2024
+# Wed Jan 31 16:43:15 2024
 
 ###########################################################]
 
 For a summary of runtime and memory usage for all design units, please see file:
 ==========================================================
-@L: C:\MicroSemiProj\EvalBoardSandbox\synthesis\synwork\EvalBoardSandbox_comp.rt.csv
+@L: C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\synthesis\synwork\EvalBoardSandbox_comp.rt.csv
 
 @END
 
-At c_hdl Exit (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:17s; Memory used current: 24MB peak: 25MB)
+At c_hdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 25MB peak: 25MB)
 
-Process took 0h:00m:17s realtime, 0h:00m:17s cputime
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Jan 29 12:07:53 2024
+# Wed Jan 31 16:43:15 2024
 
 ###########################################################]

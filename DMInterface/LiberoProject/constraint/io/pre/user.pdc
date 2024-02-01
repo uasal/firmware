@@ -4,9 +4,9 @@
 
 # Version: 2023.2 2023.2.0.8
 
-# Family: SmartFusion2 , Die: M2S010 , Package: 256 VF
+# Family: SmartFusion2 , Die: M2S025 , Package: 256 VF
 
-# Date generated: Mon Jan 29 12:09:26 2024 
+# Date generated: Wed Jan 31 16:44:10 2024 
 
 
 # 
@@ -25,62 +25,236 @@
 # User Locked I/O settings
 # 
 
-set_io Mosi            \
-    -pinname H15       \
+set_io MosiA           \
+    -pinname K12       \
     -fixed yes         \
     -DIRECTION OUTPUT
 
 
 set_io MosiB           \
-    -pinname H3        \
+    -pinname N14       \
     -fixed yes         \
     -DIRECTION OUTPUT
 
 
-set_io {PWM[1]}        \
-    -pinname T12       \
-    -fixed yes         \
-    -DIRECTION OUTPUT
-
-
-set_io {PWM[2]}        \
-    -pinname T13       \
-    -fixed yes         \
-    -DIRECTION OUTPUT
-
-
-set_io RX             \
-    -pinname H4       \
-    -fixed yes        \
-    -DIRECTION INPUT
-
-
-set_io Sck             \
-    -pinname H14       \
-    -fixed yes         \
-    -DIRECTION OUTPUT
-
-
-set_io TX              \
-    -pinname G16       \
-    -fixed yes         \
-    -DIRECTION OUTPUT
-
-
-set_io XferComplete    \
+set_io MosiC           \
     -pinname P13       \
     -fixed yes         \
     -DIRECTION OUTPUT
 
 
-set_io nCs             \
+set_io MosiD           \
+    -pinname R11       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io MosiE           \
+    -pinname P8        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io MosiF           \
+    -pinname G3        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io RX             \
+    -pinname G12      \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+
+set_io SckA            \
+    -pinname L15       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io SckB            \
+    -pinname L13       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io SckC            \
+    -pinname P12       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io SckD            \
+    -pinname P9        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io SckE            \
+    -pinname R8        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io SckF            \
+    -pinname G5        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io TX              \
+    -pinname H13       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io XferComplete    \
     -pinname G14       \
     -fixed yes         \
     -DIRECTION OUTPUT
 
 
-set_io nCsB            \
-    -pinname L13       \
+set_io {nCsA[0]}       \
+    -pinname L14       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsA[1]}       \
+    -pinname P7        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsA[2]}       \
+    -pinname K14       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsA[3]}       \
+    -pinname M16       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsB[0]}       \
+    -pinname R13       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsB[1]}       \
+    -pinname N15       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsB[2]}       \
+    -pinname N16       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsB[3]}       \
+    -pinname M15       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsC[0]}       \
+    -pinname P10       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsC[1]}       \
+    -pinname M10       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsC[2]}       \
+    -pinname T12       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsC[3]}       \
+    -pinname L11       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsD[0]}       \
+    -pinname T9        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsD[1]}       \
+    -pinname M9        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsD[2]}       \
+    -pinname R9        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsD[3]}       \
+    -pinname N8        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsE[0]}       \
+    -pinname P6        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsE[1]}       \
+    -pinname R6        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsE[2]}       \
+    -pinname T6        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsE[3]}       \
+    -pinname T7        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsF[0]}       \
+    -pinname F4        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsF[1]}       \
+    -pinname F5        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsF[2]}       \
+    -pinname F2        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsF[3]}       \
+    -pinname F3        \
     -fixed yes         \
     -DIRECTION OUTPUT
 

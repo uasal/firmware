@@ -12,7 +12,7 @@
 </row>
 <row>
  <cell>Device</cell>
- <cell>M2S010</cell>
+ <cell>M2S025</cell>
 </row>
 <row>
  <cell>Package</cell>
@@ -20,7 +20,7 @@
 </row>
 <row>
  <cell>Speed Grade</cell>
- <cell>STD</cell>
+ <cell>-1</cell>
 </row>
 </table>
 </ds>
@@ -47,7 +47,7 @@
 </row>
 <row>
  <cell>USE_MSS_EXTMEM</cell>
- <cell>1</cell>
+ <cell>0</cell>
 </row>
 <row>
  <cell>USE_PDMA</cell>
@@ -3114,33 +3114,6 @@
 </data>
 <separator/>
 <data>
-<name>MSS_DDR_RAM</name>
-<table>
-<header>
- <cell>Name</cell>
- <cell>Subsystem</cell>
- <cell>Vendor</cell>
- <cell>Version</cell>
-</header>
-<row>
- <cell>SF2_MDDR</cell>
- <cell>MSS DDR FIC Subsystem</cell>
- <cell>Actel</cell>
- <cell>0.0.100</cell>
-</row>
-</table>
-<cdata>
-<name>Configuration</name>
-<table>
-<header>
- <cell>Parameter</cell>
- <cell>Value</cell>
-</header>
-</table>
-</cdata>
-</data>
-<separator/>
-<data>
 <name>MSS_GPIO</name>
 <table>
 <header>
@@ -3600,593 +3573,6 @@
 </data>
 <separator/>
 <data>
-<name>corepwm_0</name>
-<table>
-<header>
- <cell>Name</cell>
- <cell>Subsystem</cell>
- <cell>Vendor</cell>
- <cell>Version</cell>
-</header>
-<row>
- <cell>corepwm</cell>
- <cell>MSS FIC_0 - MSS Master Subsystem</cell>
- <cell>Actel</cell>
- <cell>4.1.106</cell>
-</row>
-</table>
-<cdata>
-<name>Configuration</name>
-<table>
-<header>
- <cell>Parameter</cell>
- <cell>Value</cell>
-</header>
-<row>
- <cell>APB_DWIDTH</cell>
- <cell>16</cell>
-</row>
-<row>
- <cell>CONFIG_MODE</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>DAC_MODE1</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>DAC_MODE2</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>DAC_MODE3</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>DAC_MODE4</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>DAC_MODE5</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>DAC_MODE6</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>DAC_MODE7</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>DAC_MODE8</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>DAC_MODE9</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>DAC_MODE10</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>DAC_MODE11</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>DAC_MODE12</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>DAC_MODE13</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>DAC_MODE14</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>DAC_MODE15</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>DAC_MODE16</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FAMILY</cell>
- <cell>17</cell>
-</row>
-<row>
- <cell>FIXED_PERIOD</cell>
- <cell>1</cell>
-</row>
-<row>
- <cell>FIXED_PERIOD_EN</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FIXED_PRESCALE</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PRESCALE_EN</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEG_EN1</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEG_EN2</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEG_EN3</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEG_EN4</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEG_EN5</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEG_EN6</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEG_EN7</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEG_EN8</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEG_EN9</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEG_EN10</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEG_EN11</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEG_EN12</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEG_EN13</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEG_EN14</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEG_EN15</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEG_EN16</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEGEDGE1</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEGEDGE2</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEGEDGE3</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEGEDGE4</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEGEDGE5</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEGEDGE6</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEGEDGE7</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEGEDGE8</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEGEDGE9</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEGEDGE10</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEGEDGE11</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEGEDGE12</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEGEDGE13</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEGEDGE14</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEGEDGE15</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_NEGEDGE16</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POS_EN1</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POS_EN2</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POS_EN3</cell>
- <cell>true</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POS_EN4</cell>
- <cell>true</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POS_EN5</cell>
- <cell>true</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POS_EN6</cell>
- <cell>true</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POS_EN7</cell>
- <cell>true</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POS_EN8</cell>
- <cell>true</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POS_EN9</cell>
- <cell>true</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POS_EN10</cell>
- <cell>true</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POS_EN11</cell>
- <cell>true</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POS_EN12</cell>
- <cell>true</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POS_EN13</cell>
- <cell>true</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POS_EN14</cell>
- <cell>true</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POS_EN15</cell>
- <cell>true</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POS_EN16</cell>
- <cell>true</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POSEDGE1</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POSEDGE2</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POSEDGE3</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POSEDGE4</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POSEDGE5</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POSEDGE6</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POSEDGE7</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POSEDGE8</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POSEDGE9</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POSEDGE10</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POSEDGE11</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POSEDGE12</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POSEDGE13</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POSEDGE14</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POSEDGE15</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>FIXED_PWM_POSEDGE16</cell>
- <cell>0</cell>
-</row>
-<row>
- <cell>HDL_license</cell>
- <cell>O</cell>
-</row>
-<row>
- <cell>PWM_NUM</cell>
- <cell>2</cell>
-</row>
-<row>
- <cell>PWM_STRETCH_VALUE1</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>PWM_STRETCH_VALUE2</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>PWM_STRETCH_VALUE3</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>PWM_STRETCH_VALUE4</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>PWM_STRETCH_VALUE5</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>PWM_STRETCH_VALUE6</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>PWM_STRETCH_VALUE7</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>PWM_STRETCH_VALUE8</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>PWM_STRETCH_VALUE9</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>PWM_STRETCH_VALUE10</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>PWM_STRETCH_VALUE11</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>PWM_STRETCH_VALUE12</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>PWM_STRETCH_VALUE13</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>PWM_STRETCH_VALUE14</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>PWM_STRETCH_VALUE15</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>PWM_STRETCH_VALUE16</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>SHADOW_REG_EN1</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>SHADOW_REG_EN2</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>SHADOW_REG_EN3</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>SHADOW_REG_EN4</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>SHADOW_REG_EN5</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>SHADOW_REG_EN6</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>SHADOW_REG_EN7</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>SHADOW_REG_EN8</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>SHADOW_REG_EN9</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>SHADOW_REG_EN10</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>SHADOW_REG_EN11</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>SHADOW_REG_EN12</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>SHADOW_REG_EN13</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>SHADOW_REG_EN14</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>SHADOW_REG_EN15</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>SHADOW_REG_EN16</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>TACH_EDGE1</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>TACH_EDGE2</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>TACH_EDGE3</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>TACH_EDGE4</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>TACH_EDGE5</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>TACH_EDGE6</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>TACH_EDGE7</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>TACH_EDGE8</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>TACH_EDGE9</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>TACH_EDGE10</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>TACH_EDGE11</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>TACH_EDGE12</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>TACH_EDGE13</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>TACH_EDGE14</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>TACH_EDGE15</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>TACH_EDGE16</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>TACH_NUM</cell>
- <cell>1</cell>
-</row>
-<row>
- <cell>TACHINT_ACT_LEVEL</cell>
- <cell>false</cell>
-</row>
-<row>
- <cell>testbench</cell>
- <cell>User</cell>
-</row>
-</table>
-</cdata>
-</data>
-<separator/>
-<data>
 <name>Interrupt Configuration</name>
 <table>
 <header>
@@ -4194,11 +3580,6 @@
  <cell>Instance Name</cell>
  <cell>Instance Pins</cell>
 </header>
-<row>
- <cell>EvalSandbox_MSS_MSS_0:MSS_INT_F2M[0]</cell>
- <cell>corepwm_0_0</cell>
- <cell>TACHINT</cell>
-</row>
 </table>
 </data>
 <separator/>
@@ -4213,71 +3594,6 @@
  <cell>Description</cell>
 </header>
 <row>
- <cell>MDDR_DQS_TMATCH_0_OUT</cell>
- <cell>OUT</cell>
- <cell>-</cell>
-</row>
-<row>
- <cell>MDDR_CAS_N</cell>
- <cell>OUT</cell>
- <cell>-</cell>
-</row>
-<row>
- <cell>MDDR_CLK</cell>
- <cell>OUT</cell>
- <cell>-</cell>
-</row>
-<row>
- <cell>MDDR_CLK_N</cell>
- <cell>OUT</cell>
- <cell>-</cell>
-</row>
-<row>
- <cell>MDDR_CKE</cell>
- <cell>OUT</cell>
- <cell>-</cell>
-</row>
-<row>
- <cell>MDDR_CS_N</cell>
- <cell>OUT</cell>
- <cell>-</cell>
-</row>
-<row>
- <cell>MDDR_ODT</cell>
- <cell>OUT</cell>
- <cell>-</cell>
-</row>
-<row>
- <cell>MDDR_RAS_N</cell>
- <cell>OUT</cell>
- <cell>-</cell>
-</row>
-<row>
- <cell>MDDR_RESET_N</cell>
- <cell>OUT</cell>
- <cell>-</cell>
-</row>
-<row>
- <cell>MDDR_WE_N</cell>
- <cell>OUT</cell>
- <cell>-</cell>
-</row>
-<row>
- <cell>MDDR_DQS_TMATCH_0_IN</cell>
- <cell>IN</cell>
- <cell>-</cell>
-</row>
-<row>
- <cell>MDDR_ADDR[15:0]</cell>
- <cell>OUT</cell>
- <cell>-</cell>
-</row>
-<row>
- <cell>MDDR_BA[2:0]</cell>
- <cell>OUT</cell>
- <cell>-</cell>
-</row>
-<row>
  <cell>POWER_ON_RESET_N</cell>
  <cell>OUT</cell>
  <cell>-</cell>
@@ -4290,26 +3606,6 @@
 <row>
  <cell>INIT_DONE</cell>
  <cell>OUT</cell>
- <cell>-</cell>
-</row>
-<row>
- <cell>MDDR_DM_RDQS[0:0]</cell>
- <cell>INOUT</cell>
- <cell>-</cell>
-</row>
-<row>
- <cell>MDDR_DQ[7:0]</cell>
- <cell>INOUT</cell>
- <cell>-</cell>
-</row>
-<row>
- <cell>MDDR_DQS[0:0]</cell>
- <cell>INOUT</cell>
- <cell>-</cell>
-</row>
-<row>
- <cell>MDDR_DQS_N[0:0]</cell>
- <cell>INOUT</cell>
  <cell>-</cell>
 </row>
 <row>
@@ -4330,6 +3626,21 @@
 <row>
  <cell>AMBA_SLAVE_0_3</cell>
  <cell>MIRROREDSLAVE</cell>
+ <cell>-</cell>
+</row>
+<row>
+ <cell>AMBA_SLAVE_0_4</cell>
+ <cell>MIRROREDSLAVE</cell>
+ <cell>-</cell>
+</row>
+<row>
+ <cell>AMBA_SLAVE_0_5</cell>
+ <cell>MIRROREDSLAVE</cell>
+ <cell>-</cell>
+</row>
+<row>
+ <cell>AMBA_SLAVE_0_6</cell>
+ <cell>MIRROREDSLAVE</cell>
  <cell>Slave bus interface pin on  FIC0_Master_Subsystem</cell>
 </row>
 <row>
@@ -4343,28 +3654,13 @@
  <cell>Use this clock to drive peripherals in the FIC0_Slave_Subsystem or FIC0_Master_Subsystem</cell>
 </row>
 <row>
- <cell>DDR_READY</cell>
+ <cell>MSS_READY</cell>
  <cell>OUT</cell>
  <cell>-</cell>
 </row>
 <row>
  <cell>DEVRST_N</cell>
  <cell>IN</cell>
- <cell>-</cell>
-</row>
-<row>
- <cell>MSS_READY</cell>
- <cell>OUT</cell>
- <cell>-</cell>
-</row>
-<row>
- <cell>TACHIN[1:1]</cell>
- <cell>IN</cell>
- <cell>-</cell>
-</row>
-<row>
- <cell>PWM[2:1]</cell>
- <cell>OUT</cell>
  <cell>-</cell>
 </row>
 <row>
@@ -4408,7 +3704,7 @@
 <row>
  <cell>Connect Generic User Slave Peripheral</cell>
  <cell>AMBA_SLAVE_0 is a slave on FIC0_Master_Subsystem subsystem.
-Connect your peripheral to AMBA_SLAVE_0_3 bus interface pin in the top design.</cell>
+Connect your peripheral to AMBA_SLAVE_0_6 bus interface pin in the top design.</cell>
 </row>
 <separator/>
 </table>
