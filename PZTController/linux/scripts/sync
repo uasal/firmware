@@ -1,4 +1,0 @@
-#!/bin/bash
-sudo umount -lf /home/steve/projects/zonge/457/457
-sshfs root@$1:/ /home/steve/projects/zonge/457/457 -ouid=1000
-rsync -avI --exclude "*builds*" --exclude "*.o" --exclude "*.map" --exclude "*zip" TresCaminos /home/steve/projects/zonge/457/457/home/root/linux/

@@ -87,25 +87,40 @@ struct CGraphDMCIHardwareInterface
     CGraphDMCIHardwareStatusRegister StatusRegister; //ro; see definition above
     int32_t PPSRtcPhaseComparator; //ro;
     int32_t PPSAdcPhaseComparator; //ro;
-	AdcAccumulator MonitorAdcAccumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
-	uint32_t MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
-	uint32_t UartFifo2; //rw; send or read bytes from uart(s)
-	CGraphDMCIUartStatusRegister UartStatusRegister2; //ro; what state are the uart(s) in?
-	uint32_t UartFifo1; //rw; send or read bytes from uart(s)
-	CGraphDMCIUartStatusRegister UartStatusRegister1; //ro; what state are the uart(s) in?
+	AdcAccumulator MonitorAdc0Accumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
+	uint32_t MonitorAdc0ReadChannel; //rw; which channel to read for MonitorA/D
+	AdcAccumulator MonitorAdc1Accumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
+	uint32_t MonitorAdc1ReadChannel; //rw; which channel to read for MonitorA/D
+	AdcAccumulator DMController0MonitorAdcAccumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
+	uint32_t DMController0MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
+	AdcAccumulator DMController1MonitorAdcAccumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
+	uint32_t DMController1MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
+	AdcAccumulator DMController2MonitorAdcAccumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
+	uint32_t DMController2MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
+	AdcAccumulator DMController3MonitorAdcAccumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
+	uint32_t DMController3MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
+	AdcAccumulator DMController4MonitorAdcAccumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
+	uint32_t DMController4MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
+	AdcAccumulator DMController5MonitorAdcAccumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
+	uint32_t DMController5MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
 	uint32_t UartFifo0; //rw; send or read bytes from uart(s)
 	CGraphDMCIUartStatusRegister UartStatusRegister0; //ro; what state are the uart(s) in?
+	uint32_t UartFifo1; //rw; send or read bytes from uart(s)
+	CGraphDMCIUartStatusRegister UartStatusRegister1; //ro; what state are the uart(s) in?
+	uint32_t UartFifo2; //rw; send or read bytes from uart(s)
+	CGraphDMCIUartStatusRegister UartStatusRegister2; //ro; what state are the uart(s) in?
+	uint32_t UartFifo3; //rw; send or read bytes from uart(s)
+	CGraphDMCIUartStatusRegister UartStatusRegister3; //ro; what state are the uart(s) in?
 	uint8_t BaudDivider0; //rw; clock divider for the first serial port
 	uint8_t BaudDivider1;
 	uint8_t BaudDivider2;
 	uint8_t BaudDivider3;
-	uint32_t UartFifo3; //rw; send or read bytes from uart(s)
-	CGraphDMCIUartStatusRegister UartStatusRegister3; //ro; what state are the uart(s) in?
-	uint8_t BaudDividerUsb;
-	uint32_t UartFifoUsb; //rw; send or read bytes from uart(s)
-	CGraphDMCIUartStatusRegister UartStatusRegisterUsb; //ro; what state are the uart(s) in?
-	uint32_t reserved[TBDTOMakeNiceOffset];
-	uint32_t DacSetpoints[960];
+	uint16_t SpiExtBusAddrOut;
+	uint16_t SpiExtBusAddrIn;
+	uint16_t SpiExtBusDataOut;
+	uint16_t SpiExtBusDataIn;
+	uint32_t reserved[208]; //if we counted correctly there's 48 4-byte registers preceeding this padding...
+	uint32_t DacSetpoints[960]; //These should start at offset 1024 / 0x0400
 	
     static const uint32_t DacFullScale;
     static const double DacDriverFullScaleOutputVoltage; //150 Volts, don't get your fingers near this thing!

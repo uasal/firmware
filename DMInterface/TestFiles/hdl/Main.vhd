@@ -23,18 +23,22 @@ use IEEE.std_logic_1164.all;
 entity Main is
 port (
     --<port_name> : <direction> <type>;
-	port_name1 : IN  std_logic; -- example
-    port_name2 : OUT std_logic  -- example
+    clk : in  std_logic; -- example
+	debug0 : in  std_logic; -- example
+    debug : out std_logic_vector(7 downto 1)  -- example
     --<other_ports>
 );
 end Main;
 architecture architecture_Main of Main is
    -- signal, component etc. declarations
-	signal signal_name1 : std_logic; -- example
-	signal signal_name2 : std_logic; -- example
+	--signal signal_name1 : std_logic; -- example
+	--signal signal_name2 : std_logic; -- example
 
 begin
 
    -- architecture body
-   port_name2 <= port_name1;
+   debug(1) <= debug0;
+   debug(6 downto 2) <= "10101";
+   debug(7) <= clk;
+   
 end architecture_Main;
