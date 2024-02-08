@@ -1,7 +1,7 @@
 
                                Synplify Pro (R) 
 
-               Version T-2022.09M-SP2-1 for win64 - Jun 27, 2023 
+              Version T-2022.09M-SP2-1 for linux64 - Jun 27, 2023 
 
                     Copyright (c) 1988 - 2023 Synopsys, Inc.
    This software and the associated documentation are proprietary to Synopsys,
@@ -19,78 +19,83 @@
             Inclusivity and Diversity" (Refer to article 000036315 at
                         https://solvnetplus.synopsys.com)
 
-Starting:    C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\bin64\mbin\synbatch.exe
-Install:     C:\Microchip\Libero_SoC_v2023.2\SynplifyPro
-Hostname:    ASTR-ETS-001
-Date:        Wed Jan 31 10:49:37 2024
+Starting:    /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/linux_a_64/mbin/synbatch
+Install:     /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro
+Hostname:    homework
+Date:        Thu Feb  8 14:08:14 2024
 Version:     T-2022.09M-SP2-1
 
 Arguments:   -product synplify_pro -licensetype synplifypro_actel -batch -log synplify.log Blink_syn.tcl
 ProductType: synplify_pro
 
 License checkout: synplifypro_actel
-License: synplifypro_actel from server ASTR-ETS-001 
+License: synplifypro_actel node-locked 
 Licensed Vendor: actel
 License Option: actel_oem
 
 Running in Vendor Mode
 
-Copied C:\MicroSemiProj\LEDTest\synthesis\Blink.srr to C:\MicroSemiProj\LEDTest\synthesis\backup\Blink.srr
-log file: "C:\MicroSemiProj\LEDTest\synthesis\Blink.srr"
+use_module_idb is not supported in current product.
+auto_infer_blackbox is not supported in current product.
+log file: "/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/synthesis/Blink.srr"
 Running: synthesis in foreground
 
 Running Blink_syn|synthesis
 
 Running Flow: compile (Compile) on Blink_syn|synthesis
-# Wed Jan 31 10:49:38 2024
+# Thu Feb  8 14:08:14 2024
 
 Running Flow: compile_flow (Compile Process) on Blink_syn|synthesis
-# Wed Jan 31 10:49:38 2024
+# Thu Feb  8 14:08:14 2024
 
 Running: compiler (Compile Input) on Blink_syn|synthesis
-# Wed Jan 31 10:49:38 2024
-Copied C:\MicroSemiProj\LEDTest\synthesis\synwork\Blink_comp.srs to C:\MicroSemiProj\LEDTest\synthesis\Blink.srs
+# Thu Feb  8 14:08:14 2024
+Process ID: 334834
+Copied /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/synthesis/synwork/Blink_comp.srs to /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/synthesis/Blink.srs
 
 compiler completed
-# Wed Jan 31 10:49:41 2024
+# Thu Feb  8 14:08:15 2024
 
 Return Code: 0
-Run Time:00h:00m:02s
+Run Time:00h:00m:00s
 
 Running: multi_srs_gen (Multi-srs Generator) on Blink_syn|synthesis
-# Wed Jan 31 10:49:41 2024
+# Thu Feb  8 14:08:15 2024
+Process ID: 334897
 
 multi_srs_gen completed
-# Wed Jan 31 10:49:42 2024
+# Thu Feb  8 14:08:16 2024
 
 Return Code: 0
 Run Time:00h:00m:01s
-Copied C:\MicroSemiProj\LEDTest\synthesis\synwork\Blink_mult.srs to C:\MicroSemiProj\LEDTest\synthesis\Blink.srs
+Copied /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/synthesis/synwork/Blink_mult.srs to /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/synthesis/Blink.srs
 Complete: Compile Process on Blink_syn|synthesis
 
 Running: premap (Premap) on Blink_syn|synthesis
-# Wed Jan 31 10:49:42 2024
+# Thu Feb  8 14:08:16 2024
+Process ID: 334913
 
 premap completed
-# Wed Jan 31 10:49:46 2024
+# Thu Feb  8 14:08:16 2024
 
 Return Code: 0
-Run Time:00h:00m:04s
+Run Time:00h:00m:00s
 Complete: Compile on Blink_syn|synthesis
 
 Running Flow: map (Map) on Blink_syn|synthesis
-# Wed Jan 31 10:49:46 2024
+# Thu Feb  8 14:08:16 2024
 License granted for 4 parallel jobs
 
 Running: fpga_mapper (Map & Optimize) on Blink_syn|synthesis
-# Wed Jan 31 10:49:46 2024
-Copied C:\MicroSemiProj\LEDTest\synthesis\synwork\Blink_m.srm to C:\MicroSemiProj\LEDTest\synthesis\Blink.srm
+# Thu Feb  8 14:08:16 2024
+Process ID: 334928
+Copied /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/synthesis/synwork/Blink_m.srm to /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/synthesis/Blink.srm
 
-fpga_mapper completed
-# Wed Jan 31 10:49:52 2024
+fpga_mapper completed with warnings
+# Thu Feb  8 14:08:17 2024
 
-Return Code: 0
-Run Time:00h:00m:06s
+Return Code: 1
+Run Time:00h:00m:01s
 Complete: Map on Blink_syn|synthesis
 Complete: Logic Synthesis on Blink_syn|synthesis
 TCL script complete: "Blink_syn.tcl"

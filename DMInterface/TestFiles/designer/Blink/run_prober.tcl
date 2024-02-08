@@ -1,5 +1,5 @@
 probe \
-    -desdir {C:\MicroSemiProj\LEDTest\designer\Blink} \
+    -desdir {/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/designer/Blink} \
     -design Blink \
     -fam SmartFusion2 \
     -die PA4M2500_N \

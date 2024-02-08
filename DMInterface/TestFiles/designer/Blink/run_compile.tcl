@@ -83,7 +83,7 @@ set_compile_info \
 set_compile_info \
     -category {"Source Files"} \
     -name {"Source"} \
-    -value {"C:\MicroSemiProj\LEDTest\synthesis\Blink.vm"}
+    -value {"/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/synthesis/Blink.vm"}
 set_compile_info \
     -category {"Options"} \
     -name {"Enable Single Event Transient mitigation"} \
@@ -97,7 +97,7 @@ set_compile_info \
     -name {"Limit the number of high fanout nets to display to"} \
     -value {"10"}
 compile \
-    -desdir {C:\MicroSemiProj\LEDTest\designer\Blink} \
+    -desdir {/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/designer/Blink} \
     -design Blink \
     -fam SmartFusion2 \
     -die PA4M2500_N \

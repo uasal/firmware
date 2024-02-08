@@ -24,8 +24,8 @@ entity Main is
 port (
     --<port_name> : <direction> <type>;
     clk : in  std_logic; -- example
-	debug0 : in  std_logic; -- example
-    debug : out std_logic_vector(7 downto 1)  -- example
+	debug1 : in  std_logic; -- example
+    debug : out std_logic_vector(8 downto 2)  -- example
     --<other_ports>
 );
 end Main;
@@ -37,8 +37,8 @@ architecture architecture_Main of Main is
 begin
 
    -- architecture body
-   debug(1) <= debug0;
-   debug(6 downto 2) <= "10101";
-   debug(7) <= clk;
+   debug(2) <= debug1;
+   debug(7 downto 3) <= "10101";
+   debug(8) <= clk;
    
 end architecture_Main;

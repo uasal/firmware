@@ -1,6 +1,6 @@
 <project name="Blink" version="1.2">
     <ProjectDirectory>
-        C:\MicroSemiProj\LEDTest\designer\Blink\Blink_fp
+        /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/designer/Blink/Blink_fp
     </ProjectDirectory>
     <View>
         ChainView
@@ -9,7 +9,7 @@
         M2S025
     </LiberoTargetDevice>
     <LogFile>
-        C:\MicroSemiProj\LEDTest\designer\Blink\Blink_fp\Blink.log
+        /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/designer/Blink/Blink_fp/Blink.log
     </LogFile>
     <SerializationOption>
         Skip

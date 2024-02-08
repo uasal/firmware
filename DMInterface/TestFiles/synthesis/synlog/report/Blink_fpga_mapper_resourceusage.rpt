@@ -1,17 +1,23 @@
 Resource Usage Report for Blink 
 
 Mapping to part: m2s025vf400-1
+Cell usage:
+CCC             1 use
+CLKINT          1 use
+
 
 Sequential Cells: 
 SLE            0 uses
 
 DSP Blocks:    0 of 34 (0%)
 
-I/O ports: 2
-I/O primitives: 2
-INBUF          1 use
-OUTBUF         1 use
+I/O ports: 9
+I/O primitives: 9
+INBUF          2 uses
+OUTBUF         7 uses
 
+
+Global Clock Buffers: 1
 
 Total LUTs:    0
 

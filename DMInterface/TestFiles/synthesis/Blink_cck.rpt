@@ -6,18 +6,22 @@ with Synopsys, Inc. All other use, reproduction, modification, or distribution o
 Synopsys software or the associated documentation is strictly prohibited.
 Tool: Synplify Pro (R)
 Build: T-2022.09M-SP2-1
-Install: C:\Microchip\Libero_SoC_v2023.2\SynplifyPro
-OS: Windows 10 or later
-Hostname: ASTR-ETS-001
+Install: /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro
+OS: Linux Mint 21.1
+Hostname: homework
+max virtual memory: unlimited (bytes)
+max user processes: 126734
+max stack size: 8388608 (bytes)
+
 
 Implementation : synthesis
 
-# Written on Wed Jan 31 10:57:33 2024
+# Written on Thu Feb  8 14:21:39 2024
 
 ##### DESIGN INFO #######################################################
 
 Top View:                "Blink"
-Constraint File(s):      "C:\MicroSemiProj\LEDTest\designer\Blink\synthesis.fdc"
+Constraint File(s):      "/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/designer/Blink/synthesis.fdc"
 
 
 
@@ -44,8 +48,15 @@ Starting     Ending     |     rise to rise     |     fall to fall     |     rise
 Unconstrained Start/End Points
 ******************************
 
-p:port_name1
-p:port_name2
+p:clk
+p:debug1
+p:debug[2]
+p:debug[3]
+p:debug[4]
+p:debug[5]
+p:debug[6]
+p:debug[7]
+p:debug[8]
 
 
 Inapplicable constraints

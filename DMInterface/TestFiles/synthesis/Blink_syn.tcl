@@ -1,3 +1,3 @@
-project -load "C:/MicroSemiProj/LEDTest/synthesis/Blink_syn.prj"
+project -load "/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/synthesis/Blink_syn.prj"
 project -run
 project -save

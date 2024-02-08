@@ -30,22 +30,108 @@
     </head>
     <body>
         <h1 align="center">Global Net Report</h1>
-        <p>Microchip Technology Inc. - Microchip Libero Software Release v2023.2 (Version 2023.2.0.8)</p>
-        <p>Date: Wed Jan 31 10:59:25 2024
+        <p>Microchip Technology Inc. - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)</p>
+        <p>Date: Thu Feb  8 14:22:53 2024
 </p>
         <h2>Global Nets Information</h2>
-        <p>(none)</p>
+        <table cellpadding="4">
+            <tr>
+                <th/>
+                <th> From </th>
+                <th> GB Location </th>
+                <th> Net Name </th>
+                <th> Fanout </th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>GB[12] </td>
+                <td>(306, 72)</td>
+                <td>FCCC_C0_0/FCCC_C0_0/GL0_INST/U0_YWn</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <p/>
         <h2>I/O to GB Connections</h2>
         <p>(none)</p>
         <h2>Fabric to GB Connections</h2>
         <p>(none)</p>
         <h2>CCC to GB Connections</h2>
-        <p>(none)</p>
+        <table cellpadding="4">
+            <tr>
+                <th/>
+                <th> From </th>
+                <th> From Location </th>
+                <th> To </th>
+                <th> Net Name </th>
+                <th> Net Type </th>
+                <th> Fanout </th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP:GL0</td>
+                <td>CCC-NE1 (618, 134)</td>
+                <td>GB[12] </td>
+                <td>FCCC_C0_0/FCCC_C0_0/GL0_net</td>
+                <td>HARDWIRED</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <p/>
         <h2>CCC Input Connections</h2>
-        <p>(none)</p>
+        <table cellpadding="4">
+            <tr>
+                <th/>
+                <th> Port Name </th>
+                <th> Pin Number </th>
+                <th> I/O Function </th>
+                <th> From </th>
+                <th> From Location </th>
+                <th> To (Pin Swapped for Back Annotation Only) </th>
+                <th> CCC Location </th>
+                <th> Net Name </th>
+                <th> Net Type </th>
+                <th> Fanout </th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>clk</td>
+                <td>H16</td>
+                <td>MSIO11NB2/I2C_1_SCL/GPIO_1_A/CCC_NE1_CLKI0</td>
+                <td>clk_ibuf/U0/U_IOIN:Y</td>
+                <td>(627, 28)</td>
+                <td>FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP:CLK0</td>
+                <td>CCC-NE1 (618, 134)</td>
+                <td>clk_c</td>
+                <td>ROUTED</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <p/>
         <h2>Local Nets to RGB Connections</h2>
         <p>(none)</p>
         <h2>Global Nets to RGB Connections</h2>
-        <p>(none)</p>
+        <table cellpadding="4">
+            <tr>
+                <th/>
+                <th> From </th>
+                <th> From Location </th>
+                <th> Net Name </th>
+                <th> Fanout </th>
+                <th/>
+                <th> RGB Location </th>
+                <th> RGB Fanout </th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>GB[12] </td>
+                <td>(306, 72)</td>
+                <td>FCCC_C0_0/FCCC_C0_0/GL0_INST/U0_YWn</td>
+                <td>1</td>
+                <td/>
+                <td>(146, 60)</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <p/>
     </body>
 </html>

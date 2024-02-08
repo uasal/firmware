@@ -2,47 +2,205 @@
 // Written by Synplify Pro 
 // Product Version "T-2022.09M-SP2-1"
 // Program "Synplify Pro", Mapper "map202209actsp2, Build 145R"
-// Wed Jan 31 10:57:39 2024
+// Thu Feb  8 14:21:40 2024
 //
 // Source file index table:
 // Object locations will have the form <file>:<line>
-// file 0 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd2008\std.vhd "
-// file 1 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd\snps_haps_pkg.vhd "
-// file 2 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd2008\std1164.vhd "
-// file 3 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd2008\std_textio.vhd "
-// file 4 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd2008\numeric.vhd "
-// file 5 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd\umr_capim.vhd "
-// file 6 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd2008\arith.vhd "
-// file 7 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd2008\unsigned.vhd "
-// file 8 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd\hyperents.vhd "
-// file 9 "\c:\microsemiproj\ledtest\hdl\main.vhd "
-// file 10 "\c:\microsemiproj\ledtest\component\work\blink\blink.vhd "
-// file 11 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\generic\smartfusion2.vhd "
-// file 12 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\nlconst.dat "
-// file 13 "\c:\microsemiproj\ledtest\designer\blink\synthesis.fdc "
+// file 0 "\/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/std.vhd "
+// file 1 "\/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd/snps_haps_pkg.vhd "
+// file 2 "\/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/std1164.vhd "
+// file 3 "\/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/std_textio.vhd "
+// file 4 "\/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/numeric.vhd "
+// file 5 "\/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd/umr_capim.vhd "
+// file 6 "\/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/arith.vhd "
+// file 7 "\/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/unsigned.vhd "
+// file 8 "\/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd/hyperents.vhd "
+// file 9 "\/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.vhd "
+// file 10 "\/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/generic/smartfusion2.vhd "
+// file 11 "\/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/hdl/Main.vhd "
+// file 12 "\/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/FCCC_C0/FCCC_C0.vhd "
+// file 13 "\/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/Blink/Blink.vhd "
+// file 14 "\/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/nlconst.dat "
+// file 15 "\/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/designer/Blink/synthesis.fdc "
 
 `timescale 100 ps/100 ps
-module Blink (
-  port_name1,
-  port_name2
+module FCCC_C0_FCCC_C0_0_FCCC (
+  debug_c_0,
+  clk_c
 )
 ;
-input port_name1 ;
-output port_name2 ;
-wire port_name1 ;
-wire port_name2 ;
+output debug_c_0 ;
+input clk_c ;
+wire debug_c_0 ;
+wire clk_c ;
+wire [7:0] PRDATA;
+wire GL0_net ;
+wire Y0 ;
+wire Y1 ;
+wire Y2 ;
+wire Y3 ;
+wire LOCK ;
+wire BUSY ;
+wire VCC ;
+wire GND ;
+wire GL1 ;
+wire GL2 ;
+wire GL3 ;
+// @9:103
+  CLKINT GL0_INST (
+	.Y(debug_c_0),
+	.A(GL0_net)
+);
+// @9:106
+  CCC CCC_INST (
+	.Y0(Y0),
+	.Y1(Y1),
+	.Y2(Y2),
+	.Y3(Y3),
+	.PRDATA(PRDATA[7:0]),
+	.LOCK(LOCK),
+	.BUSY(BUSY),
+	.CLK0(clk_c),
+	.CLK1(VCC),
+	.CLK2(VCC),
+	.CLK3(VCC),
+	.NGMUX0_SEL(GND),
+	.NGMUX1_SEL(GND),
+	.NGMUX2_SEL(GND),
+	.NGMUX3_SEL(GND),
+	.NGMUX0_HOLD_N(VCC),
+	.NGMUX1_HOLD_N(VCC),
+	.NGMUX2_HOLD_N(VCC),
+	.NGMUX3_HOLD_N(VCC),
+	.NGMUX0_ARST_N(VCC),
+	.NGMUX1_ARST_N(VCC),
+	.NGMUX2_ARST_N(VCC),
+	.NGMUX3_ARST_N(VCC),
+	.PLL_BYPASS_N(VCC),
+	.PLL_ARST_N(VCC),
+	.PLL_POWERDOWN_N(VCC),
+	.GPD0_ARST_N(VCC),
+	.GPD1_ARST_N(VCC),
+	.GPD2_ARST_N(VCC),
+	.GPD3_ARST_N(VCC),
+	.PRESET_N(GND),
+	.PCLK(VCC),
+	.PSEL(VCC),
+	.PENABLE(VCC),
+	.PWRITE(VCC),
+	.PADDR({VCC, VCC, VCC, VCC, VCC, VCC}),
+	.PWDATA({VCC, VCC, VCC, VCC, VCC, VCC, VCC, VCC}),
+	.CLK0_PAD(GND),
+	.CLK1_PAD(GND),
+	.CLK2_PAD(GND),
+	.CLK3_PAD(GND),
+	.GL0(GL0_net),
+	.GL1(GL1),
+	.GL2(GL2),
+	.GL3(GL3),
+	.RCOSC_25_50MHZ(GND),
+	.RCOSC_1MHZ(GND),
+	.XTLOSC(GND)
+);
+defparam CCC_INST.INIT=210'h0000007FB8000044974000318C6318C1F18C61F00404040400701;
+defparam CCC_INST.VCOFREQUENCY=816.0;
+  GND GND_Z (
+	.Y(GND)
+);
+  VCC VCC_Z (
+	.Y(VCC)
+);
+endmodule /* FCCC_C0_FCCC_C0_0_FCCC */
+
+module FCCC_C0 (
+  debug_c_0,
+  clk_c
+)
+;
+output debug_c_0 ;
+input clk_c ;
+wire debug_c_0 ;
+wire clk_c ;
 wire GND ;
 wire VCC ;
-wire port_name1_c ;
-// @10:21
-  INBUF port_name1_ibuf (
-	.Y(port_name1_c),
-	.PAD(port_name1)
+// @12:205
+  FCCC_C0_FCCC_C0_0_FCCC FCCC_C0_0 (
+	.debug_c_0(debug_c_0),
+	.clk_c(clk_c)
 );
-// @10:23
-  OUTBUF port_name2_obuf (
-	.PAD(port_name2),
-	.D(port_name1_c)
+  GND GND_Z (
+	.Y(GND)
+);
+  VCC VCC_Z (
+	.Y(VCC)
+);
+endmodule /* FCCC_C0 */
+
+module Blink (
+  clk,
+  debug1,
+  debug
+)
+;
+input clk ;
+input debug1 ;
+output [8:2] debug ;
+wire clk ;
+wire debug1 ;
+wire [8:8] debug_c;
+wire GND ;
+wire VCC ;
+wire clk_c ;
+wire debug1_c ;
+// @13:21
+  INBUF clk_ibuf (
+	.Y(clk_c),
+	.PAD(clk)
+);
+// @13:22
+  INBUF debug1_ibuf (
+	.Y(debug1_c),
+	.PAD(debug1)
+);
+// @13:24
+  OUTBUF \debug_obuf[2]  (
+	.PAD(debug[2]),
+	.D(debug1_c)
+);
+// @13:24
+  OUTBUF \debug_obuf[3]  (
+	.PAD(debug[3]),
+	.D(VCC)
+);
+// @13:24
+  OUTBUF \debug_obuf[4]  (
+	.PAD(debug[4]),
+	.D(GND)
+);
+// @13:24
+  OUTBUF \debug_obuf[5]  (
+	.PAD(debug[5]),
+	.D(VCC)
+);
+// @13:24
+  OUTBUF \debug_obuf[6]  (
+	.PAD(debug[6]),
+	.D(GND)
+);
+// @13:24
+  OUTBUF \debug_obuf[7]  (
+	.PAD(debug[7]),
+	.D(VCC)
+);
+// @13:24
+  OUTBUF \debug_obuf[8]  (
+	.PAD(debug[8]),
+	.D(debug_c[8])
+);
+// @13:73
+  FCCC_C0 FCCC_C0_0 (
+	.debug_c_0(debug_c[8]),
+	.clk_c(clk_c)
 );
   GND GND_Z (
 	.Y(GND)

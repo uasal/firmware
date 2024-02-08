@@ -6,12 +6,16 @@ with Synopsys, Inc. All other use, reproduction, modification, or distribution o
 Synopsys software or the associated documentation is strictly prohibited.
 Tool: Synplify Pro (R)
 Build: T-2022.09M-SP2-1
-Install: C:\Microchip\Libero_SoC_v2023.2\SynplifyPro
-OS: Windows 10 or later
-Hostname: ASTR-ETS-001
+Install: /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro
+OS: Linux Mint 21.1
+Hostname: homework
+max virtual memory: unlimited (bytes)
+max user processes: 126734
+max stack size: 8388608 (bytes)
+
 
 Implementation : synthesis
-Synopsys HDL Compiler, Version comp202209synp2, Build 179R, Built Jun 27 2023 09:29:56, @
+Synopsys HDL Compiler, Version comp202209synp2, Build 179R, Built Jun 27 2023 09:29:53, @4799148
 
 @N|Running in 64-bit mode
 ###########################################################[
@@ -23,48 +27,77 @@ with Synopsys, Inc. All other use, reproduction, modification, or distribution o
 Synopsys software or the associated documentation is strictly prohibited.
 Tool: Synplify Pro (R)
 Build: T-2022.09M-SP2-1
-Install: C:\Microchip\Libero_SoC_v2023.2\SynplifyPro
-OS: Windows 10 or later
-Hostname: ASTR-ETS-001
+Install: /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro
+OS: Linux Mint 21.1
+Hostname: homework
+max virtual memory: unlimited (bytes)
+max user processes: 126734
+max stack size: 8388608 (bytes)
+
 
 Implementation : synthesis
-Synopsys VHDL Compiler, Version comp202209synp2, Build 179R, Built Jun 27 2023 09:29:56, @
+Synopsys VHDL Compiler, Version comp202209synp2, Build 179R, Built Jun 27 2023 09:29:53, @4799148
 
 @N|Running in 64-bit mode
-@N:"C:\MicroSemiProj\LEDTest\component\work\Blink\Blink.vhd":17:7:17:11|Top entity is set to Blink.
-Options changed - recompiling
-@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\MicroSemiProj\LEDTest\hdl\Main.vhd'.
-@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\MicroSemiProj\LEDTest\component\work\Blink\Blink.vhd'.
+@N|stack limit increased to max
+@N:"/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/Blink/Blink.vhd":17:7:17:11|Top entity is set to Blink.
+File /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/generic/smartfusion2.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/hdl/Main.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/FCCC_C0/FCCC_C0.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/Blink/Blink.vhd changed - recompiling
+@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/hdl/Main.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/FCCC_C0/FCCC_C0.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/Blink/Blink.vhd'.
 VHDL syntax check successful!
-Options changed - recompiling
-@N: CD231 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vhd2008\std1164.vhd":889:16:889:17|Using onehot encoding for type mvl9plus. For example, enumeration 'U' is mapped to "1000000000".
-@N: CD630 :"C:\MicroSemiProj\LEDTest\component\work\Blink\Blink.vhd":17:7:17:11|Synthesizing work.blink.rtl.
-@N: CD630 :"C:\MicroSemiProj\LEDTest\hdl\Main.vhd":23:7:23:10|Synthesizing work.main.architecture_main.
-@W: CD638 :"C:\MicroSemiProj\LEDTest\hdl\Main.vhd":33:8:33:19|Signal signal_name1 is undriven. Either assign the signal a value or remove the signal declaration.
-@W: CD638 :"C:\MicroSemiProj\LEDTest\hdl\Main.vhd":34:8:34:19|Signal signal_name2 is undriven. Either assign the signal a value or remove the signal declaration.
+File /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/hdl/Main.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/Blink/Blink.vhd changed - recompiling
+@N: CD231 :"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/std1164.vhd":889:16:889:17|Using onehot encoding for type mvl9plus. For example, enumeration 'U' is mapped to "1000000000".
+@N: CD630 :"/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/Blink/Blink.vhd":17:7:17:11|Synthesizing work.blink.rtl.
+@N: CD630 :"/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/hdl/Main.vhd":23:7:23:10|Synthesizing work.main.architecture_main.
 Post processing for work.main.architecture_main
 Running optimization stage 1 on Main .......
-Finished optimization stage 1 on Main (CPU Time 0h:00m:00s, Memory Used current: 93MB peak: 94MB)
+Finished optimization stage 1 on Main (CPU Time 0h:00m:00s, Memory Used current: 137MB peak: 137MB)
+@N: CD630 :"/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/FCCC_C0/FCCC_C0.vhd":145:7:145:13|Synthesizing work.fccc_c0.rtl.
+@N: CD630 :"/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.vhd":8:7:8:28|Synthesizing work.fccc_c0_fccc_c0_0_fccc.def_arch.
+@N: CD630 :"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/generic/smartfusion2.vhd":798:10:798:12|Synthesizing smartfusion2.ccc.syn_black_box.
+Post processing for smartfusion2.ccc.syn_black_box
+@N: CD630 :"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/generic/smartfusion2.vhd":562:10:562:15|Synthesizing smartfusion2.clkint.syn_black_box.
+Post processing for smartfusion2.clkint.syn_black_box
+@N: CD630 :"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/generic/smartfusion2.vhd":576:10:576:12|Synthesizing smartfusion2.gnd.syn_black_box.
+Post processing for smartfusion2.gnd.syn_black_box
+@N: CD630 :"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/generic/smartfusion2.vhd":582:10:582:12|Synthesizing smartfusion2.vcc.syn_black_box.
+Post processing for smartfusion2.vcc.syn_black_box
+Post processing for work.fccc_c0_fccc_c0_0_fccc.def_arch
+Running optimization stage 1 on FCCC_C0_FCCC_C0_0_FCCC .......
+Finished optimization stage 1 on FCCC_C0_FCCC_C0_0_FCCC (CPU Time 0h:00m:00s, Memory Used current: 137MB peak: 137MB)
+Post processing for work.fccc_c0.rtl
+Running optimization stage 1 on FCCC_C0 .......
+Finished optimization stage 1 on FCCC_C0 (CPU Time 0h:00m:00s, Memory Used current: 137MB peak: 137MB)
 Post processing for work.blink.rtl
 Running optimization stage 1 on Blink .......
-Finished optimization stage 1 on Blink (CPU Time 0h:00m:00s, Memory Used current: 93MB peak: 94MB)
+Finished optimization stage 1 on Blink (CPU Time 0h:00m:00s, Memory Used current: 137MB peak: 137MB)
+Running optimization stage 2 on FCCC_C0_FCCC_C0_0_FCCC .......
+Finished optimization stage 2 on FCCC_C0_FCCC_C0_0_FCCC (CPU Time 0h:00m:00s, Memory Used current: 137MB peak: 137MB)
+Running optimization stage 2 on FCCC_C0 .......
+Finished optimization stage 2 on FCCC_C0 (CPU Time 0h:00m:00s, Memory Used current: 137MB peak: 137MB)
 Running optimization stage 2 on Main .......
-Finished optimization stage 2 on Main (CPU Time 0h:00m:00s, Memory Used current: 93MB peak: 94MB)
+Finished optimization stage 2 on Main (CPU Time 0h:00m:00s, Memory Used current: 137MB peak: 137MB)
 Running optimization stage 2 on Blink .......
-Finished optimization stage 2 on Blink (CPU Time 0h:00m:00s, Memory Used current: 93MB peak: 94MB)
+Finished optimization stage 2 on Blink (CPU Time 0h:00m:00s, Memory Used current: 137MB peak: 137MB)
 
 For a summary of runtime per design unit, please see file:
 ==========================================================
-@L: C:\MicroSemiProj\LEDTest\synthesis\synwork\layer0.duruntime
+@L: /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/synthesis/synwork/layer0.duruntime
 
 
 
-At c_vhdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 93MB peak: 94MB)
+At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 137MB peak: 137MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Wed Jan 31 10:57:28 2024
+# Thu Feb  8 14:21:37 2024
 
 ###########################################################]
 ###########################################################[
@@ -76,36 +109,40 @@ with Synopsys, Inc. All other use, reproduction, modification, or distribution o
 Synopsys software or the associated documentation is strictly prohibited.
 Tool: Synplify Pro (R)
 Build: T-2022.09M-SP2-1
-Install: C:\Microchip\Libero_SoC_v2023.2\SynplifyPro
-OS: Windows 10 or later
-Hostname: ASTR-ETS-001
+Install: /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro
+OS: Linux Mint 21.1
+Hostname: homework
+max virtual memory: unlimited (bytes)
+max user processes: 126734
+max stack size: 8388608 (bytes)
+
 
 Implementation : synthesis
-Synopsys Synopsys Netlist Linker, Version comp202209synp2, Build 179R, Built Jun 27 2023 09:29:56, @
+Synopsys Synopsys Netlist Linker, Version comp202209synp2, Build 179R, Built Jun 27 2023 09:29:53, @4799148
 
 @N|Running in 64-bit mode
-File C:\MicroSemiProj\LEDTest\synthesis\synwork\layer0.srs changed - recompiling
+File /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/synthesis/synwork/layer0.srs changed - recompiling
 
-At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 91MB peak: 91MB)
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 126MB peak: 126MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Wed Jan 31 10:57:29 2024
+# Thu Feb  8 14:21:37 2024
 
 ###########################################################]
 
 For a summary of runtime and memory usage for all design units, please see file:
 ==========================================================
-@L: C:\MicroSemiProj\LEDTest\synthesis\synwork\Blink_comp.rt.csv
+@L: /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/synthesis/synwork/Blink_comp.rt.csv
 
 @END
 
-At c_hdl Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 24MB peak: 24MB)
+At c_hdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 44MB peak: 44MB)
 
-Process took 0h:00m:02s realtime, 0h:00m:01s cputime
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Wed Jan 31 10:57:29 2024
+# Thu Feb  8 14:21:37 2024
 
 ###########################################################]

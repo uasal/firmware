@@ -1,15 +1,17 @@
 #--  Synopsys, Inc.
 #--  Version T-2022.09M-SP2-1
-#--  Project file C:\MicroSemiProj\LEDTest\synthesis\scratchproject.prs
+#--  Project file /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/synthesis/scratchproject.prs
 
 #project files
-add_file -vhdl -lib work "C:/MicroSemiProj/LEDTest/hdl/Main.vhd"
-add_file -vhdl -lib work "C:/MicroSemiProj/LEDTest/component/work/Blink/Blink.vhd"
-add_file -fpga_constraint "C:/MicroSemiProj/LEDTest/designer/Blink/synthesis.fdc"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/FCCC_C0/FCCC_C0.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/hdl/Main.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/Blink/Blink.vhd"
+add_file -fpga_constraint "/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/designer/Blink/synthesis.fdc"
 
 
 #implementation: "synthesis"
-impl -add C:\MicroSemiProj\LEDTest\synthesis -type fpga
+impl -add /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/synthesis -type fpga
 
 #device options
 set_option -technology SmartFusion2
@@ -90,5 +92,5 @@ set_option -vhdl2008 1
 set_option -write_apr_constraint 1
 
 #set result format/file last
-project -result_file "C:/MicroSemiProj/LEDTest/synthesis/Blink.vm"
+project -result_file "/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/synthesis/Blink.vm"
 impl -active "synthesis"

@@ -1,8 +1,8 @@
 data HELP_TYPE_DES 2
 data DESIGN Blink
-data HPATH 'C:/MicroSemiProj/LEDTest/designer/Blink'
-data CPATH 'C:/MicroSemiProj/LEDTest/constraint/io'
-data CDIR 'C:/MicroSemiProj/LEDTest/constraint'
+data HPATH '/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/designer/Blink'
+data CPATH '/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/constraint/io'
+data CDIR '/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/constraint'
 data NLV_HIDE_OPTION_DLG 1
 data REGION_DEFCOLOR_EMPTY 2143322112
 data REGION_DEFCOLOR_INCLUSIVE 2147442270
@@ -22,14 +22,14 @@ data VCCI_2.5_VOLTR COM
 data VCCI_3.3_VOLTR COM
 data FLOW_TYPE NEW
 data PLANNER_IOMODE 1
-data AFL 'C:/MicroSemiProj/LEDTest/designer/Blink/COMPILE/Blink.afl'
-data ADL 'C:/MicroSemiProj/LEDTest/designer/Blink/Blink.adl'
-data LOC 'C:/MicroSemiProj/LEDTest/designer/Blink/COMPILE/Blink.loc'
-data SEG 'C:/MicroSemiProj/LEDTest/designer/Blink/COMPILE/Blink.seg'
+data AFL '/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/designer/Blink/COMPILE/Blink.afl'
+data ADL '/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/designer/Blink/Blink.adl'
+data LOC '/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/designer/Blink/COMPILE/Blink.loc'
+data SEG '/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/designer/Blink/COMPILE/Blink.seg'
 
-data IO_PDC_0 'C:/MicroSemiProj/LEDTest/constraint/io/user.pdc'
-data TARGET_IOPDC  'C:/MicroSemiProj/LEDTest/constraint/io/user.pdc'
-data TARGET_FPPDC  'C:/MicroSemiProj/LEDTest/constraint/fp/user.pdc'
+data IO_PDC_0 '/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/constraint/io/user.pdc'
+data TARGET_IOPDC  '/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/constraint/io/user.pdc'
+data TARGET_FPPDC  '/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/constraint/fp/user.pdc'
 data RESTRICTPROBEPINS 0
 data RESTRICTSPIPINS 0
 data GDEV_SKIP_UNASSIGN_CMP_CHECK    1 

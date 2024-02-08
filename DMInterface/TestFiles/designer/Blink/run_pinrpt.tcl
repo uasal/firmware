@@ -1,6 +1,6 @@
 DESIGN=Blink
-DESDIR=C:\MicroSemiProj\LEDTest\designer\Blink
-TARGET_DIR=C:\MicroSemiProj\LEDTest\designer\Blink
+DESDIR=/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/designer/Blink
+TARGET_DIR=/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/designer/Blink
 FAM=SmartFusion2
 DIE=PA4M2500_N
 PACKAGE=vf256

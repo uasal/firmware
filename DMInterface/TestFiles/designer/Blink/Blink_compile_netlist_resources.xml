@@ -2,8 +2,8 @@
 <?xml-stylesheet href="rptstyle.xsl" type="text/xsl" ?>
 <doc>
 <title>Resource Report</title>
-<text>Microchip Technology Inc. - Microchip Libero Software Release v2023.2 (Version 2023.2.0.8)</text>
-<text>Date: Wed Jan 31 10:57:45 2024
+<text>Microchip Technology Inc. - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)</text>
+<text>Date: Thu Feb  8 14:21:42 2024
 </text>
 <section><name>Device Selection</name></section>
 <table>
@@ -76,7 +76,7 @@
 </row>
 <row>
  <cell>Source</cell>
- <cell>C:\MicroSemiProj\LEDTest\synthesis\Blink.vm</cell>
+ <cell>/home/summer/projects/CGraph/firmware/DMInterface/TestFiles/synthesis/Blink.vm</cell>
 </row>
 </table>
 <section><name>Options</name></section>
@@ -124,15 +124,15 @@
 </row>
 <row>
  <cell>User I/O</cell>
- <cell>2</cell>
+ <cell>9</cell>
  <cell>138</cell>
- <cell>1.45</cell>
+ <cell>6.52</cell>
 </row>
 <row>
  <cell>-- Single-ended I/O</cell>
- <cell>2</cell>
+ <cell>9</cell>
  <cell>138</cell>
- <cell>1.45</cell>
+ <cell>6.52</cell>
 </row>
 <row>
  <cell>-- Differential I/O Pairs</cell>
@@ -160,15 +160,15 @@
 </row>
 <row>
  <cell>Chip Globals</cell>
- <cell>0</cell>
+ <cell>1</cell>
  <cell>16</cell>
- <cell>0.00</cell>
+ <cell>6.25</cell>
 </row>
 <row>
  <cell>CCC</cell>
- <cell>0</cell>
+ <cell>1</cell>
  <cell>6</cell>
- <cell>0.00</cell>
+ <cell>16.67</cell>
 </row>
 <row>
  <cell>RCOSC_25_50MHZ</cell>
@@ -238,13 +238,13 @@
 </header>
 <row>
  <cell>Input I/O</cell>
- <cell>1</cell>
+ <cell>2</cell>
  <cell>0</cell>
  <cell>0</cell>
 </row>
 <row>
  <cell>Output I/O</cell>
- <cell>1</cell>
+ <cell>7</cell>
  <cell>0</cell>
  <cell>0</cell>
 </row>
@@ -281,8 +281,8 @@
  <cell>LVCMOS25</cell>
  <cell> 2.50v</cell>
  <cell> N/A</cell>
- <cell> 1</cell>
- <cell> 1</cell>
+ <cell> 2</cell>
+ <cell> 7</cell>
  <cell> 0</cell>
 </row>
 </table>
@@ -293,6 +293,21 @@
  <cell>Type</cell>
  <cell>Name</cell>
 </header>
+<row>
+ <cell>1</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : debug_c[8]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: FCCC_C0_0/FCCC_C0_0/GL0_INST/U0_RGB1</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Source: NETLIST</cell>
+</row>
 </table>
 <section><name>Nets assigned to row global resources</name></section>
 <table>
@@ -312,12 +327,32 @@
 <row>
  <cell>1</cell>
  <cell>INT_NET</cell>
- <cell>Net   : port_name1_c</cell>
+ <cell>Net   : FCCC_C0_0/FCCC_C0_0/GL0_INST/U0_YWn</cell>
 </row>
 <row>
  <cell></cell>
  <cell></cell>
- <cell>Driver: port_name1_ibuf</cell>
+ <cell>Driver: FCCC_C0_0/FCCC_C0_0/GL0_INST</cell>
+</row>
+<row>
+ <cell>1</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : clk_c</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: clk_ibuf</cell>
+</row>
+<row>
+ <cell>1</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : debug1_c</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: debug1_ibuf</cell>
 </row>
 <row>
  <cell>1</cell>
@@ -340,12 +375,32 @@
 <row>
  <cell>1</cell>
  <cell>INT_NET</cell>
- <cell>Net   : port_name1_c</cell>
+ <cell>Net   : FCCC_C0_0/FCCC_C0_0/GL0_INST/U0_YWn</cell>
 </row>
 <row>
  <cell></cell>
  <cell></cell>
- <cell>Driver: port_name1_ibuf</cell>
+ <cell>Driver: FCCC_C0_0/FCCC_C0_0/GL0_INST</cell>
+</row>
+<row>
+ <cell>1</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : clk_c</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: clk_ibuf</cell>
+</row>
+<row>
+ <cell>1</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : debug1_c</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: debug1_ibuf</cell>
 </row>
 <row>
  <cell>1</cell>

@@ -2,11 +2,11 @@
 
 # User I/O Constraints file 
 
-# Version: 2023.2 2023.2.0.8
+# Version: 2023.2 2023.2.0.10
 
 # Family: SmartFusion2 , Die: M2S025 , Package: 256 VF
 
-# Date generated: Wed Jan 31 10:59:09 2024 
+# Date generated: Thu Feb  8 14:13:10 2024 
 
 
 # 
@@ -25,15 +25,50 @@
 # User Locked I/O settings
 # 
 
-set_io port_name1     \
-    -pinname L1       \
+set_io clk            \
+    -pinname H16      \
     -fixed yes        \
-    -iostd LVCMOS25   \
+    -iostd LVCMOS33   \
+    -DIRECTION INPUT
+
+set_io debug1            \
+    -pinname L1      \
+    -fixed yes        \
     -DIRECTION INPUT
 
 
-set_io port_name2      \
+    set_io {debug[2]}      \
     -pinname K1        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+    
+    set_io {debug[3]}      \
+    -pinname J5        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+    
+    set_io {debug[4]}      \
+    -pinname J3        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+    
+    set_io {debug[5]}      \
+    -pinname J2        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+    
+    set_io {debug[6]}      \
+    -pinname J1        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+    
+    set_io {debug[7]}      \
+    -pinname H1        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+    
+    set_io {debug[8]}      \
+    -pinname H5        \
     -fixed yes         \
     -DIRECTION OUTPUT
 

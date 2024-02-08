@@ -75,9 +75,10 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/SgCore/FCCC/2.0.201/FCCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1706806841"
+TIME="1707417286"
 SIZE="241"
 PARENT="<project>/component/work/Blink_sb/Blink_sb.cxf"
+PARENT="<project>/component/work/FCCC_C0/FCCC_C0.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/SgCore/OSC/2.0.101/OSC.cxf,actgen_cxf"
 STATE="utd"
@@ -189,13 +190,13 @@ PARENT="<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/component/work/Blink/Blink.cxf,actgen_cxf"
 STATE="utd"
-TIME="1706806841"
-SIZE="1586"
+TIME="1707427289"
+SIZE="1924"
 ENDFILE
 VALUE "<project>/component/work/Blink/Blink.vhd,hdl"
 STATE="utd"
-TIME="1706806841"
-SIZE="2266"
+TIME="1707427288"
+SIZE="2738"
 PARENT="<project>/component/work/Blink/Blink.cxf"
 IS_READONLY="TRUE"
 ENDFILE
@@ -273,15 +274,40 @@ END_USE_CONSTRAINT
 USE_FOR_ANY_TOOL="FALSE"
 IS_READONLY="TRUE"
 ENDFILE
+VALUE "<project>/component/work/FCCC_C0/FCCC_C0.cxf,actgen_cxf"
+STATE="utd"
+TIME="1707417286"
+SIZE="10044"
+ENDFILE
+VALUE "<project>/component/work/FCCC_C0/FCCC_C0.vhd,hdl"
+STATE="utd"
+TIME="1707417286"
+SIZE="7080"
+PARENT="<project>/component/work/FCCC_C0/FCCC_C0.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>/component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.cxf,actgen_cxf"
+STATE="utd"
+TIME="1707417286"
+SIZE="673"
+PARENT="<project>/component/work/FCCC_C0/FCCC_C0.cxf"
+ENDFILE
+VALUE "<project>/component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.vhd,hdl"
+STATE="utd"
+TIME="1707417286"
+SIZE="5395"
+PARENT="<project>/component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.cxf"
+IS_READONLY="TRUE"
+ENDFILE
 VALUE "<project>/constraint/io/user.pdc,io_pdc"
 STATE="utd"
-TIME="1706806841"
-SIZE="946"
+TIME="1707427364"
+SIZE="1625"
 IS_TARGET="TRUE"
 ENDFILE
 VALUE "<project>/hdl/Main.vhd,hdl"
 STATE="utd"
-TIME="1707330544"
+TIME="1707427223"
 SIZE="1084"
 ENDFILE
 VALUE "<project>/simulation/CM3_compile_bfm.tcl,sim"
@@ -320,14 +346,14 @@ TIME="1706806841"
 SIZE="209"
 ENDFILE
 VALUE "<project>/synthesis/Blink.vm,syn_vm"
-STATE="ood"
+STATE="utd"
 TIME="1706806841"
 SIZE="1805"
 ENDFILE
 VALUE "<project>/synthesis/Blink_syn.prj,prj"
 STATE="utd"
-TIME="1706806841"
-SIZE="2529"
+TIME="1707323540"
+SIZE="2669"
 ENDFILE
 VALUE "<project>/synthesis/Blink_vm.sdc,syn_sdc"
 STATE="utd"
@@ -347,6 +373,28 @@ LIST "Blink::work"
 FILE "<project>/component/work/Blink/Blink.vhd,hdl"
 LIST PNRConstraints
 VALUE "<project>/constraint/io/user.pdc,io_pdc"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSYNTHESIS(<project>/synthesis/Blink.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSYNTHESIS(<project>/synthesis/Blink.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 ENDLIST
 LIST "Blink_sb::work"
@@ -445,16 +493,16 @@ EndProfile
 NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
-LOCATION="/usr/local/microchip/Libero_SoC_v2023.2/SynplifyPro/bin/synplify_pro"
-PARAM=""
-BATCH=0
+LOCATION="/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/bin/synplify_pro"
+PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
+BATCH=1
 LICENSE=""
 IS32BIT="1"
 EndProfile
 NAME="ModelSim ME Pro"
 FUNCTION="Simulation"
 TOOL="ModelSim Pro Edition"
-LOCATION="/usr/local/microchip/Libero_SoC_v2023.2/ModelSimPro/modeltech/linuxacoem/vsim"
+LOCATION="/home/summer/microchip/Libero_SoC_v2023.2/ModelSimPro/modeltech/linuxacoem/vsim"
 PARAM=""
 BATCH=0
 LICENSE=""
@@ -463,7 +511,7 @@ EndProfile
 NAME="Identify Debugger"
 FUNCTION="IdentifyDebugger"
 TOOL="Identify Debugger"
-LOCATION="/usr/local/microchip/Libero_SoC_v2023.2/Identify/bin/identify_debugger"
+LOCATION="/home/summer/microchip/Libero_SoC_v2023.2/Identify/bin/identify_debugger"
 PARAM=""
 BATCH=0
 LICENSE=""
@@ -471,6 +519,28 @@ IS32BIT="1"
 EndProfile
 ENDLIST
 LIST ProjectState5.1
+LIST "Blink::work"
+LIST Impl1
+ideSYNTHESIS(<project>/synthesis/Blink.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSYNTHESIS(<project>/synthesis/Blink.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
 ENDLIST
 LIST ExcludePackageForSimulation
 ENDLIST
@@ -484,17 +554,19 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
-StartPage;StartPage;0
+Reports;Reports;0
+ReportsCurrentItem;Generate Bitstream:Blink_generateBitstream.log
 SmartDesign;Blink;0
 HDL;hdl/Main.vhd;0
 Constraint Manager;Constraint Manager;0
 HDL;component/Actel/SgCore/OSC/2.0.101/osc_comps.vhd;0
-Reports;Reports;0
-ReportsCurrentItem;Generate Bitstream:Blink_generateBitstream.log
-ACTIVEVIEW;component/Actel/SgCore/OSC/2.0.101/osc_comps.vhd
+HDL;constraint/io/user.pdc;0
+StartPage;StartPage;0
+ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
 LIST "Blink::work","component/work/Blink/Blink.vhd","TRUE","FALSE"
+SUBBLOCK "FCCC_C0::work","component/work/FCCC_C0/FCCC_C0.vhd","TRUE","FALSE"
 SUBBLOCK "Main::work","hdl/Main.vhd","FALSE","FALSE"
 ENDLIST
 LIST "Blink_sb::work","component/work/Blink_sb/Blink_sb.vhd","TRUE","FALSE"
@@ -520,6 +592,11 @@ ENDLIST
 LIST "MSS_025::work","component/work/Blink_sb_MSS/Blink_sb_MSS_syn.vhd","FALSE","FALSE"
 ENDLIST
 LIST "RCOSC_25_50MHZ::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.vhd","FALSE","FALSE"
+ENDLIST
+LIST "FCCC_C0::work","component/work/FCCC_C0/FCCC_C0.vhd","TRUE","FALSE"
+SUBBLOCK "FCCC_C0_FCCC_C0_0_FCCC::work","component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.vhd","FALSE","FALSE"
+ENDLIST
+LIST "FCCC_C0_FCCC_C0_0_FCCC::work","component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.vhd","FALSE","FALSE"
 ENDLIST
 LIST "Main::work","hdl/Main.vhd","FALSE","FALSE"
 ENDLIST

@@ -1,14 +1,15 @@
 --
 -- Synopsys
--- Vhdl wrapper for top level design, written on Wed Jan 31 10:57:28 2024
+-- Vhdl wrapper for top level design, written on Thu Feb  8 14:21:37 2024
 --
 library ieee;
 use ieee.std_logic_1164.all;
 
 entity wrapper_for_Blink is
    port (
-      port_name1 : in std_logic;
-      port_name2 : out std_logic
+      clk : in std_logic;
+      debug1 : in std_logic;
+      debug : out std_logic_vector(8 downto 2)
    );
 end wrapper_for_Blink;
 
@@ -16,24 +17,29 @@ architecture rtl of wrapper_for_Blink is
 
 component Blink
  port (
-   port_name1 : in std_logic;
-   port_name2 : out std_logic
+   clk : in std_logic;
+   debug1 : in std_logic;
+   debug : out std_logic_vector (8 downto 2)
  );
 end component;
 
-signal tmp_port_name1 : std_logic;
-signal tmp_port_name2 : std_logic;
+signal tmp_clk : std_logic;
+signal tmp_debug1 : std_logic;
+signal tmp_debug : std_logic_vector (8 downto 2);
 
 begin
 
-tmp_port_name1 <= port_name1;
+tmp_clk <= clk;
 
-port_name2 <= tmp_port_name2;
+tmp_debug1 <= debug1;
+
+debug <= tmp_debug;
 
 
 
 u1:   Blink port map (
-		port_name1 => tmp_port_name1,
-		port_name2 => tmp_port_name2
+		clk => tmp_clk,
+		debug1 => tmp_debug1,
+		debug => tmp_debug
        );
 end rtl;

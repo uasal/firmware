@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------
--- Created by SmartDesign Wed Jan 31 10:57:18 2024
--- Version: 2023.2 2023.2.0.8
+-- Created by SmartDesign Thu Feb  8 14:21:28 2024
+-- Version: 2023.2 2023.2.0.10
 ----------------------------------------------------------------------
 
 ----------------------------------------------------------------------
@@ -18,9 +18,10 @@ entity Blink is
     -- Port list
     port(
         -- Inputs
-        port_name1 : in  std_logic;
+        clk    : in  std_logic;
+        debug1 : in  std_logic;
         -- Outputs
-        port_name2 : out std_logic
+        debug  : out std_logic_vector(8 downto 2)
         );
 end Blink;
 ----------------------------------------------------------------------
@@ -30,38 +31,61 @@ architecture RTL of Blink is
 ----------------------------------------------------------------------
 -- Component declarations
 ----------------------------------------------------------------------
+-- FCCC_C0
+component FCCC_C0
+    -- Port list
+    port(
+        -- Inputs
+        CLK0 : in  std_logic;
+        -- Outputs
+        GL0  : out std_logic;
+        LOCK : out std_logic
+        );
+end component;
 -- Main
 component Main
     -- Port list
     port(
         -- Inputs
-        port_name1 : in  std_logic;
+        clk    : in  std_logic;
+        debug1 : in  std_logic;
         -- Outputs
-        port_name2 : out std_logic
+        debug  : out std_logic_vector(8 downto 2)
         );
 end component;
 ----------------------------------------------------------------------
 -- Signal declarations
 ----------------------------------------------------------------------
-signal port_name2_net_0 : std_logic;
-signal port_name2_net_1 : std_logic;
+signal debug_net_0   : std_logic_vector(8 downto 2);
+signal FCCC_C0_0_GL0 : std_logic;
+signal debug_net_1   : std_logic_vector(8 downto 2);
 
 begin
 ----------------------------------------------------------------------
 -- Top level output port assignments
 ----------------------------------------------------------------------
- port_name2_net_1 <= port_name2_net_0;
- port_name2       <= port_name2_net_1;
+ debug_net_1       <= debug_net_0;
+ debug(8 downto 2) <= debug_net_1;
 ----------------------------------------------------------------------
 -- Component instances
 ----------------------------------------------------------------------
+-- FCCC_C0_0
+FCCC_C0_0 : FCCC_C0
+    port map( 
+        -- Inputs
+        CLK0 => clk,
+        -- Outputs
+        GL0  => FCCC_C0_0_GL0,
+        LOCK => OPEN 
+        );
 -- Main_0
 Main_0 : Main
     port map( 
         -- Inputs
-        port_name1 => port_name1,
+        clk    => FCCC_C0_0_GL0,
+        debug1 => debug1,
         -- Outputs
-        port_name2 => port_name2_net_0 
+        debug  => debug_net_0 
         );
 
 end RTL;
