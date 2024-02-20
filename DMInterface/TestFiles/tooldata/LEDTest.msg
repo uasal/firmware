@@ -17,5 +17,3 @@ Implementation;Synthesis||FX1184||@N: Applying syn_allowed_resources blockrams=3
 Implementation;Synthesis||FX1143||@N: Skipping assigning INTERNAL_VREF to iobanks, because the table of mapping from pin to iobank is not initialized.||Blink.srr(274);liberoaction://cross_probe/hdl/file/'<project>/synthesis/Blink.srr'/linenumber/274||null;null
 Implementation;Place and Route;RootName:Blink
 Implementation;Place and Route||(null)||Please refer to the log file for details about 5 Warning(s) , 4 Info(s)||Blink_layout_log.log;liberoaction://open_report/file/Blink_layout_log.log||(null);(null)
-Implementation;Generate Bitstream;RootName:Blink
-Implementation;Generate Bitstream||(null)||Please refer to the log file for details about 1 Info(s)||Blink_generateBitstream.log;liberoaction://open_report/file/Blink_generateBitstream.log||(null);(null)

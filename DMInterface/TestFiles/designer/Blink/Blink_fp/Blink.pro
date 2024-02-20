@@ -17,6 +17,14 @@
     <ProgrammingInterface>
         JTAGMode
     </ProgrammingInterface>
+    <programmer status="enable" type="FlashPro6" revision="UndefRev" connection="UndefConn">
+        <name>
+            16B058E
+        </name>
+        <id>
+            16B058E
+        </id>
+    </programmer>
     <Servers>
     </Servers>
     <configuration>
@@ -63,8 +71,9 @@
                 </ClkMode>
             </FlashPro5>
             <FlashPro6>
+                <ForceTCK/>
                 <TCK>
-                    4000000
+                    1000000
                 </TCK>
                 <SCK>
                     20000000

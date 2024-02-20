@@ -8,7 +8,7 @@
 
 # Family: SmartFusion2 , Die: M2S025 , Package: 256 VF , Speed grade: -1 
 
-# Date generated: Thu Feb  8 14:23:04 2024 
+# Date generated: Fri Feb 16 14:23:40 2024 
 
 
 #
@@ -16,14 +16,14 @@
 #
 
 set_io clk -DIRECTION INPUT -pinname H16 -fixed no
-set_io debug1 -DIRECTION INPUT -pinname L1 -fixed no
-set_io debug\[2\] -DIRECTION OUTPUT -pinname K1 -fixed no
-set_io debug\[3\] -DIRECTION OUTPUT -pinname J5 -fixed no
-set_io debug\[4\] -DIRECTION OUTPUT -pinname J3 -fixed no
-set_io debug\[5\] -DIRECTION OUTPUT -pinname J2 -fixed no
-set_io debug\[6\] -DIRECTION OUTPUT -pinname J1 -fixed no
-set_io debug\[7\] -DIRECTION OUTPUT -pinname H1 -fixed no
-set_io debug\[8\] -DIRECTION OUTPUT -pinname H5 -fixed no
+set_io debugA1 -DIRECTION INPUT -pinname L1 -fixed no
+set_io debugA\[2\] -DIRECTION OUTPUT -pinname K1 -fixed no
+set_io debugA\[3\] -DIRECTION OUTPUT -pinname J5 -fixed no
+set_io debugA\[4\] -DIRECTION OUTPUT -pinname J3 -fixed no
+set_io debugA\[5\] -DIRECTION OUTPUT -pinname J2 -fixed no
+set_io debugA\[6\] -DIRECTION OUTPUT -pinname J1 -fixed no
+set_io debugA\[7\] -DIRECTION OUTPUT -pinname H1 -fixed no
+set_io debugA\[8\] -DIRECTION OUTPUT -pinname H5 -fixed no
 
 #
 # Core cell constraints

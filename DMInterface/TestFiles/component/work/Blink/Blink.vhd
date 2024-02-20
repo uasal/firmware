@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- Created by SmartDesign Thu Feb  8 14:21:28 2024
+-- Created by SmartDesign Fri Feb 16 14:21:06 2024
 -- Version: 2023.2 2023.2.0.10
 ----------------------------------------------------------------------
 
@@ -18,10 +18,10 @@ entity Blink is
     -- Port list
     port(
         -- Inputs
-        clk    : in  std_logic;
-        debug1 : in  std_logic;
+        clk     : in  std_logic;
+        debugA1 : in  std_logic;
         -- Outputs
-        debug  : out std_logic_vector(8 downto 2)
+        debugA  : out std_logic_vector(8 downto 2)
         );
 end Blink;
 ----------------------------------------------------------------------
@@ -47,25 +47,25 @@ component Main
     -- Port list
     port(
         -- Inputs
-        clk    : in  std_logic;
-        debug1 : in  std_logic;
+        clk     : in  std_logic;
+        debugA1 : in  std_logic;
         -- Outputs
-        debug  : out std_logic_vector(8 downto 2)
+        debugA  : out std_logic_vector(8 downto 2)
         );
 end component;
 ----------------------------------------------------------------------
 -- Signal declarations
 ----------------------------------------------------------------------
-signal debug_net_0   : std_logic_vector(8 downto 2);
+signal debugA_net_0  : std_logic_vector(8 downto 2);
 signal FCCC_C0_0_GL0 : std_logic;
-signal debug_net_1   : std_logic_vector(8 downto 2);
+signal debugA_net_1  : std_logic_vector(8 downto 2);
 
 begin
 ----------------------------------------------------------------------
 -- Top level output port assignments
 ----------------------------------------------------------------------
- debug_net_1       <= debug_net_0;
- debug(8 downto 2) <= debug_net_1;
+ debugA_net_1       <= debugA_net_0;
+ debugA(8 downto 2) <= debugA_net_1;
 ----------------------------------------------------------------------
 -- Component instances
 ----------------------------------------------------------------------
@@ -82,10 +82,10 @@ FCCC_C0_0 : FCCC_C0
 Main_0 : Main
     port map( 
         -- Inputs
-        clk    => FCCC_C0_0_GL0,
-        debug1 => debug1,
+        clk     => FCCC_C0_0_GL0,
+        debugA1 => debugA1,
         -- Outputs
-        debug  => debug_net_0 
+        debugA  => debugA_net_0 
         );
 
 end RTL;

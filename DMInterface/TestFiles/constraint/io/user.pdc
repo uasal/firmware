@@ -31,47 +31,87 @@ set_io clk            \
     -iostd LVCMOS33   \
     -DIRECTION INPUT
 
-set_io debug1            \
+set_io debugA1            \
     -pinname L1      \
     -fixed yes        \
     -DIRECTION INPUT
 
 
-    set_io {debug[2]}      \
+    set_io {debugA[2]}      \
     -pinname K1        \
     -fixed yes         \
     -DIRECTION OUTPUT
     
-    set_io {debug[3]}      \
+     set_io {debugA[3]}      \
     -pinname J5        \
     -fixed yes         \
     -DIRECTION OUTPUT
     
-    set_io {debug[4]}      \
+     set_io {debugA[4]}      \
     -pinname J3        \
     -fixed yes         \
     -DIRECTION OUTPUT
     
-    set_io {debug[5]}      \
+    set_io {debugA[5]}      \
     -pinname J2        \
     -fixed yes         \
     -DIRECTION OUTPUT
     
-    set_io {debug[6]}      \
+    set_io {debugA[6]}      \
     -pinname J1        \
     -fixed yes         \
     -DIRECTION OUTPUT
     
-    set_io {debug[7]}      \
+    set_io {debugA[7]}      \
     -pinname H1        \
     -fixed yes         \
     -DIRECTION OUTPUT
     
-    set_io {debug[8]}      \
+    set_io {debugA[8]}      \
     -pinname H5        \
     -fixed yes         \
     -DIRECTION OUTPUT
 
+#set_io debugB1            \
+    -pinname H5      \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+
+    #set_io {debugB[2]}      \
+    -pinname H1        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+    
+    #set_io {debugB[3]}      \
+    -pinname J3        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+    
+    #set_io {debugB[4]}      \
+    -pinname J5        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+    
+    #set_io {debugB[5]}      \
+    -pinname J1        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+    
+    #set_io {debugB[6]}      \
+    -pinname J2        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+    
+    #set_io {debugB[7]}      \
+    -pinname K1        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+    
+    #set_io {debugB[8]}      \
+    -pinname L1        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
 
 
 # 

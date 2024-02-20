@@ -2,7 +2,7 @@
 // Written by Synplify Pro 
 // Product Version "T-2022.09M-SP2-1"
 // Program "Synplify Pro", Mapper "map202209actsp2, Build 145R"
-// Thu Feb  8 14:21:40 2024
+// Fri Feb 16 14:21:13 2024
 //
 // Source file index table:
 // Object locations will have the form <file>:<line>
@@ -25,13 +25,13 @@
 
 `timescale 100 ps/100 ps
 module FCCC_C0_FCCC_C0_0_FCCC (
-  debug_c_0,
+  debugA_c_0,
   clk_c
 )
 ;
-output debug_c_0 ;
+output debugA_c_0 ;
 input clk_c ;
-wire debug_c_0 ;
+wire debugA_c_0 ;
 wire clk_c ;
 wire [7:0] PRDATA;
 wire GL0_net ;
@@ -48,7 +48,7 @@ wire GL2 ;
 wire GL3 ;
 // @9:103
   CLKINT GL0_INST (
-	.Y(debug_c_0),
+	.Y(debugA_c_0),
 	.A(GL0_net)
 );
 // @9:106
@@ -113,19 +113,19 @@ defparam CCC_INST.VCOFREQUENCY=816.0;
 endmodule /* FCCC_C0_FCCC_C0_0_FCCC */
 
 module FCCC_C0 (
-  debug_c_0,
+  debugA_c_0,
   clk_c
 )
 ;
-output debug_c_0 ;
+output debugA_c_0 ;
 input clk_c ;
-wire debug_c_0 ;
+wire debugA_c_0 ;
 wire clk_c ;
 wire GND ;
 wire VCC ;
 // @12:205
   FCCC_C0_FCCC_C0_0_FCCC FCCC_C0_0 (
-	.debug_c_0(debug_c_0),
+	.debugA_c_0(debugA_c_0),
 	.clk_c(clk_c)
 );
   GND GND_Z (
@@ -138,68 +138,68 @@ endmodule /* FCCC_C0 */
 
 module Blink (
   clk,
-  debug1,
-  debug
+  debugA1,
+  debugA
 )
 ;
 input clk ;
-input debug1 ;
-output [8:2] debug ;
+input debugA1 ;
+output [8:2] debugA ;
 wire clk ;
-wire debug1 ;
-wire [8:8] debug_c;
+wire debugA1 ;
+wire [8:8] debugA_c;
 wire GND ;
 wire VCC ;
 wire clk_c ;
-wire debug1_c ;
+wire debugA1_c ;
 // @13:21
   INBUF clk_ibuf (
 	.Y(clk_c),
 	.PAD(clk)
 );
 // @13:22
-  INBUF debug1_ibuf (
-	.Y(debug1_c),
-	.PAD(debug1)
+  INBUF debugA1_ibuf (
+	.Y(debugA1_c),
+	.PAD(debugA1)
 );
 // @13:24
-  OUTBUF \debug_obuf[2]  (
-	.PAD(debug[2]),
-	.D(debug1_c)
+  OUTBUF \debugA_obuf[2]  (
+	.PAD(debugA[2]),
+	.D(debugA1_c)
 );
 // @13:24
-  OUTBUF \debug_obuf[3]  (
-	.PAD(debug[3]),
+  OUTBUF \debugA_obuf[3]  (
+	.PAD(debugA[3]),
 	.D(VCC)
 );
 // @13:24
-  OUTBUF \debug_obuf[4]  (
-	.PAD(debug[4]),
+  OUTBUF \debugA_obuf[4]  (
+	.PAD(debugA[4]),
 	.D(GND)
 );
 // @13:24
-  OUTBUF \debug_obuf[5]  (
-	.PAD(debug[5]),
+  OUTBUF \debugA_obuf[5]  (
+	.PAD(debugA[5]),
 	.D(VCC)
 );
 // @13:24
-  OUTBUF \debug_obuf[6]  (
-	.PAD(debug[6]),
+  OUTBUF \debugA_obuf[6]  (
+	.PAD(debugA[6]),
 	.D(GND)
 );
 // @13:24
-  OUTBUF \debug_obuf[7]  (
-	.PAD(debug[7]),
+  OUTBUF \debugA_obuf[7]  (
+	.PAD(debugA[7]),
 	.D(VCC)
 );
 // @13:24
-  OUTBUF \debug_obuf[8]  (
-	.PAD(debug[8]),
-	.D(debug_c[8])
+  OUTBUF \debugA_obuf[8]  (
+	.PAD(debugA[8]),
+	.D(debugA_c[8])
 );
 // @13:73
   FCCC_C0 FCCC_C0_0 (
-	.debug_c_0(debug_c[8]),
+	.debugA_c_0(debugA_c[8]),
 	.clk_c(clk_c)
 );
   GND GND_Z (

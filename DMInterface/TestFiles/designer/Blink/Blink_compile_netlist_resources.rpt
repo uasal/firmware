@@ -1,6 +1,6 @@
 Resource Report
 Microchip Technology Inc. - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)
-Date: Thu Feb  8 14:21:42 2024
+Date: Fri Feb 16 14:21:16 2024
 
 Device Selection
 +--------------------------------+----------------+
@@ -87,7 +87,7 @@ Nets assigned to chip global resources
 +--------+---------+----------------------------------------------+
 | Fanout | Type    | Name                                         |
 +--------+---------+----------------------------------------------+
-| 1      | INT_NET | Net   : debug_c[8]                           |
+| 1      | INT_NET | Net   : debugA_c[8]                          |
 |        |         | Driver: FCCC_C0_0/FCCC_C0_0/GL0_INST/U0_RGB1 |
 |        |         | Source: NETLIST                              |
 +--------+---------+----------------------------------------------+
@@ -106,8 +106,8 @@ High fanout nets
 |        |         | Driver: FCCC_C0_0/FCCC_C0_0/GL0_INST           |
 | 1      | INT_NET | Net   : clk_c                                  |
 |        |         | Driver: clk_ibuf                               |
-| 1      | INT_NET | Net   : debug1_c                               |
-|        |         | Driver: debug1_ibuf                            |
+| 1      | INT_NET | Net   : debugA1_c                              |
+|        |         | Driver: debugA1_ibuf                           |
 | 1      | INT_NET | Net   : ff_to_start_net                        |
 |        |         | Driver: flash_freeze_inst/INST_FLASH_FREEZE_IP |
 +--------+---------+------------------------------------------------+
@@ -120,8 +120,8 @@ High fanout nets (through buffer trees)
 |        |         | Driver: FCCC_C0_0/FCCC_C0_0/GL0_INST           |
 | 1      | INT_NET | Net   : clk_c                                  |
 |        |         | Driver: clk_ibuf                               |
-| 1      | INT_NET | Net   : debug1_c                               |
-|        |         | Driver: debug1_ibuf                            |
+| 1      | INT_NET | Net   : debugA1_c                              |
+|        |         | Driver: debugA1_ibuf                           |
 | 1      | INT_NET | Net   : ff_to_start_net                        |
 |        |         | Driver: flash_freeze_inst/INST_FLASH_FREEZE_IP |
 +--------+---------+------------------------------------------------+
