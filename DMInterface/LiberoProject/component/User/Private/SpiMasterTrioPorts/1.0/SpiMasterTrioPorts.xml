@@ -13,15 +13,6 @@
         <spirit:componentSignalName>DataToMosiA</spirit:componentSignalName><spirit:busSignalName>PWDATA</spirit:busSignalName></spirit:signalName></spirit:signalMap>
     <spirit:vendorExtensions></spirit:vendorExtensions>
   </spirit:busInterface>
-  <spirit:busInterface>
-    <spirit:name>BIF_2</spirit:name>
-    <spirit:busType spirit:vendor="AMBA" spirit:library="AMBA2" spirit:name="APB" spirit:version="r0p0"/>
-    <spirit:slave></spirit:slave>
-    <spirit:signalMap>
-      <spirit:signalName>
-        <spirit:componentSignalName>DataToMosiB</spirit:componentSignalName><spirit:busSignalName>PWDATA</spirit:busSignalName></spirit:signalName></spirit:signalMap>
-    <spirit:vendorExtensions></spirit:vendorExtensions>
-  </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:memoryMaps>
   </spirit:memoryMaps>

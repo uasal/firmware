@@ -1,4 +1,4 @@
-# Wed Jan 31 16:43:19 2024
+# Fri Mar 29 14:03:34 2024
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -25,7 +25,7 @@ Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:0
 Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 127MB peak: 138MB)
 
 
-Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 128MB peak: 138MB)
+Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 127MB peak: 138MB)
 
 
 Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 129MB peak: 138MB)
@@ -35,51 +35,21 @@ Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h
 
 
 
-Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 173MB peak: 173MB)
+Starting Optimization and Mapping (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 173MB peak: 173MB)
 
 @N: MO111 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\component\work\evalsandbox_mss\fabosc_0\evalsandbox_mss_fabosc_0_osc.v":20:7:20:16|Tristate driver XTLOSC_O2F (in view: work.EvalSandbox_MSS_FABOSC_0_OSC(verilog)) on net XTLOSC_O2F (in view: work.EvalSandbox_MSS_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\component\work\evalsandbox_mss\fabosc_0\evalsandbox_mss_fabosc_0_osc.v":19:7:19:16|Tristate driver XTLOSC_CCC (in view: work.EvalSandbox_MSS_FABOSC_0_OSC(verilog)) on net XTLOSC_CCC (in view: work.EvalSandbox_MSS_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\component\work\evalsandbox_mss\fabosc_0\evalsandbox_mss_fabosc_0_osc.v":18:7:18:20|Tristate driver RCOSC_1MHZ_O2F (in view: work.EvalSandbox_MSS_FABOSC_0_OSC(verilog)) on net RCOSC_1MHZ_O2F (in view: work.EvalSandbox_MSS_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\component\work\evalsandbox_mss\fabosc_0\evalsandbox_mss_fabosc_0_osc.v":17:7:17:20|Tristate driver RCOSC_1MHZ_CCC (in view: work.EvalSandbox_MSS_FABOSC_0_OSC(verilog)) on net RCOSC_1MHZ_CCC (in view: work.EvalSandbox_MSS_FABOSC_0_OSC(verilog)) has its enable tied to GND.
+@N: MO111 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\component\work\evalsandbox_mss\fabosc_0\evalsandbox_mss_fabosc_0_osc.v":15:7:15:24|Tristate driver RCOSC_25_50MHZ_CCC (in view: work.EvalSandbox_MSS_FABOSC_0_OSC(verilog)) on net RCOSC_25_50MHZ_CCC (in view: work.EvalSandbox_MSS_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @W: BN132 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\component\actel\directcore\coreresetp\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Removing sequential instance EvalSandbox_MSS_0.CORERESETP_0.sdif3_spll_lock_q1 because it is equivalent to instance EvalSandbox_MSS_0.CORERESETP_0.CONFIG2_DONE_q1. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\component\actel\directcore\coreresetp\7.1.100\rtl\vlog\core\coreresetp.v":946:4:946:9|Removing sequential instance EvalSandbox_MSS_0.CORERESETP_0.CONFIG2_DONE_q1 because it is equivalent to instance EvalSandbox_MSS_0.CORERESETP_0.CONFIG1_DONE_q1. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\component\actel\directcore\coreresetp\7.1.100\rtl\vlog\core\coreresetp.v":946:4:946:9|Removing sequential instance EvalSandbox_MSS_0.CORERESETP_0.CONFIG2_DONE_clk_base because it is equivalent to instance EvalSandbox_MSS_0.CORERESETP_0.sdif3_spll_lock_q2. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\component\actel\directcore\coreresetp\7.1.100\rtl\vlog\core\coreresetp.v":929:4:929:9|Removing sequential instance EvalSandbox_MSS_0.CORERESETP_0.CONFIG1_DONE_clk_base because it is equivalent to instance EvalSandbox_MSS_0.CORERESETP_0.sdif3_spll_lock_q2. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN114 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\component\work\evalsandbox_mss\evalsandbox_mss.v":661:9:661:20|Removing instance EvalSandbox_MSS_0.SYSRESET_POR (in view: work.EvalBoardSandbox(verilog)) because it does not drive other instances.
-@N: BN115 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\component\work\evalsandbox_mss\evalsandbox_mss.v":546:0:546:11|Removing instance EvalSandbox_MSS_0.CORERESETP_0 (in view: work.EvalBoardSandbox(verilog)) because it does not drive other instances.
-@W: BN132 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance SpiMasterSextetPorts_0.DataToMosiF_i[7:0] because it is equivalent to instance SpiMasterSextetPorts_0.DataToMosiE_i[7:0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance SpiMasterSextetPorts_0.DataToMosiE_i[7:0] because it is equivalent to instance SpiMasterSextetPorts_0.DataToMosiD_i[7:0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance SpiMasterSextetPorts_0.DataToMosiD_i[7:0] because it is equivalent to instance SpiMasterSextetPorts_0.DataToMosiC_i[7:0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance SpiMasterSextetPorts_0.DataToMosiC_i[7:0] because it is equivalent to instance SpiMasterSextetPorts_0.DataToMosiB_i[7:0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance SpiMasterSextetPorts_0.DataToMosiB_i[7:0] because it is equivalent to instance SpiMasterSextetPorts_0.DataToMosiA_i[7:0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":255:66:255:75|Removing user instance SpiMasterSextetPorts_0.SckF_i_1 because it is equivalent to instance SpiMasterSextetPorts_0.SckE_i_1. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":254:66:254:75|Removing user instance SpiMasterSextetPorts_0.SckE_i_1 because it is equivalent to instance SpiMasterSextetPorts_0.SckC_i_1. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":253:66:253:75|Removing user instance SpiMasterSextetPorts_0.SckD_i_1 because it is equivalent to instance SpiMasterSextetPorts_0.SckB_i_1. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":252:66:252:75|Removing user instance SpiMasterSextetPorts_0.SckC_i_1 because it is equivalent to instance SpiMasterSextetPorts_0.SckA_i_2. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance SpiMasterSextetPorts_0.SckF_i because it is equivalent to instance SpiMasterSextetPorts_0.SckE_i. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance SpiMasterSextetPorts_0.SckE_i because it is equivalent to instance SpiMasterSextetPorts_0.SckC_i. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance SpiMasterSextetPorts_0.SckD_i because it is equivalent to instance SpiMasterSextetPorts_0.SckB_i. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance SpiMasterSextetPorts_0.SckC_i because it is equivalent to instance SpiMasterSextetPorts_0.SckA_i. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@A: BN291 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Boundary register SckC_i (in view: work.work_spimastersextetports_spimastersextet_1000_1_\'0\'_\'0\'_1_CLOCK_DIVIDERBYTE_WIDTH(spimastersextet)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
-@A: BN291 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Boundary register SckD_i (in view: work.work_spimastersextetports_spimastersextet_1000_1_\'0\'_\'0\'_1_CLOCK_DIVIDERBYTE_WIDTH(spimastersextet)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
-@A: BN291 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Boundary register SckE_i (in view: work.work_spimastersextetports_spimastersextet_1000_1_\'0\'_\'0\'_1_CLOCK_DIVIDERBYTE_WIDTH(spimastersextet)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
-@A: BN291 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Boundary register SckF_i (in view: work.work_spimastersextetports_spimastersextet_1000_1_\'0\'_\'0\'_1_CLOCK_DIVIDERBYTE_WIDTH(spimastersextet)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
-@W: BN132 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance SpiMasterSextetPorts_0.SckB_i because it is equivalent to instance SpiMasterSextetPorts_0.SckA_i. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@A: BN291 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Boundary register SckB_i (in view: work.work_spimastersextetports_spimastersextet_1000_1_\'0\'_\'0\'_1_CLOCK_DIVIDERBYTE_WIDTH(spimastersextet)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
-@N: BN362 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance DataFromMisoF_1[7] (in view: work.work_spimastersextetports_spimastersextet_1000_1_\'0\'_\'0\'_1_CLOCK_DIVIDERBYTE_WIDTH(spimastersextet)) of type view:PrimLib.dffrs(prim) because it does not drive other instances.
-@N: BN362 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance DataFromMisoE_1[7] (in view: work.work_spimastersextetports_spimastersextet_1000_1_\'0\'_\'0\'_1_CLOCK_DIVIDERBYTE_WIDTH(spimastersextet)) of type view:PrimLib.dffrs(prim) because it does not drive other instances.
-@N: BN362 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance DataFromMisoD_1[7] (in view: work.work_spimastersextetports_spimastersextet_1000_1_\'0\'_\'0\'_1_CLOCK_DIVIDERBYTE_WIDTH(spimastersextet)) of type view:PrimLib.dffrs(prim) because it does not drive other instances.
-@N: BN362 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance DataFromMisoC_1[7] (in view: work.work_spimastersextetports_spimastersextet_1000_1_\'0\'_\'0\'_1_CLOCK_DIVIDERBYTE_WIDTH(spimastersextet)) of type view:PrimLib.dffrs(prim) because it does not drive other instances.
-@N: BN362 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance DataFromMisoB_1[7] (in view: work.work_spimastersextetports_spimastersextet_1000_1_\'0\'_\'0\'_1_CLOCK_DIVIDERBYTE_WIDTH(spimastersextet)) of type view:PrimLib.dffrs(prim) because it does not drive other instances.
-@N: BN362 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance DataFromMisoA_1[7] (in view: work.work_spimastersextetports_spimastersextet_1000_1_\'0\'_\'0\'_1_CLOCK_DIVIDERBYTE_WIDTH(spimastersextet)) of type view:PrimLib.dffrs(prim) because it does not drive other instances.
-@N: BN362 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance DataFromMisoF_1[6:0] (in view: work.work_spimastersextetports_spimastersextet_1000_1_\'0\'_\'0\'_1_CLOCK_DIVIDERBYTE_WIDTH(spimastersextet)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
-@N: BN362 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance DataFromMisoE_1[6:0] (in view: work.work_spimastersextetports_spimastersextet_1000_1_\'0\'_\'0\'_1_CLOCK_DIVIDERBYTE_WIDTH(spimastersextet)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
-@N: BN362 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance DataFromMisoD_1[6:0] (in view: work.work_spimastersextetports_spimastersextet_1000_1_\'0\'_\'0\'_1_CLOCK_DIVIDERBYTE_WIDTH(spimastersextet)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
-@N: BN362 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance DataFromMisoC_1[6:0] (in view: work.work_spimastersextetports_spimastersextet_1000_1_\'0\'_\'0\'_1_CLOCK_DIVIDERBYTE_WIDTH(spimastersextet)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
-@N: BN362 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance DataFromMisoB_1[6:0] (in view: work.work_spimastersextetports_spimastersextet_1000_1_\'0\'_\'0\'_1_CLOCK_DIVIDERBYTE_WIDTH(spimastersextet)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
-@N: BN362 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimastersextet.vhd":129:2:129:3|Removing sequential instance DataFromMisoA_1[6:0] (in view: work.work_spimastersextetports_spimastersextet_1000_1_\'0\'_\'0\'_1_CLOCK_DIVIDERBYTE_WIDTH(spimastersextet)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
+@W: BN114 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\component\work\evalsandbox_mss\evalsandbox_mss.v":695:9:695:20|Removing instance EvalSandbox_MSS_0.SYSRESET_POR (in view: work.EvalBoardSandbox(verilog)) because it does not drive other instances.
+@N: BN115 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\component\work\evalsandbox_mss\evalsandbox_mss.v":575:0:575:11|Removing instance EvalSandbox_MSS_0.CORERESETP_0 (in view: work.EvalBoardSandbox(verilog)) because it does not drive other instances.
 
-Finished RTL optimizations (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 177MB peak: 177MB)
+Finished RTL optimizations (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 179MB peak: 179MB)
 
 @N: MO231 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\component\work\coreuartapb_c0\coreuartapb_c0_0\rtl\vlog\core_obfuscated\clock_gen.v":1011:0:1011:5|Found counter in view:work.CoreUARTapb_C0_CoreUARTapb_C0_0_Clock_gen_0s_0s(verilog) instance genblk1\.CUARTO0[12:0] 
 Encoding state machine CUARTlI0l[5:0] (in view: work.CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async_0s_0s_0s_1s_2s_3s_4s_5s_6s(verilog))
@@ -98,11 +68,12 @@ original code -> new code
    11 -> 11
 @N: MO225 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\component\work\coreuartapb_c0\coreuartapb_c0_0\rtl\vlog\core_obfuscated\rx_async.v":871:0:871:5|There are no possible illegal states for state machine CUARTll0[3:0] (in view: work.CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async_0s_0s_0s_1s_2s_3s(verilog)); safe FSM implementation is not required.
 @W: BN132 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\component\work\coreuartapb_c0\coreuartapb_c0_0\rtl\vlog\core_obfuscated\rx_async.v":754:0:754:5|Removing instance CoreUARTapb_C0_0.CoreUARTapb_C0_0.CUARTlOlI.CUARTO01.CUARTIOll[2] because it is equivalent to instance CoreUARTapb_C0_0.CoreUARTapb_C0_0.CUARTlOlI.CUARTO01.CUARTIOll[1]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@N: MO231 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\hdl\spimasterapb3.vhd":112:4:112:5|Found counter in view:work.work_spimasterports_spimaster_1000_3_1_CLOCK_DIVIDERBYTE_WIDTH(spimaster) instance ClkDiv[8:0] 
 
-Starting factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 179MB peak: 179MB)
+Starting factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 180MB peak: 180MB)
 
 
-Finished factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 181MB peak: 181MB)
+Finished factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 185MB peak: 185MB)
 
 
 Available hyper_sources - for debug and ip models
@@ -110,77 +81,82 @@ Available hyper_sources - for debug and ip models
 
 NConnInternalConnection caching is on
 
-Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 182MB peak: 182MB)
+Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:02s; Memory used current: 186MB peak: 186MB)
 
 
-Starting Early Timing Optimization (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 182MB peak: 182MB)
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 187MB peak: 187MB)
 
 
-Finished Early Timing Optimization (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 182MB peak: 183MB)
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 187MB peak: 188MB)
 
 
-Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 182MB peak: 183MB)
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 187MB peak: 188MB)
 
 
-Finished preparing to map (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 182MB peak: 183MB)
+Finished preparing to map (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 188MB peak: 188MB)
 
 
-Finished technology mapping (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 183MB peak: 183MB)
+Finished technology mapping (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 189MB peak: 189MB)
 
 Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
-   1		0h:00m:02s		     2.75ns		 221 /       141
-@N: FP130 |Promoting Net GPIO_1_M2F_arst on CLKINT  I_548 
-@N: FP130 |Promoting Net SpiMasterSextetPorts_0.un1_rst_12_arst on CLKINT  I_549 
-@N: FP130 |Promoting Net SpiMasterSextetPorts_0.un1_rst_7_arst on CLKINT  I_550 
+   1		0h:00m:03s		    -0.81ns		 828 /       555
+   2		0h:00m:03s		    -0.81ns		 810 /       555
+
+   3		0h:00m:03s		    -0.23ns		 825 /       555
+
+
+   4		0h:00m:03s		    -0.08ns		 827 /       555
+   5		0h:00m:03s		    -0.02ns		 827 /       555
+@N: FP130 |Promoting Net GPIO_1_M2F_arst on CLKINT  I_831 
 
 Added 0 Buffers
 Added 0 Cells via replication
 	Added 0 Sequential Cells via replication
 	Added 0 Combinational Cells via replication
 
-Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 183MB peak: 184MB)
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 190MB peak: 190MB)
 
 
-Finished restoring hierarchy (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 184MB peak: 184MB)
+Finished restoring hierarchy (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 190MB peak: 191MB)
 
 
-Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 184MB peak: 184MB)
+Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 190MB peak: 191MB)
 
 
-Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 184MB peak: 184MB)
+Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 190MB peak: 191MB)
 
 
-Start Writing Netlists (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 153MB peak: 184MB)
+Start Writing Netlists (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 155MB peak: 191MB)
 
 Writing Analyst data base C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\synthesis\synwork\EvalBoardSandbox_m.srm
 
-Finished Writing Netlist Databases (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 183MB peak: 184MB)
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 188MB peak: 191MB)
 
 Writing Verilog Simulation files
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
 @N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 
 
-Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 184MB peak: 184MB)
+Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 189MB peak: 191MB)
 
 
-Finished Writing Netlists (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 184MB peak: 185MB)
+Finished Writing Netlists (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:05s; Memory used current: 189MB peak: 191MB)
 
 
-Start final timing analysis (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 182MB peak: 185MB)
+Start final timing analysis (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 187MB peak: 191MB)
 
 @W: MT246 :"c:\users\skaye\repos\firmware\dminterface\liberoproject\component\work\evalsandbox_mss\ccc_0\evalsandbox_mss_ccc_0_fccc.v":20:36:20:43|Blackbox CCC is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results)
-@N: MT615 |Found clock EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT with period 20.00ns 
-@N: MT615 |Found clock EvalSandbox_MSS_0/CCC_0/GL0 with period 10.00ns 
+@N: MT615 |Found clock CLK0 with period 19.61ns 
+@N: MT615 |Found clock EvalSandbox_MSS_0/CCC_0/GL0 with period 9.80ns 
 
 
 ##### START OF TIMING REPORT #####[
-# Timing report written on Wed Jan 31 16:43:23 2024
+# Timing report written on Fri Mar 29 14:03:40 2024
 #
 
 
 Top view:               EvalBoardSandbox
-Requested Frequency:    50.0 MHz
+Requested Frequency:    51.0 MHz
 Wire load mode:         top
 Paths requested:        5
 Constraint File(s):    C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\designer\EvalBoardSandbox\synthesis.fdc
@@ -195,16 +171,17 @@ Performance Summary
 *******************
 
 
-Worst slack in design: 1.339
+Worst slack in design: 1.115
 
-                                                       Requested     Estimated     Requested     Estimated               Clock                                                                   Clock           
-Starting Clock                                         Frequency     Frequency     Period        Period        Slack     Type                                                                    Group           
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-EvalSandbox_MSS_0/CCC_0/GL0                            100.0 MHz     115.5 MHz     10.000        8.661         1.339     generated (from EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT)     default_clkgroup
-EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT     50.0 MHz      NA            20.000        NA            NA        declared                                                                default_clkgroup
-System                                                 100.0 MHz     NA            10.000        NA            NA        system                                                                  system_clkgroup 
-=================================================================================================================================================================================================================
+                                Requested     Estimated     Requested     Estimated               Clock                     Clock           
+Starting Clock                  Frequency     Frequency     Period        Period        Slack     Type                      Group           
+--------------------------------------------------------------------------------------------------------------------------------------------
+CLK0                            51.0 MHz      NA            19.608        NA            NA        declared                  default_clkgroup
+EvalSandbox_MSS_0/CCC_0/GL0     102.0 MHz     115.1 MHz     9.804         8.689         1.115     generated (from CLK0)     default_clkgroup
+System                          100.0 MHz     325.1 MHz     10.000        3.076         6.924     system                    system_clkgroup 
+============================================================================================================================================
 Estimated period and frequency reported as NA means no slack depends directly on the clock waveform
+@W: MT548 :"c:/users/skaye/repos/firmware/dminterface/liberoproject/designer/evalboardsandbox/synthesis.fdc":8:0:8:0|Source for clock EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT not found in netlist.
 
 
 
@@ -217,8 +194,9 @@ Clocks                                                    |    rise  to  rise   
 ------------------------------------------------------------------------------------------------------------------------------------------------
 Starting                     Ending                       |  constraint  slack  |  constraint  slack  |  constraint  slack  |  constraint  slack
 ------------------------------------------------------------------------------------------------------------------------------------------------
-EvalSandbox_MSS_0/CCC_0/GL0  System                       |  10.000      1.339  |  No paths    -      |  10.000      1.339  |  No paths    -    
-EvalSandbox_MSS_0/CCC_0/GL0  EvalSandbox_MSS_0/CCC_0/GL0  |  10.000      1.339  |  No paths    -      |  No paths    -      |  No paths    -    
+System                       EvalSandbox_MSS_0/CCC_0/GL0  |  9.804       6.924  |  No paths    -      |  No paths    -      |  No paths    -    
+EvalSandbox_MSS_0/CCC_0/GL0  System                       |  9.804       4.801  |  No paths    -      |  9.804       4.801  |  No paths    -    
+EvalSandbox_MSS_0/CCC_0/GL0  EvalSandbox_MSS_0/CCC_0/GL0  |  9.804       1.115  |  No paths    -      |  No paths    -      |  No paths    -    
 ================================================================================================================================================
  Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
        'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
@@ -245,37 +223,37 @@ Starting Points with Worst Slack
 Instance                                                   Reference                       Type        Pin                        Net                                                  Time        Slack
                                                            Clock                                                                                                                                        
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     I2C1_SCL_MGPIO1A_H2F_B     GPIO_1_M2F                                           2.929       1.339
-EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_WDATA[7]             popfeedthru_unused_0                                 2.915       1.439
-EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_WRITE                popfeedthru_unused                                   3.090       3.760
-EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_ADDR[15]             EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[15]             2.752       3.800
-EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_ADDR[13]             EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[13]             2.758       3.832
-EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_ADDR[3]              EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[3]              2.747       3.935
-EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_ENABLE               EvalSandbox_MSS_0_AMBA_SLAVE_0_PENABLE               2.890       3.991
-EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_SEL                  EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PSELx     2.803       4.022
-EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_ADDR[4]              EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[4]              2.751       4.071
-EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_ADDR[2]              EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[2]              2.777       4.116
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_SEL                  EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PSELx     2.803       1.115
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_ADDR[15]             EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[15]             2.752       1.117
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_ADDR[12]             EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[12]             2.723       1.183
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_ADDR[13]             EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[13]             2.758       1.243
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_ADDR[14]             EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[14]             2.729       1.435
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     I2C1_SCL_MGPIO1A_H2F_B     GPIO_1_M2F                                           2.929       1.904
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_WRITE                popfeedthru_unused                                   3.090       3.153
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_ENABLE               popfeedthru_unused_8                                 2.890       3.758
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_ADDR[2]              EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[2]              2.777       3.861
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_ADDR[3]              EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[3]              2.747       4.186
 ========================================================================================================================================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                                              Starting                                                               Required          
-Instance                                      Reference                       Type     Pin     Net                   Time         Slack
-                                              Clock                                                                                    
----------------------------------------------------------------------------------------------------------------------------------------
-SpiMasterSextetPorts_0.MosiA_i                EvalSandbox_MSS_0/CCC_0/GL0     SLE      ALn     un1_rst_12_arst_i     10.000       1.339
-SpiMasterSextetPorts_0.MosiB_i                EvalSandbox_MSS_0/CCC_0/GL0     SLE      ALn     un1_rst_12_arst_i     10.000       1.339
-SpiMasterSextetPorts_0.MosiC_i                EvalSandbox_MSS_0/CCC_0/GL0     SLE      ALn     un1_rst_12_arst_i     10.000       1.339
-SpiMasterSextetPorts_0.MosiD_i                EvalSandbox_MSS_0/CCC_0/GL0     SLE      ALn     un1_rst_12_arst_i     10.000       1.339
-SpiMasterSextetPorts_0.MosiE_i                EvalSandbox_MSS_0/CCC_0/GL0     SLE      ALn     un1_rst_12_arst_i     10.000       1.339
-SpiMasterSextetPorts_0.MosiF_i                EvalSandbox_MSS_0/CCC_0/GL0     SLE      ALn     un1_rst_12_arst_i     10.000       1.339
-SpiMasterSextetPorts_0.un1_rst_12_arst_rs     EvalSandbox_MSS_0/CCC_0/GL0     SLE      ALn     un1_rst_12_arst_i     10.000       1.339
-SpiMasterSextetPorts_0.un1_rst_13_arst_rs     EvalSandbox_MSS_0/CCC_0/GL0     SLE      ALn     un1_rst_12_arst_i     10.000       1.339
-SpiMasterSextetPorts_0.un1_rst_14_arst_rs     EvalSandbox_MSS_0/CCC_0/GL0     SLE      ALn     un1_rst_12_arst_i     10.000       1.339
-SpiMasterSextetPorts_0.un1_rst_15_arst_rs     EvalSandbox_MSS_0/CCC_0/GL0     SLE      ALn     un1_rst_12_arst_i     10.000       1.339
-=======================================================================================================================================
+                                                           Starting                                                                                                                  Required          
+Instance                                                   Reference                       Type        Pin                 Net                                                       Time         Slack
+                                                           Clock                                                                                                                                       
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_READY         N_5_i                                                     8.478        1.115
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_RDATA[12]     EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PRDATA[12]     9.360        1.203
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_RDATA[17]     EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PRDATA[17]     9.407        1.250
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_RDATA[18]     EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PRDATA[18]     9.408        1.251
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_RDATA[23]     EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PRDATA[23]     9.437        1.280
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_RDATA[22]     EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PRDATA[22]     9.444        1.287
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_RDATA[16]     EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PRDATA[16]     9.456        1.299
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_RDATA[21]     EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PRDATA[21]     9.460        1.303
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_RDATA[11]     EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PRDATA[11]     9.470        1.313
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     EvalSandbox_MSS_0/CCC_0/GL0     MSS_025     F_HM0_RDATA[8]      EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PRDATA[8]      9.486        1.329
+=======================================================================================================================================================================================================
 
 
 
@@ -284,38 +262,121 @@ Worst Path Information
 
 
 Path information for path number 1: 
-      Requested Period:                      10.000
-    - Setup time:                            0.000
+      Requested Period:                      9.804
+    - Setup time:                            1.326
     + Clock delay at ending point:           0.000 (ideal)
-    = Required time:                         10.000
+    = Required time:                         8.478
 
-    - Propagation time:                      8.661
+    - Propagation time:                      7.363
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (critical) :                     1.339
+    = Slack (critical) :                     1.115
 
-    Number of logic level(s):                3
-    Starting point:                          EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST / I2C1_SCL_MGPIO1A_H2F_B
-    Ending point:                            SpiMasterSextetPorts_0.MosiA_i / ALn
-    The start point is clocked by            EvalSandbox_MSS_0/CCC_0/GL0 [rising] (rise=0.000 fall=5.000 period=10.000) on pin CLK_BASE
-    The end   point is clocked by            EvalSandbox_MSS_0/CCC_0/GL0 [rising] (rise=0.000 fall=5.000 period=10.000) on pin CLK
+    Number of logic level(s):                4
+    Starting point:                          EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST / F_HM0_SEL
+    Ending point:                            EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST / F_HM0_READY
+    The start point is clocked by            EvalSandbox_MSS_0/CCC_0/GL0 [rising] (rise=0.000 fall=4.902 period=9.804) on pin CLK_BASE
+    The end   point is clocked by            EvalSandbox_MSS_0/CCC_0/GL0 [rising] (rise=0.000 fall=4.902 period=9.804) on pin CLK_BASE
 
-Instance / Net                                                         Pin                        Pin               Arrival     No. of    
-Name                                                       Type        Name                       Dir     Delay     Time        Fan Out(s)
+Instance / Net                                                                    Pin             Pin               Arrival     No. of    
+Name                                                                  Type        Name            Dir     Delay     Time        Fan Out(s)
 ------------------------------------------------------------------------------------------------------------------------------------------
-EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     MSS_025     I2C1_SCL_MGPIO1A_H2F_B     Out     2.929     2.929 r     -         
-GPIO_1_M2F                                                 Net         -                          -       0.971     -           3         
-SpiMasterSextetPorts_0.un1_rst_12                          CFG2        A                          In      -         3.900 r     -         
-SpiMasterSextetPorts_0.un1_rst_12                          CFG2        Y                          Out     0.067     3.967 r     -         
-un1_rst_12                                                 Net         -                          -       1.830     -           1         
-SpiMasterSextetPorts_0.un1_rst_12_RNIOQR2                  CLKINT      A                          In      -         5.798 r     -         
-SpiMasterSextetPorts_0.un1_rst_12_RNIOQR2                  CLKINT      Y                          Out     0.337     6.134 r     -         
-un1_rst_12_arst                                            Net         -                          -       1.450     -           1         
-SpiMasterSextetPorts_0.un1_rst_12_RNIOQR2_0                CFG1        A                          In      -         7.584 r     -         
-SpiMasterSextetPorts_0.un1_rst_12_RNIOQR2_0                CFG1        Y                          Out     0.087     7.671 f     -         
-un1_rst_12_arst_i                                          Net         -                          -       0.990     -           12        
-SpiMasterSextetPorts_0.MosiA_i                             SLE         ALn                        In      -         8.661 f     -         
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST                MSS_025     F_HM0_SEL       Out     2.803     2.803 f     -         
+EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PSELx                      Net         -               -       0.708     -           4         
+EvalSandbox_MSS_0.CoreAPB3_0.u_mux_p_to_b3.N_13_i_1                   CFG2        A               In      -         3.511 f     -         
+EvalSandbox_MSS_0.CoreAPB3_0.u_mux_p_to_b3.N_13_i_1                   CFG2        Y               Out     0.076     3.587 f     -         
+N_13_i_1                                                              Net         -               -       0.216     -           1         
+EvalSandbox_MSS_0.CoreAPB3_0.u_mux_p_to_b3.N_13_i                     CFG4        C               In      -         3.803 f     -         
+EvalSandbox_MSS_0.CoreAPB3_0.u_mux_p_to_b3.N_13_i                     CFG4        Y               Out     0.182     3.985 f     -         
+N_13_i                                                                Net         -               -       1.088     -           28        
+EvalSandbox_MSS_0.CoreAPB3_0.u_mux_p_to_b3.PREADY_u_i_a3_0_1          CFG2        B               In      -         5.074 f     -         
+EvalSandbox_MSS_0.CoreAPB3_0.u_mux_p_to_b3.PREADY_u_i_a3_0_1          CFG2        Y               Out     0.129     5.203 r     -         
+N_8_1                                                                 Net         -               -       1.064     -           25        
+EvalSandbox_MSS_0.CoreAPB3_0.u_mux_p_to_b3.PREADY_u_i_m3_RNIEM2E1     CFG4        B               In      -         6.267 r     -         
+EvalSandbox_MSS_0.CoreAPB3_0.u_mux_p_to_b3.PREADY_u_i_m3_RNIEM2E1     CFG4        Y               Out     0.125     6.391 f     -         
+N_5_i                                                                 Net         -               -       0.971     -           1         
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST                MSS_025     F_HM0_READY     In      -         7.363 f     -         
 ==========================================================================================================================================
-Total path delay (propagation time + setup) of 8.661 is 3.420(39.5%) logic and 5.241(60.5%) route.
+Total path delay (propagation time + setup) of 8.689 is 4.641(53.4%) logic and 4.048(46.6%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+
+
+====================================
+Detailed Report for Clock: System
+====================================
+
+
+
+Starting Points with Worst Slack
+********************************
+
+                                  Starting                                          Arrival          
+Instance                          Reference     Type     Pin     Net                Time        Slack
+                                  Clock                                                              
+-----------------------------------------------------------------------------------------------------
+SpiMasterPorts_3.un1_rst_2_rs     System        SLE      Q       un1_rst_2_rs_1     0.094       6.924
+SpiMasterPorts_5.un1_rst_2_rs     System        SLE      Q       un1_rst_2_rs       0.094       6.991
+SpiMasterPorts_1.un1_rst_2_rs     System        SLE      Q       un1_rst_2_rs_3     0.094       7.030
+SpiMasterPorts_2.un1_rst_2_rs     System        SLE      Q       un1_rst_2_rs_2     0.094       7.098
+SpiMasterPorts_0.un1_rst_2_rs     System        SLE      Q       un1_rst_2_rs_4     0.094       7.255
+SpiMasterPorts_4.un1_rst_2_rs     System        SLE      Q       un1_rst_2_rs_0     0.094       7.322
+=====================================================================================================
+
+
+Ending Points with Worst Slack
+******************************
+
+                                                           Starting                                                                                                Required          
+Instance                                                   Reference     Type        Pin                 Net                                                       Time         Slack
+                                                           Clock                                                                                                                     
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST     System        MSS_025     F_HM0_RDATA[23]     EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PRDATA[23]     9.437        6.924
+=====================================================================================================================================================================================
+
+
+
+Worst Path Information
+***********************
+
+
+Path information for path number 1: 
+      Requested Period:                      9.804
+    - Setup time:                            0.367
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         9.437
+
+    - Propagation time:                      2.513
+    - Clock delay at starting point:         0.000 (ideal)
+    - Estimated clock delay at start point:  -0.000
+    = Slack (non-critical) :                 6.924
+
+    Number of logic level(s):                4
+    Starting point:                          SpiMasterPorts_3.un1_rst_2_rs / Q
+    Ending point:                            EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST / F_HM0_RDATA[23]
+    The start point is clocked by            System [rising] on pin CLK
+    The end   point is clocked by            EvalSandbox_MSS_0/CCC_0/GL0 [rising] (rise=0.000 fall=4.902 period=9.804) on pin CLK_BASE
+
+Instance / Net                                                                Pin                 Pin               Arrival     No. of    
+Name                                                              Type        Name                Dir     Delay     Time        Fan Out(s)
+------------------------------------------------------------------------------------------------------------------------------------------
+SpiMasterPorts_3.un1_rst_2_rs                                     SLE         Q                   Out     0.094     0.094 f     -         
+un1_rst_2_rs_1                                                    Net         -                   -       0.216     -           1         
+SpiMasterPorts_3.un1_rst_2_rs_RNIR6MS                             CFG3        C                   In      -         0.310 f     -         
+SpiMasterPorts_3.un1_rst_2_rs_RNIR6MS                             CFG3        Y                   Out     0.182     0.492 f     -         
+EvalSandbox_MSS_0_AMBA_SLAVE_0_4_PRDATA[23]                       Net         -                   -       0.216     -           1         
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST_RNO_99     CFG3        B                   In      -         0.709 f     -         
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST_RNO_99     CFG3        Y                   Out     0.143     0.851 f     -         
+N_5_2                                                             Net         -                   -       0.216     -           1         
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST_RNO_37     CFG3        C                   In      -         1.067 f     -         
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST_RNO_37     CFG3        Y                   Out     0.182     1.250 f     -         
+N_21_1                                                            Net         -                   -       0.216     -           1         
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST_RNO_21     CFG4        A                   In      -         1.466 f     -         
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST_RNO_21     CFG4        Y                   Out     0.076     1.542 f     -         
+EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PRDATA[23]             Net         -                   -       0.971     -           1         
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST            MSS_025     F_HM0_RDATA[23]     In      -         2.513 f     -         
+==========================================================================================================================================
+Total path delay (propagation time + setup) of 2.880 is 1.044(36.3%) logic and 1.836(63.7%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -323,18 +384,18 @@ Path delay compensated for clock skew. Clock skew is added to clock-to-out value
 ##### END OF TIMING REPORT #####]
 
 Timing exceptions that could not be applied
-@W: MT447 :"c:/users/skaye/repos/firmware/dminterface/liberoproject/designer/evalboardsandbox/synthesis.fdc":9:0:9:0|Timing constraint (through [get_nets { EvalSandbox_MSS_0.CORERESETP_0.ddr_settled EvalSandbox_MSS_0.CORERESETP_0.count_ddr_enable EvalSandbox_MSS_0.CORERESETP_0.release_sdif*_core EvalSandbox_MSS_0.CORERESETP_0.count_sdif*_enable }]) (false path) was not applied to the design because none of the '-through' objects specified by the constraint exist in the design 
-@W: MT447 :"c:/users/skaye/repos/firmware/dminterface/liberoproject/designer/evalboardsandbox/synthesis.fdc":10:0:10:0|Timing constraint (from [get_cells { EvalSandbox_MSS_0.CORERESETP_0.MSS_HPMS_READY_int }] to [get_cells { EvalSandbox_MSS_0.CORERESETP_0.sm0_areset_n_rcosc EvalSandbox_MSS_0.CORERESETP_0.sm0_areset_n_rcosc_q1 }]) (false path) was not applied to the design because none of the '-from' objects specified by the constraint exist in the design 
-@W: MT447 :"c:/users/skaye/repos/firmware/dminterface/liberoproject/designer/evalboardsandbox/synthesis.fdc":11:0:11:0|Timing constraint (from [get_cells { EvalSandbox_MSS_0.CORERESETP_0.MSS_HPMS_READY_int EvalSandbox_MSS_0.CORERESETP_0.SDIF*_PERST_N_re }] to [get_cells { EvalSandbox_MSS_0.CORERESETP_0.sdif*_areset_n_rcosc* }]) (false path) was not applied to the design because none of the '-from' objects specified by the constraint exist in the design 
-@W: MT447 :"c:/users/skaye/repos/firmware/dminterface/liberoproject/designer/evalboardsandbox/synthesis.fdc":12:0:12:0|Timing constraint (through [get_nets { EvalSandbox_MSS_0.CORERESETP_0.CONFIG1_DONE EvalSandbox_MSS_0.CORERESETP_0.CONFIG2_DONE EvalSandbox_MSS_0.CORERESETP_0.SDIF*_PERST_N EvalSandbox_MSS_0.CORERESETP_0.SDIF*_PSEL EvalSandbox_MSS_0.CORERESETP_0.SDIF*_PWRITE EvalSandbox_MSS_0.CORERESETP_0.SDIF*_PRDATA[*] EvalSandbox_MSS_0.CORERESETP_0.SOFT_EXT_RESET_OUT EvalSandbox_MSS_0.CORERESETP_0.SOFT_RESET_F2M EvalSandbox_MSS_0.CORERESETP_0.SOFT_M3_RESET EvalSandbox_MSS_0.CORERESETP_0.SOFT_MDDR_DDR_AXI_S_CORE_RESET EvalSandbox_MSS_0.CORERESETP_0.SOFT_FDDR_CORE_RESET EvalSandbox_MSS_0.CORERESETP_0.SOFT_SDIF*_PHY_RESET EvalSandbox_MSS_0.CORERESETP_0.SOFT_SDIF*_CORE_RESET EvalSandbox_MSS_0.CORERESETP_0.SOFT_SDIF0_0_CORE_RESET EvalSandbox_MSS_0.CORERESETP_0.SOFT_SDIF0_1_CORE_RESET }]) (false path) was not applied to the design because none of the '-through' objects specified by the constraint exist in the design 
-@W: MT447 :"c:/users/skaye/repos/firmware/dminterface/liberoproject/designer/evalboardsandbox/synthesis.fdc":13:0:13:0|Timing constraint (through [get_pins { EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST.CONFIG_PRESET_N }]) (false path) was not applied to the design because none of the '-through' objects specified by the constraint exist in the design 
-@W: MT447 :"c:/users/skaye/repos/firmware/dminterface/liberoproject/designer/evalboardsandbox/synthesis.fdc":14:0:14:0|Timing constraint (through [get_pins { EvalSandbox_MSS_0.SYSRESET_POR.POWER_ON_RESET_N }]) (false path) was not applied to the design because none of the '-through' objects specified by the constraint exist in the design 
+@W: MT447 :"c:/users/skaye/repos/firmware/dminterface/liberoproject/designer/evalboardsandbox/synthesis.fdc":10:0:10:0|Timing constraint (through [get_nets { EvalSandbox_MSS_0.CORERESETP_0.ddr_settled EvalSandbox_MSS_0.CORERESETP_0.count_ddr_enable EvalSandbox_MSS_0.CORERESETP_0.release_sdif*_core EvalSandbox_MSS_0.CORERESETP_0.count_sdif*_enable }]) (false path) was not applied to the design because none of the '-through' objects specified by the constraint exist in the design 
+@W: MT447 :"c:/users/skaye/repos/firmware/dminterface/liberoproject/designer/evalboardsandbox/synthesis.fdc":11:0:11:0|Timing constraint (from [get_cells { EvalSandbox_MSS_0.CORERESETP_0.MSS_HPMS_READY_int }] to [get_cells { EvalSandbox_MSS_0.CORERESETP_0.sm0_areset_n_rcosc EvalSandbox_MSS_0.CORERESETP_0.sm0_areset_n_rcosc_q1 }]) (false path) was not applied to the design because none of the '-from' objects specified by the constraint exist in the design 
+@W: MT447 :"c:/users/skaye/repos/firmware/dminterface/liberoproject/designer/evalboardsandbox/synthesis.fdc":12:0:12:0|Timing constraint (from [get_cells { EvalSandbox_MSS_0.CORERESETP_0.MSS_HPMS_READY_int EvalSandbox_MSS_0.CORERESETP_0.SDIF*_PERST_N_re }] to [get_cells { EvalSandbox_MSS_0.CORERESETP_0.sdif*_areset_n_rcosc* }]) (false path) was not applied to the design because none of the '-from' objects specified by the constraint exist in the design 
+@W: MT447 :"c:/users/skaye/repos/firmware/dminterface/liberoproject/designer/evalboardsandbox/synthesis.fdc":13:0:13:0|Timing constraint (through [get_nets { EvalSandbox_MSS_0.CORERESETP_0.CONFIG1_DONE EvalSandbox_MSS_0.CORERESETP_0.CONFIG2_DONE EvalSandbox_MSS_0.CORERESETP_0.SDIF*_PERST_N EvalSandbox_MSS_0.CORERESETP_0.SDIF*_PSEL EvalSandbox_MSS_0.CORERESETP_0.SDIF*_PWRITE EvalSandbox_MSS_0.CORERESETP_0.SDIF*_PRDATA[*] EvalSandbox_MSS_0.CORERESETP_0.SOFT_EXT_RESET_OUT EvalSandbox_MSS_0.CORERESETP_0.SOFT_RESET_F2M EvalSandbox_MSS_0.CORERESETP_0.SOFT_M3_RESET EvalSandbox_MSS_0.CORERESETP_0.SOFT_MDDR_DDR_AXI_S_CORE_RESET EvalSandbox_MSS_0.CORERESETP_0.SOFT_FDDR_CORE_RESET EvalSandbox_MSS_0.CORERESETP_0.SOFT_SDIF*_PHY_RESET EvalSandbox_MSS_0.CORERESETP_0.SOFT_SDIF*_CORE_RESET EvalSandbox_MSS_0.CORERESETP_0.SOFT_SDIF0_0_CORE_RESET EvalSandbox_MSS_0.CORERESETP_0.SOFT_SDIF0_1_CORE_RESET }]) (false path) was not applied to the design because none of the '-through' objects specified by the constraint exist in the design 
+@W: MT447 :"c:/users/skaye/repos/firmware/dminterface/liberoproject/designer/evalboardsandbox/synthesis.fdc":14:0:14:0|Timing constraint (through [get_pins { EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST.CONFIG_PRESET_N }]) (false path) was not applied to the design because none of the '-through' objects specified by the constraint exist in the design 
+@W: MT447 :"c:/users/skaye/repos/firmware/dminterface/liberoproject/designer/evalboardsandbox/synthesis.fdc":15:0:15:0|Timing constraint (through [get_pins { EvalSandbox_MSS_0.SYSRESET_POR.POWER_ON_RESET_N }]) (false path) was not applied to the design because none of the '-through' objects specified by the constraint exist in the design 
 None
 
-Finished final timing analysis (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 183MB peak: 185MB)
+Finished final timing analysis (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 188MB peak: 191MB)
 
 
-Finished timing report (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 183MB peak: 185MB)
+Finished timing report (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 188MB peak: 191MB)
 
 ---------------------------------------
 Resource Usage Report for EvalBoardSandbox 
@@ -342,34 +403,36 @@ Resource Usage Report for EvalBoardSandbox
 Mapping to part: m2s025vf400-1
 Cell usage:
 CCC             1 use
-CLKINT          4 uses
+CLKINT          2 uses
 MSS_025         1 use
-RCOSC_25_50MHZ  1 use
-CFG1           5 uses
-CFG2           61 uses
-CFG3           43 uses
-CFG4           78 uses
+OR3             1 use
+OR4             1 use
+CFG1           9 uses
+CFG2           121 uses
+CFG3           287 uses
+CFG4           297 uses
 
 Carry cells:
-ARI1            23 uses - used for arithmetic functions
-ARI1            10 uses - used for Wide-Mux implementation
-Total ARI1      33 uses
+ARI1            74 uses - used for arithmetic functions
+ARI1            59 uses - used for Wide-Mux implementation
+Total ARI1      133 uses
 
 
 Sequential Cells: 
-SLE            153 uses
+SLE            567 uses
 
 DSP Blocks:    0 of 34 (0%)
 
-I/O ports: 46
-I/O primitives: 39
-INBUF          1 use
-OUTBUF         38 uses
+I/O ports: 59
+I/O primitives: 58
+INBUF          9 uses
+OUTBUF         48 uses
+TRIBUFF        1 use
 
 
-Global Clock Buffers: 4
+Global Clock Buffers: 2
 
-Total LUTs:    220
+Total LUTs:    847
 
 Extra resources required for RAM and MACC interface logic during P&R:
 
@@ -377,14 +440,14 @@ RAM64x18 Interface Logic : SLEs = 0; LUTs = 0;
 RAM1K18  Interface Logic : SLEs = 0; LUTs = 0;
 MACC     Interface Logic : SLEs = 0; LUTs = 0;
 
-Total number of SLEs after P&R:  153 + 0 + 0 + 0 = 153;
-Total number of LUTs after P&R:  220 + 0 + 0 + 0 = 220;
+Total number of SLEs after P&R:  567 + 0 + 0 + 0 = 567;
+Total number of LUTs after P&R:  847 + 0 + 0 + 0 = 847;
 
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 68MB peak: 185MB)
+At Mapper Exit (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 70MB peak: 191MB)
 
-Process took 0h:00m:04s realtime, 0h:00m:04s cputime
-# Wed Jan 31 16:43:24 2024
+Process took 0h:00m:07s realtime, 0h:00m:06s cputime
+# Fri Mar 29 14:03:41 2024
 
 ###########################################################]

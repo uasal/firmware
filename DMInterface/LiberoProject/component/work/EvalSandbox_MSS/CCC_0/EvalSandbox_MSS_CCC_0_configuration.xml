@@ -8,7 +8,7 @@
 </header>
 <row>
  <cell>Date:</cell>
- <cell>Wed Jan 31 15:56:27 2024</cell>
+ <cell>Fri Mar 29 14:02:37 2024</cell>
 </row>
 <separator/>
 <row>
@@ -49,9 +49,9 @@
  <cell>GL0</cell>
  <cell>primary clock</cell>
  <cell>PLL (0)</cell>
- <cell>100 MHz</cell>
- <cell>100 MHz</cell>
- <cell>100 MHz</cell>
+ <cell>102 MHz</cell>
+ <cell>102 MHz</cell>
+ <cell>102 MHz</cell>
  <cell>--</cell>
 </row>
 <separator/>
@@ -64,19 +64,19 @@
 </header>
 <row>
  <cell>Reference clock frequency</cell>
- <cell>50 MHz</cell>
+ <cell>51 MHz</cell>
 </row>
 <row>
  <cell>Reference clock source</cell>
- <cell>On-chip 25/50 MHz RC Oscillator</cell>
+ <cell>FPGA Fabric Input 0</cell>
 </row>
 <row>
  <cell>Output frequency</cell>
- <cell>100 MHz</cell>
+ <cell>102 MHz</cell>
 </row>
 <row>
  <cell>VCO frequency</cell>
- <cell>800 MHz</cell>
+ <cell>816 MHz</cell>
 </row>
 <separator/>
 <row>
@@ -155,7 +155,7 @@
 <row>
  <cell>FCCC_RFMUX_CR</cell>
  <cell>0x01</cell>
- <cell>0x0b</cell>
+ <cell>0x0c</cell>
  <cell>RFMUX configuration register</cell>
 </row>
 <row>

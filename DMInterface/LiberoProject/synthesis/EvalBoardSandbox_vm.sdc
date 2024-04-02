@@ -1,13 +1,13 @@
-# Written by Synplify Pro version map202209actsp2, Build 145R. Synopsys Run ID: sid1706744599 
+# Written by Synplify Pro version map202209actsp2, Build 145R. Synopsys Run ID: sid1711746214 
 # Top Level Design Parameters 
 
 # Clocks 
-create_clock -period 20.000 -waveform {0.000 10.000} -name {EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT} [get_pins {EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT}] 
+create_clock -period 19.608 -waveform {0.000 9.804} -name {CLK0} [get_ports {CLK0}] 
 
 # Virtual Clocks 
 
 # Generated Clocks 
-create_generated_clock -name {EvalSandbox_MSS_0/CCC_0/GL0} -multiply_by {4} -divide_by {2} -source [get_pins {EvalSandbox_MSS_0/CCC_0/CCC_INST/RCOSC_25_50MHZ}]  [get_pins {EvalSandbox_MSS_0/CCC_0/CCC_INST/GL0}] 
+create_generated_clock -name {EvalSandbox_MSS_0/CCC_0/GL0} -multiply_by {4} -divide_by {2} -source [get_pins {EvalSandbox_MSS_0/CCC_0/CCC_INST/CLK0}]  [get_pins {EvalSandbox_MSS_0/CCC_0/CCC_INST/GL0}] 
 
 # Paths Between Clocks 
 
@@ -44,6 +44,7 @@ create_generated_clock -name {EvalSandbox_MSS_0/CCC_0/GL0} -multiply_by {4} -div
 # Input Transition Constraints 
 
 # Unused constraints (intentionally commented out) 
+# create_clock -name EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT -period 20 [get_pins { EvalSandbox_MSS_0.FABOSC_0.I_RCOSC_25_50MHZ.CLKOUT }]
 # set_false_path -through [get_nets { EvalSandbox_MSS_0.CORERESETP_0.ddr_settled EvalSandbox_MSS_0.CORERESETP_0.count_ddr_enable EvalSandbox_MSS_0.CORERESETP_0.release_sdif*_core EvalSandbox_MSS_0.CORERESETP_0.count_sdif*_enable }]
 # set_false_path -from [get_cells { EvalSandbox_MSS_0.CORERESETP_0.MSS_HPMS_READY_int }] -to [get_cells { EvalSandbox_MSS_0.CORERESETP_0.sm0_areset_n_rcosc EvalSandbox_MSS_0.CORERESETP_0.sm0_areset_n_rcosc_q1 }]
 # set_false_path -from [get_cells { EvalSandbox_MSS_0.CORERESETP_0.MSS_HPMS_READY_int EvalSandbox_MSS_0.CORERESETP_0.SDIF*_PERST_N_re }] -to [get_cells { EvalSandbox_MSS_0.CORERESETP_0.sdif*_areset_n_rcosc* }]

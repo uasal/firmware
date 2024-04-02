@@ -2,7 +2,7 @@
 <device>
   <name>EvalBoardSandbox</name>
   <version>1.0</version>
-  <description>CMSIS description for EvalBoardSandbox.  Created by Microsemi SmartDesign on Wed Jan 31 16:45:09 2024</description>
+  <description>CMSIS description for EvalBoardSandbox.  Created by Microsemi SmartDesign on Fri Mar 29 14:08:46 2024</description>
   <addressUnitBits>8</addressUnitBits>
   <width>32</width>
   <peripherals>
@@ -35,10 +35,6 @@
       <baseAddress>0x60000000</baseAddress>
     </peripheral>
     <peripheral>
-      <name>ENVM-DAC_store</name>
-      <baseAddress>0x60002000</baseAddress>
-    </peripheral>
-    <peripheral>
       <name>ENVM-PGM_Store</name>
       <baseAddress>0x60000000</baseAddress>
     </peripheral>
@@ -47,27 +43,27 @@
       <baseAddress>0x50000000%0x30000000</baseAddress>
     </peripheral>
     <peripheral>
-      <name>SpiMasterSextetPorts_0</name>
+      <name>SpiMasterPorts_0</name>
       <baseAddress>0x50001000%0x30001000</baseAddress>
     </peripheral>
     <peripheral>
-      <name>SpiMasterSextetPorts_0</name>
+      <name>SpiMasterPorts_1</name>
       <baseAddress>0x50002000%0x30002000</baseAddress>
     </peripheral>
     <peripheral>
-      <name>SpiMasterSextetPorts_0</name>
+      <name>SpiMasterPorts_2</name>
       <baseAddress>0x50003000%0x30003000</baseAddress>
     </peripheral>
     <peripheral>
-      <name>SpiMasterSextetPorts_0</name>
+      <name>SpiMasterPorts_3</name>
       <baseAddress>0x50004000%0x30004000</baseAddress>
     </peripheral>
     <peripheral>
-      <name>SpiMasterSextetPorts_0</name>
+      <name>SpiMasterPorts_4</name>
       <baseAddress>0x50005000%0x30005000</baseAddress>
     </peripheral>
     <peripheral>
-      <name>SpiMasterSextetPorts_0</name>
+      <name>SpiMasterPorts_5</name>
       <baseAddress>0x50006000%0x30006000</baseAddress>
     </peripheral>
     <peripheral>

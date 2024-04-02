@@ -2,8 +2,8 @@
 <?xml-stylesheet href="rptstyle.xsl" type="text/xsl" ?>
 <doc>
 <title>Global Net Report</title>
-<text>Microchip Technology Inc. - Microchip Libero Software Release v2023.2 (Version 2023.2.0.8)</text>
-<text>Date: Wed Jan 31 16:43:46 2024
+<text>Microchip Technology Inc. - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)</text>
+<text>Date: Fri Mar 29 14:08:06 2024
 </text>
 <section>
 <name>Global Nets Information</name>
@@ -17,31 +17,17 @@
 </header>
 <row>
  <cell>1</cell>
- <cell>GB[6] </cell>
- <cell>(296, 72)</cell>
+ <cell>GB[12] </cell>
+ <cell>(306, 72)</cell>
  <cell>EvalSandbox_MSS_0/CCC_0/GL0_INST/U0_YWn_GEast</cell>
- <cell>148</cell>
+ <cell>562</cell>
 </row>
 <row>
  <cell>2</cell>
- <cell>GB[3] </cell>
- <cell>(293, 72)</cell>
- <cell>EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST_RNI9OK7/U0_YWn_GEast</cell>
- <cell>24</cell>
-</row>
-<row>
- <cell>3</cell>
- <cell>GB[2] </cell>
- <cell>(292, 72)</cell>
- <cell>SpiMasterSextetPorts_0/un1_rst_12_RNIOQR2/U0_YWn_GEast</cell>
- <cell>12</cell>
-</row>
-<row>
- <cell>4</cell>
  <cell>GB[7] </cell>
  <cell>(297, 72)</cell>
- <cell>SpiMasterSextetPorts_0/un1_rst_1_RNI6J8A/U0_YWn_GEast</cell>
- <cell>12</cell>
+ <cell>EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST_RNI9OK7/U0_YWn_GEast</cell>
+ <cell>426</cell>
 </row>
 </table>
 <text></text>
@@ -66,28 +52,10 @@
  <cell>1</cell>
  <cell>EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST/INST_MSS_025_IP:I2C1_SCL_MGPIO1A_H2F_B</cell>
  <cell>(528, 146)</cell>
- <cell>GB[3] </cell>
+ <cell>GB[7] </cell>
  <cell>EvalSandbox_MSS_0_EvalSandbox_MSS_MSS_0_GPIO_1_M2F</cell>
  <cell>ROUTED</cell>
- <cell>3</cell>
-</row>
-<row>
- <cell>2</cell>
- <cell>SpiMasterSextetPorts_0/un1_rst_12:Y</cell>
- <cell>(365, 81)</cell>
- <cell>GB[2] </cell>
- <cell>SpiMasterSextetPorts_0/un1_rst_12_Z</cell>
- <cell>ROUTED</cell>
- <cell>1</cell>
-</row>
-<row>
- <cell>3</cell>
- <cell>SpiMasterSextetPorts_0/un1_rst_1:Y</cell>
- <cell>(413, 78)</cell>
- <cell>GB[7] </cell>
- <cell>SpiMasterSextetPorts_0/un1_rst_1_Z</cell>
- <cell>ROUTED</cell>
- <cell>1</cell>
+ <cell>19</cell>
 </row>
 </table>
 <text></text>
@@ -99,7 +67,6 @@
  <cell/>
  <cell> From </cell>
  <cell> From Location </cell>
- <cell>Pin Swapped for Back Annotation Only</cell>
  <cell> To </cell>
  <cell> Net Name </cell>
  <cell> Net Type </cell>
@@ -108,9 +75,8 @@
 <row>
  <cell>1</cell>
  <cell>EvalSandbox_MSS_0/CCC_0/CCC_INST/INST_CCC_IP:GL0</cell>
- <cell>CCC-NW1 (18, 134)</cell>
- <cell>GL0 =&gt; GL2</cell>
- <cell>GB[6] </cell>
+ <cell>CCC-NE1 (618, 134)</cell>
+ <cell>GB[12] </cell>
  <cell>EvalSandbox_MSS_0/CCC_0/GL0_net</cell>
  <cell>HARDWIRED</cell>
  <cell>1</cell>
@@ -123,6 +89,9 @@
 <table>
 <header>
  <cell/>
+ <cell> Port Name </cell>
+ <cell> Pin Number </cell>
+ <cell> I/O Function </cell>
  <cell> From </cell>
  <cell> From Location </cell>
  <cell> To (Pin Swapped for Back Annotation Only) </cell>
@@ -133,12 +102,15 @@
 </header>
 <row>
  <cell>1</cell>
- <cell>EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ:CLKOUT</cell>
- <cell>(24, 134)</cell>
- <cell>EvalSandbox_MSS_0/CCC_0/CCC_INST/INST_CCC_IP:RCOSC_25_50MHZ</cell>
- <cell>CCC-NW1 (18, 134)</cell>
- <cell>EvalSandbox_MSS_0/FABOSC_0_RCOSC_25_50MHZ_CCC_OUT_RCOSC_25_50MHZ_CCC</cell>
- <cell>HARDWIRED</cell>
+ <cell>CLK0</cell>
+ <cell>H16</cell>
+ <cell>MSIO11NB2/I2C_1_SCL/GPIO_1_A/CCC_NE1_CLKI0</cell>
+ <cell>CLK0_ibuf/U0/U_IOIN:Y</cell>
+ <cell>(627, 28)</cell>
+ <cell>EvalSandbox_MSS_0/CCC_0/CCC_INST/INST_CCC_IP:CLK0</cell>
+ <cell>CCC-NE1 (618, 134)</cell>
+ <cell>CLK0_c</cell>
+ <cell>ROUTED</cell>
  <cell>1</cell>
 </row>
 </table>
@@ -163,13 +135,13 @@
 </header>
 <row>
  <cell>1</cell>
- <cell>GB[6] </cell>
- <cell>(296, 72)</cell>
+ <cell>GB[12] </cell>
+ <cell>(306, 72)</cell>
  <cell>EvalSandbox_MSS_0/CCC_0/GL0_INST/U0_YWn_GEast</cell>
- <cell>148</cell>
+ <cell>562</cell>
  <cell>1</cell>
- <cell>(446, 84)</cell>
- <cell>16</cell>
+ <cell>(446, 66)</cell>
+ <cell>10</cell>
 </row>
 <row>
  <cell> </cell>
@@ -178,8 +150,8 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
- <cell>(446, 93)</cell>
- <cell>31</cell>
+ <cell>(446, 69)</cell>
+ <cell>6</cell>
 </row>
 <row>
  <cell> </cell>
@@ -188,8 +160,8 @@
  <cell></cell>
  <cell></cell>
  <cell>3</cell>
- <cell>(446, 99)</cell>
- <cell>21</cell>
+ <cell>(446, 75)</cell>
+ <cell>19</cell>
 </row>
 <row>
  <cell> </cell>
@@ -198,8 +170,8 @@
  <cell></cell>
  <cell></cell>
  <cell>4</cell>
- <cell>(446, 144)</cell>
- <cell>1</cell>
+ <cell>(446, 78)</cell>
+ <cell>38</cell>
 </row>
 <row>
  <cell> </cell>
@@ -208,8 +180,8 @@
  <cell></cell>
  <cell></cell>
  <cell>5</cell>
- <cell>(448, 81)</cell>
- <cell>20</cell>
+ <cell>(446, 81)</cell>
+ <cell>52</cell>
 </row>
 <row>
  <cell> </cell>
@@ -218,8 +190,8 @@
  <cell></cell>
  <cell></cell>
  <cell>6</cell>
- <cell>(448, 87)</cell>
- <cell>20</cell>
+ <cell>(446, 84)</cell>
+ <cell>63</cell>
 </row>
 <row>
  <cell> </cell>
@@ -228,48 +200,8 @@
  <cell></cell>
  <cell></cell>
  <cell>7</cell>
- <cell>(448, 90)</cell>
- <cell>39</cell>
-</row>
-<row>
- <cell>2</cell>
- <cell>GB[3] </cell>
- <cell>(293, 72)</cell>
- <cell>EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST_RNI9OK7/U0_YWn_GEast</cell>
- <cell>24</cell>
- <cell>1</cell>
- <cell>(449, 87)</cell>
- <cell>8</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>2</cell>
- <cell>(449, 90)</cell>
- <cell>16</cell>
-</row>
-<row>
- <cell>3</cell>
- <cell>GB[2] </cell>
- <cell>(292, 72)</cell>
- <cell>SpiMasterSextetPorts_0/un1_rst_12_RNIOQR2/U0_YWn_GEast</cell>
- <cell>12</cell>
- <cell>1</cell>
- <cell>(446, 81)</cell>
- <cell>3</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>2</cell>
  <cell>(446, 87)</cell>
- <cell>8</cell>
+ <cell>57</cell>
 </row>
 <row>
  <cell> </cell>
@@ -277,19 +209,79 @@
  <cell></cell>
  <cell></cell>
  <cell></cell>
- <cell>3</cell>
+ <cell>8</cell>
  <cell>(446, 90)</cell>
+ <cell>46</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>9</cell>
+ <cell>(446, 93)</cell>
+ <cell>61</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>10</cell>
+ <cell>(446, 96)</cell>
+ <cell>45</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>11</cell>
+ <cell>(446, 99)</cell>
+ <cell>70</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>12</cell>
+ <cell>(446, 102)</cell>
+ <cell>58</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>13</cell>
+ <cell>(446, 105)</cell>
+ <cell>36</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>14</cell>
+ <cell>(446, 144)</cell>
  <cell>1</cell>
 </row>
 <row>
- <cell>4</cell>
+ <cell>2</cell>
  <cell>GB[7] </cell>
  <cell>(297, 72)</cell>
- <cell>SpiMasterSextetPorts_0/un1_rst_1_RNI6J8A/U0_YWn_GEast</cell>
- <cell>12</cell>
+ <cell>EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST_RNI9OK7/U0_YWn_GEast</cell>
+ <cell>426</cell>
  <cell>1</cell>
- <cell>(447, 81)</cell>
- <cell>3</cell>
+ <cell>(447, 66)</cell>
+ <cell>10</cell>
 </row>
 <row>
  <cell> </cell>
@@ -298,7 +290,7 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
- <cell>(447, 87)</cell>
+ <cell>(447, 69)</cell>
  <cell>6</cell>
 </row>
 <row>
@@ -308,10 +300,159 @@
  <cell></cell>
  <cell></cell>
  <cell>3</cell>
+ <cell>(447, 75)</cell>
+ <cell>13</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>4</cell>
+ <cell>(447, 78)</cell>
+ <cell>17</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>5</cell>
+ <cell>(447, 81)</cell>
+ <cell>36</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>6</cell>
+ <cell>(447, 84)</cell>
+ <cell>31</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>7</cell>
+ <cell>(447, 87)</cell>
+ <cell>23</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>8</cell>
  <cell>(447, 90)</cell>
- <cell>3</cell>
+ <cell>41</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>9</cell>
+ <cell>(447, 93)</cell>
+ <cell>40</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>10</cell>
+ <cell>(447, 96)</cell>
+ <cell>45</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>11</cell>
+ <cell>(447, 99)</cell>
+ <cell>70</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>12</cell>
+ <cell>(447, 102)</cell>
+ <cell>58</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>13</cell>
+ <cell>(447, 105)</cell>
+ <cell>36</cell>
 </row>
 </table>
 <text></text>
+</section>
+<section>
+<name>Warning: Local Clock Nets</name>
+<text>The following clocks are routed using regular routing resources instead of dedicated global resources. Clocks using regular routing are more susceptible to Single Event Effects (SEEs) and have less predictable amounts of clock jitter versus the dedicated global resources. Microchip recommends using clock input and clock generation paths that maximize the usage of dedicated global routing resources, as well as promoting these signals to dedicated global resources. Refer to the RTG4 Clocking Resources User Guide and RTG4 Radiation-Mitigated Clock and Reset Network Usage Application Note for more information.
+</text>
+<table>
+<header>
+ <cell/>
+ <cell> From </cell>
+ <cell> Driving Net </cell>
+ <cell> To </cell>
+</header>
+<row>
+ <cell>1</cell>
+ <cell>SpiMasterPorts_2/un1_rst:Y</cell>
+ <cell>SpiMasterPorts_2/un1_rst_Z</cell>
+ <cell>SpiMasterPorts_2/un1_rst_2_rs:CLK</cell>
+</row>
+<row>
+ <cell>2</cell>
+ <cell>SpiMasterPorts_0/un1_rst:Y</cell>
+ <cell>SpiMasterPorts_0/un1_rst_Z</cell>
+ <cell>SpiMasterPorts_0/un1_rst_2_rs:CLK</cell>
+</row>
+<row>
+ <cell>3</cell>
+ <cell>SpiMasterPorts_3/un1_rst:Y</cell>
+ <cell>SpiMasterPorts_3/un1_rst_Z</cell>
+ <cell>SpiMasterPorts_3/un1_rst_2_rs:CLK</cell>
+</row>
+<row>
+ <cell>4</cell>
+ <cell>SpiMasterPorts_1/un1_rst:Y</cell>
+ <cell>SpiMasterPorts_1/un1_rst_Z</cell>
+ <cell>SpiMasterPorts_1/un1_rst_2_rs:CLK</cell>
+</row>
+<row>
+ <cell>5</cell>
+ <cell>SpiMasterPorts_5/un1_rst:Y</cell>
+ <cell>SpiMasterPorts_5/un1_rst_Z</cell>
+ <cell>SpiMasterPorts_5/un1_rst_2_rs:CLK</cell>
+</row>
+<row>
+ <cell>6</cell>
+ <cell>SpiMasterPorts_4/un1_rst:Y</cell>
+ <cell>SpiMasterPorts_4/un1_rst_Z</cell>
+ <cell>SpiMasterPorts_4/un1_rst_2_rs:CLK</cell>
+</row>
+</table>
 </section>
 </doc>

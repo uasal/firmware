@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Wed Jan 31 15:56:28 2024
-// Version: 2023.2 2023.2.0.8
+// Created by SmartDesign Fri Mar 29 14:02:40 2024
+// Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
 `timescale 1ns / 100ps
@@ -29,10 +29,12 @@ module EvalSandbox_MSS(
     AMBA_SLAVE_0_PRDATAS0,
     AMBA_SLAVE_0_PREADYS0,
     AMBA_SLAVE_0_PSLVERRS0,
+    CLK0,
     DEVRST_N,
     FAB_RESET_N,
     GPIO_0_F2M,
     GPIO_2_F2M,
+    GPIO_7_F2M,
     // Outputs
     AMBA_SLAVE_0_1_PADDRS,
     AMBA_SLAVE_0_1_PENABLES,
@@ -72,6 +74,10 @@ module EvalSandbox_MSS(
     FIC_0_CLK,
     FIC_0_LOCK,
     GPIO_1_M2F,
+    GPIO_3_M2F,
+    GPIO_4_M2F,
+    GPIO_5_M2F,
+    GPIO_6_M2F,
     INIT_DONE,
     MSS_READY,
     POWER_ON_RESET_N
@@ -101,10 +107,12 @@ input         AMBA_SLAVE_0_6_PSLVERRS6;
 input  [31:0] AMBA_SLAVE_0_PRDATAS0;
 input         AMBA_SLAVE_0_PREADYS0;
 input         AMBA_SLAVE_0_PSLVERRS0;
+input         CLK0;
 input         DEVRST_N;
 input         FAB_RESET_N;
 input         GPIO_0_F2M;
 input         GPIO_2_F2M;
+input         GPIO_7_F2M;
 //--------------------------------------------------------------------
 // Output
 //--------------------------------------------------------------------
@@ -146,6 +154,10 @@ output        AMBA_SLAVE_0_PWRITES;
 output        FIC_0_CLK;
 output        FIC_0_LOCK;
 output        GPIO_1_M2F;
+output        GPIO_3_M2F;
+output        GPIO_4_M2F;
+output        GPIO_5_M2F;
+output        GPIO_6_M2F;
 output        INIT_DONE;
 output        MSS_READY;
 output        POWER_ON_RESET_N;
@@ -184,6 +196,7 @@ wire   [31:0] AMBA_SLAVE_0_6_PRDATAS6;
 wire          AMBA_SLAVE_0_6_PREADYS6;
 wire          AMBA_SLAVE_0_6_PSELx;
 wire          AMBA_SLAVE_0_6_PSLVERRS6;
+wire          CLK0;
 wire          CORERESETP_0_RESET_N_F2M;
 wire          DEVRST_N;
 wire   [31:0] EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PADDR;
@@ -197,13 +210,17 @@ wire          EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PWRITE;
 wire          EvalSandbox_MSS_MSS_TMP_0_FIC_2_APB_M_PRESET_N;
 wire          EvalSandbox_MSS_MSS_TMP_0_MSS_RESET_N_M2F;
 wire          FAB_RESET_N;
-wire          FABOSC_0_RCOSC_25_50MHZ_CCC_OUT_RCOSC_25_50MHZ_CCC;
 wire          FABOSC_0_RCOSC_25_50MHZ_O2F;
 wire          FIC_0_CLK_net_0;
 wire          FIC_0_LOCK_net_0;
 wire          GPIO_0_F2M;
 wire          GPIO_1_M2F_net_0;
 wire          GPIO_2_F2M;
+wire          GPIO_3_M2F_net_0;
+wire          GPIO_4_M2F_net_0;
+wire          GPIO_5_M2F_net_0;
+wire          GPIO_6_M2F_net_0;
+wire          GPIO_7_F2M;
 wire          INIT_DONE_net_0;
 wire          MSS_READY_net_0;
 wire          POWER_ON_RESET_N_net_0;
@@ -248,6 +265,10 @@ wire          FIC_0_CLK_net_1;
 wire          FIC_0_LOCK_net_1;
 wire          MSS_READY_net_1;
 wire          GPIO_1_M2F_net_1;
+wire          GPIO_3_M2F_net_1;
+wire          GPIO_4_M2F_net_1;
+wire          GPIO_5_M2F_net_1;
+wire          GPIO_6_M2F_net_1;
 //--------------------------------------------------------------------
 // TiedOff Nets
 //--------------------------------------------------------------------
@@ -379,16 +400,24 @@ assign MSS_READY_net_1              = MSS_READY_net_0;
 assign MSS_READY                    = MSS_READY_net_1;
 assign GPIO_1_M2F_net_1             = GPIO_1_M2F_net_0;
 assign GPIO_1_M2F                   = GPIO_1_M2F_net_1;
+assign GPIO_3_M2F_net_1             = GPIO_3_M2F_net_0;
+assign GPIO_3_M2F                   = GPIO_3_M2F_net_1;
+assign GPIO_4_M2F_net_1             = GPIO_4_M2F_net_0;
+assign GPIO_4_M2F                   = GPIO_4_M2F_net_1;
+assign GPIO_5_M2F_net_1             = GPIO_5_M2F_net_0;
+assign GPIO_5_M2F                   = GPIO_5_M2F_net_1;
+assign GPIO_6_M2F_net_1             = GPIO_6_M2F_net_0;
+assign GPIO_6_M2F                   = GPIO_6_M2F_net_1;
 //--------------------------------------------------------------------
 // Component instances
 //--------------------------------------------------------------------
 //--------EvalSandbox_MSS_CCC_0_FCCC   -   Actel:SgCore:FCCC:2.0.201
 EvalSandbox_MSS_CCC_0_FCCC CCC_0(
         // Inputs
-        .RCOSC_25_50MHZ ( FABOSC_0_RCOSC_25_50MHZ_CCC_OUT_RCOSC_25_50MHZ_CCC ),
+        .CLK0 ( CLK0 ),
         // Outputs
-        .GL0            ( FIC_0_CLK_net_0 ),
-        .LOCK           ( FIC_0_LOCK_net_0 ) 
+        .GL0  ( FIC_0_CLK_net_0 ),
+        .LOCK ( FIC_0_LOCK_net_0 ) 
         );
 
 //--------CoreAPB3   -   Actel:DirectCore:CoreAPB3:4.1.100
@@ -621,6 +650,7 @@ EvalSandbox_MSS_MSS EvalSandbox_MSS_MSS_0(
         .MSS_RESET_N_F2M        ( CORERESETP_0_RESET_N_F2M ),
         .GPIO_0_F2M             ( GPIO_0_F2M ),
         .GPIO_2_F2M             ( GPIO_2_F2M ),
+        .GPIO_7_F2M             ( GPIO_7_F2M ),
         .FIC_0_APB_M_PREADY     ( EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PREADY ),
         .FIC_0_APB_M_PSLVERR    ( EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PSLVERR ),
         .FIC_2_APB_M_PREADY     ( VCC_net ), // tied to 1'b1 from definition
@@ -630,6 +660,10 @@ EvalSandbox_MSS_MSS EvalSandbox_MSS_MSS_0(
         // Outputs
         .MSS_RESET_N_M2F        ( EvalSandbox_MSS_MSS_TMP_0_MSS_RESET_N_M2F ),
         .GPIO_1_M2F             ( GPIO_1_M2F_net_0 ),
+        .GPIO_3_M2F             ( GPIO_3_M2F_net_0 ),
+        .GPIO_4_M2F             ( GPIO_4_M2F_net_0 ),
+        .GPIO_5_M2F             ( GPIO_5_M2F_net_0 ),
+        .GPIO_6_M2F             ( GPIO_6_M2F_net_0 ),
         .FIC_0_APB_M_PSEL       ( EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PSELx ),
         .FIC_0_APB_M_PWRITE     ( EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PWRITE ),
         .FIC_0_APB_M_PENABLE    ( EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PENABLE ),
@@ -649,7 +683,7 @@ EvalSandbox_MSS_FABOSC_0_OSC FABOSC_0(
         // Inputs
         .XTL                ( GND_net ), // tied to 1'b0 from definition
         // Outputs
-        .RCOSC_25_50MHZ_CCC ( FABOSC_0_RCOSC_25_50MHZ_CCC_OUT_RCOSC_25_50MHZ_CCC ),
+        .RCOSC_25_50MHZ_CCC (  ),
         .RCOSC_25_50MHZ_O2F ( FABOSC_0_RCOSC_25_50MHZ_O2F ),
         .RCOSC_1MHZ_CCC     (  ),
         .RCOSC_1MHZ_O2F     (  ),

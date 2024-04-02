@@ -36,7 +36,7 @@ Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async_0s_0s_
 @N: CG179 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v":750:0:750:7|Removing redundant assignment.
 @N: CG179 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v":857:0:857:8|Removing redundant assignment.
 Running optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async_0s_0s_0s_1s_2s_3s .......
-Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async_0s_0s_0s_1s_2s_3s (CPU Time 0h:00m:00s, Memory Used current: 96MB peak: 97MB)
+Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async_0s_0s_0s_1s_2s_3s (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 97MB)
 @N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":14:0:14:39|Synthesizing module CoreUARTapb_C0_CoreUARTapb_C0_0_COREUART in library work.
 
 	TX_FIFO=32'b00000000000000000000000000000000
@@ -59,7 +59,7 @@ Running optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_COREUART_0s_0s_0
 @W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":888:0:888:5|Pruning unused register CUARTOO0. Make sure that there are no unused intermediate registers.
 @W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":888:0:888:5|Pruning unused register CUARTl1l. Make sure that there are no unused intermediate registers.
 @W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v":405:0:405:5|Pruning unused register CUARTIll. Make sure that there are no unused intermediate registers.
-Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_COREUART_0s_0s_0s_19s_0s_0s (CPU Time 0h:00m:00s, Memory Used current: 96MB peak: 97MB)
+Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_COREUART_0s_0s_0s_19s_0s_0s (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 97MB)
 @N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v":14:0:14:42|Synthesizing module CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb in library work.
 
 	FAMILY=32'b00000000000000000000000000010011
@@ -78,26 +78,26 @@ Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_COREUART_0s_0s_
 @N: CG179 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v":868:0:868:8|Removing redundant assignment.
 @W: CG133 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v":283:0:283:8|Object CUARTI1OI is declared but not assigned. Either assign a value or remove the declaration.
 Running optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb_Z1_layer0 .......
-Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb_Z1_layer0 (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 97MB)
+Finished optimization stage 1 on CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb_Z1_layer0 (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 98MB)
 @N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0.v":31:7:31:20|Synthesizing module CoreUARTapb_C0 in library work.
 Running optimization stage 1 on CoreUARTapb_C0 .......
-Finished optimization stage 1 on CoreUARTapb_C0 (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 97MB)
+Finished optimization stage 1 on CoreUARTapb_C0 (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 98MB)
 @N: CG775 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":31:7:31:14|Component CoreAPB3 not found in library "work" or "__hyper__lib__", but found in library COREAPB3_LIB
 @N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":376:7:376:9|Synthesizing module VCC in library work.
 Running optimization stage 1 on VCC .......
-Finished optimization stage 1 on VCC (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 97MB)
+Finished optimization stage 1 on VCC (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 98MB)
 @N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":372:7:372:9|Synthesizing module GND in library work.
 Running optimization stage 1 on GND .......
-Finished optimization stage 1 on GND (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 97MB)
+Finished optimization stage 1 on GND (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 98MB)
 @N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":362:7:362:12|Synthesizing module CLKINT in library work.
 Running optimization stage 1 on CLKINT .......
-Finished optimization stage 1 on CLKINT (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 97MB)
+Finished optimization stage 1 on CLKINT (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 98MB)
 @N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":729:7:729:9|Synthesizing module CCC in library work.
 Running optimization stage 1 on CCC .......
-Finished optimization stage 1 on CCC (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 97MB)
+Finished optimization stage 1 on CCC (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 98MB)
 @N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\CCC_0\EvalSandbox_MSS_CCC_0_FCCC.v":5:7:5:32|Synthesizing module EvalSandbox_MSS_CCC_0_FCCC in library work.
 Running optimization stage 1 on EvalSandbox_MSS_CCC_0_FCCC .......
-Finished optimization stage 1 on EvalSandbox_MSS_CCC_0_FCCC (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 97MB)
+Finished optimization stage 1 on EvalSandbox_MSS_CCC_0_FCCC (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 98MB)
 @N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_muxptob3.v":30:7:30:23|Synthesizing module COREAPB3_MUXPTOB3 in library COREAPB3_LIB.
 Running optimization stage 1 on COREAPB3_MUXPTOB3 .......
 Finished optimization stage 1 on COREAPB3_MUXPTOB3 (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 99MB)
@@ -252,7 +252,7 @@ Running optimization stage 1 on CoreResetP_Z3_layer0 .......
 @W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1433:4:1433:9|Pruning unused register sm2_state[2:0]. Make sure that there are no unused intermediate registers.
 @W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":783:4:783:9|Pruning unused register sm2_areset_n_q1. Make sure that there are no unused intermediate registers.
 @W: CL169 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":783:4:783:9|Pruning unused register sm2_areset_n_clk_base. Make sure that there are no unused intermediate registers.
-Finished optimization stage 1 on CoreResetP_Z3_layer0 (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 99MB)
+Finished optimization stage 1 on CoreResetP_Z3_layer0 (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
 @N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS_syn.v":5:7:5:13|Synthesizing module MSS_025 in library work.
 Running optimization stage 1 on MSS_025 .......
 Finished optimization stage 1 on MSS_025 (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
@@ -267,6 +267,7 @@ Running optimization stage 1 on RCOSC_25_50MHZ .......
 Finished optimization stage 1 on RCOSC_25_50MHZ (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
 @N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":5:7:5:34|Synthesizing module EvalSandbox_MSS_FABOSC_0_OSC in library work.
 Running optimization stage 1 on EvalSandbox_MSS_FABOSC_0_OSC .......
+@W: CL318 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":15:7:15:24|*Output RCOSC_25_50MHZ_CCC has undriven bits; assigning undriven bits to 'Z'.  Simulation mismatch possible. Assign all bits of the output.
 @W: CL318 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":17:7:17:20|*Output RCOSC_1MHZ_CCC has undriven bits; assigning undriven bits to 'Z'.  Simulation mismatch possible. Assign all bits of the output.
 @W: CL318 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":18:7:18:20|*Output RCOSC_1MHZ_O2F has undriven bits; assigning undriven bits to 'Z'.  Simulation mismatch possible. Assign all bits of the output.
 @W: CL318 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":19:7:19:16|*Output XTLOSC_CCC has undriven bits; assigning undriven bits to 'Z'.  Simulation mismatch possible. Assign all bits of the output.
@@ -278,27 +279,82 @@ Finished optimization stage 1 on SYSRESET (CPU Time 0h:00m:00s, Memory Used curr
 @N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\EvalSandbox_MSS.v":9:7:9:21|Synthesizing module EvalSandbox_MSS in library work.
 Running optimization stage 1 on EvalSandbox_MSS .......
 Finished optimization stage 1 on EvalSandbox_MSS (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+@N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":274:7:274:12|Synthesizing module OUTBUF in library work.
+Running optimization stage 1 on OUTBUF .......
+Finished optimization stage 1 on OUTBUF (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\IO_C0\IO_C0_0\IO_C0_IO_C0_0_IO.v":5:7:5:22|Synthesizing module IO_C0_IO_C0_0_IO in library work.
+Running optimization stage 1 on IO_C0_IO_C0_0_IO .......
+Finished optimization stage 1 on IO_C0_IO_C0_0_IO (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\IO_C0\IO_C0.v":27:7:27:11|Synthesizing module IO_C0 in library work.
+Running optimization stage 1 on IO_C0 .......
+Finished optimization stage 1 on IO_C0 (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+@N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":268:7:268:11|Synthesizing module INBUF in library work.
+Running optimization stage 1 on INBUF .......
+Finished optimization stage 1 on INBUF (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\IO_C1\IO_C1_0\IO_C1_IO_C1_0_IO.v":5:7:5:22|Synthesizing module IO_C1_IO_C1_0_IO in library work.
+Running optimization stage 1 on IO_C1_IO_C1_0_IO .......
+Finished optimization stage 1 on IO_C1_IO_C1_0_IO (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\IO_C1\IO_C1.v":27:7:27:11|Synthesizing module IO_C1 in library work.
+Running optimization stage 1 on IO_C1 .......
+Finished optimization stage 1 on IO_C1 (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+@N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":280:7:280:13|Synthesizing module TRIBUFF in library work.
+Running optimization stage 1 on TRIBUFF .......
+Finished optimization stage 1 on TRIBUFF (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\IO_UartTx\IO_UartTx_0\IO_UartTx_IO_UartTx_0_IO.v":5:7:5:30|Synthesizing module IO_UartTx_IO_UartTx_0_IO in library work.
+Running optimization stage 1 on IO_UartTx_IO_UartTx_0_IO .......
+Finished optimization stage 1 on IO_UartTx_IO_UartTx_0_IO (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\IO_UartTx\IO_UartTx.v":27:7:27:15|Synthesizing module IO_UartTx in library work.
+Running optimization stage 1 on IO_UartTx .......
+Finished optimization stage 1 on IO_UartTx (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+@N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":168:7:168:9|Synthesizing module OR3 in library work.
+Running optimization stage 1 on OR3 .......
+Finished optimization stage 1 on OR3 (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+@N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":204:7:204:9|Synthesizing module OR4 in library work.
+Running optimization stage 1 on OR4 .......
+Finished optimization stage 1 on OR4 (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
 @N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalBoardSandbox\EvalBoardSandbox.v":9:7:9:22|Synthesizing module EvalBoardSandbox in library work.
-@N: CG794 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalBoardSandbox\EvalBoardSandbox.v":383:0:383:21|Using module SpiMasterSextetPorts from library work
+@N: CG794 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalBoardSandbox\EvalBoardSandbox.v":551:0:551:15|Using module SpiMasterPorts from library work
 Running optimization stage 1 on EvalBoardSandbox .......
 Finished optimization stage 1 on EvalBoardSandbox (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
 Running optimization stage 2 on EvalBoardSandbox .......
-Finished optimization stage 2 on EvalBoardSandbox (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 100MB)
+Finished optimization stage 2 on EvalBoardSandbox (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Running optimization stage 2 on OR4 .......
+Finished optimization stage 2 on OR4 (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Running optimization stage 2 on OR3 .......
+Finished optimization stage 2 on OR3 (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Running optimization stage 2 on IO_UartTx .......
+Finished optimization stage 2 on IO_UartTx (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Running optimization stage 2 on IO_UartTx_IO_UartTx_0_IO .......
+Finished optimization stage 2 on IO_UartTx_IO_UartTx_0_IO (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Running optimization stage 2 on TRIBUFF .......
+Finished optimization stage 2 on TRIBUFF (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Running optimization stage 2 on IO_C1 .......
+Finished optimization stage 2 on IO_C1 (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Running optimization stage 2 on IO_C1_IO_C1_0_IO .......
+Finished optimization stage 2 on IO_C1_IO_C1_0_IO (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Running optimization stage 2 on INBUF .......
+Finished optimization stage 2 on INBUF (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Running optimization stage 2 on IO_C0 .......
+Finished optimization stage 2 on IO_C0 (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Running optimization stage 2 on IO_C0_IO_C0_0_IO .......
+Finished optimization stage 2 on IO_C0_IO_C0_0_IO (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Running optimization stage 2 on OUTBUF .......
+Finished optimization stage 2 on OUTBUF (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
 Running optimization stage 2 on EvalSandbox_MSS .......
-Finished optimization stage 2 on EvalSandbox_MSS (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 100MB)
+Finished optimization stage 2 on EvalSandbox_MSS (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
 Running optimization stage 2 on SYSRESET .......
-Finished optimization stage 2 on SYSRESET (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 100MB)
+Finished optimization stage 2 on SYSRESET (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
 Running optimization stage 2 on EvalSandbox_MSS_FABOSC_0_OSC .......
 @N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":14:7:14:9|Input XTL is unused.
-Finished optimization stage 2 on EvalSandbox_MSS_FABOSC_0_OSC (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 100MB)
+Finished optimization stage 2 on EvalSandbox_MSS_FABOSC_0_OSC (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
 Running optimization stage 2 on RCOSC_25_50MHZ .......
-Finished optimization stage 2 on RCOSC_25_50MHZ (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 100MB)
+Finished optimization stage 2 on RCOSC_25_50MHZ (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
 Running optimization stage 2 on RCOSC_25_50MHZ_FAB .......
-Finished optimization stage 2 on RCOSC_25_50MHZ_FAB (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 100MB)
+Finished optimization stage 2 on RCOSC_25_50MHZ_FAB (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
 Running optimization stage 2 on EvalSandbox_MSS_MSS .......
-Finished optimization stage 2 on EvalSandbox_MSS_MSS (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 100MB)
+Finished optimization stage 2 on EvalSandbox_MSS_MSS (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
 Running optimization stage 2 on MSS_025 .......
-Finished optimization stage 2 on MSS_025 (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 100MB)
+Finished optimization stage 2 on MSS_025 (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
 Running optimization stage 2 on CoreResetP_Z3_layer0 .......
 @W: CL177 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Sharing sequential element sdif0_spll_lock_q2 and merging sdif3_spll_lock_q2. Add a syn_preserve attribute to the element to prevent sharing.
 @W: CL177 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Sharing sequential element sdif1_spll_lock_q2 and merging sdif3_spll_lock_q2. Add a syn_preserve attribute to the element to prevent sharing.
@@ -375,7 +431,7 @@ State machine has 7 reachable states with original encodings of:
 @N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":119:20:119:40|Input SOFT_SDIF3_CORE_RESET is unused.
 @N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":123:20:123:42|Input SOFT_SDIF0_0_CORE_RESET is unused.
 @N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":124:20:124:42|Input SOFT_SDIF0_1_CORE_RESET is unused.
-Finished optimization stage 2 on CoreResetP_Z3_layer0 (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Finished optimization stage 2 on CoreResetP_Z3_layer0 (CPU Time 0h:00m:00s, Memory Used current: 100MB peak: 100MB)
 Running optimization stage 2 on CoreAPB3_Z2_layer0 .......
 @N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":72:36:72:40|Input IADDR is unused.
 @N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":73:13:73:19|Input PRESETN is unused.
@@ -407,21 +463,21 @@ Running optimization stage 2 on CoreAPB3_Z2_layer0 .......
 @N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":151:13:151:22|Input PSLVERRS13 is unused.
 @N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":152:13:152:22|Input PSLVERRS14 is unused.
 @N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":153:13:153:22|Input PSLVERRS15 is unused.
-Finished optimization stage 2 on CoreAPB3_Z2_layer0 (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Finished optimization stage 2 on CoreAPB3_Z2_layer0 (CPU Time 0h:00m:00s, Memory Used current: 100MB peak: 100MB)
 Running optimization stage 2 on COREAPB3_MUXPTOB3 .......
-Finished optimization stage 2 on COREAPB3_MUXPTOB3 (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 102MB)
+Finished optimization stage 2 on COREAPB3_MUXPTOB3 (CPU Time 0h:00m:00s, Memory Used current: 102MB peak: 102MB)
 Running optimization stage 2 on EvalSandbox_MSS_CCC_0_FCCC .......
-Finished optimization stage 2 on EvalSandbox_MSS_CCC_0_FCCC (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 102MB)
+Finished optimization stage 2 on EvalSandbox_MSS_CCC_0_FCCC (CPU Time 0h:00m:00s, Memory Used current: 102MB peak: 102MB)
 Running optimization stage 2 on CCC .......
-Finished optimization stage 2 on CCC (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 102MB)
+Finished optimization stage 2 on CCC (CPU Time 0h:00m:00s, Memory Used current: 102MB peak: 102MB)
 Running optimization stage 2 on CLKINT .......
-Finished optimization stage 2 on CLKINT (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 102MB)
+Finished optimization stage 2 on CLKINT (CPU Time 0h:00m:00s, Memory Used current: 102MB peak: 102MB)
 Running optimization stage 2 on GND .......
-Finished optimization stage 2 on GND (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 102MB)
+Finished optimization stage 2 on GND (CPU Time 0h:00m:00s, Memory Used current: 102MB peak: 102MB)
 Running optimization stage 2 on VCC .......
-Finished optimization stage 2 on VCC (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 102MB)
+Finished optimization stage 2 on VCC (CPU Time 0h:00m:00s, Memory Used current: 102MB peak: 102MB)
 Running optimization stage 2 on CoreUARTapb_C0 .......
-Finished optimization stage 2 on CoreUARTapb_C0 (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 102MB)
+Finished optimization stage 2 on CoreUARTapb_C0 (CPU Time 0h:00m:00s, Memory Used current: 102MB peak: 102MB)
 Running optimization stage 2 on CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb_Z1_layer0 .......
 @W: CL246 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v":126:0:126:4|Input port bits 1 to 0 of PADDR[4:0] are unused. Assign logic for all port bits or change the input port size.
 @A: CL153 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v":283:0:283:8|*Unassigned bits of CUARTI1OI[2:0] are referenced and tied to 0 -- simulation mismatch possible.
@@ -451,7 +507,7 @@ State machine has 6 reachable states with original encodings of:
 @N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":81:0:81:7|Input CUARTI1I is unused.
 @N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":84:0:84:7|Input CUARTlO1 is unused.
 @N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":87:0:87:7|Input CUARTOI1 is unused.
-Finished optimization stage 2 on CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async_0s_0s_0s_1s_2s_3s_4s_5s_6s (CPU Time 0h:00m:00s, Memory Used current: 100MB peak: 103MB)
+Finished optimization stage 2 on CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async_0s_0s_0s_1s_2s_3s_4s_5s_6s (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 103MB)
 Running optimization stage 2 on CoreUARTapb_C0_CoreUARTapb_C0_0_Clock_gen_0s_0s .......
 @N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Clock_gen.v":75:0:75:16|Input BAUD_VAL_FRACTION is unused.
 Finished optimization stage 2 on CoreUARTapb_C0_CoreUARTapb_C0_0_Clock_gen_0s_0s (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 103MB)

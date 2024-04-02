@@ -1,6 +1,6 @@
 Resource Report
-Microchip Technology Inc. - Microchip Libero Software Release v2023.2 (Version 2023.2.0.8)
-Date: Wed Jan 31 16:43:28 2024
+Microchip Technology Inc. - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)
+Date: Fri Mar 29 14:03:46 2024
 
 Device Selection
 +--------------------------------+----------------+
@@ -37,18 +37,18 @@ Resource Usage
 +---------------------------+------+-------+------------+
 | Type                      | Used | Total | Percentage |
 +---------------------------+------+-------+------------+
-| 4LUT                      | 218  | 27696 | 0.79       |
-| DFF                       | 153  | 27696 | 0.55       |
+| 4LUT                      | 843  | 27696 | 3.04       |
+| DFF                       | 567  | 27696 | 2.05       |
 | I/O Register              | 0    | 414   | 0.00       |
-| User I/O                  | 39   | 138   | 28.26      |
-| -- Single-ended I/O       | 39   | 138   | 28.26      |
+| User I/O                  | 58   | 138   | 42.03      |
+| -- Single-ended I/O       | 58   | 138   | 42.03      |
 | -- Differential I/O Pairs | 0    | 65    | 0.00       |
 | RAM64x18                  | 0    | 34    | 0.00       |
 | RAM1K18                   | 0    | 31    | 0.00       |
 | MACC                      | 0    | 34    | 0.00       |
-| Chip Globals              | 4    | 16    | 25.00      |
+| Chip Globals              | 2    | 16    | 12.50      |
 | CCC                       | 1    | 6     | 16.67      |
-| RCOSC_25_50MHZ            | 1    | 1     | 100.00     |
+| RCOSC_25_50MHZ            | 0    | 1     | 0.00       |
 | RCOSC_1MHZ                | 0    | 1     | 0.00       |
 | XTLOSC                    | 0    | 1     | 0.00       |
 | MSS                       | 1    | 1     | 100.00     |
@@ -58,11 +58,11 @@ Detailed Logic Resource Usage
 +--------------------------+------+-----+
 | Type                     | 4LUT | DFF |
 +--------------------------+------+-----+
-| Fabric Logic             | 218  | 153 |
+| Fabric Logic             | 843  | 567 |
 | RAM64x18 Interface Logic | 0    | 0   |
 | RAM1K18 Interface Logic  | 0    | 0   |
 | MACC Interface Logic     | 0    | 0   |
-| Total Used               | 218  | 153 |
+| Total Used               | 843  | 567 |
 +--------------------------+------+-----+
 
 MSS Resource Usage
@@ -89,18 +89,19 @@ MSS Resource Usage
 Detailed Carry Chains Resource Usage
 +--------+------+
 | Length | Used |
-| 5      | 2    |
-| 9      | 1    |
+| 2      | 12   |
+| 5      | 7    |
+| 10     | 6    |
 | 14     | 1    |
-| Total  | 4    |
+| Total  | 26   |
 +--------+------+
 
 I/O Function
 +-------------------------------+--------------+-------------+-----------------+
 | Type                          | w/o register | w/ register | w/ DDR register |
 +-------------------------------+--------------+-------------+-----------------+
-| Input I/O                     | 1            | 0           | 0               |
-| Output I/O                    | 38           | 0           | 0               |
+| Input I/O                     | 9            | 0           | 0               |
+| Output I/O                    | 49           | 0           | 0               |
 | Bidirectional I/O             | 0            | 0           | 0               |
 | Differential Input I/O Pairs  | 0            | 0           | 0               |
 | Differential Output I/O Pairs | 0            | 0           | 0               |
@@ -110,24 +111,18 @@ I/O Technology
 +--------------+--------+------+-------+--------+---------------+
 | I/O Standard | Vddi   | Vref | Input | Output | Bidirectional |
 +--------------+--------+------+-------+--------+---------------+
-| LVCMOS33     |  3.30v |  N/A |  1    |  38    |  0            |
+| LVCMOS33     |  3.30v |  N/A |  9    |  49    |  0            |
 +--------------+--------+------+-------+--------+---------------+
 
 Nets assigned to chip global resources
 +--------+---------+--------------------------------------------------------------------------------+
 | Fanout | Type    | Name                                                                           |
 +--------+---------+--------------------------------------------------------------------------------+
-| 148    | INT_NET | Net   : EvalSandbox_MSS_0_FIC_0_CLK                                            |
+| 562    | INT_NET | Net   : EvalSandbox_MSS_0_FIC_0_CLK                                            |
 |        |         | Driver: EvalSandbox_MSS_0/CCC_0/GL0_INST/U0_RGB1                               |
 |        |         | Source: NETLIST                                                                |
-| 24     | INT_NET | Net   : EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/GPIO_1_M2F_arst                |
+| 426    | INT_NET | Net   : EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/GPIO_1_M2F_arst                |
 |        |         | Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST_RNI9OK7/U0_RGB1 |
-|        |         | Source: NETLIST                                                                |
-| 12     | INT_NET | Net   : SpiMasterSextetPorts_0/un1_rst_7_arst                                  |
-|        |         | Driver: SpiMasterSextetPorts_0/un1_rst_1_RNI6J8A/U0_RGB1                       |
-|        |         | Source: NETLIST                                                                |
-| 12     | INT_NET | Net   : SpiMasterSextetPorts_0/un1_rst_12_arst                                 |
-|        |         | Driver: SpiMasterSextetPorts_0/un1_rst_12_RNIOQR2/U0_RGB1                      |
 |        |         | Source: NETLIST                                                                |
 +--------+---------+--------------------------------------------------------------------------------+
 
@@ -138,54 +133,54 @@ Nets assigned to row global resources
 +--------+------+------+
 
 High fanout nets
-+--------+---------+---------------------------------------------------------------------------------------------------+
-| Fanout | Type    | Name                                                                                              |
-+--------+---------+---------------------------------------------------------------------------------------------------+
-| 29     | INT_NET | Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTIl                                       |
-|        |         | Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTOO1/genblk1.CUARTI0                      |
-| 17     | INT_NET | Net   : EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[4]                                                   |
-|        |         | Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST                                    |
-| 17     | INT_NET | Net   : EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[3]                                                   |
-|        |         | Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST                                    |
-| 14     | INT_NET | Net   : EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[2]                                                   |
-|        |         | Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST                                    |
-| 14     | INT_NET | Net   : EvalSandbox_MSS_0_AMBA_SLAVE_0_PSELx                                                      |
-|        |         | Driver: EvalSandbox_MSS_0/CoreAPB3_0/iPSELS[0]                                                    |
-| 14     | INT_NET | Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTOO1/CUARTO07_1_RNI3H8P1_Y                |
-|        |         | Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTOO1/genblk1.CUARTIOI.CUARTO07_1_RNI3H8P1 |
-| 13     | INT_NET | Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTII1                                                |
-|        |         | Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTO1OI[0]                                            |
-| 12     | INT_NET | Net   : SpiMasterSextetPorts_0/un1_MosiA_i_0_sqmuxa_1_i[0]                                        |
-|        |         | Driver: SpiMasterSextetPorts_0/MosiA_i_0_sqmuxa_0_RNIOMUI2                                        |
-| 12     | INT_NET | Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlI1                                                |
-|        |         | Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTO1OI[1]                                            |
-| 12     | INT_NET | Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTll                                       |
-|        |         | Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTOO1/CUARTll                              |
-+--------+---------+---------------------------------------------------------------------------------------------------+
++--------+---------+------------------------------------------------------------------------------+
+| Fanout | Type    | Name                                                                         |
++--------+---------+------------------------------------------------------------------------------+
+| 60     | INT_NET | Net   : EvalSandbox_MSS_0/N_11_i                                             |
+|        |         | Driver: EvalSandbox_MSS_0/CoreAPB3_0/u_mux_p_to_b3/N_11_i                    |
+| 33     | INT_NET | Net   : SpiMasterPorts_4/SpiBitPos_Z[2]                                      |
+|        |         | Driver: SpiMasterPorts_4/SpiBitPos[2]                                        |
+| 33     | INT_NET | Net   : SpiMasterPorts_0/SpiBitPos_Z[2]                                      |
+|        |         | Driver: SpiMasterPorts_0/SpiBitPos[2]                                        |
+| 33     | INT_NET | Net   : SpiMasterPorts_5/SpiBitPos_Z[2]                                      |
+|        |         | Driver: SpiMasterPorts_5/SpiBitPos[2]                                        |
+| 33     | INT_NET | Net   : SpiMasterPorts_1/SpiBitPos_Z[2]                                      |
+|        |         | Driver: SpiMasterPorts_1/SpiBitPos[2]                                        |
+| 33     | INT_NET | Net   : SpiMasterPorts_2/SpiBitPos_Z[2]                                      |
+|        |         | Driver: SpiMasterPorts_2/SpiBitPos[2]                                        |
+| 33     | INT_NET | Net   : SpiMasterPorts_3/SpiBitPos_Z[2]                                      |
+|        |         | Driver: SpiMasterPorts_3/SpiBitPos[2]                                        |
+| 30     | INT_NET | Net   : CFG0_GND_INST_NET                                                    |
+|        |         | Driver: CFG0_GND_INST                                                        |
+| 29     | INT_NET | Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTIl                  |
+|        |         | Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTOO1/genblk1.CUARTI0 |
+| 28     | INT_NET | Net   : EvalSandbox_MSS_0/N_13_i                                             |
+|        |         | Driver: EvalSandbox_MSS_0/CoreAPB3_0/u_mux_p_to_b3/N_13_i                    |
++--------+---------+------------------------------------------------------------------------------+
 
 High fanout nets (through buffer trees)
-+--------+---------+---------------------------------------------------------------------------------------------------+
-| Fanout | Type    | Name                                                                                              |
-+--------+---------+---------------------------------------------------------------------------------------------------+
-| 29     | INT_NET | Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTIl                                       |
-|        |         | Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTOO1/genblk1.CUARTI0                      |
-| 17     | INT_NET | Net   : EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[4]                                                   |
-|        |         | Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST                                    |
-| 17     | INT_NET | Net   : EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[3]                                                   |
-|        |         | Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST                                    |
-| 14     | INT_NET | Net   : EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDR[2]                                                   |
-|        |         | Driver: EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST                                    |
-| 14     | INT_NET | Net   : EvalSandbox_MSS_0_AMBA_SLAVE_0_PSELx                                                      |
-|        |         | Driver: EvalSandbox_MSS_0/CoreAPB3_0/iPSELS[0]                                                    |
-| 14     | INT_NET | Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTOO1/CUARTO07_1_RNI3H8P1_Y                |
-|        |         | Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTOO1/genblk1.CUARTIOI.CUARTO07_1_RNI3H8P1 |
-| 13     | INT_NET | Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTII1                                                |
-|        |         | Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTO1OI[0]                                            |
-| 12     | INT_NET | Net   : SpiMasterSextetPorts_0/un1_MosiA_i_0_sqmuxa_1_i[0]                                        |
-|        |         | Driver: SpiMasterSextetPorts_0/MosiA_i_0_sqmuxa_0_RNIOMUI2                                        |
-| 12     | INT_NET | Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlI1                                                |
-|        |         | Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTO1OI[1]                                            |
-| 12     | INT_NET | Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTll                                       |
-|        |         | Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTOO1/CUARTll                              |
-+--------+---------+---------------------------------------------------------------------------------------------------+
++--------+---------+------------------------------------------------------------------------------+
+| Fanout | Type    | Name                                                                         |
++--------+---------+------------------------------------------------------------------------------+
+| 60     | INT_NET | Net   : EvalSandbox_MSS_0/N_11_i                                             |
+|        |         | Driver: EvalSandbox_MSS_0/CoreAPB3_0/u_mux_p_to_b3/N_11_i                    |
+| 33     | INT_NET | Net   : SpiMasterPorts_4/SpiBitPos_Z[2]                                      |
+|        |         | Driver: SpiMasterPorts_4/SpiBitPos[2]                                        |
+| 33     | INT_NET | Net   : SpiMasterPorts_0/SpiBitPos_Z[2]                                      |
+|        |         | Driver: SpiMasterPorts_0/SpiBitPos[2]                                        |
+| 33     | INT_NET | Net   : SpiMasterPorts_5/SpiBitPos_Z[2]                                      |
+|        |         | Driver: SpiMasterPorts_5/SpiBitPos[2]                                        |
+| 33     | INT_NET | Net   : SpiMasterPorts_1/SpiBitPos_Z[2]                                      |
+|        |         | Driver: SpiMasterPorts_1/SpiBitPos[2]                                        |
+| 33     | INT_NET | Net   : SpiMasterPorts_2/SpiBitPos_Z[2]                                      |
+|        |         | Driver: SpiMasterPorts_2/SpiBitPos[2]                                        |
+| 33     | INT_NET | Net   : SpiMasterPorts_3/SpiBitPos_Z[2]                                      |
+|        |         | Driver: SpiMasterPorts_3/SpiBitPos[2]                                        |
+| 30     | INT_NET | Net   : CFG0_GND_INST_NET                                                    |
+|        |         | Driver: CFG0_GND_INST                                                        |
+| 29     | INT_NET | Net   : CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTIl                  |
+|        |         | Driver: CoreUARTapb_C0_0/CoreUARTapb_C0_0/CUARTlOlI/CUARTOO1/genblk1.CUARTI0 |
+| 28     | INT_NET | Net   : EvalSandbox_MSS_0/N_13_i                                             |
+|        |         | Driver: EvalSandbox_MSS_0/CoreAPB3_0/u_mux_p_to_b3/N_13_i                    |
++--------+---------+------------------------------------------------------------------------------+
 

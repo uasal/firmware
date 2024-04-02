@@ -12,7 +12,7 @@ Hostname: ASTR-ETS-001
 
 Implementation : synthesis
 
-# Written on Wed Jan 31 16:43:16 2024
+# Written on Fri Mar 29 14:03:31 2024
 
 ##### FILES SYNTAX CHECKED ##############################################
 Constraint File(s):      "C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\designer\EvalBoardSandbox\synthesis.fdc"
@@ -29,12 +29,14 @@ No issues found in constraint syntax.
 Clock Summary
 *************
 
-          Start                                                  Requested     Requested     Clock                                                                   Clock                Clock
-Level     Clock                                                  Frequency     Period        Type                                                                    Group                Load 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-0 -       EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT     50.0 MHz      20.000        declared                                                                default_clkgroup     15   
-1 .         EvalSandbox_MSS_0/CCC_0/GL0                          100.0 MHz     10.000        generated (from EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT)     default_clkgroup     276  
-===============================================================================================================================================================================================
+          Start                                                  Requested     Requested     Clock                     Clock                Clock
+Level     Clock                                                  Frequency     Period        Type                      Group                Load 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+0 -       CLK0                                                   51.0 MHz      19.608        declared                  default_clkgroup     0    
+1 .         EvalSandbox_MSS_0/CCC_0/GL0                          102.0 MHz     9.804         generated (from CLK0)     default_clkgroup     597  
+                                                                                                                                                 
+0 -       EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT     50.0 MHz      20.000        declared                  default_clkgroup     15   
+=================================================================================================================================================
 
 
 Clock Load Summary
@@ -43,6 +45,8 @@ Clock Load Summary
                                                        Clock     Source                                                                 Clock Pin                                               Non-clock Pin     Non-clock Pin                                                        
 Clock                                                  Load      Pin                                                                    Seq Example                                             Seq Example       Comb Example                                                         
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CLK0                                                   0         CLK0(port)                                                             -                                                       -                 -                                                                    
+EvalSandbox_MSS_0/CCC_0/GL0                            597       EvalSandbox_MSS_0.CCC_0.CCC_INST.GL0(CCC)                              SpiMasterPorts_0.nCsLatched.C                           -                 EvalSandbox_MSS_0.CCC_0.GL0_INST.I(BUFG)                             
+                                                                                                                                                                                                                                                                                       
 EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT     15        EvalSandbox_MSS_0.FABOSC_0.I_RCOSC_25_50MHZ.CLKOUT(RCOSC_25_50MHZ)     EvalSandbox_MSS_0.CORERESETP_0.release_sdif0_core.C     -                 EvalSandbox_MSS_0.FABOSC_0.I_RCOSC_25_50MHZ_FAB.A(RCOSC_25_50MHZ_FAB)
-EvalSandbox_MSS_0/CCC_0/GL0                            276       EvalSandbox_MSS_0.CCC_0.CCC_INST.GL0(CCC)                              SpiMasterSextetPorts_0.DataToMosiLatched.C              -                 EvalSandbox_MSS_0.CCC_0.GL0_INST.I(BUFG)                             
 =======================================================================================================================================================================================================================================================================================

@@ -2,8 +2,8 @@
 <?xml-stylesheet href="rptstyle.xsl" type="text/xsl" ?>
 <doc>
 <title>Configuration Report for MSS, SERDES(s), Fabric DDR and Fabric CCC(s)</title>
-<text>Microchip Technology Inc. - Microchip Libero Software Release v2023.2 (Version 2023.2.0.8)</text>
-<text>Date: Wed Jan 31 16:45:28 2024
+<text>Microchip Technology Inc. - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)</text>
+<text>Date: Fri Mar 29 14:09:57 2024
 </text>
 <section><name>EvalSandbox_MSS_0/CCC_0/CCC_INST/INST_CCC_IP</name></section>
 <table>
@@ -59,7 +59,7 @@
  <cell>FCCC_RFMUX_CR</cell>
  <cell>SELRF[3:0]</cell>
  <cell>INIT[57:54]</cell>
- <cell>4&apos;hb</cell>
+ <cell>4&apos;hc</cell>
 </row>
 <row>
  <cell>FCCC_FBMUX_CR</cell>
@@ -95,7 +95,7 @@
  <cell>FCCC_NGMUX0_CR0</cell>
  <cell>SELGL[4:0]</cell>
  <cell>INIT[86:82]</cell>
- <cell>5&apos;h18</cell>
+ <cell>5&apos;h7</cell>
 </row>
 <row>
  <cell>FCCC_NGMUX0_CR1</cell>
@@ -119,7 +119,7 @@
  <cell>FCCC_NGMUX2_CR0</cell>
  <cell>SELGL[24:20]</cell>
  <cell>INIT[106:102]</cell>
- <cell>5&apos;h7</cell>
+ <cell>5&apos;h18</cell>
 </row>
 <row>
  <cell>FCCC_NGMUX2_CR1</cell>
@@ -803,7 +803,7 @@
  <cell>8&apos;h0</cell>
 </row>
 </table>
-<section><name>CCC-NE1 ( Unused )</name></section>
+<section><name>CCC-NW0 ( Unused )</name></section>
 <table>
 <header>
  <cell>Register</cell>
@@ -1202,7 +1202,7 @@
  <cell>8&apos;h0</cell>
 </row>
 </table>
-<section><name>CCC-NW0 ( Unused )</name></section>
+<section><name>CCC-NW1 ( Unused )</name></section>
 <table>
 <header>
  <cell>Register</cell>
@@ -2461,7 +2461,7 @@
  <cell>ENVM_CONFIG</cell>
  <cell>NV_FREQRNG</cell>
  <cell>INIT[168:161]</cell>
- <cell>8&apos;h04</cell>
+ <cell>8&apos;h05</cell>
  <cell>INIT[3]</cell>
  <cell>1</cell>
 </row>
@@ -3501,7 +3501,7 @@
  <cell>MSSDDR_PLL_STATUS_LOW</cell>
  <cell>FACC_PLL_DIVR</cell>
  <cell>INIT[551:546]</cell>
- <cell>6&apos;h01</cell>
+ <cell>6&apos;h02</cell>
  <cell>INIT[62]</cell>
  <cell>1</cell>
 </row>
@@ -3509,7 +3509,7 @@
  <cell>MSSDDR_PLL_STATUS_LOW</cell>
  <cell>FACC_PLL_DIVF</cell>
  <cell>INIT[561:552]</cell>
- <cell>10&apos;h001</cell>
+ <cell>10&apos;h002</cell>
  <cell>INIT[62]</cell>
  <cell>1</cell>
 </row>
@@ -3525,7 +3525,7 @@
  <cell>MSSDDR_PLL_STATUS_LOW</cell>
  <cell>FACC_PLL_RANGE</cell>
  <cell>INIT[568:565]</cell>
- <cell>4&apos;h9</cell>
+ <cell>4&apos;h8</cell>
  <cell>INIT[62]</cell>
  <cell>1</cell>
 </row>
@@ -9877,7 +9877,7 @@
  <cell>1</cell>
 </row>
 </table>
-<section><name>CCC-NE0 ( Unused pin tie-off )</name></section>
+<section><name>CCC-NW1 ( Unused pin tie-off )</name></section>
 <table>
 <header>
  <cell>Input Pin</cell>
@@ -9948,7 +9948,7 @@
  <cell>1</cell>
 </row>
 </table>
-<section><name>CCC-NE1 ( Unused pin tie-off )</name></section>
+<section><name>CCC-NE0 ( Unused pin tie-off )</name></section>
 <table>
 <header>
  <cell>Input Pin</cell>

@@ -16,9 +16,7 @@ entity SpiMasterTrioPorts is
 	generic 
 	(
 		CLOCK_DIVIDER : natural := 1000; --how much do you want to knock down the global clock to get to the spi clock rate?
-		BYTE_WIDTH : natural := 1; --how many bytes per transaction?
-		CPOL : std_logic := '0'; --'standard' spi knob - inverts clock polarity (0 seems to be the standard, 1 less common)
-		CPHA : std_logic := '0'--; --'standard' spi knob - inverts clock phase (0 seems to be the standard, 1 less common)
+		BYTE_WIDTH : natural := 1--; --how many bytes per transaction?
 	);
     port
 	(
@@ -67,8 +65,13 @@ architecture SpiMasterTrio of SpiMasterTrioPorts is
 	
 	signal XferComplete_i : std_logic;
 
+        signal CPOL : std_logic; --:= '0'; --'standard' spi knob - inverts clock polarity (0 seems to be the standard, 1 less common)
+        signal CPHA : std_logic; --:= '0'--; --'standard' spi knob - inverts clock phase (0 seems to be the standard, 1 less common)
+
 begin
 
+    CPOL <= '0';
+    CPHA <= '0';
 	--~ Sck <= Sck_i xor CPOL; --Allow for Sck to be inverted
 	Sck <= Sck_i; --Allow for Sck to be inverted
 	MosiA <= MosiA_i;

@@ -1,7 +1,7 @@
 @N|Running in 64-bit mode
 @N|Running in 64-bit mode
-@N:"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":15:7:15:26|Top entity is set to SpiMasterSextetPorts.
-@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd'.
+@N:"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterAPB3.vhd":16:7:16:20|Top entity is set to SpiMasterPorts.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterAPB3.vhd'.
 @N: CD231 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vhd2008\std1164.vhd":889:16:889:17|Using onehot encoding for type mvl9plus. For example, enumeration 'U' is mapped to "1000000000".
 @N|Running in 64-bit mode
 @N: CG1349 :	| Running Verilog Compiler in System Verilog mode
@@ -34,8 +34,19 @@
 @N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":5:7:5:34|Synthesizing module EvalSandbox_MSS_FABOSC_0_OSC in library work.
 @N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":720:7:720:14|Synthesizing module SYSRESET in library work.
 @N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\EvalSandbox_MSS.v":9:7:9:21|Synthesizing module EvalSandbox_MSS in library work.
+@N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":274:7:274:12|Synthesizing module OUTBUF in library work.
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\IO_C0\IO_C0_0\IO_C0_IO_C0_0_IO.v":5:7:5:22|Synthesizing module IO_C0_IO_C0_0_IO in library work.
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\IO_C0\IO_C0.v":27:7:27:11|Synthesizing module IO_C0 in library work.
+@N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":268:7:268:11|Synthesizing module INBUF in library work.
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\IO_C1\IO_C1_0\IO_C1_IO_C1_0_IO.v":5:7:5:22|Synthesizing module IO_C1_IO_C1_0_IO in library work.
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\IO_C1\IO_C1.v":27:7:27:11|Synthesizing module IO_C1 in library work.
+@N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":280:7:280:13|Synthesizing module TRIBUFF in library work.
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\IO_UartTx\IO_UartTx_0\IO_UartTx_IO_UartTx_0_IO.v":5:7:5:30|Synthesizing module IO_UartTx_IO_UartTx_0_IO in library work.
+@N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\IO_UartTx\IO_UartTx.v":27:7:27:15|Synthesizing module IO_UartTx in library work.
+@N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":168:7:168:9|Synthesizing module OR3 in library work.
+@N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":204:7:204:9|Synthesizing module OR4 in library work.
 @N: CG364 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalBoardSandbox\EvalBoardSandbox.v":9:7:9:22|Synthesizing module EvalBoardSandbox in library work.
-@N: CG794 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalBoardSandbox\EvalBoardSandbox.v":383:0:383:21|Using module SpiMasterSextetPorts from library work
+@N: CG794 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalBoardSandbox\EvalBoardSandbox.v":551:0:551:15|Using module SpiMasterPorts from library work
 @N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":14:7:14:9|Input XTL is unused.
 @N: CL201 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1365:4:1365:9|Trying to extract state machine for register sdif3_state.
 @N: CL201 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":1300:4:1300:9|Trying to extract state machine for register sdif2_state.
@@ -111,11 +122,12 @@
 @N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":84:0:84:7|Input CUARTlO1 is unused.
 @N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v":87:0:87:7|Input CUARTOI1 is unused.
 @N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Clock_gen.v":75:0:75:16|Input BAUD_VAL_FRACTION is unused.
-@N:"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":15:7:15:26|Top entity is set to SpiMasterSextetPorts.
-@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd'.
+@N:"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterAPB3.vhd":16:7:16:20|Top entity is set to SpiMasterPorts.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterAPB3.vhd'.
 @N: CD231 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vhd2008\std1164.vhd":889:16:889:17|Using onehot encoding for type mvl9plus. For example, enumeration 'U' is mapped to "1000000000".
 @N: Setting default value for generic clock_divider to 1000;
-@N: Setting default value for generic byte_width to 1;
-@N: CD630 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":15:7:15:26|Synthesizing work.spimastersextetports.spimastersextet.
+@N: Setting default value for generic byte_width to 3;
+@N: CD630 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterAPB3.vhd":16:7:16:20|Synthesizing work.spimasterports.spimaster.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterAPB3.vhd":40:10:40:16|Input Presern is unused.
 @N|Running in 64-bit mode
 

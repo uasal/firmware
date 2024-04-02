@@ -17,6 +17,14 @@
     <ProgrammingInterface>
         JTAGMode
     </ProgrammingInterface>
+    <programmer status="enable" type="FlashPro6" revision="UndefRev" connection="usb2.0">
+        <name>
+            16B03B1
+        </name>
+        <id>
+            16B03B1
+        </id>
+    </programmer>
     <Servers>
     </Servers>
     <configuration>

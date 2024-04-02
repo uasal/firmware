@@ -1,24 +1,23 @@
 @N: CD231 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vhd2008\std1164.vhd":889:16:889:17|Using onehot encoding for type mvl9plus. For example, enumeration 'U' is mapped to "1000000000".
 @N: Setting default value for generic clock_divider to 1000;
-@N: Setting default value for generic byte_width to 1;
-@N: CD630 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":15:7:15:26|Synthesizing work.spimastersextetports.spimastersextet.
-@W: CD434 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":125:155:125:158|Signal ncsa in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
-@W: CD434 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":125:161:125:164|Signal ncsb in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
-@W: CD434 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":125:167:125:170|Signal ncsc in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
-@W: CD434 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":125:173:125:176|Signal ncsd in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
-@W: CD434 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":125:179:125:182|Signal ncse in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
-@W: CD434 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":125:185:125:188|Signal ncsf in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
-Post processing for work.spimastersextetports.spimastersextet
-Running optimization stage 1 on work_spimastersextetports_spimastersextet_1000_1_'0'_'0'_1_CLOCK_DIVIDERBYTE_WIDTH .......
-@W: CL240 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":53:16:53:19|Signal nCsF is floating; a simulation mismatch is possible.
-@W: CL240 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":52:16:52:19|Signal nCsE is floating; a simulation mismatch is possible.
-@W: CL240 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":51:16:51:19|Signal nCsD is floating; a simulation mismatch is possible.
-@W: CL240 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":50:16:50:19|Signal nCsC is floating; a simulation mismatch is possible.
-@W: CL240 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":49:16:49:19|Signal nCsB is floating; a simulation mismatch is possible.
-@W: CL240 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd":48:16:48:19|Signal nCsA is floating; a simulation mismatch is possible.
-Finished optimization stage 1 on work_spimastersextetports_spimastersextet_1000_1_'0'_'0'_1_CLOCK_DIVIDERBYTE_WIDTH (CPU Time 0h:00m:00s, Memory Used current: 95MB peak: 96MB)
-Running optimization stage 2 on work_spimastersextetports_spimastersextet_1000_1_'0'_'0'_1_CLOCK_DIVIDERBYTE_WIDTH .......
-Finished optimization stage 2 on work_spimastersextetports_spimastersextet_1000_1_'0'_'0'_1_CLOCK_DIVIDERBYTE_WIDTH (CPU Time 0h:00m:00s, Memory Used current: 95MB peak: 96MB)
+@N: Setting default value for generic byte_width to 3;
+@N: CD630 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterAPB3.vhd":16:7:16:20|Synthesizing work.spimasterports.spimaster.
+@W: CG296 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterAPB3.vhd":109:2:109:8|Incomplete sensitivity list; assuming completeness. Make sure all referenced variables in message CG290 are included in the sensitivity list.
+@W: CG290 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterAPB3.vhd":115:19:115:22|Referenced variable cpol is not in sensitivity list.
+@W: CD638 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterAPB3.vhd":75:15:75:27|Signal ambabusdata_i is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterAPB3.vhd":89:15:89:18|Signal cpol is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterAPB3.vhd":90:15:90:18|Signal cpha is undriven. Either assign the signal a value or remove the signal declaration.
+Post processing for work.spimasterports.spimaster
+Running optimization stage 1 on work_spimasterports_spimaster_1000_3_1_CLOCK_DIVIDERBYTE_WIDTH .......
+@A: CL282 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterAPB3.vhd":112:4:112:5|Feedback mux created for signal DacNum_i[1:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@W: CL111 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterAPB3.vhd":112:4:112:5|All reachable assignments to DataToMosiLatched are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+Finished optimization stage 1 on work_spimasterports_spimaster_1000_3_1_CLOCK_DIVIDERBYTE_WIDTH (CPU Time 0h:00m:00s, Memory Used current: 95MB peak: 96MB)
+Running optimization stage 2 on work_spimasterports_spimaster_1000_3_1_CLOCK_DIVIDERBYTE_WIDTH .......
+@W: CL246 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterAPB3.vhd":52:10:52:20|Input port bits 31 to 30 of ambabusdata(31 downto 0) are unused. Assign logic for all port bits or change the input port size.
+@W: CL246 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterAPB3.vhd":52:10:52:20|Input port bits 27 to 24 of ambabusdata(31 downto 0) are unused. Assign logic for all port bits or change the input port size.
+@W: CL246 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterAPB3.vhd":55:10:55:19|Input port bits 22 to 0 of datatomosi(23 downto 0) are unused. Assign logic for all port bits or change the input port size.
+@N: CL159 :"C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterAPB3.vhd":40:10:40:16|Input Presern is unused.
+Finished optimization stage 2 on work_spimasterports_spimaster_1000_3_1_CLOCK_DIVIDERBYTE_WIDTH (CPU Time 0h:00m:00s, Memory Used current: 94MB peak: 97MB)
 
 For a summary of runtime per design unit, please see file:
 ==========================================================

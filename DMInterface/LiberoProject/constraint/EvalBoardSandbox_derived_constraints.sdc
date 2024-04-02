@@ -1,5 +1,5 @@
 # Microsemi Corp.
-# Date: 2024-Jan-31 16:43:08
+# Date: 2024-Mar-29 14:03:03
 # This file was generated based on the following SDC source files:
 #   C:/Users/SKaye/repos/firmware/DMInterface/LiberoProject/component/work/EvalSandbox_MSS/CCC_0/EvalSandbox_MSS_CCC_0_FCCC.sdc
 #   C:/Microchip/Libero_SoC_v2023.2/Designer/data/aPA4M/cores/constraints/coreresetp.sdc
@@ -9,8 +9,9 @@
 # *** Any modifications to this file will be lost if derived constraints is re-run. ***
 #
 
+create_clock -name {CLK0} -period 19.6078 [ get_ports { CLK0 } ]
 create_clock -ignore_errors -name {EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT} -period 20 [ get_pins { EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT } ]
-create_generated_clock -name {EvalSandbox_MSS_0/CCC_0/GL0} -multiply_by 4 -divide_by 2 -source [ get_pins { EvalSandbox_MSS_0/CCC_0/CCC_INST/RCOSC_25_50MHZ } ] -phase 0 [ get_pins { EvalSandbox_MSS_0/CCC_0/CCC_INST/GL0 } ]
+create_generated_clock -name {EvalSandbox_MSS_0/CCC_0/GL0} -multiply_by 4 -divide_by 2 -source [ get_pins { EvalSandbox_MSS_0/CCC_0/CCC_INST/CLK0 } ] -phase 0 [ get_pins { EvalSandbox_MSS_0/CCC_0/CCC_INST/GL0 } ]
 set_false_path -ignore_errors -through [ get_nets { EvalSandbox_MSS_0/CORERESETP_0/ddr_settled EvalSandbox_MSS_0/CORERESETP_0/count_ddr_enable EvalSandbox_MSS_0/CORERESETP_0/release_sdif*_core EvalSandbox_MSS_0/CORERESETP_0/count_sdif*_enable } ]
 set_false_path -ignore_errors -from [ get_cells { EvalSandbox_MSS_0/CORERESETP_0/MSS_HPMS_READY_int } ] -to [ get_cells { EvalSandbox_MSS_0/CORERESETP_0/sm0_areset_n_rcosc EvalSandbox_MSS_0/CORERESETP_0/sm0_areset_n_rcosc_q1 } ]
 set_false_path -ignore_errors -from [ get_cells { EvalSandbox_MSS_0/CORERESETP_0/MSS_HPMS_READY_int EvalSandbox_MSS_0/CORERESETP_0/SDIF*_PERST_N_re } ] -to [ get_cells { EvalSandbox_MSS_0/CORERESETP_0/sdif*_areset_n_rcosc* } ]

@@ -15,7 +15,13 @@ read_verilog -mode system_verilog -lib COREAPB3_LIB {C:\Users\SKaye\repos\firmwa
 read_verilog -mode system_verilog -lib COREAPB3_LIB {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_iaddr_reg.v}
 read_verilog -mode system_verilog -lib COREAPB3_LIB {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v}
 read_verilog -mode system_verilog {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalSandbox_MSS\EvalSandbox_MSS.v}
-read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterSextet.vhd}
+read_verilog -mode system_verilog {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\IO_C0\IO_C0_0\IO_C0_IO_C0_0_IO.v}
+read_verilog -mode system_verilog {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\IO_C0\IO_C0.v}
+read_verilog -mode system_verilog {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\IO_C1\IO_C1_0\IO_C1_IO_C1_0_IO.v}
+read_verilog -mode system_verilog {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\IO_C1\IO_C1.v}
+read_verilog -mode system_verilog {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\IO_UartTx\IO_UartTx_0\IO_UartTx_IO_UartTx_0_IO.v}
+read_verilog -mode system_verilog {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\IO_UartTx\IO_UartTx.v}
+read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\hdl\SpiMasterAPB3.vhd}
 read_verilog -mode system_verilog {C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject\component\work\EvalBoardSandbox\EvalBoardSandbox.v}
 set_top_level {EvalBoardSandbox}
 map_netlist

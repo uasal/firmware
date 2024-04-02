@@ -1,6 +1,6 @@
 Export Firmware README
 
-Microchip Technology Inc. - Microchip Libero Software Release v2023.2 (Version 2023.2.0.8)
+Microchip Technology Inc. - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)
 
-Date    :    Wed Jan 31 16:45:09 2024
+Date    :    Fri Mar 29 14:08:46 2024
 Project :    C:\Users\SKaye\repos\firmware\DMInterface\LiberoProject

@@ -1,5 +1,5 @@
 #===========================================================
-# Created by Microsemi SmartDesign Wed Jan 31 16:41:14 2024
+# Created by Microsemi SmartDesign Fri Mar 29 14:02:51 2024
 #
 # Syntax: 
 # ------- 
@@ -18,12 +18,12 @@
 #-----------------------------------------------------------
 
 memmap CoreUARTapb_C0_0 0x5000_0000;
-memmap SpiMasterSextetPorts_0_BIF_1 0x5000_1000;
-memmap SpiMasterSextetPorts_0_BIF_2 0x5000_2000;
-memmap SpiMasterSextetPorts_0_BIF_3 0x5000_3000;
-memmap SpiMasterSextetPorts_0_BIF_4 0x5000_4000;
-memmap SpiMasterSextetPorts_0_BIF_5 0x5000_5000;
-memmap SpiMasterSextetPorts_0_BIF_6 0x5000_6000;
+memmap SpiMasterPorts_0 0x5000_1000;
+memmap SpiMasterPorts_1 0x5000_2000;
+memmap SpiMasterPorts_2 0x5000_3000;
+memmap SpiMasterPorts_3 0x5000_4000;
+memmap SpiMasterPorts_4 0x5000_5000;
+memmap SpiMasterPorts_5 0x5000_6000;
 #-----------------------------------------------------------
 # Include resource scriptlets
 #-----------------------------------------------------------

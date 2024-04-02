@@ -7,8 +7,6 @@ GLOBAL THRESHOLD - 5000
 
 NET NAME                                                    CLOCK LOADS     ASYNC RST LOADS     DATA LOADS     TOTAL FANOUT     GLOBAL BUFFER PRESENT
 -----------------------------------------------------------------------------------------------------------------------------------------------------
-EvalSandbox_MSS_0_FIC_0_CLK                                 148             0                   0              148              YES                  
-SpiMasterSextetPorts_0.un1_rst_7_arst                       6               6                   0              12               YES                  
-EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.GPIO_1_M2F_arst     0               24                  0              24               YES                  
-SpiMasterSextetPorts_0.un1_rst_12_arst                      0               12                  0              12               YES                  
+EvalSandbox_MSS_0_FIC_0_CLK                                 562             0                   0              562              YES                  
+EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.GPIO_1_M2F_arst     0               426                 0              426              YES                  
 =====================================================================================================================================================
