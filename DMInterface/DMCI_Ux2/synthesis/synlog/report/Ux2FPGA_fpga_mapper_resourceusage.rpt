@@ -1,0 +1,47 @@
+Resource Usage Report for Ux2FPGA 
+
+Mapping to part: m2s025vf400-1
+Cell usage:
+AND3            1 use
+AND4            1 use
+CCC             1 use
+CLKINT          2 uses
+MSS_025         1 use
+OR3             1 use
+OR4             2 uses
+CFG1           22 uses
+CFG2           149 uses
+CFG3           208 uses
+CFG4           578 uses
+
+Carry cells:
+ARI1            94 uses - used for arithmetic functions
+ARI1            68 uses - used for Wide-Mux implementation
+Total ARI1      162 uses
+
+
+Sequential Cells: 
+SLE            681 uses
+
+DSP Blocks:    0 of 34 (0%)
+
+I/O ports: 49
+I/O primitives: 48
+INBUF          19 uses
+OUTBUF         28 uses
+TRIBUFF        1 use
+
+
+Global Clock Buffers: 2
+
+Total LUTs:    1119
+
+Extra resources required for RAM and MACC interface logic during P&R:
+
+RAM64x18 Interface Logic : SLEs = 0; LUTs = 0;
+RAM1K18  Interface Logic : SLEs = 0; LUTs = 0;
+MACC     Interface Logic : SLEs = 0; LUTs = 0;
+
+Total number of SLEs after P&R:  681 + 0 + 0 + 0 = 681;
+Total number of LUTs after P&R:  1119 + 0 + 0 + 0 = 1119;
+

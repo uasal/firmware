@@ -1,0 +1,38 @@
+#pragma once
+
+#include <sched.h>
+#include <unistd.h>
+#include <pthread.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+//#include <sys/socket.h>
+//#include <netinet/in.h>
+#include <pthread.h>
+#include "pthread.h"
+#include <sched.h>
+//#include <sys/mman.h>
+#include <errno.h>
+//#include <dirent.h>
+
+#include "uart/CmdSystem.hpp"
+
+//Define these in your program:
+extern const Cmd AsciiCmds[];
+extern const uint8_t NumAsciiCmds;
+
+void* StdInClientThread(void *argument);
+
+void StartUserInterface();
+
+bool ProcessUserInterface();
+
+void ParseConfigFile(const char* ConfigFileName);
