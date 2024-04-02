@@ -15,18 +15,6 @@
 
 #include "IPacket.hpp"
 
-// Add in the M3 Cortex peripherals
-#include "core_spi.h"
-extern spi_instance_t g_spi[2];
-// Test data/variables for SPI signaling
-//extern const uint32_t master_tx_frame= 0xFFAAFF55;
-const uint32_t find_tx_frame=0xFFAAFF55;
-//extern const uint32_t protect_tx_frame=0x44AA4455;
-//extern const uint32_t verify_tx_frame= 0x00440055;
-//extern const uint32_t lock_tx_frame  = 0x99449955;
-#include "core_uart_apb.h"
-extern UART_instance_t my_uart;
-
 
 uint32_t CRC32(const uint8_t* data, const size_t length);
 
@@ -153,6 +141,7 @@ static const uint16_t CGraphPayloadTypeDMDacs = 0x0002U; //Payload: 3 uint32's
 static const uint16_t CGraphPayloadTypeDMDacsFloatingPoint = 0x0003U; //Payload: 3 double-precision floats
 static const uint16_t CGraphPayloadTypeDMAdcs = 0x0004U; //Payload: 3 AdcAcumulators
 static const uint16_t CGraphPayloadTypeDMAdcsFloatingPoint = 0x0005U; //Payload: 3 double-precision floats
+static const uint16_t CGraphPayloadTypeDMConfigDacs = 0x0009U; // Payload: Nothing
 
 static const uint16_t CGraphPayloadTypeDMStatus = 0x0006U;
 struct CGraphDMStatusPayload

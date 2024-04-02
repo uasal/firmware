@@ -4,9 +4,6 @@
 #include <stdint.h>
 #include <stdio.h>
 
-extern UART_instance_t my_uart;
-extern uint8_t rx_size;
-extern uint8_t rx_err_status;
 
 class IUart
 {

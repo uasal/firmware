@@ -20,14 +20,20 @@
 // USA
 
 #include <stdint.h>
-
 #include "uart/CmdSystem.hpp"
-
 #include "uart/CGraphPacket.hpp"
-
 #include "CmdTableBinary.hpp"
 
+/* Which FPGA are we programming? */
+#define Ux1
+#undef  Ux2
+
+//#undef  Ux1
+//#define Ux2
+
 ///The actual table (array) of commands for the system - links with CmdSystem.cpp.o
+/* Table of Ux1 Commands */
+#ifdef Ux1
 const BinaryCmd BinaryCmds[] = 
 {
 	BinaryCmd (
@@ -39,31 +45,51 @@ const BinaryCmd BinaryCmds[] =
 		CGraphPayloadTypeDMDacs,
 		"BinaryDMDacsCommand",
 		BinaryDMDacsCommand
+    ),	
+	BinaryCmd (
+		CGraphPayloadTypeDMStatus,
+		"BinaryDMStatusCommand",
+		BinaryDMStatusCommand
+    ),
+        BinaryCmd (
+                CGraphPayloadTypeDMConfigDacs,
+                "BinaryDMConfigDacsCommand",
+                BinaryDMConfigDacsCommand
+    ),
+};
+#endif
+
+#ifdef Ux2
+const BinaryCmd BinaryCmds[] = 
+{
+	BinaryCmd (
+		CGraphPayloadTypeVersion,
+		"BinaryVersionCommand",
+		BinaryVersionCommand
     ),
 	BinaryCmd (
 		CGraphPayloadTypeDMAdcs,
 		"BinaryDMAdcsCommand",
 		BinaryDMAdcsCommand
     ),
-
 	BinaryCmd (
 		CGraphPayloadTypeDMAdcsFloatingPoint,
 		"BinaryDMAdcsFloatingPointCommand",
 		BinaryDMAdcsFloatingPointCommand
-    ),
-	
-////	BinaryCmd (
-////		CGraphPayloadTypeDMDacsFloatingPoint,
-////		"BinaryDMDacsFloatingPointCommand",
-////		BinaryDMDacsFloatingPointCommand
-////    ),
-	
+    ),	
 	BinaryCmd (
 		CGraphPayloadTypeDMStatus,
 		"BinaryDMStatusCommand",
 		BinaryDMStatusCommand
     ),
+        BinaryCmd (
+                CGraphPayloadTypeHVSwitch,
+                "BinaryHVSwitchCommand",
+                BinaryHVSwitchCommand
+    ),
+
 };
+#endif
 
 //Calculate the number of commands instanciated in the system - links with CmdSystem.cpp.o
 const uint8_t NumBinaryCmds = sizeof(BinaryCmds) / sizeof(BinaryCmds[0]);

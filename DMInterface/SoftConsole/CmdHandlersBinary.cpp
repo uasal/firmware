@@ -40,25 +40,8 @@ using namespace std;
 #include "uart/BinaryUart.hpp"
 
 #include "cgraph/CGraphSF2HardwareInterface.hpp"
-
-
-//#include "../PZTCmdrSerialBuildNum"
-
 #include "CmdTableBinary.hpp"
-
-//#include "../MirrorMap.hpp"
-/* Includes */
-#include <stdio.h>
-#include "sextext_regs.h"
-#include "hal.h"
-#include "hal_assert.h"
-#include "mss_gpio.h"
-#include "hw_reg_io.h"
-#include "hw_reg_access.h"
-//#include "./hal/CortexM3/GNU/hw_macros.h"
-//#include "./hal/CortexM3/GNU/cpu_types.h"
-#include "EvalBoardSandbox_hw_platform.h"
-#include <string.h>
+#include "MirrorMap.hpp"
 
 
 #define DriverBoards 6
@@ -66,69 +49,6 @@ using namespace std;
 #define ChanPerDac   40
 #define NumSpiPorts  6
 #define NO_OFFSET            0x00u
-
-
-// Need a simple translation from mirror number to board, dac, and dac channel numbers
-
-struct DACspi {
-  uint16_t        dmdacWord[952]; // Host CPU will translate voltage to dacWord; 952 channels
-  spi_instance_t  dacSpi[6];      // SPI for each DM driver board
-  int             board;
-
-  // Assign the initial default values
-  // Still developing...
-  //  DACspi(struct mmap mirrorMap):
-
-  // Initialize and configure SPI ports
-  int Init() {
-    // Would like some error checking, but the init and configure routines don't return anything
-//    SPI_init(&dacSpi[0], CORESPI_C0_0, 8);  // Initialize first SPI port
-//    SPI_configure_master_mode(&dacSpi[0]);  // Make the master
-    return(0);
-  };
-
-  void sendSingleDacSpi(int board, int dacNum) {
-    int    xferDone=0;
-    
-    // Send data to a homebrew SPI peripheral
-    //HAL_set_8bit_reg(SPIMASTERTRIOPORTS_0_BIF_1, MOSIA, 0x32);
-    //HW_set_16bit_reg(SPIMASTERTRIOPORTS_0_BIF_2, 0x234f);
-
-    MSS_GPIO_set_output(MSS_GPIO_1, 0); // begin a SPI transaction clear rst to low
-    // check on the MSS_GPIO_2 input to see if the xfer is done
-    while(!xferDone) {
-      xferDone = (MSS_GPIO_get_inputs() & MSS_GPIO_2_MASK);
-    }
-    MSS_GPIO_set_output(MSS_GPIO_1, 1); // SPI transaction done, set rst high
-    return;
-  };
-
-  void sendTwoDacSpi(int board, int dacNum) {
-    uint16_t    data1, data2;
-    int    xferDone=0;
-
-    // Send data to a homebrew SPI peripheral
-    //write_reg16((uint16_t*)SPIMASTERTRIOPORTS_0_BIF_1, 0xf432);
-    //HAL_set_16bit_reg(SPIMASTERTRIOPORTS_0_BIF_1, MOSIA, 0xf432);
-    //HW_set_16bit_reg(SPIMASTERTRIOPORTS_0_BIF_2, 0x234f);
-
-    MSS_GPIO_set_output(MSS_GPIO_1, 0); // set rst on the SPI module to low to begin a SPI transaction
-    // The transaction should be going now
-        while(!xferDone) {
-      xferDone = (MSS_GPIO_get_inputs() & MSS_GPIO_2_MASK);
-    }
-    MSS_GPIO_set_output(MSS_GPIO_1, 1); // SPI transaction done, set rst high
-
-//    SPI_set_slave_select(&dacSpi[board], (spi_slave_t)dacNum);
-//    SPI_transfer_frame(&dacSpi[board], 0xf456);
-//    SPI_clear_slave_select(&dacSpi[board], (spi_slave_t)dacNum);
-
-    
-    return;
-  };
-
-};
-
 
 DACspi  SpiContainer;
 
@@ -150,12 +70,22 @@ int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_
 
 int8_t BinaryDMDacsCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	if ( (NULL != Params) && (ParamsLen >= (3 * sizeof(uint32_t))) )
+  uint32_t board, dacNum, dacCh, data;
+  
+	if ( (NULL != Params) && (ParamsLen >= (4 * sizeof(uint32_t))) )
 	{
 		const uint32_t* DacSetpoints = reinterpret_cast<const uint32_t*>(Params);
-		printf("\nBinaryDMDacsCommand: 0x%X | 0x%X | 0x%X\n\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2]);
-                UART_polled_tx_string(&my_uart,(const uint8_t*)"RRrr");
-                SpiContainer.sendTwoDacSpi(0, 0); // param1: board number (don't care); param2: dac number
+		printf("\nBinaryDMDacsCommand: 0x%X | 0x%X | 0x%X\n\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2], DacSetpoints[3]);
+                board = DacSetpoints[0];
+                dacNum = DacSetpoints[1];
+                dacCh = DacSetpoints[2];
+                data = DacSetpoints[3];
+                // Wait, wait.  Need to send the DACaddress and then the data
+                // need to think about this some more...
+                SpiContainer.sendSingleDacSpi(DacSetpoints[0],
+                                              DacSetpoints[1],
+                                              DacSetpoints[2],
+                                              DacSetpoints[3]); // param1: board number (don't care); param2: dac number
 	}
 	else
 	{
@@ -163,6 +93,25 @@ int8_t BinaryDMDacsCommand(const uint32_t Name, char const* Params, const size_t
 	}
     return(ParamsLen);
 }
+
+//int8_t BinaryDMDacsCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
+//{
+//	if ( (NULL != Params) && (ParamsLen >= (3 * sizeof(uint32_t))) )
+//	{
+//		const uint32_t* DacSetpoints = reinterpret_cast<const uint32_t*>(Params);
+//		printf("\nBinaryDMDacsCommand: 0x%X | 0x%X | 0x%X\n\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2]);
+//                UART_polled_tx_string(&my_uart,(const uint8_t*)DacSetpoints[2]);
+//                UART_polled_tx_string(&my_uart,(const uint8_t*)"RRrr");
+//                // Wait, wait.  Need to send the DACaddress and then the data
+//                // need to think about this some more...
+//                SpiContainer.sendSingleDacSpi(DacSetpoints[2], DacSetpoints[1], DacSetpoints); // param1: board number (don't care); param2: dac number
+//	}
+//	else
+//	{
+//		printf("\nBinaryDMDacsCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (3 * sizeof(uint32_t)));
+//	}
+//    return(ParamsLen);
+//}
 
 int8_t BinaryDMAdcsCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
@@ -226,6 +175,20 @@ int8_t BinaryDMStatusCommand(const uint32_t Name, char const* Params, const size
 		printf("\nBinaryDMAdcsFPCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (3 * sizeof(double)));
 	}
     return(ParamsLen);
+}
+
+int8_t BinaryDMConfigDacsCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument) {
+  int board, dacNum;
+  /* Configure all 24 of the DACs */
+  UART_polled_tx_string(&my_uart,(const uint8_t*)"Co ");
+  for (dacNum = 0; dacNum <24; dacNum++) {
+    board = floor(dacNum/4);
+    SpiContainer.configDacs(board, dacNum);
+  }
+  // Now turn on HV on board
+  //  MSS_GPIO_set_output(MSS_GPIO_7, 0); // set the PwrHVnEn 0.  HV power is now on!!!
+
+  return(ParamsLen);
 }
 
 //This technically is a "BZIP2CRC32", not an "ANSICRC32"; seealso: https://crccalc.com/

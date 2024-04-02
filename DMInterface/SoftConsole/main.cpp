@@ -1,3 +1,4 @@
+
 /*******************************************************************************
  * (c) Copyright 2012-2015 Microsemi SoC Products Group.  All rights reserved.
  *
@@ -10,7 +11,6 @@
  * SVN $Date: 2015-10-12 12:26:08 +0530 (Mon, 12 Oct 2015) $
  */
 #include "core_uart_apb.h"
-#include "core_pwm.h"
 #include "core_spi.h"
 #include "mss_nvm.h"
 #include "mss_gpio.h"
@@ -42,24 +42,12 @@ bool MonitorSerial1 = false;
 #define BAUD_VALUE_460800     12 // Should be 12.56
 #define BAUD_VALUE_576000     10 // should be 9.85 (100MHz clk_in)
 #define BAUD_VALUE_921600      6 // should be 5.78 (100MHz clk_in)
-
-/******************************************************************************
- * PWM prescale and period configuration values.
- *****************************************************************************/
-#define PWM_PRESCALE    8
-#define PWM_PERIOD      300
-#define DELAY_COUNT     10000
 #define MAX_RX_DATA_SIZE    128
 
 /******************************************************************************
  * Local function prototype.
  *****************************************************************************/
 void delay( void );
-
-/******************************************************************************
- * CorePWM instance data.
- *****************************************************************************/
-pwm_instance_t the_pwm;
 
 /*------------------------------------------------------------------------------
   UART selection.
@@ -103,18 +91,12 @@ public:
     if ((UART_APB_NO_ERROR == rx_err_status)) {
       char c = '\0';   // what does this do for us?
       rx_size = UART_get_rx(&my_uart, rx_buf, 1);  // Get 1 byte
-      //uint8_t msg[] = {"UWVeryLooooooongMessage"};
-      ////UART_polled_tx_string(&my_uart,(const uint8_t *)&msg);
-      ////UART_polled_tx_string(&my_uart,(const uint8_t *)&rx_buf);
       c = *rx_buf;
-      //UART_polled_tx_string(&my_uart,(const uint8_t *)&c);
       if (MonitorSerial1) { printf("!%.2x",c); }
       //return(rx_buf[0]);
       return((char)(c));
     }
     else {
-      //      uint8_t msg[] = {"UWVeryLooooooongMessage"};
-      //      UART_polled_tx_string(&my_uart,(const uint8_t *)&msg);
       return(false); }
     
   }
@@ -188,7 +170,7 @@ BinaryUart FpgaUartParser1(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBin
   SPI selection.
  */
 
-//extern DACspi   SpiContainer;
+//DACspi   SpiContainer;  // defined in CmdHandlersBinary.cpp
 spi_instance_t g_spi[2];
 //spi_instance_t g_spi1;
 
@@ -221,31 +203,13 @@ int main()
     uint32_t duty_cycle2 = 2;
     int direction = 1;
     int direction2 = 2;
+    int dacNum, board;
     /* diagnostics for the UART */
     const uint32_t master_tx_frame= 0xFFAAFF55;
     const uint32_t success_tx_frame=0x002200CC;
     const uint32_t protect_tx_frame=0x44AA4455;
     const uint32_t verify_tx_frame= 0x00440055;
     const uint32_t lock_tx_frame  = 0x99449955;
-
-    /* This is memory diagnostics */
-    //uint8_t idata[815] = {"Z"};
-    //nvm_status_t status;
-
-    /* Turn off the watchdog */
-    //    SYSREG->WDOG_CR = 0;
-
-
-    /**************************************************************************
-     * Initialize the CorePWM instance setting the prescale and period values.
-    *************************************************************************/
-    PWM_init( &the_pwm, COREPWM_0_0, PWM_PRESCALE, PWM_PERIOD ) ;
-
-    /**************************************************************************
-     * Set the initial duty cycle for CorePWM output 1.
-     *************************************************************************/
-    PWM_set_duty_cycle( &the_pwm, PWM_1, duty_cycle );
-    PWM_set_duty_cycle( &the_pwm, PWM_2, duty_cycle2 );
 
     /*--------------------------------------------------------------------------
      * Initialize and configure UART.
@@ -256,49 +220,33 @@ int main()
 
 
     /*--------------------------------------------------------------------------
-     * Initialize and configure SPI.
-     */
-//    SpiContainer.Init();  // Both SPIs are now initialized
-//    SPI_init(&g_spi[0], CORESPI_C0_0, 8);  // Initialize first SPI port
-//    SPI_configure_master_mode(&g_spi[0]);  // Make the master
-//
-//    SPI_init(&g_spi[1], CORESPI_C1_0, 8);  // Initialize second SPI port
-//    SPI_configure_master_mode(&g_spi[1]);  // Make the master
-
-    /*--------------------------------------------------------------------------
      * Initiailize the GPIO
      */
     MSS_GPIO_config(MSS_GPIO_0, MSS_GPIO_INPUT_MODE);  // Make GPIO_0 an input
     MSS_GPIO_config(MSS_GPIO_1, MSS_GPIO_OUTPUT_MODE); // Make GPIO_1 an output
     MSS_GPIO_config(MSS_GPIO_2, MSS_GPIO_INPUT_MODE);  // Make GPIO_2 an input
+    MSS_GPIO_config(MSS_GPIO_3, MSS_GPIO_OUTPUT_MODE);  // Make GPIO_3 an output
+    MSS_GPIO_config(MSS_GPIO_4, MSS_GPIO_OUTPUT_MODE);  // Make GPIO_4 an output
+    MSS_GPIO_config(MSS_GPIO_5, MSS_GPIO_OUTPUT_MODE);  // Make GPIO_5 an output
+    MSS_GPIO_config(MSS_GPIO_6, MSS_GPIO_INPUT_MODE);  // Make GPIO_6 an input
+    MSS_GPIO_config(MSS_GPIO_7, MSS_GPIO_OUTPUT_MODE);  // Make GPIO_7 an output
+    
     MSS_GPIO_set_output(MSS_GPIO_1, 1); // set the rst of the SPI module to 1 to hold it in reset until time to send SPI data
+    MSS_GPIO_set_output(MSS_GPIO_3, 1); // set the nClrDacs to 1
+    MSS_GPIO_set_output(MSS_GPIO_4, 1); // set the nLDacs to 1
+    MSS_GPIO_set_output(MSS_GPIO_5, 1); // set the nRstDacs 1
+    MSS_GPIO_set_output(MSS_GPIO_7, 0); // set the PwrHVnEn 1.  HV power off at start up
 
-    /*----------------------------------
-     * Initialize the BinaryUart
-     */
-    /* Is this necessary?  Seems there's an error if this is included */
-    //    FpgaUartParser1.Init(FpgaUartParser1.InvalidSerialNumber);
-
-    /*--------------------------------------------------------------------------
-     * Send greeting message over the UART.
-     */
-//    UART_polled_tx_string(&my_uart,(const uint8_t*)"\n\r\n\r**********************************************************************\n\r");
-//    UART_polled_tx_string(&my_uart,(const uint8_t*)"******************** SmartFusion2 MMUART Example *********************\n\r");
-//    UART_polled_tx_string(&my_uart,(const uint8_t*)"**********************************************************************\n\r");
-//    UART_polled_tx_string(&my_uart,(const uint8_t*)"Characters typed will be echoed back.\n\r");
-
-
-    //status = NVM_write(ENVM_DAC_STORE, idata, sizeof(idata), NVM_DO_NOT_LOCK_PAGE);
-      
-
-    /*--------------------------------------------------------------------------
-     * Echo back any characters received.
-     */
-    /* UART is initialized above.  Now wait for messages to process */
+//    // Clear the Dacs
+//    MSS_GPIO_set_output(MSS_GPIO_3,0); // set nClrDacs to 0
+//    //delays(2);                         // delay (needed?) check pulse width
+//    MSS_GPIO_set_output(MSS_GPIO_3,1); // set nClrDacs to 1
+//    // Dacs are now clear
+    
     for (;;) {
-      bool Bored = true;		
+      bool Bored = true;
+
       if (FpgaUartParser1.Process()) {
-        //        UART_polled_tx_string(&my_uart,FpgaUartParser1.RxBuffer);
         Bored = false;
       }
 
@@ -306,52 +254,20 @@ int main()
       if (Bored) {
         delayms(100);
       }
-
-//        /**********************************************************************
-//         * Update the duty cycle for CorePWM output 1.
-//         *********************************************************************/
-//        PWM_set_duty_cycle( &the_pwm, PWM_1, duty_cycle );
-//        PWM_set_duty_cycle( &the_pwm, PWM_2, duty_cycle2 );
-//        /**********************************************************************
-//         * Wait for a short delay.
-//         *********************************************************************/
-//        delay();
-//        /**********************************************************************
-//         * Calculate the next PWM duty cycle.
-//         *********************************************************************/
-//        duty_cycle += direction;
-//        duty_cycle2 += direction2;
-//        if ( duty_cycle >= PWM_PERIOD )
-//        {
-//            direction = -1;
-//        }
-//        else if ( duty_cycle == 0 )
-//        {
-//            direction = 1;
-//        }
-//        if ( duty_cycle2 >= PWM_PERIOD )
-//        {
-//            direction2 = -3;
-//        }
-//        else if ( duty_cycle2 == 0 )
-//        {
-//            direction2 = 3;
-//        }
-
     }
 }
 
 /******************************************************************************
  * Delay function.
  *****************************************************************************/
-void delay( void )
-{
-    volatile int counter = 0;
-
-    while ( counter < DELAY_COUNT )
-    {
-        counter++;
-    }
-}
+//void delay( void )
+//{
+//    volatile int counter = 0;
+//
+//    while ( counter < DELAY_COUNT )
+//    {
+//        counter++;
+//    }
+//}
 
 

@@ -39,8 +39,8 @@
 #include "uart/IPacket.hpp"
 
 // Add in the M3 Cortex peripherals
-#include "core_spi.h"
-extern spi_instance_t g_spi[2];
+//#include "core_spi.h"
+//extern spi_instance_t g_spi[2];
 // Test data/variables for SPI signaling
 const uint32_t master_tx_frame= 0xFFAAFF55;
 const uint32_t success_tx_frame=0x002200CC;
@@ -153,12 +153,6 @@ struct BinaryUart
       RxCount++;
       RxBuffer[RxCount - 1] = c;
       ////RxBuffer[RxCount] = '\0';
-      // Send a SPI packet to signal we are here
-      //  /***************/
-      //  SPI_set_slave_select(&g_spi[0], SPI_SLAVE_0);
-      //  SPI_transfer_frame(&g_spi[0], c);
-      //  SPI_clear_slave_select(&g_spi[0], SPI_SLAVE_0);
-      //  /***************/
     }
     else { 
       // if (debug) { ::formatf("\n\nBinaryUart: Buffer(%p) overflow; this packet will not fit (%zub), flushing buffer.\n", RxBuffer, RxCount); }
@@ -169,12 +163,12 @@ struct BinaryUart
     }
 
 
-
     //Packet Start?
     if ( (!InPacket) && (RxCount >= Packet.HeaderLen()) ) {
       if (Packet.FindPacketStart(RxBuffer, RxCount, PacketStart)) { //This is wasteful, we really only need to look at the 4 newest bytes every time...
         // if (debug) { ::formatf("\n\nBinaryUart: Packet start detected! Buffering.\n"); }
         InPacket = true;
+        //UART_polled_tx_string(&my_uart,(const uint8_t*)"Ux1Start"); // getting here?
       }
     }
 		
@@ -204,7 +198,7 @@ struct BinaryUart
 
                   //call the actual command
                   //~ Cmds[Cmd].Response(Cmds[Cmd].Name, Params, Packet.PayloadLen(RxBuffer, RxCount, PacketStart), Argument);
-                  UART_polled_tx_string(&my_uart,(const uint8_t*)RxBuffer); // getting here?
+                  UART_polled_tx_string(&my_uart,(const uint8_t*)"Ux1Command\n"); // getting here?
                   Cmds[i].Response(Cmds[i].Name, Params, Packet.PayloadLen(RxBuffer, RxCount, PacketStart), (void*)this);
                   CmdFound = true;
                   Processed = true;

@@ -33,6 +33,7 @@ int8_t BinaryDMAdcsCommand(const uint32_t Name, char const* Params, const size_t
 int8_t BinaryDMAdcsFloatingPointCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t BinaryDMDacsFloatingPointCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t BinaryDMStatusCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t BinaryDMConfigDacsCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument);
 
 ///The actual table (array) of commands for the system - links with CmdSystem.cpp.o
 extern const BinaryCmd BinaryCmds[];
