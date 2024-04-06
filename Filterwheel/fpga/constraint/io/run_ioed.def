@@ -1,0 +1,41 @@
+data HELP_TYPE_DES 2
+data DESIGN Ux2FPGA
+data HPATH 'C:/MicroSemiProj/DMCI_Ux2/designer/Ux2FPGA'
+data CPATH 'C:/MicroSemiProj/DMCI_Ux2/constraint/io'
+data CDIR 'C:/MicroSemiProj/DMCI_Ux2/constraint'
+data NLV_HIDE_OPTION_DLG 1
+data REGION_DEFCOLOR_EMPTY 2143322112
+data REGION_DEFCOLOR_INCLUSIVE 2147442270
+data REGION_DEFCOLOR_EXCLUSIVE 2143338688
+data REGION_DEFCOLOR_CLOCK 16735838
+data ETYPE IO
+data FAM SmartFusion2
+data DIE PA4M2500_N
+data PACKAGE vf256
+data SPEED -1
+data HYDRA_EXPORT_DATA 1
+data HYDRA_PRESERVE_DATA_FILES 1
+data VCCI_1.2_VOLTR COM
+data VCCI_1.5_VOLTR COM
+data VCCI_1.8_VOLTR COM
+data VCCI_2.5_VOLTR COM
+data VCCI_3.3_VOLTR COM
+data FLOW_TYPE NEW
+data PLANNER_IOMODE 1
+data AFL 'C:/MicroSemiProj/DMCI_Ux2/designer/Ux2FPGA/Ux2FPGA.afl'
+data ADL 'C:/MicroSemiProj/DMCI_Ux2/designer/Ux2FPGA/Ux2FPGA.adl'
+data LOC 'C:/MicroSemiProj/DMCI_Ux2/designer/Ux2FPGA/Ux2FPGA.loc'
+data SEG 'C:/MicroSemiProj/DMCI_Ux2/designer/Ux2FPGA/Ux2FPGA.seg'
+data NMAT_PDC 'C:/MicroSemiProj/DMCI_Ux2/designer/Ux2FPGA/Ux2FPGA.nmatinit.pdc'
+
+data IO_PDC_0 'C:/MicroSemiProj/DMCI_Ux2/constraint/io/user.pdc'
+data TARGET_IOPDC  'C:/MicroSemiProj/DMCI_Ux2/constraint/io/user.pdc'
+data TARGET_FPPDC  'C:/MicroSemiProj/DMCI_Ux2/constraint/fp/user.pdc'
+data TARGET_DEVICES_FOR_MIGRATION 'PA4M2500_N '
+data RESTRICTPROBEPINS 0
+data RESTRICTSPIPINS 0
+data GDEV_SKIP_UNASSIGN_CMP_CHECK    1 
+data HIDE_MIGRATION_PINS_MENU        1 
+data PLANNER_IS_READONLY   0 
+data IO_DEFT_STD LVCMOS33
+

@@ -1,0 +1,57 @@
+
+Copyright (C) 1994-2022 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: T-2022.09M-SP2-1
+Install: /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro
+OS: Linux Mint 21.1
+Hostname: homework
+max virtual memory: unlimited (bytes)
+max user processes: 126734
+max stack size: unlimited (bytes)
+
+
+Implementation : synthesis
+Synopsys HDL compiler and linker, Version comp202209synp2, Build 179R, Built Jun 27 2023 09:29:53, @4799148
+
+Modified Files: 2
+FID:  path (prevtimestamp, timestamp)
+24       /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/Blink/Blink.vhd (2024-02-16 14:05:24, 2024-02-16 14:21:06)
+27       /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/hdl/Main.vhd (2024-02-16 14:03:18, 2024-02-16 14:20:39)
+
+*******************************************************************
+Modules that may have changed as a result of file changes: 4
+MID:  lib.cell.view
+0        work.blink.rtl may have changed because the following files changed:
+                        /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/Blink/Blink.vhd (2024-02-16 14:05:24, 2024-02-16 14:21:06) <-- (architecture and entity definition)
+4        work.fccc_c0.rtl may have changed because the following files changed:
+                        /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/Blink/Blink.vhd (2024-02-16 14:05:24, 2024-02-16 14:21:06) <-- (may instantiate this module)
+6        work.fccc_c0_fccc_c0_0_fccc.def_arch may have changed because the following files changed:
+                        /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/Blink/Blink.vhd (2024-02-16 14:05:24, 2024-02-16 14:21:06) <-- (may instantiate this module)
+2        work.main.architecture_main may have changed because the following files changed:
+                        /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/Blink/Blink.vhd (2024-02-16 14:05:24, 2024-02-16 14:21:06) <-- (may instantiate this module)
+                        /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/hdl/Main.vhd (2024-02-16 14:03:18, 2024-02-16 14:20:39) <-- (architecture and entity definition)
+
+*******************************************************************
+Unmodified files: 13
+FID:  path (timestamp)
+13       /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/generic/smartfusion2.vhd (2023-08-08 03:29:01)
+14       /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd/hyperents.vhd (2023-08-08 03:29:03)
+15       /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd/snps_haps_pkg.vhd (2023-08-08 03:29:03)
+16       /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd/umr_capim.vhd (2023-08-08 03:29:03)
+17       /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/arith.vhd (2023-08-08 03:29:03)
+18       /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/location.map (2023-08-08 03:29:03)
+19       /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/numeric.vhd (2023-08-08 03:29:03)
+20       /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/std.vhd (2023-08-08 03:29:03)
+21       /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/std1164.vhd (2023-08-08 03:29:03)
+22       /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/std_textio.vhd (2023-08-08 03:29:03)
+23       /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/unsigned.vhd (2023-08-08 03:29:03)
+25       /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/FCCC_C0/FCCC_C0.vhd (2024-02-08 11:34:46)
+26       /home/summer/projects/CGraph/firmware/DMInterface/TestFiles/component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.vhd (2024-02-08 11:34:46)
+
+*******************************************************************
+Unchanged modules: 0
+MID:  lib.cell.view

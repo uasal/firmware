@@ -1,0 +1,52 @@
+
+Copyright (C) 1994-2022 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: T-2022.09M-SP2-1
+Install: C:\Microchip\Libero_SoC_v2023.2\SynplifyPro
+OS: Windows 10 or later
+Hostname: ASTR-ETS-001
+
+Implementation : synthesis
+
+# Written on Tue Mar 12 14:37:41 2024
+
+##### FILES SYNTAX CHECKED ##############################################
+Constraint File(s):      "C:\MicroSemiProj\DMCI_Ux2\designer\Ux2FPGA\synthesis.fdc"
+
+#Run constraint checker to find more issues with constraints.
+#########################################################################
+
+
+
+No issues found in constraint syntax.
+
+
+
+Clock Summary
+*************
+
+          Start                                             Requested     Requested     Clock                     Clock                Clock
+Level     Clock                                             Frequency     Period        Type                      Group                Load 
+--------------------------------------------------------------------------------------------------------------------------------------------
+0 -       CLK0                                              51.0 MHz      19.608        declared                  default_clkgroup     0    
+1 .         Ux2FPGA_sb_0/CCC_0/GL0                          102.0 MHz     9.804         generated (from CLK0)     default_clkgroup     745  
+                                                                                                                                            
+0 -       Ux2FPGA_sb_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT     50.0 MHz      20.000        declared                  default_clkgroup     15   
+============================================================================================================================================
+
+
+Clock Load Summary
+******************
+
+                                                  Clock     Source                                                            Clock Pin                                          Non-clock Pin     Non-clock Pin                                                   
+Clock                                             Load      Pin                                                               Seq Example                                        Seq Example       Comb Example                                                    
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CLK0                                              0         CLK0(port)                                                        -                                                  -                 -                                                               
+Ux2FPGA_sb_0/CCC_0/GL0                            745       Ux2FPGA_sb_0.CCC_0.CCC_INST.GL0(CCC)                              SpiMasterPorts_0.nCsLatched.C                      -                 Ux2FPGA_sb_0.CCC_0.GL0_INST.I(BUFG)                             
+                                                                                                                                                                                                                                                                   
+Ux2FPGA_sb_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT     15        Ux2FPGA_sb_0.FABOSC_0.I_RCOSC_25_50MHZ.CLKOUT(RCOSC_25_50MHZ)     Ux2FPGA_sb_0.CORERESETP_0.release_sdif0_core.C     -                 Ux2FPGA_sb_0.FABOSC_0.I_RCOSC_25_50MHZ_FAB.A(RCOSC_25_50MHZ_FAB)
+===================================================================================================================================================================================================================================================================

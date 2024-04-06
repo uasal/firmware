@@ -1,0 +1,161 @@
+#OPTIONS:"|-mixedhdl|-modhint|C:\\MicroSemiProj\\DMCI_Ux2\\synthesis\\synwork\\_verilog_hintfile|-top|Ux2FPGA|-layerid|0|-orig_srs|C:\\MicroSemiProj\\DMCI_Ux2\\synthesis\\synwork\\Ux2FPGA_comp.srs|-prodtype|synplify_pro|-infer_seqShift|-primux|-dspmac|-pqdpadd|-fixsmult|-sdff_counter|-divnmod|-nram|-actel|-I|C:\\MicroSemiProj\\DMCI_Ux2\\synthesis\\|-I|C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib|-sysv|-devicelib|C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\generic\\smartfusion2.v|-encrypt|-pro|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|COREAPB3_LIB|-lib|COREAPB3_LIB|-lib|COREAPB3_LIB|-lib|work|-lib|work"
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\bin64\\c_ver.exe":1691490330
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\synthesis\\synwork\\_verilog_hintfile":1709926971
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\generic\\smartfusion2.v":1691490345
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\vlog\\hypermods.v":1691490346
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\vlog\\umr_capim.v":1691490346
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\vlog\\scemi_objects.v":1691490346
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\vlog\\scemi_pipes.svh":1691490346
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\work\\CoreUARTapb_C0\\CoreUARTapb_C0_0\\rtl\\vlog\\core_obfuscated\\Clock_gen.v":1708962861
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\work\\CoreUARTapb_C0\\CoreUARTapb_C0_0\\rtl\\vlog\\core_obfuscated\\Rx_async.v":1708962861
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\work\\CoreUARTapb_C0\\CoreUARTapb_C0_0\\rtl\\vlog\\core_obfuscated\\Tx_async.v":1708962861
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\work\\CoreUARTapb_C0\\CoreUARTapb_C0_0\\rtl\\vlog\\core_obfuscated\\fifo_256x8_g4.v":1708962861
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\work\\CoreUARTapb_C0\\CoreUARTapb_C0_0\\rtl\\vlog\\core_obfuscated\\CoreUART.v":1708962861
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\work\\CoreUARTapb_C0\\CoreUARTapb_C0_0\\rtl\\vlog\\core_obfuscated\\CoreUARTapb.v":1708962861
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\work\\CoreUARTapb_C0\\CoreUARTapb_C0.v":1708962861
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\work\\IO_INPUTS\\IO_INPUTS_0\\IO_INPUTS_IO_INPUTS_0_IO.v":1708971086
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\work\\IO_INPUTS\\IO_INPUTS.v":1708971086
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\work\\IO_OUTPUTS\\IO_OUTPUTS_0\\IO_OUTPUTS_IO_OUTPUTS_0_IO.v":1708971344
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\work\\IO_OUTPUTS\\IO_OUTPUTS.v":1708971344
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\work\\IO_TXBuf\\IO_TXBuf_0\\IO_TXBuf_IO_TXBuf_0_IO.v":1709681753
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\work\\IO_TXBuf\\IO_TXBuf.v":1709681753
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\work\\Ux2FPGA_sb\\CCC_0\\Ux2FPGA_sb_CCC_0_FCCC.v":1709935514
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\Actel\\SgCore\\OSC\\2.0.101\\osc_comps.v":1695073416
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\work\\Ux2FPGA_sb\\FABOSC_0\\Ux2FPGA_sb_FABOSC_0_OSC.v":1709935515
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\work\\Ux2FPGA_sb_MSS\\Ux2FPGA_sb_MSS_syn.v":1709935511
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\work\\Ux2FPGA_sb_MSS\\Ux2FPGA_sb_MSS.v":1709935512
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\Actel\\DirectCore\\CoreResetP\\7.1.100\\rtl\\vlog\\core\\coreresetp_pcie_hotreset.v":1695073415
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\Actel\\DirectCore\\CoreResetP\\7.1.100\\rtl\\vlog\\core\\coreresetp.v":1695073415
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\Actel\\DirectCore\\CoreAPB3\\4.1.100\\rtl\\vlog\\core\\coreapb3_muxptob3.v":1695145017
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\Actel\\DirectCore\\CoreAPB3\\4.1.100\\rtl\\vlog\\core\\coreapb3_iaddr_reg.v":1695145017
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\Actel\\DirectCore\\CoreAPB3\\4.1.100\\rtl\\vlog\\core\\coreapb3.v":1695145017
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\work\\Ux2FPGA_sb\\Ux2FPGA_sb.v":1709935515
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\component\\work\\Ux2FPGA\\Ux2FPGA.v":1710279426
+#OPTIONS:"|-mixedhdl|-top|work.SpiMasterPorts|-mpparams|C:\\MicroSemiProj\\DMCI_Ux2\\synthesis\\synwork\\_mh_params|-layerid|1|-orig_srs|C:\\MicroSemiProj\\DMCI_Ux2\\synthesis\\synwork\\Ux2FPGA_comp.srs|-prodtype|synplify_pro|-infer_seqShift|-primux|-dspmac|-pqdpadd|-fixsmult|-sdff_counter|-divnmod|-nram|-actel|-work_is_curlib|1|-encrypt|-pro|-lite|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-vhdl2008|-work_is_curlib|1|-ignore_undefined_lib|-lib|work"
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\bin64\\c_vhdl.exe":1691490330
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\vhd2008\\location.map":1691490346
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\vhd2008\\std.vhd":1691490346
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\vhd\\snps_haps_pkg.vhd":1691490346
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\vhd2008\\std1164.vhd":1691490346
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\vhd2008\\std_textio.vhd":1691490346
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\vhd2008\\numeric.vhd":1691490346
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\vhd\\umr_capim.vhd":1691490346
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\vhd2008\\arith.vhd":1691490346
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\vhd2008\\unsigned.vhd":1691490346
+#CUR:"C:\\Microchip\\Libero_SoC_v2023.2\\SynplifyPro\\lib\\vhd\\hyperents.vhd":1691490346
+#CUR:"C:\\MicroSemiProj\\DMCI_Ux2\\hdl\\SpiMasterAPB3.vhd":1709926913
+0			"C:\MicroSemiProj\DMCI_Ux2\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Clock_gen.v" verilog
+1			"C:\MicroSemiProj\DMCI_Ux2\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v" verilog
+2			"C:\MicroSemiProj\DMCI_Ux2\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v" verilog
+3			"C:\MicroSemiProj\DMCI_Ux2\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\fifo_256x8_g4.v" verilog
+4			"C:\MicroSemiProj\DMCI_Ux2\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v" verilog
+5			"C:\MicroSemiProj\DMCI_Ux2\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v" verilog
+6			"C:\MicroSemiProj\DMCI_Ux2\component\work\CoreUARTapb_C0\CoreUARTapb_C0.v" verilog
+7			"C:\MicroSemiProj\DMCI_Ux2\component\work\IO_INPUTS\IO_INPUTS_0\IO_INPUTS_IO_INPUTS_0_IO.v" verilog
+8			"C:\MicroSemiProj\DMCI_Ux2\component\work\IO_INPUTS\IO_INPUTS.v" verilog
+9			"C:\MicroSemiProj\DMCI_Ux2\component\work\IO_OUTPUTS\IO_OUTPUTS_0\IO_OUTPUTS_IO_OUTPUTS_0_IO.v" verilog
+10			"C:\MicroSemiProj\DMCI_Ux2\component\work\IO_OUTPUTS\IO_OUTPUTS.v" verilog
+11			"C:\MicroSemiProj\DMCI_Ux2\component\work\IO_TXBuf\IO_TXBuf_0\IO_TXBuf_IO_TXBuf_0_IO.v" verilog
+12			"C:\MicroSemiProj\DMCI_Ux2\component\work\IO_TXBuf\IO_TXBuf.v" verilog
+13			"C:\MicroSemiProj\DMCI_Ux2\component\work\Ux2FPGA_sb\CCC_0\Ux2FPGA_sb_CCC_0_FCCC.v" verilog
+14			"C:\MicroSemiProj\DMCI_Ux2\component\Actel\SgCore\OSC\2.0.101\osc_comps.v" verilog
+15			"C:\MicroSemiProj\DMCI_Ux2\component\work\Ux2FPGA_sb\FABOSC_0\Ux2FPGA_sb_FABOSC_0_OSC.v" verilog
+16			"C:\MicroSemiProj\DMCI_Ux2\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS_syn.v" verilog
+17			"C:\MicroSemiProj\DMCI_Ux2\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.v" verilog
+18			"C:\MicroSemiProj\DMCI_Ux2\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp_pcie_hotreset.v" verilog
+19			"C:\MicroSemiProj\DMCI_Ux2\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v" verilog
+20			"C:\MicroSemiProj\DMCI_Ux2\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_muxptob3.v" verilog
+21			"C:\MicroSemiProj\DMCI_Ux2\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_iaddr_reg.v" verilog
+22			"C:\MicroSemiProj\DMCI_Ux2\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v" verilog
+23			"C:\MicroSemiProj\DMCI_Ux2\component\work\Ux2FPGA_sb\Ux2FPGA_sb.v" verilog
+24			"C:\MicroSemiProj\DMCI_Ux2\component\work\Ux2FPGA\Ux2FPGA.v" verilog
+25			"C:\MicroSemiProj\DMCI_Ux2\hdl\SpiMasterAPB3.vhd" vhdl
+#Dependency Lists(Uses List)
+0 -1
+1 -1
+2 -1
+3 -1
+4 3 1 2 0
+5 4
+6 5
+7 -1
+8 7
+9 -1
+10 9
+11 -1
+12 11
+13 -1
+14 -1
+15 14
+16 -1
+17 16
+18 -1
+19 18
+20 -1
+21 -1
+22 21 20
+23 17 15 19 22 13
+24 25 23 12 8 10 6
+25 -1
+#Dependency Lists(Users Of)
+0 4
+1 4
+2 4
+3 4
+4 5
+5 6
+6 24
+7 8
+8 24
+9 10
+10 24
+11 12
+12 24
+13 23
+14 15
+15 23
+16 17
+17 23
+18 19
+19 23
+20 22
+21 22
+22 23
+23 24
+24 -1
+25 24
+#Design Unit to File Association
+module work spimasterports 25
+arch work spimasterports spimaster 25
+module COREAPB3_LIB CoreAPB3 22
+module COREAPB3_LIB coreapb3_iaddr_reg 21
+module COREAPB3_LIB COREAPB3_MUXPTOB3 20
+module work Ux2FPGA 24
+module work Ux2FPGA_sb 23
+module work CoreResetP 19
+module work coreresetp_pcie_hotreset 18
+module work Ux2FPGA_sb_MSS 17
+module work MSS_025 16
+module work Ux2FPGA_sb_FABOSC_0_OSC 15
+module work XTLOSC_FAB 14
+module work RCOSC_25_50MHZ_FAB 14
+module work RCOSC_1MHZ_FAB 14
+module work XTLOSC 14
+module work RCOSC_25_50MHZ 14
+module work RCOSC_1MHZ 14
+module work Ux2FPGA_sb_CCC_0_FCCC 13
+module work IO_TXBuf 12
+module work IO_TXBuf_IO_TXBuf_0_IO 11
+module work IO_OUTPUTS 10
+module work IO_OUTPUTS_IO_OUTPUTS_0_IO 9
+module work IO_INPUTS 8
+module work IO_INPUTS_IO_INPUTS_0_IO 7
+module work CoreUARTapb_C0 6
+module work CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb 5
+module work CoreUARTapb_C0_CoreUARTapb_C0_0_COREUART 4
+module work CoreUARTapb_C0_CoreUARTapb_C0_0_ram128x8_pa4 3
+module work CoreUARTapb_C0_CoreUARTapb_C0_0_fifo_ctrl_128 3
+module work CoreUARTapb_C0_CoreUARTapb_C0_0_fifo_256x8 3
+module work CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async 2
+module work CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async 1
+module work CoreUARTapb_C0_CoreUARTapb_C0_0_Clock_gen 0

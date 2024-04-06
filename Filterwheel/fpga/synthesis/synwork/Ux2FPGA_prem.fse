@@ -1,0 +1,46 @@
+
+fsm_encoding {730103017} sequential
+
+fsm_state_encoding {730103017} CUARTI1ll {000}
+
+fsm_state_encoding {730103017} CUARTl1ll {001}
+
+fsm_state_encoding {730103017} CUARTOO0l {010}
+
+fsm_state_encoding {730103017} CUARTIO0l {011}
+
+fsm_state_encoding {730103017} CUARTlO0l {100}
+
+fsm_state_encoding {730103017} CUARTOI0l {101}
+
+fsm_registers {730103017} {CUARTlI0l[2]}  {CUARTlI0l[1]}  {CUARTlI0l[0]} 
+
+fsm_encoding {687108716} sequential
+
+fsm_state_encoding {687108716} 00 {00}
+
+fsm_state_encoding {687108716} 01 {01}
+
+fsm_state_encoding {687108716} 10 {10}
+
+fsm_state_encoding {687108716} 11 {11}
+
+fsm_registers {687108716} {CUARTll0[1]}  {CUARTll0[0]} 
+
+fsm_encoding {241089410895} onehot
+
+fsm_state_encoding {241089410895} 000 {0000001}
+
+fsm_state_encoding {241089410895} 001 {0000010}
+
+fsm_state_encoding {241089410895} 010 {0000100}
+
+fsm_state_encoding {241089410895} 011 {0001000}
+
+fsm_state_encoding {241089410895} 100 {0010000}
+
+fsm_state_encoding {241089410895} 101 {0100000}
+
+fsm_state_encoding {241089410895} 110 {1000000}
+
+fsm_registers {241089410895} {sm0_state[6]}  {sm0_state[5]}  {sm0_state[4]}  {sm0_state[3]}  {sm0_state[2]}  {sm0_state[1]}  {sm0_state[0]} 

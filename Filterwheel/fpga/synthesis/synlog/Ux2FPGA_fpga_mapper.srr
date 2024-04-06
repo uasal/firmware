@@ -1,0 +1,505 @@
+# Tue Mar 12 14:37:42 2024
+
+
+Copyright (C) 1994-2022 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: T-2022.09M-SP2-1
+Install: C:\Microchip\Libero_SoC_v2023.2\SynplifyPro
+OS: Windows 10 or later
+Hostname: ASTR-ETS-001
+
+Implementation : synthesis
+Synopsys Microchip Technology Mapper, Version map202209actsp2, Build 145R, Built Jun 27 2023 12:06:34, @
+
+
+Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 125MB peak: 125MB)
+
+@N: MF916 |Option synthesis_strategy=base is enabled. 
+@N: MF248 |Running in 64-bit mode.
+@N: MF667 |Clock conversion disabled. (Command "set_option -fix_gated_and_generated_clocks 0" in the project file.)
+
+Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 127MB peak: 138MB)
+
+
+Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 127MB peak: 138MB)
+
+
+Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 129MB peak: 138MB)
+
+
+Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 131MB peak: 138MB)
+
+
+
+Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 173MB peak: 173MB)
+
+@N: MO111 :"c:\microsemiproj\dmci_ux2\component\work\ux2fpga_sb\fabosc_0\ux2fpga_sb_fabosc_0_osc.v":20:7:20:16|Tristate driver XTLOSC_O2F (in view: work.Ux2FPGA_sb_FABOSC_0_OSC(verilog)) on net XTLOSC_O2F (in view: work.Ux2FPGA_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
+@N: MO111 :"c:\microsemiproj\dmci_ux2\component\work\ux2fpga_sb\fabosc_0\ux2fpga_sb_fabosc_0_osc.v":19:7:19:16|Tristate driver XTLOSC_CCC (in view: work.Ux2FPGA_sb_FABOSC_0_OSC(verilog)) on net XTLOSC_CCC (in view: work.Ux2FPGA_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
+@N: MO111 :"c:\microsemiproj\dmci_ux2\component\work\ux2fpga_sb\fabosc_0\ux2fpga_sb_fabosc_0_osc.v":18:7:18:20|Tristate driver RCOSC_1MHZ_O2F (in view: work.Ux2FPGA_sb_FABOSC_0_OSC(verilog)) on net RCOSC_1MHZ_O2F (in view: work.Ux2FPGA_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
+@N: MO111 :"c:\microsemiproj\dmci_ux2\component\work\ux2fpga_sb\fabosc_0\ux2fpga_sb_fabosc_0_osc.v":17:7:17:20|Tristate driver RCOSC_1MHZ_CCC (in view: work.Ux2FPGA_sb_FABOSC_0_OSC(verilog)) on net RCOSC_1MHZ_CCC (in view: work.Ux2FPGA_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
+@N: MO111 :"c:\microsemiproj\dmci_ux2\component\work\ux2fpga_sb\fabosc_0\ux2fpga_sb_fabosc_0_osc.v":15:7:15:24|Tristate driver RCOSC_25_50MHZ_CCC (in view: work.Ux2FPGA_sb_FABOSC_0_OSC(verilog)) on net RCOSC_25_50MHZ_CCC (in view: work.Ux2FPGA_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
+@W: BN132 :"c:\microsemiproj\dmci_ux2\component\actel\directcore\coreresetp\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Removing sequential instance Ux2FPGA_sb_0.CORERESETP_0.sdif3_spll_lock_q1 because it is equivalent to instance Ux2FPGA_sb_0.CORERESETP_0.CONFIG2_DONE_q1. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"c:\microsemiproj\dmci_ux2\component\actel\directcore\coreresetp\7.1.100\rtl\vlog\core\coreresetp.v":946:4:946:9|Removing sequential instance Ux2FPGA_sb_0.CORERESETP_0.CONFIG2_DONE_q1 because it is equivalent to instance Ux2FPGA_sb_0.CORERESETP_0.CONFIG1_DONE_q1. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"c:\microsemiproj\dmci_ux2\component\actel\directcore\coreresetp\7.1.100\rtl\vlog\core\coreresetp.v":946:4:946:9|Removing sequential instance Ux2FPGA_sb_0.CORERESETP_0.CONFIG2_DONE_clk_base because it is equivalent to instance Ux2FPGA_sb_0.CORERESETP_0.sdif3_spll_lock_q2. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"c:\microsemiproj\dmci_ux2\component\actel\directcore\coreresetp\7.1.100\rtl\vlog\core\coreresetp.v":929:4:929:9|Removing sequential instance Ux2FPGA_sb_0.CORERESETP_0.CONFIG1_DONE_clk_base because it is equivalent to instance Ux2FPGA_sb_0.CORERESETP_0.sdif3_spll_lock_q2. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN114 :"c:\microsemiproj\dmci_ux2\component\work\ux2fpga_sb\ux2fpga_sb.v":755:9:755:20|Removing instance Ux2FPGA_sb_0.SYSRESET_POR (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@N: BN115 :"c:\microsemiproj\dmci_ux2\component\work\ux2fpga_sb\ux2fpga_sb.v":671:0:671:11|Removing instance Ux2FPGA_sb_0.CORERESETP_0 (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance Mosi_i (in view: work.work_spimasterports_spimaster_1000_3_1_CLOCK_DIVIDERBYTE_WIDTH_7(spimaster)) of type view:PrimLib.dffrse(prim) because it does not drive other instances.
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance DacNum_i[1:0] (in view: work.work_spimasterports_spimaster_1000_3_1_CLOCK_DIVIDERBYTE_WIDTH_7(spimaster)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance nCs[3:0] (in view: work.work_spimasterports_spimaster_1000_3_1_CLOCK_DIVIDERBYTE_WIDTH_7(spimaster)) of type view:PrimLib.dffse(prim) because it does not drive other instances.
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance DataToMosi_i[23:0] (in view: work.work_spimasterports_spimaster_1000_3_1_CLOCK_DIVIDERBYTE_WIDTH_7(spimaster)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+
+Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 179MB peak: 179MB)
+
+@N: MO231 :"c:\microsemiproj\dmci_ux2\component\work\coreuartapb_c0\coreuartapb_c0_0\rtl\vlog\core_obfuscated\clock_gen.v":1011:0:1011:5|Found counter in view:work.CoreUARTapb_C0_CoreUARTapb_C0_0_Clock_gen_0s_0s(verilog) instance genblk1\.CUARTO0[12:0] 
+Encoding state machine CUARTlI0l[5:0] (in view: work.CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async_0s_0s_0s_1s_2s_3s_4s_5s_6s(verilog))
+original code -> new code
+   00000000000000000000000000000000 -> 000
+   00000000000000000000000000000001 -> 001
+   00000000000000000000000000000010 -> 010
+   00000000000000000000000000000011 -> 011
+   00000000000000000000000000000100 -> 100
+   00000000000000000000000000000101 -> 101
+Encoding state machine CUARTll0[3:0] (in view: work.CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async_0s_0s_0s_1s_2s_3s(verilog))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+   11 -> 11
+@N: MO225 :"c:\microsemiproj\dmci_ux2\component\work\coreuartapb_c0\coreuartapb_c0_0\rtl\vlog\core_obfuscated\rx_async.v":871:0:871:5|There are no possible illegal states for state machine CUARTll0[3:0] (in view: work.CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async_0s_0s_0s_1s_2s_3s(verilog)); safe FSM implementation is not required.
+@W: BN132 :"c:\microsemiproj\dmci_ux2\component\work\coreuartapb_c0\coreuartapb_c0_0\rtl\vlog\core_obfuscated\rx_async.v":754:0:754:5|Removing instance CoreUARTapb_C0_0.CoreUARTapb_C0_0.CUARTlOlI.CUARTO01.CUARTIOll[2] because it is equivalent to instance CoreUARTapb_C0_0.CoreUARTapb_C0_0.CUARTlOlI.CUARTO01.CUARTIOll[1]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@N: MO231 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Found counter in view:work.work_spimasterports_spimaster_1000_3_1_CLOCK_DIVIDERBYTE_WIDTH_7(spimaster) instance ClkDiv[8:0] 
+@N: MO231 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Found counter in view:work.work_spimasterports_spimaster_1000_3_1_CLOCK_DIVIDERBYTE_WIDTH(spimaster) instance ClkDiv[8:0] 
+
+Starting factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 181MB peak: 181MB)
+
+
+Finished factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 188MB peak: 188MB)
+
+
+Available hyper_sources - for debug and ip models
+	None Found
+
+NConnInternalConnection caching is on
+
+Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 188MB peak: 195MB)
+
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_1.nCs[1] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_1.nCs[1] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_1.nCs[2] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_1.nCs[2] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_2.nCs[1] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_2.nCs[1] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_2.nCs[2] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_2.nCs[2] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_5.nCs[1] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_5.nCs[1] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_5.nCs[2] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_5.nCs[2] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_6.nCs[1] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_6.nCs[1] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_6.nCs[2] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_6.nCs[2] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_0.nCs[2] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_0.nCs[2] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_0.nCs[1] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_0.nCs[1] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_3.nCs[2] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_3.nCs[2] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_3.nCs[1] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_3.nCs[1] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_4.nCs[2] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_4.nCs[2] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_4.nCs[1] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_4.nCs[1] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_1.nCs[3] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_1.nCs[3] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_2.nCs[3] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_2.nCs[3] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_5.nCs[3] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_5.nCs[3] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_6.nCs[3] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_6.nCs[3] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_0.nCs[3] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_0.nCs[3] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_3.nCs[3] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_3.nCs[3] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Removing sequential instance SpiMasterPorts_4.nCs[3] (in view: work.Ux2FPGA(verilog)) because it does not drive other instances.
+@A: BN291 :"c:\microsemiproj\dmci_ux2\hdl\spimasterapb3.vhd":106:4:106:5|Boundary register SpiMasterPorts_4.nCs[3] (in view: work.Ux2FPGA(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 189MB peak: 195MB)
+
+
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 189MB peak: 195MB)
+
+
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 189MB peak: 195MB)
+
+
+Finished preparing to map (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 189MB peak: 195MB)
+
+
+Finished technology mapping (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 215MB peak: 215MB)
+
+Pass		 CPU time		Worst Slack		Luts / Registers
+------------------------------------------------------------
+   1		0h:00m:02s		    -0.11ns		1133 /       651
+   2		0h:00m:02s		     0.12ns		1080 /       651
+@N: FP130 |Promoting Net GPIO_1_M2F_arst on CLKINT  I_743 
+
+Added 0 Buffers
+Added 0 Cells via replication
+	Added 0 Sequential Cells via replication
+	Added 0 Combinational Cells via replication
+
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 215MB peak: 216MB)
+
+
+Finished restoring hierarchy (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 215MB peak: 216MB)
+
+
+Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 215MB peak: 216MB)
+
+
+Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 215MB peak: 216MB)
+
+
+Start Writing Netlists (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 180MB peak: 216MB)
+
+Writing Analyst data base C:\MicroSemiProj\DMCI_Ux2\synthesis\synwork\Ux2FPGA_m.srm
+
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 213MB peak: 216MB)
+
+Writing Verilog Simulation files
+@N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
+@N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 
+
+Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:03s; Memory used current: 214MB peak: 216MB)
+
+
+Finished Writing Netlists (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 214MB peak: 216MB)
+
+
+Start final timing analysis (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 212MB peak: 216MB)
+
+@W: MT246 :"c:\microsemiproj\dmci_ux2\component\work\ux2fpga_sb\ccc_0\ux2fpga_sb_ccc_0_fccc.v":20:36:20:43|Blackbox CCC is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results)
+@N: MT615 |Found clock CLK0 with period 19.61ns 
+@N: MT615 |Found clock Ux2FPGA_sb_0/CCC_0/GL0 with period 9.80ns 
+
+
+##### START OF TIMING REPORT #####[
+# Timing report written on Tue Mar 12 14:37:47 2024
+#
+
+
+Top view:               Ux2FPGA
+Requested Frequency:    51.0 MHz
+Wire load mode:         top
+Paths requested:        5
+Constraint File(s):    C:\MicroSemiProj\DMCI_Ux2\designer\Ux2FPGA\synthesis.fdc
+                       
+@N: MT320 |This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report.
+
+@N: MT322 |Clock constraints include only register-to-register paths associated with each individual clock.
+
+
+
+Performance Summary
+*******************
+
+
+Worst slack in design: 1.149
+
+                           Requested     Estimated     Requested     Estimated               Clock                     Clock           
+Starting Clock             Frequency     Frequency     Period        Period        Slack     Type                      Group           
+---------------------------------------------------------------------------------------------------------------------------------------
+CLK0                       51.0 MHz      NA            19.608        NA            NA        declared                  default_clkgroup
+Ux2FPGA_sb_0/CCC_0/GL0     102.0 MHz     115.5 MHz     9.804         8.655         1.149     generated (from CLK0)     default_clkgroup
+System                     100.0 MHz     330.2 MHz     10.000        3.029         6.971     system                    system_clkgroup 
+=======================================================================================================================================
+Estimated period and frequency reported as NA means no slack depends directly on the clock waveform
+@W: MT548 :"c:/microsemiproj/dmci_ux2/designer/ux2fpga/synthesis.fdc":8:0:8:0|Source for clock Ux2FPGA_sb_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT not found in netlist.
+
+
+
+
+
+Clock Relationships
+*******************
+
+Clocks                                          |    rise  to  rise   |    fall  to  fall   |    rise  to  fall   |    fall  to  rise 
+--------------------------------------------------------------------------------------------------------------------------------------
+Starting                Ending                  |  constraint  slack  |  constraint  slack  |  constraint  slack  |  constraint  slack
+--------------------------------------------------------------------------------------------------------------------------------------
+System                  Ux2FPGA_sb_0/CCC_0/GL0  |  9.804       6.971  |  No paths    -      |  No paths    -      |  No paths    -    
+Ux2FPGA_sb_0/CCC_0/GL0  System                  |  9.804       4.605  |  No paths    -      |  9.804       4.610  |  No paths    -    
+Ux2FPGA_sb_0/CCC_0/GL0  Ux2FPGA_sb_0/CCC_0/GL0  |  9.804       1.149  |  No paths    -      |  No paths    -      |  No paths    -    
+======================================================================================================================================
+ Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
+       'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
+
+
+
+Interface Information 
+*********************
+
+No IO constraint found
+
+
+
+====================================
+Detailed Report for Clock: Ux2FPGA_sb_0/CCC_0/GL0
+====================================
+
+
+
+Starting Points with Worst Slack
+********************************
+
+                                                 Starting                                                                                                          Arrival          
+Instance                                         Reference                  Type        Pin                        Net                                             Time        Slack
+                                                 Clock                                                                                                                              
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST     Ux2FPGA_sb_0/CCC_0/GL0     MSS_025     F_HM0_ADDR[15]             Ux2FPGA_sb_0_AMBA_SLAVE_0_PADDR[15]             2.752       1.149
+Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST     Ux2FPGA_sb_0/CCC_0/GL0     MSS_025     F_HM0_SEL                  Ux2FPGA_sb_MSS_TMP_0_FIC_0_APB_MASTER_PSELx     2.803       1.154
+Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST     Ux2FPGA_sb_0/CCC_0/GL0     MSS_025     I2C1_SCL_MGPIO1A_H2F_B     GPIO_1_M2F                                      2.929       1.734
+Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST     Ux2FPGA_sb_0/CCC_0/GL0     MSS_025     F_HM0_ADDR[12]             Ux2FPGA_sb_0_AMBA_SLAVE_0_PADDR[12]             2.723       1.858
+Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST     Ux2FPGA_sb_0/CCC_0/GL0     MSS_025     F_HM0_ADDR[13]             Ux2FPGA_sb_0_AMBA_SLAVE_0_PADDR[13]             2.758       1.920
+Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST     Ux2FPGA_sb_0/CCC_0/GL0     MSS_025     F_HM0_ADDR[14]             Ux2FPGA_sb_0_AMBA_SLAVE_0_PADDR[14]             2.729       1.925
+Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST     Ux2FPGA_sb_0/CCC_0/GL0     MSS_025     F_HM0_WRITE                popfeedthru_unused                              3.090       3.445
+Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST     Ux2FPGA_sb_0/CCC_0/GL0     MSS_025     F_HM0_ADDR[3]              Ux2FPGA_sb_0_AMBA_SLAVE_0_PADDR[3]              2.747       3.698
+Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST     Ux2FPGA_sb_0/CCC_0/GL0     MSS_025     F_HM0_ADDR[2]              Ux2FPGA_sb_0_AMBA_SLAVE_0_PADDR[2]              2.777       3.754
+Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST     Ux2FPGA_sb_0/CCC_0/GL0     MSS_025     F_HM0_ENABLE               popfeedthru_unused_8                            2.890       3.805
+====================================================================================================================================================================================
+
+
+Ending Points with Worst Slack
+******************************
+
+                                                 Starting                                                                                                        Required          
+Instance                                         Reference                  Type        Pin                 Net                                                  Time         Slack
+                                                 Clock                                                                                                                             
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST     Ux2FPGA_sb_0/CCC_0/GL0     MSS_025     F_HM0_READY         PREADY_0_iv_i                                        8.478        1.149
+Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST     Ux2FPGA_sb_0/CCC_0/GL0     MSS_025     F_HM0_RDATA[1]      Ux2FPGA_sb_MSS_TMP_0_FIC_0_APB_MASTER_PRDATA[1]      9.426        1.415
+SpiMasterPorts_2.DacNum_i[0]                     Ux2FPGA_sb_0/CCC_0/GL0     SLE         EN                  DacNum_i_0_sqmuxa                                    9.510        1.452
+SpiMasterPorts_1.DacNum_i[0]                     Ux2FPGA_sb_0/CCC_0/GL0     SLE         EN                  DacNum_i_0_sqmuxa                                    9.510        1.452
+SpiMasterPorts_2.DacNum_i[1]                     Ux2FPGA_sb_0/CCC_0/GL0     SLE         EN                  DacNum_i_0_sqmuxa                                    9.510        1.452
+SpiMasterPorts_1.DacNum_i[1]                     Ux2FPGA_sb_0/CCC_0/GL0     SLE         EN                  DacNum_i_0_sqmuxa                                    9.510        1.452
+Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST     Ux2FPGA_sb_0/CCC_0/GL0     MSS_025     F_HM0_RDATA[12]     Ux2FPGA_sb_MSS_TMP_0_FIC_0_APB_MASTER_PRDATA[12]     9.360        1.457
+Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST     Ux2FPGA_sb_0/CCC_0/GL0     MSS_025     F_HM0_RDATA[6]      Ux2FPGA_sb_MSS_TMP_0_FIC_0_APB_MASTER_PRDATA[6]      9.481        1.470
+Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST     Ux2FPGA_sb_0/CCC_0/GL0     MSS_025     F_HM0_RDATA[4]      Ux2FPGA_sb_MSS_TMP_0_FIC_0_APB_MASTER_PRDATA[4]      9.484        1.473
+Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST     Ux2FPGA_sb_0/CCC_0/GL0     MSS_025     F_HM0_RDATA[0]      Ux2FPGA_sb_MSS_TMP_0_FIC_0_APB_MASTER_PRDATA[0]      9.500        1.489
+===================================================================================================================================================================================
+
+
+
+Worst Path Information
+***********************
+
+
+Path information for path number 1: 
+      Requested Period:                      9.804
+    - Setup time:                            1.326
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         8.478
+
+    - Propagation time:                      7.329
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (critical) :                     1.149
+
+    Number of logic level(s):                4
+    Starting point:                          Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST / F_HM0_ADDR[15]
+    Ending point:                            Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST / F_HM0_READY
+    The start point is clocked by            Ux2FPGA_sb_0/CCC_0/GL0 [rising] (rise=0.000 fall=4.902 period=9.804) on pin CLK_BASE
+    The end   point is clocked by            Ux2FPGA_sb_0/CCC_0/GL0 [rising] (rise=0.000 fall=4.902 period=9.804) on pin CLK_BASE
+
+Instance / Net                                                                 Pin                Pin               Arrival     No. of    
+Name                                                               Type        Name               Dir     Delay     Time        Fan Out(s)
+------------------------------------------------------------------------------------------------------------------------------------------
+Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST                       MSS_025     F_HM0_ADDR[15]     Out     2.752     2.752 f     -         
+Ux2FPGA_sb_0_AMBA_SLAVE_0_PADDR[15]                                Net         -                  -       0.708     -           4         
+Ux2FPGA_sb_0.CoreAPB3_0.iPSELS_i_o2_0[0]                           CFG2        B                  In      -         3.460 f     -         
+Ux2FPGA_sb_0.CoreAPB3_0.iPSELS_i_o2_0[0]                           CFG2        Y                  Out     0.143     3.603 f     -         
+N_58                                                               Net         -                  -       0.744     -           5         
+Ux2FPGA_sb_0.CoreAPB3_0.iPSELS_i[7]                                CFG4        D                  In      -         4.347 f     -         
+Ux2FPGA_sb_0.CoreAPB3_0.iPSELS_i[7]                                CFG4        Y                  Out     0.250     4.597 f     -         
+N_32                                                               Net         -                  -       1.072     -           26        
+Ux2FPGA_sb_0.CoreAPB3_0.u_mux_p_to_b3.PREADY_0_iv_1_0              CFG4        D                  In      -         5.669 f     -         
+Ux2FPGA_sb_0.CoreAPB3_0.u_mux_p_to_b3.PREADY_0_iv_1_0              CFG4        Y                  Out     0.276     5.945 r     -         
+PREADY_0_iv_1_0                                                    Net         -                  -       0.216     -           1         
+Ux2FPGA_sb_0.CoreAPB3_0.u_mux_p_to_b3.PREADY_0_iv_1_0_RNIQBLU1     CFG4        C                  In      -         6.161 r     -         
+Ux2FPGA_sb_0.CoreAPB3_0.u_mux_p_to_b3.PREADY_0_iv_1_0_RNIQBLU1     CFG4        Y                  Out     0.196     6.357 f     -         
+PREADY_0_iv_i                                                      Net         -                  -       0.971     -           1         
+Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST                       MSS_025     F_HM0_READY        In      -         7.329 f     -         
+==========================================================================================================================================
+Total path delay (propagation time + setup) of 8.655 is 4.943(57.1%) logic and 3.712(42.9%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+
+
+====================================
+Detailed Report for Clock: System
+====================================
+
+
+
+Starting Points with Worst Slack
+********************************
+
+                                  Starting                                          Arrival          
+Instance                          Reference     Type     Pin     Net                Time        Slack
+                                  Clock                                                              
+-----------------------------------------------------------------------------------------------------
+SpiMasterPorts_7.un1_rst_2_rs     System        SLE      Q       un1_rst_2_rs       0.094       6.971
+SpiMasterPorts_3.un1_rst_2_rs     System        SLE      Q       un1_rst_2_rs_3     0.094       7.187
+SpiMasterPorts_4.un1_rst_2_rs     System        SLE      Q       un1_rst_2_rs_2     0.094       7.254
+SpiMasterPorts_6.un1_rst_2_rs     System        SLE      Q       un1_rst_2_rs_0     0.094       7.255
+SpiMasterPorts_1.un1_rst_2_rs     System        SLE      Q       un1_rst_2_rs_5     0.094       7.255
+SpiMasterPorts_2.un1_rst_2_rs     System        SLE      Q       un1_rst_2_rs_4     0.094       7.322
+SpiMasterPorts_5.un1_rst_2_rs     System        SLE      Q       un1_rst_2_rs_1     0.094       7.364
+SpiMasterPorts_0.un1_rst_3_rs     System        SLE      Q       un1_rst_3_rs_5     0.076       7.367
+SpiMasterPorts_5.un1_rst_3_rs     System        SLE      Q       un1_rst_3_rs_0     0.076       7.391
+SpiMasterPorts_0.un1_rst_2_rs     System        SLE      Q       un1_rst_2_rs_6     0.094       7.406
+=====================================================================================================
+
+
+Ending Points with Worst Slack
+******************************
+
+                                                 Starting                                                                                           Required          
+Instance                                         Reference     Type        Pin                 Net                                                  Time         Slack
+                                                 Clock                                                                                                                
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST     System        MSS_025     F_HM0_RDATA[23]     Ux2FPGA_sb_MSS_TMP_0_FIC_0_APB_MASTER_PRDATA[23]     9.437        6.971
+SpiMasterPorts_0.Mosi_i                          System        SLE         D                   Mosi_i_8                                             9.582        7.367
+SpiMasterPorts_5.Mosi_i                          System        SLE         D                   Mosi_i_8                                             9.582        7.391
+SpiMasterPorts_2.Mosi_i                          System        SLE         D                   Mosi_i_8                                             9.582        7.456
+SpiMasterPorts_1.Mosi_i                          System        SLE         D                   Mosi_i_8                                             9.582        7.498
+SpiMasterPorts_3.Mosi_i                          System        SLE         D                   Mosi_i_8                                             9.582        7.498
+SpiMasterPorts_4.Mosi_i                          System        SLE         D                   Mosi_i_8                                             9.582        7.498
+SpiMasterPorts_6.Mosi_i                          System        SLE         D                   Mosi_i_8                                             9.582        7.498
+SpiMasterPorts_7.DataFromMiso_1[23]              System        SLE         D                   DataFromMiso_1_ldmx[23]                              9.582        8.262
+======================================================================================================================================================================
+
+
+
+Worst Path Information
+***********************
+
+
+Path information for path number 1: 
+      Requested Period:                      9.804
+    - Setup time:                            0.367
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         9.437
+
+    - Propagation time:                      2.466
+    - Clock delay at starting point:         0.000 (ideal)
+    - Estimated clock delay at start point:  -0.000
+    = Slack (non-critical) :                 6.971
+
+    Number of logic level(s):                3
+    Starting point:                          SpiMasterPorts_7.un1_rst_2_rs / Q
+    Ending point:                            Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST / F_HM0_RDATA[23]
+    The start point is clocked by            System [rising] on pin CLK
+    The end   point is clocked by            Ux2FPGA_sb_0/CCC_0/GL0 [rising] (rise=0.000 fall=4.902 period=9.804) on pin CLK_BASE
+
+Instance / Net                                                          Pin                 Pin               Arrival     No. of    
+Name                                                        Type        Name                Dir     Delay     Time        Fan Out(s)
+------------------------------------------------------------------------------------------------------------------------------------
+SpiMasterPorts_7.un1_rst_2_rs                               SLE         Q                   Out     0.094     0.094 f     -         
+un1_rst_2_rs                                                Net         -                   -       0.216     -           1         
+SpiMasterPorts_7.DataFromMiso_1_RNI7N7G[23]                 CFG3        B                   In      -         0.310 f     -         
+SpiMasterPorts_7.DataFromMiso_1_RNI7N7G[23]                 CFG3        Y                   Out     0.143     0.453 f     -         
+Ux2FPGA_sb_0_AMBA_SLAVE_0_8_PRDATA[23]                      Net         -                   -       0.432     -           2         
+Ux2FPGA_sb_0.CoreAPB3_0.u_mux_p_to_b3.PRDATA_0_iv_0[23]     CFG4        D                   In      -         0.885 f     -         
+Ux2FPGA_sb_0.CoreAPB3_0.u_mux_p_to_b3.PRDATA_0_iv_0[23]     CFG4        Y                   Out     0.250     1.135 f     -         
+PRDATA_0_iv_0[23]                                           Net         -                   -       0.216     -           1         
+Ux2FPGA_sb_0.CoreAPB3_0.u_mux_p_to_b3.PRDATA_0_iv[23]       CFG4        B                   In      -         1.351 f     -         
+Ux2FPGA_sb_0.CoreAPB3_0.u_mux_p_to_b3.PRDATA_0_iv[23]       CFG4        Y                   Out     0.143     1.494 f     -         
+Ux2FPGA_sb_MSS_TMP_0_FIC_0_APB_MASTER_PRDATA[23]            Net         -                   -       0.971     -           1         
+Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST                MSS_025     F_HM0_RDATA[23]     In      -         2.466 f     -         
+====================================================================================================================================
+Total path delay (propagation time + setup) of 2.833 is 0.997(35.2%) logic and 1.836(64.8%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+
+##### END OF TIMING REPORT #####]
+
+Timing exceptions that could not be applied
+@W: MT447 :"c:/microsemiproj/dmci_ux2/designer/ux2fpga/synthesis.fdc":10:0:10:0|Timing constraint (through [get_nets { Ux2FPGA_sb_0.CORERESETP_0.ddr_settled Ux2FPGA_sb_0.CORERESETP_0.count_ddr_enable Ux2FPGA_sb_0.CORERESETP_0.release_sdif*_core Ux2FPGA_sb_0.CORERESETP_0.count_sdif*_enable }]) (false path) was not applied to the design because none of the '-through' objects specified by the constraint exist in the design 
+@W: MT447 :"c:/microsemiproj/dmci_ux2/designer/ux2fpga/synthesis.fdc":11:0:11:0|Timing constraint (from [get_cells { Ux2FPGA_sb_0.CORERESETP_0.MSS_HPMS_READY_int }] to [get_cells { Ux2FPGA_sb_0.CORERESETP_0.sm0_areset_n_rcosc Ux2FPGA_sb_0.CORERESETP_0.sm0_areset_n_rcosc_q1 }]) (false path) was not applied to the design because none of the '-from' objects specified by the constraint exist in the design 
+@W: MT447 :"c:/microsemiproj/dmci_ux2/designer/ux2fpga/synthesis.fdc":12:0:12:0|Timing constraint (from [get_cells { Ux2FPGA_sb_0.CORERESETP_0.MSS_HPMS_READY_int Ux2FPGA_sb_0.CORERESETP_0.SDIF*_PERST_N_re }] to [get_cells { Ux2FPGA_sb_0.CORERESETP_0.sdif*_areset_n_rcosc* }]) (false path) was not applied to the design because none of the '-from' objects specified by the constraint exist in the design 
+@W: MT447 :"c:/microsemiproj/dmci_ux2/designer/ux2fpga/synthesis.fdc":13:0:13:0|Timing constraint (through [get_nets { Ux2FPGA_sb_0.CORERESETP_0.CONFIG1_DONE Ux2FPGA_sb_0.CORERESETP_0.CONFIG2_DONE Ux2FPGA_sb_0.CORERESETP_0.SDIF*_PERST_N Ux2FPGA_sb_0.CORERESETP_0.SDIF*_PSEL Ux2FPGA_sb_0.CORERESETP_0.SDIF*_PWRITE Ux2FPGA_sb_0.CORERESETP_0.SDIF*_PRDATA[*] Ux2FPGA_sb_0.CORERESETP_0.SOFT_EXT_RESET_OUT Ux2FPGA_sb_0.CORERESETP_0.SOFT_RESET_F2M Ux2FPGA_sb_0.CORERESETP_0.SOFT_M3_RESET Ux2FPGA_sb_0.CORERESETP_0.SOFT_MDDR_DDR_AXI_S_CORE_RESET Ux2FPGA_sb_0.CORERESETP_0.SOFT_FDDR_CORE_RESET Ux2FPGA_sb_0.CORERESETP_0.SOFT_SDIF*_PHY_RESET Ux2FPGA_sb_0.CORERESETP_0.SOFT_SDIF*_CORE_RESET Ux2FPGA_sb_0.CORERESETP_0.SOFT_SDIF0_0_CORE_RESET Ux2FPGA_sb_0.CORERESETP_0.SOFT_SDIF0_1_CORE_RESET }]) (false path) was not applied to the design because none of the '-through' objects specified by the constraint exist in the design 
+@W: MT447 :"c:/microsemiproj/dmci_ux2/designer/ux2fpga/synthesis.fdc":14:0:14:0|Timing constraint (through [get_pins { Ux2FPGA_sb_0.Ux2FPGA_sb_MSS_0.MSS_ADLIB_INST.CONFIG_PRESET_N }]) (false path) was not applied to the design because none of the '-through' objects specified by the constraint exist in the design 
+@W: MT447 :"c:/microsemiproj/dmci_ux2/designer/ux2fpga/synthesis.fdc":15:0:15:0|Timing constraint (through [get_pins { Ux2FPGA_sb_0.SYSRESET_POR.POWER_ON_RESET_N }]) (false path) was not applied to the design because none of the '-through' objects specified by the constraint exist in the design 
+None
+
+Finished final timing analysis (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 213MB peak: 216MB)
+
+
+Finished timing report (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 213MB peak: 216MB)
+
+---------------------------------------
+Resource Usage Report for Ux2FPGA 
+
+Mapping to part: m2s025vf400-1
+Cell usage:
+AND3            1 use
+AND4            1 use
+CCC             1 use
+CLKINT          2 uses
+MSS_025         1 use
+OR3             1 use
+OR4             2 uses
+CFG1           22 uses
+CFG2           149 uses
+CFG3           208 uses
+CFG4           578 uses
+
+Carry cells:
+ARI1            94 uses - used for arithmetic functions
+ARI1            68 uses - used for Wide-Mux implementation
+Total ARI1      162 uses
+
+
+Sequential Cells: 
+SLE            681 uses
+
+DSP Blocks:    0 of 34 (0%)
+
+I/O ports: 49
+I/O primitives: 48
+INBUF          19 uses
+OUTBUF         28 uses
+TRIBUFF        1 use
+
+
+Global Clock Buffers: 2
+
+Total LUTs:    1119
+
+Extra resources required for RAM and MACC interface logic during P&R:
+
+RAM64x18 Interface Logic : SLEs = 0; LUTs = 0;
+RAM1K18  Interface Logic : SLEs = 0; LUTs = 0;
+MACC     Interface Logic : SLEs = 0; LUTs = 0;
+
+Total number of SLEs after P&R:  681 + 0 + 0 + 0 = 681;
+Total number of LUTs after P&R:  1119 + 0 + 0 + 0 = 1119;
+
+Mapper successful!
+
+At Mapper Exit (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 72MB peak: 216MB)
+
+Process took 0h:00m:04s realtime, 0h:00m:04s cputime
+# Tue Mar 12 14:37:47 2024
+
+###########################################################]
