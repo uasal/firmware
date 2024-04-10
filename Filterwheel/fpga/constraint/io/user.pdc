@@ -34,126 +34,132 @@ set_io clk            \
     -iostd LVCMOS33   \
     -DIRECTION INPUT
 
+
+
 ## J-Dbg1
 
-#J-Dbg_1_p1_L1 has weird drive issues
+#J-Dbg1_1_p1_L1 has weird drive issues
 
-#J-Dbg_2_p3
+#J-Dbg1_2_p3
 set_io PosSenseBit0B    \
     -pinname K1      \
     -fixed yes        \
     -DIRECTION INPUT
 
-#J-Dbg_3_p5
+#J-Dbg1_3_p5
 set_io PosSenseHomeB    \
     -pinname J5      \
     -fixed yes        \
     -DIRECTION INPUT
 
-#J-Dbg_4_p7
+#J-Dbg1_4_p7
 set_io PosSenseBit2A    \
     -pinname J3      \
     -fixed yes        \
     -DIRECTION INPUT
 
-#J-Dbg_5_p9
+#J-Dbg1_5_p9
 set_io PosSenseBit1A    \
     -pinname J2      \
     -fixed yes        \
     -DIRECTION INPUT
 
-#J-Dbg_6_p11_J1 has weird drive issues
+#J-Dbg1_6_p11_J1 has weird drive issues due to being shared with buffer chip on J-SpiExt
 
-#J-Dbg_7_p13
+#J-Dbg1_7_p13
 set_io PosSenseBit0A    \
     -pinname H1      \
     -fixed yes        \
     -DIRECTION INPUT
 
-#J-Dbg_8_p15
+#J-Dbg1_8_p15
 set_io PosSenseBitHomeA    \
     -pinname H5      \
     -fixed yes        \
     -DIRECTION INPUT
-	
-
-##J-DM-DAC-A
-
-#J-DM-ADC-A_p1_nPwrDnAdcs_connects_to_J-DM-DAC-A_p20_nDrdyDacsA
-set_io PosLEDEnA    \
-    -pinname G14      \
-    -fixed yes        \
-    -DIRECTION OUTPUT
-
-#J-DM-ADC-A_p2_nRstAdcs_connects_to_J-DM-DAC-A_p19_nRstDacs
-set_io PosLEDEnB    \
-    -pinname J13      \
-    -fixed yes        \
-    -DIRECTION OUTPUT
-
-#J-DM-ADC-A_p3_ClkADcs_connects_to_J-DM-DAC-A_p18_nClrDacs
-set_io MotorDriveBPlusPrime    \
-    -pinname J12      \
-    -fixed yes        \
-    -DIRECTION OUTPUT
-
-#J-DM-ADC-A_p4_SckAdcs_connects_to_J-DM-DAC-A_p17_nLDacs
-set_io MotorDriveBMinusPrime    \
-    -pinname K16      \
-    -fixed yes        \
-    -DIRECTION OUTPUT
-
-#J-DM-ADC-A_p5_MosiAdcA_connects_to_J-DM-DAC-A_p16_MisoDacsA
-set_io MotorDriveBMinus    \
-    -pinname K15      \
-    -fixed yes        \
-    -DIRECTION OUTPUT
-	
-#J-DM-ADC-A_p6_MisoAdcA_connects_to_J-DM-DAC-A_p15_MosiDacsA
-set_io MotorDriveBPlus    \
-    -pinname K12      \
-    -fixed yes        \
-    -DIRECTION OUTPUT
 
 
-##J-SPI-EXT - SHIT, THESE ARE THE SAME FPGA PINS AS J-Dbg1, time to throw out the FW board and start over...
 
-#J-SPI-EXT_p1_MisoExt
+##J-DM-DAC-A connects to J-SpiExt on FW board
+ 
+#J-SPI-EXT_p1_MisoExt - nDrdyDacsA
 set_io PosSenseBit1B    \
     -pinname G14      \
     -fixed yes        \
     -DIRECTION INPUT
 
-#J-SPI-EXT_p3_MosiExt
+#J-SPI-EXT_p3_MosiExt - RstDacs
 set_io MotorDriveAMinus    \
-    -pinname G14      \
+    -pinname J13      \
     -fixed yes        \
     -DIRECTION OUTPUT
 
-#J-SPI-EXT_p5_SckExt
+#J-SPI-EXT_p5_SckExt - ClrDacs
 set_io MotorDriveAPlus    \
-    -pinname G14      \
+    -pinname J12      \
     -fixed yes        \
     -DIRECTION OUTPUT
 
-#J-SPI-EXT_p7_nCsExt
+#J-SPI-EXT_p7_nCsExt - nLDacs
 set_io MotorDriveAMinusPrime    \
-    -pinname G14      \
+    -pinname K16      \
     -fixed yes        \
     -DIRECTION OUTPUT
 
-#J-SPI-EXT_p9_DOutExt
+#J-SPI-EXT_p9_DOutExt - MisoDacsA
 set_io MotorDriveAPlusPrime    \
-    -pinname G14      \
+    -pinname K15      \
     -fixed yes        \
     -DIRECTION OUTPUT
 
-#J-SPI-EXT_p11_DInExt
+#J-SPI-EXT_p11_DInExt - MosiDacsA
 set_io PosSenseBit2B    \
-    -pinname G14      \
+    -pinname K12      \
     -fixed yes        \
     -DIRECTION INPUT
+	
+	
 
+##J-DM-DAC-F connects to J-Dbg2 on FW board
+
+#J-DM-DAC-F_p6 - MosiDacsF
+set_io PosLEDEnA    \
+    -pinname G3      \
+    -fixed yes        \
+    -DIRECTION OUTPUT
+
+#J-DM-DAC-F_p7 - SckDacsF
+set_io PosLEDEnB    \
+    -pinname G5      \
+    -fixed yes        \
+    -DIRECTION OUTPUT
+
+#J-DM-DAC-F_p8 - nCsDacs4F
+set_io MotorDriveBPlusPrime    \
+    -pinname F3      \
+    -fixed yes        \
+    -DIRECTION OUTPUT
+
+#J-DM-DAC-F_p9 - nCsDacs3F
+set_io MotorDriveBMinusPrime    \
+    -pinname F2      \
+    -fixed yes        \
+    -DIRECTION OUTPUT
+
+#J-DM-DAC-F_p10 - nCsDacs2F
+set_io MotorDriveBMinus    \
+    -pinname F5      \
+    -fixed yes        \
+    -DIRECTION OUTPUT
+	
+#J-DM-DAC-F_p11 - nCsDacs1F
+set_io MotorDriveBPlus    \
+    -pinname F4      \
+    -fixed yes        \
+    -DIRECTION OUTPUT
+	
+	
+	
 # 
 # Dedicated Peripheral I/O Settings
 # 
