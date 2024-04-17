@@ -627,6 +627,29 @@ architecture architecture_Main of Main is
 						);
 						end component;
 						
+						component FourWireStepperMotorDriverPorts is
+						generic (
+							CLOCK_FREQHZ : natural := 10000000;
+							MOTOR_STEP_SECONDS : real := 0.001--;
+						);
+						port (
+							clk : in std_logic;
+							rst : in std_logic;
+
+							--inputs
+							SeekStep : in std_logic_vector(15 downto 0);
+							
+							--outputs
+							CurrentStep : out std_logic_vector(15 downto 0);
+							
+							MotorA+ : out std_logic;
+							MotorA- : out std_logic;
+							MotorB+ : out std_logic;
+							MotorB- : out std_logic--;
+						);
+						end component;
+
+						
 --Constants & Setup
 	
 
@@ -767,6 +790,15 @@ architecture architecture_Main of Main is
 		
 		-- Positioning System - Led's and Optodetectors
 		
+		signal LastPosSenseHomeA : std_logic := '0';
+		signal LastPosSenseBit0A : std_logic := '0';
+		signal LastPosSenseBit1A : std_logic := '0';
+		signal LastPosSenseBit2A : std_logic := '0';
+		signal LastPosSenseHomeB : std_logic := '0';
+		signal LastPosSenseBit0B : std_logic := '0';
+		signal LastPosSenseBit1B : std_logic := '0';
+		signal LastPosSenseBit2B : std_logic := '0';
+
 		signal PosLedsEnA : std_logic := '0';
 		
 		signal PosDetHomeAOnStep : std_logic_vector(15 downto 0) := x"0000";
@@ -1537,9 +1569,10 @@ begin
 		shot => ShootThruIxnaeB-
 	);
 
-	StepperMotor : FourWireStepperPorts
+	StepperMotor : FourWireStepperMotorDriverPorts
 	generic map (
-		--~ CLOCK_FREQHZ => BoardMasterClockFreq,
+		CLOCK_FREQHZ => BoardMasterClockFreq,
+		MOTOR_STEP_SECONDS => 0.100	--;
 	)
 	port map (	
 	
@@ -1547,8 +1580,8 @@ begin
 		rst => MasterReset,		
 	
 		--inputs
-		NumSteps => NumSteps,
-		Step => Step,
+		SeekStep => MotorSeekStep,
+		CurrentStep => MotorCurrentStep,
 		
 		--outputs
 		MotorA+ => MotorA+_i,
@@ -1580,7 +1613,18 @@ begin
 	begin
 	
 		if ( (clock_i'event) and (clock_i = '1') ) then
-
+		
+			--Run position detector logic:
+		
+			if (LastPosSenseHomeA /= PosSenseHomeA) then LastPosSenseHomeA <= PosSenseHomeA; if (PosSenseHomeA = '1') then PosDetHomeAOnStep <= MotorCurrentStep; else PosDetHomeAOffStep <= MotorCurrentStep; end if; end if;
+			if (LastPosSenseBit0A /= PosSenseBit0A) then LastPosSenseBit0A <= PosSenseBit0A; if (PosSenseBit0A = '1') then PosDetBit0AOnStep <= MotorCurrentStep; else PosDetBit0AOffStep <= MotorCurrentStep; end if; end if;
+			if (LastPosSenseBit1A /= PosSenseBit1A) then LastPosSenseBit1A <= PosSenseBit1A; if (PosSenseBit1A = '1') then PosDetBit1AOnStep <= MotorCurrentStep; else PosDetBit1AOffStep <= MotorCurrentStep; end if; end if;
+			if (LastPosSenseBit2A /= PosSenseBit2A) then LastPosSenseBit2A <= PosSenseBit2A; if (PosSenseBit2A = '1') then PosDetBit2AOnStep <= MotorCurrentStep; else PosDetBit2AOffStep <= MotorCurrentStep; end if; end if;
+			
+			if (LastPosSenseHomeB /= PosSenseHomeB) then LastPosSenseHomeB <= PosSenseHomeB; if (PosSenseHomeB = '1') then PosDetHomeBOnStep <= MotorCurrentStep; else PosDetHomeBOffStep <= MotorCurrentStep; end if; end if;
+			if (LastPosSenseBit0B /= PosSenseBit0B) then LastPosSenseBit0B <= PosSenseBit0B; if (PosSenseBit0B = '1') then PosDetBit0BOnStep <= MotorCurrentStep; else PosDetBit0BOffStep <= MotorCurrentStep; end if; end if;
+			if (LastPosSenseBit1B /= PosSenseBit1B) then LastPosSenseBit1B <= PosSenseBit1B; if (PosSenseBit1B = '1') then PosDetBit1BOnStep <= MotorCurrentStep; else PosDetBit1BOffStep <= MotorCurrentStep; end if; end if;
+			if (LastPosSenseBit2B /= PosSenseBit2B) then LastPosSenseBit2B <= PosSenseBit2B; if (PosSenseBit2B = '1') then PosDetBit2BOnStep <= MotorCurrentStep; else PosDetBit2BOffStep <= MotorCurrentStep; end if; end if;
 		
 		end if;		
 
