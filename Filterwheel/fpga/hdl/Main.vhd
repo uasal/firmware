@@ -42,12 +42,10 @@ port (
 	
 	-- Power Supply Monitor A/D
 	nCsMonitorAdc : out std_logic;
-	SckMonitorAdcTP3 : out std_logic;
-	MosiMonitorAdcTP1 : out std_logic;
-	MisoMonitorAdcTP2 : in std_logic; --use the A/D
-	nDrdyMonitorAdcTP4 : in std_logic; --use the A/D
-	--~ MisoMonitorAdcTP2 : out std_logic; --steal the pin for a testpoint
-	--~ nDrdyMonitorAdcTP4 : out std_logic; --steal the pin for a testpoint
+	SckMonitorAdc : out std_logic;
+	MosiMonitorAdc : out std_logic;
+	MisoMonitorAdc : in std_logic; --use the A/D
+	nDrdyMonitorAdc : in std_logic; --use the A/D
 	
 	--RS-422 (uses LVDS and/or Accel pins)
 	Txd0 : out std_logic;
@@ -473,8 +471,8 @@ architecture architecture_Main of Main is
 							
 							-- Bus:
 							Address : in std_logic_vector(ADDRESS_BITS - 1 downto 0); -- this is fucked, but vhdl can't figure out that ADDRESS_BITS is a constant because it's in a generic map...
-							DataIn : in std_logic_vector(7 downto 0);
-							DataOut : out std_logic_vector(7 downto 0);
+							DataIn : in std_logic_vector(15 downto 0);
+							DataOut : out std_logic_vector(15 downto 0);
 							ReadReq : in  std_logic;
 							WriteReq : in std_logic;
 							ReadAck : out std_logic;
@@ -486,23 +484,79 @@ architecture architecture_Main of Main is
 							SerialNumber : in std_logic_vector(31 downto 0);
 							BuildNumber : in std_logic_vector(31 downto 0);
 
-							--PZT D/A's
-							DacASetpoint : out std_logic_vector(23 downto 0);
-							DacBSetpoint : out std_logic_vector(23 downto 0);
-							DacCSetpoint : out std_logic_vector(23 downto 0);
-							WriteDacs : out std_logic;
-							DacAReadback : in std_logic_vector(23 downto 0);
-							DacBReadback : in std_logic_vector(23 downto 0);
-							DacCReadback : in std_logic_vector(23 downto 0);	
-							DacTransferComplete : in std_logic;
-
-							-- PZT Readback A/Ds
-							ReadAdcSample : out std_logic;
-							AdcSampleToReadA : in std_logic_vector(47 downto 0);	
-							AdcSampleToReadB : in std_logic_vector(47 downto 0);	
-							AdcSampleToReadC : in std_logic_vector(47 downto 0);	
-							AdcSampleNumAccums : in std_logic_vector(15 downto 0);	
-														
+							--Motor
+							MotorEnable : out std_logic;
+							MotorSeekStep : out std_logic_vector(15 downto 0);
+							MotorCurrentStep : in std_logic_vector(15 downto 0);
+							
+							--Sensors
+							PosLedsEnA : out std_logic;
+							PosLedsEnB : out std_logic;
+									
+							PosSenseHomeA : in std_logic;
+							PosSenseBit0A : in std_logic;
+							PosSenseBit1A : in std_logic;
+							PosSenseBit2A : in std_logic;
+							PosSenseHomeB : in std_logic;
+							PosSenseBit0B : in std_logic;
+							PosSenseBit1B : in std_logic;
+							PosSenseBit2B : in std_logic;
+							
+							PosSenseA : in std_logic_vector(3 downto 0);
+							PosSenseB : in std_logic_vector(3 downto 0);
+							
+							PosDetHomeAOnStep : in std_logic_vector(15 downto 0);
+							PosDetHomeAOffStep : in std_logic_vector(15 downto 0);
+							PosDetA0OnStep : in std_logic_vector(15 downto 0);
+							PosDetA0OffStep : in std_logic_vector(15 downto 0);
+							PosDetA1OnStep : in std_logic_vector(15 downto 0);
+							PosDetA1OffStep : in std_logic_vector(15 downto 0);
+							PosDetA2OnStep : in std_logic_vector(15 downto 0);
+							PosDetA2OffStep : in std_logic_vector(15 downto 0);
+							
+							PosDetHomeBOnStep : in std_logic_vector(15 downto 0);
+							PosDetHomeBOffStep : in std_logic_vector(15 downto 0);
+							PosDetB0OnStep : in std_logic_vector(15 downto 0);
+							PosDetB0OffStep : in std_logic_vector(15 downto 0);
+							PosDetB1OnStep : in std_logic_vector(15 downto 0);
+							PosDetB1OffStep : in std_logic_vector(15 downto 0);
+							PosDetB2OnStep : in std_logic_vector(15 downto 0);
+							PosDetB2OffStep : in std_logic_vector(15 downto 0);
+							
+							PosDet0AOnStep : in std_logic_vector(15 downto 0);
+							PosDet0AOffStep : in std_logic_vector(15 downto 0);
+							PosDet1AOnStep : in std_logic_vector(15 downto 0);
+							PosDet1AOffStep : in std_logic_vector(15 downto 0);
+							PosDet2AOnStep : in std_logic_vector(15 downto 0);
+							PosDet2AOffStep : in std_logic_vector(15 downto 0);
+							PosDet3AOnStep : in std_logic_vector(15 downto 0);
+							PosDet3AOffStep : in std_logic_vector(15 downto 0);
+							PosDet4AOnStep : in std_logic_vector(15 downto 0);
+							PosDet4AOffStep : in std_logic_vector(15 downto 0);
+							PosDet5AOnStep : in std_logic_vector(15 downto 0);
+							PosDet5AOffStep : in std_logic_vector(15 downto 0);
+							PosDet6AOnStep : in std_logic_vector(15 downto 0);
+							PosDet6AOffStep : in std_logic_vector(15 downto 0);
+							PosDet7AOnStep : in std_logic_vector(15 downto 0);
+							PosDet7AOffStep : in std_logic_vector(15 downto 0);
+							
+							PosDet0BOnStep : in std_logic_vector(15 downto 0);
+							PosDet0BOffStep : in std_logic_vector(15 downto 0);
+							PosDet1BOnStep : in std_logic_vector(15 downto 0);
+							PosDet1BOffStep : in std_logic_vector(15 downto 0);
+							PosDet2BOnStep : in std_logic_vector(15 downto 0);
+							PosDet2BOffStep : in std_logic_vector(15 downto 0);
+							PosDet3BOnStep : in std_logic_vector(15 downto 0);
+							PosDet3BOffStep : in std_logic_vector(15 downto 0);
+							PosDet4BOnStep : in std_logic_vector(15 downto 0);
+							PosDet4BOffStep : in std_logic_vector(15 downto 0);
+							PosDet5BOnStep : in std_logic_vector(15 downto 0);
+							PosDet5BOffStep : in std_logic_vector(15 downto 0);
+							PosDet6BOnStep : in std_logic_vector(15 downto 0);
+							PosDet6BOffStep : in std_logic_vector(15 downto 0);
+							PosDet7BOnStep : in std_logic_vector(15 downto 0);
+							PosDet7BOffStep : in std_logic_vector(15 downto 0)
+							
 							--Monitor A/D:
 							MonitorAdcChannelReadIndex : out std_logic_vector(4 downto 0);
 							ReadMonitorAdcSample : out std_logic;
@@ -798,7 +852,13 @@ architecture architecture_Main of Main is
 		signal LastPosSenseBit0B : std_logic := '0';
 		signal LastPosSenseBit1B : std_logic := '0';
 		signal LastPosSenseBit2B : std_logic := '0';
-
+		
+		signal PosSenseA : std_logic_vector(3 downto 0) := '0000';
+		signal PosSenseB : std_logic_vector(3 downto 0) := '0000';
+		signal LastPosSenseA : std_logic_vector(3 downto 0) := '0000';
+		signal LastPosSenseB : std_logic_vector(3 downto 0) := '0000';
+				
+				
 		signal PosLedsEnA : std_logic := '0';
 		
 		signal PosDetHomeAOnStep : std_logic_vector(15 downto 0) := x"0000";
@@ -820,6 +880,40 @@ architecture architecture_Main of Main is
 		signal PosDetB1OffStep : std_logic_vector(15 downto 0) := x"0000";
 		signal PosDetB2OnStep : std_logic_vector(15 downto 0) := x"0000";
 		signal PosDetB2OffStep : std_logic_vector(15 downto 0) := x"0000";
+		
+		signal PosDet0AOnStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet0AOffStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet1AOnStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet1AOffStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet2AOnStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet2AOffStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet3AOnStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet3AOffStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet4AOnStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet4AOffStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet5AOnStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet5AOffStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet6AOnStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet6AOffStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet7AOnStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet7AOffStep : std_logic_vector(15 downto 0) := x"0000";
+		
+		signal PosDet0BOnStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet0BOffStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet1BOnStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet1BOffStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet2BOnStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet2BOffStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet3BOnStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet3BOffStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet4BOnStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet4BOffStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet5BOnStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet5BOffStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet6BOnStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet6BOffStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet7BOnStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet7BOffStep : std_logic_vector(15 downto 0) := x"0000";
 		
 		-- Motors
 
@@ -946,25 +1040,78 @@ begin
 		SerialNumber => SerialNumber,
 		BuildNumber => BuildNumber,
 		
-		--PZT D/A's
-		DacASetpoint => DacASetpoint,
-		DacBSetpoint => DacBSetpoint,
-		DacCSetpoint => DacCSetpoint,
-		WriteDacs => WriteDacs,
-		DacAReadback => DacAReadback,
-		DacBReadback => DacBReadback,
-		DacCReadback => DacCReadback,
-		--~ DacAReadback => DacASetpoint,
-		--~ DacBReadback => DacBSetpoint,
-		--~ DacCReadback => DacCSetpoint--,
-		DacTransferComplete => DacTransferComplete,
+		--Motor
+		MotorEnable => MotorEnable,
+		MotorSeekStep => MotorSeekStep,
+		MotorCurrentStep => MotorCurrentStep,
 		
-		--PZT A/D's
-		ReadAdcSample => ReadAdcSample,
-		AdcSampleToReadA => AdcSampleToReadA,
-		AdcSampleToReadB => AdcSampleToReadB,
-		AdcSampleToReadC => AdcSampleToReadC,
-		AdcSampleNumAccums => AdcSampleNumAccums,
+		--Sensors
+		PosLedsEnA => PosLedsEnA;
+		PosLedsEnB => PosLedsEnB;
+				
+		PosSenseHomeA => PosSenseHomeA;
+		PosSenseBit0A => PosSenseBit0A;
+		PosSenseBit1A => PosSenseBit1A;
+		PosSenseBit2A => PosSenseBit2A;
+		PosSenseHomeB => PosSenseHomeB;
+		PosSenseBit0B => PosSenseBit0B;
+		PosSenseBit1B => PosSenseBit1B;
+		PosSenseBit2B => PosSenseBit2B;
+		
+		PosSenseA => PosSenseA;
+		PosSenseB => PosSenseB;
+		
+		PosDetHomeAOnStep => PosDetHomeAOnStep;
+		PosDetHomeAOffStep => PosDetHomeAOffStep;
+		PosDetA0OnStep => PosDetA0OnStep;
+		PosDetA0OffStep => PosDetA0OffStep;
+		PosDetA1OnStep => PosDetA1OnStep;
+		PosDetA1OffStep => PosDetA1OffStep;
+		PosDetA2OnStep => PosDetA2OnStep;
+		PosDetA2OffStep => PosDetA2OffStep;
+		
+		PosDetHomeBOnStep => PosDetHomeBOnStep;
+		PosDetHomeBOffStep => PosDetHomeBOffStep;
+		PosDetB0OnStep => PosDetB0OnStep;
+		PosDetB0OffStep => PosDetB0OffStep;
+		PosDetB1OnStep => PosDetB1OnStep;
+		PosDetB1OffStep => PosDetB1OffStep;
+		PosDetB2OnStep => PosDetB2OnStep;
+		PosDetB2OffStep => PosDetB2OffStep;
+		
+		PosDet0AOnStep => PosDet0AOnStep;
+		PosDet0AOffStep => PosDet0AOffStep;
+		PosDet1AOnStep => PosDet1AOnStep;
+		PosDet1AOffStep => PosDet1AOffStep;
+		PosDet2AOnStep => PosDet2AOnStep;
+		PosDet2AOffStep => PosDet2AOffStep;
+		PosDet3AOnStep => PosDet3AOnStep;
+		PosDet3AOffStep => PosDet3AOffStep;
+		PosDet4AOnStep => PosDet4AOnStep;
+		PosDet4AOffStep => PosDet4AOffStep;
+		PosDet5AOnStep => PosDet5AOnStep;
+		PosDet5AOffStep => PosDet5AOffStep;
+		PosDet6AOnStep => PosDet6AOnStep;
+		PosDet6AOffStep => PosDet6AOffStep;
+		PosDet7AOnStep => PosDet7AOnStep;
+		PosDet7AOffStep => PosDet7AOffStep;
+		
+		PosDet0BOnStep => PosDet0BOnStep;
+		PosDet0BOffStep => PosDet0BOffStep;
+		PosDet1BOnStep => PosDet1BOnStep;
+		PosDet1BOffStep => PosDet1BOffStep;
+		PosDet2BOnStep => PosDet2BOnStep;
+		PosDet2BOffStep => PosDet2BOffStep;
+		PosDet3BOnStep => PosDet3BOnStep;
+		PosDet3BOffStep => PosDet3BOffStep;
+		PosDet4BOnStep => PosDet4BOnStep;
+		PosDet4BOffStep => PosDet4BOffStep;
+		PosDet5BOnStep => PosDet5BOnStep;
+		PosDet5BOffStep => PosDet5BOffStep;
+		PosDet6BOnStep => PosDet6BOnStep;
+		PosDet6BOffStep => PosDet6BOffStep;
+		PosDet7BOnStep => PosDet7BOnStep;
+		PosDet7BOffStep => PosDet7BOffStep;
 		
 		--Monitor A/D
 		MonitorAdcChannelReadIndex => MonitorAdcChannel,
@@ -1023,8 +1170,8 @@ begin
 	
 	----------------------------------------------------------------Monitor A/D--------------------------------------------------------------------
 			
-	IBufnDrdyAdc : IBufP3Ports port map(clk => MasterClk, I => nDrdyMonitorAdcTP4, O => nDrdyMonitorAdc_i); --if you want to change the pin for this chip select, it's here
-	IBufMisoAdc : IBufP3Ports port map(clk => MasterClk, I => MisoMonitorAdcTP2, O => MisoMonitorAdc_i); --if you want to change the pin for this chip select, it's here
+	IBufnDrdyAdc : IBufP3Ports port map(clk => MasterClk, I => nDrdyMonitorAdc, O => nDrdyMonitorAdc_i); --if you want to change the pin for this chip select, it's here
+	IBufMisoAdc : IBufP3Ports port map(clk => MasterClk, I => MisoMonitorAdc, O => MisoMonitorAdc_i); --if you want to change the pin for this chip select, it's here
 	
 	ltc244xaccumulator : ltc244xaccumulatorPorts
 	generic MAP
@@ -1055,8 +1202,8 @@ begin
 	
 	--Internal A/D control:
 	nCsMonitorAdc <= nCsMonitorAdc_i;
-	SckMonitorAdcTP3 <= SckMonitorAdc_i;
-	MosiMonitorAdcTP1 <= MosiMonitorAdc_i;
+	SckMonitorAdc <= SckMonitorAdc_i;
+	MosiMonitorAdc <= MosiMonitorAdc_i;
 	
 	----------------------------- RS-422 ----------------------------------
 	
@@ -1590,23 +1737,26 @@ begin
 		MotorB- => MotorB-_i--,
 	);
 
-	
 	--Low-side FETs
 	--~ MotorDriveAPlus <= MotorA+_i;
 	--~ MotorDriveAMinus <= MotorA-_i;
 	--~ MotorDriveBPlus <= MotorB+_i;
 	--~ MotorDriveBMinus <= MotorB-_i;
-	MotorDriveAPlus <= PushPullHigh when ( (MotorA+_i = '1') and (ShootThruIxnaeA+ = '1') ) else PushPullGround;
-	MotorDriveAMinus <= PushPullHigh when ( (MotorA-_i = '1') and (ShootThruIxnaeA- = '1') ) else PushPullGround;
-	MotorDriveBPlus <= PushPullHigh when ( (MotorB+_i = '1') and (ShootThruIxnaeB+ = '1') ) else PushPullGround;
-	MotorDriveBMinus <= PushPullHigh when ( (MotorB-_i = '1') and (ShootThruIxnaeB- = '1') ) else PushPullGround;
+	MotorDriveAPlus <= PushPullHigh when ( (MotorEnable = '1') and (MotorA+_i = '1') and (ShootThruIxnaeA+ = '1') ) else PushPullGround;
+	MotorDriveAMinus <= PushPullHigh when ( (MotorEnable = '1') and (MotorA-_i = '1') and (ShootThruIxnaeA- = '1') ) else PushPullGround;
+	MotorDriveBPlus <= PushPullHigh when ( (MotorEnable = '1') and (MotorB+_i = '1') and (ShootThruIxnaeB+ = '1') ) else PushPullGround;
+	MotorDriveBMinus <= PushPullHigh when ( (MotorEnable = '1') and (MotorB-_i = '1') and (ShootThruIxnaeB- = '1') ) else PushPullGround;
 	
 	--High-side FETs
-	MotorDriveAPlusPrime <= MotorA+_i;
-	MotorDriveAMinusPrime <= MotorA-_i;
-	MotorDriveBPlusPrime <= MotorB+_i;
-	MotorDriveBMinusPrime <= MotorB-_i;
-
+	--~ MotorDriveAPlusPrime <= MotorA+_i;
+	--~ MotorDriveAMinusPrime <= MotorA-_i;
+	--~ MotorDriveBPlusPrime <= MotorB+_i;
+	--~ MotorDriveBMinusPrime <= MotorB-_i;
+	MotorDriveAPlusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorA+_i = '1') ) else PushPullGround;
+	MotorDriveAMinusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorA-_i = '1') ) else PushPullGround;
+	MotorDriveBPlusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorB+_i = '1') ) else PushPullGround;
+	MotorDriveBMinusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorB-_i = '1') ) else PushPullGround;
+	
 	----------------------------- Clocked Logic / Main Loop ----------------------------------
 	
 	process(clock_i)
@@ -1625,6 +1775,75 @@ begin
 			if (LastPosSenseBit0B /= PosSenseBit0B) then LastPosSenseBit0B <= PosSenseBit0B; if (PosSenseBit0B = '1') then PosDetBit0BOnStep <= MotorCurrentStep; else PosDetBit0BOffStep <= MotorCurrentStep; end if; end if;
 			if (LastPosSenseBit1B /= PosSenseBit1B) then LastPosSenseBit1B <= PosSenseBit1B; if (PosSenseBit1B = '1') then PosDetBit1BOnStep <= MotorCurrentStep; else PosDetBit1BOffStep <= MotorCurrentStep; end if; end if;
 			if (LastPosSenseBit2B /= PosSenseBit2B) then LastPosSenseBit2B <= PosSenseBit2B; if (PosSenseBit2B = '1') then PosDetBit2BOnStep <= MotorCurrentStep; else PosDetBit2BOffStep <= MotorCurrentStep; end if; end if;
+			
+			PosSenseA <= PosSenseBit2A & PosSenseBit1A & PosSenseBit0A & PosSenseHomeA;
+			PosSenseB <= PosSenseBit2B & PosSenseBit1B & PosSenseBit0B & PosSenseHomeB;
+			
+			--Not sure if these will be useful due to hysteresis/jitter, but we'll see, light & capacitor may smooth things out
+			
+			if (LastPosSenseA /= PosSenseA) then
+			
+				LastPosSenseA <= PosSenseA;
+				
+				case PosSenseA is
+					
+					when "0001" => PosDet0AOnStep <= MotorCurrentStep; 
+					when "0010" => PosDet1AOnStep <= MotorCurrentStep;
+					when "0100" => PosDet2AOnStep <= MotorCurrentStep;
+					when "0110" => PosDet3AOnStep <= MotorCurrentStep;
+					when "1000" => PosDet4AOnStep <= MotorCurrentStep;
+					when "1010" => PosDet5AOnStep <= MotorCurrentStep;
+					when "1100" => PosDet6AOnStep <= MotorCurrentStep;
+					when "1110" => PosDet7AOnStep <= MotorCurrentStep;
+					
+				end case;
+				
+				case LastPosSenseA is
+					
+					when "0001" => PosDet0AOffStep <= MotorCurrentStep;
+					when "0010" => PosDet1AOffStep <= MotorCurrentStep;
+					when "0100" => PosDet2AOffStep <= MotorCurrentStep;
+					when "0110" => PosDet3AOffStep <= MotorCurrentStep;
+					when "1000" => PosDet4AOffStep <= MotorCurrentStep;
+					when "1010" => PosDet5AOffStep <= MotorCurrentStep;
+					when "1100" => PosDet6AOffStep <= MotorCurrentStep;
+					when "1110" => PosDet7AOffStep <= MotorCurrentStep;
+					
+				end case;
+				
+			end if;
+			
+			if (LastPosSenseB /= PosSenseB) then
+			
+				LastPosSenseB <= PosSenseB;
+				
+				case PosSenseB is
+					
+					when "0001" => PosDet0BOnStep <= MotorCurrentStep;
+					when "0010" => PosDet1BOnStep <= MotorCurrentStep;
+					when "0100" => PosDet2BOnStep <= MotorCurrentStep;
+					when "0110" => PosDet3BOnStep <= MotorCurrentStep;
+					when "1000" => PosDet4BOnStep <= MotorCurrentStep;
+					when "1010" => PosDet5BOnStep <= MotorCurrentStep;
+					when "1100" => PosDet6BOnStep <= MotorCurrentStep;
+					when "1110" => PosDet7BOnStep <= MotorCurrentStep;
+					
+				end case;
+				
+				case LastPosSenseB is
+					
+					when "0001" => PosDet0BOffStep <= MotorCurrentStep;
+					when "0010" => PosDet1BOffStep <= MotorCurrentStep;
+					when "0100" => PosDet2BOffStep <= MotorCurrentStep;
+					when "0110" => PosDet3BOffStep <= MotorCurrentStep;
+					when "1000" => PosDet4BOffStep <= MotorCurrentStep;
+					when "1010" => PosDet5BOffStep <= MotorCurrentStep;
+					when "1100" => PosDet6BOffStep <= MotorCurrentStep;
+					when "1110" => PosDet7BOffStep <= MotorCurrentStep;
+					
+				end case;
+				
+			end if;
 		
 		end if;		
 
