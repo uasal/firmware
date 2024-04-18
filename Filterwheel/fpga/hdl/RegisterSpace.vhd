@@ -38,6 +38,11 @@ entity RegisterSpacePorts is
 		MotorEnable : out std_logic;
 		MotorSeekStep : out std_logic_vector(15 downto 0);
 		MotorCurrentStep : in std_logic_vector(15 downto 0);
+		ResetSteps : out std_logic;
+		MotorA+ : in std_logic;
+		MotorA- : in std_logic;
+		MotorB+ : in std_logic;
+		MotorB- : in std_logic;
 		
 		--Sensors
 		PosLedsEnA : out std_logic;
@@ -282,7 +287,7 @@ architecture RegisterSpace of RegisterSpacePorts is
 	signal MotorSeekStep_i : std_logic_vector(15 downto 0);	
 	signal PosLedsEnA_i :  std_logic := '0';	
 	signal PosLedsEnB_i :  std_logic := '0';	
-
+	signal ResetSteps_i :  std_logic := '0';	
 	
 begin
 
@@ -298,6 +303,7 @@ begin
 	MotorSeekStep <= MotorSeekStep_i;
 	PosLedsEnA <= PosLedsEnA_i;
 	PosLedsEnB <= PosLedsEnB_i;
+	ResetSteps <= ResetSteps_i;
 	
 	MonitorAdcChannelReadIndex <= MonitorAdcChannelReadIndex_i;
 	
@@ -307,8 +313,8 @@ begin
 		if (rst = '1') then
 		
 			LastReadReq <= '0';			
-			LastWriteReq <= '0';			
-		
+			LastWriteReq <= '0';		
+			
 		else
 			
 			if ( (clk'event) and (clk = '1') ) then
@@ -565,7 +571,12 @@ begin
 								DataOut(0) <= PosLedsEnA_i;
 								DataOut(1) <= PosLedsEnB_i;
 								DataOut(2) <= MotorEnable_i;
-								DataOut(15 downto 3) <= "0000000000000";
+								DataOut(3) <= ResetSteps_i;								
+								DataOut(4) <= MotorA+;
+								DataOut(5) <= MotorA-;
+								DataOut(6) <= MotorB+;
+								DataOut(7) <= MotorB-;
+								DataOut(15 downto 8) <= "00000000";
 								
 
 							--PosSensAddr
@@ -758,8 +769,9 @@ begin
 								PosLedsEnA_i <= DataIn(0);
 								PosLedsEnB_i <= DataIn(1);
 								MotorEnable_i <= DataIn(2);
+								ResetSteps_i <= DataIn(3);
 								
-
+								
 
 								
 							when others => 
