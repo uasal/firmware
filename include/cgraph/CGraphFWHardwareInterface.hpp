@@ -173,14 +173,14 @@ struct CGraphFWHardwareInterface
 	uint8_t BaudDivider2;
 	uint8_t BaudDivider3;
 	uint32_t reserved8;	
-	uint16_tPosDetHomeAOnStep; //ro; the step at which this signal toggled
-	uint16_tPosDetHomeAOffStep; //ro; the step at which this signal toggled
-	uint16_tPosDetA0OnStep; //ro; the step at which this signal toggled
-	uint16_tPosDetA0OffStep; //ro; the step at which this signal toggled
-	uint16_tPosDetA1OnStep; //ro; the step at which this signal toggled
-	uint16_tPosDetA1OffStep; //ro; the step at which this signal toggled
-	uint16_tPosDetA2OnStep; //ro; the step at which this signal toggled
-	uint16_tPosDetA2OffStep; //ro; the step at which this signal toggled	
+	uint16_t PosDetHomeAOnStep; //ro; the step at which this signal toggled
+	uint16_t PosDetHomeAOffStep; //ro; the step at which this signal toggled
+	uint16_t PosDetA0OnStep; //ro; the step at which this signal toggled
+	uint16_t PosDetA0OffStep; //ro; the step at which this signal toggled
+	uint16_t PosDetA1OnStep; //ro; the step at which this signal toggled
+	uint16_t PosDetA1OffStep; //ro; the step at which this signal toggled
+	uint16_t PosDetA2OnStep; //ro; the step at which this signal toggled
+	uint16_t PosDetA2OffStep; //ro; the step at which this signal toggled	
 	uint16_t PosDetHomeBOnStep; //ro; the step at which this signal toggled
 	uint16_t PosDetHomeBOffStep; //ro; the step at which this signal toggled
 	uint16_t PosDetB0OnStep; //ro; the step at which this signal toggled
