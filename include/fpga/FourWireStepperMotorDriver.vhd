@@ -23,10 +23,10 @@ entity FourWireStepperMotorDriverPorts is
 		--outputs
 		CurrentStep : out std_logic_vector(15 downto 0);
 		
-		MotorA+ : out std_logic;
-		MotorA- : out std_logic;
-		MotorB+ : out std_logic;
-		MotorB- : out std_logic--;
+		MotorAPlus : out std_logic;
+		MotorAMinus : out std_logic;
+		MotorBPlus : out std_logic;
+		MotorBMinus : out std_logic--;
 	);
 end FourWireStepperMotorDriverPorts;
 
@@ -57,14 +57,14 @@ architecture FourWireStepperMotorDriver of FourWireStepperMotorDriverPorts is
 			Direction : in std_logic;
 			Step : in std_logic;
 
-			MotorA+ : out std_logic;
-			MotorA- : out std_logic;
-			MotorB+ : out std_logic;
-			MotorB- : out std_logic--;
+			MotorAPlus : out std_logic;
+			MotorAMinus : out std_logic;
+			MotorBPlus : out std_logic;
+			MotorBMinus : out std_logic--;
 		);
 		end component;
 		
-	signal CurrentStep_i : std_logic;
+	signal CurrentStep_i : std_logic_vector(15 downto 0);
 	signal Direction : std_logic;
 	signal MotorStopped : std_logic;
 	signal MotorStep : std_logic;
@@ -94,10 +94,10 @@ begin
 		rst => rst,
 		Direction => Direction,
 		Step => MotorStep,
-		MotorA+ => MotorA+,
-		MotorA- => MotorA-,
-		MotorB+ => MotorB+,
-		MotorB- => MotorB---,
+		MotorAPlus => MotorAPlus,
+		MotorAMinus => MotorAMinus,
+		MotorBPlus => MotorBPlus,
+		MotorBMinus => MotorBMinus--,
 	);	
 	
 	CurrentStep <= CurrentStep_i;

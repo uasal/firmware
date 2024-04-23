@@ -17,19 +17,19 @@ entity FourWireStepperMotorPorts is
 		Direction : in std_logic;
 		Step : in std_logic;
 
-		MotorA+ : out std_logic;
-		MotorA- : out std_logic;
-		MotorB+ : out std_logic;
-		MotorB- : out std_logic--;
+		MotorAPlus : out std_logic;
+		MotorAMinus : out std_logic;
+		MotorBPlus : out std_logic;
+		MotorBMinus : out std_logic--;
 	);
 end FourWireStepperMotorPorts;
 
 architecture FourWireStepperMotor of FourWireStepperMotorPorts is
 
-	signal MotorA+_i : std_logic;
-	signal MotorA-_i : std_logic;
-	signal MotorB+_i : std_logic;
-	signal MotorB-_i : std_logic;
+	signal MotorAPlus_i : std_logic;
+	signal MotorAMinus_i : std_logic;
+	signal MotorBPlus_i : std_logic;
+	signal MotorBMinus_i : std_logic;
 	
 	signal LastStep : std_logic;
 	
@@ -37,10 +37,10 @@ architecture FourWireStepperMotor of FourWireStepperMotorPorts is
 	
 begin
 
-	MotorA+_i <= MotorA+_i;
-	MotorA-_i <= MotorA-_i;
-	MotorB+_i <= MotorB+_i;
-	MotorB-_i <= MotorB-_i;
+	MotorAPlus_i <= MotorAPlus_i;
+	MotorAMinus_i <= MotorAMinus_i;
+	MotorBPlus_i <= MotorBPlus_i;
+	MotorBMinus_i <= MotorBMinus_i;
 	
 	-- Master clock drives most logic
 	process (clk, rst)
@@ -66,31 +66,31 @@ begin
 						
 							when "00" =>
 							
-								MotorA+_i <= "1";
-								MotorA-_i <= "0";
-								MotorB+_i <= "1";
-								MotorB-_i <= "0";
+								MotorAPlus_i <= '1';
+								MotorAMinus_i <= '0';
+								MotorBPlus_i <= '1';
+								MotorBMinus_i <= '0';
 								
 							when "01" =>
 							
-								MotorA+_i <= "1";
-								MotorA-_i <= "0";
-								MotorB+_i <= "0";
-								MotorB-_i <= "1";
+								MotorAPlus_i <= '1';
+								MotorAMinus_i <= '0';
+								MotorBPlus_i <= '0';
+								MotorBMinus_i <= '1';
 								
 							when "10" =>
 							
-								MotorA+_i <= "0";
-								MotorA-_i <= "1";
-								MotorB+_i <= "0";
-								MotorB-_i <= "1";
+								MotorAPlus_i <= '0';
+								MotorAMinus_i <= '1';
+								MotorBPlus_i <= '0';
+								MotorBMinus_i <= '1';
 								
 							when "11" =>
 							
-								MotorA+_i <= "0";
-								MotorA-_i <= "1";
-								MotorB+_i <= "1";
-								MotorB-_i <= "0";
+								MotorAPlus_i <= '0';
+								MotorAMinus_i <= '1';
+								MotorBPlus_i <= '1';
+								MotorBMinus_i <= '0';
 								
 						end case;
 				

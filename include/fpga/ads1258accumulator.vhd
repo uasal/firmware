@@ -6,7 +6,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.all;
-use ads1258.all;
+use work.ads1258.all;
 
 package ads1258accumulator_pkg is 
 
@@ -300,7 +300,7 @@ begin
 						
 						--~ AdcSampleToRead <= std_logic_to_ads1258accum(DOB_hi_i & DOB_lo_i);
 						
-						ResetAccum(to_integer(unsigned(SampleLatched.Channel))) <= '1';
+						--NEEDS TO GO IN SOMEHOW ResetAccum(to_integer(unsigned(SampleLatched.Channel))) <= '1';
 						
 					end if;
 					
@@ -348,36 +348,36 @@ begin
 					
 						AccumSampleNextState <= WriteResult;
 						
-						if ( (SampleLatched.IsNew = '1') and (retreived_ads1258accumulator.NumAccums < x"FFFF") ) then --should we be halting at numaccums too?
-						
-							if ( ( ResetAccum(to_integer(unsigned(SampleLatched.Channel))) = '1' ) and (ReadAdcSampleEdge = '0') ) then
-								ResetAccum(to_integer(unsigned(SampleLatched.Channel))) <= '0';
-								accumulated_ads1258accumulator.NumAccums <= x"0001"; --Increment NumAccums
-								accumulated_ads1258accumulator.IsNew <= SampleLatched.IsNew; --Basically, is it empty/initialized or not.
-								accumulated_ads1258accumulator.Clipped <= SampleLatched.Clipped; --Track clipping (OR it in)
-								accumulated_ads1258accumulator.Brownout <= SampleLatched.Brownout; --Track brownout (OR it in)
-								accumulated_ads1258accumulator.Channel <= SampleLatched.Channel; --Basically, is it empty/initialized or not.
-								accumulated_ads1258accumulator.Sample(23 downto 0) <= SampleLatched.Sample;
-								accumulated_ads1258accumulator.Sample(23 downto 0) <= x"000000";
-							else
-								if (retreived_ads1258accumulator.NumAccums < x"FFFF") then
-									accumulated_ads1258accumulator.NumAccums <= retreived_ads1258accumulator.NumAccums + x"0001"; --Increment NumAccums
-									accumulated_ads1258accumulator.Sample <= retreived_ads1258accumulator.Sample + SampleLatched.Sample; --Accumulate
-								else
-									accumulated_ads1258accumulator.NumAccums <= x"FFFF";
-									accumulated_ads1258accumulator.Sample <= retreived_ads1258accumulator.Sample;
-								end if;
-								accumulated_ads1258accumulator.IsNew <= SampleLatched.IsNew; --Basically, is it empty/initialized or not.
-								accumulated_ads1258accumulator.Clipped <= retreived_ads1258accumulator.Clipped or SampleLatched.Clipped; --Track clipping (OR it in)
-								accumulated_ads1258accumulator.Brownout <= retreived_ads1258accumulator.Brownout or SampleLatched.Brownout; --Track brownout (OR it in)
-								accumulated_ads1258accumulator.Channel <= SampleLatched.Channel; --Basically, is it empty/initialized or not.
-								
-							end if;
+						--if ( (SampleLatched.IsNew = '1') and (retreived_ads1258accumulator.NumAccums < x"FFFF") ) then --should we be halting at numaccums too?
+						--
+						--	if ( ( ResetAccum(to_integer(unsigned(SampleLatched.Channel))) = '1' ) and (ReadAdcSampleEdge = '0') ) then
+						--		--NEEDS TO GO IN SOMEHOW ResetAccum(to_integer(unsigned(SampleLatched.Channel))) <= '0';
+						--		accumulated_ads1258accumulator.NumAccums <= x"0001"; --Increment NumAccums
+						--		accumulated_ads1258accumulator.IsNew <= SampleLatched.IsNew; --Basically, is it empty/initialized or not.
+						--		accumulated_ads1258accumulator.Clipped <= SampleLatched.Clipped; --Track clipping (OR it in)
+						--		accumulated_ads1258accumulator.Brownout <= SampleLatched.Brownout; --Track brownout (OR it in)
+						--		accumulated_ads1258accumulator.Channel <= SampleLatched.Channel; --Basically, is it empty/initialized or not.
+						--		accumulated_ads1258accumulator.Sample(23 downto 0) <= SampleLatched.Sample;
+						--		accumulated_ads1258accumulator.Sample(23 downto 0) <= x"000000";
+						--	else
+						--		if (retreived_ads1258accumulator.NumAccums < x"FFFF") then
+						--			accumulated_ads1258accumulator.NumAccums <= retreived_ads1258accumulator.NumAccums + x"0001"; --Increment NumAccums
+						--			accumulated_ads1258accumulator.Sample <= retreived_ads1258accumulator.Sample + SampleLatched.Sample; --Accumulate
+						--		else
+						--			accumulated_ads1258accumulator.NumAccums <= x"FFFF";
+						--			accumulated_ads1258accumulator.Sample <= retreived_ads1258accumulator.Sample;
+						--		end if;
+						--		accumulated_ads1258accumulator.IsNew <= SampleLatched.IsNew; --Basically, is it empty/initialized or not.
+						--		accumulated_ads1258accumulator.Clipped <= retreived_ads1258accumulator.Clipped or SampleLatched.Clipped; --Track clipping (OR it in)
+						--		accumulated_ads1258accumulator.Brownout <= retreived_ads1258accumulator.Brownout or SampleLatched.Brownout; --Track brownout (OR it in)
+						--		accumulated_ads1258accumulator.Channel <= SampleLatched.Channel; --Basically, is it empty/initialized or not.
+						--		
+						--	end if;
 							
-							AdcChannelLatched <= SampleLatched.Channel; --looks fine on scope
-							SampleLatched.IsNew <= '0';
+						--	AdcChannelLatched <= SampleLatched.Channel; --looks fine on scope
+						--	SampleLatched.IsNew <= '0';
 							
-						end if;
+						--end if;
 					
 					when WriteResult =>
 					
