@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href="drcss.xsl"?>
+<drcreport>
+  <header>Filterwheel</header>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin FCCC_C0_0:GL1</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/FCCC_C0_0:GL1</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin FCCC_C0_0:LOCK</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/FCCC_C0_0:LOCK</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Filterwheel_sb_0:POWER_ON_RESET_N</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Filterwheel_sb_0:POWER_ON_RESET_N</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Filterwheel_sb_0:INIT_DONE</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Filterwheel_sb_0:INIT_DONE</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Filterwheel_sb_0:FIC_0_CLK</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Filterwheel_sb_0:FIC_0_CLK</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Filterwheel_sb_0:FIC_0_LOCK</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Filterwheel_sb_0:FIC_0_LOCK</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Filterwheel_sb_0:MSS_READY</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Filterwheel_sb_0:MSS_READY</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Unconnected Bus Interface</message>
+    <detail>Unconnected bus interface pin Filterwheel_sb_0:AMBA_SLAVE_0</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Filterwheel_sb_0:AMBA_SLAVE_0</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\error.png</status>
+    <StatusMessage>Error</StatusMessage>
+    <message>Unused Instance</message>
+    <detail>Main_0 output pins are not being used.  Connect or mark them unused</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/instances/Main_0</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\error.png</status>
+    <StatusMessage>Error</StatusMessage>
+    <message>Undriven Pin</message>
+    <detail>Unconnected input pin Main_0:clk</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:clk</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:PosLEDEnA</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:PosLEDEnA</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:PosLEDEnB</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:PosLEDEnB</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\error.png</status>
+    <StatusMessage>Error</StatusMessage>
+    <message>Undriven Pin</message>
+    <detail>Unconnected input pin Main_0:PosSenseHomeA</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:PosSenseHomeA</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\error.png</status>
+    <StatusMessage>Error</StatusMessage>
+    <message>Undriven Pin</message>
+    <detail>Unconnected input pin Main_0:PosSenseBit0A</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:PosSenseBit0A</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\error.png</status>
+    <StatusMessage>Error</StatusMessage>
+    <message>Undriven Pin</message>
+    <detail>Unconnected input pin Main_0:PosSenseBit1A</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:PosSenseBit1A</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\error.png</status>
+    <StatusMessage>Error</StatusMessage>
+    <message>Undriven Pin</message>
+    <detail>Unconnected input pin Main_0:PosSenseBit2A</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:PosSenseBit2A</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\error.png</status>
+    <StatusMessage>Error</StatusMessage>
+    <message>Undriven Pin</message>
+    <detail>Unconnected input pin Main_0:PosSenseHomeB</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:PosSenseHomeB</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\error.png</status>
+    <StatusMessage>Error</StatusMessage>
+    <message>Undriven Pin</message>
+    <detail>Unconnected input pin Main_0:PosSenseBit0B</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:PosSenseBit0B</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\error.png</status>
+    <StatusMessage>Error</StatusMessage>
+    <message>Undriven Pin</message>
+    <detail>Unconnected input pin Main_0:PosSenseBit1B</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:PosSenseBit1B</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\error.png</status>
+    <StatusMessage>Error</StatusMessage>
+    <message>Undriven Pin</message>
+    <detail>Unconnected input pin Main_0:PosSenseBit2B</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:PosSenseBit2B</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:MotorDriveAPlus</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:MotorDriveAPlus</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:MotorDriveAMinus</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:MotorDriveAMinus</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:MotorDriveBPlus</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:MotorDriveBPlus</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:MotorDriveBMinus</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:MotorDriveBMinus</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:MotorDriveAPlusPrime</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:MotorDriveAPlusPrime</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:MotorDriveAMinusPrime</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:MotorDriveAMinusPrime</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:MotorDriveBPlusPrime</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:MotorDriveBPlusPrime</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:MotorDriveBMinusPrime</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:MotorDriveBMinusPrime</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:nCsMonitorAdc</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:nCsMonitorAdc</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:SckMonitorAdc</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:SckMonitorAdc</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:MosiMonitorAdc</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:MosiMonitorAdc</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\error.png</status>
+    <StatusMessage>Error</StatusMessage>
+    <message>Undriven Pin</message>
+    <detail>Unconnected input pin Main_0:MisoMonitorAdc</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:MisoMonitorAdc</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\error.png</status>
+    <StatusMessage>Error</StatusMessage>
+    <message>Undriven Pin</message>
+    <detail>Unconnected input pin Main_0:nDrdyMonitorAdc</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:nDrdyMonitorAdc</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:Txd0</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:Txd0</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\error.png</status>
+    <StatusMessage>Error</StatusMessage>
+    <message>Undriven Pin</message>
+    <detail>Unconnected input pin Main_0:Rxd0</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:Rxd0</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:Txd1</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:Txd1</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\error.png</status>
+    <StatusMessage>Error</StatusMessage>
+    <message>Undriven Pin</message>
+    <detail>Unconnected input pin Main_0:Rxd1</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:Rxd1</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:Txd2</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:Txd2</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\error.png</status>
+    <StatusMessage>Error</StatusMessage>
+    <message>Undriven Pin</message>
+    <detail>Unconnected input pin Main_0:Rxd2</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:Rxd2</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\error.png</status>
+    <StatusMessage>Error</StatusMessage>
+    <message>Undriven Pin</message>
+    <detail>Unconnected input pin Main_0:PpsIn</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:PpsIn</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:nCsClk</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:nCsClk</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:SckClk</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:SckClk</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:MosiClk</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:MosiClk</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\error.png</status>
+    <StatusMessage>Error</StatusMessage>
+    <message>Undriven Pin</message>
+    <detail>Unconnected input pin Main_0:MisoClk</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:MisoClk</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:HVPowernEn</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:HVPowernEn</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:nHVEn</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:nHVEn</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:AnalogPowernEn</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:AnalogPowernEn</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:PowerSync</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:PowerSync</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:UserJmpJstnCse</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/Filterwheel/pins/Main_0:UserJmpJstnCse</crossprobe>
+  </drc>
+</drcreport>
