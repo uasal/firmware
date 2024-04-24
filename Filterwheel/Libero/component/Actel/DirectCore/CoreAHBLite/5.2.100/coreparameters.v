@@ -1,12 +1,12 @@
 //--------------------------------------------------------------------
-// Created by Microsemi SmartDesign Tue Apr 23 15:50:01 2024
+// Created by Microsemi SmartDesign Wed Apr 24 10:59:59 2024
 // Parameters for CoreAHBLite
 //--------------------------------------------------------------------
 
 
 parameter FAMILY = 19;
 parameter HADDR_SHG_CFG = 1;
-parameter HDL_license = "U";
+parameter HDL_license = "O";
 parameter M0_AHBSLOT0ENABLE = 1;
 parameter M0_AHBSLOT1ENABLE = 0;
 parameter M0_AHBSLOT2ENABLE = 0;

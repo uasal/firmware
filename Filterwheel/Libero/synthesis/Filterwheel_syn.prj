@@ -1,0 +1,74 @@
+#add_file options
+add_file -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.v"
+add_file -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/work/FCCC_C0/FCCC_C0.v"
+add_file -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/work/Filterwheel_sb/CCC_0/Filterwheel_sb_CCC_0_FCCC.v"
+add_file -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/SgCore/OSC/2.0.101/osc_comps.v"
+add_file -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/work/Filterwheel_sb/FABOSC_0/Filterwheel_sb_FABOSC_0_OSC.v"
+add_file -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS_syn.v"
+add_file -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS.v"
+add_file -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp_pcie_hotreset.v"
+add_file -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v"
+add_file -lib COREAHBLITE_LIB -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite_slavearbiter.v"
+add_file -lib COREAHBLITE_LIB -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite_slavestage.v"
+add_file -lib COREAHBLITE_LIB -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite_defaultslavesm.v"
+add_file -lib COREAHBLITE_LIB -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite_addrdec.v"
+add_file -lib COREAHBLITE_LIB -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite_masterstage.v"
+add_file -lib COREAHBLITE_LIB -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite_matrix4x16.v"
+add_file -lib COREAHBLITE_LIB -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite.v"
+add_file -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/work/Filterwheel_sb/Filterwheel_sb.v"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/Filterwheel/fpga/BuildNumber.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/IOBufP1.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/Filterwheel/fpga/RegisterSpace.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/UartRxExtClk.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClk.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotor.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/ltc244x_types.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/ltc244x_autoscan.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/ltc244xaccumulator_types.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/include/fpga/ltc244xaccumulator.vhd"
+add_file -vhdl "/home/summer/projects/CGraph/firmware/Filterwheel/fpga/Main.vhd"
+add_file -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/work/Filterwheel/Filterwheel.v"
+add_file -fpga_constraint "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/designer/Filterwheel/synthesis.fdc"
+set_option -vlog_std sysv
+set_option -vhdl2008 1
+set_option -multi_file_compilation_unit 0
+
+#device options
+set_option -technology SmartFusion2
+set_option -part M2S025
+set_option -speed_grade -1
+set_option -opcond COMTC
+set_option -write_verilog 0
+set_option -async_globalthreshold 12
+set_option -clock_globalthreshold 2
+set_option -globalthreshold 5000
+set_option -low_power_ram_decomp 0
+set_option -retiming 0
+set_option -report_preserve_cdc 1
+set_option -min_cdc_sync_flops 2
+#compilation/mapping options
+set_option -symbolic_fsm_compiler true
+
+#compilation/mapping options
+set_option -frequency 100.000
+
+#simulation options
+set_option -ident_constraint ""
+project -result_file "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/synthesis/Filterwheel.vm"
+
+impl -active "synthesis"

@@ -288,6 +288,7 @@ architecture RegisterSpace of RegisterSpacePorts is
 	signal PosLedsEnA_i :  std_logic := '0';	
 	signal PosLedsEnB_i :  std_logic := '0';	
 	signal ResetSteps_i :  std_logic := '0';	
+	signal MotorEnable_i :  std_logic := '0';		
 	
 begin
 
@@ -304,6 +305,7 @@ begin
 	PosLedsEnA <= PosLedsEnA_i;
 	PosLedsEnB <= PosLedsEnB_i;
 	ResetSteps <= ResetSteps_i;
+	MotorEnable <= MotorEnable_i;
 	
 	MonitorAdcChannelReadIndex <= MonitorAdcChannelReadIndex_i;
 	
@@ -672,8 +674,6 @@ begin
 						
 						ReadAck <= '0';
 						
-						ReadAdcSample <= '0';		
-
 						ReadUart0 <= '0';						
 						ReadUart1 <= '0';						
 						ReadUart2 <= '0';						

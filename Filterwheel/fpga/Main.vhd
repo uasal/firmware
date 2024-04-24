@@ -5,6 +5,8 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+use work.ltc244xaccumulator_types.all;
+use work.ltc244x_types.all;
 
 entity Main is
 port (
@@ -82,7 +84,43 @@ end Main;
 
 architecture architecture_Main of Main is
    
-   component IBufP3Ports is
+						component IBufP1Ports is
+						port (
+							clk : in std_logic;
+							I : in std_logic;
+							O : out std_logic--;
+						);
+						end component;
+
+						component IOBufP1Ports is
+						port (
+							clk : in std_logic;
+							IO  : inout std_logic;
+							T : in std_logic;
+							I : in std_logic;
+							O : out std_logic--;
+						);
+						end component;
+	
+						component IBufP2Ports is
+						port (
+							clk : in std_logic;
+							I : in std_logic;
+							O : out std_logic--;
+						);
+						end component;
+
+						component IOBufP2Ports is
+						port (
+							clk : in std_logic;
+							IO  : inout std_logic;
+							T : in std_logic;
+							I : in std_logic;
+							O : out std_logic--;
+						);
+						end component;
+						
+						component IBufP3Ports is
 						port (
 							clk : in std_logic;
 							I : in std_logic;
@@ -99,7 +137,7 @@ architecture architecture_Main of Main is
 							O : out std_logic--;
 						);
 						end component;
-						
+	
 						component ClockDividerPorts is
 						generic (
 							CLOCK_DIVIDER : natural := 10;
@@ -1073,22 +1111,18 @@ begin
 			); 
 		end generate;
 		
-		GenRamDataBus: for i in 0 to 7 generate
+		GenRamDataBus: for i in 0 to 15 generate
 		begin
-		
-			IBUF_RamData_i : IBufP1Ports
-			port map (
-				clk => MasterClk,
-				I => RamBusData_in(i),
-				O => RamDataIn(i)--,
-			);
-			
-			RamBusData_out(i) <= RamDataOut(i);
-			
-			RamBusData_ena(i) <= not(nTristateRamDataPins);
-			
+		IOBUF_RamData_i : IOBufP2Ports
+		port map (
+			clk => MasterClk,
+			IO => RamBusData(i),
+			T => not(nTristateRamDataPins),
+			I => RamDataOut(i),
+			O => RamDataIn(i)--,
+		);
 		end generate;
-	
+		
 	--devmem2 0x021B8010 w 0x3F000FE0 for max wait states on arm, write is taking 400ns / word, 1us / 32b
 	DataToWrite <= RamDataIn;
 	WriteReq <= '1' when ( (RamBusCE_i = '0') and (RamBusWE_i = '0') ) else '0';
@@ -1868,14 +1902,14 @@ begin
 			--Run position detector logic:
 		
 			if (LastPosSenseHomeA /= PosSenseHomeA) then LastPosSenseHomeA <= PosSenseHomeA; if (PosSenseHomeA = '1') then PosDetHomeAOnStep <= MotorCurrentStep; else PosDetHomeAOffStep <= MotorCurrentStep; end if; end if;
-			if (LastPosSenseBit0A /= PosSenseBit0A) then LastPosSenseBit0A <= PosSenseBit0A; if (PosSenseBit0A = '1') then PosDetBit0AOnStep <= MotorCurrentStep; else PosDetBit0AOffStep <= MotorCurrentStep; end if; end if;
-			if (LastPosSenseBit1A /= PosSenseBit1A) then LastPosSenseBit1A <= PosSenseBit1A; if (PosSenseBit1A = '1') then PosDetBit1AOnStep <= MotorCurrentStep; else PosDetBit1AOffStep <= MotorCurrentStep; end if; end if;
-			if (LastPosSenseBit2A /= PosSenseBit2A) then LastPosSenseBit2A <= PosSenseBit2A; if (PosSenseBit2A = '1') then PosDetBit2AOnStep <= MotorCurrentStep; else PosDetBit2AOffStep <= MotorCurrentStep; end if; end if;
+			if (LastPosSenseBit0A /= PosSenseBit0A) then LastPosSenseBit0A <= PosSenseBit0A; if (PosSenseBit0A = '1') then PosDetA0OnStep <= MotorCurrentStep; else PosDetA0OffStep <= MotorCurrentStep; end if; end if;
+			if (LastPosSenseBit1A /= PosSenseBit1A) then LastPosSenseBit1A <= PosSenseBit1A; if (PosSenseBit1A = '1') then PosDetA1OnStep <= MotorCurrentStep; else PosDetA1OffStep <= MotorCurrentStep; end if; end if;
+			if (LastPosSenseBit2A /= PosSenseBit2A) then LastPosSenseBit2A <= PosSenseBit2A; if (PosSenseBit2A = '1') then PosDetA2OnStep <= MotorCurrentStep; else PosDetA2OffStep <= MotorCurrentStep; end if; end if;
 			
 			if (LastPosSenseHomeB /= PosSenseHomeB) then LastPosSenseHomeB <= PosSenseHomeB; if (PosSenseHomeB = '1') then PosDetHomeBOnStep <= MotorCurrentStep; else PosDetHomeBOffStep <= MotorCurrentStep; end if; end if;
-			if (LastPosSenseBit0B /= PosSenseBit0B) then LastPosSenseBit0B <= PosSenseBit0B; if (PosSenseBit0B = '1') then PosDetBit0BOnStep <= MotorCurrentStep; else PosDetBit0BOffStep <= MotorCurrentStep; end if; end if;
-			if (LastPosSenseBit1B /= PosSenseBit1B) then LastPosSenseBit1B <= PosSenseBit1B; if (PosSenseBit1B = '1') then PosDetBit1BOnStep <= MotorCurrentStep; else PosDetBit1BOffStep <= MotorCurrentStep; end if; end if;
-			if (LastPosSenseBit2B /= PosSenseBit2B) then LastPosSenseBit2B <= PosSenseBit2B; if (PosSenseBit2B = '1') then PosDetBit2BOnStep <= MotorCurrentStep; else PosDetBit2BOffStep <= MotorCurrentStep; end if; end if;
+			if (LastPosSenseBit0B /= PosSenseBit0B) then LastPosSenseBit0B <= PosSenseBit0B; if (PosSenseBit0B = '1') then PosDetB0OnStep <= MotorCurrentStep; else PosDetB0OffStep <= MotorCurrentStep; end if; end if;
+			if (LastPosSenseBit1B /= PosSenseBit1B) then LastPosSenseBit1B <= PosSenseBit1B; if (PosSenseBit1B = '1') then PosDetB1OnStep <= MotorCurrentStep; else PosDetB1OffStep <= MotorCurrentStep; end if; end if;
+			if (LastPosSenseBit2B /= PosSenseBit2B) then LastPosSenseBit2B <= PosSenseBit2B; if (PosSenseBit2B = '1') then PosDetB2OnStep <= MotorCurrentStep; else PosDetB2OffStep <= MotorCurrentStep; end if; end if;
 			
 			PosSenseA <= PosSenseBit2A & PosSenseBit1A & PosSenseBit0A & PosSenseHomeA;
 			PosSenseB <= PosSenseBit2B & PosSenseBit1B & PosSenseBit0B & PosSenseHomeB;
