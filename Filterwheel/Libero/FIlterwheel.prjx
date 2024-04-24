@@ -68,8 +68,8 @@ SIZE="1186"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/Filterwheel/fpga/Main.vhd,hdl"
 STATE="utd"
-TIME="1713996950"
-SIZE="69038"
+TIME="1713997987"
+SIZE="69223"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/Filterwheel/fpga/RegisterSpace.vhd,hdl"
 STATE="utd"
@@ -565,8 +565,8 @@ ENDFILE
 VALUE "<project>/../fpga/Main.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
 STATE="utd"
-TIME="1713996950"
-SIZE="69038"
+TIME="1713997987"
+SIZE="69223"
 ENDFILE
 VALUE "<project>/../fpga/RegisterSpace.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
@@ -855,8 +855,15 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/Filterwheel/Filterwheel.cxf,actgen_cxf"
 STATE="utd"
-TIME="1713997750"
-SIZE="6380"
+TIME="1713997753"
+SIZE="6673"
+ENDFILE
+VALUE "<project>/component/work/Filterwheel/Filterwheel.v,hdl"
+STATE="utd"
+TIME="1713997752"
+SIZE="10209"
+PARENT="<project>/component/work/Filterwheel/Filterwheel.cxf"
+IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/Filterwheel_sb/CCC_0/Filterwheel_sb_CCC_0_FCCC.cxf,actgen_cxf"
 STATE="utd"
@@ -1040,7 +1047,10 @@ LIST UsedFile
 ENDLIST
 LIST NewModulesInfo
 LIST "Filterwheel::work"
-FILE "<project>/component/work/Filterwheel/Filterwheel.cxf,actgen_cxf"
+FILE "<project>/component/work/Filterwheel/Filterwheel.v,hdl"
+LIST Other_Association
+VALUE "<project>/simulation/subsystem.bfm,sim"
+ENDLIST
 LIST PNRConstraints
 VALUE "<project>/constraint/io/user.pdc,io_pdc"
 VALUE "<project>/constraint/io/user1.pdc,io_pdc"
@@ -1138,6 +1148,9 @@ VALUE "<project>/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/test/us
 ENDLIST
 ENDLIST
 LIST Other_Association
+LIST Filterwheel
+VALUE "<project>/simulation/subsystem.bfm,sim"
+ENDLIST
 LIST Filterwheel_sb
 VALUE "<project>/simulation/subsystem.bfm,sim"
 VALUE "<project>/simulation/bfmtovec_compile.tcl,sim"
@@ -1312,10 +1325,10 @@ ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 Reports;Reports;0
-ReportsCurrentItem;Place and Route:Filterwheel_layout_log.log
+ReportsCurrentItem;synthesis:Filterwheel.srr
 Constraint Manager;Constraint Manager;0
 SmartDesign;Filterwheel;0
-ACTIVEVIEW;Filterwheel
+ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","/home/summer/projects/CGraph/firmware/include/fpga/ads1258.vhd","FALSE","FALSE"
@@ -1390,7 +1403,7 @@ ENDLIST
 LIST "fifo_gen_tb::work","/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen_tb.vhd","FALSE","FALSE"
 SUBBLOCK "fifo::work","/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd","FALSE","FALSE"
 ENDLIST
-LIST "Filterwheel::work","component/work/Filterwheel/Filterwheel.cxf","TRUE","FALSE"
+LIST "Filterwheel::work","component/work/Filterwheel/Filterwheel.v","TRUE","FALSE"
 SUBBLOCK "FCCC_C0::work","component/work/FCCC_C0/FCCC_C0.v","TRUE","FALSE"
 SUBBLOCK "Filterwheel_sb::work","component/work/Filterwheel_sb/Filterwheel_sb.v","TRUE","FALSE"
 SUBBLOCK "Main::work","/home/summer/projects/CGraph/firmware/Filterwheel/fpga/Main.vhd","FALSE","FALSE"
