@@ -28,7 +28,7 @@
 
 ## Clock
 
-set_io clk            \
+set_io CLK0_PAD            \
     -pinname H16      \
     -fixed yes        \
     -iostd LVCMOS33   \
@@ -42,24 +42,28 @@ set_io clk            \
 
 #J-Dbg1_2_p3
 set_io PosSenseBit0B    \
+	-iostd LVCMOS25   \
     -pinname K1      \
     -fixed yes        \
     -DIRECTION INPUT
 
 #J-Dbg1_3_p5
 set_io PosSenseHomeB    \
+	-iostd LVCMOS25   \
     -pinname J5      \
     -fixed yes        \
     -DIRECTION INPUT
 
 #J-Dbg1_4_p7
 set_io PosSenseBit2A    \
+	-iostd LVCMOS25   \
     -pinname J3      \
     -fixed yes        \
     -DIRECTION INPUT
 
 #J-Dbg1_5_p9
 set_io PosSenseBit1A    \
+	-iostd LVCMOS25   \
     -pinname J2      \
     -fixed yes        \
     -DIRECTION INPUT
@@ -68,12 +72,14 @@ set_io PosSenseBit1A    \
 
 #J-Dbg1_7_p13
 set_io PosSenseBit0A    \
+	-iostd LVCMOS25   \
     -pinname H1      \
     -fixed yes        \
     -DIRECTION INPUT
 
 #J-Dbg1_8_p15
-set_io PosSenseBitHomeA    \
+set_io PosSenseHomeA    \
+	-iostd LVCMOS25   \
     -pinname H5      \
     -fixed yes        \
     -DIRECTION INPUT
@@ -158,7 +164,71 @@ set_io MotorDriveBPlus    \
     -fixed yes        \
     -DIRECTION OUTPUT
 	
+
+
+#RS-485 
+
+#Txd0
+set_io Txd0    \
+    -pinname H13      \
+    -fixed yes        \
+    -DIRECTION OUTPUT
+
+#Txd0
+	set_io Oe0    \
+    -pinname H14      \
+    -fixed yes        \
+    -DIRECTION OUTPUT
 	
+#Rxd0
+set_io Rxd0    \
+    -pinname G12      \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+#Txd1
+set_io Txd1    \
+    -pinname H12      \
+    -fixed yes        \
+    -DIRECTION OUTPUT
+
+#Oe1
+	set_io Oe1    \
+    -pinname H4      \
+    -fixed yes        \
+    -DIRECTION OUTPUT
+	
+#Rxd1
+set_io Rxd1    \
+    -pinname J14      \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+#Txd2
+set_io Txd2    \
+    -pinname G16      \
+    -fixed yes        \
+    -DIRECTION OUTPUT
+
+#Oe2
+	set_io Oe2    \
+    -pinname H15      \
+    -fixed yes        \
+    -DIRECTION OUTPUT
+	
+#Rxd2
+set_io Rxd2    \
+    -pinname G13      \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+		
+		
+#Ux1SelJmp
+	set_io Ux1SelJmp    \
+    -pinname N7      \
+    -fixed yes        \
+    -DIRECTION OUTPUT
 	
 # 
 # Dedicated Peripheral I/O Settings

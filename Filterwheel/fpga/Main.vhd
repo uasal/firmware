@@ -43,42 +43,31 @@ port (
 	RamBusWE : in std_logic;
 	RamBusOE : in std_logic;
 	
-	-- Power Supply Monitor A/D
-	nCsMonitorAdc : out std_logic;
-	SckMonitorAdc : out std_logic;
-	MosiMonitorAdc : out std_logic;
-	MisoMonitorAdc : in std_logic; --use the A/D
-	nDrdyMonitorAdc : in std_logic; --use the A/D
-	
 	--RS-422 (uses LVDS and/or Accel pins)
 	Txd0 : out std_logic;
+	Oe0 : out std_logic;
 	Rxd0 : in std_logic;
 	Txd1 : out std_logic;
+	Oe1 : out std_logic;
 	Rxd1 : in std_logic;
 	Txd2 : out std_logic;
+	Oe2 : out std_logic;
 	Rxd2 : in std_logic;
 	
-	--Timing
-	PpsIn : in std_logic; --pps is always an input, however...
-	nCsClk : out std_logic;
-	SckClk : out std_logic;
-	MosiClk : out std_logic;
-	MisoClk : in std_logic;
-
 	--  Discrete I/O Connections
 
 		--High Voltage!
-		HVPowernEn : out std_logic;
-		nHVEn : out std_logic;
+		--~ HVPowernEn : out std_logic;
+		--~ nHVEn : out std_logic;
 		--~ nHVFaultA : in std_logic;
 		--~ nHVFaultB : in std_logic;
 		--~ nHVFaultC : in std_logic;
 		
-		AnalogPowernEn : out std_logic;
-		PowerSync : out std_logic;
+		--~ AnalogPowernEn : out std_logic;
+		--~ PowerSync : out std_logic;
 		
-		--UserJmpJstnCse : inout std_logic--;
-		UserJmpJstnCse : out std_logic--;
+		Ux1SelJmp : inout std_logic--;
+		--Ux1SelJmp : out std_logic--;
 );
 end Main;
 
@@ -788,15 +777,15 @@ architecture architecture_Main of Main is
 			signal RamBusWE_i : std_logic;		
 			signal RamBusAddress_i : std_logic_vector(9 downto 0);		
 			signal nTristateRamDataPins : std_logic;		
-			signal RamDataOut : std_logic_vector(7 downto 0);		
-			signal RamDataIn : std_logic_vector(7 downto 0);		
+			signal RamDataOut : std_logic_vector(15 downto 0);		
+			signal RamDataIn : std_logic_vector(15 downto 0);		
 			
 		-- Register space
 		
-			signal DataToWrite : std_logic_vector(7 downto 0);
+			signal DataToWrite : std_logic_vector(15 downto 0);
 			signal WriteReq : std_logic;
 			signal WriteAck : std_logic;
-			signal DataFromRead : std_logic_vector(7 downto 0);
+			signal DataFromRead : std_logic_vector(15 downto 0);
 			signal ReadReq : std_logic;
 			signal ReadAck : std_logic;
 
@@ -1098,7 +1087,8 @@ begin
 	------------------------------------------ RegisterSpaces ---------------------------------------------------
 
 		IBufOE : IBufP2Ports port map(clk => MasterClk, I => RamBusOE, O => RamBusOE_i);
-		IBufCE : IBufP2Ports port map(clk => MasterClk, I => RamBusnCs(0), O => RamBusCE_i);
+		--~ IBufCE : IBufP2Ports port map(clk => MasterClk, I => RamBusnCs(0), O => RamBusCE_i);
+		IBufCE : IBufP2Ports port map(clk => MasterClk, I => RamBusnCs, O => RamBusCE_i);
 		IBufWE : IBufP2Ports port map(clk => MasterClk, I => RamBusWE, O => RamBusWE_i);
 
 		GenRamAddrBus: for i in 0 to 9 generate
@@ -1303,43 +1293,50 @@ begin
 	
 	----------------------------------------------------------------Monitor A/D--------------------------------------------------------------------
 			
-	IBufnDrdyAdc : IBufP3Ports port map(clk => MasterClk, I => nDrdyMonitorAdc, O => nDrdyMonitorAdc_i); --if you want to change the pin for this chip select, it's here
-	IBufMisoAdc : IBufP3Ports port map(clk => MasterClk, I => MisoMonitorAdc, O => MisoMonitorAdc_i); --if you want to change the pin for this chip select, it's here
+	--~ IBufnDrdyAdc : IBufP3Ports port map(clk => MasterClk, I => nDrdyMonitorAdc, O => nDrdyMonitorAdc_i); --if you want to change the pin for this chip select, it's here
+	--~ IBufMisoAdc : IBufP3Ports port map(clk => MasterClk, I => MisoMonitorAdc, O => MisoMonitorAdc_i); --if you want to change the pin for this chip select, it's here
 	
-	ltc244xaccumulator : ltc244xaccumulatorPorts
-	generic MAP
-	(
-		MASTER_CLOCK_FREQHZ => BoardMasterClockFreq,
-		LTC244X_DATARATE => "1111",
-		LTC244X_DOUBLERATE => '0'--,
-	)
-	port map
-	(
-		clk => MasterClk,
-		rst => MasterReset,
-		nDrdy => nDrdyMonitorAdc_i,
-		nCs => nCsMonitorAdc_i,
-		Sck => SckMonitorAdc_i,
-		Mosi => MosiMonitorAdc_i,
-		Miso => MisoMonitorAdc_i,
-		--~ Dbg1 => Txd0,
-		--~ Dbg2 => Txd1,
-		--~ InvalidStateReached => Txd2,
-		Dbg1 => open,
-		Dbg2 => open,
-		InvalidStateReached => open,
-		AdcChannelReadIndex => MonitorAdcChannel,
-		ReadAdcSample => MonitorAdcReadSample,
-	    --AdcSampleToRead => MonitorAdcSample--,	
-        AdcSampleToRead => Open--,
-	);
+	--~ ltc244xaccumulator : ltc244xaccumulatorPorts
+	--~ generic MAP
+	--~ (
+		--~ MASTER_CLOCK_FREQHZ => BoardMasterClockFreq,
+		--~ LTC244X_DATARATE => "1111",
+		--~ LTC244X_DOUBLERATE => '0'--,
+	--~ )
+	--~ port map
+	--~ (
+		--~ clk => MasterClk,
+		--~ rst => MasterReset,
+		--~ nDrdy => nDrdyMonitorAdc_i,
+		--~ nCs => nCsMonitorAdc_i,
+		--~ Sck => SckMonitorAdc_i,
+		--~ Mosi => MosiMonitorAdc_i,
+		--~ Miso => MisoMonitorAdc_i,
+		--~ --Dbg1 => Txd0,
+		--~ --Dbg2 => Txd1,
+		--~ --InvalidStateReached => Txd2,
+		--~ Dbg1 => open,
+		--~ Dbg2 => open,
+		--~ InvalidStateReached => open,
+		--~ AdcChannelReadIndex => MonitorAdcChannel,
+		--~ ReadAdcSample => MonitorAdcReadSample,
+	    --~ --AdcSampleToRead => MonitorAdcSample--,	
+        --~ AdcSampleToRead => Open--,
+	--~ );
 	
-	--Internal A/D control:
-	nCsMonitorAdc <= nCsMonitorAdc_i;
-	SckMonitorAdc <= SckMonitorAdc_i;
-	MosiMonitorAdc <= MosiMonitorAdc_i;
+	--~ --Internal A/D control:
+	--~ nCsMonitorAdc <= nCsMonitorAdc_i;
+	--~ SckMonitorAdc <= SckMonitorAdc_i;
+	--~ MosiMonitorAdc <= MosiMonitorAdc_i;
 	
 	----------------------------- RS-422 ----------------------------------
+	
+	Oe0 <= '1';
+	Oe1 <= '1';
+	Oe2 <= '1';
+	
+	--This is just to excercise the thing so it stays in the design...
+	Ux1SelJmp <= '1' when ( (Rxd1 = '1') and (Rxd2 = '0') ) else '0' when ( (Rxd1 = '0') and (Rxd2 = '1') ) else 'Z';
 	
 	--First, the _really_ boring loopback (hardware)
 	--~ Txd0 <= Rxd0;
@@ -1375,7 +1372,7 @@ begin
 		--~ TxD => Txd1,
 		--~ --TxD => open,
 		--~ Busy => open,
-		--~ --Busy => UserJmpJstnCse,
+		--~ --Busy => Ux1SelJmp,
 		--~ Data => Uart1Data
 	--~ );
 
@@ -1464,7 +1461,7 @@ begin
 		rst => Uart0FifoReset_i,
 		--~ BaudDivider => Uart0ClkDivider,
 		BitClockOut => open,
-		--~ BitClockOut => UserJmpJstnCse,		
+		--~ BitClockOut => Ux1SelJmp,		
 		WriteStrobe => WriteUart0,
 		WriteData => Uart0TxFifoData,
 		FifoFull => Uart0TxFifoFull,
@@ -1604,11 +1601,11 @@ begin
 		div => UartTxClk2
 	);
 	
-	--~ UserJmpJstnCse <= UartClk2;
+	--~ Ux1SelJmp <= UartClk2;
 	
 	IBufRxd2 : IBufP3Ports port map(clk => UartClk, I => Rxd2, O => Rxd2_i); --if you want to change the pin for this chip select, it's here
 	
-	--~ UserJmpJstnCse <= Rxd2;
+	--~ Ux1SelJmp <= Rxd2;
 	
 	RS422_Rx2 : UartRxFifoExtClk
 	generic map
@@ -1660,7 +1657,7 @@ begin
 		rst => Uart2FifoReset_i,
 		--~ BaudDivider => Uart2ClkDivider,
 		BitClockOut => open,
-		--~ BitClockOut => UserJmpJstnCse,		
+		--~ BitClockOut => Ux1SelJmp,		
 		WriteStrobe => WriteUart2,
 		WriteData => Uart2TxFifoData,
 		FifoFull => Uart2TxFifoFull,
@@ -1685,18 +1682,18 @@ begin
 	----------------------------- Timing ----------------------------------
 	
 		--Just sync external PPS to master clock
-		IBufPPS : IBufP2Ports port map(clk => MasterClk, I => PpsIn, O => PPS_i);
+		--~ IBufPPS : IBufP2Ports port map(clk => MasterClk, I => PpsIn, O => PPS_i);
 
 	--Count up MasterClocks per PPS so we can sync the oscilator to the GPS clock
-	PPSAccumulator : PPSCountPorts
-    port map
-	(
-		clk => MasterClk,
-		PPS => PPS_i,
-		PPSReset => PPSCountReset,
-		PPSCounter => PPSCounter,
-		PPSAccum => PPSCount--,
-	);
+	--~ PPSAccumulator : PPSCountPorts
+    --~ port map
+	--~ (
+		--~ clk => MasterClk,
+		--~ PPS => PPS_i,
+		--~ PPSReset => PPSCountReset,
+		--~ PPSCounter => PPSCounter,
+		--~ PPSAccum => PPSCount--,
+	--~ );
 	
 	--~ PPSRtcPhaseComparator : PhaseComparatorPorts
 	--~ generic map (
@@ -1744,53 +1741,53 @@ begin
 		--~ Milliseconds => Milliseconds--,
 	--~ );
 	
-	IBufDacMiso : IBufP2Ports port map(clk => MasterClk, I => MisoClk, O => MisoClk_i);
+	--~ IBufDacMiso : IBufP2Ports port map(clk => MasterClk, I => MisoClk, O => MisoClk_i);
 
-	ClkDac_i : SpiDacPorts
-	generic map 
-	(
-		MASTER_CLOCK_FREQHZ => BoardMasterClockFreq,
-		BIT_WIDTH => 16
-	)
-	port map 
-	(
-		clk => MasterClk,
-		rst => MasterReset,
-		nCs => nCsClk_i,
-		Sck => SckClk_i,
-		Mosi => MosiClk_i,
-		Miso => MisoClk_i,
-		DacWriteOut => ClkDacWrite,
-		WriteDac => WriteClkDac,
-		DacReadback => ClkDacReadback
-	);
+	--~ ClkDac_i : SpiDacPorts
+	--~ generic map 
+	--~ (
+		--~ MASTER_CLOCK_FREQHZ => BoardMasterClockFreq,
+		--~ BIT_WIDTH => 16
+	--~ )
+	--~ port map 
+	--~ (
+		--~ clk => MasterClk,
+		--~ rst => MasterReset,
+		--~ nCs => nCsClk_i,
+		--~ Sck => SckClk_i,
+		--~ Mosi => MosiClk_i,
+		--~ Miso => MisoClk_i,
+		--~ DacWriteOut => ClkDacWrite,
+		--~ WriteDac => WriteClkDac,
+		--~ DacReadback => ClkDacReadback
+	--~ );
 
-	nCsClk <= nCsClk_i;
-	SckClk <= SckClk_i;
-	MosiClk <= MosiClk_i;
+	--~ nCsClk <= nCsClk_i;
+	--~ SckClk <= SckClk_i;
+	--~ MosiClk <= MosiClk_i;
 	
 	----------------------------- Power Supplies ----------------------------------
 	
-	HVPowernEn <= '0';
-	nHVEn <= '1';
-	AnalogPowernEn <= '0';
+	--~ HVPowernEn <= '0';
+	--~ nHVEn <= '1';
+	--~ AnalogPowernEn <= '0';
 	
-	PowerSyncClockDivider : ClockDividerPorts generic map(CLOCK_DIVIDER => 96, DIVOUT_RST_STATE => '0') port map(clk => MasterClk, rst => MasterReset, div => PowerSync);
+	--~ PowerSyncClockDivider : ClockDividerPorts generic map(CLOCK_DIVIDER => 96, DIVOUT_RST_STATE => '0') port map(clk => MasterClk, rst => MasterReset, div => PowerSync);
 
 	--This just makes a synchronous clock out of the 2.5MHz clock to keep the dc/dc converter running on the same clockbase as everything else, and nice & slow so it's cool. LT3791 will accept 200-700kHz clocks.
-	SyncDCDCDivider : ClockDividerPorts
-	generic map (
-		--CLOCK_DIVIDER => 12, --208kHz
-		CLOCK_DIVIDER => 8, --312kHz
-		DIVOUT_RST_STATE => '0'
-	)
-	port map (		
-		clk => MasterClk,
-		rst => MasterReset,
-		--div => SyncDCD
-        div => Open
-	);	
-	--~ SyncDCDC <= 'Z'
+	--~ SyncDCDCDivider : ClockDividerPorts
+	--~ generic map (
+		--~ --CLOCK_DIVIDER => 12, --208kHz
+		--~ CLOCK_DIVIDER => 8, --312kHz
+		--~ DIVOUT_RST_STATE => '0'
+	--~ )
+	--~ port map (		
+		--~ clk => MasterClk,
+		--~ rst => MasterReset,
+		--~ --div => SyncDCD
+        --~ div => Open
+	--~ );	
+	--~ --SyncDCDC <= 'Z'
 	
 	----------------------------- H-Bridge ----------------------------------
 	

@@ -19,7 +19,6 @@ read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/IB
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/IOBufP1.vhd}
-read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/Filterwheel/fpga/RegisterSpace.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/UartRxExtClk.vhd}
@@ -33,12 +32,8 @@ read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/Cl
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotor.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd}
-read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd}
-read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/ltc244x_types.vhd}
-read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/ltc244x_autoscan.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/ltc244xaccumulator_types.vhd}
-read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/ltc244xaccumulator.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/Filterwheel/fpga/Main.vhd}
 read_verilog -mode system_verilog {/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/work/Filterwheel/Filterwheel.v}
 set_top_level {Filterwheel}

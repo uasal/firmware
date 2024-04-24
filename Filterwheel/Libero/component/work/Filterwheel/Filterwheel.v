@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Wed Apr 24 11:08:06 2024
+// Created by SmartDesign Wed Apr 24 15:29:12 2024
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -10,8 +10,6 @@ module Filterwheel(
     // Inputs
     CLK0_PAD,
     DEVRST_N,
-    MisoClk,
-    MisoMonitorAdc,
     PosSenseBit0A,
     PosSenseBit0B,
     PosSenseBit1A,
@@ -20,16 +18,10 @@ module Filterwheel(
     PosSenseBit2B,
     PosSenseHomeA,
     PosSenseHomeB,
-    PpsIn,
     Rxd0,
     Rxd1,
     Rxd2,
-    nDrdyMonitorAdc,
     // Outputs
-    AnalogPowernEn,
-    HVPowernEn,
-    MosiClk,
-    MosiMonitorAdc,
     MotorDriveAMinus,
     MotorDriveAMinusPrime,
     MotorDriveAPlus,
@@ -38,18 +30,16 @@ module Filterwheel(
     MotorDriveBMinusPrime,
     MotorDriveBPlus,
     MotorDriveBPlusPrime,
+    Oe0,
+    Oe1,
+    Oe2,
     PosLEDEnA,
     PosLEDEnB,
-    PowerSync,
-    SckClk,
-    SckMonitorAdc,
     Txd0,
     Txd1,
     Txd2,
-    UserJmpJstnCse,
-    nCsClk,
-    nCsMonitorAdc,
-    nHVEn
+    // Inouts
+    Ux1SelJmp
 );
 
 //--------------------------------------------------------------------
@@ -57,8 +47,6 @@ module Filterwheel(
 //--------------------------------------------------------------------
 input  CLK0_PAD;
 input  DEVRST_N;
-input  MisoClk;
-input  MisoMonitorAdc;
 input  PosSenseBit0A;
 input  PosSenseBit0B;
 input  PosSenseBit1A;
@@ -67,18 +55,12 @@ input  PosSenseBit2A;
 input  PosSenseBit2B;
 input  PosSenseHomeA;
 input  PosSenseHomeB;
-input  PpsIn;
 input  Rxd0;
 input  Rxd1;
 input  Rxd2;
-input  nDrdyMonitorAdc;
 //--------------------------------------------------------------------
 // Output
 //--------------------------------------------------------------------
-output AnalogPowernEn;
-output HVPowernEn;
-output MosiClk;
-output MosiMonitorAdc;
 output MotorDriveAMinus;
 output MotorDriveAMinusPrime;
 output MotorDriveAPlus;
@@ -87,22 +69,21 @@ output MotorDriveBMinus;
 output MotorDriveBMinusPrime;
 output MotorDriveBPlus;
 output MotorDriveBPlusPrime;
+output Oe0;
+output Oe1;
+output Oe2;
 output PosLEDEnA;
 output PosLEDEnB;
-output PowerSync;
-output SckClk;
-output SckMonitorAdc;
 output Txd0;
 output Txd1;
 output Txd2;
-output UserJmpJstnCse;
-output nCsClk;
-output nCsMonitorAdc;
-output nHVEn;
+//--------------------------------------------------------------------
+// Inout
+//--------------------------------------------------------------------
+inout  Ux1SelJmp;
 //--------------------------------------------------------------------
 // Nets
 //--------------------------------------------------------------------
-wire          AnalogPowernEn_net_0;
 wire          CLK0_PAD;
 wire          DEVRST_N;
 wire          FCCC_C0_0_GL0;
@@ -111,11 +92,6 @@ wire   [9:0]  Filterwheel_sb_0_AMBA_SLAVE_0_HADDR_S09to0;
 wire          Filterwheel_sb_0_AMBA_SLAVE_0_HREADY_S0;
 wire          Filterwheel_sb_0_AMBA_SLAVE_0_HSEL_S0;
 wire          Filterwheel_sb_0_AMBA_SLAVE_0_HWRITE_S0;
-wire          HVPowernEn_net_0;
-wire          MisoClk;
-wire          MisoMonitorAdc;
-wire          MosiClk_net_0;
-wire          MosiMonitorAdc_net_0;
 wire          MotorDriveAMinus_net_0;
 wire          MotorDriveAMinusPrime_net_0;
 wire          MotorDriveAPlus_net_0;
@@ -124,11 +100,10 @@ wire          MotorDriveBMinus_net_0;
 wire          MotorDriveBMinusPrime_net_0;
 wire          MotorDriveBPlus_net_0;
 wire          MotorDriveBPlusPrime_net_0;
-wire          nCsClk_net_0;
-wire          nCsMonitorAdc_net_0;
-wire          nDrdyMonitorAdc;
 wire   [15:0] net_0;
-wire          nHVEn_net_0;
+wire          Oe0_net_0;
+wire          Oe1_net_0;
+wire          Oe2_net_0;
 wire          PosLEDEnA_net_0;
 wire          PosLEDEnB_net_0;
 wire          PosSenseBit0A;
@@ -139,17 +114,13 @@ wire          PosSenseBit2A;
 wire          PosSenseBit2B;
 wire          PosSenseHomeA;
 wire          PosSenseHomeB;
-wire          PowerSync_net_0;
-wire          PpsIn;
 wire          Rxd0;
 wire          Rxd1;
 wire          Rxd2;
-wire          SckClk_net_0;
-wire          SckMonitorAdc_net_0;
 wire          Txd0_net_0;
 wire          Txd1_net_0;
 wire          Txd2_net_0;
-wire          UserJmpJstnCse_net_0;
+wire          Ux1SelJmp;
 wire          PosLEDEnA_net_1;
 wire          PosLEDEnB_net_1;
 wire          MotorDriveAPlus_net_1;
@@ -160,20 +131,12 @@ wire          MotorDriveAPlusPrime_net_1;
 wire          MotorDriveAMinusPrime_net_1;
 wire          MotorDriveBPlusPrime_net_1;
 wire          MotorDriveBMinusPrime_net_1;
-wire          nCsMonitorAdc_net_1;
-wire          SckMonitorAdc_net_1;
-wire          MosiMonitorAdc_net_1;
 wire          Txd0_net_1;
 wire          Txd1_net_1;
 wire          Txd2_net_1;
-wire          nCsClk_net_1;
-wire          SckClk_net_1;
-wire          MosiClk_net_1;
-wire          HVPowernEn_net_1;
-wire          nHVEn_net_1;
-wire          AnalogPowernEn_net_1;
-wire          PowerSync_net_1;
-wire          UserJmpJstnCse_net_1;
+wire          Oe0_net_1;
+wire          Oe1_net_1;
+wire          Oe2_net_1;
 wire   [31:0] AMBA_SLAVE_0_HRDATA_S0_net_0;
 wire   [31:0] AMBA_SLAVE_0_HADDR_S0_net_0;
 //--------------------------------------------------------------------
@@ -209,34 +172,18 @@ assign MotorDriveBPlusPrime_net_1  = MotorDriveBPlusPrime_net_0;
 assign MotorDriveBPlusPrime        = MotorDriveBPlusPrime_net_1;
 assign MotorDriveBMinusPrime_net_1 = MotorDriveBMinusPrime_net_0;
 assign MotorDriveBMinusPrime       = MotorDriveBMinusPrime_net_1;
-assign nCsMonitorAdc_net_1         = nCsMonitorAdc_net_0;
-assign nCsMonitorAdc               = nCsMonitorAdc_net_1;
-assign SckMonitorAdc_net_1         = SckMonitorAdc_net_0;
-assign SckMonitorAdc               = SckMonitorAdc_net_1;
-assign MosiMonitorAdc_net_1        = MosiMonitorAdc_net_0;
-assign MosiMonitorAdc              = MosiMonitorAdc_net_1;
 assign Txd0_net_1                  = Txd0_net_0;
 assign Txd0                        = Txd0_net_1;
 assign Txd1_net_1                  = Txd1_net_0;
 assign Txd1                        = Txd1_net_1;
 assign Txd2_net_1                  = Txd2_net_0;
 assign Txd2                        = Txd2_net_1;
-assign nCsClk_net_1                = nCsClk_net_0;
-assign nCsClk                      = nCsClk_net_1;
-assign SckClk_net_1                = SckClk_net_0;
-assign SckClk                      = SckClk_net_1;
-assign MosiClk_net_1               = MosiClk_net_0;
-assign MosiClk                     = MosiClk_net_1;
-assign HVPowernEn_net_1            = HVPowernEn_net_0;
-assign HVPowernEn                  = HVPowernEn_net_1;
-assign nHVEn_net_1                 = nHVEn_net_0;
-assign nHVEn                       = nHVEn_net_1;
-assign AnalogPowernEn_net_1        = AnalogPowernEn_net_0;
-assign AnalogPowernEn              = AnalogPowernEn_net_1;
-assign PowerSync_net_1             = PowerSync_net_0;
-assign PowerSync                   = PowerSync_net_1;
-assign UserJmpJstnCse_net_1        = UserJmpJstnCse_net_0;
-assign UserJmpJstnCse              = UserJmpJstnCse_net_1;
+assign Oe0_net_1                   = Oe0_net_0;
+assign Oe0                         = Oe0_net_1;
+assign Oe1_net_1                   = Oe1_net_0;
+assign Oe1                         = Oe1_net_1;
+assign Oe2_net_1                   = Oe2_net_0;
+assign Oe2                         = Oe2_net_1;
 //--------------------------------------------------------------------
 // Slices assignments
 //--------------------------------------------------------------------
@@ -297,13 +244,9 @@ Main Main_0(
         .RamBusnCs             ( Filterwheel_sb_0_AMBA_SLAVE_0_HSEL_S0 ),
         .RamBusWE              ( Filterwheel_sb_0_AMBA_SLAVE_0_HWRITE_S0 ),
         .RamBusOE              ( Filterwheel_sb_0_AMBA_SLAVE_0_HREADY_S0 ),
-        .MisoMonitorAdc        ( MisoMonitorAdc ),
-        .nDrdyMonitorAdc       ( nDrdyMonitorAdc ),
         .Rxd0                  ( Rxd0 ),
         .Rxd1                  ( Rxd1 ),
         .Rxd2                  ( Rxd2 ),
-        .PpsIn                 ( PpsIn ),
-        .MisoClk               ( MisoClk ),
         // Outputs
         .PosLEDEnA             ( PosLEDEnA_net_0 ),
         .PosLEDEnB             ( PosLEDEnB_net_0 ),
@@ -315,22 +258,15 @@ Main Main_0(
         .MotorDriveAMinusPrime ( MotorDriveAMinusPrime_net_0 ),
         .MotorDriveBPlusPrime  ( MotorDriveBPlusPrime_net_0 ),
         .MotorDriveBMinusPrime ( MotorDriveBMinusPrime_net_0 ),
-        .nCsMonitorAdc         ( nCsMonitorAdc_net_0 ),
-        .SckMonitorAdc         ( SckMonitorAdc_net_0 ),
-        .MosiMonitorAdc        ( MosiMonitorAdc_net_0 ),
         .Txd0                  ( Txd0_net_0 ),
+        .Oe0                   ( Oe0_net_0 ),
         .Txd1                  ( Txd1_net_0 ),
+        .Oe1                   ( Oe1_net_0 ),
         .Txd2                  ( Txd2_net_0 ),
-        .nCsClk                ( nCsClk_net_0 ),
-        .SckClk                ( SckClk_net_0 ),
-        .MosiClk               ( MosiClk_net_0 ),
-        .HVPowernEn            ( HVPowernEn_net_0 ),
-        .nHVEn                 ( nHVEn_net_0 ),
-        .AnalogPowernEn        ( AnalogPowernEn_net_0 ),
-        .PowerSync             ( PowerSync_net_0 ),
-        .UserJmpJstnCse        ( UserJmpJstnCse_net_0 ),
+        .Oe2                   ( Oe2_net_0 ),
         // Inouts
-        .RamBusData            ( net_0 ) 
+        .RamBusData            ( net_0 ),
+        .Ux1SelJmp             ( Ux1SelJmp ) 
         );
 
 

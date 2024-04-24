@@ -608,12 +608,12 @@ begin
 							
 							when PosDetHomeBOnStepAddr => DataOut <= PosDetHomeBOnStep;
 							when PosDetHomeBOffStepAddr => DataOut <= PosDetHomeBOffStep;
-							when PosDetA0OnStepAddr => DataOut <= PosDetA0OnStep;
-							when PosDetA0OffStepAddr => DataOut <= PosDetA0OffStep;
-							when PosDetA1OnStepAddr => DataOut <= PosDetA1OnStep;
-							when PosDetA1OffStepAddr => DataOut <= PosDetA1OffStep;
-							when PosDetA2OnStepAddr => DataOut <= PosDetA2OnStep;
-							when PosDetA2OffStepAddr => DataOut <= PosDetA2OffStep;
+							when PosDetB0OnStepAddr => DataOut <= PosDetB0OnStep;
+							when PosDetB0OffStepAddr => DataOut <= PosDetB0OffStep;
+							when PosDetB1OnStepAddr => DataOut <= PosDetB1OnStep;
+							when PosDetB1OffStepAddr => DataOut <= PosDetB1OffStep;
+							when PosDetB2OnStepAddr => DataOut <= PosDetB2OnStep;
+							when PosDetB2OffStepAddr => DataOut <= PosDetB2OffStep;
 							
 							when PosDet0AOnStepAddr => DataOut <= PosDet0AOnStep;
 							when PosDet0AOffStepAddr => DataOut <= PosDet0AOffStep;
@@ -654,7 +654,7 @@ begin
 							
 							when others =>
 
-								DataOut <= x"41";
+								DataOut <= x"3741";
 								
 						end case;
 						
@@ -670,7 +670,7 @@ begin
 						LastReadReq <= '0';
 					
 						--If timing is good, this doesn't do anything. If the fpga is lagging the processor reads will all be 82's. Yeah, we tested that in practice.
-						DataOut <= x"82"; 
+						DataOut <= x"9182"; 
 						
 						ReadAck <= '0';
 						
@@ -707,7 +707,7 @@ begin
 							when Uart0FifoAddr =>
 
 								WriteUart0 <= '1';
-								Uart0TxFifoData <= DataIn;
+								Uart0TxFifoData <= DataIn(7 downto 0);
 								
 							when Uart0FifoStatusAddr =>
 
@@ -716,7 +716,7 @@ begin
 							when Uart1FifoAddr =>
 
 								WriteUart1 <= '1';
-								Uart1TxFifoData <= DataIn;
+								Uart1TxFifoData <= DataIn(7 downto 0);
 								
 							when Uart1FifoStatusAddr =>
 
@@ -725,7 +725,7 @@ begin
 							when Uart2FifoAddr =>
 
 								WriteUart2 <= '1';
-								Uart2TxFifoData <= DataIn;
+								Uart2TxFifoData <= DataIn(7 downto 0);
 								
 							when Uart2FifoStatusAddr =>
 
