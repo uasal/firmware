@@ -33,7 +33,7 @@ struct Cmd ///everything we need to know about a command, in a format that allow
 	int8_t (*Response)(char const*, char const*, const size_t, const void*); ///callback function to excecute this command when it's located.
 
 	Cmd(const char* name, const char* help, int8_t (*resp)(char const*, char const*, const size_t, const void*) )
-		: Name(name), Help(help), Response(resp)
+		: Name(name), Help(help), Strlen(0), Response(resp)
 	{
 		Strlen = strlen(Name);
 	}

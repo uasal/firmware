@@ -30,8 +30,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <sys/mman.h>
-#include <errno.h>
 #include <unordered_map>
 using namespace std;
 
@@ -42,8 +40,8 @@ using namespace std;
 #include "cgraph/CGraphFWHardwareInterface.hpp"
 extern CGraphFWHardwareInterface* FW;	
 
-#include "../MonitorAdc.hpp"
-extern CGraphFWMonitorAdc MonitorAdc;
+//#include "../MonitorAdc.hpp"
+//extern CGraphFWMonitorAdc MonitorAdc;
 
 #include "../FWBuildNum"
 

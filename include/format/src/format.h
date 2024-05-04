@@ -61,6 +61,99 @@ extern int format( void * (* /* cons */) (void *, const char *, size_t),
              const char *    /* fmt  */,
              va_list         /* ap   */
 );
+
+
+/*****************************************************************************/
+/* Data types                                                                */
+/*****************************************************************************/
+
+/**
+    Describe a format specification.
+**/
+typedef struct {
+    unsigned int    nChars; /**< number of chars emitted so far     **/
+    unsigned int    flags;  /**< flags                              **/
+    int             width;  /**< width                              **/
+    int             prec;   /**< precision                          **/
+    int             base;   /**< numeric base                       **/
+    char            qual;   /**< length qualifier                   **/
+    char            repchar;/**< Repetition character               **/
+    struct {
+#if defined(CONFIG_HAVE_ALT_PTR)
+        enum ptr_mode mode; /**< grouping spec pointer type         **/
+#endif
+        const void *  ptr;  /**< ptr to grouping specification      **/
+        size_t        len;  /**< length of grouping spec            **/
+    } grouping;
+    struct {
+        size_t w_int;       /**< fixed-point integer field width    **/
+        size_t w_frac;      /**< fixed-point fractional field width **/
+    } xp;
+} T_FormatSpec;
+
+/*****************************************************************************/
+/* Macros, constants                                                         */
+/*****************************************************************************/
+
+/**
+    Define the field flags
+**/
+#define FSPACE          ( 0x01 )
+#define FPLUS           ( 0x02 )
+#define FMINUS          ( 0x04 )
+#define FHASH           ( 0x08 )
+#define FZERO           ( 0x10 )
+#define FBANG           ( 0x20 )
+#define FCARET          ( 0x40 )
+#define F_IS_SIGNED     ( 0x80 )
+
+/**
+    Some length qualifiers are doubled-up (e.g., "hh").
+
+    This little hack works on the basis that all the valid length qualifiers
+    (h,l,j,z,t,L) ASCII values are all even, so we use the LSB to tag double
+    qualifiers.  I'm not sure if this was the intent of the spec writers but
+    it is certainly convenient!  If this ever changes then we need to review
+    this hack and come up with something else.
+**/
+#define DOUBLE_QUAL(q)  ( (q) | 1 )
+
+/**
+    Set limits.
+**/
+#define MAXWIDTH        ( 500 )
+#define MAXPREC         ( 500 )
+#define MAXBASE         ( 36 )
+#define BUFLEN          ( 130 )  /* Must be long enough for 64-bit pointers
+                                  * in binary with maximum grouping chars and
+                                  * prefix:
+                                  *  "0b" + 64 digits + 64 grouping chars
+                                  */
+
+/* Fixed-point field width limits */
+#define MAX_XP_INT      ( sizeof(int) * CHAR_BIT )
+#define MAX_XP_FRAC     ( sizeof(int) * CHAR_BIT )
+#define MAX_XP_WIDTH    ( sizeof(long) * CHAR_BIT )
+
+/**
+    Return the maximum/minimum of two scalar values.
+**/
+#define MAX(a,b)        ( (a) > (b) ? (a) : (b) )
+#define MIN(a,b)        ( (a) < (b) ? (a) : (b) )
+
+/**
+    Return the number of elements in a static array.
+**/
+#define NELEMS(a)       ( sizeof(a) / sizeof(*(a)) )
+
+/**
+    Return the absolute value of a signed scalar value.
+**/
+#define ABS(a)          ( (a) < 0 ? -(a) : (a) )
+
+
+
+
 #ifdef __cplusplus
 };
 #endif

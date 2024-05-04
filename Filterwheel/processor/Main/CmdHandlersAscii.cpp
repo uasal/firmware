@@ -34,23 +34,11 @@
 #include <inttypes.h>
 //offsetof:
 #include <cstddef>
-//kbhit
-#include <termios.h>
 
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <sys/ioctl.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <sys/mman.h>
-#include <errno.h>
 #include <unordered_map>
 using namespace std;
 
-#include <mcheck.h>
-#include "dbg/memwatch.h"
-
-#include "uart/AsciiCmdUserInterfaceLinux.h"
+#include "Delay.h"
 
 #include "uart/BinaryUart.hpp"
 
@@ -67,16 +55,14 @@ extern CGraphFWMonitorAdc MonitorAdc;
 
 extern BinaryUart FpgaUartParser2;
 extern BinaryUart FpgaUartParser1;
-extern BinaryUart FpgaUartParser0;
+//~ extern BinaryUart FpgaUartParser0;
 
 char Buffer[4096];
 
 int8_t ExitCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	muntrace();
-	
+
 	printf("\n\nExitCommand: Goodbye!\n\n\n\n");
-	exit(0);
 	
 	return(ParamsLen);
 }
@@ -101,8 +87,6 @@ int8_t ParseConfigFileCommand(char const* Name, char const* Params, const size_t
 {
 	printf("\n\nParseConfigFile: opening %s to parse...\n", &(Params[1]));
 
-	ParseConfigFile(&(Params[1]));
-
 	return(ParamsLen);
 }
 
@@ -110,11 +94,11 @@ int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsL
 {
 	if (NULL != FW)
 	{
-		printf("\n\nVersion: Serial Number: %.8X, Global Revision: %s; build number: %u on: %s; fpga build: %u.\n", FW->DeviceSerialNumber, GITVERSION, BuildNum, BuildTimeStr, FW->FpgaFirmwareBuildNumber);
+		//printf("\n\nVersion: Serial Number: %.8X, Global Revision: %s; build number: %u on: %s; fpga build: %u.\n", FW->DeviceSerialNumber, GITVERSION, BuildNum, BuildTimeStr, FW->FpgaFirmwareBuildNumber);
 	}
 	else
 	{
-		printf("\n\nVersion: Global Revision: %s; build number: %u on: %s.\n", GITVERSION, BuildNum, BuildTimeStr);
+		//printf("\n\nVersion: Global Revision: %s; build number: %u on: %s.\n", GITVERSION, BuildNum, BuildTimeStr);
 	}
 	
     return(strlen(Params));
@@ -123,10 +107,6 @@ int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsL
 int8_t InitFpgaCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	printf("\n\nInitFpga: Initializing...");
-
-	int err = CGraphFWProtoHardwareMmapper::open(MmapHandle, FW);
-	
-	if (err < 0) { printf("\n\nInitFpga: Coudn't connect to hardware: %d", err); }
 	
 	return(ParamsLen);
 }
@@ -134,10 +114,6 @@ int8_t InitFpgaCommand(char const* Name, char const* Params, const size_t Params
 int8_t DeInitFpgaCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	printf("\n\nDeInitFpga: De-initializing...");
-
-	int err = CGraphFWProtoHardwareMmapper::close(MmapHandle, FW);
-	
-	if (err < 0) { printf("\n\nDeInitFpga: Coudn't connect to hardware: %d", err); }
 	
 	return(ParamsLen);
 }
@@ -330,7 +306,7 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 {
 	size_t cycle = 0;
 	//~ unsigned long daca = 0;
-	int key = 0;
+	int key = 1;
 	
 	while(true)
 	{
@@ -393,18 +369,7 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		
 		//Quit on any keypress
 		{
-			struct termios argin, argout;
-			tcgetattr(0,&argin);
-			argout = argin;
-			argout.c_lflag &= ~(ICANON);
-			argout.c_iflag &= ~(ICRNL);
-			argout.c_oflag &= ~(OPOST);
-			argout.c_cc[VMIN] = 1;
-			argout.c_cc[VTIME] = 0;
-			tcsetattr(0,TCSADRAIN,&argout);
-			//read(0, &key, 1);
-			ioctl(0, FIONREAD, &key);
-			tcsetattr(0,TCSADRAIN,&argin);
+
 			if (0 != key) 
 			{ 
 				fflush(stdin);
@@ -413,13 +378,7 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 			}			
 		}
 
-		struct timespec sleeptime;
-		memset((char *)&sleeptime,0,sizeof(sleeptime));
-		sleeptime.tv_nsec = 100000000; //100ms
-		//~ sleeptime.tv_nsec = 10000000; //10ms
-		//~ sleeptime.tv_nsec = 1000000; //1ms
-		//sleeptime.tv_sec = 1;
-		nanosleep(&sleeptime, NULL);
+		delayus(100000000);
 	}
 	
 	return(ParamsLen);
@@ -431,7 +390,7 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	memset((char *)&sleeptime,0,sizeof(sleeptime));
 	sleeptime.tv_nsec = 1000000;
 	sleeptime.tv_sec = 0;
-	int key = 0;
+	int key = 1;
 	
 	//Convert parameter to an integer
 	//~ size_t addr = 0;
@@ -464,18 +423,6 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 			
 			//Quit on any keypress
 			{
-				struct termios argin, argout;
-				tcgetattr(0,&argin);
-				argout = argin;
-				argout.c_lflag &= ~(ICANON);
-				argout.c_iflag &= ~(ICRNL);
-				argout.c_oflag &= ~(OPOST);
-				argout.c_cc[VMIN] = 1;
-				argout.c_cc[VTIME] = 0;
-				tcsetattr(0,TCSADRAIN,&argout);
-				//read(0, &key, 1);
-				ioctl(0, FIONREAD, &key);
-				tcsetattr(0,TCSADRAIN,&argin);
 				if (0 != key) 
 				{ 
 					fflush(stdin);
@@ -555,7 +502,7 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
     printf("\nUartCommand: Sending response (%u bytes): ", sizeof(CGraphVersionPayload));
     Version.formatf();
     printf("\n");
-	TxBinaryPacket(&FpgaUartParser0, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
+	//TxBinaryPacket(&FpgaUartParser0, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
 	TxBinaryPacket(&FpgaUartParser1, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
     TxBinaryPacket(&FpgaUartParser2, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
     
@@ -626,7 +573,7 @@ int8_t PrintBuffersCommand(char const* Name, char const* Params, const size_t Pa
 	printf("\nShowBuffersCommand: FpgaUartParser: ");
 	FpgaUartParser2.formatf();
 	FpgaUartParser1.formatf();
-	FpgaUartParser0.formatf();
+	//FpgaUartParser0.formatf();
 	printf("\n\n");
 	return(ParamsLen);
 }

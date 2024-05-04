@@ -828,6 +828,11 @@ TIME="1713981593"
 SIZE="256"
 PARENT="<project>/component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS.cxf"
 ENDFILE
+VALUE "<project>/component/work/DESIGN_FIRMWARE/DESIGN_FIRMWARE.cxf,actgen_cxf"
+STATE="utd"
+TIME="1714167231"
+SIZE="1500"
+ENDFILE
 VALUE "<project>/component/work/FCCC_C0/FCCC_C0.cxf,actgen_cxf"
 STATE="utd"
 TIME="1713920605"
@@ -855,7 +860,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/Filterwheel/Filterwheel.cxf,actgen_cxf"
 STATE="utd"
-TIME="1713997753"
+TIME="1714167236"
 SIZE="6673"
 ENDFILE
 VALUE "<project>/component/work/Filterwheel/Filterwheel.v,hdl"
@@ -1000,7 +1005,7 @@ PARENT="<project>/component/Actel/SmartFusion2MSS/MSS/1.1.500/MSS.cxf"
 ENDFILE
 VALUE "<project>/simulation/subsystem.bfm,sim"
 STATE="utd"
-TIME="1713982086"
+TIME="1713997752"
 SIZE="773"
 PARENT="<project>/component/work/Filterwheel/Filterwheel.cxf"
 PARENT="<project>/component/work/Filterwheel_sb/Filterwheel_sb.cxf"
@@ -1019,27 +1024,27 @@ PARENT="<project>/component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel.so,so"
 STATE="utd"
-TIME="1713995869"
+TIME="1713998020"
 SIZE="247"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel.vm,syn_vm"
 STATE="utd"
-TIME="1713995868"
-SIZE="1081775"
+TIME="1713998019"
+SIZE="953486"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel_syn.prj,prj"
 STATE="utd"
-TIME="1713986813"
-SIZE="5986"
+TIME="1713998020"
+SIZE="7270"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel_vm.sdc,syn_sdc"
 STATE="utd"
-TIME="1713995868"
+TIME="1713998020"
 SIZE="4517"
 ENDFILE
 VALUE "<project>/synthesis/synwork/layer1.so,so"
 STATE="utd"
-TIME="1713995586"
+TIME="1713995752"
 SIZE="154"
 ENDFILE
 ENDLIST
@@ -1242,8 +1247,8 @@ NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
 LOCATION="/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/bin/synplify_pro"
-PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
-BATCH=1
+PARAM=""
+BATCH=0
 LICENSE=""
 IS32BIT="1"
 EndProfile
@@ -1324,11 +1329,6 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
-Reports;Reports;0
-ReportsCurrentItem;synthesis:Filterwheel.srr
-Constraint Manager;Constraint Manager;0
-SmartDesign;Filterwheel;0
-ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","/home/summer/projects/CGraph/firmware/include/fpga/ads1258.vhd","FALSE","FALSE"

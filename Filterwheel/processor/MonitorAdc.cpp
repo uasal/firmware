@@ -27,10 +27,6 @@
 
 #include <time.h>
 #include <ctype.h> //tolower
-//kbhit
-#include <termios.h>
-#include <sys/ioctl.h>
-
 
 #include "Delay.h"
 
@@ -105,7 +101,7 @@ const char TestMonitorAdcHelp[] = "\"TestMonitorAdc\"; Show raw A/D counts...";
 int8_t TestMonitorAdcCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	size_t cycle = 0;
-	int key = 0;
+	int key = 1;
 	
 	while(true)
 	{
@@ -145,18 +141,18 @@ int8_t TestMonitorAdcCommand(char const* Name, char const* Params, const size_t 
 		
 		//Quit on any keypress
 		{
-			struct termios argin, argout;
-			tcgetattr(0,&argin);
-			argout = argin;
-			argout.c_lflag &= ~(ICANON);
-			argout.c_iflag &= ~(ICRNL);
-			argout.c_oflag &= ~(OPOST);
-			argout.c_cc[VMIN] = 1;
-			argout.c_cc[VTIME] = 0;
-			tcsetattr(0,TCSADRAIN,&argout);
-			//~ read(0, &key, 1);
-			ioctl(0, FIONREAD, &key);
-			tcsetattr(0,TCSADRAIN,&argin);
+			//~ struct termios argin, argout;
+			//~ tcgetattr(0,&argin);
+			//~ argout = argin;
+			//~ argout.c_lflag &= ~(ICANON);
+			//~ argout.c_iflag &= ~(ICRNL);
+			//~ argout.c_oflag &= ~(OPOST);
+			//~ argout.c_cc[VMIN] = 1;
+			//~ argout.c_cc[VTIME] = 0;
+			//~ tcsetattr(0,TCSADRAIN,&argout);
+			//~ //read(0, &key, 1);
+			//~ ioctl(0, FIONREAD, &key);
+			//~ tcsetattr(0,TCSADRAIN,&argin);
 			if (0 != key) 
 			{ 
 				printf("\n\nBIST: Keypress(%d); exiting.\n", key);
@@ -164,11 +160,7 @@ int8_t TestMonitorAdcCommand(char const* Name, char const* Params, const size_t 
 			}			
 		}
 
-		struct timespec sleeptime;
-		memset((char *)&sleeptime,0,sizeof(sleeptime));
-		sleeptime.tv_nsec = 0;
-		sleeptime.tv_sec = 1;
-		nanosleep(&sleeptime, NULL);
+		delayms(1000);
 	}
 	
     formatf("\nTestMonitorAdc Command: Complete.\n\n");

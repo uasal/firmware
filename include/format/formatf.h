@@ -7,6 +7,7 @@
 extern "C" {
 #endif
 
+
 int formatf(const char *fmt, ...); //printf()
 int sformatf(char* str, const char *fmt, ... ); //sprintf()
 int snformatf(char* str, size_t max, const char *fmt, ... ); //snprintf()

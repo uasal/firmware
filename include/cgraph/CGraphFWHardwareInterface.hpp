@@ -132,7 +132,7 @@ union CGraphFWUartStatusRegister
     CGraphFWUartStatusRegister() { all = 0; }
 
     //~ void printf() const { ::printf("CGraphFWUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", Uart2RxFifoEmpty?'Y':'N', Uart2RxFifoFull?'Y':'N', Uart2TxFifoEmpty?'Y':'N', Uart2TxFifoFull?'Y':'N', Uart2RxFifoCount + (Uart2RxFifoCountHi << 8), Uart2TxFifoCount + (Uart2TxFifoCountHi << 8)); }
-	void printf() const { ::printf("CGraphFWUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", Uart2RxFifoEmpty?'Y':'N', Uart2RxFifoFull?'Y':'N', Uart2TxFifoEmpty?'Y':'N', Uart2TxFifoFull?'Y':'N', Uart2RxFifoCount, Uart2TxFifoCount); }
+	void printf() const { ::printf("CGraphFWUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%lu, TxC:%lu", Uart2RxFifoEmpty?'Y':'N', Uart2RxFifoFull?'Y':'N', Uart2TxFifoEmpty?'Y':'N', Uart2TxFifoFull?'Y':'N', Uart2RxFifoCount, Uart2TxFifoCount); }
 
 } __attribute__((__packed__));
 
@@ -230,30 +230,6 @@ struct CGraphFWHardwareInterface
 
 } __attribute__((__packed__));
 
-class CGraphFWProtoHardwareMmapper
-{
-public:
-
-    static const off_t FpgaMmapAdress;
-    static const off_t FpgaMmapMask;
-    static const char FpgaBusEmulationPathName[];
-
-    //~ int FpgaHandle;
-    //~ void* FpgaBus;
-
-    //~ CGraphFWHardwareMmapper(const bool OpenOnConstruct = false) :
-
-    //~ FpgaHandle(0),
-    //~ FpgaBus(MAP_FAILED)//,
-
-    //~ { if (OpenOnConstruct) { open(); } }
-
-    //~ ~CGraphFWHardwareMmapper() { close(); }
-
-    static int open(int& FpgaHandle, CGraphFWHardwareInterface*& FpgaBus);
-    static int close(int& FpgaHandle, CGraphFWHardwareInterface*& FpgaBus);
-    static int read(const CGraphFWHardwareInterface* FpgaBus, const size_t Address, void* Buffer, const size_t Len);
-    static int write(CGraphFWHardwareInterface* FpgaBus, const size_t Address, const void* Buffer, const size_t Len);
-};
+extern CGraphFWHardwareInterface* FW;
 
 //EOF
