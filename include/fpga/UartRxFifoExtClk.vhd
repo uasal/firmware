@@ -77,6 +77,7 @@ architecture implementation of UartRxFifoExtClk is
 			clk : in std_logic;
 			uclk : in std_logic;
 			rst : in std_logic;
+            UartClk : out std_logic; --debug
 			Rxd : in std_logic; --external (async) uart data input pin
 			RxComplete : out std_logic; --Just got a byte
 			RxData : out std_logic_vector(7 downto 0) --The byte we just got		
@@ -109,6 +110,7 @@ begin
 	port map (						
 		clk => clk,
 		uclk => uclk,
+        UartClk => open,
 		rst => rst,
 		Rxd => Rxd,
 		RxComplete => RxComplete_i,

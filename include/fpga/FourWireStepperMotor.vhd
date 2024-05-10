@@ -37,10 +37,10 @@ architecture FourWireStepperMotor of FourWireStepperMotorPorts is
 	
 begin
 
-	MotorAPlus_i <= MotorAPlus_i;
-	MotorAMinus_i <= MotorAMinus_i;
-	MotorBPlus_i <= MotorBPlus_i;
-	MotorBMinus_i <= MotorBMinus_i;
+	MotorAPlus <= MotorAPlus_i;
+	MotorAMinus <= MotorAMinus_i;
+	MotorBPlus <= MotorBPlus_i;
+	MotorBMinus <= MotorBMinus_i;
 	
 	-- Master clock drives most logic
 	process (clk, rst)

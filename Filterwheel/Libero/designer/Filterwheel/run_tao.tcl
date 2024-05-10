@@ -6,13 +6,13 @@ read_verilog -mode system_verilog {/home/summer/projects/CGraph/firmware/Filterw
 read_verilog -mode system_verilog {/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS.v}
 read_verilog -mode system_verilog {/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp_pcie_hotreset.v}
 read_verilog -mode system_verilog {/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v}
-read_verilog -mode system_verilog -lib COREAHBLITE_LIB {/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite_slavearbiter.v}
-read_verilog -mode system_verilog -lib COREAHBLITE_LIB {/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite_slavestage.v}
-read_verilog -mode system_verilog -lib COREAHBLITE_LIB {/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite_defaultslavesm.v}
-read_verilog -mode system_verilog -lib COREAHBLITE_LIB {/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite_addrdec.v}
-read_verilog -mode system_verilog -lib COREAHBLITE_LIB {/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite_masterstage.v}
-read_verilog -mode system_verilog -lib COREAHBLITE_LIB {/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite_matrix4x16.v}
-read_verilog -mode system_verilog -lib COREAHBLITE_LIB {/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite.v}
+read_verilog -mode system_verilog -lib COREAHBLITE_LIB {/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core/coreahblite_slavearbiter.v}
+read_verilog -mode system_verilog -lib COREAHBLITE_LIB {/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core/coreahblite_slavestage.v}
+read_verilog -mode system_verilog -lib COREAHBLITE_LIB {/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core/coreahblite_defaultslavesm.v}
+read_verilog -mode system_verilog -lib COREAHBLITE_LIB {/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core/coreahblite_addrdec.v}
+read_verilog -mode system_verilog -lib COREAHBLITE_LIB {/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core/coreahblite_masterstage.v}
+read_verilog -mode system_verilog -lib COREAHBLITE_LIB {/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core/coreahblite_matrix4x16.v}
+read_verilog -mode system_verilog -lib COREAHBLITE_LIB {/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core/coreahblite.v}
 read_verilog -mode system_verilog {/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/work/Filterwheel_sb/Filterwheel_sb.v}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/Filterwheel/fpga/BuildNumber.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd}

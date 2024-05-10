@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Wed Apr 24 15:29:12 2024
+// Created by SmartDesign Fri May 10 14:53:10 2024
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -84,71 +84,76 @@ inout  Ux1SelJmp;
 //--------------------------------------------------------------------
 // Nets
 //--------------------------------------------------------------------
-wire          CLK0_PAD;
-wire          DEVRST_N;
-wire          FCCC_C0_0_GL0;
-wire          FCCC_C0_0_GL1;
-wire   [9:0]  Filterwheel_sb_0_AMBA_SLAVE_0_HADDR_S09to0;
-wire          Filterwheel_sb_0_AMBA_SLAVE_0_HREADY_S0;
-wire          Filterwheel_sb_0_AMBA_SLAVE_0_HSEL_S0;
-wire          Filterwheel_sb_0_AMBA_SLAVE_0_HWRITE_S0;
-wire          MotorDriveAMinus_net_0;
-wire          MotorDriveAMinusPrime_net_0;
-wire          MotorDriveAPlus_net_0;
-wire          MotorDriveAPlusPrime_net_0;
-wire          MotorDriveBMinus_net_0;
-wire          MotorDriveBMinusPrime_net_0;
-wire          MotorDriveBPlus_net_0;
-wire          MotorDriveBPlusPrime_net_0;
-wire   [15:0] net_0;
-wire          Oe0_net_0;
-wire          Oe1_net_0;
-wire          Oe2_net_0;
-wire          PosLEDEnA_net_0;
-wire          PosLEDEnB_net_0;
-wire          PosSenseBit0A;
-wire          PosSenseBit0B;
-wire          PosSenseBit1A;
-wire          PosSenseBit1B;
-wire          PosSenseBit2A;
-wire          PosSenseBit2B;
-wire          PosSenseHomeA;
-wire          PosSenseHomeB;
-wire          Rxd0;
-wire          Rxd1;
-wire          Rxd2;
-wire          Txd0_net_0;
-wire          Txd1_net_0;
-wire          Txd2_net_0;
-wire          Ux1SelJmp;
-wire          PosLEDEnA_net_1;
-wire          PosLEDEnB_net_1;
-wire          MotorDriveAPlus_net_1;
-wire          MotorDriveAMinus_net_1;
-wire          MotorDriveBPlus_net_1;
-wire          MotorDriveBMinus_net_1;
-wire          MotorDriveAPlusPrime_net_1;
-wire          MotorDriveAMinusPrime_net_1;
-wire          MotorDriveBPlusPrime_net_1;
-wire          MotorDriveBMinusPrime_net_1;
-wire          Txd0_net_1;
-wire          Txd1_net_1;
-wire          Txd2_net_1;
-wire          Oe0_net_1;
-wire          Oe1_net_1;
-wire          Oe2_net_1;
-wire   [31:0] AMBA_SLAVE_0_HRDATA_S0_net_0;
-wire   [31:0] AMBA_SLAVE_0_HADDR_S0_net_0;
+wire           CLK0_PAD;
+wire           DEVRST_N;
+wire           FCCC_C0_0_GL0;
+wire           FCCC_C0_0_GL1;
+wire   [9:0]   Filterwheel_sb_0_AMBA_SLAVE_0_HADDR_S09to0;
+wire           Filterwheel_sb_0_AMBA_SLAVE_0_HREADY_S0;
+wire           Filterwheel_sb_0_AMBA_SLAVE_0_HSEL_S0;
+wire           Filterwheel_sb_0_AMBA_SLAVE_0_HWRITE_S0;
+wire           MotorDriveAMinus_net_0;
+wire           MotorDriveAMinusPrime_net_0;
+wire           MotorDriveAPlus_net_0;
+wire           MotorDriveAPlusPrime_net_0;
+wire           MotorDriveBMinus_net_0;
+wire           MotorDriveBMinusPrime_net_0;
+wire           MotorDriveBPlus_net_0;
+wire           MotorDriveBPlusPrime_net_0;
+wire   [15:0]  net_0;
+wire           Oe0_net_0;
+wire           Oe1_net_0;
+wire           Oe2_net_0;
+wire           PosLEDEnA_net_0;
+wire           PosLEDEnB_net_0;
+wire           PosSenseBit0A;
+wire           PosSenseBit0B;
+wire           PosSenseBit1A;
+wire           PosSenseBit1B;
+wire           PosSenseBit2A;
+wire           PosSenseBit2B;
+wire           PosSenseHomeA;
+wire           PosSenseHomeB;
+wire           Rxd0;
+wire           Rxd1;
+wire           Rxd2;
+wire           Txd0_net_0;
+wire           Txd1_net_0;
+wire           Txd2_net_0;
+wire           Ux1SelJmp;
+wire           PosLEDEnA_net_1;
+wire           PosLEDEnB_net_1;
+wire           MotorDriveAPlus_net_1;
+wire           MotorDriveAMinus_net_1;
+wire           MotorDriveBPlus_net_1;
+wire           MotorDriveBMinus_net_1;
+wire           MotorDriveAPlusPrime_net_1;
+wire           MotorDriveAMinusPrime_net_1;
+wire           MotorDriveBPlusPrime_net_1;
+wire           MotorDriveBMinusPrime_net_1;
+wire           Txd0_net_1;
+wire           Txd1_net_1;
+wire           Txd2_net_1;
+wire           Oe0_net_1;
+wire           Oe1_net_1;
+wire           Oe2_net_1;
+wire   [31:10] AMBA_SLAVE_0_HADDR_S0_slice_0;
+wire   [31:0]  AMBA_SLAVE_0_HRDATA_S0_net_0;
+wire   [31:0]  AMBA_SLAVE_0_HADDR_S0_net_0;
 //--------------------------------------------------------------------
 // TiedOff Nets
 //--------------------------------------------------------------------
-wire          VCC_net;
-wire   [1:0]  AMBA_SLAVE_0_HRESP_S0_const_net_0;
+wire           GND_net;
+wire   [31:16] AMBA_SLAVE_0_HRDATA_S0_const_net_0;
+wire           VCC_net;
+wire   [1:0]   AMBA_SLAVE_0_HRESP_S0_const_net_0;
 //--------------------------------------------------------------------
 // Constant assignments
 //--------------------------------------------------------------------
-assign VCC_net                           = 1'b1;
-assign AMBA_SLAVE_0_HRESP_S0_const_net_0 = 2'h0;
+assign GND_net                            = 1'b0;
+assign AMBA_SLAVE_0_HRDATA_S0_const_net_0 = 16'h0000;
+assign VCC_net                            = 1'b1;
+assign AMBA_SLAVE_0_HRESP_S0_const_net_0  = 2'h0;
 //--------------------------------------------------------------------
 // Top level output port assignments
 //--------------------------------------------------------------------
@@ -188,6 +193,11 @@ assign Oe2                         = Oe2_net_1;
 // Slices assignments
 //--------------------------------------------------------------------
 assign Filterwheel_sb_0_AMBA_SLAVE_0_HADDR_S09to0 = AMBA_SLAVE_0_HADDR_S0_net_0[9:0];
+assign AMBA_SLAVE_0_HADDR_S0_slice_0              = AMBA_SLAVE_0_HADDR_S0_net_0[31:10];
+//--------------------------------------------------------------------
+// Concatenation assignments
+//--------------------------------------------------------------------
+assign AMBA_SLAVE_0_HRDATA_S0_net_0 = { 16'h0000 , net_0 };
 //--------------------------------------------------------------------
 // Component instances
 //--------------------------------------------------------------------
@@ -205,7 +215,7 @@ FCCC_C0 FCCC_C0_0(
 Filterwheel_sb Filterwheel_sb_0(
         // Inputs
         .FAB_RESET_N               ( VCC_net ), // tied to 1'b1 from definition
-        .AMBA_SLAVE_0_HREADYOUT_S0 ( VCC_net ), // tied to 1'b1 from definition
+        .AMBA_SLAVE_0_HREADYOUT_S0 ( GND_net ),
         .DEVRST_N                  ( DEVRST_N ),
         .CLK0                      ( FCCC_C0_0_GL0 ),
         .AMBA_SLAVE_0_HRDATA_S0    ( AMBA_SLAVE_0_HRDATA_S0_net_0 ),
@@ -240,13 +250,13 @@ Main Main_0(
         .PosSenseBit0B         ( PosSenseBit0B ),
         .PosSenseBit1B         ( PosSenseBit1B ),
         .PosSenseBit2B         ( PosSenseBit2B ),
-        .RamBusAddress         ( Filterwheel_sb_0_AMBA_SLAVE_0_HADDR_S09to0 ),
         .RamBusnCs             ( Filterwheel_sb_0_AMBA_SLAVE_0_HSEL_S0 ),
         .RamBusWE              ( Filterwheel_sb_0_AMBA_SLAVE_0_HWRITE_S0 ),
         .RamBusOE              ( Filterwheel_sb_0_AMBA_SLAVE_0_HREADY_S0 ),
         .Rxd0                  ( Rxd0 ),
         .Rxd1                  ( Rxd1 ),
         .Rxd2                  ( Rxd2 ),
+        .RamBusAddress         ( Filterwheel_sb_0_AMBA_SLAVE_0_HADDR_S09to0 ),
         // Outputs
         .PosLEDEnA             ( PosLEDEnA_net_0 ),
         .PosLEDEnB             ( PosLEDEnB_net_0 ),
@@ -265,8 +275,8 @@ Main Main_0(
         .Txd2                  ( Txd2_net_0 ),
         .Oe2                   ( Oe2_net_0 ),
         // Inouts
-        .RamBusData            ( net_0 ),
-        .Ux1SelJmp             ( Ux1SelJmp ) 
+        .Ux1SelJmp             ( Ux1SelJmp ),
+        .RamBusData            ( net_0 ) 
         );
 
 

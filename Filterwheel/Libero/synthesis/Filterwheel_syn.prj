@@ -1,7 +1,7 @@
 #--  Synopsys, Inc.
 #--  Version T-2022.09M-SP2-1
 #--  Project file /home/summer/projects/CGraph/firmware/Filterwheel/Libero/synthesis/Filterwheel_syn.prj
-#--  Written on Wed Apr 24 15:33:40 2024
+#--  Written on Fri May 10 15:08:30 2024
 
 
 #project files
@@ -14,13 +14,13 @@ add_file -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/comp
 add_file -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS.v"
 add_file -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp_pcie_hotreset.v"
 add_file -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v"
-add_file -verilog -lib COREAHBLITE_LIB "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite_slavearbiter.v"
-add_file -verilog -lib COREAHBLITE_LIB "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite_slavestage.v"
-add_file -verilog -lib COREAHBLITE_LIB "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite_defaultslavesm.v"
-add_file -verilog -lib COREAHBLITE_LIB "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite_addrdec.v"
-add_file -verilog -lib COREAHBLITE_LIB "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite_masterstage.v"
-add_file -verilog -lib COREAHBLITE_LIB "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite_matrix4x16.v"
-add_file -verilog -lib COREAHBLITE_LIB "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core_obfuscated/coreahblite.v"
+add_file -verilog -lib COREAHBLITE_LIB "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core/coreahblite_slavearbiter.v"
+add_file -verilog -lib COREAHBLITE_LIB "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core/coreahblite_slavestage.v"
+add_file -verilog -lib COREAHBLITE_LIB "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core/coreahblite_defaultslavesm.v"
+add_file -verilog -lib COREAHBLITE_LIB "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core/coreahblite_addrdec.v"
+add_file -verilog -lib COREAHBLITE_LIB "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core/coreahblite_masterstage.v"
+add_file -verilog -lib COREAHBLITE_LIB "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core/coreahblite_matrix4x16.v"
+add_file -verilog -lib COREAHBLITE_LIB "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/Actel/DirectCore/CoreAHBLite/5.2.100/rtl/vlog/core/coreahblite.v"
 add_file -verilog "/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/work/Filterwheel_sb/Filterwheel_sb.v"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/Filterwheel/fpga/BuildNumber.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd"
