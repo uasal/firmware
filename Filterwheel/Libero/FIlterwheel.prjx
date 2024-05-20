@@ -1324,8 +1324,13 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
+Reports;Reports;0
+ReportsCurrentItem;Run Programming Action:Filterwheel_PROGRAM.log
+HDL;component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS_syn.v;0
+Constraint Manager;Constraint Manager;0
+SmartDesign;Filterwheel;0
 StartPage;StartPage;0
-ACTIVEVIEW;StartPage
+ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","/home/summer/projects/CGraph/firmware/include/fpga/ads1258.vhd","FALSE","FALSE"
