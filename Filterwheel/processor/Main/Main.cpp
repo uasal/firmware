@@ -2,6 +2,19 @@
 #include <string.h>
 #include <stdio.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+  
+#include "hal/hal.h"
+#include "hal/hal_assert.h"
+#include "Filterwheel_hw_platform.h"
+
+#ifdef __cplusplus
+}
+#endif
+
+
 #include "Delay.h"
 
 #include "cgraph/CGraphFWHardwareInterface.hpp"
@@ -11,6 +24,8 @@
 #include "uart/BinaryUart.hpp"
 
 #include "FlightComms.hpp"
+
+
 
 FPGABinaryUartCallbacks PacketCallbacks;
 CGraphPacket FPGAUartProtocol;
@@ -102,14 +117,16 @@ bool Process()
 
 int main(int argc, char *argv[])
 {
+	uint16_t i = 0;
+	
     //Tell C lib (stdio.h) not to buffer output, so we can ditch all the fflush(stdout) calls...
-    setvbuf(stdout, NULL, _IONBF, 0);
+    //~ setvbuf(stdout, NULL, _IONBF, 0);
 
     //~ if (argc > 2)
 
     //printf("Welcome to FW v%s.b%s.\n", GITVERSION, BUILDNUM);
 
-	printf("\n\nFW: Welcome...");
+	//~ printf("\n\nFW: Welcome...");
     
     extern unsigned long __vector_table_start;
     extern unsigned long _evector_table;
@@ -129,38 +146,38 @@ int main(int argc, char *argv[])
     register char * stack_ptr asm ("sp");
     
 	
-	formatf("\nBuild parameters: \n");
-    formatf("__vector_table_start: 0x%.8lX\n", (uint32_t)__vector_table_start);
-    formatf("_evector_table: 0x%.8lX\n", (uint32_t)_evector_table);
-    formatf("__text_start: 0x%.8lX\n", (uint32_t)__text_start);
-    formatf("_etext: 0x%.8lX\n", (uint32_t)_etext);
-    formatf("__exidx_start: 0x%.8lX\n", (uint32_t)__exidx_start);
-    formatf("__exidx_end: 0x%.8lX\n", (uint32_t)__exidx_end);
-    formatf("__data_start: 0x%.8lX\n", (uint32_t)__data_start);
-    formatf("_edata: 0x%.8lX\n", (uint32_t)_edata);
-    formatf("__bss_start__: 0x%.8lX\n", (uint32_t)__bss_start__);
-    formatf("_ebss: 0x%.8lX\n", (uint32_t)_ebss);
-    formatf("__heap_start__: 0x%.8lX\n", (uint32_t)__heap_start__);
-    formatf("_eheap: 0x%.8lX\n", (uint32_t)_eheap);
-    formatf("__stack_start__: 0x%.8lX\n", (uint32_t)__stack_start__);
-    formatf("_estack: 0x%.8lX\n", (uint32_t)_estack);
-    formatf("stack pointer: 0x%.8lX\n", (uint32_t)stack_ptr);
-    formatf("_end: 0x%.8lX\n", (uint32_t)_end);
-    formatf("\n\n");
+	//~ formatf("\nBuild parameters: \n");
+    //~ formatf("__vector_table_start: 0x%.8lX\n", (uint32_t)__vector_table_start);
+    //~ formatf("_evector_table: 0x%.8lX\n", (uint32_t)_evector_table);
+    //~ formatf("__text_start: 0x%.8lX\n", (uint32_t)__text_start);
+    //~ formatf("_etext: 0x%.8lX\n", (uint32_t)_etext);
+    //~ formatf("__exidx_start: 0x%.8lX\n", (uint32_t)__exidx_start);
+    //~ formatf("__exidx_end: 0x%.8lX\n", (uint32_t)__exidx_end);
+    //~ formatf("__data_start: 0x%.8lX\n", (uint32_t)__data_start);
+    //~ formatf("_edata: 0x%.8lX\n", (uint32_t)_edata);
+    //~ formatf("__bss_start__: 0x%.8lX\n", (uint32_t)__bss_start__);
+    //~ formatf("_ebss: 0x%.8lX\n", (uint32_t)_ebss);
+    //~ formatf("__heap_start__: 0x%.8lX\n", (uint32_t)__heap_start__);
+    //~ formatf("_eheap: 0x%.8lX\n", (uint32_t)_eheap);
+    //~ formatf("__stack_start__: 0x%.8lX\n", (uint32_t)__stack_start__);
+    //~ formatf("_estack: 0x%.8lX\n", (uint32_t)_estack);
+    //~ formatf("stack pointer: 0x%.8lX\n", (uint32_t)stack_ptr);
+    //~ formatf("_end: 0x%.8lX\n", (uint32_t)_end);
+    //~ formatf("\n\n");
 
 
-	printf("\n\nFW: Start User Interface...");    
+	//~ printf("\n\nFW: Start User Interface...");    
 	
     //~ GlobalRestore();
 
-    printf("\nFW: Ready.\n");
+    //~ printf("\nFW: Ready.\n");
 	
     while(true)
     {
 		bool Bored = true;
 		
 		//Handle stdio (local) user interface:
-        if (Process())
+        //~ if (Process())
         {
             Bored = false;
         }
@@ -192,15 +209,20 @@ int main(int argc, char *argv[])
 			//~ FpgaUart.Process();
 		//~ }
 		
-		if (FpgaUartParser2.Process()) { Bored = false; }
-		if (FpgaUartParser1.Process()) { Bored = false; }
+		//~ if (FpgaUartParser2.Process()) { Bored = false; }
+		//~ if (FpgaUartParser1.Process()) { Bored = false; }
 		//~ if (FpgaUartParser0.Process()) { Bored = false; }
 		
         //give up our timeslice so as not to bog the system:
-        if (Bored)
-        {
-            delayms(100);
-        }
+        //~ if (Bored)
+        //~ {
+            //~ delayms(100);
+        //~ }
+		
+		delayms(1);
+        i++;
+		//~ FW->MotorControlStatus.SeekStep = i;
+        HW_set_32bit_reg(FILTERWHEEL_SB_0, i); // send all 32 bits and FPGA bus will truncate it
     }
 
     return(0);

@@ -1336,9 +1336,6 @@ begin
 	Oe1 <= '1';
 	Oe2 <= '1';
 	
-	--This is just to excercise the thing so it stays in the design...
-	Ux1SelJmp <= '1' when ( (Rxd1 = '1') and (Rxd2 = '0') ) else '0' when ( (Rxd1 = '0') and (Rxd2 = '1') ) else 'Z';
-	
 	--First, the _really_ boring loopback (hardware)
 	--~ Txd0 <= Rxd0;
 	
@@ -1894,6 +1891,16 @@ begin
 	MotorDriveBPlusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorBPlus_i = '1') ) else PushPullGround;
 	MotorDriveBMinusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorBMinus_i = '1') ) else PushPullGround;
 	
+	----------------------------- DEBUG IDEAS ----------------------------------
+	
+	Ux1SelJmp <= RamBusData(0);
+	
+	--~ Ux1SelJmp <= MotorSeekStep(0);
+	
+	--~ Ux1SelJmp <= '1' when ( (Rxd1 = '1') and (Rxd2 = '0') ) else '0' when ( (Rxd1 = '0') and (Rxd2 = '1') ) else 'Z';
+	
+	--~ Ux1SelJmp <= MasterClk;
+		
 	----------------------------- Clocked Logic / Main Loop ----------------------------------
 	
 	process(MasterClk)

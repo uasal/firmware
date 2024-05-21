@@ -11,7 +11,7 @@
     <hdl-type>Verilog</hdl-type>
     <project-description>Filterwheel firmware.</project-description>
     <location>/home/summer/projects/CGraph/firmware/Filterwheel/Libero/component/work/Filterwheel</location>
-    <state>GENERATED ( Fri May 10 11:42:55 2024 )</state>
+    <state>GENERATED ( Tue May 21 11:33:50 2024 )</state>
     <swide-toolchain>SoftConsole workspace generated to /home/summer/projects/CGraph/firmware/Filterwheel/Libero/SoftConsole</swide-toolchain>
   </project-settings>
   <site-map>
@@ -96,9 +96,9 @@
           <fullPinName>
           </fullPinName>
           <remapAddress>0x6000_0000</remapAddress>
-          <fullAddressSpace>0x6000_0000 - 0x6003_F7FF</fullAddressSpace>
-          <range>0x3_F800</range>
-          <Size>254KB</Size>
+          <fullAddressSpace>0x6000_0000 - 0x6001_47FF</fullAddressSpace>
+          <range>0x1_4800</range>
+          <Size>82KB</Size>
         </slave>
         <slave>
           <name>Filterwheel_sb_0:AMBA_SLAVE_0</name>
