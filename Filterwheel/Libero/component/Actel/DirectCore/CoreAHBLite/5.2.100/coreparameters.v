@@ -1,5 +1,9 @@
 //--------------------------------------------------------------------
+<<<<<<< HEAD
+// Created by Microsemi SmartDesign Wed May 22 15:44:46 2024
+=======
 // Created by Microsemi SmartDesign Tue May 21 10:28:02 2024
+>>>>>>> a6269713c3833a90251be79c01c65b0f50301aca
 // Parameters for CoreAHBLite
 //--------------------------------------------------------------------
 

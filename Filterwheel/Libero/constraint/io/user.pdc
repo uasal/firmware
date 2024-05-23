@@ -34,6 +34,15 @@ set_io CLK0_PAD            \
     -iostd LVCMOS33   \
     -DIRECTION INPUT
 
+## System
+
+set_io DEVRST_N       \
+    -pinname M11      \
+    -DIRECTION INPUT
+
+set_io INIT_DONE       \
+    -pinname J16      \
+    -DIRECTION OUTPUT
 
 
 ## J-Dbg1
@@ -222,7 +231,19 @@ set_io Rxd2    \
     -fixed yes        \
     -DIRECTION INPUT
 
-		
+
+#RxdUsb
+set_io RxdUsb    \
+    -pinname H3      \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+#TxdUsb
+set_io TxdUsb    \
+    -pinname N10      \
+    -fixed yes        \
+    -DIRECTION OUTPUT
+
 		
 #Ux1SelJmp
 	set_io Ux1SelJmp    \

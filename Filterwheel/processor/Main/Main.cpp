@@ -25,6 +25,19 @@ extern "C" {
 
 #include "FlightComms.hpp"
 
+#include "uart/CoreUARTapb/core_uart_apb.h"
+#define COREUARTAPB_C0_0                0x40000000U
+#define BAUD_VALUE_9600       650
+#define BAUD_VALUE_115200     54 // Should be 54.3385
+#define BAUD_VALUE_256000     24 // Should be 23.90
+#define BAUD_VALUE_460800     12 // Should be 12.56
+#define BAUD_VALUE_576000     10 // should be 9.85 (100MHz clk_in)
+#define BAUD_VALUE_921600      6 // should be 5.78 (100MHz clk_in)
+#define MAX_RX_DATA_SIZE    128
+UART_instance_t my_uart;
+uint8_t rx_data[MAX_RX_DATA_SIZE];
+uint8_t rx_size = 0;
+uint8_t rx_err_status;
 
 
 FPGABinaryUartCallbacks PacketCallbacks;
@@ -79,7 +92,27 @@ extern "C"
 
 extern "C"
 {
-	int stdio_hook_putc(int c) { FPGAUartPinout0.putcqq(c); return(c); }
+	int stdio_hook_putc(int c) 
+	{ 
+		//~ FPGAUartPinout0.putcqq(c); return(c); 
+		uint8_t rx_buf[128];
+		
+		rx_err_status = UART_get_rx_status(&my_uart);
+		if ((UART_APB_NO_ERROR == rx_err_status))
+		{
+		  char c = '\0';   // what does this do for us?
+		  rx_size = UART_get_rx(&my_uart, rx_buf, 1);  // Get 1 byte
+		  c = *rx_buf;
+		  if (MonitorSerial1) { printf("!%.2x",c); }
+		  //return(rx_buf[0]);
+		  return((char)(c));
+		}
+		else {
+		  //      uint8_t msg[] = {"UWVeryLooooooongMessage"};
+		  //      UART_polled_tx_string(&my_uart,(const uint8_t *)&msg);
+		  return(false);
+		}
+	}
 };
 
 extern "C"
@@ -124,10 +157,8 @@ int main(int argc, char *argv[])
 
     //~ if (argc > 2)
 
-    //printf("Welcome to FW v%s.b%s.\n", GITVERSION, BUILDNUM);
+    //~ //printf("Welcome to FW v%s.b%s.\n", GITVERSION, BUILDNUM);
 
-	//~ printf("\n\nFW: Welcome...");
-    
     extern unsigned long __vector_table_start;
     extern unsigned long _evector_table;
     extern unsigned long __text_start;
@@ -165,7 +196,12 @@ int main(int argc, char *argv[])
     //~ formatf("_end: 0x%.8lX\n", (uint32_t)_end);
     //~ formatf("\n\n");
 
+	UART_init(&my_uart, COREUARTAPB_C0_0, BAUD_VALUE_115200, (DATA_8_BITS | NO_PARITY));
+	UART_polled_tx_string(&my_uart,(const uint8_t*)"\nFW: GO --->"); // getting here?
 
+
+	printf("\n\nFW: Welcome...");
+    
 	//~ printf("\n\nFW: Start User Interface...");    
 	
     //~ GlobalRestore();
@@ -218,10 +254,9 @@ int main(int argc, char *argv[])
         //~ {
             //~ delayms(100);
         //~ }
-		
 		delayms(1);
-        i++;
-		//~ FW->MotorControlStatus.SeekStep = i;
+		i++;
+		FW->MotorControlStatus.SeekStep = i;
         HW_set_32bit_reg(FILTERWHEEL_SB_0, i); // send all 32 bits and FPGA bus will truncate it
     }
 

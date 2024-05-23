@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------
-// Created by Microsemi SmartDesign Tue Apr 23 15:48:32 2024
+// Created by Microsemi SmartDesign Wed May 22 15:36:35 2024
 // Parameters for COREAHBLSRAM
 //--------------------------------------------------------------------
 
@@ -10,5 +10,5 @@ parameter FAMILY = 19;
 parameter HDL_License = "O";
 parameter LSRAM_NUM_LOCATIONS_DWIDTH32 = 2048;
 parameter SEL_SRAM_TYPE = 0;
-parameter Testbench = "User";
+parameter Testbench = "None";
 parameter USRAM_NUM_LOCATIONS_DWIDTH32 = 512;

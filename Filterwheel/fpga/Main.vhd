@@ -38,7 +38,8 @@ port (
 	
 	--uC Ram Bus 
 	RamBusAddress : in std_logic_vector(9 downto 0); 
-	RamBusData : inout std_logic_vector(15 downto 0);
+	RamBusDataIn : in std_logic_vector(15 downto 0);
+	RamBusDataOut : out std_logic_vector(15 downto 0);
 	RamBusnCs : in std_logic;
 	RamBusWE : in std_logic;
 	RamBusOE : in std_logic;
@@ -1104,14 +1105,27 @@ begin
 		
 		GenRamDataBus: for i in 0 to 15 generate
 		begin
-		IOBUF_RamData_i : IOBufP2Ports
-		port map (
-			clk => MasterClk,
-			IO => RamBusData(i),
-			T => not(nTristateRamDataPins),
-			I => RamDataOut(i),
-			O => RamDataIn(i)--,
-		);
+		
+		--~ IOBUF_RamData_i : IOBufP2Ports
+		--~ port map (
+			--~ clk => MasterClk,
+			--~ IO => RamBusData(i),
+			--~ T => not(nTristateRamDataPins),
+			--~ I => RamDataOut(i),
+			--~ O => RamDataIn(i)--,
+		--~ );
+		
+			IBUF_RamData_i : IBufP1Ports
+			port map (
+				clk => MasterClk,
+				I => RamBusDataIn(i),
+				O => RamDataIn(i)--,
+			);
+			
+			RamBusDataOut(i) <= RamDataOut(i);
+			
+			--~ RamBusData_ena(i) <= not(nTristateRamDataPins);
+					
 		end generate;
 		
 	--devmem2 0x021B8010 w 0x3F000FE0 for max wait states on arm, write is taking 400ns / word, 1us / 32b
@@ -1336,6 +1350,9 @@ begin
 	Oe1 <= '1';
 	Oe2 <= '1';
 	
+	--This is just to excercise the thing so it stays in the design...
+	--~ Ux1SelJmp <= '1' when ( (Rxd1 = '1') and (Rxd2 = '0') ) else '0' when ( (Rxd1 = '0') and (Rxd2 = '1') ) else 'Z';
+
 	--First, the _really_ boring loopback (hardware)
 	--~ Txd0 <= Rxd0;
 	
@@ -1893,7 +1910,7 @@ begin
 	
 	----------------------------- DEBUG IDEAS ----------------------------------
 	
-	Ux1SelJmp <= RamBusData(0);
+	Ux1SelJmp <= RamBusDataIn(0);
 	
 	--~ Ux1SelJmp <= MotorSeekStep(0);
 	
