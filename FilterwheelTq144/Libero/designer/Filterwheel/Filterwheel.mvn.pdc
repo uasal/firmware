@@ -1,0 +1,38 @@
+# Microchip Physical design constraints file
+
+# Version: 2023.2 2023.2.0.10
+
+# Design Name:  
+
+# Input Netlist Format: EDIF 
+
+# Family: SmartFusion2 , Die: M2S010 , Package: 144 TQ , Speed grade: STD 
+
+# Date generated: Thu May 23 17:29:52 2024 
+
+
+#
+# IO banks setting
+#
+
+
+#
+# Local clock constraints
+#
+
+
+#
+# Region constraints
+#
+
+
+#
+# I/O constraints
+#
+
+set_io DEVRST_N -DIRECTION INPUT -pinname 72
+
+#
+# Core cell constraints
+#
+

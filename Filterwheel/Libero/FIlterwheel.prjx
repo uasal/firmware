@@ -854,12 +854,12 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/Filterwheel/Filterwheel.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482488"
+TIME="1716485744"
 SIZE="7137"
 ENDFILE
 VALUE "<project>/component/work/Filterwheel/Filterwheel.v,hdl"
 STATE="utd"
-TIME="1716482487"
+TIME="1716485743"
 SIZE="11259"
 PARENT="<project>/component/work/Filterwheel/Filterwheel.cxf"
 IS_READONLY="TRUE"
@@ -967,27 +967,27 @@ PARENT="<project>/component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/simulation/coreahblite_usertb_ahb_master0.bfm,sim"
 STATE="utd"
-TIME="1716482036"
+TIME="1716482054"
 SIZE="25179"
 ENDFILE
 VALUE "<project>/simulation/coreahblite_usertb_ahb_master1.bfm,sim"
 STATE="utd"
-TIME="1716482036"
+TIME="1716482054"
 SIZE="6016"
 ENDFILE
 VALUE "<project>/simulation/coreahblite_usertb_ahb_master2.bfm,sim"
 STATE="utd"
-TIME="1716482036"
+TIME="1716482054"
 SIZE="6016"
 ENDFILE
 VALUE "<project>/simulation/coreahblite_usertb_ahb_master3.bfm,sim"
 STATE="utd"
-TIME="1716482036"
+TIME="1716482054"
 SIZE="6016"
 ENDFILE
 VALUE "<project>/simulation/coreahblite_usertb_include.bfm,sim"
 STATE="utd"
-TIME="1716482036"
+TIME="1716482054"
 SIZE="11816"
 ENDFILE
 VALUE "<project>/simulation/coreapb3_usertb_master.bfm,sim"
@@ -1004,8 +1004,8 @@ PARENT="<project>/component/Actel/SmartFusion2MSS/MSS/1.1.500/MSS.cxf"
 ENDFILE
 VALUE "<project>/simulation/subsystem.bfm,sim"
 STATE="utd"
-TIME="1716417396"
-SIZE="618"
+TIME="1716485743"
+SIZE="773"
 PARENT="<project>/component/work/Filterwheel/Filterwheel.cxf"
 PARENT="<project>/component/work/Filterwheel_sb/Filterwheel_sb.cxf"
 ENDFILE
@@ -1023,23 +1023,18 @@ PARENT="<project>/component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel.so,so"
 STATE="utd"
-TIME="1716413440"
+TIME="1716485766"
 SIZE="247"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel_syn.prj,prj"
 STATE="utd"
-TIME="1716413440"
-SIZE="7103"
+TIME="1716485767"
+SIZE="6333"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel_vm.sdc,syn_sdc"
 STATE="utd"
-TIME="1716413439"
-SIZE="4517"
-ENDFILE
-VALUE "<project>/synthesis/synwork/layer0.so,so"
-STATE="utd"
-TIME="1716482624"
-SIZE="154"
+TIME="1716485766"
+SIZE="4637"
 ENDFILE
 ENDLIST
 LIST UsedFile
@@ -1054,12 +1049,96 @@ LIST PNRConstraints
 VALUE "<project>/constraint/io/user.pdc,io_pdc"
 ENDLIST
 ENDLIST
+LIST "Filterwheel_sb::work"
+FILE "<project>/component/work/Filterwheel_sb/Filterwheel_sb.v,hdl"
+LIST Other_Association
+VALUE "<project>/simulation/subsystem.bfm,sim"
+VALUE "<project>/simulation/bfmtovec_compile.tcl,sim"
+VALUE "<project>/simulation/coreapb3_usertb_master.bfm,sim"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/coreparameters.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_main.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_ahbtoapb.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apb.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apbslaveext.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apbslave.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/test/user/testbench.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/mti/scripts/wave_user.do,do"
 ENDLIST
 LIST AssociatedStimulus
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/coreparameters.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_main.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_ahbtoapb.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apb.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apbslaveext.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apbslave.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/test/user/testbench.v,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+LIST "Filterwheel_sb_MSS::work"
+FILE "<project>/component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS.v,hdl"
+LIST Other_Association
+VALUE "<project>/simulation/CM3_compile_bfm.tcl,sim"
+VALUE "<project>/simulation/user.bfm,sim"
+VALUE "<project>/simulation/test.bfm,sim"
+VALUE "<project>/simulation/peripheral_init.bfm,sim"
+ENDLIST
+ENDLIST
+ENDLIST
+LIST AssociatedStimulus
+LIST Filterwheel_sb
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/coreparameters.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_main.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_ahbtoapb.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apb.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apbslaveext.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apbslave.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/test/user/testbench.v,tb_hdl"
+ENDLIST
 ENDLIST
 LIST Other_Association
 LIST Filterwheel
 VALUE "<project>/simulation/subsystem.bfm,sim"
+ENDLIST
+LIST Filterwheel_sb
+VALUE "<project>/simulation/subsystem.bfm,sim"
+VALUE "<project>/simulation/bfmtovec_compile.tcl,sim"
+VALUE "<project>/simulation/coreapb3_usertb_master.bfm,sim"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/coreparameters.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_main.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_ahbtoapb.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apb.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apbslaveext.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apbslave.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/test/user/testbench.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/mti/scripts/wave_user.do,do"
+ENDLIST
+LIST Filterwheel_sb_MSS
+VALUE "<project>/simulation/CM3_compile_bfm.tcl,sim"
+VALUE "<project>/simulation/user.bfm,sim"
+VALUE "<project>/simulation/test.bfm,sim"
+VALUE "<project>/simulation/peripheral_init.bfm,sim"
 ENDLIST
 ENDLIST
 LIST SimulationOptions
@@ -1155,6 +1234,28 @@ IS32BIT="1"
 EndProfile
 ENDLIST
 LIST ProjectState5.1
+LIST "Filterwheel_sb::work"
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
 ENDLIST
 LIST ExcludePackageForSimulation
 ENDLIST
@@ -1168,10 +1269,11 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
+SmartDesign;Filterwheel;0
 Reports;Reports;0
-ReportsCurrentItem;synthesis:synplify.log
-HDL;/home/summer/projects/CGraph/firmware/Filterwheel/fpga/Main.vhd;0
-ACTIVEVIEW;Filterwheel
+ReportsCurrentItem;Generate Bitstream:Filterwheel_generateBitstream.log
+StartPage;StartPage;0
+ACTIVEVIEW;StartPage
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","/home/summer/projects/CGraph/firmware/include/fpga/ads1258.vhd","FALSE","FALSE"
@@ -1186,14 +1288,12 @@ SUBBLOCK "SpiMasterPorts::work","/home/summer/projects/CGraph/firmware/include/f
 ENDLIST
 LIST "BuildNumberPorts::work","/home/summer/projects/CGraph/firmware/Filterwheel/fpga/BuildNumber.vhd","FALSE","FALSE"
 ENDLIST
-LIST "DESIGN_FIRMWARE::work","component/work/DESIGN_FIRMWARE/DESIGN_FIRMWARE.cxf","TRUE","FALSE"
-SUBBLOCK "SmartFusion2_CMSIS::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
+LIST "coreresetp_pcie_hotreset::work","component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp_pcie_hotreset.v","FALSE","FALSE"
 ENDLIST
 LIST "ClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd","FALSE","FALSE"
+ENDLIST
+LIST "CoreResetP::work","component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v","FALSE","FALSE"
+SUBBLOCK "coreresetp_pcie_hotreset::work","component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp_pcie_hotreset.v","FALSE","FALSE"
 ENDLIST
 LIST "fifo::work","/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd","FALSE","FALSE"
 ENDLIST
@@ -1203,6 +1303,8 @@ SUBBLOCK "OneShotPorts::work","/home/summer/projects/CGraph/firmware/include/fpg
 ENDLIST
 LIST "gated_fifo::work","/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd","FALSE","FALSE"
 SUBBLOCK "fifo::work","/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd","FALSE","FALSE"
+ENDLIST
+LIST "MSS_025::work","component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS_syn.v","FALSE","FALSE"
 ENDLIST
 LIST "OneShotPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd","FALSE","FALSE"
 ENDLIST
@@ -1248,40 +1350,24 @@ SUBBLOCK "fifo::work","/home/summer/projects/CGraph/firmware/include/fpga/fifo_g
 ENDLIST
 LIST "Filterwheel::work","component/work/Filterwheel/Filterwheel.v","TRUE","FALSE"
 SUBBLOCK "FCCC_C0::work","component/work/FCCC_C0/FCCC_C0.v","TRUE","FALSE"
+SUBBLOCK "Filterwheel_sb::work","component/work/Filterwheel_sb/Filterwheel_sb.v","TRUE","FALSE"
 SUBBLOCK "Main::work","/home/summer/projects/CGraph/firmware/Filterwheel/fpga/Main.vhd","FALSE","FALSE"
-SUBBLOCK "Filterwheel_sb::work","component/work/Filterwheel_sb/Filterwheel_sb.cxf","TRUE","FALSE"
 ENDLIST
-LIST "Filterwheel_sb::work","component/work/Filterwheel_sb/Filterwheel_sb.cxf","TRUE","FALSE"
-SUBBLOCK "CoreAPB3::work","","FALSE","FALSE"
-SUBBLOCK "CoreResetP::work","","FALSE","FALSE"
-SUBBLOCK "FCCC::work","","FALSE","FALSE"
-SUBBLOCK "OSC::work","","FALSE","FALSE"
-SUBBLOCK "Filterwheel_sb_MSS::work","component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS.cxf","TRUE","FALSE"
+LIST "Filterwheel_sb::work","component/work/Filterwheel_sb/Filterwheel_sb.v","TRUE","FALSE"
+SUBBLOCK "Filterwheel_sb_CCC_0_FCCC::work","component/work/Filterwheel_sb/CCC_0/Filterwheel_sb_CCC_0_FCCC.v","FALSE","FALSE"
+SUBBLOCK "Filterwheel_sb_FABOSC_0_OSC::work","component/work/Filterwheel_sb/FABOSC_0/Filterwheel_sb_FABOSC_0_OSC.v","FALSE","FALSE"
+SUBBLOCK "Filterwheel_sb_MSS::work","component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS.v","TRUE","FALSE"
+SUBBLOCK "CoreResetP::work","component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v","FALSE","FALSE"
+SUBBLOCK "CoreAPB3::COREAPB3_LIB","component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3.v","FALSE","FALSE"
 ENDLIST
-LIST "Filterwheel_sb_MSS::work","component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS.cxf","TRUE","FALSE"
-SUBBLOCK "MSS_CAN::work","","FALSE","FALSE"
-SUBBLOCK "MSS_CCC::work","","FALSE","FALSE"
-SUBBLOCK "MSS_CC::work","","FALSE","FALSE"
-SUBBLOCK "MSS_CFGM::work","","FALSE","FALSE"
-SUBBLOCK "MSS_CM3::work","","FALSE","FALSE"
-SUBBLOCK "MSS_DDRB::work","","FALSE","FALSE"
-SUBBLOCK "MSS_DMA::work","","FALSE","FALSE"
-SUBBLOCK "MSS_EDAC::work","","FALSE","FALSE"
-SUBBLOCK "MSS_ENVM::work","","FALSE","FALSE"
-SUBBLOCK "MSS_FIC32::work","","FALSE","FALSE"
-SUBBLOCK "MSS_GPIO::work","","FALSE","FALSE"
-SUBBLOCK "MSS_I2C::work","","FALSE","FALSE"
-SUBBLOCK "MSS_INTR::work","","FALSE","FALSE"
-SUBBLOCK "MSS_MAC::work","","FALSE","FALSE"
-SUBBLOCK "MSS_MDDR::work","","FALSE","FALSE"
-SUBBLOCK "MSS_MMUART::work","","FALSE","FALSE"
-SUBBLOCK "MSS_RESET::work","","FALSE","FALSE"
-SUBBLOCK "MSS_RTC::work","","FALSE","FALSE"
-SUBBLOCK "MSS_SECURITY::work","","FALSE","FALSE"
-SUBBLOCK "MSS_SPI::work","","FALSE","FALSE"
-SUBBLOCK "MSS_SWITCH::work","","FALSE","FALSE"
-SUBBLOCK "MSS_USB::work","","FALSE","FALSE"
-SUBBLOCK "MSS_WATCHDOG::work","","FALSE","FALSE"
+LIST "Filterwheel_sb_CCC_0_FCCC::work","component/work/Filterwheel_sb/CCC_0/Filterwheel_sb_CCC_0_FCCC.v","FALSE","FALSE"
+ENDLIST
+LIST "Filterwheel_sb_FABOSC_0_OSC::work","component/work/Filterwheel_sb/FABOSC_0/Filterwheel_sb_FABOSC_0_OSC.v","FALSE","FALSE"
+SUBBLOCK "RCOSC_25_50MHZ_FAB::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.v","FALSE","FALSE"
+SUBBLOCK "RCOSC_25_50MHZ::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.v","FALSE","FALSE"
+ENDLIST
+LIST "Filterwheel_sb_MSS::work","component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS.v","TRUE","FALSE"
+SUBBLOCK "MSS_025::work","component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS_syn.v","FALSE","FALSE"
 ENDLIST
 LIST "FourWireStepperMotorPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotor.vhd","FALSE","FALSE"
 ENDLIST
@@ -1340,19 +1426,17 @@ LIST "PPSCountPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/P
 ENDLIST
 LIST "ramb16_s36_s36::work","","FALSE","FALSE"
 ENDLIST
+LIST "RCOSC_1MHZ::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.v","FALSE","FALSE"
+ENDLIST
+LIST "RCOSC_1MHZ_FAB::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.v","FALSE","FALSE"
+ENDLIST
+LIST "RCOSC_25_50MHZ::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.v","FALSE","FALSE"
+ENDLIST
+LIST "RCOSC_25_50MHZ_FAB::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.v","FALSE","FALSE"
+ENDLIST
 LIST "RegisterSpacePorts::work","/home/summer/projects/CGraph/firmware/Filterwheel/fpga/RegisterSpace.vhd","FALSE","FALSE"
 ENDLIST
 LIST "RtcCounterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/RtcCounter.vhd","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_CMSIS::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
 ENDLIST
 LIST "SpiDacPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd","FALSE","FALSE"
 SUBBLOCK "SpiMasterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd","FALSE","FALSE"
@@ -1410,6 +1494,36 @@ ENDLIST
 LIST "VariableClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd","FALSE","FALSE"
 ENDLIST
 LIST "VariableOneShotPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/VariableOneShot.vhd","FALSE","FALSE"
+ENDLIST
+LIST "XTLOSC::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.v","FALSE","FALSE"
+ENDLIST
+LIST "XTLOSC_FAB::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.v","FALSE","FALSE"
+ENDLIST
+LIST "coreapb3_iaddr_reg::COREAPB3_LIB","component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3_iaddr_reg.v","FALSE","FALSE"
+ENDLIST
+LIST "COREAPB3_MUXPTOB3::COREAPB3_LIB","component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3_muxptob3.v","FALSE","FALSE"
+ENDLIST
+LIST "CoreAPB3::COREAPB3_LIB","component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3.v","FALSE","FALSE"
+SUBBLOCK "COREAPB3_MUXPTOB3::COREAPB3_LIB","component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3_muxptob3.v","FALSE","FALSE"
+SUBBLOCK "coreapb3_iaddr_reg::COREAPB3_LIB","component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3_iaddr_reg.v","FALSE","FALSE"
+ENDLIST
+LIST "BFM_APB::COREAPB3_LIB","component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apb.v","FALSE","TRUE"
+SUBBLOCK "BFMA1l1OII::COREAPB3_LIB","component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_ahbtoapb.v","FALSE","TRUE"
+SUBBLOCK "BFM_MAIN::COREAPB3_LIB","component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_main.v","FALSE","TRUE"
+ENDLIST
+LIST "BFM_APBSLAVE::COREAPB3_LIB","component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apbslave.v","FALSE","TRUE"
+SUBBLOCK "BFM_APBSLAVEEXT::COREAPB3_LIB","component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apbslaveext.v","FALSE","TRUE"
+ENDLIST
+LIST "BFM_APBSLAVEEXT::COREAPB3_LIB","component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apbslaveext.v","FALSE","TRUE"
+ENDLIST
+LIST "BFM_MAIN::COREAPB3_LIB","component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_main.v","FALSE","TRUE"
+ENDLIST
+LIST "BFMA1l1OII::COREAPB3_LIB","component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_ahbtoapb.v","FALSE","TRUE"
+ENDLIST
+LIST "testbench::COREAPB3_LIB","component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/test/user/testbench.v","FALSE","TRUE"
+SUBBLOCK "BFM_APB::COREAPB3_LIB","component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apb.v","FALSE","TRUE"
+SUBBLOCK "BFM_APBSLAVE::COREAPB3_LIB","component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apbslave.v","FALSE","TRUE"
+SUBBLOCK "CoreAPB3::COREAPB3_LIB","component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3.v","FALSE","FALSE"
 ENDLIST
 ENDLIST
 LIST ActiveTestBenchList
