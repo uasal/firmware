@@ -12,6 +12,11 @@ entity Main is
 port (
     clk : in  std_logic;
 	
+	--ClkDac
+	nCsXO : out std_logic;
+	SckXO : out std_logic;
+	MosiXO : out std_logic;
+	
 	--Light outputs
 	PosLEDEnA : out std_logic;
 	PosLEDEnB : out std_logic;
@@ -54,18 +59,52 @@ port (
 	Txd2 : out std_logic;
 	Oe2 : out std_logic;
 	Rxd2 : in std_logic;
+	Txd3 : out std_logic;
+	Oe3 : out std_logic;
+	Rxd3 : in std_logic;
+	
+	RxdUsb : out std_logic;
+	TxdUsb : in std_logic;
+	CtsUsb : out std_logic;
+	
+	TxdGps : out std_logic;
+	RxdGps : in std_logic;
+	PPS : in std_logic;
+	
+	--MonitorA/D
+	
+	nCsMonAdc0 : out std_logic;
+	SckMonAdc0 : out std_logic;
+	MosiMonAdc0 : out std_logic;
+	MisoMonAdc0 : in std_logic;
+	nDrdyMonAdc0 : in std_logic;
 	
 	--  Discrete I/O Connections
 
-		--High Voltage!
-		--~ HVPowernEn : out std_logic;
-		--~ nHVEn : out std_logic;
-		--~ nHVFaultA : in std_logic;
-		--~ nHVFaultB : in std_logic;
-		--~ nHVFaultC : in std_logic;
+		--Faults
+		nFaultClr1V : out std_logic;
+		nFaultClr3V : out std_logic;
+		nFaultClr5V : out std_logic;
+		nPowerCycClr : out std_logic;
+		PowerEn5V : out std_logic;
+		PowerSync : out std_logic;
+		Fault1V : in std_logic;
+		Fault3V : in std_logic;
+		Fault5V : in std_logic;
+		PowerCycd: in std_logic;
 		
-		--~ AnalogPowernEn : out std_logic;
-		--~ PowerSync : out std_logic;
+		LedR : out std_logic;
+		LedG : out std_logic;
+		LedB : out std_logic;
+		
+		TP1 : out std_logic;
+		TP2 : out std_logic;
+		TP3 : out std_logic;
+		TP4 : out std_logic;
+		TP5 : out std_logic;
+		TP6 : out std_logic;
+		TP7 : out std_logic;
+		TP8 : out std_logic;
 		
 		Ux1SelJmp : inout std_logic--;
 		--Ux1SelJmp : out std_logic--;
@@ -1917,6 +1956,48 @@ begin
 	--~ Ux1SelJmp <= '1' when ( (Rxd1 = '1') and (Rxd2 = '0') ) else '0' when ( (Rxd1 = '0') and (Rxd2 = '1') ) else 'Z';
 	
 	--~ Ux1SelJmp <= MasterClk;
+		
+	--ClkDac
+	nCsXO <= '1';
+	SckXO <= '1';
+	MosiXO <= '1';
+	
+	Rxd3 <= Txd3;
+	Oe3 <= '1';
+	
+	RxdUsb <= TxdUsb;
+	CtsUsb <= '1';
+	
+	TxdGps <= RxdGps and PPS;
+	
+	--MonitorA/D
+	
+	nCsMonAdc0 <= '1';
+	SckMonAdc0 <= nDrdyMonAdc0;
+	MosiMonAdc0 <= MisoMonAdc0;
+	
+	--  Discrete I/O Connections
+
+		--Faults
+		nFaultClr1V <= '1';
+		nFaultClr3V <= '1';
+		nFaultClr5V <= '1';
+		nPowerCycClr <= '1';
+		PowerEn5V <= '1';
+		PowerSync <= '1';
+		
+		LedR <= '1';
+		LedG <= '1';
+		LedB <= '1';
+		
+		TP1 <= Fault1V;
+		TP2 <= Fault3V;
+		TP3 <= Fault5V;
+		TP4 <= PowerCycd;
+		TP5 <= '1';
+		TP6 <= '1';
+		TP7 <= '1';
+		TP8 <= '1';
 		
 	----------------------------- Clocked Logic / Main Loop ----------------------------------
 	

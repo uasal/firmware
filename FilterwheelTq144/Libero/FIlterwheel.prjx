@@ -940,13 +940,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/constraint/io/user.pdc,io_pdc"
 STATE="utd"
-TIME="1716510514"
-SIZE="4657"
-ENDFILE
-VALUE "<project>/constraint/io/user1.pdc,io_pdc"
-STATE="utd"
-TIME="1716482036"
-SIZE="702"
+TIME="1721086419"
+SIZE="8992"
 ENDFILE
 VALUE "<project>/constraint/user.sdc,sdc"
 STATE="utd"
@@ -1022,17 +1017,17 @@ PARENT="<project>/component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel.so,so"
 STATE="utd"
-TIME="1716485766"
-SIZE="247"
+TIME="1716510587"
+SIZE="252"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel_syn.prj,prj"
 STATE="utd"
-TIME="1716485767"
-SIZE="6333"
+TIME="1716510587"
+SIZE="6414"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel_vm.sdc,syn_sdc"
 STATE="utd"
-TIME="1716485766"
+TIME="1716510586"
 SIZE="4637"
 ENDFILE
 ENDLIST
@@ -1202,8 +1197,8 @@ NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
 LOCATION="/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/bin/synplify_pro"
-PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
-BATCH=1
+PARAM=""
+BATCH=0
 LICENSE=""
 IS32BIT="1"
 EndProfile
@@ -1262,10 +1257,8 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
-Reports;Reports;0
-ReportsCurrentItem;synthesis:Filterwheel.srr
-SmartDesign;Filterwheel;0
-ACTIVEVIEW;Reports
+StartPage;StartPage;0
+ACTIVEVIEW;StartPage
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","/home/summer/projects/CGraph/firmware/include/fpga/ads1258.vhd","FALSE","FALSE"
@@ -1281,13 +1274,6 @@ ENDLIST
 LIST "BuildNumberPorts::work","/home/summer/projects/CGraph/firmware/Filterwheel/fpga/BuildNumber.vhd","FALSE","FALSE"
 ENDLIST
 LIST "coreresetp_pcie_hotreset::work","component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp_pcie_hotreset.v","FALSE","FALSE"
-ENDLIST
-LIST "DESIGN_FIRMWARE::work","component/work/DESIGN_FIRMWARE/DESIGN_FIRMWARE.cxf","TRUE","FALSE"
-SUBBLOCK "SmartFusion2_CMSIS::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
 ENDLIST
 LIST "ClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 ENDLIST
@@ -1436,16 +1422,6 @@ ENDLIST
 LIST "RegisterSpacePorts::work","/home/summer/projects/CGraph/firmware/Filterwheel/fpga/RegisterSpace.vhd","FALSE","FALSE"
 ENDLIST
 LIST "RtcCounterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/RtcCounter.vhd","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_CMSIS::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
 ENDLIST
 LIST "SpiDacPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd","FALSE","FALSE"
 SUBBLOCK "SpiMasterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd","FALSE","FALSE"
