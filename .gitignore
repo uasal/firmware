@@ -128,20 +128,11 @@ synthesis/run_options.txt
 synthesis/*_dsp_rpt.txt
 synthesis/*_ram_rpt.txt
 synthesis/*_cdc.csv
-designer/*/*_compile_netlist_resources.xml
-designer/*/*_compile_netlist_hier_resources.csv
 designer/*/*_compile_netlist.log
 Cleaning tool Place and Route...
 designer/*/*_pinrpt_name.rpt
 designer/*/*_pinrpt_number.rpt
 designer/*/*_bankrpt.rpt
-designer/*/*_ioff.xml
 designer/*/*_layout_log.log
 
-*.dca
-*_compile_netlist_hier_resources.csv
-*_init_config.txt
-*_init_config_lock_bits.txt
-*viewdraw/viewdraw.ini
-*tooldata/libero.*
 libero.*
