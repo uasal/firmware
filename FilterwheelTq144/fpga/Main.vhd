@@ -86,7 +86,7 @@ port (
 		nFaultClr3V : out std_logic;
 		nFaultClr5V : out std_logic;
 		nPowerCycClr : out std_logic;
-		PowerEn5V : out std_logic;
+		PowernEn5V : out std_logic;
 		PowerSync : out std_logic;
 		Fault1V : in std_logic;
 		Fault3V : in std_logic;
@@ -1962,7 +1962,7 @@ begin
 	SckXO <= '1';
 	MosiXO <= '1';
 	
-	Rxd3 <= Txd3;
+	Txd3 <= Rxd3;
 	Oe3 <= '1';
 	
 	RxdUsb <= TxdUsb;
@@ -1983,7 +1983,7 @@ begin
 		nFaultClr3V <= '1';
 		nFaultClr5V <= '1';
 		nPowerCycClr <= '1';
-		PowerEn5V <= '1';
+		PowernEn5V <= '0';
 		PowerSync <= '1';
 		
 		LedR <= '1';

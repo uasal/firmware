@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Thu May 23 17:01:22 2024
+// Created by SmartDesign Wed Jul 17 08:27:39 2024
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -10,6 +10,11 @@ module Filterwheel(
     // Inputs
     CLK0_PAD,
     DEVRST_N,
+    Fault1V,
+    Fault3V,
+    Fault5V,
+    MisoMonAdc0,
+    PPS,
     PosSenseBit0A,
     PosSenseBit0B,
     PosSenseBit1A,
@@ -18,12 +23,22 @@ module Filterwheel(
     PosSenseBit2B,
     PosSenseHomeA,
     PosSenseHomeB,
+    PowerCycd,
     Rxd0,
     Rxd1,
     Rxd2,
-    RxdUsb,
+    Rxd3,
+    RxdGps,
+    TxdUsb,
+    nDrdyMonAdc0,
     // Outputs
+    CtsUsb,
     INIT_DONE,
+    LedB,
+    LedG,
+    LedR,
+    MosiMonAdc0,
+    MosiXO,
     MotorDriveAMinus,
     MotorDriveAMinusPrime,
     MotorDriveAPlus,
@@ -35,12 +50,33 @@ module Filterwheel(
     Oe0,
     Oe1,
     Oe2,
+    Oe3,
     PosLEDEnA,
     PosLEDEnB,
+    PowerSync,
+    PowernEn5V,
+    RxdUsb,
+    SckMonAdc0,
+    SckXO,
+    TP1,
+    TP2,
+    TP3,
+    TP4,
+    TP5,
+    TP6,
+    TP7,
+    TP8,
     Txd0,
     Txd1,
     Txd2,
-    TxdUsb,
+    Txd3,
+    TxdGps,
+    nCsMonAdc0,
+    nCsXO,
+    nFaultClr1V,
+    nFaultClr3V,
+    nFaultClr5V,
+    nPowerCycClr,
     // Inouts
     Ux1SelJmp
 );
@@ -50,6 +86,11 @@ module Filterwheel(
 //--------------------------------------------------------------------
 input  CLK0_PAD;
 input  DEVRST_N;
+input  Fault1V;
+input  Fault3V;
+input  Fault5V;
+input  MisoMonAdc0;
+input  PPS;
 input  PosSenseBit0A;
 input  PosSenseBit0B;
 input  PosSenseBit1A;
@@ -58,14 +99,24 @@ input  PosSenseBit2A;
 input  PosSenseBit2B;
 input  PosSenseHomeA;
 input  PosSenseHomeB;
+input  PowerCycd;
 input  Rxd0;
 input  Rxd1;
 input  Rxd2;
-input  RxdUsb;
+input  Rxd3;
+input  RxdGps;
+input  TxdUsb;
+input  nDrdyMonAdc0;
 //--------------------------------------------------------------------
 // Output
 //--------------------------------------------------------------------
+output CtsUsb;
 output INIT_DONE;
+output LedB;
+output LedG;
+output LedR;
+output MosiMonAdc0;
+output MosiXO;
 output MotorDriveAMinus;
 output MotorDriveAMinusPrime;
 output MotorDriveAPlus;
@@ -77,12 +128,33 @@ output MotorDriveBPlusPrime;
 output Oe0;
 output Oe1;
 output Oe2;
+output Oe3;
 output PosLEDEnA;
 output PosLEDEnB;
+output PowerSync;
+output PowernEn5V;
+output RxdUsb;
+output SckMonAdc0;
+output SckXO;
+output TP1;
+output TP2;
+output TP3;
+output TP4;
+output TP5;
+output TP6;
+output TP7;
+output TP8;
 output Txd0;
 output Txd1;
 output Txd2;
-output TxdUsb;
+output Txd3;
+output TxdGps;
+output nCsMonAdc0;
+output nCsXO;
+output nFaultClr1V;
+output nFaultClr3V;
+output nFaultClr5V;
+output nPowerCycClr;
 //--------------------------------------------------------------------
 // Inout
 //--------------------------------------------------------------------
@@ -91,7 +163,11 @@ inout  Ux1SelJmp;
 // Nets
 //--------------------------------------------------------------------
 wire           CLK0_PAD;
+wire           CtsUsb_net_0;
 wire           DEVRST_N;
+wire           Fault1V;
+wire           Fault3V;
+wire           Fault5V;
 wire           FCCC_C0_0_GL0;
 wire           FCCC_C0_0_GL1;
 wire   [9:0]   Filterwheel_sb_0_AMBA_SLAVE_0_PADDRS9to0;
@@ -100,7 +176,14 @@ wire           Filterwheel_sb_0_AMBA_SLAVE_0_PSELS0;
 wire   [15:0]  Filterwheel_sb_0_AMBA_SLAVE_0_PWDATAS15to0;
 wire           Filterwheel_sb_0_AMBA_SLAVE_0_PWRITES;
 wire           INIT_DONE_net_0;
+wire           LedB_net_0;
+wire           LedG_net_0;
+wire           LedR_net_0;
 wire   [15:0]  Main_0_RamBusDataOut;
+wire           MisoMonAdc0;
+wire           TxdUsb;
+wire           MosiMonAdc0_net_0;
+wire           MosiXO_net_0;
 wire           MotorDriveAMinus_net_0;
 wire           MotorDriveAMinusPrime_net_0;
 wire           MotorDriveAPlus_net_0;
@@ -109,9 +192,17 @@ wire           MotorDriveBMinus_net_0;
 wire           MotorDriveBMinusPrime_net_0;
 wire           MotorDriveBPlus_net_0;
 wire           MotorDriveBPlusPrime_net_0;
+wire           nCsMonAdc0_net_0;
+wire           nCsXO_net_0;
+wire           nDrdyMonAdc0;
+wire           nFaultClr1V_net_0;
+wire           nFaultClr3V_net_0;
+wire           nFaultClr5V_net_0;
+wire           nPowerCycClr_net_0;
 wire           Oe0_net_0;
 wire           Oe1_net_0;
 wire           Oe2_net_0;
+wire           Oe3_net_0;
 wire           PosLEDEnA_net_0;
 wire           PosLEDEnB_net_0;
 wire           PosSenseBit0A;
@@ -122,14 +213,31 @@ wire           PosSenseBit2A;
 wire           PosSenseBit2B;
 wire           PosSenseHomeA;
 wire           PosSenseHomeB;
+wire           PowerCycd;
+wire           PowernEn5V_net_0;
+wire           PowerSync_net_0;
+wire           PPS;
 wire           Rxd0;
 wire           Rxd1;
 wire           Rxd2;
-wire           RxdUsb;
+wire           Rxd3;
+wire           RxdGps;
+wire           RxdUsb_net_0;
+wire           SckMonAdc0_net_0;
+wire           SckXO_net_0;
+wire           TP1_net_0;
+wire           TP2_net_0;
+wire           TP3_net_0;
+wire           TP4_net_0;
+wire           TP5_net_0;
+wire           TP6_net_0;
+wire           TP7_net_0;
+wire           TP8_net_0;
 wire           Txd0_net_0;
 wire           Txd1_net_0;
 wire           Txd2_net_0;
-wire           TxdUsb_net_0;
+wire           Txd3_net_0;
+wire           TxdGps_net_0;
 wire           Ux1SelJmp;
 wire           PosLEDEnA_net_1;
 wire           PosLEDEnB_net_1;
@@ -148,7 +256,34 @@ wire           Oe0_net_1;
 wire           Oe1_net_1;
 wire           Oe2_net_1;
 wire           INIT_DONE_net_1;
-wire           TxdUsb_net_1;
+wire           nCsXO_net_1;
+wire           SckXO_net_1;
+wire           MosiXO_net_1;
+wire           Txd3_net_1;
+wire           Oe3_net_1;
+wire           CtsUsb_net_1;
+wire           TxdGps_net_1;
+wire           nCsMonAdc0_net_1;
+wire           SckMonAdc0_net_1;
+wire           MosiMonAdc0_net_1;
+wire           nFaultClr1V_net_1;
+wire           nFaultClr3V_net_1;
+wire           nFaultClr5V_net_1;
+wire           nPowerCycClr_net_1;
+wire           PowerSync_net_1;
+wire           LedR_net_1;
+wire           LedG_net_1;
+wire           LedB_net_1;
+wire           TP1_net_1;
+wire           TP2_net_1;
+wire           TP3_net_1;
+wire           TP4_net_1;
+wire           TP5_net_1;
+wire           TP6_net_1;
+wire           TP7_net_1;
+wire           TP8_net_1;
+wire           PowernEn5V_net_1;
+wire           RxdUsb_net_1;
 wire   [31:16] AMBA_SLAVE_0_PWDATAS_slice_0;
 wire   [31:0]  AMBA_SLAVE_0_PRDATAS0_net_0;
 wire   [31:0]  AMBA_SLAVE_0_PADDRS_net_0;
@@ -202,8 +337,62 @@ assign Oe2_net_1                   = Oe2_net_0;
 assign Oe2                         = Oe2_net_1;
 assign INIT_DONE_net_1             = INIT_DONE_net_0;
 assign INIT_DONE                   = INIT_DONE_net_1;
-assign TxdUsb_net_1                = TxdUsb_net_0;
-assign TxdUsb                      = TxdUsb_net_1;
+assign nCsXO_net_1                 = nCsXO_net_0;
+assign nCsXO                       = nCsXO_net_1;
+assign SckXO_net_1                 = SckXO_net_0;
+assign SckXO                       = SckXO_net_1;
+assign MosiXO_net_1                = MosiXO_net_0;
+assign MosiXO                      = MosiXO_net_1;
+assign Txd3_net_1                  = Txd3_net_0;
+assign Txd3                        = Txd3_net_1;
+assign Oe3_net_1                   = Oe3_net_0;
+assign Oe3                         = Oe3_net_1;
+assign CtsUsb_net_1                = CtsUsb_net_0;
+assign CtsUsb                      = CtsUsb_net_1;
+assign TxdGps_net_1                = TxdGps_net_0;
+assign TxdGps                      = TxdGps_net_1;
+assign nCsMonAdc0_net_1            = nCsMonAdc0_net_0;
+assign nCsMonAdc0                  = nCsMonAdc0_net_1;
+assign SckMonAdc0_net_1            = SckMonAdc0_net_0;
+assign SckMonAdc0                  = SckMonAdc0_net_1;
+assign MosiMonAdc0_net_1           = MosiMonAdc0_net_0;
+assign MosiMonAdc0                 = MosiMonAdc0_net_1;
+assign nFaultClr1V_net_1           = nFaultClr1V_net_0;
+assign nFaultClr1V                 = nFaultClr1V_net_1;
+assign nFaultClr3V_net_1           = nFaultClr3V_net_0;
+assign nFaultClr3V                 = nFaultClr3V_net_1;
+assign nFaultClr5V_net_1           = nFaultClr5V_net_0;
+assign nFaultClr5V                 = nFaultClr5V_net_1;
+assign nPowerCycClr_net_1          = nPowerCycClr_net_0;
+assign nPowerCycClr                = nPowerCycClr_net_1;
+assign PowerSync_net_1             = PowerSync_net_0;
+assign PowerSync                   = PowerSync_net_1;
+assign LedR_net_1                  = LedR_net_0;
+assign LedR                        = LedR_net_1;
+assign LedG_net_1                  = LedG_net_0;
+assign LedG                        = LedG_net_1;
+assign LedB_net_1                  = LedB_net_0;
+assign LedB                        = LedB_net_1;
+assign TP1_net_1                   = TP1_net_0;
+assign TP1                         = TP1_net_1;
+assign TP2_net_1                   = TP2_net_0;
+assign TP2                         = TP2_net_1;
+assign TP3_net_1                   = TP3_net_0;
+assign TP3                         = TP3_net_1;
+assign TP4_net_1                   = TP4_net_0;
+assign TP4                         = TP4_net_1;
+assign TP5_net_1                   = TP5_net_0;
+assign TP5                         = TP5_net_1;
+assign TP6_net_1                   = TP6_net_0;
+assign TP6                         = TP6_net_1;
+assign TP7_net_1                   = TP7_net_0;
+assign TP7                         = TP7_net_1;
+assign TP8_net_1                   = TP8_net_0;
+assign TP8                         = TP8_net_1;
+assign PowernEn5V_net_1            = PowernEn5V_net_0;
+assign PowernEn5V                  = PowernEn5V_net_1;
+assign RxdUsb_net_1                = RxdUsb_net_0;
+assign RxdUsb                      = RxdUsb_net_1;
 //--------------------------------------------------------------------
 // Slices assignments
 //--------------------------------------------------------------------
@@ -235,7 +424,7 @@ Filterwheel_sb Filterwheel_sb_0(
         .AMBA_SLAVE_0_PSLVERRS0 ( GND_net ), // tied to 1'b0 from definition
         .DEVRST_N               ( DEVRST_N ),
         .CLK0                   ( FCCC_C0_0_GL0 ),
-        .MMUART_0_RXD_F2M       ( RxdUsb ),
+        .MMUART_0_RXD_F2M       ( TxdUsb ),
         .AMBA_SLAVE_0_PRDATAS0  ( AMBA_SLAVE_0_PRDATAS0_net_0 ),
         // Outputs
         .POWER_ON_RESET_N       (  ),
@@ -246,7 +435,7 @@ Filterwheel_sb Filterwheel_sb_0(
         .FIC_0_CLK              (  ),
         .FIC_0_LOCK             (  ),
         .MSS_READY              (  ),
-        .MMUART_0_TXD_M2F       ( TxdUsb_net_0 ),
+        .MMUART_0_TXD_M2F       ( RxdUsb_net_0 ),
         .AMBA_SLAVE_0_PADDRS    ( AMBA_SLAVE_0_PADDRS_net_0 ),
         .AMBA_SLAVE_0_PWDATAS   ( AMBA_SLAVE_0_PWDATAS_net_0 ) 
         );
@@ -263,15 +452,28 @@ Main Main_0(
         .PosSenseBit0B         ( PosSenseBit0B ),
         .PosSenseBit1B         ( PosSenseBit1B ),
         .PosSenseBit2B         ( PosSenseBit2B ),
+        .RamBusAddress         ( Filterwheel_sb_0_AMBA_SLAVE_0_PADDRS9to0 ),
+        .RamBusDataIn          ( Filterwheel_sb_0_AMBA_SLAVE_0_PWDATAS15to0 ),
         .RamBusnCs             ( Filterwheel_sb_0_AMBA_SLAVE_0_PSELS0 ),
         .RamBusWE              ( Filterwheel_sb_0_AMBA_SLAVE_0_PWRITES ),
         .RamBusOE              ( Filterwheel_sb_0_AMBA_SLAVE_0_PENABLES ),
         .Rxd0                  ( Rxd0 ),
         .Rxd1                  ( Rxd1 ),
         .Rxd2                  ( Rxd2 ),
-        .RamBusAddress         ( Filterwheel_sb_0_AMBA_SLAVE_0_PADDRS9to0 ),
-        .RamBusDataIn          ( Filterwheel_sb_0_AMBA_SLAVE_0_PWDATAS15to0 ),
+        .Rxd3                  ( Rxd3 ),
+        .TxdUsb                ( VCC_net ),
+        .RxdGps                ( RxdGps ),
+        .PPS                   ( PPS ),
+        .MisoMonAdc0           ( MisoMonAdc0 ),
+        .nDrdyMonAdc0          ( nDrdyMonAdc0 ),
+        .Fault1V               ( Fault1V ),
+        .Fault3V               ( Fault3V ),
+        .Fault5V               ( Fault5V ),
+        .PowerCycd             ( PowerCycd ),
         // Outputs
+        .nCsXO                 ( nCsXO_net_0 ),
+        .SckXO                 ( SckXO_net_0 ),
+        .MosiXO                ( MosiXO_net_0 ),
         .PosLEDEnA             ( PosLEDEnA_net_0 ),
         .PosLEDEnB             ( PosLEDEnB_net_0 ),
         .MotorDriveAPlus       ( MotorDriveAPlus_net_0 ),
@@ -282,13 +484,38 @@ Main Main_0(
         .MotorDriveAMinusPrime ( MotorDriveAMinusPrime_net_0 ),
         .MotorDriveBPlusPrime  ( MotorDriveBPlusPrime_net_0 ),
         .MotorDriveBMinusPrime ( MotorDriveBMinusPrime_net_0 ),
+        .RamBusDataOut         ( Main_0_RamBusDataOut ),
         .Txd0                  ( Txd0_net_0 ),
         .Oe0                   ( Oe0_net_0 ),
         .Txd1                  ( Txd1_net_0 ),
         .Oe1                   ( Oe1_net_0 ),
         .Txd2                  ( Txd2_net_0 ),
         .Oe2                   ( Oe2_net_0 ),
-        .RamBusDataOut         ( Main_0_RamBusDataOut ),
+        .Txd3                  ( Txd3_net_0 ),
+        .Oe3                   ( Oe3_net_0 ),
+        .RxdUsb                (  ),
+        .CtsUsb                ( CtsUsb_net_0 ),
+        .TxdGps                ( TxdGps_net_0 ),
+        .nCsMonAdc0            ( nCsMonAdc0_net_0 ),
+        .SckMonAdc0            ( SckMonAdc0_net_0 ),
+        .MosiMonAdc0           ( MosiMonAdc0_net_0 ),
+        .nFaultClr1V           ( nFaultClr1V_net_0 ),
+        .nFaultClr3V           ( nFaultClr3V_net_0 ),
+        .nFaultClr5V           ( nFaultClr5V_net_0 ),
+        .nPowerCycClr          ( nPowerCycClr_net_0 ),
+        .PowernEn5V            ( PowernEn5V_net_0 ),
+        .PowerSync             ( PowerSync_net_0 ),
+        .LedR                  ( LedR_net_0 ),
+        .LedG                  ( LedG_net_0 ),
+        .LedB                  ( LedB_net_0 ),
+        .TP1                   ( TP1_net_0 ),
+        .TP2                   ( TP2_net_0 ),
+        .TP3                   ( TP3_net_0 ),
+        .TP4                   ( TP4_net_0 ),
+        .TP5                   ( TP5_net_0 ),
+        .TP6                   ( TP6_net_0 ),
+        .TP7                   ( TP7_net_0 ),
+        .TP8                   ( TP8_net_0 ),
         // Inouts
         .Ux1SelJmp             ( Ux1SelJmp ) 
         );

@@ -10,11 +10,11 @@ read_verilog -mode system_verilog -lib COREAPB3_LIB {/home/summer/projects/CGrap
 read_verilog -mode system_verilog -lib COREAPB3_LIB {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3_iaddr_reg.v}
 read_verilog -mode system_verilog -lib COREAPB3_LIB {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3.v}
 read_verilog -mode system_verilog {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/Filterwheel_sb/Filterwheel_sb.v}
-read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/Filterwheel/fpga/BuildNumber.vhd}
+read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/BuildNumber.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd}
-read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/Filterwheel/fpga/RegisterSpace.vhd}
+read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/UartRxExtClk.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd}
@@ -29,7 +29,7 @@ read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/On
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/ltc244x_types.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/ltc244xaccumulator_types.vhd}
-read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/Filterwheel/fpga/Main.vhd}
+read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd}
 read_verilog -mode system_verilog {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/Filterwheel/Filterwheel.v}
 set_top_level {Filterwheel}
 map_netlist

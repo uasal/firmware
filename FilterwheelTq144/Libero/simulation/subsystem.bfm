@@ -1,5 +1,5 @@
 #===========================================================
-# Created by Microsemi SmartDesign Tue Apr 23 14:18:03 2024
+# Created by Microsemi SmartDesign Wed Jul 17 08:27:39 2024
 #
 # Syntax: 
 # ------- 
@@ -17,4 +17,8 @@
 # Define name and base address of each resource.
 #-----------------------------------------------------------
 
-memmap Filterwheel_sb 0x5000_0000;
+memmap Filterwheel_sb_0 0x5000_0000;
+#-----------------------------------------------------------
+# Include resource scriptlets
+#-----------------------------------------------------------
+

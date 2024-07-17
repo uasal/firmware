@@ -65,7 +65,7 @@ set_io DEVRST_N       \
 	#(Ux2Sel jumper)
 set_io INIT_DONE       \
     -pinname 118      \
-	-iostd LVCMOS33   \
+	-iostd LVCMOS25   \
     -DIRECTION OUTPUT
 
 
@@ -276,6 +276,27 @@ set_io Rxd2    \
     -fixed yes        \
     -DIRECTION INPUT
 
+#Txd3
+set_io Txd3    \
+    -iostd LVCMOS33   \
+	-pinname 90      \
+    -fixed yes        \
+    -DIRECTION OUTPUT
+
+#Oe3
+	set_io Oe3    \
+    -iostd LVCMOS33   \
+	-pinname 94      \
+    -fixed yes        \
+    -DIRECTION OUTPUT
+	
+#Rxd3
+set_io Rxd3    \
+    -iostd LVCMOS33   \
+	-pinname 103      \
+    -fixed yes        \
+    -DIRECTION INPUT
+
 
 #RxdUsb
 set_io RxdUsb    \
@@ -292,14 +313,14 @@ set_io TxdUsb    \
     -DIRECTION INPUT
 
 #CtsUsb
-set_io RxdUsb    \
+set_io CtsUsb    \
     -iostd LVCMOS33   \
 	-pinname 55      \
     -fixed yes        \
     -DIRECTION OUTPUT
 
 #RxdGps
-set_io RxdUsb    \
+set_io RxdGps    \
     -iostd LVCMOS33   \
 	-pinname 64      \
     -fixed yes        \
@@ -313,7 +334,7 @@ set_io PPS    \
     -DIRECTION INPUT
 
 #TxdGps
-set_io TxdUsb    \
+set_io TxdGps    \
     -iostd LVCMOS33   \
 	-pinname 66      \
     -fixed yes        \
@@ -438,7 +459,7 @@ set_io TxdUsb    \
 	
 	set_io nFaultClr5V    \
     -iostd LVCMOS25   \
-	-pinname 2115      \
+	-pinname 115      \
     -fixed yes        \
     -DIRECTION OUTPUT
 	
@@ -454,7 +475,7 @@ set_io TxdUsb    \
     -fixed yes        \
     -DIRECTION OUTPUT
 	
-	set_io nPwrCycClr    \
+	set_io nPowerCycClr    \
     -iostd LVCMOS25   \
 	-pinname 112      \
     -fixed yes        \
@@ -473,20 +494,20 @@ set_io TxdUsb    \
     -DIRECTION INPUT
 	
 	set_io Fault5V    \
-    -iostd LVCMOS3   \
+    -iostd LVCMOS33   \
 	-pinname 81      \
     -fixed yes        \
     -DIRECTION INPUT
 	
 	set_io PowerCycd    \
-    -iostd LVCMOS3   \
+    -iostd LVCMOS33   \
 	-pinname 85      \
     -fixed yes        \
     -DIRECTION INPUT
 	
 	set_io PowerSync    \
-    -iostd LVCMOS3   \
-	-pinname 85      \
+    -iostd LVCMOS33   \
+	-pinname 82      \
     -fixed yes        \
     -DIRECTION INPUT
 	

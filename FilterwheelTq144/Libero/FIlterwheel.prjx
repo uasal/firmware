@@ -73,17 +73,17 @@ ENDLIST
 LIST GlobalIncludeFileList
 ENDLIST
 LIST FileManager
-VALUE "/home/summer/projects/CGraph/firmware/Filterwheel/fpga/BuildNumber.vhd,hdl"
+VALUE "/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/BuildNumber.vhd,hdl"
 STATE="utd"
 TIME="1716482054"
 SIZE="1186"
 ENDFILE
-VALUE "/home/summer/projects/CGraph/firmware/Filterwheel/fpga/Main.vhd,hdl"
+VALUE "/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd,hdl"
 STATE="utd"
-TIME="1716482348"
-SIZE="70156"
+TIME="1721227535"
+SIZE="71538"
 ENDFILE
-VALUE "/home/summer/projects/CGraph/firmware/Filterwheel/fpga/RegisterSpace.vhd,hdl"
+VALUE "/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd,hdl"
 STATE="utd"
 TIME="1716482054"
 SIZE="34688"
@@ -577,8 +577,8 @@ ENDFILE
 VALUE "<project>/../fpga/Main.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
 STATE="utd"
-TIME="1716482348"
-SIZE="70156"
+TIME="1721227535"
+SIZE="71538"
 ENDFILE
 VALUE "<project>/../fpga/RegisterSpace.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
@@ -854,13 +854,13 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/Filterwheel/Filterwheel.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716508882"
-SIZE="6912"
+TIME="1721230060"
+SIZE="12693"
 ENDFILE
 VALUE "<project>/component/work/Filterwheel/Filterwheel.v,hdl"
 STATE="utd"
-TIME="1716508882"
-SIZE="11259"
+TIME="1721230059"
+SIZE="18625"
 PARENT="<project>/component/work/Filterwheel/Filterwheel.cxf"
 IS_READONLY="TRUE"
 ENDFILE
@@ -940,8 +940,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/constraint/io/user.pdc,io_pdc"
 STATE="utd"
-TIME="1721086419"
-SIZE="8992"
+TIME="1721229501"
+SIZE="9338"
 ENDFILE
 VALUE "<project>/constraint/user.sdc,sdc"
 STATE="utd"
@@ -1001,6 +1001,7 @@ VALUE "<project>/simulation/subsystem.bfm,sim"
 STATE="utd"
 TIME="1716508969"
 SIZE="618"
+PARENT="<project>/component/work/Filterwheel/Filterwheel.cxf"
 PARENT="<project>/component/work/Filterwheel_sb/Filterwheel_sb.cxf"
 ENDFILE
 VALUE "<project>/simulation/test.bfm,sim"
@@ -1017,17 +1018,22 @@ PARENT="<project>/component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel.so,so"
 STATE="utd"
-TIME="1716510587"
+TIME="1721225465"
 SIZE="252"
+ENDFILE
+VALUE "<project>/synthesis/Filterwheel.vm,syn_vm"
+STATE="utd"
+TIME="1721230081"
+SIZE="939917"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel_syn.prj,prj"
 STATE="utd"
-TIME="1716510587"
+TIME="1721225465"
 SIZE="6414"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel_vm.sdc,syn_sdc"
 STATE="utd"
-TIME="1716510586"
+TIME="1721225465"
 SIZE="4637"
 ENDFILE
 ENDLIST
@@ -1036,8 +1042,33 @@ ENDLIST
 LIST NewModulesInfo
 LIST "Filterwheel::work"
 FILE "<project>/component/work/Filterwheel/Filterwheel.v,hdl"
+LIST Other_Association
+VALUE "<project>/simulation/subsystem.bfm,sim"
+ENDLIST
 LIST PNRConstraints
 VALUE "<project>/constraint/io/user.pdc,io_pdc"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSYNTHESIS(<project>/synthesis/Filterwheel.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSYNTHESIS(<project>/synthesis/Filterwheel.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 ENDLIST
 LIST "Filterwheel_sb::work"
@@ -1109,6 +1140,9 @@ VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/test/user/
 ENDLIST
 ENDLIST
 LIST Other_Association
+LIST Filterwheel
+VALUE "<project>/simulation/subsystem.bfm,sim"
+ENDLIST
 LIST Filterwheel_sb
 VALUE "<project>/simulation/subsystem.bfm,sim"
 VALUE "<project>/simulation/bfmtovec_compile.tcl,sim"
@@ -1197,8 +1231,8 @@ NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
 LOCATION="/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/bin/synplify_pro"
-PARAM=""
-BATCH=0
+PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
+BATCH=1
 LICENSE=""
 IS32BIT="1"
 EndProfile
@@ -1222,6 +1256,28 @@ IS32BIT="1"
 EndProfile
 ENDLIST
 LIST ProjectState5.1
+LIST "Filterwheel::work"
+LIST Impl1
+ideSYNTHESIS(<project>/synthesis/Filterwheel.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSYNTHESIS(<project>/synthesis/Filterwheel.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
 LIST "Filterwheel_sb::work"
 LIST Impl1
 ideSTIMULUS=StateSuccess
@@ -1257,8 +1313,12 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
+Reports;Reports;0
+ReportsCurrentItem;Generate Bitstream:Filterwheel_generateBitstream.log
+SmartDesign;Filterwheel;0
+Constraint Manager;Constraint Manager;0
 StartPage;StartPage;0
-ACTIVEVIEW;StartPage
+ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","/home/summer/projects/CGraph/firmware/include/fpga/ads1258.vhd","FALSE","FALSE"
@@ -1271,9 +1331,16 @@ ENDLIST
 LIST "ads1258Ports::work","/home/summer/projects/CGraph/firmware/include/fpga/ads1258.vhd","FALSE","FALSE"
 SUBBLOCK "SpiMasterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd","FALSE","FALSE"
 ENDLIST
-LIST "BuildNumberPorts::work","/home/summer/projects/CGraph/firmware/Filterwheel/fpga/BuildNumber.vhd","FALSE","FALSE"
+LIST "BuildNumberPorts::work","/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/BuildNumber.vhd","FALSE","FALSE"
 ENDLIST
 LIST "coreresetp_pcie_hotreset::work","component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp_pcie_hotreset.v","FALSE","FALSE"
+ENDLIST
+LIST "DESIGN_FIRMWARE::work","component/work/DESIGN_FIRMWARE/DESIGN_FIRMWARE.cxf","TRUE","FALSE"
+SUBBLOCK "SmartFusion2_CMSIS::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
 ENDLIST
 LIST "ClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 ENDLIST
@@ -1336,7 +1403,7 @@ ENDLIST
 LIST "Filterwheel::work","component/work/Filterwheel/Filterwheel.v","TRUE","FALSE"
 SUBBLOCK "FCCC_C0::work","component/work/FCCC_C0/FCCC_C0.v","TRUE","FALSE"
 SUBBLOCK "Filterwheel_sb::work","component/work/Filterwheel_sb/Filterwheel_sb.v","TRUE","FALSE"
-SUBBLOCK "Main::work","/home/summer/projects/CGraph/firmware/Filterwheel/fpga/Main.vhd","FALSE","FALSE"
+SUBBLOCK "Main::work","/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd","FALSE","FALSE"
 ENDLIST
 LIST "Filterwheel_sb::work","component/work/Filterwheel_sb/Filterwheel_sb.v","TRUE","FALSE"
 SUBBLOCK "Filterwheel_sb_CCC_0_FCCC::work","component/work/Filterwheel_sb/CCC_0/Filterwheel_sb_CCC_0_FCCC.v","FALSE","FALSE"
@@ -1390,12 +1457,12 @@ ENDLIST
 LIST "ltc244xPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/ltc244x.vhd","FALSE","FALSE"
 SUBBLOCK "SpiMasterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd","FALSE","FALSE"
 ENDLIST
-LIST "Main::work","/home/summer/projects/CGraph/firmware/Filterwheel/fpga/Main.vhd","FALSE","FALSE"
-SUBBLOCK "BuildNumberPorts::work","/home/summer/projects/CGraph/firmware/Filterwheel/fpga/BuildNumber.vhd","FALSE","FALSE"
+LIST "Main::work","/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd","FALSE","FALSE"
+SUBBLOCK "BuildNumberPorts::work","/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/BuildNumber.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP1Ports::work","/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP2Ports::work","/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP3Ports::work","/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd","FALSE","FALSE"
-SUBBLOCK "RegisterSpacePorts::work","/home/summer/projects/CGraph/firmware/Filterwheel/fpga/RegisterSpace.vhd","FALSE","FALSE"
+SUBBLOCK "RegisterSpacePorts::work","/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd","FALSE","FALSE"
 SUBBLOCK "UartRxFifoExtClk::work","/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClk.vhd","FALSE","FALSE"
 SUBBLOCK "UartTxFifoExtClk::work","/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd","FALSE","FALSE"
 SUBBLOCK "VariableClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd","FALSE","FALSE"
@@ -1419,9 +1486,19 @@ LIST "RCOSC_25_50MHZ::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.v","FA
 ENDLIST
 LIST "RCOSC_25_50MHZ_FAB::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.v","FALSE","FALSE"
 ENDLIST
-LIST "RegisterSpacePorts::work","/home/summer/projects/CGraph/firmware/Filterwheel/fpga/RegisterSpace.vhd","FALSE","FALSE"
+LIST "RegisterSpacePorts::work","/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd","FALSE","FALSE"
 ENDLIST
 LIST "RtcCounterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/RtcCounter.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_CMSIS::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
 ENDLIST
 LIST "SpiDacPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd","FALSE","FALSE"
 SUBBLOCK "SpiMasterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd","FALSE","FALSE"
