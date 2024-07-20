@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Wed Jul 17 08:27:39 2024
+// Created by SmartDesign Fri Jul 19 16:55:34 2024
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -181,7 +181,6 @@ wire           LedG_net_0;
 wire           LedR_net_0;
 wire   [15:0]  Main_0_RamBusDataOut;
 wire           MisoMonAdc0;
-wire           TxdUsb;
 wire           MosiMonAdc0_net_0;
 wire           MosiXO_net_0;
 wire           MotorDriveAMinus_net_0;
@@ -238,6 +237,7 @@ wire           Txd1_net_0;
 wire           Txd2_net_0;
 wire           Txd3_net_0;
 wire           TxdGps_net_0;
+wire           TxdUsb;
 wire           Ux1SelJmp;
 wire           PosLEDEnA_net_1;
 wire           PosLEDEnB_net_1;
@@ -292,14 +292,14 @@ wire   [31:0]  AMBA_SLAVE_0_PWDATAS_net_0;
 // TiedOff Nets
 //--------------------------------------------------------------------
 wire           VCC_net;
-wire   [31:16] AMBA_SLAVE_0_PRDATAS0_const_net_0;
 wire           GND_net;
+wire   [31:16] AMBA_SLAVE_0_PRDATAS0_const_net_0;
 //--------------------------------------------------------------------
 // Constant assignments
 //--------------------------------------------------------------------
 assign VCC_net                           = 1'b1;
-assign AMBA_SLAVE_0_PRDATAS0_const_net_0 = 16'h0000;
 assign GND_net                           = 1'b0;
+assign AMBA_SLAVE_0_PRDATAS0_const_net_0 = 16'h0000;
 //--------------------------------------------------------------------
 // Top level output port assignments
 //--------------------------------------------------------------------
@@ -420,11 +420,11 @@ FCCC_C0 FCCC_C0_0(
 Filterwheel_sb Filterwheel_sb_0(
         // Inputs
         .FAB_RESET_N            ( VCC_net ),
-        .AMBA_SLAVE_0_PREADYS0  ( VCC_net ), // tied to 1'b1 from definition
-        .AMBA_SLAVE_0_PSLVERRS0 ( GND_net ), // tied to 1'b0 from definition
+        .AMBA_SLAVE_0_PREADYS0  ( VCC_net ),
+        .AMBA_SLAVE_0_PSLVERRS0 ( GND_net ),
         .DEVRST_N               ( DEVRST_N ),
         .CLK0                   ( FCCC_C0_0_GL0 ),
-        .MMUART_0_RXD_F2M       ( TxdUsb ),
+        .MMUART_0_RXD_F2M       ( VCC_net ),
         .AMBA_SLAVE_0_PRDATAS0  ( AMBA_SLAVE_0_PRDATAS0_net_0 ),
         // Outputs
         .POWER_ON_RESET_N       (  ),
@@ -435,7 +435,7 @@ Filterwheel_sb Filterwheel_sb_0(
         .FIC_0_CLK              (  ),
         .FIC_0_LOCK             (  ),
         .MSS_READY              (  ),
-        .MMUART_0_TXD_M2F       ( RxdUsb_net_0 ),
+        .MMUART_0_TXD_M2F       (  ),
         .AMBA_SLAVE_0_PADDRS    ( AMBA_SLAVE_0_PADDRS_net_0 ),
         .AMBA_SLAVE_0_PWDATAS   ( AMBA_SLAVE_0_PWDATAS_net_0 ) 
         );
@@ -455,13 +455,13 @@ Main Main_0(
         .RamBusAddress         ( Filterwheel_sb_0_AMBA_SLAVE_0_PADDRS9to0 ),
         .RamBusDataIn          ( Filterwheel_sb_0_AMBA_SLAVE_0_PWDATAS15to0 ),
         .RamBusnCs             ( Filterwheel_sb_0_AMBA_SLAVE_0_PSELS0 ),
-        .RamBusWE              ( Filterwheel_sb_0_AMBA_SLAVE_0_PWRITES ),
-        .RamBusOE              ( Filterwheel_sb_0_AMBA_SLAVE_0_PENABLES ),
+        .RamBusWrnRd           ( Filterwheel_sb_0_AMBA_SLAVE_0_PWRITES ),
+        .RamBusLatch           ( Filterwheel_sb_0_AMBA_SLAVE_0_PENABLES ),
         .Rxd0                  ( Rxd0 ),
         .Rxd1                  ( Rxd1 ),
         .Rxd2                  ( Rxd2 ),
         .Rxd3                  ( Rxd3 ),
-        .TxdUsb                ( VCC_net ),
+        .TxdUsb                ( TxdUsb ),
         .RxdGps                ( RxdGps ),
         .PPS                   ( PPS ),
         .MisoMonAdc0           ( MisoMonAdc0 ),
@@ -493,7 +493,7 @@ Main Main_0(
         .Oe2                   ( Oe2_net_0 ),
         .Txd3                  ( Txd3_net_0 ),
         .Oe3                   ( Oe3_net_0 ),
-        .RxdUsb                (  ),
+        .RxdUsb                ( RxdUsb_net_0 ),
         .CtsUsb                ( CtsUsb_net_0 ),
         .TxdGps                ( TxdGps_net_0 ),
         .nCsMonAdc0            ( nCsMonAdc0_net_0 ),

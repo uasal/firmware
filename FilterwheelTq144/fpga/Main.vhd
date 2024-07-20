@@ -46,8 +46,8 @@ port (
 	RamBusDataIn : in std_logic_vector(15 downto 0);
 	RamBusDataOut : out std_logic_vector(15 downto 0);
 	RamBusnCs : in std_logic;
-	RamBusWE : in std_logic;
-	RamBusOE : in std_logic;
+	RamBusWrnRd : in std_logic;
+	RamBusLatch : in std_logic;
 	
 	--RS-422 (uses LVDS and/or Accel pins)
 	Txd0 : out std_logic;
@@ -676,6 +676,19 @@ architecture architecture_Main of Main is
 							Uart2TxFifoData : out std_logic_vector(7 downto 0);
 							Uart2TxFifoCount : in std_logic_vector(9 downto 0);
 							Uart2ClkDivider : out std_logic_vector(7 downto 0);
+							
+							UartUsbFifoReset : out std_logic;
+							ReadUartUsb : out std_logic;
+							UartUsbRxFifoFull : in std_logic;
+							UartUsbRxFifoEmpty : in std_logic;
+							UartUsbRxFifoData : in std_logic_vector(7 downto 0);
+							UartUsbRxFifoCount : in std_logic_vector(9 downto 0);
+							WriteUartUsb : out std_logic;
+							UartUsbTxFifoFull : in std_logic;
+							UartUsbTxFifoEmpty : in std_logic;
+							UartUsbTxFifoData : out std_logic_vector(7 downto 0);
+							UartUsbTxFifoCount : in std_logic_vector(9 downto 0);
+							UartUsbClkDivider : out std_logic_vector(7 downto 0);
 
 							--Timing
 							IdealTicksPerSecond : in std_logic_vector(31 downto 0);
@@ -813,9 +826,9 @@ architecture architecture_Main of Main is
 		
 		-- Ram bus
 						
-			signal RamBusOE_i : std_logic;		
+			signal RamBusLatch_i : std_logic;		
 			signal RamBusCE_i : std_logic;		
-			signal RamBusWE_i : std_logic;		
+			signal RamBusWrnRd_i : std_logic;		
 			signal RamBusAddress_i : std_logic_vector(9 downto 0);		
 			signal nTristateRamDataPins : std_logic;		
 			signal RamDataOut : std_logic_vector(15 downto 0);		
@@ -980,7 +993,27 @@ architecture architecture_Main of Main is
 			signal UartTxClk2 : std_logic;			
 			signal Txd2_i : std_logic;
 			signal Rxd2_i : std_logic;
-			signal UartRx2Dbg : std_logic;			
+			signal UartRx2Dbg : std_logic;		
+
+			signal UartUsbFifoReset : std_logic;
+			signal UartUsbFifoReset_i : std_logic;
+			signal ReadUartUsb : std_logic;
+			signal UartUsbRxFifoFull : std_logic;
+			signal UartUsbRxFifoEmpty : std_logic;
+			signal UartUsbRxFifoReadAck : std_logic;
+			signal UartUsbRxFifoData : std_logic_vector(7 downto 0);
+			signal UartUsbRxFifoCount : std_logic_vector(9 downto 0);
+			signal WriteUartUsb : std_logic;
+			signal UartUsbTxFifoFull : std_logic;
+			signal UartUsbTxFifoEmpty : std_logic;
+			signal UartUsbTxFifoData : std_logic_vector(7 downto 0);
+			signal UartUsbTxFifoCount : std_logic_vector(9 downto 0);
+			signal UartUsbClkDivider : std_logic_vector(7 downto 0);
+			signal UartClkUsb : std_logic;			
+			signal UartTxClkUsb : std_logic;			
+			signal TxdUsb_i : std_logic;
+			signal RxdUsb_i : std_logic;
+			signal UartRxUsbDbg : std_logic;					
 			
 		-- Timing
 		
@@ -1127,10 +1160,10 @@ begin
 	
 	------------------------------------------ RegisterSpaces ---------------------------------------------------
 
-		IBufOE : IBufP2Ports port map(clk => MasterClk, I => RamBusOE, O => RamBusOE_i);
+		IBufLatch : IBufP2Ports port map(clk => MasterClk, I => RamBusLatch, O => RamBusLatch_i);
 		--~ IBufCE : IBufP2Ports port map(clk => MasterClk, I => RamBusnCs(0), O => RamBusCE_i);
 		IBufCE : IBufP2Ports port map(clk => MasterClk, I => RamBusnCs, O => RamBusCE_i);
-		IBufWE : IBufP2Ports port map(clk => MasterClk, I => RamBusWE, O => RamBusWE_i);
+		IBufWrnRd : IBufP2Ports port map(clk => MasterClk, I => RamBusWrnRd, O => RamBusWrnRd_i);
 
 		GenRamAddrBus: for i in 0 to 9 generate
 		begin
@@ -1169,15 +1202,15 @@ begin
 		
 	--devmem2 0x021B8010 w 0x3F000FE0 for max wait states on arm, write is taking 400ns / word, 1us / 32b
 	DataToWrite <= RamDataIn;
-	WriteReq <= '1' when ( (RamBusCE_i = '0') and (RamBusWE_i = '0') ) else '0';
+	WriteReq <= '1' when ( (RamBusCE_i = '0') and (RamBusWrnRd_i = '1') ) else '0';
 	
 	--devmem2 0x021B8008 w 0x3F000707 for max wait states on arm, read is taking 400ns / word, 1us / 32b
 	RamDataOut <= DataFromRead;
     --RamDataOut <= x"69";
 	--~ ReadReq  <= '1' when ( (RamBusCE_i = '0') and (RamBusOE_i = '0') ) else '0';
 	--~ ReadReq  <= '1' when (RamBusCE_i = '0') else '0';
-	ReadReq <= '1' when ( (RamBusCE_i = '0') and (RamBusWE_i = '1') ) else '0';
-	nTristateRamDataPins <= '1' when ( (RamBusCE_i = '0') and (RamBusOE_i = '0') ) else '0';
+	ReadReq <= '1' when ( (RamBusCE_i = '0') and (RamBusWrnRd_i = '0') ) else '0';
+	--~ nTristateRamDataPins <= '1' when ( (RamBusCE_i = '0') and (RamBusOE_i = '0') ) else '0';
 	
 	
 	------------------------------------------ RegisterSpace ---------------------------------------------------
@@ -1334,6 +1367,19 @@ begin
 		Uart2TxFifoData => Uart2TxFifoData,
 		Uart2TxFifoCount => Uart2TxFifoCount,
 		Uart2ClkDivider => Uart2ClkDivider,
+		
+		UartUsbFifoReset => UartUsbFifoReset,
+		ReadUartUsb => ReadUartUsb,
+		UartUsbRxFifoFull => UartUsbRxFifoFull,
+		UartUsbRxFifoEmpty => UartUsbRxFifoEmpty,
+		UartUsbRxFifoData => UartUsbRxFifoData,
+		UartUsbRxFifoCount => UartUsbRxFifoCount,
+		WriteUartUsb => WriteUartUsb,
+		UartUsbTxFifoFull => UartUsbTxFifoFull,
+		UartUsbTxFifoEmpty => UartUsbTxFifoEmpty,
+		UartUsbTxFifoData => UartUsbTxFifoData,
+		UartUsbTxFifoCount => UartUsbTxFifoCount,
+		UartUsbClkDivider => UartUsbClkDivider,
 		
 		--Timing
 		IdealTicksPerSecond => std_logic_vector(to_unsigned(BoardMasterClockFreq, 32)),
@@ -1737,6 +1783,141 @@ begin
 	Uart2FifoReset_i <= MasterReset or Uart2FifoReset;
 	
 	
+
+	
+	--~ UartUsbBitClockDiv : VariableClockDividerPorts
+	--~ generic map
+	--~ (
+		--~ WIDTH_BITS => 8,
+		--~ DIVOUT_RST_STATE => '0'--;
+	--~ )
+	--~ port map
+	--~ (
+		--~ --clki => MasterClk,
+		--~ clki => UartClk,
+		--~ rst => MasterReset,
+		--~ rst_count => x"00",
+		--~ --terminal_count => UartUsbClkDivider,
+		--~ terminal_count => std_logic_vector(to_unsigned(natural((real(153000000) / ( real(115200) * 16.0)) - 1.0), 8)),
+		--~ clko => UartClkUsb
+	--~ );
+	
+	
+	UartUsbRxBitClockDiv : ClockDividerPorts
+	generic map
+	(
+		CLOCK_DIVIDER => natural((real(102000000) / ( real(115200) * 16.0)) - 1.0),
+		DIVOUT_RST_STATE => '0'--;
+	)
+	port map
+	(
+		clk => UartClk,
+		rst => MasterReset,
+		div => UartClkUsb
+	);
+	
+	UartUsbTxBitClockDiv : ClockDividerPorts
+	generic map
+	(
+		CLOCK_DIVIDER => 16,
+		DIVOUT_RST_STATE => '0'--;
+	)
+	port map
+	(
+		clk => UartClkUsb,
+		rst => MasterReset,
+		div => UartTxClkUsb
+	);
+	
+	--~ Ux1SelJmp <= UartClkUsb;
+	
+	IBufRxdUsb : IBufP3Ports port map(clk => UartClk, I => TxdUsb, O => RxdUsb_i); --if you want to change the pin for this chip select, it's here
+	
+	--~ TP2 <= RxdUsb_i;
+	LedB <= not(TxdUsb);
+	
+	--~ Ux1SelJmp <= RxdUsb;
+	
+	RxdUsb_RxUsb : UartRxFifoExtClk
+	generic map
+	(
+		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
+		FIFO_BITS => 10--,
+		--~ BAUD_DIVIDER_BITS => 8--,
+		--~ BAUDRATE => 1Usb500000--,
+		--~ BAUDRATE => 8000000--,
+		--~ BAUDRATE => BoardMasterClockFreq / 16--, --9.Usb16MHz
+		--~ BAUDRATE => BoardMasterClockFreq / 819Usb--,
+		--~ BAUDRATE => 115Usb00--,
+	)
+	port map
+	(
+		clk => MasterClk,
+		uclk => UartClkUsb,
+		rst => UartUsbFifoReset_i,
+		--~ BaudDivider => UartUsbClkDivider,
+		Rxd => RxdUsb_i,
+		Dbg1 => open,
+		RxComplete => open,
+		ReadFifo => ReadUartUsb,
+		FifoFull => UartUsbRxFifoFull,
+		FifoEmpty => UartUsbRxFifoEmpty,
+		FifoReadData => UartUsbRxFifoData,
+		FifoCount => UartUsbRxFifoCount,
+		FifoReadAck => open--,		
+	);
+	
+	CtsUsb <= UartUsbRxFifoFull; --polarity??
+	
+	RS4UsbUsb_TxUsb : UartTxFifoExtClk
+	--~ RS4UsbUsb_TxUsb : UartTxFifo
+	generic map
+	(
+		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
+		--~ FIFO_BITS => 10,
+		FIFO_BITS => 10--,
+		--~ BAUD_DIVIDER_BITS => 8--,
+		--~ BAUDRATE => 1Usb500000--,
+		--~ BAUDRATE => 8000000--,
+		--~ BAUDRATE => BoardMasterClockFreq / 16--, --9.Usb16MHz
+		--~ BAUDRATE => BoardMasterClockFreq / 819Usb--,
+		--~ BAUDRATE => 115Usb00--,
+	)
+	port map
+	(
+		clk => MasterClk,
+		--~ uclk => MasterClk,
+		uclk => UartTxClkUsb,
+		rst => UartUsbFifoReset_i,
+		--~ BaudDivider => UartUsbClkDivider,
+		BitClockOut => open,
+		--~ BitClockOut => Ux1SelJmp,		
+		WriteStrobe => WriteUartUsb,
+		WriteData => UartUsbTxFifoData,
+		FifoFull => UartUsbTxFifoFull,
+		FifoEmpty => UartUsbTxFifoEmpty,
+		FifoCount => UartUsbTxFifoCount,
+		TxInProgress => open,
+		--~ TxInProgress => SckMonitorAdcTP3,		
+		Cts => '0', --RtsUsb in this case, ignore cause the computer can pretty much alwyays keep up
+		Txd => TxdUsb_i--,
+		--~ Txd => open--,
+	);
+	RxdUsb <= TxdUsb_i;
+	
+	LedR <= not(TxdUsb_i);
+	--~ TP1 <= TxdUsb_i;
+	
+	CtsUsb <= '1';
+	
+	--Debug monitors
+	--~ TxdUsb <= Txd0_i;
+	--~ Txd1 <= Rxd0_i;
+	
+	--Mux master reset (boot) and user reset (datamapper)
+	UartUsbFifoReset_i <= MasterReset or UartUsbFifoReset;
+	
+	
 	----------------------------- Timing ----------------------------------
 	
 		--Just sync external PPS to master clock
@@ -1947,6 +2128,8 @@ begin
 	MotorDriveBPlusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorBPlus_i = '1') ) else PushPullGround;
 	MotorDriveBMinusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorBMinus_i = '1') ) else PushPullGround;
 	
+	LedG <= MotorSeekStep(7);
+	
 	----------------------------- DEBUG IDEAS ----------------------------------
 	
 	Ux1SelJmp <= RamBusDataIn(0);
@@ -1965,8 +2148,8 @@ begin
 	Txd3 <= Rxd3;
 	Oe3 <= '1';
 	
-	RxdUsb <= TxdUsb;
-	CtsUsb <= '1';
+	--~ RxdUsb <= TxdUsb;
+	--~ CtsUsb <= '1';
 	
 	TxdGps <= RxdGps and PPS;
 	
@@ -1986,18 +2169,30 @@ begin
 		PowernEn5V <= '0';
 		PowerSync <= '1';
 		
-		LedR <= '1';
-		LedG <= '1';
-		LedB <= '1';
+		--~ LedR <= '1';
+		--~ LedG <= '1';
+		--~ LedB <= '1';
 		
-		TP1 <= Fault1V;
-		TP2 <= Fault3V;
-		TP3 <= Fault5V;
-		TP4 <= PowerCycd;
-		TP5 <= '1';
-		TP6 <= '1';
-		TP7 <= '1';
-		TP8 <= '1';
+		TP1 <= RamBusnCs;
+		TP2 <= RamBusWrnRd;
+		TP3 <= RamBusDataIn(0);
+		TP4 <= RamBusDataIn(1);
+		TP5 <= RamBusAddress(2);
+		TP6 <= UartClkUsb;
+		--~ TP7 <= '1';
+		--~ TP8 <= '1';
+		--~ TP5 <= 'Fault5V;
+		--~ TP6 <= PowerCycd;
+		TP7 <= RamBusLatch;
+		TP8 <= Fault3V or Fault1V or PowerCycd or Fault5V;
+		
+--~ RamBusAddress : in std_logic_vector(9 downto 0); 
+--~ RamBusDataIn : in std_logic_vector(15 downto 0);
+--~ RamBusDataOut : out std_logic_vector(15 downto 0);
+--~ RamBusnCs : in std_logic;
+--~ RamBusWE : in std_logic;
+--~ RamBusOE : in std_logic;
+
 		
 	----------------------------- Clocked Logic / Main Loop ----------------------------------
 	
@@ -2139,3 +2334,5 @@ begin
 
 	
 end architecture_Main;
+
+

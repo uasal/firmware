@@ -157,6 +157,19 @@ entity RegisterSpacePorts is
 		Uart2TxFifoData : out std_logic_vector(7 downto 0);
 		Uart2TxFifoCount : in std_logic_vector(9 downto 0);
 		Uart2ClkDivider : out std_logic_vector(7 downto 0);
+		
+		UartUsbFifoReset : out std_logic;
+		ReadUartUsb : out std_logic;
+		UartUsbRxFifoFull : in std_logic;
+		UartUsbRxFifoEmpty : in std_logic;
+		UartUsbRxFifoData : in std_logic_vector(7 downto 0);
+		UartUsbRxFifoCount : in std_logic_vector(9 downto 0);
+		WriteUartUsb : out std_logic;
+		UartUsbTxFifoFull : in std_logic;
+		UartUsbTxFifoEmpty : in std_logic;
+		UartUsbTxFifoData : out std_logic_vector(7 downto 0);
+		UartUsbTxFifoCount : in std_logic_vector(9 downto 0);
+		UartUsbClkDivider : out std_logic_vector(7 downto 0);
 
 		--Timing
 		IdealTicksPerSecond : in std_logic_vector(31 downto 0);
@@ -265,7 +278,11 @@ architecture RegisterSpace of RegisterSpacePorts is
 	constant PosDet6BOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(236, MAX_ADDRESS_BITS));
 	constant PosDet6BOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(238, MAX_ADDRESS_BITS));
 	constant PosDet7BOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(240, MAX_ADDRESS_BITS));
-	constant PosDet7BOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(240, MAX_ADDRESS_BITS));
+	constant PosDet7BOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(242, MAX_ADDRESS_BITS));
+	
+	constant UartUsbFifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(244, MAX_ADDRESS_BITS));
+	constant UartUsbFifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(248, MAX_ADDRESS_BITS));
+	
 	
 	--Control Signals
 	
@@ -281,6 +298,7 @@ architecture RegisterSpace of RegisterSpacePorts is
 	--~ signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(38400) * 16.0)) - 1.0), 8));	--38.4k
 	--~ signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(230400) * 16.0)) - 1.0), 8));	--230k
 	signal Uart2ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8));	--"real fast"
+	signal UartUsbClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(115200) * 16.0)) - 1.0), 8));	--115.2k
 	
 	signal MonitorAdcChannelReadIndex_i : std_logic_vector(4 downto 0);	
 	
@@ -300,6 +318,7 @@ begin
 	Uart0ClkDivider <= Uart0ClkDivider_i;
 	Uart1ClkDivider <= Uart1ClkDivider_i;
 	Uart2ClkDivider <= Uart2ClkDivider_i;
+	UartUsbClkDivider <= UartUsbClkDivider_i;
 	
 	MotorSeekStep <= MotorSeekStep_i;
 	PosLedsEnA <= PosLedsEnA_i;
@@ -503,7 +522,47 @@ begin
 								DataOut(9) <= Uart2RxFifoCount(9);
 								DataOut(8) <= Uart2RxFifoCount(8);
 								
+								
+								
+								
+							when UartUsbFifoAddr =>
 
+								ReadUartUsb <= '1';
+								DataOut(7 downto 0) <= UartUsbRxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
+								
+							when UartUsbFifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+
+								--~ DataOut(7 downto 0) <= x"00";
+								DataOut(7 downto 0) <= UartUsbRxFifoData;
+								DataOut(15 downto 8) <= x"00";
+								
+							when UartUsbFifoStatusAddr =>
+
+								DataOut(7) <= '0';
+								DataOut(6) <= '0';
+								DataOut(5) <= '0';
+								DataOut(4) <= '0';
+								DataOut(3) <= UartUsbTxFifoFull;
+								DataOut(2) <= UartUsbTxFifoEmpty;
+								DataOut(1) <= UartUsbRxFifoFull;
+								DataOut(0) <= UartUsbRxFifoEmpty;
+								--~ DataOut(15 downto 8) <= x"00";
+								DataOut(15 downto 8) <= UartUsbRxFifoCount(7 downto 0);
+								
+							when UartUsbFifoStatusAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+						
+								DataOut(7 downto 0) <= UartUsbTxFifoCount(7 downto 0);
+								DataOut(15) <= '0';
+								DataOut(14) <= '0';
+								DataOut(13) <= '0';
+								DataOut(12) <= '0';
+								DataOut(11) <= UartUsbTxFifoCount(9);
+								DataOut(10) <= UartUsbTxFifoCount(8);
+								DataOut(9) <= UartUsbRxFifoCount(9);
+								DataOut(8) <= UartUsbRxFifoCount(8);
+
+								
+								
 							--Uart Clock dividers
 							when UartClockDividersAddr =>
 
@@ -676,7 +735,8 @@ begin
 						
 						ReadUart0 <= '0';						
 						ReadUart1 <= '0';						
-						ReadUart2 <= '0';						
+						ReadUart2 <= '0';		
+						ReadUartUsb <= '0';												
 					
 					end if;
 					
@@ -731,6 +791,15 @@ begin
 
 								Uart2FifoReset <= '1';
 								
+							when UartUsbFifoAddr =>
+
+								WriteUartUsb <= '1';
+								UartUsbTxFifoData <= DataIn(7 downto 0);
+								
+							when UartUsbFifoStatusAddr =>
+
+								UartUsbFifoReset <= '1';
+							
 							--Uart Clock dividers
 							when UartClockDividersAddr =>
 
@@ -804,6 +873,8 @@ begin
 						Uart1FifoReset <= '0';						
 						WriteUart2 <= '0';		
 						Uart2FifoReset <= '0';						
+						WriteUartUsb <= '0';		
+						UartUsbFifoReset <= '0';						
 					
 					end if;
 					
@@ -816,3 +887,4 @@ begin
 	end process;
 
 end RegisterSpace;
+

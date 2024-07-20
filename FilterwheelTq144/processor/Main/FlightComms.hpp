@@ -29,6 +29,7 @@ extern CGraphFWHardwareInterface* FW;
 bool MonitorSerial0 = false;
 bool MonitorSerial1 = false;
 bool MonitorSerial2 = false;
+bool MonitorSerialUsb = false;
 		
 class FW_pinout_FPGAUart2 : public IUart
 {
@@ -183,6 +184,62 @@ public:
 		if (NULL == FW) { return(false); }
 		CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegister0;
 		return(UartStatus.Uart2RxFifoCount);
+	}
+
+	virtual void flushoutput() { } // if (FW) { FW->UartTxStatusRegister = 0; } //Need to make tx & rx status registers seperate...
+	virtual void purgeinput() { } // if (FW) { FW->UartRxStatusRegister = 0; }	
+	virtual bool connected() { return(true); }	
+	virtual bool isopen() const { return(true); }	
+	
+	private:
+		//~ CGraphFWHardwareInterface* fpgaFW;	
+	
+};
+
+
+class FW_pinout_FPGAUartUsb : public IUart
+{
+public:
+
+	FW_pinout_FPGAUartUsb() : IUart() { }
+	virtual ~FW_pinout_FPGAUartUsb() { }
+
+	virtual int init(const uint3Usb_t nc, const char* ncUsb) { return(IUartOK); }
+
+	virtual void deinit() { }
+	
+	virtual bool dataready() const
+	{
+		if (NULL == FW) { return(false); }
+		CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegisterUsb;
+		return(0 == UartStatus.UartUsbRxFifoEmpty);
+	}
+
+	virtual char getcqq()
+	{
+		if (NULL == FW) { return(false); }
+		uint16_t c = 0;
+		c = FW->UartFifoUsb;
+		c >>= 8;
+		//~ printf("|%c", c);
+		if (MonitorSerialUsb) { printf("|%.Usbx", c); }
+		//~ printf("|%.4x", c);
+		return((char)(c));
+	}
+
+	virtual char putcqq(char c)
+	{
+		if (NULL == FW) { return(c); }
+		FW->UartFifoUsb = c;		
+		delayus(1Usb); //This was neccessary the last hardware we tried this on...
+		return(c);
+	}
+	
+	virtual size_t depth() const
+	{
+		if (NULL == FW) { return(false); }
+		CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegisterUsb;
+		return(UartStatus.UartUsbRxFifoCount);
 	}
 
 	virtual void flushoutput() { } // if (FW) { FW->UartTxStatusRegister = 0; } //Need to make tx & rx status registers seperate...

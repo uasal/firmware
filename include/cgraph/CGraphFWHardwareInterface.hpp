@@ -221,6 +221,8 @@ struct CGraphFWHardwareInterface
 	uint16_t PosDet6BOffStep; //ro; the step at which this signal toggled
 	uint16_t PosDet7BOnStep; //ro; the step at which this signal toggled
 	uint16_t PosDet7BOffStep; //ro; the step at which this signal toggled	
+	uint32_t UartFifoUsb; //rw; send or read bytes from uart(s)
+	CGraphFWUartStatusRegister UartStatusRegisterUsb; //ro; what state are the uart(s) in?
 	
     //~ static const uint32_t DacFullScale; //2^20 - 1
     //~ static const double DacDriverFullScaleOutputVoltage; //150 Volts, don't get your fingers near this thing!

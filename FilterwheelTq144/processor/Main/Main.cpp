@@ -94,25 +94,27 @@ extern "C"
 {
 	int stdio_hook_putc(int c) 
 	{ 
-		//~ FPGAUartPinout0.putcqq(c); return(c); 
-		uint8_t rx_buf[128];
+		FPGAUartPinoutUsb.putcqq(c); return(c); 
+		//~ uint8_t rx_buf[128];
 		
-		rx_err_status = UART_get_rx_status(&my_uart);
-		if ((UART_APB_NO_ERROR == rx_err_status))
-		{
-		  char c = '\0';   // what does this do for us?
-		  rx_size = UART_get_rx(&my_uart, rx_buf, 1);  // Get 1 byte
-		  c = *rx_buf;
-		  if (MonitorSerial1) { printf("!%.2x",c); }
-		  //return(rx_buf[0]);
-		  return((char)(c));
-		}
-		else {
-		  //      uint8_t msg[] = {"UWVeryLooooooongMessage"};
-		  //      UART_polled_tx_string(&my_uart,(const uint8_t *)&msg);
-		  return(false);
-		}
+		//~ rx_err_status = UART_get_rx_status(&my_uart);
+		//~ if ((UART_APB_NO_ERROR == rx_err_status))
+		//~ {
+		  //~ char c = '\0';   // what does this do for us?
+		  //~ rx_size = UART_get_rx(&my_uart, rx_buf, 1);  // Get 1 byte
+		  //~ c = *rx_buf;
+		  //~ if (MonitorSerial1) { printf("!%.2x",c); }
+		  //~ //return(rx_buf[0]);
+		  //~ return((char)(c));
+		//~ }
+		//~ else {
+		  //~ //      uint8_t msg[] = {"UWVeryLooooooongMessage"};
+		  //~ //      UART_polled_tx_string(&my_uart,(const uint8_t *)&msg);
+		  //~ return(false);
+		//~ }
 	}
+	
+	int stdio_hook_getc() { return(FPGAUartPinoutUsb.getcqq()); }
 };
 
 extern "C"
