@@ -80,8 +80,8 @@ SIZE="1186"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd,hdl"
 STATE="utd"
-TIME="1721433295"
-SIZE="77197"
+TIME="1721591345"
+SIZE="78971"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd,hdl"
 STATE="utd"
@@ -265,23 +265,23 @@ SIZE="5082"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd,hdl"
 STATE="utd"
-TIME="1716482055"
-SIZE="1446"
+TIME="1721575784"
+SIZE="2219"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifo.vhd,hdl"
 STATE="utd"
-TIME="1716482055"
-SIZE="6501"
+TIME="1721571117"
+SIZE="6528"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd,hdl"
 STATE="utd"
-TIME="1716482055"
-SIZE="5979"
+TIME="1721575827"
+SIZE="6296"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoParity.vhd,hdl"
 STATE="utd"
-TIME="1716482055"
-SIZE="6706"
+TIME="1721571127"
+SIZE="6733"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/include/fpga/UartTxParity.vhd,hdl"
 STATE="utd"
@@ -523,26 +523,26 @@ ENDFILE
 VALUE "<project>/../../include/fpga/UartTx.vhd,hdl"
 LINKFILEROOT "<project>/../../include/fpga"
 STATE="utd"
-TIME="1716482055"
-SIZE="1446"
+TIME="1721575784"
+SIZE="2219"
 ENDFILE
 VALUE "<project>/../../include/fpga/UartTxFifo.vhd,hdl"
 LINKFILEROOT "<project>/../../include/fpga"
 STATE="utd"
-TIME="1716482055"
-SIZE="6501"
+TIME="1721571117"
+SIZE="6528"
 ENDFILE
 VALUE "<project>/../../include/fpga/UartTxFifoExtClk.vhd,hdl"
 LINKFILEROOT "<project>/../../include/fpga"
 STATE="utd"
-TIME="1716482055"
-SIZE="5979"
+TIME="1721575827"
+SIZE="6296"
 ENDFILE
 VALUE "<project>/../../include/fpga/UartTxFifoParity.vhd,hdl"
 LINKFILEROOT "<project>/../../include/fpga"
 STATE="utd"
-TIME="1716482055"
-SIZE="6706"
+TIME="1721571127"
+SIZE="6733"
 ENDFILE
 VALUE "<project>/../../include/fpga/UartTxParity.vhd,hdl"
 LINKFILEROOT "<project>/../../include/fpga"
@@ -577,8 +577,8 @@ ENDFILE
 VALUE "<project>/../fpga/Main.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
 STATE="utd"
-TIME="1721433295"
-SIZE="77197"
+TIME="1721591345"
+SIZE="78971"
 ENDFILE
 VALUE "<project>/../fpga/RegisterSpace.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
@@ -854,8 +854,15 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/Filterwheel/Filterwheel.cxf,actgen_cxf"
 STATE="utd"
-TIME="1721433332"
-SIZE="12400"
+TIME="1721590060"
+SIZE="12693"
+ENDFILE
+VALUE "<project>/component/work/Filterwheel/Filterwheel.v,hdl"
+STATE="utd"
+TIME="1721590060"
+SIZE="18656"
+PARENT="<project>/component/work/Filterwheel/Filterwheel.cxf"
+IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/Filterwheel_sb/CCC_0/Filterwheel_sb_CCC_0_FCCC.cxf,actgen_cxf"
 STATE="utd"
@@ -1016,8 +1023,8 @@ SIZE="252"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel.vm,syn_vm"
 STATE="ood"
-TIME="1721431175"
-SIZE="1055755"
+TIME="1721590629"
+SIZE="1056499"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel_syn.prj,prj"
 STATE="utd"
@@ -1034,7 +1041,10 @@ LIST UsedFile
 ENDLIST
 LIST NewModulesInfo
 LIST "Filterwheel::work"
-FILE "<project>/component/work/Filterwheel/Filterwheel.cxf,actgen_cxf"
+FILE "<project>/component/work/Filterwheel/Filterwheel.v,hdl"
+LIST Other_Association
+VALUE "<project>/simulation/subsystem.bfm,sim"
+ENDLIST
 LIST PNRConstraints
 VALUE "<project>/constraint/io/user.pdc,io_pdc"
 ENDLIST
@@ -1108,6 +1118,9 @@ VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/test/user/
 ENDLIST
 ENDLIST
 LIST Other_Association
+LIST Filterwheel
+VALUE "<project>/simulation/subsystem.bfm,sim"
+ENDLIST
 LIST Filterwheel_sb
 VALUE "<project>/simulation/subsystem.bfm,sim"
 VALUE "<project>/simulation/bfmtovec_compile.tcl,sim"
@@ -1258,6 +1271,7 @@ LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 Reports;Reports;0
 ReportsCurrentItem;Run Programming Action:Filterwheel_PROGRAM.log
+HDL;/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd;0
 SmartDesign;Filterwheel;0
 ACTIVEVIEW;Filterwheel
 ENDLIST
@@ -1333,6 +1347,8 @@ LIST "ClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fp
 ENDLIST
 LIST "SpiMasterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd","FALSE","FALSE"
 ENDLIST
+LIST "ClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd","FALSE","FALSE"
+ENDLIST
 LIST "FCCC_C0::work","component/work/FCCC_C0/FCCC_C0.v","TRUE","FALSE"
 SUBBLOCK "FCCC_C0_FCCC_C0_0_FCCC::work","component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.v","FALSE","FALSE"
 ENDLIST
@@ -1343,7 +1359,7 @@ ENDLIST
 LIST "fifo_gen_tb::work","/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen_tb.vhd","FALSE","FALSE"
 SUBBLOCK "fifo::work","/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd","FALSE","FALSE"
 ENDLIST
-LIST "Filterwheel::work","component/work/Filterwheel/Filterwheel.cxf","TRUE","FALSE"
+LIST "Filterwheel::work","component/work/Filterwheel/Filterwheel.v","TRUE","FALSE"
 SUBBLOCK "FCCC_C0::work","component/work/FCCC_C0/FCCC_C0.v","TRUE","FALSE"
 SUBBLOCK "Filterwheel_sb::work","component/work/Filterwheel_sb/Filterwheel_sb.v","TRUE","FALSE"
 SUBBLOCK "Main::work","/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd","FALSE","FALSE"
@@ -1414,6 +1430,7 @@ SUBBLOCK "FourWireStepperMotorDriverPorts::work","/home/summer/projects/CGraph/f
 SUBBLOCK "OneShotPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd","FALSE","FALSE"
 SUBBLOCK "ClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 SUBBLOCK "OneShotPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd","FALSE","FALSE"
+SUBBLOCK "ClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 ENDLIST
 LIST "PhaseComparatorPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/PhaseComparator.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP3Ports::work","/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd","FALSE","FALSE"

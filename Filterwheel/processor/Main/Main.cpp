@@ -25,26 +25,12 @@ extern "C" {
 
 #include "FlightComms.hpp"
 
-#include "uart/CoreUARTapb/core_uart_apb.h"
-#define COREUARTAPB_C0_0                0x40000000U
-#define BAUD_VALUE_9600       650
-#define BAUD_VALUE_115200     54 // Should be 54.3385
-#define BAUD_VALUE_256000     24 // Should be 23.90
-#define BAUD_VALUE_460800     12 // Should be 12.56
-#define BAUD_VALUE_576000     10 // should be 9.85 (100MHz clk_in)
-#define BAUD_VALUE_921600      6 // should be 5.78 (100MHz clk_in)
-#define MAX_RX_DATA_SIZE    128
-UART_instance_t my_uart;
-uint8_t rx_data[MAX_RX_DATA_SIZE];
-uint8_t rx_size = 0;
-uint8_t rx_err_status;
-
-
 FPGABinaryUartCallbacks PacketCallbacks;
 CGraphPacket FPGAUartProtocol;
 FW_pinout_FPGAUart0 FPGAUartPinout0;
 FW_pinout_FPGAUart1 FPGAUartPinout1;
 FW_pinout_FPGAUart2 FPGAUartPinout2;
+FW_pinout_FPGAUartUsb FPGAUartPinoutUsb;
 
 //~ BinaryUart(struct IUart& pinout, struct IPacket& packet, const Cmd* cmds, const size_t numcmds, struct BinaryUartCallbacks& callbacks, const bool verbose = true, const uint64_t serialnum = InvalidSerialNumber)
 BinaryUart FpgaUartParser2(FPGAUartPinout2, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
@@ -52,13 +38,13 @@ BinaryUart FpgaUartParser1(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBin
 //BinaryUart FpgaUartParser0(FPGAUartPinout0, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 
 #include "uart/TerminalUart.hpp"
-char prompt[] = "\n\nBrd339/Brd357> ";
+char prompt[] = "\n\nESC-FW> ";
 const char* TerminalUartPrompt()
 {
     return(prompt);
 }
 //Handle incoming ascii cmds & binary packets from the usb
-TerminalUart<16, 4096> DbgUart(FPGAUartPinout0, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
+TerminalUart<16, 4096> DbgUart(FPGAUartPinoutUsb, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
 
 
 //~ char prompt[] = "\n\nFW> ";
@@ -94,29 +80,10 @@ extern "C"
 {
 	int stdio_hook_putc(int c) 
 	{ 
-		FPGAUartPinout0.putcqq(c); return(c);
+		FPGAUartPinout0.putcqq(c); 
+		FPGAUartPinoutUsb.putcqq(c);
+		return(c);
 	}
-
-	int oldputc()
-	{
-	        uint8_t rx_buf[128];
-
-	        rx_err_status = UART_get_rx_status(&my_uart);
-	        if ((UART_APB_NO_ERROR == rx_err_status))
-	        {
-	          char c = '\0';   // what does this do for us?
-	          rx_size = UART_get_rx(&my_uart, rx_buf, 1);  // Get 1 byte
-	          c = *rx_buf;
-	          if (MonitorSerial1) { printf("!%.2x",c); }
-	          //return(rx_buf[0]);
-	          return((char)(c));
-	        }
-	        else {
-	          //      uint8_t msg[] = {"UWVeryLooooooongMessage"};
-	          //      UART_polled_tx_string(&my_uart,(const uint8_t *)&msg);
-	          return(false);
-	        }
-    }
 };
 
 extern "C"
@@ -161,7 +128,37 @@ int main(int argc, char *argv[])
 
     //~ if (argc > 2)
 
-    //~ //printf("Welcome to FW v%s.b%s.\n", GITVERSION, BUILDNUM);
+    //~ //formatf("Welcome to FW v%s.b%s.\n", GITVERSION, BUILDNUM);
+
+	FPGAUartPinoutUsb.putcqq('\n');
+	FPGAUartPinoutUsb.putcqq('\n');
+	FPGAUartPinoutUsb.putcqq('\n');
+	FPGAUartPinoutUsb.putcqq('\n');
+	FPGAUartPinoutUsb.putcqq('\n');
+	FPGAUartPinoutUsb.putcqq('\n');
+	FPGAUartPinoutUsb.putcqq('\n');
+	FPGAUartPinoutUsb.putcqq('\n');
+	FPGAUartPinoutUsb.putcqq('\n');
+	FPGAUartPinoutUsb.putcqq('H');
+	FPGAUartPinoutUsb.putcqq('e');
+	FPGAUartPinoutUsb.putcqq('l');
+	FPGAUartPinoutUsb.putcqq('l');
+	FPGAUartPinoutUsb.putcqq('o');
+	FPGAUartPinoutUsb.putcqq(' ');
+	FPGAUartPinoutUsb.putcqq('T');
+	FPGAUartPinoutUsb.putcqq('E');
+	FPGAUartPinoutUsb.putcqq('S');
+	FPGAUartPinoutUsb.putcqq('S');
+	FPGAUartPinoutUsb.putcqq('!');
+	FPGAUartPinoutUsb.putcqq(' ');
+    FPGAUartPinoutUsb.putcqq('-');
+    FPGAUartPinoutUsb.putcqq('E');
+    FPGAUartPinoutUsb.putcqq('S');
+    FPGAUartPinoutUsb.putcqq('C');
+    FPGAUartPinoutUsb.putcqq('-');
+    FPGAUartPinoutUsb.putcqq('F');
+    FPGAUartPinoutUsb.putcqq('W');
+	FPGAUartPinoutUsb.putcqq('\n');
 
     extern unsigned long __vector_table_start;
     extern unsigned long _evector_table;
@@ -204,20 +201,22 @@ int main(int argc, char *argv[])
 	//UART_polled_tx_string(&my_uart,(const uint8_t*)"\nFW: GO --->"); // getting here?
 
 
-	//printf("\n\nFW: Welcome...");
+	//formatf("\n\nFW: Welcome...");
     
-	//~ printf("\n\nFW: Start User Interface...");    
+	//~ formatf("\n\nFW: Start User Interface...");    
 	
     //~ GlobalRestore();
 
-    //~ printf("\nFW: Ready.\n");
+    //~ formatf("\nFW: Ready.\n");
+
+    DbgUart.SetEcho(false);
 	
     while(true)
     {
 		bool Bored = true;
 		
 		//Handle stdio (local) user interface:
-        //~ if (Process())
+        if (Process())
         {
             Bored = false;
         }
@@ -259,10 +258,14 @@ int main(int argc, char *argv[])
             //~ delayms(100);
         //~ }
 		//delayms(1);
-		i++;
-		FW->MotorControlStatus.SeekStep = i;
-		FPGAUartPinout0.putcqq(i);
-        HW_set_32bit_reg(FILTERWHEEL_SB_0, i); // send all 32 bits and FPGA bus will truncate it
+        //uint16_t j = offsetof(CGraphFWHardwareInterface, UartFifoUsb);
+        //uint16_t k = offsetof(CGraphFWHardwareInterface, UartStatusRegisterUsb);
+
+		//~ i++;
+		//~ FW->MotorControlStatus.SeekStep = i;
+		//FPGAUartPinout0.putcqq(k);
+		//~ FPGAUartPinoutUsb.putcqq(i);
+        //~ HW_set_32bit_reg(FILTERWHEEL_SB_0, j); // send all 32 bits and FPGA bus will truncate it
     }
 
     return(0);

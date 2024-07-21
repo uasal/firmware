@@ -135,7 +135,7 @@ struct CGraphVersionPayload
 	uint32_t SerialNum;
 	uint32_t ProcessorFirmwareBuildNum;
 	uint32_t FPGAFirmwareBuildNum;
-	void formatf() const { ::printf("CGraphVersionPayload: SerialNum: 0x%lX, ProcessorFirmwareBuildNum: %lu, FPGAFirmwareBuildNum: %lu", (long)SerialNum, (unsigned long)ProcessorFirmwareBuildNum, (unsigned long)FPGAFirmwareBuildNum); }
+	void printf() const { ::printf("CGraphVersionPayload: SerialNum: 0x%lX, ProcessorFirmwareBuildNum: %lu, FPGAFirmwareBuildNum: %lu", (long)SerialNum, (unsigned long)ProcessorFirmwareBuildNum, (unsigned long)FPGAFirmwareBuildNum); }
 };
 
 static const uint16_t CGraphPayloadTypePZTDacs = 0x0002U; //Payload: 3 uint32's

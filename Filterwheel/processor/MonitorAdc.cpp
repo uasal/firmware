@@ -111,22 +111,22 @@ int8_t TestMonitorAdcCommand(char const* Name, char const* Params, const size_t 
 		
 		Ltc244xAccumulator Sample;
 		 
-		//~ MonitorAdc.GetP1V2Raw(Sample); formatf("\nP1V2: "); Sample.formatf();
-		//~ MonitorAdc.GetP2V2Raw(Sample); formatf("\nP2V2: "); Sample.formatf();
-		//~ MonitorAdc.GetP24VRaw(Sample); formatf("\nP24V: "); Sample.formatf();
-		//~ MonitorAdc.GetP2V5Raw(Sample); formatf("\nP2V5: "); Sample.formatf();
-		//~ MonitorAdc.GetP3V3ARaw(Sample); formatf("\nP3V3A: "); Sample.formatf();
-		//~ MonitorAdc.GetP6VRaw(Sample); formatf("\nP6V: "); Sample.formatf();
-		//~ MonitorAdc.GetP5VRaw(Sample); formatf("\nP5V: "); Sample.formatf();
-		//~ MonitorAdc.GetP3V3DRaw(Sample); formatf("\nP3V3D: "); Sample.formatf();
-		//~ MonitorAdc.GetP4V3Raw(Sample); formatf("\nP4V3: "); Sample.formatf();
-		//~ MonitorAdc.GetN5VRaw(Sample); formatf("\nN5V: "); Sample.formatf();
-		//~ MonitorAdc.GetN6VRaw(Sample); formatf("\nN6V: "); Sample.formatf();
-		//~ MonitorAdc.GetP150VRaw(Sample); formatf("\nP150V: "); Sample.formatf();
-		//~ MonitorAdc.GetAux0Raw(Sample); formatf("\nAux0: "); Sample.formatf();
-		//~ MonitorAdc.GetAux1Raw(Sample); formatf("\nAux1: "); Sample.formatf();
-		//~ MonitorAdc.GetAmbientLightRaw(Sample); formatf("\nAmbientLight: "); Sample.formatf();
-		//~ MonitorAdc.GetTemperatureRaw(Sample); formatf("\nTemperature: "); Sample.formatf();
+		//~ MonitorAdc.GetP1V2Raw(Sample); formatf("\nP1V2: "); Sample.printf();
+		//~ MonitorAdc.GetP2V2Raw(Sample); formatf("\nP2V2: "); Sample.printf();
+		//~ MonitorAdc.GetP24VRaw(Sample); formatf("\nP24V: "); Sample.printf();
+		//~ MonitorAdc.GetP2V5Raw(Sample); formatf("\nP2V5: "); Sample.printf();
+		//~ MonitorAdc.GetP3V3ARaw(Sample); formatf("\nP3V3A: "); Sample.printf();
+		//~ MonitorAdc.GetP6VRaw(Sample); formatf("\nP6V: "); Sample.printf();
+		//~ MonitorAdc.GetP5VRaw(Sample); formatf("\nP5V: "); Sample.printf();
+		//~ MonitorAdc.GetP3V3DRaw(Sample); formatf("\nP3V3D: "); Sample.printf();
+		//~ MonitorAdc.GetP4V3Raw(Sample); formatf("\nP4V3: "); Sample.printf();
+		//~ MonitorAdc.GetN5VRaw(Sample); formatf("\nN5V: "); Sample.printf();
+		//~ MonitorAdc.GetN6VRaw(Sample); formatf("\nN6V: "); Sample.printf();
+		//~ MonitorAdc.GetP150VRaw(Sample); formatf("\nP150V: "); Sample.printf();
+		//~ MonitorAdc.GetAux0Raw(Sample); formatf("\nAux0: "); Sample.printf();
+		//~ MonitorAdc.GetAux1Raw(Sample); formatf("\nAux1: "); Sample.printf();
+		//~ MonitorAdc.GetAmbientLightRaw(Sample); formatf("\nAmbientLight: "); Sample.printf();
+		//~ MonitorAdc.GetTemperatureRaw(Sample); formatf("\nTemperature: "); Sample.printf();
 		
 		for(size_t i = 0; i < 32; i++)
 		{
@@ -155,7 +155,7 @@ int8_t TestMonitorAdcCommand(char const* Name, char const* Params, const size_t 
 			//~ tcsetattr(0,TCSADRAIN,&argin);
 			if (0 != key) 
 			{ 
-				printf("\n\nBIST: Keypress(%d); exiting.\n", key);
+				formatf("\n\nBIST: Keypress(%d); exiting.\n", key);
 				break; 
 			}			
 		}

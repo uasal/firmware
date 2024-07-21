@@ -48,6 +48,7 @@ port (
 	RamBusnCs : in std_logic;
 	RamBusWrnRd : in std_logic;
 	RamBusLatch : in std_logic;
+	RamBusAck : out std_logic;
 	
 	--RS-422 (uses LVDS and/or Accel pins)
 	Txd0 : out std_logic;
@@ -469,6 +470,7 @@ architecture architecture_Main of Main is
 							FifoEmpty : out std_logic; --fifo status:
 							FifoCount : out std_logic_vector(FIFO_BITS - 1 downto 0); --fifo status:
 							BitClockOut : out std_logic; --generally used for debug of divider values...		
+							BitCountOut : out std_logic_vector(3 downto 0);
 							
 							--'analog' side (frontyard)
 							TxInProgress : out std_logic; --currently sending data...
@@ -803,7 +805,8 @@ architecture architecture_Main of Main is
 		--~ constant BoardMasterClockFreq : natural := BaseClockFreq * ClockFreqMultiplier; 
 		
 		constant BoardMasterClockFreq : natural := 102000000; -- --102.0 clock
-		constant BoardUartClockFreq : natural := 136000000;
+		--~ constant BoardUartClockFreq : natural := 136000000;
+		constant BoardUartClockFreq : natural := 102000000;
 		--~ constant BoardMasterClockFreq : natural := 153000000; -- --102.0 clock
 		signal MasterClk : std_logic; --This is the main clock for *everything*
 		signal UartClk : std_logic; --This is the uart clock, it runs at 136MHz, and a lot of the regular logic won't run that fast, which is why we have a seperate clock. In practice, it immediately gets divided by 16 ny the uarts so it actually is slower than the other logic, but at a weird ratio...
@@ -833,6 +836,9 @@ architecture architecture_Main of Main is
 			signal nTristateRamDataPins : std_logic;		
 			signal RamDataOut : std_logic_vector(15 downto 0);		
 			signal RamDataIn : std_logic_vector(15 downto 0);		
+			signal RamBusAck_i : std_logic;					
+			signal LastRamBusCE : std_logic;					
+			signal RamBusCEEdge : std_logic;					
 			
 		-- Register space
 		
@@ -1014,6 +1020,7 @@ architecture architecture_Main of Main is
 			signal TxdUsb_i : std_logic;
 			signal RxdUsb_i : std_logic;
 			signal UartRxUsbDbg : std_logic;					
+			signal TxdUartBitCount : std_logic_vector(3 downto 0);
 			
 		-- Timing
 		
@@ -1202,15 +1209,42 @@ begin
 		
 	--devmem2 0x021B8010 w 0x3F000FE0 for max wait states on arm, write is taking 400ns / word, 1us / 32b
 	DataToWrite <= RamDataIn;
-	WriteReq <= '1' when ( (RamBusCE_i = '0') and (RamBusWrnRd_i = '1') ) else '0';
+	WriteReq <= '1' when ( (RamBusCE_i = '1') and (RamBusWrnRd_i = '1') ) else '0';
 	
 	--devmem2 0x021B8008 w 0x3F000707 for max wait states on arm, read is taking 400ns / word, 1us / 32b
 	RamDataOut <= DataFromRead;
     --RamDataOut <= x"69";
 	--~ ReadReq  <= '1' when ( (RamBusCE_i = '0') and (RamBusOE_i = '0') ) else '0';
 	--~ ReadReq  <= '1' when (RamBusCE_i = '0') else '0';
-	ReadReq <= '1' when ( (RamBusCE_i = '0') and (RamBusWrnRd_i = '0') ) else '0';
+	ReadReq <= '1' when ( (RamBusCE_i = '1') and (RamBusWrnRd_i = '0') ) else '0';
 	--~ nTristateRamDataPins <= '1' when ( (RamBusCE_i = '0') and (RamBusOE_i = '0') ) else '0';
+	
+	RamBusAck <= ReadAck or WriteAck;
+	--~ RamBusAck <= RamBusAck_i;
+	
+	--~ RamBusCEEdge <= '1' when ( (RamBusnCs /= LastRamBusCE) and (RamBusnCs = '1') ) else '0';
+		
+	--~ BusAckOneShot : OneShotPorts
+	--~ generic map (
+		--~ CLOCK_FREQHZ => BoardMasterClockFreq,
+		--~ DELAY_SECONDS => 100.0E-9,
+		--~ SHOT_RST_STATE => '0',
+		--~ SHOT_PRETRIGGER_STATE => '0'--,
+	--~ )
+	--~ port map (	
+		--~ clk => MasterClk,
+		--~ rst => RamBusCEEdge,
+		--~ shot => RamBusAck_i
+	--~ );
+	
+	TP1 <= RamBusCE_i;
+	TP2 <= RamBusLatch_i;
+	TP3 <= RamBusDataIn(0);
+	TP4 <= RamBusWrnRd_i;
+	TP5 <= WriteReq;
+	TP6 <= ReadAck;
+	TP7 <= ReadReq;
+	TP8 <= RamBusAck_i;
 	
 	
 	------------------------------------------ RegisterSpace ---------------------------------------------------
@@ -1807,6 +1841,7 @@ begin
 	generic map
 	(
 		CLOCK_DIVIDER => natural((real(102000000) / ( real(115200) * 16.0)) - 1.0),
+		--~ CLOCK_DIVIDER => natural((real(102000000) / ( real(9600) * 16.0)) - 1.0),
 		DIVOUT_RST_STATE => '0'--;
 	)
 	port map
@@ -1820,6 +1855,7 @@ begin
 	generic map
 	(
 		CLOCK_DIVIDER => 16,
+		--~ CLOCK_DIVIDER => 8, --8 not 16 cause has to be rising edge of clk for each state so intrinsic /2
 		DIVOUT_RST_STATE => '0'--;
 	)
 	port map
@@ -1857,6 +1893,8 @@ begin
 		rst => UartUsbFifoReset_i,
 		--~ BaudDivider => UartUsbClkDivider,
 		Rxd => RxdUsb_i,
+		--~ Dbg1 => TP4,
+		--~ RxComplete => TP3,
 		Dbg1 => open,
 		RxComplete => open,
 		ReadFifo => ReadUartUsb,
@@ -1867,7 +1905,8 @@ begin
 		FifoReadAck => open--,		
 	);
 	
-	CtsUsb <= UartUsbRxFifoFull; --polarity??
+	--~ CtsUsb <= UartUsbRxFifoFull; --polarity??
+	CtsUsb <= '1';
 	
 	RS4UsbUsb_TxUsb : UartTxFifoExtClk
 	--~ RS4UsbUsb_TxUsb : UartTxFifo
@@ -1892,13 +1931,14 @@ begin
 		--~ BaudDivider => UartUsbClkDivider,
 		BitClockOut => open,
 		--~ BitClockOut => Ux1SelJmp,		
+		BitCountOut => TxdUartBitCount,
 		WriteStrobe => WriteUartUsb,
 		WriteData => UartUsbTxFifoData,
 		FifoFull => UartUsbTxFifoFull,
 		FifoEmpty => UartUsbTxFifoEmpty,
 		FifoCount => UartUsbTxFifoCount,
 		TxInProgress => open,
-		--~ TxInProgress => SckMonitorAdcTP3,		
+		--~ TxInProgress => TP3,		
 		Cts => '0', --RtsUsb in this case, ignore cause the computer can pretty much alwyays keep up
 		Txd => TxdUsb_i--,
 		--~ Txd => open--,
@@ -1908,8 +1948,6 @@ begin
 	LedR <= not(TxdUsb_i);
 	--~ TP1 <= TxdUsb_i;
 	
-	CtsUsb <= '1';
-	
 	--Debug monitors
 	--~ TxdUsb <= Txd0_i;
 	--~ Txd1 <= Rxd0_i;
@@ -1917,6 +1955,18 @@ begin
 	--Mux master reset (boot) and user reset (datamapper)
 	UartUsbFifoReset_i <= MasterReset or UartUsbFifoReset;
 	
+	--~ TP1 <= RxdUsb_i;
+	--~ TP2 <= UartClkUsb;
+	--~ TP3 <= RamBusDataIn(0);
+	--~ TP4 <= UartTxClkUsb;
+	--~ TP5 <= TxdUartBitCount(0);
+	--~ TP6 <= TxdUartBitCount(1);
+	--~ TP7 <= TxdUartBitCount(2);
+	--~ TP8 <= TxdUartBitCount(3);
+	--~ TP5 <= UartUsbRxFifoEmpty;
+	--~ TP6 <= ReadUartUsb;
+	--~ TP7 <= UartUsbRxFifoCount(0);
+	--~ TP8 <= UartUsbRxFifoCount(1);
 	
 	----------------------------- Timing ----------------------------------
 	
@@ -2162,10 +2212,14 @@ begin
 	--  Discrete I/O Connections
 
 		--Faults
-		nFaultClr1V <= '1';
-		nFaultClr3V <= '1';
-		nFaultClr5V <= '1';
-		nPowerCycClr <= '1';
+		--~ nFaultClr1V <= '1';
+		--~ nFaultClr3V <= '1';
+		--~ nFaultClr5V <= '1';
+		--~ nPowerCycClr <= '1';
+		nFaultClr1V <= Fault1V;
+		nFaultClr3V <= Fault3V;
+		nFaultClr5V <= Fault5V;
+		nPowerCycClr <= PowerCycd;
 		PowernEn5V <= '0';
 		PowerSync <= '1';
 		
@@ -2173,18 +2227,18 @@ begin
 		--~ LedG <= '1';
 		--~ LedB <= '1';
 		
-		TP1 <= RamBusnCs;
-		TP2 <= RamBusWrnRd;
-		TP3 <= RamBusDataIn(0);
-		TP4 <= RamBusDataIn(1);
-		TP5 <= RamBusAddress(2);
-		TP6 <= UartClkUsb;
+		--~ TP1 <= RamBusnCs;
+		--~ TP2 <= RamBusWrnRd;
+		--~ TP3 <= RamBusDataIn(0);
+		--~ TP4 <= WriteUartUsb;
+		--~ TP5 <= TxdUsb_i;
+		--~ TP6 <= UartClkUsb;
 		--~ TP7 <= '1';
 		--~ TP8 <= '1';
 		--~ TP5 <= 'Fault5V;
 		--~ TP6 <= PowerCycd;
-		TP7 <= RamBusLatch;
-		TP8 <= Fault3V or Fault1V or PowerCycd or Fault5V;
+		--~ TP7 <= UartUsbFifoReset_i;
+		--~ TP8 <= Fault3V or Fault1V or PowerCycd or Fault5V;
 		
 --~ RamBusAddress : in std_logic_vector(9 downto 0); 
 --~ RamBusDataIn : in std_logic_vector(15 downto 0);
@@ -2200,6 +2254,8 @@ begin
 	begin
 	
 		if ( (MasterClk'event) and (MasterClk = '1') ) then
+		
+			LastRamBusCE <= RamBusnCs;
 		
 			--Run position detector logic:
 		

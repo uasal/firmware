@@ -223,7 +223,7 @@ begin
 					
 						--~ if (FifoEmpty_i = '0') then			
 						
-						if ( (FifoEmpty_i = '0') and (Cts_i = '0') ) then
+						if ( (FifoEmpty_i = '0') and (TxInProgress_i = '0') and (Cts_i = '0') ) then
 						
 							NextState <= StartRead;
 											

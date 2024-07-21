@@ -25,6 +25,7 @@ entity UartTxFifoExtClk is
 		FifoEmpty : out std_logic; --fifo status:
 		FifoCount : out std_logic_vector(FIFO_BITS - 1 downto 0); --fifo status:
 		BitClockOut : out std_logic; --generally used for debug of divider values...		
+		BitCountOut : out std_logic_vector(3 downto 0);
 		
 		--'analog' side (frontyard)
 		TxInProgress : out std_logic; --currently sending data...
@@ -73,6 +74,7 @@ architecture implementation of UartTxFifoExtClk is
 				Go     : in  Std_Logic; --To initate a xfer, raise this bit and wait for busy to go high, then lower.
 				TxD    : out Std_Logic;
 				Busy   : out Std_Logic;
+				BitCountOut : out std_logic_vector(3 downto 0);
 				Data  : in  Std_Logic_Vector(7 downto 0)--; --not latched; must be held constant while busy is high
 			);
 			end component;
@@ -149,6 +151,7 @@ begin
 		Go => StartTx_i,
 		TxD => Txd,
 		Busy => TxInProgress_i_i,
+		BitCountOut => BitCountOut,
 		Data => OutgoingTxByte
 	);
 	
@@ -197,7 +200,7 @@ begin
 					
 						--~ if (FifoEmpty_i = '0') then			
 						
-						if ( (FifoEmpty_i = '0') and (Cts_i = '0') ) then
+						if ( (FifoEmpty_i = '0') and (TxInProgress_i = '0') and (Cts_i = '0') ) then
 						
 							NextState <= StartRead;
 											
@@ -209,7 +212,11 @@ begin
 						
 							ReadStrobe <= '1';
 					
-							NextState <= WaitAck;
+                            if (TxInProgress_i = '0') then 
+							
+                                NextState <= WaitAck;
+                            
+                            end if;
 							
 						end if;
 										

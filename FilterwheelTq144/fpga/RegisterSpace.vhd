@@ -352,7 +352,8 @@ begin
 					
 						--~ DataOut <= x"77";
 						
-						ReadAck <= '1';
+						--~ ReadAck <= '1';
+						ReadAck <= '0';
 						
 						--~ DataOut <= Address_i(7 downto 0);
 							
@@ -529,6 +530,7 @@ begin
 
 								ReadUartUsb <= '1';
 								DataOut(7 downto 0) <= UartUsbRxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
+								DataOut(15 downto 8) <= x"00";
 								
 							when UartUsbFifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
 
@@ -717,6 +719,10 @@ begin
 								
 						end case;
 						
+					else
+					
+						ReadAck <= '1';
+						
 					end if;
 					
 				end if;
@@ -728,15 +734,25 @@ begin
 					
 						LastReadReq <= '0';
 					
-						--If timing is good, this doesn't do anything. If the fpga is lagging the processor reads will all be 82's. Yeah, we tested that in practice.
-						DataOut <= x"9182"; 
+						--~ ReadAck <= '0';
+						--~ ReadAck <= '1';
 						
-						ReadAck <= '0';
+						--~ ReadUart0 <= '0';						
+						--~ ReadUart1 <= '0';						
+						--~ ReadUart2 <= '0';		
+						--~ ReadUartUsb <= '0';		
+
+					else
+					
+						ReadAck <= '0';					
+						
+						--If timing is good, this doesn't do anything. If the fpga is lagging the processor reads will all be 82's. Yeah, we tested that in practice.
+						--DataOut <= x"9182"; 
 						
 						ReadUart0 <= '0';						
 						ReadUart1 <= '0';						
 						ReadUart2 <= '0';		
-						ReadUartUsb <= '0';												
+						ReadUartUsb <= '0';		
 					
 					end if;
 					
@@ -749,7 +765,8 @@ begin
 					
 						LastWriteReq <= '1';
 					
-						WriteAck <= '1';
+						--~ WriteAck <= '1';
+						WriteAck <= '0';
 									
 						case Address_i is
 														
@@ -847,6 +864,9 @@ begin
 
 
 						end case;
+					else
+
+						WriteAck <= '1';					
 						
 					end if;
 
@@ -858,6 +878,8 @@ begin
 					if (LastWriteReq = '1') then
 					
 						LastWriteReq <= '0';
+						
+					else
 					
 						WriteAck <= '0';
 						

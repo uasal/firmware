@@ -60,16 +60,16 @@ int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_
 		Version.SerialNum = FW->DeviceSerialNumber; 
 		Version.FPGAFirmwareBuildNum = FW->FpgaFirmwareBuildNumber; 
 	}
-    printf("\nBinaryVersionCommand: Sending response (%u bytes): ", sizeof(CGraphVersionPayload));
-    Version.formatf();
-    printf("\n");
+    formatf("\nBinaryVersionCommand: Sending response (%u bytes): ", sizeof(CGraphVersionPayload));
+    Version.printf();
+    formatf("\n");
     TxBinaryPacket(Argument, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
     return(ParamsLen);
 }
 
 int8_t BinaryFWDacsCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	//~ printf("\nBinaryFWDacsCommand processing(%u)...\n\n", ParamsLen);
+	//~ formatf("\nBinaryFWDacsCommand processing(%u)...\n\n", ParamsLen);
 	
 	//~ if (ValidateZenBinaryRfPacket(SerialNum, Params, ParamsLen))
 	//~ {
@@ -82,7 +82,7 @@ int8_t BinaryFWDacsCommand(const uint32_t Name, char const* Params, const size_t
 	//~ {
 		//~ //const ZongeProtocolFilenameParam PacketData = *((const ZongeProtocolFilenameParam*)ZenBinaryPacketHeader::PayloadDataPointerFromSerialNumberOffsetPointer(Params));
 		//~ const uint32_t* DacSetpoints = (const uint32_t*)Params;
-		//~ printf("\nBinaryFWDacsCommand Setting to (0x%X, 0x%X, 0x%X).\n\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2]);
+		//~ formatf("\nBinaryFWDacsCommand Setting to (0x%X, 0x%X, 0x%X).\n\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2]);
 		//~ FW->DacASetpoint = DacSetpoints[0];
 		//~ FW->DacBSetpoint = DacSetpoints[1];
 		//~ FW->DacCSetpoint = DacSetpoints[2];		
@@ -91,7 +91,7 @@ int8_t BinaryFWDacsCommand(const uint32_t Name, char const* Params, const size_t
 	//~ DacSetpoints[0] = FW->DacASetpoint;
 	//~ DacSetpoints[1] = FW->DacBSetpoint;
 	//~ DacSetpoints[2] = FW->DacCSetpoint;	
-	//~ printf("\nBinaryFWDacsCommand  Replying (0x%X, 0x%X, 0x%X)...\n\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2]);
+	//~ formatf("\nBinaryFWDacsCommand  Replying (0x%X, 0x%X, 0x%X)...\n\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2]);
 	//~ TxBinaryPacket(Argument, CGraphPayloadTypeFWDacs, 0, DacSetpoints, 3 * sizeof(uint32_t));
 
     return(ParamsLen);
@@ -103,14 +103,14 @@ int8_t BinaryFWAdcsCommand(const uint32_t Name, char const* Params, const size_t
 	//~ AdcVals[0] = FW->AdcAAccumulator;
 	//~ AdcVals[1] = FW->AdcBAccumulator;
 	//~ AdcVals[2] = FW->AdcCAccumulator;	
-	//~ printf("\nBinaryFWAdcsCommand  Replying (%lld, %lld, %lld)...\n\n", AdcVals[0].Samples, AdcVals[1].Samples, AdcVals[2].Samples);
+	//~ formatf("\nBinaryFWAdcsCommand  Replying (%lld, %lld, %lld)...\n\n", AdcVals[0].Samples, AdcVals[1].Samples, AdcVals[2].Samples);
 	//~ TxBinaryPacket(Argument, CGraphPayloadTypeFWAdcs, 0, AdcVals, 3 * sizeof(AdcAccumulator));
     return(ParamsLen);
 }
 	
 int8_t BinaryFWAdcsFloatingPointCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	printf("\nBinaryFWAdcsCommand processing(%u)...\n\n", ParamsLen);
+	formatf("\nBinaryFWAdcsCommand processing(%u)...\n\n", ParamsLen);
 	
 	//~ double AdcVals[3];
 	//~ AdcAccumulator A, B, C;
@@ -120,7 +120,7 @@ int8_t BinaryFWAdcsFloatingPointCommand(const uint32_t Name, char const* Params,
 	//~ AdcVals[0] = (8.192 * ((A.Samples - 0) / A.NumAccums)) / 16777216.0;
 	//~ AdcVals[1] = (8.192 * ((B.Samples - 0) / B.NumAccums)) / 16777216.0;
 	//~ AdcVals[2] = (8.192 * ((C.Samples - 0) / C.NumAccums)) / 16777216.0;
-	//~ printf("\nBinaryFWAdcsFloatingPointCommand  Replying (%lf, %lf, %lf)...\n\n", AdcVals[0], AdcVals[1], AdcVals[2]);
+	//~ formatf("\nBinaryFWAdcsFloatingPointCommand  Replying (%lf, %lf, %lf)...\n\n", AdcVals[0], AdcVals[1], AdcVals[2]);
 	//~ TxBinaryPacket(Argument, CGraphPayloadTypeFWAdcsFloatingPoint, 0, AdcVals, 3 * sizeof(double));
 
     return(ParamsLen);
@@ -131,7 +131,7 @@ int8_t BinaryFWDacsFloatingPointCommand(const uint32_t Name, char const* Params,
 	//~ double VA = 0.0, VB = 0.0, VC = 0.0;	
 	//~ unsigned long A = 0, B = 0, C = 0;	
 	
-	//~ printf("\nBinaryFWDacsFloatingPointCommand processing(%u)...\n\n", ParamsLen);
+	//~ formatf("\nBinaryFWDacsFloatingPointCommand processing(%u)...\n\n", ParamsLen);
 	
 	//~ if (ValidateZenBinaryRfPacket(SerialNum, Params, ParamsLen))
 	//~ {
@@ -152,7 +152,7 @@ int8_t BinaryFWDacsFloatingPointCommand(const uint32_t Name, char const* Params,
 		//~ B = (VB * (double)(0x00FFFFFFUL) * 60.0) / 4.096;
 		//~ C = (VC * (double)(0x00FFFFFFUL) * 60.0) / 4.096;
 		
-		//~ printf("\n\nBinaryFWDacsCommand: Setting to: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C);
+		//~ formatf("\n\nBinaryFWDacsCommand: Setting to: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C);
 		
 		//~ FW->DacASetpoint = DacSetpoints[0];
 		//~ FW->DacBSetpoint = DacSetpoints[1];
@@ -173,7 +173,7 @@ int8_t BinaryFWDacsFloatingPointCommand(const uint32_t Name, char const* Params,
 	//~ DacSetpoints[1] = VB;
 	//~ DacSetpoints[2] = VC;	
 	
-	//~ printf("\n\nBinaryFWDacsCommand: Replying: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C);
+	//~ formatf("\n\nBinaryFWDacsCommand: Replying: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C);
 	//~ TxBinaryPacket(Argument, CGraphPayloadTypeFWDacs, 0, DacSetpoints, 3 * sizeof(double));
 
     return(ParamsLen);
@@ -196,7 +196,7 @@ int8_t BinaryFWStatusCommand(const uint32_t Name, char const* Params, const size
 	//~ Status.N6V = MonitorAdc.GetN6V();
 	//~ Status.P150V = MonitorAdc.GetP150V();
 
-	//~ printf("\n\nBinaryFWStatusCommand: CurrentValues:\n\n");
+	//~ formatf("\n\nBinaryFWStatusCommand: CurrentValues:\n\n");
 	
 	//~ formatf("P1V2: %3.6lf V\n", Status.P1V2);
 	//~ formatf("P2V2: %3.6lf V\n", Status.P2V2);
@@ -212,7 +212,7 @@ int8_t BinaryFWStatusCommand(const uint32_t Name, char const* Params, const size
 	//~ formatf("P150V: %3.6lf V\n", Status.P150V);
 
 	
-	//~ printf("\nBinaryFWStatusCommand: Replying...\n");
+	//~ formatf("\nBinaryFWStatusCommand: Replying...\n");
 	//~ TxBinaryPacket(Argument, CGraphPayloadTypeFWStatus, 0, &Status, sizeof(CGraphFWStatusPayload));
 
 	return(ParamsLen);

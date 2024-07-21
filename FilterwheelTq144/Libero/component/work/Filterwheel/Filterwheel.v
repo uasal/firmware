@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Fri Jul 19 16:55:34 2024
+// Created by SmartDesign Sun Jul 21 12:49:21 2024
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -179,6 +179,7 @@ wire           INIT_DONE_net_0;
 wire           LedB_net_0;
 wire           LedG_net_0;
 wire           LedR_net_0;
+wire           Main_0_RamBusAck;
 wire   [15:0]  Main_0_RamBusDataOut;
 wire           MisoMonAdc0;
 wire           MosiMonAdc0_net_0;
@@ -420,7 +421,7 @@ FCCC_C0 FCCC_C0_0(
 Filterwheel_sb Filterwheel_sb_0(
         // Inputs
         .FAB_RESET_N            ( VCC_net ),
-        .AMBA_SLAVE_0_PREADYS0  ( VCC_net ),
+        .AMBA_SLAVE_0_PREADYS0  ( Main_0_RamBusAck ),
         .AMBA_SLAVE_0_PSLVERRS0 ( GND_net ),
         .DEVRST_N               ( DEVRST_N ),
         .CLK0                   ( FCCC_C0_0_GL0 ),
@@ -485,6 +486,7 @@ Main Main_0(
         .MotorDriveBPlusPrime  ( MotorDriveBPlusPrime_net_0 ),
         .MotorDriveBMinusPrime ( MotorDriveBMinusPrime_net_0 ),
         .RamBusDataOut         ( Main_0_RamBusDataOut ),
+        .RamBusAck             ( Main_0_RamBusAck ),
         .Txd0                  ( Txd0_net_0 ),
         .Oe0                   ( Oe0_net_0 ),
         .Txd1                  ( Txd1_net_0 ),

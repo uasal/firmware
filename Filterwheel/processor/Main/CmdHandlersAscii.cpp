@@ -62,14 +62,14 @@ char Buffer[4096];
 int8_t ExitCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 
-	printf("\n\nExitCommand: Goodbye!\n\n\n\n");
+	formatf("\n\nExitCommand: Goodbye!\n\n\n\n");
 	
 	return(ParamsLen);
 }
 
 int8_t GlobalSaveCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	//GlobalSave provides all needed printf's:
+	//GlobalSave provides all needed formatf's:
 	//~ GlobalSave();
 
 	return(ParamsLen);
@@ -77,7 +77,7 @@ int8_t GlobalSaveCommand(char const* Name, char const* Params, const size_t Para
 
 int8_t GlobalRestoreCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	//GlobalRestore provides all needed printf's:
+	//GlobalRestore provides all needed formatf's:
 	//~ GlobalRestore();
 
 	return(ParamsLen);
@@ -85,7 +85,7 @@ int8_t GlobalRestoreCommand(char const* Name, char const* Params, const size_t P
 
 int8_t ParseConfigFileCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	printf("\n\nParseConfigFile: opening %s to parse...\n", &(Params[1]));
+	formatf("\n\nParseConfigFile: opening %s to parse...\n", &(Params[1]));
 
 	return(ParamsLen);
 }
@@ -94,11 +94,11 @@ int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsL
 {
 	if (NULL != FW)
 	{
-		//printf("\n\nVersion: Serial Number: %.8X, Global Revision: %s; build number: %u on: %s; fpga build: %u.\n", FW->DeviceSerialNumber, GITVERSION, BuildNum, BuildTimeStr, FW->FpgaFirmwareBuildNumber);
+		//formatf("\n\nVersion: Serial Number: %.8X, Global Revision: %s; build number: %u on: %s; fpga build: %u.\n", FW->DeviceSerialNumber, GITVERSION, BuildNum, BuildTimeStr, FW->FpgaFirmwareBuildNumber);
 	}
 	else
 	{
-		//printf("\n\nVersion: Global Revision: %s; build number: %u on: %s.\n", GITVERSION, BuildNum, BuildTimeStr);
+		//formatf("\n\nVersion: Global Revision: %s; build number: %u on: %s.\n", GITVERSION, BuildNum, BuildTimeStr);
 	}
 	
     return(strlen(Params));
@@ -106,14 +106,14 @@ int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsL
 
 int8_t InitFpgaCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	printf("\n\nInitFpga: Initializing...");
+	formatf("\n\nInitFpga: Initializing...");
 	
 	return(ParamsLen);
 }
 
 int8_t DeInitFpgaCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	printf("\n\nDeInitFpga: De-initializing...");
+	formatf("\n\nDeInitFpga: De-initializing...");
 	
 	return(ParamsLen);
 }
@@ -127,25 +127,25 @@ int8_t ReadFpgaCommand(char const* Name, char const* Params, const size_t Params
 	int8_t numfound = sscanf(Params, "%zX", &addr);
     if (numfound < 1)
     {
-		printf("\nReadFpgaCommand: ");
+		formatf("\nReadFpgaCommand: ");
 		//~ for (addr = 0; addr <= 64; addr++)
 		for (addr = 0; addr <= 128; addr++)
 		{
 			Buffer = *(((uint8_t*)FW)+addr);
-			printf("\n0x%.2zX: 0x%.2X ", addr, Buffer);
-			printf("[%u]", Buffer);
-			//~ printf(" ('%c')", Buffer);
+			formatf("\n0x%.2zX: 0x%.2X ", addr, Buffer);
+			formatf("[%u]", Buffer);
+			//~ formatf(" ('%c')", Buffer);
 		}	
-		printf("\n\n");
+		formatf("\n\n");
     }
 	else
 	{
 		Buffer = *(((uint8_t*)FW)+addr);
-		printf("\nReadFpgaCommand: ");
-		//~ printf("\n%zu: 0x%.2X ", addr, Buffer);
-		printf("\n0x%.2zX: 0x%.2X ", addr, Buffer);
-		printf("[%u]", Buffer);
-		printf(" ('%c')\n\n", Buffer);
+		formatf("\nReadFpgaCommand: ");
+		//~ formatf("\n%zu: 0x%.2X ", addr, Buffer);
+		formatf("\n0x%.2zX: 0x%.2X ", addr, Buffer);
+		formatf("[%u]", Buffer);
+		formatf(" ('%c')\n\n", Buffer);
 	}
 	
 	return(ParamsLen);
@@ -159,15 +159,15 @@ int8_t WriteFpgaCommand(char const* Name, char const* Params, const size_t Param
     int8_t numfound = sscanf(Params, "%zX %lu", &addr, &val);
     if (numfound < 2)
     {
-		printf("\nWriteFpgaCommand: need 2 numeric parameters (address and value), got \"%s\" (%d params).\n", Params, numfound);
+		formatf("\nWriteFpgaCommand: need 2 numeric parameters (address and value), got \"%s\" (%d params).\n", Params, numfound);
         return(-1);
     }
 
 	//Write data to fpga:
 	*(((uint8_t*)FW)+addr) = (uint8_t)val;
 
-	printf("\nWriteFpgaCommand: Wrote %lu to ", val);
-	printf("0x%.4zX.\n", addr);
+	formatf("\nWriteFpgaCommand: Wrote %lu to ", val);
+	formatf("0x%.4zX.\n", addr);
 	
 	return(ParamsLen);
 }
@@ -181,26 +181,26 @@ int8_t FWStatusCommand(char const* Name, char const* Params, const size_t Params
 	
 	if (NULL == FW)
 	{
-		printf("\n\nFWStatusCommand: Fpga interface is not initialized! Please call InitFpga first!.");
+		formatf("\n\nFWStatusCommand: Fpga interface is not initialized! Please call InitFpga first!.");
 		return(ParamsLen);
 	}
 	
-	printf("\n\nFWStatusCommand: Offset of MotorControlStatus: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, MotorControlStatus), 32UL);
-	printf("\nFWStatusCommand: Offset of PositionSensors: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, PositionSensors), 36UL);
-	printf("\nFWStatusCommand: Offset of ControlRegister: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, ControlRegister), 88UL);
+	formatf("\n\nFWStatusCommand: Offset of MotorControlStatus: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, MotorControlStatus), 32UL);
+	formatf("\nFWStatusCommand: Offset of PositionSensors: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, PositionSensors), 36UL);
+	formatf("\nFWStatusCommand: Offset of ControlRegister: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, ControlRegister), 88UL);
 	
 	HCR = FW->ControlRegister;
 	MCSR = FW->MotorControlStatus;
 	PSR = FW->PositionSensors;
     
-	printf("\n\nFWStatusCommand: current values:\n");
+	formatf("\n\nFWStatusCommand: current values:\n");
 	HCR.printf();
-	printf("\n");
+	formatf("\n");
 	MCSR.printf();
-	printf("\n");
+	formatf("\n");
 	PSR.printf();
-	printf("\n");
-	printf("\n");
+	formatf("\n");
+	formatf("\n");
 	
     return(ParamsLen);
 }
@@ -209,66 +209,66 @@ int8_t SensorStepsCommand(char const* Name, char const* Params, const size_t Par
 {
 	if (NULL == FW)
 	{
-		printf("\n\nSensorStepsCommand: Fpga interface is not initialized! Please call InitFpga first!.");
+		formatf("\n\nSensorStepsCommand: Fpga interface is not initialized! Please call InitFpga first!.");
 		return(ParamsLen);
 	}
 	
-	printf("\n\nSensorStepsCommand: Offset of first Sensor Step: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, PosDetHomeAOnStep), 148UL);
-	printf("\nSensorStepsCommand: Offset of last Sensor Step: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, PosDet7BOffStep), 240UL);
+	formatf("\n\nSensorStepsCommand: Offset of first Sensor Step: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, PosDetHomeAOnStep), 148UL);
+	formatf("\nSensorStepsCommand: Offset of last Sensor Step: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, PosDet7BOffStep), 240UL);
 	
-	printf("\n\nSensorStepsCommand: current values:\n");
+	formatf("\n\nSensorStepsCommand: current values:\n");
 	
-	printf("\nPosDetHomeAOnStep: %lu", (unsigned long)FW->PosDetHomeAOnStep);
-	printf("\nPosDetHomeAOffStep: %lu", (unsigned long)FW->PosDetHomeAOffStep);
-	printf("\nPosDetA0OnStep: %lu", (unsigned long)FW->PosDetA0OnStep);
-	printf("\nPosDetA0OffStep: %lu", (unsigned long)FW->PosDetA0OffStep);
-	printf("\nPosDetA1OnStep: %lu", (unsigned long)FW->PosDetA1OnStep);
-	printf("\nPosDetA1OffStep: %lu", (unsigned long)FW->PosDetA1OffStep);
-	printf("\nPosDetA2OnStep: %lu", (unsigned long)FW->PosDetA2OnStep);
-	printf("\nPosDetA2OffStep: %lu", (unsigned long)FW->PosDetA2OffStep);
+	formatf("\nPosDetHomeAOnStep: %lu", (unsigned long)FW->PosDetHomeAOnStep);
+	formatf("\nPosDetHomeAOffStep: %lu", (unsigned long)FW->PosDetHomeAOffStep);
+	formatf("\nPosDetA0OnStep: %lu", (unsigned long)FW->PosDetA0OnStep);
+	formatf("\nPosDetA0OffStep: %lu", (unsigned long)FW->PosDetA0OffStep);
+	formatf("\nPosDetA1OnStep: %lu", (unsigned long)FW->PosDetA1OnStep);
+	formatf("\nPosDetA1OffStep: %lu", (unsigned long)FW->PosDetA1OffStep);
+	formatf("\nPosDetA2OnStep: %lu", (unsigned long)FW->PosDetA2OnStep);
+	formatf("\nPosDetA2OffStep: %lu", (unsigned long)FW->PosDetA2OffStep);
 	
-	printf("\nPosDetHomeBOnStep: %lu", (unsigned long)FW->PosDetHomeBOnStep);
-	printf("\nPosDetHomeBOffStep: %lu", (unsigned long)FW->PosDetHomeBOffStep);
-	printf("\nPosDetB0OnStep: %lu", (unsigned long)FW->PosDetB0OnStep);
-	printf("\nPosDetB0OffStep: %lu", (unsigned long)FW->PosDetB0OffStep);
-	printf("\nPosDetB1OnStep: %lu", (unsigned long)FW->PosDetB1OnStep);
-	printf("\nPosDetB1OffStep: %lu", (unsigned long)FW->PosDetB1OffStep);
-	printf("\nPosDetB2OnStep: %lu", (unsigned long)FW->PosDetB2OnStep);
-	printf("\nPosDetB2OffStep: %lu", (unsigned long)FW->PosDetB2OffStep);
+	formatf("\nPosDetHomeBOnStep: %lu", (unsigned long)FW->PosDetHomeBOnStep);
+	formatf("\nPosDetHomeBOffStep: %lu", (unsigned long)FW->PosDetHomeBOffStep);
+	formatf("\nPosDetB0OnStep: %lu", (unsigned long)FW->PosDetB0OnStep);
+	formatf("\nPosDetB0OffStep: %lu", (unsigned long)FW->PosDetB0OffStep);
+	formatf("\nPosDetB1OnStep: %lu", (unsigned long)FW->PosDetB1OnStep);
+	formatf("\nPosDetB1OffStep: %lu", (unsigned long)FW->PosDetB1OffStep);
+	formatf("\nPosDetB2OnStep: %lu", (unsigned long)FW->PosDetB2OnStep);
+	formatf("\nPosDetB2OffStep: %lu", (unsigned long)FW->PosDetB2OffStep);
 	
-	printf("\nPosDet0AOnStep: %lu", (unsigned long)FW->PosDet0AOnStep);
-	printf("\nPosDet0AOffStep: %lu", (unsigned long)FW->PosDet0AOffStep);
-	printf("\nPosDet1AOnStep: %lu", (unsigned long)FW->PosDet1AOnStep);
-	printf("\nPosDet1AOffStep: %lu", (unsigned long)FW->PosDet1AOffStep);
-	printf("\nPosDet2AOnStep: %lu", (unsigned long)FW->PosDet2AOnStep);
-	printf("\nPosDet2AOffStep: %lu", (unsigned long)FW->PosDet2AOffStep);
-	printf("\nPosDet3AOnStep: %lu", (unsigned long)FW->PosDet3AOnStep);
-	printf("\nPosDet3AOffStep: %lu", (unsigned long)FW->PosDet3AOffStep);
-	printf("\nPosDet4AOnStep: %lu", (unsigned long)FW->PosDet4AOnStep);
-	printf("\nPosDet4AOffStep: %lu", (unsigned long)FW->PosDet4AOffStep);
-	printf("\nPosDet5AOnStep: %lu", (unsigned long)FW->PosDet5AOnStep);
-	printf("\nPosDet5AOffStep: %lu", (unsigned long)FW->PosDet5AOffStep);
-	printf("\nPosDet6AOnStep: %lu", (unsigned long)FW->PosDet6AOnStep);
-	printf("\nPosDet6AOffStep: %lu", (unsigned long)FW->PosDet6AOffStep);
-	printf("\nPosDet7AOnStep: %lu", (unsigned long)FW->PosDet7AOnStep);
-	printf("\nPosDet7AOffStep: %lu", (unsigned long)FW->PosDet7AOffStep);
+	formatf("\nPosDet0AOnStep: %lu", (unsigned long)FW->PosDet0AOnStep);
+	formatf("\nPosDet0AOffStep: %lu", (unsigned long)FW->PosDet0AOffStep);
+	formatf("\nPosDet1AOnStep: %lu", (unsigned long)FW->PosDet1AOnStep);
+	formatf("\nPosDet1AOffStep: %lu", (unsigned long)FW->PosDet1AOffStep);
+	formatf("\nPosDet2AOnStep: %lu", (unsigned long)FW->PosDet2AOnStep);
+	formatf("\nPosDet2AOffStep: %lu", (unsigned long)FW->PosDet2AOffStep);
+	formatf("\nPosDet3AOnStep: %lu", (unsigned long)FW->PosDet3AOnStep);
+	formatf("\nPosDet3AOffStep: %lu", (unsigned long)FW->PosDet3AOffStep);
+	formatf("\nPosDet4AOnStep: %lu", (unsigned long)FW->PosDet4AOnStep);
+	formatf("\nPosDet4AOffStep: %lu", (unsigned long)FW->PosDet4AOffStep);
+	formatf("\nPosDet5AOnStep: %lu", (unsigned long)FW->PosDet5AOnStep);
+	formatf("\nPosDet5AOffStep: %lu", (unsigned long)FW->PosDet5AOffStep);
+	formatf("\nPosDet6AOnStep: %lu", (unsigned long)FW->PosDet6AOnStep);
+	formatf("\nPosDet6AOffStep: %lu", (unsigned long)FW->PosDet6AOffStep);
+	formatf("\nPosDet7AOnStep: %lu", (unsigned long)FW->PosDet7AOnStep);
+	formatf("\nPosDet7AOffStep: %lu", (unsigned long)FW->PosDet7AOffStep);
 	
-	printf("\nPosDet0BOnStep: %lu", (unsigned long)FW->PosDet0BOnStep);
-	printf("\nPosDet0BOffStep: %lu", (unsigned long)FW->PosDet0BOffStep);
-	printf("\nPosDet1BOnStep: %lu", (unsigned long)FW->PosDet1BOnStep);
-	printf("\nPosDet1BOffStep: %lu", (unsigned long)FW->PosDet1BOffStep);
-	printf("\nPosDet2BOnStep: %lu", (unsigned long)FW->PosDet2BOnStep);
-	printf("\nPosDet2BOffStep: %lu", (unsigned long)FW->PosDet2BOffStep);
-	printf("\nPosDet3BOnStep: %lu", (unsigned long)FW->PosDet3BOnStep);
-	printf("\nPosDet3BOffStep: %lu", (unsigned long)FW->PosDet3BOffStep);
-	printf("\nPosDet4BOnStep: %lu", (unsigned long)FW->PosDet4BOnStep);
-	printf("\nPosDet4BOffStep: %lu", (unsigned long)FW->PosDet4BOffStep);
-	printf("\nPosDet5BOnStep: %lu", (unsigned long)FW->PosDet5BOnStep);
-	printf("\nPosDet5BOffStep: %lu", (unsigned long)FW->PosDet5BOffStep);
-	printf("\nPosDet6BOnStep: %lu", (unsigned long)FW->PosDet6BOnStep);
-	printf("\nPosDet6BOffStep: %lu", (unsigned long)FW->PosDet6BOffStep);
-	printf("\nPosDet7BOnStep: %lu", (unsigned long)FW->PosDet7BOnStep);
-	printf("\nPosDet7BOffStep: %lu", (unsigned long)FW->PosDet7BOffStep);
+	formatf("\nPosDet0BOnStep: %lu", (unsigned long)FW->PosDet0BOnStep);
+	formatf("\nPosDet0BOffStep: %lu", (unsigned long)FW->PosDet0BOffStep);
+	formatf("\nPosDet1BOnStep: %lu", (unsigned long)FW->PosDet1BOnStep);
+	formatf("\nPosDet1BOffStep: %lu", (unsigned long)FW->PosDet1BOffStep);
+	formatf("\nPosDet2BOnStep: %lu", (unsigned long)FW->PosDet2BOnStep);
+	formatf("\nPosDet2BOffStep: %lu", (unsigned long)FW->PosDet2BOffStep);
+	formatf("\nPosDet3BOnStep: %lu", (unsigned long)FW->PosDet3BOnStep);
+	formatf("\nPosDet3BOffStep: %lu", (unsigned long)FW->PosDet3BOffStep);
+	formatf("\nPosDet4BOnStep: %lu", (unsigned long)FW->PosDet4BOnStep);
+	formatf("\nPosDet4BOffStep: %lu", (unsigned long)FW->PosDet4BOffStep);
+	formatf("\nPosDet5BOnStep: %lu", (unsigned long)FW->PosDet5BOnStep);
+	formatf("\nPosDet5BOffStep: %lu", (unsigned long)FW->PosDet5BOffStep);
+	formatf("\nPosDet6BOnStep: %lu", (unsigned long)FW->PosDet6BOnStep);
+	formatf("\nPosDet6BOffStep: %lu", (unsigned long)FW->PosDet6BOffStep);
+	formatf("\nPosDet7BOnStep: %lu", (unsigned long)FW->PosDet7BOnStep);
+	formatf("\nPosDet7BOffStep: %lu", (unsigned long)FW->PosDet7BOffStep);
 	
 	return(ParamsLen);	
 }
@@ -280,7 +280,7 @@ int8_t MotorCommand(char const* Name, char const* Params, const size_t ParamsLen
 	
 	if (NULL == FW)
 	{
-		printf("\n\nMotorCommand: Fpga interface is not initialized! Please call InitFpga first!.");
+		formatf("\n\nMotorCommand: Fpga interface is not initialized! Please call InitFpga first!.");
 		return(ParamsLen);
 	}
 	
@@ -290,14 +290,14 @@ int8_t MotorCommand(char const* Name, char const* Params, const size_t ParamsLen
     {
 		MCSR.SeekStep = SeekStep;
 		FW->MotorControlStatus = MCSR;		
-		printf("\n\nMotorCommand: set to: %lu\n", SeekStep);
+		formatf("\n\nMotorCommand: set to: %lu\n", SeekStep);
     }
 	
 	MCSR = FW->MotorControlStatus;
 	
-	printf("\n\nMotorCommand: current values:\n");
+	formatf("\n\nMotorCommand: current values:\n");
 	MCSR.printf();
-	printf("\n");
+	formatf("\n");
 	
 	return(ParamsLen);
 }
@@ -324,7 +324,7 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 			//~ Bv = (4.096 * ((B.Samples - 0) / B.NumAccums)) / 8388608.0;
 			//~ Cv = (4.096 * ((C.Samples - 0) / C.NumAccums)) / 8388608.0;
 			
-			//~ printf("\n\nBIST: current A/D values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf; %u, %u, %u.\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, Av, Bv, Cv, offsetof(CGraphFWHardwareInterface, AdcAAccumulator), offsetof(CGraphFWHardwareInterface, AdcBAccumulator), offsetof(CGraphFWHardwareInterface, AdcCAccumulator));
+			//~ formatf("\n\nBIST: current A/D values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf; %u, %u, %u.\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, Av, Bv, Cv, offsetof(CGraphFWHardwareInterface, AdcAAccumulator), offsetof(CGraphFWHardwareInterface, AdcBAccumulator), offsetof(CGraphFWHardwareInterface, AdcCAccumulator));
 		//~ }
 		
 		//~ //Update the D/A's every so often
@@ -334,7 +334,7 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 			//~ //FW->DacBSetpoint = daca;
 			//~ FW->DacBSetpoint = 0x00CFFFFFUL;
 			//~ FW->DacCSetpoint = daca;
-			//~ printf("\n\nBIST: D/A's set to: %lx.\n", daca);	
+			//~ formatf("\n\nBIST: D/A's set to: %lx.\n", daca);	
 
 			//~ switch(daca)
 			//~ {
@@ -373,7 +373,7 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 			if (0 != key) 
 			{ 
 				fflush(stdin);
-				printf("\n\nBIST: Keypress(%d); exiting.\n", key);
+				formatf("\n\nBIST: Keypress(%d); exiting.\n", key);
 				break; 
 			}			
 		}
@@ -398,7 +398,7 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
     //~ int8_t numfound = sscanf(Params, "%zX %lu", &addr, &val);
     //~ if (numfound < 2)
     //~ {
-		//~ printf("\nUartCommand: need 2 numeric parameters (address and value), got \"%s\" (%d params).\n", Params, numfound);
+		//~ formatf("\nUartCommand: need 2 numeric parameters (address and value), got \"%s\" (%d params).\n", Params, numfound);
         //~ return(-1);
     //~ }
 	//~ char* cmd = 0;
@@ -406,12 +406,12 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	//~ int8_t numfound = sscanf(Params, "%s %s", cmd, params);
 	//~ if (numfound < 2)
     //~ {
-		//~ printf("\nUartCommand: need 2 numeric parameters (address and value), got \"%s\" (%d params).\n", Params, numfound);
+		//~ formatf("\nUartCommand: need 2 numeric parameters (address and value), got \"%s\" (%d params).\n", Params, numfound);
         //~ return(-1);
     //~ }
 	
-	//~ printf("\nUartCommand: FW@0x%p, USR@%u, UF@%u, MAA@%u, ACF@%u, ACF is %u, ", (void*)FW, offsetof(CGraphFWHardwareInterface, UartStatusRegister), offsetof(CGraphFWHardwareInterface, UartFifo), offsetof(CGraphFWHardwareInterface, MonitorAdcAccumulator), offsetof(CGraphFWHardwareInterface, AdcCFifo), sizeof(AdcFifo));
-	printf("\nUartCommand: %u, %u. ", offsetof(CGraphFWHardwareInterface, UartFifo2), offsetof(CGraphFWHardwareInterface, UartStatusRegister2));
+	//~ formatf("\nUartCommand: FW@0x%p, USR@%u, UF@%u, MAA@%u, ACF@%u, ACF is %u, ", (void*)FW, offsetof(CGraphFWHardwareInterface, UartStatusRegister), offsetof(CGraphFWHardwareInterface, UartFifo), offsetof(CGraphFWHardwareInterface, MonitorAdcAccumulator), offsetof(CGraphFWHardwareInterface, AdcCFifo), sizeof(AdcFifo));
+	formatf("\nUartCommand: %u, %u. ", offsetof(CGraphFWHardwareInterface, UartFifo2), offsetof(CGraphFWHardwareInterface, UartStatusRegister2));
 	
 	if (0 == strncmp(&(Params[1]), "loop", 4))
 	{
@@ -426,7 +426,7 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 				if (0 != key) 
 				{ 
 					fflush(stdin);
-					printf("\n\nCircles: Keypress(%d); exiting.\n", key);
+					formatf("\n\nCircles: Keypress(%d); exiting.\n", key);
 					break; 
 				}			
 			}
@@ -436,7 +436,7 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	//~ CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegister2;
 	//~ UartStatus.printf();	
 	
-	//~ printf("; about to write to uart... ");	
+	//~ formatf("; about to write to uart... ");	
 	//~ FW->UartFifo = 'H';
 	//~ nanosleep(&sleeptime, NULL);
 	//~ FW->UartFifo = 'e';
@@ -451,7 +451,7 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	//~ nanosleep(&sleeptime, NULL);
 	
 	//~ UartStatus = FW->UartStatusRegister; 
-	//~ printf("; uart written; ");	
+	//~ formatf("; uart written; ");	
 	//~ UartStatus.printf();	
 	
 	//~ CGraphFWUartStatusRegister UartStatus2;
@@ -462,9 +462,9 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		//~ if (0 == UartStatus.Uart2TxFifoEmpty) { break; }
 	//~ }
 	
-	//~ printf("\nUartCommand: about to read...");
+	//~ formatf("\nUartCommand: about to read...");
 	//~ UartStatus.printf();	
-	//~ printf("; reading from uart... ");
+	//~ formatf("; reading from uart... ");
 	
 	//~ for (size_t i = 0; i < 1024; i++)
 	//~ {
@@ -476,7 +476,7 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	//~ for(size_t i = 0; i < 4096; i++)
 	//~ {
 		//~ if (0 != UartStatus.Uart2RxFifoEmpty) { break; }
-		//~ printf(":%.2X", FW->UartFifo);
+		//~ formatf(":%.2X", FW->UartFifo);
 		//~ UartStatus = FW->UartStatusRegister; 		
 	//~ }
 	
@@ -485,9 +485,9 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		//~ FW->UartStatusRegister.all = 1;
 	//~ }
 	
-	//~ printf(":%.4X", FW->UartFifo2);
+	//~ formatf(":%.4X", FW->UartFifo2);
 	
-	//~ printf("\n");
+	//~ formatf("\n");
 	//~ UartStatus.printf();	
 	
 	CGraphVersionPayload Version;
@@ -499,14 +499,14 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		Version.SerialNum = FW->DeviceSerialNumber; 
 		Version.FPGAFirmwareBuildNum = FW->FpgaFirmwareBuildNumber; 
 	}
-    printf("\nUartCommand: Sending response (%u bytes): ", sizeof(CGraphVersionPayload));
-    Version.formatf();
-    printf("\n");
+    formatf("\nUartCommand: Sending response (%u bytes): ", sizeof(CGraphVersionPayload));
+    Version.printf();
+    formatf("\n");
 	//TxBinaryPacket(&FpgaUartParser0, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
 	TxBinaryPacket(&FpgaUartParser1, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
     TxBinaryPacket(&FpgaUartParser2, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
     
-	printf("\nUartCommand: complete.\n");
+	formatf("\nUartCommand: complete.\n");
 
 	return(ParamsLen);
 }
@@ -517,7 +517,7 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 	
 	if (NULL == FW)
 	{
-		printf("\n\nBaudDividers: Fpga interface is not initialized! Please call InitFpga first!.");
+		formatf("\n\nBaudDividers: Fpga interface is not initialized! Please call InitFpga first!.");
 		return(ParamsLen);
 	}
 	
@@ -528,7 +528,7 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 		FW->BaudDivider0 = A;
 		FW->BaudDivider1 = B;
 		FW->BaudDivider2 = C;
-		printf("\n\nBaudDividers: setting to: %lu, %lu, %lu.\n", A, B, C);
+		formatf("\n\nBaudDividers: setting to: %lu, %lu, %lu.\n", A, B, C);
     }
 	else
 	{
@@ -539,16 +539,16 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 			//~ FW->DacBSetpoint = 0x006FFFFFUL; //Sometimes this is 100V
 			//~ FW->DacBSetpoint = 0x00CFFFFFUL; //Aaaaaand, sometimes this is 100V
 			FW->BaudDivider2 = A;
-			printf("\n\nBaudDividers: setting to: %lu, %lu, %lu.\n", A, A, A);
+			formatf("\n\nBaudDividers: setting to: %lu, %lu, %lu.\n", A, A, A);
 		}
 	}
 	
 	A = FW->BaudDivider0;
 	B = FW->BaudDivider1;
 	C = FW->BaudDivider2;
-	printf("\n\nBaudDividers: current values: %lu, %lu, %lu.\n", A, B, C);
+	formatf("\n\nBaudDividers: current values: %lu, %lu, %lu.\n", A, B, C);
 	
-	//~ printf("\nBaudDividers: (331 = 9600, 83 = 38400, 55 = 57600, 27 = 115200, 13 = 230400, 7 = 460800, 3 = 921600)\n");
+	//~ formatf("\nBaudDividers: (331 = 9600, 83 = 38400, 55 = 57600, 27 = 115200, 13 = 230400, 7 = 460800, 3 = 921600)\n");
 	
 	double BaudClock = 102000000.0;
 	//~ unsigned int ActualDividerA = (A + 1) * 2;
@@ -561,20 +561,21 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 	double BaudRateB = (BaudClock / ActualDividerB) / 16;
 	double BaudRateC = (BaudClock / ActualDividerC) / 16;
 	
-	printf("\nBaudDividers: Port0 final division ratio: %u (/16); Actual baudrate: %.5lf", ActualDividerA, BaudRateA);
-	printf("\nBaudDividers: Port1 final division ratio: %u (/16); Actual baudrate: %.5lf", ActualDividerB, BaudRateB);
-	printf("\nBaudDividers: Port2 final division ratio: %u (/16); Actual baudrate: %.5lf\n", ActualDividerC, BaudRateC);
+	formatf("\nBaudDividers: Port0 final division ratio: %u (/16); Actual baudrate: %.5lf", ActualDividerA, BaudRateA);
+	formatf("\nBaudDividers: Port1 final division ratio: %u (/16); Actual baudrate: %.5lf", ActualDividerB, BaudRateB);
+	formatf("\nBaudDividers: Port2 final division ratio: %u (/16); Actual baudrate: %.5lf\n", ActualDividerC, BaudRateC);
 	
 	return(ParamsLen);
 }
 
 int8_t PrintBuffersCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	printf("\nShowBuffersCommand: FpgaUartParser: ");
+	formatf("\nShowBuffersCommand: FpgaUartParser: ");
 	FpgaUartParser2.formatf();
 	FpgaUartParser1.formatf();
 	//FpgaUartParser0.formatf();
-	printf("\n\n");
+	//FpgaUartParserUsb.formatf();
+	formatf("\n\n");
 	return(ParamsLen);
 }
 
@@ -595,7 +596,7 @@ int8_t MonitorSerialCommand(char const* Name, char const* Params, const size_t P
     {
 		if ( ('Y' == onoff) || ('y' == onoff) || ('T' == onoff) || ('t' == onoff) || ('1' == onoff) ) { OnOff = true; }
 		
-		printf("\n\nMonitorSerialCommand: Monitoring port %lu: %c.\n", port, OnOff?'Y':'N');
+		formatf("\n\nMonitorSerialCommand: Monitoring port %lu: %c.\n", port, OnOff?'Y':'N');
 		
 		switch(port)
 		{
@@ -604,18 +605,18 @@ int8_t MonitorSerialCommand(char const* Name, char const* Params, const size_t P
 			case 2 : { MonitorSerial2 = OnOff; break; }			
 			default : 
 			{ 
-				printf("\n\nMonitorSerialCommand: Invalid port %lu; max is #2.\n", port);
+				formatf("\n\nMonitorSerialCommand: Invalid port %lu; max is #2.\n", port);
 			}
 		}
 			
 		return(strlen(Params));
     }
 	
-	printf("\n\nMonitorSerialCommand: Insufficient parameters (%u; should be 2); querying...", numfound);
+	formatf("\n\nMonitorSerialCommand: Insufficient parameters (%u; should be 2); querying...", numfound);
 
-	printf("\nMonitorSerialCommand: Monitoring port 0: %c.\n", MonitorSerial0?'Y':'N');
-	printf("\nMonitorSerialCommand: Monitoring port 1: %c.\n", MonitorSerial1?'Y':'N');
-	printf("\nMonitorSerialCommand: Monitoring port 2: %c.\n", MonitorSerial2?'Y':'N');	
+	formatf("\nMonitorSerialCommand: Monitoring port 0: %c.\n", MonitorSerial0?'Y':'N');
+	formatf("\nMonitorSerialCommand: Monitoring port 1: %c.\n", MonitorSerial1?'Y':'N');
+	formatf("\nMonitorSerialCommand: Monitoring port 2: %c.\n", MonitorSerial2?'Y':'N');	
 	
     return(strlen(Params));
 }
