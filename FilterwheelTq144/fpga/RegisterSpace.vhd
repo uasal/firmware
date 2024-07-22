@@ -8,6 +8,8 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.all;
+--~ use work.ads1258.all;
+--~ use work.ads1258accumulator_pkg.all;
 
 entity RegisterSpacePorts is
 	generic (
@@ -116,7 +118,14 @@ entity RegisterSpacePorts is
 		--Monitor A/D:
 		MonitorAdcChannelReadIndex : out std_logic_vector(4 downto 0);
 		ReadMonitorAdcSample : out std_logic;
+		--~ MonitorAdcSampleToRead : in ads1258accumulator;
 		MonitorAdcSampleToRead : in std_logic_vector(63 downto 0);
+		MonitorAdcReset : out std_logic;
+		MonitorAdcSpiDataIn : out std_logic_vector(7 downto 0);
+		MonitorAdcSpiDataOut : in std_logic_vector(7 downto 0);
+		MonitorAdcSpiXferStart : out std_logic;
+		MonitorAdcSpiXferDone : in std_logic;
+		MonitorAdcnDrdy  : in std_logic;
 		
 		--RS-422
 		Uart0FifoReset : out std_logic;
@@ -170,7 +179,7 @@ entity RegisterSpacePorts is
 		UartUsbTxFifoData : out std_logic_vector(7 downto 0);
 		UartUsbTxFifoCount : in std_logic_vector(9 downto 0);
 		UartUsbClkDivider : out std_logic_vector(7 downto 0);
-
+		
 		--Timing
 		IdealTicksPerSecond : in std_logic_vector(31 downto 0);
 		ActualTicksLastSecond : in std_logic_vector(31 downto 0);
@@ -283,7 +292,8 @@ architecture RegisterSpace of RegisterSpacePorts is
 	constant UartUsbFifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(244, MAX_ADDRESS_BITS));
 	constant UartUsbFifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(248, MAX_ADDRESS_BITS));
 	
-	
+	constant MonitorAdcSpiXferAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(252, MAX_ADDRESS_BITS));
+							
 	--Control Signals
 	
 	signal LastReadReq :  std_logic := '0';		
@@ -327,7 +337,7 @@ begin
 	MotorEnable <= MotorEnable_i;
 	
 	MonitorAdcChannelReadIndex <= MonitorAdcChannelReadIndex_i;
-	
+		
 	process (clk, rst)
 	begin
 	
@@ -386,29 +396,62 @@ begin
 								
 							--Monitor A/D
 							
-							when MonitorAdcSample =>
+							--~ when MonitorAdcSample =>
 
-								DataOut <= MonitorAdcSampleToRead(15 downto 0);
+								--~ DataOut <= MonitorAdcSampleToRead(15 downto 0);
 						
-							when MonitorAdcSample + x"02" =>
+							--~ when MonitorAdcSample + x"02" =>
 
-								DataOut <= MonitorAdcSampleToRead(31 downto 16);
+								--~ DataOut <= MonitorAdcSampleToRead(31 downto 16);
 							
-							when MonitorAdcSample + x"04" =>
+							--~ when MonitorAdcSample + x"04" =>
 
-								DataOut <= MonitorAdcSampleToRead(47 downto 32);
+								--~ DataOut <= MonitorAdcSampleToRead(47 downto 32);
 														
-							when MonitorAdcSample + x"06" =>
+							--~ when MonitorAdcSample + x"06" =>
 
-								DataOut <= MonitorAdcSampleToRead(63 downto 48);
-														
+								--~ DataOut <= MonitorAdcSampleToRead(63 downto 48);														
+
+							--~ when MonitorAdcSample =>
+
+								--~ --When we hit the first address, we grab the data...
+								--~ DataOut <= MonitorAdcSampleToRead.Sample(15 downto 0);
+								--~ --DataOut(4 downto 0) <= AdcChannelReadIndex_i; --dbg
+								--~ --DataOut(7 downto 5) <= "000"; --dbg
+							
+							--~ when MonitorAdcSample + x"02" =>
+
+								--~ DataOut <= MonitorAdcSampleToRead.Sample(31 downto 16);
+							
+							--~ when MonitorAdcSample + x"04" =>
+
+								--~ DataOut(7 downto 0) <= MonitorAdcSampleToRead.Sample(39 downto 32);
+								
+								--~ DataOut(15) <= MonitorAdcSampleToRead.IsNew;
+								--~ DataOut(14) <= MonitorAdcSampleToRead.Clipped;
+								--~ DataOut(13) <= MonitorAdcSampleToRead.Brownout;
+								--~ DataOut(12 downto 8) <= MonitorAdcSampleToRead.Channel;
+								
+							--~ when MonitorAdcSample + x"06" =>
+
+								--~ DataOut <= MonitorAdcSampleToRead.NumAccums;
+								
+						
 							when MonitorAdcReadChannel =>
 
 								DataOut(4 downto 0) <= MonitorAdcChannelReadIndex_i;
 								DataOut(7 downto 5) <= "000";
 					
+							
+							when MonitorAdcSpiXferAddr =>
+							
+								DataOut(7 downto 0) <= MonitorAdcSpiDataOut;
+								DataOut(13 downto 8) <= "000000";
+								DataOut(14) <= MonitorAdcSpiXferDone;
+								DataOut(15) <= MonitorAdcnDrdy;
+					
 
-
+					
 							--RS-422
 								
 							when Uart0FifoAddr =>
@@ -772,13 +815,22 @@ begin
 														
 								
 							--Monitor A/D
+
+							when MonitorAdcSample =>
+
+								MonitorAdcReset <= '1';
+							
 							when MonitorAdcReadChannel =>
 
 								ReadMonitorAdcSample <= '1';
 								MonitorAdcChannelReadIndex_i <= DataIn(4 downto 0);
-
 								
+							when MonitorAdcSpiXferAddr =>
 							
+								MonitorAdcSpiXferStart <= '1';
+								MonitorAdcSpiDataIn <= DataIn(7 downto 0);
+							
+
 							--RS-422
 							
 							when Uart0FifoAddr =>
@@ -884,7 +936,9 @@ begin
 						WriteAck <= '0';
 						
 						ReadMonitorAdcSample <= '0';
-
+						MonitorAdcReset <= '0';
+						MonitorAdcSpiXferStart <= '0';
+							
 						PPSCountReset <= '0';						
 						
 						WriteClkDac <= '0';		

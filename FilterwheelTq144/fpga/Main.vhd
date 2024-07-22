@@ -5,8 +5,8 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-use work.ltc244xaccumulator_types.all;
-use work.ltc244x_types.all;
+--~ use work.ads1258.all;
+--~ use work.ads1258accumulator_pkg.all;
 
 entity Main is
 port (
@@ -638,6 +638,12 @@ architecture architecture_Main of Main is
 							MonitorAdcChannelReadIndex : out std_logic_vector(4 downto 0);
 							ReadMonitorAdcSample : out std_logic;
 							MonitorAdcSampleToRead : in std_logic_vector(63 downto 0);
+							MonitorAdcReset : out std_logic;
+							MonitorAdcSpiDataIn : out std_logic_vector(7 downto 0);
+							MonitorAdcSpiDataOut : in std_logic_vector(7 downto 0);
+							MonitorAdcSpiXferStart : out std_logic;
+							MonitorAdcSpiXferDone : in std_logic;
+							MonitorAdcnDrdy  : in std_logic;
 							
 							--RS-422
 							Uart0FifoReset : out std_logic;
@@ -691,7 +697,7 @@ architecture architecture_Main of Main is
 							UartUsbTxFifoData : out std_logic_vector(7 downto 0);
 							UartUsbTxFifoCount : in std_logic_vector(9 downto 0);
 							UartUsbClkDivider : out std_logic_vector(7 downto 0);
-
+							
 							--Timing
 							IdealTicksPerSecond : in std_logic_vector(31 downto 0);
 							ActualTicksLastSecond : in std_logic_vector(31 downto 0);
@@ -703,34 +709,77 @@ architecture architecture_Main of Main is
 						);
 						end component;
 						
-						component ltc244xaccumulatorPorts is
-						generic 
-						(
-							MASTER_CLOCK_FREQHZ : natural := 10000000;
-							LTC244X_DATARATE : std_logic_vector(3 downto 0) := "1111";
-							LTC244X_DOUBLERATE : std_logic := '0'--;
+						--~ component ads1258Ports is
+						--~ generic (
+							--~ MASTER_CLOCK_FREQHZ : natural := 10000000--;
+						--~ );
+						--~ port (
+						
+							--~ clk : in std_logic;
+							--~ rst : in std_logic;
+							
+							--~ -- A/D:
+							--~ nDrdy : in std_logic;
+							--~ nCsAdc : out std_logic;
+							--~ Sck : out std_logic;
+							--~ Mosi : out  std_logic;
+							--~ Miso : in  std_logic;		
+							
+							--~ --Raw, Basic Spi Xfers
+							--~ SpiDataIn : in std_logic_vector(7 downto 0);
+							--~ SpiDataOut : out std_logic_vector(7 downto 0);
+							--~ SpiXferStart : in std_logic;
+							--~ SpiXferDone : out std_logic;
+							
+							--~ -- Bus / Fifos:
+							--~ Sample : out ads1258sample;
+							--~ SampleLatched : out std_logic;		
+							--~ TimestampReq : out std_logic--;				
+						--~ );
+						--~ end component;
+						
+						--~ component ads1258accumulatorPorts is
+						--~ port 
+						--~ (
+							--~ clk : in std_logic;
+							--~ rst : in std_logic;
+							
+							--~ -- From A/D
+							--~ AdcSampleIn : in ads1258sample;
+							--~ AdcSampleLatched : in std_logic;		
+							--~ AdcChannelLatched : out std_logic_vector(4 downto 0);
+							
+							--~ -- To Datamapper
+							--~ AdcChannelReadIndex : in std_logic_vector(4 downto 0);
+							--~ ReadAdcSample : in std_logic;		
+							--~ AdcSampleToRead : out ads1258accumulator--;
+						--~ );
+						--~ end component;
+						
+						component SpiDevicePorts is
+						generic (
+							CLOCK_DIVIDER : natural := 4;
+							BIT_WIDTH : natural := 8;
+							CPOL : std_logic := '0'--;
 						);
-						port 
-						(
+						port (
+						
+							--Globals
 							clk : in std_logic;
 							rst : in std_logic;
 							
-							-- To A/D
-							nDrdy : in  std_logic; --Falling edge indicates new data
-							nCs : out std_logic; --Falling edge initiates a new conversion
-							Sck : out std_logic; --can run up to 20MHz
-							Mosi : out std_logic; --10nsec setup time
-							Miso : in  std_logic; --valid after 25nsec, 15nsec hold time
-
-							InvalidStateReached : out std_logic;
-							Dbg1 : out std_logic;
-							Dbg2 : out std_logic;
+							-- D/A:
+							nCs : out std_logic;
+							Sck : out std_logic;
+							Mosi : out  std_logic;
+							Miso : in  std_logic;
 							
-							-- To Datamapper
-							AdcChannelReadIndex : in std_logic_vector(4 downto 0);
-							ReadAdcSample : in std_logic;		
-							AdcSampleToRead : out ltc244xaccumulator--;
-						);
+							--Control signals
+							WriteOut : in std_logic_vector(BIT_WIDTH - 1 downto 0);
+							Transfer : in std_logic;
+							Readback : out std_logic_vector(BIT_WIDTH - 1 downto 0);
+							TransferComplete : out std_logic--;
+						); 
 						end component;
 						
 						component gated_fifo is
@@ -833,12 +882,9 @@ architecture architecture_Main of Main is
 			signal RamBusCE_i : std_logic;		
 			signal RamBusWrnRd_i : std_logic;		
 			signal RamBusAddress_i : std_logic_vector(9 downto 0);		
-			signal nTristateRamDataPins : std_logic;		
 			signal RamDataOut : std_logic_vector(15 downto 0);		
 			signal RamDataIn : std_logic_vector(15 downto 0);		
 			signal RamBusAck_i : std_logic;					
-			signal LastRamBusCE : std_logic;					
-			signal RamBusCEEdge : std_logic;					
 			
 		-- Register space
 		
@@ -928,14 +974,22 @@ architecture architecture_Main of Main is
 			
 		--Monitor A/D
 		
-			--~ signal nDrdyMonitorAdc_i : std_logic;
-			--~ signal nCsMonitorAdc_i : std_logic;
-			--~ signal SckMonitorAdc_i : std_logic;
-			--~ signal MosiMonitorAdc_i : std_logic;
-			--~ signal MisoMonitorAdc_i : std_logic;
+			signal nDrdyMonitorAdc_i : std_logic;
+			signal nCsMonitorAdc_i : std_logic;
+			signal SckMonitorAdc_i : std_logic;
+			signal MosiMonitorAdc_i : std_logic;
+			signal MisoMonitorAdc_i : std_logic;
 			signal MonitorAdcChannel : std_logic_vector(4 downto 0);
 			signal MonitorAdcReadSample : std_logic;
-			signal MonitorAdcSample : ltc244xaccumulator;
+			--~ signal MonitorAdcSample : ltc244xaccumulator;
+			--~ signal MonitorAdcSample : ads1258accumulator;			
+			signal MonitorAdcSample : std_logic_vector(63 downto 0);
+			signal MonitorAdcReset : std_logic;
+			signal MonitorAdcReset_i : std_logic;			
+			signal MonitorAdcSpiDataIn : std_logic_vector(7 downto 0);
+			signal MonitorAdcSpiDataOut : std_logic_vector(7 downto 0);
+			signal MonitorAdcSpiXferStart : std_logic;
+			signal MonitorAdcSpiXferDone : std_logic;
 			
 		--RS-422
 		
@@ -1184,16 +1238,6 @@ begin
 		
 		GenRamDataBus: for i in 0 to 15 generate
 		begin
-		
-		--~ IOBUF_RamData_i : IOBufP2Ports
-		--~ port map (
-			--~ clk => MasterClk,
-			--~ IO => RamBusData(i),
-			--~ T => not(nTristateRamDataPins),
-			--~ I => RamDataOut(i),
-			--~ O => RamDataIn(i)--,
-		--~ );
-		
 			IBUF_RamData_i : IBufP1Ports
 			port map (
 				clk => MasterClk,
@@ -1202,40 +1246,14 @@ begin
 			);
 			
 			RamBusDataOut(i) <= RamDataOut(i);
-			
-			--~ RamBusData_ena(i) <= not(nTristateRamDataPins);
-					
 		end generate;
 		
-	--devmem2 0x021B8010 w 0x3F000FE0 for max wait states on arm, write is taking 400ns / word, 1us / 32b
 	DataToWrite <= RamDataIn;
 	WriteReq <= '1' when ( (RamBusCE_i = '1') and (RamBusWrnRd_i = '1') ) else '0';
-	
-	--devmem2 0x021B8008 w 0x3F000707 for max wait states on arm, read is taking 400ns / word, 1us / 32b
 	RamDataOut <= DataFromRead;
-    --RamDataOut <= x"69";
-	--~ ReadReq  <= '1' when ( (RamBusCE_i = '0') and (RamBusOE_i = '0') ) else '0';
-	--~ ReadReq  <= '1' when (RamBusCE_i = '0') else '0';
-	ReadReq <= '1' when ( (RamBusCE_i = '1') and (RamBusWrnRd_i = '0') ) else '0';
-	--~ nTristateRamDataPins <= '1' when ( (RamBusCE_i = '0') and (RamBusOE_i = '0') ) else '0';
-	
-	RamBusAck <= ReadAck or WriteAck;
-	--~ RamBusAck <= RamBusAck_i;
-	
-	--~ RamBusCEEdge <= '1' when ( (RamBusnCs /= LastRamBusCE) and (RamBusnCs = '1') ) else '0';
-		
-	--~ BusAckOneShot : OneShotPorts
-	--~ generic map (
-		--~ CLOCK_FREQHZ => BoardMasterClockFreq,
-		--~ DELAY_SECONDS => 100.0E-9,
-		--~ SHOT_RST_STATE => '0',
-		--~ SHOT_PRETRIGGER_STATE => '0'--,
-	--~ )
-	--~ port map (	
-		--~ clk => MasterClk,
-		--~ rst => RamBusCEEdge,
-		--~ shot => RamBusAck_i
-	--~ );
+    ReadReq <= '1' when ( (RamBusCE_i = '1') and (RamBusWrnRd_i = '0') ) else '0';
+	RamBusAck_i <= ReadAck or WriteAck;
+	RamBusAck <= RamBusAck_i;
 	
 	TP1 <= RamBusCE_i;
 	TP2 <= RamBusLatch_i;
@@ -1360,7 +1378,14 @@ begin
 		--Monitor A/D
 		MonitorAdcChannelReadIndex => MonitorAdcChannel,
 		ReadMonitorAdcSample => MonitorAdcReadSample,
-		MonitorAdcSampleToRead => ltc244xaccum_to_std_logic(MonitorAdcSample),
+		--~ MonitorAdcSampleToRead => ltc244xaccum_to_std_logic(MonitorAdcSample),
+		MonitorAdcSampleToRead => MonitorAdcSample,
+		MonitorAdcReset => MonitorAdcReset,
+		MonitorAdcSpiDataIn => MonitorAdcSpiDataIn,
+		MonitorAdcSpiDataOut => MonitorAdcSpiDataOut,
+		MonitorAdcSpiXferStart => MonitorAdcSpiXferStart,
+		MonitorAdcSpiXferDone => MonitorAdcSpiXferDone,
+		MonitorAdcnDrdy => nDrdyMonitorAdc_i,
 		
 		--RS-422
 		Uart0FifoReset => Uart0FifoReset,
@@ -1414,7 +1439,7 @@ begin
 		UartUsbTxFifoData => UartUsbTxFifoData,
 		UartUsbTxFifoCount => UartUsbTxFifoCount,
 		UartUsbClkDivider => UartUsbClkDivider,
-		
+				
 		--Timing
 		IdealTicksPerSecond => std_logic_vector(to_unsigned(BoardMasterClockFreq, 32)),
 		ActualTicksLastSecond => PPSCount,
@@ -1427,41 +1452,71 @@ begin
 	
 	----------------------------------------------------------------Monitor A/D--------------------------------------------------------------------
 			
-	--~ IBufnDrdyAdc : IBufP3Ports port map(clk => MasterClk, I => nDrdyMonitorAdc, O => nDrdyMonitorAdc_i); --if you want to change the pin for this chip select, it's here
-	--~ IBufMisoAdc : IBufP3Ports port map(clk => MasterClk, I => MisoMonitorAdc, O => MisoMonitorAdc_i); --if you want to change the pin for this chip select, it's here
+	IBufnDrdyAdc : IBufP3Ports port map(clk => MasterClk, I => nDrdyMonAdc0, O => nDrdyMonitorAdc_i); --if you want to change the pin for this chip select, it's here
+	IBufMisoAdc : IBufP3Ports port map(clk => MasterClk, I => MisoMonAdc0, O => MisoMonitorAdc_i); --if you want to change the pin for this chip select, it's here
 	
-	--~ ltc244xaccumulator : ltc244xaccumulatorPorts
-	--~ generic MAP
+	--~ --Decodes the A/D data into a buffer and creates timing signals to manage fifos
+	--~ ads1258 : ads1258Ports
+	--~ generic map 
 	--~ (
-		--~ MASTER_CLOCK_FREQHZ => BoardMasterClockFreq,
-		--~ LTC244X_DATARATE => "1111",
-		--~ LTC244X_DOUBLERATE => '0'--,
+		--~ MASTER_CLOCK_FREQHZ => BoardMasterClockFreq--,
 	--~ )
+	--~ port map (
+		--~ clk => MasterClk,
+		--~ rst => MonitorAdcReset_i,
+		--~ nDrdy => nDrdyMonitorAdc_i,
+		--~ nCsAdc => nCsMonAdc0,
+		--~ Sck => SckMonAdc0,
+		--~ Mosi => MosiMonAdc0,
+		--~ Miso => MisoMonitorAdc_i,
+		--~ SpiDataIn => MonitorAdcSpiDataIn,
+		--~ SpiDataOut => MonitorAdcSpiDataOut,
+		--~ SpiXferStart => MonitorAdcSpiXferStart,
+		--~ SpiXferDone => MonitorAdcSpiXferDone,
+		--~ Sample => MonitorAdcSample,
+		--~ SampleLatched => MonitorAdcSampleLatched,
+		--~ TimestampReq => open--,
+	--~ );
+	
+	--~ ads1258accum : ads1258accumulatorPorts
 	--~ port map
 	--~ (
 		--~ clk => MasterClk,
-		--~ rst => MasterReset,
-		--~ nDrdy => nDrdyMonitorAdc_i,
-		--~ nCs => nCsMonitorAdc_i,
-		--~ Sck => SckMonitorAdc_i,
-		--~ Mosi => MosiMonitorAdc_i,
-		--~ Miso => MisoMonitorAdc_i,
-		--~ --Dbg1 => Txd0,
-		--~ --Dbg2 => Txd1,
-		--~ --InvalidStateReached => Txd2,
-		--~ Dbg1 => open,
-		--~ Dbg2 => open,
-		--~ InvalidStateReached => open,
+		--~ rst => MonitorAdcReset_i,
+		--~ AdcSampleIn => MonitorAdcSample,
+		--~ AdcSampleLatched => MonitorAdcSampleLatched,
+		--~ AdcChannelLatched => open,
 		--~ AdcChannelReadIndex => MonitorAdcChannel,
 		--~ ReadAdcSample => MonitorAdcReadSample,
-	    --~ --AdcSampleToRead => MonitorAdcSample--,	
-        --~ AdcSampleToRead => Open--,
+		--~ AdcSampleToRead => MonitorAdcSampleToRead--,
 	--~ );
 	
-	--~ --Internal A/D control:
-	--~ nCsMonitorAdc <= nCsMonitorAdc_i;
-	--~ SckMonitorAdc <= SckMonitorAdc_i;
-	--~ MosiMonitorAdc <= MosiMonitorAdc_i;
+	ads1258 : SpiDevicePorts
+	generic map 
+	(
+		CLOCK_DIVIDER => 16,
+		BIT_WIDTH => 8,
+		CPOL => '0'--,
+	)
+	port map 
+	(
+		clk => MasterClk,
+		rst => MonitorAdcReset_i,
+		nCs => nCsMonitorAdc_i,
+		Sck => SckMonitorAdc_i,
+		Mosi => MosiMonitorAdc_i,
+		Miso => MisoMonitorAdc_i,
+		WriteOut => MonitorAdcSpiDataIn,
+		Transfer => MonitorAdcSpiXferStart,
+		Readback => MonitorAdcSpiDataOut,
+		TransferComplete => MonitorAdcSpiXferDone--,
+	);
+	
+	nCsMonAdc0 <= nCsMonitorAdc_i;
+	SckMonAdc0 <= SckMonitorAdc_i;
+	MosiMonAdc0 <= MosiMonitorAdc_i;	
+	
+	MonitorAdcReset_i <= MasterReset or MonitorAdcReset;
 	
 	----------------------------- RS-422 ----------------------------------
 	
@@ -1968,6 +2023,7 @@ begin
 	--~ TP7 <= UartUsbRxFifoCount(0);
 	--~ TP8 <= UartUsbRxFifoCount(1);
 	
+	
 	----------------------------- Timing ----------------------------------
 	
 		--Just sync external PPS to master clock
@@ -2203,12 +2259,6 @@ begin
 	
 	TxdGps <= RxdGps and PPS;
 	
-	--MonitorA/D
-	
-	nCsMonAdc0 <= '1';
-	SckMonAdc0 <= nDrdyMonAdc0;
-	MosiMonAdc0 <= MisoMonAdc0;
-	
 	--  Discrete I/O Connections
 
 		--Faults
@@ -2254,8 +2304,6 @@ begin
 	begin
 	
 		if ( (MasterClk'event) and (MasterClk = '1') ) then
-		
-			LastRamBusCE <= RamBusnCs;
 		
 			--Run position detector logic:
 		

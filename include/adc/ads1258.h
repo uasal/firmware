@@ -15,6 +15,7 @@
 #endif
 
 #include "Delay.h"
+#include "format/formatf.h"
 
 namespace ads1258details
 {

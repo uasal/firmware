@@ -86,6 +86,12 @@ entity ads1258Ports is
 		Mosi : out  std_logic;
 		Miso : in  std_logic;		
 		
+		--Raw, Basic Spi Xfers
+		SpiDataIn : in std_logic_vector(7 downto 0);
+		SpiDataOut : out std_logic_vector(7 downto 0);
+		SpiXferStart : in std_logic;
+		SpiXferDone : out std_logic;
+		
 		-- Bus / Fifos:
 		Sample : out ads1258sample;
 		SampleLatched : out std_logic;		

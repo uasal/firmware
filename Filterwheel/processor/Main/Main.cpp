@@ -119,6 +119,11 @@ bool Process()
     return(Bored);
 }
 
+void ProcessAllUarts()
+{
+	DbgUart.Process();
+}
+
 int main(int argc, char *argv[])
 {
 	uint16_t i = 0;

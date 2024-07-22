@@ -108,6 +108,8 @@ int8_t InitFpgaCommand(char const* Name, char const* Params, const size_t Params
 {
 	formatf("\n\nInitFpga: Initializing...");
 	
+	MonitorAdc.Init();
+	
 	return(ParamsLen);
 }
 
@@ -353,16 +355,12 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 			{
 				case 0: { formatf("P1V2: %3.6lf V\n", MonitorAdc.GetP1V2()); break; }
 				case 1: { formatf("P2V2: %3.6lf V\n", MonitorAdc.GetP2V2()); break; }
-				case 2: { formatf("P24V: %3.6lf V\n", MonitorAdc.GetP24V()); break; }
+				case 2: { formatf("P28V: %3.6lf V\n", MonitorAdc.GetP28V()); break; }
 				case 3: { formatf("P2V5: %3.6lf V\n", MonitorAdc.GetP2V5()); break; }
-				case 4: { formatf("P3V3A: %3.6lf V\n", MonitorAdc.GetP3V3A()); break; }
 				case 5: { formatf("P6V: %3.6lf V\n", MonitorAdc.GetP6V()); break; }
 				case 6: { formatf("P5V: %3.6lf V\n", MonitorAdc.GetP5V()); break; }
 				case 7: { formatf("P3V3D: %3.6lf V\n", MonitorAdc.GetP3V3D()); break; }
 				case 8: { formatf("P4V3: %3.6lf V\n", MonitorAdc.GetP4V3()); break; }
-				case 9: { formatf("N5V: %3.6lf V\n", MonitorAdc.GetN5V()); break; }
-				case 10: { formatf("N6V: %3.6lf V\n", MonitorAdc.GetN6V()); break; }
-				case 11: { formatf("P150V: %3.6lf V\n\n\n", MonitorAdc.GetP150V()); break; }
 				default : { }
 			}
 		}
