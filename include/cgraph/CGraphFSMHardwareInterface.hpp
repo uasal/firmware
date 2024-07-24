@@ -5,6 +5,8 @@
 #include <stdint.h>
 #include <sys/types.h>
 
+#include "format/formatf.h"
+
 union AdcAccumulator 		
 {
     uint64_t all;
@@ -21,7 +23,7 @@ union AdcAccumulator
 
     AdcAccumulator() { all = 0; }
 
-    void formatf() const { ::printf("AdcAccumulator: Samples: %+10.0lf ", (double)Samples); ::printf("(0x%.8lX", (unsigned long)(all >> 32));  ::printf("%.8lX)", (unsigned long)(all)); ::printf(", NumAccums: %lu ", (unsigned long)NumAccums); ::printf("(0x%lX)", (unsigned long)NumAccums); }
+    void formatf() const { ::formatf("AdcAccumulator: Samples: %+10.0lf ", (double)Samples); ::formatf("(0x%.8lX", (unsigned long)(all >> 32));  ::formatf("%.8lX)", (unsigned long)(all)); ::formatf(", NumAccums: %lu ", (unsigned long)NumAccums); ::formatf("(0x%lX)", (unsigned long)NumAccums); }
 
 } __attribute__((__packed__));
 
@@ -37,7 +39,7 @@ union AdcTimestamp
 
     //~ AdcTimestamp() { all = 0; }
 
-    //~ void printf() const { ::printf("AdcTimestamp: SubsecondTicks: %+10.0lf ", (double)SubsecondTicks); ::printf("(0x%.8lX", (unsigned long)(all >> 32));  ::printf("%.8lX)", (unsigned long)(all)); ::printf(", NumAccums: %lu ", (unsigned long)NumAccums); ::printf("(0x%lX)", (unsigned long)NumAccums); }
+    //~ void formatf() const { ::formatf("AdcTimestamp: SubsecondTicks: %+10.0lf ", (double)SubsecondTicks); ::formatf("(0x%.8lX", (unsigned long)(all >> 32));  ::formatf("%.8lX)", (unsigned long)(all)); ::formatf(", NumAccums: %lu ", (unsigned long)NumAccums); ::formatf("(0x%lX)", (unsigned long)NumAccums); }
 
 } __attribute__((__packed__));
 
@@ -57,7 +59,7 @@ union AdcFifo
 
     AdcFifo() { all = 0; }
 
-    //~ void printf() const { ::printf("AdcFifo: Sample: %+10.0lf ", (double)Sample); ::printf("(0x%.8lX", (unsigned long)(all >> 32));  ::printf("%.8lX)", (unsigned long)(all)); ::printf(", NumAccums: %lu ", (unsigned long)NumAccums); ::printf("(0x%lX)", (unsigned long)NumAccums); }
+    //~ void formatf() const { ::formatf("AdcFifo: Sample: %+10.0lf ", (double)Sample); ::formatf("(0x%.8lX", (unsigned long)(all >> 32));  ::formatf("%.8lX)", (unsigned long)(all)); ::formatf(", NumAccums: %lu ", (unsigned long)NumAccums); ::formatf("(0x%lX)", (unsigned long)NumAccums); }
 
 } __attribute__((__packed__));
 
@@ -79,7 +81,7 @@ union CGraphFSMHardwareControlRegister
 
     CGraphFSMHardwareControlRegister() { all = 0; }
 
-    //~ void printf() const { ::printf("CGraphFSMHardwareControlRegister: Sample: %+10.0lf ", (double)Sample); ::printf("(0x%.8lX", (unsigned long)(all >> 32));  ::printf("%.8lX)", (unsigned long)(all)); ::printf(", NumAccums: %lu ", (unsigned long)NumAccums); ::printf("(0x%lX)", (unsigned long)NumAccums); }
+    //~ void formatf() const { ::formatf("CGraphFSMHardwareControlRegister: Sample: %+10.0lf ", (double)Sample); ::formatf("(0x%.8lX", (unsigned long)(all >> 32));  ::formatf("%.8lX)", (unsigned long)(all)); ::formatf(", NumAccums: %lu ", (unsigned long)NumAccums); ::formatf("(0x%lX)", (unsigned long)NumAccums); }
 
 } __attribute__((__packed__));
 
@@ -97,7 +99,7 @@ union CGraphFSMHardwareStatusRegister
 
     CGraphFSMHardwareStatusRegister() { all = 0; }
 
-    //~ void printf() const { ::printf("CGraphFSMHardwareStatusRegister: Sample: %+10.0lf ", (double)Sample); ::printf("(0x%.8lX", (uint32_t)(all >> 32));  ::printf("%.8lX)", (uint32_t)(all)); ::printf(", NumAccums: %lu ", (uint32_t)NumAccums); ::printf("(0x%lX)", (uint32_t)NumAccums); }
+    //~ void formatf() const { ::formatf("CGraphFSMHardwareStatusRegister: Sample: %+10.0lf ", (double)Sample); ::formatf("(0x%.8lX", (uint32_t)(all >> 32));  ::formatf("%.8lX)", (uint32_t)(all)); ::formatf(", NumAccums: %lu ", (uint32_t)NumAccums); ::formatf("(0x%lX)", (uint32_t)NumAccums); }
 
 } __attribute__((__packed__));
 
@@ -121,8 +123,8 @@ union CGraphFSMUartStatusRegister
 
     CGraphFSMUartStatusRegister() { all = 0; }
 
-    //~ void printf() const { ::printf("CGraphFSMUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", Uart2RxFifoEmpty?'Y':'N', Uart2RxFifoFull?'Y':'N', Uart2TxFifoEmpty?'Y':'N', Uart2TxFifoFull?'Y':'N', Uart2RxFifoCount + (Uart2RxFifoCountHi << 8), Uart2TxFifoCount + (Uart2TxFifoCountHi << 8)); }
-	void printf() const { ::printf("CGraphFSMUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", Uart2RxFifoEmpty?'Y':'N', Uart2RxFifoFull?'Y':'N', Uart2TxFifoEmpty?'Y':'N', Uart2TxFifoFull?'Y':'N', Uart2RxFifoCount, Uart2TxFifoCount); }
+    //~ void formatf() const { ::formatf("CGraphFSMUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", Uart2RxFifoEmpty?'Y':'N', Uart2RxFifoFull?'Y':'N', Uart2TxFifoEmpty?'Y':'N', Uart2TxFifoFull?'Y':'N', Uart2RxFifoCount + (Uart2RxFifoCountHi << 8), Uart2TxFifoCount + (Uart2TxFifoCountHi << 8)); }
+	void formatf() const { ::formatf("CGraphFSMUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", Uart2RxFifoEmpty?'Y':'N', Uart2RxFifoFull?'Y':'N', Uart2TxFifoEmpty?'Y':'N', Uart2TxFifoFull?'Y':'N', Uart2RxFifoCount, Uart2TxFifoCount); }
 
 } __attribute__((__packed__));
 
@@ -165,7 +167,7 @@ struct CGraphFSMHardwareInterface
     static const double DacDriverFullScaleOutputVoltage; //150 Volts, don't get your fingers near this thing!
     static const double PZTDriverFullScaleOutputTravel; //Meters; note our granularity is this / DacFullScale which is approx 10pm
 
-    //~ void printf() const { ::printf("CGraphFSMHardwareInterface: Sample: %+10.0lf ", (double)Sample); ::printf("(0x%.8lX", (uint32_t)(all >> 32));  ::printf("%.8lX)", (uint32_t)(all)); ::printf(", NumAccums: %lu ", (uint32_t)NumAccums); ::printf("(0x%lX)", (uint32_t)NumAccums); }
+    //~ void formatf() const { ::formatf("CGraphFSMHardwareInterface: Sample: %+10.0lf ", (double)Sample); ::formatf("(0x%.8lX", (uint32_t)(all >> 32));  ::formatf("%.8lX)", (uint32_t)(all)); ::formatf(", NumAccums: %lu ", (uint32_t)NumAccums); ::formatf("(0x%lX)", (uint32_t)NumAccums); }
 
 } __attribute__((__packed__));
 

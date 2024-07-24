@@ -120,43 +120,44 @@ set_io PosSenseHomeA    \
 
 
 ##J-DM-DAC-A connects to J-SpiExt on FW board
+# These are seriously out of order on the FWI/Fv1.0Sch
  
-#J-SPI-EXT_p1_MisoExt - nDrdyDacsA
+#J-SPI-EXT_p1_MisoExt - "FWI/Fv1.0Sch:A+'"
 set_io PosSenseBit1B    \
 	-iostd LVCMOS33   \
-    -pinname 63      \
+    -pinname 57      \
     -fixed yes        \
     -DIRECTION INPUT
 
-#J-SPI-EXT_p3_MosiExt - RstDacs
+#J-SPI-EXT_p3_MosiExt - "FWI/Fv1.0Sch:Sens1B"
 set_io MotorDriveAMinus    \
+	-iostd LVCMOS33   \
+    -pinname 63      \
+    -fixed yes        \
+    -DIRECTION OUTPUT
+
+#J-SPI-EXT_p5_SckExt - "FWI/Fv1.0Sch:A-"
+set_io MotorDriveAPlus    \
 	-iostd LVCMOS33   \
     -pinname 61      \
     -fixed yes        \
     -DIRECTION OUTPUT
 
-#J-SPI-EXT_p5_SckExt - ClrDacs
-set_io MotorDriveAPlus    \
+#J-SPI-EXT_p7_nCsExt - "FWI/Fv1.0Sch:A+"
+set_io MotorDriveAMinusPrime    \
 	-iostd LVCMOS33   \
     -pinname 60      \
     -fixed yes        \
     -DIRECTION OUTPUT
 
-#J-SPI-EXT_p7_nCsExt - nLDacs
-set_io MotorDriveAMinusPrime    \
+#J-SPI-EXT_p9_DOutExt - "FWI/Fv1.0Sch:A-'"
+set_io MotorDriveAPlusPrime    \
 	-iostd LVCMOS33   \
     -pinname 58      \
     -fixed yes        \
     -DIRECTION OUTPUT
 
-#J-SPI-EXT_p9_DOutExt - MisoDacsA
-set_io MotorDriveAPlusPrime    \
-	-iostd LVCMOS33   \
-    -pinname 57      \
-    -fixed yes        \
-    -DIRECTION OUTPUT
-
-#J-SPI-EXT_p11_DInExt - MosiDacsA
+#J-SPI-EXT_p11_DInExt - "FWI/Fv1.0Sch:Sens2B"
 set_io PosSenseBit2B    \
 	-iostd LVCMOS33   \
     -pinname 56      \

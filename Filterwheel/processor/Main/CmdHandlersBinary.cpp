@@ -33,6 +33,8 @@
 #include <unordered_map>
 using namespace std;
 
+#include "format/formatf.h"
+
 #include "uart/BinaryUart.hpp"
 
 #include "uart/CGraphPacket.hpp"
@@ -61,7 +63,7 @@ int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_
 		Version.FPGAFirmwareBuildNum = FW->FpgaFirmwareBuildNumber; 
 	}
     formatf("\nBinaryVersionCommand: Sending response (%u bytes): ", sizeof(CGraphVersionPayload));
-    Version.printf();
+    Version.formatf();
     formatf("\n");
     TxBinaryPacket(Argument, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
     return(ParamsLen);

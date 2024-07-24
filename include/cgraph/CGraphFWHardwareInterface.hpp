@@ -5,6 +5,8 @@
 #include <stdint.h>
 #include <sys/types.h>
 
+#include "format/formatf.h"
+
 union AdcAccumulator 		
 {
     uint64_t all;
@@ -21,7 +23,7 @@ union AdcAccumulator
 
     AdcAccumulator() { all = 0; }
 
-    void formatf() const { ::printf("AdcAccumulator: Samples: %+10.0lf ", (double)Samples); ::printf("(0x%.8lX", (unsigned long)(all >> 32));  ::printf("%.8lX)", (unsigned long)(all)); ::printf(", NumAccums: %lu ", (unsigned long)NumAccums); ::printf("(0x%lX)", (unsigned long)NumAccums); }
+    void formatf() const { ::formatf("AdcAccumulator: Samples: %+10.0lf ", (double)Samples); ::formatf("(0x%.8lX", (unsigned long)(all >> 32));  ::formatf("%.8lX)", (unsigned long)(all)); ::formatf(", NumAccums: %lu ", (unsigned long)NumAccums); ::formatf("(0x%lX)", (unsigned long)NumAccums); }
 
 } __attribute__((__packed__));
 
@@ -43,17 +45,17 @@ union CGraphFWHardwareControlRegister
 
     CGraphFWHardwareControlRegister() { all = 0; }
 
-    void printf() const 
+    void formatf() const 
 	{ 
-		::printf("CGraphFWHardwareControlRegister: All: %.4X ", all); 
-		::printf(", PosLedsEnA: %u ", (unsigned)PosLedsEnA);
-		::printf(", PosLedsEnB: %u ", (unsigned)PosLedsEnB);
-		::printf(", MotorEnable: %u ", (unsigned)MotorEnable);
-		::printf(", ResetSteps: %u ", (unsigned)ResetSteps);
-		::printf(", MotorAPlus: %u ", (unsigned)MotorAPlus);
-		::printf(", MotorAMinus: %u ", (unsigned)MotorAMinus);
-		::printf(", MotorBPlus: %u ", (unsigned)MotorBPlus);
-		::printf(", MotorBMinus: %u ", (unsigned)MotorBMinus);
+		::formatf("CGraphFWHardwareControlRegister: All: %.4X ", all); 
+		::formatf(", PosLedsEnA: %u ", (unsigned)PosLedsEnA);
+		::formatf(", PosLedsEnB: %u ", (unsigned)PosLedsEnB);
+		::formatf(", MotorEnable: %u ", (unsigned)MotorEnable);
+		::formatf(", ResetSteps: %u ", (unsigned)ResetSteps);
+		::formatf(", MotorAPlus: %u ", (unsigned)MotorAPlus);
+		::formatf(", MotorAMinus: %u ", (unsigned)MotorAMinus);
+		::formatf(", MotorBPlus: %u ", (unsigned)MotorBPlus);
+		::formatf(", MotorBMinus: %u ", (unsigned)MotorBMinus);
 	}
 
 } __attribute__((__packed__));
@@ -70,7 +72,7 @@ union CGraphFWMotorControlStatusRegister
 
     CGraphFWMotorControlStatusRegister() { all = 0; }
 
-    void printf() const { ::printf("CGraphFWMotorControlStatusRegister: All: %.8lX ", (unsigned long)all); ::printf(", SeekStep: %u ", SeekStep);  ::printf(", CurrentStep: %u ", CurrentStep); }
+    void formatf() const { ::formatf("CGraphFWMotorControlStatusRegister: All: %.8lX ", (unsigned long)all); ::formatf(", SeekStep: %u ", SeekStep);  ::formatf(", CurrentStep: %u ", CurrentStep); }
 
 } __attribute__((__packed__));
 
@@ -94,19 +96,19 @@ union CGraphFWPositionSenseRegister
 
     CGraphFWPositionSenseRegister() { all = 0; }
 
-	void printf() const 
+	void formatf() const 
 	{ 
-		::printf("CGraphFWPositionSenseRegister: All: %.4X ", all); 
-		::printf(", PosSenseHomeA: %u ", (unsigned)PosSenseHomeA);
-		::printf(", PosSenseBit0A: %u ", (unsigned)PosSenseBit0A);
-		::printf(", PosSenseBit1A: %u ", (unsigned)PosSenseBit1A);
-		::printf(", PosSenseBit2A: %u ", (unsigned)PosSenseBit2A);
-		::printf(", PosSenseHomeB: %u ", (unsigned)PosSenseHomeB);
-		::printf(", PosSenseBit0B: %u ", (unsigned)PosSenseBit0B);
-		::printf(", PosSenseBit1B: %u ", (unsigned)PosSenseBit1B);
-		::printf(", PosSenseBit2B: %u ", (unsigned)PosSenseBit2B);
-		::printf(", PosSenseA: 0x%.1X ", (unsigned)PosSenseA);
-		::printf(", PosSenseA: 0x%.1X ", (unsigned)PosSenseB);
+		::formatf("CGraphFWPositionSenseRegister: All: %.4X ", all); 
+		::formatf(", PosSenseHomeA: %u ", (unsigned)PosSenseHomeA);
+		::formatf(", PosSenseBit0A: %u ", (unsigned)PosSenseBit0A);
+		::formatf(", PosSenseBit1A: %u ", (unsigned)PosSenseBit1A);
+		::formatf(", PosSenseBit2A: %u ", (unsigned)PosSenseBit2A);
+		::formatf(", PosSenseHomeB: %u ", (unsigned)PosSenseHomeB);
+		::formatf(", PosSenseBit0B: %u ", (unsigned)PosSenseBit0B);
+		::formatf(", PosSenseBit1B: %u ", (unsigned)PosSenseBit1B);
+		::formatf(", PosSenseBit2B: %u ", (unsigned)PosSenseBit2B);
+		::formatf(", PosSenseA: 0x%.1X ", (unsigned)PosSenseA);
+		::formatf(", PosSenseA: 0x%.1X ", (unsigned)PosSenseB);
 	}
 
 } __attribute__((__packed__));
@@ -131,8 +133,8 @@ union CGraphFWUartStatusRegister
 
     CGraphFWUartStatusRegister() { all = 0; }
 
-    //~ void printf() const { ::printf("CGraphFWUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", Uart2RxFifoEmpty?'Y':'N', Uart2RxFifoFull?'Y':'N', Uart2TxFifoEmpty?'Y':'N', Uart2TxFifoFull?'Y':'N', Uart2RxFifoCount + (Uart2RxFifoCountHi << 8), Uart2TxFifoCount + (Uart2TxFifoCountHi << 8)); }
-	void printf() const { ::printf("CGraphFWUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%lu, TxC:%lu", Uart2RxFifoEmpty?'Y':'N', Uart2RxFifoFull?'Y':'N', Uart2TxFifoEmpty?'Y':'N', Uart2TxFifoFull?'Y':'N', Uart2RxFifoCount, Uart2TxFifoCount); }
+    //~ void formatf() const { ::formatf("CGraphFWUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", Uart2RxFifoEmpty?'Y':'N', Uart2RxFifoFull?'Y':'N', Uart2TxFifoEmpty?'Y':'N', Uart2TxFifoFull?'Y':'N', Uart2RxFifoCount + (Uart2RxFifoCountHi << 8), Uart2TxFifoCount + (Uart2TxFifoCountHi << 8)); }
+	void formatf() const { ::formatf("CGraphFWUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%lu, TxC:%lu", Uart2RxFifoEmpty?'Y':'N', Uart2RxFifoFull?'Y':'N', Uart2TxFifoEmpty?'Y':'N', Uart2TxFifoFull?'Y':'N', Uart2RxFifoCount, Uart2TxFifoCount); }
 
 } __attribute__((__packed__));
 
@@ -147,9 +149,8 @@ struct CGraphFWHardwareInterface
     uint32_t ClockSteeringDacSetpoint; //rw; 
     uint32_t reserved0; //rw; First D/A; Zero = zero travel, DacFullScale = full scale travel
     CGraphFWMotorControlStatusRegister MotorControlStatus; //rw; motor settings
-	uint16_t unused1;
-    CGraphFWPositionSenseRegister PositionSensors; //ro; state of all the position sensor readouts
-	uint16_t unused2;
+	CGraphFWPositionSenseRegister PositionSensors; //ro; state of all the position sensor readouts
+    uint16_t unused1;
     uint64_t reserved1;
     uint64_t reserved2;
     uint64_t reserved3;
@@ -157,6 +158,7 @@ struct CGraphFWHardwareInterface
     uint64_t reserved5;
     uint64_t reserved6;
     CGraphFWHardwareControlRegister ControlRegister; //rw; see definition above
+	uint16_t unused2;
     uint32_t reserved7;
     int32_t PPSRtcPhaseComparator; //ro;
     int32_t PPSAdcPhaseComparator; //ro;
@@ -173,54 +175,54 @@ struct CGraphFWHardwareInterface
 	uint8_t BaudDivider2;
 	uint8_t BaudDivider3;
 	uint32_t reserved8;	
-	uint16_t PosDetHomeAOnStep; //ro; the step at which this signal toggled
-	uint16_t PosDetHomeAOffStep; //ro; the step at which this signal toggled
-	uint16_t PosDetA0OnStep; //ro; the step at which this signal toggled
-	uint16_t PosDetA0OffStep; //ro; the step at which this signal toggled
-	uint16_t PosDetA1OnStep; //ro; the step at which this signal toggled
-	uint16_t PosDetA1OffStep; //ro; the step at which this signal toggled
-	uint16_t PosDetA2OnStep; //ro; the step at which this signal toggled
-	uint16_t PosDetA2OffStep; //ro; the step at which this signal toggled	
-	uint16_t PosDetHomeBOnStep; //ro; the step at which this signal toggled
-	uint16_t PosDetHomeBOffStep; //ro; the step at which this signal toggled
-	uint16_t PosDetB0OnStep; //ro; the step at which this signal toggled
-	uint16_t PosDetB0OffStep; //ro; the step at which this signal toggled
-	uint16_t PosDetB1OnStep; //ro; the step at which this signal toggled
-	uint16_t PosDetB1OffStep; //ro; the step at which this signal toggled
-	uint16_t PosDetB2OnStep; //ro; the step at which this signal toggled
-	uint16_t PosDetB2OffStep; //ro; the step at which this signal toggled	
-	uint16_t PosDet0AOnStep; //ro; the step at which this signal toggled
-	uint16_t PosDet0AOffStep; //ro; the step at which this signal toggled
-	uint16_t PosDet1AOnStep; //ro; the step at which this signal toggled
-	uint16_t PosDet1AOffStep; //ro; the step at which this signal toggled
-	uint16_t PosDet2AOnStep; //ro; the step at which this signal toggled
-	uint16_t PosDet2AOffStep; //ro; the step at which this signal toggled
-	uint16_t PosDet3AOnStep; //ro; the step at which this signal toggled
-	uint16_t PosDet3AOffStep; //ro; the step at which this signal toggled
-	uint16_t PosDet4AOnStep; //ro; the step at which this signal toggled
-	uint16_t PosDet4AOffStep; //ro; the step at which this signal toggled
-	uint16_t PosDet5AOnStep; //ro; the step at which this signal toggled
-	uint16_t PosDet5AOffStep; //ro; the step at which this signal toggled
-	uint16_t PosDet6AOnStep; //ro; the step at which this signal toggled
-	uint16_t PosDet6AOffStep; //ro; the step at which this signal toggled
-	uint16_t PosDet7AOnStep; //ro; the step at which this signal toggled
-	uint16_t PosDet7AOffStep; //ro; the step at which this signal toggled	
-	uint16_t PosDet0BOnStep; //ro; the step at which this signal toggled
-	uint16_t PosDet0BOffStep; //ro; the step at which this signal toggled
-	uint16_t PosDet1BOnStep; //ro; the step at which this signal toggled
-	uint16_t PosDet1BOffStep; //ro; the step at which this signal toggled
-	uint16_t PosDet2BOnStep; //ro; the step at which this signal toggled
-	uint16_t PosDet2BOffStep; //ro; the step at which this signal toggled
-	uint16_t PosDet3BOnStep; //ro; the step at which this signal toggled
-	uint16_t PosDet3BOffStep; //ro; the step at which this signal toggled
-	uint16_t PosDet4BOnStep; //ro; the step at which this signal toggled
-	uint16_t PosDet4BOffStep; //ro; the step at which this signal toggled
-	uint16_t PosDet5BOnStep; //ro; the step at which this signal toggled
-	uint16_t PosDet5BOffStep; //ro; the step at which this signal toggled
-	uint16_t PosDet6BOnStep; //ro; the step at which this signal toggled
-	uint16_t PosDet6BOffStep; //ro; the step at which this signal toggled
-	uint16_t PosDet7BOnStep; //ro; the step at which this signal toggled
-	uint16_t PosDet7BOffStep; //ro; the step at which this signal toggled	
+	uint32_t PosDetHomeAOnStep; //ro; the step at which this signal toggled
+	uint32_t PosDetHomeAOffStep; //ro; the step at which this signal toggled
+	uint32_t PosDetA0OnStep; //ro; the step at which this signal toggled
+	uint32_t PosDetA0OffStep; //ro; the step at which this signal toggled
+	uint32_t PosDetA1OnStep; //ro; the step at which this signal toggled
+	uint32_t PosDetA1OffStep; //ro; the step at which this signal toggled
+	uint32_t PosDetA2OnStep; //ro; the step at which this signal toggled
+	uint32_t PosDetA2OffStep; //ro; the step at which this signal toggled	
+	uint32_t PosDetHomeBOnStep; //ro; the step at which this signal toggled
+	uint32_t PosDetHomeBOffStep; //ro; the step at which this signal toggled
+	uint32_t PosDetB0OnStep; //ro; the step at which this signal toggled
+	uint32_t PosDetB0OffStep; //ro; the step at which this signal toggled
+	uint32_t PosDetB1OnStep; //ro; the step at which this signal toggled
+	uint32_t PosDetB1OffStep; //ro; the step at which this signal toggled
+	uint32_t PosDetB2OnStep; //ro; the step at which this signal toggled
+	uint32_t PosDetB2OffStep; //ro; the step at which this signal toggled	
+	uint32_t PosDet0AOnStep; //ro; the step at which this signal toggled
+	uint32_t PosDet0AOffStep; //ro; the step at which this signal toggled
+	uint32_t PosDet1AOnStep; //ro; the step at which this signal toggled
+	uint32_t PosDet1AOffStep; //ro; the step at which this signal toggled
+	uint32_t PosDet2AOnStep; //ro; the step at which this signal toggled
+	uint32_t PosDet2AOffStep; //ro; the step at which this signal toggled
+	uint32_t PosDet3AOnStep; //ro; the step at which this signal toggled
+	uint32_t PosDet3AOffStep; //ro; the step at which this signal toggled
+	uint32_t PosDet4AOnStep; //ro; the step at which this signal toggled
+	uint32_t PosDet4AOffStep; //ro; the step at which this signal toggled
+	uint32_t PosDet5AOnStep; //ro; the step at which this signal toggled
+	uint32_t PosDet5AOffStep; //ro; the step at which this signal toggled
+	uint32_t PosDet6AOnStep; //ro; the step at which this signal toggled
+	uint32_t PosDet6AOffStep; //ro; the step at which this signal toggled
+	uint32_t PosDet7AOnStep; //ro; the step at which this signal toggled
+	uint32_t PosDet7AOffStep; //ro; the step at which this signal toggled	
+	uint32_t PosDet0BOnStep; //ro; the step at which this signal toggled
+	uint32_t PosDet0BOffStep; //ro; the step at which this signal toggled
+	uint32_t PosDet1BOnStep; //ro; the step at which this signal toggled
+	uint32_t PosDet1BOffStep; //ro; the step at which this signal toggled
+	uint32_t PosDet2BOnStep; //ro; the step at which this signal toggled
+	uint32_t PosDet2BOffStep; //ro; the step at which this signal toggled
+	uint32_t PosDet3BOnStep; //ro; the step at which this signal toggled
+	uint32_t PosDet3BOffStep; //ro; the step at which this signal toggled
+	uint32_t PosDet4BOnStep; //ro; the step at which this signal toggled
+	uint32_t PosDet4BOffStep; //ro; the step at which this signal toggled
+	uint32_t PosDet5BOnStep; //ro; the step at which this signal toggled
+	uint32_t PosDet5BOffStep; //ro; the step at which this signal toggled
+	uint32_t PosDet6BOnStep; //ro; the step at which this signal toggled
+	uint32_t PosDet6BOffStep; //ro; the step at which this signal toggled
+	uint32_t PosDet7BOnStep; //ro; the step at which this signal toggled
+	uint32_t PosDet7BOffStep; //ro; the step at which this signal toggled	
 	uint32_t UartFifoUsb; //rw; send or read bytes from uart(s)
 	CGraphFWUartStatusRegister UartStatusRegisterUsb; //ro; what state are the uart(s) in?
 	
@@ -228,7 +230,7 @@ struct CGraphFWHardwareInterface
     //~ static const double DacDriverFullScaleOutputVoltage; //150 Volts, don't get your fingers near this thing!
     //~ static const double PZTDriverFullScaleOutputTravel; //Meters; note our granularity is this / DacFullScale which is approx 10pm
 
-    //~ void printf() const { ::printf("CGraphFWHardwareInterface: Sample: %+10.0lf ", (double)Sample); ::printf("(0x%.8lX", (uint32_t)(all >> 32));  ::printf("%.8lX)", (uint32_t)(all)); ::printf(", NumAccums: %lu ", (uint32_t)NumAccums); ::printf("(0x%lX)", (uint32_t)NumAccums); }
+    //~ void formatf() const { ::formatf("CGraphFWHardwareInterface: Sample: %+10.0lf ", (double)Sample); ::formatf("(0x%.8lX", (uint32_t)(all >> 32));  ::formatf("%.8lX)", (uint32_t)(all)); ::formatf(", NumAccums: %lu ", (uint32_t)NumAccums); ::formatf("(0x%lX)", (uint32_t)NumAccums); }
 
 } __attribute__((__packed__));
 

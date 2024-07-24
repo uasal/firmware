@@ -1255,14 +1255,14 @@ begin
 	RamBusAck_i <= ReadAck or WriteAck;
 	RamBusAck <= RamBusAck_i;
 	
-	TP1 <= RamBusCE_i;
-	TP2 <= RamBusLatch_i;
-	TP3 <= RamBusDataIn(0);
-	TP4 <= RamBusWrnRd_i;
-	TP5 <= WriteReq;
-	TP6 <= ReadAck;
-	TP7 <= ReadReq;
-	TP8 <= RamBusAck_i;
+	--~ TP1 <= RamBusCE_i;
+	--~ TP2 <= RamBusLatch_i;
+	--~ TP3 <= RamBusDataIn(0);
+	--~ TP4 <= RamBusWrnRd_i;
+	--~ TP5 <= WriteReq;
+	--~ TP6 <= ReadAck;
+	--~ TP7 <= ReadReq;
+	--~ TP8 <= RamBusAck_i;
 	
 	
 	------------------------------------------ RegisterSpace ---------------------------------------------------
@@ -1494,7 +1494,8 @@ begin
 	ads1258 : SpiDevicePorts
 	generic map 
 	(
-		CLOCK_DIVIDER => 16,
+		--~ CLOCK_DIVIDER => 16,
+		CLOCK_DIVIDER => 256,
 		BIT_WIDTH => 8,
 		CPOL => '0'--,
 	)
@@ -1517,6 +1518,16 @@ begin
 	MosiMonAdc0 <= MosiMonitorAdc_i;	
 	
 	MonitorAdcReset_i <= MasterReset or MonitorAdcReset;
+	
+	TP1 <= nCsMonitorAdc_i;
+	TP2 <= SckMonitorAdc_i;
+	TP3 <= MosiMonitorAdc_i;
+	TP4 <= MisoMonitorAdc_i;
+	TP5 <= MonitorAdcSpiXferStart;
+	TP6 <= MonitorAdcSpiXferDone;
+	TP7 <= MonitorAdcSpiDataIn(0);
+	TP8 <= MonitorAdcSpiDataOut(0);
+	
 	
 	----------------------------- RS-422 ----------------------------------
 	

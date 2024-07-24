@@ -18,6 +18,9 @@ extern "C" {
 #include "Delay.h"
 
 #include "cgraph/CGraphFWHardwareInterface.hpp"
+extern CGraphFWHardwareInterface* FW;	
+
+#include "format/formatf.h"
 
 #include "CmdTableAscii.hpp"
 
@@ -88,13 +91,12 @@ extern "C"
 
 extern "C"
 {
-    //static void MajorCrashSegFaultHandler(int sig, siginfo_t *siginfo, void *context)
-    //{
-    //    const char Msg[] = "\n\n!MajorCrashSegFaultHandler()!\n";
+    static void HardFault_Handler()//(int sig, siginfo_t *siginfo, void *context)
+    {
+        const char Msg[] = "\n\n!MajorCrashSegFaultHandler()!\n";
         //~ write(stdout, Msg, strlen(Msg));
-     //   write(1, Msg, strlen(Msg));
-
-    //}
+        DbgUart.puts(Msg, strlen(Msg));
+    }
 
     void AtExit()
     {
@@ -213,6 +215,17 @@ int main(int argc, char *argv[])
     //~ GlobalRestore();
 
     //~ formatf("\nFW: Ready.\n");
+	
+	formatf("\n\nESC-FW: Offset of ControlRegister: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, ControlRegister), 88UL);
+	
+	CGraphFWHardwareControlRegister HCR;
+	HCR.PosLedsEnA = 1;
+    HCR.PosLedsEnB = 1;
+	HCR.MotorEnable = 1;
+	HCR.ResetSteps = 0;
+	FW->ControlRegister = HCR;		
+	
+	formatf("\nESC-FW: Set control register.\n");        
 
     DbgUart.SetEcho(false);
 	

@@ -40,13 +40,14 @@ using namespace std;
 
 #include "Delay.h"
 
+#include "cgraph/CGraphFWHardwareInterface.hpp"
+extern CGraphFWHardwareInterface* FW;	
+
+#include "format/formatf.h"
+
 #include "uart/BinaryUart.hpp"
 
 #include "uart/CGraphPacket.hpp"
-
-#include "cgraph/CGraphFWHardwareInterface.hpp"
-extern int MmapHandle;
-extern CGraphFWHardwareInterface* FW;	
 
 #include "../MonitorAdc.hpp"
 extern CGraphFWMonitorAdc MonitorAdc;
@@ -56,6 +57,8 @@ extern CGraphFWMonitorAdc MonitorAdc;
 extern BinaryUart FpgaUartParser2;
 extern BinaryUart FpgaUartParser1;
 //~ extern BinaryUart FpgaUartParser0;
+
+extern int MmapHandle;
 
 char Buffer[4096];
 
@@ -196,11 +199,11 @@ int8_t FWStatusCommand(char const* Name, char const* Params, const size_t Params
 	PSR = FW->PositionSensors;
     
 	formatf("\n\nFWStatusCommand: current values:\n");
-	HCR.printf();
+	HCR.formatf();
 	formatf("\n");
-	MCSR.printf();
+	MCSR.formatf();
 	formatf("\n");
-	PSR.printf();
+	PSR.formatf();
 	formatf("\n");
 	formatf("\n");
 	
@@ -216,7 +219,7 @@ int8_t SensorStepsCommand(char const* Name, char const* Params, const size_t Par
 	}
 	
 	formatf("\n\nSensorStepsCommand: Offset of first Sensor Step: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, PosDetHomeAOnStep), 148UL);
-	formatf("\nSensorStepsCommand: Offset of last Sensor Step: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, PosDet7BOffStep), 240UL);
+	formatf("\nSensorStepsCommand: Offset of last Sensor Step: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, PosDet7BOffStep), 336UL);
 	
 	formatf("\n\nSensorStepsCommand: current values:\n");
 	
@@ -298,7 +301,7 @@ int8_t MotorCommand(char const* Name, char const* Params, const size_t ParamsLen
 	MCSR = FW->MotorControlStatus;
 	
 	formatf("\n\nMotorCommand: current values:\n");
-	MCSR.printf();
+	MCSR.formatf();
 	formatf("\n");
 	
 	return(ParamsLen);
@@ -432,7 +435,7 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	}
 	
 	//~ CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegister2;
-	//~ UartStatus.printf();	
+	//~ UartStatus.formatf();	
 	
 	//~ formatf("; about to write to uart... ");	
 	//~ FW->UartFifo = 'H';
@@ -450,7 +453,7 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	
 	//~ UartStatus = FW->UartStatusRegister; 
 	//~ formatf("; uart written; ");	
-	//~ UartStatus.printf();	
+	//~ UartStatus.formatf();	
 	
 	//~ CGraphFWUartStatusRegister UartStatus2;
 	
@@ -461,7 +464,7 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	//~ }
 	
 	//~ formatf("\nUartCommand: about to read...");
-	//~ UartStatus.printf();	
+	//~ UartStatus.formatf();	
 	//~ formatf("; reading from uart... ");
 	
 	//~ for (size_t i = 0; i < 1024; i++)
@@ -486,7 +489,7 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	//~ formatf(":%.4X", FW->UartFifo2);
 	
 	//~ formatf("\n");
-	//~ UartStatus.printf();	
+	//~ UartStatus.formatf();	
 	
 	CGraphVersionPayload Version;
     Version.SerialNum = 0;
@@ -498,7 +501,7 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		Version.FPGAFirmwareBuildNum = FW->FpgaFirmwareBuildNumber; 
 	}
     formatf("\nUartCommand: Sending response (%u bytes): ", sizeof(CGraphVersionPayload));
-    Version.printf();
+    Version.formatf();
     formatf("\n");
 	//TxBinaryPacket(&FpgaUartParser0, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
 	TxBinaryPacket(&FpgaUartParser1, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));

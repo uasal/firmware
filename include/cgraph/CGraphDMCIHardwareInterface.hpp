@@ -5,6 +5,8 @@
 #include <stdint.h>
 #include <sys/types.h>
 
+#include "format/formatf.h"
+
 #include "CGraphFSMHardwareInterface.hpp" //AdcAccumulator definition
 
 union CGraphDMCIHardwareControlRegister
@@ -19,7 +21,7 @@ union CGraphDMCIHardwareControlRegister
 
     CGraphDMCIHardwareControlRegister() { all = 0; }
 
-    //~ void printf() const { ::printf("CGraphDMCIHardwareControlRegister: Sample: %+10.0lf ", (double)Sample); ::printf("(0x%.8lX", (unsigned long)(all >> 32));  ::printf("%.8lX)", (unsigned long)(all)); ::printf(", NumAccums: %lu ", (unsigned long)NumAccums); ::printf("(0x%lX)", (unsigned long)NumAccums); }
+    //~ void formatf() const { ::formatf("CGraphDMCIHardwareControlRegister: Sample: %+10.0lf ", (double)Sample); ::formatf("(0x%.8lX", (unsigned long)(all >> 32));  ::formatf("%.8lX)", (unsigned long)(all)); ::formatf(", NumAccums: %lu ", (unsigned long)NumAccums); ::formatf("(0x%lX)", (unsigned long)NumAccums); }
 
 } __attribute__((__packed__));
 
@@ -43,7 +45,7 @@ union CGraphDMCIHardwareStatusRegister
 
     CGraphDMCIHardwareStatusRegister() { all = 0; }
 
-    //~ void printf() const { ::printf("CGraphDMCIHardwareStatusRegister: Sample: %+10.0lf ", (double)Sample); ::printf("(0x%.8lX", (uint32_t)(all >> 32));  ::printf("%.8lX)", (uint32_t)(all)); ::printf(", NumAccums: %lu ", (uint32_t)NumAccums); ::printf("(0x%lX)", (uint32_t)NumAccums); }
+    //~ void formatf() const { ::formatf("CGraphDMCIHardwareStatusRegister: Sample: %+10.0lf ", (double)Sample); ::formatf("(0x%.8lX", (uint32_t)(all >> 32));  ::formatf("%.8lX)", (uint32_t)(all)); ::formatf(", NumAccums: %lu ", (uint32_t)NumAccums); ::formatf("(0x%lX)", (uint32_t)NumAccums); }
 
 } __attribute__((__packed__));
 
@@ -67,8 +69,8 @@ union CGraphDMCIUartStatusRegister
 
     CGraphDMCIUartStatusRegister() { all = 0; }
 
-    //~ void printf() const { ::printf("CGraphDMCIUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", UartRxFifoEmpty?'Y':'N', UartRxFifoFull?'Y':'N', UartTxFifoEmpty?'Y':'N', UartTxFifoFull?'Y':'N', UartRxFifoCount + (UartRxFifoCountHi << 8), UartTxFifoCount + (UartTxFifoCountHi << 8)); }
-	void printf() const { ::printf("CGraphDMCIUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", UartRxFifoEmpty?'Y':'N', UartRxFifoFull?'Y':'N', UartTxFifoEmpty?'Y':'N', UartTxFifoFull?'Y':'N', UartRxFifoCount, UartTxFifoCount); }
+    //~ void formatf() const { ::formatf("CGraphDMCIUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", UartRxFifoEmpty?'Y':'N', UartRxFifoFull?'Y':'N', UartTxFifoEmpty?'Y':'N', UartTxFifoFull?'Y':'N', UartRxFifoCount + (UartRxFifoCountHi << 8), UartTxFifoCount + (UartTxFifoCountHi << 8)); }
+	void formatf() const { ::formatf("CGraphDMCIUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", UartRxFifoEmpty?'Y':'N', UartRxFifoFull?'Y':'N', UartTxFifoEmpty?'Y':'N', UartTxFifoFull?'Y':'N', UartRxFifoCount, UartTxFifoCount); }
 
 } __attribute__((__packed__));
 
@@ -126,7 +128,7 @@ struct CGraphDMCIHardwareInterface
     static const double DacDriverFullScaleOutputVoltage; //150 Volts, don't get your fingers near this thing!
     static const double DMCIDriverFullScaleOutputTravel; //Meters; note our granularity is this / DacFullScale which is approx 10pm
 
-    //~ void printf() const { ::printf("CGraphDMCIHardwareInterface: Sample: %+10.0lf ", (double)Sample); ::printf("(0x%.8lX", (uint32_t)(all >> 32));  ::printf("%.8lX)", (uint32_t)(all)); ::printf(", NumAccums: %lu ", (uint32_t)NumAccums); ::printf("(0x%lX)", (uint32_t)NumAccums); }
+    //~ void formatf() const { ::formatf("CGraphDMCIHardwareInterface: Sample: %+10.0lf ", (double)Sample); ::formatf("(0x%.8lX", (uint32_t)(all >> 32));  ::formatf("%.8lX)", (uint32_t)(all)); ::formatf(", NumAccums: %lu ", (uint32_t)NumAccums); ::formatf("(0x%lX)", (uint32_t)NumAccums); }
 
 } __attribute__((__packed__));
 
