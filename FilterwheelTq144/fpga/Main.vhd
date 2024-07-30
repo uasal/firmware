@@ -2519,7 +2519,7 @@ begin
 	ShootThruIxnaeOneShotAPlus : OneShotPorts
 	generic map (
 		CLOCK_FREQHZ => BoardMasterClockFreq,
-		DELAY_SECONDS => 100.0E-9,
+		DELAY_SECONDS => 0.050,
 		SHOT_RST_STATE => '0',
 		SHOT_PRETRIGGER_STATE => '0'--,
 	)
@@ -2531,7 +2531,7 @@ begin
 	ShootThruIxnaeOneShotAMinus : OneShotPorts
 	generic map (
 		CLOCK_FREQHZ => BoardMasterClockFreq,
-		DELAY_SECONDS => 100.0E-9,
+		DELAY_SECONDS => 0.050,
 		SHOT_RST_STATE => '0',
 		SHOT_PRETRIGGER_STATE => '0'--,
 	)
@@ -2543,7 +2543,7 @@ begin
 	ShootThruIxnaeOneShotBPlus : OneShotPorts
 	generic map (
 		CLOCK_FREQHZ => BoardMasterClockFreq,
-		DELAY_SECONDS => 100.0E-9,
+		DELAY_SECONDS => 0.050,
 		SHOT_RST_STATE => '0',
 		SHOT_PRETRIGGER_STATE => '0'--,
 	)
@@ -2555,7 +2555,7 @@ begin
 	ShootThruIxnaeOneShotBMinus : OneShotPorts
 	generic map (
 		CLOCK_FREQHZ => BoardMasterClockFreq,
-		DELAY_SECONDS => 100.0E-9,
+		DELAY_SECONDS => 0.050,
 		SHOT_RST_STATE => '0',
 		SHOT_PRETRIGGER_STATE => '0'--,
 	)
@@ -2601,10 +2601,14 @@ begin
 	--~ MotorDriveAMinusPrime <= MotorAMinus_i;
 	--~ MotorDriveBPlusPrime <= MotorBPlus_i;
 	--~ MotorDriveBMinusPrime <= MotorBMinus_i;
-	MotorDriveAPlusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorAPlus_i = '1') ) else PushPullGround;
-	MotorDriveAMinusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorAMinus_i = '1') ) else PushPullGround;
-	MotorDriveBPlusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorBPlus_i = '1') ) else PushPullGround;
-	MotorDriveBMinusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorBMinus_i = '1') ) else PushPullGround;
+	--~ MotorDriveAPlusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorAPlus_i = '1') ) else PushPullGround;
+	--~ MotorDriveAMinusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorAMinus_i = '1') ) else PushPullGround;
+	--~ MotorDriveBPlusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorBPlus_i = '1') ) else PushPullGround;
+	--~ MotorDriveBMinusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorBMinus_i = '1') ) else PushPullGround;
+	MotorDriveAPlusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorAPlus_i = '1') and (ShootThruIxnaeAPlus = '1') ) else PushPullGround;
+	MotorDriveAMinusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorAMinus_i = '1') and (ShootThruIxnaeAMinus = '1') ) else PushPullGround;
+	MotorDriveBPlusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorBPlus_i = '1') and (ShootThruIxnaeBPlus = '1') ) else PushPullGround;
+	MotorDriveBMinusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorBMinus_i = '1') and (ShootThruIxnaeBMinus = '1') ) else PushPullGround;
 	
 	LedG <= MotorSeekStep(7);
 	
