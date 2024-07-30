@@ -555,7 +555,27 @@ architecture architecture_Main of Main is
 							--Infrastructure
 							SerialNumber : in std_logic_vector(31 downto 0);
 							BuildNumber : in std_logic_vector(31 downto 0);
-
+							
+							--Faults and control
+							Fault1V : in std_logic;
+							Fault3V : in std_logic;
+							Fault5V : in std_logic;
+							nFaultClr1V : out std_logic;								
+							nFaultClr3V : out std_logic;								
+							nFaultClr5V : out std_logic;								
+							PowernEn5V : out std_logic;								
+							PowerCycd : in std_logic;
+							nPowerCycClr : out std_logic;								
+							LedR : out std_logic;
+							LedG : out std_logic;
+							LedB : out std_logic;
+							--~ Uart0OE_i : out std_logic;
+							--~ Uart1OE_i : out std_logic;
+							--~ Uart2OE_i : out std_logic;
+							--~ Uart3OE_i : out std_logic;				
+							--~ Ux1SelJmp_i : out std_logic;
+							--~ Ux2SelJmp_i : out std_logic;
+							
 							--Motor
 							MotorEnable : out std_logic;
 							MotorSeekStep : out std_logic_vector(15 downto 0);
@@ -685,6 +705,19 @@ architecture architecture_Main of Main is
 							Uart2TxFifoCount : in std_logic_vector(9 downto 0);
 							Uart2ClkDivider : out std_logic_vector(7 downto 0);
 							
+							Uart3FifoReset : out std_logic;
+							ReadUart3 : out std_logic;
+							Uart3RxFifoFull : in std_logic;
+							Uart3RxFifoEmpty : in std_logic;
+							Uart3RxFifoData : in std_logic_vector(7 downto 0);
+							Uart3RxFifoCount : in std_logic_vector(9 downto 0);
+							WriteUart3 : out std_logic;
+							Uart3TxFifoFull : in std_logic;
+							Uart3TxFifoEmpty : in std_logic;
+							Uart3TxFifoData : out std_logic_vector(7 downto 0);
+							Uart3TxFifoCount : in std_logic_vector(9 downto 0);
+							Uart3ClkDivider : out std_logic_vector(7 downto 0);
+							
 							UartUsbFifoReset : out std_logic;
 							ReadUartUsb : out std_logic;
 							UartUsbRxFifoFull : in std_logic;
@@ -697,6 +730,19 @@ architecture architecture_Main of Main is
 							UartUsbTxFifoData : out std_logic_vector(7 downto 0);
 							UartUsbTxFifoCount : in std_logic_vector(9 downto 0);
 							UartUsbClkDivider : out std_logic_vector(7 downto 0);
+							
+							UartGpsFifoReset : out std_logic;
+							ReadUartGps : out std_logic;
+							UartGpsRxFifoFull : in std_logic;
+							UartGpsRxFifoEmpty : in std_logic;
+							UartGpsRxFifoData : in std_logic_vector(7 downto 0);
+							UartGpsRxFifoCount : in std_logic_vector(9 downto 0);
+							WriteUartGps : out std_logic;
+							UartGpsTxFifoFull : in std_logic;
+							UartGpsTxFifoEmpty : in std_logic;
+							UartGpsTxFifoData : out std_logic_vector(7 downto 0);
+							UartGpsTxFifoCount : in std_logic_vector(9 downto 0);
+							UartGpsClkDivider : out std_logic_vector(7 downto 0);
 							
 							--Timing
 							IdealTicksPerSecond : in std_logic_vector(31 downto 0);
@@ -1016,6 +1062,7 @@ architecture architecture_Main of Main is
 			signal Txd0_i : std_logic;
 			signal Rxd0_i : std_logic;
 			signal UartRx0Dbg : std_logic;						
+			
 			signal Uart1FifoReset : std_logic;
 			signal Uart1FifoReset_i : std_logic;
 			signal ReadUart1 : std_logic;
@@ -1035,6 +1082,7 @@ architecture architecture_Main of Main is
 			signal Txd1_i : std_logic;
 			signal Rxd1_i : std_logic;
 			signal UartRx1Dbg : std_logic;	
+			
 			signal Uart2FifoReset : std_logic;
 			signal Uart2FifoReset_i : std_logic;
 			signal ReadUart2 : std_logic;
@@ -1054,6 +1102,26 @@ architecture architecture_Main of Main is
 			signal Txd2_i : std_logic;
 			signal Rxd2_i : std_logic;
 			signal UartRx2Dbg : std_logic;		
+			
+			signal Uart3FifoReset : std_logic;
+			signal Uart3FifoReset_i : std_logic;
+			signal ReadUart3 : std_logic;
+			signal Uart3RxFifoFull : std_logic;
+			signal Uart3RxFifoEmpty : std_logic;
+			signal Uart3RxFifoReadAck : std_logic;
+			signal Uart3RxFifoData : std_logic_vector(7 downto 0);
+			signal Uart3RxFifoCount : std_logic_vector(9 downto 0);
+			signal WriteUart3 : std_logic;
+			signal Uart3TxFifoFull : std_logic;
+			signal Uart3TxFifoEmpty : std_logic;
+			signal Uart3TxFifoData : std_logic_vector(7 downto 0);
+			signal Uart3TxFifoCount : std_logic_vector(9 downto 0);
+			signal Uart3ClkDivider : std_logic_vector(7 downto 0);
+			signal UartClk3 : std_logic;			
+			signal UartTxClk3 : std_logic;			
+			signal Txd3_i : std_logic;
+			signal Rxd3_i : std_logic;
+			signal UartRx3Dbg : std_logic;		
 
 			signal UartUsbFifoReset : std_logic;
 			signal UartUsbFifoReset_i : std_logic;
@@ -1075,6 +1143,26 @@ architecture architecture_Main of Main is
 			signal RxdUsb_i : std_logic;
 			signal UartRxUsbDbg : std_logic;					
 			signal TxdUartBitCount : std_logic_vector(3 downto 0);
+			
+			signal UartGpsFifoReset : std_logic;
+			signal UartGpsFifoReset_i : std_logic;
+			signal ReadUartGps : std_logic;
+			signal UartGpsRxFifoFull : std_logic;
+			signal UartGpsRxFifoEmpty : std_logic;
+			signal UartGpsRxFifoReadAck : std_logic;
+			signal UartGpsRxFifoData : std_logic_vector(7 downto 0);
+			signal UartGpsRxFifoCount : std_logic_vector(9 downto 0);
+			signal WriteUartGps : std_logic;
+			signal UartGpsTxFifoFull : std_logic;
+			signal UartGpsTxFifoEmpty : std_logic;
+			signal UartGpsTxFifoData : std_logic_vector(7 downto 0);
+			signal UartGpsTxFifoCount : std_logic_vector(9 downto 0);
+			signal UartGpsClkDivider : std_logic_vector(7 downto 0);
+			signal UartClkGps : std_logic;			
+			signal UartTxClkGps : std_logic;			
+			signal TxdGps_i : std_logic;
+			signal RxdGps_i : std_logic;
+			signal UartRxGpsDbg : std_logic;					
 			
 		-- Timing
 		
@@ -1297,6 +1385,30 @@ begin
 		SerialNumber => SerialNumber,
 		BuildNumber => BuildNumber,
 		
+		--Faults and control
+		Fault1V => Fault1V,
+		Fault3V => Fault3V,
+		Fault5V => Fault5V,
+		nFaultClr1V => nFaultClr1V,
+		nFaultClr3V => nFaultClr3V,
+		nFaultClr5V => nFaultClr5V,
+		--~ PowernEn5V => PowernEn5V,
+		PowernEn5V => open,
+		PowerCycd => PowerCycd,
+		nPowerCycClr => nPowerCycClr,
+		--~ LedR => LedR,
+		--~ LedG => LedG,
+		--~ LedB => LedB,
+		LedR => open,
+		LedG => open,
+		LedB => open,
+		--~ Uart0OE <= OE0,
+		--~ Uart1OE <= OE1,
+		--~ Uart2OE <= OE2,
+		--~ Uart3OE <= OE3,
+		--~ Ux1SelJmp => Ux1SelJmp,
+		--~ Ux2SelJmp => Ux2SelJmp,
+				
 		--Motor
 		MotorEnable => MotorEnable,        
 		MotorSeekStep => MotorSeekStep,    
@@ -1427,6 +1539,19 @@ begin
 		Uart2TxFifoCount => Uart2TxFifoCount,
 		Uart2ClkDivider => Uart2ClkDivider,
 		
+		Uart3FifoReset => Uart3FifoReset,
+		ReadUart3 => ReadUart3,
+		Uart3RxFifoFull => Uart3RxFifoFull,
+		Uart3RxFifoEmpty => Uart3RxFifoEmpty,
+		Uart3RxFifoData => Uart3RxFifoData,
+		Uart3RxFifoCount => Uart3RxFifoCount,
+		WriteUart3 => WriteUart3,
+		Uart3TxFifoFull => Uart3TxFifoFull,
+		Uart3TxFifoEmpty => Uart3TxFifoEmpty,
+		Uart3TxFifoData => Uart3TxFifoData,
+		Uart3TxFifoCount => Uart3TxFifoCount,
+		Uart3ClkDivider => Uart3ClkDivider,
+		
 		UartUsbFifoReset => UartUsbFifoReset,
 		ReadUartUsb => ReadUartUsb,
 		UartUsbRxFifoFull => UartUsbRxFifoFull,
@@ -1439,6 +1564,19 @@ begin
 		UartUsbTxFifoData => UartUsbTxFifoData,
 		UartUsbTxFifoCount => UartUsbTxFifoCount,
 		UartUsbClkDivider => UartUsbClkDivider,
+		
+		UartGpsFifoReset => UartGpsFifoReset,
+		ReadUartGps => ReadUartGps,
+		UartGpsRxFifoFull => UartGpsRxFifoFull,
+		UartGpsRxFifoEmpty => UartGpsRxFifoEmpty,
+		UartGpsRxFifoData => UartGpsRxFifoData,
+		UartGpsRxFifoCount => UartGpsRxFifoCount,
+		WriteUartGps => WriteUartGps,
+		UartGpsTxFifoFull => UartGpsTxFifoFull,
+		UartGpsTxFifoEmpty => UartGpsTxFifoEmpty,
+		UartGpsTxFifoData => UartGpsTxFifoData,
+		UartGpsTxFifoCount => UartGpsTxFifoCount,
+		UartGpsClkDivider => UartGpsClkDivider,
 				
 		--Timing
 		IdealTicksPerSecond => std_logic_vector(to_unsigned(BoardMasterClockFreq, 32)),
@@ -1534,6 +1672,7 @@ begin
 	Oe0 <= '1';
 	Oe1 <= '1';
 	Oe2 <= '1';
+	Oe3 <= '1';
 	
 	--This is just to excercise the thing so it stays in the design...
 	--~ Ux1SelJmp <= '1' when ( (Rxd1 = '1') and (Rxd2 = '0') ) else '0' when ( (Rxd1 = '0') and (Rxd2 = '1') ) else 'Z';
@@ -1576,7 +1715,7 @@ begin
 		--~ Data => Uart1Data
 	--~ );
 
-	--Thirdly, the very not boring fifos (software)
+	--Thirdly, the very NOT boring fifos (software)
 	
 	Uart0BitClockDiv : VariableClockDividerPorts
 	generic map
@@ -1883,6 +2022,116 @@ begin
 	Uart2FifoReset_i <= MasterReset or Uart2FifoReset;
 	
 	
+	
+	
+	
+	
+	Uart3BitClockDiv : VariableClockDividerPorts
+	generic map
+	(
+		WIDTH_BITS => 8,
+		DIVOUT_RST_STATE => '0'--;
+	)
+	port map
+	(
+		--~ clki => MasterClk,
+		clki => UartClk,
+		rst => MasterReset,
+		rst_count => x"00",
+		terminal_count => Uart3ClkDivider,
+		clko => UartClk3
+	);
+	Uart3TxBitClockDiv : ClockDividerPorts
+	generic map
+	(
+		CLOCK_DIVIDER => 16,
+		DIVOUT_RST_STATE => '0'--;
+	)
+	port map
+	(
+		clk => UartClk3,
+		rst => MasterReset,
+		div => UartTxClk3
+	);
+	
+	--~ Ux1SelJmp <= UartClk3;
+	
+	IBufRxd3 : IBufP3Ports port map(clk => UartClk, I => Rxd3, O => Rxd3_i); --if you want to change the pin for this chip select, it's here
+	
+	--~ Ux1SelJmp <= Rxd3;
+	
+	RS433_Rx3 : UartRxFifoExtClk
+	generic map
+	(
+		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
+		FIFO_BITS => 10--,
+		--~ BAUD_DIVIDER_BITS => 8--,
+		--~ BAUDRATE => 13500000--,
+		--~ BAUDRATE => 8000000--,
+		--~ BAUDRATE => BoardMasterClockFreq / 16--, --9.316MHz
+		--~ BAUDRATE => BoardMasterClockFreq / 8193--,
+		--~ BAUDRATE => 115300--,
+	)
+	port map
+	(
+		clk => MasterClk,
+		uclk => UartClk3,
+		rst => Uart3FifoReset_i,
+		--~ BaudDivider => Uart3ClkDivider,
+		Rxd => Rxd3_i,
+		Dbg1 => open,
+		RxComplete => open,
+		ReadFifo => ReadUart3,
+		FifoFull => Uart3RxFifoFull,
+		FifoEmpty => Uart3RxFifoEmpty,
+		FifoReadData => Uart3RxFifoData,
+		FifoCount => Uart3RxFifoCount,
+		FifoReadAck => open--,		
+	);
+	
+	RS433_Tx3 : UartTxFifoExtClk
+	--~ RS433_Tx3 : UartTxFifo
+	generic map
+	(
+		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
+		--~ FIFO_BITS => 10,
+		FIFO_BITS => 10--,
+		--~ BAUD_DIVIDER_BITS => 8--,
+		--~ BAUDRATE => 13500000--,
+		--~ BAUDRATE => 8000000--,
+		--~ BAUDRATE => BoardMasterClockFreq / 16--, --9.316MHz
+		--~ BAUDRATE => BoardMasterClockFreq / 8193--,
+		--~ BAUDRATE => 115300--,
+	)
+	port map
+	(
+		clk => MasterClk,
+		--~ uclk => MasterClk,
+		uclk => UartTxClk3,
+		rst => Uart3FifoReset_i,
+		--~ BaudDivider => Uart3ClkDivider,
+		BitClockOut => open,
+		--~ BitClockOut => Ux1SelJmp,		
+		WriteStrobe => WriteUart3,
+		WriteData => Uart3TxFifoData,
+		FifoFull => Uart3TxFifoFull,
+		FifoEmpty => Uart3TxFifoEmpty,
+		FifoCount => Uart3TxFifoCount,
+		TxInProgress => open,
+		--~ TxInProgress => SckMonitorAdcTP3,		
+		Cts => '0',
+		Txd => Txd3_i--,
+		--~ Txd => open--,
+	);
+	Txd3 <= Txd3_i;
+	
+	--Debug monitors
+	--~ Txd3 <= Txd0_i;
+	--~ Txd1 <= Rxd0_i;
+	
+	--Mux master reset (boot) and user reset (datamapper)
+	Uart3FifoReset_i <= MasterReset or Uart3FifoReset;
+	
 
 	
 	--~ UartUsbBitClockDiv : VariableClockDividerPorts
@@ -1902,7 +2151,7 @@ begin
 		--~ clko => UartClkUsb
 	--~ );
 	
-	
+	--We're hardcoding Usb to 115,200 bps so we have a reachable benchtest...
 	UartUsbRxBitClockDiv : ClockDividerPorts
 	generic map
 	(
@@ -2011,7 +2260,7 @@ begin
 	);
 	RxdUsb <= TxdUsb_i;
 	
-	LedR <= not(TxdUsb_i);
+	--~ LedR <= not(TxdUsb_i);
 	--~ TP1 <= TxdUsb_i;
 	
 	--Debug monitors
@@ -2020,6 +2269,118 @@ begin
 	
 	--Mux master reset (boot) and user reset (datamapper)
 	UartUsbFifoReset_i <= MasterReset or UartUsbFifoReset;
+	
+	
+	
+	
+	
+	--Gps is hardcoded to 9600 bps
+	UartGpsRxBitClockDiv : ClockDividerPorts
+	generic map
+	(
+		CLOCK_DIVIDER => natural((real(102000000) / ( real(9600) * 16.0)) - 1.0),
+		DIVOUT_RST_STATE => '0'--;
+	)
+	port map
+	(
+		clk => UartClk,
+		rst => MasterReset,
+		div => UartClkGps
+	);
+	
+	UartGpsTxBitClockDiv : ClockDividerPorts
+	generic map
+	(
+		CLOCK_DIVIDER => 16,
+		--~ CLOCK_DIVIDER => 8, --8 not 16 cause has to be rising edge of clk for each state so intrinsic /2
+		DIVOUT_RST_STATE => '0'--;
+	)
+	port map
+	(
+		clk => UartClkGps,
+		rst => MasterReset,
+		div => UartTxClkGps
+	);
+	
+	--~ Ux1SelJmp <= UartClkGps;
+	
+	IBufRxdGps : IBufP3Ports port map(clk => UartClk, I => RxdGps, O => RxdGps_i); --if you want to change the pin for this chip select, it's here
+	
+	--~ TP2 <= RxdGps_i;
+	--~ LedB <= not(TxdGps);
+	
+	--~ Ux1SelJmp <= RxdGps;
+	
+	RxdGps_RxGps : UartRxFifoExtClk
+	generic map
+	(
+		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
+		FIFO_BITS => 10--,
+		--~ BAUD_DIVIDER_BITS => 8--,
+		--~ BAUDRATE => 1Gps500000--,
+		--~ BAUDRATE => 8000000--,
+		--~ BAUDRATE => BoardMasterClockFreq / 16--, --9.Gps16MHz
+		--~ BAUDRATE => BoardMasterClockFreq / 819Gps--,
+		--~ BAUDRATE => 115Gps00--,
+	)
+	port map
+	(
+		clk => MasterClk,
+		uclk => UartClkGps,
+		rst => UartGpsFifoReset_i,
+		--~ BaudDivider => UartGpsClkDivider,
+		Rxd => RxdGps_i,
+		--~ Dbg1 => TP4,
+		--~ RxComplete => TP3,
+		Dbg1 => open,
+		RxComplete => open,
+		ReadFifo => ReadUartGps,
+		FifoFull => UartGpsRxFifoFull,
+		FifoEmpty => UartGpsRxFifoEmpty,
+		FifoReadData => UartGpsRxFifoData,
+		FifoCount => UartGpsRxFifoCount,
+		FifoReadAck => open--,		
+	);
+	
+	RS4GpsGps_TxGps : UartTxFifoExtClk
+	--~ RS4GpsGps_TxGps : UartTxFifo
+	generic map
+	(
+		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
+		--~ FIFO_BITS => 10,
+		FIFO_BITS => 10--,
+		--~ BAUD_DIVIDER_BITS => 8--,
+		--~ BAUDRATE => 1Gps500000--,
+		--~ BAUDRATE => 8000000--,
+		--~ BAUDRATE => BoardMasterClockFreq / 16--, --9.Gps16MHz
+		--~ BAUDRATE => BoardMasterClockFreq / 819Gps--,
+		--~ BAUDRATE => 115Gps00--,
+	)
+	port map
+	(
+		clk => MasterClk,
+		--~ uclk => MasterClk,
+		uclk => UartTxClkGps,
+		rst => UartGpsFifoReset_i,
+		--~ BaudDivider => UartGpsClkDivider,
+		BitClockOut => open,
+		--~ BitClockOut => Ux1SelJmp,		
+		BitCountOut => open,
+		WriteStrobe => WriteUartGps,
+		WriteData => UartGpsTxFifoData,
+		FifoFull => UartGpsTxFifoFull,
+		FifoEmpty => UartGpsTxFifoEmpty,
+		FifoCount => UartGpsTxFifoCount,
+		TxInProgress => open,
+		--~ TxInProgress => TP3,		
+		Cts => '0', --RtsGps in this case, ignore cause the computer can pretty much alwyays keep up
+		Txd => TxdGps_i--,
+		--~ Txd => open--,
+	);
+	TxdGps <= TxdGps_i;
+	
+	--Mux master reset (boot) and user reset (datamapper)
+	UartGpsFifoReset_i <= MasterReset or UartGpsFifoReset;
 	
 	--~ TP1 <= RxdUsb_i;
 	--~ TP2 <= UartClkUsb;
@@ -2249,7 +2610,7 @@ begin
 	
 	----------------------------- DEBUG IDEAS ----------------------------------
 	
-	Ux1SelJmp <= RamBusDataIn(0);
+	Ux1SelJmp <= RamBusDataIn(0) and PPS;
 	
 	--~ Ux1SelJmp <= MotorSeekStep(0);
 	
@@ -2262,25 +2623,12 @@ begin
 	SckXO <= '1';
 	MosiXO <= '1';
 	
-	Txd3 <= Rxd3;
-	Oe3 <= '1';
-	
 	--~ RxdUsb <= TxdUsb;
 	--~ CtsUsb <= '1';
-	
-	TxdGps <= RxdGps and PPS;
 	
 	--  Discrete I/O Connections
 
 		--Faults
-		--~ nFaultClr1V <= '1';
-		--~ nFaultClr3V <= '1';
-		--~ nFaultClr5V <= '1';
-		--~ nPowerCycClr <= '1';
-		nFaultClr1V <= Fault1V;
-		nFaultClr3V <= Fault3V;
-		nFaultClr5V <= Fault5V;
-		nPowerCycClr <= PowerCycd;
 		PowernEn5V <= '0';
 		PowerSync <= '1';
 		

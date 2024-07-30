@@ -36,6 +36,26 @@ entity RegisterSpacePorts is
 		SerialNumber : in std_logic_vector(31 downto 0);
 		BuildNumber : in std_logic_vector(31 downto 0);
 		
+		--Faults and control
+		Fault1V : in std_logic;
+		Fault3V : in std_logic;
+		Fault5V : in std_logic;
+		nFaultClr1V : out std_logic;								
+		nFaultClr3V : out std_logic;								
+		nFaultClr5V : out std_logic;								
+		PowernEn5V : out std_logic;								
+		PowerCycd : in std_logic;
+		nPowerCycClr : out std_logic;								
+		LedR : out std_logic;
+		LedG : out std_logic;
+		LedB : out std_logic;
+		--~ Uart0OE_i : out std_logic;
+		--~ Uart1OE_i : out std_logic;
+		--~ Uart2OE_i : out std_logic;
+		--~ Uart3OE_i : out std_logic;				
+		--~ Ux1SelJmp_i : out std_logic;
+		--~ Ux2SelJmp_i : out std_logic;
+				
 		--Motor
 		MotorEnable : out std_logic;
 		MotorSeekStep : out std_logic_vector(15 downto 0);
@@ -167,6 +187,19 @@ entity RegisterSpacePorts is
 		Uart2TxFifoCount : in std_logic_vector(9 downto 0);
 		Uart2ClkDivider : out std_logic_vector(7 downto 0);
 		
+		Uart3FifoReset : out std_logic;
+		ReadUart3 : out std_logic;
+		Uart3RxFifoFull : in std_logic;
+		Uart3RxFifoEmpty : in std_logic;
+		Uart3RxFifoData : in std_logic_vector(7 downto 0);
+		Uart3RxFifoCount : in std_logic_vector(9 downto 0);
+		WriteUart3 : out std_logic;
+		Uart3TxFifoFull : in std_logic;
+		Uart3TxFifoEmpty : in std_logic;
+		Uart3TxFifoData : out std_logic_vector(7 downto 0);
+		Uart3TxFifoCount : in std_logic_vector(9 downto 0);
+		Uart3ClkDivider : out std_logic_vector(7 downto 0);
+		
 		UartUsbFifoReset : out std_logic;
 		ReadUartUsb : out std_logic;
 		UartUsbRxFifoFull : in std_logic;
@@ -179,6 +212,19 @@ entity RegisterSpacePorts is
 		UartUsbTxFifoData : out std_logic_vector(7 downto 0);
 		UartUsbTxFifoCount : in std_logic_vector(9 downto 0);
 		UartUsbClkDivider : out std_logic_vector(7 downto 0);
+		
+		UartGpsFifoReset : out std_logic;
+		ReadUartGps : out std_logic;
+		UartGpsRxFifoFull : in std_logic;
+		UartGpsRxFifoEmpty : in std_logic;
+		UartGpsRxFifoData : in std_logic_vector(7 downto 0);
+		UartGpsRxFifoCount : in std_logic_vector(9 downto 0);
+		WriteUartGps : out std_logic;
+		UartGpsTxFifoFull : in std_logic;
+		UartGpsTxFifoEmpty : in std_logic;
+		UartGpsTxFifoData : out std_logic_vector(7 downto 0);
+		UartGpsTxFifoCount : in std_logic_vector(9 downto 0);
+		UartGpsClkDivider : out std_logic_vector(7 downto 0);
 		
 		--Timing
 		IdealTicksPerSecond : in std_logic_vector(31 downto 0);
@@ -216,9 +262,11 @@ architecture RegisterSpace of RegisterSpacePorts is
 	constant Reserved2Addr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(48, MAX_ADDRESS_BITS));
 	constant Reserved3Addr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(56, MAX_ADDRESS_BITS)); --should be contiguous with AdcSample so we can get the whole thing with an 8-byte xfer...
 	constant Reserved4Addr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(64, MAX_ADDRESS_BITS));
-	constant Reserved5Addr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(72, MAX_ADDRESS_BITS));
-	constant Reserved6Addr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(80, MAX_ADDRESS_BITS));
-
+	--~ constant Reserved5Addr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(72, MAX_ADDRESS_BITS));
+	--~ constant Reserved6Addr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(80, MAX_ADDRESS_BITS));
+	constant Uart3FifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(72, MAX_ADDRESS_BITS));
+	constant Uart3FifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(80, MAX_ADDRESS_BITS));
+	
 	constant ControlRegisterAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(88, MAX_ADDRESS_BITS)); --we have guard addresses on all fifos because accidental reading still removes a char from the fifo.
 
 	constant Reserved7Addr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(92, MAX_ADDRESS_BITS));
@@ -293,22 +341,25 @@ architecture RegisterSpace of RegisterSpacePorts is
 	constant UartUsbFifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(344, MAX_ADDRESS_BITS));
 	
 	constant MonitorAdcSpiXferAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(348, MAX_ADDRESS_BITS));
-							
+	
+	constant UartGpsFifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(352, MAX_ADDRESS_BITS));
+	constant UartGpsFifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(356, MAX_ADDRESS_BITS));
+		
 	--Control Signals
 	
 	signal LastReadReq :  std_logic := '0';		
 	signal LastWriteReq :  std_logic := '0';		
 
-	--~ signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 32.0)) - 1.0), 8));	--38.4k
-	--~ signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 32.0)) - 1.0), 8));	--230k
-	--~ signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(38400) * 32.0)) - 1.0), 8));	--38.4k
-	--~ signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(230400) * 32.0)) - 1.0), 8));	--230k
+	--signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 32.0)) - 1.0), 8));	--38.4k
+	--signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 32.0)) - 1.0), 8));	--230k
+	--signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(38400) * 32.0)) - 1.0), 8));	--38.4k
+	--signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(230400) * 32.0)) - 1.0), 8));	--230k
 	signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 16.0)) - 1.0), 8));	--38.4k
 	signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));	--230k
-	--~ signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(38400) * 16.0)) - 1.0), 8));	--38.4k
-	--~ signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(230400) * 16.0)) - 1.0), 8));	--230k
+	--signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(38400) * 16.0)) - 1.0), 8));	--38.4k
+	--signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(230400) * 16.0)) - 1.0), 8));	--230k
 	signal Uart2ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8));	--"real fast"
-	signal UartUsbClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(115200) * 16.0)) - 1.0), 8));	--115.2k
+	signal Uart3ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8));	--"real fast"
 	
 	signal MonitorAdcChannelReadIndex_i : std_logic_vector(4 downto 0);	
 	
@@ -316,7 +367,19 @@ architecture RegisterSpace of RegisterSpacePorts is
 	signal PosLedsEnA_i :  std_logic := '0';	
 	signal PosLedsEnB_i :  std_logic := '0';	
 	signal ResetSteps_i :  std_logic := '0';	
-	signal MotorEnable_i :  std_logic := '0';		
+	signal MotorEnable_i :  std_logic := '0';	
+
+	signal PowernEn5V_i :  std_logic := '0';								
+	signal LedR_i :  std_logic := '0';
+	signal LedG_i :  std_logic := '0';
+	signal LedB_i :  std_logic := '0';
+	--~ signal Uart0OE_i :  std_logic := '0';
+	--~ signal Uart1OE_i :  std_logic := '0';
+	--~ signal Uart2OE_i :  std_logic := '0';
+	--~ signal Uart3OE_i :  std_logic := '0';								
+	--~ signal Ux1SelJmp_i :  std_logic := '0';
+	--~ signal Ux2SelJmp_i :  std_logic := '0';
+
 	
 begin
 
@@ -328,7 +391,7 @@ begin
 	Uart0ClkDivider <= Uart0ClkDivider_i;
 	Uart1ClkDivider <= Uart1ClkDivider_i;
 	Uart2ClkDivider <= Uart2ClkDivider_i;
-	UartUsbClkDivider <= UartUsbClkDivider_i;
+	Uart3ClkDivider <= Uart3ClkDivider_i;
 	
 	MotorSeekStep <= MotorSeekStep_i;
 	PosLedsEnA <= PosLedsEnA_i;
@@ -337,6 +400,22 @@ begin
 	MotorEnable <= MotorEnable_i;
 	
 	MonitorAdcChannelReadIndex <= MonitorAdcChannelReadIndex_i;
+	
+	--~ Fault1V <= Fault1V_i;
+	--~ Fault3V <= Fault3V_i;
+	--~ Fault5V <= Fault5V_i;
+	PowernEn5V <= PowernEn5V_i;								
+	--~ PowerCycd <= PowerCycd_i;
+	LedR <= LedR_i;
+	LedG <= LedG_i;
+	LedB <= LedB_i;
+	--~ Uart0OE <= Uart0OE_i;
+	--~ Uart1OE <= Uart1OE_i;
+	--~ Uart2OE <= Uart2OE_i;
+	--~ Uart3OE <= Uart3OE_i;								
+	--~ Ux1SelJmp <= Ux1SelJmp_i;
+	--~ Ux2SelJmp <= Ux2SelJmp_i;
+	
 		
 	process (clk, rst)
 	begin
@@ -345,7 +424,20 @@ begin
 		
 			LastReadReq <= '0';			
 			LastWriteReq <= '0';		
+
+			Uart0ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 16.0)) - 1.0), 8));
+			Uart1ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));
+			Uart2ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
+			Uart3ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
 			
+			MonitorAdcChannelReadIndex_i <= "00000";	
+			
+			MotorSeekStep_i <= x"0000";	
+			PosLedsEnA_i <= '0';
+			PosLedsEnB_i <= '0';
+			ResetSteps_i <= '0';
+			MotorEnable_i <= '0';	
+					
 		else
 			
 			if ( (clk'event) and (clk = '1') ) then
@@ -569,6 +661,45 @@ begin
 								
 								
 								
+							when Uart3FifoAddr =>
+
+								ReadUart3 <= '1';
+								DataOut(7 downto 0) <= Uart3RxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
+								
+							when Uart3FifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+
+								--~ DataOut(7 downto 0) <= x"00";
+								DataOut(7 downto 0) <= Uart3RxFifoData;
+								DataOut(15 downto 8) <= x"00";
+								
+							when Uart3FifoStatusAddr =>
+
+								DataOut(7) <= '0';
+								DataOut(6) <= '0';
+								DataOut(5) <= '0';
+								DataOut(4) <= '0';
+								DataOut(3) <= Uart3TxFifoFull;
+								DataOut(2) <= Uart3TxFifoEmpty;
+								DataOut(1) <= Uart3RxFifoFull;
+								DataOut(0) <= Uart3RxFifoEmpty;
+								--~ DataOut(15 downto 8) <= x"00";
+								DataOut(15 downto 8) <= Uart3RxFifoCount(7 downto 0);
+								
+							when Uart3FifoStatusAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+						
+								DataOut(7 downto 0) <= Uart3TxFifoCount(7 downto 0);
+								DataOut(15) <= '0';
+								DataOut(14) <= '0';
+								DataOut(13) <= '0';
+								DataOut(12) <= '0';
+								DataOut(11) <= Uart3TxFifoCount(9);
+								DataOut(10) <= Uart3TxFifoCount(8);
+								DataOut(9) <= Uart3RxFifoCount(9);
+								DataOut(8) <= Uart3RxFifoCount(8);
+								
+								
+								
+								
 							when UartUsbFifoAddr =>
 
 								ReadUartUsb <= '1';
@@ -606,6 +737,44 @@ begin
 								DataOut(9) <= UartUsbRxFifoCount(9);
 								DataOut(8) <= UartUsbRxFifoCount(8);
 
+
+
+							when UartGpsFifoAddr =>
+
+								ReadUartGps <= '1';
+								DataOut(7 downto 0) <= UartGpsRxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
+								DataOut(15 downto 8) <= x"00";
+								
+							when UartGpsFifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+
+								--~ DataOut(7 downto 0) <= x"00";
+								DataOut(7 downto 0) <= UartGpsRxFifoData;
+								DataOut(15 downto 8) <= x"00";
+								
+							when UartGpsFifoStatusAddr =>
+
+								DataOut(7) <= '0';
+								DataOut(6) <= '0';
+								DataOut(5) <= '0';
+								DataOut(4) <= '0';
+								DataOut(3) <= UartGpsTxFifoFull;
+								DataOut(2) <= UartGpsTxFifoEmpty;
+								DataOut(1) <= UartGpsRxFifoFull;
+								DataOut(0) <= UartGpsRxFifoEmpty;
+								--~ DataOut(15 downto 8) <= x"00";
+								DataOut(15 downto 8) <= UartGpsRxFifoCount(7 downto 0);
+								
+							when UartGpsFifoStatusAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+						
+								DataOut(7 downto 0) <= UartGpsTxFifoCount(7 downto 0);
+								DataOut(15) <= '0';
+								DataOut(14) <= '0';
+								DataOut(13) <= '0';
+								DataOut(12) <= '0';
+								DataOut(11) <= UartGpsTxFifoCount(9);
+								DataOut(10) <= UartGpsTxFifoCount(8);
+								DataOut(9) <= UartGpsRxFifoCount(9);
+								DataOut(8) <= UartGpsRxFifoCount(8);
 								
 								
 							--Uart Clock dividers
@@ -617,7 +786,7 @@ begin
 							when UartClockDividersAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
 
 								DataOut(7 downto 0) <= Uart2ClkDivider_i;
-								--~ DataOut(15 downto 8) <= Uart3ClkDivider_i;
+								DataOut(15 downto 8) <= Uart3ClkDivider_i;
 
 												
 							--Timing
@@ -682,7 +851,26 @@ begin
 								DataOut(5) <= MotorAMinus;
 								DataOut(6) <= MotorBPlus;
 								DataOut(7) <= MotorBMinus;
-								DataOut(15 downto 8) <= "00000000";
+								
+								DataOut(8) <= Fault1V;
+								DataOut(9) <= Fault3V;
+								DataOut(10) <= Fault5V;
+								DataOut(11) <= PowernEn5V_i;								
+								DataOut(12) <= PowerCycd;
+								DataOut(13) <= LedR_i;
+								DataOut(14) <= LedG_i;
+								DataOut(15) <= LedB_i;
+								
+								--note: earlier versions of f/w are 16b and these high bits may be inacessible...
+		
+								--~ DataOut(16) <= Uart0OE_i;
+								--~ DataOut(17) <= Uart1OE_i;
+								--~ DataOut(18) <= Uart2OE_i;
+								--~ DataOut(19) <= Uart3OE_i;								
+								--~ DataOut(20) <= Ux1SelJmp_i;
+								--~ DataOut(21) <= Ux2SelJmp_i;
+								
+								--~ DataOut(32 downto 22) <= "00000000000";
 								
 
 							--PosSensAddr
@@ -795,7 +983,9 @@ begin
 						ReadUart0 <= '0';						
 						ReadUart1 <= '0';						
 						ReadUart2 <= '0';		
+						ReadUart3 <= '0';		
 						ReadUartUsb <= '0';		
+						ReadUartGps <= '0';		
 					
 					end if;
 					
@@ -860,6 +1050,15 @@ begin
 
 								Uart2FifoReset <= '1';
 								
+							when Uart3FifoAddr =>
+
+								WriteUart3 <= '1';
+								Uart3TxFifoData <= DataIn(7 downto 0);
+								
+							when Uart3FifoStatusAddr =>
+
+								Uart3FifoReset <= '1';
+								
 							when UartUsbFifoAddr =>
 
 								WriteUartUsb <= '1';
@@ -868,6 +1067,15 @@ begin
 							when UartUsbFifoStatusAddr =>
 
 								UartUsbFifoReset <= '1';
+							
+							when UartGpsFifoAddr =>
+
+								WriteUartGps <= '1';
+								UartGpsTxFifoData <= DataIn(7 downto 0);
+								
+							when UartGpsFifoStatusAddr =>
+
+								UartGpsFifoReset <= '1';
 							
 							--Uart Clock dividers
 							when UartClockDividersAddr =>
@@ -879,7 +1087,7 @@ begin
 							when UartClockDividersAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
 
 								Uart2ClkDivider_i <= DataIn(7 downto 0);
-								--~ Uart3ClkDivider_i <= DataIn(15 downto 8);
+								Uart3ClkDivider_i <= DataIn(15 downto 8);
 								
 								
 														
@@ -909,8 +1117,24 @@ begin
 								MotorEnable_i <= DataIn(2);
 								ResetSteps_i <= DataIn(3);
 								
+								nFaultClr1V <= DataIn(8);
+								nFaultClr3V <= DataIn(9);
+								nFaultClr5V <= DataIn(10);
+								PowernEn5V_i <= DataIn(11);
+								nPowerCycClr <= DataIn(12);
+								LedR_i <= DataIn(13);
+								LedG_i <= DataIn(14);
+								LedB_i <= DataIn(15);
 								
-
+								--note: earlier versions of f/w are 16b and these high bits may be inacessible...
+		
+								--~ Uart0OE_i <= DataIn(16);
+								--~ Uart1OE_i <= DataIn(17);
+								--~ Uart2OE_i <= DataIn(18);
+								--~ Uart3OE_i <= DataIn(19);
+								--~ Ux1SelJmp_i <= DataIn(20);
+								--~ Ux2SelJmp_i <= DataIn(21);
+								
 								
 							when others => 
 
@@ -949,8 +1173,17 @@ begin
 						Uart1FifoReset <= '0';						
 						WriteUart2 <= '0';		
 						Uart2FifoReset <= '0';						
+						WriteUart3 <= '0';		
+						Uart3FifoReset <= '0';						
 						WriteUartUsb <= '0';		
 						UartUsbFifoReset <= '0';						
+						WriteUartGps <= '0';		
+						UartGpsFifoReset <= '0';			
+
+						nFaultClr1V <= '0';			
+						nFaultClr3V <= '0';			
+						nFaultClr5V <= '0';			
+						nPowerCycClr <= '0';												
 					
 					end if;
 					

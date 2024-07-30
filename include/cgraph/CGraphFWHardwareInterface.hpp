@@ -29,17 +29,36 @@ union AdcAccumulator
 
 union CGraphFWHardwareControlRegister
 {
-    uint16_t all;
+    uint32_t all;
     struct 
     {
-        uint16_t PosLedsEnA : 1; //b0; rw turn on A leds
-        uint16_t PosLedsEnB : 1; //b1; rw turn on B leds
-        uint16_t MotorEnable : 1; //b2; rw turn on motor
-		uint16_t ResetSteps : 1; //b3; rw reset all step counters
-        uint16_t MotorAPlus : 1; //b4; ro current state of motor control signal
-        uint16_t MotorAMinus : 1; //b5; ro current state of motor control signal
-        uint16_t MotorBPlus : 1; //b6; ro current state of motor control signal
-        uint16_t MotorBMinus : 1; //b7; ro current state of motor control signal
+        uint32_t PosLedsEnA : 1; //b0; rw turn on A leds
+        uint32_t PosLedsEnB : 1; //b1; rw turn on B leds
+        uint32_t MotorEnable : 1; //b2; rw turn on motor
+		uint32_t ResetSteps : 1; //b3; rw reset all step counters
+        uint32_t MotorAPlus : 1; //b4; ro current state of motor control signal
+        uint32_t MotorAMinus : 1; //b5; ro current state of motor control signal
+        uint32_t MotorBPlus : 1; //b6; ro current state of motor control signal
+        uint32_t MotorBMinus : 1; //b7; ro current state of motor control signal
+		
+		uint32_t Fault1V : 1; //b8; r: current fault state; w: reset fault
+        uint32_t Fault3V : 1; //b9; r: current fault state; w: reset fault
+        uint32_t Fault5V : 1; //b10; r: current fault state; w: reset fault
+		uint32_t PowernEn5V : 1; //b11; rw turn +5V on/off
+        uint32_t PowerCycd : 1; //b12; r: current fault state; w: reset fault
+        uint32_t LedR : 1; //b13; rw: led state
+        uint32_t LedG : 1; //b14; rw: led state
+        uint32_t LedB : 1; //b15; rw: led state
+		
+		//note: earlier versions of f/w are 16b and these high bits may be inacessible...
+		
+		uint32_t Uart0OE : 1; //b16; rw: jumper state
+		uint32_t Uart1OE : 1; //b17; rw: jumper state
+		uint32_t Uart2OE : 1; //b18; rw: jumper state
+		uint32_t Uart3OE : 1; //b19; rw: jumper state
+		
+		uint32_t Ux1SelJmp : 1; //b20; rw: jumper state
+		uint32_t Ux2SelJmp : 1; //b21; rw: jumper state
 
     } __attribute__((__packed__));
 
@@ -56,6 +75,22 @@ union CGraphFWHardwareControlRegister
 		::formatf(", MotorAMinus: %u ", (unsigned)MotorAMinus);
 		::formatf(", MotorBPlus: %u ", (unsigned)MotorBPlus);
 		::formatf(", MotorBMinus: %u ", (unsigned)MotorBMinus);
+		
+		::formatf(", Fault1V: %u ", (unsigned)Fault1V);
+		::formatf(", Fault3V: %u ", (unsigned)Fault3V);
+		::formatf(", Fault5V: %u ", (unsigned)Fault5V);
+		::formatf(", PowernEn5V: %u ", (unsigned)PowernEn5V);
+		::formatf(", PowerCycd: %u ", (unsigned)PowerCycd);
+		::formatf(", LedR: %u ", (unsigned)LedR);
+		::formatf(", LedG: %u ", (unsigned)LedG);
+		::formatf(", LedB: %u ", (unsigned)LedB);
+		
+		::formatf(", Uart0OE: %u ", (unsigned)Uart0OE);
+		::formatf(", Uart1OE: %u ", (unsigned)Uart1OE);
+		::formatf(", Uart2OE: %u ", (unsigned)Uart2OE);
+		::formatf(", Uart3OE: %u ", (unsigned)Uart3OE);
+		::formatf(", Ux1SelJmp: %u ", (unsigned)Ux1SelJmp);
+		::formatf(", Ux2SelJmp: %u ", (unsigned)Ux2SelJmp);
 	}
 
 } __attribute__((__packed__));
@@ -78,19 +113,19 @@ union CGraphFWMotorControlStatusRegister
 
 union CGraphFWPositionSenseRegister
 {
-    uint16_t all;
+    uint32_t all;
     struct 
     {
-        uint16_t PosSenseHomeA : 1; //b0; ro
-        uint16_t PosSenseBit0A : 1; //b1; ro
-        uint16_t PosSenseBit1A : 1; //b2; ro
-		uint16_t PosSenseBit2A : 1; //b3; ro
-        uint16_t PosSenseHomeB : 1; //b4; ro
-        uint16_t PosSenseBit0B : 1; //b5; ro
-        uint16_t PosSenseBit1B : 1; //b6; ro
-        uint16_t PosSenseBit2B : 1; //b7; ro
-		uint16_t PosSenseA : 4; //b8-11; ro
-		uint16_t PosSenseB : 4; //b12-15; ro
+        uint32_t PosSenseHomeA : 1; //b0; ro
+        uint32_t PosSenseBit0A : 1; //b1; ro
+        uint32_t PosSenseBit1A : 1; //b2; ro
+		uint32_t PosSenseBit2A : 1; //b3; ro
+        uint32_t PosSenseHomeB : 1; //b4; ro
+        uint32_t PosSenseBit0B : 1; //b5; ro
+        uint32_t PosSenseBit1B : 1; //b6; ro
+        uint32_t PosSenseBit2B : 1; //b7; ro
+		uint32_t PosSenseA : 4; //b8-11; ro
+		uint32_t PosSenseB : 4; //b12-15; ro
 
     } __attribute__((__packed__));
 
@@ -150,7 +185,6 @@ struct CGraphFWHardwareInterface
     uint32_t reserved0; //rw; First D/A; Zero = zero travel, DacFullScale = full scale travel
     CGraphFWMotorControlStatusRegister MotorControlStatus; //rw; motor settings
 	CGraphFWPositionSenseRegister PositionSensors; //ro; state of all the position sensor readouts
-    uint16_t unused1;
     uint64_t reserved1;
     uint64_t reserved2;
     uint64_t reserved3;
@@ -158,7 +192,6 @@ struct CGraphFWHardwareInterface
     uint64_t reserved5;
     uint64_t reserved6;
     CGraphFWHardwareControlRegister ControlRegister; //rw; see definition above
-	uint16_t unused2;
     uint32_t reserved7;
     int32_t PPSRtcPhaseComparator; //ro;
     int32_t PPSAdcPhaseComparator; //ro;
