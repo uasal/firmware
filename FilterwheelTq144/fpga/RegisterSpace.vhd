@@ -23,8 +23,8 @@ entity RegisterSpacePorts is
 		
 		-- Bus:
 		Address : in std_logic_vector(ADDRESS_BITS - 1 downto 0); -- this is fucked, but vhdl can't figure out that ADDRESS_BITS is a constant because it's in a generic map...
-		DataIn : in std_logic_vector(15 downto 0);
-		DataOut : out std_logic_vector(15 downto 0);
+		DataIn : in std_logic_vector(31 downto 0);
+		DataOut : out std_logic_vector(31 downto 0);
 		ReadReq : in  std_logic;
 		WriteReq : in std_logic;
 		ReadAck : out std_logic;
@@ -49,12 +49,12 @@ entity RegisterSpacePorts is
 		LedR : out std_logic;
 		LedG : out std_logic;
 		LedB : out std_logic;
-		--~ Uart0OE_i : out std_logic;
-		--~ Uart1OE_i : out std_logic;
-		--~ Uart2OE_i : out std_logic;
-		--~ Uart3OE_i : out std_logic;				
-		--~ Ux1SelJmp_i : out std_logic;
-		--~ Ux2SelJmp_i : out std_logic;
+		Uart0OE_i : out std_logic;
+		Uart1OE_i : out std_logic;
+		Uart2OE_i : out std_logic;
+		Uart3OE_i : out std_logic;				
+		Ux1SelJmp_i : out std_logic;
+		Ux2SelJmp_i : out std_logic;
 				
 		--Motor
 		MotorEnable : out std_logic;
@@ -230,6 +230,7 @@ entity RegisterSpacePorts is
 		IdealTicksPerSecond : in std_logic_vector(31 downto 0);
 		ActualTicksLastSecond : in std_logic_vector(31 downto 0);
 		PPSCountReset : out std_logic;
+		PPSDetected : in std_logic;
 		ClockTicksThisSecond : in std_logic_vector(31 downto 0);				
 		ClkDacWrite : out std_logic_vector(15 downto 0);
 		WriteClkDac : out std_logic;
@@ -239,8 +240,6 @@ end RegisterSpacePorts;
 
 architecture RegisterSpace of RegisterSpacePorts is
 
-	-- this is fucked, but vhdl can't figure out that ADDRESS_BITS is a constant because it's in a generic map...so we do this whole circle-jerk
-	--~ constant MAX_ADDRESS_BITS : natural := 8;
 	constant MAX_ADDRESS_BITS : natural := ADDRESS_BITS;
 	signal Address_i : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0);
 	
@@ -262,8 +261,7 @@ architecture RegisterSpace of RegisterSpacePorts is
 	constant Reserved2Addr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(48, MAX_ADDRESS_BITS));
 	constant Reserved3Addr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(56, MAX_ADDRESS_BITS)); --should be contiguous with AdcSample so we can get the whole thing with an 8-byte xfer...
 	constant Reserved4Addr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(64, MAX_ADDRESS_BITS));
-	--~ constant Reserved5Addr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(72, MAX_ADDRESS_BITS));
-	--~ constant Reserved6Addr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(80, MAX_ADDRESS_BITS));
+	
 	constant Uart3FifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(72, MAX_ADDRESS_BITS));
 	constant Uart3FifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(80, MAX_ADDRESS_BITS));
 	
@@ -285,65 +283,41 @@ architecture RegisterSpace of RegisterSpacePorts is
 	constant Uart0FifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(136, MAX_ADDRESS_BITS));
 	constant UartClockDividersAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(140, MAX_ADDRESS_BITS));
 	
-	constant PosDetHomeAOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(148, MAX_ADDRESS_BITS));
-	constant PosDetHomeAOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(152, MAX_ADDRESS_BITS));
-	constant PosDetA0OnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(156, MAX_ADDRESS_BITS));
-	constant PosDetA0OffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(160, MAX_ADDRESS_BITS));
-	constant PosDetA1OnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(164, MAX_ADDRESS_BITS));
-	constant PosDetA1OffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(168, MAX_ADDRESS_BITS));
-	constant PosDetA2OnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(172, MAX_ADDRESS_BITS));
-	constant PosDetA2OffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(176, MAX_ADDRESS_BITS));
+	cstant PosDetHomeAStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(148, MAX_ADDRESS_BITS));
+	cstant PosDetA0StepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(152, MAX_ADDRESS_BITS));
+	cstant PosDetA1StepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(156, MAX_ADDRESS_BITS));;
+	cstant PosDetA2StepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(160, MAX_ADDRESS_BITS));;
 	
-	constant PosDetHomeBOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(180, MAX_ADDRESS_BITS));
-	constant PosDetHomeBOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(184, MAX_ADDRESS_BITS));
-	constant PosDetB0OnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(188, MAX_ADDRESS_BITS));
-	constant PosDetB0OffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(192, MAX_ADDRESS_BITS));
-	constant PosDetB1OnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(196, MAX_ADDRESS_BITS));
-	constant PosDetB1OffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(200, MAX_ADDRESS_BITS));
-	constant PosDetB2OnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(204, MAX_ADDRESS_BITS));
-	constant PosDetB2OffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(208, MAX_ADDRESS_BITS));
+	cstant PosDetHomeBStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(164, MAX_ADDRESS_BITSS));
+	cstant PosDetB0StepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(168, MAX_ADDRESS_BITS));;
+	cstant PosDetB1StepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(172, MAX_ADDRESS_BITS));;
+	cstant PosDetB2StepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(176, MAX_ADDRESS_BITS));;
 	
-	constant PosDet0AOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(212, MAX_ADDRESS_BITS));
-	constant PosDet0AOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(216, MAX_ADDRESS_BITS));
-	constant PosDet1AOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(220, MAX_ADDRESS_BITS));
-	constant PosDet1AOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(224, MAX_ADDRESS_BITS));
-	constant PosDet2AOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(228, MAX_ADDRESS_BITS));
-	constant PosDet2AOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(232, MAX_ADDRESS_BITS));
-	constant PosDet3AOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(236, MAX_ADDRESS_BITS));
-	constant PosDet3AOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(240, MAX_ADDRESS_BITS));
-	constant PosDet4AOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(244, MAX_ADDRESS_BITS));
-	constant PosDet4AOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(248, MAX_ADDRESS_BITS));
-	constant PosDet5AOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(252, MAX_ADDRESS_BITS));
-	constant PosDet5AOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(256, MAX_ADDRESS_BITS));
-	constant PosDet6AOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(260, MAX_ADDRESS_BITS));
-	constant PosDet6AOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(264, MAX_ADDRESS_BITS));
-	constant PosDet7AOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(268, MAX_ADDRESS_BITS));
-	constant PosDet7AOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(272, MAX_ADDRESS_BITS));
+	cstant PosDet0AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(180, MAX_ADDRESS_BITS));;
+	cstant PosDet1AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(184, MAX_ADDRESS_BITS));;
+	cstant PosDet2AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(188, MAX_ADDRESS_BITS));;
+	cstant PosDet3AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(192, MAX_ADDRESS_BITS));;
+	cstant PosDet4AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(196, MAX_ADDRESS_BITS));;
+	cstant PosDet5AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(200, MAX_ADDRESS_BITS));;
+	cstant PosDet6AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(204, MAX_ADDRESS_BITS));;
+	cstant PosDet7AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(208, MAX_ADDRESS_BITS));;
 	
-	constant PosDet0BOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(276, MAX_ADDRESS_BITS));
-	constant PosDet0BOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(280, MAX_ADDRESS_BITS));
-	constant PosDet1BOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(284, MAX_ADDRESS_BITS));
-	constant PosDet1BOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(288, MAX_ADDRESS_BITS));
-	constant PosDet2BOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(292, MAX_ADDRESS_BITS));
-	constant PosDet2BOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(296, MAX_ADDRESS_BITS));
-	constant PosDet3BOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(300, MAX_ADDRESS_BITS));
-	constant PosDet3BOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(304, MAX_ADDRESS_BITS));
-	constant PosDet4BOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(308, MAX_ADDRESS_BITS));
-	constant PosDet4BOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(312, MAX_ADDRESS_BITS));
-	constant PosDet5BOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(316, MAX_ADDRESS_BITS));
-	constant PosDet5BOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(320, MAX_ADDRESS_BITS));
-	constant PosDet6BOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(324, MAX_ADDRESS_BITS));
-	constant PosDet6BOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(328, MAX_ADDRESS_BITS));
-	constant PosDet7BOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(332, MAX_ADDRESS_BITS));
-	constant PosDet7BOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(336, MAX_ADDRESS_BITS));
+	cstant PosDet0BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(212, MAX_ADDRESS_BITS));;
+	cstant PosDet1BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(216, MAX_ADDRESS_BITS));;
+	cstant PosDet2BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(220, MAX_ADDRESS_BITS));
+	cstant PosDet3BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(224, MAX_ADDRESS_BITS));
+	cstant PosDet4BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(228, MAX_ADDRESS_BITS));
+	cstant PosDet5BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(232, MAX_ADDRESS_BITS));
+	cstant PosDet6BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(236, MAX_ADDRESS_BITS));
+	cstant PosDet7BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(240, MAX_ADDRESS_BITS));
 	
-	constant UartUsbFifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(340, MAX_ADDRESS_BITS));
-	constant UartUsbFifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(344, MAX_ADDRESS_BITS));
+	constant UartUsbFifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(244, MAX_ADDRESS_BITS));
+	constant UartUsbFifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(248, MAX_ADDRESS_BITS));
 	
-	constant MonitorAdcSpiXferAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(348, MAX_ADDRESS_BITS));
+	constant MonitorAdcSpiXferAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(252, MAX_ADDRESS_BITS));
 	
-	constant UartGpsFifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(352, MAX_ADDRESS_BITS));
-	constant UartGpsFifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(356, MAX_ADDRESS_BITS));
+	constant UartGpsFifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(256, MAX_ADDRESS_BITS));
+	constant UartGpsFifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(260, MAX_ADDRESS_BITS));
 		
 	--Control Signals
 	
@@ -373,12 +347,12 @@ architecture RegisterSpace of RegisterSpacePorts is
 	signal LedR_i :  std_logic := '0';
 	signal LedG_i :  std_logic := '0';
 	signal LedB_i :  std_logic := '0';
-	--~ signal Uart0OE_i :  std_logic := '0';
-	--~ signal Uart1OE_i :  std_logic := '0';
-	--~ signal Uart2OE_i :  std_logic := '0';
-	--~ signal Uart3OE_i :  std_logic := '0';								
-	--~ signal Ux1SelJmp_i :  std_logic := '0';
-	--~ signal Ux2SelJmp_i :  std_logic := '0';
+	signal Uart0OE_i :  std_logic := '0';
+	signal Uart1OE_i :  std_logic := '0';
+	signal Uart2OE_i :  std_logic := '0';
+	signal Uart3OE_i :  std_logic := '0';								
+	signal Ux1SelJmp_i :  std_logic := '0';
+	signal Ux2SelJmp_i :  std_logic := '0';
 
 	
 begin
@@ -409,12 +383,12 @@ begin
 	LedR <= LedR_i;
 	LedG <= LedG_i;
 	LedB <= LedB_i;
-	--~ Uart0OE <= Uart0OE_i;
-	--~ Uart1OE <= Uart1OE_i;
-	--~ Uart2OE <= Uart2OE_i;
-	--~ Uart3OE <= Uart3OE_i;								
-	--~ Ux1SelJmp <= Ux1SelJmp_i;
-	--~ Ux2SelJmp <= Ux2SelJmp_i;
+	Uart0OE <= Uart0OE_i;
+	Uart1OE <= Uart1OE_i;
+	Uart2OE <= Uart2OE_i;
+	Uart3OE <= Uart3OE_i;								
+	Ux1SelJmp <= Ux1SelJmp_i;
+	Ux2SelJmp <= Ux2SelJmp_i;
 	
 		
 	process (clk, rst)
@@ -442,9 +416,6 @@ begin
 			
 			if ( (clk'event) and (clk = '1') ) then
 			
-				--~ LastReadReq <= ReadReq;			
-				--~ LastWriteReq <= WriteReq;			
-										
 				if (ReadReq = '1') then
 				
 					--ReadReq Rising Edge
@@ -452,9 +423,6 @@ begin
 					
 						LastReadReq <= '1';
 					
-						--~ DataOut <= x"77";
-						
-						--~ ReadAck <= '1';
 						ReadAck <= '0';
 						
 						--~ DataOut <= Address_i(7 downto 0);
@@ -466,69 +434,34 @@ begin
 							
 							when DeviceSerialNumberAddr =>
 
-								DataOut <= SerialNumber(15 downto 0);
+								DataOut <= SerialNumber;
 								
-							when DeviceSerialNumberAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
-
-								DataOut <= SerialNumber(31 downto 16);
-
 							
 
 							--Build Number
 							
 							when FpgaFirmwareBuildNumberAddr =>
 
-								DataOut <= BuildNumber(15 downto 0);
-
-							when FpgaFirmwareBuildNumberAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
-
-								DataOut <= BuildNumber(31 downto 16);
-
+								DataOut <= BuildNumber;
+							
 							
 								
 							--Monitor A/D
 							
 							--~ when MonitorAdcSample =>
 
-								--~ DataOut <= MonitorAdcSampleToRead(15 downto 0);
+								--~ DataOut <= MonitorAdcSampleToRead(31 downto 0);
 						
-							--~ when MonitorAdcSample + x"02" =>
-
-								--~ DataOut <= MonitorAdcSampleToRead(31 downto 16);
-							
 							--~ when MonitorAdcSample + x"04" =>
 
-								--~ DataOut <= MonitorAdcSampleToRead(47 downto 32);
+								--~ DataOut <= MonitorAdcSampleToRead(63 downto 32);
 														
-							--~ when MonitorAdcSample + x"06" =>
+							--~ when MonitorAdcReadChannel =>
 
-								--~ DataOut <= MonitorAdcSampleToRead(63 downto 48);														
+								--~ DataOut(4 downto 0) <= MonitorAdcChannelReadIndex_i;
+								--~ DataOut(31 downto 5) <= "000000000000000";
+					
 
-							--~ when MonitorAdcSample =>
-
-								--~ --When we hit the first address, we grab the data...
-								--~ DataOut <= MonitorAdcSampleToRead.Sample(15 downto 0);
-								--~ --DataOut(4 downto 0) <= AdcChannelReadIndex_i; --dbg
-								--~ --DataOut(7 downto 5) <= "000"; --dbg
-							
-							--~ when MonitorAdcSample + x"02" =>
-
-								--~ DataOut <= MonitorAdcSampleToRead.Sample(31 downto 16);
-							
-							--~ when MonitorAdcSample + x"04" =>
-
-								--~ DataOut(7 downto 0) <= MonitorAdcSampleToRead.Sample(39 downto 32);
-								
-								--~ DataOut(15) <= MonitorAdcSampleToRead.IsNew;
-								--~ DataOut(14) <= MonitorAdcSampleToRead.Clipped;
-								--~ DataOut(13) <= MonitorAdcSampleToRead.Brownout;
-								--~ DataOut(12 downto 8) <= MonitorAdcSampleToRead.Channel;
-								
-							--~ when MonitorAdcSample + x"06" =>
-
-								--~ DataOut <= MonitorAdcSampleToRead.NumAccums;
-								
-						
 							when MonitorAdcReadChannel =>
 
 								DataOut(4 downto 0) <= MonitorAdcChannelReadIndex_i;
@@ -550,153 +483,111 @@ begin
 
 								ReadUart0 <= '1';
 								DataOut(7 downto 0) <= Uart0RxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
-								
-							when Uart0FifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+								DataOut(31 downto 8) <= x"000000";
+								 
+							--~ when Uart0FifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
 
 								--~ DataOut(7 downto 0) <= x"00";
-								DataOut(7 downto 0) <= Uart0RxFifoData;
-								DataOut(15 downto 8) <= x"00";
+								--~ DataOut(7 downto 0) <= Uart0RxFifoData;
+								--~ DataOut(15 downto 8) <= x"00";
 								
 							when Uart0FifoStatusAddr =>
 
-								DataOut(7) <= '0';
-								DataOut(6) <= '0';
-								DataOut(5) <= '0';
-								DataOut(4) <= '0';
-								DataOut(3) <= Uart0TxFifoFull;
-								DataOut(2) <= Uart0TxFifoEmpty;
-								DataOut(1) <= Uart0RxFifoFull;
 								DataOut(0) <= Uart0RxFifoEmpty;
-								--~ DataOut(15 downto 8) <= x"00";
-								DataOut(15 downto 8) <= Uart0RxFifoCount(7 downto 0);
+								DataOut(1) <= Uart0RxFifoFull;
+								DataOut(2) <= Uart0TxFifoEmpty;
+								DataOut(3) <= Uart0TxFifoFull;
+								DataOut(4) <= '0';
+								DataOut(5) <= '0';
+								DataOut(6) <= '0';
+								DataOut(7) <= '0';
+								DataOut(17 downto 8) <= Uart0RxFifoCount;
+								DataOut(27 downto 18) <= Uart0RxFifoCount;
+								DataOut(31 downto 28) <= x"0000";
 								
-							when Uart0FifoStatusAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
 						
-								DataOut(7 downto 0) <= Uart0TxFifoCount(7 downto 0);
-								DataOut(15) <= '0';
-								DataOut(14) <= '0';
-								DataOut(13) <= '0';
-								DataOut(12) <= '0';
-								DataOut(11) <= Uart0TxFifoCount(9);
-								DataOut(10) <= Uart0TxFifoCount(8);
-								DataOut(9) <= Uart0RxFifoCount(9);
-								DataOut(8) <= Uart0RxFifoCount(8);
-						
-						
-						
+							
 							when Uart1FifoAddr =>
 
 								ReadUart1 <= '1';
 								DataOut(7 downto 0) <= Uart1RxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
-								
-							when Uart1FifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+								DataOut(31 downto 8) <= x"000000";
+								 
+							--~ when Uart1FifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
 
 								--~ DataOut(7 downto 0) <= x"00";
-								DataOut(7 downto 0) <= Uart1RxFifoData;
-								DataOut(15 downto 8) <= x"00";
+								--~ DataOut(7 downto 0) <= Uart1RxFifoData;
+								--~ DataOut(15 downto 8) <= x"00";
 								
 							when Uart1FifoStatusAddr =>
 
-								DataOut(7) <= '0';
-								DataOut(6) <= '0';
-								DataOut(5) <= '0';
-								DataOut(4) <= '0';
-								DataOut(3) <= Uart1TxFifoFull;
-								DataOut(2) <= Uart1TxFifoEmpty;
-								DataOut(1) <= Uart1RxFifoFull;
 								DataOut(0) <= Uart1RxFifoEmpty;
-								--~ DataOut(15 downto 8) <= x"00";
-								DataOut(15 downto 8) <= Uart1RxFifoCount(7 downto 0);
-								
-							when Uart1FifoStatusAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
-						
-								DataOut(7 downto 0) <= Uart1TxFifoCount(7 downto 0);
-								DataOut(15) <= '0';
-								DataOut(14) <= '0';
-								DataOut(13) <= '0';
-								DataOut(12) <= '0';
-								DataOut(11) <= Uart1TxFifoCount(9);
-								DataOut(10) <= Uart1TxFifoCount(8);
-								DataOut(9) <= Uart1RxFifoCount(9);
-								DataOut(8) <= Uart1RxFifoCount(8);
-						
+								DataOut(1) <= Uart1RxFifoFull;
+								DataOut(2) <= Uart1TxFifoEmpty;
+								DataOut(3) <= Uart1TxFifoFull;
+								DataOut(4) <= '0';
+								DataOut(5) <= '0';
+								DataOut(6) <= '0';
+								DataOut(7) <= '0';
+								DataOut(17 downto 8) <= Uart1RxFifoCount;
+								DataOut(27 downto 18) <= Uart1RxFifoCount;
+								DataOut(31 downto 28) <= x"0000";
+							
 							
 							
 							when Uart2FifoAddr =>
 
 								ReadUart2 <= '1';
 								DataOut(7 downto 0) <= Uart2RxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
-								
-							when Uart2FifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+								DataOut(31 downto 8) <= x"000000";
+								 
+							--~ when Uart2FifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
 
 								--~ DataOut(7 downto 0) <= x"00";
-								DataOut(7 downto 0) <= Uart2RxFifoData;
-								DataOut(15 downto 8) <= x"00";
+								--~ DataOut(7 downto 0) <= Uart2RxFifoData;
+								--~ DataOut(15 downto 8) <= x"00";
 								
 							when Uart2FifoStatusAddr =>
 
-								DataOut(7) <= '0';
-								DataOut(6) <= '0';
-								DataOut(5) <= '0';
-								DataOut(4) <= '0';
-								DataOut(3) <= Uart2TxFifoFull;
-								DataOut(2) <= Uart2TxFifoEmpty;
-								DataOut(1) <= Uart2RxFifoFull;
 								DataOut(0) <= Uart2RxFifoEmpty;
-								--~ DataOut(15 downto 8) <= x"00";
-								DataOut(15 downto 8) <= Uart2RxFifoCount(7 downto 0);
-								
-							when Uart2FifoStatusAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
-						
-								DataOut(7 downto 0) <= Uart2TxFifoCount(7 downto 0);
-								DataOut(15) <= '0';
-								DataOut(14) <= '0';
-								DataOut(13) <= '0';
-								DataOut(12) <= '0';
-								DataOut(11) <= Uart2TxFifoCount(9);
-								DataOut(10) <= Uart2TxFifoCount(8);
-								DataOut(9) <= Uart2RxFifoCount(9);
-								DataOut(8) <= Uart2RxFifoCount(8);
-								
-								
-								
-								
+								DataOut(1) <= Uart2RxFifoFull;
+								DataOut(2) <= Uart2TxFifoEmpty;
+								DataOut(3) <= Uart2TxFifoFull;
+								DataOut(4) <= '0';
+								DataOut(5) <= '0';
+								DataOut(6) <= '0';
+								DataOut(7) <= '0';
+								DataOut(17 downto 8) <= Uart2RxFifoCount;
+								DataOut(27 downto 18) <= Uart2RxFifoCount;
+								DataOut(31 downto 28) <= x"0000";
+							
+							
+							
 							when Uart3FifoAddr =>
 
 								ReadUart3 <= '1';
 								DataOut(7 downto 0) <= Uart3RxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
-								
-							when Uart3FifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+								DataOut(31 downto 8) <= x"000000";
+								 
+							--~ when Uart3FifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
 
 								--~ DataOut(7 downto 0) <= x"00";
-								DataOut(7 downto 0) <= Uart3RxFifoData;
-								DataOut(15 downto 8) <= x"00";
+								--~ DataOut(7 downto 0) <= Uart3RxFifoData;
+								--~ DataOut(15 downto 8) <= x"00";
 								
 							when Uart3FifoStatusAddr =>
 
-								DataOut(7) <= '0';
-								DataOut(6) <= '0';
-								DataOut(5) <= '0';
-								DataOut(4) <= '0';
-								DataOut(3) <= Uart3TxFifoFull;
-								DataOut(2) <= Uart3TxFifoEmpty;
-								DataOut(1) <= Uart3RxFifoFull;
 								DataOut(0) <= Uart3RxFifoEmpty;
-								--~ DataOut(15 downto 8) <= x"00";
-								DataOut(15 downto 8) <= Uart3RxFifoCount(7 downto 0);
-								
-							when Uart3FifoStatusAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
-						
-								DataOut(7 downto 0) <= Uart3TxFifoCount(7 downto 0);
-								DataOut(15) <= '0';
-								DataOut(14) <= '0';
-								DataOut(13) <= '0';
-								DataOut(12) <= '0';
-								DataOut(11) <= Uart3TxFifoCount(9);
-								DataOut(10) <= Uart3TxFifoCount(8);
-								DataOut(9) <= Uart3RxFifoCount(9);
-								DataOut(8) <= Uart3RxFifoCount(8);
-								
+								DataOut(1) <= Uart3RxFifoFull;
+								DataOut(2) <= Uart3TxFifoEmpty;
+								DataOut(3) <= Uart3TxFifoFull;
+								DataOut(4) <= '0';
+								DataOut(5) <= '0';
+								DataOut(6) <= '0';
+								DataOut(7) <= '0';
+								DataOut(17 downto 8) <= Uart3RxFifoCount;
+								DataOut(27 downto 18) <= Uart3RxFifoCount;
+								DataOut(31 downto 28) <= x"0000";
 								
 								
 								
@@ -704,38 +595,27 @@ begin
 
 								ReadUartUsb <= '1';
 								DataOut(7 downto 0) <= UartUsbRxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
-								DataOut(15 downto 8) <= x"00";
-								
-							when UartUsbFifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+								DataOut(31 downto 8) <= x"000000";
+								 
+							--~ when UartUsbFifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
 
 								--~ DataOut(7 downto 0) <= x"00";
-								DataOut(7 downto 0) <= UartUsbRxFifoData;
-								DataOut(15 downto 8) <= x"00";
+								--~ DataOut(7 downto 0) <= UartUsbRxFifoData;
+								--~ DataOut(15 downto 8) <= x"00";
 								
 							when UartUsbFifoStatusAddr =>
 
-								DataOut(7) <= '0';
-								DataOut(6) <= '0';
-								DataOut(5) <= '0';
-								DataOut(4) <= '0';
-								DataOut(3) <= UartUsbTxFifoFull;
-								DataOut(2) <= UartUsbTxFifoEmpty;
-								DataOut(1) <= UartUsbRxFifoFull;
 								DataOut(0) <= UartUsbRxFifoEmpty;
-								--~ DataOut(15 downto 8) <= x"00";
-								DataOut(15 downto 8) <= UartUsbRxFifoCount(7 downto 0);
-								
-							when UartUsbFifoStatusAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
-						
-								DataOut(7 downto 0) <= UartUsbTxFifoCount(7 downto 0);
-								DataOut(15) <= '0';
-								DataOut(14) <= '0';
-								DataOut(13) <= '0';
-								DataOut(12) <= '0';
-								DataOut(11) <= UartUsbTxFifoCount(9);
-								DataOut(10) <= UartUsbTxFifoCount(8);
-								DataOut(9) <= UartUsbRxFifoCount(9);
-								DataOut(8) <= UartUsbRxFifoCount(8);
+								DataOut(1) <= UartUsbRxFifoFull;
+								DataOut(2) <= UartUsbTxFifoEmpty;
+								DataOut(3) <= UartUsbTxFifoFull;
+								DataOut(4) <= '0';
+								DataOut(5) <= '0';
+								DataOut(6) <= '0';
+								DataOut(7) <= '0';
+								DataOut(17 downto 8) <= UartUsbRxFifoCount;
+								DataOut(27 downto 18) <= UartUsbRxFifoCount;
+								DataOut(31 downto 28) <= x"0000";
 
 
 
@@ -743,38 +623,28 @@ begin
 
 								ReadUartGps <= '1';
 								DataOut(7 downto 0) <= UartGpsRxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
-								DataOut(15 downto 8) <= x"00";
-								
-							when UartGpsFifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+								DataOut(31 downto 8) <= x"000000";
+								 
+							--~ when UartGpsFifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
 
 								--~ DataOut(7 downto 0) <= x"00";
-								DataOut(7 downto 0) <= UartGpsRxFifoData;
-								DataOut(15 downto 8) <= x"00";
+								--~ DataOut(7 downto 0) <= UartGpsRxFifoData;
+								--~ DataOut(15 downto 8) <= x"00";
 								
 							when UartGpsFifoStatusAddr =>
 
-								DataOut(7) <= '0';
-								DataOut(6) <= '0';
-								DataOut(5) <= '0';
-								DataOut(4) <= '0';
-								DataOut(3) <= UartGpsTxFifoFull;
-								DataOut(2) <= UartGpsTxFifoEmpty;
-								DataOut(1) <= UartGpsRxFifoFull;
 								DataOut(0) <= UartGpsRxFifoEmpty;
-								--~ DataOut(15 downto 8) <= x"00";
-								DataOut(15 downto 8) <= UartGpsRxFifoCount(7 downto 0);
+								DataOut(1) <= UartGpsRxFifoFull;
+								DataOut(2) <= UartGpsTxFifoEmpty;
+								DataOut(3) <= UartGpsTxFifoFull;
+								DataOut(4) <= '0';
+								DataOut(5) <= '0';
+								DataOut(6) <= '0';
+								DataOut(7) <= '0';
+								DataOut(17 downto 8) <= UartGpsRxFifoCount;
+								DataOut(27 downto 18) <= UartGpsRxFifoCount;
+								DataOut(31 downto 28) <= x"0000";
 								
-							when UartGpsFifoStatusAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
-						
-								DataOut(7 downto 0) <= UartGpsTxFifoCount(7 downto 0);
-								DataOut(15) <= '0';
-								DataOut(14) <= '0';
-								DataOut(13) <= '0';
-								DataOut(12) <= '0';
-								DataOut(11) <= UartGpsTxFifoCount(9);
-								DataOut(10) <= UartGpsTxFifoCount(8);
-								DataOut(9) <= UartGpsRxFifoCount(9);
-								DataOut(8) <= UartGpsRxFifoCount(8);
 								
 								
 							--Uart Clock dividers
@@ -782,11 +652,8 @@ begin
 
 								DataOut(7 downto 0) <= Uart0ClkDivider_i;
 								DataOut(15 downto 8) <= Uart1ClkDivider_i;
-
-							when UartClockDividersAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
-
-								DataOut(7 downto 0) <= Uart2ClkDivider_i;
-								DataOut(15 downto 8) <= Uart3ClkDivider_i;
+								DataOut(23 downto 16) <= Uart2ClkDivider_i;
+								DataOut(31 downto 24) <= Uart3ClkDivider_i;
 
 												
 							--Timing
@@ -794,49 +661,34 @@ begin
 							--IdealTicksPerSecond
 							when IdealTicksPerSecondAddr =>
 
-								DataOut <= IdealTicksPerSecond(15 downto 0);
-								
-							when IdealTicksPerSecondAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
-
-								DataOut <= IdealTicksPerSecond(31 downto 16);
+								DataOut <= IdealTicksPerSecond;
 								
 								
 							--ActualTicksLastSecond
 							when ActualTicksLastSecondAddr =>
 
-								DataOut <= ActualTicksLastSecond(15 downto 0);
-								
-							when ActualTicksLastSecondAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
-
-								DataOut <= ActualTicksLastSecond(31 downto 16);
+								DataOut <= ActualTicksLastSecond;
 								
 								
 							--ClockTicksThisSecond
 							when ClockTicksThisSecondAddr =>
 
-								DataOut <= ClockTicksThisSecond(15 downto 0);
-								
-							when ClockTicksThisSecondAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
-
-								DataOut <= ClockTicksThisSecond(31 downto 16);
-								
+								DataOut <= ClockTicksThisSecond;
 							
 								
 							--ClockSteeringDacSetpointAddr
 							when ClockSteeringDacSetpointAddr =>
 
 								DataOut <= ClkDacReadback;
+								DataOut(31 downto 16) <= x"0000";
 								
 								
 								
 							--MotorControlStatusAddr
 							when MotorControlStatusAddr =>
 
-								DataOut <= MotorSeekStep_i;
-								
-							when MotorControlStatusAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
-							
-								DataOut <= MotorCurrentStep;
+								DataOut(15 downto 0) <= MotorSeekStep_i;
+								DataOut(31 downto 16) <= MotorCurrentStep;
 								
 								
 								
@@ -861,16 +713,15 @@ begin
 								DataOut(14) <= LedG_i;
 								DataOut(15) <= LedB_i;
 								
-								--note: earlier versions of f/w are 16b and these high bits may be inacessible...
-		
-								--~ DataOut(16) <= Uart0OE_i;
-								--~ DataOut(17) <= Uart1OE_i;
-								--~ DataOut(18) <= Uart2OE_i;
-								--~ DataOut(19) <= Uart3OE_i;								
-								--~ DataOut(20) <= Ux1SelJmp_i;
-								--~ DataOut(21) <= Ux2SelJmp_i;
+								DataOut(16) <= Uart0OE_i;
+								DataOut(17) <= Uart1OE_i;
+								DataOut(18) <= Uart2OE_i;
+								DataOut(19) <= Uart3OE_i;								
+								DataOut(20) <= Ux1SelJmp_i;
+								DataOut(21) <= Ux2SelJmp_i;
+								DataOut(22) <= PPSDetected;
 								
-								--~ DataOut(32 downto 22) <= "00000000000";
+								DataOut(32 downto 23) <= "0000000000";
 								
 
 							--PosSensAddr
@@ -886,67 +737,41 @@ begin
 								DataOut(7) <= PosSenseBit2B;
 								DataOut(11 downto 8) <= PosSenseA;
 								DataOut(15 downto 12) <= PosSenseB;
+								DataOut(31 downto 16) <= x"0000";
 								
 							
 							--The infinity of step latches
-							when PosDetHomeAOnStepAddr => DataOut <= PosDetHomeAOnStep;
-							when PosDetHomeAOffStepAddr => DataOut <= PosDetHomeAOffStep;
-							when PosDetA0OnStepAddr => DataOut <= PosDetA0OnStep;
-							when PosDetA0OffStepAddr => DataOut <= PosDetA0OffStep;
-							when PosDetA1OnStepAddr => DataOut <= PosDetA1OnStep;
-							when PosDetA1OffStepAddr => DataOut <= PosDetA1OffStep;
-							when PosDetA2OnStepAddr => DataOut <= PosDetA2OnStep;
-							when PosDetA2OffStepAddr => DataOut <= PosDetA2OffStep;
+							when PosDetHomeAStepAddr => DataOut(15 downto 0) <= PosDetHomeAOnStep; DataOut(31 downto 16) <= PosDetHomeAOffStep
+							when PosDetA0StepAddr => DataOut(15 downto 0) <= PosDetA0OnStep; DataOut(31 downto 16) <= PosDetA0OffStep
+							when PosDetA1StepAddr => DataOut(15 downto 0) <= PosDetA1OnStep; DataOut(31 downto 16) <= PosDetA1OffStep
+							when PosDetA2StepAddr => DataOut(15 downto 0) <= PosDetA2OnStep; DataOut(31 downto 16) <= PosDetA2OffStep
 							
-							when PosDetHomeBOnStepAddr => DataOut <= PosDetHomeBOnStep;
-							when PosDetHomeBOffStepAddr => DataOut <= PosDetHomeBOffStep;
-							when PosDetB0OnStepAddr => DataOut <= PosDetB0OnStep;
-							when PosDetB0OffStepAddr => DataOut <= PosDetB0OffStep;
-							when PosDetB1OnStepAddr => DataOut <= PosDetB1OnStep;
-							when PosDetB1OffStepAddr => DataOut <= PosDetB1OffStep;
-							when PosDetB2OnStepAddr => DataOut <= PosDetB2OnStep;
-							when PosDetB2OffStepAddr => DataOut <= PosDetB2OffStep;
+							when PosDetHomeBStepAddr => DataOut(15 downto 0) <= PosDetHomeBOnStep; DataOut(31 downto 16) <= PosDetHomeBOffStep
+							when PosDetB0StepAddr => DataOut(15 downto 0) <= PosDetB0OnStep; DataOut(31 downto 16) <= PosDetB0OffStep
+							when PosDetB1StepAddr => DataOut(15 downto 0) <= PosDetB1OnStep; DataOut(31 downto 16) <= PosDetB1OffStep
+							when PosDetB2StepAddr => DataOut(15 downto 0) <= PosDetB2OnStep; DataOut(31 downto 16) <= PosDetB2OffStep
 							
-							when PosDet0AOnStepAddr => DataOut <= PosDet0AOnStep;
-							when PosDet0AOffStepAddr => DataOut <= PosDet0AOffStep;
-							when PosDet1AOnStepAddr => DataOut <= PosDet1AOnStep;
-							when PosDet1AOffStepAddr => DataOut <= PosDet1AOffStep;
-							when PosDet2AOnStepAddr => DataOut <= PosDet2AOnStep;
-							when PosDet2AOffStepAddr => DataOut <= PosDet2AOffStep;
-							when PosDet3AOnStepAddr => DataOut <= PosDet3AOnStep;
-							when PosDet3AOffStepAddr => DataOut <= PosDet3AOffStep;
-							when PosDet4AOnStepAddr => DataOut <= PosDet4AOnStep;
-							when PosDet4AOffStepAddr => DataOut <= PosDet4AOffStep;
-							when PosDet5AOnStepAddr => DataOut <= PosDet5AOnStep;
-							when PosDet5AOffStepAddr => DataOut <= PosDet5AOffStep;
-							when PosDet6AOnStepAddr => DataOut <= PosDet6AOnStep;
-							when PosDet6AOffStepAddr => DataOut <= PosDet6AOffStep;
-							when PosDet7AOnStepAddr => DataOut <= PosDet7AOnStep;
-							when PosDet7AOffStepAddr => DataOut <= PosDet7AOffStep;
+							when PosDet0AStepAddr => DataOut(15 downto 0) <= PosDet0AOnStep; DataOut(31 downto 16) <= PosDet0AOffStep
+							when PosDet1AStepAddr => DataOut(15 downto 0) <= PosDet1AOnStep; DataOut(31 downto 16) <= PosDet1AOffStep
+							when PosDet2AStepAddr => DataOut(15 downto 0) <= PosDet2AOnStep; DataOut(31 downto 16) <= PosDet2AOffStep
+							when PosDet3AStepAddr => DataOut(15 downto 0) <= PosDet3AOnStep; DataOut(31 downto 16) <= PosDet3AOffStep
+							when PosDet4AStepAddr => DataOut(15 downto 0) <= PosDet4AOnStep; DataOut(31 downto 16) <= PosDet4AOffStep
+							when PosDet5AStepAddr => DataOut(15 downto 0) <= PosDet5AOnStep; DataOut(31 downto 16) <= PosDet5AOffStep
+							when PosDet6AStepAddr => DataOut(15 downto 0) <= PosDet6AOnStep; DataOut(31 downto 16) <= PosDet6AOffStep
+							when PosDet7AStepAddr => DataOut(15 downto 0) <= PosDet7AOnStep; DataOut(31 downto 16) <= PosDet7AOffStep
 							
-							when PosDet0BOnStepAddr => DataOut <= PosDet0BOnStep;
-							when PosDet0BOffStepAddr => DataOut <= PosDet0BOffStep;
-							when PosDet1BOnStepAddr => DataOut <= PosDet1BOnStep;
-							when PosDet1BOffStepAddr => DataOut <= PosDet1BOffStep;
-							when PosDet2BOnStepAddr => DataOut <= PosDet2BOnStep;
-							when PosDet2BOffStepAddr => DataOut <= PosDet2BOffStep;
-							when PosDet3BOnStepAddr => DataOut <= PosDet3BOnStep;
-							when PosDet3BOffStepAddr => DataOut <= PosDet3BOffStep;
-							when PosDet4BOnStepAddr => DataOut <= PosDet4BOnStep;
-							when PosDet4BOffStepAddr => DataOut <= PosDet4BOffStep;
-							when PosDet5BOnStepAddr => DataOut <= PosDet5BOnStep;
-							when PosDet5BOffStepAddr => DataOut <= PosDet5BOffStep;
-							when PosDet6BOnStepAddr => DataOut <= PosDet6BOnStep;
-							when PosDet6BOffStepAddr => DataOut <= PosDet6BOffStep;
-							when PosDet7BOnStepAddr => DataOut <= PosDet7BOnStep;
-							when PosDet7BOffStepAddr => DataOut <= PosDet7BOffStep;
-																	
-							
-							
+							when PosDet0BStepAddr => DataOut(15 downto 0) <= PosDet0BOnStep; DataOut(31 downto 16) <= PosDet0BOffStep
+							when PosDet1BStepAddr => DataOut(15 downto 0) <= PosDet1BOnStep; DataOut(31 downto 16) <= PosDet1BOffStep
+							when PosDet2BStepAddr => DataOut(15 downto 0) <= PosDet2BOnStep; DataOut(31 downto 16) <= PosDet2BOffStep
+							when PosDet3BStepAddr => DataOut(15 downto 0) <= PosDet3BOnStep; DataOut(31 downto 16) <= PosDet3BOffStep
+							when PosDet4BStepAddr => DataOut(15 downto 0) <= PosDet4BOnStep; DataOut(31 downto 16) <= PosDet4BOffStep
+							when PosDet5BStepAddr => DataOut(15 downto 0) <= PosDet5BOnStep; DataOut(31 downto 16) <= PosDet5BOffStep
+							when PosDet6BStepAddr => DataOut(15 downto 0) <= PosDet6BOnStep; DataOut(31 downto 16) <= PosDet6BOffStep
+							when PosDet7BStepAddr => DataOut(15 downto 0) <= PosDet7BOnStep; DataOut(31 downto 16) <= PosDet7BOffStep
 							
 							when others =>
 
-								DataOut <= x"3741";
+								DataOut <= x"BAADC0DE";
 								
 						end case;
 						
@@ -961,23 +786,15 @@ begin
 				if (ReadReq = '0') then
 			
 					--ReadReq falling edge				
-					if (LastReadReq = '1') then
+					if (LastReadReq = '1') then --wait a clock before doing anything or else the uC never actaully gets the data...
 					
 						LastReadReq <= '0';
 					
-						--~ ReadAck <= '0';
-						--~ ReadAck <= '1';
-						
-						--~ ReadUart0 <= '0';						
-						--~ ReadUart1 <= '0';						
-						--~ ReadUart2 <= '0';		
-						--~ ReadUartUsb <= '0';		
-
-					else
+					else --ok, actually "finish" the read:
 					
 						ReadAck <= '0';					
 						
-						--If timing is good, this doesn't do anything. If the fpga is lagging the processor reads will all be 82's. Yeah, we tested that in practice.
+						--If timing is good, this doesn't do anything. If the fpga is lagging the processor reads will all be 82's. Yeah, we tested that in practice; don't enable this lol.
 						--DataOut <= x"9182"; 
 						
 						ReadUart0 <= '0';						
@@ -998,7 +815,6 @@ begin
 					
 						LastWriteReq <= '1';
 					
-						--~ WriteAck <= '1';
 						WriteAck <= '0';
 									
 						case Address_i is
@@ -1082,12 +898,8 @@ begin
 
 								Uart0ClkDivider_i <= DataIn(7 downto 0);
 								Uart1ClkDivider_i <= DataIn(15 downto 8);
-								
-
-							when UartClockDividersAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
-
-								Uart2ClkDivider_i <= DataIn(7 downto 0);
-								Uart3ClkDivider_i <= DataIn(15 downto 8);
+								Uart2ClkDivider_i <= DataIn(23 downto 16);
+								Uart3ClkDivider_i <= DataIn(31 downto 24);
 								
 								
 														
@@ -1126,14 +938,13 @@ begin
 								LedG_i <= DataIn(14);
 								LedB_i <= DataIn(15);
 								
-								--note: earlier versions of f/w are 16b and these high bits may be inacessible...
-		
-								--~ Uart0OE_i <= DataIn(16);
-								--~ Uart1OE_i <= DataIn(17);
-								--~ Uart2OE_i <= DataIn(18);
-								--~ Uart3OE_i <= DataIn(19);
-								--~ Ux1SelJmp_i <= DataIn(20);
-								--~ Ux2SelJmp_i <= DataIn(21);
+								Uart0OE_i <= DataIn(16);
+								Uart1OE_i <= DataIn(17);
+								Uart2OE_i <= DataIn(18);
+								Uart3OE_i <= DataIn(19);
+								Ux1SelJmp_i <= DataIn(20);
+								Ux2SelJmp_i <= DataIn(21);
+								PPSCountReset <= DataIn(22);	
 								
 								
 							when others => 

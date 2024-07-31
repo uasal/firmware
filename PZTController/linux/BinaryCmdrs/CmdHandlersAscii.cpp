@@ -59,7 +59,7 @@ using namespace std;
 
 char Buffer[4096];
 
-#include "uart/CGraphPacket.hpp"
+#include "cgraph/CGraphPacket.hpp"
 
 #include "uart/BinaryUart.hpp"
 extern BinaryUart UartParser;

@@ -47,51 +47,19 @@ extern CGraphFWHardwareInterface* FW;
 
 #include "uart/BinaryUart.hpp"
 
-#include "uart/CGraphPacket.hpp"
+#include "cgraph/CGraphPacket.hpp"
 
 #include "../MonitorAdc.hpp"
 extern CGraphFWMonitorAdc MonitorAdc;
 
 #include "../FWBuildNum"
 
+extern BinaryUart FpgaUartParser3;
 extern BinaryUart FpgaUartParser2;
 extern BinaryUart FpgaUartParser1;
 //~ extern BinaryUart FpgaUartParser0;
 
-extern int MmapHandle;
-
 char Buffer[4096];
-
-int8_t ExitCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
-{
-
-	formatf("\n\nExitCommand: Goodbye!\n\n\n\n");
-	
-	return(ParamsLen);
-}
-
-int8_t GlobalSaveCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
-{
-	//GlobalSave provides all needed formatf's:
-	//~ GlobalSave();
-
-	return(ParamsLen);
-}
-
-int8_t GlobalRestoreCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
-{
-	//GlobalRestore provides all needed formatf's:
-	//~ GlobalRestore();
-
-	return(ParamsLen);
-}
-
-int8_t ParseConfigFileCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
-{
-	formatf("\n\nParseConfigFile: opening %s to parse...\n", &(Params[1]));
-
-	return(ParamsLen);
-}
 
 int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
@@ -105,22 +73,6 @@ int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsL
 	}
 	
     return(strlen(Params));
-}
-
-int8_t InitFpgaCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
-{
-	formatf("\n\nInitFpga: Initializing...");
-	
-	MonitorAdc.Init();
-	
-	return(ParamsLen);
-}
-
-int8_t DeInitFpgaCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
-{
-	formatf("\n\nDeInitFpga: De-initializing...");
-	
-	return(ParamsLen);
 }
 
 int8_t ReadFpgaCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
@@ -177,7 +129,6 @@ int8_t WriteFpgaCommand(char const* Name, char const* Params, const size_t Param
 	return(ParamsLen);
 }
 
-
 int8_t FWStatusCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	CGraphFWHardwareControlRegister HCR;
@@ -218,62 +169,38 @@ int8_t SensorStepsCommand(char const* Name, char const* Params, const size_t Par
 		return(ParamsLen);
 	}
 	
-	formatf("\n\nSensorStepsCommand: Offset of first Sensor Step: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, PosDetHomeAOnStep), 148UL);
-	formatf("\nSensorStepsCommand: Offset of last Sensor Step: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, PosDet7BOffStep), 336UL);
+	formatf("\n\nSensorStepsCommand: Offset of first Sensor Step: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, PosDetHomeA), 148UL);
+	formatf("\nSensorStepsCommand: Offset of last Sensor Step: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, PosDet7B), 240UL);
 	
 	formatf("\n\nSensorStepsCommand: current values:\n");
 	
-	formatf("\nPosDetHomeAOnStep: %lu", (unsigned long)FW->PosDetHomeAOnStep);
-	formatf("\nPosDetHomeAOffStep: %lu", (unsigned long)FW->PosDetHomeAOffStep);
-	formatf("\nPosDetA0OnStep: %lu", (unsigned long)FW->PosDetA0OnStep);
-	formatf("\nPosDetA0OffStep: %lu", (unsigned long)FW->PosDetA0OffStep);
-	formatf("\nPosDetA1OnStep: %lu", (unsigned long)FW->PosDetA1OnStep);
-	formatf("\nPosDetA1OffStep: %lu", (unsigned long)FW->PosDetA1OffStep);
-	formatf("\nPosDetA2OnStep: %lu", (unsigned long)FW->PosDetA2OnStep);
-	formatf("\nPosDetA2OffStep: %lu", (unsigned long)FW->PosDetA2OffStep);
+	formatf("\nPosDetHomeA: "); FW->PosDetHomeA.formatf();
+	formatf("\nPosDetA0: "); FW->PosDetA0.formatf();
+	formatf("\nPosDetA1: "); FW->PosDetA1.formatf();
+	formatf("\nPosDetA2: "); FW->PosDetA2.formatf();
 	
-	formatf("\nPosDetHomeBOnStep: %lu", (unsigned long)FW->PosDetHomeBOnStep);
-	formatf("\nPosDetHomeBOffStep: %lu", (unsigned long)FW->PosDetHomeBOffStep);
-	formatf("\nPosDetB0OnStep: %lu", (unsigned long)FW->PosDetB0OnStep);
-	formatf("\nPosDetB0OffStep: %lu", (unsigned long)FW->PosDetB0OffStep);
-	formatf("\nPosDetB1OnStep: %lu", (unsigned long)FW->PosDetB1OnStep);
-	formatf("\nPosDetB1OffStep: %lu", (unsigned long)FW->PosDetB1OffStep);
-	formatf("\nPosDetB2OnStep: %lu", (unsigned long)FW->PosDetB2OnStep);
-	formatf("\nPosDetB2OffStep: %lu", (unsigned long)FW->PosDetB2OffStep);
+	formatf("\nPosDetHomeB: "); FW->PosDetHomeB.formatf();
+	formatf("\nPosDetB0: "); FW->PosDetB0.formatf();
+	formatf("\nPosDetB1: "); FW->PosDetB1.formatf();
+	formatf("\nPosDetB2: "); FW->PosDetB2.formatf();
 	
-	formatf("\nPosDet0AOnStep: %lu", (unsigned long)FW->PosDet0AOnStep);
-	formatf("\nPosDet0AOffStep: %lu", (unsigned long)FW->PosDet0AOffStep);
-	formatf("\nPosDet1AOnStep: %lu", (unsigned long)FW->PosDet1AOnStep);
-	formatf("\nPosDet1AOffStep: %lu", (unsigned long)FW->PosDet1AOffStep);
-	formatf("\nPosDet2AOnStep: %lu", (unsigned long)FW->PosDet2AOnStep);
-	formatf("\nPosDet2AOffStep: %lu", (unsigned long)FW->PosDet2AOffStep);
-	formatf("\nPosDet3AOnStep: %lu", (unsigned long)FW->PosDet3AOnStep);
-	formatf("\nPosDet3AOffStep: %lu", (unsigned long)FW->PosDet3AOffStep);
-	formatf("\nPosDet4AOnStep: %lu", (unsigned long)FW->PosDet4AOnStep);
-	formatf("\nPosDet4AOffStep: %lu", (unsigned long)FW->PosDet4AOffStep);
-	formatf("\nPosDet5AOnStep: %lu", (unsigned long)FW->PosDet5AOnStep);
-	formatf("\nPosDet5AOffStep: %lu", (unsigned long)FW->PosDet5AOffStep);
-	formatf("\nPosDet6AOnStep: %lu", (unsigned long)FW->PosDet6AOnStep);
-	formatf("\nPosDet6AOffStep: %lu", (unsigned long)FW->PosDet6AOffStep);
-	formatf("\nPosDet7AOnStep: %lu", (unsigned long)FW->PosDet7AOnStep);
-	formatf("\nPosDet7AOffStep: %lu", (unsigned long)FW->PosDet7AOffStep);
+	formatf("\nPosDet0A: "); FW->PosDet0A.formatf();
+	formatf("\nPosDet1A: "); FW->PosDet1A.formatf();
+	formatf("\nPosDet2A: "); FW->PosDet2A.formatf();
+	formatf("\nPosDet3A: "); FW->PosDet3A.formatf();
+	formatf("\nPosDet4A: "); FW->PosDet4A.formatf();
+	formatf("\nPosDet5A: "); FW->PosDet5A.formatf();
+	formatf("\nPosDet6A: "); FW->PosDet6A.formatf();
+	formatf("\nPosDet7A: "); FW->PosDet7A.formatf();
 	
-	formatf("\nPosDet0BOnStep: %lu", (unsigned long)FW->PosDet0BOnStep);
-	formatf("\nPosDet0BOffStep: %lu", (unsigned long)FW->PosDet0BOffStep);
-	formatf("\nPosDet1BOnStep: %lu", (unsigned long)FW->PosDet1BOnStep);
-	formatf("\nPosDet1BOffStep: %lu", (unsigned long)FW->PosDet1BOffStep);
-	formatf("\nPosDet2BOnStep: %lu", (unsigned long)FW->PosDet2BOnStep);
-	formatf("\nPosDet2BOffStep: %lu", (unsigned long)FW->PosDet2BOffStep);
-	formatf("\nPosDet3BOnStep: %lu", (unsigned long)FW->PosDet3BOnStep);
-	formatf("\nPosDet3BOffStep: %lu", (unsigned long)FW->PosDet3BOffStep);
-	formatf("\nPosDet4BOnStep: %lu", (unsigned long)FW->PosDet4BOnStep);
-	formatf("\nPosDet4BOffStep: %lu", (unsigned long)FW->PosDet4BOffStep);
-	formatf("\nPosDet5BOnStep: %lu", (unsigned long)FW->PosDet5BOnStep);
-	formatf("\nPosDet5BOffStep: %lu", (unsigned long)FW->PosDet5BOffStep);
-	formatf("\nPosDet6BOnStep: %lu", (unsigned long)FW->PosDet6BOnStep);
-	formatf("\nPosDet6BOffStep: %lu", (unsigned long)FW->PosDet6BOffStep);
-	formatf("\nPosDet7BOnStep: %lu", (unsigned long)FW->PosDet7BOnStep);
-	formatf("\nPosDet7BOffStep: %lu", (unsigned long)FW->PosDet7BOffStep);
+	formatf("\nPosDet0B: "); FW->PosDet0B.formatf();
+	formatf("\nPosDet1B: "); FW->PosDet1B.formatf();
+	formatf("\nPosDet2B: "); FW->PosDet2B.formatf();
+	formatf("\nPosDet3B: "); FW->PosDet3B.formatf();
+	formatf("\nPosDet4B: "); FW->PosDet4B.formatf();
+	formatf("\nPosDet5B: "); FW->PosDet5B.formatf();
+	formatf("\nPosDet6B: "); FW->PosDet6B.formatf();
+	formatf("\nPosDet7B: "); FW->PosDet7B.formatf();
 	
 	return(ParamsLen);	
 }
@@ -307,6 +234,29 @@ int8_t MotorCommand(char const* Name, char const* Params, const size_t ParamsLen
 	return(ParamsLen);
 }
 
+int8_t FilterSelectCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	unsigned long FilterSelect = 0;
+	
+	//Convert parameters
+    int8_t numfound = sscanf(Params, "%lu", &FilterSelect);
+    if (numfound >= 1)
+    {
+		//Do something useful...
+		//~ = FilterSelect;
+		
+		formatf("\n\nFilterSelectCommand: set to: %lu\n", FilterSelect);
+    }
+	
+	//Do something useful...
+	//~ FilterSelect = ;
+			
+	formatf("\n\nFilterSelectCommand: current value: %lu\n", FilterSelect);
+	
+	return(ParamsLen);
+}
+
+
 int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	size_t cycle = 0;
@@ -316,40 +266,6 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	while(true)
 	{
 		cycle++;
-		
-		//~ //Show current A/D values:
-		//~ {
-			//~ AdcAccumulator A, B, C;
-			//~ A = FW->AdcAAccumulator;
-			//~ B = FW->AdcBAccumulator;
-			//~ C = FW->AdcCAccumulator;
-
-			//~ double Av, Bv, Cv;
-			//~ Av = (4.096 * ((A.Samples - 0) / A.NumAccums)) / 8388608.0;
-			//~ Bv = (4.096 * ((B.Samples - 0) / B.NumAccums)) / 8388608.0;
-			//~ Cv = (4.096 * ((C.Samples - 0) / C.NumAccums)) / 8388608.0;
-			
-			//~ formatf("\n\nBIST: current A/D values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf; %u, %u, %u.\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, Av, Bv, Cv, offsetof(CGraphFWHardwareInterface, AdcAAccumulator), offsetof(CGraphFWHardwareInterface, AdcBAccumulator), offsetof(CGraphFWHardwareInterface, AdcCAccumulator));
-		//~ }
-		
-		//~ //Update the D/A's every so often
-		//~ if (0 == cycle % 4)
-		//~ {
-			//~ FW->DacASetpoint = daca;
-			//~ //FW->DacBSetpoint = daca;
-			//~ FW->DacBSetpoint = 0x00CFFFFFUL;
-			//~ FW->DacCSetpoint = daca;
-			//~ formatf("\n\nBIST: D/A's set to: %lx.\n", daca);	
-
-			//~ switch(daca)
-			//~ {
-				//~ case 0x00000000UL: { daca = 0x002FFFFFUL; break; }
-				//~ case 0x003FFFFFUL: { daca = 0x006FFFFFUL; break; }
-				//~ case 0x007FFFFFUL: { daca = 0x009FFFFFUL; break; }
-				//~ case 0x00BFFFFFUL: { daca = 0x00CFFFFFUL; break; }
-				//~ default: { daca = 0; break; }
-			//~ }
-		//~ }
 		
 		//Show the monitor A/D
 		{
@@ -385,136 +301,9 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	return(ParamsLen);
 }
 
-int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
-{
-	struct timespec sleeptime;
-	memset((char *)&sleeptime,0,sizeof(sleeptime));
-	sleeptime.tv_nsec = 1000000;
-	sleeptime.tv_sec = 0;
-	int key = 1;
-	
-	//Convert parameter to an integer
-	//~ size_t addr = 0;
-    //~ unsigned long val = 0;
-    //~ int8_t numfound = sscanf(Params, "%zX %lu", &addr, &val);
-    //~ if (numfound < 2)
-    //~ {
-		//~ formatf("\nUartCommand: need 2 numeric parameters (address and value), got \"%s\" (%d params).\n", Params, numfound);
-        //~ return(-1);
-    //~ }
-	//~ char* cmd = 0;
-	//~ char* params = 0;
-	//~ int8_t numfound = sscanf(Params, "%s %s", cmd, params);
-	//~ if (numfound < 2)
-    //~ {
-		//~ formatf("\nUartCommand: need 2 numeric parameters (address and value), got \"%s\" (%d params).\n", Params, numfound);
-        //~ return(-1);
-    //~ }
-	
-	//~ formatf("\nUartCommand: FW@0x%p, USR@%u, UF@%u, MAA@%u, ACF@%u, ACF is %u, ", (void*)FW, offsetof(CGraphFWHardwareInterface, UartStatusRegister), offsetof(CGraphFWHardwareInterface, UartFifo), offsetof(CGraphFWHardwareInterface, MonitorAdcAccumulator), offsetof(CGraphFWHardwareInterface, AdcCFifo), sizeof(AdcFifo));
-	formatf("\nUartCommand: %u, %u. ", offsetof(CGraphFWHardwareInterface, UartFifo2), offsetof(CGraphFWHardwareInterface, UartStatusRegister2));
-	
-	if (0 == strncmp(&(Params[1]), "loop", 4))
-	{
-		while(true)
-		{
-			//~ FW->UartFifo0 = 0x55;
-			//~ FW->UartFifo1 = 0x55;	
-			FW->UartFifo2 = 0x55;
-			
-			//Quit on any keypress
-			{
-				if (0 != key) 
-				{ 
-					fflush(stdin);
-					formatf("\n\nCircles: Keypress(%d); exiting.\n", key);
-					break; 
-				}			
-			}
-		}
-	}
-	
-	//~ CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegister2;
-	//~ UartStatus.formatf();	
-	
-	//~ formatf("; about to write to uart... ");	
-	//~ FW->UartFifo = 'H';
-	//~ nanosleep(&sleeptime, NULL);
-	//~ FW->UartFifo = 'e';
-	//~ nanosleep(&sleeptime, NULL);
-	//~ FW->UartFifo = 'l';
-	//~ nanosleep(&sleeptime, NULL);
-	//~ FW->UartFifo = 'l';
-	//~ nanosleep(&sleeptime, NULL);
-	//~ FW->UartFifo = 'o';
-	//~ nanosleep(&sleeptime, NULL);
-	//~ FW->UartFifo = '!';
-	//~ nanosleep(&sleeptime, NULL);
-	
-	//~ UartStatus = FW->UartStatusRegister; 
-	//~ formatf("; uart written; ");	
-	//~ UartStatus.formatf();	
-	
-	//~ CGraphFWUartStatusRegister UartStatus2;
-	
-	//~ for(size_t i = 0; i < 100000; i++)
-	//~ { 
-		//~ UartStatus = FW->UartStatusRegister; 
-		//~ if (0 == UartStatus.Uart2TxFifoEmpty) { break; }
-	//~ }
-	
-	//~ formatf("\nUartCommand: about to read...");
-	//~ UartStatus.formatf();	
-	//~ formatf("; reading from uart... ");
-	
-	//~ for (size_t i = 0; i < 1024; i++)
-	//~ {
-		//~ FpgaUartParser.Process();
-	//~ }
-		
-	
-	//~ for(size_t i = 0; i < 128; i++)
-	//~ for(size_t i = 0; i < 4096; i++)
-	//~ {
-		//~ if (0 != UartStatus.Uart2RxFifoEmpty) { break; }
-		//~ formatf(":%.2X", FW->UartFifo);
-		//~ UartStatus = FW->UartStatusRegister; 		
-	//~ }
-	
-	//~ {
-		//~ //clear buffer:
-		//~ FW->UartStatusRegister.all = 1;
-	//~ }
-	
-	//~ formatf(":%.4X", FW->UartFifo2);
-	
-	//~ formatf("\n");
-	//~ UartStatus.formatf();	
-	
-	CGraphVersionPayload Version;
-    Version.SerialNum = 0;
-	Version.ProcessorFirmwareBuildNum = BuildNum;
-	Version.FPGAFirmwareBuildNum = 0;
-	if (FW) 
-	{ 
-		Version.SerialNum = FW->DeviceSerialNumber; 
-		Version.FPGAFirmwareBuildNum = FW->FpgaFirmwareBuildNumber; 
-	}
-    formatf("\nUartCommand: Sending response (%u bytes): ", sizeof(CGraphVersionPayload));
-    Version.formatf();
-    formatf("\n");
-	//TxBinaryPacket(&FpgaUartParser0, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
-	TxBinaryPacket(&FpgaUartParser1, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
-    TxBinaryPacket(&FpgaUartParser2, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
-    
-	formatf("\nUartCommand: complete.\n");
-
-	return(ParamsLen);
-}
-
 int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	unsigned long A = 0, B = 0, C = 0;
+	unsigned long A = 0, B = 0, C = 0, D = 0;
 	
 	if (NULL == FW)
 	{
@@ -523,48 +312,49 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 	}
 	
 	//Convert parameters
-    int8_t numfound = sscanf(Params, "%lu,%lu,%lu", &A, &B, &C);
-    if (numfound >= 3)
+    int8_t numfound = sscanf(Params, "%lu,%lu,%lu,%lu", &A, &B, &C, &D);
+    if (numfound >= 4)
     {
-		FW->BaudDivider0 = A;
-		FW->BaudDivider1 = B;
-		FW->BaudDivider2 = C;
-		formatf("\n\nBaudDividers: setting to: %lu, %lu, %lu.\n", A, B, C);
+		FW->BaudDividers.Divider0 = A;
+		FW->BaudDividers.Divider1 = B;
+		FW->BaudDividers.Divider2 = C;
+		FW->BaudDividers.Divider3 = D;
+		formatf("\n\nBaudDividers: setting to: %lu, %lu, %lu, %lu.\n", A, B, C, D);
     }
 	else
 	{
 		if (numfound >= 1)
 		{
-			FW->BaudDivider0 = A;
-			FW->BaudDivider1 = A;
-			//~ FW->DacBSetpoint = 0x006FFFFFUL; //Sometimes this is 100V
-			//~ FW->DacBSetpoint = 0x00CFFFFFUL; //Aaaaaand, sometimes this is 100V
-			FW->BaudDivider2 = A;
-			formatf("\n\nBaudDividers: setting to: %lu, %lu, %lu.\n", A, A, A);
+		FW->BaudDividers.Divider0 = A;
+		FW->BaudDividers.Divider1 = A;
+		FW->BaudDividers.Divider2 = A;
+		FW->BaudDividers.Divider3 = A;
+		formatf("\n\nBaudDividers: setting to: %lu, %lu, %lu, %lu.\n", A, A, A, A);
 		}
 	}
 	
-	A = FW->BaudDivider0;
-	B = FW->BaudDivider1;
-	C = FW->BaudDivider2;
-	formatf("\n\nBaudDividers: current values: %lu, %lu, %lu.\n", A, B, C);
+	A = FW->BaudDividers.Divider0;
+	B = FW->BaudDividers.Divider1;
+	C = FW->BaudDividers.Divider2;
+	D = FW->BaudDividers.Divider3;
+	formatf("\n\nBaudDividers: current values: %lu, %lu, %lu.\n", A, B, C, D);
 	
 	//~ formatf("\nBaudDividers: (331 = 9600, 83 = 38400, 55 = 57600, 27 = 115200, 13 = 230400, 7 = 460800, 3 = 921600)\n");
 	
 	double BaudClock = 102000000.0;
-	//~ unsigned int ActualDividerA = (A + 1) * 2;
-	//~ unsigned int ActualDividerB = (B + 1) * 2;
-	//~ unsigned int ActualDividerC = (C + 1) * 2;
 	unsigned int ActualDividerA = (A + 1);
 	unsigned int ActualDividerB = (B + 1);
 	unsigned int ActualDividerC = (C + 1);
+	unsigned int ActualDividerD = (D + 1);
 	double BaudRateA = (BaudClock / ActualDividerA) / 16;
 	double BaudRateB = (BaudClock / ActualDividerB) / 16;
 	double BaudRateC = (BaudClock / ActualDividerC) / 16;
+	double BaudRateD = (BaudClock / ActualDividerD) / 16;
 	
 	formatf("\nBaudDividers: Port0 final division ratio: %u (/16); Actual baudrate: %.5lf", ActualDividerA, BaudRateA);
 	formatf("\nBaudDividers: Port1 final division ratio: %u (/16); Actual baudrate: %.5lf", ActualDividerB, BaudRateB);
 	formatf("\nBaudDividers: Port2 final division ratio: %u (/16); Actual baudrate: %.5lf\n", ActualDividerC, BaudRateC);
+	formatf("\nBaudDividers: Port3 final division ratio: %u (/16); Actual baudrate: %.5lf\n", ActualDividerD, BaudRateD);
 	
 	return(ParamsLen);
 }
@@ -572,6 +362,7 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 int8_t PrintBuffersCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	formatf("\nShowBuffersCommand: FpgaUartParser: ");
+	FpgaUartParser3.formatf();
 	FpgaUartParser2.formatf();
 	FpgaUartParser1.formatf();
 	//FpgaUartParser0.formatf();
@@ -583,6 +374,7 @@ int8_t PrintBuffersCommand(char const* Name, char const* Params, const size_t Pa
 extern bool MonitorSerial0;
 extern bool MonitorSerial1;
 extern bool MonitorSerial2;
+extern bool MonitorSerial3;
 
 int8_t MonitorSerialCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
@@ -593,7 +385,7 @@ int8_t MonitorSerialCommand(char const* Name, char const* Params, const size_t P
 
 	//Convert parameters
     int8_t numfound = sscanf(Params, "%lu%2[,\t ]%c", &port, seperator, &onoff);
-    if (numfound >= 3)
+    if (numfound >= 4)
     {
 		if ( ('Y' == onoff) || ('y' == onoff) || ('T' == onoff) || ('t' == onoff) || ('1' == onoff) ) { OnOff = true; }
 		
@@ -604,6 +396,7 @@ int8_t MonitorSerialCommand(char const* Name, char const* Params, const size_t P
 			case 0 : { MonitorSerial0 = OnOff; break; }			
 			case 1 : { MonitorSerial1 = OnOff; break; }			
 			case 2 : { MonitorSerial2 = OnOff; break; }			
+			case 3 : { MonitorSerial3 = OnOff; break; }			
 			default : 
 			{ 
 				formatf("\n\nMonitorSerialCommand: Invalid port %lu; max is #2.\n", port);
@@ -618,6 +411,7 @@ int8_t MonitorSerialCommand(char const* Name, char const* Params, const size_t P
 	formatf("\nMonitorSerialCommand: Monitoring port 0: %c.\n", MonitorSerial0?'Y':'N');
 	formatf("\nMonitorSerialCommand: Monitoring port 1: %c.\n", MonitorSerial1?'Y':'N');
 	formatf("\nMonitorSerialCommand: Monitoring port 2: %c.\n", MonitorSerial2?'Y':'N');	
+	formatf("\nMonitorSerialCommand: Monitoring port 3: %c.\n", MonitorSerial3?'Y':'N');	
 	
     return(strlen(Params));
 }

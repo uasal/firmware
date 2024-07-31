@@ -35,7 +35,7 @@
 
 #include "uart/BinaryUart.hpp"
 
-#include "uart/CGraphPacket.hpp"
+#include "cgraph/CGraphPacket.hpp"
 
 #include "eeprom/CircularFifo.hpp"
 

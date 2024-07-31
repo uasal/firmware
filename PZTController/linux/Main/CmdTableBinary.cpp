@@ -23,7 +23,7 @@
 
 #include "uart/CmdSystem.hpp"
 
-#include "uart/CGraphPacket.hpp"
+#include "cgraph/CGraphPacket.hpp"
 
 #include "CmdTableBinary.hpp"
 

@@ -13,7 +13,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#include "IPacket.hpp"
+#include "uart/IPacket.hpp"
 
 uint32_t CRC32(const uint8_t* data, const size_t length);
 
@@ -129,7 +129,12 @@ public:
 	}
 };
 
-static const uint16_t CGraphPayloadTypeVersion = 0x0001U;
+//************************************************* Packet Types *************************************************
+
+
+//--------------------------------------------------------------------- Universal: supported by all hardware 0x1000 packets -------------------------------------------------------------
+
+static const uint16_t CGraphPayloadTypeVersionDeprecated = 0x0001U;
 struct CGraphVersionPayload
 {
 	uint32_t SerialNum;
@@ -137,18 +142,24 @@ struct CGraphVersionPayload
 	uint32_t FPGAFirmwareBuildNum;
 	void formatf() const { ::printf("CGraphVersionPayload: SerialNum: 0x%lX, ProcessorFirmwareBuildNum: %lu, FPGAFirmwareBuildNum: %lu", (long)SerialNum, (unsigned long)ProcessorFirmwareBuildNum, (unsigned long)FPGAFirmwareBuildNum); }
 };
+static const uint16_t CGraphPayloadTypeVersion = 0x1001U;
 
-static const uint16_t CGraphPayloadTypePZTDacs = 0x0002U; //Payload: 3 uint32's
-static const uint16_t CGraphPayloadTypePZTDacsFloatingPoint = 0x0003U; //Payload: 3 double-precision floats
-static const uint16_t CGraphPayloadTypePZTAdcs = 0x0004U; //Payload: 3 AdcAcumulators
-static const uint16_t CGraphPayloadTypePZTAdcsFloatingPoint = 0x0005U; //Payload: 3 double-precision floats
+static const uint16_t CGraphPayloadTypeBaudClock = 0x1002U; //Payload: 64-bit uint; master clock rate in Hz
+static const uint16_t CGraphPayloadTypeBaudDividers = 0x1003U; //Payload: 4 8-bit uint's which generate baud * 16 from master BaudClock. !!Beware: can change speed of port currently being talked to!!
 
-static const uint16_t CGraphPayloadTypePZTStatus = 0x0006U;
-struct CGraphPZTStatusPayload
+//--------------------------------------------------------------------- FSM Fine Steering Mirror 0x2000 packets -------------------------------------------------------------
+
+static const uint16_t CGraphPayloadTypePZTDacsDeprecated = 0x0002U; //Payload: 3 uint32's
+static const uint16_t CGraphPayloadTypePZTDacsFloatingPointDeprecated = 0x0003U; //Payload: 3 double-precision floats
+static const uint16_t CGraphPayloadTypePZTAdcsDeprecated = 0x0004U; //Payload: 3 AdcAcumulators
+static const uint16_t CGraphPayloadTypePZTAdcsFloatingPointDeprecated = 0x0005U; //Payload: 3 double-precision floats
+
+static const uint16_t CGraphPayloadTypePZTStatusDeprecated = 0x0006U;
+struct CGraphFSMTelemetryADCPayload
 {
 	double P1V2;
 	double P2V2;
-	double P24V;
+	double P28V;
 	double P2V5;
 	double P3V3A;
 	double P6V;
@@ -158,8 +169,48 @@ struct CGraphPZTStatusPayload
 	double N5V;
 	double N6V;
 	double P150V;
+	
 	//~ void formatf() const { ::printf("CGraphPZTStatusPayload: SerialNum: 0x%lX, ProcessorFirmwareBuildNum: %lu, FPGAFirmwareBuildNum: %lu", (long)SerialNum, (unsigned long)ProcessorFirmwareBuildNum, (unsigned long)FPGAFirmwareBuildNum); }
 };
 
+static const uint16_t CGraphPayloadTypeFSMDacs = 0x2002U;
+static const uint16_t CGraphPayloadTypeFSMDacsFloatingPoint = 0x2003U;
+static const uint16_t CGraphPayloadTypeFSMAdcs = 0x2004U;
+static const uint16_t CGraphPayloadTypeFSMAdcsFloatingPoint = 0x2005U; 
+static const uint16_t CGraphPayloadTypeFSMTelemetryADC = 0x2006U;
+
+//--------------------------------------------------------------------- DM Deformable Mirror 0x3000 packets -------------------------------------------------------------
+//Better ask SteveK for some of these?
+
+//--------------------------------------------------------------------- FW Filterwheel 0x4000 packets -------------------------------------------------------------
+
+//The following are debug/telemetry-only/if things break packets:
+
+static const uint16_t CGraphPayloadTypeFWHardwareControlStatus = 0x4001U; //Payload: CGraphFWHardwareInterface::CGraphFWHardwareControlRegister
+static const uint16_t CGraphPayloadTypeFWMotorControlStatus = 0x4002U; //Payload: CGraphFWHardwareInterface::CGraphFWMotorControlStatusRegister
+static const uint16_t CGraphPayloadTypeFWPositionSenseControlStatus = 0x4003U; //Payload: CGraphFWHardwareInterface::CGraphFWPositionSenseRegister
+static const uint16_t CGraphPayloadTypeFWPositionSteps = 0x4004U; //Payload: 48 16-bit uint's: PosDetHomeA - PosDet7B of CGraphFWHardwareInterface
+
+//Ok, now the real operational packets:
+
+static const uint16_t CGraphPayloadTypeFWTelemetryADC = 0x4005U;
+struct CGraphFWTelemetryADCPayload
+{
+	double P1V2;
+	double P2V2;
+	double P28V;
+	double P2V5;
+	double P6V;
+	double P5V;
+	double P3V3D;
+	double P4V3;
+	double P2I2;
+	double P4I3;
+	double P6I;
+	
+	//~ void formatf() const { ::printf("CGraphPZTStatusPayload: SerialNum: 0x%lX, ProcessorFirmwareBuildNum: %lu, FPGAFirmwareBuildNum: %lu", (long)SerialNum, (unsigned long)ProcessorFirmwareBuildNum, (unsigned long)FPGAFirmwareBuildNum); }
+};
+
+static const uint16_t CGraphPayloadTypeFWFilterSelect = 0x4006U; //Payload: uint32 (room to grow?) Read: Which filter is currently in position (1-8; 0 means the filterwheel is in transit to a new position); Write: move to the given filter (1-8)
 
 #endif // _IPacket_H_

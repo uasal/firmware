@@ -37,7 +37,7 @@ using namespace std;
 
 #include "uart/BinaryUart.hpp"
 
-#include "uart/CGraphPacket.hpp"
+#include "cgraph/CGraphPacket.hpp"
 
 #include "cgraph/CGraphFSMHardwareInterface.hpp"
 extern CGraphFSMHardwareInterface* FSM;	

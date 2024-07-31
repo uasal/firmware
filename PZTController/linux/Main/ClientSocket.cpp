@@ -30,7 +30,7 @@
 
 #include "uart/BinaryUart.hpp"
 
-#include "uart/CGraphPacket.hpp"
+#include "cgraph/CGraphPacket.hpp"
 
 #include "ClientSocket.hpp"
 

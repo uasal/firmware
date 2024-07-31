@@ -21,6 +21,8 @@ entity PPSCountPorts is
 			
 			PPSReset : in std_logic;
 			
+			PPSDetected : out std_logic;
+			
 			PPSCounter : out std_logic_vector(31 downto 0);
 			
 			PPSAccum : out std_logic_vector(31 downto 0)--;
@@ -30,6 +32,7 @@ end PPSCountPorts;
 architecture PPSCount of PPSCountPorts is
 
 	signal LastPPS : std_logic;
+	signal PPSDetected : std_logic := '0';
 	signal InvalidatePPSCount : std_logic := '0';
 	signal PPSAccum_i : std_logic_vector(31 downto 0);
 	signal PPSAccumCycles : natural range 0 to PPS_ACCUM_CYCLES := 0;
@@ -48,6 +51,8 @@ begin
 			--Reset cycle count
 			PPSAccumCycles <= 0;
 			
+			PPSDetected <= 0;
+			
 			--Reset latch
 			PPSAccum <= x"00000000";
 			
@@ -62,6 +67,8 @@ begin
 				if (PPS /= LastPPS) then 
 				
 					LastPPS <= PPS;
+					
+					PPSDetected <= '1';
 					
 					if (PPS = '1') then
 					

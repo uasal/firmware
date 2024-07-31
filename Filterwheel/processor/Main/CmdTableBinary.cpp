@@ -23,7 +23,7 @@
 
 #include "uart/CmdSystem.hpp"
 
-#include "uart/CGraphPacket.hpp"
+#include "cgraph/CGraphPacket.hpp"
 
 #include "CmdTableBinary.hpp"
 
@@ -35,34 +35,40 @@ const BinaryCmd BinaryCmds[] =
 		"BinaryVersionCommand",
 		BinaryVersionCommand
     ),
-	//~ BinaryCmd (
-		//~ CGraphPayloadTypeFWDacs,
-		//~ "BinaryFWDacsCommand",
-		//~ BinaryFWDacsCommand
-    //~ ),
-	//~ BinaryCmd (
-		//~ CGraphPayloadTypeFWAdcs,
-		//~ "BinaryFWAdcsCommand",
-		//~ BinaryFWAdcsCommand
-    //~ ),
+	BinaryCmd (
+		CGraphPayloadTypeFWHardwareControlStatus,
+		"BinaryFWDacsCommand",
+		BinaryFWHardwareControlStatusCommand
+    ),
+	BinaryCmd (
+		CGraphPayloadTypeFWMotorControlStatus,
+		"BinaryFWAdcsCommand",
+		BinaryFWMotorControlStatusCommand
+    ),
 
-	//~ BinaryCmd (
-		//~ CGraphPayloadTypeFWAdcsFloatingPoint,
-		//~ "BinaryFWAdcsFloatingPointCommand",
-		//~ BinaryFWAdcsFloatingPointCommand
-    //~ ),
+	BinaryCmd (
+		CGraphPayloadTypeFWPositionSenseControlStatus,
+		"BinaryFWAdcsFloatingPointCommand",
+		BinaryFWPositionSenseControlStatusCommand
+    ),
 	
-	//~ BinaryCmd (
-		//~ CGraphPayloadTypeFWDacsFloatingPoint,
-		//~ "BinaryFWDacsFloatingPointCommand",
-		//~ BinaryFWDacsFloatingPointCommand
-    //~ ),
+	BinaryCmd (
+		CGraphPayloadTypeFWPositionSteps,
+		"BinaryFWDacsFloatingPointCommand",
+		BinaryFWPositionStepsCommand
+    ),
 	
-	//~ BinaryCmd (
-		//~ CGraphPayloadTypeFWStatus,
-		//~ "BinaryFWStatusCommand",
-		//~ BinaryFWStatusCommand
-    //~ ),
+	BinaryCmd (
+		CGraphPayloadTypeFWTelemetryADC,
+		"BinaryFWStatusCommand",
+		BinaryFWTelemetryADCCommand
+    ),
+
+	BinaryCmd (
+		CGraphPayloadTypeFWFilterSelect,
+		"BinaryFWStatusCommand",
+		BinaryFWFilterSelectCommand
+    ),
 };
 
 //Calculate the number of commands instanciated in the system - links with CmdSystem.cpp.o

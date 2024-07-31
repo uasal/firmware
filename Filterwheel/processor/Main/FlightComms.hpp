@@ -18,7 +18,7 @@
 
 #include "uart/BinaryUart.hpp"
 
-#include "uart/CGraphPacket.hpp"
+#include "cgraph/CGraphPacket.hpp"
 
 #include "cgraph/CGraphFWHardwareInterface.hpp"
 extern CGraphFWHardwareInterface* FW;	
@@ -29,8 +29,64 @@ extern CGraphFWHardwareInterface* FW;
 bool MonitorSerial0 = false;
 bool MonitorSerial1 = false;
 bool MonitorSerial2 = false;
+bool MonitorSerial3 = false;
 bool MonitorSerialUsb = false;
 		
+class FW_pinout_FPGAUart3 : public IUart
+{
+public:
+
+	FW_pinout_FPGAUart3() : IUart() { }
+	virtual ~FW_pinout_FPGAUart3() { }
+
+	virtual int init(const uint32_t nc, const char* nc3) { return(IUartOK); }
+
+	virtual void deinit() { }
+	
+	virtual bool dataready() const
+	{
+		if (NULL == FW) { return(false); }
+		CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegister3;
+		return(0 == UartStatus.RxFifoEmpty);
+	}
+
+	virtual char getcqq()
+	{
+		if (NULL == FW) { return(false); }
+		uint16_t c = 0;
+		c = FW->UartFifo3;
+		c >>= 8;
+		//~ formatf("|%c", c);
+		if (MonitorSerial3) { formatf("|%.3x", c); }
+		//~ formatf("|%.4x", c);
+		return((char)(c));
+	}
+
+	virtual char putcqq(char c)
+	{
+		if (NULL == FW) { return(c); }
+		FW->UartFifo3 = c;		
+		delayus(13); //This was neccessary the last hardware we tried this on...
+		return(c);
+	}
+	
+	virtual size_t depth() const
+	{
+		if (NULL == FW) { return(false); }
+		CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegister3;
+		return(UartStatus.RxFifoCount);
+	}
+
+	virtual void flushoutput() { } // if (FW) { FW->UartTxStatusRegister = 0; } //Need to make tx & rx status registers seperate...
+	virtual void purgeinput() { } // if (FW) { FW->UartRxStatusRegister = 0; }	
+	virtual bool connected() { return(true); }	
+	virtual bool isopen() const { return(true); }	
+	
+	private:
+		//~ CGraphFWHardwareInterface* fpgaFW;	
+	
+};
+
 class FW_pinout_FPGAUart2 : public IUart
 {
 public:
@@ -46,7 +102,7 @@ public:
 	{
 		if (NULL == FW) { return(false); }
 		CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegister2;
-		return(0 == UartStatus.Uart2RxFifoEmpty);
+		return(0 == UartStatus.RxFifoEmpty);
 	}
 
 	virtual char getcqq()
@@ -73,7 +129,7 @@ public:
 	{
 		if (NULL == FW) { return(false); }
 		CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegister2;
-		return(UartStatus.Uart2RxFifoCount);
+		return(UartStatus.RxFifoCount);
 	}
 
 	virtual void flushoutput() { } // if (FW) { FW->UartTxStatusRegister = 0; } //Need to make tx & rx status registers seperate...
@@ -101,7 +157,7 @@ public:
 	{
 		if (NULL == FW) { return(false); }
 		CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegister1;
-		return(0 == UartStatus.Uart2RxFifoEmpty);
+		return(0 == UartStatus.RxFifoEmpty);
 	}
 
 	virtual char getcqq()
@@ -128,7 +184,7 @@ public:
 	{
 		if (NULL == FW) { return(false); }
 		CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegister1;
-		return(UartStatus.Uart2RxFifoCount);
+		return(UartStatus.RxFifoCount);
 	}
 
 	virtual void flushoutput() { } // if (FW) { FW->UartTxStatusRegister = 0; } //Need to make tx & rx status registers seperate...
@@ -156,7 +212,7 @@ public:
 	{
 		if (NULL == FW) { return(false); }
 		CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegister0;
-		return(0 == UartStatus.Uart2RxFifoEmpty);
+		return(0 == UartStatus.RxFifoEmpty);
 	}
 
 	virtual char getcqq()
@@ -183,7 +239,7 @@ public:
 	{
 		if (NULL == FW) { return(false); }
 		CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegister0;
-		return(UartStatus.Uart2RxFifoCount);
+		return(UartStatus.RxFifoCount);
 	}
 
 	virtual void flushoutput() { } // if (FW) { FW->UartTxStatusRegister = 0; } //Need to make tx & rx status registers seperate...
@@ -212,8 +268,8 @@ public:
 	{
 		if (NULL == FW) { return(false); }
 		CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegisterUsb;
-		//return(0 == UartStatus.Uart2RxFifoEmpty);
-		return(0 != UartStatus.Uart2RxFifoCount);
+		//return(0 == UartStatus.RxFifoEmpty);
+		return(0 != UartStatus.RxFifoCount);
 	}
 
 	virtual char getcqq()
@@ -240,7 +296,7 @@ public:
 	{
 		if (NULL == FW) { return(false); }
 		CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegisterUsb;
-		return(UartStatus.Uart2RxFifoCount);
+		return(UartStatus.RxFifoCount);
 	}
 
 	virtual void flushoutput() { } // if (FW) { FW->UartTxStatusRegister = 0; } //Need to make tx & rx status registers seperate...

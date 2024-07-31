@@ -33,12 +33,14 @@ CGraphPacket FPGAUartProtocol;
 FW_pinout_FPGAUart0 FPGAUartPinout0;
 FW_pinout_FPGAUart1 FPGAUartPinout1;
 FW_pinout_FPGAUart2 FPGAUartPinout2;
+FW_pinout_FPGAUart3 FPGAUartPinout3;
 FW_pinout_FPGAUartUsb FPGAUartPinoutUsb;
 
-//~ BinaryUart(struct IUart& pinout, struct IPacket& packet, const Cmd* cmds, const size_t numcmds, struct BinaryUartCallbacks& callbacks, const bool verbose = true, const uint64_t serialnum = InvalidSerialNumber)
+//~ BinaryUart(struct IUart& pinout, struct IPacket& packet, const Cmd* cmds, const size_t numcmds, struct BinaryUartCallbacks& callbacks, const bool verbose = true, const uint64_t serialnum = InvalidSerialNumber);
+BinaryUart FpgaUartParser3(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 BinaryUart FpgaUartParser2(FPGAUartPinout2, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 BinaryUart FpgaUartParser1(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
-//BinaryUart FpgaUartParser0(FPGAUartPinout0, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
+//~ BinaryUart FpgaUartParser0(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 
 #include "uart/TerminalUart.hpp"
 char prompt[] = "\n\nESC-FW> ";
@@ -47,21 +49,9 @@ const char* TerminalUartPrompt()
     return(prompt);
 }
 //Handle incoming ascii cmds & binary packets from the usb
-TerminalUart<16, 4096> DbgUart(FPGAUartPinoutUsb, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
+TerminalUart<16, 4096> DbgUartUsb(FPGAUartPinoutUsb, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
+TerminalUart<16, 4096> DbgUart485_0(FPGAUartPinout0, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
 
-
-//~ char prompt[] = "\n\nFW> ";
-//~ const char* TerminalUartPrompt()
-//~ {
-    //~ return(prompt);
-//~ }
-//Handle incoming ascii cmds & binary packets from the usb
-//~ TerminalUart<1024, 1024> FpgaUart(FpgaHardwareUartPinout, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
-
-//~ bool ProcessUserInterface();
-//~ void StartUserInterface();
-
-//~ MemWatch mW;
 
 //~ class MTracer
 //~ {
@@ -95,7 +85,8 @@ extern "C"
     {
         const char Msg[] = "\n\n!MajorCrashSegFaultHandler()!\n";
         //~ write(stdout, Msg, strlen(Msg));
-        DbgUart.puts(Msg, strlen(Msg));
+        DbgUartUsb.puts(Msg, strlen(Msg));
+		DbgUart485_0.puts(Msg, strlen(Msg));
     }
 
     void AtExit()
@@ -113,22 +104,28 @@ bool Process()
 {
     bool Bored = true;
 
-    if (DbgUart.Process())
+    if (DbgUartUsb.Process())
     {
         Bored = false;
     }
     
+    if (DbgUart485_0.Process())
+    {
+        Bored = false;
+    }
+
     return(Bored);
 }
 
 void ProcessAllUarts()
 {
-	DbgUart.Process();
+	DbgUartUsb.Process();
+	DbgUart485_0.Process();
 }
 
 int main(int argc, char *argv[])
 {
-	uint16_t i = 0;
+	//~ uint16_t i = 0;
 	
     //Tell C lib (stdio.h) not to buffer output, so we can ditch all the fflush(stdout) calls...
     //~ setvbuf(stdout, NULL, _IONBF, 0);
@@ -166,6 +163,36 @@ int main(int argc, char *argv[])
     FPGAUartPinoutUsb.putcqq('F');
     FPGAUartPinoutUsb.putcqq('W');
 	FPGAUartPinoutUsb.putcqq('\n');
+
+	FPGAUartPinout0.putcqq('\n');
+	FPGAUartPinout0.putcqq('\n');
+	FPGAUartPinout0.putcqq('\n');
+	FPGAUartPinout0.putcqq('\n');
+	FPGAUartPinout0.putcqq('\n');
+	FPGAUartPinout0.putcqq('\n');
+	FPGAUartPinout0.putcqq('\n');
+	FPGAUartPinout0.putcqq('\n');
+	FPGAUartPinout0.putcqq('\n');
+	FPGAUartPinout0.putcqq('H');
+	FPGAUartPinout0.putcqq('e');
+	FPGAUartPinout0.putcqq('l');
+	FPGAUartPinout0.putcqq('l');
+	FPGAUartPinout0.putcqq('o');
+	FPGAUartPinout0.putcqq(' ');
+	FPGAUartPinout0.putcqq('T');
+	FPGAUartPinout0.putcqq('E');
+	FPGAUartPinout0.putcqq('S');
+	FPGAUartPinout0.putcqq('S');
+	FPGAUartPinout0.putcqq('!');
+	FPGAUartPinout0.putcqq(' ');
+    FPGAUartPinout0.putcqq('-');
+    FPGAUartPinout0.putcqq('E');
+    FPGAUartPinout0.putcqq('S');
+    FPGAUartPinout0.putcqq('C');
+    FPGAUartPinout0.putcqq('-');
+    FPGAUartPinout0.putcqq('F');
+    FPGAUartPinout0.putcqq('W');
+	FPGAUartPinout0.putcqq('\n');
 
     extern unsigned long __vector_table_start;
     extern unsigned long _evector_table;
@@ -227,17 +254,20 @@ int main(int argc, char *argv[])
 	
 	formatf("\nESC-FW: Set control register.\n");        
 
-    DbgUart.SetEcho(false);
+    DbgUartUsb.SetEcho(false);
+    DbgUart485_0.SetEcho(false);
 	
     while(true)
     {
-		bool Bored = true;
+		Process();
+		
+		//~ bool Bored = true;
 		
 		//Handle stdio (local) user interface:
-        if (Process())
-        {
-            Bored = false;
-        }
+        //~ if (Process())
+        //~ {
+            //~ Bored = false;
+        //~ }
 		
 		//ENable this stuff if we want an intermediate buffer between the threads.
 		//~ //Handle fpga (remote) user interface:

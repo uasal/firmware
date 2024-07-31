@@ -36,51 +36,10 @@
 ///The actual table (array) of commands for the system - links with CmdSystem.cpp.o
 const Cmd AsciiCmds[] =
 {
-    //~ Cmd (
-        //~ "X",
-        //~ "X: quit running this program.",
-        //~ ExitCommand
-    //~ ),
-    //~ Cmd (
-        //~ "Q",
-        //~ "Q: exit this running program.",
-        //~ ExitCommand
-    //~ ),
-	
 	Cmd(
         "VERSION",
 		"\"Version\": Shows hardware and firmware version info.",
 		VersionCommand
-    ),
-	
-	Cmd(
-		"GLOBALSAVE",
-		"\"GlobalSave\": Save all operating parameters/configuration to eeprom so it will be restored on reboot / power cycle.",
-		GlobalSaveCommand
-	),
-	
-	Cmd(
-		"GLOBALRESTORE",
-		"\"GlobalRestore\": Restore all operating parameters/configuration from eeprom in order to erase any operating changes made since last restore (i.e. at bootup).",
-		GlobalRestoreCommand
-	),
-
-	Cmd(
-		"PARSECONFIGFILE",
-		"\"ParseConfigFile <filename>\": Opens the given file and treats each line therein as a command.",
-		ParseConfigFileCommand
-	),
-		
-    Cmd (
-        "INITFPGA",
-        "InitFpga : Connect to FPGA interface.",
-        InitFpgaCommand
-    ),
-    
-	Cmd (
-        "DEINITFPGA",
-        "DeInitFpga : Disconnect from FPGA interface.",
-        DeInitFpgaCommand
     ),
     
 	Cmd (
@@ -126,6 +85,12 @@ const Cmd AsciiCmds[] =
     ),
 	
 	Cmd(
+        "FILTERSELECT",
+        "\"FilterSelect <1-8>\": Sets/queries the currently loaded filter; respose of 0 means wheel is in motion/currently seeking a position.",
+        FilterSelectCommand
+    ),
+	
+	Cmd(
         ScanMonitorAdcCmdString,
         ScanMonitorAdcHelp,
         ScanMonitorAdcCommand
@@ -160,22 +125,10 @@ const Cmd AsciiCmds[] =
         "\"BIST\": Runs a self-test, logs values to terminal.",
         BISTCommand
     ),
-	
-	Cmd(
-        "UART",
-        "\"Uart\": Twiddle the uart.",
-        UartCommand
-    ),
-	
-	Cmd(
-        "U",
-        "\"U(art)\": Twiddle the uart.",
-        UartCommand
-    ),
-	
+		
 	Cmd(
         "BAUDDIVIDERS",
-        "\"BaudDividers\": 0,1,2: Set the divider to change the baudrate for each port...",
+        "\"BaudDividers < W | W, X, Y, Z >\": Set/query the divider to change the baudrate for each port...",
         BaudDividersCommand
     ),
 	
@@ -187,7 +140,7 @@ const Cmd AsciiCmds[] =
 	
 	Cmd(
         "MONITORSERIAL",
-        "\"MonitorSerial <0 | 1 | 2> <Y | N>\": Show/hide incoming serial bytes.",
+        "\"MonitorSerial < 0 | 1 | 2 | 3 > <Y | N>\": Show/hide incoming serial bytes.",
         MonitorSerialCommand
     ),
 };

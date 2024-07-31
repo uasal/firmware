@@ -148,28 +148,75 @@ union CGraphFWPositionSenseRegister
 
 } __attribute__((__packed__));
 
+union CGraphFWPositionStepRegister
+{
+    uint32_t all;
+    struct 
+    {
+        uint16_t OnStep;
+        uint16_t OffStep;
+        
+    } __attribute__((__packed__));
+
+    CGraphFWPositionStepRegister() { all = 0; }
+	
+	uint16_t MidStep() const { return(abs((int32_t)OnStep - (int32_t)OffStep)); }
+
+	void formatf() const 
+	{ 
+		::formatf("StepRegister: All: %.4X ", all); 
+		::formatf(", OnStep: %u ", (unsigned)OnStep);
+		::formatf(", OffStep: %u ", (unsigned)OffStep);
+		::formatf(", MidStep: %u ", (unsigned)MidStep());
+	}
+
+} __attribute__((__packed__));
+
+union CGraphFWBaudDividers
+{
+    uint32_t all;
+    struct 
+    {
+        uint8_t Divider0;
+		uint8_t Divider1;
+		uint8_t Divider2;
+		uint8_t Divider3;
+        
+    } __attribute__((__packed__));
+
+    CGraphFWBaudDividers() { all = 0; }
+	
+	void formatf() const 
+	{ 
+		::formatf("CGraphFWBaudDividers: All: %.4X ", all); 
+		::formatf(", Divider0: %u ", (unsigned)Divider0);
+		::formatf(", Divider1: %u ", (unsigned)Divider1);
+		::formatf(", Divider2: %u ", (unsigned)Divider2);
+		::formatf(", Divider3: %u ", (unsigned)Divider3);
+	}
+
+} __attribute__((__packed__));
+
 union CGraphFWUartStatusRegister
 {
     uint32_t all;
     struct 
     {
-        uint32_t Uart2RxFifoEmpty : 1;
-        uint32_t Uart2RxFifoFull : 1;
-        uint32_t Uart2TxFifoEmpty : 1;
-        uint32_t Uart2TxFifoFull : 1;
+        uint32_t RxFifoEmpty : 1;
+        uint32_t RxFifoFull : 1;
+        uint32_t TxFifoEmpty : 1;
+        uint32_t TxFifoFull : 1;
 		uint32_t reserved1 : 4;
-		uint32_t Uart2RxFifoCount : 8;
-		uint32_t Uart2TxFifoCount : 8;
-		uint32_t Uart2RxFifoCountHi : 2;
-		uint32_t Uart2TxFifoCountHi : 2;
+		uint32_t RxFifoCount : 10;
+		uint32_t TxFifoCount : 10;
 		uint32_t reserved2 : 4;
 
     } __attribute__((__packed__));
 
     CGraphFWUartStatusRegister() { all = 0; }
 
-    //~ void formatf() const { ::formatf("CGraphFWUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", Uart2RxFifoEmpty?'Y':'N', Uart2RxFifoFull?'Y':'N', Uart2TxFifoEmpty?'Y':'N', Uart2TxFifoFull?'Y':'N', Uart2RxFifoCount + (Uart2RxFifoCountHi << 8), Uart2TxFifoCount + (Uart2TxFifoCountHi << 8)); }
-	void formatf() const { ::formatf("CGraphFWUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%lu, TxC:%lu", Uart2RxFifoEmpty?'Y':'N', Uart2RxFifoFull?'Y':'N', Uart2TxFifoEmpty?'Y':'N', Uart2TxFifoFull?'Y':'N', Uart2RxFifoCount, Uart2TxFifoCount); }
+    //~ void formatf() const { ::formatf("CGraphFWUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", RxFifoEmpty?'Y':'N', RxFifoFull?'Y':'N', TxFifoEmpty?'Y':'N', TxFifoFull?'Y':'N', RxFifoCount + (RxFifoCountHi << 8), TxFifoCount + (TxFifoCountHi << 8)); }
+	void formatf() const { ::formatf("CGraphFWUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%lu, TxC:%lu", RxFifoEmpty?'Y':'N', RxFifoFull?'Y':'N', TxFifoEmpty?'Y':'N', TxFifoFull?'Y':'N', RxFifoCount, TxFifoCount); }
 
 } __attribute__((__packed__));
 
@@ -189,9 +236,9 @@ struct CGraphFWHardwareInterface
     uint64_t reserved2;
     uint64_t reserved3;
     uint64_t reserved4;
-    uint64_t reserved5;
-    uint64_t reserved6;
-    CGraphFWHardwareControlRegister ControlRegister; //rw; see definition above
+    uint32_t UartFifo3; //rw; send or read bytes from uart(s)
+	CGraphFWUartStatusRegister UartStatusRegister3; //ro; what state are the uart(s) in?
+	CGraphFWHardwareControlRegister ControlRegister; //rw; see definition above
     uint32_t reserved7;
     int32_t PPSRtcPhaseComparator; //ro;
     int32_t PPSAdcPhaseComparator; //ro;
@@ -203,59 +250,32 @@ struct CGraphFWHardwareInterface
 	CGraphFWUartStatusRegister UartStatusRegister1; //ro; what state are the uart(s) in?
 	uint32_t UartFifo0; //rw; send or read bytes from uart(s)
 	CGraphFWUartStatusRegister UartStatusRegister0; //ro; what state are the uart(s) in?
-	uint8_t BaudDivider0; //rw; clock divider for the first serial port
-	uint8_t BaudDivider1;
-	uint8_t BaudDivider2;
-	uint8_t BaudDivider3;
+	CGraphFWBaudDividers BaudDividers; //rw; clock dividers for the serial ports
 	uint32_t reserved8;	
-	uint32_t PosDetHomeAOnStep; //ro; the step at which this signal toggled
-	uint32_t PosDetHomeAOffStep; //ro; the step at which this signal toggled
-	uint32_t PosDetA0OnStep; //ro; the step at which this signal toggled
-	uint32_t PosDetA0OffStep; //ro; the step at which this signal toggled
-	uint32_t PosDetA1OnStep; //ro; the step at which this signal toggled
-	uint32_t PosDetA1OffStep; //ro; the step at which this signal toggled
-	uint32_t PosDetA2OnStep; //ro; the step at which this signal toggled
-	uint32_t PosDetA2OffStep; //ro; the step at which this signal toggled	
-	uint32_t PosDetHomeBOnStep; //ro; the step at which this signal toggled
-	uint32_t PosDetHomeBOffStep; //ro; the step at which this signal toggled
-	uint32_t PosDetB0OnStep; //ro; the step at which this signal toggled
-	uint32_t PosDetB0OffStep; //ro; the step at which this signal toggled
-	uint32_t PosDetB1OnStep; //ro; the step at which this signal toggled
-	uint32_t PosDetB1OffStep; //ro; the step at which this signal toggled
-	uint32_t PosDetB2OnStep; //ro; the step at which this signal toggled
-	uint32_t PosDetB2OffStep; //ro; the step at which this signal toggled	
-	uint32_t PosDet0AOnStep; //ro; the step at which this signal toggled
-	uint32_t PosDet0AOffStep; //ro; the step at which this signal toggled
-	uint32_t PosDet1AOnStep; //ro; the step at which this signal toggled
-	uint32_t PosDet1AOffStep; //ro; the step at which this signal toggled
-	uint32_t PosDet2AOnStep; //ro; the step at which this signal toggled
-	uint32_t PosDet2AOffStep; //ro; the step at which this signal toggled
-	uint32_t PosDet3AOnStep; //ro; the step at which this signal toggled
-	uint32_t PosDet3AOffStep; //ro; the step at which this signal toggled
-	uint32_t PosDet4AOnStep; //ro; the step at which this signal toggled
-	uint32_t PosDet4AOffStep; //ro; the step at which this signal toggled
-	uint32_t PosDet5AOnStep; //ro; the step at which this signal toggled
-	uint32_t PosDet5AOffStep; //ro; the step at which this signal toggled
-	uint32_t PosDet6AOnStep; //ro; the step at which this signal toggled
-	uint32_t PosDet6AOffStep; //ro; the step at which this signal toggled
-	uint32_t PosDet7AOnStep; //ro; the step at which this signal toggled
-	uint32_t PosDet7AOffStep; //ro; the step at which this signal toggled	
-	uint32_t PosDet0BOnStep; //ro; the step at which this signal toggled
-	uint32_t PosDet0BOffStep; //ro; the step at which this signal toggled
-	uint32_t PosDet1BOnStep; //ro; the step at which this signal toggled
-	uint32_t PosDet1BOffStep; //ro; the step at which this signal toggled
-	uint32_t PosDet2BOnStep; //ro; the step at which this signal toggled
-	uint32_t PosDet2BOffStep; //ro; the step at which this signal toggled
-	uint32_t PosDet3BOnStep; //ro; the step at which this signal toggled
-	uint32_t PosDet3BOffStep; //ro; the step at which this signal toggled
-	uint32_t PosDet4BOnStep; //ro; the step at which this signal toggled
-	uint32_t PosDet4BOffStep; //ro; the step at which this signal toggled
-	uint32_t PosDet5BOnStep; //ro; the step at which this signal toggled
-	uint32_t PosDet5BOffStep; //ro; the step at which this signal toggled
-	uint32_t PosDet6BOnStep; //ro; the step at which this signal toggled
-	uint32_t PosDet6BOffStep; //ro; the step at which this signal toggled
-	uint32_t PosDet7BOnStep; //ro; the step at which this signal toggled
-	uint32_t PosDet7BOffStep; //ro; the step at which this signal toggled	
+	CGraphFWPositionStepRegister PosDetHomeA; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDetA0; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDetA1; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDetA2; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDetHomeB; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDetB0; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDetB1; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDetB2; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDet0A; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDet1A; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDet2A; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDet3A; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDet4A; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDet5A; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDet6A; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDet7A; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDet0B; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDet1B; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDet2B; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDet3B; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDet4B; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDet5B; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDet6B; //ro; the step at which this signal toggled
+	CGraphFWPositionStepRegister PosDet7B; //ro; the step at which this signal toggled
 	uint32_t UartFifoUsb; //rw; send or read bytes from uart(s)
 	CGraphFWUartStatusRegister UartStatusRegisterUsb; //ro; what state are the uart(s) in?
 	

@@ -43,8 +43,8 @@ port (
 	
 	--uC Ram Bus 
 	RamBusAddress : in std_logic_vector(9 downto 0); 
-	RamBusDataIn : in std_logic_vector(15 downto 0);
-	RamBusDataOut : out std_logic_vector(15 downto 0);
+	RamBusDataIn : in std_logic_vector(31 downto 0);
+	RamBusDataOut : out std_logic_vector(31 downto 0);
 	RamBusnCs : in std_logic;
 	RamBusWrnRd : in std_logic;
 	RamBusLatch : in std_logic;
@@ -108,7 +108,7 @@ port (
 		TP8 : out std_logic;
 		
 		Ux1SelJmp : inout std_logic--;
-		--Ux1SelJmp : out std_logic--;
+		--Ux2SelJmp : out std_logic--; --currently used for INIT_DONE
 );
 end Main;
 
@@ -260,6 +260,7 @@ architecture architecture_Main of Main is
 							clk : in std_logic;
 							PPS : in std_logic;
 							PPSReset : in std_logic;
+							PPSDetected : out std_logic;
 							PPSCounter : out std_logic_vector(31 downto 0);
 							PPSAccum : out std_logic_vector(31 downto 0)--;
 						);
@@ -543,8 +544,8 @@ architecture architecture_Main of Main is
 							
 							-- Bus:
 							Address : in std_logic_vector(ADDRESS_BITS - 1 downto 0); -- this is fucked, but vhdl can't figure out that ADDRESS_BITS is a constant because it's in a generic map...
-							DataIn : in std_logic_vector(15 downto 0);
-							DataOut : out std_logic_vector(15 downto 0);
+							DataIn : in std_logic_vector(31 downto 0);
+							DataOut : out std_logic_vector(31 downto 0);
 							ReadReq : in  std_logic;
 							WriteReq : in std_logic;
 							ReadAck : out std_logic;
@@ -569,12 +570,12 @@ architecture architecture_Main of Main is
 							LedR : out std_logic;
 							LedG : out std_logic;
 							LedB : out std_logic;
-							--~ Uart0OE_i : out std_logic;
-							--~ Uart1OE_i : out std_logic;
-							--~ Uart2OE_i : out std_logic;
-							--~ Uart3OE_i : out std_logic;				
-							--~ Ux1SelJmp_i : out std_logic;
-							--~ Ux2SelJmp_i : out std_logic;
+							Uart0OE_i : out std_logic;
+							Uart1OE_i : out std_logic;
+							Uart2OE_i : out std_logic;
+							Uart3OE_i : out std_logic;				
+							Ux1SelJmp_i : out std_logic;
+							Ux2SelJmp_i : out std_logic;
 							
 							--Motor
 							MotorEnable : out std_logic;
@@ -749,6 +750,7 @@ architecture architecture_Main of Main is
 							ActualTicksLastSecond : in std_logic_vector(31 downto 0);
 							ClockTicksThisSecond : in std_logic_vector(31 downto 0);
 							PPSCountReset : out std_logic;		
+							PPSDetected : in std_logic;
 							ClkDacWrite : out std_logic_vector(15 downto 0);
 							WriteClkDac : out std_logic;
 							ClkDacReadback : in std_logic_vector(15 downto 0)--;
@@ -949,74 +951,6 @@ architecture architecture_Main of Main is
 			--signal MotorAMinus_i : std_logic;      
 			--signal MotorBPlus_i : std_logic;        
 			--signal MotorBMinus_i : std_logic;      
-			--
-			--
-			--signal PosLedsEnA : std_logic;          
-			--signal PosLedsEnB : std_logic;          
-			--
-			--signal PosSenseHomeA : std_logic;    
-			--signal PosSenseBit0A : std_logic;    
-			--signal PosSenseBit1A : std_logic;    
-			--signal PosSenseBit2A : std_logic;    
-			--signal PosSenseHomeB : std_logic;    
-			--signal PosSenseBit0B : std_logic;    
-			--signal PosSenseBit1B : std_logic;    
-			--signal PosSenseBit2B : std_logic;    
-			--
-			--signal PosSenseA : std_logic_vector(3 downto 0);            
-			--signal PosSenseB : std_logic_vector(3 downto 0);            
-			--
-			--signal PosDetHomeAOnStep : std_logic_vector(15 downto 0);
-			--signal PosDetHomeAOffStep : std_logic_vector(15 downto 0);
-			--signal PosDetA0OnStep : std_logic_vector(15 downto 0);  
-			--signal PosDetA0OffStep : std_logic_vector(15 downto 0);
-			--signal PosDetA1OnStep : std_logic_vector(15 downto 0);  
-			--signal PosDetA1OffStep : std_logic_vector(15 downto 0);
-			--signal PosDetA2OnStep : std_logic_vector(15 downto 0);  
-			--signal PosDetA2OffStep : std_logic_vector(15 downto 0);
-			--
-			--signal PosDetHomeBOnStep : std_logic_vector(15 downto 0);
-			--signal PosDetHomeBOffStep : std_logic_vector(15 downto 0);
-			--signal PosDetB0OnStep : std_logic_vector(15 downto 0);  
-			--signal PosDetB0OffStep : std_logic_vector(15 downto 0);
-			--signal PosDetB1OnStep : std_logic_vector(15 downto 0);  
-			--signal PosDetB1OffStep : std_logic_vector(15 downto 0);
-			--signal PosDetB2OnStep : std_logic_vector(15 downto 0);  
-			--signal PosDetB2OffStep : std_logic_vector(15 downto 0);
-			--
-			--signal PosDet0AOnStep : std_logic_vector(15 downto 0);  
-			--signal PosDet0AOffStep : std_logic_vector(15 downto 0);
-			--signal PosDet1AOnStep : std_logic_vector(15 downto 0);  
-			--signal PosDet1AOffStep : std_logic_vector(15 downto 0);
-			--signal PosDet2AOnStep : std_logic_vector(15 downto 0);  
-			--signal PosDet2AOffStep : std_logic_vector(15 downto 0);
-			--signal PosDet3AOnStep : std_logic_vector(15 downto 0);  
-			--signal PosDet3AOffStep : std_logic_vector(15 downto 0);
-			--signal PosDet4AOnStep : std_logic_vector(15 downto 0);  
-			--signal PosDet4AOffStep : std_logic_vector(15 downto 0);
-			--signal PosDet5AOnStep : std_logic_vector(15 downto 0);  
-			--signal PosDet5AOffStep : std_logic_vector(15 downto 0);
-			--signal PosDet6AOnStep : std_logic_vector(15 downto 0);  
-			--signal PosDet6AOffStep : std_logic_vector(15 downto 0);
-			--signal PosDet7AOnStep : std_logic_vector(15 downto 0);  
-			--signal PosDet7AOffStep : std_logic_vector(15 downto 0);
-			--
-			--signal PosDet0BOnStep : std_logic_vector(15 downto 0);  
-			--signal PosDet0BOffStep : std_logic_vector(15 downto 0);
-			--signal PosDet1BOnStep : std_logic_vector(15 downto 0);  
-			--signal PosDet1BOffStep : std_logic_vector(15 downto 0);
-			--signal PosDet2BOnStep : std_logic_vector(15 downto 0);  
-			--signal PosDet2BOffStep : std_logic_vector(15 downto 0);
-			--signal PosDet3BOnStep : std_logic_vector(15 downto 0);  
-			--signal PosDet3BOffStep : std_logic_vector(15 downto 0);
-			--signal PosDet4BOnStep : std_logic_vector(15 downto 0);  
-			--signal PosDet4BOffStep : std_logic_vector(15 downto 0);
-			--signal PosDet5BOnStep : std_logic_vector(15 downto 0);  
-			--signal PosDet5BOffStep : std_logic_vector(15 downto 0);
-			--signal PosDet6BOnStep : std_logic_vector(15 downto 0);  
-			--signal PosDet6BOffStep : std_logic_vector(15 downto 0);
-			--signal PosDet7BOnStep : std_logic_vector(15 downto 0);  
-			--signal PosDet7BOffStep : std_logic_vector(15 downto 0);
 			
 		--Monitor A/D
 		
@@ -1039,10 +973,6 @@ architecture architecture_Main of Main is
 			
 		--RS-422
 		
-			--~ signal Uart1Data : std_logic_vector(7 downto 0);
-			--~ signal Uart1RxComplete : std_logic;
-			--~ signal Uart1Clkx16 : std_logic;
-			--~ signal Uart1Clk : std_logic;
 			signal Uart0FifoReset : std_logic;
 			signal Uart0FifoReset_i : std_logic;
 			signal ReadUart0 : std_logic;
@@ -1195,8 +1125,7 @@ architecture architecture_Main of Main is
 		signal PosSenseA : std_logic_vector(3 downto 0) := "0000";
 		signal PosSenseB : std_logic_vector(3 downto 0) := "0000";
 		signal LastPosSenseA : std_logic_vector(3 downto 0) := "0000";
-		signal LastPosSenseB : std_logic_vector(3 downto 0) := "0000";
-				
+		signal LastPosSenseB : std_logic_vector(3 downto 0) := "0000";				
 				
 		signal PosLedsEnA : std_logic := '0';
 		
@@ -1324,7 +1253,7 @@ begin
 			); 
 		end generate;
 		
-		GenRamDataBus: for i in 0 to 15 generate
+		GenRamDataBus: for i in 0 to 31 generate
 		begin
 			IBUF_RamData_i : IBufP1Ports
 			port map (
@@ -1402,12 +1331,14 @@ begin
 		LedR => open,
 		LedG => open,
 		LedB => open,
-		--~ Uart0OE <= OE0,
-		--~ Uart1OE <= OE1,
-		--~ Uart2OE <= OE2,
-		--~ Uart3OE <= OE3,
+		Uart0OE <= OE0,
+		Uart1OE <= OE1,
+		Uart2OE <= OE2,
+		Uart3OE <= OE3,
 		--~ Ux1SelJmp => Ux1SelJmp,
 		--~ Ux2SelJmp => Ux2SelJmp,
+		Ux1SelJmp => open,
+		Ux2SelJmp => open,
 				
 		--Motor
 		MotorEnable => MotorEnable,        
@@ -1582,6 +1513,7 @@ begin
 		IdealTicksPerSecond => std_logic_vector(to_unsigned(BoardMasterClockFreq, 32)),
 		ActualTicksLastSecond => PPSCount,
 		PPSCountReset => PPSCountReset,
+		PPSDetected => PPSDetected,
 		ClockTicksThisSecond => PPSCounter,
 		ClkDacWrite => ClkDacWrite,
 		WriteClkDac => WriteClkDac,
@@ -1669,10 +1601,10 @@ begin
 	
 	----------------------------- RS-422 ----------------------------------
 	
-	Oe0 <= '1';
-	Oe1 <= '1';
-	Oe2 <= '1';
-	Oe3 <= '1';
+	--~ Oe0 <= '1';
+	--~ Oe1 <= '1';
+	--~ Oe2 <= '1';
+	--~ Oe3 <= '1';
 	
 	--This is just to excercise the thing so it stays in the design...
 	--~ Ux1SelJmp <= '1' when ( (Rxd1 = '1') and (Rxd2 = '0') ) else '0' when ( (Rxd1 = '0') and (Rxd2 = '1') ) else 'Z';
@@ -2398,19 +2330,20 @@ begin
 	
 	----------------------------- Timing ----------------------------------
 	
-		--Just sync external PPS to master clock
-		--~ IBufPPS : IBufP2Ports port map(clk => MasterClk, I => PpsIn, O => PPS_i);
+		--~ --Just sync external PPS to master clock
+		IBufPPS : IBufP2Ports port map(clk => MasterClk, I => PPS, O => PPS_i);
 		
-	--Count up MasterClocks per PPS so we can sync the oscilator to the GPS clock
-	--~ PPSAccumulator : PPSCountPorts
-    --~ port map
-	--~ (
-		--~ clk => MasterClk,
-		--~ PPS => PPS_i,
-		--~ PPSReset => PPSCountReset,
-		--~ PPSCounter => PPSCounter,
-		--~ PPSAccum => PPSCount--,
-	--~ );
+	--~ --Count up MasterClocks per PPS so we can sync the oscilator to the GPS clock
+	PPSAccumulator : PPSCountPorts
+    port map
+	(
+		clk => MasterClk,
+		PPS => PPS_i,
+		PPSReset => PPSCountReset,
+		PPSDetected => PPSDetected,
+		PPSCounter => PPSCounter,
+		PPSAccum => PPSCount--,
+	);
 	
 	--~ PPSRtcPhaseComparator : PhaseComparatorPorts
 	--~ generic map (
@@ -2458,54 +2391,38 @@ begin
 		--~ Milliseconds => Milliseconds--,
 	--~ );
 	
-	--~ IBufDacMiso : IBufP2Ports port map(clk => MasterClk, I => MisoClk, O => MisoClk_i);
+	IBufDacMiso : IBufP2Ports port map(clk => MasterClk, I => MisoClk, O => MisoClk_i);
 
-	--~ ClkDac_i : SpiDacPorts
-	--~ generic map 
-	--~ (
-		--~ MASTER_CLOCK_FREQHZ => BoardMasterClockFreq,
-		--~ BIT_WIDTH => 16
-	--~ )
-	--~ port map 
-	--~ (
-		--~ clk => MasterClk,
-		--~ rst => MasterReset,
-		--~ nCs => nCsClk_i,
-		--~ Sck => SckClk_i,
-		--~ Mosi => MosiClk_i,
-		--~ Miso => MisoClk_i,
-		--~ DacWriteOut => ClkDacWrite,
-		--~ WriteDac => WriteClkDac,
-		--~ DacReadback => ClkDacReadback
-	--~ );
+	ClkDac_i : SpiDacPorts
+	generic map 
+	(
+		MASTER_CLOCK_FREQHZ => BoardMasterClockFreq,
+		BIT_WIDTH => 16
+	)
+	port map 
+	(
+		clk => MasterClk,
+		rst => MasterReset,
+		nCs => nCsClk_i,
+		Sck => SckClk_i,
+		Mosi => MosiClk_i,
+		Miso => MisoClk_i,
+		DacWriteOut => ClkDacWrite,
+		WriteDac => WriteClkDac,
+		DacReadback => ClkDacReadback
+	);
 
-	--~ nCsClk <= nCsClk_i;
-	--~ SckClk <= SckClk_i;
-	--~ MosiClk <= MosiClk_i;
+	nCsClk <= nCsClk_i;
+	SckClk <= SckClk_i;
+	MosiClk <= MosiClk_i;
 	
 	----------------------------- Power Supplies ----------------------------------
 	
-	--~ HVPowernEn <= '0';
-	--~ nHVEn <= '1';
-	--~ AnalogPowernEn <= '0';
+	PowernEn5V <= '0';
 	
+	PowerSync <= '1';
 	--~ PowerSyncClockDivider : ClockDividerPorts generic map(CLOCK_DIVIDER => 96, DIVOUT_RST_STATE => '0') port map(clk => MasterClk, rst => MasterReset, div => PowerSync);
 
-	--This just makes a synchronous clock out of the 2.5MHz clock to keep the dc/dc converter running on the same clockbase as everything else, and nice & slow so it's cool. LT3791 will accept 200-700kHz clocks.
-	--~ SyncDCDCDivider : ClockDividerPorts
-	--~ generic map (
-		--~ --CLOCK_DIVIDER => 12, --208kHz
-		--~ CLOCK_DIVIDER => 8, --312kHz
-		--~ DIVOUT_RST_STATE => '0'
-	--~ )
-	--~ port map (		
-		--~ clk => MasterClk,
-		--~ rst => MasterReset,
-		--~ --div => SyncDCD
-        --~ div => Open
-	--~ );	
-	--~ --SyncDCDC <= 'Z'
-	
 	----------------------------- H-Bridge ----------------------------------
 	
 	--ShootThruIxnae is a 100nsec pulse reset & initiated by either edge of period; thus we must also gate on (Period_i = LastPeriod) to avoid a one-clock glitch while ShootThruIxnae is being reset
@@ -2513,7 +2430,7 @@ begin
 	--"Prime" signals are the high-side FETs in the H-bridge and due to complex drive circuits take much longer to turn on and turn off! Therefore we wanna take our sweet time turning on the low-side drivers!
 	
 	--~ --just use the 100MHz clock: that's 10nsec, which is a 'long' time
-	--~ ShootThruIxnae <= not(PeriodEdge);
+	--~ ShootThruIxnae <= MasterClk;
 	
 	--SiCFETs show maybe 25nsec for transistion time, others are probably alot worse - use a clock divider to get 100nsec-type delays...
 	ShootThruIxnaeOneShotAPlus : OneShotPorts
@@ -2587,24 +2504,12 @@ begin
 	);
 
 	--Low-side FETs
-	--~ MotorDriveAPlus <= MotorAPlus_i;
-	--~ MotorDriveAMinus <= MotorAMinus_i;
-	--~ MotorDriveBPlus <= MotorBPlus_i;
-	--~ MotorDriveBMinus <= MotorBMinus_i;
 	MotorDriveAPlus <= PushPullHigh when ( (MotorEnable = '1') and (MotorAPlus_i = '1') and (ShootThruIxnaeAPlus = '1') ) else PushPullGround;
 	MotorDriveAMinus <= PushPullHigh when ( (MotorEnable = '1') and (MotorAMinus_i = '1') and (ShootThruIxnaeAMinus = '1') ) else PushPullGround;
 	MotorDriveBPlus <= PushPullHigh when ( (MotorEnable = '1') and (MotorBPlus_i = '1') and (ShootThruIxnaeBPlus = '1') ) else PushPullGround;
 	MotorDriveBMinus <= PushPullHigh when ( (MotorEnable = '1') and (MotorBMinus_i = '1') and (ShootThruIxnaeBMinus = '1') ) else PushPullGround;
 	
 	--High-side FETs
-	--~ MotorDriveAPlusPrime <= MotorAPlus_i;
-	--~ MotorDriveAMinusPrime <= MotorAMinus_i;
-	--~ MotorDriveBPlusPrime <= MotorBPlus_i;
-	--~ MotorDriveBMinusPrime <= MotorBMinus_i;
-	--~ MotorDriveAPlusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorAPlus_i = '1') ) else PushPullGround;
-	--~ MotorDriveAMinusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorAMinus_i = '1') ) else PushPullGround;
-	--~ MotorDriveBPlusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorBPlus_i = '1') ) else PushPullGround;
-	--~ MotorDriveBMinusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorBMinus_i = '1') ) else PushPullGround;
 	MotorDriveAPlusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorAPlus_i = '1') and (ShootThruIxnaeAPlus = '1') ) else PushPullGround;
 	MotorDriveAMinusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorAMinus_i = '1') and (ShootThruIxnaeAMinus = '1') ) else PushPullGround;
 	MotorDriveBPlusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorBPlus_i = '1') and (ShootThruIxnaeBPlus = '1') ) else PushPullGround;
@@ -2614,28 +2519,13 @@ begin
 	
 	----------------------------- DEBUG IDEAS ----------------------------------
 	
-	Ux1SelJmp <= RamBusDataIn(0) and PPS;
-	
+	Ux1SelJmp <= RamBusDataIn(0);
 	--~ Ux1SelJmp <= MotorSeekStep(0);
-	
 	--~ Ux1SelJmp <= '1' when ( (Rxd1 = '1') and (Rxd2 = '0') ) else '0' when ( (Rxd1 = '0') and (Rxd2 = '1') ) else 'Z';
-	
 	--~ Ux1SelJmp <= MasterClk;
 		
-	--ClkDac
-	nCsXO <= '1';
-	SckXO <= '1';
-	MosiXO <= '1';
-	
-	--~ RxdUsb <= TxdUsb;
-	--~ CtsUsb <= '1';
-	
 	--  Discrete I/O Connections
 
-		--Faults
-		PowernEn5V <= '0';
-		PowerSync <= '1';
-		
 		--~ LedR <= '1';
 		--~ LedG <= '1';
 		--~ LedB <= '1';
@@ -2652,144 +2542,145 @@ begin
 		--~ TP6 <= PowerCycd;
 		--~ TP7 <= UartUsbFifoReset_i;
 		--~ TP8 <= Fault3V or Fault1V or PowerCycd or Fault5V;
-		
---~ RamBusAddress : in std_logic_vector(9 downto 0); 
---~ RamBusDataIn : in std_logic_vector(15 downto 0);
---~ RamBusDataOut : out std_logic_vector(15 downto 0);
---~ RamBusnCs : in std_logic;
---~ RamBusWE : in std_logic;
---~ RamBusOE : in std_logic;
-
-		
+			
 	----------------------------- Clocked Logic / Main Loop ----------------------------------
 	
-	process(MasterClk)
+	process(MasterReset, MasterClk)
 	begin
 	
-		if ( (MasterClk'event) and (MasterClk = '1') ) then
+		if (MasterReset = '1') then
 		
-			--Run position detector logic:
+		--This is where we have to actually set all of our registers, since the M2S devices don't support initialization as though they are from the 1980's...
 		
-			if (LastPosSenseHomeA /= PosSenseHomeA) then LastPosSenseHomeA <= PosSenseHomeA; if (PosSenseHomeA = '1') then PosDetHomeAOnStep <= MotorCurrentStep; else PosDetHomeAOffStep <= MotorCurrentStep; end if; end if;
-			if (LastPosSenseBit0A /= PosSenseBit0A) then LastPosSenseBit0A <= PosSenseBit0A; if (PosSenseBit0A = '1') then PosDetA0OnStep <= MotorCurrentStep; else PosDetA0OffStep <= MotorCurrentStep; end if; end if;
-			if (LastPosSenseBit1A /= PosSenseBit1A) then LastPosSenseBit1A <= PosSenseBit1A; if (PosSenseBit1A = '1') then PosDetA1OnStep <= MotorCurrentStep; else PosDetA1OffStep <= MotorCurrentStep; end if; end if;
-			if (LastPosSenseBit2A /= PosSenseBit2A) then LastPosSenseBit2A <= PosSenseBit2A; if (PosSenseBit2A = '1') then PosDetA2OnStep <= MotorCurrentStep; else PosDetA2OffStep <= MotorCurrentStep; end if; end if;
+		
+		else
+		
+			if ( (MasterClk'event) and (MasterClk = '1') ) then
 			
-			if (LastPosSenseHomeB /= PosSenseHomeB) then LastPosSenseHomeB <= PosSenseHomeB; if (PosSenseHomeB = '1') then PosDetHomeBOnStep <= MotorCurrentStep; else PosDetHomeBOffStep <= MotorCurrentStep; end if; end if;
-			if (LastPosSenseBit0B /= PosSenseBit0B) then LastPosSenseBit0B <= PosSenseBit0B; if (PosSenseBit0B = '1') then PosDetB0OnStep <= MotorCurrentStep; else PosDetB0OffStep <= MotorCurrentStep; end if; end if;
-			if (LastPosSenseBit1B /= PosSenseBit1B) then LastPosSenseBit1B <= PosSenseBit1B; if (PosSenseBit1B = '1') then PosDetB1OnStep <= MotorCurrentStep; else PosDetB1OffStep <= MotorCurrentStep; end if; end if;
-			if (LastPosSenseBit2B /= PosSenseBit2B) then LastPosSenseBit2B <= PosSenseBit2B; if (PosSenseBit2B = '1') then PosDetB2OnStep <= MotorCurrentStep; else PosDetB2OffStep <= MotorCurrentStep; end if; end if;
+				--Run position detector logic:
 			
-			PosSenseA <= PosSenseBit2A & PosSenseBit1A & PosSenseBit0A & PosSenseHomeA;
-			PosSenseB <= PosSenseBit2B & PosSenseBit1B & PosSenseBit0B & PosSenseHomeB;
-			
-			--Not sure if these will be useful due to hysteresis/jitter, but we'll see, light & capacitor may smooth things out
-			
-			if (ResetSteps = '1') then
-			
-				PosDet0AOnStep <= x"0000"; 
-				PosDet1AOnStep <= x"0000";
-				PosDet2AOnStep <= x"0000";
-				PosDet3AOnStep <= x"0000";
-				PosDet4AOnStep <= x"0000";
-				PosDet5AOnStep <= x"0000";
-				PosDet6AOnStep <= x"0000";
-				PosDet7AOnStep <= x"0000";
-
-				PosDet0AOffStep <= x"0000";
-				PosDet1AOffStep <= x"0000";
-				PosDet2AOffStep <= x"0000";
-				PosDet3AOffStep <= x"0000";
-				PosDet4AOffStep <= x"0000";
-				PosDet5AOffStep <= x"0000";
-				PosDet6AOffStep <= x"0000";
-				PosDet7AOffStep <= x"0000";
-
-				PosDet0BOnStep <= x"0000";
-				PosDet1BOnStep <= x"0000";
-				PosDet2BOnStep <= x"0000";
-				PosDet3BOnStep <= x"0000";
-				PosDet4BOnStep <= x"0000";
-				PosDet5BOnStep <= x"0000";
-				PosDet6BOnStep <= x"0000";
-				PosDet7BOnStep <= x"0000";
-
-				PosDet0BOffStep <= x"0000";
-				PosDet1BOffStep <= x"0000";
-				PosDet2BOffStep <= x"0000";
-				PosDet3BOffStep <= x"0000";
-				PosDet4BOffStep <= x"0000";
-				PosDet5BOffStep <= x"0000";
-				PosDet6BOffStep <= x"0000";
-				PosDet7BOffStep <= x"0000";
-			
-			else
-			
-				if (LastPosSenseA /= PosSenseA) then
+				if (LastPosSenseHomeA /= PosSenseHomeA) then LastPosSenseHomeA <= PosSenseHomeA; if (PosSenseHomeA = '1') then PosDetHomeAOnStep <= MotorCurrentStep; else PosDetHomeAOffStep <= MotorCurrentStep; end if; end if;
+				if (LastPosSenseBit0A /= PosSenseBit0A) then LastPosSenseBit0A <= PosSenseBit0A; if (PosSenseBit0A = '1') then PosDetA0OnStep <= MotorCurrentStep; else PosDetA0OffStep <= MotorCurrentStep; end if; end if;
+				if (LastPosSenseBit1A /= PosSenseBit1A) then LastPosSenseBit1A <= PosSenseBit1A; if (PosSenseBit1A = '1') then PosDetA1OnStep <= MotorCurrentStep; else PosDetA1OffStep <= MotorCurrentStep; end if; end if;
+				if (LastPosSenseBit2A /= PosSenseBit2A) then LastPosSenseBit2A <= PosSenseBit2A; if (PosSenseBit2A = '1') then PosDetA2OnStep <= MotorCurrentStep; else PosDetA2OffStep <= MotorCurrentStep; end if; end if;
 				
-					LastPosSenseA <= PosSenseA;
-					
-					case PosSenseA is
-						
-						when "0001" => PosDet0AOnStep <= MotorCurrentStep; 
-						when "0010" => PosDet1AOnStep <= MotorCurrentStep;
-						when "0100" => PosDet2AOnStep <= MotorCurrentStep;
-						when "0110" => PosDet3AOnStep <= MotorCurrentStep;
-						when "1000" => PosDet4AOnStep <= MotorCurrentStep;
-						when "1010" => PosDet5AOnStep <= MotorCurrentStep;
-						when "1100" => PosDet6AOnStep <= MotorCurrentStep;
-						when "1110" => PosDet7AOnStep <= MotorCurrentStep;
-                        when others =>
-						
-					end case;
-					
-					case LastPosSenseA is
-						
-						when "0001" => PosDet0AOffStep <= MotorCurrentStep;
-						when "0010" => PosDet1AOffStep <= MotorCurrentStep;
-						when "0100" => PosDet2AOffStep <= MotorCurrentStep;
-						when "0110" => PosDet3AOffStep <= MotorCurrentStep;
-						when "1000" => PosDet4AOffStep <= MotorCurrentStep;
-						when "1010" => PosDet5AOffStep <= MotorCurrentStep;
-						when "1100" => PosDet6AOffStep <= MotorCurrentStep;
-						when "1110" => PosDet7AOffStep <= MotorCurrentStep;
-                        when others =>
-						
-					end case;
-					
-				end if;
+				if (LastPosSenseHomeB /= PosSenseHomeB) then LastPosSenseHomeB <= PosSenseHomeB; if (PosSenseHomeB = '1') then PosDetHomeBOnStep <= MotorCurrentStep; else PosDetHomeBOffStep <= MotorCurrentStep; end if; end if;
+				if (LastPosSenseBit0B /= PosSenseBit0B) then LastPosSenseBit0B <= PosSenseBit0B; if (PosSenseBit0B = '1') then PosDetB0OnStep <= MotorCurrentStep; else PosDetB0OffStep <= MotorCurrentStep; end if; end if;
+				if (LastPosSenseBit1B /= PosSenseBit1B) then LastPosSenseBit1B <= PosSenseBit1B; if (PosSenseBit1B = '1') then PosDetB1OnStep <= MotorCurrentStep; else PosDetB1OffStep <= MotorCurrentStep; end if; end if;
+				if (LastPosSenseBit2B /= PosSenseBit2B) then LastPosSenseBit2B <= PosSenseBit2B; if (PosSenseBit2B = '1') then PosDetB2OnStep <= MotorCurrentStep; else PosDetB2OffStep <= MotorCurrentStep; end if; end if;
 				
-				if (LastPosSenseB /= PosSenseB) then
+				PosSenseA <= PosSenseBit2A & PosSenseBit1A & PosSenseBit0A & PosSenseHomeA;
+				PosSenseB <= PosSenseBit2B & PosSenseBit1B & PosSenseBit0B & PosSenseHomeB;
 				
-					LastPosSenseB <= PosSenseB;
+				--Not sure if these will be useful due to hysteresis/jitter, but we'll see, light & capacitor may smooth things out
+				
+				if (ResetSteps = '1') then
+				
+					PosDet0AOnStep <= x"0000"; 
+					PosDet1AOnStep <= x"0000";
+					PosDet2AOnStep <= x"0000";
+					PosDet3AOnStep <= x"0000";
+					PosDet4AOnStep <= x"0000";
+					PosDet5AOnStep <= x"0000";
+					PosDet6AOnStep <= x"0000";
+					PosDet7AOnStep <= x"0000";
+
+					PosDet0AOffStep <= x"0000";
+					PosDet1AOffStep <= x"0000";
+					PosDet2AOffStep <= x"0000";
+					PosDet3AOffStep <= x"0000";
+					PosDet4AOffStep <= x"0000";
+					PosDet5AOffStep <= x"0000";
+					PosDet6AOffStep <= x"0000";
+					PosDet7AOffStep <= x"0000";
+
+					PosDet0BOnStep <= x"0000";
+					PosDet1BOnStep <= x"0000";
+					PosDet2BOnStep <= x"0000";
+					PosDet3BOnStep <= x"0000";
+					PosDet4BOnStep <= x"0000";
+					PosDet5BOnStep <= x"0000";
+					PosDet6BOnStep <= x"0000";
+					PosDet7BOnStep <= x"0000";
+
+					PosDet0BOffStep <= x"0000";
+					PosDet1BOffStep <= x"0000";
+					PosDet2BOffStep <= x"0000";
+					PosDet3BOffStep <= x"0000";
+					PosDet4BOffStep <= x"0000";
+					PosDet5BOffStep <= x"0000";
+					PosDet6BOffStep <= x"0000";
+					PosDet7BOffStep <= x"0000";
+				
+				else
+				
+					if (LastPosSenseA /= PosSenseA) then
 					
-					case PosSenseB is
+						LastPosSenseA <= PosSenseA;
 						
-						when "0001" => PosDet0BOnStep <= MotorCurrentStep;
-						when "0010" => PosDet1BOnStep <= MotorCurrentStep;
-						when "0100" => PosDet2BOnStep <= MotorCurrentStep;
-						when "0110" => PosDet3BOnStep <= MotorCurrentStep;
-						when "1000" => PosDet4BOnStep <= MotorCurrentStep;
-						when "1010" => PosDet5BOnStep <= MotorCurrentStep;
-						when "1100" => PosDet6BOnStep <= MotorCurrentStep;
-						when "1110" => PosDet7BOnStep <= MotorCurrentStep;
-						when others =>
-                        
-					end case;
+						case PosSenseA is
+							
+							when "0001" => PosDet0AOnStep <= MotorCurrentStep; 
+							when "0010" => PosDet1AOnStep <= MotorCurrentStep;
+							when "0100" => PosDet2AOnStep <= MotorCurrentStep;
+							when "0110" => PosDet3AOnStep <= MotorCurrentStep;
+							when "1000" => PosDet4AOnStep <= MotorCurrentStep;
+							when "1010" => PosDet5AOnStep <= MotorCurrentStep;
+							when "1100" => PosDet6AOnStep <= MotorCurrentStep;
+							when "1110" => PosDet7AOnStep <= MotorCurrentStep;
+							when others =>
+							
+						end case;
+						
+						case LastPosSenseA is
+							
+							when "0001" => PosDet0AOffStep <= MotorCurrentStep;
+							when "0010" => PosDet1AOffStep <= MotorCurrentStep;
+							when "0100" => PosDet2AOffStep <= MotorCurrentStep;
+							when "0110" => PosDet3AOffStep <= MotorCurrentStep;
+							when "1000" => PosDet4AOffStep <= MotorCurrentStep;
+							when "1010" => PosDet5AOffStep <= MotorCurrentStep;
+							when "1100" => PosDet6AOffStep <= MotorCurrentStep;
+							when "1110" => PosDet7AOffStep <= MotorCurrentStep;
+							when others =>
+							
+						end case;
+						
+					end if;
 					
-					case LastPosSenseB is
+					if (LastPosSenseB /= PosSenseB) then
+					
+						LastPosSenseB <= PosSenseB;
 						
-						when "0001" => PosDet0BOffStep <= MotorCurrentStep;
-						when "0010" => PosDet1BOffStep <= MotorCurrentStep;
-						when "0100" => PosDet2BOffStep <= MotorCurrentStep;
-						when "0110" => PosDet3BOffStep <= MotorCurrentStep;
-						when "1000" => PosDet4BOffStep <= MotorCurrentStep;
-						when "1010" => PosDet5BOffStep <= MotorCurrentStep;
-						when "1100" => PosDet6BOffStep <= MotorCurrentStep;
-						when "1110" => PosDet7BOffStep <= MotorCurrentStep;
-                        when others =>
+						case PosSenseB is
+							
+							when "0001" => PosDet0BOnStep <= MotorCurrentStep;
+							when "0010" => PosDet1BOnStep <= MotorCurrentStep;
+							when "0100" => PosDet2BOnStep <= MotorCurrentStep;
+							when "0110" => PosDet3BOnStep <= MotorCurrentStep;
+							when "1000" => PosDet4BOnStep <= MotorCurrentStep;
+							when "1010" => PosDet5BOnStep <= MotorCurrentStep;
+							when "1100" => PosDet6BOnStep <= MotorCurrentStep;
+							when "1110" => PosDet7BOnStep <= MotorCurrentStep;
+							when others =>
+							
+						end case;
 						
-					end case;
+						case LastPosSenseB is
+							
+							when "0001" => PosDet0BOffStep <= MotorCurrentStep;
+							when "0010" => PosDet1BOffStep <= MotorCurrentStep;
+							when "0100" => PosDet2BOffStep <= MotorCurrentStep;
+							when "0110" => PosDet3BOffStep <= MotorCurrentStep;
+							when "1000" => PosDet4BOffStep <= MotorCurrentStep;
+							when "1010" => PosDet5BOffStep <= MotorCurrentStep;
+							when "1100" => PosDet6BOffStep <= MotorCurrentStep;
+							when "1110" => PosDet7BOffStep <= MotorCurrentStep;
+							when others =>
+							
+						end case;
+						
+					end if;
 					
 				end if;
 				

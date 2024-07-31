@@ -35,7 +35,7 @@
 #include <unordered_map>
 using namespace std;
 
-#include "uart/CGraphPacket.hpp"
+#include "cgraph/CGraphPacket.hpp"
 
 #include "uart/BinaryUart.hpp"
 
