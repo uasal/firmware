@@ -18,7 +18,6 @@
 
 const uint32_t CGraphDMCIHardwareInterface::DacFullScale = 0x007FFFFFUL; //2^20 - 1 (do these need to be initialized in constructor even though it's static can't remember?)
 const double CGraphDMCIHardwareInterface::DacDriverFullScaleOutputVoltage = 150.0; //Volts, don't get your fingers near this thing!
-const double CGraphDMCIHardwareInterface::PZTDriverFullScaleOutputTravel = 0.00001; //Meters; note our granularity is this / DacFullScale which is approx 10pm
 
 const off_t CGraphDMCIProtoHardwareMmapper::FpgaMmapAdress = 0x08000000UL;
 const off_t CGraphDMCIProtoHardwareMmapper::FpgaMmapMask = 0x00000FFFUL;

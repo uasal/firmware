@@ -180,7 +180,10 @@ static const uint16_t CGraphPayloadTypeFSMAdcsFloatingPoint = 0x2005U;
 static const uint16_t CGraphPayloadTypeFSMTelemetryADC = 0x2006U;
 
 //--------------------------------------------------------------------- DM Deformable Mirror 0x3000 packets -------------------------------------------------------------
-//Better ask SteveK for some of these?
+static const uint16_t CGraphPayloadTypeDMDac = 0x3002U;
+static const uint16_t CGraphPayloadTypeDMTelemetry = 0x3004U;
+static const uint16_t CGraphPayloadTypeDMHVSwitch = 0x3007U;
+static const uint16_t CGraphPayloadTypeDMDacConfig = 0x3009U;
 
 //--------------------------------------------------------------------- FW Filterwheel 0x4000 packets -------------------------------------------------------------
 
