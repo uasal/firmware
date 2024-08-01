@@ -238,6 +238,7 @@ struct CGraphFWHardwareInterface
     uint64_t reserved4;
     uint32_t UartFifo3; //rw; send or read bytes from uart(s)
 	CGraphFWUartStatusRegister UartStatusRegister3; //ro; what state are the uart(s) in?
+	uint64_t reserved5;
 	CGraphFWHardwareControlRegister ControlRegister; //rw; see definition above
     uint32_t reserved7;
     int32_t PPSRtcPhaseComparator; //ro;
@@ -278,6 +279,9 @@ struct CGraphFWHardwareInterface
 	CGraphFWPositionStepRegister PosDet7B; //ro; the step at which this signal toggled
 	uint32_t UartFifoUsb; //rw; send or read bytes from uart(s)
 	CGraphFWUartStatusRegister UartStatusRegisterUsb; //ro; what state are the uart(s) in?
+	uint32_t MonitorAdcSpiTransactionRegister;
+	uint32_t UartFifoGps; //rw; send or read bytes from uart(s)
+	CGraphFWUartStatusRegister UartStatusRegisterGps; //ro; what state are the uart(s) in?
 	
     //~ static const uint32_t DacFullScale; //2^20 - 1
     //~ static const double DacDriverFullScaleOutputVoltage; //150 Volts, don't get your fingers near this thing!

@@ -46,8 +46,8 @@ const Cmd AsciiCmds[] =
     ),
 	
     Cmd (
-        "H",
-        "H: Help with commands.",
+        "HELP",
+        "Help: Help with commands.",
         HelpCommand
     ),
 
@@ -58,26 +58,26 @@ const Cmd AsciiCmds[] =
     ),
 	
     Cmd(
-        "FWSTATUS",
-        "\"FWStatus <A>,<B>,<C>\": Sets/queries the FW D/A's (hexadecimal lsb units).",
+        "HWCTRLSTAT",
+        "\"HWCtrlStat\":Queries the H/W Control & Status values.",
         HardwareControlStatusCommand
     ),
 	
 	Cmd(
-        "FWSTATUS",
-        "\"FWStatus <A>,<B>,<C>\": Sets/queries the FW D/A's (hexadecimal lsb units).",
+        "MOTORSTATUS",
+        "\"MotorStatus\": Queries the Motor Status values.",
         MotorControlStatusCommand
     ),
 
     Cmd(
-        "FWSTATUS",
-        "\"FWStatus <A>,<B>,<C>\": Sets/queries the FW D/A's (hexadecimal lsb units).",
+        "POSSENSE",
+        "\"PosSense\": Queries Position Sense values.",
         PositionSenseControlStatusCommand
     ),
 
 	Cmd(
         "SENSORSTEPS",
-        "\"SensorSteps <A>,<B>,<C>\": Sets/queries the FW D/A's (decimal voltage units).",
+        "\"SensorSteps\": Queries the Sensor Step values.",
         PositionStepsCommand
     ),
 	

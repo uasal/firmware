@@ -122,7 +122,8 @@ int main(int argc, char *argv[])
 	//~ UartParser.Debug(true);
 	UartParser.Debug(false);
 	
-	LocalPortPinout.Echo(true);
+	//~ LocalPortPinout.Echo(true);
+	LocalPortPinout.Echo(false);
 	
 	while(true)
 	{

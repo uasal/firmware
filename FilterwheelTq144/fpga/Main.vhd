@@ -570,12 +570,12 @@ architecture architecture_Main of Main is
 							LedR : out std_logic;
 							LedG : out std_logic;
 							LedB : out std_logic;
-							Uart0OE_i : out std_logic;
-							Uart1OE_i : out std_logic;
-							Uart2OE_i : out std_logic;
-							Uart3OE_i : out std_logic;				
-							Ux1SelJmp_i : out std_logic;
-							Ux2SelJmp_i : out std_logic;
+							Uart0OE : out std_logic;
+							Uart1OE : out std_logic;
+							Uart2OE : out std_logic;
+							Uart3OE : out std_logic;				
+							Ux1SelJmp : out std_logic;
+							Ux2SelJmp : out std_logic;
 							
 							--Motor
 							MotorEnable : out std_logic;
@@ -930,16 +930,16 @@ architecture architecture_Main of Main is
 			signal RamBusCE_i : std_logic;		
 			signal RamBusWrnRd_i : std_logic;		
 			signal RamBusAddress_i : std_logic_vector(9 downto 0);		
-			signal RamDataOut : std_logic_vector(15 downto 0);		
-			signal RamDataIn : std_logic_vector(15 downto 0);		
+			signal RamDataOut : std_logic_vector(31 downto 0);		
+			signal RamDataIn : std_logic_vector(31 downto 0);		
 			signal RamBusAck_i : std_logic;					
 			
 		-- Register space
 		
-			signal DataToWrite : std_logic_vector(15 downto 0);
+			signal DataToWrite : std_logic_vector(31 downto 0);
 			signal WriteReq : std_logic;
 			signal WriteAck : std_logic;
-			signal DataFromRead : std_logic_vector(15 downto 0);
+			signal DataFromRead : std_logic_vector(31 downto 0);
 			signal ReadReq : std_logic;
 			signal ReadAck : std_logic;
 
@@ -1104,10 +1104,10 @@ architecture architecture_Main of Main is
 			signal ClkDacWrite : std_logic_vector(15 downto 0) := x"0000";
 			signal WriteClkDac : std_logic;
 			signal ClkDacReadback : std_logic_vector(15 downto 0);
-			signal nCsClk_i : std_logic;
-			signal SckClk_i : std_logic;
-			signal MosiClk_i : std_logic;
-			signal MisoClk_i : std_logic;
+			signal nCsXO_i : std_logic;
+			signal SckXO_i : std_logic;
+			signal MosiXO_i : std_logic;
+			signal MisoXO_i : std_logic;
 			
 		-- "The FUN Shit"
 		
@@ -1331,10 +1331,10 @@ begin
 		LedR => open,
 		LedG => open,
 		LedB => open,
-		Uart0OE <= OE0,
-		Uart1OE <= OE1,
-		Uart2OE <= OE2,
-		Uart3OE <= OE3,
+		Uart0OE => OE0,
+		Uart1OE => OE1,
+		Uart2OE => OE2,
+		Uart3OE => OE3,
 		--~ Ux1SelJmp => Ux1SelJmp,
 		--~ Ux2SelJmp => Ux2SelJmp,
 		Ux1SelJmp => open,
@@ -2391,7 +2391,7 @@ begin
 		--~ Milliseconds => Milliseconds--,
 	--~ );
 	
-	IBufDacMiso : IBufP2Ports port map(clk => MasterClk, I => MisoClk, O => MisoClk_i);
+	IBufDacMiso : IBufP2Ports port map(clk => MasterClk, I => '1', O => MisoXO_i);
 
 	ClkDac_i : SpiDacPorts
 	generic map 
@@ -2403,18 +2403,18 @@ begin
 	(
 		clk => MasterClk,
 		rst => MasterReset,
-		nCs => nCsClk_i,
-		Sck => SckClk_i,
-		Mosi => MosiClk_i,
-		Miso => MisoClk_i,
+		nCs => nCsXO_i,
+		Sck => SckXO_i,
+		Mosi => MosiXO_i,
+		Miso => MisoXO_i,
 		DacWriteOut => ClkDacWrite,
 		WriteDac => WriteClkDac,
 		DacReadback => ClkDacReadback
 	);
 
-	nCsClk <= nCsClk_i;
-	SckClk <= SckClk_i;
-	MosiClk <= MosiClk_i;
+	nCsXO <= nCsXO_i;
+	SckXO <= SckXO_i;
+	MosiXO <= MosiXO_i;
 	
 	----------------------------- Power Supplies ----------------------------------
 	

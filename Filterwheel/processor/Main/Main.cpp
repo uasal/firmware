@@ -26,6 +26,8 @@ extern CGraphFWHardwareInterface* FW;
 
 #include "uart/BinaryUart.hpp"
 
+#include "uart/linux_pinout_circular_uart.hpp"
+
 #include "FlightComms.hpp"
 
 FPGABinaryUartCallbacks PacketCallbacks;
@@ -36,11 +38,16 @@ FW_pinout_FPGAUart2 FPGAUartPinout2;
 FW_pinout_FPGAUart3 FPGAUartPinout3;
 FW_pinout_FPGAUartUsb FPGAUartPinoutUsb;
 
+linux_pinout_circular_uart<char, 16, 512> UsbUartAscii; //We handle incoming bytes one at a time, but the outgoing buffer needs to be big enough to hold a whole packet or printf string...
+linux_pinout_circular_uart<char, 16, 256> UsbUartBinary;
+
 //~ BinaryUart(struct IUart& pinout, struct IPacket& packet, const Cmd* cmds, const size_t numcmds, struct BinaryUartCallbacks& callbacks, const bool verbose = true, const uint64_t serialnum = InvalidSerialNumber);
 BinaryUart FpgaUartParser3(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 BinaryUart FpgaUartParser2(FPGAUartPinout2, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 BinaryUart FpgaUartParser1(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 //~ BinaryUart FpgaUartParser0(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
+//~ BinaryUart FpgaUartParserUsb(FPGAUartPinoutUsb, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
+BinaryUart FpgaUartParserUsb(UsbUartBinary, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 
 #include "uart/TerminalUart.hpp"
 char prompt[] = "\n\nESC-FW> ";
@@ -49,7 +56,8 @@ const char* TerminalUartPrompt()
     return(prompt);
 }
 //Handle incoming ascii cmds & binary packets from the usb
-TerminalUart<16, 4096> DbgUartUsb(FPGAUartPinoutUsb, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
+//~ TerminalUart<16, 4096> DbgUartUsb(FPGAUartPinoutUsb, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
+TerminalUart<16, 4096> DbgUartUsb(UsbUartAscii, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
 TerminalUart<16, 4096> DbgUart485_0(FPGAUartPinout0, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
 
 
@@ -103,22 +111,37 @@ extern "C"
 bool Process()
 {
     bool Bored = true;
+	
+	if (FPGAUartPinoutUsb.dataready())
+	{
+		Bored = false;
+		
+		char c = FPGAUartPinoutUsb.getcqq();
+		
+		UsbUartAscii.remoteputcqq(c);
+		UsbUartBinary.remoteputcqq(c);
+	}
+	if (UsbUartAscii.remotedataready()) { FPGAUartPinoutUsb.putcqq(UsbUartAscii.remotegetcqq()); }
+	if (UsbUartBinary.remotedataready()) { FPGAUartPinoutUsb.putcqq(UsbUartBinary.remotegetcqq()); }
 
-    if (DbgUartUsb.Process())
-    {
-        Bored = false;
-    }
-    
-    if (DbgUart485_0.Process())
-    {
-        Bored = false;
-    }
-
+    if (FpgaUartParser3.Process()) { Bored = false; }    
+	if (FpgaUartParser2.Process()) { Bored = false; }    
+	if (FpgaUartParser1.Process()) { Bored = false; }    
+	//~ if (FpgaUartParser0.Process()) { Bored = false; }    
+	if (FpgaUartParserUsb.Process()) { Bored = false; }    
+	if (DbgUartUsb.Process()) { Bored = false; }    
+    if (DbgUart485_0.Process()) { Bored = false; }
+	
     return(Bored);
 }
 
 void ProcessAllUarts()
 {
+	FpgaUartParser3.Process();
+	FpgaUartParser2.Process();
+	FpgaUartParser1.Process();
+	//~ FpgaUartParser0.Process();
+	FpgaUartParserUsb.Process();
 	DbgUartUsb.Process();
 	DbgUart485_0.Process();
 }
@@ -306,11 +329,19 @@ int main(int argc, char *argv[])
             //~ delayms(100);
         //~ }
 		//delayms(1);
-        //uint16_t j = offsetof(CGraphFWHardwareInterface, UartFifoUsb);
-        //uint16_t k = offsetof(CGraphFWHardwareInterface, UartStatusRegisterUsb);
+        //~ uint16_t j = offsetof(CGraphFWHardwareInterface, UartFifoUsb);
+        //~ uint16_t k = offsetof(CGraphFWHardwareInterface, UartStatusRegisterUsb);
+		//~ uint16_t k1 = offsetof(CGraphFWHardwareInterface, PosDetHomeA);		
+		//~ uint16_t k2 = offsetof(CGraphFWHardwareInterface, PosDet7B);		
+		//~ uint16_t k3 = offsetof(CGraphFWHardwareInterface, BaudDividers);		
+		//~ uint16_t k4 = offsetof(CGraphFWHardwareInterface, UartFifo2);		
+		//~ uint16_t k5 = offsetof(CGraphFWHardwareInterface, ControlRegister);		
+		//~ uint16_t k6 = offsetof(CGraphFWHardwareInterface, PositionSensors);		
+		//~ uint16_t k7 = offsetof(CGraphFWHardwareInterface, UartFifo3);		
 
 		//~ i++;
-		//~ FW->MotorControlStatus.SeekStep = i;
+		//~ FW->MotorControlStatus.SeekStep = j;
+		//~ FW->MotorControlStatus.SeekStep = k;
 		//FPGAUartPinout0.putcqq(k);
 		//~ FPGAUartPinoutUsb.putcqq(i);
         //~ HW_set_32bit_reg(FILTERWHEEL_SB_0, j); // send all 32 bits and FPGA bus will truncate it

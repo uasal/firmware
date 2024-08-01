@@ -49,12 +49,12 @@ entity RegisterSpacePorts is
 		LedR : out std_logic;
 		LedG : out std_logic;
 		LedB : out std_logic;
-		Uart0OE_i : out std_logic;
-		Uart1OE_i : out std_logic;
-		Uart2OE_i : out std_logic;
-		Uart3OE_i : out std_logic;				
-		Ux1SelJmp_i : out std_logic;
-		Ux2SelJmp_i : out std_logic;
+		Uart0OE : out std_logic;
+		Uart1OE : out std_logic;
+		Uart2OE : out std_logic;
+		Uart3OE : out std_logic;				
+		Ux1SelJmp : out std_logic;
+		Ux2SelJmp : out std_logic;
 				
 		--Motor
 		MotorEnable : out std_logic;
@@ -283,33 +283,33 @@ architecture RegisterSpace of RegisterSpacePorts is
 	constant Uart0FifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(136, MAX_ADDRESS_BITS));
 	constant UartClockDividersAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(140, MAX_ADDRESS_BITS));
 	
-	cstant PosDetHomeAStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(148, MAX_ADDRESS_BITS));
-	cstant PosDetA0StepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(152, MAX_ADDRESS_BITS));
-	cstant PosDetA1StepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(156, MAX_ADDRESS_BITS));;
-	cstant PosDetA2StepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(160, MAX_ADDRESS_BITS));;
+	constant PosDetHomeAStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(148, MAX_ADDRESS_BITS));
+	constant PosDetA0StepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(152, MAX_ADDRESS_BITS));
+	constant PosDetA1StepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(156, MAX_ADDRESS_BITS));
+	constant PosDetA2StepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(160, MAX_ADDRESS_BITS));
 	
-	cstant PosDetHomeBStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(164, MAX_ADDRESS_BITSS));
-	cstant PosDetB0StepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(168, MAX_ADDRESS_BITS));;
-	cstant PosDetB1StepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(172, MAX_ADDRESS_BITS));;
-	cstant PosDetB2StepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(176, MAX_ADDRESS_BITS));;
+	constant PosDetHomeBStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(164, MAX_ADDRESS_BITS));
+	constant PosDetB0StepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(168, MAX_ADDRESS_BITS));
+	constant PosDetB1StepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(172, MAX_ADDRESS_BITS));
+	constant PosDetB2StepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(176, MAX_ADDRESS_BITS));
 	
-	cstant PosDet0AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(180, MAX_ADDRESS_BITS));;
-	cstant PosDet1AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(184, MAX_ADDRESS_BITS));;
-	cstant PosDet2AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(188, MAX_ADDRESS_BITS));;
-	cstant PosDet3AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(192, MAX_ADDRESS_BITS));;
-	cstant PosDet4AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(196, MAX_ADDRESS_BITS));;
-	cstant PosDet5AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(200, MAX_ADDRESS_BITS));;
-	cstant PosDet6AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(204, MAX_ADDRESS_BITS));;
-	cstant PosDet7AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(208, MAX_ADDRESS_BITS));;
+	constant PosDet0AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(180, MAX_ADDRESS_BITS));
+	constant PosDet1AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(184, MAX_ADDRESS_BITS));
+	constant PosDet2AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(188, MAX_ADDRESS_BITS));
+	constant PosDet3AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(192, MAX_ADDRESS_BITS));
+	constant PosDet4AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(196, MAX_ADDRESS_BITS));
+	constant PosDet5AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(200, MAX_ADDRESS_BITS));
+	constant PosDet6AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(204, MAX_ADDRESS_BITS));
+	constant PosDet7AStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(208, MAX_ADDRESS_BITS));
 	
-	cstant PosDet0BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(212, MAX_ADDRESS_BITS));;
-	cstant PosDet1BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(216, MAX_ADDRESS_BITS));;
-	cstant PosDet2BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(220, MAX_ADDRESS_BITS));
-	cstant PosDet3BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(224, MAX_ADDRESS_BITS));
-	cstant PosDet4BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(228, MAX_ADDRESS_BITS));
-	cstant PosDet5BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(232, MAX_ADDRESS_BITS));
-	cstant PosDet6BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(236, MAX_ADDRESS_BITS));
-	cstant PosDet7BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(240, MAX_ADDRESS_BITS));
+	constant PosDet0BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(212, MAX_ADDRESS_BITS));
+	constant PosDet1BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(216, MAX_ADDRESS_BITS));
+	constant PosDet2BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(220, MAX_ADDRESS_BITS));
+	constant PosDet3BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(224, MAX_ADDRESS_BITS));
+	constant PosDet4BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(228, MAX_ADDRESS_BITS));
+	constant PosDet5BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(232, MAX_ADDRESS_BITS));
+	constant PosDet6BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(236, MAX_ADDRESS_BITS));
+	constant PosDet7BStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(240, MAX_ADDRESS_BITS));
 	
 	constant UartUsbFifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(244, MAX_ADDRESS_BITS));
 	constant UartUsbFifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(248, MAX_ADDRESS_BITS));
@@ -503,7 +503,7 @@ begin
 								DataOut(7) <= '0';
 								DataOut(17 downto 8) <= Uart0RxFifoCount;
 								DataOut(27 downto 18) <= Uart0RxFifoCount;
-								DataOut(31 downto 28) <= x"0000";
+								DataOut(31 downto 28) <= "0000";
 								
 						
 							
@@ -531,7 +531,7 @@ begin
 								DataOut(7) <= '0';
 								DataOut(17 downto 8) <= Uart1RxFifoCount;
 								DataOut(27 downto 18) <= Uart1RxFifoCount;
-								DataOut(31 downto 28) <= x"0000";
+								DataOut(31 downto 28) <= "0000";
 							
 							
 							
@@ -559,7 +559,7 @@ begin
 								DataOut(7) <= '0';
 								DataOut(17 downto 8) <= Uart2RxFifoCount;
 								DataOut(27 downto 18) <= Uart2RxFifoCount;
-								DataOut(31 downto 28) <= x"0000";
+								DataOut(31 downto 28) <= "0000";
 							
 							
 							
@@ -587,7 +587,7 @@ begin
 								DataOut(7) <= '0';
 								DataOut(17 downto 8) <= Uart3RxFifoCount;
 								DataOut(27 downto 18) <= Uart3RxFifoCount;
-								DataOut(31 downto 28) <= x"0000";
+								DataOut(31 downto 28) <= "0000";
 								
 								
 								
@@ -615,7 +615,7 @@ begin
 								DataOut(7) <= '0';
 								DataOut(17 downto 8) <= UartUsbRxFifoCount;
 								DataOut(27 downto 18) <= UartUsbRxFifoCount;
-								DataOut(31 downto 28) <= x"0000";
+								DataOut(31 downto 28) <= "0000";
 
 
 
@@ -643,7 +643,7 @@ begin
 								DataOut(7) <= '0';
 								DataOut(17 downto 8) <= UartGpsRxFifoCount;
 								DataOut(27 downto 18) <= UartGpsRxFifoCount;
-								DataOut(31 downto 28) <= x"0000";
+								DataOut(31 downto 28) <= "0000";
 								
 								
 								
@@ -679,7 +679,7 @@ begin
 							--ClockSteeringDacSetpointAddr
 							when ClockSteeringDacSetpointAddr =>
 
-								DataOut <= ClkDacReadback;
+								DataOut(15 downto 0) <= ClkDacReadback;
 								DataOut(31 downto 16) <= x"0000";
 								
 								
@@ -721,7 +721,7 @@ begin
 								DataOut(21) <= Ux2SelJmp_i;
 								DataOut(22) <= PPSDetected;
 								
-								DataOut(32 downto 23) <= "0000000000";
+								DataOut(31 downto 23) <= "000000000";
 								
 
 							--PosSensAddr
@@ -741,33 +741,33 @@ begin
 								
 							
 							--The infinity of step latches
-							when PosDetHomeAStepAddr => DataOut(15 downto 0) <= PosDetHomeAOnStep; DataOut(31 downto 16) <= PosDetHomeAOffStep
-							when PosDetA0StepAddr => DataOut(15 downto 0) <= PosDetA0OnStep; DataOut(31 downto 16) <= PosDetA0OffStep
-							when PosDetA1StepAddr => DataOut(15 downto 0) <= PosDetA1OnStep; DataOut(31 downto 16) <= PosDetA1OffStep
-							when PosDetA2StepAddr => DataOut(15 downto 0) <= PosDetA2OnStep; DataOut(31 downto 16) <= PosDetA2OffStep
+							when PosDetHomeAStepAddr => DataOut(15 downto 0) <= PosDetHomeAOnStep; DataOut(31 downto 16) <= PosDetHomeAOffStep;
+							when PosDetA0StepAddr => DataOut(15 downto 0) <= PosDetA0OnStep; DataOut(31 downto 16) <= PosDetA0OffStep;
+							when PosDetA1StepAddr => DataOut(15 downto 0) <= PosDetA1OnStep; DataOut(31 downto 16) <= PosDetA1OffStep;
+							when PosDetA2StepAddr => DataOut(15 downto 0) <= PosDetA2OnStep; DataOut(31 downto 16) <= PosDetA2OffStep;
 							
-							when PosDetHomeBStepAddr => DataOut(15 downto 0) <= PosDetHomeBOnStep; DataOut(31 downto 16) <= PosDetHomeBOffStep
-							when PosDetB0StepAddr => DataOut(15 downto 0) <= PosDetB0OnStep; DataOut(31 downto 16) <= PosDetB0OffStep
-							when PosDetB1StepAddr => DataOut(15 downto 0) <= PosDetB1OnStep; DataOut(31 downto 16) <= PosDetB1OffStep
-							when PosDetB2StepAddr => DataOut(15 downto 0) <= PosDetB2OnStep; DataOut(31 downto 16) <= PosDetB2OffStep
+							when PosDetHomeBStepAddr => DataOut(15 downto 0) <= PosDetHomeBOnStep; DataOut(31 downto 16) <= PosDetHomeBOffStep;
+							when PosDetB0StepAddr => DataOut(15 downto 0) <= PosDetB0OnStep; DataOut(31 downto 16) <= PosDetB0OffStep;
+							when PosDetB1StepAddr => DataOut(15 downto 0) <= PosDetB1OnStep; DataOut(31 downto 16) <= PosDetB1OffStep;
+							when PosDetB2StepAddr => DataOut(15 downto 0) <= PosDetB2OnStep; DataOut(31 downto 16) <= PosDetB2OffStep;
 							
-							when PosDet0AStepAddr => DataOut(15 downto 0) <= PosDet0AOnStep; DataOut(31 downto 16) <= PosDet0AOffStep
-							when PosDet1AStepAddr => DataOut(15 downto 0) <= PosDet1AOnStep; DataOut(31 downto 16) <= PosDet1AOffStep
-							when PosDet2AStepAddr => DataOut(15 downto 0) <= PosDet2AOnStep; DataOut(31 downto 16) <= PosDet2AOffStep
-							when PosDet3AStepAddr => DataOut(15 downto 0) <= PosDet3AOnStep; DataOut(31 downto 16) <= PosDet3AOffStep
-							when PosDet4AStepAddr => DataOut(15 downto 0) <= PosDet4AOnStep; DataOut(31 downto 16) <= PosDet4AOffStep
-							when PosDet5AStepAddr => DataOut(15 downto 0) <= PosDet5AOnStep; DataOut(31 downto 16) <= PosDet5AOffStep
-							when PosDet6AStepAddr => DataOut(15 downto 0) <= PosDet6AOnStep; DataOut(31 downto 16) <= PosDet6AOffStep
-							when PosDet7AStepAddr => DataOut(15 downto 0) <= PosDet7AOnStep; DataOut(31 downto 16) <= PosDet7AOffStep
+							when PosDet0AStepAddr => DataOut(15 downto 0) <= PosDet0AOnStep; DataOut(31 downto 16) <= PosDet0AOffStep;
+							when PosDet1AStepAddr => DataOut(15 downto 0) <= PosDet1AOnStep; DataOut(31 downto 16) <= PosDet1AOffStep;
+							when PosDet2AStepAddr => DataOut(15 downto 0) <= PosDet2AOnStep; DataOut(31 downto 16) <= PosDet2AOffStep;
+							when PosDet3AStepAddr => DataOut(15 downto 0) <= PosDet3AOnStep; DataOut(31 downto 16) <= PosDet3AOffStep;
+							when PosDet4AStepAddr => DataOut(15 downto 0) <= PosDet4AOnStep; DataOut(31 downto 16) <= PosDet4AOffStep;
+							when PosDet5AStepAddr => DataOut(15 downto 0) <= PosDet5AOnStep; DataOut(31 downto 16) <= PosDet5AOffStep;
+							when PosDet6AStepAddr => DataOut(15 downto 0) <= PosDet6AOnStep; DataOut(31 downto 16) <= PosDet6AOffStep;
+							when PosDet7AStepAddr => DataOut(15 downto 0) <= PosDet7AOnStep; DataOut(31 downto 16) <= PosDet7AOffStep;
 							
-							when PosDet0BStepAddr => DataOut(15 downto 0) <= PosDet0BOnStep; DataOut(31 downto 16) <= PosDet0BOffStep
-							when PosDet1BStepAddr => DataOut(15 downto 0) <= PosDet1BOnStep; DataOut(31 downto 16) <= PosDet1BOffStep
-							when PosDet2BStepAddr => DataOut(15 downto 0) <= PosDet2BOnStep; DataOut(31 downto 16) <= PosDet2BOffStep
-							when PosDet3BStepAddr => DataOut(15 downto 0) <= PosDet3BOnStep; DataOut(31 downto 16) <= PosDet3BOffStep
-							when PosDet4BStepAddr => DataOut(15 downto 0) <= PosDet4BOnStep; DataOut(31 downto 16) <= PosDet4BOffStep
-							when PosDet5BStepAddr => DataOut(15 downto 0) <= PosDet5BOnStep; DataOut(31 downto 16) <= PosDet5BOffStep
-							when PosDet6BStepAddr => DataOut(15 downto 0) <= PosDet6BOnStep; DataOut(31 downto 16) <= PosDet6BOffStep
-							when PosDet7BStepAddr => DataOut(15 downto 0) <= PosDet7BOnStep; DataOut(31 downto 16) <= PosDet7BOffStep
+							when PosDet0BStepAddr => DataOut(15 downto 0) <= PosDet0BOnStep; DataOut(31 downto 16) <= PosDet0BOffStep;
+							when PosDet1BStepAddr => DataOut(15 downto 0) <= PosDet1BOnStep; DataOut(31 downto 16) <= PosDet1BOffStep;
+							when PosDet2BStepAddr => DataOut(15 downto 0) <= PosDet2BOnStep; DataOut(31 downto 16) <= PosDet2BOffStep;
+							when PosDet3BStepAddr => DataOut(15 downto 0) <= PosDet3BOnStep; DataOut(31 downto 16) <= PosDet3BOffStep;
+							when PosDet4BStepAddr => DataOut(15 downto 0) <= PosDet4BOnStep; DataOut(31 downto 16) <= PosDet4BOffStep;
+							when PosDet5BStepAddr => DataOut(15 downto 0) <= PosDet5BOnStep; DataOut(31 downto 16) <= PosDet5BOffStep;
+							when PosDet6BStepAddr => DataOut(15 downto 0) <= PosDet6BOnStep; DataOut(31 downto 16) <= PosDet6BOffStep;
+							when PosDet7BStepAddr => DataOut(15 downto 0) <= PosDet7BOnStep; DataOut(31 downto 16) <= PosDet7BOffStep;
 							
 							when others =>
 
@@ -910,7 +910,7 @@ begin
 								PPSCountReset <= '1';
 								WriteClkDac <= '1';
 								
-								ClkDacWrite <= DataIn;
+								ClkDacWrite <= DataIn(15 downto 0);
 								
 								
 								
@@ -918,7 +918,7 @@ begin
 							--MotorControlStatusAddr
 							when MotorControlStatusAddr =>
 
-								MotorSeekStep_i <= DataIn;
+								MotorSeekStep_i <= DataIn(15 downto 0);
 								
 								
 							--ControlRegisterAddr
