@@ -61,12 +61,13 @@ int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_
     return(ParamsLen);
 }
 
+// These are what's returned from the Control Interface
 int8_t BinaryDacCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	if ( (NULL != Params) && (ParamsLen >= (sizeof(uint32_t))) )
+	if ( (NULL != Params) && (ParamsLen >= 4*(sizeof(uint32_t))) )
 	{
-		const uint32_t FilterSelect = *reinterpret_cast<const uint32_t*>(Params);
-		printf("\nBinaryDacCommand: FilterSelected(0=select inprogress): %lu\n", (unsigned long)FilterSelect);
+		const uint32_t DacParameters = *reinterpret_cast<const uint32_t*>(Params);
+		printf("\nBinaryDacCommand: Setting a mirror voltage: %lu\n", (unsigned long)DacParameters);
 	}
 	else
 	{
@@ -127,6 +128,7 @@ int8_t BinaryDacConfigCommand(const uint32_t Name, char const* Params, const siz
 	}
 	else
 	{
+          printf("\nI am not sending anything back right now.  Work in progress...");
 		printf("\nBinaryDacConfigCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (sizeof(uint32_t)));
 	}
     return(ParamsLen);
