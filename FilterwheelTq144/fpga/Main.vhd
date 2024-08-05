@@ -2436,7 +2436,7 @@ begin
 	ShootThruIxnaeOneShotAPlus : OneShotPorts
 	generic map (
 		CLOCK_FREQHZ => BoardMasterClockFreq,
-		DELAY_SECONDS => 0.050,
+		DELAY_SECONDS => 0.0010,
 		SHOT_RST_STATE => '0',
 		SHOT_PRETRIGGER_STATE => '0'--,
 	)
@@ -2448,7 +2448,7 @@ begin
 	ShootThruIxnaeOneShotAMinus : OneShotPorts
 	generic map (
 		CLOCK_FREQHZ => BoardMasterClockFreq,
-		DELAY_SECONDS => 0.050,
+		DELAY_SECONDS => 0.0010,
 		SHOT_RST_STATE => '0',
 		SHOT_PRETRIGGER_STATE => '0'--,
 	)
@@ -2460,7 +2460,7 @@ begin
 	ShootThruIxnaeOneShotBPlus : OneShotPorts
 	generic map (
 		CLOCK_FREQHZ => BoardMasterClockFreq,
-		DELAY_SECONDS => 0.050,
+		DELAY_SECONDS => 0.0010,
 		SHOT_RST_STATE => '0',
 		SHOT_PRETRIGGER_STATE => '0'--,
 	)
@@ -2472,7 +2472,7 @@ begin
 	ShootThruIxnaeOneShotBMinus : OneShotPorts
 	generic map (
 		CLOCK_FREQHZ => BoardMasterClockFreq,
-		DELAY_SECONDS => 0.050,
+		DELAY_SECONDS => 0.0010,
 		SHOT_RST_STATE => '0',
 		SHOT_PRETRIGGER_STATE => '0'--,
 	)
@@ -2485,7 +2485,7 @@ begin
 	StepperMotor : FourWireStepperMotorDriverPorts
 	generic map (
 		CLOCK_FREQHZ => BoardMasterClockFreq,
-		MOTOR_STEP_SECONDS => 0.100	--;
+		MOTOR_STEP_SECONDS => 0.0100	--;
 	)
 	port map (	
 	

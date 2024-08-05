@@ -56,8 +56,8 @@ const char* TerminalUartPrompt()
     return(prompt);
 }
 //Handle incoming ascii cmds & binary packets from the usb
-//~ TerminalUart<16, 4096> DbgUartUsb(FPGAUartPinoutUsb, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
-TerminalUart<16, 4096> DbgUartUsb(UsbUartAscii, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
+TerminalUart<16, 4096> DbgUartUsb(FPGAUartPinoutUsb, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
+//TerminalUart<16, 4096> DbgUartUsb(UsbUartAscii, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
 TerminalUart<16, 4096> DbgUart485_0(FPGAUartPinout0, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
 
 
@@ -112,17 +112,17 @@ bool Process()
 {
     bool Bored = true;
 	
-	if (FPGAUartPinoutUsb.dataready())
-	{
-		Bored = false;
+	//~ if (FPGAUartPinoutUsb.dataready())
+	//~ {
+		//~ Bored = false;
 		
-		char c = FPGAUartPinoutUsb.getcqq();
+		//~ char c = FPGAUartPinoutUsb.getcqq();
 		
-		UsbUartAscii.remoteputcqq(c);
-		UsbUartBinary.remoteputcqq(c);
-	}
-	if (UsbUartAscii.remotedataready()) { FPGAUartPinoutUsb.putcqq(UsbUartAscii.remotegetcqq()); }
-	if (UsbUartBinary.remotedataready()) { FPGAUartPinoutUsb.putcqq(UsbUartBinary.remotegetcqq()); }
+		//~ UsbUartAscii.remoteputcqq(c);
+		//~ UsbUartBinary.remoteputcqq(c);
+	//~ }
+	//~ if (UsbUartAscii.remotedataready()) { FPGAUartPinoutUsb.putcqq(UsbUartAscii.remotegetcqq()); }
+	//~ if (UsbUartBinary.remotedataready()) { FPGAUartPinoutUsb.putcqq(UsbUartBinary.remotegetcqq()); }
 
     if (FpgaUartParser3.Process()) { Bored = false; }    
 	if (FpgaUartParser2.Process()) { Bored = false; }    

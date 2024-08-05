@@ -68,6 +68,12 @@ architecture FourWireStepperMotorDriver of FourWireStepperMotorDriverPorts is
 	signal Direction : std_logic;
 	signal MotorStopped : std_logic;
 	signal MotorStep : std_logic;
+	signal InTransit : std_logic;
+	
+	signal MotorAPlus_i : std_logic;
+	signal MotorAMinus_i : std_logic;
+	signal MotorBPlus_i : std_logic;
+	signal MotorBMinus_i : std_logic;
 	
 	--Constants of the right length...
 	--~ constant DeltaSaturated : std_logic_vector(MAX_CLOCK_BITS_DELTA - 1 downto 0) := std_logic_vector(to_unsigned((2 ** (MAX_CLOCK_BITS_DELTA - 1)) - 1, MAX_CLOCK_BITS_DELTA));
@@ -94,13 +100,19 @@ begin
 		rst => rst,
 		Direction => Direction,
 		Step => MotorStep,
-		MotorAPlus => MotorAPlus,
-		MotorAMinus => MotorAMinus,
-		MotorBPlus => MotorBPlus,
-		MotorBMinus => MotorBMinus--,
+		MotorAPlus => MotorAPlus_i,
+		MotorAMinus => MotorAMinus_i,
+		MotorBPlus => MotorBPlus_i,
+		MotorBMinus => MotorBMinus_i--,
 	);	
 	
 	CurrentStep <= CurrentStep_i;
+	
+	--We really don't need static holding force in most use-cases, it wastes power and heats things up!
+	MotorAPlus <= MotorAPlus_i when (InTransit = '1') else '0';
+	MotorAMinus <= MotorAMinus_i when (InTransit = '1') else '0';
+	MotorBPlus <= MotorBPlus_i when (InTransit = '1') else '0';
+	MotorBMinus <= MotorBMinus_i when (InTransit = '1') else '0';
 	
 	-- Master clock drives most logic
 	process (clk, rst)
@@ -110,12 +122,15 @@ begin
 			CurrentStep_i <= x"0000";
 			Direction <= '0';
 			MotorStopped <= '1';
+			InTransit <= '0';
 			
 		else
 		
 			if ( (clk'event) and (clk = '1') ) then
 			
 				if (CurrentStep_i /= SeekStep) then
+				
+					InTransit <= '1';						
 				
 					if (SeekStep > CurrentStep_i) then Direction <= '1'; else Direction <= '0'; end if;
 					
@@ -133,6 +148,8 @@ begin
 			
 				else
 				
+					InTransit <= '0';
+					
 					MotorStopped <= '1';
 					
 				end if;			

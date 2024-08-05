@@ -69,7 +69,8 @@ begin
 				RxAv <= '0';
 				--~ Start <= '0';
 				--~ if (SampleCnt = 1 and BitPos >= 2) then -- Sample RxD on 2/4
-                 if (SampleCnt = 3 and BitPos >= 2) then -- Sample RxD on 4/16
+                 --~ if (SampleCnt = 3 and BitPos >= 2) then -- Sample RxD on 4/16
+				 if (SampleCnt = 7 and BitPos >= 2) then -- Sample RxD on 4/16
                     RReg(BitPos-2) <= RxD; -- Deserialisation
 					--~ Samp <= '1';
 				else 
