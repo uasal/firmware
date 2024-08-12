@@ -42,9 +42,11 @@ extern void ProcessAllUarts();
 #include "cgraph/CGraphFWHardwareInterface.hpp"
 extern CGraphFWHardwareInterface* FW;	
 
-const uint8_t MonitorAdcFpgaAdcSampleAddr = 104;
-const uint8_t MonitorAdcFpgaAdcChannelAddr = 112;
-const uint8_t MonitorAdcFpgaSpiXferAddr = 252;
+const size_t MonitorAdcFpgaAdcSampleAddr = 104;
+const size_t MonitorAdcFpgaAdcChannelAddr = 112;
+//Had to blow these out cause 16b offsets kill the bloody M3:
+//~ const uint8_t MonitorAdcFpgaSpiXferAddr = 252;
+const size_t MonitorAdcFpgaSpiXferAddr = 348;
 
 struct PinoutMonitorAdc
 {

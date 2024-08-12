@@ -170,7 +170,10 @@ int8_t SensorStepsCommand(char const* Name, char const* Params, const size_t Par
 	}
 	
 	formatf("\n\nSensorStepsCommand: Offset of first Sensor Step: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, PosDetHomeA), 148UL);
-	formatf("\nSensorStepsCommand: Offset of last Sensor Step: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, PosDet7B), 240UL);
+	//Had to blow these out cause 16b offsets kill the bloody M3:
+	//~ formatf("\nSensorStepsCommand: Offset of last Sensor Step: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, PosDet7B), 240UL);
+	formatf("\nSensorStepsCommand: Offset of last Sensor Step: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, PosDet7B), 332UL);
+	
 	
 	formatf("\n\nSensorStepsCommand: current values:\n");
 	
@@ -269,6 +272,8 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		
 		//Show the monitor A/D
 		{
+			MonitorAdc.Init();
+			
 			size_t j = cycle % 12;
 			switch(j)
 			{

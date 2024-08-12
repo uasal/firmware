@@ -38,7 +38,7 @@ FW_pinout_FPGAUart2 FPGAUartPinout2;
 FW_pinout_FPGAUart3 FPGAUartPinout3;
 FW_pinout_FPGAUartUsb FPGAUartPinoutUsb;
 
-linux_pinout_circular_uart<char, 16, 512> UsbUartAscii; //We handle incoming bytes one at a time, but the outgoing buffer needs to be big enough to hold a whole packet or printf string...
+linux_pinout_circular_uart<char, 16, 512> UsbUartAscii; //We handle incoming bytes one at a time, but the outgoing buffer needs to be big enough to hold a whole packet or formatf string...
 linux_pinout_circular_uart<char, 16, 256> UsbUartBinary;
 
 //~ BinaryUart(struct IUart& pinout, struct IPacket& packet, const Cmd* cmds, const size_t numcmds, struct BinaryUartCallbacks& callbacks, const bool verbose = true, const uint64_t serialnum = InvalidSerialNumber);
@@ -60,6 +60,8 @@ TerminalUart<16, 4096> DbgUartUsb(FPGAUartPinoutUsb, AsciiCmds, NumAsciiCmds, &T
 //TerminalUart<16, 4096> DbgUartUsb(UsbUartAscii, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
 TerminalUart<16, 4096> DbgUart485_0(FPGAUartPinout0, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
 
+#include "../MonitorAdc.hpp"
+extern CGraphFWMonitorAdc MonitorAdc;
 
 //~ class MTracer
 //~ {
@@ -89,13 +91,69 @@ extern "C"
 
 extern "C"
 {
-    static void HardFault_Handler()//(int sig, siginfo_t *siginfo, void *context)
-    {
-        const char Msg[] = "\n\n!MajorCrashSegFaultHandler()!\n";
+	void asm_hard_fault_handler_c_container()
+	{
+		asm volatile
+		(\
+			".syntax unified ;" \
+			\
+			".global HardFault_Handler ;" \
+			".extern hard_fault_handler_c ;" \
+			\
+			"HardFault_Handler: ;" \
+			"TST LR, #4 ;" \
+			"ITE EQ ;" \
+			"MRSEQ R0, MSP ;" \
+			"MRSNE R0, PSP ;" \
+			"B hard_fault_handler_c ;" \
+			\
+		);
+	}
+	
+	void hard_fault_handler_c (unsigned int * hardfault_args)
+	{
+		unsigned int stacked_r0;
+		unsigned int stacked_r1;
+		unsigned int stacked_r2;
+		unsigned int stacked_r3;
+		unsigned int stacked_r12;
+		unsigned int stacked_lr;
+		unsigned int stacked_pc;
+		unsigned int stacked_psr;
+		
+	    const char Msg[] = "\n\n!MajorCrashSegFaultHandler()!\n";
         //~ write(stdout, Msg, strlen(Msg));
         DbgUartUsb.puts(Msg, strlen(Msg));
 		DbgUart485_0.puts(Msg, strlen(Msg));
-    }
+    
+		stacked_r0 = ((unsigned long) hardfault_args[0]);
+		stacked_r1 = ((unsigned long) hardfault_args[1]);
+		stacked_r2 = ((unsigned long) hardfault_args[2]);
+		stacked_r3 = ((unsigned long) hardfault_args[3]);
+
+		stacked_r12 = ((unsigned long) hardfault_args[4]);
+		stacked_lr = ((unsigned long) hardfault_args[5]);
+		stacked_pc = ((unsigned long) hardfault_args[6]);
+		stacked_psr = ((unsigned long) hardfault_args[7]);
+
+		formatf ("\n\n[Hard fault handler - all numbers in hex]\n");
+		formatf ("R0 = %x\n", stacked_r0);
+		formatf ("R1 = %x\n", stacked_r1);
+		formatf ("R2 = %x\n", stacked_r2);
+		formatf ("R3 = %x\n", stacked_r3);
+		formatf ("R12 = %x\n", stacked_r12);
+		formatf ("LR [R14] = %x  subroutine call return address\n", stacked_lr);
+		formatf ("PC [R15] = %x  program counter\n", stacked_pc);
+		formatf ("PSR = %x\n", stacked_psr);
+		formatf ("BFAR = %x\n", (*((volatile unsigned long *)(0xE000ED38))));
+		formatf ("CFSR = %x\n", (*((volatile unsigned long *)(0xE000ED28))));
+		formatf ("HFSR = %x\n", (*((volatile unsigned long *)(0xE000ED2C))));
+		formatf ("DFSR = %x\n", (*((volatile unsigned long *)(0xE000ED30))));
+		formatf ("AFSR = %x\n", (*((volatile unsigned long *)(0xE000ED3C))));
+		//~ this is an STM32 thing? formatf ("SCB_SHCSR = %x\n", SCB->SHCSR);
+
+		while (1);
+	}
 
     void AtExit()
     {
@@ -111,6 +169,8 @@ extern "C"
 bool Process()
 {
     bool Bored = true;
+	
+	MonitorAdc.Process();
 	
 	//~ if (FPGAUartPinoutUsb.dataready())
 	//~ {
@@ -280,6 +340,8 @@ int main(int argc, char *argv[])
     DbgUartUsb.SetEcho(false);
     DbgUart485_0.SetEcho(false);
 	
+	MonitorAdc.Init();
+	
     while(true)
     {
 		Process();
@@ -298,7 +360,7 @@ int main(int argc, char *argv[])
 			//~ if (NULL != FW) 
 			//~ {
 				//~ CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegister;
-				//~ UartStatus.printf();	
+				//~ UartStatus.formatf();	
 				
 				//~ uint16_t FpgaUartBufferLen = UartStatus.Uart2RxFifoCount;
 				//~ if ( (0 == FpgaUartBufferLen) && (0 == UartStatus.Uart2RxFifoEmpty) ) { FpgaUartBufferLen = 1; } //so we can be lazy about checking the high bytes...we really need to rearrange the fpga so we get the whole count as one integer...

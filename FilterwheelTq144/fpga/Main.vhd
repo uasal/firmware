@@ -1596,7 +1596,7 @@ begin
 	TP5 <= MonitorAdcSpiXferStart;
 	TP6 <= MonitorAdcSpiXferDone;
 	TP7 <= MonitorAdcSpiDataIn(0);
-	TP8 <= MonitorAdcSpiDataOut(0);
+	--~ TP8 <= MonitorAdcSpiDataOut(0);
 	
 	
 	----------------------------- RS-422 ----------------------------------
@@ -2191,6 +2191,8 @@ begin
 		--~ Txd => open--,
 	);
 	RxdUsb <= TxdUsb_i;
+	
+	TP8 <= TxdUsb_i;
 	
 	--~ LedR <= not(TxdUsb_i);
 	--~ TP1 <= TxdUsb_i;

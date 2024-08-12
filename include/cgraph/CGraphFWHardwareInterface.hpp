@@ -150,24 +150,24 @@ union CGraphFWPositionSenseRegister
 
 union CGraphFWPositionStepRegister
 {
-    uint32_t all;
+    uint64_t all;
     struct 
     {
-        uint16_t OnStep;
-        uint16_t OffStep;
+        uint32_t OnStep;// : 16;
+        uint32_t OffStep;// : 16; //Word offset reliably crashes uC
         
     } __attribute__((__packed__));
 
     CGraphFWPositionStepRegister() { all = 0; }
 	
-	uint16_t MidStep() const { return(abs((int32_t)OnStep - (int32_t)OffStep)); }
+	int32_t MidStep() const { return(abs((int32_t)OnStep - (int32_t)OffStep)); }
 
 	void formatf() const 
 	{ 
 		::formatf("StepRegister: All: %.4X ", all); 
 		::formatf(", OnStep: %u ", (unsigned)OnStep);
 		::formatf(", OffStep: %u ", (unsigned)OffStep);
-		::formatf(", MidStep: %u ", (unsigned)MidStep());
+		::formatf(", MidStep: %d ", (int)MidStep());
 	}
 
 } __attribute__((__packed__));
@@ -177,10 +177,10 @@ union CGraphFWBaudDividers
     uint32_t all;
     struct 
     {
-        uint8_t Divider0;
-		uint8_t Divider1;
-		uint8_t Divider2;
-		uint8_t Divider3;
+        uint32_t Divider0 : 8;
+		uint32_t Divider1 : 8;  //8b offsets reliably crash uC
+		uint32_t Divider2 : 8;
+		uint32_t Divider3 : 8;
         
     } __attribute__((__packed__));
 
