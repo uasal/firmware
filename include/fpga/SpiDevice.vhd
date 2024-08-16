@@ -22,7 +22,8 @@ entity SpiDevicePorts is
 	generic (
 		CLOCK_DIVIDER : natural := 4;
 		BIT_WIDTH : natural := 8;
-		CPOL : std_logic := '0'--;
+		CPOL : std_logic := '0'; --'standard' spi knob - inverts clock polarity (0 seems to be the standard, 1 less common)
+		CPHA : std_logic := '0'--; --'standard' spi knob - inverts clock phase (0 seems to be the standard, 1 less common)
 	);
 	port (
 	
@@ -59,7 +60,8 @@ architecture SpiDevice of SpiDevicePorts is
 	generic (
 		CLOCK_DIVIDER : integer := 4;
 		BYTE_WIDTH : natural := 1;
-		CPOL : std_logic := '0'--;	
+		CPOL : std_logic := '0'; --'standard' spi knob - inverts clock polarity (0 seems to be the standard, 1 less common)
+		CPHA : std_logic := '0'--; --'standard' spi knob - inverts clock phase (0 seems to be the standard, 1 less common)
 	);
 	port
 	(
@@ -88,7 +90,8 @@ begin
 	generic map (
 		CLOCK_DIVIDER => CLOCK_DIVIDER, --100kHz
 		BYTE_WIDTH => BIT_WIDTH / 8,
-		CPOL => CPOL--, --'inverted' SCK polarity?
+		CPOL => CPOL, --'inverted' SCK polarity?
+		CPHA => CPHA--, --'inverted' SCK phase?
 	)
 	port map
 	(

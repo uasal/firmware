@@ -495,74 +495,74 @@ struct ads1258 : pinout, spi
 				delayus(10000);
 			}
 
-			//2. stop the converter: set "start" pin low
-			//<unimplemented in hardware, not strictly neccessary>
+			//~ //2. stop the converter: set "start" pin low
+			//~ //<unimplemented in hardware, not strictly neccessary>
 
-			//3. Reset the converter
-			{
-				SendCommand(ads1258details::ads1258cmdheader(ads1258details::cmdtype_reset, false, 0));
-				delayus(1000);
-			}
+			//~ //3. Reset the converter
+			//~ {
+				//~ SendCommand(ads1258details::ads1258cmdheader(ads1258details::cmdtype_reset, false, 0));
+				//~ delayus(1000);
+			//~ }
 
-			//4. Config registers
-			//~ ads1258details::config0register config0(1, 0, 1, 0, 0, 1); //Chopper off
-			ads1258details::config0register config0(1, 0, 1, 0, 1, 1); //Chopper on
-			ads1258details::config1register config1(0, 7, 0, 0);
-			ads1258details::sysreadregister sysread(1, 1, 1, 1, 1);
-			{
-				WriteRegister(ads1258details::register_config0, config0.all);
-				WriteRegister(ads1258details::register_config1, config1.all);
-				WriteRegister(ads1258details::register_sysread, sysread.all);
+			//~ //4. Config registers
+			//~ //ads1258details::config0register config0(1, 0, 1, 0, 0, 1); //Chopper off
+			//~ ads1258details::config0register config0(1, 0, 1, 0, 1, 1); //Chopper on
+			//~ ads1258details::config1register config1(0, 7, 0, 0);
+			//~ ads1258details::sysreadregister sysread(1, 1, 1, 1, 1);
+			//~ {
+				//~ WriteRegister(ads1258details::register_config0, config0.all);
+				//~ WriteRegister(ads1258details::register_config1, config1.all);
+				//~ WriteRegister(ads1258details::register_sysread, sysread.all);
 
-				//pg 42: set no-connected gpio's to outputs
-				WriteRegister(ads1258details::register_gpioc, gpio_output_mask); //all outputs
-				WriteRegister(ads1258details::register_gpiod, 0x00); //all zero
-			}
+				//~ //pg 42: set no-connected gpio's to outputs
+				//~ WriteRegister(ads1258details::register_gpioc, gpio_output_mask); //all outputs
+				//~ WriteRegister(ads1258details::register_gpiod, 0x00); //all zero
+			//~ }
 
 			//5. Readback registers
 			{
 				uint8_t temp;
 
-				ReadRegister(ads1258details::register_config0, temp);
-				if (config0.all != temp)
-				{
-					#ifdef DEBUG
-						::formatf("ads1258::init(): config0 mismatch (reads:0x%.2X)\n", temp);
+				//~ ReadRegister(ads1258details::register_config0, temp);
+				//~ if (config0.all != temp)
+				//~ {
+					//~ #ifdef DEBUG
+						//~ ::formatf("ads1258::init(): config0 mismatch (reads:0x%.2X)\n", temp);
 						
-					#endif
-					return(ads1258details::register_config0);
-				}
+					//~ #endif
+					//~ return(ads1258details::register_config0);
+				//~ }
 
-				ReadRegister(ads1258details::register_config1, temp);
-				if (config1.all != temp)
-				{
-					#ifdef DEBUG
-						::formatf("ads1258::init(): config1 mismatch (reads:0x%.2X)\n", temp);
+				//~ ReadRegister(ads1258details::register_config1, temp);
+				//~ if (config1.all != temp)
+				//~ {
+					//~ #ifdef DEBUG
+						//~ ::formatf("ads1258::init(): config1 mismatch (reads:0x%.2X)\n", temp);
 						
-					#endif
-					return(ads1258details::register_config1);
-				}
+					//~ #endif
+					//~ return(ads1258details::register_config1);
+				//~ }
 
-				ReadRegister(ads1258details::register_sysread, temp);
-				if (sysread.all != temp)
-				{
-					#ifdef DEBUG
-						::formatf("ads1258::init(): sysread mismatch (reads:0x%.2X)\n", temp);
+				//~ ReadRegister(ads1258details::register_sysread, temp);
+				//~ if (sysread.all != temp)
+				//~ {
+					//~ #ifdef DEBUG
+						//~ ::formatf("ads1258::init(): sysread mismatch (reads:0x%.2X)\n", temp);
 						
-					#endif
-					return(ads1258details::register_sysread);
-				}
+					//~ #endif
+					//~ return(ads1258details::register_sysread);
+				//~ }
 
-				//pg 42: set no-connected gpio's to outputs
-				ReadRegister(ads1258details::register_gpioc, temp);
-				if (gpio_output_mask != temp)
-				{
-					#ifdef DEBUG
-						::formatf("ads1258::init(): gpioc mismatch (reads:0x%.2X)\n", temp);
+				//~ //pg 42: set no-connected gpio's to outputs
+				//~ ReadRegister(ads1258details::register_gpioc, temp);
+				//~ if (gpio_output_mask != temp)
+				//~ {
+					//~ #ifdef DEBUG
+						//~ ::formatf("ads1258::init(): gpioc mismatch (reads:0x%.2X)\n", temp);
 						
-					#endif
-					return(ads1258details::register_gpioc);
-				}
+					//~ #endif
+					//~ return(ads1258details::register_gpioc);
+				//~ }
 
 				//(Don't read gpiod - we write 0x00, but if pins are set as inputs, they will not read 0x00)
 				
@@ -570,10 +570,10 @@ struct ads1258 : pinout, spi
 				ReadRegister(ads1258details::register_idnum, temp);
 				if (0x8B != temp)
 				{
-					#ifdef DEBUG
+					//~ #ifdef DEBUG
 						::formatf("ads1258::init(): idnum mismatch (reads:0x%.2X)\n", temp);
 						
-					#endif
+					//~ #endif
 					return(ads1258details::register_idnum);
 				}
 			}

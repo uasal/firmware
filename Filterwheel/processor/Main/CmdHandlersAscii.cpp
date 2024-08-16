@@ -77,7 +77,7 @@ int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsL
 
 int8_t ReadFpgaCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	uint8_t Buffer;
+	uint32_t Buffer;
 
 	//Convert parameter to an integer
     size_t addr = 0;
@@ -86,7 +86,7 @@ int8_t ReadFpgaCommand(char const* Name, char const* Params, const size_t Params
     {
 		formatf("\nReadFpgaCommand: ");
 		//~ for (addr = 0; addr <= 64; addr++)
-		for (addr = 0; addr <= 128; addr++)
+		for (addr = 0; addr <= 128; addr+=4)
 		{
 			Buffer = *(((uint8_t*)FW)+addr);
 			formatf("\n0x%.2zX: 0x%.2X ", addr, Buffer);
@@ -97,11 +97,12 @@ int8_t ReadFpgaCommand(char const* Name, char const* Params, const size_t Params
     }
 	else
 	{
+		addr -= (addr%4);
 		Buffer = *(((uint8_t*)FW)+addr);
 		formatf("\nReadFpgaCommand: ");
 		//~ formatf("\n%zu: 0x%.2X ", addr, Buffer);
-		formatf("\n0x%.2zX: 0x%.2X ", addr, Buffer);
-		formatf("[%u]", Buffer);
+		formatf("\n0x%.2zX: 0x%.8lX ", addr, (unsigned long)Buffer);
+		formatf("[%lu]", (unsigned long)Buffer);
 		formatf(" ('%c')\n\n", Buffer);
 	}
 	
@@ -121,7 +122,7 @@ int8_t WriteFpgaCommand(char const* Name, char const* Params, const size_t Param
     }
 
 	//Write data to fpga:
-	*(((uint8_t*)FW)+addr) = (uint8_t)val;
+	*(((uint8_t*)FW)+addr) = (uint32_t)val;
 
 	formatf("\nWriteFpgaCommand: Wrote %lu to ", val);
 	formatf("0x%.4zX.\n", addr);
@@ -272,21 +273,71 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		
 		//Show the monitor A/D
 		{
-			MonitorAdc.Init();
+			//~ MonitorAdc.Init();
 			
-			size_t j = cycle % 12;
-			switch(j)
-			{
-				case 0: { formatf("P1V2: %3.6lf V\n", MonitorAdc.GetP1V2()); break; }
-				case 1: { formatf("P2V2: %3.6lf V\n", MonitorAdc.GetP2V2()); break; }
-				case 2: { formatf("P28V: %3.6lf V\n", MonitorAdc.GetP28V()); break; }
-				case 3: { formatf("P2V5: %3.6lf V\n", MonitorAdc.GetP2V5()); break; }
-				case 5: { formatf("P6V: %3.6lf V\n", MonitorAdc.GetP6V()); break; }
-				case 6: { formatf("P5V: %3.6lf V\n", MonitorAdc.GetP5V()); break; }
-				case 7: { formatf("P3V3D: %3.6lf V\n", MonitorAdc.GetP3V3D()); break; }
-				case 8: { formatf("P4V3: %3.6lf V\n", MonitorAdc.GetP4V3()); break; }
-				default : { }
-			}
+			//~ size_t j = cycle % 12;
+			//~ switch(j)
+			//~ {
+				//~ case 0: { formatf("P1V2: %3.6lf V\n", MonitorAdc.GetP1V2()); break; }
+				//~ case 1: { formatf("P2V2: %3.6lf V\n", MonitorAdc.GetP2V2()); break; }
+				//~ case 2: { formatf("P28V: %3.6lf V\n", MonitorAdc.GetP28V()); break; }
+				//~ case 3: { formatf("P2V5: %3.6lf V\n", MonitorAdc.GetP2V5()); break; }
+				//~ case 5: { formatf("P6V: %3.6lf V\n", MonitorAdc.GetP6V()); break; }
+				//~ case 6: { formatf("P5V: %3.6lf V\n", MonitorAdc.GetP5V()); break; }
+				//~ case 7: { formatf("P3V3D: %3.6lf V\n", MonitorAdc.GetP3V3D()); break; }
+				//~ case 8: { formatf("P4V3: %3.6lf V\n", MonitorAdc.GetP4V3()); break; }
+				//~ default : { }
+			//~ }
+			
+			PinoutMonitorAdc AdcTest;
+			//static const uint8_t cmdtype_registerread = 0x02; << 5 = 0x40
+			//static const uint8_t cmdtype_registerwrite = 0x03;	<,5 = 0x60
+			//ads1258details::register_idnum = 0x09; //always reads 0x8B
+			//__inline__ uint8_t  ReadRegister(const uint8_t& addr) 	{ spi_busmsg x; uint8_t  val = 0; txb(addr | 0x40); val |= rxb(); return(val); }
+			//__inline__ void txb(uint8_t byte) { spi::transmit(byte); }
+			//__inline__ uint8_t rxb() { uint8_t x = spi::receive((uint8_t)(0)); return(x); }
+			//__inline__ spi_busmsg() { delayus(100); enable(true); }
+			uint8_t b = 0;
+			
+			//~ AdcTest.transmit(0x49); //0x40 | 0x09 0100:1001b
+			//~ b = AdcTest.receive(0x00);
+			//~ ::formatf("\nAdcTest try49: 0x%.2X", b);
+			//~ AdcTest.transmit(0x92); // 1001:0010b
+			//~ b = AdcTest.receive(0x00);
+			//~ ::formatf("\nAdcTest try92: 0x%.2X", b);
+			AdcTest.transmit(0x24); // 0010:0100b
+			b = AdcTest.receive(0x00);
+			::formatf("\nAdcTest try24: 0x%.2X", b);			
+			
+			//~ AdcTest.transmit(0xB6); // !0100:1001b = 1011:0110b
+			//~ b = AdcTest.receive(0x00);
+			//~ ::formatf("\nAdcTest tryB6: 0x%.2X", b);			
+			//~ AdcTest.transmit(0x6D);  // !1001:0010b = 0110:1101b
+			//~ b = AdcTest.receive(0x00);
+			//~ ::formatf("\nAdcTest try6D: 0x%.2X", b);			
+			//~ AdcTest.transmit(0xDB); // !0010:0100b = 1101:1011b
+			//~ b = AdcTest.receive(0x00);
+			//~ ::formatf("\nAdcTest tryDB: 0x%.2X", b);			
+			
+			//~ AdcTest.transmit(0x92); //0x40 | 0x09 0100:1001b -> 1001:0010b
+			//~ b = AdcTest.receive(0x00);
+			//~ ::formatf("\nAdcTest try92: 0x%.2X", b);
+			//~ AdcTest.transmit(0x49); // 1001:0010b -> 0100:1001b
+			//~ b = AdcTest.receive(0x00);
+			//~ ::formatf("\nAdcTest try49: 0x%.2X", b);
+			//~ AdcTest.transmit(0x42); // 0010:0100b -> 0010:0100b
+			//~ b = AdcTest.receive(0x00);
+			//~ ::formatf("\nAdcTest try42: 0x%.2X", b);			
+			
+			//~ AdcTest.transmit(0x6D); // !0100:1001b = 1011:0110b -> 0110:1101b
+			//~ b = AdcTest.receive(0x00);
+			//~ ::formatf("\nAdcTest try6D: 0x%.2X", b);			
+			//~ AdcTest.transmit(0xB6);  // !1001:0010b = 0110:1101b -> 1011:0110b
+			//~ b = AdcTest.receive(0x00);
+			//~ ::formatf("\nAdcTest tryB6: 0x%.2X", b);			
+			//~ AdcTest.transmit(0xDB); // !0010:0100b = 1101:1011b -> 1101:1011
+			//~ b = AdcTest.receive(0x00);
+			//~ ::formatf("\nAdcTest tryDB: 0x%.2X", b);			
 		}
 		
 		//Quit on any keypress

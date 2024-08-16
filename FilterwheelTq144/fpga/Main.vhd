@@ -808,7 +808,8 @@ architecture architecture_Main of Main is
 						generic (
 							CLOCK_DIVIDER : natural := 4;
 							BIT_WIDTH : natural := 8;
-							CPOL : std_logic := '0'--;
+							CPOL : std_logic := '0'; --'standard' spi knob - inverts clock polarity (0 seems to be the standard, 1 less common)
+							CPHA : std_logic := '0'--; --'standard' spi knob - inverts clock phase (0 seems to be the standard, 1 less common)
 						);
 						port (
 						
@@ -1567,7 +1568,10 @@ begin
 		--~ CLOCK_DIVIDER => 16,
 		CLOCK_DIVIDER => 256,
 		BIT_WIDTH => 8,
-		CPOL => '0'--,
+		CPOL => '0',
+		--~ CPOL => '1',
+		--~ CPHA => '0'--,
+		CPHA => '1'--,
 	)
 	port map 
 	(
@@ -2117,7 +2121,7 @@ begin
 	IBufRxdUsb : IBufP3Ports port map(clk => UartClk, I => TxdUsb, O => RxdUsb_i); --if you want to change the pin for this chip select, it's here
 	
 	--~ TP2 <= RxdUsb_i;
-	LedB <= not(TxdUsb);
+	--~ LedB <= not(TxdUsb);
 	
 	--~ Ux1SelJmp <= RxdUsb;
 	
@@ -2517,7 +2521,7 @@ begin
 	MotorDriveBPlusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorBPlus_i = '1') and (ShootThruIxnaeBPlus = '1') ) else PushPullGround;
 	MotorDriveBMinusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorBMinus_i = '1') and (ShootThruIxnaeBMinus = '1') ) else PushPullGround;
 	
-	LedG <= MotorSeekStep(7);
+	--~ LedG <= MotorSeekStep(7);
 	
 	----------------------------- DEBUG IDEAS ----------------------------------
 	
@@ -2531,6 +2535,9 @@ begin
 		--~ LedR <= '1';
 		--~ LedG <= '1';
 		--~ LedB <= '1';
+		LedR <= not(PosSenseBit0A);
+		LedG <= not(PosSenseBit1A);
+		LedB <= not(PosSenseBit2A);
 		
 		--~ TP1 <= RamBusnCs;
 		--~ TP2 <= RamBusWrnRd;
@@ -2561,15 +2568,15 @@ begin
 			
 				--Run position detector logic:
 			
-				if (LastPosSenseHomeA /= PosSenseHomeA) then LastPosSenseHomeA <= PosSenseHomeA; if (PosSenseHomeA = '1') then PosDetHomeAOnStep <= MotorCurrentStep; else PosDetHomeAOffStep <= MotorCurrentStep; end if; end if;
-				if (LastPosSenseBit0A /= PosSenseBit0A) then LastPosSenseBit0A <= PosSenseBit0A; if (PosSenseBit0A = '1') then PosDetA0OnStep <= MotorCurrentStep; else PosDetA0OffStep <= MotorCurrentStep; end if; end if;
-				if (LastPosSenseBit1A /= PosSenseBit1A) then LastPosSenseBit1A <= PosSenseBit1A; if (PosSenseBit1A = '1') then PosDetA1OnStep <= MotorCurrentStep; else PosDetA1OffStep <= MotorCurrentStep; end if; end if;
-				if (LastPosSenseBit2A /= PosSenseBit2A) then LastPosSenseBit2A <= PosSenseBit2A; if (PosSenseBit2A = '1') then PosDetA2OnStep <= MotorCurrentStep; else PosDetA2OffStep <= MotorCurrentStep; end if; end if;
+				if (LastPosSenseHomeA /= PosSenseHomeA) then LastPosSenseHomeA <= PosSenseHomeA; if (PosSenseHomeA = '0') then PosDetHomeAOnStep <= MotorCurrentStep; else PosDetHomeAOffStep <= MotorCurrentStep; end if; end if;
+				if (LastPosSenseBit0A /= PosSenseBit0A) then LastPosSenseBit0A <= PosSenseBit0A; if (PosSenseBit0A = '0') then PosDetA0OnStep <= MotorCurrentStep; else PosDetA0OffStep <= MotorCurrentStep; end if; end if;
+				if (LastPosSenseBit1A /= PosSenseBit1A) then LastPosSenseBit1A <= PosSenseBit1A; if (PosSenseBit1A = '0') then PosDetA1OnStep <= MotorCurrentStep; else PosDetA1OffStep <= MotorCurrentStep; end if; end if;
+				if (LastPosSenseBit2A /= PosSenseBit2A) then LastPosSenseBit2A <= PosSenseBit2A; if (PosSenseBit2A = '0') then PosDetA2OnStep <= MotorCurrentStep; else PosDetA2OffStep <= MotorCurrentStep; end if; end if;
 				
-				if (LastPosSenseHomeB /= PosSenseHomeB) then LastPosSenseHomeB <= PosSenseHomeB; if (PosSenseHomeB = '1') then PosDetHomeBOnStep <= MotorCurrentStep; else PosDetHomeBOffStep <= MotorCurrentStep; end if; end if;
-				if (LastPosSenseBit0B /= PosSenseBit0B) then LastPosSenseBit0B <= PosSenseBit0B; if (PosSenseBit0B = '1') then PosDetB0OnStep <= MotorCurrentStep; else PosDetB0OffStep <= MotorCurrentStep; end if; end if;
-				if (LastPosSenseBit1B /= PosSenseBit1B) then LastPosSenseBit1B <= PosSenseBit1B; if (PosSenseBit1B = '1') then PosDetB1OnStep <= MotorCurrentStep; else PosDetB1OffStep <= MotorCurrentStep; end if; end if;
-				if (LastPosSenseBit2B /= PosSenseBit2B) then LastPosSenseBit2B <= PosSenseBit2B; if (PosSenseBit2B = '1') then PosDetB2OnStep <= MotorCurrentStep; else PosDetB2OffStep <= MotorCurrentStep; end if; end if;
+				if (LastPosSenseHomeB /= PosSenseHomeB) then LastPosSenseHomeB <= PosSenseHomeB; if (PosSenseHomeB = '0') then PosDetHomeBOnStep <= MotorCurrentStep; else PosDetHomeBOffStep <= MotorCurrentStep; end if; end if;
+				if (LastPosSenseBit0B /= PosSenseBit0B) then LastPosSenseBit0B <= PosSenseBit0B; if (PosSenseBit0B = '0') then PosDetB0OnStep <= MotorCurrentStep; else PosDetB0OffStep <= MotorCurrentStep; end if; end if;
+				if (LastPosSenseBit1B /= PosSenseBit1B) then LastPosSenseBit1B <= PosSenseBit1B; if (PosSenseBit1B = '0') then PosDetB1OnStep <= MotorCurrentStep; else PosDetB1OffStep <= MotorCurrentStep; end if; end if;
+				if (LastPosSenseBit2B /= PosSenseBit2B) then LastPosSenseBit2B <= PosSenseBit2B; if (PosSenseBit2B = '0') then PosDetB2OnStep <= MotorCurrentStep; else PosDetB2OffStep <= MotorCurrentStep; end if; end if;
 				
 				PosSenseA <= PosSenseBit2A & PosSenseBit1A & PosSenseBit0A & PosSenseHomeA;
 				PosSenseB <= PosSenseBit2B & PosSenseBit1B & PosSenseBit0B & PosSenseHomeB;
@@ -2622,28 +2629,28 @@ begin
 						
 						case PosSenseA is
 							
-							when "0001" => PosDet0AOnStep <= MotorCurrentStep; 
-							when "0010" => PosDet1AOnStep <= MotorCurrentStep;
-							when "0100" => PosDet2AOnStep <= MotorCurrentStep;
-							when "0110" => PosDet3AOnStep <= MotorCurrentStep;
-							when "1000" => PosDet4AOnStep <= MotorCurrentStep;
-							when "1010" => PosDet5AOnStep <= MotorCurrentStep;
-							when "1100" => PosDet6AOnStep <= MotorCurrentStep;
-							when "1110" => PosDet7AOnStep <= MotorCurrentStep;
+							when "1110" => PosDet0AOnStep <= MotorCurrentStep; 
+							when "1101" => PosDet1AOnStep <= MotorCurrentStep;
+							when "1011" => PosDet2AOnStep <= MotorCurrentStep;
+							when "1001" => PosDet3AOnStep <= MotorCurrentStep;
+							when "0111" => PosDet4AOnStep <= MotorCurrentStep;
+							when "0101" => PosDet5AOnStep <= MotorCurrentStep;
+							when "0011" => PosDet6AOnStep <= MotorCurrentStep;
+							when "0001" => PosDet7AOnStep <= MotorCurrentStep;
 							when others =>
 							
 						end case;
 						
 						case LastPosSenseA is
 							
-							when "0001" => PosDet0AOffStep <= MotorCurrentStep;
-							when "0010" => PosDet1AOffStep <= MotorCurrentStep;
-							when "0100" => PosDet2AOffStep <= MotorCurrentStep;
-							when "0110" => PosDet3AOffStep <= MotorCurrentStep;
-							when "1000" => PosDet4AOffStep <= MotorCurrentStep;
-							when "1010" => PosDet5AOffStep <= MotorCurrentStep;
-							when "1100" => PosDet6AOffStep <= MotorCurrentStep;
-							when "1110" => PosDet7AOffStep <= MotorCurrentStep;
+							when "1110" => PosDet0AOffStep <= MotorCurrentStep; 
+							when "1101" => PosDet1AOffStep <= MotorCurrentStep;
+							when "1011" => PosDet2AOffStep <= MotorCurrentStep;
+							when "1001" => PosDet3AOffStep <= MotorCurrentStep;
+							when "0111" => PosDet4AOffStep <= MotorCurrentStep;
+							when "0101" => PosDet5AOffStep <= MotorCurrentStep;
+							when "0011" => PosDet6AOffStep <= MotorCurrentStep;
+							when "0001" => PosDet7AOffStep <= MotorCurrentStep;
 							when others =>
 							
 						end case;
@@ -2656,28 +2663,28 @@ begin
 						
 						case PosSenseB is
 							
-							when "0001" => PosDet0BOnStep <= MotorCurrentStep;
-							when "0010" => PosDet1BOnStep <= MotorCurrentStep;
-							when "0100" => PosDet2BOnStep <= MotorCurrentStep;
-							when "0110" => PosDet3BOnStep <= MotorCurrentStep;
-							when "1000" => PosDet4BOnStep <= MotorCurrentStep;
-							when "1010" => PosDet5BOnStep <= MotorCurrentStep;
-							when "1100" => PosDet6BOnStep <= MotorCurrentStep;
-							when "1110" => PosDet7BOnStep <= MotorCurrentStep;
+							when "1110" => PosDet0BOnStep <= MotorCurrentStep; 
+							when "1101" => PosDet1BOnStep <= MotorCurrentStep;
+							when "1011" => PosDet2BOnStep <= MotorCurrentStep;
+							when "1001" => PosDet3BOnStep <= MotorCurrentStep;
+							when "0111" => PosDet4BOnStep <= MotorCurrentStep;
+							when "0101" => PosDet5BOnStep <= MotorCurrentStep;
+							when "0011" => PosDet6BOnStep <= MotorCurrentStep;
+							when "0001" => PosDet7BOnStep <= MotorCurrentStep;
 							when others =>
 							
 						end case;
 						
 						case LastPosSenseB is
 							
-							when "0001" => PosDet0BOffStep <= MotorCurrentStep;
-							when "0010" => PosDet1BOffStep <= MotorCurrentStep;
-							when "0100" => PosDet2BOffStep <= MotorCurrentStep;
-							when "0110" => PosDet3BOffStep <= MotorCurrentStep;
-							when "1000" => PosDet4BOffStep <= MotorCurrentStep;
-							when "1010" => PosDet5BOffStep <= MotorCurrentStep;
-							when "1100" => PosDet6BOffStep <= MotorCurrentStep;
-							when "1110" => PosDet7BOffStep <= MotorCurrentStep;
+							when "1110" => PosDet0BOffStep <= MotorCurrentStep; 
+							when "1101" => PosDet1BOffStep <= MotorCurrentStep;
+							when "1011" => PosDet2BOffStep <= MotorCurrentStep;
+							when "1001" => PosDet3BOffStep <= MotorCurrentStep;
+							when "0111" => PosDet4BOffStep <= MotorCurrentStep;
+							when "0101" => PosDet5BOffStep <= MotorCurrentStep;
+							when "0011" => PosDet6BOffStep <= MotorCurrentStep;
+							when "0001" => PosDet7BOffStep <= MotorCurrentStep;
 							when others =>
 							
 						end case;

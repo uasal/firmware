@@ -342,9 +342,18 @@ int main(int argc, char *argv[])
 	
 	MonitorAdc.Init();
 	
+	uint8_t i = 0;
     while(true)
     {
 		Process();
+		
+	
+		i++;
+		PinoutMonitorAdc AdcTest;
+		uint8_t b = 0;
+		AdcTest.transmit(i); // 0010:0100b
+		b = AdcTest.receive(0x00);
+		::formatf("\nAdcTest try 0x%.2X: 0x%.2X", i, b);	
 		
 		//~ bool Bored = true;
 		
