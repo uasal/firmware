@@ -347,13 +347,27 @@ int main(int argc, char *argv[])
     {
 		Process();
 		
-	
-		i++;
-		PinoutMonitorAdc AdcTest;
-		uint8_t b = 0;
-		AdcTest.transmit(i); // 0010:0100b
-		b = AdcTest.receive(0x00);
-		::formatf("\nAdcTest try 0x%.2X: 0x%.2X", i, b);	
+		//~ PinoutMonitorAdc AdcTest;
+		//~ uint8_t b = 0;
+		
+		//~ AdcTest.enable(true);
+		//~ //formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
+		//~ AdcTest.transmit(0x49); //0x40 | 0x09 0100:1001b
+		//~ //formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
+		//~ b = AdcTest.receive(0x00);
+		//~ //formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
+		//~ AdcTest.enable(false);
+		//~ //formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
+		//~ ::formatf("\nAdcTest try49: 0x%.2X", b);
+
+		//~ i++;
+		//~ PinoutMonitorAdc AdcTest;
+		//~ uint8_t b = 0;
+		//~ AdcTest.enable(true);
+		//~ AdcTest.transmit(i); // 0010:0100b
+		//~ b = AdcTest.receive(0x00);
+		//~ AdcTest.enable(false);
+		//~ ::formatf("\nAdcTest try 0x%.2X: 0x%.2X", i, b);	
 		
 		//~ bool Bored = true;
 		

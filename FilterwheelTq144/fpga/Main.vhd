@@ -665,6 +665,7 @@ architecture architecture_Main of Main is
 							MonitorAdcSpiXferStart : out std_logic;
 							MonitorAdcSpiXferDone : in std_logic;
 							MonitorAdcnDrdy  : in std_logic;
+							MonitorAdcSpiFrameEnable : out std_logic;
 							
 							--RS-422
 							Uart0FifoReset : out std_logic;
@@ -971,6 +972,7 @@ architecture architecture_Main of Main is
 			signal MonitorAdcSpiDataOut : std_logic_vector(7 downto 0);
 			signal MonitorAdcSpiXferStart : std_logic;
 			signal MonitorAdcSpiXferDone : std_logic;
+			signal MonitorAdcSpiFrameEnable : std_logic;
 			
 		--RS-422
 		
@@ -1430,6 +1432,7 @@ begin
 		MonitorAdcSpiXferStart => MonitorAdcSpiXferStart,
 		MonitorAdcSpiXferDone => MonitorAdcSpiXferDone,
 		MonitorAdcnDrdy => nDrdyMonitorAdc_i,
+		MonitorAdcSpiFrameEnable => MonitorAdcSpiFrameEnable,			
 		
 		--RS-422
 		Uart0FifoReset => Uart0FifoReset,
@@ -1567,17 +1570,19 @@ begin
 	(
 		--~ CLOCK_DIVIDER => 16,
 		CLOCK_DIVIDER => 256,
+		--~ CLOCK_DIVIDER => 4096,
 		BIT_WIDTH => 8,
 		CPOL => '0',
 		--~ CPOL => '1',
-		--~ CPHA => '0'--,
-		CPHA => '1'--,
+		CPHA => '0'--,
+		--~ CPHA => '1'--,
 	)
 	port map 
 	(
 		clk => MasterClk,
 		rst => MonitorAdcReset_i,
-		nCs => nCsMonitorAdc_i,
+		--~ nCs => nCsMonitorAdc_i,
+		nCs => open,
 		Sck => SckMonitorAdc_i,
 		Mosi => MosiMonitorAdc_i,
 		Miso => MisoMonitorAdc_i,
@@ -1587,6 +1592,7 @@ begin
 		TransferComplete => MonitorAdcSpiXferDone--,
 	);
 	
+	nCsMonitorAdc_i <= not(MonitorAdcSpiFrameEnable);
 	nCsMonAdc0 <= nCsMonitorAdc_i;
 	SckMonAdc0 <= SckMonitorAdc_i;
 	MosiMonAdc0 <= MosiMonitorAdc_i;	
@@ -1599,7 +1605,7 @@ begin
 	TP4 <= MisoMonitorAdc_i;
 	TP5 <= MonitorAdcSpiXferStart;
 	TP6 <= MonitorAdcSpiXferDone;
-	TP7 <= MonitorAdcSpiDataIn(0);
+	--~ TP7 <= MonitorAdcSpiDataIn(0);
 	--~ TP8 <= MonitorAdcSpiDataOut(0);
 	
 	
@@ -2196,6 +2202,7 @@ begin
 	);
 	RxdUsb <= TxdUsb_i;
 	
+	TP7 <= not(TxdUsb_i);
 	TP8 <= TxdUsb_i;
 	
 	--~ LedR <= not(TxdUsb_i);

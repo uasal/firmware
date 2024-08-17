@@ -82,6 +82,7 @@ architecture SpiDevice of SpiDevicePorts is
 		
 	--~ signal DacClk : std_logic;
 	signal LastTransfer : std_logic;
+	signal TransferActuallyComplete : std_logic; --When we're done & we reset the spi bus it's version of this signal goes back to zero
 	signal Readback_i : std_logic_vector(BIT_WIDTH - 1 downto 0);
 	
 begin
@@ -107,7 +108,7 @@ begin
 	
 	nCs <= SpiRst; --these concepts are synchronous in this design
 	
-	TransferComplete <= SpiXferComplete;
+	TransferComplete <= TransferActuallyComplete;
 		
 	--~ TransferComplete <= SpiRst; --these concepts are synchronous in this design
 		
@@ -120,6 +121,7 @@ begin
 			SpiRst <= '1';			
 			LastTransfer <= '0';
 			LastSpiXferComplete <= '0';
+			TransferActuallyComplete <= '0';			
 			
 		else
 			
@@ -135,6 +137,8 @@ begin
 					
 						--Initiate reading the data.
 						SpiRst <= '0';
+						
+						TransferActuallyComplete <= '0';
 											
 					end if;
 					
@@ -149,6 +153,8 @@ begin
 						
 							--Grab read back
 							Readback <= Readback_i;
+							
+							TransferActuallyComplete <= '1';
 												
 							--turn off spi master bus
 							SpiRst <= '1';

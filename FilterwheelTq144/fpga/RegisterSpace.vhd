@@ -146,6 +146,7 @@ entity RegisterSpacePorts is
 		MonitorAdcSpiXferStart : out std_logic;
 		MonitorAdcSpiXferDone : in std_logic;
 		MonitorAdcnDrdy  : in std_logic;
+		MonitorAdcSpiFrameEnable : out std_logic;
 		
 		--RS-422
 		Uart0FifoReset : out std_logic;
@@ -377,9 +378,10 @@ architecture RegisterSpace of RegisterSpacePorts is
 	constant UartUsbFifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(344, MAX_ADDRESS_BITS));
 	
 	constant MonitorAdcSpiXferAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(348, MAX_ADDRESS_BITS));
+	constant MonitorAdcSpiFrameEnableAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(352, MAX_ADDRESS_BITS));
 	
-	constant UartGpsFifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(352, MAX_ADDRESS_BITS));
-	constant UartGpsFifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(356, MAX_ADDRESS_BITS));
+	constant UartGpsFifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(356, MAX_ADDRESS_BITS));
+	constant UartGpsFifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(360, MAX_ADDRESS_BITS));
 	
 	--Control Signals
 	
@@ -398,6 +400,7 @@ architecture RegisterSpace of RegisterSpacePorts is
 	signal Uart3ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8));	--"real fast"
 	
 	signal MonitorAdcChannelReadIndex_i : std_logic_vector(4 downto 0);	
+	signal MonitorAdcSpiFrameEnable_i : std_logic := '0';	
 	
 	signal MotorSeekStep_i : std_logic_vector(15 downto 0);	
 	signal PosLedsEnA_i :  std_logic := '0';	
@@ -436,6 +439,7 @@ begin
 	MotorEnable <= MotorEnable_i;
 	
 	MonitorAdcChannelReadIndex <= MonitorAdcChannelReadIndex_i;
+	MonitorAdcSpiFrameEnable <= MonitorAdcSpiFrameEnable_i;
 	
 	--~ Fault1V <= Fault1V_i;
 	--~ Fault3V <= Fault3V_i;
@@ -528,15 +532,24 @@ begin
 
 								DataOut(4 downto 0) <= MonitorAdcChannelReadIndex_i;
 								DataOut(7 downto 5) <= "000";
+								DataOut(31 downto 8) <= x"000000";
 					
 							
 							when MonitorAdcSpiXferAddr =>
 							
 								DataOut(7 downto 0) <= MonitorAdcSpiDataOut;
-								DataOut(13 downto 8) <= "000000";
-								DataOut(14) <= MonitorAdcSpiXferDone;
-								DataOut(15) <= MonitorAdcnDrdy;
-					
+								DataOut(31 downto 8) <= x"000000";
+								
+							when MonitorAdcSpiFrameEnableAddr =>
+								
+								DataOut(0) <= MonitorAdcSpiFrameEnable_i;
+								DataOut(1) <= MonitorAdcSpiXferDone;
+								DataOut(2) <= MonitorAdcnDrdy;
+								DataOut(7 downto 3) <= "00000";
+								DataOut(31 downto 8) <= x"000000";
+								
+							
+								
 
 					
 							--RS-422
@@ -950,6 +963,11 @@ begin
 							
 								MonitorAdcSpiXferStart <= '1';
 								MonitorAdcSpiDataIn <= DataIn(7 downto 0);
+								
+							when MonitorAdcSpiFrameEnableAddr =>
+								
+								MonitorAdcSpiFrameEnable_i <= DataIn(0);
+							
 							
 
 							--RS-422

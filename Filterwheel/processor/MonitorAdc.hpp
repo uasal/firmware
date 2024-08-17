@@ -31,8 +31,10 @@
 #include <stdint.h>
 #include <string.h>
 
+#include "Delay.h"
 //~ #include "adc/lt244x_accum.h"
 //~ #include "adc/lt244x.h"
+#define DEBUG
 #include "adc/ads1258.h"
 #include "temp/TempLM35.hpp"
 #include "format/formatf.h"
@@ -47,6 +49,7 @@ const size_t MonitorAdcFpgaAdcChannelAddr = 112;
 //Had to blow these out cause 16b offsets kill the bloody M3:
 //~ const uint8_t MonitorAdcFpgaSpiXferAddr = 252;
 const size_t MonitorAdcFpgaSpiXferAddr = 348;
+const size_t MonitorAdcSpiCommandStatusRegister = 352;
 
 struct PinoutMonitorAdc
 {
@@ -55,39 +58,64 @@ struct PinoutMonitorAdc
 	static uint8_t GetAdcReadChannel()								{ uint8_t val = *(((uint8_t*)FW)+MonitorAdcFpgaAdcChannelAddr); return(val); }
 	static void SetAdcReadChannel(const uint8_t val) 					{ *(((uint8_t*)FW)+MonitorAdcFpgaAdcChannelAddr) = (uint8_t)val; }
 	//~ static void GetAdcSample(Ltc244xAccumulator& val) 				{ val = *((Ltc244xAccumulator*)(((uint8_t*)FW)+MonitorAdcFpgaAdcSampleAddr)); }		
-	static void transmit(const uint8_t val) 					{ *(((uint8_t*)FW)+MonitorAdcFpgaSpiXferAddr) = (uint8_t)val; }
+	
+	static const size_t spi_timeout = 100;
+	
+	static bool busy() { return(0 == (FW->MonitorAdcSpiCommandStatusRegister.TransactionComplete) ); }
+	static void waitbusytimeout()
+	{
+		size_t i = 0;
+		for(i = 0; i < spi_timeout; i++) 
+		{ 
+			if (!busy()) { break; } 
+			delayus(1);
+		}
+		if (i >= spi_timeout - 2) { formatf("\nPinoutMonitorAdc: T/O."); }
+	}
+	
+	//~ static void enable(const bool en) { *(((uint8_t*)FW)+MonitorAdcSpiCommandStatusRegister) = (uint32_t)en; }
+	static void enable(const bool en) { FW->MonitorAdcSpiCommandStatusRegister.all = (uint32_t)en; }
+	
+	static void transmit(const uint8_t val) 					
+	{ 
+		waitbusytimeout();
+		//~ *(((uint8_t*)FW)+MonitorAdcFpgaSpiXferAddr) = (uint8_t)val; 
+		FW->MonitorAdcSpiTransactionRegister = (uint32_t)val; 
+	}
+	
 	static uint8_t receive(uint8_t val) 				
 	{ 
-		uint16_t out = 0;
+		uint32_t out = 0;
 		
 		//Do the xfer
-		*(((uint8_t*)FW)+MonitorAdcFpgaSpiXferAddr) = (uint8_t)val;
+		waitbusytimeout();
+		//~ *(((uint8_t*)FW)+MonitorAdcFpgaSpiXferAddr) = (uint8_t)val;
+		FW->MonitorAdcSpiTransactionRegister = (uint32_t)val; 
 		
 		//readback
-		out = *((uint16_t*)(((uint8_t*)FW)+MonitorAdcFpgaSpiXferAddr));
+		waitbusytimeout();
+		//~ out = *((uint32_t*)(((uint8_t*)FW)+MonitorAdcFpgaSpiXferAddr));
+		out = FW->MonitorAdcSpiTransactionRegister; 
 		
-		if (out & 0xEF00U) { return((uint8_t)(out & 0x00FFU)); }
-		return(0xFF);
+		//~ if (out & 0xEF00U) { return((uint8_t)(out & 0x00FFU)); }
+		//~ return(0xFF);
+		return(out);
 	}		
+	
 	static bool nDrdy() 				
 	{ 
-		uint16_t out = 0;
+		//~ uint16_t out = 0;
 		
 		//readback
-		out = *((uint16_t*)(((uint8_t*)FW)+MonitorAdcFpgaSpiXferAddr));
+		//~ out = *((uint32_t*)(((uint8_t*)FW)+MonitorAdcSpiCommandStatusRegister));
 		
-		if (out & 0x8000U) { return(true); }
-		return(false);
+		//~ if (out & 0x8000U) { return(true); }
+		//~ return(false);
+		return(0 == (FW->MonitorAdcSpiCommandStatusRegister.nDrdy) );
 	}		
+	
 	static void setclkpolarity(const bool en) { } //handled by fpga
 	static void setclkphase(const bool en) { } //handled by fpga
-};
-
-struct PinoutMonitorAdc2
-{
-	PinoutMonitorAdc2() { }
-	virtual ~PinoutMonitorAdc2() { }
-	static void enable(const bool en) { } //handled by fpga
 };
 	
 struct MonitorAdcCalibratedInput
@@ -137,7 +165,7 @@ struct CGraphFWMonitorAdc
 private:
 			
 	//~ lt244x_accum<PinoutMonitorAdc> Adc;
-	ads1258<PinoutMonitorAdc2,PinoutMonitorAdc> Adc;
+	ads1258<PinoutMonitorAdc> Adc;
 
 	bool AdcFound;
 	bool Monitor;

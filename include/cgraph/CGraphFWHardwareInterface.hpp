@@ -220,6 +220,23 @@ union CGraphFWUartStatusRegister
 
 } __attribute__((__packed__));
 
+union CGraphFWMonitorAdcCommandStatusRegister
+{
+    uint32_t all;
+    struct 
+    {
+        uint32_t FrameEnable : 1; //1=nCs asserted (0), 0=nCs clear (1)
+        uint32_t TransactionComplete : 1; //Is the bus busy?
+        uint32_t nDrdy : 1; //Samples ready?
+        
+    } __attribute__((__packed__));
+
+    CGraphFWMonitorAdcCommandStatusRegister() { all = 0; }
+
+    void formatf() const { ::formatf("CGraphFWMonitorAdcCommandStatusRegister: FrameEnable:%c, TransactionComplete:%c, nDrdy:%c", FrameEnable?'1':'0', TransactionComplete?'1':'0', nDrdy?'1':'0'); }
+
+} __attribute__((__packed__));
+
 struct CGraphFWHardwareInterface
 {
     uint32_t DeviceSerialNumber; //ro; FPGA manufacturer hardcoded device UUID
@@ -280,6 +297,7 @@ struct CGraphFWHardwareInterface
 	uint32_t UartFifoUsb; //rw; send or read bytes from uart(s)
 	CGraphFWUartStatusRegister UartStatusRegisterUsb; //ro; what state are the uart(s) in?
 	uint32_t MonitorAdcSpiTransactionRegister;
+	CGraphFWMonitorAdcCommandStatusRegister MonitorAdcSpiCommandStatusRegister;
 	uint32_t UartFifoGps; //rw; send or read bytes from uart(s)
 	CGraphFWUartStatusRegister UartStatusRegisterGps; //ro; what state are the uart(s) in?
 	

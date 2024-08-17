@@ -21,7 +21,7 @@ template<class BufferT, size_t RxBufferLen, size_t TxBufferLen> class linux_pino
 {
 public:
 
-	linux_pinout_circular_uart() : IUart(), Silent(false) { }
+	linux_pinout_circular_uart() : IUart(), RxBuffer(), TxBuffer(), Silent(false) { }
 	virtual ~linux_pinout_circular_uart() { }
 
 	virtual int init(const uint32_t nc, const char* nc2) { return(IUartOK); }

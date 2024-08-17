@@ -273,7 +273,7 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		
 		//Show the monitor A/D
 		{
-			//~ MonitorAdc.Init();
+			MonitorAdc.Init();
 			
 			//~ size_t j = cycle % 12;
 			//~ switch(j)
@@ -299,15 +299,21 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 			//__inline__ spi_busmsg() { delayus(100); enable(true); }
 			uint8_t b = 0;
 			
-			//~ AdcTest.transmit(0x49); //0x40 | 0x09 0100:1001b
-			//~ b = AdcTest.receive(0x00);
-			//~ ::formatf("\nAdcTest try49: 0x%.2X", b);
+			AdcTest.enable(true);
+			formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
+			AdcTest.transmit(0x49); //0x40 | 0x09 0100:1001b
+			formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
+			b = AdcTest.receive(0x00);
+			formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
+			AdcTest.enable(false);
+			formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
+			::formatf("\nAdcTest try49: 0x%.2X", b);
 			//~ AdcTest.transmit(0x92); // 1001:0010b
 			//~ b = AdcTest.receive(0x00);
 			//~ ::formatf("\nAdcTest try92: 0x%.2X", b);
-			AdcTest.transmit(0x24); // 0010:0100b
-			b = AdcTest.receive(0x00);
-			::formatf("\nAdcTest try24: 0x%.2X", b);			
+			//~ AdcTest.transmit(0x24); // 0010:0100b
+			//~ b = AdcTest.receive(0x00);
+			//~ ::formatf("\nAdcTest try24: 0x%.2X", b);			
 			
 			//~ AdcTest.transmit(0xB6); // !0100:1001b = 1011:0110b
 			//~ b = AdcTest.receive(0x00);

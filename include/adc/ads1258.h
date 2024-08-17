@@ -246,12 +246,12 @@ namespace ads1258details
 	const uint8_t ads1258numchannels = 0x1E;
 };
 
-template <class pinout, class spi>
-struct ads1258 : pinout, spi
+template <class spipinout>
+struct ads1258 : spipinout
 {
 	public:
 
-		using pinout::enable;
+		using spipinout::enable;
 		
 		static const int32_t CountPosMax = 0x7FFFFFUL; //106% VRef
 		static const int32_t CountPosVRef = 0x780000UL;
@@ -267,7 +267,7 @@ struct ads1258 : pinout, spi
 		static const bool inputtypedifferential = true;
 		static const bool inputtypesingleended = false;
 
-		static const uint8_t InitOK = 0xFF;
+		static const uint8_t InitOK = 0x00;
 	
 		const double AdcVRef;
 
@@ -278,8 +278,8 @@ struct ads1258 : pinout, spi
 			ScanChansSEHi(0),
 			ScanChansInternal(0)
 		{
-			spi::setclkpolarity(true);
-			spi::setclkphase(true);
+			spipinout::setclkpolarity(true);
+			spipinout::setclkphase(true);
 		}
 
 		virtual ~ads1258() { }
@@ -487,6 +487,7 @@ struct ads1258 : pinout, spi
 		
 		virtual uint8_t Init(uint8_t gpio_output_mask = gpio_output_mask_all_outputs) //All outputs is reccommended in datasheet as inputs are not allowed to float for some ass reason.
 		{
+			uint8_t Return = InitOK;
 			//see pg 41 of ads1258 revD datasheet.
 
 			//1. Reset spi - disable for 4096xFclk
@@ -495,74 +496,74 @@ struct ads1258 : pinout, spi
 				delayus(10000);
 			}
 
-			//~ //2. stop the converter: set "start" pin low
-			//~ //<unimplemented in hardware, not strictly neccessary>
+			//2. stop the converter: set "start" pin low
+			//<unimplemented in hardware, not strictly neccessary>
 
-			//~ //3. Reset the converter
-			//~ {
-				//~ SendCommand(ads1258details::ads1258cmdheader(ads1258details::cmdtype_reset, false, 0));
-				//~ delayus(1000);
-			//~ }
+			//3. Reset the converter
+			{
+				SendCommand(ads1258details::ads1258cmdheader(ads1258details::cmdtype_reset, false, 0));
+				delayus(1000);
+			}
 
-			//~ //4. Config registers
-			//~ //ads1258details::config0register config0(1, 0, 1, 0, 0, 1); //Chopper off
-			//~ ads1258details::config0register config0(1, 0, 1, 0, 1, 1); //Chopper on
-			//~ ads1258details::config1register config1(0, 7, 0, 0);
-			//~ ads1258details::sysreadregister sysread(1, 1, 1, 1, 1);
-			//~ {
-				//~ WriteRegister(ads1258details::register_config0, config0.all);
-				//~ WriteRegister(ads1258details::register_config1, config1.all);
-				//~ WriteRegister(ads1258details::register_sysread, sysread.all);
+			//4. Config registers
+			//ads1258details::config0register config0(1, 0, 1, 0, 0, 1); //Chopper off
+			ads1258details::config0register config0(1, 0, 1, 0, 1, 1); //Chopper on
+			ads1258details::config1register config1(0, 7, 0, 0);
+			ads1258details::sysreadregister sysread(1, 1, 1, 1, 1);
+			{
+				WriteRegister(ads1258details::register_config0, config0.all);
+				WriteRegister(ads1258details::register_config1, config1.all);
+				WriteRegister(ads1258details::register_sysread, sysread.all);
 
-				//~ //pg 42: set no-connected gpio's to outputs
-				//~ WriteRegister(ads1258details::register_gpioc, gpio_output_mask); //all outputs
-				//~ WriteRegister(ads1258details::register_gpiod, 0x00); //all zero
-			//~ }
+				//pg 42: set no-connected gpio's to outputs
+				WriteRegister(ads1258details::register_gpioc, gpio_output_mask); //all outputs
+				WriteRegister(ads1258details::register_gpiod, 0x00); //all zero
+			}
 
 			//5. Readback registers
 			{
 				uint8_t temp;
 
-				//~ ReadRegister(ads1258details::register_config0, temp);
-				//~ if (config0.all != temp)
-				//~ {
-					//~ #ifdef DEBUG
-						//~ ::formatf("ads1258::init(): config0 mismatch (reads:0x%.2X)\n", temp);
-						
-					//~ #endif
+				ReadRegister(ads1258details::register_config0, temp);
+				if (config0.all != temp)
+				{
+					#ifdef DEBUG
+						::formatf("ads1258::init(): config0 mismatch (reads:0x%.2X, wanted:0x%.2X)\n", temp, config0.all);
+					#endif
 					//~ return(ads1258details::register_config0);
-				//~ }
+					Return |= ads1258details::register_config0;
+				}
 
-				//~ ReadRegister(ads1258details::register_config1, temp);
-				//~ if (config1.all != temp)
-				//~ {
-					//~ #ifdef DEBUG
-						//~ ::formatf("ads1258::init(): config1 mismatch (reads:0x%.2X)\n", temp);
-						
-					//~ #endif
+				ReadRegister(ads1258details::register_config1, temp);
+				if (config1.all != temp)
+				{
+					#ifdef DEBUG
+						::formatf("ads1258::init(): config1 mismatch (reads:0x%.2X, wanted:0x%.2X)\n", temp, config1.all);
+					#endif
 					//~ return(ads1258details::register_config1);
-				//~ }
+					Return |= ads1258details::register_config1;
+				}
 
-				//~ ReadRegister(ads1258details::register_sysread, temp);
-				//~ if (sysread.all != temp)
-				//~ {
-					//~ #ifdef DEBUG
-						//~ ::formatf("ads1258::init(): sysread mismatch (reads:0x%.2X)\n", temp);
-						
-					//~ #endif
+				ReadRegister(ads1258details::register_sysread, temp);
+				if (sysread.all != temp)
+				{
+					#ifdef DEBUG
+						::formatf("ads1258::init(): sysread mismatch (reads:0x%.2X, wanted:0x%.2X)\n", temp, sysread.all);
+					#endif
 					//~ return(ads1258details::register_sysread);
-				//~ }
+					Return |= ads1258details::register_sysread;
+				}
 
-				//~ //pg 42: set no-connected gpio's to outputs
-				//~ ReadRegister(ads1258details::register_gpioc, temp);
-				//~ if (gpio_output_mask != temp)
-				//~ {
-					//~ #ifdef DEBUG
-						//~ ::formatf("ads1258::init(): gpioc mismatch (reads:0x%.2X)\n", temp);
-						
-					//~ #endif
+				//pg 42: set no-connected gpio's to outputs
+				ReadRegister(ads1258details::register_gpioc, temp);
+				if (gpio_output_mask != temp)
+				{
+					#ifdef DEBUG
+						::formatf("ads1258::init(): gpioc mismatch (reads:0x%.2X, wanted:0x%.2X)\n", temp, gpio_output_mask);
+					#endif
 					//~ return(ads1258details::register_gpioc);
-				//~ }
+					Return |= ads1258details::register_gpioc;
+				}
 
 				//(Don't read gpiod - we write 0x00, but if pins are set as inputs, they will not read 0x00)
 				
@@ -570,15 +571,16 @@ struct ads1258 : pinout, spi
 				ReadRegister(ads1258details::register_idnum, temp);
 				if (0x8B != temp)
 				{
-					//~ #ifdef DEBUG
-						::formatf("ads1258::init(): idnum mismatch (reads:0x%.2X)\n", temp);
-						
-					//~ #endif
-					return(ads1258details::register_idnum);
+					#ifdef DEBUG
+						::formatf("ads1258::init(): idnum mismatch (reads:0x%.2X, wanted:0x%.2X)\n", temp, 0x8B);
+					#endif
+					//~ return(ads1258details::register_idnum);
+					Return |= ads1258details::register_idnum;
 				}
 			}
 
-			return(InitOK);
+			//~ return(InitOK);
+			return(Return);			
 		}
 
 	private:
@@ -593,24 +595,25 @@ struct ads1258 : pinout, spi
 		// Control the chip select line
 		struct spi_busmsg
 		{
-			__inline__ spi_busmsg() { delayus(100); enable(true); }
-			__inline__ ~spi_busmsg() { enable(false); delayus(100); }
+			__inline__ spi_busmsg() { delayus(1000); enable(true); }
+			__inline__ ~spi_busmsg() { enable(false); delayus(1000); }
 		};
 
 		//tx/rx a byte over spi:
-		__inline__ void txb(uint8_t byte) { spi::transmit(byte); }
-		__inline__ uint8_t rxb() { uint8_t x = spi::receive((uint8_t)(0)); return(x); }
+		__inline__ void txb(uint8_t byte) { spipinout::transmit(byte); }
+		__inline__ uint8_t rxb() { uint8_t x = spipinout::receive((uint8_t)(0)); return(x); }
 		
 	public:
 
 		//Transfer data to/from internal registers: notice they are all different numbers of bytes
 		//~ __inline__ void SetRegister24(uint8_t addr, uint32_t val)	{ addr |= 0x80; spi_busmsg x; txb(addr); 	delayus(5); txb(val >> 16); 	delayus(5); txb(val >> 8); 	delayus(5); txb(val); }
-		__inline__ void WriteRegister(const uint8_t& addr, const uint8_t val)  	{ ads1258details::ads1258cmdheader cmd(ads1258details::cmdtype_registerwrite, false, addr); spi_busmsg x; txb(cmd.all); txb(val); }
+		//~ __inline__ void WriteRegister(const uint8_t addr, const uint8_t val)  	{ ads1258details::ads1258cmdheader cmd(ads1258details::cmdtype_registerwrite, false, addr); spi_busmsg x; txb(cmd.all); txb(val); }
+		__inline__ void WriteRegister(const uint8_t addr, const uint8_t val)  	{ spi_busmsg x; txb(addr | 0x60); txb(val); }
 
 		//~ __inline__ ads1258sample ReadLastChannel() { spi_busmsg x; ads1258sample val; ads1258cmdheader cmd(cmdtype_chanreadregister, 1, 0); txb(cmd.all); val.three = rxb(); val.two = rxb(); val.one = rxb(); val.zero = rxb(); return(val); }
 		__inline__ ads1258details::ads1258sample ReadLastChannel() { spi_busmsg x; ads1258details::ads1258sample val; txb(0x30); val.three = rxb(); val.two = rxb(); val.one = rxb(); val.zero = rxb(); return(val); }
-		__inline__ uint8_t  ReadRegister(const uint8_t& addr) 	{ spi_busmsg x; uint8_t  val = 0; txb(addr | 0x40); val |= rxb(); return(val); }
-		__inline__ void  ReadRegister(const uint8_t& addr, uint8_t& val) 				{ spi_busmsg x; val = 0; txb(addr | 0x40); val |= rxb(); }
+		__inline__ uint8_t  ReadRegister(const uint8_t addr) 	{ spi_busmsg x; uint8_t  val = 0; txb(addr | 0x40); val |= rxb(); return(val); }
+		__inline__ void  ReadRegister(const uint8_t addr, uint8_t& val) 				{ spi_busmsg x; val = 0; txb(addr | 0x40); val |= rxb(); }
 
 		__inline__ void SendCommand(ads1258details::ads1258cmdheader cmd)  	{ spi_busmsg x; txb(cmd.all); }
 };
