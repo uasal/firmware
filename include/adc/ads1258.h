@@ -19,6 +19,19 @@
 
 namespace ads1258details
 {
+	const int32_t CountPosMax = 0x7FFFFFUL; //106% VRef
+	const int32_t CountPosVRef = 0x780000UL;
+	const int32_t CountZero = 0x000000UL;
+	const int32_t CountNegVRef = (int32_t)0xFF87FFFFUL;
+	const int32_t CountNegMin = (int32_t)0xFF800000UL; //-106% VRef
+	const int32_t CountVRefVccDenominator = 786432;
+	const int32_t CountGainDenominator = 7864320;
+	
+	static double CountsToVolts(const int32_t& Counts, const double& AdcVRef)
+	{
+		return(((double)Counts * (double)AdcVRef) / (double)CountPosVRef);
+	}
+
 	union ads1258status
 	{
 		uint8_t all;
@@ -246,6 +259,8 @@ namespace ads1258details
 	const uint8_t ads1258numchannels = 0x1E;
 };
 
+using namespace ads1258details;
+
 template <class spipinout>
 struct ads1258 : spipinout
 {
@@ -253,14 +268,6 @@ struct ads1258 : spipinout
 
 		using spipinout::enable;
 		
-		static const int32_t CountPosMax = 0x7FFFFFUL; //106% VRef
-		static const int32_t CountPosVRef = 0x780000UL;
-		static const int32_t CountZero = 0x000000UL;
-		static const int32_t CountNegVRef = (int32_t)0xFF87FFFFUL;
-		static const int32_t CountNegMin = (int32_t)0xFF800000UL; //-106% VRef
-		static const int32_t CountVRefVccDenominator = 786432;
-		static const int32_t CountGainDenominator = 7864320;
-
 		static const uint8_t gpio_output_mask_all_outputs = 0x00;
 		static const uint8_t gpio_output_mask_all_inputs = 0xFF;
 	
@@ -286,9 +293,7 @@ struct ads1258 : spipinout
 		
 		double CountsToVolts(const int32_t& Counts) const
 		{
-			//~ return((Counts * AdcVRef * 1.061) / CountPosVRef);
 			return(((double)Counts * (double)AdcVRef) / (double)CountPosVRef);
-			//~ return( ((double)Counts * (double)AdcVRef * (double)CountPosMax) / ((double)CountPosVRef * (double)CountPosVRef) ); //This is shit, but it's pretty close (1.005x) to correct...
 		}
 
 		int32_t ConvertOnceDiff(uint8_t chanpos, uint8_t channeg)
@@ -401,30 +406,30 @@ struct ads1258 : spipinout
 			ReadRegister(ads1258details::register_muxdif, temp);
 			if (ScanChansDiff != temp)
 			{
-				#ifdef DEBUG
+				//~ #ifdef DEBUG
 					formatf("ads1258::SetScanChannels(): muxdif mismatch (reads:0x%.2X)\n", temp);
-				#endif
+				//~ #endif
 			}
 			ReadRegister(ads1258details::register_muxsg0, temp);
 			if (ScanChansSELo != temp)
 			{
-				#ifdef DEBUG
+				//~ #ifdef DEBUG
 					formatf("ads1258::SetScanChannels(): muxsg0 mismatch (reads:0x%.2X)\n", temp);
-				#endif
+				//~ #endif
 			}
 			ReadRegister(ads1258details::register_muxsg1, temp);
 			if (ScanChansSEHi != temp)
 			{
-				#ifdef DEBUG
+				//~ #ifdef DEBUG
 					formatf("ads1258::SetScanChannels(): muxsg1 mismatch (reads:0x%.2X)\n", temp);
-				#endif
+				//~ #endif
 			}
 			ReadRegister(ads1258details::register_sysread, temp);
 			if (ScanChansInternal != temp)
 			{
-				#ifdef DEBUG
+				//~ #ifdef DEBUG
 					formatf("ads1258::SetScanChannels(): sysred mismatch (reads:0x%.2X)\n", temp);
-				#endif
+				//~ #endif
 			}
 		}
 		
@@ -527,42 +532,42 @@ struct ads1258 : spipinout
 				ReadRegister(ads1258details::register_config0, temp);
 				if (config0.all != temp)
 				{
-					#ifdef DEBUG
+					//~ #ifdef DEBUG
 						::formatf("ads1258::init(): config0 mismatch (reads:0x%.2X, wanted:0x%.2X)\n", temp, config0.all);
-					#endif
-					//~ return(ads1258details::register_config0);
-					Return |= ads1258details::register_config0;
+					//~ #endif
+					return(ads1258details::register_config0);
+					//~ Return |= ads1258details::register_config0;
 				}
 
 				ReadRegister(ads1258details::register_config1, temp);
 				if (config1.all != temp)
 				{
-					#ifdef DEBUG
+					//~ #ifdef DEBUG
 						::formatf("ads1258::init(): config1 mismatch (reads:0x%.2X, wanted:0x%.2X)\n", temp, config1.all);
-					#endif
-					//~ return(ads1258details::register_config1);
-					Return |= ads1258details::register_config1;
+					//~ #endif
+					return(ads1258details::register_config1);
+					//~ Return |= ads1258details::register_config1;
 				}
 
 				ReadRegister(ads1258details::register_sysread, temp);
 				if (sysread.all != temp)
 				{
-					#ifdef DEBUG
+					//~ #ifdef DEBUG
 						::formatf("ads1258::init(): sysread mismatch (reads:0x%.2X, wanted:0x%.2X)\n", temp, sysread.all);
-					#endif
-					//~ return(ads1258details::register_sysread);
-					Return |= ads1258details::register_sysread;
+					//~ #endif
+					return(ads1258details::register_sysread);
+					//~ Return |= ads1258details::register_sysread;
 				}
 
 				//pg 42: set no-connected gpio's to outputs
 				ReadRegister(ads1258details::register_gpioc, temp);
 				if (gpio_output_mask != temp)
 				{
-					#ifdef DEBUG
+					//~ #ifdef DEBUG
 						::formatf("ads1258::init(): gpioc mismatch (reads:0x%.2X, wanted:0x%.2X)\n", temp, gpio_output_mask);
-					#endif
-					//~ return(ads1258details::register_gpioc);
-					Return |= ads1258details::register_gpioc;
+					//~ #endif
+					return(ads1258details::register_gpioc);
+					//~ Return |= ads1258details::register_gpioc;
 				}
 
 				//(Don't read gpiod - we write 0x00, but if pins are set as inputs, they will not read 0x00)
@@ -571,16 +576,16 @@ struct ads1258 : spipinout
 				ReadRegister(ads1258details::register_idnum, temp);
 				if (0x8B != temp)
 				{
-					#ifdef DEBUG
+					//~ #ifdef DEBUG
 						::formatf("ads1258::init(): idnum mismatch (reads:0x%.2X, wanted:0x%.2X)\n", temp, 0x8B);
-					#endif
-					//~ return(ads1258details::register_idnum);
-					Return |= ads1258details::register_idnum;
+					//~ #endif
+					return(ads1258details::register_idnum);
+					//~ Return |= ads1258details::register_idnum;
 				}
 			}
 
-			//~ return(InitOK);
-			return(Return);			
+			return(InitOK);
+			//~ return(Return);			
 		}
 
 	private:
@@ -592,11 +597,11 @@ struct ads1258 : spipinout
 		uint8_t ScanChansSEHi;
 		uint8_t ScanChansInternal;
 
-		// Control the chip select line
+		// Control the chip select line & calculate enable-disable delay consistently everywhere:
 		struct spi_busmsg
 		{
-			__inline__ spi_busmsg() { delayus(1000); enable(true); }
-			__inline__ ~spi_busmsg() { enable(false); delayus(1000); }
+			__inline__ spi_busmsg() { delayus(1000); spipinout::waitbusytimeout(); enable(true); }
+			__inline__ ~spi_busmsg() { delayus(1); spipinout::waitbusytimeout(); enable(false); delayus(1000); }
 		};
 
 		//tx/rx a byte over spi:

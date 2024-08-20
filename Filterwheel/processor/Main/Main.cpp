@@ -340,6 +340,8 @@ int main(int argc, char *argv[])
     DbgUartUsb.SetEcho(false);
     DbgUart485_0.SetEcho(false);
 	
+	//~ MonitorAdc.SetMonitor(true);
+	MonitorAdc.SetMonitor(false);
 	MonitorAdc.Init();
 	
 	uint8_t i = 0;
@@ -370,6 +372,13 @@ int main(int argc, char *argv[])
 		//~ ::formatf("\nAdcTest try 0x%.2X: 0x%.2X", i, b);	
 		
 		//~ bool Bored = true;
+		
+		//~ uint8_t temp = 0;
+		//~ MonitorAdc.Adc.WriteRegister(ads1258details::register_gpiod, 0x80);
+		//~ MonitorAdc.Adc.ReadRegister(ads1258details::register_gpiod, temp);
+		//~ ::formatf("ads1258::register_gpiod reads:0x%.2X, wanted:0x%.2X\n", temp, 0x80);				
+		//~ MonitorAdc.Adc.ReadRegister(ads1258details::register_gpioc, temp);
+		//~ ::formatf("ads1258::register_gpioc reads:0x%.2X, wanted:0x%.2X\n", temp, 0x00);				
 		
 		//Handle stdio (local) user interface:
         //~ if (Process())

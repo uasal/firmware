@@ -134,7 +134,7 @@ struct MonitorAdcCalibratedInput
 	
 	void Calibrate(double gain, double offset) { Gain = gain; Offset = offset; }
 	
-	double ReadCalibrated(const int32_t& RawInput) const { return((((double)(RawInput)) * Gain) + Offset); }
+	double ReadCalibrated(const int32_t& RawInput) const { return(((ads1258details::CountsToVolts(RawInput, 4.096)) * Gain) + Offset); }
 	//~ double ReadCalibrated(const Ltc244xAccumulator& RawInput) const { return( (RawInput.CountsToVolts() * Gain) + Offset); }
 	
 	double GetGain() const { return(Gain); }
@@ -165,12 +165,13 @@ struct CGraphFWMonitorAdc
 private:
 			
 	//~ lt244x_accum<PinoutMonitorAdc> Adc;
-	ads1258<PinoutMonitorAdc> Adc;
+	//~ ads1258<PinoutMonitorAdc> Adc;
 
 	bool AdcFound;
 	bool Monitor;
 	
-    static const uint8_t GpioDirections = 0xEF; //0111:1111 - bit 7 is output
+    //~ static const uint8_t GpioDirections = 0xEF; //0111:1111 - bit 7 is output
+	static const uint8_t GpioDirections = 0x00; //All outputs (unused should be outputs according to datasheet)
     static const uint8_t StartPinMask = 0x80; //Gpio7
 
 	int32_t P1V2; //chan_se1
@@ -199,6 +200,8 @@ public:
 	
 	~CGraphFWMonitorAdc() { }
 	
+	ads1258<PinoutMonitorAdc> Adc;
+	
 	//~ static uint8_t GetAdcReadChannel()								{ uint8_t val = *(((uint8_t*)FW)+MonitorAdcFpgaAdcChannelAddr); return(val); }
 	//~ static void SetAdcReadChannel(const uint8_t val) 					{ *(((uint8_t*)FW)+MonitorAdcFpgaAdcChannelAddr) = (uint8_t)val; }
 	//~ static void GetAdcSample(Ltc244xAccumulator& val) 				{ val = *((Ltc244xAccumulator*)(((uint8_t*)FW)+MonitorAdcFpgaAdcSampleAddr)); }		
@@ -220,6 +223,9 @@ public:
 	#define Aux2Channel ads1258details::chan_se4
 	#define AmbientLightChannel ads1258details::chan_se13
 	#define TemperatureChannel ads1258details::chan_se15
+	
+	bool GetMonitor() const { return(Monitor); }
+	void SetMonitor(bool monitor) { Monitor = monitor; }
 	
 	void Init()
 	{
@@ -260,7 +266,7 @@ public:
 			//Take start pin high to initiate auto-scan
 			{
 				Adc.WriteRegister(ads1258details::register_gpiod, StartPinMask);
-				if (Monitor)
+				//~ if (Monitor)
 				{
 					formatf("\nMonitorAdc: Starting A/D auto-scan; wrote 0x%.2X to gpio's, readback: 0x%.2X\n", StartPinMask, Adc.ReadRegister(ads1258details::register_gpiod));
 					fflush(stdout);
@@ -300,8 +306,7 @@ public:
 					if ( (sample.status.isbrownout) || (sample.status.isclipped) ) // || (!sample.status.isnew) )
 					{ 
 						if (Monitor) { ::formatf("\nMonitorAdc: ch %u bad status: 0x%.2X\n", sample.status.channel, sample.status.all); }
-					}
-					
+					}					
 					else
 					{
 						if (sample.status.isnew)

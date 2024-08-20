@@ -88,7 +88,7 @@ int8_t ScanMonitorAdcCommand(char const* Name, char const* Params, const size_t 
 	formatf("P6I: %3.6lf V\n", MonitorAdc.GetP6I());
 	formatf("Aux0: %3.6lf V\n", MonitorAdc.GetAux0());
 	formatf("Aux1: %3.6lf V\n", MonitorAdc.GetAux1());
-	formatf("Aux2: %3.6lf V\n", MonitorAdc.GetAux1());
+	formatf("Aux2: %3.6lf V\n", MonitorAdc.GetAux2());
 	formatf("AmbientLight: %3.6lf V\n", MonitorAdc.GetAmbientLight());
 	formatf("Temperature: %3.6lf V\n", MonitorAdc.GetTemperature());
 	
@@ -109,24 +109,24 @@ int8_t TestMonitorAdcCommand(char const* Name, char const* Params, const size_t 
 	
 		formatf("\n\nTestMonitorAdc Command: Serial: Reading A/D's (raw values):\n");
 		
-		//~ Ltc244xAccumulator Sample;
+		int32_t Sample;
 		 
-		//~ MonitorAdc.GetP1V2Raw(Sample); formatf("\nP1V2: "); Sample.printf();
-		//~ MonitorAdc.GetP2V2Raw(Sample); formatf("\nP2V2: "); Sample.printf();
-		//~ MonitorAdc.GetP24VRaw(Sample); formatf("\nP24V: "); Sample.printf();
-		//~ MonitorAdc.GetP2V5Raw(Sample); formatf("\nP2V5: "); Sample.printf();
-		//~ MonitorAdc.GetP3V3ARaw(Sample); formatf("\nP3V3A: "); Sample.printf();
-		//~ MonitorAdc.GetP6VRaw(Sample); formatf("\nP6V: "); Sample.printf();
-		//~ MonitorAdc.GetP5VRaw(Sample); formatf("\nP5V: "); Sample.printf();
-		//~ MonitorAdc.GetP3V3DRaw(Sample); formatf("\nP3V3D: "); Sample.printf();
-		//~ MonitorAdc.GetP4V3Raw(Sample); formatf("\nP4V3: "); Sample.printf();
-		//~ MonitorAdc.GetN5VRaw(Sample); formatf("\nN5V: "); Sample.printf();
-		//~ MonitorAdc.GetN6VRaw(Sample); formatf("\nN6V: "); Sample.printf();
-		//~ MonitorAdc.GetP150VRaw(Sample); formatf("\nP150V: "); Sample.printf();
-		//~ MonitorAdc.GetAux0Raw(Sample); formatf("\nAux0: "); Sample.printf();
-		//~ MonitorAdc.GetAux1Raw(Sample); formatf("\nAux1: "); Sample.printf();
-		//~ MonitorAdc.GetAmbientLightRaw(Sample); formatf("\nAmbientLight: "); Sample.printf();
-		//~ MonitorAdc.GetTemperatureRaw(Sample); formatf("\nTemperature: "); Sample.printf();
+		MonitorAdc.GetP1V2Raw(Sample); formatf("\nP1V2: %+ld, 0x%.8lX", (signed long)Sample, (unsigned long)Sample);
+		MonitorAdc.GetP2V2Raw(Sample); formatf("\nP2V2: %+ld, 0x%.8lX", (signed long)Sample, (unsigned long)Sample);
+		MonitorAdc.GetP28VRaw(Sample); formatf("\nP28V: %+ld, 0x%.8lX", (signed long)Sample, (unsigned long)Sample);
+		MonitorAdc.GetP2V5Raw(Sample); formatf("\nP2V5: %+ld, 0x%.8lX", (signed long)Sample, (unsigned long)Sample);
+		MonitorAdc.GetP6VRaw(Sample); formatf("\nP6V: %+ld, 0x%.8lX", (signed long)Sample, (unsigned long)Sample);
+		MonitorAdc.GetP5VRaw(Sample); formatf("\nP5V: %+ld, 0x%.8lX", (signed long)Sample, (unsigned long)Sample);
+		MonitorAdc.GetP3V3DRaw(Sample); formatf("\nP3V3D: %+ld, 0x%.8lX", (signed long)Sample, (unsigned long)Sample);
+		MonitorAdc.GetP4V3Raw(Sample); formatf("\nP4V3: %+ld, 0x%.8lX", (signed long)Sample, (unsigned long)Sample);
+		MonitorAdc.GetP2I2Raw(Sample); formatf("\nP2I2: %+ld, 0x%.8lX", (signed long)Sample, (unsigned long)Sample);
+		MonitorAdc.GetP4I3Raw(Sample); formatf("\nP4I3: %+ld, 0x%.8lX", (signed long)Sample, (unsigned long)Sample);
+		MonitorAdc.GetP6IRaw(Sample); formatf("\nP6I: %+ld, 0x%.8lX", (signed long)Sample, (unsigned long)Sample);
+		MonitorAdc.GetAux0Raw(Sample); formatf("\nAux0: %+ld, 0x%.8lX", (signed long)Sample, (unsigned long)Sample);
+		MonitorAdc.GetAux1Raw(Sample); formatf("\nAux1: %+ld, 0x%.8lX", (signed long)Sample, (unsigned long)Sample);
+		MonitorAdc.GetAux2Raw(Sample); formatf("\nAux2: %+ld, 0x%.8lX", (signed long)Sample, (unsigned long)Sample);
+		MonitorAdc.GetAmbientLightRaw(Sample); formatf("\nAmbientLight: %+ld, 0x%.8lX", (signed long)Sample, (unsigned long)Sample);
+		MonitorAdc.GetTemperatureRaw(Sample); formatf("\nTemperature: %+ld, 0x%.8lX", (signed long)Sample, (unsigned long)Sample);
 		
 		//~ for(size_t i = 0; i < 32; i++)
 		//~ {

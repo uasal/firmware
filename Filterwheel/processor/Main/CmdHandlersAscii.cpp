@@ -289,7 +289,7 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 				//~ default : { }
 			//~ }
 			
-			PinoutMonitorAdc AdcTest;
+			//~ PinoutMonitorAdc AdcTest;
 			//static const uint8_t cmdtype_registerread = 0x02; << 5 = 0x40
 			//static const uint8_t cmdtype_registerwrite = 0x03;	<,5 = 0x60
 			//ads1258details::register_idnum = 0x09; //always reads 0x8B
@@ -297,17 +297,17 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 			//__inline__ void txb(uint8_t byte) { spi::transmit(byte); }
 			//__inline__ uint8_t rxb() { uint8_t x = spi::receive((uint8_t)(0)); return(x); }
 			//__inline__ spi_busmsg() { delayus(100); enable(true); }
-			uint8_t b = 0;
+			//~ uint8_t b = 0;
 			
-			AdcTest.enable(true);
-			formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
-			AdcTest.transmit(0x49); //0x40 | 0x09 0100:1001b
-			formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
-			b = AdcTest.receive(0x00);
-			formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
-			AdcTest.enable(false);
-			formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
-			::formatf("\nAdcTest try49: 0x%.2X", b);
+			//~ AdcTest.enable(true);
+			//~ formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
+			//~ AdcTest.transmit(0x49); //0x40 | 0x09 0100:1001b
+			//~ formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
+			//~ b = AdcTest.receive(0x00);
+			//~ formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
+			//~ AdcTest.enable(false);
+			//~ formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
+			//~ ::formatf("\nAdcTest try49: 0x%.2X", b);
 			//~ AdcTest.transmit(0x92); // 1001:0010b
 			//~ b = AdcTest.receive(0x00);
 			//~ ::formatf("\nAdcTest try92: 0x%.2X", b);
