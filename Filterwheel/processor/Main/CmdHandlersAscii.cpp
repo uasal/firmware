@@ -273,7 +273,20 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		
 		//Show the monitor A/D
 		{
-			MonitorAdc.Init();
+			CGraphFWHardwareControlRegister HCR;
+			HCR.PosLedsEnA = 1;
+			HCR.PosLedsEnB = 1;
+			HCR.MotorEnable = 1;
+			HCR.ResetSteps = 1;
+			FW->ControlRegister = HCR;		
+			HCR.ResetSteps = 0;
+			FW->ControlRegister = HCR;		
+			
+			//~ CGraphFWMotorControlStatusRegister MCSR;
+			//~ MCSR.SeekStep = 730;
+			//~ FW->MotorControlStatus = MCSR;		
+
+			//~ MonitorAdc.Init();
 			
 			//~ size_t j = cycle % 12;
 			//~ switch(j)

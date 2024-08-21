@@ -86,13 +86,13 @@ SIZE="1186"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd,hdl"
 STATE="utd"
-TIME="1723570209"
-SIZE="86188"
+TIME="1724167466"
+SIZE="86837"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd,hdl"
 STATE="utd"
-TIME="1723570209"
-SIZE="51986"
+TIME="1724167466"
+SIZE="52665"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/include/fpga/ads1258.vhd,hdl"
 STATE="utd"
@@ -226,8 +226,8 @@ SIZE="5413"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/include/fpga/SpiDevice.vhd,hdl"
 STATE="utd"
-TIME="1722445774"
-SIZE="3778"
+TIME="1724167466"
+SIZE="4504"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBus.vhd,hdl"
 STATE="utd"
@@ -588,14 +588,14 @@ ENDFILE
 VALUE "<project>/../fpga/Main.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
 STATE="utd"
-TIME="1723570209"
-SIZE="86188"
+TIME="1724167466"
+SIZE="86837"
 ENDFILE
 VALUE "<project>/../fpga/RegisterSpace.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
 STATE="utd"
-TIME="1723570209"
-SIZE="51986"
+TIME="1724167466"
+SIZE="52665"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
@@ -1147,22 +1147,17 @@ PARENT="<project>/component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel.so,so"
 STATE="utd"
-TIME="1722967293"
+TIME="1723766198"
 SIZE="252"
-ENDFILE
-VALUE "<project>/synthesis/Filterwheel.vm,syn_vm"
-STATE="ood"
-TIME="1722967292"
-SIZE="1396692"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel_syn.prj,prj"
 STATE="utd"
-TIME="1722967293"
-SIZE="6590"
+TIME="1724174836"
+SIZE="6133"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel_vm.sdc,syn_sdc"
 STATE="utd"
-TIME="1722967292"
+TIME="1723766197"
 SIZE="7559"
 ENDFILE
 ENDLIST
@@ -1176,6 +1171,30 @@ VALUE "<project>/simulation/subsystem.bfm,sim"
 ENDLIST
 LIST PNRConstraints
 VALUE "<project>/constraint/io/user.pdc,io_pdc"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSYNTHESIS(<project>/synthesis/Filterwheel.vm,syn_vm)=StateFailure
+ideSYNTHESIS(<project>/synthesis/Filterwheel.edn,syn_edn)=StateFailure
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSYNTHESIS(<project>/synthesis/Filterwheel.vm,syn_vm)=StateFailure
+ideSYNTHESIS(<project>/synthesis/Filterwheel.edn,syn_edn)=StateFailure
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 ENDLIST
 LIST "Filterwheel_sb::work"
@@ -1416,6 +1435,30 @@ IS32BIT="1"
 EndProfile
 ENDLIST
 LIST ProjectState5.1
+LIST "Filterwheel::work"
+LIST Impl1
+ideSYNTHESIS(<project>/synthesis/Filterwheel.vm,syn_vm)=StateFailure
+ideSYNTHESIS(<project>/synthesis/Filterwheel.edn,syn_edn)=StateFailure
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSYNTHESIS(<project>/synthesis/Filterwheel.vm,syn_vm)=StateFailure
+ideSYNTHESIS(<project>/synthesis/Filterwheel.edn,syn_edn)=StateFailure
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
 LIST "Filterwheel_sb::work"
 LIST Impl1
 ideSTIMULUS=StateSuccess

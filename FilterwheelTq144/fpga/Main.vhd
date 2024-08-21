@@ -1599,12 +1599,12 @@ begin
 	
 	MonitorAdcReset_i <= MasterReset or MonitorAdcReset;
 	
-	TP1 <= nCsMonitorAdc_i;
-	TP2 <= SckMonitorAdc_i;
-	TP3 <= MosiMonitorAdc_i;
-	TP4 <= MisoMonitorAdc_i;
-	TP5 <= MonitorAdcSpiXferStart;
-	TP6 <= MonitorAdcSpiXferDone;
+	--~ TP1 <= nCsMonitorAdc_i;
+	--~ TP2 <= SckMonitorAdc_i;
+	--~ TP3 <= MosiMonitorAdc_i;
+	--~ TP4 <= MisoMonitorAdc_i;
+	--~ TP5 <= MonitorAdcSpiXferStart;
+	--~ TP6 <= MonitorAdcSpiXferDone;
 	--~ TP7 <= MonitorAdcSpiDataIn(0);
 	--~ TP8 <= MonitorAdcSpiDataOut(0);
 	
@@ -2202,8 +2202,8 @@ begin
 	);
 	RxdUsb <= TxdUsb_i;
 	
-	TP7 <= not(TxdUsb_i);
-	TP8 <= TxdUsb_i;
+	--~ TP7 <= not(TxdUsb_i);
+	--~ TP8 <= TxdUsb_i;
 	
 	--~ LedR <= not(TxdUsb_i);
 	--~ TP1 <= TxdUsb_i;
@@ -2542,9 +2542,22 @@ begin
 		--~ LedR <= '1';
 		--~ LedG <= '1';
 		--~ LedB <= '1';
+		--~ LedR <= not(PosSenseBit0A);
+		--~ LedG <= not(PosSenseBit1A);
+		--~ LedB <= not(PosSenseBit2A);
+		
 		LedR <= not(PosSenseBit0A);
 		LedG <= not(PosSenseBit1A);
 		LedB <= not(PosSenseBit2A);
+		
+		TP1 <= not(PosSenseHomeA);
+		TP2 <= not(PosSenseBit0A); --msb
+		TP3 <= not(PosSenseBit1A);
+		TP4 <= not(PosSenseBit2A); --lsb
+		TP5 <= not(PosSenseHomeB);
+		TP6 <= not(PosSenseBit0B); --msb
+		TP7 <= not(PosSenseBit1B);
+		TP8 <= not(PosSenseBit2B); --lsb
 		
 		--~ TP1 <= RamBusnCs;
 		--~ TP2 <= RamBusWrnRd;
@@ -2585,8 +2598,8 @@ begin
 				if (LastPosSenseBit1B /= PosSenseBit1B) then LastPosSenseBit1B <= PosSenseBit1B; if (PosSenseBit1B = '0') then PosDetB1OnStep <= MotorCurrentStep; else PosDetB1OffStep <= MotorCurrentStep; end if; end if;
 				if (LastPosSenseBit2B /= PosSenseBit2B) then LastPosSenseBit2B <= PosSenseBit2B; if (PosSenseBit2B = '0') then PosDetB2OnStep <= MotorCurrentStep; else PosDetB2OffStep <= MotorCurrentStep; end if; end if;
 				
-				PosSenseA <= PosSenseBit2A & PosSenseBit1A & PosSenseBit0A & PosSenseHomeA;
-				PosSenseB <= PosSenseBit2B & PosSenseBit1B & PosSenseBit0B & PosSenseHomeB;
+				PosSenseA <= PosSenseBit0A & PosSenseBit1A & PosSenseBit2A & PosSenseHomeA; --the indexing of the bits is upside-down on the filterwheels...
+				PosSenseB <= PosSenseBit0B & PosSenseBit1B & PosSenseBit2B & PosSenseHomeB;
 				
 				--Not sure if these will be useful due to hysteresis/jitter, but we'll see, light & capacitor may smooth things out
 				

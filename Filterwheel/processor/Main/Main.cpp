@@ -332,6 +332,8 @@ int main(int argc, char *argv[])
 	HCR.PosLedsEnA = 1;
     HCR.PosLedsEnB = 1;
 	HCR.MotorEnable = 1;
+	HCR.ResetSteps = 1;
+	FW->ControlRegister = HCR;		
 	HCR.ResetSteps = 0;
 	FW->ControlRegister = HCR;		
 	

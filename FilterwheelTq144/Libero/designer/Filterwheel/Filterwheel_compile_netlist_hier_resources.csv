@@ -71,12 +71,12 @@ Main_0/RS422_Rx0/UartFifo/Primitives,2,4,0,0,0,0,0,0,0,0,0
 Main_0/RS422_Rx0/UartFifo/fifo_i/Primitives,65,52,36,36,0,1,0,0,0,0,0
 Main_0/RS422_Rx1/ClkSyncWrite/Primitives,0,2,0,0,0,0,0,0,0,0,0
 Main_0/RS422_Rx1/Uart/ClkSyncRxd/Primitives,0,2,0,0,0,0,0,0,0,0,0
-Main_0/RS422_Rx1/Uart/Uart/Primitives,37,25,0,0,0,0,0,0,0,0,0
+Main_0/RS422_Rx1/Uart/Uart/Primitives,35,25,0,0,0,0,0,0,0,0,0
 Main_0/RS422_Rx1/UartFifo/Primitives,2,4,0,0,0,0,0,0,0,0,0
 Main_0/RS422_Rx1/UartFifo/fifo_i/Primitives,65,52,36,36,0,1,0,0,0,0,0
 Main_0/RS422_Rx2/ClkSyncWrite/Primitives,0,2,0,0,0,0,0,0,0,0,0
 Main_0/RS422_Rx2/Uart/ClkSyncRxd/Primitives,0,2,0,0,0,0,0,0,0,0,0
-Main_0/RS422_Rx2/Uart/Uart/Primitives,37,25,0,0,0,0,0,0,0,0,0
+Main_0/RS422_Rx2/Uart/Uart/Primitives,36,25,0,0,0,0,0,0,0,0,0
 Main_0/RS422_Rx2/UartFifo/Primitives,2,4,0,0,0,0,0,0,0,0,0
 Main_0/RS422_Rx2/UartFifo/fifo_i/Primitives,65,52,36,36,0,1,0,0,0,0,0
 Main_0/RS422_Tx0/IBufStartTx/Primitives,0,2,0,0,0,0,0,0,0,0,0
@@ -99,7 +99,7 @@ Main_0/RS422_Tx2/UartTxFifo/fifo_i/Primitives,57,43,36,36,0,1,0,0,0,0,0
 Main_0/RS422_Tx2/UartTxUart/Primitives,19,7,0,0,0,0,0,0,0,0,0
 Main_0/RS433_Rx3/ClkSyncWrite/Primitives,0,2,0,0,0,0,0,0,0,0,0
 Main_0/RS433_Rx3/Uart/ClkSyncRxd/Primitives,0,2,0,0,0,0,0,0,0,0,0
-Main_0/RS433_Rx3/Uart/Uart/Primitives,36,25,0,0,0,0,0,0,0,0,0
+Main_0/RS433_Rx3/Uart/Uart/Primitives,35,25,0,0,0,0,0,0,0,0,0
 Main_0/RS433_Rx3/UartFifo/Primitives,2,4,0,0,0,0,0,0,0,0,0
 Main_0/RS433_Rx3/UartFifo/fifo_i/Primitives,65,52,36,36,0,1,0,0,0,0,0
 Main_0/RS433_Tx3/IBufStartTx/Primitives,0,2,0,0,0,0,0,0,0,0,0
@@ -119,11 +119,11 @@ Main_0/RS4UsbUsb_TxUsb/IBufTxInProgress_i/Primitives,0,2,0,0,0,0,0,0,0,0,0
 Main_0/RS4UsbUsb_TxUsb/Primitives,6,6,0,0,0,0,0,0,0,0,0
 Main_0/RS4UsbUsb_TxUsb/UartTxFifo/Primitives,3,5,0,0,0,0,0,0,0,0,0
 Main_0/RS4UsbUsb_TxUsb/UartTxFifo/fifo_i/Primitives,57,43,36,36,0,1,0,0,0,0,0
-Main_0/RS4UsbUsb_TxUsb/UartTxUart/Primitives,20,7,0,0,0,0,0,0,0,0,0
-Main_0/RegisterSpace/Primitives,1297,204,0,0,0,0,0,0,0,0,0
+Main_0/RS4UsbUsb_TxUsb/UartTxUart/Primitives,19,7,0,0,0,0,0,0,0,0,0
+Main_0/RegisterSpace/Primitives,1307,204,0,0,0,0,0,0,0,0,0
 Main_0/RxdGps_RxGps/ClkSyncWrite/Primitives,0,2,0,0,0,0,0,0,0,0,0
 Main_0/RxdGps_RxGps/Uart/ClkSyncRxd/Primitives,0,2,0,0,0,0,0,0,0,0,0
-Main_0/RxdGps_RxGps/Uart/Uart/Primitives,37,25,0,0,0,0,0,0,0,0,0
+Main_0/RxdGps_RxGps/Uart/Uart/Primitives,36,25,0,0,0,0,0,0,0,0,0
 Main_0/RxdGps_RxGps/UartFifo/Primitives,2,4,0,0,0,0,0,0,0,0,0
 Main_0/RxdGps_RxGps/UartFifo/fifo_i/Primitives,65,52,36,36,0,1,0,0,0,0,0
 Main_0/RxdUsb_RxUsb/ClkSyncWrite/Primitives,0,2,0,0,0,0,0,0,0,0,0
@@ -150,6 +150,6 @@ Main_0/UartGpsRxBitClockDiv/Primitives,14,10,0,0,0,0,0,1,0,0,0
 Main_0/UartGpsTxBitClockDiv/Primitives,14,4,0,0,0,0,0,0,0,0,0
 Main_0/UartUsbRxBitClockDiv/Primitives,8,6,0,0,0,0,0,0,0,0,0
 Main_0/UartUsbTxBitClockDiv/Primitives,2,4,0,0,0,0,0,0,0,0,0
-Main_0/ads1258/Primitives,5,13,0,0,0,0,0,0,0,0,0
+Main_0/ads1258/Primitives,4,13,0,0,0,0,0,0,0,0,0
 Main_0/ads1258/Spi/Primitives,42,34,0,0,0,0,0,0,0,0,0
-Primitives/Primitives,4,0,0,0,67,0,0,0,0,0,0
+Primitives/Primitives,9,0,0,0,67,0,0,0,0,0,0
