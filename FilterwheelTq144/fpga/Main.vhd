@@ -1116,6 +1116,15 @@ architecture architecture_Main of Main is
 		
 		-- Positioning System - Led's and Optodetectors
 		
+		signal PosSenseHomeA_i : std_logic := '0';
+		signal PosSenseBit0A_i : std_logic := '0';
+		signal PosSenseBit1A_i : std_logic := '0';
+		signal PosSenseBit2A_i : std_logic := '0';
+		signal PosSenseHomeB_i : std_logic := '0';
+		signal PosSenseBit0B_i : std_logic := '0';
+		signal PosSenseBit1B_i : std_logic := '0';
+		signal PosSenseBit2B_i : std_logic := '0';
+	
 		signal LastPosSenseHomeA : std_logic := '0';
 		signal LastPosSenseBit0A : std_logic := '0';
 		signal LastPosSenseBit1A : std_logic := '0';
@@ -2202,7 +2211,7 @@ begin
 	);
 	RxdUsb <= TxdUsb_i;
 	
-	--~ TP7 <= not(TxdUsb_i);
+	Ux1SelJmp <= not(TxdUsb_i);
 	--~ TP8 <= TxdUsb_i;
 	
 	--~ LedR <= not(TxdUsb_i);
@@ -2532,7 +2541,7 @@ begin
 	
 	----------------------------- DEBUG IDEAS ----------------------------------
 	
-	Ux1SelJmp <= RamBusDataIn(0);
+	--~ Ux1SelJmp <= RamBusDataIn(0);
 	--~ Ux1SelJmp <= MotorSeekStep(0);
 	--~ Ux1SelJmp <= '1' when ( (Rxd1 = '1') and (Rxd2 = '0') ) else '0' when ( (Rxd1 = '0') and (Rxd2 = '1') ) else 'Z';
 	--~ Ux1SelJmp <= MasterClk;
@@ -2574,6 +2583,20 @@ begin
 			
 	----------------------------- Clocked Logic / Main Loop ----------------------------------
 	
+	--Uhhhh, we gonna need to remap these to keep from losing our minds since we made some really bad assumptions about the mechanicals initially (we can fix the cable and this code later)...
+	
+	PosSenseHomeA_i <= PosSenseBit2A;
+	PosSenseBit0A_i <= PosSenseHomeA;
+	PosSenseBit1A_i <= PosSenseBit0A;
+	PosSenseBit2A_i <= PosSenseBit1A;
+	PosSenseHomeB_i <= PosSenseBit2B;
+	PosSenseBit0B_i <= PosSenseHomeB;
+	PosSenseBit1B_i <= PosSenseBit0B;
+	PosSenseBit2B_i <= PosSenseBit1B;
+	
+	PosSenseA <= PosSenseBit2A_i & PosSenseBit1A_i & PosSenseBit0A_i & PosSenseHomeA_i;
+	PosSenseB <= PosSenseBit2B_i & PosSenseBit1B_i & PosSenseBit0B_i & PosSenseHomeB_i;
+	
 	process(MasterReset, MasterClk)
 	begin
 	
@@ -2588,22 +2611,25 @@ begin
 			
 				--Run position detector logic:
 			
-				if (LastPosSenseHomeA /= PosSenseHomeA) then LastPosSenseHomeA <= PosSenseHomeA; if (PosSenseHomeA = '0') then PosDetHomeAOnStep <= MotorCurrentStep; else PosDetHomeAOffStep <= MotorCurrentStep; end if; end if;
-				if (LastPosSenseBit0A /= PosSenseBit0A) then LastPosSenseBit0A <= PosSenseBit0A; if (PosSenseBit0A = '0') then PosDetA0OnStep <= MotorCurrentStep; else PosDetA0OffStep <= MotorCurrentStep; end if; end if;
-				if (LastPosSenseBit1A /= PosSenseBit1A) then LastPosSenseBit1A <= PosSenseBit1A; if (PosSenseBit1A = '0') then PosDetA1OnStep <= MotorCurrentStep; else PosDetA1OffStep <= MotorCurrentStep; end if; end if;
-				if (LastPosSenseBit2A /= PosSenseBit2A) then LastPosSenseBit2A <= PosSenseBit2A; if (PosSenseBit2A = '0') then PosDetA2OnStep <= MotorCurrentStep; else PosDetA2OffStep <= MotorCurrentStep; end if; end if;
-				
-				if (LastPosSenseHomeB /= PosSenseHomeB) then LastPosSenseHomeB <= PosSenseHomeB; if (PosSenseHomeB = '0') then PosDetHomeBOnStep <= MotorCurrentStep; else PosDetHomeBOffStep <= MotorCurrentStep; end if; end if;
-				if (LastPosSenseBit0B /= PosSenseBit0B) then LastPosSenseBit0B <= PosSenseBit0B; if (PosSenseBit0B = '0') then PosDetB0OnStep <= MotorCurrentStep; else PosDetB0OffStep <= MotorCurrentStep; end if; end if;
-				if (LastPosSenseBit1B /= PosSenseBit1B) then LastPosSenseBit1B <= PosSenseBit1B; if (PosSenseBit1B = '0') then PosDetB1OnStep <= MotorCurrentStep; else PosDetB1OffStep <= MotorCurrentStep; end if; end if;
-				if (LastPosSenseBit2B /= PosSenseBit2B) then LastPosSenseBit2B <= PosSenseBit2B; if (PosSenseBit2B = '0') then PosDetB2OnStep <= MotorCurrentStep; else PosDetB2OffStep <= MotorCurrentStep; end if; end if;
-				
-				PosSenseA <= PosSenseBit0A & PosSenseBit1A & PosSenseBit2A & PosSenseHomeA; --the indexing of the bits is upside-down on the filterwheels...
-				PosSenseB <= PosSenseBit0B & PosSenseBit1B & PosSenseBit2B & PosSenseHomeB;
-				
-				--Not sure if these will be useful due to hysteresis/jitter, but we'll see, light & capacitor may smooth things out
-				
 				if (ResetSteps = '1') then
+				
+					PosDetHomeAOnStep <= x"0000";
+					PosDetHomeAOffStep <= x"0000";
+					PosDetA0OnStep <= x"0000";
+					PosDetA0OffStep <= x"0000";
+					PosDetA1OnStep <= x"0000";
+					PosDetA1OffStep <= x"0000";
+					PosDetA2OnStep <= x"0000";
+					PosDetA2OffStep <= x"0000";
+
+					PosDetHomeBOnStep <= x"0000";
+					PosDetHomeBOffStep <= x"0000";
+					PosDetB0OnStep <= x"0000";
+					PosDetB0OffStep <= x"0000";
+					PosDetB1OnStep <= x"0000";
+					PosDetB1OffStep <= x"0000";
+					PosDetB2OnStep <= x"0000";
+					PosDetB2OffStep <= x"0000";
 				
 					PosDet0AOnStep <= x"0000"; 
 					PosDet1AOnStep <= x"0000";
@@ -2642,6 +2668,16 @@ begin
 					PosDet7BOffStep <= x"0000";
 				
 				else
+					
+					if (LastPosSenseHomeA /= PosSenseHomeA_i) then LastPosSenseHomeA <= PosSenseHomeA_i; if (PosSenseHomeA_i = '0') then PosDetHomeAOnStep <= MotorCurrentStep; else PosDetHomeAOffStep <= MotorCurrentStep; end if; end if;
+					if (LastPosSenseBit0A /= PosSenseBit0A_i) then LastPosSenseBit0A <= PosSenseBit0A_i; if (PosSenseBit0A_i = '0') then PosDetA0OnStep <= MotorCurrentStep; else PosDetA0OffStep <= MotorCurrentStep; end if; end if;
+					if (LastPosSenseBit1A /= PosSenseBit1A_i) then LastPosSenseBit1A <= PosSenseBit1A_i; if (PosSenseBit1A_i = '0') then PosDetA1OnStep <= MotorCurrentStep; else PosDetA1OffStep <= MotorCurrentStep; end if; end if;
+					if (LastPosSenseBit2A /= PosSenseBit2A_i) then LastPosSenseBit2A <= PosSenseBit2A_i; if (PosSenseBit2A_i = '0') then PosDetA2OnStep <= MotorCurrentStep; else PosDetA2OffStep <= MotorCurrentStep; end if; end if;
+					
+					if (LastPosSenseHomeB /= PosSenseHomeB_i) then LastPosSenseHomeB <= PosSenseHomeB_i; if (PosSenseHomeB_i = '0') then PosDetHomeBOnStep <= MotorCurrentStep; else PosDetHomeBOffStep <= MotorCurrentStep; end if; end if;
+					if (LastPosSenseBit0B /= PosSenseBit0B_i) then LastPosSenseBit0B <= PosSenseBit0B_i; if (PosSenseBit0B_i = '0') then PosDetB0OnStep <= MotorCurrentStep; else PosDetB0OffStep <= MotorCurrentStep; end if; end if;
+					if (LastPosSenseBit1B /= PosSenseBit1B_i) then LastPosSenseBit1B <= PosSenseBit1B_i; if (PosSenseBit1B_i = '0') then PosDetB1OnStep <= MotorCurrentStep; else PosDetB1OffStep <= MotorCurrentStep; end if; end if;
+					if (LastPosSenseBit2B /= PosSenseBit2B_i) then LastPosSenseBit2B <= PosSenseBit2B_i; if (PosSenseBit2B_i = '0') then PosDetB2OnStep <= MotorCurrentStep; else PosDetB2OffStep <= MotorCurrentStep; end if; end if;
 				
 					if (LastPosSenseA /= PosSenseA) then
 					

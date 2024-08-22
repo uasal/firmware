@@ -4,6 +4,7 @@
 #pragma once
 #include <stdint.h>
 #include <sys/types.h>
+#include <algorithm>
 
 #include "format/formatf.h"
 
@@ -160,7 +161,7 @@ union CGraphFWPositionStepRegister
 
     CGraphFWPositionStepRegister() { all = 0; }
 	
-	int32_t MidStep() const { return(abs((int32_t)OnStep - (int32_t)OffStep)); }
+	int32_t MidStep() const { return(std::min(OnStep, OffStep) + (abs((int32_t)OnStep - (int32_t)OffStep) / 2 )); }
 
 	void formatf() const 
 	{ 

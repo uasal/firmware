@@ -178,16 +178,17 @@ int8_t SensorStepsCommand(char const* Name, char const* Params, const size_t Par
 	
 	formatf("\n\nSensorStepsCommand: current values:\n");
 	
-	formatf("\nPosDetHomeA: "); FW->PosDetHomeA.formatf();
-	formatf("\nPosDetA0: "); FW->PosDetA0.formatf();
-	formatf("\nPosDetA1: "); FW->PosDetA1.formatf();
-	formatf("\nPosDetA2: "); FW->PosDetA2.formatf();
+	formatf("\nPosDetHomeA: \t"); FW->PosDetHomeA.formatf();
+	formatf("\nPosDetA0:    \t"); FW->PosDetA0.formatf();
+	formatf("\nPosDetA1:    \t"); FW->PosDetA1.formatf();
+	formatf("\nPosDetA2:    \t"); FW->PosDetA2.formatf();
 	
-	formatf("\nPosDetHomeB: "); FW->PosDetHomeB.formatf();
-	formatf("\nPosDetB0: "); FW->PosDetB0.formatf();
-	formatf("\nPosDetB1: "); FW->PosDetB1.formatf();
-	formatf("\nPosDetB2: "); FW->PosDetB2.formatf();
+	formatf("\nPosDetHomeB: \t"); FW->PosDetHomeB.formatf();
+	formatf("\nPosDetB0:    \t"); FW->PosDetB0.formatf();
+	formatf("\nPosDetB1:    \t"); FW->PosDetB1.formatf();
+	formatf("\nPosDetB2:    \t"); FW->PosDetB2.formatf();
 	
+	formatf("\n");
 	formatf("\nPosDet0A: "); FW->PosDet0A.formatf();
 	formatf("\nPosDet1A: "); FW->PosDet1A.formatf();
 	formatf("\nPosDet2A: "); FW->PosDet2A.formatf();
@@ -197,6 +198,7 @@ int8_t SensorStepsCommand(char const* Name, char const* Params, const size_t Par
 	formatf("\nPosDet6A: "); FW->PosDet6A.formatf();
 	formatf("\nPosDet7A: "); FW->PosDet7A.formatf();
 	
+	formatf("\n");
 	formatf("\nPosDet0B: "); FW->PosDet0B.formatf();
 	formatf("\nPosDet1B: "); FW->PosDet1B.formatf();
 	formatf("\nPosDet2B: "); FW->PosDet2B.formatf();

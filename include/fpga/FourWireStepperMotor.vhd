@@ -60,7 +60,7 @@ begin
 					
 					if (Step = '1') then			
 			
-						if (Direction = '1') then State <= State + "01"; else State <= State - "01"; end if;
+						if (Direction = '1') then State <= State - "01"; else State <= State + "01"; end if;
 
 						case State is
 						

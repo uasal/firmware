@@ -78,6 +78,8 @@ set_io PosSenseBit0B    \
 	-iostd LVCMOS33   \
     -pinname 43      \
     -fixed yes        \
+	-RES_PULL UP      \
+	-SCHMITT_TRIGGER On \
     -DIRECTION INPUT
 
 #J-Dbg1_3_p5
@@ -85,6 +87,8 @@ set_io PosSenseHomeB    \
 	-iostd LVCMOS33   \
     -pinname 15      \
     -fixed yes        \
+	-RES_PULL UP      \
+	-SCHMITT_TRIGGER On \
     -DIRECTION INPUT
 
 #J-Dbg1_4_p7
@@ -92,6 +96,8 @@ set_io PosSenseBit2A    \
 	-iostd LVCMOS33   \
     -pinname 14      \
     -fixed yes        \
+	-RES_PULL UP      \
+	-SCHMITT_TRIGGER On \
     -DIRECTION INPUT
 
 #J-Dbg1_5_p9
@@ -99,6 +105,8 @@ set_io PosSenseBit1A    \
 	-iostd LVCMOS33   \
     -pinname 13      \
     -fixed yes        \
+	-RES_PULL UP      \
+	-SCHMITT_TRIGGER On \
     -DIRECTION INPUT
 
 #J-Dbg1_6_p11_J1 has weird drive issues due to being shared with buffer chip on J-SpiExt
@@ -108,6 +116,8 @@ set_io PosSenseBit0A    \
 	-iostd LVCMOS33   \
     -pinname 10      \
     -fixed yes        \
+	-RES_PULL UP      \
+	-SCHMITT_TRIGGER On \
     -DIRECTION INPUT
 
 #J-Dbg1_8_p15
@@ -115,6 +125,8 @@ set_io PosSenseHomeA    \
 	-iostd LVCMOS33   \
     -pinname 9      \
     -fixed yes        \
+	-RES_PULL UP      \
+	-SCHMITT_TRIGGER On \
     -DIRECTION INPUT
 
 
@@ -127,6 +139,8 @@ set_io PosSenseBit1B    \
 	-iostd LVCMOS33   \
     -pinname 57      \
     -fixed yes        \
+	-RES_PULL UP      \
+	-SCHMITT_TRIGGER On \
     -DIRECTION INPUT
 
 #J-SPI-EXT_p3_MosiExt - "FWI/Fv1.0Sch:Sens1B"
@@ -162,6 +176,8 @@ set_io PosSenseBit2B    \
 	-iostd LVCMOS33   \
     -pinname 56      \
     -fixed yes        \
+	-RES_PULL UP      \
+	-SCHMITT_TRIGGER On \
     -DIRECTION INPUT
 	
 	

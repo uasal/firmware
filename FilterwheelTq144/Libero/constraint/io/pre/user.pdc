@@ -4,9 +4,9 @@
 
 # Version: 2023.2 2023.2.0.10
 
-# Family: SmartFusion2 , Die: M2S025 , Package: 256 VF
+# Family: SmartFusion2 , Die: M2S010 , Package: 144 TQ
 
-# Date generated: Wed Apr 24 15:33:51 2024 
+# Date generated: Wed Aug 21 17:02:44 2024 
 
 
 # 
@@ -26,182 +26,428 @@
 # 
 
 set_io CLK0_PAD       \
-    -pinname H16      \
+    -pinname 44       \
     -fixed yes        \
     -DIRECTION INPUT
 
 
+set_io CtsUsb          \
+    -pinname 55        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io Fault1V        \
+    -pinname 67       \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+
+set_io Fault3V        \
+    -pinname 83       \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+
+set_io Fault5V        \
+    -pinname 81       \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+
+set_io INIT_DONE       \
+    -pinname 118       \
+    -fixed yes         \
+    -iostd LVCMOS25    \
+    -DIRECTION OUTPUT
+
+
+set_io LedB            \
+    -pinname 23        \
+    -fixed yes         \
+    -iostd LVCMOS25    \
+    -DIRECTION OUTPUT
+
+
+set_io LedG            \
+    -pinname 24        \
+    -fixed yes         \
+    -iostd LVCMOS25    \
+    -DIRECTION OUTPUT
+
+
+set_io LedR            \
+    -pinname 27        \
+    -fixed yes         \
+    -iostd LVCMOS25    \
+    -DIRECTION OUTPUT
+
+
+set_io MisoMonAdc0    \
+    -pinname 22       \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+
+set_io MosiMonAdc0     \
+    -pinname 19        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io MosiXO          \
+    -pinname 48        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
 set_io MotorDriveAMinus  \
-    -pinname J13         \
+    -pinname 63          \
     -fixed yes           \
     -DIRECTION OUTPUT
 
 
 set_io MotorDriveAMinusPrime  \
-    -pinname K16              \
+    -pinname 60               \
     -fixed yes                \
     -DIRECTION OUTPUT
 
 
 set_io MotorDriveAPlus  \
-    -pinname J12        \
+    -pinname 61         \
     -fixed yes          \
     -DIRECTION OUTPUT
 
 
 set_io MotorDriveAPlusPrime  \
-    -pinname K15             \
+    -pinname 58              \
     -fixed yes               \
     -DIRECTION OUTPUT
 
 
 set_io MotorDriveBMinus  \
-    -pinname F5          \
+    -pinname 7           \
     -fixed yes           \
     -DIRECTION OUTPUT
 
 
 set_io MotorDriveBMinusPrime  \
-    -pinname F2               \
+    -pinname 4                \
     -fixed yes                \
     -DIRECTION OUTPUT
 
 
 set_io MotorDriveBPlus  \
-    -pinname F4         \
+    -pinname 8          \
     -fixed yes          \
     -DIRECTION OUTPUT
 
 
 set_io MotorDriveBPlusPrime  \
-    -pinname F3              \
+    -pinname 3               \
     -fixed yes               \
     -DIRECTION OUTPUT
 
 
 set_io Oe0             \
-    -pinname H14       \
+    -pinname 91        \
     -fixed yes         \
     -DIRECTION OUTPUT
 
 
 set_io Oe1             \
-    -pinname H4        \
+    -pinname 92        \
     -fixed yes         \
     -DIRECTION OUTPUT
 
 
 set_io Oe2             \
-    -pinname H15       \
+    -pinname 93        \
     -fixed yes         \
     -DIRECTION OUTPUT
 
 
+set_io Oe3             \
+    -pinname 94        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io PPS            \
+    -pinname 49       \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+
 set_io PosLEDEnA       \
-    -pinname G3        \
+    -pinname 1         \
     -fixed yes         \
     -DIRECTION OUTPUT
 
 
 set_io PosLEDEnB       \
-    -pinname G5        \
+    -pinname 2         \
     -fixed yes         \
     -DIRECTION OUTPUT
 
 
 set_io PosSenseBit0A  \
-    -pinname H1       \
+    -pinname 10       \
     -fixed yes        \
-    -iostd LVCMOS25   \
     -DIRECTION INPUT
 
 
 set_io PosSenseBit0B  \
-    -pinname K1       \
+    -pinname 43       \
     -fixed yes        \
-    -iostd LVCMOS25   \
     -DIRECTION INPUT
 
 
 set_io PosSenseBit1A  \
-    -pinname J2       \
+    -pinname 13       \
     -fixed yes        \
-    -iostd LVCMOS25   \
     -DIRECTION INPUT
 
 
 set_io PosSenseBit1B  \
-    -pinname G14      \
+    -pinname 57       \
     -fixed yes        \
     -DIRECTION INPUT
 
 
 set_io PosSenseBit2A  \
-    -pinname J3       \
+    -pinname 14       \
     -fixed yes        \
-    -iostd LVCMOS25   \
     -DIRECTION INPUT
 
 
 set_io PosSenseBit2B  \
-    -pinname K12      \
+    -pinname 56       \
     -fixed yes        \
     -DIRECTION INPUT
 
 
 set_io PosSenseHomeA  \
-    -pinname H5       \
+    -pinname 9        \
     -fixed yes        \
-    -iostd LVCMOS25   \
     -DIRECTION INPUT
 
 
 set_io PosSenseHomeB  \
-    -pinname J5       \
+    -pinname 15       \
     -fixed yes        \
-    -iostd LVCMOS25   \
     -DIRECTION INPUT
 
 
+set_io PowerCycd      \
+    -pinname 85       \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+
+set_io PowerSync       \
+    -pinname 82        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io PowernEn5V      \
+    -pinname 116       \
+    -fixed yes         \
+    -iostd LVCMOS25    \
+    -DIRECTION OUTPUT
+
+
 set_io Rxd0           \
-    -pinname G12      \
+    -pinname 100      \
     -fixed yes        \
     -DIRECTION INPUT
 
 
 set_io Rxd1           \
-    -pinname J14      \
+    -pinname 101      \
     -fixed yes        \
     -DIRECTION INPUT
 
 
 set_io Rxd2           \
-    -pinname G13      \
+    -pinname 102      \
     -fixed yes        \
     -DIRECTION INPUT
 
 
+set_io Rxd3           \
+    -pinname 103      \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+
+set_io RxdGps         \
+    -pinname 64       \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+
+set_io RxdUsb          \
+    -pinname 53        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io SckMonAdc0      \
+    -pinname 16        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io SckXO           \
+    -pinname 47        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io TP1             \
+    -pinname 38        \
+    -fixed yes         \
+    -iostd LVCMOS25    \
+    -DIRECTION OUTPUT
+
+
+set_io TP2             \
+    -pinname 37        \
+    -fixed yes         \
+    -iostd LVCMOS25    \
+    -DIRECTION OUTPUT
+
+
+set_io TP3             \
+    -pinname 36        \
+    -fixed yes         \
+    -iostd LVCMOS25    \
+    -DIRECTION OUTPUT
+
+
+set_io TP4             \
+    -pinname 33        \
+    -fixed yes         \
+    -iostd LVCMOS25    \
+    -DIRECTION OUTPUT
+
+
+set_io TP5             \
+    -pinname 32        \
+    -fixed yes         \
+    -iostd LVCMOS25    \
+    -DIRECTION OUTPUT
+
+
+set_io TP6             \
+    -pinname 30        \
+    -fixed yes         \
+    -iostd LVCMOS25    \
+    -DIRECTION OUTPUT
+
+
+set_io TP7             \
+    -pinname 29        \
+    -fixed yes         \
+    -iostd LVCMOS25    \
+    -DIRECTION OUTPUT
+
+
+set_io TP8             \
+    -pinname 28        \
+    -fixed yes         \
+    -iostd LVCMOS25    \
+    -DIRECTION OUTPUT
+
+
 set_io Txd0            \
-    -pinname H13       \
+    -pinname 87        \
     -fixed yes         \
     -DIRECTION OUTPUT
 
 
 set_io Txd1            \
-    -pinname H12       \
+    -pinname 88        \
     -fixed yes         \
     -DIRECTION OUTPUT
 
 
 set_io Txd2            \
-    -pinname G16       \
+    -pinname 89        \
     -fixed yes         \
     -DIRECTION OUTPUT
 
 
-set_io Ux1SelJmp       \
-    -pinname N7        \
+set_io Txd3            \
+    -pinname 90        \
     -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io TxdGps          \
+    -pinname 66        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io TxdUsb         \
+    -pinname 52       \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+
+set_io Ux1SelJmp       \
+    -pinname 117       \
+    -fixed yes         \
+    -iostd LVCMOS25    \
+    -DIRECTION OUTPUT
+
+
+set_io nCsMonAdc0      \
+    -pinname 21        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io nCsXO           \
+    -pinname 46        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io nDrdyMonAdc0   \
+    -pinname 20       \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+
+set_io nFaultClr1V     \
+    -pinname 110       \
+    -fixed yes         \
+    -iostd LVCMOS25    \
+    -DIRECTION OUTPUT
+
+
+set_io nFaultClr3V     \
+    -pinname 111       \
+    -fixed yes         \
+    -iostd LVCMOS25    \
+    -DIRECTION OUTPUT
+
+
+set_io nFaultClr5V     \
+    -pinname 115       \
+    -fixed yes         \
+    -iostd LVCMOS25    \
+    -DIRECTION OUTPUT
+
+
+set_io nPowerCycClr    \
+    -pinname 112       \
+    -fixed yes         \
+    -iostd LVCMOS25    \
     -DIRECTION OUTPUT
 
 

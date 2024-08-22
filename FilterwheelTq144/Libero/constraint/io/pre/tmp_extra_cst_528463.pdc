@@ -4,9 +4,9 @@
 
 # Version: 2023.2 2023.2.0.10
 
-# Family: SmartFusion2 , Die: M2S025 , Package: 256 VF
+# Family: SmartFusion2 , Die: M2S010 , Package: 144 TQ
 
-# Date generated: Wed Apr 24 15:33:51 2024 
+# Date generated: Wed Aug 21 17:02:44 2024 
 
 # 
 # User Locked I/O Bank Settings
@@ -33,7 +33,7 @@
 # 
 
 set_io DEVRST_N       \
-    -pinname M11      \
+    -pinname 72       \
     -DIRECTION INPUT
 
 
