@@ -41,25 +41,7 @@ using namespace std;
 
 #include "cgraph/CGraphFWHardwareInterface.hpp"
 
-#include "../FWCmdrSerialBuildNum"
-
 #include "CmdTableBinary.hpp"
-
-int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
-{
-	if ( (NULL != Params) && (ParamsLen >= sizeof(CGraphVersionPayload)) )
-	{
-		const CGraphVersionPayload* Version = reinterpret_cast<const CGraphVersionPayload*>(Params);
-		printf("\nBinaryVersionCommand: ");
-		Version->formatf();
-		printf("\n");
-	}
-	else
-	{
-		printf("\nBinaryVersionCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, sizeof(CGraphVersionPayload));
-	}
-    return(ParamsLen);
-}
 
 int8_t BinaryFWHardwareControlStatusCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
@@ -154,13 +136,13 @@ int8_t BinaryFWPositionStepsCommand(const uint32_t Name, char const* Params, con
 }
 
 
-int8_t BinaryFWTelemetryADCCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
+int8_t BinaryFWTelemetryCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	if ( (NULL != Params) && (ParamsLen >= (sizeof(CGraphFWTelemetryADCPayload))) )
+	if ( (NULL != Params) && (ParamsLen >= (sizeof(CGraphFWTelemetryPayload))) )
 	{
-		const CGraphFWTelemetryADCPayload* Telemetry = reinterpret_cast<const CGraphFWTelemetryADCPayload*>(Params);
+		const CGraphFWTelemetryPayload* Telemetry = reinterpret_cast<const CGraphFWTelemetryPayload*>(Params);
 
-		formatf("\n\nBinaryFWTelemetryADCCommand Command: Values with corrected units follow:\n\n");
+		formatf("\n\nBinaryFWTelemetryCommand Command: Values with corrected units follow:\n\n");
 		
 		formatf("+1V2: %3.6lf V\n", Telemetry->P1V2);
 		formatf("+2V2: %3.6lf V\n", Telemetry->P2V2);
@@ -174,11 +156,11 @@ int8_t BinaryFWTelemetryADCCommand(const uint32_t Name, char const* Params, cons
 		formatf("+4I3: %3.6lf V\n", Telemetry->P4I3);
 		formatf("+6I: %3.6lf V\n", Telemetry->P6I);
 		
-		formatf("\n\nBinaryFWTelemetryADCCommand Command complete.\n\n");
+		formatf("\n\nBinaryFWTelemetryCommand Command complete.\n\n");
 	}
 	else
 	{
-		printf("\nBinaryFWTelemetryADCCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (sizeof(CGraphFWTelemetryADCPayload)));
+		printf("\nBinaryFWTelemetryCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (sizeof(CGraphFWTelemetryPayload)));
 	}
     return(ParamsLen);
 }

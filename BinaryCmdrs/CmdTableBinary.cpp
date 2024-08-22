@@ -30,11 +30,92 @@
 ///The actual table (array) of commands for the system - links with CmdSystem.cpp.o
 const BinaryCmd BinaryCmds[] = 
 {
+	//General Commands
+	
 	BinaryCmd (
 		CGraphPayloadTypeVersion,
 		"BinaryVersionCommand",
 		BinaryVersionCommand
+    ),	
+	BinaryCmd (
+		CGraphPayloadTypeVersionDeprecated,
+		"BinaryVersionCommandDeprecated",
+		BinaryVersionCommand
     ),
+	
+	//FineSteeringMirror Commands
+	
+	BinaryCmd (
+		CGraphPayloadTypeFSMDacs,
+		"BinaryFSMDacsCommand",
+		BinaryFSMDacsCommand
+    ),
+	BinaryCmd (
+		CGraphPayloadTypeFSMDacsDeprecated,
+		"BinaryFSMDacsCommandDeprecated",
+		BinaryFSMDacsCommand
+    ),
+	
+	BinaryCmd (
+		CGraphPayloadTypeFSMAdcs,
+		"BinaryFSMAdcsCommand",
+		BinaryFSMAdcsCommand
+    ),
+	BinaryCmd (
+		CGraphPayloadTypeFSMAdcs,
+		"BinaryFSMAdcsCommandDeprecated",
+		BinaryFSMAdcsCommand
+    ),
+
+	BinaryCmd (
+		CGraphPayloadTypeFSMAdcsFloatingPoint,
+		"BinaryFSMAdcsFloatingPointCommandDeprecated",
+		BinaryFSMAdcsFloatingPointCommand
+    ),
+	BinaryCmd (
+		CGraphPayloadTypeFSMAdcsDeprecated,
+		"BinaryFSMAdcsFloatingPointCommandDeprecated",
+		BinaryFSMAdcsFloatingPointCommand
+    ),
+	
+	BinaryCmd (
+		CGraphPayloadTypeFSMTelemetry,
+		"BinaryFSMTelemetryCommand",
+		BinaryFSMTelemetryCommand
+    ),	
+	BinaryCmd (
+		CGraphPayloadTypeFSMStatusDeprecated,
+		"BinaryFSMTelemetryCommandDeprecated",
+		BinaryFSMTelemetryCommand
+    ),	
+	
+	//DeformableMirror Commands
+	
+	BinaryCmd (
+		CGraphPayloadTypeDMDac,
+		"BinaryDMDacCommand",
+		BinaryDMDacCommand
+    ),
+	
+	BinaryCmd (
+		CGraphPayloadTypeDMTelemetry,
+		"BinaryDMTelemetryCommand",
+		BinaryDMTelemetryCommand
+    ),
+
+	BinaryCmd (
+		CGraphPayloadTypeDMHVSwitch,
+		"BinaryDMHVSwitchCommand",
+		BinaryDMHVSwitchCommand
+    ),
+	
+	BinaryCmd (
+		CGraphPayloadTypeDMDacConfig,
+		"BinaryDMDacConfigCommand",
+		BinaryDMDacConfigCommand
+    ),
+	
+	//FilterWheel Commands
 	
 	BinaryCmd (
 		CGraphPayloadTypeFWHardwareControlStatus,
@@ -61,9 +142,9 @@ const BinaryCmd BinaryCmds[] =
     ),
 	
 	BinaryCmd (
-		CGraphPayloadTypeFWTelemetryADC,
+		CGraphPayloadTypeFWTelemetry,
 		"BinaryFWStatusCommand",
-		BinaryFWTelemetryADCCommand
+		BinaryFWTelemetryCommand
     ),
 
 	BinaryCmd (

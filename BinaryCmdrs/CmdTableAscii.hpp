@@ -26,16 +26,31 @@
 
 #include "uart/CmdSystem.hpp"
 
-//Hardware Cmds
+//App Cmds
 int8_t ExitCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
-int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t HelpCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
-int8_t HardwareControlStatusCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
-int8_t MotorControlStatusCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
-int8_t PositionSenseControlStatusCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
-int8_t PositionStepsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
-int8_t TelemetryADCCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
-int8_t FilterSelectCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+
+//General Cmds
+int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+
+//FSM Cmds
+int8_t FSMDacsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t FSMAdcsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t FSMTelemetryCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+
+//DM Cmds
+int8_t DMDacCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t DMTelemetryCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t DMHVSwitchCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t DMDacConfigCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+
+//FW Cmds
+int8_t FWHardwareControlStatusCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t FWMotorControlStatusCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t FWPositionSenseControlStatusCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t FWPositionStepsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t FWTelemetryCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t FWFilterSelectCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 
 ///The actual table (array) of commands for the system - links with CmdSystem.cpp.o
 extern const Cmd AsciiCmds[];

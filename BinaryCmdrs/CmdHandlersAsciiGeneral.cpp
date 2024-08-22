@@ -55,7 +55,7 @@ using namespace std;
 //~ #include "../MonitorAdc.hpp"
 //~ extern CGraphFSMMonitorAdc MonitorAdc;
 
-#include "../FWCmdrSerialBuildNum"
+#include "../PearlCmdrSerialBuildNum"
 
 char Buffer[4096];
 
@@ -72,15 +72,6 @@ int8_t ExitCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	exit(0);
 	
 	return(ParamsLen);
-}
-
-int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
-{
-	printf("\n\nVersion: Global Revision: %s; build number: %u on: %s.\n", GITVERSION, BuildNum, BuildTimeStr);
-	
-	TxBinaryPacket(&UartParser, CGraphPayloadTypeVersion, 0, NULL, 0);
-	
-	return(strlen(Params));
 }
 
 int8_t HelpCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
@@ -153,55 +144,11 @@ int8_t HelpCommand(char const* Name, char const* Params, const size_t ParamsLen,
     return(ParamsLen);
 }
 
-int8_t HardwareControlStatusCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	printf("\n\nHardwareControlStatusCommand: Querying...\n");
-	TxBinaryPacket(&UartParser, CGraphPayloadTypeFWHardwareControlStatus, 0, NULL, 0);
-    return(ParamsLen);
-}
-int8_t MotorControlStatusCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
-{
-	printf("\n\nMotorControlStatusCommand: Querying...\n");
-	TxBinaryPacket(&UartParser, CGraphPayloadTypeFWMotorControlStatus, 0, NULL, 0);
-    return(ParamsLen);
-}
-int8_t PositionSenseControlStatusCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
-{
-	printf("\n\nPositionSenseControlStatusCommand: Querying...\n");
-	TxBinaryPacket(&UartParser, CGraphPayloadTypeFWPositionSenseControlStatus, 0, NULL, 0);
-    return(ParamsLen);
-}
-int8_t PositionStepsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
-{
-	printf("\n\nPositionStepsCommand: Querying...\n");
-	TxBinaryPacket(&UartParser, CGraphPayloadTypeFWPositionSteps, 0, NULL, 0);
-    return(ParamsLen);
-}
-int8_t TelemetryADCCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
-{
-	printf("\n\nTelemetryADCCommand: Querying...\n");
-	TxBinaryPacket(&UartParser, CGraphPayloadTypeFWTelemetryADC, 0, NULL, 0);
-    return(ParamsLen);
-}
-
-int8_t FilterSelectCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
-{
-    unsigned long A = 0;
-	uint32_t FilterSelect;
+	printf("\n\nVersion: This PearlBinaryCmdr App: Global Revision: %s; build number: %u on: %s.\n", GITVERSION, BuildNum, BuildTimeStr);
 	
-	//Convert parameters
-    int8_t numfound = sscanf(Params, "%lu", &A);
-    if (numfound >= 1)
-    {
-		FilterSelect = A;
-		TxBinaryPacket(&UartParser, CGraphPayloadTypeFWFilterSelect, 0, &FilterSelect, sizeof(uint32_t));
-		
-		printf("\n\nFilterSelectCommand: set to: %lu\n", A);
-		return(ParamsLen);
-    }
-
-	//No params? Just query it...
-	printf("\n\nFilterSelectCommand: Querying...\n");
-	TxBinaryPacket(&UartParser, CGraphPayloadTypeFWFilterSelect, 0, NULL, 0);
-    return(ParamsLen);
+	TxBinaryPacket(&UartParser, CGraphPayloadTypeVersion, 0, NULL, 0);
+	
+	return(strlen(Params));
 }

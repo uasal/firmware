@@ -34,6 +34,8 @@
 ///The actual table (array) of commands for the system - links with CmdSystem.cpp.o
 const Cmd AsciiCmds[] =
 {
+	//App Commands (housekeeping)
+	
     Cmd (
         "X",
         "X: quit running this program.",
@@ -50,6 +52,8 @@ const Cmd AsciiCmds[] =
         "Help: Help with commands.",
         HelpCommand
     ),
+	
+	//General Commands
 
 	Cmd(
         "VERSION",
@@ -57,46 +61,106 @@ const Cmd AsciiCmds[] =
 		VersionCommand
     ),
 	
-    Cmd(
-        "HWCTRLSTAT",
-        "\"HWCtrlStat\":Queries the H/W Control & Status values.",
-        HardwareControlStatusCommand
+	//FSM Commands
+	
+	Cmd(
+        "FSMDACS",
+        "\"FSMDacs <A>,<B>,<C>\": Sets/queries the FSM D/A's.",
+        FSMDacsCommand
     ),
 	
 	Cmd(
-        "MOTORSTATUS",
-        "\"MotorStatus\": Queries the Motor Status values.",
-        MotorControlStatusCommand
+        "FSMD",
+        "\"(FSMD)FSMDacs <A>,<B>,<C>\": Sets/queries the FSM D/A's.",
+        FSMDacsCommand
+    ),
+	
+	Cmd(
+        "FSMADCS",
+        "\"FSMAdcs <A>,<B>,<C>\": Sets/queries the FSM A/D's.",
+        FSMAdcsCommand
+    ),
+	
+	Cmd(
+        "FSMA",
+        "\"(FSMA)FSMAdcs <A>,<B>,<C>\": Sets/queries the FSM A/D's.",
+        FSMAdcsCommand
+    ),
+	
+	Cmd(
+        "FSMTELEMETRY",
+        "\"FSMTelemetry\": Get monitor A/D values.",
+        FSMTelemetryCommand
+    ),
+	
+	//DM Commands
+	
+	Cmd(
+        "DMDAC",
+        "\"DMDacCommand\": ",
+        DMDacCommand
+    ),
+	
+	Cmd(
+        "DMTELEMETRY",
+        "\"DMTelemetry\": Queries the telemetry values.",
+        DMTelemetryCommand
     ),
 
     Cmd(
-        "POSSENSE",
-        "\"PosSense\": Queries Position Sense values.",
-        PositionSenseControlStatusCommand
+        "DMHVSWITCH",
+        "\"DMHVSwitchCommand\": ",
+        DMHVSwitchCommand
     ),
 
 	Cmd(
-        "SENSORSTEPS",
-        "\"SensorSteps\": Queries the Sensor Step values.",
-        PositionStepsCommand
+        "DMCONFIGDACS",
+        "\"DMDacConfigCommand\": ",
+        DMDacConfigCommand
+    ),	
+	
+	//FilterWheel Commands
+	
+    Cmd(
+        "FWHWCTRLSTAT",
+        "\"FWHWCtrlStat\":Queries the H/W Control & Status values.",
+        FWHardwareControlStatusCommand
     ),
 	
 	Cmd(
-        "TELEMETRY",
-        "\"Telemetry\": Queries the telemetry values.",
-        TelemetryADCCommand
+        "FWMOTORSTATUS",
+        "\"FWMotorStatus\": Queries the Motor Status values.",
+        FWMotorControlStatusCommand
+    ),
+
+    Cmd(
+        "FWPOSSENSE",
+        "\"FWPosSense\": Queries Position Sense values.",
+        FWPositionSenseControlStatusCommand
+    ),
+
+	Cmd(
+        "FWSENSORSTEPS",
+        "\"FWSensorSteps\": Queries the Sensor Step values.",
+        FWPositionStepsCommand
     ),
 	
 	Cmd(
-        "FILTERSELECT",
-        "\"FilterSelect <1-8>\": Sets/queries the currently loaded filter; respose of 0 means wheel is in motion/currently seeking a position.",
-        FilterSelectCommand
+        "FWTELEMETRY",
+        "\"FWTelemetry\": Queries the telemetry values.",
+        FWTelemetryCommand
     ),
 	
 	Cmd(
-        "F",
-        "\"(F)ilterselect\": Shortcut for previous command",
-        FilterSelectCommand
+        "FWFILTERSELECT",
+        "\"FWFilterSelect <1-8>\": Sets/queries the currently loaded filter; respose of 0 means wheel is in motion/currently seeking a position.",
+        FWFilterSelectCommand
+    ),
+	
+	Cmd(
+        "FWF",
+        "\"(FWF)ilterselect\": Shortcut for previous command",
+        FWFilterSelectCommand
     ),
 };
 

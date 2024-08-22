@@ -11,7 +11,7 @@
 #include <sys/types.h>
 #include <sys/mman.h>
 
-#include "CGraphDMCIHardwareInterface.hpp"
+#include "CGraphDMHardwareInterface.hpp"
 
 #define FPGA_MEM_ADDR 0x08000000
 #define FPGA_MAP_MASK 0x00000FFF
