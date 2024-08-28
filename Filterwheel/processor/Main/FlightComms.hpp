@@ -31,6 +31,7 @@ bool MonitorSerial1 = false;
 bool MonitorSerial2 = false;
 bool MonitorSerial3 = false;
 bool MonitorSerialUsb = false;
+//~ bool MonitorSerialUsb = true;
 		
 class FW_pinout_FPGAUart3 : public IUart
 {
@@ -268,19 +269,24 @@ public:
 	{
 		if (NULL == FW) { return(false); }
 		CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegisterUsb;
-		//return(0 == UartStatus.RxFifoEmpty);
-		return(0 != UartStatus.RxFifoCount);
+		return(0 == UartStatus.RxFifoEmpty);
+		//~ return(0 != UartStatus.RxFifoCount);
 	}
 
 	virtual char getcqq()
 	{
 		if (NULL == FW) { return(false); }
-		uint16_t c = 0;
-		c = ((FW->UartFifoUsb) & 0x00FFU);
-		//c >>= 8;
-		//~ formatf("|%c", c);
-		if (MonitorSerialUsb) { formatf("|%.Usbx", c); }
-		//~ formatf("|%.4x", c);
+		uint32_t c = 0;
+		uint32_t d = 0;
+		c = ((FW->UartFifoUsb) & 0x000000FFUL);
+		//~ d = (FW->UartFifoUsbPeek);
+		//~ if ((d < 127) && (d > 8)) { formatf("(%.2X)", d); }
+		//~ FW->UartFifoUsbPop;
+		//~ if ((c < 127) && (c > 8)) { formatf("(%.2X)", c); }
+		{ formatf("(%.2X)", c); }
+		c = ((FW->UartFifoUsbPeek) & 0x000000FFUL);
+		if ((c < 127) && (c > 8)) { formatf("%.2X:", c); }
+		//~ if (MonitorSerialUsb) { formatf("~%.2x", c); }
 		return((char)(c));
 	}
 

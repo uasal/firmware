@@ -6,7 +6,7 @@
 
 # Family: SmartFusion2 , Die: M2S010 , Package: 144 TQ
 
-# Date generated: Wed Aug 21 17:02:44 2024 
+# Date generated: Tue Aug 27 12:30:07 2024 
 
 
 # 
@@ -25,9 +25,11 @@
 # User Locked I/O settings
 # 
 
-set_io CLK0_PAD       \
-    -pinname 44       \
-    -fixed yes        \
+set_io CLK0_PAD          \
+    -pinname 44          \
+    -fixed yes           \
+    -RES_PULL Up         \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
@@ -37,21 +39,26 @@ set_io CtsUsb          \
     -DIRECTION OUTPUT
 
 
-set_io Fault1V        \
-    -pinname 67       \
-    -fixed yes        \
+set_io Fault1V           \
+    -pinname 67          \
+    -fixed yes           \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
-set_io Fault3V        \
-    -pinname 83       \
-    -fixed yes        \
+set_io Fault3V           \
+    -pinname 83          \
+    -fixed yes           \
+    -RES_PULL Up         \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
-set_io Fault5V        \
-    -pinname 81       \
-    -fixed yes        \
+set_io Fault5V           \
+    -pinname 81          \
+    -fixed yes           \
+    -RES_PULL Up         \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
@@ -59,45 +66,29 @@ set_io INIT_DONE       \
     -pinname 118       \
     -fixed yes         \
     -iostd LVCMOS25    \
+    -SLEW MEDIUM       \
     -DIRECTION OUTPUT
 
 
-set_io LedB            \
-    -pinname 23        \
-    -fixed yes         \
-    -iostd LVCMOS25    \
-    -DIRECTION OUTPUT
-
-
-set_io LedG            \
-    -pinname 24        \
-    -fixed yes         \
-    -iostd LVCMOS25    \
-    -DIRECTION OUTPUT
-
-
-set_io LedR            \
-    -pinname 27        \
-    -fixed yes         \
-    -iostd LVCMOS25    \
-    -DIRECTION OUTPUT
-
-
-set_io MisoMonAdc0    \
-    -pinname 22       \
-    -fixed yes        \
+set_io MisoMonAdc0       \
+    -pinname 22          \
+    -fixed yes           \
+    -RES_PULL Up         \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
 set_io MosiMonAdc0     \
     -pinname 19        \
     -fixed yes         \
+    -OUT_DRIVE 20      \
     -DIRECTION OUTPUT
 
 
 set_io MosiXO          \
     -pinname 48        \
     -fixed yes         \
+    -OUT_DRIVE 2       \
     -DIRECTION OUTPUT
 
 
@@ -173,9 +164,11 @@ set_io Oe3             \
     -DIRECTION OUTPUT
 
 
-set_io PPS            \
-    -pinname 49       \
-    -fixed yes        \
+set_io PPS               \
+    -pinname 49          \
+    -fixed yes           \
+    -RES_PULL Up         \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
@@ -191,57 +184,75 @@ set_io PosLEDEnB       \
     -DIRECTION OUTPUT
 
 
-set_io PosSenseBit0A  \
-    -pinname 10       \
-    -fixed yes        \
+set_io PosSenseBit0A     \
+    -pinname 10          \
+    -fixed yes           \
+    -RES_PULL Up         \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
-set_io PosSenseBit0B  \
-    -pinname 43       \
-    -fixed yes        \
+set_io PosSenseBit0B     \
+    -pinname 43          \
+    -fixed yes           \
+    -RES_PULL Up         \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
-set_io PosSenseBit1A  \
-    -pinname 13       \
-    -fixed yes        \
+set_io PosSenseBit1A     \
+    -pinname 13          \
+    -fixed yes           \
+    -RES_PULL Up         \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
-set_io PosSenseBit1B  \
-    -pinname 57       \
-    -fixed yes        \
+set_io PosSenseBit1B     \
+    -pinname 57          \
+    -fixed yes           \
+    -RES_PULL Up         \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
-set_io PosSenseBit2A  \
-    -pinname 14       \
-    -fixed yes        \
+set_io PosSenseBit2A     \
+    -pinname 14          \
+    -fixed yes           \
+    -RES_PULL Up         \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
-set_io PosSenseBit2B  \
-    -pinname 56       \
-    -fixed yes        \
+set_io PosSenseBit2B     \
+    -pinname 56          \
+    -fixed yes           \
+    -RES_PULL Up         \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
-set_io PosSenseHomeA  \
-    -pinname 9        \
-    -fixed yes        \
+set_io PosSenseHomeA     \
+    -pinname 9           \
+    -fixed yes           \
+    -RES_PULL Up         \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
-set_io PosSenseHomeB  \
-    -pinname 15       \
-    -fixed yes        \
+set_io PosSenseHomeB     \
+    -pinname 15          \
+    -fixed yes           \
+    -RES_PULL Up         \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
-set_io PowerCycd      \
-    -pinname 85       \
-    -fixed yes        \
+set_io PowerCycd         \
+    -pinname 85          \
+    -fixed yes           \
+    -RES_PULL Up         \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
@@ -255,146 +266,111 @@ set_io PowernEn5V      \
     -pinname 116       \
     -fixed yes         \
     -iostd LVCMOS25    \
+    -SLEW MEDIUM       \
     -DIRECTION OUTPUT
 
 
-set_io Rxd0           \
-    -pinname 100      \
-    -fixed yes        \
+set_io Rxd0              \
+    -pinname 100         \
+    -fixed yes           \
+    -RES_PULL Up         \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
-set_io Rxd1           \
-    -pinname 101      \
-    -fixed yes        \
+set_io Rxd1              \
+    -pinname 101         \
+    -fixed yes           \
+    -RES_PULL Up         \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
-set_io Rxd2           \
-    -pinname 102      \
-    -fixed yes        \
+set_io Rxd2              \
+    -pinname 102         \
+    -fixed yes           \
+    -RES_PULL Up         \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
-set_io Rxd3           \
-    -pinname 103      \
-    -fixed yes        \
+set_io Rxd3              \
+    -pinname 103         \
+    -fixed yes           \
+    -RES_PULL Up         \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
-set_io RxdGps         \
-    -pinname 64       \
-    -fixed yes        \
+set_io RxdGps            \
+    -pinname 64          \
+    -fixed yes           \
+    -RES_PULL Up         \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
 set_io RxdUsb          \
     -pinname 53        \
     -fixed yes         \
+    -OUT_DRIVE 20      \
     -DIRECTION OUTPUT
 
 
 set_io SckMonAdc0      \
     -pinname 16        \
     -fixed yes         \
+    -OUT_DRIVE 20      \
     -DIRECTION OUTPUT
 
 
 set_io SckXO           \
     -pinname 47        \
     -fixed yes         \
-    -DIRECTION OUTPUT
-
-
-set_io TP1             \
-    -pinname 38        \
-    -fixed yes         \
-    -iostd LVCMOS25    \
-    -DIRECTION OUTPUT
-
-
-set_io TP2             \
-    -pinname 37        \
-    -fixed yes         \
-    -iostd LVCMOS25    \
-    -DIRECTION OUTPUT
-
-
-set_io TP3             \
-    -pinname 36        \
-    -fixed yes         \
-    -iostd LVCMOS25    \
-    -DIRECTION OUTPUT
-
-
-set_io TP4             \
-    -pinname 33        \
-    -fixed yes         \
-    -iostd LVCMOS25    \
-    -DIRECTION OUTPUT
-
-
-set_io TP5             \
-    -pinname 32        \
-    -fixed yes         \
-    -iostd LVCMOS25    \
-    -DIRECTION OUTPUT
-
-
-set_io TP6             \
-    -pinname 30        \
-    -fixed yes         \
-    -iostd LVCMOS25    \
-    -DIRECTION OUTPUT
-
-
-set_io TP7             \
-    -pinname 29        \
-    -fixed yes         \
-    -iostd LVCMOS25    \
-    -DIRECTION OUTPUT
-
-
-set_io TP8             \
-    -pinname 28        \
-    -fixed yes         \
-    -iostd LVCMOS25    \
+    -OUT_DRIVE 2       \
     -DIRECTION OUTPUT
 
 
 set_io Txd0            \
     -pinname 87        \
     -fixed yes         \
+    -OUT_DRIVE 20      \
     -DIRECTION OUTPUT
 
 
 set_io Txd1            \
     -pinname 88        \
     -fixed yes         \
+    -OUT_DRIVE 20      \
     -DIRECTION OUTPUT
 
 
 set_io Txd2            \
     -pinname 89        \
     -fixed yes         \
+    -OUT_DRIVE 20      \
     -DIRECTION OUTPUT
 
 
 set_io Txd3            \
     -pinname 90        \
     -fixed yes         \
+    -OUT_DRIVE 20      \
     -DIRECTION OUTPUT
 
 
 set_io TxdGps          \
     -pinname 66        \
     -fixed yes         \
+    -OUT_DRIVE 20      \
     -DIRECTION OUTPUT
 
 
-set_io TxdUsb         \
-    -pinname 52       \
-    -fixed yes        \
+set_io TxdUsb            \
+    -pinname 52          \
+    -fixed yes           \
+    -RES_PULL Up         \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
@@ -402,24 +378,28 @@ set_io Ux1SelJmp       \
     -pinname 117       \
     -fixed yes         \
     -iostd LVCMOS25    \
+    -SLEW MEDIUM       \
     -DIRECTION OUTPUT
 
 
 set_io nCsMonAdc0      \
     -pinname 21        \
     -fixed yes         \
+    -OUT_DRIVE 20      \
     -DIRECTION OUTPUT
 
 
 set_io nCsXO           \
     -pinname 46        \
     -fixed yes         \
+    -OUT_DRIVE 2       \
     -DIRECTION OUTPUT
 
 
-set_io nDrdyMonAdc0   \
-    -pinname 20       \
-    -fixed yes        \
+set_io nDrdyMonAdc0      \
+    -pinname 20          \
+    -fixed yes           \
+    -SCHMITT_TRIGGER On  \
     -DIRECTION INPUT
 
 
@@ -427,6 +407,7 @@ set_io nFaultClr1V     \
     -pinname 110       \
     -fixed yes         \
     -iostd LVCMOS25    \
+    -SLEW MEDIUM       \
     -DIRECTION OUTPUT
 
 
@@ -434,6 +415,7 @@ set_io nFaultClr3V     \
     -pinname 111       \
     -fixed yes         \
     -iostd LVCMOS25    \
+    -SLEW MEDIUM       \
     -DIRECTION OUTPUT
 
 
@@ -441,6 +423,7 @@ set_io nFaultClr5V     \
     -pinname 115       \
     -fixed yes         \
     -iostd LVCMOS25    \
+    -SLEW MEDIUM       \
     -DIRECTION OUTPUT
 
 
@@ -448,6 +431,7 @@ set_io nPowerCycClr    \
     -pinname 112       \
     -fixed yes         \
     -iostd LVCMOS25    \
+    -SLEW MEDIUM       \
     -DIRECTION OUTPUT
 
 
@@ -462,6 +446,72 @@ set_io nPowerCycClr    \
 # The I/Os in this section are unplaced or placed but are not locked
 # the other listed attributes have been applied
 # 
+
+set_io LedB            \
+    -iostd LVCMOS25    \
+    -SLEW MEDIUM       \
+    -DIRECTION OUTPUT
+
+
+set_io LedG            \
+    -iostd LVCMOS25    \
+    -SLEW MEDIUM       \
+    -DIRECTION OUTPUT
+
+
+set_io LedR            \
+    -iostd LVCMOS25    \
+    -SLEW MEDIUM       \
+    -DIRECTION OUTPUT
+
+
+set_io TP1             \
+    -iostd LVCMOS25    \
+    -SLEW FAST         \
+    -DIRECTION OUTPUT
+
+
+set_io TP2             \
+    -iostd LVCMOS25    \
+    -SLEW FAST         \
+    -DIRECTION OUTPUT
+
+
+set_io TP3             \
+    -iostd LVCMOS25    \
+    -SLEW MEDIUM       \
+    -DIRECTION OUTPUT
+
+
+set_io TP4             \
+    -iostd LVCMOS25    \
+    -SLEW FAST         \
+    -DIRECTION OUTPUT
+
+
+set_io TP5             \
+    -iostd LVCMOS25    \
+    -SLEW FAST         \
+    -DIRECTION OUTPUT
+
+
+set_io TP6             \
+    -iostd LVCMOS25    \
+    -SLEW FAST         \
+    -DIRECTION OUTPUT
+
+
+set_io TP7             \
+    -iostd LVCMOS25    \
+    -SLEW FAST         \
+    -DIRECTION OUTPUT
+
+
+set_io TP8             \
+    -iostd LVCMOS25    \
+    -SLEW FAST         \
+    -DIRECTION OUTPUT
+
 
 
 #

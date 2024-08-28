@@ -22,11 +22,10 @@ data VCCI_2.5_VOLTR COM
 data VCCI_3.3_VOLTR COM
 data FLOW_TYPE NEW
 data PLANNER_IOMODE 1
-data AFL '/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/Filterwheel.afl'
+data AFL '/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/COMPILE/Filterwheel.afl'
 data ADL '/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/Filterwheel.adl'
-data LOC '/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/Filterwheel.loc'
-data SEG '/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/Filterwheel.seg'
-data NMAT_PDC '/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/Filterwheel.nmatinit.pdc'
+data LOC '/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/COMPILE/Filterwheel.loc'
+data SEG '/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/COMPILE/Filterwheel.seg'
 
 data IO_PDC_0 '/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/constraint/io/user.pdc'
 data TARGET_IOPDC  '/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/constraint/io/user1.pdc'

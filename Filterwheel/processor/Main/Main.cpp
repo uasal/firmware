@@ -57,6 +57,7 @@ const char* TerminalUartPrompt()
 }
 //Handle incoming ascii cmds & binary packets from the usb
 TerminalUart<16, 4096> DbgUartUsb(FPGAUartPinoutUsb, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
+//~ TerminalUart<16, 4096> DbgUartUsb(FPGAUartPinoutUsb, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, true);
 //TerminalUart<16, 4096> DbgUartUsb(UsbUartAscii, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
 TerminalUart<16, 4096> DbgUart485_0(FPGAUartPinout0, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
 
@@ -337,10 +338,19 @@ int main(int argc, char *argv[])
 	HCR.ResetSteps = 0;
 	FW->ControlRegister = HCR;		
 	
-	formatf("\nESC-FW: Set control register.\n");        
+	formatf("\nESC-FW: Set control register.\n\n");        
+	
+	formatf("\nOffset of UartFifoUsbPeek: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, UartFifoUsbPeek), 368UL);
+	formatf("\nOffset of UartFifoUsbPop: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, UartFifoUsbPop), 364UL);
+
+	
+	DbgUartUsb.Init();
+	DbgUart485_0.Init();
 
     DbgUartUsb.SetEcho(false);
     DbgUart485_0.SetEcho(false);
+	//~ DbgUartUsb.SetEcho(true);
+    //~ DbgUart485_0.SetEcho(true);
 	
 	//~ MonitorAdc.SetMonitor(true);
 	MonitorAdc.SetMonitor(false);

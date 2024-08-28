@@ -116,6 +116,7 @@ template<uint16_t txbufferlenbytes, uint16_t rxbufferlenbytes> struct TerminalUa
 		RxCount = 0;
 		TxCount = 0;
 		memset(RxBuffer, '\0', rxbufferlenbytes);
+		TxBuffer.clear();
 		return(0);
 	}
 
@@ -160,9 +161,13 @@ template<uint16_t txbufferlenbytes, uint16_t rxbufferlenbytes> struct TerminalUa
 	//Warning! Warning!  As currently incarnated, Flush() has been shown to take 12mS to complete...
 	void Flush()
 	{
-		for(uint16_t i = 0; i < (txbufferlenbytes + rxbufferlenbytes); i++)  //ok, so tx + rx is usually double, but no max() defined...
+		//This effectively clears the RxBuffer
+		RxCount = 0;
+		memset(RxBuffer, '\0', rxbufferlenbytes);
+		
+		for(uint16_t i = 0; i < (txbufferlenbytes); i++)  //ok, so tx + rx is usually double, but no max() defined...
 		{
-			Process();
+			ProcessTx();
 		}
 	}
 
@@ -239,6 +244,14 @@ template<uint16_t txbufferlenbytes, uint16_t rxbufferlenbytes> struct TerminalUa
         {			
 			if (RxCount >= rxbufferlenbytes) { RxCount = rxbufferlenbytes - 1; }
 			
+			RxBuffer[RxCount] = '\0';
+			
+			//~ if (Verbose) 
+			//~ { 
+			//~ //formatf seems not to work within TerminalUart...
+				//~ formatf("\n\nTerminalUart::ProcessRx(): Line: \"%s\"\n", RxBuffer); 
+			//~ }
+			
             //See if the line contains anything useful
 			if (Verbose)
 			{
@@ -306,6 +319,10 @@ template<uint16_t txbufferlenbytes, uint16_t rxbufferlenbytes> struct TerminalUa
 		if ( !(Pinout.dataready()) ) return -2;
 
 		char c = Pinout.getcqq();
+		
+		if (c < 8) return -2;
+		if (c > 127) return -2;
+		
 		LastC = c;
 
 		if ('\r' == c) { UseCrLf = true; }
@@ -338,7 +355,6 @@ template<uint16_t txbufferlenbytes, uint16_t rxbufferlenbytes> struct TerminalUa
 			RxBuffer[RxCount] = '\0'; //terminate the string correctly
 			return(RxCount);
 		}
-
 
 		//Backsp/del - remove a character
 		if ( (CHAR_BAK == ch) || (CHAR_DEL == ch) )

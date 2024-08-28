@@ -59,7 +59,7 @@ const BinaryCmd BinaryCmds[] =
     ),
 	
 	BinaryCmd (
-		CGraphPayloadTypeFWTelemetryADC,
+		CGraphPayloadTypeFWTelemetry,
 		"BinaryFWStatusCommand",
 		BinaryFWTelemetryADCCommand
     ),

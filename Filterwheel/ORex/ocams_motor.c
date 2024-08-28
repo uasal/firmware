@@ -25,7 +25,7 @@
 #include "ocams_util.h"
 #include <string.h>        // for memset()
 
-#ifdef OPS_ONLY
+//~ #ifdef OPS_ONLY
 
 // ------------------------ Defines
 // ------------------------ Typedefs

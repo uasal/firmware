@@ -301,6 +301,8 @@ struct CGraphFWHardwareInterface
 	CGraphFWMonitorAdcCommandStatusRegister MonitorAdcSpiCommandStatusRegister;
 	uint32_t UartFifoGps; //rw; send or read bytes from uart(s)
 	CGraphFWUartStatusRegister UartStatusRegisterGps; //ro; what state are the uart(s) in?
+	uint32_t UartFifoUsbPop;
+	uint32_t UartFifoUsbPeek;
 	
     //~ static const uint32_t DacFullScale; //2^20 - 1
     //~ static const double DacDriverFullScaleOutputVoltage; //150 Volts, don't get your fingers near this thing!

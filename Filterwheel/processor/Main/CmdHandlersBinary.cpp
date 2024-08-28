@@ -175,7 +175,7 @@ int8_t BinaryFWTelemetryADCCommand(const uint32_t Name, char const* Params, cons
 {
 	formatf("\nBinaryFWTelemetryADCCommand: processing(%u)...\n\n", ParamsLen);
 
-	CGraphFWTelemetryADCPayload Status;
+	CGraphFWTelemetryPayload Status;
 	
 	Status.P1V2 = MonitorAdc.GetP1V2();
 	Status.P2V2 = MonitorAdc.GetP2V2();
@@ -205,7 +205,7 @@ int8_t BinaryFWTelemetryADCCommand(const uint32_t Name, char const* Params, cons
 
 	
 	formatf("\nBinaryFWTelemetryADCCommand: Replying...\n");
-	TxBinaryPacket(Argument, CGraphPayloadTypeFWTelemetryADC, 0, &Status, sizeof(CGraphFWTelemetryADCPayload));
+	TxBinaryPacket(Argument, CGraphPayloadTypeFWTelemetry, 0, &Status, sizeof(CGraphFWTelemetryPayload));
 
 	return(ParamsLen);
 }

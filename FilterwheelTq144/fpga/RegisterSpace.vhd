@@ -383,6 +383,10 @@ architecture RegisterSpace of RegisterSpacePorts is
 	constant UartGpsFifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(356, MAX_ADDRESS_BITS));
 	constant UartGpsFifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(360, MAX_ADDRESS_BITS));
 	
+	constant UartUsbFifoPopAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(364, MAX_ADDRESS_BITS));
+	constant UartUsbFifoPeekAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(368, MAX_ADDRESS_BITS));
+	
+	
 	--Control Signals
 	
 	signal LastReadReq :  std_logic := '0';		
@@ -557,14 +561,8 @@ begin
 							when Uart0FifoAddr =>
 
 								ReadUart0 <= '1';
-								DataOut(7 downto 0) <= Uart0RxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
-								DataOut(31 downto 8) <= x"000000";
-								 
-							--~ when Uart0FifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
-
-								--~ DataOut(7 downto 0) <= x"00";
-								--~ DataOut(7 downto 0) <= Uart0RxFifoData;
-								--~ DataOut(15 downto 8) <= x"00";
+								--~ DataOut(7 downto 0) <= Uart0RxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
+								--~ DataOut(31 downto 8) <= x"000000";
 								
 							when Uart0FifoStatusAddr =>
 
@@ -585,15 +583,9 @@ begin
 							when Uart1FifoAddr =>
 
 								ReadUart1 <= '1';
-								DataOut(7 downto 0) <= Uart1RxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
-								DataOut(31 downto 8) <= x"000000";
-								 
-							--~ when Uart1FifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+								--~ DataOut(7 downto 0) <= Uart1RxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
+								--~ DataOut(31 downto 8) <= x"000000";
 
-								--~ DataOut(7 downto 0) <= x"00";
-								--~ DataOut(7 downto 0) <= Uart1RxFifoData;
-								--~ DataOut(15 downto 8) <= x"00";
-								
 							when Uart1FifoStatusAddr =>
 
 								DataOut(0) <= Uart1RxFifoEmpty;
@@ -613,15 +605,9 @@ begin
 							when Uart2FifoAddr =>
 
 								ReadUart2 <= '1';
-								DataOut(7 downto 0) <= Uart2RxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
-								DataOut(31 downto 8) <= x"000000";
+								--~ DataOut(7 downto 0) <= Uart2RxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
+								--~ DataOut(31 downto 8) <= x"000000";
 								 
-							--~ when Uart2FifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
-
-								--~ DataOut(7 downto 0) <= x"00";
-								--~ DataOut(7 downto 0) <= Uart2RxFifoData;
-								--~ DataOut(15 downto 8) <= x"00";
-								
 							when Uart2FifoStatusAddr =>
 
 								DataOut(0) <= Uart2RxFifoEmpty;
@@ -641,14 +627,8 @@ begin
 							when Uart3FifoAddr =>
 
 								ReadUart3 <= '1';
-								DataOut(7 downto 0) <= Uart3RxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
-								DataOut(31 downto 8) <= x"000000";
-								 
-							--~ when Uart3FifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
-
-								--~ DataOut(7 downto 0) <= x"00";
-								--~ DataOut(7 downto 0) <= Uart3RxFifoData;
-								--~ DataOut(15 downto 8) <= x"00";
+								--~ DataOut(7 downto 0) <= Uart3RxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
+								--~ DataOut(31 downto 8) <= x"000000";
 								
 							when Uart3FifoStatusAddr =>
 
@@ -669,15 +649,18 @@ begin
 							when UartUsbFifoAddr =>
 
 								ReadUartUsb <= '1';
+								--~ DataOut(7 downto 0) <= UartUsbRxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
+								--~ DataOut(31 downto 8) <= x"000000";
+				
+							when UartUsbFifoPopAddr =>
+
+								ReadUartUsb <= '1';
+
+							when UartUsbFifoPeekAddr =>
+
 								DataOut(7 downto 0) <= UartUsbRxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
 								DataOut(31 downto 8) <= x"000000";
-								 
-							--~ when UartUsbFifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
-
-								--~ DataOut(7 downto 0) <= x"00";
-								--~ DataOut(7 downto 0) <= UartUsbRxFifoData;
-								--~ DataOut(15 downto 8) <= x"00";
-								
+							
 							when UartUsbFifoStatusAddr =>
 
 								DataOut(0) <= UartUsbRxFifoEmpty;
@@ -699,12 +682,6 @@ begin
 								ReadUartGps <= '1';
 								DataOut(7 downto 0) <= UartGpsRxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
 								DataOut(31 downto 8) <= x"000000";
-								 
-							--~ when UartGpsFifoAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
-
-								--~ DataOut(7 downto 0) <= x"00";
-								--~ DataOut(7 downto 0) <= UartGpsRxFifoData;
-								--~ DataOut(15 downto 8) <= x"00";
 								
 							when UartGpsFifoStatusAddr =>
 
@@ -906,6 +883,43 @@ begin
 					else
 					
 						ReadAck <= '1';
+						
+						--Anything we need to wait a clock for (aka read a fifo) goes here, after the actual read:
+						case Address_i is
+						
+							when Uart0FifoAddr =>
+
+								DataOut(7 downto 0) <= Uart0RxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
+								DataOut(31 downto 8) <= x"000000";
+								 
+							when Uart1FifoAddr =>
+
+								DataOut(7 downto 0) <= Uart1RxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
+								DataOut(31 downto 8) <= x"000000";
+								 
+							when Uart2FifoAddr =>
+
+								DataOut(7 downto 0) <= Uart2RxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
+								DataOut(31 downto 8) <= x"000000";
+								 
+							when Uart3FifoAddr =>
+
+								DataOut(7 downto 0) <= Uart3RxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
+								DataOut(31 downto 8) <= x"000000";
+								 
+							--~ when UartUsbFifoAddr =>
+
+								--~ DataOut(7 downto 0) <= UartUsbRxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
+								--~ DataOut(31 downto 8) <= x"000000";
+								 
+							when UartGpsFifoAddr =>
+
+								DataOut(7 downto 0) <= UartGpsRxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
+								DataOut(31 downto 8) <= x"000000";
+						
+							when others =>
+	
+						end case;
 						
 					end if;
 					
