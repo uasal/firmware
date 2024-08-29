@@ -173,8 +173,8 @@ public:
 				formatf("\nlinux_pinout_server_socket: Closed old socket; looking for new connections.\n\n"); 
 				//~ SocketConnect(); //can't auto-reconnect as it breaks const-ness...
 			}
-		}
-	
+			return(false);
+		}	
 		else if (result == 1)
 		{
 			if (FD_ISSET(hSocket, &sockset)) // The socket has data. For good measure, it's not a bad idea to test further
@@ -202,14 +202,19 @@ public:
 				if ((errno != EAGAIN) && (errno != EWOULDBLOCK))
 				{
 					perror("\nlinux_pinout_server_socket: select from socket error: ");
-					close(hSocket);
-					formatf("\nlinux_pinout_server_socket: Closed old socket; looking for new connections.\n\n"); 
-					SocketConnect();
 				}
 				else
 				{
 					//~ formatf("\nlinux_pinout_server_socket: getcqq() : EAGAIN\n"); 
 				}
+				#ifdef WIN32
+				closesocket(hSocket);
+				#else
+				close(hSocket);
+				#endif
+				hSocket = -1;					
+				formatf("\nlinux_pinout_server_socket: Closed old socket; looking for new connections.\n\n"); 
+				SocketConnect();
 			}
 			else if (result == 1)
 			{
@@ -222,18 +227,19 @@ public:
 						{
 							formatf("\nlinux_pinout_server_socket: read from socket error or empty read (%d bytes gave: %u)\n", numbytes, errno);
 							perror("\nlinux_pinout_server_socket: errno: ");
-							#ifdef WIN32
-							closesocket(hSocket);
-							#else
-							close(hSocket);
-							#endif
-							formatf("\nlinux_pinout_server_socket: Closed old socket; looking for new connections.\n\n"); 
-							SocketConnect();
 						}
 						else
 						{
 							//~ formatf("\nlinux_pinout_server_socket: getcqq() : EAGAIN\n"); 
 						}
+						#ifdef WIN32
+						closesocket(hSocket);
+						#else
+						close(hSocket);
+						#endif
+						hSocket = -1;					
+						formatf("\nlinux_pinout_server_socket: Closed old socket; looking for new connections.\n\n"); 
+						SocketConnect();
 					}
 					else
 					{
