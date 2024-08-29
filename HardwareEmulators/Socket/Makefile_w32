@@ -1,0 +1,42 @@
+CC = i686-w64-mingw32-gcc
+INCLUDE_LOCAL = /home/steve/projects/zonge/firmware/include
+LIB_LOCAL = /home/steve/projects/zonge/firmware/include
+vpath %.h $(INCLUDE_LOCAL)
+vpath %.hpp $(INCLUDE_LOCAL)
+vpath %.c $(LIB_LOCAL)
+vpath %.cpp $(LIB_LOCAL)
+vpath %.o $(LIB_LOCAL)
+vpath %.a $(LIB_LOCAL)
+EXTRAINCDIRS = . ./../../../../include/ $(INCLUDE_LOCAL)
+EXTRA_LIBDIRS = . ./../lib/ $(LIB_LOCAL)
+CFLAGS += $(patsubst %,-I%,$(EXTRAINCDIRS))
+CFLAGS += -mno-ms-bitfields -static -m32 -Wall -O0 -g -Wl,--subsystem,console -DDEBUG -mno-ms-bitfields
+LDFLAGS += $(patsubst %,-L%,$(EXTRA_LIBDIRS))
+LDFLAGS += $(patsubst %,-l%,$(EXTRA_LIBS))
+
+HERE:= $(shell pwd)
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) -g -I. -c $< -o $@
+
+%.o: %.c
+	$(CC) $(CFLAGS) -g -I. -c $< -o $@
+
+SerialPortBinaryCmdr: main.o ../CmdTableAscii.o ../CmdHandlersAsciiGeneral.o ../CmdHandlersAsciiFineSteeringMirror.o ../CmdHandlersAsciiDeformableMirror.o ../CmdHandlersAsciiFilterWheel.o ../CmdTableBinary.o ../CmdHandlersBinaryGeneral.o ../CmdHandlersBinaryFineSteeringMirror.o ../CmdHandlersBinaryDeformableMirror.o ../CmdHandlersBinaryFilterWheel.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf.o $(INCLUDE_LOCAL)/format/src/format.o $(INCLUDE_LOCAL)/rf/ZongeProtocol.o
+	$(CC) main.o ../CmdTableAscii.o ../CmdHandlersAsciiGeneral.o ../CmdHandlersAsciiFineSteeringMirror.o ../CmdHandlersAsciiDeformableMirror.o ../CmdHandlersAsciiFilterWheel.o ../CmdTableBinary.o ../CmdHandlersBinaryGeneral.o ../CmdHandlersBinaryFineSteeringMirror.o ../CmdHandlersBinaryDeformableMirror.o ../CmdHandlersBinaryFilterWheel.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf.o $(INCLUDE_LOCAL)/format/src/format.o $(INCLUDE_LOCAL)/rf/ZongeProtocol.o -g -o SerialPortBinaryCmdr.exe $(CFLAGS) $(LDFLAGS) -g -L. -L/lib -L/usr/lib -L/usr/local/lib -lstdc++ -lm -pthread -lws2_32
+
+all: SerialPortBinaryCmdr
+
+program:
+	mate-terminal -e "$(HERE)/SerialPortBinaryCmdr"
+
+clean:
+	-rm $(INCLUDE_LOCAL)/format/formatf.o
+	-rm $(INCLUDE_LOCAL)/format/src/format.o
+	-rm $(INCLUDE_LOCAL)/uart/CmdSystem.o
+	-rm $(INCLUDE_LOCAL)/rf/ZongeProtocol.o
+	-rm ../*.o
+	-rm *.o
+	-rm SerialPortBinaryCmdr.exe
+	-killall SerialPortBinaryCmdr.exe
+	

@@ -184,6 +184,23 @@ static const uint16_t CGraphPayloadTypeDMTelemetry = 0x3004U;
 static const uint16_t CGraphPayloadTypeDMHVSwitch = 0x3007U;
 static const uint16_t CGraphPayloadTypeDMDacConfig = 0x3009U;
 
+struct CGraphDMTelemetryPayload
+{
+	double P1V2;
+	double P2V2;
+	double P28V;
+	double P2V5;
+	double P6V;
+	double P5V;
+	double P3V3D;
+	double P4V3;
+	double P2I2;
+	double P4I3;
+	double P6I;
+	
+	//~ void formatf() const { ::printf("CGraphFSMStatusPayload: SerialNum: 0x%lX, ProcessorFirmwareBuildNum: %lu, FPGAFirmwareBuildNum: %lu", (long)SerialNum, (unsigned long)ProcessorFirmwareBuildNum, (unsigned long)FPGAFirmwareBuildNum); }
+};
+
 //--------------------------------------------------------------------- FW Filterwheel 0x4000 packets -------------------------------------------------------------
 
 //The following are debug/telemetry-only/if things break packets:

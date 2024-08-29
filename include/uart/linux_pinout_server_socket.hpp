@@ -83,15 +83,6 @@ public:
 				return(errno);
 			}
 			
-			int so_reuseport = 1; // Enabled.
-			int reuseAddrResult = setsockopt(hServer, SOL_SOCKET, SO_REUSEPORT, &so_reuseport, sizeof(so_reuseport));
-			if(reuseAddrResult == -1)
-			{
-				perror("\nlinux_pinout_server_socket: Could not re-use port");
-				hServer = -1;
-				return(errno);
-			}
-			
 			formatf("\nlinux_pinout_server_socket: Binding to port %d",nHostPort);
 			Address.sin_addr.s_addr = INADDR_ANY;
 			Address.sin_port = htons(nHostPort);

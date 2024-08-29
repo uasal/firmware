@@ -242,43 +242,59 @@ struct CGraphFWHardwareInterface
 {
     uint32_t DeviceSerialNumber; //ro; FPGA manufacturer hardcoded device UUID
     uint32_t FpgaFirmwareBuildNumber; //ro; Auto-incremented firmware UUID
-    uint32_t UnixSeconds; //rw; equivalent to time_t for 32b systems; low order bits of time_t on 64b systems; write to set/initialize FPGA clock
+    
+	uint32_t UnixSeconds; //rw; equivalent to time_t for 32b systems; low order bits of time_t on 64b systems; write to set/initialize FPGA clock
     uint32_t IdealTicksPerSecond; //ro; Target clock speed of FPGA device, approx 100M; likely 14.7456M * 7 = 103,219,200.
     uint32_t ActualTicksLastSecond; //ro; Count of clock ticks for entire last second; equal to IdealTicksPerSecond unless clock was set or GPS PPS signal is present
 	uint32_t ClockTicksThisSecondAddr; //ro Running count of clock ticks since the start of the current second
     uint32_t ClockSteeringDacSetpoint; //rw; 
-    uint32_t reserved0; //rw; First D/A; Zero = zero travel, DacFullScale = full scale travel
+    int32_t PPSRtcPhaseComparator; //ro;
+    
+	CGraphFWHardwareControlRegister ControlRegister; //rw; see definition above
     CGraphFWMotorControlStatusRegister MotorControlStatus; //rw; motor settings
 	CGraphFWPositionSenseRegister PositionSensors; //ro; state of all the position sensor readouts
-    uint64_t reserved1;
-    uint64_t reserved2;
-    uint64_t reserved3;
-    uint64_t reserved4;
-    uint32_t UartFifo3; //rw; send or read bytes from uart(s)
-	CGraphFWUartStatusRegister UartStatusRegister3; //ro; what state are the uart(s) in?
-	uint64_t reserved5;
-	CGraphFWHardwareControlRegister ControlRegister; //rw; see definition above
-    uint32_t reserved7;
-    int32_t PPSRtcPhaseComparator; //ro;
-    int32_t PPSAdcPhaseComparator; //ro;
+    
 	AdcAccumulator MonitorAdcAccumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
 	uint32_t MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
-	uint32_t UartFifo2; //rw; send or read bytes from uart(s)
-	CGraphFWUartStatusRegister UartStatusRegister2; //ro; what state are the uart(s) in?
-	uint32_t UartFifo1; //rw; send or read bytes from uart(s)
-	CGraphFWUartStatusRegister UartStatusRegister1; //ro; what state are the uart(s) in?
+	uint32_t MonitorAdcSpiTransactionRegister;
+	CGraphFWMonitorAdcCommandStatusRegister MonitorAdcSpiCommandStatusRegister;
+	
+	CGraphFWBaudDividers BaudDividers; //rw; clock dividers for the configurable serial ports (0-3 RS-485 only)
+	
 	uint32_t UartFifo0; //rw; send or read bytes from uart(s)
 	CGraphFWUartStatusRegister UartStatusRegister0; //ro; what state are the uart(s) in?
-	CGraphFWBaudDividers BaudDividers; //rw; clock dividers for the serial ports
-	uint32_t reserved8;	
+	uint64_t UartFifo0ReadData;
+    
+	uint32_t UartFifo1; //rw; send or read bytes from uart(s)
+	CGraphFWUartStatusRegister UartStatusRegister1; //ro; what state are the uart(s) in?
+	uint64_t UartFifo1ReadData;
+    
+	uint32_t UartFifo2; //rw; send or read bytes from uart(s)
+	CGraphFWUartStatusRegister UartStatusRegister2; //ro; what state are the uart(s) in?
+	uint64_t UartFifo2ReadData;
+    
+	uint32_t UartFifo3; //rw; send or read bytes from uart(s)
+	CGraphFWUartStatusRegister UartStatusRegister3; //ro; what state are the uart(s) in?
+	uint64_t UartFifo3ReadData;
+    
+	uint32_t UartFifoUsb; //rw; send or read bytes from uart(s)
+	CGraphFWUartStatusRegister UartStatusRegisterUsb; //ro; what state are the uart(s) in?
+	uint64_t UartFifoUsbReadData;
+    
+	uint32_t UartFifoGps; //rw; send or read bytes from uart(s)
+	CGraphFWUartStatusRegister UartStatusRegisterGps; //ro; what state are the uart(s) in?
+	uint64_t UartFifoGpsReadData;
+    
 	CGraphFWPositionStepRegister PosDetHomeA; //ro; the step at which this signal toggled
 	CGraphFWPositionStepRegister PosDetA0; //ro; the step at which this signal toggled
 	CGraphFWPositionStepRegister PosDetA1; //ro; the step at which this signal toggled
 	CGraphFWPositionStepRegister PosDetA2; //ro; the step at which this signal toggled
+	
 	CGraphFWPositionStepRegister PosDetHomeB; //ro; the step at which this signal toggled
 	CGraphFWPositionStepRegister PosDetB0; //ro; the step at which this signal toggled
 	CGraphFWPositionStepRegister PosDetB1; //ro; the step at which this signal toggled
 	CGraphFWPositionStepRegister PosDetB2; //ro; the step at which this signal toggled
+	
 	CGraphFWPositionStepRegister PosDet0A; //ro; the step at which this signal toggled
 	CGraphFWPositionStepRegister PosDet1A; //ro; the step at which this signal toggled
 	CGraphFWPositionStepRegister PosDet2A; //ro; the step at which this signal toggled
@@ -287,6 +303,7 @@ struct CGraphFWHardwareInterface
 	CGraphFWPositionStepRegister PosDet5A; //ro; the step at which this signal toggled
 	CGraphFWPositionStepRegister PosDet6A; //ro; the step at which this signal toggled
 	CGraphFWPositionStepRegister PosDet7A; //ro; the step at which this signal toggled
+	
 	CGraphFWPositionStepRegister PosDet0B; //ro; the step at which this signal toggled
 	CGraphFWPositionStepRegister PosDet1B; //ro; the step at which this signal toggled
 	CGraphFWPositionStepRegister PosDet2B; //ro; the step at which this signal toggled
@@ -295,21 +312,7 @@ struct CGraphFWHardwareInterface
 	CGraphFWPositionStepRegister PosDet5B; //ro; the step at which this signal toggled
 	CGraphFWPositionStepRegister PosDet6B; //ro; the step at which this signal toggled
 	CGraphFWPositionStepRegister PosDet7B; //ro; the step at which this signal toggled
-	uint32_t UartFifoUsb; //rw; send or read bytes from uart(s)
-	CGraphFWUartStatusRegister UartStatusRegisterUsb; //ro; what state are the uart(s) in?
-	uint32_t MonitorAdcSpiTransactionRegister;
-	CGraphFWMonitorAdcCommandStatusRegister MonitorAdcSpiCommandStatusRegister;
-	uint32_t UartFifoGps; //rw; send or read bytes from uart(s)
-	CGraphFWUartStatusRegister UartStatusRegisterGps; //ro; what state are the uart(s) in?
-	uint32_t UartFifoUsbPop;
-	uint32_t UartFifoUsbPeek;
 	
-    //~ static const uint32_t DacFullScale; //2^20 - 1
-    //~ static const double DacDriverFullScaleOutputVoltage; //150 Volts, don't get your fingers near this thing!
-    //~ static const double PZTDriverFullScaleOutputTravel; //Meters; note our granularity is this / DacFullScale which is approx 10pm
-
-    //~ void formatf() const { ::formatf("CGraphFWHardwareInterface: Sample: %+10.0lf ", (double)Sample); ::formatf("(0x%.8lX", (uint32_t)(all >> 32));  ::formatf("%.8lX)", (uint32_t)(all)); ::formatf(", NumAccums: %lu ", (uint32_t)NumAccums); ::formatf("(0x%lX)", (uint32_t)NumAccums); }
-
 } __attribute__((__packed__));
 
 extern CGraphFWHardwareInterface* FW;

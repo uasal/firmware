@@ -327,7 +327,7 @@ int main(int argc, char *argv[])
 
     //~ formatf("\nFW: Ready.\n");
 	
-	formatf("\n\nESC-FW: Offset of ControlRegister: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, ControlRegister), 88UL);
+	formatf("\n\nESC-FW: Offset of ControlRegister: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, ControlRegister), 32UL);
 	
 	CGraphFWHardwareControlRegister HCR;
 	HCR.PosLedsEnA = 1;
@@ -340,8 +340,8 @@ int main(int argc, char *argv[])
 	
 	formatf("\nESC-FW: Set control register.\n\n");        
 	
-	formatf("\nOffset of UartFifoUsbPeek: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, UartFifoUsbPeek), 368UL);
-	formatf("\nOffset of UartFifoUsbPop: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, UartFifoUsbPop), 364UL);
+	formatf("\nOffset of UartFifoUsb: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, UartFifoUsb), 116UL);
+	formatf("\nOffset of UartFifoUsbReadData: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, UartFifoUsbReadData), 124UL);
 
 	
 	DbgUartUsb.Init();
@@ -435,17 +435,7 @@ int main(int argc, char *argv[])
             //~ delayms(100);
         //~ }
 		//delayms(1);
-        //~ uint16_t j = offsetof(CGraphFWHardwareInterface, UartFifoUsb);
-        //~ uint16_t k = offsetof(CGraphFWHardwareInterface, UartStatusRegisterUsb);
-		//~ uint16_t k1 = offsetof(CGraphFWHardwareInterface, PosDetHomeA);		
-		//~ uint16_t k2 = offsetof(CGraphFWHardwareInterface, PosDet7B);		
-		//~ uint16_t k3 = offsetof(CGraphFWHardwareInterface, BaudDividers);		
-		//~ uint16_t k4 = offsetof(CGraphFWHardwareInterface, UartFifo2);		
-		//~ uint16_t k5 = offsetof(CGraphFWHardwareInterface, ControlRegister);		
-		//~ uint16_t k6 = offsetof(CGraphFWHardwareInterface, PositionSensors);		
-		//~ uint16_t k7 = offsetof(CGraphFWHardwareInterface, UartFifo3);		
-
-		//~ i++;
+        //~ i++;
 		//~ FW->MotorControlStatus.SeekStep = j;
 		//~ FW->MotorControlStatus.SeekStep = k;
 		//FPGAUartPinout0.putcqq(k);

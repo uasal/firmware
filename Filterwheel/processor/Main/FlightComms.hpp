@@ -32,6 +32,7 @@ bool MonitorSerial2 = false;
 bool MonitorSerial3 = false;
 bool MonitorSerialUsb = false;
 //~ bool MonitorSerialUsb = true;
+bool MonitorSerialGps = false;
 		
 class FW_pinout_FPGAUart3 : public IUart
 {
@@ -54,12 +55,11 @@ public:
 	virtual char getcqq()
 	{
 		if (NULL == FW) { return(false); }
-		uint16_t c = 0;
-		c = FW->UartFifo3;
-		c >>= 8;
-		//~ formatf("|%c", c);
-		if (MonitorSerial3) { formatf("|%.3x", c); }
-		//~ formatf("|%.4x", c);
+		volatile uint32_t c = 0;
+		c = (FW->UartFifo3); //Initiate the read from the fifo (this sends back 0xBAADC0DE if you care to check)
+		//~ { formatf("(%.2X)", c); }
+		c = (FW->UartFifo3ReadData);
+		if (MonitorSerial3) { formatf("~%.2x", c); }
 		return((char)(c));
 	}
 
@@ -109,12 +109,11 @@ public:
 	virtual char getcqq()
 	{
 		if (NULL == FW) { return(false); }
-		uint16_t c = 0;
-		c = FW->UartFifo2;
-		c >>= 8;
-		//~ formatf("|%c", c);
-		if (MonitorSerial2) { formatf("|%.2x", c); }
-		//~ formatf("|%.4x", c);
+		volatile uint32_t c = 0;
+		c = (FW->UartFifo2); //Initiate the read from the fifo (this sends back 0xBAADC0DE if you care to check)
+		//~ { formatf("(%.2X)", c); }
+		c = (FW->UartFifo2ReadData);
+		if (MonitorSerial2) { formatf("~%.2x", c); }
 		return((char)(c));
 	}
 
@@ -164,12 +163,11 @@ public:
 	virtual char getcqq()
 	{
 		if (NULL == FW) { return(false); }
-		uint16_t c = 0;
-		c = FW->UartFifo1;
-		c >>= 8;
-		//~ formatf("|%c", c);
-		if (MonitorSerial1) { formatf("!%.2x", c); }
-		//~ formatf("|%.4x", c);
+		volatile uint32_t c = 0;
+		c = (FW->UartFifo1); //Initiate the read from the fifo (this sends back 0xBAADC0DE if you care to check)
+		//~ { formatf("(%.2X)", c); }
+		c = (FW->UartFifo1ReadData);
+		if (MonitorSerial1) { formatf("~%.2x", c); }
 		return((char)(c));
 	}
 
@@ -219,12 +217,11 @@ public:
 	virtual char getcqq()
 	{
 		if (NULL == FW) { return(false); }
-		uint16_t c = 0;
-		c = FW->UartFifo0;
-		c >>= 8;
-		//~ formatf("|%c", c);
-		if (MonitorSerial0) { formatf(":%.2x", c); }
-		//~ formatf("|%.4x", c);
+		volatile uint32_t c = 0;
+		c = (FW->UartFifo0); //Initiate the read from the fifo (this sends back 0xBAADC0DE if you care to check)
+		//~ { formatf("(%.2X)", c); }
+		c = (FW->UartFifo0ReadData);
+		if (MonitorSerial0) { formatf("~%.2x", c); }
 		return((char)(c));
 	}
 
@@ -276,17 +273,11 @@ public:
 	virtual char getcqq()
 	{
 		if (NULL == FW) { return(false); }
-		uint32_t c = 0;
-		uint32_t d = 0;
-		c = ((FW->UartFifoUsb) & 0x000000FFUL);
-		//~ d = (FW->UartFifoUsbPeek);
-		//~ if ((d < 127) && (d > 8)) { formatf("(%.2X)", d); }
-		//~ FW->UartFifoUsbPop;
-		//~ if ((c < 127) && (c > 8)) { formatf("(%.2X)", c); }
-		{ formatf("(%.2X)", c); }
-		c = ((FW->UartFifoUsbPeek) & 0x000000FFUL);
-		if ((c < 127) && (c > 8)) { formatf("%.2X:", c); }
-		//~ if (MonitorSerialUsb) { formatf("~%.2x", c); }
+		volatile uint32_t c = 0;
+		c = (FW->UartFifoUsb); //Initiate the read from the fifo (this sends back 0xBAADC0DE if you care to check)
+		//~ { formatf("(%.2X)", c); }
+		c = (FW->UartFifoUsbReadData);
+		if (MonitorSerialUsb) { formatf("~%.2x", c); }
 		return((char)(c));
 	}
 
@@ -302,6 +293,60 @@ public:
 	{
 		if (NULL == FW) { return(false); }
 		CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegisterUsb;
+		return(UartStatus.RxFifoCount);
+	}
+
+	virtual void flushoutput() { } // if (FW) { FW->UartTxStatusRegister = 0; } //Need to make tx & rx status registers seperate...
+	virtual void purgeinput() { } // if (FW) { FW->UartRxStatusRegister = 0; }	
+	virtual bool connected() { return(true); }	
+	virtual bool isopen() const { return(true); }	
+	
+	private:
+		//~ CGraphFWHardwareInterface* fpgaFW;		
+};
+
+class FW_pinout_FPGAUartGps : public IUart
+{
+public:
+
+	FW_pinout_FPGAUartGps() : IUart() { }
+	virtual ~FW_pinout_FPGAUartGps() { }
+
+	virtual int init(const uint32_t nc, const char* ncGps) { return(IUartOK); }
+
+	virtual void deinit() { }
+	
+	virtual bool dataready() const
+	{
+		if (NULL == FW) { return(false); }
+		CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegisterGps;
+		return(0 == UartStatus.RxFifoEmpty);
+		//~ return(0 != UartStatus.RxFifoCount);
+	}
+
+	virtual char getcqq()
+	{
+		if (NULL == FW) { return(false); }
+		volatile uint32_t c = 0;
+		c = (FW->UartFifoGps); //Initiate the read from the fifo (this sends back 0xBAADC0DE if you care to check)
+		//~ { formatf("(%.2X)", c); }
+		c = (FW->UartFifoGpsReadData);
+		if (MonitorSerialGps) { formatf("~%.2x", c); }
+		return((char)(c));
+	}
+
+	virtual char putcqq(char c)
+	{
+		if (NULL == FW) { return(c); }
+		FW->UartFifoGps = c;		
+		delayus(12); //This was neccessary the last hardware we tried this on...
+		return(c);
+	}
+	
+	virtual size_t depth() const
+	{
+		if (NULL == FW) { return(false); }
+		CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegisterGps;
 		return(UartStatus.RxFifoCount);
 	}
 
