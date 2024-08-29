@@ -92,8 +92,6 @@ int main(int argc, char *argv[])
 	setvbuf(stdout, NULL, _IONBF, 0);
 	
 	formatf("\n\n\n\nWelcome to SerialPortHardwareEmulator!");
-	formatf("\n\nIn order to tunnel to the lab use the following command before running this program: \"ssh -L 1337:localhost:1337 -N -f fsm\" (where fsm is the ssh alias of the remote server)!\n\n");
-	
 	
 	//~ #ifdef WIN32
 	//~ // set to line buffered mode.
@@ -118,8 +116,7 @@ int main(int argc, char *argv[])
     int err = LocalPortPinout.init(nHostPort, PortName);
     if (IUart::IUartOK != err)
     {
-        formatf("SerialPortHardwareEmulator: can't open socket (%s:%u), exiting.\n", PortName, nHostPort);
-        exit(-1);
+        formatf("\nSerialPortHardwareEmulator: can't open socket (%s:%u): %d, exiting.\n", PortName, nHostPort, err);
     }
 	
 	printf("\n\nSerialPortHardwareEmulator: Start User Interface...");    
@@ -144,14 +141,10 @@ int main(int argc, char *argv[])
             Bored = false;
         }
 		
+		//We probably didn't connect when we initialized, so just keep trying until we get a client...
 		if (false == LocalPortPinout.connected())
 		{
-			int err = LocalPortPinout.init(nHostPort, PortName);
-			if (IUart::IUartOK != err)
-			{
-				formatf("SerialPortHardwareEmulator: can't open socket (%s:%l).\n", PortName, nHostPort);
-				//~ exit(-1);
-			}
+			LocalPortPinout.SocketConnect();
 		}
 
 		//give up our timeslice so as not to bog the system

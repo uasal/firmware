@@ -115,7 +115,10 @@ public:
 			}
 		}
 		
-		return(SocketConnect());
+		//Try to connect; it probably won't work cause there's no client ready. The calling thread will need to poll SocketConnect elsewhere...
+		SocketConnect();
+		
+		return(IUart::IUartOK);
 	}
 	
 	int SocketConnect()
@@ -124,16 +127,18 @@ public:
 		hSocket=accept4((int)hServer, (struct sockaddr*)&Address, (socklen_t*)&nAddressSize, SOCK_NONBLOCK);
 		if (hSocket < 0)
 		{
+			hSocket = -1;
+				
 			if ((errno != EAGAIN) && (errno != EWOULDBLOCK))
 			{
 				perror("\nlinux_pinout_server_socket: connection error; ");
-				hSocket = -1;
 			}
+			
 			return(errno);
 		}
 		else { formatf("\nlinux_pinout_server_socket: Got a connection.\n"); }
 		
-		return(hSocket);
+		return(IUart::IUartOK);
 	}
 
 	virtual void deinit()
@@ -153,8 +158,9 @@ public:
 		fd_set sockset;
 		struct timeval  nowait;
 		memset((char *)&nowait,0,sizeof(nowait));
-		//~ if (-1 == hSocket) { SocketConnect(); }
+		//~ if (-1 == hSocket) { SocketConnect(); } //can't auto-reconnect as it breaks const-ness...
 		if (-1 == hSocket) { return(false); }
+		//~ if (-1 == hSocket) { return(true); } //technicall it's false, but returning true will call getcqq and make us reconnect...
 		FD_ZERO(&sockset);
 		FD_SET(hSocket, &sockset);	
 		int result = select(hSocket + 1, &sockset, NULL, NULL, &nowait);
@@ -165,7 +171,7 @@ public:
 				perror("\nlinux_pinout_server_socket: select from socket error: ");
 				close(hSocket);
 				formatf("\nlinux_pinout_server_socket: Closed old socket; looking for new connections.\n\n"); 
-				//~ SocketConnect();
+				//~ SocketConnect(); //can't auto-reconnect as it breaks const-ness...
 			}
 		}
 	
@@ -243,7 +249,7 @@ public:
 		}
 		else
 		{
-			printf("\nlinux_pinout_server_socket::putcqq(): read on uninitialized socket; please open socket!\n");
+			if (!Silent) { printf("\nlinux_pinout_server_socket::getcqq(): read on uninitialized socket (not an err if no client connected); please open socket!\n"); }
 			SocketConnect();
 		}
 
@@ -271,7 +277,7 @@ public:
 		}
 		else
 		{
-			printf("linux_pinout_server_socket::putcqq(): write on uninitialized socket; please open socket!\n");
+			if (!Silent) { printf("linux_pinout_server_socket::putcqq('%c'): write on uninitialized socket (not an err if no clients connected); please open socket!\n", c); }
 			SocketConnect();
 		}
 
