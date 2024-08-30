@@ -64,6 +64,175 @@ TerminalUart<16, 4096> DbgUart485_0(FPGAUartPinout0, AsciiCmds, NumAsciiCmds, &T
 #include "../MonitorAdc.hpp"
 extern CGraphFWMonitorAdc MonitorAdc;
 
+#include "FilterWheel.hpp"
+
+uint32_t FWPosition = (uint32_t)-1; //Start invalid so we initialize
+
+uint16_t ValidatedFWHomeStep()
+{
+	return(0);
+}
+
+void FWHome()
+{
+	//Turn things on
+	CGraphFWHardwareControlRegister HCR;
+	HCR.PosLedsEnA = 1;
+    HCR.PosLedsEnB = 1;
+	HCR.MotorEnable = 1;
+	FW->ControlRegister = HCR;		
+	
+	//stabilize
+	delayms(100);
+
+	//Try to start with motor homed
+	CGraphFWMotorControlStatusRegister MCSR;
+	MCSR = FW->MotorControlStatus;
+	MCSR.SeekStep = 0;
+	FW->MotorControlStatus = MCSR;		
+	
+	//Wait for it to move
+	for (size_t i = 0; i < MotorFindHomeTimeoutMs; i++)
+	{
+		MCSR = FW->MotorControlStatus;
+		if (MCSR.SeekStep == MCSR.CurrentStep) { break; }
+		delayms(1);
+	}
+
+	//Clear step registers
+	HCR.ResetSteps = 1;
+	FW->ControlRegister = HCR;		
+	HCR.ResetSteps = 0;
+	FW->ControlRegister = HCR;		
+
+	//Now go around
+	MCSR.SeekStep = MotorFindHomeSteps;
+	FW->MotorControlStatus = MCSR;		
+	
+	//Wait for it to move
+	for (size_t i = 0; i < MotorFindHomeTimeoutMs; i++)
+	{
+		MCSR = FW->MotorControlStatus;
+		if (MCSR.SeekStep == MCSR.CurrentStep) { break; }
+		delayms(1);
+	}
+	
+	//Now send it home.
+	int16_t HomeStep = ValidatedFWHomeStep();
+	
+	MCSR.SeekStep = HomeStep;
+	FW->MotorControlStatus = MCSR;		
+	
+	//Wait for it to move
+	for (size_t i = 0; i < MotorFindHomeTimeoutMs; i++)
+	{
+		MCSR = FW->MotorControlStatus;
+		if (MCSR.SeekStep == MCSR.CurrentStep) { break; }
+		delayms(1);
+	}
+		
+	//Clear step registers (by definition home [filter #1] is now zero)
+	HCR.ResetSteps = 1;
+	FW->ControlRegister = HCR;		
+	HCR.ResetSteps = 0;
+	FW->ControlRegister = HCR;		
+	
+	FWPosition = 1;
+	
+	//Turn things off
+	HCR.PosLedsEnA = 0;
+    HCR.PosLedsEnB = 0;
+	HCR.MotorEnable = 0;
+	FW->ControlRegister = HCR;		
+}
+
+void FWSeekPosition(const uint32_t SeekPos)
+{
+	
+}
+
+bool ValidateFWPostition()
+{
+	//is the index bogus? We either need to initialize for the first time, or the user asked us to do a forced intializeaiton
+	if (FWPosition > FWMaxPosition) { FWHome(); }
+		
+	//Get the motor position
+	CGraphFWMotorControlStatusRegister MCSR;
+	MCSR = FW->MotorControlStatus;
+	
+	//If we're moving, just let it finish
+	if (MCSR.SeekStep != MCSR.CurrentStep) { return(true); }
+	
+	//If we're in the sun safe position, the lights are invalid, as long at the motor is in approximately the right location it's ok
+	if (0 == FWPosition)
+	{
+		if ( (MCSR.CurrentStep > (MotorSunSafeStep - 2)) && (MCSR.CurrentStep < (MotorSunSafeStep + 2)) ) { return(true); }
+		return(false);
+	}
+
+	//All other positions, the lights better match where we're at!
+
+	//Turn things on
+	CGraphFWHardwareControlRegister HCR;
+	HCR.PosLedsEnA = 1;
+    HCR.PosLedsEnB = 1;
+	HCR.MotorEnable = 1;
+	FW->ControlRegister = HCR;		
+	
+	//stabilize
+	delayms(100);
+	
+	//Get the lights
+	CGraphFWPositionSenseRegister PSR;
+	PSR = FW->PositionSensors;
+	
+	//"Home" Light Position - Filter #1
+	bool Lights1A = ( (PSR.PosSenseHomeA == 0) & (PSR.PosSenseBit0A == 1) & (PSR.PosSenseBit1A == 1) & (PSR.PosSenseBit2A == 1) );
+	bool Lights1B = ( (PSR.PosSenseHomeB == 0) & (PSR.PosSenseBit0B == 1) & (PSR.PosSenseBit1B == 1) & (PSR.PosSenseBit2B == 1) );
+
+	//"1" Light Position - Filter #2
+	bool Lights2A = ( (PSR.PosSenseHomeA == 1) & (PSR.PosSenseBit0A == 0) & (PSR.PosSenseBit1A == 1) & (PSR.PosSenseBit2A == 1) );
+	bool Lights2B = ( (PSR.PosSenseHomeB == 1) & (PSR.PosSenseBit0B == 0) & (PSR.PosSenseBit1B == 1) & (PSR.PosSenseBit2B == 1) );
+	
+	//"2" Light Position - Filter #3
+	bool Lights3A = ( (PSR.PosSenseHomeA == 1) & (PSR.PosSenseBit0A == 1) & (PSR.PosSenseBit1A == 0) & (PSR.PosSenseBit2A == 1) );
+	bool Lights3B = ( (PSR.PosSenseHomeB == 1) & (PSR.PosSenseBit0B == 1) & (PSR.PosSenseBit1B == 0) & (PSR.PosSenseBit2B == 1) );
+	
+	//"3" Light Position - Filter #4
+	bool Lights4A = ( (PSR.PosSenseHomeA == 1) & (PSR.PosSenseBit0A == 0) & (PSR.PosSenseBit1A == 0) & (PSR.PosSenseBit2A == 1) );
+	bool Lights4B = ( (PSR.PosSenseHomeB == 1) & (PSR.PosSenseBit0B == 0) & (PSR.PosSenseBit1B == 0) & (PSR.PosSenseBit2B == 1) );
+	
+	//"4" Light Position - Filter #5
+	bool Lights5A = ( (PSR.PosSenseHomeA == 1) & (PSR.PosSenseBit0A == 1) & (PSR.PosSenseBit1A == 1) & (PSR.PosSenseBit2A == 0) );
+	bool Lights5B = ( (PSR.PosSenseHomeB == 1) & (PSR.PosSenseBit0B == 1) & (PSR.PosSenseBit1B == 1) & (PSR.PosSenseBit2B == 0) );
+	
+	//"5" Light Position - Filter #6
+	bool Lights6A = ( (PSR.PosSenseHomeA == 1) & (PSR.PosSenseBit0A == 0) & (PSR.PosSenseBit1A == 1) & (PSR.PosSenseBit2A == 0) );
+	bool Lights6B = ( (PSR.PosSenseHomeB == 1) & (PSR.PosSenseBit0B == 0) & (PSR.PosSenseBit1B == 1) & (PSR.PosSenseBit2B == 0) );
+	
+	//"6" Light Position - Filter #7
+	bool Lights7A = ( (PSR.PosSenseHomeA == 1) & (PSR.PosSenseBit0A == 1) & (PSR.PosSenseBit1A == 0) & (PSR.PosSenseBit2A == 0) );
+	bool Lights7B = ( (PSR.PosSenseHomeB == 1) & (PSR.PosSenseBit0B == 1) & (PSR.PosSenseBit1B == 0) & (PSR.PosSenseBit2B == 0) );
+	
+	//"7" Light Position - Filter #8
+	bool Lights8A = ( (PSR.PosSenseHomeA == 1) & (PSR.PosSenseBit0A == 0) & (PSR.PosSenseBit1A == 0) & (PSR.PosSenseBit2A == 0) );
+	bool Lights8B = ( (PSR.PosSenseHomeB == 1) & (PSR.PosSenseBit0B == 0) & (PSR.PosSenseBit1B == 0) & (PSR.PosSenseBit2B == 0) );
+
+	switch(FWPosition)
+	{
+		case 1: { return(Lights1A | Lights1B); }
+		case 2: { return(Lights2A | Lights2B); }
+		case 3: { return(Lights3A | Lights3B); }
+		case 4: { return(Lights4A | Lights4B); }
+		case 5: { return(Lights5A | Lights5B); }
+		case 6: { return(Lights6A | Lights6B); }
+		case 7: { return(Lights7A | Lights7B); }
+		case 8: { return(Lights8A | Lights8B); }
+	}
+	
+	return(false);
+}
+
 //~ class MTracer
 //~ {
 //~ public:

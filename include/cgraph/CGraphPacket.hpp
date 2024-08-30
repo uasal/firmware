@@ -230,6 +230,8 @@ struct CGraphFWTelemetryPayload
 	//~ void formatf() const { ::printf("CGraphFSMStatusPayload: SerialNum: 0x%lX, ProcessorFirmwareBuildNum: %lu, FPGAFirmwareBuildNum: %lu", (long)SerialNum, (unsigned long)ProcessorFirmwareBuildNum, (unsigned long)FPGAFirmwareBuildNum); }
 };
 
-static const uint16_t CGraphPayloadTypeFWFilterSelect = 0x4006U; //Payload: uint32 (room to grow?) Read: Which filter is currently in position (1-8; 0 means the filterwheel is in transit to a new position); Write: move to the given filter (1-8)
+enum FWFilterSelectPositions { FW_MOVING = -1, FW_SUNSAFE = 0, FILTERWHEEL_ONE = 1, FILTERWHEEL_TWO = 2, FILTERWHEEL_THREE = 3, FILTERWHEEL_FOUR = 4, FILTERWHEEL_FIVE = 5, FILTERWHEEL_SIX = 6, FILTERWHEEL_SEVEN = 7, FILTERWHEEL_EIGHT = 8 };
+static const uint16_t CGraphPayloadTypeFWFilterSelect = 0x4006U; //Payload: uint32 (room to grow?) Read: Which filter is currently in position (1-8; 0 means the filterwheel is in transit to a new position); Write: move to the given filter (1-8)FILTERWHEEL_ONE = 1,
+
 
 #endif // _IPacket_H_

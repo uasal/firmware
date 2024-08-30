@@ -47,7 +47,36 @@ CGraphFWHardwareControlRegister ControlRegister;
 CGraphFWMotorControlStatusRegister MotorControlStatus;
 CGraphFWPositionSenseRegister PositionSensors;
 
-uint16_t PosSteps[48];
+uint16_t PosSteps[48] = 
+{
+	719, 1,
+	629, 631,
+	628, 630,
+	630, 631,
+	
+	718, 2,
+	630, 631,
+	629, 630,
+	628, 630,
+	
+	720, 2,
+	89, 92,
+	177, 179,
+	269, 272,
+	358, 362,
+	448, 451,
+	538, 540,
+	628, 630,
+	
+	719, 1,
+	90, 92,
+	178, 181,
+	269, 270,
+	358, 361,
+	449, 451,
+	538, 542,
+	628, 631,
+};
 	
 uint32_t FilterSelect = 0;
 
@@ -201,22 +230,24 @@ int8_t BinaryFWFilterSelectCommand(const uint32_t Name, char const* Params, cons
 	
 	if ( (NULL != Params) && (ParamsLen >= (sizeof(uint32_t))) )
 	{
-		FilterSelect = *(const uint32_t*)Params;
+		uint32_t Select = *(const uint32_t*)Params;
 		
 		formatf("\nBinaryFWFilterSelectCommand: Setting to &lu\n", (unsigned long)FilterSelect);
 		
-		//Ok, we actually need to do something here!!
-		//~ = FilterSelect;
+		if (FilterSelect != Select)
+		{
+			FilterSelect = Select;
+			Select = (uint32_t)(-1); //Simulate the wheel moving
+		}
+
+		TxBinaryPacket(Argument, CGraphPayloadTypeFWFilterSelect, 0, &Select, sizeof(uint32_t));			
+	}
+	else //Query
+	{
+		formatf("\nBinaryFWFilterSelectCommand: Replying: %lu \n\n", (unsigned long)FilterSelect);
+		TxBinaryPacket(Argument, CGraphPayloadTypeFWFilterSelect, 0, &FilterSelect, sizeof(uint32_t));
 	}
 	
-	//Ok, we actually need to do something here!!
-	//Also need to return -1 for a delay to emulate while it's moving
-	//~ FilterSelect = ???;
-	
-	formatf("\nBinaryFWFilterSelectCommand: Replying: %lu \n\n", (unsigned long)FilterSelect);
-		
-	TxBinaryPacket(Argument, CGraphPayloadTypeFWFilterSelect, 0, &FilterSelect, sizeof(uint32_t));
-
     return(ParamsLen);
 }
 

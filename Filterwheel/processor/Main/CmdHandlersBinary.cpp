@@ -45,6 +45,8 @@ extern CGraphFWHardwareInterface* FW;
 #include "../MonitorAdc.hpp"
 extern CGraphFWMonitorAdc MonitorAdc;
 
+#include "FilterWheel.hpp"
+
 #include "../FWBuildNum"
 
 #include "CmdTableBinary.hpp"
@@ -220,19 +222,51 @@ int8_t BinaryFWFilterSelectCommand(const uint32_t Name, char const* Params, cons
 	{
 		FilterSelect = *(const uint32_t*)Params;
 		
-		formatf("\nBinaryFWFilterSelectCommand: Setting to &lu\n", (unsigned long)FilterSelect);
+		if (FilterSelect > FWMaxPosition)
+		{
+			formatf("\nBinaryFWFilterSelectCommand: Invalid position requested: %lu; max valid position: %lu; assuming we've been requested to re-home wheel\n", FilterSelect, FWMaxPosition);
+			FWHome();
+			FilterSelect = (uint32_t)-1; //-1 means we're in motion
+			TxBinaryPacket(Argument, CGraphPayloadTypeFWFilterSelect, 0, &FilterSelect, sizeof(uint32_t));
+			return(ParamsLen);
+		}
 		
-		//Ok, we actually need to do something here!!
-		//~ = FilterSelect;
+		formatf("\nBinaryFWFilterSelectCommand: moving to: %lu\n", FilterSelect);
+		FWSeekPosition(FilterSelect);
+		FilterSelect = (uint32_t)-1; //-1 means we're in motion
+		TxBinaryPacket(Argument, CGraphPayloadTypeFWFilterSelect, 0, &FilterSelect, sizeof(uint32_t));
+		return(ParamsLen);
 	}
 	
-	//Ok, we actually need to do something here!!
-	//~ FilterSelect = ;
+	//if we get here they must've wanted to know where we are
+	formatf("\n\nBinaryFWFilterSelectCommand: querying current position...\n");
 	
-	formatf("\nBinaryFWFilterSelectCommand: Replying: %lu \n\n", (unsigned long)FilterSelect);
-		
+	//Is motor moving?
+	CGraphFWMotorControlStatusRegister MCSR;
+	MCSR = FW->MotorControlStatus;
+	if (MCSR.SeekStep != MCSR.CurrentStep) 
+	{
+		formatf("\n\nBinaryFWFilterSelectCommand: motor is in motion to target position: %lu\n", FWPosition);
+		FilterSelect = (uint32_t)-1; //-1 means we're in motion
+		TxBinaryPacket(Argument, CGraphPayloadTypeFWFilterSelect, 0, &FilterSelect, sizeof(uint32_t));
+		return(ParamsLen);
+	}
+	
+	//If not, do we have any idea where we are?
+	if (!ValidateFWPostition())
+	{
+		formatf("\n\nBinaryFWFilterSelectCommand: current position invalid!!\n");
+		FilterSelect = (uint32_t)-2; //-2 means we have no idea where we are!
+		TxBinaryPacket(Argument, CGraphPayloadTypeFWFilterSelect, 0, &FilterSelect, sizeof(uint32_t));
+		FWHome();
+		return(ParamsLen);
+	}
+	
+	//If we get here we are where we say we are, and it's all shiny, cap'n!
+	formatf("\n\nBinaryFWFilterSelectCommand: current position: %lu\n", FWPosition);
+	FilterSelect = FWPosition;
 	TxBinaryPacket(Argument, CGraphPayloadTypeFWFilterSelect, 0, &FilterSelect, sizeof(uint32_t));
-
+		
     return(ParamsLen);
 }
 

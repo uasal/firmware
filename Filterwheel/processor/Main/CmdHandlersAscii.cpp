@@ -52,7 +52,11 @@ extern CGraphFWHardwareInterface* FW;
 #include "../MonitorAdc.hpp"
 extern CGraphFWMonitorAdc MonitorAdc;
 
+#include "FilterWheel.hpp"
+
 #include "../FWBuildNum"
+
+#include "CmdTableAscii.hpp"
 
 extern BinaryUart FpgaUartParser3;
 extern BinaryUart FpgaUartParser2;
@@ -245,16 +249,40 @@ int8_t FilterSelectCommand(char const* Name, char const* Params, const size_t Pa
     int8_t numfound = sscanf(Params, "%lu", &FilterSelect);
     if (numfound >= 1)
     {
-		//Do something useful...
-		//~ = FilterSelect;
+		if (FilterSelect > FWMaxPosition)
+		{
+			formatf("\n\nFilterSelectCommand: Invalid position requested: %lu; max valid position: %lu; assuming we've been requested to re-home wheel\n", FilterSelect, FWMaxPosition);
+			FWHome();
+			return(ParamsLen);
+		}
 		
-		formatf("\n\nFilterSelectCommand: set to: %lu\n", FilterSelect);
+		formatf("\n\nFilterSelectCommand: moving to: %lu\n", FilterSelect);
+		FWSeekPosition(FilterSelect);
+		return(ParamsLen);
     }
 	
-	//Do something useful...
-	//~ FilterSelect = ;
-			
-	formatf("\n\nFilterSelectCommand: current value: %lu\n", FilterSelect);
+	//if we get here they must've wanted to know where we are
+	formatf("\n\nFilterSelectCommand: querying current position...\n");
+	
+	//Is motor moving?
+	CGraphFWMotorControlStatusRegister MCSR;
+	MCSR = FW->MotorControlStatus;
+	if (MCSR.SeekStep != MCSR.CurrentStep) 
+	{
+		formatf("\n\nFilterSelectCommand: motor is in motion to target position: %lu\n", FWPosition);
+		return(ParamsLen);
+	}
+	
+	//If not, do we have any idea where we are?
+	if (!ValidateFWPostition())
+	{
+		formatf("\n\nFilterSelectCommand: current position invalid!! Re-homing wheel...\n");
+		FWHome();
+		return(ParamsLen);
+	}
+	
+	//If we get here we are where we say we are, and it's all shiny, cap'n!
+	formatf("\n\nFilterSelectCommand: current position: %lu\n", FWPosition);
 	
 	return(ParamsLen);
 }
