@@ -151,7 +151,7 @@ union CGraphFWPositionSenseRegister
 
 union CGraphFWPositionStepRegister
 {
-    uint64_t all;
+    uint32_t all;
     struct 
     {
         uint32_t OnStep;// : 16;
@@ -263,27 +263,27 @@ struct CGraphFWHardwareInterface
 	
 	uint32_t UartFifo0; //rw; send or read bytes from uart(s)
 	CGraphFWUartStatusRegister UartStatusRegister0; //ro; what state are the uart(s) in?
-	uint64_t UartFifo0ReadData;
+	uint32_t UartFifo0ReadData;
     
 	uint32_t UartFifo1; //rw; send or read bytes from uart(s)
 	CGraphFWUartStatusRegister UartStatusRegister1; //ro; what state are the uart(s) in?
-	uint64_t UartFifo1ReadData;
+	uint32_t UartFifo1ReadData;
     
 	uint32_t UartFifo2; //rw; send or read bytes from uart(s)
 	CGraphFWUartStatusRegister UartStatusRegister2; //ro; what state are the uart(s) in?
-	uint64_t UartFifo2ReadData;
+	uint32_t UartFifo2ReadData;
     
 	uint32_t UartFifo3; //rw; send or read bytes from uart(s)
 	CGraphFWUartStatusRegister UartStatusRegister3; //ro; what state are the uart(s) in?
-	uint64_t UartFifo3ReadData;
+	uint32_t UartFifo3ReadData;
     
 	uint32_t UartFifoUsb; //rw; send or read bytes from uart(s)
 	CGraphFWUartStatusRegister UartStatusRegisterUsb; //ro; what state are the uart(s) in?
-	uint64_t UartFifoUsbReadData;
+	uint32_t UartFifoUsbReadData;
     
 	uint32_t UartFifoGps; //rw; send or read bytes from uart(s)
 	CGraphFWUartStatusRegister UartStatusRegisterGps; //ro; what state are the uart(s) in?
-	uint64_t UartFifoGpsReadData;
+	uint32_t UartFifoGpsReadData;
     
 	CGraphFWPositionStepRegister PosDetHomeA; //ro; the step at which this signal toggled
 	CGraphFWPositionStepRegister PosDetA0; //ro; the step at which this signal toggled

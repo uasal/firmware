@@ -1009,6 +1009,8 @@ begin
 								Ux2SelJmp_i <= DataIn(21);
 								PPSCountReset <= DataIn(22);	
 								
+								if (ResetSteps_i = '1') then MotorSeekStep_i <= x"0000"; end if;
+								
 								
 							when others => 
 

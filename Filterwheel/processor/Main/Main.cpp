@@ -70,11 +70,35 @@ uint32_t FWPosition = (uint32_t)-1; //Start invalid so we initialize
 
 uint16_t ValidatedFWHomeStep()
 {
-	return(0);
+	uint16_t HomeStep = 0;
+	
+	CGraphFWPositionStepRegister HomeA = FW->PosDetHomeA;
+	CGraphFWPositionStepRegister HomeB = FW->PosDetHomeB;
+	
+	formatf("\nESC-FW: ValidatedFWHomeStep: ");
+	HomeA.formatf();
+	formatf(";");
+	HomeB.formatf();
+	
+	//~ bool AValid = (HomeA.OnStep != 0) && (HomeA.OffStep != 0);
+	//~ bool BValid = (HomeB.OnStep != 0) && (HomeB.OffStep != 0);
+	//Seen some pretty weird values in all instances...but when they're weird, they match...
+	bool AValid = HomeA.OnStep != HomeA.OffStep;
+	bool BValid = HomeB.OnStep != HomeB.OffStep;
+	//which also doesn't correct for this chingaso:
+	//~ ESC-FW: ValidatedFWHomeStep: StepRegister: All: 02D2 , OnStep: 722 , OffStep: 722 , MidStep: 722 ;StepRegister: All: 02D2 , OnStep: 722 , OffStep: 6 , MidStep: 364 
+	
+	if (AValid) { HomeStep = HomeA.MidStep(); }
+	if (BValid) { HomeStep += HomeB.MidStep(); }
+	if (AValid && BValid) { HomeStep /= 2; }
+	
+	return(HomeStep);
 }
 
 void FWHome()
 {
+	size_t i = 0;
+	
 	//Turn things on
 	CGraphFWHardwareControlRegister HCR;
 	HCR.PosLedsEnA = 1;
@@ -92,7 +116,7 @@ void FWHome()
 	FW->MotorControlStatus = MCSR;		
 	
 	//Wait for it to move
-	for (size_t i = 0; i < MotorFindHomeTimeoutMs; i++)
+	for (i = 0; i < MotorFindHomeTimeoutMs; i++)
 	{
 		MCSR = FW->MotorControlStatus;
 		if (MCSR.SeekStep == MCSR.CurrentStep) { break; }
@@ -110,7 +134,7 @@ void FWHome()
 	FW->MotorControlStatus = MCSR;		
 	
 	//Wait for it to move
-	for (size_t i = 0; i < MotorFindHomeTimeoutMs; i++)
+	for (i = 0; i < MotorFindHomeTimeoutMs; i++)
 	{
 		MCSR = FW->MotorControlStatus;
 		if (MCSR.SeekStep == MCSR.CurrentStep) { break; }
@@ -123,19 +147,31 @@ void FWHome()
 	MCSR.SeekStep = HomeStep;
 	FW->MotorControlStatus = MCSR;		
 	
+	formatf("\nESC-FW: Attempting to move motor to: %d.", HomeStep);
+	
 	//Wait for it to move
-	for (size_t i = 0; i < MotorFindHomeTimeoutMs; i++)
+	for (i = 0; i < MotorFindHomeTimeoutMs; i++)
 	{
 		MCSR = FW->MotorControlStatus;
 		if (MCSR.SeekStep == MCSR.CurrentStep) { break; }
 		delayms(1);
 	}
-		
+	
+	formatf("\nESC-FW: Move complete; motor reports: %d, i = %z.", MCSR.CurrentStep, i);
+			
 	//Clear step registers (by definition home [filter #1] is now zero)
 	HCR.ResetSteps = 1;
 	FW->ControlRegister = HCR;		
 	HCR.ResetSteps = 0;
 	FW->ControlRegister = HCR;		
+	
+	CGraphFWPositionStepRegister HomeA = FW->PosDetHomeA;
+	CGraphFWPositionStepRegister HomeB = FW->PosDetHomeB;
+	
+	formatf("\nESC-FW: Step registers reset: ");
+	HomeA.formatf();
+	formatf(";");
+	HomeB.formatf();
 	
 	FWPosition = 1;
 	
@@ -148,7 +184,69 @@ void FWHome()
 
 void FWSeekPosition(const uint32_t SeekPos)
 {
+	uint16_t DestinationStep = 0;
+	size_t i = 0;
 	
+	//is the index bogus? We either need to initialize for the first time, or the user asked us to do a forced intializeaiton...
+	if (SeekPos > FWMaxPosition) { FWHome(); }
+	
+	//Already there?
+	if (FWPosition == SeekPos) { return; }
+		
+	//Sun safe position? the lights are invalid, as long at the motor is in approximately the right location it's ok
+	if (0 == FWPosition)
+	{
+		DestinationStep = MotorSunSafeStep;
+	}
+	else
+	{
+		DestinationStep = (MotorFullCircleSteps / FWMaxPosition) * (SeekPos - 1);
+	}
+	
+	//Turn things on
+	CGraphFWHardwareControlRegister HCR;
+	HCR.PosLedsEnA = 1;
+    HCR.PosLedsEnB = 1;
+	HCR.MotorEnable = 1;
+	FW->ControlRegister = HCR;		
+	
+	//stabilize
+	delayms(100);
+
+	CGraphFWMotorControlStatusRegister MCSR;
+	MCSR = FW->MotorControlStatus;
+	
+	//~ //Try to start with motor homed
+	//~ MCSR.SeekStep = 0;
+	//~ FW->MotorControlStatus = MCSR;		
+	
+	//~ //Wait for it to move
+	//~ for (i = 0; i < MotorFindHomeTimeoutMs; i++)
+	//~ {
+		//~ MCSR = FW->MotorControlStatus;
+		//~ if (0 == MCSR.CurrentStep) { break; }
+		//~ delayms(1);
+	//~ }
+	
+	formatf("\nESC-FW: Attempting to move motor to: %d.", DestinationStep);
+	
+	MCSR.SeekStep = DestinationStep;
+	FW->MotorControlStatus = MCSR;		
+	//Wait for it to move
+	for (i = 0; i < MotorFindHomeTimeoutMs; i++)
+	{
+		MCSR = FW->MotorControlStatus;
+		if (DestinationStep == MCSR.CurrentStep) { break; }
+		delayms(1);
+	}	
+
+	formatf("\nESC-FW: Move complete; motor reports: %d, i = %z.", MCSR.CurrentStep, i);
+	
+	//Turn things off
+	HCR.PosLedsEnA = 0;
+    HCR.PosLedsEnB = 0;
+	HCR.MotorEnable = 0;
+	FW->ControlRegister = HCR;		
 }
 
 bool ValidateFWPostition()
@@ -176,7 +274,7 @@ bool ValidateFWPostition()
 	CGraphFWHardwareControlRegister HCR;
 	HCR.PosLedsEnA = 1;
     HCR.PosLedsEnB = 1;
-	HCR.MotorEnable = 1;
+	HCR.MotorEnable = 0;
 	FW->ControlRegister = HCR;		
 	
 	//stabilize
@@ -512,7 +610,12 @@ int main(int argc, char *argv[])
 	formatf("\nOffset of UartFifoUsb: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, UartFifoUsb), 116UL);
 	formatf("\nOffset of UartFifoUsbReadData: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, UartFifoUsbReadData), 124UL);
 
-	
+	//~ unsigned long k = (unsigned long)offsetof(CGraphFWHardwareInterface, UartFifoUsb);
+	//~ unsigned long m = (unsigned long)offsetof(CGraphFWHardwareInterface, UartFifoUsbReadData);
+	//~ unsigned long n = (unsigned long)offsetof(CGraphFWHardwareInterface, UartFifo3ReadData);
+	//~ unsigned long o = (unsigned long)offsetof(CGraphFWHardwareInterface, BaudDividers);
+	//~ unsigned long p = (unsigned long)offsetof(CGraphFWHardwareInterface, MonitorAdcAccumulator);
+
 	DbgUartUsb.Init();
 	DbgUart485_0.Init();
 

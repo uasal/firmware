@@ -2558,6 +2558,9 @@ begin
 		LedR <= not(PosSenseBit0A);
 		LedG <= not(PosSenseBit1A);
 		LedB <= not(PosSenseBit2A);
+		--~ LedR <= not(RxdUsb_i);
+		--~ LedG <= '0';
+		--~ LedB <= not(TxdUsb_i);
 		
 		TP1 <= not(PosSenseHomeA);
 		TP2 <= not(PosSenseBit0A); --msb
