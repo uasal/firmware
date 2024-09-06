@@ -10,7 +10,7 @@ const uint16_t MotorSunSafeStep = 135; //prototype motor; should still work with
 const uint32_t FWMaxPosition = 8; //Start invalid so we initialize
 extern uint32_t FWPosition; //where do we want to be???
 
-uint16_t ValidatedFWHomeStep();
+int16_t ValidatedFWHomeStep();
 void FWHome();
 void FWSeekPosition(const uint32_t SeekPos);
 bool ValidateFWPostition();

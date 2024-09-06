@@ -101,14 +101,14 @@ union CGraphFWMotorControlStatusRegister
     uint32_t all;
     struct 
     {
-        uint16_t SeekStep; //rw; move the motor to here
-        uint16_t CurrentStep; //ro; where is motor now (note: if <> SeekStep, motor is probably moving right now, unless ((CGraphFWHardwareControlRegister::MotorEnable == 0) || (CGraphFWHardwareControlRegister::ResetSteps == 1)) )
+        int16_t SeekStep; //rw; move the motor to here
+        int16_t CurrentStep; //ro; where is motor now (note: if <> SeekStep, motor is probably moving right now, unless ((CGraphFWHardwareControlRegister::MotorEnable == 0) || (CGraphFWHardwareControlRegister::ResetSteps == 1)) )
         
     } __attribute__((__packed__));
 
     CGraphFWMotorControlStatusRegister() { all = 0; }
 
-    void formatf() const { ::formatf("CGraphFWMotorControlStatusRegister: All: %.8lX ", (unsigned long)all); ::formatf(", SeekStep: %u ", SeekStep);  ::formatf(", CurrentStep: %u ", CurrentStep); }
+    void formatf() const { ::formatf("CGraphFWMotorControlStatusRegister: All: %.8lX ", (unsigned long)all); ::formatf(", SeekStep: %+d ", SeekStep);  ::formatf(", CurrentStep: %+d ", CurrentStep); }
 
 } __attribute__((__packed__));
 
@@ -151,24 +151,26 @@ union CGraphFWPositionSenseRegister
 
 union CGraphFWPositionStepRegister
 {
-    uint32_t all;
+    uint64_t all;
     struct 
     {
-        uint32_t OnStep;// : 16;
-        uint32_t OffStep;// : 16; //Word offset reliably crashes uC
+        int16_t OnStep;// : 16;
+		uint16_t reserved1;// : 16;
+        int16_t OffStep;// : 16; //Word offset reliably crashes uC
+		uint16_t reserved2;// : 16;
         
     } __attribute__((__packed__));
 
     CGraphFWPositionStepRegister() { all = 0; }
 	
-	int32_t MidStep() const { return(std::min(OnStep, OffStep) + (abs((int32_t)OnStep - (int32_t)OffStep) / 2 )); }
+	int16_t MidStep() const { return(std::min(OnStep, OffStep) + (abs(OnStep - OffStep) / 2 )); }
 
 	void formatf() const 
 	{ 
-		::formatf("StepRegister: All: %.4X ", all); 
-		::formatf(", OnStep: %u ", (unsigned)OnStep);
-		::formatf(", OffStep: %u ", (unsigned)OffStep);
-		::formatf(", MidStep: %d ", (int)MidStep());
+		::formatf("StepRegister: All: %.8X ", all); 
+		::formatf(", OnStep: %d ", OnStep);
+		::formatf(", OffStep: %d ", OffStep);
+		::formatf(", MidStep: %d ", MidStep());
 	}
 
 } __attribute__((__packed__));

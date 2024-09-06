@@ -231,10 +231,22 @@ int8_t BinaryFWFilterSelectCommand(const uint32_t Name, char const* Params, cons
 			return(ParamsLen);
 		}
 		
+		uint32_t response = (uint32_t)-1; //-1 means we're in motion
+		TxBinaryPacket(Argument, CGraphPayloadTypeFWFilterSelect, 0, &response, sizeof(uint32_t));
 		formatf("\nBinaryFWFilterSelectCommand: moving to: %lu\n", FilterSelect);
 		FWSeekPosition(FilterSelect);
-		FilterSelect = (uint32_t)-1; //-1 means we're in motion
-		TxBinaryPacket(Argument, CGraphPayloadTypeFWFilterSelect, 0, &FilterSelect, sizeof(uint32_t));
+		if (!ValidateFWPostition())
+		{
+			response = (uint32_t)-2; //-2 means invalid position
+			TxBinaryPacket(Argument, CGraphPayloadTypeFWFilterSelect, 0, &response, sizeof(uint32_t));		
+			formatf("\n\nBinaryFWFilterSelectCommand: move failed!\n");
+			FWHome();
+			formatf("\n\nBinaryFWFilterSelectCommand: moving to: %lu\n", FilterSelect);
+			FWSeekPosition(FilterSelect);		
+			//sure hope it worked the second time, cause I'm not sure we have the werewithal to try recursively...
+		}
+		response = (uint32_t)FilterSelect; //-1 means we're in motion
+		TxBinaryPacket(Argument, CGraphPayloadTypeFWFilterSelect, 0, &response, sizeof(uint32_t));
 		return(ParamsLen);
 	}
 	

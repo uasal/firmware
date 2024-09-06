@@ -579,8 +579,10 @@ architecture architecture_Main of Main is
 							
 							--Motor
 							MotorEnable : out std_logic;
-							MotorSeekStep : out std_logic_vector(15 downto 0);
-							MotorCurrentStep : in std_logic_vector(15 downto 0);
+							--~ MotorSeekStep : out std_logic_vector(15 downto 0);
+							--~ MotorCurrentStep : in std_logic_vector(15 downto 0);
+							MotorSeekStep : out signed(15 downto 0);
+							MotorCurrentStep : in signed(15 downto 0);
 							ResetSteps : out std_logic;
 							MotorAPlus : in std_logic;
 							MotorAMinus : in std_logic;
@@ -603,57 +605,57 @@ architecture architecture_Main of Main is
 							PosSenseA : in std_logic_vector(3 downto 0);
 							PosSenseB : in std_logic_vector(3 downto 0);
 							
-							PosDetHomeAOnStep : in std_logic_vector(15 downto 0);
-							PosDetHomeAOffStep : in std_logic_vector(15 downto 0);
-							PosDetA0OnStep : in std_logic_vector(15 downto 0);
-							PosDetA0OffStep : in std_logic_vector(15 downto 0);
-							PosDetA1OnStep : in std_logic_vector(15 downto 0);
-							PosDetA1OffStep : in std_logic_vector(15 downto 0);
-							PosDetA2OnStep : in std_logic_vector(15 downto 0);
-							PosDetA2OffStep : in std_logic_vector(15 downto 0);
+							PosDetHomeAOnStep : in signed(15 downto 0);
+							PosDetHomeAOffStep : in signed(15 downto 0);
+							PosDetA0OnStep : in signed(15 downto 0);
+							PosDetA0OffStep : in signed(15 downto 0);
+							PosDetA1OnStep : in signed(15 downto 0);
+							PosDetA1OffStep : in signed(15 downto 0);
+							PosDetA2OnStep : in signed(15 downto 0);
+							PosDetA2OffStep : in signed(15 downto 0);
 							
-							PosDetHomeBOnStep : in std_logic_vector(15 downto 0);
-							PosDetHomeBOffStep : in std_logic_vector(15 downto 0);
-							PosDetB0OnStep : in std_logic_vector(15 downto 0);
-							PosDetB0OffStep : in std_logic_vector(15 downto 0);
-							PosDetB1OnStep : in std_logic_vector(15 downto 0);
-							PosDetB1OffStep : in std_logic_vector(15 downto 0);
-							PosDetB2OnStep : in std_logic_vector(15 downto 0);
-							PosDetB2OffStep : in std_logic_vector(15 downto 0);
+							PosDetHomeBOnStep : in signed(15 downto 0);
+							PosDetHomeBOffStep : in signed(15 downto 0);
+							PosDetB0OnStep : in signed(15 downto 0);
+							PosDetB0OffStep : in signed(15 downto 0);
+							PosDetB1OnStep : in signed(15 downto 0);
+							PosDetB1OffStep : in signed(15 downto 0);
+							PosDetB2OnStep : in signed(15 downto 0);
+							PosDetB2OffStep : in signed(15 downto 0);
 							
-							PosDet0AOnStep : in std_logic_vector(15 downto 0);
-							PosDet0AOffStep : in std_logic_vector(15 downto 0);
-							PosDet1AOnStep : in std_logic_vector(15 downto 0);
-							PosDet1AOffStep : in std_logic_vector(15 downto 0);
-							PosDet2AOnStep : in std_logic_vector(15 downto 0);
-							PosDet2AOffStep : in std_logic_vector(15 downto 0);
-							PosDet3AOnStep : in std_logic_vector(15 downto 0);
-							PosDet3AOffStep : in std_logic_vector(15 downto 0);
-							PosDet4AOnStep : in std_logic_vector(15 downto 0);
-							PosDet4AOffStep : in std_logic_vector(15 downto 0);
-							PosDet5AOnStep : in std_logic_vector(15 downto 0);
-							PosDet5AOffStep : in std_logic_vector(15 downto 0);
-							PosDet6AOnStep : in std_logic_vector(15 downto 0);
-							PosDet6AOffStep : in std_logic_vector(15 downto 0);
-							PosDet7AOnStep : in std_logic_vector(15 downto 0);
-							PosDet7AOffStep : in std_logic_vector(15 downto 0);
+							PosDet0AOnStep : in signed(15 downto 0);
+							PosDet0AOffStep : in signed(15 downto 0);
+							PosDet1AOnStep : in signed(15 downto 0);
+							PosDet1AOffStep : in signed(15 downto 0);
+							PosDet2AOnStep : in signed(15 downto 0);
+							PosDet2AOffStep : in signed(15 downto 0);
+							PosDet3AOnStep : in signed(15 downto 0);
+							PosDet3AOffStep : in signed(15 downto 0);
+							PosDet4AOnStep : in signed(15 downto 0);
+							PosDet4AOffStep : in signed(15 downto 0);
+							PosDet5AOnStep : in signed(15 downto 0);
+							PosDet5AOffStep : in signed(15 downto 0);
+							PosDet6AOnStep : in signed(15 downto 0);
+							PosDet6AOffStep : in signed(15 downto 0);
+							PosDet7AOnStep : in signed(15 downto 0);
+							PosDet7AOffStep : in signed(15 downto 0);
 							
-							PosDet0BOnStep : in std_logic_vector(15 downto 0);
-							PosDet0BOffStep : in std_logic_vector(15 downto 0);
-							PosDet1BOnStep : in std_logic_vector(15 downto 0);
-							PosDet1BOffStep : in std_logic_vector(15 downto 0);
-							PosDet2BOnStep : in std_logic_vector(15 downto 0);
-							PosDet2BOffStep : in std_logic_vector(15 downto 0);
-							PosDet3BOnStep : in std_logic_vector(15 downto 0);
-							PosDet3BOffStep : in std_logic_vector(15 downto 0);
-							PosDet4BOnStep : in std_logic_vector(15 downto 0);
-							PosDet4BOffStep : in std_logic_vector(15 downto 0);
-							PosDet5BOnStep : in std_logic_vector(15 downto 0);
-							PosDet5BOffStep : in std_logic_vector(15 downto 0);
-							PosDet6BOnStep : in std_logic_vector(15 downto 0);
-							PosDet6BOffStep : in std_logic_vector(15 downto 0);
-							PosDet7BOnStep : in std_logic_vector(15 downto 0);
-							PosDet7BOffStep : in std_logic_vector(15 downto 0);
+							PosDet0BOnStep : in signed(15 downto 0);
+							PosDet0BOffStep : in signed(15 downto 0);
+							PosDet1BOnStep : in signed(15 downto 0);
+							PosDet1BOffStep : in signed(15 downto 0);
+							PosDet2BOnStep : in signed(15 downto 0);
+							PosDet2BOffStep : in signed(15 downto 0);
+							PosDet3BOnStep : in signed(15 downto 0);
+							PosDet3BOffStep : in signed(15 downto 0);
+							PosDet4BOnStep : in signed(15 downto 0);
+							PosDet4BOffStep : in signed(15 downto 0);
+							PosDet5BOnStep : in signed(15 downto 0);
+							PosDet5BOffStep : in signed(15 downto 0);
+							PosDet6BOnStep : in signed(15 downto 0);
+							PosDet6BOffStep : in signed(15 downto 0);
+							PosDet7BOnStep : in signed(15 downto 0);
+							PosDet7BOffStep : in signed(15 downto 0);
 							
 							--Monitor A/D:
 							MonitorAdcChannelReadIndex : out std_logic_vector(4 downto 0);
@@ -880,10 +882,12 @@ architecture architecture_Main of Main is
 							rst : in std_logic;
 
 							--inputs
-							SeekStep : in std_logic_vector(15 downto 0);
+							--~ SeekStep : in std_logic_vector(15 downto 0);
+							SeekStep : in signed(15 downto 0);
 							
 							--outputs
-							CurrentStep : out std_logic_vector(15 downto 0);
+							--~ CurrentStep : out std_logic_vector(15 downto 0);
+							CurrentStep : out signed(15 downto 0);
 							MotorStepEdge : out std_logic;
 							
 							MotorAPlus : out std_logic;
@@ -941,7 +945,8 @@ architecture architecture_Main of Main is
 			signal ReadAck : std_logic;
 
 			signal MotorEnable : std_logic;        
-			signal MotorSeekStep : std_logic_vector(15 downto 0);    
+			--~ signal MotorSeekStep : std_logic_vector(15 downto 0);    
+			signal MotorSeekStep : signed(15 downto 0);    
 			--signal MotorCurrentStep : std_logic_vector(15 downto 0);
 			signal ResetSteps : std_logic;          
 			--signal MotorAPlus_i : std_logic;        
@@ -1136,59 +1141,59 @@ architecture architecture_Main of Main is
 				
 		signal PosLedsEnA : std_logic := '0';
 		
-		signal PosDetHomeAOnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDetHomeAOffStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDetA0OnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDetA0OffStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDetA1OnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDetA1OffStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDetA2OnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDetA2OffStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDetHomeAOnStep : signed(15 downto 0) := x"0000";
+		signal PosDetHomeAOffStep : signed(15 downto 0) := x"0000";
+		signal PosDetA0OnStep : signed(15 downto 0) := x"0000";
+		signal PosDetA0OffStep : signed(15 downto 0) := x"0000";
+		signal PosDetA1OnStep : signed(15 downto 0) := x"0000";
+		signal PosDetA1OffStep : signed(15 downto 0) := x"0000";
+		signal PosDetA2OnStep : signed(15 downto 0) := x"0000";
+		signal PosDetA2OffStep : signed(15 downto 0) := x"0000";
 		
 		signal PosLedsEnB : std_logic := '0';
 		
-		signal PosDetHomeBOnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDetHomeBOffStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDetB0OnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDetB0OffStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDetB1OnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDetB1OffStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDetB2OnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDetB2OffStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDetHomeBOnStep : signed(15 downto 0) := x"0000";
+		signal PosDetHomeBOffStep : signed(15 downto 0) := x"0000";
+		signal PosDetB0OnStep : signed(15 downto 0) := x"0000";
+		signal PosDetB0OffStep : signed(15 downto 0) := x"0000";
+		signal PosDetB1OnStep : signed(15 downto 0) := x"0000";
+		signal PosDetB1OffStep : signed(15 downto 0) := x"0000";
+		signal PosDetB2OnStep : signed(15 downto 0) := x"0000";
+		signal PosDetB2OffStep : signed(15 downto 0) := x"0000";
 		
-		signal PosDet0AOnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet0AOffStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet1AOnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet1AOffStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet2AOnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet2AOffStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet3AOnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet3AOffStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet4AOnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet4AOffStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet5AOnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet5AOffStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet6AOnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet6AOffStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet7AOnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet7AOffStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet0AOnStep : signed(15 downto 0) := x"0000";
+		signal PosDet0AOffStep : signed(15 downto 0) := x"0000";
+		signal PosDet1AOnStep : signed(15 downto 0) := x"0000";
+		signal PosDet1AOffStep : signed(15 downto 0) := x"0000";
+		signal PosDet2AOnStep : signed(15 downto 0) := x"0000";
+		signal PosDet2AOffStep : signed(15 downto 0) := x"0000";
+		signal PosDet3AOnStep : signed(15 downto 0) := x"0000";
+		signal PosDet3AOffStep : signed(15 downto 0) := x"0000";
+		signal PosDet4AOnStep : signed(15 downto 0) := x"0000";
+		signal PosDet4AOffStep : signed(15 downto 0) := x"0000";
+		signal PosDet5AOnStep : signed(15 downto 0) := x"0000";
+		signal PosDet5AOffStep : signed(15 downto 0) := x"0000";
+		signal PosDet6AOnStep : signed(15 downto 0) := x"0000";
+		signal PosDet6AOffStep : signed(15 downto 0) := x"0000";
+		signal PosDet7AOnStep : signed(15 downto 0) := x"0000";
+		signal PosDet7AOffStep : signed(15 downto 0) := x"0000";
 		
-		signal PosDet0BOnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet0BOffStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet1BOnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet1BOffStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet2BOnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet2BOffStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet3BOnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet3BOffStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet4BOnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet4BOffStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet5BOnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet5BOffStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet6BOnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet6BOffStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet7BOnStep : std_logic_vector(15 downto 0) := x"0000";
-		signal PosDet7BOffStep : std_logic_vector(15 downto 0) := x"0000";
+		signal PosDet0BOnStep : signed(15 downto 0) := x"0000";
+		signal PosDet0BOffStep : signed(15 downto 0) := x"0000";
+		signal PosDet1BOnStep : signed(15 downto 0) := x"0000";
+		signal PosDet1BOffStep : signed(15 downto 0) := x"0000";
+		signal PosDet2BOnStep : signed(15 downto 0) := x"0000";
+		signal PosDet2BOffStep : signed(15 downto 0) := x"0000";
+		signal PosDet3BOnStep : signed(15 downto 0) := x"0000";
+		signal PosDet3BOffStep : signed(15 downto 0) := x"0000";
+		signal PosDet4BOnStep : signed(15 downto 0) := x"0000";
+		signal PosDet4BOffStep : signed(15 downto 0) := x"0000";
+		signal PosDet5BOnStep : signed(15 downto 0) := x"0000";
+		signal PosDet5BOffStep : signed(15 downto 0) := x"0000";
+		signal PosDet6BOnStep : signed(15 downto 0) := x"0000";
+		signal PosDet6BOffStep : signed(15 downto 0) := x"0000";
+		signal PosDet7BOnStep : signed(15 downto 0) := x"0000";
+		signal PosDet7BOffStep : signed(15 downto 0) := x"0000";
 		
 		-- Motors
 
@@ -1202,7 +1207,8 @@ architecture architecture_Main of Main is
         signal ShootThruIxnaeAMinus : std_logic;
         signal ShootThruIxnaeBPlus : std_logic;
         signal ShootThruIxnaeBMinus : std_logic;
-        signal MotorCurrentStep : std_logic_vector(15 downto 0);
+        --~ signal MotorCurrentStep : std_logic_vector(15 downto 0);
+		signal MotorCurrentStep : signed(15 downto 0);
 		signal MotorStepEdge : std_logic;
 		signal LastMotorStepEdge : std_logic;
 
@@ -2699,7 +2705,7 @@ begin
 							
 								LastPosSenseA <= PosSenseA;
 								
-								if (LastPosSenseA = "1111") then
+								--~ if (LastPosSenseA = "1111") then
 								
 									case PosSenseA is
 										
@@ -2715,9 +2721,9 @@ begin
 										
 									end case;
 									
-								end if;
+								--~ end if;
 								
-								if (PosSenseA = "1111") then
+								--~ if (PosSenseA = "1111") then
 								
 									case LastPosSenseA is
 										
@@ -2733,7 +2739,7 @@ begin
 										
 									end case;
 									
-								end if;
+								--~ end if;
 								
 							end if;
 							

@@ -70,9 +70,9 @@ extern CGraphFWMonitorAdc MonitorAdc;
 
 uint32_t FWPosition = (uint32_t)-1; //Start invalid so we initialize
 
-uint16_t ValidatedFWHomeStep()
+int16_t ValidatedFWHomeStep()
 {
-	uint16_t HomeStep = 0;
+	int16_t HomeStep = 0;
 	
 	CGraphFWPositionStepRegister HomeA = FW->PosDetHomeA;
 	CGraphFWPositionStepRegister HomeB = FW->PosDetHomeB;
@@ -172,6 +172,21 @@ void FWHome()
 	//Now send it home.
 	int16_t HomeStep = ValidatedFWHomeStep();
 	
+	//Backlash
+	MCSR.SeekStep = HomeStep - 45;
+	FW->MotorControlStatus = MCSR;		
+	
+	formatf("\nESC-FW: Attempting to move motor to: %d.", HomeStep - 45);
+	
+	//Wait for it to move
+	for (i = 0; i < MotorFindHomeTimeoutMs; i++)
+	{
+		MCSR = FW->MotorControlStatus;
+		if ((HomeStep - 45) == MCSR.CurrentStep) { break; }
+		delayms(1);
+	}
+	
+	//Final resting place
 	MCSR.SeekStep = HomeStep;
 	FW->MotorControlStatus = MCSR;		
 	
@@ -181,11 +196,11 @@ void FWHome()
 	for (i = 0; i < MotorFindHomeTimeoutMs; i++)
 	{
 		MCSR = FW->MotorControlStatus;
-		if (MCSR.SeekStep == MCSR.CurrentStep) { break; }
+		if (HomeStep == MCSR.CurrentStep) { break; }
 		delayms(1);
 	}
 	
-	formatf("\nESC-FW: Move complete; motor reports: %d, i = %z.", MCSR.CurrentStep, i);
+	formatf("\nESC-FW: Move complete; motor reports: %d, i = %u.", MCSR.CurrentStep, i);
 			
 	//Clear step registers (by definition home [filter #1] is now zero)
 	HCR.ResetSteps = 1;
@@ -212,7 +227,7 @@ void FWHome()
 
 void FWSeekPosition(const uint32_t SeekPos)
 {
-	uint16_t DestinationStep = 0;
+	int16_t DestinationStep = 0;
 	size_t i = 0;
 	
 	//is the index bogus? We either need to initialize for the first time, or the user asked us to do a forced intializeaiton...
@@ -256,8 +271,22 @@ void FWSeekPosition(const uint32_t SeekPos)
 		//~ delayms(1);
 	//~ }
 	
+	formatf("\nESC-FW: Attempting to move motor to: %d.", DestinationStep - 45);
+	
+	//Backlash
+	MCSR.SeekStep = DestinationStep - 45;
+	FW->MotorControlStatus = MCSR;		
+	//Wait for it to move
+	for (i = 0; i < MotorFindHomeTimeoutMs; i++)
+	{
+		MCSR = FW->MotorControlStatus;
+		if ((DestinationStep - 45) == MCSR.CurrentStep) { break; }
+		delayms(1);
+	}	
+
 	formatf("\nESC-FW: Attempting to move motor to: %d.", DestinationStep);
 	
+	//Final resting place
 	MCSR.SeekStep = DestinationStep;
 	FW->MotorControlStatus = MCSR;		
 	//Wait for it to move
@@ -268,7 +297,7 @@ void FWSeekPosition(const uint32_t SeekPos)
 		delayms(1);
 	}	
 
-	formatf("\nESC-FW: Move complete; motor reports: %d, i = %z.", MCSR.CurrentStep, i);
+	formatf("\nESC-FW: Move complete; motor reports: %d, i = %u.", MCSR.CurrentStep, i);
 	
 	FWPosition = SeekPos;
 	
@@ -290,6 +319,8 @@ bool ValidateFWPostition()
 	
 	//If we're moving, just let it finish
 	if (MCSR.SeekStep != MCSR.CurrentStep) { return(true); }
+	
+	formatf("\nESC-FW: MoveValidateFWPostition(%u): Motor is at: %u; ", FWPosition, MCSR.CurrentStep);
 	
 	//If we're in the sun safe position, the lights are invalid, as long at the motor is in approximately the right location it's ok
 	if (0 == FWPosition)
@@ -313,6 +344,9 @@ bool ValidateFWPostition()
 	//Get the lights
 	CGraphFWPositionSenseRegister PSR;
 	PSR = FW->PositionSensors;
+	
+	formatf("; ");
+	PSR.formatf();	
 	
 	//"Home" Light Position - Filter #1
 	bool Lights1A = ( (PSR.PosSenseHomeA == 0) & (PSR.PosSenseBit0A == 1) & (PSR.PosSenseBit1A == 1) & (PSR.PosSenseBit2A == 1) );

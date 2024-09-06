@@ -280,6 +280,14 @@ int8_t FilterSelectCommand(char const* Name, char const* Params, const size_t Pa
 		
 		formatf("\n\nFilterSelectCommand: moving to: %lu\n", FilterSelect);
 		FWSeekPosition(FilterSelect);
+		if (!ValidateFWPostition())
+		{
+			formatf("\n\nFilterSelectCommand: move failed!\n");
+			FWHome();
+			formatf("\n\nFilterSelectCommand: moving to: %lu\n", FilterSelect);
+			FWSeekPosition(FilterSelect);		
+			//sure hope it worked the second time, cause I'm not sure we have the werewithal to try recursively...
+		}
 		return(ParamsLen);
     }
 	
