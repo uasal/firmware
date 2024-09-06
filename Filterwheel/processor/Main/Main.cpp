@@ -1,6 +1,8 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdio.h>
+#include <sys/types.h>
+#include <algorithm>
 
 #ifdef __cplusplus
 extern "C" {
@@ -75,19 +77,45 @@ uint16_t ValidatedFWHomeStep()
 	CGraphFWPositionStepRegister HomeA = FW->PosDetHomeA;
 	CGraphFWPositionStepRegister HomeB = FW->PosDetHomeB;
 	
-	formatf("\nESC-FW: ValidatedFWHomeStep: ");
+	formatf("\nESC-FW: ValidatedFWHomeStep precorrected: ");
 	HomeA.formatf();
 	formatf(";");
 	HomeB.formatf();
 	
-	//~ bool AValid = (HomeA.OnStep != 0) && (HomeA.OffStep != 0);
-	//~ bool BValid = (HomeB.OnStep != 0) && (HomeB.OffStep != 0);
-	//Seen some pretty weird values in all instances...but when they're weird, they match...
-	bool AValid = HomeA.OnStep != HomeA.OffStep;
-	bool BValid = HomeB.OnStep != HomeB.OffStep;
-	//which also doesn't correct for this chingaso:
+	bool AValid = (HomeA.OnStep != 0) && (HomeA.OffStep != 0);
+	bool BValid = (HomeB.OnStep != 0) && (HomeB.OffStep != 0);
+	//~ //Seen some pretty weird values in all instances...but when they're weird, they match...
+	//~ bool AValid = HomeA.OnStep != HomeA.OffStep;
+	//~ bool BValid = HomeB.OnStep != HomeB.OffStep;
+	
+	//Also correct for this chingaso:
 	//~ ESC-FW: ValidatedFWHomeStep: StepRegister: All: 02D2 , OnStep: 722 , OffStep: 722 , MidStep: 722 ;StepRegister: All: 02D2 , OnStep: 722 , OffStep: 6 , MidStep: 364 
 	
+	//Correct for full revolutions:
+	HomeA.OnStep %= MotorFullCircleSteps;
+	HomeA.OffStep %= MotorFullCircleSteps;
+	HomeB.OnStep %= MotorFullCircleSteps;
+	HomeB.OffStep %= MotorFullCircleSteps;
+	
+	//Correct negatives
+	if (HomeA.OnStep < 0) { HomeA.OnStep += MotorFullCircleSteps; }
+	if (HomeA.OffStep < 0) { HomeA.OffStep += MotorFullCircleSteps; }
+	if (HomeB.OnStep < 0) { HomeB.OnStep += MotorFullCircleSteps; }
+	if (HomeB.OffStep < 0) { HomeB.OffStep += MotorFullCircleSteps; }
+	
+	//Correct splits
+	if (abs((int)HomeA.OnStep - (int)HomeA.OffStep) > (MotorFullCircleSteps / 2)) { (HomeA.OnStep < HomeA.OffStep) ? HomeA.OnStep += MotorFullCircleSteps : HomeA.OffStep += MotorFullCircleSteps; }
+	if (abs((int)HomeB.OnStep - (int)HomeB.OffStep) > (MotorFullCircleSteps / 2)) { (HomeB.OnStep < HomeB.OffStep) ? HomeB.OnStep += MotorFullCircleSteps : HomeB.OffStep += MotorFullCircleSteps; }
+	
+	//did that fail?
+	if (abs((int)HomeA.OnStep - (int)HomeA.OffStep) > (MotorFullCircleSteps / 2)) { AValid = false; }
+	if (abs((int)HomeB.OnStep - (int)HomeB.OffStep) > (MotorFullCircleSteps / 2)) { BValid = false; }
+	
+	formatf("\nESC-FW: ValidatedFWHomeStep post-corrected: ");
+	HomeA.formatf();
+	formatf(";");
+	HomeB.formatf();
+		
 	if (AValid) { HomeStep = HomeA.MidStep(); }
 	if (BValid) { HomeStep += HomeB.MidStep(); }
 	if (AValid && BValid) { HomeStep /= 2; }
@@ -194,7 +222,7 @@ void FWSeekPosition(const uint32_t SeekPos)
 	if (FWPosition == SeekPos) { return; }
 		
 	//Sun safe position? the lights are invalid, as long at the motor is in approximately the right location it's ok
-	if (0 == FWPosition)
+	if (0 == SeekPos)
 	{
 		DestinationStep = MotorSunSafeStep;
 	}
@@ -241,6 +269,8 @@ void FWSeekPosition(const uint32_t SeekPos)
 	}	
 
 	formatf("\nESC-FW: Move complete; motor reports: %d, i = %z.", MCSR.CurrentStep, i);
+	
+	FWPosition = SeekPos;
 	
 	//Turn things off
 	HCR.PosLedsEnA = 0;

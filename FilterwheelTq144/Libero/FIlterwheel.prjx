@@ -86,13 +86,13 @@ SIZE="1186"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd,hdl"
 STATE="utd"
-TIME="1724788282"
-SIZE="88770"
+TIME="1725577936"
+SIZE="89368"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd,hdl"
 STATE="utd"
-TIME="1725048989"
-SIZE="45842"
+TIME="1725495532"
+SIZE="45924"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/include/fpga/ads1258.vhd,hdl"
 STATE="utd"
@@ -126,8 +126,8 @@ SIZE="2189"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd,hdl"
 STATE="utd"
-TIME="1722899281"
-SIZE="3823"
+TIME="1725577509"
+SIZE="3895"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd,hdl"
 STATE="utd"
@@ -354,8 +354,8 @@ ENDFILE
 VALUE "<project>/../../include/fpga/FourWireStepperMotorDriver.vhd,hdl"
 LINKFILEROOT "<project>/../../include/fpga"
 STATE="utd"
-TIME="1722899281"
-SIZE="3823"
+TIME="1725577509"
+SIZE="3895"
 ENDFILE
 VALUE "<project>/../../include/fpga/gated_fifo.vhd,hdl"
 LINKFILEROOT "<project>/../../include/fpga"
@@ -588,14 +588,14 @@ ENDFILE
 VALUE "<project>/../fpga/Main.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
 STATE="utd"
-TIME="1724788282"
-SIZE="88770"
+TIME="1725577936"
+SIZE="89368"
 ENDFILE
 VALUE "<project>/../fpga/RegisterSpace.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
 STATE="utd"
-TIME="1725048989"
-SIZE="45842"
+TIME="1725495532"
+SIZE="45924"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
@@ -1147,17 +1147,22 @@ PARENT="<project>/component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel.so,so"
 STATE="utd"
-TIME="1724804897"
+TIME="1725495651"
 SIZE="252"
+ENDFILE
+VALUE "<project>/synthesis/Filterwheel.vm,syn_vm"
+STATE="utd"
+TIME="1725577973"
+SIZE="1419215"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel_syn.prj,prj"
 STATE="utd"
-TIME="1725487577"
-SIZE="6133"
+TIME="1725577828"
+SIZE="4346"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel_vm.sdc,syn_sdc"
 STATE="utd"
-TIME="1724804897"
+TIME="1725495650"
 SIZE="7559"
 ENDFILE
 ENDLIST
@@ -1174,8 +1179,7 @@ VALUE "<project>/constraint/io/user.pdc,io_pdc"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
-ideSYNTHESIS(<project>/synthesis/Filterwheel.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>/synthesis/Filterwheel.edn,syn_edn)=StateFailure
+ideSYNTHESIS(<project>/synthesis/Filterwheel.vm,syn_vm)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1185,8 +1189,7 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl2
-ideSYNTHESIS(<project>/synthesis/Filterwheel.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>/synthesis/Filterwheel.edn,syn_edn)=StateFailure
+ideSYNTHESIS(<project>/synthesis/Filterwheel.vm,syn_vm)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1410,8 +1413,8 @@ NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
 LOCATION="/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/bin/synplify_pro"
-PARAM=""
-BATCH=0
+PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
+BATCH=1
 LICENSE=""
 IS32BIT="1"
 EndProfile
@@ -1437,8 +1440,7 @@ ENDLIST
 LIST ProjectState5.1
 LIST "Filterwheel::work"
 LIST Impl1
-ideSYNTHESIS(<project>/synthesis/Filterwheel.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>/synthesis/Filterwheel.edn,syn_edn)=StateFailure
+ideSYNTHESIS(<project>/synthesis/Filterwheel.vm,syn_vm)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1448,8 +1450,7 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl2
-ideSYNTHESIS(<project>/synthesis/Filterwheel.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>/synthesis/Filterwheel.edn,syn_edn)=StateFailure
+ideSYNTHESIS(<project>/synthesis/Filterwheel.vm,syn_vm)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1516,8 +1517,12 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
+Reports;Reports;0
+ReportsCurrentItem;Run Programming Action:Filterwheel_PROGRAM.log
+SmartDesign;Filterwheel;0
+Constraint Manager;Constraint Manager;0
 StartPage;StartPage;0
-ACTIVEVIEW;StartPage
+ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","/home/summer/projects/CGraph/firmware/include/fpga/ads1258.vhd","FALSE","FALSE"
@@ -1541,6 +1546,13 @@ SUBBLOCK "CoreSF2Reset::work","component/Actel/DirectCore/CoreSF2Reset/3.0.100/r
 ENDLIST
 LIST "CORESYSSERVICES_C0::work","component/work/CORESYSSERVICES_C0/CORESYSSERVICES_C0.v","TRUE","FALSE"
 SUBBLOCK "CORESYSSERVICES_C0_CORESYSSERVICES_C0_0_CORESYSSERVICES::CORESYSSERVICES_LIB","component/work/CORESYSSERVICES_C0/CORESYSSERVICES_C0_0/rtl/vlog/core/CoreSysServices.v","FALSE","FALSE"
+ENDLIST
+LIST "DESIGN_FIRMWARE::work","component/work/DESIGN_FIRMWARE/DESIGN_FIRMWARE.cxf","TRUE","FALSE"
+SUBBLOCK "SmartFusion2_CMSIS::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
 ENDLIST
 LIST "ClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 ENDLIST
@@ -1706,6 +1718,16 @@ ENDLIST
 LIST "RegisterSpacePorts::work","/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd","FALSE","FALSE"
 ENDLIST
 LIST "RtcCounterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/RtcCounter.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_CMSIS::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
 ENDLIST
 LIST "SpiDacTrioPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiDacTrio.vhd","FALSE","FALSE"
 SUBBLOCK "SpiMasterTrioPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterTrio.vhd","FALSE","FALSE"

@@ -227,9 +227,31 @@ int8_t MotorCommand(char const* Name, char const* Params, const size_t ParamsLen
     int8_t numfound = sscanf(Params, "%lu", &SeekStep);
     if (numfound >= 1)
     {
+		//Turn things on
+		CGraphFWHardwareControlRegister HCR;
+		HCR.PosLedsEnA = 1;
+		HCR.PosLedsEnB = 1;
+		HCR.MotorEnable = 1;
+		FW->ControlRegister = HCR;		
+		
 		MCSR.SeekStep = SeekStep;
 		FW->MotorControlStatus = MCSR;		
+		
+		//Wait for it to move
+		for (size_t i = 0; i < MotorFindHomeTimeoutMs; i++)
+		{
+			MCSR = FW->MotorControlStatus;
+			if (MCSR.SeekStep == MCSR.CurrentStep) { break; }
+			delayms(1);
+		}	
+
 		formatf("\n\nMotorCommand: set to: %lu\n", SeekStep);
+		
+		//Turn things off
+		HCR.PosLedsEnA = 0;
+		HCR.PosLedsEnB = 0;
+		HCR.MotorEnable = 0;
+		FW->ControlRegister = HCR;		
     }
 	
 	MCSR = FW->MotorControlStatus;

@@ -22,6 +22,7 @@ entity FourWireStepperMotorDriverPorts is
 		
 		--outputs
 		CurrentStep : out std_logic_vector(15 downto 0);
+		MotorStepEdge : out std_logic;
 		
 		MotorAPlus : out std_logic;
 		MotorAMinus : out std_logic;
@@ -67,7 +68,7 @@ architecture FourWireStepperMotorDriver of FourWireStepperMotorDriverPorts is
 	signal CurrentStep_i : std_logic_vector(15 downto 0);
 	signal Direction : std_logic;
 	signal MotorStopped : std_logic;
-	signal MotorStep : std_logic;
+	signal MotorStep_i : std_logic;
 	signal InTransit : std_logic;
 	
 	signal MotorAPlus_i : std_logic;
@@ -90,7 +91,7 @@ begin
 	port map (		
 		clk => clk,
 		rst => MotorStopped,
-		shot => MotorStep--,
+		shot => MotorStep_i--,
 	);
 	
 	StepperMotor : FourWireStepperMotorPorts
@@ -99,7 +100,7 @@ begin
 		clk => clk,
 		rst => rst,
 		Direction => Direction,
-		Step => MotorStep,
+		Step => MotorStep_i,
 		MotorAPlus => MotorAPlus_i,
 		MotorAMinus => MotorAMinus_i,
 		MotorBPlus => MotorBPlus_i,
@@ -107,6 +108,7 @@ begin
 	);	
 	
 	CurrentStep <= CurrentStep_i;
+	MotorStepEdge <= MotorStep_i;
 	
 	--We really don't need static holding force in most use-cases, it wastes power and heats things up!
 	MotorAPlus <= MotorAPlus_i when (InTransit = '1') else '0';
@@ -134,7 +136,7 @@ begin
 				
 					if (SeekStep > CurrentStep_i) then Direction <= '1'; else Direction <= '0'; end if;
 					
-					if (MotorStep = '0') then 
+					if (MotorStep_i = '0') then 
 					
 						MotorStopped <= '0';
 						
