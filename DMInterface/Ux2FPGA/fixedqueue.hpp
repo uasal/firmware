@@ -1,8 +1,3 @@
-/// \file
-/// $Source: /raincloud/src/projects/include//fixedqueue.hpp,v $
-/// $Revision: 1.4 $
-/// $Date: 2010/05/14 21:57:41 $
-/// $Author: steve $
 #ifndef _fixedque_H_
 #define _fixedque_H_
 #pragma once

@@ -20,12 +20,6 @@
 // Tucson, AZ 85710
 // USA
 //
-/// \file
-/// $Source: /raincloud/src/clients/zonge/include/MonitorAdc.hpp,v $
-/// $Revision: 1.1 $
-/// $Date: 2010/06/22 21:48:16 $
-/// $Author: steve $
-
 #pragma once
 
 #include <stdint.h>

@@ -1,3 +1,13 @@
+#
+#           University of Arizona
+#           Steward Observatory
+#           UASAL - UA Space Astrophysics Labratory
+#           CAAO - Center for Astronomical Adaptive Optics
+#           MagAOX
+#
+#           based on a framework Copyright (c) 2009 by Franks Development, LLC, used with permission
+#
+
 OS := $(shell uname -a)
 ifeq (,$(findstring imx6,$(OS)))
 	INCLUDE_LOCAL = $(HOME)/projects/CGraph/firmware/include

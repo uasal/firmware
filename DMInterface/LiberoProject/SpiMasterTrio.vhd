@@ -1,12 +1,3 @@
---------------------------------------------------------------------------------
--- SpiMaster
---
--- Looks to be a canonical Spi master implementation
---
--- c2010 Franks Development, LLC
--- author: steve
---
---------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;

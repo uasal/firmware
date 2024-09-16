@@ -19,6 +19,9 @@
 // Tucson, AZ 85710
 // USA
 //
+// Permission granted for perpetual non-exclusive end-use by the University of Arizona August 1, 2020
+//
+
 #pragma once
 
 #include <stdint.h>

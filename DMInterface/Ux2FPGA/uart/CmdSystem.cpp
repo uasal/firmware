@@ -19,12 +19,6 @@
 // Tucson, AZ 85710
 // USA
 //
-/// \file
-/// $Source: /raincloud/src/projects/include/uart/CmdSystem.cpp,v $
-/// $Revision: 1.10 $
-/// $Date: 2009/09/30 17:53:08 $
-/// $Author: steve $
-
 #include <string.h>
 #include <stdio.h>
 #include <stdint.h>

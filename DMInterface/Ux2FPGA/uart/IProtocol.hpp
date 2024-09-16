@@ -1,9 +1,3 @@
-/// \file
-/// $Source: /raincloud/src/projects/include/Protocol/IProtocol.h,v $
-/// $Revision: 1.5 $
-/// $Date: 2009/01/06 07:14:18 $
-/// $Author: steve $
-/// The functionality for the Protocol hardware when polled on the Atmel AVR processor
 
 #pragma once
 #ifndef _IProtocol_H_

@@ -1,5 +1,5 @@
 //
-///           Copyright (c)2007 by Franks Development, LLC
+///           Copyright (c) by Franks Development, LLC
 //
 // This software is copyrighted by and is the sole property of Franks
 // Development, LLC. All rights, title, ownership, or other interests
@@ -19,10 +19,9 @@
 // Tucson, AZ 85710
 // USA
 //
-/// $Source: /raincloud/src/projects/include/adc/lt244x.h,v $
-/// $Revision: 1.9 $
-/// $Date: 2009/05/18 18:19:59 $
-/// $Author: steve $
+// Permission granted for perpetual non-exclusive end-use by the University of Arizona August 1, 2020
+//
+
 #pragma once
 
 #include <stdint.h>

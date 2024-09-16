@@ -1,10 +1,3 @@
---------------------------------------------------------------------------------
--- SpiDac D/A handler
---
--- c2015 Franks Development, LLC
--- author: steve
---
---------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;

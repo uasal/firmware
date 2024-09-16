@@ -1,13 +1,3 @@
---------------------------------------------------------------------------------
--- SpiMasterAPB3Slave
---
--- Looks to be a canonical Spi master implementation
--- With a SPB3 slave port
---
--- c2010 Franks Development, LLC
--- author: steve
---
---------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;

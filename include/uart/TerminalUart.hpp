@@ -1,5 +1,5 @@
 //
-///           Copyright (c)2007 by Franks Development, LLC
+///           Copyright (c) by Franks Development, LLC
 //
 // This software is copyrighted by and is the sole property of Franks
 // Development, LLC. All rights, title, ownership, or other interests
@@ -19,12 +19,9 @@
 // Tucson, AZ 85710
 // USA
 //
-/// \file
-/// $Source: /raincloud/src/projects/include/uart/TerminalUart.hpp,v $
-/// $Revision: 1.20 $
-/// $Date: 2009/09/03 05:39:44 $
-/// $Author: steve $
-/// The functionality for the uart hardware when polled on the Atmel AVR processor
+// Permission granted for perpetual non-exclusive end-use by the University of Arizona August 1, 2020
+//
+
 
 #pragma once
 #ifndef _TerminalUart_H_

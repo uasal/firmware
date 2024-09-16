@@ -1,5 +1,5 @@
 //
-///           Copyright (c)2007 by Franks Development, LLC
+///           Copyright (c) by Franks Development, LLC
 //
 // This software is copyrighted by and is the sole property of Franks
 // Development, LLC. All rights, title, ownership, or other interests
@@ -19,11 +19,9 @@
 // Tucson, AZ 85710
 // USA
 //
-/// \file
-/// $Source: /raincloud/src/projects/include/adc/Dac8830.h,v $
-/// $Revision: 1.6 $
-/// $Date: 2010/02/22 23:16:24 $
-/// $Author: steve $
+// Permission granted for perpetual non-exclusive end-use by the University of Arizona August 1, 2020
+//
+
 
 #pragma once
 

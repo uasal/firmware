@@ -1,9 +1,3 @@
-/// \file
-/// $Source: /raincloud/src/projects/include//Delay.h,v $
-/// $Revision: 1.2 $
-/// $Date: 2008/10/24 21:10:38 $
-/// $Author: steve $
-/// This abstraction implements the Delay Bus; derive class to adapt it to your uC/hardware
 #include <sched.h>
 #include <unistd.h>
 #include <string.h>

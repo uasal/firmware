@@ -1,3 +1,11 @@
+//
+///           University of Arizona
+///           Steward Observatory
+///           UASAL - UA Space Astrophysics Labratory
+///           CAAO - Center for Astronomical Adaptive Optics
+///           MagAOX
+//
+
 #include <stdint.h>
 #include <string.h>
 #include <stdio.h>

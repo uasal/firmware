@@ -71,18 +71,8 @@ int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_
 
 int8_t BinaryPZTDacsCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	//~ printf("\nBinaryPZTDacsCommand processing(%u)...\n\n", ParamsLen);
-	
-	//~ if (ValidateZenBinaryRfPacket(SerialNum, Params, ParamsLen))
-	//~ {
-		//~ GlobalSave();
-		//~ TxBinaryResponsePacket(Argument, PayloadTypeGlobalSave, SerialNum, 0, 0);
-	//~ }
-    //~ return(ParamsLen);
-	
 	if (ParamsLen >= (3 * sizeof(uint32_t)))
 	{
-		//~ const ZongeProtocolFilenameParam PacketData = *((const ZongeProtocolFilenameParam*)ZenBinaryPacketHeader::PayloadDataPointerFromSerialNumberOffsetPointer(Params));
 		const uint32_t* DacSetpoints = (const uint32_t*)Params;
 		printf("\nBinaryPZTDacsCommand Setting to (0x%X, 0x%X, 0x%X).\n\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2]);
 		FSM->DacASetpoint = DacSetpoints[0];
@@ -133,18 +123,8 @@ int8_t BinaryPZTDacsFloatingPointCommand(const uint32_t Name, char const* Params
 	double VA = 0.0, VB = 0.0, VC = 0.0;	
 	unsigned long A = 0, B = 0, C = 0;	
 	
-	//~ printf("\nBinaryPZTDacsFloatingPointCommand processing(%u)...\n\n", ParamsLen);
-	
-	//~ if (ValidateZenBinaryRfPacket(SerialNum, Params, ParamsLen))
-	//~ {
-		//~ GlobalSave();
-		//~ TxBinaryResponsePacket(Argument, PayloadTypeGlobalSave, SerialNum, 0, 0);
-	//~ }
-    //~ return(ParamsLen);
-	
 	if (ParamsLen >= (3 * sizeof(double)))
 	{
-		//~ const ZongeProtocolFilenameParam PacketData = *((const ZongeProtocolFilenameParam*)ZenBinaryPacketHeader::PayloadDataPointerFromSerialNumberOffsetPointer(Params));
 		const double* DacSetpoints = (const double*)Params;
 		
 		VA = DacSetpoints[0];

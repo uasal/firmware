@@ -3,15 +3,15 @@
 //
 // This software is copyrighted by and is the sole property of Franks
 // Development, LLC. All rights, title, ownership, or other interests
-// in the s1ware remain the property of Franks Development, LLC. This
-// s1ware may only be used in accordance with the corresponding
+// in the software remain the property of Franks Development, LLC. This
+// software may only be used in accordance with the corresponding
 // license agreement.  Any unauthorized use, duplication, transmission,
-// distribution, or disclosure of this s1ware is expressly forbidden.
+// distribution, or disclosure of this software is expressly forbidden.
 //
 // This Copyright notice may not be removed or modified without prior
 // written consent of Franks Development, LLC.
 //
-// Franks Development, LLC. reserves the right to modify this s1ware
+// Franks Development, LLC. reserves the right to modify this software
 // without notice.
 //
 // Franks Development, LLC            support@franks-development.com
@@ -19,11 +19,9 @@
 // Tucson, AZ 85710
 // USA
 //
-/// \file
-/// $Source: /raincloud/src/projects/include//stdintle.h,v $
-/// $Revision: 1.3 $
-/// $Date: 2008/06/06 16:51:34 $
-/// $Author: steve $
+// Permission granted for perpetual non-exclusive end-use by the University of Arizona August 1, 2020
+//
+
 
 #pragma once
 

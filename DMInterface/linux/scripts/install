@@ -1,8 +1,0 @@
-#!/bin/bash
-sudo umount -lf /home/steve/projects/zonge/457/457
-sudo rm -r /home/steve/projects/zonge/457/457/*
-sshfs root@$1:/ /home/steve/projects/zonge/457/457 -ouid=1000
-rsync -avI scripts/* /home/steve/projects/zonge/457/457/
-rsync -avI TresCaminos/Zen457 /home/steve/projects/zonge/457/457/home/root/
-rsync -avI ZenInit/Zen457Init /home/steve/projects/zonge/457/457/home/root/
-rsync -avI Zen457.cfg /home/steve/projects/zonge/457/457/home/root/

@@ -1,9 +1,10 @@
-/// \file
-/// $Source: /raincloud/src/projects/include/Packet/IPacket.h,v $
-/// $Revision: 1.5 $
-/// $Date: 2009/01/06 07:14:18 $
-/// $Author: steve $
-/// The functionality for the Packet hardware when polled on the Atmel AVR processor
+//
+///           University of Arizona
+///           Steward Observatory
+///           UASAL - UA Space Astrophysics Labratory
+///           CAAO - Center for Astronomical Adaptive Optics
+///           MagAOX
+//
 
 #pragma once
 #ifndef _IPacket_H_

@@ -18,8 +18,8 @@ includedir = ${prefix}/include
 docdir = $(prefix)/share/doc/$(MODULE)
 
 # default c-compiler
-CC = /home/steve/gcc-linaro-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc
-CXX = /home/steve/gcc-linaro-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++
+CC = /home/summer/gcc-linaro-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc
+CXX = /home/summer/gcc-linaro-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++
 
 DEFS = -DHAVE_STDARG_H=1 \
 	-DHAVE_STDLIB_H=1 \

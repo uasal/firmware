@@ -1,29 +1,12 @@
 //
-///           Copyright (c) by Franks Development, LLC
+///           University of Arizona
+///           Steward Observatory
+///           UASAL - UA Space Astrophysics Labratory
+///           CAAO - Center for Astronomical Adaptive Optics
+///           MagAOX
+///
+///           based on a framework Copyright (c) 2009 by Franks Development, LLC, used with permission
 //
-// This software is copyrighted by and is the sole property of Franks
-// Development, LLC. All rights, title, ownership, or other interests
-// in the software remain the property of Franks Development, LLC. This
-// software may only be used in accordance with the corresponding
-// license agreement.  Any unauthorized use, duplication, transmission,
-// distribution, or disclosure of this software is expressly forbidden.
-//
-// This Copyright notice may not be removed or modified without prior
-// written consent of Franks Development, LLC.
-//
-// Franks Development, LLC. reserves the right to modify this software
-// without notice.
-//
-// Franks Development, LLC            support@franks-development.com
-// 500 N. Bahamas Dr. #101           http://www.franks-development.com
-// Tucson, AZ 85710
-// USA
-//
-/// \file
-/// $Source: /raincloud/src/clients/zonge/include/MonitorAdc.hpp,v $
-/// $Revision: 1.1 $
-/// $Date: 2010/06/22 21:48:16 $
-/// $Author: steve $
 
 #include <time.h>
 #include <ctype.h> //tolower
