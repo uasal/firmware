@@ -55,8 +55,8 @@ linux_pinout_circular_uart<char, 16, 256> UsbUartBinary;
 BinaryUart FpgaUartParser3(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 BinaryUart FpgaUartParser2(FPGAUartPinout2, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 BinaryUart FpgaUartParser1(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
-//~ BinaryUart FpgaUartParser0(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
-//~ BinaryUart FpgaUartParserUsb(FPGAUartPinoutUsb, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
+//~ (ascii instead) BinaryUart FpgaUartParser0(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
+//~ (ascii instead) BinaryUart FpgaUartParserUsb(FPGAUartPinoutUsb, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 BinaryUart FpgaUartParserUsb(UsbUartBinary, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 
 #include "uart/TerminalUart.hpp"
@@ -67,8 +67,6 @@ const char* TerminalUartPrompt()
 }
 //Handle incoming ascii cmds & binary packets from the usb
 TerminalUart<16, 4096> DbgUartUsb(FPGAUartPinoutUsb, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
-//~ TerminalUart<16, 4096> DbgUartUsb(FPGAUartPinoutUsb, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, true);
-//TerminalUart<16, 4096> DbgUartUsb(UsbUartAscii, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
 TerminalUart<16, 4096> DbgUart485_0(FPGAUartPinout0, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
 
 #include "../MonitorAdc.hpp"
@@ -92,13 +90,10 @@ int16_t ValidatedFWHomeStep()
 	
 	bool AValid = (HomeA.OnStep != 0) && (HomeA.OffStep != 0);
 	bool BValid = (HomeB.OnStep != 0) && (HomeB.OffStep != 0);
-	//~ //Seen some pretty weird values in all instances...but when they're weird, they match...
-	//~ bool AValid = HomeA.OnStep != HomeA.OffStep;
-	//~ bool BValid = HomeB.OnStep != HomeB.OffStep;
-	
-	//Also correct for this chingaso:
-	//~ ESC-FW: ValidatedFWHomeStep: StepRegister: All: 02D2 , OnStep: 722 , OffStep: 722 , MidStep: 722 ;StepRegister: All: 02D2 , OnStep: 722 , OffStep: 6 , MidStep: 364 
-	
+	//Seen some pretty weird values in all instances...but when they're weird, they match...
+	if (HomeA.OnStep == HomeA.OffStep) { AValid = false; }
+	if (HomeB.OnStep == HomeB.OffStep) { BValid = false; }
+		
 	//Correct for full revolutions:
 	HomeA.OnStep %= MotorFullCircleSteps;
 	HomeA.OffStep %= MotorFullCircleSteps;
@@ -267,18 +262,6 @@ void FWSeekPosition(const uint32_t SeekPos)
 	CGraphFWMotorControlStatusRegister MCSR;
 	MCSR = FW->MotorControlStatus;
 	
-	//~ //Try to start with motor homed
-	//~ MCSR.SeekStep = 0;
-	//~ FW->MotorControlStatus = MCSR;		
-	
-	//~ //Wait for it to move
-	//~ for (i = 0; i < MotorFindHomeTimeoutMs; i++)
-	//~ {
-		//~ MCSR = FW->MotorControlStatus;
-		//~ if (0 == MCSR.CurrentStep) { break; }
-		//~ delayms(1);
-	//~ }
-	
 	formatf("\nESC-FW: Attempting to move motor to: %d.", DestinationStep - 45);
 	
 	//Backlash
@@ -403,6 +386,7 @@ bool ValidateFWPostition()
 	return(false);
 }
 
+//Enable this if malloc problems occur (!!we shouldn't be using malloc, but c-libraries sometimes link it in!!)
 //~ class MTracer
 //~ {
 //~ public:
@@ -431,6 +415,7 @@ extern "C"
 
 extern "C"
 {
+	//These still aren't getting called for some reason (just try to acess a variable at an odd address to test)
 	void asm_hard_fault_handler_c_container()
 	{
 		asm volatile
@@ -495,11 +480,13 @@ extern "C"
 		while (1);
 	}
 
+	//Does the current clib need this?
     void AtExit()
     {
         //~ mwTerm();
     }
 
+	//Does the current clib need this?
     void mwOutFunc(int c)
     {
         putchar(c);
@@ -512,18 +499,21 @@ bool Process()
 	
 	MonitorAdc.Process();
 	
-	//~ if (FPGAUartPinoutUsb.dataready())
+	//Enable this if we need to debug ascii and binary on the same uart (note: madness ensues!)
 	//~ {
-		//~ Bored = false;
-		
-		//~ char c = FPGAUartPinoutUsb.getcqq();
-		
-		//~ UsbUartAscii.remoteputcqq(c);
-		//~ UsbUartBinary.remoteputcqq(c);
+		//~ if (FPGAUartPinoutUsb.dataready())
+		//~ {
+			//~ Bored = false;
+			
+			//~ char c = FPGAUartPinoutUsb.getcqq();
+			
+			//~ UsbUartAscii.remoteputcqq(c);
+			//~ UsbUartBinary.remoteputcqq(c);
+		//~ }
+		//~ if (UsbUartAscii.remotedataready()) { FPGAUartPinoutUsb.putcqq(UsbUartAscii.remotegetcqq()); }
+		//~ if (UsbUartBinary.remotedataready()) { FPGAUartPinoutUsb.putcqq(UsbUartBinary.remotegetcqq()); }
 	//~ }
-	//~ if (UsbUartAscii.remotedataready()) { FPGAUartPinoutUsb.putcqq(UsbUartAscii.remotegetcqq()); }
-	//~ if (UsbUartBinary.remotedataready()) { FPGAUartPinoutUsb.putcqq(UsbUartBinary.remotegetcqq()); }
-
+	
     if (FpgaUartParser3.Process()) { Bored = false; }    
 	if (FpgaUartParser2.Process()) { Bored = false; }    
 	if (FpgaUartParser1.Process()) { Bored = false; }    
@@ -547,15 +537,11 @@ void ProcessAllUarts()
 }
 
 int main(int argc, char *argv[])
-{
-	//~ uint16_t i = 0;
-	
+{	
     //Tell C lib (stdio.h) not to buffer output, so we can ditch all the fflush(stdout) calls...
     //~ setvbuf(stdout, NULL, _IONBF, 0);
 
     //~ if (argc > 2)
-
-    //~ //formatf("Welcome to FW v%s.b%s.\n", GITVERSION, BUILDNUM);
 
 	FPGAUartPinoutUsb.putcqq('\n');
 	FPGAUartPinoutUsb.putcqq('\n');
@@ -633,7 +619,6 @@ int main(int argc, char *argv[])
 	extern unsigned long _estack;
 	extern unsigned long _end;	
     register char * stack_ptr asm ("sp");
-    
 	
 	//~ formatf("\nBuild parameters: \n");
     //~ formatf("__vector_table_start: 0x%.8lX\n", (uint32_t)__vector_table_start);
@@ -654,19 +639,7 @@ int main(int argc, char *argv[])
     //~ formatf("_end: 0x%.8lX\n", (uint32_t)_end);
     //~ formatf("\n\n");
 
-	//UART_init(&my_uart, COREUARTAPB_C0_0, BAUD_VALUE_115200, (DATA_8_BITS | NO_PARITY));
-	//UART_polled_tx_string(&my_uart,(const uint8_t*)"\nFW: GO --->"); // getting here?
-
-
-	//formatf("\n\nFW: Welcome...");
-    
-	//~ formatf("\n\nFW: Start User Interface...");    
-	
-    //~ GlobalRestore();
-
-    //~ formatf("\nFW: Ready.\n");
-	
-	formatf("\n\nESC-FW: Offset of ControlRegister: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, ControlRegister), 32UL);
+	formatf("\n\nESC-FW: v%s.b%s; Offset of ControlRegister: 0x%.2lX, expected: 0x%.2lX.", GITVERSION, BUILDNUM, (unsigned long)offsetof(CGraphFWHardwareInterface, ControlRegister), 32UL);
 	
 	CGraphFWHardwareControlRegister HCR;
 	HCR.PosLedsEnA = 1;
@@ -682,19 +655,11 @@ int main(int argc, char *argv[])
 	formatf("\nOffset of UartFifoUsb: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, UartFifoUsb), 116UL);
 	formatf("\nOffset of UartFifoUsbReadData: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, UartFifoUsbReadData), 124UL);
 
-	//~ unsigned long k = (unsigned long)offsetof(CGraphFWHardwareInterface, UartFifoUsb);
-	//~ unsigned long m = (unsigned long)offsetof(CGraphFWHardwareInterface, UartFifoUsbReadData);
-	//~ unsigned long n = (unsigned long)offsetof(CGraphFWHardwareInterface, UartFifo3ReadData);
-	//~ unsigned long o = (unsigned long)offsetof(CGraphFWHardwareInterface, BaudDividers);
-	//~ unsigned long p = (unsigned long)offsetof(CGraphFWHardwareInterface, MonitorAdcAccumulator);
-
 	DbgUartUsb.Init();
 	DbgUart485_0.Init();
 
     DbgUartUsb.SetEcho(false);
     DbgUart485_0.SetEcho(false);
-	//~ DbgUartUsb.SetEcho(true);
-    //~ DbgUart485_0.SetEcho(true);
 	
 	//~ MonitorAdc.SetMonitor(true);
 	MonitorAdc.SetMonitor(false);
@@ -704,101 +669,10 @@ int main(int argc, char *argv[])
     while(true)
     {
 		Process();
-		
-		//~ PinoutMonitorAdc AdcTest;
-		//~ uint8_t b = 0;
-		
-		//~ AdcTest.enable(true);
-		//~ //formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
-		//~ AdcTest.transmit(0x49); //0x40 | 0x09 0100:1001b
-		//~ //formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
-		//~ b = AdcTest.receive(0x00);
-		//~ //formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
-		//~ AdcTest.enable(false);
-		//~ //formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
-		//~ ::formatf("\nAdcTest try49: 0x%.2X", b);
-
-		//~ i++;
-		//~ PinoutMonitorAdc AdcTest;
-		//~ uint8_t b = 0;
-		//~ AdcTest.enable(true);
-		//~ AdcTest.transmit(i); // 0010:0100b
-		//~ b = AdcTest.receive(0x00);
-		//~ AdcTest.enable(false);
-		//~ ::formatf("\nAdcTest try 0x%.2X: 0x%.2X", i, b);	
-		
-		//~ bool Bored = true;
-		
-		//~ uint8_t temp = 0;
-		//~ MonitorAdc.Adc.WriteRegister(ads1258details::register_gpiod, 0x80);
-		//~ MonitorAdc.Adc.ReadRegister(ads1258details::register_gpiod, temp);
-		//~ ::formatf("ads1258::register_gpiod reads:0x%.2X, wanted:0x%.2X\n", temp, 0x80);				
-		//~ MonitorAdc.Adc.ReadRegister(ads1258details::register_gpioc, temp);
-		//~ ::formatf("ads1258::register_gpioc reads:0x%.2X, wanted:0x%.2X\n", temp, 0x00);				
-		
-		//Handle stdio (local) user interface:
-        //~ if (Process())
-        //~ {
-            //~ Bored = false;
-        //~ }
-		
-		//ENable this stuff if we want an intermediate buffer between the threads.
-		//~ //Handle fpga (remote) user interface:
-		//~ {
-			//~ if (NULL != FW) 
-			//~ {
-				//~ CGraphFWUartStatusRegister UartStatus = FW->UartStatusRegister;
-				//~ UartStatus.formatf();	
-				
-				//~ uint16_t FpgaUartBufferLen = UartStatus.Uart2RxFifoCount;
-				//~ if ( (0 == FpgaUartBufferLen) && (0 == UartStatus.Uart2RxFifoEmpty) ) { FpgaUartBufferLen = 1; } //so we can be lazy about checking the high bytes...we really need to rearrange the fpga so we get the whole count as one integer...
-				
-				//~ if (FpgaUartBuffer.wasFull()) { FpgaUartBufferLen = 0; }
-				
-				//~ for (size_t i = 0; i < FpgaUartBufferLen; i++) 
-				//~ { 
-					//~ Bored = false; //if we're multithreaded, we need to know to give up our timeslice...
-					//~ char c = FW->UartFifo;
-					//~ putchar('$');
-					//~ putchar(c);
-					//~ putchar('\n');
-					//~ FpgaUartBuffer.push(c); 
-				//~ }
-			//~ }
-			
-			//~ FpgaUart.Process();
-		//~ }
-		
-		//~ if (FpgaUartParser2.Process()) { Bored = false; }
-		//~ if (FpgaUartParser1.Process()) { Bored = false; }
-		//~ if (FpgaUartParser0.Process()) { Bored = false; }
-		
-        //give up our timeslice so as not to bog the system:
-        //~ if (Bored)
-        //~ {
-            //~ delayms(100);
-        //~ }
-		//delayms(1);
-        //~ i++;
-		//~ FW->MotorControlStatus.SeekStep = j;
-		//~ FW->MotorControlStatus.SeekStep = k;
-		//FPGAUartPinout0.putcqq(k);
-		//~ FPGAUartPinoutUsb.putcqq(i);
-        //~ HW_set_32bit_reg(FILTERWHEEL_SB_0, j); // send all 32 bits and FPGA bus will truncate it
     }
 
     return(0);
 }
-
-//~ class FpgaThread : public EzThread
-//~ {
-//~ public:
-	//~ FpgaThread() { BoredDelayuS = 1000; strcpy(ThreadName, "FpgaThread"); }
-	//~ virtual ~FpgaThread() { }
-	//~ virtual void ThreadInit();
-	//~ virtual bool Process();
-//~ };
-//~ extern FpgaThread FpgaProcessor;
 
 #include "arm/armdelay.h"
 
@@ -806,30 +680,30 @@ int main(int argc, char *argv[])
 extern "C" {
 #endif
 
-void delayus(const unsigned long microseconds)
-{
-	unsigned long long fclk = 102000000;
-	unsigned long loops = ( (fclk * (unsigned long long)microseconds) / 1000000ULL ) + 1;
+	void delayus(const unsigned long microseconds)
+	{
+		unsigned long long fclk = 102000000;
+		unsigned long loops = ( (fclk * (unsigned long long)microseconds) / 1000000ULL ) + 1;
 
-	Delay4CyclesArm7tdmi(loops);
-}
+		Delay4CyclesArm7tdmi(loops);
+	}
 
-void delayms(const unsigned long milliseconds)
-{
-	delayus(milliseconds * 1000U);		
-}
+	void delayms(const unsigned long milliseconds)
+	{
+		delayus(milliseconds * 1000U);		
+	}
 
-void delays(const unsigned long seconds)
-{
-	delayms(seconds * 1000U);		
-}
-
+	void delays(const unsigned long seconds)
+	{
+		delayms(seconds * 1000U);		
+	}
 
 #ifdef __cplusplus
 };
 #endif
 
 //This technically is a "BZIP2CRC32", not an "ANSICRC32"; seealso: https://crccalc.com/
+//Also it should be moved to a CRC32BZIP2.cpp file or somesuch instead of cluttering up main...
 uint32_t CRC32(const uint8_t* data, const size_t length)
 {
 	static const uint32_t table[256] = 

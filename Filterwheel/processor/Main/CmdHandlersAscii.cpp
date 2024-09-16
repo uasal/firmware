@@ -50,11 +50,11 @@ int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsL
 {
 	if (NULL != FW)
 	{
-		//formatf("\n\nVersion: Serial Number: %.8X, Global Revision: %s; build number: %u on: %s; fpga build: %u.\n", FW->DeviceSerialNumber, GITVERSION, BuildNum, BuildTimeStr, FW->FpgaFirmwareBuildNumber);
+		formatf("\n\nVersion: Serial Number: %.8X, Global Revision: %s; build number: %u on: %s; fpga build: %u.\n", FW->DeviceSerialNumber, GITVERSION, BuildNum, BuildTimeStr, FW->FpgaFirmwareBuildNumber);
 	}
 	else
 	{
-		//formatf("\n\nVersion: Global Revision: %s; build number: %u on: %s.\n", GITVERSION, BuildNum, BuildTimeStr);
+		formatf("\n\nVersion: Global Revision: %s; build number: %u on: %s.\n", GITVERSION, BuildNum, BuildTimeStr);
 	}
 	
     return(strlen(Params));
@@ -301,14 +301,7 @@ int8_t FilterSelectCommand(char const* Name, char const* Params, const size_t Pa
 
 int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	size_t cycle = 0;
-	//~ unsigned long daca = 0;
-	int key = 1;
-	
-	while(true)
 	{
-		cycle++;
-		
 		//Show the monitor A/D
 		{
 			CGraphFWHardwareControlRegister HCR;
@@ -323,92 +316,7 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 			//~ CGraphFWMotorControlStatusRegister MCSR;
 			//~ MCSR.SeekStep = 730;
 			//~ FW->MotorControlStatus = MCSR;		
-
-			//~ MonitorAdc.Init();
-			
-			//~ size_t j = cycle % 12;
-			//~ switch(j)
-			//~ {
-				//~ case 0: { formatf("P1V2: %3.6lf V\n", MonitorAdc.GetP1V2()); break; }
-				//~ case 1: { formatf("P2V2: %3.6lf V\n", MonitorAdc.GetP2V2()); break; }
-				//~ case 2: { formatf("P28V: %3.6lf V\n", MonitorAdc.GetP28V()); break; }
-				//~ case 3: { formatf("P2V5: %3.6lf V\n", MonitorAdc.GetP2V5()); break; }
-				//~ case 5: { formatf("P6V: %3.6lf V\n", MonitorAdc.GetP6V()); break; }
-				//~ case 6: { formatf("P5V: %3.6lf V\n", MonitorAdc.GetP5V()); break; }
-				//~ case 7: { formatf("P3V3D: %3.6lf V\n", MonitorAdc.GetP3V3D()); break; }
-				//~ case 8: { formatf("P4V3: %3.6lf V\n", MonitorAdc.GetP4V3()); break; }
-				//~ default : { }
-			//~ }
-			
-			//~ PinoutMonitorAdc AdcTest;
-			//static const uint8_t cmdtype_registerread = 0x02; << 5 = 0x40
-			//static const uint8_t cmdtype_registerwrite = 0x03;	<,5 = 0x60
-			//ads1258details::register_idnum = 0x09; //always reads 0x8B
-			//__inline__ uint8_t  ReadRegister(const uint8_t& addr) 	{ spi_busmsg x; uint8_t  val = 0; txb(addr | 0x40); val |= rxb(); return(val); }
-			//__inline__ void txb(uint8_t byte) { spi::transmit(byte); }
-			//__inline__ uint8_t rxb() { uint8_t x = spi::receive((uint8_t)(0)); return(x); }
-			//__inline__ spi_busmsg() { delayus(100); enable(true); }
-			//~ uint8_t b = 0;
-			
-			//~ AdcTest.enable(true);
-			//~ formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
-			//~ AdcTest.transmit(0x49); //0x40 | 0x09 0100:1001b
-			//~ formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
-			//~ b = AdcTest.receive(0x00);
-			//~ formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
-			//~ AdcTest.enable(false);
-			//~ formatf("\n"); FW->MonitorAdcSpiCommandStatusRegister.formatf();
-			//~ ::formatf("\nAdcTest try49: 0x%.2X", b);
-			//~ AdcTest.transmit(0x92); // 1001:0010b
-			//~ b = AdcTest.receive(0x00);
-			//~ ::formatf("\nAdcTest try92: 0x%.2X", b);
-			//~ AdcTest.transmit(0x24); // 0010:0100b
-			//~ b = AdcTest.receive(0x00);
-			//~ ::formatf("\nAdcTest try24: 0x%.2X", b);			
-			
-			//~ AdcTest.transmit(0xB6); // !0100:1001b = 1011:0110b
-			//~ b = AdcTest.receive(0x00);
-			//~ ::formatf("\nAdcTest tryB6: 0x%.2X", b);			
-			//~ AdcTest.transmit(0x6D);  // !1001:0010b = 0110:1101b
-			//~ b = AdcTest.receive(0x00);
-			//~ ::formatf("\nAdcTest try6D: 0x%.2X", b);			
-			//~ AdcTest.transmit(0xDB); // !0010:0100b = 1101:1011b
-			//~ b = AdcTest.receive(0x00);
-			//~ ::formatf("\nAdcTest tryDB: 0x%.2X", b);			
-			
-			//~ AdcTest.transmit(0x92); //0x40 | 0x09 0100:1001b -> 1001:0010b
-			//~ b = AdcTest.receive(0x00);
-			//~ ::formatf("\nAdcTest try92: 0x%.2X", b);
-			//~ AdcTest.transmit(0x49); // 1001:0010b -> 0100:1001b
-			//~ b = AdcTest.receive(0x00);
-			//~ ::formatf("\nAdcTest try49: 0x%.2X", b);
-			//~ AdcTest.transmit(0x42); // 0010:0100b -> 0010:0100b
-			//~ b = AdcTest.receive(0x00);
-			//~ ::formatf("\nAdcTest try42: 0x%.2X", b);			
-			
-			//~ AdcTest.transmit(0x6D); // !0100:1001b = 1011:0110b -> 0110:1101b
-			//~ b = AdcTest.receive(0x00);
-			//~ ::formatf("\nAdcTest try6D: 0x%.2X", b);			
-			//~ AdcTest.transmit(0xB6);  // !1001:0010b = 0110:1101b -> 1011:0110b
-			//~ b = AdcTest.receive(0x00);
-			//~ ::formatf("\nAdcTest tryB6: 0x%.2X", b);			
-			//~ AdcTest.transmit(0xDB); // !0010:0100b = 1101:1011b -> 1101:1011
-			//~ b = AdcTest.receive(0x00);
-			//~ ::formatf("\nAdcTest tryDB: 0x%.2X", b);			
 		}
-		
-		//Quit on any keypress
-		{
-
-			if (0 != key) 
-			{ 
-				fflush(stdin);
-				formatf("\n\nBIST: Keypress(%d); exiting.\n", key);
-				break; 
-			}			
-		}
-
-		delayus(100000000);
 	}
 	
 	return(ParamsLen);

@@ -26,10 +26,9 @@ extern void ProcessAllUarts();
 #include "cgraph/CGraphFWHardwareInterface.hpp"
 extern CGraphFWHardwareInterface* FW;	
 
+//Note: if any offsets are not 4-byte aligned, the M3 processor WILL crash:
 const size_t MonitorAdcFpgaAdcSampleAddr = 104;
 const size_t MonitorAdcFpgaAdcChannelAddr = 112;
-//Had to blow these out cause 16b offsets kill the bloody M3:
-//~ const uint8_t MonitorAdcFpgaSpiXferAddr = 252;
 const size_t MonitorAdcFpgaSpiXferAddr = 348;
 const size_t MonitorAdcSpiCommandStatusRegister = 352;
 
@@ -39,7 +38,7 @@ struct PinoutMonitorAdc
 	virtual ~PinoutMonitorAdc() { }
 	static uint8_t GetAdcReadChannel()								{ uint8_t val = *(((uint8_t*)FW)+MonitorAdcFpgaAdcChannelAddr); return(val); }
 	static void SetAdcReadChannel(const uint8_t val) 					{ *(((uint8_t*)FW)+MonitorAdcFpgaAdcChannelAddr) = (uint8_t)val; }
-	//~ static void GetAdcSample(Ltc244xAccumulator& val) 				{ val = *((Ltc244xAccumulator*)(((uint8_t*)FW)+MonitorAdcFpgaAdcSampleAddr)); }		
+	//~ old way to hopefully implement later: static void GetAdcSample(Ltc244xAccumulator& val) 				{ val = *((Ltc244xAccumulator*)(((uint8_t*)FW)+MonitorAdcFpgaAdcSampleAddr)); }		
 	
 	static const size_t spi_timeout = 100;
 	
@@ -55,13 +54,11 @@ struct PinoutMonitorAdc
 		if (i >= spi_timeout - 2) { formatf("\nPinoutMonitorAdc: T/O."); }
 	}
 	
-	//~ static void enable(const bool en) { *(((uint8_t*)FW)+MonitorAdcSpiCommandStatusRegister) = (uint32_t)en; }
 	static void enable(const bool en) { FW->MonitorAdcSpiCommandStatusRegister.all = (uint32_t)en; }
 	
 	static void transmit(const uint8_t val) 					
 	{ 
 		waitbusytimeout();
-		//~ *(((uint8_t*)FW)+MonitorAdcFpgaSpiXferAddr) = (uint8_t)val; 
 		FW->MonitorAdcSpiTransactionRegister = (uint32_t)val; 
 	}
 	
@@ -71,28 +68,17 @@ struct PinoutMonitorAdc
 		
 		//Do the xfer
 		waitbusytimeout();
-		//~ *(((uint8_t*)FW)+MonitorAdcFpgaSpiXferAddr) = (uint8_t)val;
 		FW->MonitorAdcSpiTransactionRegister = (uint32_t)val; 
 		
 		//readback
 		waitbusytimeout();
-		//~ out = *((uint32_t*)(((uint8_t*)FW)+MonitorAdcFpgaSpiXferAddr));
 		out = FW->MonitorAdcSpiTransactionRegister; 
 		
-		//~ if (out & 0xEF00U) { return((uint8_t)(out & 0x00FFU)); }
-		//~ return(0xFF);
 		return(out);
 	}		
 	
 	static bool nDrdy() 				
 	{ 
-		//~ uint16_t out = 0;
-		
-		//readback
-		//~ out = *((uint32_t*)(((uint8_t*)FW)+MonitorAdcSpiCommandStatusRegister));
-		
-		//~ if (out & 0x8000U) { return(true); }
-		//~ return(false);
 		return(0 == (FW->MonitorAdcSpiCommandStatusRegister.nDrdy) );
 	}		
 	
@@ -110,14 +96,13 @@ struct MonitorAdcCalibratedInput
 	public:
 		
 	MonitorAdcCalibratedInput(double gain, double offset) : Gain(gain), Offset(offset) { }
-	//~ MonitorAdcCalibratedInput() { }
 	MonitorAdcCalibratedInput() : Gain(1.0), Offset(0.0) { }
 	MonitorAdcCalibratedInput(const MonitorAdcCalibratedInput& a) : Gain(a.Gain), Offset(a.Offset) { }
 	
 	void Calibrate(double gain, double offset) { Gain = gain; Offset = offset; }
 	
 	double ReadCalibrated(const int32_t& RawInput) const { return(((ads1258details::CountsToVolts(RawInput, 4.096)) * Gain) + Offset); }
-	//~ double ReadCalibrated(const Ltc244xAccumulator& RawInput) const { return( (RawInput.CountsToVolts() * Gain) + Offset); }
+	//~ old way to hopefully re-implment in future: double ReadCalibrated(const Ltc244xAccumulator& RawInput) const { return( (RawInput.CountsToVolts() * Gain) + Offset); }
 	
 	double GetGain() const { return(Gain); }
 	double GetOffset() const { return(Offset); }
@@ -265,11 +250,9 @@ public:
     {
 		if (AdcFound)
 		{
-			//~ GpioInputs = Adc.ReadRegister(ads1258details::register_gpiod);
+			//~ we don't have anything connected to gpios but might in the future, and dm does if this code gets cut&pasted: GpioInputs = Adc.ReadRegister(ads1258details::register_gpiod);
 			
 			ads1258details::ads1258sample sample;
-			
-			//~ Adc.Scan();
 			
 			for(size_t CurrentChan = 0; CurrentChan < ads1258details::ads1258numchannels; CurrentChan++)
 			{
@@ -285,7 +268,7 @@ public:
 					
 					ProcessAllUarts();
 									
-					if ( (sample.status.isbrownout) || (sample.status.isclipped) ) // || (!sample.status.isnew) )
+					if ( (sample.status.isbrownout) || (sample.status.isclipped) )
 					{ 
 						if (Monitor) { ::formatf("\nMonitorAdc: ch %u bad status: 0x%.2X\n", sample.status.channel, sample.status.all); }
 					}					

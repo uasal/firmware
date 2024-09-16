@@ -86,7 +86,6 @@ int8_t TestMonitorAdcCommand(char const* Name, char const* Params, const size_t 
 	size_t cycle = 0;
 	int key = 1;
 	
-	while(true)
 	{
 		cycle++;
 	
@@ -110,7 +109,8 @@ int8_t TestMonitorAdcCommand(char const* Name, char const* Params, const size_t 
 		MonitorAdc.GetAux2Raw(Sample); formatf("\nAux2: %+ld, 0x%.8lX", (signed long)Sample, (unsigned long)Sample);
 		MonitorAdc.GetAmbientLightRaw(Sample); formatf("\nAmbientLight: %+ld, 0x%.8lX", (signed long)Sample, (unsigned long)Sample);
 		MonitorAdc.GetTemperatureRaw(Sample); formatf("\nTemperature: %+ld, 0x%.8lX", (signed long)Sample, (unsigned long)Sample);
-		
+	
+		//~ //Read raw from fpga:
 		//~ for(size_t i = 0; i < 32; i++)
 		//~ {
 			//~ MonitorAdc.SetAdcReadChannel(i);
@@ -121,29 +121,6 @@ int8_t TestMonitorAdcCommand(char const* Name, char const* Params, const size_t 
 			//~ formatf("; %lfV.", Volts);
 			
 		//~ }
-		
-		//Quit on any keypress
-		{
-			//~ struct termios argin, argout;
-			//~ tcgetattr(0,&argin);
-			//~ argout = argin;
-			//~ argout.c_lflag &= ~(ICANON);
-			//~ argout.c_iflag &= ~(ICRNL);
-			//~ argout.c_oflag &= ~(OPOST);
-			//~ argout.c_cc[VMIN] = 1;
-			//~ argout.c_cc[VTIME] = 0;
-			//~ tcsetattr(0,TCSADRAIN,&argout);
-			//~ //read(0, &key, 1);
-			//~ ioctl(0, FIONREAD, &key);
-			//~ tcsetattr(0,TCSADRAIN,&argin);
-			if (0 != key) 
-			{ 
-				formatf("\n\nBIST: Keypress(%d); exiting.\n", key);
-				break; 
-			}			
-		}
-
-		delayms(1000);
 	}
 	
     formatf("\nTestMonitorAdc Command: Complete.\n\n");
