@@ -36,30 +36,35 @@ const BinaryCmd BinaryCmds[] =
 		BinaryVersionCommand
     ),
 	BinaryCmd (
-		CGraphPayloadTypePZTDacs,
+		CGraphPayloadTypeVersionDeprecated,
+		"BinaryVersionCommand(deprecated id)",
+		BinaryVersionCommand
+    ),
+	BinaryCmd (
+		CGraphPayloadTypeFSMDacs,
 		"BinaryPZTDacsCommand",
 		BinaryPZTDacsCommand
     ),
 	BinaryCmd (
-		CGraphPayloadTypePZTAdcs,
+		CGraphPayloadTypeFSMAdcs,
 		"BinaryPZTAdcsCommand",
 		BinaryPZTAdcsCommand
     ),
 
 	BinaryCmd (
-		CGraphPayloadTypePZTAdcsFloatingPoint,
+		CGraphPayloadTypeFSMAdcsFloatingPoint,
 		"BinaryPZTAdcsFloatingPointCommand",
 		BinaryPZTAdcsFloatingPointCommand
     ),
 	
 	BinaryCmd (
-		CGraphPayloadTypePZTDacsFloatingPoint,
+		CGraphPayloadTypeFSMDacsFloatingPoint,
 		"BinaryPZTDacsFloatingPointCommand",
 		BinaryPZTDacsFloatingPointCommand
     ),
 	
 	BinaryCmd (
-		CGraphPayloadTypePZTStatus,
+		CGraphPayloadTypeFSMTelemetry,
 		"BinaryPZTStatusCommand",
 		BinaryPZTStatusCommand
     ),

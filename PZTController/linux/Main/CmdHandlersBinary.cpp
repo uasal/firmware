@@ -84,7 +84,7 @@ int8_t BinaryPZTDacsCommand(const uint32_t Name, char const* Params, const size_
 	DacSetpoints[1] = FSM->DacBSetpoint;
 	DacSetpoints[2] = FSM->DacCSetpoint;	
 	printf("\nBinaryPZTDacsCommand  Replying (0x%X, 0x%X, 0x%X)...\n\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2]);
-	TxBinaryPacket(Argument, CGraphPayloadTypePZTDacs, 0, DacSetpoints, 3 * sizeof(uint32_t));
+	TxBinaryPacket(Argument, CGraphPayloadTypeFSMDacs, 0, DacSetpoints, 3 * sizeof(uint32_t));
 
     return(ParamsLen);
 }
@@ -96,7 +96,7 @@ int8_t BinaryPZTAdcsCommand(const uint32_t Name, char const* Params, const size_
 	AdcVals[1] = FSM->AdcBAccumulator;
 	AdcVals[2] = FSM->AdcCAccumulator;	
 	printf("\nBinaryPZTAdcsCommand  Replying (%lld, %lld, %lld)...\n\n", AdcVals[0].Samples, AdcVals[1].Samples, AdcVals[2].Samples);
-	TxBinaryPacket(Argument, CGraphPayloadTypePZTAdcs, 0, AdcVals, 3 * sizeof(AdcAccumulator));
+	TxBinaryPacket(Argument, CGraphPayloadTypeFSMAdcs, 0, AdcVals, 3 * sizeof(AdcAccumulator));
     return(ParamsLen);
 }
 	
@@ -113,7 +113,7 @@ int8_t BinaryPZTAdcsFloatingPointCommand(const uint32_t Name, char const* Params
 	AdcVals[1] = (8.192 * ((B.Samples - 0) / B.NumAccums)) / 16777216.0;
 	AdcVals[2] = (8.192 * ((C.Samples - 0) / C.NumAccums)) / 16777216.0;
 	printf("\nBinaryPZTAdcsFloatingPointCommand  Replying (%lf, %lf, %lf)...\n\n", AdcVals[0], AdcVals[1], AdcVals[2]);
-	TxBinaryPacket(Argument, CGraphPayloadTypePZTAdcsFloatingPoint, 0, AdcVals, 3 * sizeof(double));
+	TxBinaryPacket(Argument, CGraphPayloadTypeFSMAdcsFloatingPoint, 0, AdcVals, 3 * sizeof(double));
 
     return(ParamsLen);
 }
@@ -157,18 +157,18 @@ int8_t BinaryPZTDacsFloatingPointCommand(const uint32_t Name, char const* Params
 	DacSetpoints[2] = VC;	
 	
 	printf("\n\nBinaryPZTDacsCommand: Replying: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C);
-	TxBinaryPacket(Argument, CGraphPayloadTypePZTDacs, 0, DacSetpoints, 3 * sizeof(double));
+	TxBinaryPacket(Argument, CGraphPayloadTypeFSMDacsFloatingPoint, 0, DacSetpoints, 3 * sizeof(double));
 
     return(ParamsLen);
 }
 
 int8_t BinaryPZTStatusCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	CGraphPZTStatusPayload Status;
+	CGraphFSMTelemetryPayload Status;
 	
 	Status.P1V2 = MonitorAdc.GetP1V2();
 	Status.P2V2 = MonitorAdc.GetP2V2();
-	Status.P24V = MonitorAdc.GetP24V();
+	Status.P28V = MonitorAdc.GetP24V();
 	Status.P2V5 = MonitorAdc.GetP2V5();
 	Status.P3V3A = MonitorAdc.GetP3V3A();
 	Status.P6V = MonitorAdc.GetP6V();
@@ -183,7 +183,7 @@ int8_t BinaryPZTStatusCommand(const uint32_t Name, char const* Params, const siz
 	
 	formatf("P1V2: %3.6lf V\n", Status.P1V2);
 	formatf("P2V2: %3.6lf V\n", Status.P2V2);
-	formatf("P24V: %3.6lf V\n", Status.P24V);
+	formatf("P28V: %3.6lf V\n", Status.P28V);
 	formatf("P2V5: %3.6lf V\n", Status.P2V5);
 	formatf("P3V3A: %3.6lf V\n", Status.P3V3A);
 	formatf("P6V: %3.6lf V\n", Status.P6V);
@@ -196,7 +196,7 @@ int8_t BinaryPZTStatusCommand(const uint32_t Name, char const* Params, const siz
 
 	
 	printf("\nBinaryPZTStatusCommand: Replying...\n");
-	TxBinaryPacket(Argument, CGraphPayloadTypePZTStatus, 0, &Status, sizeof(CGraphPZTStatusPayload));
+	TxBinaryPacket(Argument, CGraphPayloadTypeFSMTelemetry, 0, &Status, sizeof(CGraphFSMTelemetryPayload));
 
 	return(ParamsLen);
 }
