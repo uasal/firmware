@@ -1,0 +1,27 @@
+var classltc244xaccumulatorPorts =
+[
+    [ "ltc244xaccumulatorPorts.ltc244xaccumulator_i", "classltc244xaccumulatorPorts_1_1ltc244xaccumulator__i.html", "classltc244xaccumulatorPorts_1_1ltc244xaccumulator__i" ],
+    [ "AdcChannelReadIndex", "classltc244xaccumulatorPorts.html#a682eba50349d36e94e1d19b3682cb8e9", null ],
+    [ "AdcSampleToRead", "classltc244xaccumulatorPorts.html#aa0863ffed48671b7e10b7eb92554a715", null ],
+    [ "clk", "classltc244xaccumulatorPorts.html#a50da91b765765ac486df1b41692e962f", null ],
+    [ "Dbg1", "classltc244xaccumulatorPorts.html#afd1ec96baa2c2ff610f79bb0affd6395", null ],
+    [ "Dbg2", "classltc244xaccumulatorPorts.html#aa451f4ff6fac25c0a16622835618614f", null ],
+    [ "IEEE", "classltc244xaccumulatorPorts.html#ae4f03c286607f3181e16b9aa12d0c6d4", null ],
+    [ "InvalidStateReached", "classltc244xaccumulatorPorts.html#a2e9208ba79ed96766387373d94d6667e", null ],
+    [ "LTC244X_DATARATE", "classltc244xaccumulatorPorts.html#a9cfa96e36033203718d7e440d2789a03", null ],
+    [ "LTC244X_DOUBLERATE", "classltc244xaccumulatorPorts.html#a82a99f638bbc1b65439447e480adbade", null ],
+    [ "ltc244x_types", "classltc244xaccumulatorPorts.html#af620b4d617e04935bdd77a404a3920a6", null ],
+    [ "ltc244xaccumulator_types", "classltc244xaccumulatorPorts.html#a03d4f4cc898bd2c37bca5ee6ab79ff9a", null ],
+    [ "MASTER_CLOCK_FREQHZ", "classltc244xaccumulatorPorts.html#a80b79e251643d9fcc1142cc111af245d", null ],
+    [ "Miso", "classltc244xaccumulatorPorts.html#a06ab5d8ed6240ca85b1c0c96a38cc877", null ],
+    [ "Mosi", "classltc244xaccumulatorPorts.html#a7037d670103fbf5cced1070817504229", null ],
+    [ "nCs", "classltc244xaccumulatorPorts.html#a580121aab6f65c2ae2eb244045ef3c20", null ],
+    [ "nDrdy", "classltc244xaccumulatorPorts.html#ac2f1c60e734f7da760f9f93804dd2485", null ],
+    [ "NUMERIC_STD", "classltc244xaccumulatorPorts.html#ae00f3f04545af57582ff10609eee23e2", null ],
+    [ "ReadAdcSample", "classltc244xaccumulatorPorts.html#a3f2435b155c7eeb88b4c29ef92da567d", null ],
+    [ "rst", "classltc244xaccumulatorPorts.html#ae106f17a2b73445119c8eb039d3e102e", null ],
+    [ "Sck", "classltc244xaccumulatorPorts.html#a2c4c12ecf6eb4315f8c3e5ec0d20b4f5", null ],
+    [ "STD_LOGIC_1164", "classltc244xaccumulatorPorts.html#aa4b2b25246a821511120e3149b003563", null ],
+    [ "STD_LOGIC_UNSIGNED", "classltc244xaccumulatorPorts.html#a241c3e72dd8024cc8ae831b1b2aed7db", null ],
+    [ "work", "classltc244xaccumulatorPorts.html#a9f49de6f5eed5b4488cba6c9cdd1c215", null ]
+];

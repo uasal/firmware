@@ -1,0 +1,3166 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<tagfile doxygen_version="1.9.1">
+  <compound kind="file">
+    <name>CmdHandlersAscii.cpp</name>
+    <path>/home/summer/projects/CGraph/firmware/Filterwheel/processor/Main/</path>
+    <filename>CmdHandlersAscii_8cpp.html</filename>
+    <includes id="MonitorAdc_8hpp" name="MonitorAdc.hpp" local="yes" imported="no">../MonitorAdc.hpp</includes>
+    <includes id="FilterWheel_8hpp" name="FilterWheel.hpp" local="yes" imported="no">FilterWheel.hpp</includes>
+    <includes id="CmdTableAscii_8hpp" name="CmdTableAscii.hpp" local="yes" imported="no">CmdTableAscii.hpp</includes>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>VersionCommand</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>a1a94f07a60b50cf4b49f08169de95e99</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>ReadFpgaCommand</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>abc2e31fd83e07a83506ac4868661d598</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>WriteFpgaCommand</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>aa93eeb184cc83dad7e46ed119f24afde</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>FWStatusCommand</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>aa0cacaa9276318ff9aaae3e3e715aa1b</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>SensorStepsCommand</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>a9335d08e63716ce442f5ab2a75dbd311</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>MotorCommand</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>aef38460a38ade5992cf5f33b0b0ee0dc</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>FilterSelectCommand</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>a0bdfe4d7a853ab7c6011c9f8210d0bb5</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>BISTCommand</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>a9dc13c583b0bab5e9c4d4c07209fe3f1</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>BaudDividersCommand</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>ab4ea1029a4c33b59ac01f1c4d81d9e59</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>PrintBuffersCommand</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>a0eba3493f066d8514e57a4c83d82ec61</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>MonitorSerialCommand</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>aeac0b2b7e04597ff71a42ebded44d087</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="variable">
+      <type>CGraphFWHardwareInterface *</type>
+      <name>FW</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>a70b8824cc3c12e074900e5c8e49975fb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>CGraphFWMonitorAdc</type>
+      <name>MonitorAdc</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>a15e4e8cf867952de5632d33dd25014bd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>BinaryUart</type>
+      <name>FpgaUartParser3</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>a2565ac465799d01fedd3c6fac5e80108</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>BinaryUart</type>
+      <name>FpgaUartParser2</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>af9bede8a95a0e32a04d0e9b976c1edf8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>BinaryUart</type>
+      <name>FpgaUartParser1</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>a8bfeeb4ec2864cd21836aa9ef0183d0e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>char</type>
+      <name>Buffer</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>a40c0e0193a4ed265043847344773fbcb</anchor>
+      <arglist>[4096]</arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>MonitorSerial0</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>aa62b8668dc10baf6d2e1aba3c81a61f1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>MonitorSerial1</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>a5ea71b93a365e7a8e43d5a93fde636f9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>MonitorSerial2</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>ab7597a4dc735cb2a2c9b559f7fad3dc9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>MonitorSerial3</name>
+      <anchorfile>CmdHandlersAscii_8cpp.html</anchorfile>
+      <anchor>a42e6973c3197628256590e4f4555e0fa</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>CmdHandlersBinary.cpp</name>
+    <path>/home/summer/projects/CGraph/firmware/Filterwheel/processor/Main/</path>
+    <filename>CmdHandlersBinary_8cpp.html</filename>
+    <includes id="MonitorAdc_8hpp" name="MonitorAdc.hpp" local="yes" imported="no">../MonitorAdc.hpp</includes>
+    <includes id="FilterWheel_8hpp" name="FilterWheel.hpp" local="yes" imported="no">FilterWheel.hpp</includes>
+    <includes id="CmdTableBinary_8hpp" name="CmdTableBinary.hpp" local="yes" imported="no">CmdTableBinary.hpp</includes>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>BinaryVersionCommand</name>
+      <anchorfile>CmdHandlersBinary_8cpp.html</anchorfile>
+      <anchor>a85aa5bebae290c335bee68813a4800f3</anchor>
+      <arglist>(const uint32_t Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>BinaryFWHardwareControlStatusCommand</name>
+      <anchorfile>CmdHandlersBinary_8cpp.html</anchorfile>
+      <anchor>a15650cddbd0a0aa4e78e21d24552f37a</anchor>
+      <arglist>(const uint32_t Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>BinaryFWMotorControlStatusCommand</name>
+      <anchorfile>CmdHandlersBinary_8cpp.html</anchorfile>
+      <anchor>a5c41c4db2accde52c7aa59baba94866f</anchor>
+      <arglist>(const uint32_t Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>BinaryFWPositionSenseControlStatusCommand</name>
+      <anchorfile>CmdHandlersBinary_8cpp.html</anchorfile>
+      <anchor>a2dfa98cbb1f1cf34b1ec37859976b0da</anchor>
+      <arglist>(const uint32_t Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>BinaryFWPositionStepsCommand</name>
+      <anchorfile>CmdHandlersBinary_8cpp.html</anchorfile>
+      <anchor>a63987df6b0c9d154b5194bedbca2a073</anchor>
+      <arglist>(const uint32_t Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>BinaryFWTelemetryADCCommand</name>
+      <anchorfile>CmdHandlersBinary_8cpp.html</anchorfile>
+      <anchor>ad50ee1b9bf24eca061ae9ee60be632f6</anchor>
+      <arglist>(const uint32_t Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>BinaryFWFilterSelectCommand</name>
+      <anchorfile>CmdHandlersBinary_8cpp.html</anchorfile>
+      <anchor>ac4afc00cbe026e33d7b098e1a44e5e31</anchor>
+      <arglist>(const uint32_t Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="variable">
+      <type>CGraphFWHardwareInterface *</type>
+      <name>FW</name>
+      <anchorfile>CmdHandlersBinary_8cpp.html</anchorfile>
+      <anchor>a70b8824cc3c12e074900e5c8e49975fb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>CGraphFWMonitorAdc</type>
+      <name>MonitorAdc</name>
+      <anchorfile>CmdHandlersBinary_8cpp.html</anchorfile>
+      <anchor>a15e4e8cf867952de5632d33dd25014bd</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>CmdTableAscii.cpp</name>
+    <path>/home/summer/projects/CGraph/firmware/Filterwheel/processor/Main/</path>
+    <filename>CmdTableAscii_8cpp.html</filename>
+    <includes id="MonitorAdc_8hpp" name="MonitorAdc.hpp" local="yes" imported="no">../MonitorAdc.hpp</includes>
+    <includes id="CmdTableAscii_8hpp" name="CmdTableAscii.hpp" local="yes" imported="no">CmdTableAscii.hpp</includes>
+    <member kind="variable">
+      <type>const Cmd</type>
+      <name>AsciiCmds</name>
+      <anchorfile>CmdTableAscii_8cpp.html</anchorfile>
+      <anchor>ad0c91f9ba14475061a70898b18dfa76c</anchor>
+      <arglist>[]</arglist>
+    </member>
+    <member kind="variable">
+      <type>const uint8_t</type>
+      <name>NumAsciiCmds</name>
+      <anchorfile>CmdTableAscii_8cpp.html</anchorfile>
+      <anchor>ad4b053f9f9c27e806f53ab6c99f55bc3</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>CmdTableAscii.hpp</name>
+    <path>/home/summer/projects/CGraph/firmware/Filterwheel/processor/Main/</path>
+    <filename>CmdTableAscii_8hpp.html</filename>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>VersionCommand</name>
+      <anchorfile>CmdTableAscii_8hpp.html</anchorfile>
+      <anchor>a1a94f07a60b50cf4b49f08169de95e99</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>HelpCommand</name>
+      <anchorfile>CmdTableAscii_8hpp.html</anchorfile>
+      <anchor>aa46020d36740f403a4557b51a3867c0b</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>ReadFpgaCommand</name>
+      <anchorfile>CmdTableAscii_8hpp.html</anchorfile>
+      <anchor>abc2e31fd83e07a83506ac4868661d598</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>WriteFpgaCommand</name>
+      <anchorfile>CmdTableAscii_8hpp.html</anchorfile>
+      <anchor>aa93eeb184cc83dad7e46ed119f24afde</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>FWStatusCommand</name>
+      <anchorfile>CmdTableAscii_8hpp.html</anchorfile>
+      <anchor>aa0cacaa9276318ff9aaae3e3e715aa1b</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>SensorStepsCommand</name>
+      <anchorfile>CmdTableAscii_8hpp.html</anchorfile>
+      <anchor>a9335d08e63716ce442f5ab2a75dbd311</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>MotorCommand</name>
+      <anchorfile>CmdTableAscii_8hpp.html</anchorfile>
+      <anchor>aef38460a38ade5992cf5f33b0b0ee0dc</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>FilterSelectCommand</name>
+      <anchorfile>CmdTableAscii_8hpp.html</anchorfile>
+      <anchor>a0bdfe4d7a853ab7c6011c9f8210d0bb5</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>BISTCommand</name>
+      <anchorfile>CmdTableAscii_8hpp.html</anchorfile>
+      <anchor>a9dc13c583b0bab5e9c4d4c07209fe3f1</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>BaudDividersCommand</name>
+      <anchorfile>CmdTableAscii_8hpp.html</anchorfile>
+      <anchor>ab4ea1029a4c33b59ac01f1c4d81d9e59</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>PrintBuffersCommand</name>
+      <anchorfile>CmdTableAscii_8hpp.html</anchorfile>
+      <anchor>a0eba3493f066d8514e57a4c83d82ec61</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>MonitorSerialCommand</name>
+      <anchorfile>CmdTableAscii_8hpp.html</anchorfile>
+      <anchor>aeac0b2b7e04597ff71a42ebded44d087</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="variable">
+      <type>const Cmd</type>
+      <name>AsciiCmds</name>
+      <anchorfile>CmdTableAscii_8hpp.html</anchorfile>
+      <anchor>ad0c91f9ba14475061a70898b18dfa76c</anchor>
+      <arglist>[]</arglist>
+    </member>
+    <member kind="variable">
+      <type>const uint8_t</type>
+      <name>NumAsciiCmds</name>
+      <anchorfile>CmdTableAscii_8hpp.html</anchorfile>
+      <anchor>ad4b053f9f9c27e806f53ab6c99f55bc3</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>CmdTableBinary.cpp</name>
+    <path>/home/summer/projects/CGraph/firmware/Filterwheel/processor/Main/</path>
+    <filename>CmdTableBinary_8cpp.html</filename>
+    <includes id="CmdTableBinary_8hpp" name="CmdTableBinary.hpp" local="yes" imported="no">CmdTableBinary.hpp</includes>
+    <member kind="variable">
+      <type>const BinaryCmd</type>
+      <name>BinaryCmds</name>
+      <anchorfile>CmdTableBinary_8cpp.html</anchorfile>
+      <anchor>a713b0cdc1242d44fdd7f69646239f157</anchor>
+      <arglist>[]</arglist>
+    </member>
+    <member kind="variable">
+      <type>const uint8_t</type>
+      <name>NumBinaryCmds</name>
+      <anchorfile>CmdTableBinary_8cpp.html</anchorfile>
+      <anchor>a60b1842f2a2bff89aa0c9d73174753cd</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>CmdTableBinary.hpp</name>
+    <path>/home/summer/projects/CGraph/firmware/Filterwheel/processor/Main/</path>
+    <filename>CmdTableBinary_8hpp.html</filename>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>BinaryVersionCommand</name>
+      <anchorfile>CmdTableBinary_8hpp.html</anchorfile>
+      <anchor>a85aa5bebae290c335bee68813a4800f3</anchor>
+      <arglist>(const uint32_t Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>BinaryFWHardwareControlStatusCommand</name>
+      <anchorfile>CmdTableBinary_8hpp.html</anchorfile>
+      <anchor>a15650cddbd0a0aa4e78e21d24552f37a</anchor>
+      <arglist>(const uint32_t Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>BinaryFWMotorControlStatusCommand</name>
+      <anchorfile>CmdTableBinary_8hpp.html</anchorfile>
+      <anchor>a5c41c4db2accde52c7aa59baba94866f</anchor>
+      <arglist>(const uint32_t Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>BinaryFWPositionSenseControlStatusCommand</name>
+      <anchorfile>CmdTableBinary_8hpp.html</anchorfile>
+      <anchor>a2dfa98cbb1f1cf34b1ec37859976b0da</anchor>
+      <arglist>(const uint32_t Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>BinaryFWPositionStepsCommand</name>
+      <anchorfile>CmdTableBinary_8hpp.html</anchorfile>
+      <anchor>a63987df6b0c9d154b5194bedbca2a073</anchor>
+      <arglist>(const uint32_t Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>BinaryFWTelemetryADCCommand</name>
+      <anchorfile>CmdTableBinary_8hpp.html</anchorfile>
+      <anchor>ad50ee1b9bf24eca061ae9ee60be632f6</anchor>
+      <arglist>(const uint32_t Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>BinaryFWFilterSelectCommand</name>
+      <anchorfile>CmdTableBinary_8hpp.html</anchorfile>
+      <anchor>ac4afc00cbe026e33d7b098e1a44e5e31</anchor>
+      <arglist>(const uint32_t Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="variable">
+      <type>const BinaryCmd</type>
+      <name>BinaryCmds</name>
+      <anchorfile>CmdTableBinary_8hpp.html</anchorfile>
+      <anchor>a713b0cdc1242d44fdd7f69646239f157</anchor>
+      <arglist>[]</arglist>
+    </member>
+    <member kind="variable">
+      <type>const uint8_t</type>
+      <name>NumBinaryCmds</name>
+      <anchorfile>CmdTableBinary_8hpp.html</anchorfile>
+      <anchor>a60b1842f2a2bff89aa0c9d73174753cd</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>FilterWheel.hpp</name>
+    <path>/home/summer/projects/CGraph/firmware/Filterwheel/processor/Main/</path>
+    <filename>FilterWheel_8hpp.html</filename>
+    <member kind="function">
+      <type>int16_t</type>
+      <name>ValidatedFWHomeStep</name>
+      <anchorfile>FilterWheel_8hpp.html</anchorfile>
+      <anchor>a6a5662f3b8113116fa8c643c1b1a16b5</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>FWHome</name>
+      <anchorfile>FilterWheel_8hpp.html</anchorfile>
+      <anchor>a0898a67466e4a06636654b497ae46ea4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>FWSeekPosition</name>
+      <anchorfile>FilterWheel_8hpp.html</anchorfile>
+      <anchor>ae7a509eb586e6a4fd0a64a70effb0e1c</anchor>
+      <arglist>(const uint32_t SeekPos)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>ValidateFWPostition</name>
+      <anchorfile>FilterWheel_8hpp.html</anchorfile>
+      <anchor>aba10fb290e64cef31c6d2b36e151f4f3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>const uint16_t</type>
+      <name>MotorFindHomeSteps</name>
+      <anchorfile>FilterWheel_8hpp.html</anchorfile>
+      <anchor>ab9f64d892747573c4fcab104f37987ba</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const uint16_t</type>
+      <name>MotorFullCircleSteps</name>
+      <anchorfile>FilterWheel_8hpp.html</anchorfile>
+      <anchor>ab7b883489e315a2b059d449faa96b09c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const uint16_t</type>
+      <name>MotorFindHomeTimeoutMs</name>
+      <anchorfile>FilterWheel_8hpp.html</anchorfile>
+      <anchor>a3725b23e7435423d8004dc844b47a93c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const uint16_t</type>
+      <name>MotorSunSafeStep</name>
+      <anchorfile>FilterWheel_8hpp.html</anchorfile>
+      <anchor>a5e927fe78197b0769311759bc430b013</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const uint32_t</type>
+      <name>FWMaxPosition</name>
+      <anchorfile>FilterWheel_8hpp.html</anchorfile>
+      <anchor>aa8e7724a84f0b6d90af0e46ce4f6df9c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>uint32_t</type>
+      <name>FWPosition</name>
+      <anchorfile>FilterWheel_8hpp.html</anchorfile>
+      <anchor>aad3a833eb50549dd7303c883ac9d5649</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>FlightComms.hpp</name>
+    <path>/home/summer/projects/CGraph/firmware/Filterwheel/processor/Main/</path>
+    <filename>FlightComms_8hpp.html</filename>
+    <includes id="CmdTableBinary_8hpp" name="CmdTableBinary.hpp" local="yes" imported="no">CmdTableBinary.hpp</includes>
+    <class kind="class">FW_pinout_FPGAUart3</class>
+    <class kind="class">FW_pinout_FPGAUart2</class>
+    <class kind="class">FW_pinout_FPGAUart1</class>
+    <class kind="class">FW_pinout_FPGAUart0</class>
+    <class kind="class">FW_pinout_FPGAUartUsb</class>
+    <class kind="class">FW_pinout_FPGAUartGps</class>
+    <class kind="struct">FPGABinaryUartCallbacks</class>
+    <member kind="variable">
+      <type>CGraphFWHardwareInterface *</type>
+      <name>FW</name>
+      <anchorfile>FlightComms_8hpp.html</anchorfile>
+      <anchor>a70b8824cc3c12e074900e5c8e49975fb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>MonitorSerial0</name>
+      <anchorfile>FlightComms_8hpp.html</anchorfile>
+      <anchor>aa62b8668dc10baf6d2e1aba3c81a61f1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>MonitorSerial1</name>
+      <anchorfile>FlightComms_8hpp.html</anchorfile>
+      <anchor>a5ea71b93a365e7a8e43d5a93fde636f9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>MonitorSerial2</name>
+      <anchorfile>FlightComms_8hpp.html</anchorfile>
+      <anchor>ab7597a4dc735cb2a2c9b559f7fad3dc9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>MonitorSerial3</name>
+      <anchorfile>FlightComms_8hpp.html</anchorfile>
+      <anchor>a42e6973c3197628256590e4f4555e0fa</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>MonitorSerialUsb</name>
+      <anchorfile>FlightComms_8hpp.html</anchorfile>
+      <anchor>a87ee11b9ae5c24c1ddb9c6b7fab95d11</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>MonitorSerialGps</name>
+      <anchorfile>FlightComms_8hpp.html</anchorfile>
+      <anchor>a9371941dd39ddbf38b5fde5296f100cc</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>M2SHandlers.cpp</name>
+    <path>/home/summer/projects/CGraph/firmware/Filterwheel/processor/Main/</path>
+    <filename>M2SHandlers_8cpp.html</filename>
+    <member kind="variable">
+      <type>weak HardFault_Handler type</type>
+      <name>HardFault_Handler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a2f2bfdf3b63e845f00488cc1323e7502</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function</type>
+      <name>MemManage_Handler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a32e7d38bec0840be842be149737ea855</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function</type>
+      <name>BusFault_Handler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a9579df518ff9e8de6bb9740f8cbc61a5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function</type>
+      <name>UsageFault_Handler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>ab9845e27f1d70acc65afe104223225f3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function</type>
+      <name>SVC_Handler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a860dbd95cc9d688b8e8bc44680eca60c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function</type>
+      <name>DebugMon_Handler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a64e4e791fec7f9d7e12413ba6394b989</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function</type>
+      <name>PendSV_Handler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>afeae45908725bfc75653a25a7cfe7702</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function</type>
+      <name>SysTick_Handler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>ad345b25e15b1bb8d51f66afd9818aa83</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function</type>
+      <name>WdogWakeup_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>ad1d2400f242fd479e64b66f4a93065e7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function</type>
+      <name>RTC_Wakeup_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a04ccde3e033323f856d2b0bcaf161fe1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function</type>
+      <name>SPI0_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a9d4c1a341181fdbb7b735321c17b2531</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function</type>
+      <name>SPI1_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a9fb83561794d1c145cd7e305b2146ce8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function</type>
+      <name>I2C0_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>ab6e8b2241581ab4ce42d946ed749b8e0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function</type>
+      <name>I2C0_SMBAlert_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>ad01f253386a0ffa8dbafe7514d2b876b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function</type>
+      <name>I2C0_SMBus_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>ac3d85f251e42db5090ecc3597a257c6d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function</type>
+      <name>I2C1_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a72574e827d9c919d1089d18d4f4a0e96</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function</type>
+      <name>I2C1_SMBAlert_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a4cb0410cc847fdfa871ce166a3984b94</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function</type>
+      <name>I2C1_SMBus_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a4da2269dd4d7dfe36776cf02c4f49e44</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function</type>
+      <name>UART0_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>ad9a936e60e2dd9310914e0c4f0a867e1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function</type>
+      <name>UART1_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>ad28347f4b12f51f56f77059a29bee535</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>EthernetMAC_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a7302b72fab57e4ad515d683145177ba8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>DMA_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a8cf5544115c61420aba04f96992536b7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>Timer1_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>aeb461f766ae1f6b00e086160d6021b20</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>Timer2_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a8f9ae1502a8de3d50e7115c74f6ae185</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>CAN_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>abcb6210d11ec6ef376286cf709cdb897</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>ENVM0_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a3b76feac93e9085fce4860958dc7389a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>ENVM1_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>abff54da36700efe65de49d4109ee3fa4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>ComBlk_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a3703df7b3de9b04d6d250788f77a622a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>USB_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>af60967028d7491bc2b5c2e85b7ecbc05</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>USB_DMA_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a87cdea0a00fe62b62dceefd53a203029</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>PLL_Lock_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a5ac34f307bf031713bd7581f279feb1c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>PLL_LockLost_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a6f42d259fd82f396918ce023b793aab3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>CommSwitchError_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>add3e17faf0e938d615e882fc84b28383</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>CacheError_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>aafcffc83b5b965eff82531ecb270908d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>DDR_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>af220906d40d0cfc0e050ceaf0e830712</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>HPDMA_Complete_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a7f09072f242e77cad174b90734770178</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>HPDMA_Error_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a295a672597a0d9ed457440c29502baf9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>ECC_Error_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>ab414faa46a891e49c98883b9a5c1e667</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>MDDR_IOCalib_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>ab6a90cfadb4822055b899b6dc5e90309</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>FAB_PLL_Lock_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>af7c1e1b1cfc1e28f8384c09a5746d621</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>FAB_PLL_LockLost_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a4b800b39a3aad97e8e8df342fa91764c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>FIC64_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a7e27bdd1e98895e7dd768d2265586cc3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>FabricIrq0_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a4134b689461c2526cdd7496a4c3a6043</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>FabricIrq1_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>ab908ac7f9625652d3db96c35b14cc8ae</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>FabricIrq2_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a734e8e5f62cfb6c89f2c75af0e3ca927</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>FabricIrq3_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a4be353ca7b58112dd6929b8258a7276a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>FabricIrq4_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a5f837bbc3ba81a0795c1256ab164470c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>FabricIrq5_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a153ea209c35f3a8cf6147770f4a0ab55</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>FabricIrq6_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>ab424051133353080034e9a0b2cd0ecc5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>FabricIrq7_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a2b5eb81f33fe9a9f7980acc4dd672772</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>FabricIrq8_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a6106a2aad88f295fade37de1cfbb9a96</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>FabricIrq9_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>ae60d41244270c5740120ff09a6996b17</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>FabricIrq10_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a68aefda4516c26335c01af4219f76386</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>FabricIrq11_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a36e1c8cca120e2c01c6e60983bbf9d6d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>FabricIrq12_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a26623158c4a5a164f6b13bf00209f394</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>FabricIrq13_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a507681da5f594eb6d95cca286678e951</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>FabricIrq14_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>aa113507e56266b18ec0555782038a885</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>FabricIrq15_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>ac9febc80b0d859ebcd53b44f8077bf94</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO0_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>af114e33b2a8fd00b1e76aff8b933d97f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO1_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a819b7a8a502f0fb7dfbe262487547c32</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO2_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>ae0b2f8b4275203e4898c1783cd7f560c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO3_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>ad9610c4755a41daa468e4d94c28367dc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO4_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>ad8f2da126cafdcb6410ff7f392cf4234</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO5_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a09859b0715bf1b7a2596f227e5722874</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO6_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a4416da8a2e2f76109f6d2cc0794c60bd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO7_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a916290c5cc2a9307ce5e28fcdd452be9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO8_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a2b1b3d9887e300aa8ded48939884bd23</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO9_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>aa5b2ff9692931443fb8aa8f7c3705047</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO10_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a4c5d0be1abcaeaf5bbf8741203958a5c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO11_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>aca658aa0f32f97f0fe05a6a444e63a05</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO12_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>afb1fd07fdac86d968764abe8b8c5369b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO13_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a594833195c07276b2ab8c2915fffd3d5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO14_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a7839b39cc7216bd8d0e8ccd8a1b42491</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO15_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>ac8a5530b822035cd20f606e3b1b53129</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO16_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>ab8077026388138cb0a85aa541861cb1a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO17_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>adc4c5b27d9a746a66f99380ffb483da2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO18_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>acb519c509dcc63477b541e7cf62a237f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO19_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>af4ee0feead2b442471e9f1fa88df9777</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO20_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a31c5dec57445330b327059b60d1e1e9a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO21_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>acbf072e61eb8ccae7df17a4668277196</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO22_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a06070a0bfaf9be4cba4a6b8ee8c63b93</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO23_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>aae43fbd07117b162a5e7816316d1a3dd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO24_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a91e8d073c6fd6ff09abb4489540b8bdd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO25_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>af35914da005ac70b6895c3b19b6b40d6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO26_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>aff2e841db5c9c9e1a8b170d35812c551</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO27_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a8c0e7ca0573f1b27eccf5b1906a1c62d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO28_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>af61a6a5da2ea0b8f69d3b63b38f9dce3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO29_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a96903af1ca0df86d20099f69d8ba2d37</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>weak HardFault_Handler type function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function function</type>
+      <name>GPIO30_IRQHandler</name>
+      <anchorfile>M2SHandlers_8cpp.html</anchorfile>
+      <anchor>a86df90b06b05cbc4779d80b1e085282a</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>Main.cpp</name>
+    <path>/home/summer/projects/CGraph/firmware/Filterwheel/processor/Main/</path>
+    <filename>Main_8cpp.html</filename>
+    <includes id="CmdTableAscii_8hpp" name="CmdTableAscii.hpp" local="yes" imported="no">CmdTableAscii.hpp</includes>
+    <includes id="FlightComms_8hpp" name="FlightComms.hpp" local="yes" imported="no">FlightComms.hpp</includes>
+    <includes id="MonitorAdc_8hpp" name="MonitorAdc.hpp" local="yes" imported="no">../MonitorAdc.hpp</includes>
+    <includes id="FilterWheel_8hpp" name="FilterWheel.hpp" local="yes" imported="no">FilterWheel.hpp</includes>
+    <member kind="function">
+      <type>BinaryUart</type>
+      <name>FpgaUartParser3</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a2b6fb6681dbd5a966d28f4abd3479c2b</anchor>
+      <arglist>(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false)</arglist>
+    </member>
+    <member kind="function">
+      <type>BinaryUart</type>
+      <name>FpgaUartParser2</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a05ee45b3bb5fc0f0978d4f731e705ec8</anchor>
+      <arglist>(FPGAUartPinout2, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false)</arglist>
+    </member>
+    <member kind="function">
+      <type>BinaryUart</type>
+      <name>FpgaUartParser1</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a9861a3120943f98d025f831a8de3aab6</anchor>
+      <arglist>(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false)</arglist>
+    </member>
+    <member kind="function">
+      <type>BinaryUart</type>
+      <name>FpgaUartParserUsb</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>afa05066ce0b7af6b2562b06ec476d241</anchor>
+      <arglist>(UsbUartBinary, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false)</arglist>
+    </member>
+    <member kind="function">
+      <type>const char *</type>
+      <name>TerminalUartPrompt</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>af0cf093b13ee8161e8a194d93a0b2316</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>TerminalUart&lt; 16, 4096 &gt;</type>
+      <name>DbgUartUsb</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a7d81b8b312a13ec3b18a03ddf37b6e68</anchor>
+      <arglist>(FPGAUartPinoutUsb, AsciiCmds, NumAsciiCmds, &amp;TerminalUartPrompt, NoRTS, NoPrefix, false)</arglist>
+    </member>
+    <member kind="function">
+      <type>TerminalUart&lt; 16, 4096 &gt;</type>
+      <name>DbgUart485_0</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a8f6b70b2ba8d9dc1a612fc9ffced953b</anchor>
+      <arglist>(FPGAUartPinout0, AsciiCmds, NumAsciiCmds, &amp;TerminalUartPrompt, NoRTS, NoPrefix, false)</arglist>
+    </member>
+    <member kind="function">
+      <type>int16_t</type>
+      <name>ValidatedFWHomeStep</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a6a5662f3b8113116fa8c643c1b1a16b5</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>FWHome</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a0898a67466e4a06636654b497ae46ea4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>FWSeekPosition</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>ae7a509eb586e6a4fd0a64a70effb0e1c</anchor>
+      <arglist>(const uint32_t SeekPos)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>ValidateFWPostition</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>aba10fb290e64cef31c6d2b36e151f4f3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>wooinit</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a35dcaf829cd08c92136289cbcbb2d8eb</anchor>
+      <arglist>(void) __attribute__((constructor))</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>stdio_hook_putc</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>ae38351e5c1109c5ce8e709b8b7d71ba4</anchor>
+      <arglist>(int c)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asm_hard_fault_handler_c_container</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a7a446a034131448e8e3df8b5c794f228</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>hard_fault_handler_c</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>af4fee4dbd70a510ce5e50c2a479e6c23</anchor>
+      <arglist>(unsigned int *hardfault_args)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>AtExit</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a391508c6dd7daea5e0b12530fdebf96c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mwOutFunc</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a5d514abba3239190d63abfb9866a3544</anchor>
+      <arglist>(int c)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>Process</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>aa76a7473bb1fc37989ff21d3ff8a3a9e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>ProcessAllUarts</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a81a71161305149975fb868e23800dc15</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>main</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a0ddf1224851353fc92bfbff6f499fa97</anchor>
+      <arglist>(int argc, char *argv[])</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>delayus</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a3bdb063fa6daf4ed6f77bfefa94a0027</anchor>
+      <arglist>(const unsigned long microseconds)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>delayms</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a94749ad3d68fd683c79257d1bca4a932</anchor>
+      <arglist>(const unsigned long milliseconds)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>delays</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a9ddcbe6043988c52648cd7d4041a1978</anchor>
+      <arglist>(const unsigned long seconds)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint32_t</type>
+      <name>CRC32</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a34957051371bb011f99815853112f0ca</anchor>
+      <arglist>(const uint8_t *data, const size_t length)</arglist>
+    </member>
+    <member kind="variable">
+      <type>CGraphFWHardwareInterface *</type>
+      <name>FW</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a70b8824cc3c12e074900e5c8e49975fb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>FPGABinaryUartCallbacks</type>
+      <name>PacketCallbacks</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a7650565cefa608885ad1121d40e68792</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>CGraphPacket</type>
+      <name>FPGAUartProtocol</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>ab25f5995aacab173a577b8743c1bd7e4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>FW_pinout_FPGAUart0</type>
+      <name>FPGAUartPinout0</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a9886f31fd6aa8d53f01da3cdc536bba5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>FW_pinout_FPGAUart1</type>
+      <name>FPGAUartPinout1</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>af027768b5c7469129f8267191444b196</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>FW_pinout_FPGAUart2</type>
+      <name>FPGAUartPinout2</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>ae84129724cff0f107fa2e00966f5da01</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>FW_pinout_FPGAUart3</type>
+      <name>FPGAUartPinout3</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a7a37637242e429c31599194ecffb0721</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>FW_pinout_FPGAUartUsb</type>
+      <name>FPGAUartPinoutUsb</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a27dee383eac39a71218eca681c65bccf</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>linux_pinout_circular_uart&lt; char, 16, 512 &gt;</type>
+      <name>UsbUartAscii</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a8e8b503df0f591437483bb3b15c2f031</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>linux_pinout_circular_uart&lt; char, 16, 256 &gt;</type>
+      <name>UsbUartBinary</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>ab7ad1a78c2c79afae99199dd883205b3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>char</type>
+      <name>prompt</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a90847bb51dcb9b2edda50ccf0753bb36</anchor>
+      <arglist>[]</arglist>
+    </member>
+    <member kind="variable">
+      <type>CGraphFWMonitorAdc</type>
+      <name>MonitorAdc</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>a15e4e8cf867952de5632d33dd25014bd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>uint32_t</type>
+      <name>FWPosition</name>
+      <anchorfile>Main_8cpp.html</anchorfile>
+      <anchor>aad3a833eb50549dd7303c883ac9d5649</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>MonitorAdc.cpp</name>
+    <path>/home/summer/projects/CGraph/firmware/Filterwheel/processor/</path>
+    <filename>MonitorAdc_8cpp.html</filename>
+    <includes id="MonitorAdc_8hpp" name="MonitorAdc.hpp" local="yes" imported="no">MonitorAdc.hpp</includes>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>ScanMonitorAdcCommand</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>ac86f4098ef8bed6dd00703357186bbef</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>TestMonitorAdcCommand</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>a0d379e9f53e1a3da9f310f1633ea43cf</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>CalibrateMonitorAdcCommand</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>a099574b759dc2fb77e782178ca9b595c</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="variable">
+      <type>CGraphFWMonitorAdc</type>
+      <name>MonitorAdc</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>a15e4e8cf867952de5632d33dd25014bd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P1V2Calibrate</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>af354eb5af22f799c5babe949067743da</anchor>
+      <arglist>(1.0, 0.0)</arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P2V2Calibrate</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>a3ca75fed6763cb7dea490245c5e1bae1</anchor>
+      <arglist>(2.0, 0.0)</arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P28VCalibrate</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>aa2bc89a3cdd7807ea0c6aab1a1528a00</anchor>
+      <arglist>(16.0, 0.0)</arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P2V5Calibrate</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>a6c8e5b0e3c1b415766e7881886bfed6f</anchor>
+      <arglist>(2.0, 0.0)</arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P3V3DCalibrate</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>a3a696f2227b9f781cb70d1cb0ff0e66a</anchor>
+      <arglist>(2.0, 0.0)</arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P6VCalibrate</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>afb0e7ab6417940c52e6d604f4afb43a9</anchor>
+      <arglist>(4.922, 0.0)</arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P5VCalibrate</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>a539824fe0eed529e2bdec20ae13f3942</anchor>
+      <arglist>(4.922, 0.0)</arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P4V3Calibrate</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>abb83ef70bb27e0bdf17574bd2752f9c5</anchor>
+      <arglist>(3.0, 0.0)</arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P2I2Calibrate</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>a2bc9b50de1c9309208f6880bfe160441</anchor>
+      <arglist>(1.0, 0.0)</arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P4I3Calibrate</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>ae030d501a4a733cc50408fe808ed58ab</anchor>
+      <arglist>(1.0, 0.0)</arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P6ICalibrate</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>acc7961a4a74f4df195bef1721d94d515</anchor>
+      <arglist>(1.0, 0.0)</arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>Aux0Calibrate</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>af6885b4bdc38c6b2c7a8ec230df7ffc7</anchor>
+      <arglist>(1.0, 0.0)</arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>Aux1Calibrate</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>a8bb9f6db517513d14041b089d43c3c86</anchor>
+      <arglist>(1.0, 0.0)</arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>Aux2Calibrate</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>a1102f91f2cf5eeadd37a526a76c64800</anchor>
+      <arglist>(1.0, 0.0)</arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>AmbientLightCalibrate</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>a31850d21886e684f536b52adbb32e377</anchor>
+      <arglist>(1.0, 0.0)</arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>TemperatureCalibrate</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>ab2297a946178287453c458787b8e50fe</anchor>
+      <arglist>(1.0, 0.0)</arglist>
+    </member>
+    <member kind="variable">
+      <type>const char</type>
+      <name>ScanMonitorAdcCmdString</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>a18a1bb538e2142ff11af8b4048cd5a52</anchor>
+      <arglist>[]</arglist>
+    </member>
+    <member kind="variable">
+      <type>const char</type>
+      <name>ScanMonitorAdcHelp</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>a70c9b372bab6923d1917e2d88e8a3feb</anchor>
+      <arglist>[]</arglist>
+    </member>
+    <member kind="variable">
+      <type>const char</type>
+      <name>TestMonitorAdcCmdString</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>ab3b3722d2931ce4105ef99fc1ec17593</anchor>
+      <arglist>[]</arglist>
+    </member>
+    <member kind="variable">
+      <type>const char</type>
+      <name>TestMonitorAdcHelp</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>aad40549b0d698ea3ba4f8fa362f13519</anchor>
+      <arglist>[]</arglist>
+    </member>
+    <member kind="variable">
+      <type>const char</type>
+      <name>CalibrateMonitorAdcCmdString</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>abc87d0bd706b2170d20742d4d7fd1540</anchor>
+      <arglist>[]</arglist>
+    </member>
+    <member kind="variable">
+      <type>const char</type>
+      <name>CalibrateMonitorAdcHelp</name>
+      <anchorfile>MonitorAdc_8cpp.html</anchorfile>
+      <anchor>ab305dda2eb5a5428dc46e507e88c0081</anchor>
+      <arglist>[]</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>MonitorAdc.hpp</name>
+    <path>/home/summer/projects/CGraph/firmware/Filterwheel/processor/</path>
+    <filename>MonitorAdc_8hpp.html</filename>
+    <class kind="struct">PinoutMonitorAdc</class>
+    <class kind="struct">MonitorAdcCalibratedInput</class>
+    <class kind="struct">CGraphFWMonitorAdc</class>
+    <member kind="define">
+      <type>#define</type>
+      <name>DEBUG</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>ad72dbcf6d0153db1b8d8a58001feed83</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>P1V2Channel</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a25e4d787564e41c933d14aea298ec298</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>P2V2Channel</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a0db6ee721e449cfceb093c49c604db7f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>P28VChannel</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a7dfca4b2395e6bcc89cacdad99f084de</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>P2V5Channel</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a60a559d979c951fc6ec50cc812c6a6df</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>P6VChannel</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a3cabc9ba4ce240404adf44273bd0962f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>P5VChannel</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a44a20b6142ebc2d2e22419611f78850d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>P3V3DChannel</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a549e0c23e554a3c10f9660d5b17bdd4d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>P4V3Channel</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>abf9adb1d4a2fe674b5c9705173ec9a6e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>P2I2Channel</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a6e9e048ef29939a21f783195346565f7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>P4I3Channel</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a60fdf99c575579bb3c6619beb69e8380</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>P6IChannel</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a2ac98c3b1a8fdef43d70b30670e39c77</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>Aux0Channel</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a2151ef9a3a2000488f095f1f41211361</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>Aux1Channel</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a0662dfc4ead65e4db857eddb5de3c33d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>Aux2Channel</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a5eef08d8475bb634f7c4535ee22a7ea7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>AmbientLightChannel</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a2b1b9fe4d1bda1328af5ce8e6ca847ec</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>TemperatureChannel</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a36c6596db61d31c07d9d61296b177ae5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>ProcessAllUarts</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a81a71161305149975fb868e23800dc15</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>ScanMonitorAdcCommand</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>ac86f4098ef8bed6dd00703357186bbef</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>TestMonitorAdcCommand</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a0d379e9f53e1a3da9f310f1633ea43cf</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="function">
+      <type>int8_t</type>
+      <name>CalibrateMonitorAdcCommand</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a099574b759dc2fb77e782178ca9b595c</anchor>
+      <arglist>(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</arglist>
+    </member>
+    <member kind="variable">
+      <type>CGraphFWHardwareInterface *</type>
+      <name>FW</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a70b8824cc3c12e074900e5c8e49975fb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const size_t</type>
+      <name>MonitorAdcFpgaAdcSampleAddr</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a19d2d1c7c402fcc7a4c4ea8690b5fcf8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const size_t</type>
+      <name>MonitorAdcFpgaAdcChannelAddr</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a92aa7f7c5a7ab92ab25aaf4fbfb990fb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const size_t</type>
+      <name>MonitorAdcFpgaSpiXferAddr</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>ae91e10d412b3a80551acba51be300b98</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const size_t</type>
+      <name>MonitorAdcSpiCommandStatusRegister</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a05a2fbe77be82bd5e8b066a13240566e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P1V2Calibrate</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a3aa89477c7f7f60038f2ec65f7c579eb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P2V2Calibrate</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a559873cc2e33ac8adf70a05ff541a323</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P28VCalibrate</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>af0a24162a76727d4d8790cbb8078dc43</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P2V5Calibrate</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>af8ea297a4dad6784f7465b45176b566a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P6VCalibrate</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a51f4f2b0a3aced3a7a2adf491730d534</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P5VCalibrate</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a64c25d9c5cd82bdf6df436494ae9ee98</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P3V3DCalibrate</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a56b3fa64bb3a909eaf8dc22ab849b527</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P4V3Calibrate</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a72053c850ce02fa240e3da382ac86674</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P2I2Calibrate</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>ae9c7021658dbd29271b54d9133aa159a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P4I3Calibrate</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>abc74d5865938fec1d938a4d9b4a403ca</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>P6ICalibrate</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a7f43a3e06d5d595bea6d99d92c420340</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>Aux0Calibrate</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>ab2a59a5ddbf325ed309545a7f11740b7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>Aux1Calibrate</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>afae8caf89da90a3f93821af80a1812ec</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>Aux2Calibrate</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>ad4a53d114aa112ee324d5bd00745b4d8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>AmbientLightCalibrate</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a7b3a442772c498f1468b53158adb69a5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>MonitorAdcCalibratedInput</type>
+      <name>TemperatureCalibrate</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>ae325672d35bb9268f8e7687e31bec8d6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const char</type>
+      <name>ScanMonitorAdcCmdString</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a18a1bb538e2142ff11af8b4048cd5a52</anchor>
+      <arglist>[]</arglist>
+    </member>
+    <member kind="variable">
+      <type>const char</type>
+      <name>ScanMonitorAdcHelp</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>a70c9b372bab6923d1917e2d88e8a3feb</anchor>
+      <arglist>[]</arglist>
+    </member>
+    <member kind="variable">
+      <type>const char</type>
+      <name>TestMonitorAdcCmdString</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>ab3b3722d2931ce4105ef99fc1ec17593</anchor>
+      <arglist>[]</arglist>
+    </member>
+    <member kind="variable">
+      <type>const char</type>
+      <name>TestMonitorAdcHelp</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>aad40549b0d698ea3ba4f8fa362f13519</anchor>
+      <arglist>[]</arglist>
+    </member>
+    <member kind="variable">
+      <type>const char</type>
+      <name>CalibrateMonitorAdcCmdString</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>abc87d0bd706b2170d20742d4d7fd1540</anchor>
+      <arglist>[]</arglist>
+    </member>
+    <member kind="variable">
+      <type>const char</type>
+      <name>CalibrateMonitorAdcHelp</name>
+      <anchorfile>MonitorAdc_8hpp.html</anchorfile>
+      <anchor>ab305dda2eb5a5428dc46e507e88c0081</anchor>
+      <arglist>[]</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>CGraphFWMonitorAdc</name>
+    <filename>structCGraphFWMonitorAdc.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>CGraphFWMonitorAdc</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a9e42e500a49889596539730604beb963</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~CGraphFWMonitorAdc</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a943b44a4aecbde9c3a28ea724b0c0afe</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>GetMonitor</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a8212f60e227e92ad8c6240a545f7f5c2</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>SetMonitor</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>af6b2bab2883f283f1d4f6e7d56ddb9b5</anchor>
+      <arglist>(bool monitor)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>Init</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>af7033d82f7c490ac4dfe0b1d1bd5d727</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>Process</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a277ff24c72f1073eb32a789dd7754633</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetP1V2</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a56de35629bc1f1cd5128bc80cf048b60</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetP2V2</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a90db3fb477b8d9ab3114d8f03f7d08e5</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetP28V</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a8b997f37f3d222d155a043a2e9bfe929</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetP2V5</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a892882eebb49f0d5f6d36d26f604567d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetP6V</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a406a7c641ca7defb4c813d4a96c52328</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetP5V</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a921382591a78722aea7b67dae8bf781c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetP3V3D</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>af98e1dc64d208b33df4d4e9f11970241</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetP4V3</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>ae16ad843b1153375a3011997f5a88f03</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetP2I2</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>af45c6ffde9b3cdf1a9e6bbb18a1e575a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetP4I3</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a76ec22b59322cd5beb7b4856ea7b642b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetP6I</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a9153280041c2ab9e26e4c82dba170b0a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetAux0</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>ac6652163be75acb3e44111e5586b781c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetAux1</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>afbc3438e4bd88f2fa6b55b727625c672</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetAux2</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>ada90ed25bbe61359bce067281b1fc2a6</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetAmbientLight</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a0707efec1de58ea58d6edf5669f5b5af</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetTemperature</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>ae726c2a1846936abe260e5d6fb195d17</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetP1V2Raw</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a27fdb6b23f1c8c4262f541a1944b2f45</anchor>
+      <arglist>(int32_t &amp;val)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetP2V2Raw</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>add48ba4b072c9924dabd323e42db0064</anchor>
+      <arglist>(int32_t &amp;val)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetP28VRaw</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>ae808c1100f82e6b4330cadfb4866bce8</anchor>
+      <arglist>(int32_t &amp;val)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetP2V5Raw</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>ad43a6999f7146ea5b4eacc53e1c6fee4</anchor>
+      <arglist>(int32_t &amp;val)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetP6VRaw</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a46fd87aa22c335af7f7fa04550c8211b</anchor>
+      <arglist>(int32_t &amp;val)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetP5VRaw</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a52272f2d1166bc75b0e3b433f60f45e9</anchor>
+      <arglist>(int32_t &amp;val)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetP3V3DRaw</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a5da7c20b1818b515ec8801c8f4a6028f</anchor>
+      <arglist>(int32_t &amp;val)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetP4V3Raw</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a46534b3e1db77e2066dde4dbd64280cc</anchor>
+      <arglist>(int32_t &amp;val)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetP2I2Raw</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a6984a737b865037ec93b562a54d58844</anchor>
+      <arglist>(int32_t &amp;val)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetP4I3Raw</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a5f8427aa1d1297274cb0e36f512ac605</anchor>
+      <arglist>(int32_t &amp;val)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetP6IRaw</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>abf9c508642178e24a28f1cb7aec75316</anchor>
+      <arglist>(int32_t &amp;val)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetAux0Raw</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a77d1447eaa834a8821d97f6142615326</anchor>
+      <arglist>(int32_t &amp;val)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetAux1Raw</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a43d64c5aaa06c1013ab0daa1fe3f6568</anchor>
+      <arglist>(int32_t &amp;val)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetAux2Raw</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>ad78406e6b1dace729aea9a2cf14fd5ac</anchor>
+      <arglist>(int32_t &amp;val)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetAmbientLightRaw</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a6863b1b5e2e6fff725ca543c758cf8f1</anchor>
+      <arglist>(int32_t &amp;val)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetTemperatureRaw</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a75114ff9d89ad1eed1b11b3282288841</anchor>
+      <arglist>(int32_t &amp;val)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>SaveCals</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a3293cd20ebb9b2b332c5010a1b3f392b</anchor>
+      <arglist>(double *Buffer, size_t &amp;BufferMaxInBufferUsedOut)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>RestoreCals</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>ae9a67ee30134a926bbf364e5e6dd15ca</anchor>
+      <arglist>(const double *Buffer, size_t &amp;BufferMaxInBufferUsedOut)</arglist>
+    </member>
+    <member kind="variable">
+      <type>ads1258&lt; PinoutMonitorAdc &gt;</type>
+      <name>Adc</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a0142f39f5905e74673aedd7d5c79adfe</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>AdcFound</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a62fbae9f6adb95230dc68d859fda234a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>Monitor</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a3e70a8dce8dceaa3d5f259d98b0cf2d4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int32_t</type>
+      <name>P1V2</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a7755f85ef6189cfd139535332544e151</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int32_t</type>
+      <name>P2V2</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>ac8cace5f652bd4dc8e2e57b7484f5527</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int32_t</type>
+      <name>P28V</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a070f2411088449173c43821f721e2ad7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int32_t</type>
+      <name>P2V5</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a1a4e9462f4eeaab56b29d33bda66a274</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int32_t</type>
+      <name>P6V</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>ac85e08903e9628e541a8b2bfe1eeb1d3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int32_t</type>
+      <name>P5V</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>ae55d0b9625303fd7e4631a2327557773</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int32_t</type>
+      <name>P3V3D</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a097863401c860ee9b034e870b55639ee</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int32_t</type>
+      <name>P4V3</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a6c556b11931d223af7067191a1307f4f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int32_t</type>
+      <name>P2I2</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a181faa1f9b47bf7122985e54a06e8106</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int32_t</type>
+      <name>P4I3</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>ae7c5d49d34c62745199232a2bfdea8b6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int32_t</type>
+      <name>P6I</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>abb0c610be3b4393129a578378708d988</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int32_t</type>
+      <name>Aux0</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a49686b4c60965a3395921092e2b06e6a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int32_t</type>
+      <name>Aux1</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a5a1485278887937b833b1567158aeb84</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int32_t</type>
+      <name>Aux2</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a45c26f1a8ff8fdb96ffa75d5088593af</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int32_t</type>
+      <name>AmbientLight</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a704955c84375c137dcabb0de1a83d853</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int32_t</type>
+      <name>Temperature</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>ad90c9ff5e459a769ebc607f6a58041f9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private" static="yes">
+      <type>static const uint8_t</type>
+      <name>GpioDirections</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>ae424faf8a785e8e4503a607b5fa09e2e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private" static="yes">
+      <type>static const uint8_t</type>
+      <name>StartPinMask</name>
+      <anchorfile>structCGraphFWMonitorAdc.html</anchorfile>
+      <anchor>a14ea83a67e79efa867c9e84a317302eb</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>FPGABinaryUartCallbacks</name>
+    <filename>structFPGABinaryUartCallbacks.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>FPGABinaryUartCallbacks</name>
+      <anchorfile>structFPGABinaryUartCallbacks.html</anchorfile>
+      <anchor>ab6b6ab6a1e3e1e5c288d092400cb2e20</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~FPGABinaryUartCallbacks</name>
+      <anchorfile>structFPGABinaryUartCallbacks.html</anchorfile>
+      <anchor>ae9a6d056ff27062f7a2c3c6f4c091583</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>InvalidPacket</name>
+      <anchorfile>structFPGABinaryUartCallbacks.html</anchorfile>
+      <anchor>a5c368e7af89a7428dd52f3ff839c0b54</anchor>
+      <arglist>(const uint8_t *Buffer, const size_t &amp;BufferLen)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>UnHandledPacket</name>
+      <anchorfile>structFPGABinaryUartCallbacks.html</anchorfile>
+      <anchor>a8e5dfc9714161ba7462ca7bcc2ced83a</anchor>
+      <arglist>(const IPacket *Packet, const size_t &amp;PacketLen)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>BufferOverflow</name>
+      <anchorfile>structFPGABinaryUartCallbacks.html</anchorfile>
+      <anchor>a101a13a2b8bc49a078b0fa3cdb8a218c</anchor>
+      <arglist>(const uint8_t *Buffer, const size_t &amp;BufferLen)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>FW_pinout_FPGAUart0</name>
+    <filename>classFW__pinout__FPGAUart0.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>FW_pinout_FPGAUart0</name>
+      <anchorfile>classFW__pinout__FPGAUart0.html</anchorfile>
+      <anchor>a831fdf2a2db98418bc9a41d0a712c088</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~FW_pinout_FPGAUart0</name>
+      <anchorfile>classFW__pinout__FPGAUart0.html</anchorfile>
+      <anchor>a5aa61eb6b10f23e636661b7013a8e57c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>init</name>
+      <anchorfile>classFW__pinout__FPGAUart0.html</anchorfile>
+      <anchor>ae57d08d2b9e79d82335899a0a58f4a66</anchor>
+      <arglist>(const uint32_t nc, const char *nc2)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>deinit</name>
+      <anchorfile>classFW__pinout__FPGAUart0.html</anchorfile>
+      <anchor>a63b7c5951752d400ff98d5175301801d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>dataready</name>
+      <anchorfile>classFW__pinout__FPGAUart0.html</anchorfile>
+      <anchor>af3694300128a29bea967352f5baba3ac</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual char</type>
+      <name>getcqq</name>
+      <anchorfile>classFW__pinout__FPGAUart0.html</anchorfile>
+      <anchor>a8c5171389bcfd6f2d9e591cd86473c85</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual char</type>
+      <name>putcqq</name>
+      <anchorfile>classFW__pinout__FPGAUart0.html</anchorfile>
+      <anchor>a1ddbcd001626c4583d8c64a19a8e9708</anchor>
+      <arglist>(char c)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual size_t</type>
+      <name>depth</name>
+      <anchorfile>classFW__pinout__FPGAUart0.html</anchorfile>
+      <anchor>a1bf5b6e73dfce9d1b2b5f4f56cd6297d</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>flushoutput</name>
+      <anchorfile>classFW__pinout__FPGAUart0.html</anchorfile>
+      <anchor>a13dda5d2cbd637e077fc120749928d3d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>purgeinput</name>
+      <anchorfile>classFW__pinout__FPGAUart0.html</anchorfile>
+      <anchor>a81f878df1cec03e38200602dcfb0e9f6</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>connected</name>
+      <anchorfile>classFW__pinout__FPGAUart0.html</anchorfile>
+      <anchor>a7d6186802bf5a87f7c75ff8a7d5f7b35</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>isopen</name>
+      <anchorfile>classFW__pinout__FPGAUart0.html</anchorfile>
+      <anchor>aed42c47b89a275b4aeccc4d830b09dbb</anchor>
+      <arglist>() const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>FW_pinout_FPGAUart1</name>
+    <filename>classFW__pinout__FPGAUart1.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>FW_pinout_FPGAUart1</name>
+      <anchorfile>classFW__pinout__FPGAUart1.html</anchorfile>
+      <anchor>ae495d9a429e364a68b5b6b339e4028e5</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~FW_pinout_FPGAUart1</name>
+      <anchorfile>classFW__pinout__FPGAUart1.html</anchorfile>
+      <anchor>a177135eac938b483b032eb8603e8f9d2</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>init</name>
+      <anchorfile>classFW__pinout__FPGAUart1.html</anchorfile>
+      <anchor>a14313b5e22f7c6d7c5b59332c6079442</anchor>
+      <arglist>(const uint32_t nc, const char *nc2)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>deinit</name>
+      <anchorfile>classFW__pinout__FPGAUart1.html</anchorfile>
+      <anchor>ab8f6990ef229f9e06244513035a45d9c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>dataready</name>
+      <anchorfile>classFW__pinout__FPGAUart1.html</anchorfile>
+      <anchor>a764f770722f8c79eb1d7fbe3544a6797</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual char</type>
+      <name>getcqq</name>
+      <anchorfile>classFW__pinout__FPGAUart1.html</anchorfile>
+      <anchor>ac417310681f5cee44309c8a9df7e5ae0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual char</type>
+      <name>putcqq</name>
+      <anchorfile>classFW__pinout__FPGAUart1.html</anchorfile>
+      <anchor>ad29ecc0b83d7ee91ea2d0a58e4a352fa</anchor>
+      <arglist>(char c)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual size_t</type>
+      <name>depth</name>
+      <anchorfile>classFW__pinout__FPGAUart1.html</anchorfile>
+      <anchor>af1fa62514920014aebe71673391ee9fd</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>flushoutput</name>
+      <anchorfile>classFW__pinout__FPGAUart1.html</anchorfile>
+      <anchor>ae0ff86de14bf10eb3b1c0188688ab384</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>purgeinput</name>
+      <anchorfile>classFW__pinout__FPGAUart1.html</anchorfile>
+      <anchor>a8408c5750a47d93c78a0d6684a967900</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>connected</name>
+      <anchorfile>classFW__pinout__FPGAUart1.html</anchorfile>
+      <anchor>ab3cdf62cdec3c3a69f643f608b3b0b40</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>isopen</name>
+      <anchorfile>classFW__pinout__FPGAUart1.html</anchorfile>
+      <anchor>a246ebe9e9b3d420f3d9057cb5d021004</anchor>
+      <arglist>() const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>FW_pinout_FPGAUart2</name>
+    <filename>classFW__pinout__FPGAUart2.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>FW_pinout_FPGAUart2</name>
+      <anchorfile>classFW__pinout__FPGAUart2.html</anchorfile>
+      <anchor>a07821d43435494dee9da8b3d9ad6e10e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~FW_pinout_FPGAUart2</name>
+      <anchorfile>classFW__pinout__FPGAUart2.html</anchorfile>
+      <anchor>a6c739a05215b4db602ae3c82778cf0a0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>init</name>
+      <anchorfile>classFW__pinout__FPGAUart2.html</anchorfile>
+      <anchor>a7f04e320de9d6432dbaea9c075f25326</anchor>
+      <arglist>(const uint32_t nc, const char *nc2)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>deinit</name>
+      <anchorfile>classFW__pinout__FPGAUart2.html</anchorfile>
+      <anchor>a5997bc8796ec0205f5a505abc8c34790</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>dataready</name>
+      <anchorfile>classFW__pinout__FPGAUart2.html</anchorfile>
+      <anchor>ae4973bf4765692ce025539314af1a752</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual char</type>
+      <name>getcqq</name>
+      <anchorfile>classFW__pinout__FPGAUart2.html</anchorfile>
+      <anchor>a2ef53366e26b19d33d08416f3d61c2d9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual char</type>
+      <name>putcqq</name>
+      <anchorfile>classFW__pinout__FPGAUart2.html</anchorfile>
+      <anchor>a8b9f9f7ea09a8b3475ea4bfb64453c94</anchor>
+      <arglist>(char c)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual size_t</type>
+      <name>depth</name>
+      <anchorfile>classFW__pinout__FPGAUart2.html</anchorfile>
+      <anchor>a54bb398d97af98ee4508a9865fcbf6f5</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>flushoutput</name>
+      <anchorfile>classFW__pinout__FPGAUart2.html</anchorfile>
+      <anchor>aca2d17497076041dd76b1102fe75b1b4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>purgeinput</name>
+      <anchorfile>classFW__pinout__FPGAUart2.html</anchorfile>
+      <anchor>a39a4b2182d68c0e9dccc2e279b115430</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>connected</name>
+      <anchorfile>classFW__pinout__FPGAUart2.html</anchorfile>
+      <anchor>a46eaed72c7577e1843dd3c6d5e72078b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>isopen</name>
+      <anchorfile>classFW__pinout__FPGAUart2.html</anchorfile>
+      <anchor>aa236027d2fe210754b281c9fc801363a</anchor>
+      <arglist>() const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>FW_pinout_FPGAUart3</name>
+    <filename>classFW__pinout__FPGAUart3.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>FW_pinout_FPGAUart3</name>
+      <anchorfile>classFW__pinout__FPGAUart3.html</anchorfile>
+      <anchor>a1df87745893019f5be502f9439ec4da2</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~FW_pinout_FPGAUart3</name>
+      <anchorfile>classFW__pinout__FPGAUart3.html</anchorfile>
+      <anchor>a2a378117c4955f99a63a089c90baa7f9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>init</name>
+      <anchorfile>classFW__pinout__FPGAUart3.html</anchorfile>
+      <anchor>a530bf06d00692f7821b867c1bc9e371d</anchor>
+      <arglist>(const uint32_t nc, const char *nc3)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>deinit</name>
+      <anchorfile>classFW__pinout__FPGAUart3.html</anchorfile>
+      <anchor>ade5ea2bee52fda97c72feb97b0743224</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>dataready</name>
+      <anchorfile>classFW__pinout__FPGAUart3.html</anchorfile>
+      <anchor>a6a077ec6488dc16cfc6b3c1a2dfd4ddd</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual char</type>
+      <name>getcqq</name>
+      <anchorfile>classFW__pinout__FPGAUart3.html</anchorfile>
+      <anchor>a522cd5c6261481f552f4bccee27eab53</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual char</type>
+      <name>putcqq</name>
+      <anchorfile>classFW__pinout__FPGAUart3.html</anchorfile>
+      <anchor>af507114d962c54a55d9133fcd085441c</anchor>
+      <arglist>(char c)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual size_t</type>
+      <name>depth</name>
+      <anchorfile>classFW__pinout__FPGAUart3.html</anchorfile>
+      <anchor>aa7043a8669818221b986a88798904f55</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>flushoutput</name>
+      <anchorfile>classFW__pinout__FPGAUart3.html</anchorfile>
+      <anchor>a40afc174b05c1f3a2709b5b3bc7499f0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>purgeinput</name>
+      <anchorfile>classFW__pinout__FPGAUart3.html</anchorfile>
+      <anchor>ad8cf7202db4b1cdbc4d3d768ab616021</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>connected</name>
+      <anchorfile>classFW__pinout__FPGAUart3.html</anchorfile>
+      <anchor>a4692ebd37c946b6e7b0d453ea2986f74</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>isopen</name>
+      <anchorfile>classFW__pinout__FPGAUart3.html</anchorfile>
+      <anchor>ac954a4279a47cc426d62371e67536c5a</anchor>
+      <arglist>() const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>FW_pinout_FPGAUartGps</name>
+    <filename>classFW__pinout__FPGAUartGps.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>FW_pinout_FPGAUartGps</name>
+      <anchorfile>classFW__pinout__FPGAUartGps.html</anchorfile>
+      <anchor>a5537be6aa76c2066ae7f4098d3c81481</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~FW_pinout_FPGAUartGps</name>
+      <anchorfile>classFW__pinout__FPGAUartGps.html</anchorfile>
+      <anchor>a59b0beee81f46c43597d558aa7e86dc6</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>init</name>
+      <anchorfile>classFW__pinout__FPGAUartGps.html</anchorfile>
+      <anchor>a73ca65ea0933bd93441a79af04543893</anchor>
+      <arglist>(const uint32_t nc, const char *ncGps)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>deinit</name>
+      <anchorfile>classFW__pinout__FPGAUartGps.html</anchorfile>
+      <anchor>ab710feb8f73d057e7ee2ddda17eddf8f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>dataready</name>
+      <anchorfile>classFW__pinout__FPGAUartGps.html</anchorfile>
+      <anchor>ac379bcdc42baa1f0bb695c627a843fae</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual char</type>
+      <name>getcqq</name>
+      <anchorfile>classFW__pinout__FPGAUartGps.html</anchorfile>
+      <anchor>aea229074a49156b27dfd5eaee7321d18</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual char</type>
+      <name>putcqq</name>
+      <anchorfile>classFW__pinout__FPGAUartGps.html</anchorfile>
+      <anchor>abb3fefbf6e33aa45f64003943fa3b09b</anchor>
+      <arglist>(char c)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual size_t</type>
+      <name>depth</name>
+      <anchorfile>classFW__pinout__FPGAUartGps.html</anchorfile>
+      <anchor>ac2294293ad6b77e16ec63f7cffe8577a</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>flushoutput</name>
+      <anchorfile>classFW__pinout__FPGAUartGps.html</anchorfile>
+      <anchor>a8801751c240b3cd012d97639eacb43c3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>purgeinput</name>
+      <anchorfile>classFW__pinout__FPGAUartGps.html</anchorfile>
+      <anchor>a7eb5d40f8f3bd81da1c1dee9a00537ba</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>connected</name>
+      <anchorfile>classFW__pinout__FPGAUartGps.html</anchorfile>
+      <anchor>af9d9f08c1b889b7156a308231db25c77</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>isopen</name>
+      <anchorfile>classFW__pinout__FPGAUartGps.html</anchorfile>
+      <anchor>a90bb93c538b1f5ba2e3551904fb5046b</anchor>
+      <arglist>() const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>FW_pinout_FPGAUartUsb</name>
+    <filename>classFW__pinout__FPGAUartUsb.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>FW_pinout_FPGAUartUsb</name>
+      <anchorfile>classFW__pinout__FPGAUartUsb.html</anchorfile>
+      <anchor>a234e25c13c4aca79e1bd1d8269d134a2</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~FW_pinout_FPGAUartUsb</name>
+      <anchorfile>classFW__pinout__FPGAUartUsb.html</anchorfile>
+      <anchor>abe5362ed7586bf7305a576b4bd507f16</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>init</name>
+      <anchorfile>classFW__pinout__FPGAUartUsb.html</anchorfile>
+      <anchor>a8b95caea5b60a99d99561d2c7c687484</anchor>
+      <arglist>(const uint32_t nc, const char *ncUsb)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>deinit</name>
+      <anchorfile>classFW__pinout__FPGAUartUsb.html</anchorfile>
+      <anchor>a809bb66ef85355e8507f93d841c4ef77</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>dataready</name>
+      <anchorfile>classFW__pinout__FPGAUartUsb.html</anchorfile>
+      <anchor>aede4b6118c7668a3057388b645e51e9c</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual char</type>
+      <name>getcqq</name>
+      <anchorfile>classFW__pinout__FPGAUartUsb.html</anchorfile>
+      <anchor>aba23fd6e87e5f3fec9093d66b2416ced</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual char</type>
+      <name>putcqq</name>
+      <anchorfile>classFW__pinout__FPGAUartUsb.html</anchorfile>
+      <anchor>ab72981ca467b7077aabc1132830ccf07</anchor>
+      <arglist>(char c)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual size_t</type>
+      <name>depth</name>
+      <anchorfile>classFW__pinout__FPGAUartUsb.html</anchorfile>
+      <anchor>ae33858b9c567f9a4b2e6af83079146b2</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>flushoutput</name>
+      <anchorfile>classFW__pinout__FPGAUartUsb.html</anchorfile>
+      <anchor>afd51e1719e3a5eff7a39475033327db3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>purgeinput</name>
+      <anchorfile>classFW__pinout__FPGAUartUsb.html</anchorfile>
+      <anchor>aab25b8da8b5f224b7356de49af3c31fa</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>connected</name>
+      <anchorfile>classFW__pinout__FPGAUartUsb.html</anchorfile>
+      <anchor>af2611898875a9ae2798ae15740262b98</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>isopen</name>
+      <anchorfile>classFW__pinout__FPGAUartUsb.html</anchorfile>
+      <anchor>adc5907843f6d7d9540a3e8bca02c28e0</anchor>
+      <arglist>() const</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>MonitorAdcCalibratedInput</name>
+    <filename>structMonitorAdcCalibratedInput.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>MonitorAdcCalibratedInput</name>
+      <anchorfile>structMonitorAdcCalibratedInput.html</anchorfile>
+      <anchor>ad968f60e5609829da8dd058e8fa08211</anchor>
+      <arglist>(double gain, double offset)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>MonitorAdcCalibratedInput</name>
+      <anchorfile>structMonitorAdcCalibratedInput.html</anchorfile>
+      <anchor>a8ec72a135fd12e20d1e8b72957782e08</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>MonitorAdcCalibratedInput</name>
+      <anchorfile>structMonitorAdcCalibratedInput.html</anchorfile>
+      <anchor>ab7db0d358e049f6372d9639d47b1599f</anchor>
+      <arglist>(const MonitorAdcCalibratedInput &amp;a)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>Calibrate</name>
+      <anchorfile>structMonitorAdcCalibratedInput.html</anchorfile>
+      <anchor>af646cf5e9d999321da7db4dc8ae577ea</anchor>
+      <arglist>(double gain, double offset)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>ReadCalibrated</name>
+      <anchorfile>structMonitorAdcCalibratedInput.html</anchorfile>
+      <anchor>a17d39ca0ed78bee116b262b3e8935a9e</anchor>
+      <arglist>(const int32_t &amp;RawInput) const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetGain</name>
+      <anchorfile>structMonitorAdcCalibratedInput.html</anchorfile>
+      <anchor>aa5609e0e8cef47beddba5c05597a4634</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetOffset</name>
+      <anchorfile>structMonitorAdcCalibratedInput.html</anchorfile>
+      <anchor>a7fa01cc8743e56d2ffbfeaeb17014fee</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>double</type>
+      <name>Gain</name>
+      <anchorfile>structMonitorAdcCalibratedInput.html</anchorfile>
+      <anchor>ab9b6615ccad3dac7d1a1fc68709212b7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>double</type>
+      <name>Offset</name>
+      <anchorfile>structMonitorAdcCalibratedInput.html</anchorfile>
+      <anchor>a80e0257893280df01ee5eded1a4c18cf</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>PinoutMonitorAdc</name>
+    <filename>structPinoutMonitorAdc.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>PinoutMonitorAdc</name>
+      <anchorfile>structPinoutMonitorAdc.html</anchorfile>
+      <anchor>ae594450842e03549244337e1ba12a880</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~PinoutMonitorAdc</name>
+      <anchorfile>structPinoutMonitorAdc.html</anchorfile>
+      <anchor>a4dc0eff0e134c31eca1cd4a08f4c48ec</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static uint8_t</type>
+      <name>GetAdcReadChannel</name>
+      <anchorfile>structPinoutMonitorAdc.html</anchorfile>
+      <anchor>ab8fe8f47ca257a46539009dd021764f9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>SetAdcReadChannel</name>
+      <anchorfile>structPinoutMonitorAdc.html</anchorfile>
+      <anchor>ad7a42b54afebeec2f5e7b71dab6e8fff</anchor>
+      <arglist>(const uint8_t val)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>busy</name>
+      <anchorfile>structPinoutMonitorAdc.html</anchorfile>
+      <anchor>af7df69e3b060fe3eeea45fe4d4168908</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>waitbusytimeout</name>
+      <anchorfile>structPinoutMonitorAdc.html</anchorfile>
+      <anchor>a755960fb3976cda168359d90d46a50c9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>enable</name>
+      <anchorfile>structPinoutMonitorAdc.html</anchorfile>
+      <anchor>aeaa4ff661f0cf54154af8b9d6cf75591</anchor>
+      <arglist>(const bool en)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>transmit</name>
+      <anchorfile>structPinoutMonitorAdc.html</anchorfile>
+      <anchor>a4b9273ff6807c9f52b0bd8ad790da264</anchor>
+      <arglist>(const uint8_t val)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static uint8_t</type>
+      <name>receive</name>
+      <anchorfile>structPinoutMonitorAdc.html</anchorfile>
+      <anchor>ade28b32c1ad4b67a244c800ddd3d8c65</anchor>
+      <arglist>(uint8_t val)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>nDrdy</name>
+      <anchorfile>structPinoutMonitorAdc.html</anchorfile>
+      <anchor>ac59c29d4c706c308035e5d7a07d949eb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>setclkpolarity</name>
+      <anchorfile>structPinoutMonitorAdc.html</anchorfile>
+      <anchor>a2f990de61f3e3b18edfc9ad4912239aa</anchor>
+      <arglist>(const bool en)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>setclkphase</name>
+      <anchorfile>structPinoutMonitorAdc.html</anchorfile>
+      <anchor>ad1e750e7bbfc9dd5eaaff6462039e3d6</anchor>
+      <arglist>(const bool en)</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const size_t</type>
+      <name>spi_timeout</name>
+      <anchorfile>structPinoutMonitorAdc.html</anchorfile>
+      <anchor>aec0377cfde01e9e62151daa9ae369967</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+</tagfile>

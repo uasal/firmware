@@ -1,0 +1,26 @@
+var classltc244x__types =
+[
+    [ "ltc244xconfig_to_std_logic", "classltc244x__types.html#ab253549593b4fc23b27b3ba66f67f4b4", null ],
+    [ "ltc244xsample_to_std_logic", "classltc244x__types.html#acb3e5a5d479b2646538f8a5b586716e6", null ],
+    [ "std_logic_to_ltc244xconfig", "classltc244x__types.html#acef87c98e559c2ac059f5df043ea3973", null ],
+    [ "std_logic_to_ltc244xsample", "classltc244x__types.html#aff892fb062c88bd762f272009fbf7e70", null ],
+    [ "AlwaysOne", "classltc244x__types.html#abffd4c154d5e59d70f80ff3d52af5335", null ],
+    [ "AlwaysZero", "classltc244x__types.html#acd06dcae5b5a96446ac7dd197367eff5", null ],
+    [ "AlwaysZero", "classltc244x__types.html#a4bf83c98999b9319a10834ba2a969932", null ],
+    [ "Channel", "classltc244x__types.html#acf95d400ca5d68f0f741255cf4ec9d99", null ],
+    [ "DataRate", "classltc244x__types.html#aec10bba940c6a6e418e2443cf2bc07f7", null ],
+    [ "DoubleSpeedAndOneCycleLatency", "classltc244x__types.html#a68814a2b1f252b64f3a9f176a0d2064d", null ],
+    [ "Enable", "classltc244x__types.html#a9a0ae4a369d130dab6100753f4ff9ce4", null ],
+    [ "IEEE", "classltc244x__types.html#ae4f03c286607f3181e16b9aa12d0c6d4", null ],
+    [ "ltc244xconfig", "classltc244x__types.html#a71367ee1b92736e893b95bc36d3c8535", null ],
+    [ "ltc244xconfiginit", "classltc244x__types.html#ab3f5b42bdd990e6920a8760f7f7e531f", null ],
+    [ "ltc244xsample", "classltc244x__types.html#a4517a3ca62da8c07972e37e470b4facf", null ],
+    [ "ltc244xsampleinit", "classltc244x__types.html#a6a80be3df4c089507b927a91d4bc59e4", null ],
+    [ "NUMERIC_STD", "classltc244x__types.html#ae00f3f04545af57582ff10609eee23e2", null ],
+    [ "OverrangeIfSameAsMsb", "classltc244x__types.html#a281dc8de4eed79736746090b1ba3b205", null ],
+    [ "reserved", "classltc244x__types.html#af4efccdbb869f4ddcfd725f9b0c0311a", null ],
+    [ "Sample", "classltc244x__types.html#adbcce7db376618671c73709b82946998", null ],
+    [ "STD_LOGIC_1164", "classltc244x__types.html#aa4b2b25246a821511120e3149b003563", null ],
+    [ "STD_LOGIC_UNSIGNED", "classltc244x__types.html#a241c3e72dd8024cc8ae831b1b2aed7db", null ],
+    [ "StillConverting", "classltc244x__types.html#ad8f4de790a7d9711c60afe711be3d74b", null ]
+];
