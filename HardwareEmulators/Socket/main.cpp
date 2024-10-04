@@ -123,8 +123,8 @@ int main(int argc, char *argv[])
 	
 	StartUserInterface();
 	
-	//~ UartParser.Debug(true);
-	UartParser.Debug(false);
+	UartParser.Debug(true);
+	//~ UartParser.Debug(false);
 	
 	while(true)
 	{

@@ -159,9 +159,10 @@ architecture RegisterSpace of RegisterSpacePorts is
 	--~ signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(230400) * 32.0)) - 1.0), 8));	--230k
 	signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 16.0)) - 1.0), 8));	--38.4k
 	signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));	--230k
+	signal Uart2ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(921600) * 16.0)) - 1.0), 8));	--921k
 	--~ signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(38400) * 16.0)) - 1.0), 8));	--38.4k
 	--~ signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(230400) * 16.0)) - 1.0), 8));	--230k
-	signal Uart2ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8));	--"real fast"
+	--~ signal Uart2ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8));	--"real fast"
 	
 	signal MonitorAdcChannelReadIndex_i : std_logic_vector(4 downto 0);	
 
@@ -279,7 +280,8 @@ begin
 							when DacASetpointAddr + std_logic_vector(to_unsigned(3, MAX_ADDRESS_BITS)) =>
 
 								--<No final byte>
-								DataOut <= x"58";
+								--~ DataOut <= x"58";
+								DataOut <= x"00";
 							
 							
 							--DacBReadback
@@ -299,7 +301,8 @@ begin
 							when DacBSetpointAddr + std_logic_vector(to_unsigned(3, MAX_ADDRESS_BITS)) =>
 
 								--<No final byte>		
-								DataOut <= x"58";								
+								--~ DataOut <= x"58";								
+								DataOut <= x"00";
 							
 							
 							--DacCReadback
@@ -319,7 +322,8 @@ begin
 							when DacCSetpointAddr + std_logic_vector(to_unsigned(3, MAX_ADDRESS_BITS)) =>
 
 								--<No final byte>
-								DataOut <= x"58";
+								--~ DataOut <= x"58";
+								DataOut <= x"00";
 								
 								
 

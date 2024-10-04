@@ -62,7 +62,7 @@ const BinaryCmd BinaryCmds[] =
 		BinaryFSMAdcsCommand
     ),
 	BinaryCmd (
-		CGraphPayloadTypeFSMAdcs,
+		CGraphPayloadTypeFSMAdcsDeprecated,
 		"BinaryFSMAdcsCommandDeprecated",
 		BinaryFSMAdcsCommand
     ),
@@ -73,7 +73,7 @@ const BinaryCmd BinaryCmds[] =
 		BinaryFSMAdcsFloatingPointCommand
     ),
 	BinaryCmd (
-		CGraphPayloadTypeFSMAdcsDeprecated,
+		CGraphPayloadTypeFSMAdcsFloatingPointDeprecated,
 		"BinaryFSMAdcsFloatingPointCommandDeprecated",
 		BinaryFSMAdcsFloatingPointCommand
     ),

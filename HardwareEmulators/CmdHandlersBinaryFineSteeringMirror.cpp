@@ -53,6 +53,7 @@ int8_t BinaryFSMDacsCommand(const uint32_t Name, char const* Params, const size_
 		memcpy(DacSetpoints, Setpoints, 3 * sizeof(uint32_t));
 		printf("\nBinaryFSMDacsCommand: Set to: 0x%X | 0x%X | 0x%X\n\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2]);
 	}
+	printf("\nBinaryFSMDacsCommand: Replying 0x%X | 0x%X | 0x%X\n\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2]);
 	TxBinaryPacket(Argument, CGraphPayloadTypeFSMDacs, 0, DacSetpoints, 3 * sizeof(uint32_t));
     return(ParamsLen);
 }
@@ -77,7 +78,7 @@ int8_t BinaryFSMAdcsFloatingPointCommand(const uint32_t Name, char const* Params
 	AdcVals[0] = (double)(DacSetpoints[0]) / 100.0;
 	AdcVals[1] = (double)(DacSetpoints[1]) / 100.0;
 	AdcVals[2] = (double)(DacSetpoints[2]) / 100.0;
-	printf("\nBinaryPZTAdcsFloatingPointCommand  Replying (%lf, %lf, %lf)...\n\n", AdcVals[0], AdcVals[1], AdcVals[2]);
+	printf("\nBinaryFSMAdcsFloatingPointCommand  Replying (%lf, %lf, %lf)...\n\n", AdcVals[0], AdcVals[1], AdcVals[2]);
 	TxBinaryPacket(Argument, CGraphPayloadTypeFSMAdcsFloatingPoint, 0, AdcVals, 3 * sizeof(double));
     return(ParamsLen);
 }
@@ -99,7 +100,7 @@ int8_t BinaryFSMTelemetryCommand(const uint32_t Name, char const* Params, const 
 	Status.N6V = -6.0;
 	Status.P150V = 150.0;
 
-	printf("\n\nBinaryPZTStatusCommand: CurrentValues:\n\n");
+	printf("\n\nBinaryFSMTelemetryCommand: CurrentValues:\n\n");
 	
 	formatf("P1V2: %3.6lf V\n", Status.P1V2);
 	formatf("P2V2: %3.6lf V\n", Status.P2V2);
@@ -115,7 +116,7 @@ int8_t BinaryFSMTelemetryCommand(const uint32_t Name, char const* Params, const 
 	formatf("P150V: %3.6lf V\n", Status.P150V);
 
 	
-	printf("\nBinaryPZTStatusCommand: Replying...\n");
+	printf("\nBinaryFSMTelemetryCommand: Replying...\n");
 	TxBinaryPacket(Argument, CGraphPayloadTypeFSMTelemetry, 0, &Status, sizeof(CGraphFSMTelemetryPayload));
 	return(ParamsLen);
 }

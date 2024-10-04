@@ -63,6 +63,7 @@ program: PZT
 	-scp PZT root@fsm:/home/root
 	
 burn:
+	-ssh root@192.168.1.223 systemctl stop PZT
 	-ssh root@192.168.1.223 killall PZT
 	-scp PZT root@192.168.1.223:/home/root
 
