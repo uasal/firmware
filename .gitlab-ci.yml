@@ -1,0 +1,122 @@
+image: ubuntu:24.04
+
+build-job:
+  stage: build
+  script:
+    - echo "Hello, $GITLAB_USER_LOGIN!"
+    - apt update
+    - DEBIAN_FRONTEND=noninteractive apt install -y doxygen graphviz
+    - mkdir -p ${CI_PROJECT_DIR}/doxygen
+    # Build FilterWheel processor docs
+    - mkdir -p ${CI_PROJECT_DIR}/doxygen/Filterwheel/processor
+    - ls ${CI_PROJECT_DIR}/doxygen
+    - cd ${CI_PROJECT_DIR}/Filterwheel/processor/Main/dox
+    - doxygen
+    # Build FilterWheel fpga docs
+    - mkdir -p ${CI_PROJECT_DIR}/doxygen/FilterwheelTq144/fpga
+    - ls ${CI_PROJECT_DIR}/doxygen    
+    - cd ${CI_PROJECT_DIR}/FilterwheelTq144/fpga/dox
+    - doxygen 
+    # Build FineSteeringMirror processor docs
+    - mkdir -p ${CI_PROJECT_DIR}/doxygen/FineSteeringMirrorController/processor
+    - ls ${CI_PROJECT_DIR}/doxygen    
+    - cd ${CI_PROJECT_DIR}/FineSteeringMirrorController/processor/Main/dox
+    - doxygen
+    # Build FineSteeringMirror fpga docs
+    - mkdir -p ${CI_PROJECT_DIR}/doxygen/FineSteeringMirrorController/fpga
+    - ls ${CI_PROJECT_DIR}/doxygen    
+    - cd ${CI_PROJECT_DIR}/FineSteeringMirrorController/fpga/dox
+    - doxygen
+    # Build main page
+    - cd ${CI_PROJECT_DIR}/dox
+    - doxygen
+    - echo "All Done, $GITLAB_USER_LOGIN!"
+
+  artifacts:
+    paths:
+      - doxygen
+
+# docs-job:
+#   stage: deploy
+#   image: ubuntu:latest
+#   script: |
+#     # install awscli v2
+#     apt -y update -qq
+#     apt -y install curl unzip zip
+#     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o /tmp/awscliv2.zip
+#     # this subshell command returns 1, so need to disable auto-abort on error
+#     set +e
+#     (cd /tmp; unzip awscliv2.zip; ./aws/install)
+#     # disable AWS CLI pagination
+#     export AWS_PAGER=
+#     # check if S3 bucket exists
+#     echo "* checking if S3 bucket already exists"
+#     aws s3api get-bucket-location --bucket ${WEBSITE_HOSTNAME}.gitlab.sc.ascendingnode.tech >/dev/null 2>&1
+#     bucket_exists=$?
+#     # reenable abort on error
+#     set -e
+#     # does bucket exist?
+#     if [ $bucket_exists -ne 0 ]; then
+#       echo "=== Creating S3 and Route 53 assets ==="
+#       # create bucket
+#       echo "* create S3 bucket"
+#       aws s3api create-bucket --bucket ${WEBSITE_HOSTNAME}.gitlab.sc.ascendingnode.tech --create-bucket-configuration LocationConstraint=us-gov-west-1
+      
+#       # set tags on bucket
+#       echo "* set tags on S3 bucket"
+#       aws s3api put-bucket-tagging --bucket ${WEBSITE_HOSTNAME}.gitlab.sc.ascendingnode.tech --tagging 'TagSet=[{Key=mission,Value=SC}]'
+      
+#       # set public access block on bucket
+#       echo "* set public access block on S3 bucket"
+#       aws s3api put-public-access-block --bucket ${WEBSITE_HOSTNAME}.gitlab.sc.ascendingnode.tech --public-access-block-configuration BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true
+      
+#       # set policy on bucket
+#       echo "* set policy on S3 bucket"
+#       aws s3api put-bucket-policy --bucket ${WEBSITE_HOSTNAME}.gitlab.sc.ascendingnode.tech \
+#         --policy '{
+#           "Statement": [
+#             {
+#               "Action": "s3:GetObject",
+#               "Effect": "Allow",
+#               "Principal": "*",
+#               "Resource": [
+#                 "arn:'"${AWS_PARTITION}"':s3:::'"${WEBSITE_HOSTNAME}"'.gitlab.sc.ascendingnode.tech",
+#                 "arn:'"${AWS_PARTITION}"':s3:::'"${WEBSITE_HOSTNAME}"'.gitlab.sc.ascendingnode.tech/*"
+#               ],
+#               "Condition": {
+#                 "StringEquals": {
+#                   "aws:SourceVpce": "'"${S3_VPC_INTERFACE_ENDPOINT}"'"
+#                 }
+#               }
+#             }
+#           ]
+#         }'
+      
+#       # create CNAME record in Route53
+#       echo "* create DNS CNAME record in Route 53"
+#       aws route53 change-resource-record-sets --hosted-zone-id ${SC_PRIVATE_ZONE_ID} \
+#         --change-batch '{
+#           "Changes": [
+#             {
+#               "Action": "CREATE",
+#               "ResourceRecordSet": {
+#                 "Name": "'"${WEBSITE_HOSTNAME}"'.gitlab.sc.ascendingnode.tech",
+#                 "Type": "CNAME",
+#                 "TTL": 300,
+#                 "ResourceRecords": [
+#                   {
+#                     "Value": "'"${ALB_DNS_NAME}"'"
+#                   }
+#                 ]
+#               }
+#             }
+#           ]
+#         }'
+#     fi
+
+#     # sync public/ artifact contents to S3 bucket
+#     echo "* sync data on S3 bucket"
+#     aws s3 sync public/ "s3://${WEBSITE_HOSTNAME}.gitlab.sc.ascendingnode.tech" --delete
+
+#     echo "=== public/ folder synced to s3://${WEBSITE_HOSTNAME}.gitlab.sc.ascendingnode.tech ==="
+

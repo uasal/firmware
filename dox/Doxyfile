@@ -1,0 +1,32 @@
+# Doxyfile 1.9.8
+
+# This file describes the settings to be used by the documentation system
+# doxygen (www.doxygen.org) for a project.
+#
+# All text after a double hash (##) is considered a comment and is placed in
+# front of the TAG it is preceding.
+#
+# All text after a single hash (#) is considered a comment and will be ignored.
+# The format is:
+# TAG = value [value, ...]
+# For lists, items can also be appended using:
+# TAG += value [value, ...]
+# Values that contain spaces should be placed between quotes (\" \").
+#
+PROJECT_NAME = "ESC Firmware Documentation"
+PROJECT_LOGO = "UASAL_Logo.png"
+GENERATE_HTML = YES
+GENERATE_LATEX = NO
+
+# Input for top-level doc navigation only
+INPUT = homepage.dox
+RECURSIVE = NO
+
+# Output dir
+OUTPUT_DIRECTORY = ../doxygen/homepage
+
+# Any overarching high-level documentation files can be included here (not the case atm)
+FILE_PATTERNS = *.dox
+
+# Link documentation of each folder
+HTML_EXTRA_FILES = ../../Filterwheel/processor/html/index.html ../../FilterwheelTq144/fpga/html/index.html ../../FineSteeringMirrorController/processor/html/index.html ../../FineSteeringMirrorController/fpga/html/index.html
