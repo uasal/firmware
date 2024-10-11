@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- UA Extra-Solar Camera PZT Controller Project FPGA Firmware
+-- UA Extra-Solar Camera FSM Controller Project FPGA Firmware
 --
 -- Register Space Definitions & Interface
 --
@@ -56,85 +56,22 @@ entity RegisterSpacePorts is
 		Ux1SelJmp : out std_logic;
 		Ux2SelJmp : out std_logic;
 				
-		--Motor
-		MotorEnable : out std_logic;
-		--~ MotorSeekStep : out std_logic_vector(15 downto 0);
-		--~ MotorCurrentStep : in std_logic_vector(15 downto 0);
-		MotorSeekStep : out signed(15 downto 0);
-		MotorCurrentStep : in signed(15 downto 0);
-		ResetSteps : out std_logic;
-		MotorAPlus : in std_logic;
-		MotorAMinus : in std_logic;
-		MotorBPlus : in std_logic;
-		MotorBMinus : in std_logic;
-		
-		--Sensors
-		PosLedsEnA : out std_logic;
-		PosLedsEnB : out std_logic;
-				
-		PosSenseHomeA : in std_logic;
-		PosSenseBit0A : in std_logic;
-		PosSenseBit1A : in std_logic;
-		PosSenseBit2A : in std_logic;
-		PosSenseHomeB : in std_logic;
-		PosSenseBit0B : in std_logic;
-		PosSenseBit1B : in std_logic;
-		PosSenseBit2B : in std_logic;
-		
-		PosSenseA : in std_logic_vector(3 downto 0);
-		PosSenseB : in std_logic_vector(3 downto 0);
-		
-		PosDetHomeAOnStep : in signed(15 downto 0);
-		PosDetHomeAOffStep : in signed(15 downto 0);
-		PosDetA0OnStep : in signed(15 downto 0);
-		PosDetA0OffStep : in signed(15 downto 0);
-		PosDetA1OnStep : in signed(15 downto 0);
-		PosDetA1OffStep : in signed(15 downto 0);
-		PosDetA2OnStep : in signed(15 downto 0);
-		PosDetA2OffStep : in signed(15 downto 0);
-		
-		PosDetHomeBOnStep : in signed(15 downto 0);
-		PosDetHomeBOffStep : in signed(15 downto 0);
-		PosDetB0OnStep : in signed(15 downto 0);
-		PosDetB0OffStep : in signed(15 downto 0);
-		PosDetB1OnStep : in signed(15 downto 0);
-		PosDetB1OffStep : in signed(15 downto 0);
-		PosDetB2OnStep : in signed(15 downto 0);
-		PosDetB2OffStep : in signed(15 downto 0);
-		
-		PosDet0AOnStep : in signed(15 downto 0);
-		PosDet0AOffStep : in signed(15 downto 0);
-		PosDet1AOnStep : in signed(15 downto 0);
-		PosDet1AOffStep : in signed(15 downto 0);
-		PosDet2AOnStep : in signed(15 downto 0);
-		PosDet2AOffStep : in signed(15 downto 0);
-		PosDet3AOnStep : in signed(15 downto 0);
-		PosDet3AOffStep : in signed(15 downto 0);
-		PosDet4AOnStep : in signed(15 downto 0);
-		PosDet4AOffStep : in signed(15 downto 0);
-		PosDet5AOnStep : in signed(15 downto 0);
-		PosDet5AOffStep : in signed(15 downto 0);
-		PosDet6AOnStep : in signed(15 downto 0);
-		PosDet6AOffStep : in signed(15 downto 0);
-		PosDet7AOnStep : in signed(15 downto 0);
-		PosDet7AOffStep : in signed(15 downto 0);
-		
-		PosDet0BOnStep : in signed(15 downto 0);
-		PosDet0BOffStep : in signed(15 downto 0);
-		PosDet1BOnStep : in signed(15 downto 0);
-		PosDet1BOffStep : in signed(15 downto 0);
-		PosDet2BOnStep : in signed(15 downto 0);
-		PosDet2BOffStep : in signed(15 downto 0);
-		PosDet3BOnStep : in signed(15 downto 0);
-		PosDet3BOffStep : in signed(15 downto 0);
-		PosDet4BOnStep : in signed(15 downto 0);
-		PosDet4BOffStep : in signed(15 downto 0);
-		PosDet5BOnStep : in signed(15 downto 0);
-		PosDet5BOffStep : in signed(15 downto 0);
-		PosDet6BOnStep : in signed(15 downto 0);
-		PosDet6BOffStep : in signed(15 downto 0);
-		PosDet7BOnStep : in signed(15 downto 0);
-		PosDet7BOffStep : in signed(15 downto 0);		
+		--FSM D/A's
+		DacASetpoint : out std_logic_vector(23 downto 0);
+		DacBSetpoint : out std_logic_vector(23 downto 0);
+		DacCSetpoint : out std_logic_vector(23 downto 0);
+		WriteDacs : out std_logic; --do we wanna write all three Dac's at once? Seems likely...
+		DacAReadback : in std_logic_vector(23 downto 0);
+		DacBReadback : in std_logic_vector(23 downto 0);
+		DacCReadback : in std_logic_vector(23 downto 0);		
+		DacTransferComplete : in std_logic; --Prolly a bad idea if we try writing new data to the D/A's while a xfer is in progress...				
+
+		-- FSM Readback A/Ds
+		ReadAdcSample : out std_logic;
+		AdcSampleToReadA : in std_logic_vector(47 downto 0);	
+		AdcSampleToReadB : in std_logic_vector(47 downto 0);	
+		AdcSampleToReadC : in std_logic_vector(47 downto 0);	
+		AdcSampleNumAccums : in std_logic_vector(15 downto 0);	
 		
 		--Monitor A/D:
 		MonitorAdcChannelReadIndex : out std_logic_vector(4 downto 0);
@@ -259,6 +196,13 @@ architecture RegisterSpace of RegisterSpacePorts is
 	constant MotorControlStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(36, MAX_ADDRESS_BITS));
 	constant PosSensAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(40, MAX_ADDRESS_BITS));
 	
+	constant DacASetpointAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(28, MAX_ADDRESS_BITS));
+	constant DacBSetpointAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(32, MAX_ADDRESS_BITS));
+	constant DacCSetpointAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(36, MAX_ADDRESS_BITS));
+	constant AdcAAccumulatorAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(40, MAX_ADDRESS_BITS));
+	constant AdcBAccumulatorAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(48, MAX_ADDRESS_BITS));
+	constant AdcCAccumulatorAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(56, MAX_ADDRESS_BITS)); --should be contiguous with AdcSample so we can get the whole thing with an 8-byte xfer...
+	
 	constant MonitorAdcSample : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(44, MAX_ADDRESS_BITS));
 	constant MonitorAdcReadChannel : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(52, MAX_ADDRESS_BITS));
 	constant MonitorAdcSpiXferAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(56, MAX_ADDRESS_BITS));
@@ -361,12 +305,11 @@ architecture RegisterSpace of RegisterSpacePorts is
 	signal MonitorAdcChannelReadIndex_i : std_logic_vector(4 downto 0);	
 	signal MonitorAdcSpiFrameEnable_i : std_logic := '0';	
 	
-	signal MotorSeekStep_i : std_logic_vector(15 downto 0);	
-	signal PosLedsEnA_i :  std_logic := '0';	
-	signal PosLedsEnB_i :  std_logic := '0';	
-	signal ResetSteps_i :  std_logic := '0';	
-	signal MotorEnable_i :  std_logic := '0';	
-
+	signal WriteDacs_i :  std_logic := '0';		
+	signal DacASetpoint_i :  std_logic_vector(23 downto 0) := x"000000";		
+	signal DacBSetpoint_i :  std_logic_vector(23 downto 0) := x"000000";		
+	signal DacCSetpoint_i :  std_logic_vector(23 downto 0) := x"000000";	
+	
 	signal PowernEn5V_i :  std_logic := '0';								
 	signal LedR_i :  std_logic := '0';
 	signal LedG_i :  std_logic := '0';
@@ -385,6 +328,11 @@ begin
 	--~ Address_i(ADDRESS_BITS - 1 downto 0) <= Address;
 	--~ Address_i <= std_logic_vector(to_unsigned(0, MAX_ADDRESS_BITS - ADDRESS_BITS)) & Address;
 	Address_i <= Address;
+	
+	DacASetpoint <= DacASetpoint_i;
+	DacBSetpoint <= DacBSetpoint_i;
+	DacCSetpoint <= DacCSetpoint_i;
+	WriteDacs <= WriteDacs_i;
 	
 	Uart0ClkDivider <= Uart0ClkDivider_i;
 	Uart1ClkDivider <= Uart1ClkDivider_i;
@@ -431,11 +379,10 @@ begin
 			
 			MonitorAdcChannelReadIndex_i <= "00000";	
 			
-			MotorSeekStep_i <= x"0000";	
-			PosLedsEnA_i <= '0';
-			PosLedsEnB_i <= '0';
-			ResetSteps_i <= '0';
-			MotorEnable_i <= '0';	
+			WriteDacs_i <= '0';		
+			DacASetpoint_i <= x"000000";		
+			DacBSetpoint_i <= x"000000";		
+			DacCSetpoint_i <= x"000000";	
 					
 		else
 			
@@ -468,6 +415,181 @@ begin
 							when FpgaFirmwareBuildNumberAddr =>
 
 								DataOut <= BuildNumber;
+								
+							
+							
+							
+							--D/A's
+							
+							
+							--DacASetpoint
+							
+							when DacASetpointAddr =>
+
+								DataOut <= DacAReadback(7 downto 0);
+
+							when DacASetpointAddr + std_logic_vector(to_unsigned(1, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= DacAReadback(15 downto 8);
+								
+							when DacASetpointAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= DacAReadback(23 downto 16);
+								
+							when DacASetpointAddr + std_logic_vector(to_unsigned(3, MAX_ADDRESS_BITS)) =>
+
+								--<No final byte>
+								DataOut <= x"58";
+							
+							
+							--DacBReadback
+							
+							when DacBSetpointAddr =>
+
+								DataOut <= DacBReadback(7 downto 0);
+
+							when DacBSetpointAddr + std_logic_vector(to_unsigned(1, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= DacBReadback(15 downto 8);
+								
+							when DacBSetpointAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= DacBReadback(23 downto 16);
+								
+							when DacBSetpointAddr + std_logic_vector(to_unsigned(3, MAX_ADDRESS_BITS)) =>
+
+								--<No final byte>		
+								DataOut <= x"58";								
+							
+							
+							--DacCReadback
+							
+							when DacCSetpointAddr =>
+
+								DataOut <= DacCReadback(7 downto 0);
+
+							when DacCSetpointAddr + std_logic_vector(to_unsigned(1, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= DacCReadback(15 downto 8);
+								
+							when DacCSetpointAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= DacCReadback(23 downto 16);
+								
+							when DacCSetpointAddr + std_logic_vector(to_unsigned(3, MAX_ADDRESS_BITS)) =>
+
+								--<No final byte>
+								DataOut <= x"58";
+								
+								
+
+							--FSM Readback A/D's
+							
+							--AdcSampleToReadA
+							
+							when AdcAAccumulatorAddr =>
+
+								DataOut <= AdcSampleToReadA(7 downto 0);
+								
+								ReadAdcSample <= '1';	
+
+							when AdcAAccumulatorAddr + std_logic_vector(to_unsigned(1, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleToReadA(15 downto 8);
+								
+							when AdcAAccumulatorAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleToReadA(23 downto 16);
+								
+							when AdcAAccumulatorAddr + std_logic_vector(to_unsigned(3, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleToReadA(31 downto 24);
+								
+							when AdcAAccumulatorAddr + std_logic_vector(to_unsigned(4, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleToReadA(39 downto 32);
+								
+							when AdcAAccumulatorAddr + std_logic_vector(to_unsigned(5, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleToReadA(47 downto 40);
+								
+							when AdcAAccumulatorAddr + std_logic_vector(to_unsigned(6, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleNumAccums(7 downto 0);
+								
+							when AdcAAccumulatorAddr + std_logic_vector(to_unsigned(7, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleNumAccums(15 downto 8);
+								
+															
+							--AdcSampleToReadB
+							
+							when AdcBAccumulatorAddr =>
+
+								DataOut <= AdcSampleToReadB(7 downto 0);
+
+							when AdcBAccumulatorAddr + std_logic_vector(to_unsigned(1, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleToReadB(15 downto 8);
+								
+							when AdcBAccumulatorAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleToReadB(23 downto 16);
+								
+							when AdcBAccumulatorAddr + std_logic_vector(to_unsigned(3, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleToReadB(31 downto 24);
+								
+							when AdcBAccumulatorAddr + std_logic_vector(to_unsigned(4, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleToReadB(39 downto 32);
+								
+							when AdcBAccumulatorAddr + std_logic_vector(to_unsigned(5, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleToReadB(47 downto 40);
+								
+							when AdcBAccumulatorAddr + std_logic_vector(to_unsigned(6, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleNumAccums(7 downto 0);
+								
+							when AdcBAccumulatorAddr + std_logic_vector(to_unsigned(7, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleNumAccums(15 downto 8);
+							
+							--AdcSampleToReadC
+							
+							when AdcCAccumulatorAddr =>
+
+								DataOut <= AdcSampleToReadC(7 downto 0);
+								
+							when AdcCAccumulatorAddr + std_logic_vector(to_unsigned(1, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleToReadC(15 downto 8);
+								
+							when AdcCAccumulatorAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleToReadC(23 downto 16);
+								
+							when AdcCAccumulatorAddr + std_logic_vector(to_unsigned(3, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleToReadC(31 downto 24);
+								
+							when AdcCAccumulatorAddr + std_logic_vector(to_unsigned(4, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleToReadC(39 downto 32);
+								
+							when AdcCAccumulatorAddr + std_logic_vector(to_unsigned(5, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleToReadC(47 downto 40);
+								
+							when AdcCAccumulatorAddr + std_logic_vector(to_unsigned(6, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleNumAccums(7 downto 0);
+								
+							when AdcCAccumulatorAddr + std_logic_vector(to_unsigned(7, MAX_ADDRESS_BITS)) =>
+
+								DataOut <= AdcSampleNumAccums(15 downto 8);
+
 							
 							
 								
@@ -856,6 +978,8 @@ begin
 						--If timing is good, this doesn't do anything. If the fpga is lagging the processor reads will all be 82's. Yeah, we tested that in practice; don't enable this lol.
 						--DataOut <= x"9182"; 
 						
+						ReadAdcSample <= '0';		
+						
 						ReadUart0 <= '0';						
 						ReadUart1 <= '0';						
 						ReadUart2 <= '0';		
@@ -877,6 +1001,91 @@ begin
 						WriteAck <= '0';
 									
 						case Address_i is
+						
+						
+						
+						
+							--D/A's
+							
+							--DacASetpoint
+								
+							when DacASetpointAddr =>
+
+								DacASetpoint_i(7 downto 0) <= DataIn(7 downto 0);
+								
+								--The $$$ question: does our processor hit the low addr last or the high one???
+								--Also we shold prolly wait until all the D/A registers are loaded, and do it on channel "C" only
+								--~ WriteDacs_i <= '1';
+								
+							when DacASetpointAddr + std_logic_vector(to_unsigned(1, MAX_ADDRESS_BITS)) =>
+
+								DacASetpoint_i(15 downto 8) <= DataIn(7 downto 0);
+								
+							when DacASetpointAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+
+								DacASetpoint_i(23 downto 16) <= DataIn(7 downto 0);
+
+							when DacASetpointAddr + std_logic_vector(to_unsigned(3, MAX_ADDRESS_BITS)) =>
+
+								--The $$$ question: does our processor hit the low addr last or the high one???
+								--Also we shold prolly wait until all the D/A registers are loaded, and do it on channel "C" only
+								--~ WriteDacs_i <= '1';
+
+
+							--DacBSetpoint
+							
+							when DacBSetpointAddr =>
+
+								DacBSetpoint_i(7 downto 0) <= DataIn(7 downto 0);
+								
+								--The $$$ question: does our processor hit the low addr last or the high one???
+								--Also we shold prolly wait until all the D/A registers are loaded, and do it on channel "C" only
+								--~ WriteDacs_i <= '1';
+								
+							when DacBSetpointAddr + std_logic_vector(to_unsigned(1, MAX_ADDRESS_BITS)) =>
+
+								DacBSetpoint_i(15 downto 8) <= DataIn(7 downto 0);
+								
+							when DacBSetpointAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+
+								DacBSetpoint_i(23 downto 16) <= DataIn(7 downto 0);
+
+							when DacBSetpointAddr + std_logic_vector(to_unsigned(3, MAX_ADDRESS_BITS)) =>
+
+								--The $$$ question: does our processor hit the low addr last or the high one???
+								--Also we shold prolly wait until all the D/A registers are loaded, and do it on channel "C" only
+								--~ WriteDacs_i <= '1';
+
+								
+							--DacCSetpoint
+								
+							when DacCSetpointAddr =>
+
+								DacCSetpoint_i(7 downto 0) <= DataIn(7 downto 0);
+								
+								--The $$$ question: does our processor hit the low addr last or the high one???
+								--~ WriteDacs_i <= '1';
+								
+							when DacCSetpointAddr + std_logic_vector(to_unsigned(1, MAX_ADDRESS_BITS)) =>
+
+								DacCSetpoint_i(15 downto 8) <= DataIn(7 downto 0);
+								
+							when DacCSetpointAddr + std_logic_vector(to_unsigned(2, MAX_ADDRESS_BITS)) =>
+
+								DacCSetpoint_i(23 downto 16) <= DataIn(7 downto 0);
+
+							when DacCSetpointAddr + std_logic_vector(to_unsigned(3, MAX_ADDRESS_BITS)) =>
+
+								--The $$$ question: does our processor hit the low addr last or the high one???
+								if ('1' = DacTransferComplete) then WriteDacs_i <= '1'; end if;
+								
+								
+							--~ --FSM Readback A/D's
+	
+							--~ when AdcAAccumulatorAddr =>
+								
+								--~ ReadAdcSample <= '1';	
+								
 														
 								
 							--Monitor A/D
@@ -1036,6 +1245,8 @@ begin
 					
 						WriteAck <= '0';
 						
+						WriteDacs_i <= '0';		
+												
 						ReadMonitorAdcSample <= '0';
 						MonitorAdcReset <= '0';
 						MonitorAdcSpiXferStart <= '0';

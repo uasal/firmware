@@ -13,35 +13,58 @@ port (
     clk : in  std_logic;
 	
 	--ClkDac
+	
 	nCsXO : out std_logic;
 	SckXO : out std_logic;
 	MosiXO : out std_logic;
 	
-	--Light outputs
-	PosLEDEnA : out std_logic;
-	PosLEDEnB : out std_logic;
+	--D/A's
 	
-	--Photodetector Inputs
-	PosSenseHomeA : in std_logic;
-	PosSenseBit0A : in std_logic;
-	PosSenseBit1A : in std_logic;
-	PosSenseBit2A : in std_logic;
-	PosSenseHomeB : in std_logic;
-	PosSenseBit0B : in std_logic;
-	PosSenseBit1B : in std_logic;
-	PosSenseBit2B : in std_logic;
+	MosiTiDacA : out std_logic;
+	MosiTiDacB : out std_logic;
+	MosiTiDacC : out std_logic;
+	MosiTiDacD : out std_logic;
+	SckTiDacs : out std_logic;
+	nCsTiDacs : out std_logic;
+	PowerEnTi : out std_logic;
 	
-	--H-Bridge
-	MotorDriveAPlus : out std_logic;
-	MotorDriveAMinus : out std_logic;
-	MotorDriveBPlus : out std_logic;
-	MotorDriveBMinus : out std_logic;
-	MotorDriveAPlusPrime : out std_logic;
-	MotorDriveAMinusPrime : out std_logic;
-	MotorDriveBPlusPrime : out std_logic;
-	MotorDriveBMinusPrime : out std_logic;
+	MosiMaxDacA : out std_logic;
+	MosiMaxDacB : out std_logic;
+	MosiMaxDacC : out std_logic;
+	MosiMaxDacD : out std_logic;
+	SckMaxDacs : out std_logic;
+	nCsMaxDacs : out std_logic;
+	nLoadMaxDacs : out std_logic;
+	PowerEnMax : out std_logic;
+	
+	--Driver Control
+	
+	nHVEn1 : out std_logic;
+	HVDis2 : out std_logic;
+	PowernEnHV : out std_logic;	
+	nHVFaultA : in std_logic;
+	nHVFaultB : in std_logic;
+	nHVFaultC : in std_logic;
+	nHVFaultD : in std_logic;
+	
+	--A/D's
+	
+	ChopRef : out std_logic;
+	ChopAdcs : out std_logic;
+	TrigAdcs : out std_logic;	
+	SckAdcs : out std_logic;
+	nCsAdcs : out std_logic;
+	MisoAdcA : in std_logic;
+	MisoAdcB : in std_logic;
+	MisoAdcC : in std_logic;
+	MisoAdcD : in std_logic;
+	nDrdyAdcA : in std_logic;
+	nDrdyAdcB : in std_logic;
+	nDrdyAdcC : in std_logic;
+	nDrdyAdcD : in std_logic;
 	
 	--uC Ram Bus 
+	
 	RamBusAddress : in std_logic_vector(9 downto 0); 
 	RamBusDataIn : in std_logic_vector(31 downto 0);
 	RamBusDataOut : out std_logic_vector(31 downto 0);
@@ -50,7 +73,8 @@ port (
 	RamBusLatch : in std_logic;
 	RamBusAck : out std_logic;
 	
-	--RS-422 (uses LVDS and/or Accel pins)
+	--RS-422
+	
 	Txd0 : out std_logic;
 	Oe0 : out std_logic;
 	Rxd0 : in std_logic;
@@ -64,51 +88,56 @@ port (
 	Oe3 : out std_logic;
 	Rxd3 : in std_logic;
 	
-	RxdUsb : out std_logic;
-	TxdUsb : in std_logic;
+	RxdLab : out std_logic;
+	TxdLab : in std_logic;
 	CtsUsb : out std_logic;
-	
-	TxdGps : out std_logic;
-	RxdGps : in std_logic;
 	PPS : in std_logic;
 	
 	--MonitorA/D
 	
-	nCsMonAdc0 : out std_logic;
-	SckMonAdc0 : out std_logic;
-	MosiMonAdc0 : out std_logic;
+	nCsMonAdcs : out std_logic;
+	SckMonAdcs : out std_logic;
+	MosiMonAdcs : out std_logic;
+	TrigMonAdcs : out std_logic;
 	MisoMonAdc0 : in std_logic;
 	nDrdyMonAdc0 : in std_logic;
-	
-	--  Discrete I/O Connections
+	MisoMonAdc1 : in std_logic;
+	nDrdyMonAdc1 : in std_logic;
 
-		--Faults
-		nFaultClr1V : out std_logic;
-		nFaultClr3V : out std_logic;
-		nFaultClr5V : out std_logic;
-		nPowerCycClr : out std_logic;
-		PowernEn5V : out std_logic;
-		PowerSync : out std_logic;
-		Fault1V : in std_logic;
-		Fault3V : in std_logic;
-		Fault5V : in std_logic;
-		PowerCycd: in std_logic;
-		
-		LedR : out std_logic;
-		LedG : out std_logic;
-		LedB : out std_logic;
-		
-		TP1 : out std_logic;
-		TP2 : out std_logic;
-		TP3 : out std_logic;
-		TP4 : out std_logic;
-		TP5 : out std_logic;
-		TP6 : out std_logic;
-		TP7 : out std_logic;
-		TP8 : out std_logic;
-		
-		Ux1SelJmp : inout std_logic--;
-		--Ux2SelJmp : out std_logic--; --currently used for INIT_DONE
+	--Power Supplies
+	
+	PowerSync : out std_logic;
+	PowernEn : out std_logic;
+	GlobalFaultInhibit : out std_logic;
+	nFaultsClr : out std_logic;
+	nPowerCycClr : out std_logic;
+	PowerCycd: in std_logic;
+	
+	--Faults
+	
+	FaultNegV : in std_logic;
+	Fault1V : in std_logic;
+	Fault2VA : in std_logic;
+	Fault2VD : in std_logic;
+	Fault3VA : in std_logic;
+	Fault3VD : in std_logic;
+	Fault5V : in std_logic;
+	FaultHV : in std_logic;
+	
+	--The testpoints had to be shared with other signals due to lack of fpga pins...
+	--~ LedR : out std_logic;
+	--~ LedG : out std_logic;
+	--~ LedB : out std_logic;
+	--~ TP1 : out std_logic;
+	--~ TP2 : out std_logic;
+	--~ TP3 : out std_logic;
+	--~ TP4 : out std_logic;
+	--~ TP5 : out std_logic;
+	--~ TP6 : out std_logic;
+	--~ TP7 : out std_logic;
+	--~ TP8 : out std_logic;
+	
+	Ux1SelJmp : inout std_logic--;
 );
 end Main;
 
@@ -558,15 +587,27 @@ architecture architecture_Main of Main is
 							BuildNumber : in std_logic_vector(31 downto 0);
 							
 							--Faults and control
+							nHVEn1 : out std_logic;
+							HVDis2 : out std_logic;
+							PowernEnHV : out std_logic;	
+							DacSelectMaxti : out std_logic;
+							FaultNegV : in std_logic;
 							Fault1V : in std_logic;
-							Fault3V : in std_logic;
+							Fault2VA : in std_logic;
+							Fault2VD : in std_logic;
+							Fault3VA : in std_logic;
+							Fault3VD : in std_logic;
 							Fault5V : in std_logic;
-							nFaultClr1V : out std_logic;								
-							nFaultClr3V : out std_logic;								
-							nFaultClr5V : out std_logic;								
-							PowernEn5V : out std_logic;								
+							FaultHV : in std_logic;
+							nHVFaultA : in std_logic;
+							nHVFaultB : in std_logic;
+							nHVFaultC : in std_logic;
+							nHVFaultD : in std_logic;
+							GlobalFaultInhibit : out std_logic;
+							nFaultsClr : out std_logic;
 							PowerCycd : in std_logic;
 							nPowerCycClr : out std_logic;								
+							PowernEn : out std_logic;
 							LedR : out std_logic;
 							LedG : out std_logic;
 							LedB : out std_logic;
@@ -575,87 +616,26 @@ architecture architecture_Main of Main is
 							Uart2OE : out std_logic;
 							Uart3OE : out std_logic;				
 							Ux1SelJmp : out std_logic;
-							Ux2SelJmp : out std_logic;
 							
-							--Motor
-							MotorEnable : out std_logic;
-							--~ MotorSeekStep : out std_logic_vector(15 downto 0);
-							--~ MotorCurrentStep : in std_logic_vector(15 downto 0);
-							MotorSeekStep : out signed(15 downto 0);
-							MotorCurrentStep : in signed(15 downto 0);
-							ResetSteps : out std_logic;
-							MotorAPlus : in std_logic;
-							MotorAMinus : in std_logic;
-							MotorBPlus : in std_logic;
-							MotorBMinus : in std_logic;
-							
-							--Sensors
-							PosLedsEnA : out std_logic;
-							PosLedsEnB : out std_logic;
-									
-							PosSenseHomeA : in std_logic;
-							PosSenseBit0A : in std_logic;
-							PosSenseBit1A : in std_logic;
-							PosSenseBit2A : in std_logic;
-							PosSenseHomeB : in std_logic;
-							PosSenseBit0B : in std_logic;
-							PosSenseBit1B : in std_logic;
-							PosSenseBit2B : in std_logic;
-							
-							PosSenseA : in std_logic_vector(3 downto 0);
-							PosSenseB : in std_logic_vector(3 downto 0);
-							
-							PosDetHomeAOnStep : in signed(15 downto 0);
-							PosDetHomeAOffStep : in signed(15 downto 0);
-							PosDetA0OnStep : in signed(15 downto 0);
-							PosDetA0OffStep : in signed(15 downto 0);
-							PosDetA1OnStep : in signed(15 downto 0);
-							PosDetA1OffStep : in signed(15 downto 0);
-							PosDetA2OnStep : in signed(15 downto 0);
-							PosDetA2OffStep : in signed(15 downto 0);
-							
-							PosDetHomeBOnStep : in signed(15 downto 0);
-							PosDetHomeBOffStep : in signed(15 downto 0);
-							PosDetB0OnStep : in signed(15 downto 0);
-							PosDetB0OffStep : in signed(15 downto 0);
-							PosDetB1OnStep : in signed(15 downto 0);
-							PosDetB1OffStep : in signed(15 downto 0);
-							PosDetB2OnStep : in signed(15 downto 0);
-							PosDetB2OffStep : in signed(15 downto 0);
-							
-							PosDet0AOnStep : in signed(15 downto 0);
-							PosDet0AOffStep : in signed(15 downto 0);
-							PosDet1AOnStep : in signed(15 downto 0);
-							PosDet1AOffStep : in signed(15 downto 0);
-							PosDet2AOnStep : in signed(15 downto 0);
-							PosDet2AOffStep : in signed(15 downto 0);
-							PosDet3AOnStep : in signed(15 downto 0);
-							PosDet3AOffStep : in signed(15 downto 0);
-							PosDet4AOnStep : in signed(15 downto 0);
-							PosDet4AOffStep : in signed(15 downto 0);
-							PosDet5AOnStep : in signed(15 downto 0);
-							PosDet5AOffStep : in signed(15 downto 0);
-							PosDet6AOnStep : in signed(15 downto 0);
-							PosDet6AOffStep : in signed(15 downto 0);
-							PosDet7AOnStep : in signed(15 downto 0);
-							PosDet7AOffStep : in signed(15 downto 0);
-							
-							PosDet0BOnStep : in signed(15 downto 0);
-							PosDet0BOffStep : in signed(15 downto 0);
-							PosDet1BOnStep : in signed(15 downto 0);
-							PosDet1BOffStep : in signed(15 downto 0);
-							PosDet2BOnStep : in signed(15 downto 0);
-							PosDet2BOffStep : in signed(15 downto 0);
-							PosDet3BOnStep : in signed(15 downto 0);
-							PosDet3BOffStep : in signed(15 downto 0);
-							PosDet4BOnStep : in signed(15 downto 0);
-							PosDet4BOffStep : in signed(15 downto 0);
-							PosDet5BOnStep : in signed(15 downto 0);
-							PosDet5BOffStep : in signed(15 downto 0);
-							PosDet6BOnStep : in signed(15 downto 0);
-							PosDet6BOffStep : in signed(15 downto 0);
-							PosDet7BOnStep : in signed(15 downto 0);
-							PosDet7BOffStep : in signed(15 downto 0);
+							--FSM D/A's
+							DacASetpoint : out std_logic_vector(23 downto 0);
+							DacBSetpoint : out std_logic_vector(23 downto 0);
+							DacCSetpoint : out std_logic_vector(23 downto 0);
+							DacDSetpoint : out std_logic_vector(23 downto 0);
+							WriteDacs : out std_logic;
+							DacAReadback : in std_logic_vector(23 downto 0);
+							DacBReadback : in std_logic_vector(23 downto 0);
+							DacCReadback : in std_logic_vector(23 downto 0);	
+							DacDReadback : in std_logic_vector(23 downto 0);	
+							DacTransferComplete : in std_logic;
+
+							-- FSM Readback A/Ds
+							ReadAdcSample : out std_logic;
+							AdcSampleToReadA : in std_logic_vector(47 downto 0);	
+							AdcSampleToReadB : in std_logic_vector(47 downto 0);	
+							AdcSampleToReadC : in std_logic_vector(47 downto 0);	
+							AdcSampleToReadD : in std_logic_vector(47 downto 0);	
+							AdcSampleNumAccums : in std_logic_vector(15 downto 0);	
 							
 							--Monitor A/D:
 							MonitorAdcChannelReadIndex : out std_logic_vector(4 downto 0);
@@ -722,31 +702,18 @@ architecture architecture_Main of Main is
 							Uart3TxFifoCount : in std_logic_vector(9 downto 0);
 							Uart3ClkDivider : out std_logic_vector(7 downto 0);
 							
-							UartUsbFifoReset : out std_logic;
-							ReadUartUsb : out std_logic;
-							UartUsbRxFifoFull : in std_logic;
-							UartUsbRxFifoEmpty : in std_logic;
-							UartUsbRxFifoData : in std_logic_vector(7 downto 0);
-							UartUsbRxFifoCount : in std_logic_vector(9 downto 0);
-							WriteUartUsb : out std_logic;
-							UartUsbTxFifoFull : in std_logic;
-							UartUsbTxFifoEmpty : in std_logic;
-							UartUsbTxFifoData : out std_logic_vector(7 downto 0);
-							UartUsbTxFifoCount : in std_logic_vector(9 downto 0);
-							UartUsbClkDivider : out std_logic_vector(7 downto 0);
-							
-							UartGpsFifoReset : out std_logic;
-							ReadUartGps : out std_logic;
-							UartGpsRxFifoFull : in std_logic;
-							UartGpsRxFifoEmpty : in std_logic;
-							UartGpsRxFifoData : in std_logic_vector(7 downto 0);
-							UartGpsRxFifoCount : in std_logic_vector(9 downto 0);
-							WriteUartGps : out std_logic;
-							UartGpsTxFifoFull : in std_logic;
-							UartGpsTxFifoEmpty : in std_logic;
-							UartGpsTxFifoData : out std_logic_vector(7 downto 0);
-							UartGpsTxFifoCount : in std_logic_vector(9 downto 0);
-							UartGpsClkDivider : out std_logic_vector(7 downto 0);
+							UartLabFifoReset : out std_logic;
+							ReadUartLab : out std_logic;
+							UartLabRxFifoFull : in std_logic;
+							UartLabRxFifoEmpty : in std_logic;
+							UartLabRxFifoData : in std_logic_vector(7 downto 0);
+							UartLabRxFifoCount : in std_logic_vector(9 downto 0);
+							WriteUartLab : out std_logic;
+							UartLabTxFifoFull : in std_logic;
+							UartLabTxFifoEmpty : in std_logic;
+							UartLabTxFifoData : out std_logic_vector(7 downto 0);
+							UartLabTxFifoCount : in std_logic_vector(9 downto 0);
+							UartLabClkDivider : out std_logic_vector(7 downto 0);
 							
 							--Timing
 							IdealTicksPerSecond : in std_logic_vector(31 downto 0);
@@ -807,7 +774,7 @@ architecture architecture_Main of Main is
 						--~ );
 						--~ end component;
 						
-						component SpiDevicePorts is
+						component SpiDeviceDualPorts is
 						generic (
 							CLOCK_DIVIDER : natural := 4;
 							BIT_WIDTH : natural := 8;
@@ -872,30 +839,95 @@ architecture architecture_Main of Main is
 						);
 						end component;
 						
-						component FourWireStepperMotorDriverPorts is
-						generic (
-							CLOCK_FREQHZ : natural := 10000000;
-							MOTOR_STEP_SECONDS : real := 0.001--;
-						);
+						component Ltc2378AccumQuadPorts is
 						port (
+						
+							--Globals
 							clk : in std_logic;
 							rst : in std_logic;
-
-							--inputs
-							--~ SeekStep : in std_logic_vector(15 downto 0);
-							SeekStep : in signed(15 downto 0);
 							
-							--outputs
-							--~ CurrentStep : out std_logic_vector(15 downto 0);
-							CurrentStep : out signed(15 downto 0);
-							MotorStepEdge : out std_logic;
+							-- A/D:
+							Trigger : out std_logic; --rising edge initiates a conversion; 20ns min per hi/lo, so 
+							nDrdyA : in std_logic; --Falling edge indicates a new sample is ready, should be approx 1usec after trigger goes high (1MHz)
+							nDrdyB : in std_logic; --Falling edge indicates a new sample is ready, should be approx 1usec after trigger goes high (1MHz)
+							nDrdyC : in std_logic; --Falling edge indicates a new sample is ready, should be approx 1usec after trigger goes high (1MHz)
+							nDrdyD : in std_logic; --Falling edge indicates a new sample is ready, should be approx 1usec after trigger goes high (1MHz)
+							nCsA : out std_logic; -- 18th bit (msb) of data valid on falling edge.
+							nCsB : out std_logic; -- 18th bit (msb) of data valid on falling edge.
+							nCsC : out std_logic; -- 18th bit (msb) of data valid on falling edge.
+							nCsD : out std_logic; -- 18th bit (msb) of data valid on falling edge.
+							Sck : out std_logic; --can run up to ~100MHz (">40MHz??); idle in low state
+							MisoA : in  std_logic; --valid 16nsec after nCs low; shifts on rising edge of sck, sample when sck low.		
+							MisoB : in  std_logic; --valid 16nsec after nCs low; shifts on rising edge of sck, sample when sck low.		
+							MisoC : in  std_logic; --valid 16nsec after nCs low; shifts on rising edge of sck, sample when sck low.		
+							MisoD : in  std_logic; --valid 16nsec after nCs low; shifts on rising edge of sck, sample when sck low.		
+							OverRangeA : out std_logic; --is the A/D saturated?
+							OverRangeB : out std_logic; --is the A/D saturated?
+							OverRangeC : out std_logic; --is the A/D saturated?
+							OverRangeD : out std_logic; --is the A/D saturated?
+						
+							--Control signals
+							AdcPowerDown : in std_logic; --self-explanatory...
+							AdcClkDivider : in std_logic_vector(15 downto 0); --This knob controls the acquisition speed of the A/D.
+							SamplesToAverage : in std_logic_vector(15 downto 0); --Only supported on LTC2380-24 hardware! This also controls the acquisition speed of the A/D; each 4x averaging gives an extra bit of SNR or 6dB.
+							ChopperEnable : in std_logic; --turns chopper on/off to reduce 1/f noise and offset!
+							ChopperMuxPos : out std_logic; --switches inputs when chopper on to reduce 1/f noise and offset!
+							ChopperMuxNeg : out std_logic; --switches inputs when chopper on to reduce 1/f noise and offset!
+						
+							--Bus interface
+							ReadAdcSample : in std_logic;		
+							AdcSampleToReadA : out std_logic_vector(47 downto 0);		
+							AdcSampleToReadB : out std_logic_vector(47 downto 0);		
+							AdcSampleToReadC : out std_logic_vector(47 downto 0);	
+							AdcSampleToReadD : out std_logic_vector(47 downto 0);	
+							AdcSampleNumAccums : out std_logic_vector(15 downto 0);
 							
-							MotorAPlus : out std_logic;
-							MotorAMinus : out std_logic;
-							MotorBPlus : out std_logic;
-							MotorBMinus : out std_logic--;
-						);
+							--Debug
+							TP1 : out std_logic;
+							TP2 : out std_logic;
+							TP3 : out std_logic;
+							TP4 : out std_logic--;
+						); 
 						end component;
+												
+						component SpiDacQuadPorts is
+						generic (
+							MASTER_CLOCK_FREQHZ : natural := 100000000--;
+						);
+						port (
+						
+							--Globals
+							clk : in std_logic;
+							rst : in std_logic;
+							
+							-- D/A:
+							nCsA : out std_logic;
+							nCsB : out std_logic;
+							nCsC : out std_logic;
+							nCsD : out std_logic;
+							Sck : out std_logic;
+							MosiA : out  std_logic;
+							MosiB : out  std_logic;
+							MosiC : out  std_logic;
+							MosiD : out  std_logic;
+							MisoA : in  std_logic;
+							MisoB : in  std_logic;
+							MisoC : in  std_logic;
+							MisoD : in  std_logic;
+							
+							--Control signals
+							WriteDac : in std_logic;
+							DacWriteOutA : in std_logic_vector(23 downto 0);
+							DacWriteOutB : in std_logic_vector(23 downto 0);
+							DacWriteOutC : in std_logic_vector(23 downto 0);
+							DacWriteOutD : in std_logic_vector(23 downto 0);
+							DacReadbackA : out std_logic_vector(23 downto 0);
+							DacReadbackB : out std_logic_vector(23 downto 0);
+							DacReadbackC : out std_logic_vector(23 downto 0);
+							DacReadbackD : out std_logic_vector(23 downto 0);
+							TransferComplete : out std_logic--;
+							
+						); end component;
 
 						
 --Constants & Setup
@@ -943,24 +975,69 @@ architecture architecture_Main of Main is
 			signal DataFromRead : std_logic_vector(31 downto 0);
 			signal ReadReq : std_logic;
 			signal ReadAck : std_logic;
-
-			signal MotorEnable : std_logic;        
-			--~ signal MotorSeekStep : std_logic_vector(15 downto 0);    
-			signal MotorSeekStep : signed(15 downto 0);    
-			--signal MotorCurrentStep : std_logic_vector(15 downto 0);
-			signal ResetSteps : std_logic;          
-			--signal MotorAPlus_i : std_logic;        
-			--signal MotorAMinus_i : std_logic;      
-			--signal MotorBPlus_i : std_logic;        
-			--signal MotorBMinus_i : std_logic;      
+			
+		-- FSM D/As
+		
+			signal DacSelectMaxti : std_logic;	
+			signal nCsDacA_i : std_logic;	
+			signal nCsDacB_i : std_logic;	
+			signal nCsDacC_i : std_logic;	
+			signal nCsDacD_i : std_logic;	
+			signal SckDacs_i : std_logic;	
+			signal MosiDacA_i : std_logic;	
+			signal MosiDacB_i : std_logic;	
+			signal MosiDacC_i : std_logic;	
+			signal MosiDacD_i : std_logic;	
+			signal MisoDacA_i : std_logic;	
+			signal MisoDacB_i : std_logic;	
+			signal MisoDacC_i : std_logic;	
+			signal MisoDacD_i : std_logic;	
+			signal DacASetpoint : std_logic_vector(23 downto 0);	
+			signal DacBSetpoint : std_logic_vector(23 downto 0);	
+			signal DacCSetpoint : std_logic_vector(23 downto 0);	
+			signal DacDSetpoint : std_logic_vector(23 downto 0);	
+			signal WriteDacs : std_logic;	
+			signal DacAReadback : std_logic_vector(23 downto 0);	
+			signal DacBReadback : std_logic_vector(23 downto 0);	
+			signal DacCReadback : std_logic_vector(23 downto 0);	
+			signal DacDReadback : std_logic_vector(23 downto 0);	
+			signal nLDacs_i : std_logic;	
+			signal DacTransferComplete : std_logic;	
+			
+			
+		-- FSM Readback A/Ds
+			
+			signal TrigSyncAdcs_i : std_logic;	
+			signal nDrdyAdcA_i : std_logic;	
+			signal nDrdyAdcB_i : std_logic;	
+			signal nDrdyAdcC_i : std_logic;	
+			signal nDrdyAdcD_i : std_logic;	
+			signal SckAdcs_i : std_logic;	
+			signal MisoAdcA_i : std_logic;	
+			signal MisoAdcB_i : std_logic;	
+			signal MisoAdcC_i : std_logic;	
+			signal MisoAdcD_i : std_logic;	
+			signal nCsAdcA_i : std_logic;	
+			signal nCsAdcB_i : std_logic;	
+			signal nCsAdcC_i : std_logic;	
+			signal nCsAdcD_i : std_logic;	
+			signal ReadAdcSample : std_logic;
+			signal AdcSampleToReadA : std_logic_vector(47 downto 0);	
+			signal AdcSampleToReadB : std_logic_vector(47 downto 0);	
+			signal AdcSampleToReadC : std_logic_vector(47 downto 0);	
+			signal AdcSampleToReadD : std_logic_vector(47 downto 0);	
+			signal AdcSampleNumAccums : std_logic_vector(15 downto 0);	
+			
 			
 		--Monitor A/D
 		
-			signal nDrdyMonitorAdc_i : std_logic;
+			signal nDrdyMonitorAdc0_i : std_logic;
+			signal nDrdyMonitorAdc1_i : std_logic;
 			signal nCsMonitorAdc_i : std_logic;
 			signal SckMonitorAdc_i : std_logic;
 			signal MosiMonitorAdc_i : std_logic;
-			signal MisoMonitorAdc_i : std_logic;
+			signal MisoMonitorAdc0_i : std_logic;
+			signal MisoMonitorAdc1_i : std_logic;
 			signal MonitorAdcChannel : std_logic_vector(4 downto 0);
 			signal MonitorAdcReadSample : std_logic;
 			--~ signal MonitorAdcSample : ltc244xaccumulator;
@@ -1056,46 +1133,26 @@ architecture architecture_Main of Main is
 			signal Rxd3_i : std_logic;
 			signal UartRx3Dbg : std_logic;		
 
-			signal UartUsbFifoReset : std_logic;
-			signal UartUsbFifoReset_i : std_logic;
-			signal ReadUartUsb : std_logic;
-			signal UartUsbRxFifoFull : std_logic;
-			signal UartUsbRxFifoEmpty : std_logic;
-			signal UartUsbRxFifoReadAck : std_logic;
-			signal UartUsbRxFifoData : std_logic_vector(7 downto 0);
-			signal UartUsbRxFifoCount : std_logic_vector(9 downto 0);
-			signal WriteUartUsb : std_logic;
-			signal UartUsbTxFifoFull : std_logic;
-			signal UartUsbTxFifoEmpty : std_logic;
-			signal UartUsbTxFifoData : std_logic_vector(7 downto 0);
-			signal UartUsbTxFifoCount : std_logic_vector(9 downto 0);
-			signal UartUsbClkDivider : std_logic_vector(7 downto 0);
-			signal UartClkUsb : std_logic;			
-			signal UartTxClkUsb : std_logic;			
-			signal TxdUsb_i : std_logic;
-			signal RxdUsb_i : std_logic;
-			signal UartRxUsbDbg : std_logic;					
+			signal UartLabFifoReset : std_logic;
+			signal UartLabFifoReset_i : std_logic;
+			signal ReadUartLab : std_logic;
+			signal UartLabRxFifoFull : std_logic;
+			signal UartLabRxFifoEmpty : std_logic;
+			signal UartLabRxFifoReadAck : std_logic;
+			signal UartLabRxFifoData : std_logic_vector(7 downto 0);
+			signal UartLabRxFifoCount : std_logic_vector(9 downto 0);
+			signal WriteUartLab : std_logic;
+			signal UartLabTxFifoFull : std_logic;
+			signal UartLabTxFifoEmpty : std_logic;
+			signal UartLabTxFifoData : std_logic_vector(7 downto 0);
+			signal UartLabTxFifoCount : std_logic_vector(9 downto 0);
+			signal UartLabClkDivider : std_logic_vector(7 downto 0);
+			signal UartClkLab : std_logic;			
+			signal UartTxClkLab : std_logic;			
+			signal TxdLab_i : std_logic;
+			signal RxdLab_i : std_logic;
+			signal UartRxLabDbg : std_logic;					
 			signal TxdUartBitCount : std_logic_vector(3 downto 0);
-			
-			signal UartGpsFifoReset : std_logic;
-			signal UartGpsFifoReset_i : std_logic;
-			signal ReadUartGps : std_logic;
-			signal UartGpsRxFifoFull : std_logic;
-			signal UartGpsRxFifoEmpty : std_logic;
-			signal UartGpsRxFifoReadAck : std_logic;
-			signal UartGpsRxFifoData : std_logic_vector(7 downto 0);
-			signal UartGpsRxFifoCount : std_logic_vector(9 downto 0);
-			signal WriteUartGps : std_logic;
-			signal UartGpsTxFifoFull : std_logic;
-			signal UartGpsTxFifoEmpty : std_logic;
-			signal UartGpsTxFifoData : std_logic_vector(7 downto 0);
-			signal UartGpsTxFifoCount : std_logic_vector(9 downto 0);
-			signal UartGpsClkDivider : std_logic_vector(7 downto 0);
-			signal UartClkGps : std_logic;			
-			signal UartTxClkGps : std_logic;			
-			signal TxdGps_i : std_logic;
-			signal RxdGps_i : std_logic;
-			signal UartRxGpsDbg : std_logic;					
 			
 		-- Timing
 		
@@ -1112,112 +1169,6 @@ architecture architecture_Main of Main is
 			signal MosiXO_i : std_logic;
 			signal MisoXO_i : std_logic;
 			
-		-- "The FUN Shit"
-		
-		-- Positioning System - Led's and Optodetectors
-		
-		signal PosSenseHomeA_i : std_logic := '0';
-		signal PosSenseBit0A_i : std_logic := '0';
-		signal PosSenseBit1A_i : std_logic := '0';
-		signal PosSenseBit2A_i : std_logic := '0';
-		signal PosSenseHomeB_i : std_logic := '0';
-		signal PosSenseBit0B_i : std_logic := '0';
-		signal PosSenseBit1B_i : std_logic := '0';
-		signal PosSenseBit2B_i : std_logic := '0';
-	
-		signal LastPosSenseHomeA : std_logic := '0';
-		signal LastPosSenseBit0A : std_logic := '0';
-		signal LastPosSenseBit1A : std_logic := '0';
-		signal LastPosSenseBit2A : std_logic := '0';
-		signal LastPosSenseHomeB : std_logic := '0';
-		signal LastPosSenseBit0B : std_logic := '0';
-		signal LastPosSenseBit1B : std_logic := '0';
-		signal LastPosSenseBit2B : std_logic := '0';
-
-		signal PosSenseA : std_logic_vector(3 downto 0) := "0000";
-		signal PosSenseB : std_logic_vector(3 downto 0) := "0000";
-		signal LastPosSenseA : std_logic_vector(3 downto 0) := "0000";
-		signal LastPosSenseB : std_logic_vector(3 downto 0) := "0000";				
-				
-		signal PosLedsEnA : std_logic := '0';
-		
-		signal PosDetHomeAOnStep : signed(15 downto 0) := x"0000";
-		signal PosDetHomeAOffStep : signed(15 downto 0) := x"0000";
-		signal PosDetA0OnStep : signed(15 downto 0) := x"0000";
-		signal PosDetA0OffStep : signed(15 downto 0) := x"0000";
-		signal PosDetA1OnStep : signed(15 downto 0) := x"0000";
-		signal PosDetA1OffStep : signed(15 downto 0) := x"0000";
-		signal PosDetA2OnStep : signed(15 downto 0) := x"0000";
-		signal PosDetA2OffStep : signed(15 downto 0) := x"0000";
-		
-		signal PosLedsEnB : std_logic := '0';
-		
-		signal PosDetHomeBOnStep : signed(15 downto 0) := x"0000";
-		signal PosDetHomeBOffStep : signed(15 downto 0) := x"0000";
-		signal PosDetB0OnStep : signed(15 downto 0) := x"0000";
-		signal PosDetB0OffStep : signed(15 downto 0) := x"0000";
-		signal PosDetB1OnStep : signed(15 downto 0) := x"0000";
-		signal PosDetB1OffStep : signed(15 downto 0) := x"0000";
-		signal PosDetB2OnStep : signed(15 downto 0) := x"0000";
-		signal PosDetB2OffStep : signed(15 downto 0) := x"0000";
-		
-		signal PosDet0AOnStep : signed(15 downto 0) := x"0000";
-		signal PosDet0AOffStep : signed(15 downto 0) := x"0000";
-		signal PosDet1AOnStep : signed(15 downto 0) := x"0000";
-		signal PosDet1AOffStep : signed(15 downto 0) := x"0000";
-		signal PosDet2AOnStep : signed(15 downto 0) := x"0000";
-		signal PosDet2AOffStep : signed(15 downto 0) := x"0000";
-		signal PosDet3AOnStep : signed(15 downto 0) := x"0000";
-		signal PosDet3AOffStep : signed(15 downto 0) := x"0000";
-		signal PosDet4AOnStep : signed(15 downto 0) := x"0000";
-		signal PosDet4AOffStep : signed(15 downto 0) := x"0000";
-		signal PosDet5AOnStep : signed(15 downto 0) := x"0000";
-		signal PosDet5AOffStep : signed(15 downto 0) := x"0000";
-		signal PosDet6AOnStep : signed(15 downto 0) := x"0000";
-		signal PosDet6AOffStep : signed(15 downto 0) := x"0000";
-		signal PosDet7AOnStep : signed(15 downto 0) := x"0000";
-		signal PosDet7AOffStep : signed(15 downto 0) := x"0000";
-		
-		signal PosDet0BOnStep : signed(15 downto 0) := x"0000";
-		signal PosDet0BOffStep : signed(15 downto 0) := x"0000";
-		signal PosDet1BOnStep : signed(15 downto 0) := x"0000";
-		signal PosDet1BOffStep : signed(15 downto 0) := x"0000";
-		signal PosDet2BOnStep : signed(15 downto 0) := x"0000";
-		signal PosDet2BOffStep : signed(15 downto 0) := x"0000";
-		signal PosDet3BOnStep : signed(15 downto 0) := x"0000";
-		signal PosDet3BOffStep : signed(15 downto 0) := x"0000";
-		signal PosDet4BOnStep : signed(15 downto 0) := x"0000";
-		signal PosDet4BOffStep : signed(15 downto 0) := x"0000";
-		signal PosDet5BOnStep : signed(15 downto 0) := x"0000";
-		signal PosDet5BOffStep : signed(15 downto 0) := x"0000";
-		signal PosDet6BOnStep : signed(15 downto 0) := x"0000";
-		signal PosDet6BOffStep : signed(15 downto 0) := x"0000";
-		signal PosDet7BOnStep : signed(15 downto 0) := x"0000";
-		signal PosDet7BOffStep : signed(15 downto 0) := x"0000";
-		
-		-- Motors
-
-		signal MotorAPlus_i : std_logic := '0';
-		signal MotorAMinus_i : std_logic := '0';
-		signal MotorBPlus_i : std_logic := '0';
-		signal MotorBMinus_i : std_logic := '0';
-
-		--~ signal ShootThruIxnae : std_logic := '0';
-        signal ShootThruIxnaeAPlus : std_logic;
-        signal ShootThruIxnaeAMinus : std_logic;
-        signal ShootThruIxnaeBPlus : std_logic;
-        signal ShootThruIxnaeBMinus : std_logic;
-        --~ signal MotorCurrentStep : std_logic_vector(15 downto 0);
-		signal MotorCurrentStep : signed(15 downto 0);
-		signal MotorStepEdge : std_logic;
-		signal LastMotorStepEdge : std_logic;
-
-
-		constant PushPullHigh : std_logic := '1';
-		constant PushPullGround : std_logic := '0';
-
-		constant OpenDrainOn : std_logic := '0';
-		constant OpenDrainFloat : std_logic := 'Z';
 
 		constant nCsEnabled : std_logic := '0';
 		constant nCsNotEnabled : std_logic := '1';
@@ -1335,14 +1286,25 @@ begin
 		BuildNumber => BuildNumber,
 		
 		--Faults and control
+		nHVEn1 => nHVEn1,
+		HVDis2 => HVDis2,
+		PowernEnHV => PowernEnHV,
+		DacSelectMaxti => DacSelectMaxti,
+		FaultNegV => FaultNegV,
 		Fault1V => Fault1V,
-		Fault3V => Fault3V,
+		Fault2VA => Fault2VA,
+		Fault2VD => Fault2VD,
+		Fault3VA => Fault3VA,
+		Fault3VD => Fault3VD,
 		Fault5V => Fault5V,
-		nFaultClr1V => nFaultClr1V,
-		nFaultClr3V => nFaultClr3V,
-		nFaultClr5V => nFaultClr5V,
-		--~ PowernEn5V => PowernEn5V,
-		PowernEn5V => open,
+		FaultHV => FaultHV,
+		nHVFaultA => nHVFaultA,
+		nHVFaultB => nHVFaultB,
+		nHVFaultC => nHVFaultC,
+		nHVFaultD => nHVFaultD,
+		GlobalFaultInhibit => GlobalFaultInhibit,
+		nFaultsClr => nFaultsClr,
+		PowernEn => PowernEn,
 		PowerCycd => PowerCycd,
 		nPowerCycClr => nPowerCycClr,
 		--~ LedR => LedR,
@@ -1356,87 +1318,31 @@ begin
 		Uart2OE => OE2,
 		Uart3OE => OE3,
 		--~ Ux1SelJmp => Ux1SelJmp,
-		--~ Ux2SelJmp => Ux2SelJmp,
 		Ux1SelJmp => open,
 		Ux2SelJmp => open,
 				
-		--Motor
-		MotorEnable => MotorEnable,        
-		MotorSeekStep => MotorSeekStep,    
-		MotorCurrentStep => MotorCurrentStep,
-		ResetSteps => ResetSteps,          
-		MotorAPlus => MotorAPlus_i,        
-		MotorAMinus => MotorAMinus_i,      
-		MotorBPlus => MotorBPlus_i,        
-		MotorBMinus => MotorBMinus_i,      
-		                                   
-		--Sensors                          
-		PosLedsEnA => PosLEDEnA,          
-		PosLedsEnB => PosLEDEnB,          
-			                  
-		PosSenseHomeA => PosSenseHomeA_i,    
-		PosSenseBit0A => PosSenseBit0A_i,    
-		PosSenseBit1A => PosSenseBit1A_i,    
-		PosSenseBit2A => PosSenseBit2A_i,    
-		PosSenseHomeB => PosSenseHomeB_i,    
-		PosSenseBit0B => PosSenseBit0B_i,    
-		PosSenseBit1B => PosSenseBit1B_i,    
-		PosSenseBit2B => PosSenseBit2B_i,    
-		                                   
-		PosSenseA => PosSenseA,            
-		PosSenseB => PosSenseB,            
-		                                   
-		PosDetHomeAOnStep => PosDetHomeAOnStep,
-		PosDetHomeAOffStep => PosDetHomeAOffStep,
-		PosDetA0OnStep => PosDetA0OnStep,  
-		PosDetA0OffStep => PosDetA0OffStep,
-		PosDetA1OnStep => PosDetA1OnStep,  
-		PosDetA1OffStep => PosDetA1OffStep,
-		PosDetA2OnStep => PosDetA2OnStep,  
-		PosDetA2OffStep => PosDetA2OffStep,
-		                                   
-		PosDetHomeBOnStep => PosDetHomeBOnStep,
-		PosDetHomeBOffStep => PosDetHomeBOffStep,
-		PosDetB0OnStep => PosDetB0OnStep,  
-		PosDetB0OffStep => PosDetB0OffStep,
-		PosDetB1OnStep => PosDetB1OnStep,  
-		PosDetB1OffStep => PosDetB1OffStep,
-		PosDetB2OnStep => PosDetB2OnStep,  
-		PosDetB2OffStep => PosDetB2OffStep,
-		                                   
-		PosDet0AOnStep => PosDet0AOnStep,  
-		PosDet0AOffStep => PosDet0AOffStep,
-		PosDet1AOnStep => PosDet1AOnStep,  
-		PosDet1AOffStep => PosDet1AOffStep,
-		PosDet2AOnStep => PosDet2AOnStep,  
-		PosDet2AOffStep => PosDet2AOffStep,
-		PosDet3AOnStep => PosDet3AOnStep,  
-		PosDet3AOffStep => PosDet3AOffStep,
-		PosDet4AOnStep => PosDet4AOnStep,  
-		PosDet4AOffStep => PosDet4AOffStep,
-		PosDet5AOnStep => PosDet5AOnStep,  
-		PosDet5AOffStep => PosDet5AOffStep,
-		PosDet6AOnStep => PosDet6AOnStep,  
-		PosDet6AOffStep => PosDet6AOffStep,
-		PosDet7AOnStep => PosDet7AOnStep,  
-		PosDet7AOffStep => PosDet7AOffStep,
-		                                   
-		PosDet0BOnStep => PosDet0BOnStep,  
-		PosDet0BOffStep => PosDet0BOffStep,
-		PosDet1BOnStep => PosDet1BOnStep,  
-		PosDet1BOffStep => PosDet1BOffStep,
-		PosDet2BOnStep => PosDet2BOnStep,  
-		PosDet2BOffStep => PosDet2BOffStep,
-		PosDet3BOnStep => PosDet3BOnStep,  
-		PosDet3BOffStep => PosDet3BOffStep,
-		PosDet4BOnStep => PosDet4BOnStep,  
-		PosDet4BOffStep => PosDet4BOffStep,
-		PosDet5BOnStep => PosDet5BOnStep,  
-		PosDet5BOffStep => PosDet5BOffStep,
-		PosDet6BOnStep => PosDet6BOnStep,  
-		PosDet6BOffStep => PosDet6BOffStep,
-		PosDet7BOnStep => PosDet7BOnStep,  
-		PosDet7BOffStep => PosDet7BOffStep,
+		--FSM D/A's
+		DacASetpoint => DacASetpoint,
+		DacBSetpoint => DacBSetpoint,
+		DacCSetpoint => DacCSetpoint,
+		DacDSetpoint => DacDSetpoint,
+		WriteDacs => WriteDacs,
+		DacAReadback => DacAReadback,
+		DacBReadback => DacBReadback,
+		DacCReadback => DacCReadback,
+		DacDReadback => DacDReadback,
+		--~ DacAReadback => DacASetpoint,
+		--~ DacBReadback => DacBSetpoint,
+		--~ DacCReadback => DacCSetpoint--,
+		DacTransferComplete => DacTransferComplete,
+		
+		--FSM A/D's
+		ReadAdcSample => ReadAdcSample,
+		AdcSampleToReadA => AdcSampleToReadA,
+		AdcSampleToReadB => AdcSampleToReadB,
+		AdcSampleToReadC => AdcSampleToReadC,
+		AdcSampleToReadD => AdcSampleToReadD,
+		AdcSampleNumAccums => AdcSampleNumAccums,
 		
 		--Monitor A/D
 		MonitorAdcChannelReadIndex => MonitorAdcChannel,
@@ -1504,31 +1410,18 @@ begin
 		Uart3TxFifoCount => Uart3TxFifoCount,
 		Uart3ClkDivider => Uart3ClkDivider,
 		
-		UartUsbFifoReset => UartUsbFifoReset,
-		ReadUartUsb => ReadUartUsb,
-		UartUsbRxFifoFull => UartUsbRxFifoFull,
-		UartUsbRxFifoEmpty => UartUsbRxFifoEmpty,
-		UartUsbRxFifoData => UartUsbRxFifoData,
-		UartUsbRxFifoCount => UartUsbRxFifoCount,
-		WriteUartUsb => WriteUartUsb,
-		UartUsbTxFifoFull => UartUsbTxFifoFull,
-		UartUsbTxFifoEmpty => UartUsbTxFifoEmpty,
-		UartUsbTxFifoData => UartUsbTxFifoData,
-		UartUsbTxFifoCount => UartUsbTxFifoCount,
-		UartUsbClkDivider => UartUsbClkDivider,
-		
-		UartGpsFifoReset => UartGpsFifoReset,
-		ReadUartGps => ReadUartGps,
-		UartGpsRxFifoFull => UartGpsRxFifoFull,
-		UartGpsRxFifoEmpty => UartGpsRxFifoEmpty,
-		UartGpsRxFifoData => UartGpsRxFifoData,
-		UartGpsRxFifoCount => UartGpsRxFifoCount,
-		WriteUartGps => WriteUartGps,
-		UartGpsTxFifoFull => UartGpsTxFifoFull,
-		UartGpsTxFifoEmpty => UartGpsTxFifoEmpty,
-		UartGpsTxFifoData => UartGpsTxFifoData,
-		UartGpsTxFifoCount => UartGpsTxFifoCount,
-		UartGpsClkDivider => UartGpsClkDivider,
+		UartLabFifoReset => UartLabFifoReset,
+		ReadUartLab => ReadUartLab,
+		UartLabRxFifoFull => UartLabRxFifoFull,
+		UartLabRxFifoEmpty => UartLabRxFifoEmpty,
+		UartLabRxFifoData => UartLabRxFifoData,
+		UartLabRxFifoCount => UartLabRxFifoCount,
+		WriteUartLab => WriteUartLab,
+		UartLabTxFifoFull => UartLabTxFifoFull,
+		UartLabTxFifoEmpty => UartLabTxFifoEmpty,
+		UartLabTxFifoData => UartLabTxFifoData,
+		UartLabTxFifoCount => UartLabTxFifoCount,
+		UartLabClkDivider => UartLabClkDivider,
 				
 		--Timing
 		IdealTicksPerSecond => std_logic_vector(to_unsigned(BoardMasterClockFreq, 32)),
@@ -1541,10 +1434,187 @@ begin
 		ClkDacReadback => ClkDacReadback--,
 	);
 	
+	------------------------------------------ FSM D/A's ---------------------------------------------------
+	
+		IBufFSMDacMisoA : IBufP1Ports port map(clk => MasterClk, I => MosiDacA, O => MisoDacA_i); --No actual Miso on MAX5719, so we're looping back the Mosi signal to see if the bit is stuck on the pcb...
+		IBufFSMDacMisoB : IBufP1Ports port map(clk => MasterClk, I => MosiDacB, O => MisoDacB_i); --No actual Miso on MAX5719, so we're looping back the Mosi signal to see if the bit is stuck on the pcb...
+		IBufFSMDacMisoC : IBufP1Ports port map(clk => MasterClk, I => MosiDacC, O => MisoDacC_i); --No actual Miso on MAX5719, so we're looping back the Mosi signal to see if the bit is stuck on the pcb...
+		IBufFSMDacMisoD : IBufP1Ports port map(clk => MasterClk, I => MosiDacD, O => MisoDacD_i); --No actual Miso on MAX5719, so we're looping back the Mosi signal to see if the bit is stuck on the pcb...
+		
+	--MAX5719 is left-shifted, MSB-first
+	FSMDacs_i : SpiDacTrioPorts
+	generic map 
+	(
+		MASTER_CLOCK_FREQHZ => BoardMasterClockFreq--,
+	)
+	port map 
+	(
+		clk => MasterClk,
+		rst => MasterReset,
+		nCsA => nCsDacA_i,
+		nCsB => nCsDacB_i,
+		nCsC => nCsDacC_i,
+		nCsD => nCsDacD_i,
+		Sck => SckDacs_i,
+		MosiA => MosiDacA_i,
+		MosiB => MosiDacB_i,
+		MosiC => MosiDacC_i,
+		MosiD => MosiDacD_i,
+		MisoA => MisoDacA_i,
+		MisoB => MisoDacB_i,
+		MisoC => MisoDacC_i,
+		MisoD => MisoDacD_i,
+		WriteDac => WriteDacs,
+		DacWriteOutA => DacASetpoint,
+		DacWriteOutB => DacBSetpoint,
+		DacWriteOutC => DacCSetpoint,
+		DacWriteOutD => DacDSetpoint,
+		DacReadbackA => DacAReadback,
+		DacReadbackB => DacBReadback,
+		DacReadbackC => DacCReadback,
+		DacReadbackD => DacDReadback,
+		TransferComplete => DacTransferComplete
+	);
+
+	nCsDacA <= nCsDacA_i;
+	nCsDacB <= nCsDacB_i;
+	nCsDacC <= nCsDacC_i;
+	nCsDacD <= nCsDacD_i;
+	SckDacs <= SckDacs_i;
+	MosiDacA <= MosiDacA_i;
+	MosiDacB <= MosiDacB_i;
+	MosiDacC <= MosiDacC_i;
+	MosiDacD <= MosiDacD_i;
+	
+	--~ UserJmpJstnCse <= nCsDacA_i;
+	--~ TP3 <= SckDacs_i;
+	--~ TP1 <= MosiDacA_i;
+	--~ TP1 <= nLDacs_i;	
+
+	--not(nCs) prolly works, but this is more technically correct:
+	nLDacsOneShot : OneShotPorts
+	generic map (
+		CLOCK_FREQHZ => BoardMasterClockFreq,
+		--~ DELAY_SECONDS => 0.000000025, --25ns
+		DELAY_SECONDS => 0.00000005, --50ns (MAX5719 specifies 20ns min)
+		SHOT_RST_STATE => '1',
+		SHOT_PRETRIGGER_STATE => '1' --This is gonna hold nLDac low until the next SPI cycle, which doesn't look like the pic in the datasheet, but it doesn't say we can't, since the falling edge is what matters...ideally we'd toggle it back on the Rising edge of WriteDac at the very beginning, but we can sort the brass tacks later...
+	)
+	port map (	
+		clk => MasterClk,
+		rst => not(nCsDacA_i),
+		shot => nLDacs_i
+	);
+
+	nLDacs <= nLDacs_i;
+	
+	--~ TP1_i <= nCsDacA_i;
+	--~ TP2_i <= nLDacs_i;
+	--~ TP2_i <= MosiDacA_i;
+	--~ TP2_i <= RamBusWE;
+	--~ TP3_i <= SckDacs_i;
+	--~ TP3_i <= WriteDacs;
+	--~ TP4_i <= MisoDacA_i;
+	--~ TP4_i <= WriteAck;
+	--~ TP4_i <= RamBusData_in(0);
+	
+	----------------------------- A/D's ----------------------------------
+	
+	ChopRef : out std_logic;
+	ChopAdcs : out std_logic;
+	
+			
+		IBufSarAdcnDrdyA : IBufP2Ports port map(clk => MasterClk, I => nDrdyAdcA, O => nDrdyAdcA_i);
+		IBufSarAdcnDrdyB : IBufP2Ports port map(clk => MasterClk, I => nDrdyAdcB, O => nDrdyAdcB_i);
+		IBufSarAdcnDrdyC : IBufP2Ports port map(clk => MasterClk, I => nDrdyAdcC, O => nDrdyAdcC_i);
+		IBufSarAdcnDrdyC : IBufP2Ports port map(clk => MasterClk, I => nDrdyAdcD, O => nDrdyAdcD_i);
+
+		IBufSarAdcMisoA : IBufP2Ports port map(clk => MasterClk, I => MisoAdcA, O => MisoAdcA_i);
+		IBufSarAdcMisoB : IBufP2Ports port map(clk => MasterClk, I => MisoAdcB, O => MisoAdcB_i);
+		IBufSarAdcMisoC : IBufP2Ports port map(clk => MasterClk, I => MisoAdcC, O => MisoAdcC_i);
+		IBufSarAdcMisoC : IBufP2Ports port map(clk => MasterClk, I => MisoAdcD, O => MisoAdcD_i);
+	
+	ltc2378 : Ltc2378AccumTrioPorts
+	port map
+	(
+		clk => MasterClk,
+		rst => MasterReset,
+		Trigger => TrigSyncAdcs_i,
+		nDrdyA => nDrdyAdcA_i,
+		nDrdyB => nDrdyAdcB_i,
+		nDrdyC => nDrdyAdcC_i,
+		nDrdyD => nDrdyAdcD_i,
+		Sck => SckAdcs_i,
+		MisoA => MisoAdcA_i,
+		MisoB => MisoAdcB_i,
+		MisoC => MisoAdcC_i,
+		MisoD => MisoAdcD_i,
+		nCsA => nCsAdcA_i,
+		nCsB => nCsAdcB_i,
+		nCsC => nCsAdcC_i,
+		nCsD => nCsAdcD_i,
+		OverRangeA => open,
+		OverRangeB => open,
+		OverRangeC => open,
+		AdcPowerDown => '0',
+		--~ AdcClkDivider => x"002F", --1MHz
+		--~ AdcClkDivider => x"05DC", --32kHz
+		AdcClkDivider => x"0FFF", --32kHz
+		--~ SamplesToAverage => x"03FF",		
+		SamplesToAverage => x"0001",		
+		ChopperEnable => '0',
+		ChopperMuxPos => CMuxPosAClkAdcs,
+		ChopperMuxNeg => CMuxNegPwrDnAdcs,
+		ReadAdcSample  => ReadAdcSample,
+		AdcSampleToReadA => AdcSampleToReadA,
+		AdcSampleToReadB => AdcSampleToReadB,
+		AdcSampleToReadC => AdcSampleToReadC,
+		AdcSampleToReadD => AdcSampleToReadD,
+		AdcSampleNumAccums => AdcSampleNumAccums,
+		--~ TP1 => TP1_i,
+		--~ TP2 => TP2_i,
+		--~ TP3 => TP3_i,
+		--~ TP4 => TP4_i--,		
+		TP1 => open,
+		TP2 => open,
+		TP3 => open,
+		TP4 => open--,		
+	);
+
+	--Map the other A/D signals to the actual pins:
+	MosiAdcA <= '0';
+	MosiAdcB <= '0';
+	MosiAdcC <= '0';
+	MosiAdcD <= '0';
+	TrigSyncAdcs <= TrigSyncAdcs_i;
+	nCsAdcA <= nCsAdcA_i;
+	nCsAdcB <= nCsAdcB_i;
+	nCsAdcC <= nCsAdcC_i;
+	nCsAdcD <= nCsAdcD_i;
+	SckAdcs <= SckAdcs_i;
+		
+	--To test between fpga & A/D:
+	--~ TP1_i <= TrigSyncAdcs_i;
+	--~ TP2_i <= nDrdyAdcA_i;
+	--~ TP3_i <= nCsAdcA_i;
+	--~ TP4_i <= SckAdcs_i;
+	--~ TP8_i <= SarAdcMiso_i;	
+	--~ TP5_i <= MisoAdcA_i;
+	--~ TP6_i <= MisoAdcB_i;
+	--~ TP7_i <= MisoAdcC_i;
+	--~ TP8_i <= ReadAdcSample;
+	
+	--To test between fpga & uC:
+	--~ TP8_i <= SarReadAdcSample;
+	--~ TP4_i <= SarAdcSampleReadAck;
+	--~ TP5_i <= SarFifoAdcSample(0);
+	
 	----------------------------------------------------------------Monitor A/D--------------------------------------------------------------------
 			
-	IBufnDrdyAdc : IBufP3Ports port map(clk => MasterClk, I => nDrdyMonAdc0, O => nDrdyMonitorAdc_i); --if you want to change the pin for this chip select, it's here
-	IBufMisoAdc : IBufP3Ports port map(clk => MasterClk, I => MisoMonAdc0, O => MisoMonitorAdc_i); --if you want to change the pin for this chip select, it's here
+	IBufnDrdyAdc0 : IBufP3Ports port map(clk => MasterClk, I => nDrdyMonAdc0, O => nDrdyMonitorAdc0_i); --if you want to change the pin for this chip select, it's here
+	IBufMisoAdc0 : IBufP3Ports port map(clk => MasterClk, I => MisoMonAdc0, O => MisoMonitorAdc0_i); --if you want to change the pin for this chip select, it's here
+	IBufnDrdyAdc1 : IBufP3Ports port map(clk => MasterClk, I => nDrdyMonAdc1, O => nDrdyMonitorAdc1_i); --if you want to change the pin for this chip select, it's here
+	IBufMisoAdc1 : IBufP3Ports port map(clk => MasterClk, I => MisoMonAdc1, O => MisoMonitorAdc1_i); --if you want to change the pin for this chip select, it's here
 	
 	--~ --Decodes the A/D data into a buffer and creates timing signals to manage fifos
 	--~ ads1258 : ads1258Ports
@@ -1582,7 +1652,7 @@ begin
 		--~ AdcSampleToRead => MonitorAdcSampleToRead--,
 	--~ );
 	
-	ads1258 : SpiDevicePorts
+	ads1258 : SpiDeviceDualPorts
 	generic map 
 	(
 		--~ CLOCK_DIVIDER => 16,
@@ -2093,7 +2163,7 @@ begin
 	
 
 	
-	--~ UartUsbBitClockDiv : VariableClockDividerPorts
+	--~ UartLabBitClockDiv : VariableClockDividerPorts
 	--~ generic map
 	--~ (
 		--~ WIDTH_BITS => 8,
@@ -2105,13 +2175,13 @@ begin
 		--~ clki => UartClk,
 		--~ rst => MasterReset,
 		--~ rst_count => x"00",
-		--~ --terminal_count => UartUsbClkDivider,
+		--~ --terminal_count => UartLabClkDivider,
 		--~ terminal_count => std_logic_vector(to_unsigned(natural((real(153000000) / ( real(115200) * 16.0)) - 1.0), 8)),
-		--~ clko => UartClkUsb
+		--~ clko => UartClkLab
 	--~ );
 	
-	--We're hardcoding Usb to 115,200 bps so we have a reachable benchtest...
-	UartUsbRxBitClockDiv : ClockDividerPorts
+	--We're hardcoding Lab to 115,200 bps so we have a reachable benchtest...
+	UartLabRxBitClockDiv : ClockDividerPorts
 	generic map
 	(
 		CLOCK_DIVIDER => natural((real(102000000) / ( real(115200) * 16.0)) - 1.0),
@@ -2122,10 +2192,10 @@ begin
 	(
 		clk => UartClk,
 		rst => MasterReset,
-		div => UartClkUsb
+		div => UartClkLab
 	);
 	
-	UartUsbTxBitClockDiv : ClockDividerPorts
+	UartLabTxBitClockDiv : ClockDividerPorts
 	generic map
 	(
 		CLOCK_DIVIDER => 16,
@@ -2134,215 +2204,103 @@ begin
 	)
 	port map
 	(
-		clk => UartClkUsb,
+		clk => UartClkLab,
 		rst => MasterReset,
-		div => UartTxClkUsb
+		div => UartTxClkLab
 	);
 	
-	--~ Ux1SelJmp <= UartClkUsb;
+	--~ Ux1SelJmp <= UartClkLab;
 	
-	IBufRxdUsb : IBufP3Ports port map(clk => UartClk, I => TxdUsb, O => RxdUsb_i); --if you want to change the pin for this chip select, it's here
+	IBufRxdLab : IBufP3Ports port map(clk => UartClk, I => TxdLab, O => RxdLab_i); --if you want to change the pin for this chip select, it's here
 	
-	--~ TP2 <= RxdUsb_i;
-	--~ LedB <= not(TxdUsb);
+	--~ TP2 <= RxdLab_i;
+	--~ LedB <= not(TxdLab);
 	
-	--~ Ux1SelJmp <= RxdUsb;
+	--~ Ux1SelJmp <= RxdLab;
 	
-	RxdUsb_RxUsb : UartRxFifoExtClk
+	RxdLab_RxLab : UartRxFifoExtClk
 	generic map
 	(
 		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
 		FIFO_BITS => 10--,
 		--~ BAUD_DIVIDER_BITS => 8--,
-		--~ BAUDRATE => 1Usb500000--,
+		--~ BAUDRATE => 1Lab500000--,
 		--~ BAUDRATE => 8000000--,
-		--~ BAUDRATE => BoardMasterClockFreq / 16--, --9.Usb16MHz
-		--~ BAUDRATE => BoardMasterClockFreq / 819Usb--,
-		--~ BAUDRATE => 115Usb00--,
+		--~ BAUDRATE => BoardMasterClockFreq / 16--, --9.Lab16MHz
+		--~ BAUDRATE => BoardMasterClockFreq / 819Lab--,
+		--~ BAUDRATE => 115Lab00--,
 	)
 	port map
 	(
 		clk => MasterClk,
-		uclk => UartClkUsb,
-		rst => UartUsbFifoReset_i,
-		--~ BaudDivider => UartUsbClkDivider,
-		Rxd => RxdUsb_i,
+		uclk => UartClkLab,
+		rst => UartLabFifoReset_i,
+		--~ BaudDivider => UartLabClkDivider,
+		Rxd => RxdLab_i,
 		--~ Dbg1 => TP4,
 		--~ RxComplete => TP3,
 		Dbg1 => open,
 		RxComplete => open,
-		ReadFifo => ReadUartUsb,
-		FifoFull => UartUsbRxFifoFull,
-		FifoEmpty => UartUsbRxFifoEmpty,
-		FifoReadData => UartUsbRxFifoData,
-		FifoCount => UartUsbRxFifoCount,
+		ReadFifo => ReadUartLab,
+		FifoFull => UartLabRxFifoFull,
+		FifoEmpty => UartLabRxFifoEmpty,
+		FifoReadData => UartLabRxFifoData,
+		FifoCount => UartLabRxFifoCount,
 		FifoReadAck => open--,		
 	);
 	
-	--~ CtsUsb <= UartUsbRxFifoFull; --polarity??
-	CtsUsb <= '1';
+	--~ CtsLab <= UartLabRxFifoFull; --polarity??
+	CtsLab <= '1';
 	
-	RS4UsbUsb_TxUsb : UartTxFifoExtClk
-	--~ RS4UsbUsb_TxUsb : UartTxFifo
+	RS4LabLab_TxLab : UartTxFifoExtClk
+	--~ RS4LabLab_TxLab : UartTxFifo
 	generic map
 	(
 		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
 		--~ FIFO_BITS => 10,
 		FIFO_BITS => 10--,
 		--~ BAUD_DIVIDER_BITS => 8--,
-		--~ BAUDRATE => 1Usb500000--,
+		--~ BAUDRATE => 1Lab500000--,
 		--~ BAUDRATE => 8000000--,
-		--~ BAUDRATE => BoardMasterClockFreq / 16--, --9.Usb16MHz
-		--~ BAUDRATE => BoardMasterClockFreq / 819Usb--,
-		--~ BAUDRATE => 115Usb00--,
+		--~ BAUDRATE => BoardMasterClockFreq / 16--, --9.Lab16MHz
+		--~ BAUDRATE => BoardMasterClockFreq / 819Lab--,
+		--~ BAUDRATE => 115Lab00--,
 	)
 	port map
 	(
 		clk => MasterClk,
 		--~ uclk => MasterClk,
-		uclk => UartTxClkUsb,
-		rst => UartUsbFifoReset_i,
-		--~ BaudDivider => UartUsbClkDivider,
+		uclk => UartTxClkLab,
+		rst => UartLabFifoReset_i,
+		--~ BaudDivider => UartLabClkDivider,
 		BitClockOut => open,
 		--~ BitClockOut => Ux1SelJmp,		
 		BitCountOut => TxdUartBitCount,
-		WriteStrobe => WriteUartUsb,
-		WriteData => UartUsbTxFifoData,
-		FifoFull => UartUsbTxFifoFull,
-		FifoEmpty => UartUsbTxFifoEmpty,
-		FifoCount => UartUsbTxFifoCount,
+		WriteStrobe => WriteUartLab,
+		WriteData => UartLabTxFifoData,
+		FifoFull => UartLabTxFifoFull,
+		FifoEmpty => UartLabTxFifoEmpty,
+		FifoCount => UartLabTxFifoCount,
 		TxInProgress => open,
 		--~ TxInProgress => TP3,		
-		Cts => '0', --RtsUsb in this case, ignore cause the computer can pretty much alwyays keep up
-		Txd => TxdUsb_i--,
+		Cts => '0', --RtsLab in this case, ignore cause the computer can pretty much alwyays keep up
+		Txd => TxdLab_i--,
 		--~ Txd => open--,
 	);
-	RxdUsb <= TxdUsb_i;
+	RxdLab <= TxdLab_i;
 	
-	Ux1SelJmp <= not(TxdUsb_i);
-	--~ TP8 <= TxdUsb_i;
+	Ux1SelJmp <= not(TxdLab_i);
+	--~ TP8 <= TxdLab_i;
 	
-	--~ LedR <= not(TxdUsb_i);
-	--~ TP1 <= TxdUsb_i;
+	--~ LedR <= not(TxdLab_i);
+	--~ TP1 <= TxdLab_i;
 	
 	--Debug monitors
-	--~ TxdUsb <= Txd0_i;
+	--~ TxdLab <= Txd0_i;
 	--~ Txd1 <= Rxd0_i;
 	
 	--Mux master reset (boot) and user reset (datamapper)
-	UartUsbFifoReset_i <= MasterReset or UartUsbFifoReset;
-	
-	
-	
-	
-	
-	--Gps is hardcoded to 9600 bps
-	UartGpsRxBitClockDiv : ClockDividerPorts
-	generic map
-	(
-		CLOCK_DIVIDER => natural((real(102000000) / ( real(9600) * 16.0)) - 1.0),
-		DIVOUT_RST_STATE => '0'--;
-	)
-	port map
-	(
-		clk => UartClk,
-		rst => MasterReset,
-		div => UartClkGps
-	);
-	
-	UartGpsTxBitClockDiv : ClockDividerPorts
-	generic map
-	(
-		CLOCK_DIVIDER => 16,
-		--~ CLOCK_DIVIDER => 8, --8 not 16 cause has to be rising edge of clk for each state so intrinsic /2
-		DIVOUT_RST_STATE => '0'--;
-	)
-	port map
-	(
-		clk => UartClkGps,
-		rst => MasterReset,
-		div => UartTxClkGps
-	);
-	
-	--~ Ux1SelJmp <= UartClkGps;
-	
-	IBufRxdGps : IBufP3Ports port map(clk => UartClk, I => RxdGps, O => RxdGps_i); --if you want to change the pin for this chip select, it's here
-	
-	--~ TP2 <= RxdGps_i;
-	--~ LedB <= not(TxdGps);
-	
-	--~ Ux1SelJmp <= RxdGps;
-	
-	RxdGps_RxGps : UartRxFifoExtClk
-	generic map
-	(
-		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
-		FIFO_BITS => 10--,
-		--~ BAUD_DIVIDER_BITS => 8--,
-		--~ BAUDRATE => 1Gps500000--,
-		--~ BAUDRATE => 8000000--,
-		--~ BAUDRATE => BoardMasterClockFreq / 16--, --9.Gps16MHz
-		--~ BAUDRATE => BoardMasterClockFreq / 819Gps--,
-		--~ BAUDRATE => 115Gps00--,
-	)
-	port map
-	(
-		clk => MasterClk,
-		uclk => UartClkGps,
-		rst => UartGpsFifoReset_i,
-		--~ BaudDivider => UartGpsClkDivider,
-		Rxd => RxdGps_i,
-		--~ Dbg1 => TP4,
-		--~ RxComplete => TP3,
-		Dbg1 => open,
-		RxComplete => open,
-		ReadFifo => ReadUartGps,
-		FifoFull => UartGpsRxFifoFull,
-		FifoEmpty => UartGpsRxFifoEmpty,
-		FifoReadData => UartGpsRxFifoData,
-		FifoCount => UartGpsRxFifoCount,
-		FifoReadAck => open--,		
-	);
-	
-	RS4GpsGps_TxGps : UartTxFifoExtClk
-	--~ RS4GpsGps_TxGps : UartTxFifo
-	generic map
-	(
-		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
-		--~ FIFO_BITS => 10,
-		FIFO_BITS => 10--,
-		--~ BAUD_DIVIDER_BITS => 8--,
-		--~ BAUDRATE => 1Gps500000--,
-		--~ BAUDRATE => 8000000--,
-		--~ BAUDRATE => BoardMasterClockFreq / 16--, --9.Gps16MHz
-		--~ BAUDRATE => BoardMasterClockFreq / 819Gps--,
-		--~ BAUDRATE => 115Gps00--,
-	)
-	port map
-	(
-		clk => MasterClk,
-		--~ uclk => MasterClk,
-		uclk => UartTxClkGps,
-		rst => UartGpsFifoReset_i,
-		--~ BaudDivider => UartGpsClkDivider,
-		BitClockOut => open,
-		--~ BitClockOut => Ux1SelJmp,		
-		BitCountOut => open,
-		WriteStrobe => WriteUartGps,
-		WriteData => UartGpsTxFifoData,
-		FifoFull => UartGpsTxFifoFull,
-		FifoEmpty => UartGpsTxFifoEmpty,
-		FifoCount => UartGpsTxFifoCount,
-		TxInProgress => open,
-		--~ TxInProgress => TP3,		
-		Cts => '0', --RtsGps in this case, ignore cause the computer can pretty much alwyays keep up
-		Txd => TxdGps_i--,
-		--~ Txd => open--,
-	);
-	TxdGps <= TxdGps_i;
-	
-	--Mux master reset (boot) and user reset (datamapper)
-	UartGpsFifoReset_i <= MasterReset or UartGpsFifoReset;
+	UartLabFifoReset_i <= MasterReset or UartLabFifoReset;
 	
 	--~ TP1 <= RxdUsb_i;
 	--~ TP2 <= UartClkUsb;
@@ -2452,103 +2410,6 @@ begin
 	
 	PowerSync <= '1';
 	--~ PowerSyncClockDivider : ClockDividerPorts generic map(CLOCK_DIVIDER => 96, DIVOUT_RST_STATE => '0') port map(clk => MasterClk, rst => MasterReset, div => PowerSync);
-
-	----------------------------- H-Bridge ----------------------------------
-	
-	--ShootThruIxnae is a 100nsec pulse reset & initiated by either edge of period; thus we must also gate on (Period_i = LastPeriod) to avoid a one-clock glitch while ShootThruIxnae is being reset
-	  
-	--"Prime" signals are the high-side FETs in the H-bridge and due to complex drive circuits take much longer to turn on and turn off! Therefore we wanna take our sweet time turning on the low-side drivers!
-	
-	--~ --just use the 100MHz clock: that's 10nsec, which is a 'long' time
-	--~ ShootThruIxnae <= MasterClk;
-	
-	--SiCFETs show maybe 25nsec for transistion time, others are probably alot worse - use a clock divider to get 100nsec-type delays...
-	ShootThruIxnaeOneShotAPlus : OneShotPorts
-	generic map (
-		CLOCK_FREQHZ => BoardMasterClockFreq,
-		DELAY_SECONDS => 0.0010,
-		SHOT_RST_STATE => '0',
-		SHOT_PRETRIGGER_STATE => '0'--,
-	)
-	port map (	
-		clk => MasterClk,
-		rst => not(MotorAPlus_i), 
-		shot => ShootThruIxnaeAPlus
-	);
-	ShootThruIxnaeOneShotAMinus : OneShotPorts
-	generic map (
-		CLOCK_FREQHZ => BoardMasterClockFreq,
-		DELAY_SECONDS => 0.0010,
-		SHOT_RST_STATE => '0',
-		SHOT_PRETRIGGER_STATE => '0'--,
-	)
-	port map (	
-		clk => MasterClk,
-		rst => not(MotorAMinus_i), 
-		shot => ShootThruIxnaeAMinus
-	);
-	ShootThruIxnaeOneShotBPlus : OneShotPorts
-	generic map (
-		CLOCK_FREQHZ => BoardMasterClockFreq,
-		DELAY_SECONDS => 0.0010,
-		SHOT_RST_STATE => '0',
-		SHOT_PRETRIGGER_STATE => '0'--,
-	)
-	port map (	
-		clk => MasterClk,
-		rst => not(MotorBPlus_i), 
-		shot => ShootThruIxnaeBPlus
-	);
-	ShootThruIxnaeOneShotBMinus : OneShotPorts
-	generic map (
-		CLOCK_FREQHZ => BoardMasterClockFreq,
-		DELAY_SECONDS => 0.0010,
-		SHOT_RST_STATE => '0',
-		SHOT_PRETRIGGER_STATE => '0'--,
-	)
-	port map (	
-		clk => MasterClk,
-		rst => not(MotorBMinus_i), 
-		shot => ShootThruIxnaeBMinus
-	);
-
-	StepperMotor : FourWireStepperMotorDriverPorts
-	generic map (
-		CLOCK_FREQHZ => BoardMasterClockFreq,
-		MOTOR_STEP_SECONDS => 0.0100	--;
-	)
-	port map (	
-	
-		clk => MasterClk,
-		rst => ResetSteps,		
-	
-		--inputs
-		SeekStep => MotorSeekStep,
-		
-		--outputs
-		CurrentStep => MotorCurrentStep,
-		MotorStepEdge => MotorStepEdge,
-		
-		--outputs
-		MotorAPlus => MotorAPlus_i,
-		MotorAMinus => MotorAMinus_i,
-		MotorBPlus => MotorBPlus_i,
-		MotorBMinus => MotorBMinus_i--,
-	);
-
-	--Low-side FETs
-	MotorDriveAPlus <= PushPullHigh when ( (MotorEnable = '1') and (MotorAPlus_i = '1') and (ShootThruIxnaeAPlus = '1') ) else PushPullGround;
-	MotorDriveAMinus <= PushPullHigh when ( (MotorEnable = '1') and (MotorAMinus_i = '1') and (ShootThruIxnaeAMinus = '1') ) else PushPullGround;
-	MotorDriveBPlus <= PushPullHigh when ( (MotorEnable = '1') and (MotorBPlus_i = '1') and (ShootThruIxnaeBPlus = '1') ) else PushPullGround;
-	MotorDriveBMinus <= PushPullHigh when ( (MotorEnable = '1') and (MotorBMinus_i = '1') and (ShootThruIxnaeBMinus = '1') ) else PushPullGround;
-	
-	--High-side FETs
-	MotorDriveAPlusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorAPlus_i = '1') and (ShootThruIxnaeAPlus = '1') ) else PushPullGround;
-	MotorDriveAMinusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorAMinus_i = '1') and (ShootThruIxnaeAMinus = '1') ) else PushPullGround;
-	MotorDriveBPlusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorBPlus_i = '1') and (ShootThruIxnaeBPlus = '1') ) else PushPullGround;
-	MotorDriveBMinusPrime <= PushPullHigh when ( (MotorEnable = '1') and (MotorBMinus_i = '1') and (ShootThruIxnaeBMinus = '1') ) else PushPullGround;
-	
-	--~ LedG <= MotorSeekStep(7);
 	
 	----------------------------- DEBUG IDEAS ----------------------------------
 	
@@ -2566,24 +2427,6 @@ begin
 		--~ LedG <= not(PosSenseBit1A);
 		--~ LedB <= not(PosSenseBit2A);
 		
-		LedR <= not(PosSenseBit0A);
-		LedG <= not(PosSenseBit1A);
-		LedB <= not(PosSenseBit2A);
-		--~ LedR <= not(RxdUsb_i);
-		--~ LedG <= '0';
-		--~ LedB <= not(TxdUsb_i);
-		
-		TP1 <= not(PosSenseHomeA);
-		TP2 <= not(PosSenseBit0A); --msb
-		TP3 <= not(PosSenseBit1A);
-		TP4 <= not(PosSenseBit2A); --lsb
-		TP5 <= not(PosSenseHomeB);
-		TP6 <= not(PosSenseBit0B); --msb
-		--~ TP7 <= not(PosSenseBit1B);
-		--~ TP8 <= not(PosSenseBit2B); --lsb
-		TP7 <= TxdUsb;
-		TP8 <= RxdUsb_i;
-		
 		--~ TP1 <= RamBusnCs;
 		--~ TP2 <= RamBusWrnRd;
 		--~ TP3 <= RamBusDataIn(0);
@@ -2599,20 +2442,6 @@ begin
 			
 	----------------------------- Clocked Logic / Main Loop ----------------------------------
 	
-	--Uhhhh, we gonna need to remap these to keep from losing our minds since we made some really bad assumptions about the mechanicals initially (we can fix the cable and this code later)...
-	
-	PosSenseHomeA_i <= PosSenseBit2A;
-	PosSenseBit0A_i <= PosSenseHomeA;
-	PosSenseBit1A_i <= PosSenseBit0A;
-	PosSenseBit2A_i <= PosSenseBit1A;
-	PosSenseHomeB_i <= PosSenseBit2B;
-	PosSenseBit0B_i <= PosSenseHomeB;
-	PosSenseBit1B_i <= PosSenseBit0B;
-	PosSenseBit2B_i <= PosSenseBit1B;
-	
-	PosSenseA <= PosSenseBit2A_i & PosSenseBit1A_i & PosSenseBit0A_i & PosSenseHomeA_i;
-	PosSenseB <= PosSenseBit2B_i & PosSenseBit1B_i & PosSenseBit0B_i & PosSenseHomeB_i;
-	
 	process(MasterReset, MasterClk)
 	begin
 	
@@ -2624,164 +2453,6 @@ begin
 		else
 		
 			if ( (MasterClk'event) and (MasterClk = '1') ) then
-			
-				--Run position detector logic:
-			
-				if (ResetSteps = '1') then
-				
-					PosDetHomeAOnStep <= x"0000";
-					PosDetHomeAOffStep <= x"0000";
-					PosDetA0OnStep <= x"0000";
-					PosDetA0OffStep <= x"0000";
-					PosDetA1OnStep <= x"0000";
-					PosDetA1OffStep <= x"0000";
-					PosDetA2OnStep <= x"0000";
-					PosDetA2OffStep <= x"0000";
-
-					PosDetHomeBOnStep <= x"0000";
-					PosDetHomeBOffStep <= x"0000";
-					PosDetB0OnStep <= x"0000";
-					PosDetB0OffStep <= x"0000";
-					PosDetB1OnStep <= x"0000";
-					PosDetB1OffStep <= x"0000";
-					PosDetB2OnStep <= x"0000";
-					PosDetB2OffStep <= x"0000";
-				
-					PosDet0AOnStep <= x"0000"; 
-					PosDet1AOnStep <= x"0000";
-					PosDet2AOnStep <= x"0000";
-					PosDet3AOnStep <= x"0000";
-					PosDet4AOnStep <= x"0000";
-					PosDet5AOnStep <= x"0000";
-					PosDet6AOnStep <= x"0000";
-					PosDet7AOnStep <= x"0000";
-
-					PosDet0AOffStep <= x"0000";
-					PosDet1AOffStep <= x"0000";
-					PosDet2AOffStep <= x"0000";
-					PosDet3AOffStep <= x"0000";
-					PosDet4AOffStep <= x"0000";
-					PosDet5AOffStep <= x"0000";
-					PosDet6AOffStep <= x"0000";
-					PosDet7AOffStep <= x"0000";
-
-					PosDet0BOnStep <= x"0000";
-					PosDet1BOnStep <= x"0000";
-					PosDet2BOnStep <= x"0000";
-					PosDet3BOnStep <= x"0000";
-					PosDet4BOnStep <= x"0000";
-					PosDet5BOnStep <= x"0000";
-					PosDet6BOnStep <= x"0000";
-					PosDet7BOnStep <= x"0000";
-
-					PosDet0BOffStep <= x"0000";
-					PosDet1BOffStep <= x"0000";
-					PosDet2BOffStep <= x"0000";
-					PosDet3BOffStep <= x"0000";
-					PosDet4BOffStep <= x"0000";
-					PosDet5BOffStep <= x"0000";
-					PosDet6BOffStep <= x"0000";
-					PosDet7BOffStep <= x"0000";
-				
-				else
-				
-					if (MotorStepEdge /= LastMotorStepEdge) then
-					
-						LastMotorStepEdge <= MotorStepEdge;
-						
-						if (MotorStepEdge = '1') then
-							
-							if (LastPosSenseHomeA /= PosSenseHomeA_i) then LastPosSenseHomeA <= PosSenseHomeA_i; if (PosSenseHomeA_i = '0') then PosDetHomeAOnStep <= MotorCurrentStep; else PosDetHomeAOffStep <= MotorCurrentStep; end if; end if;
-							if (LastPosSenseBit0A /= PosSenseBit0A_i) then LastPosSenseBit0A <= PosSenseBit0A_i; if (PosSenseBit0A_i = '0') then PosDetA0OnStep <= MotorCurrentStep; else PosDetA0OffStep <= MotorCurrentStep; end if; end if;
-							if (LastPosSenseBit1A /= PosSenseBit1A_i) then LastPosSenseBit1A <= PosSenseBit1A_i; if (PosSenseBit1A_i = '0') then PosDetA1OnStep <= MotorCurrentStep; else PosDetA1OffStep <= MotorCurrentStep; end if; end if;
-							if (LastPosSenseBit2A /= PosSenseBit2A_i) then LastPosSenseBit2A <= PosSenseBit2A_i; if (PosSenseBit2A_i = '0') then PosDetA2OnStep <= MotorCurrentStep; else PosDetA2OffStep <= MotorCurrentStep; end if; end if;
-							
-							if (LastPosSenseHomeB /= PosSenseHomeB_i) then LastPosSenseHomeB <= PosSenseHomeB_i; if (PosSenseHomeB_i = '0') then PosDetHomeBOnStep <= MotorCurrentStep; else PosDetHomeBOffStep <= MotorCurrentStep; end if; end if;
-							if (LastPosSenseBit0B /= PosSenseBit0B_i) then LastPosSenseBit0B <= PosSenseBit0B_i; if (PosSenseBit0B_i = '0') then PosDetB0OnStep <= MotorCurrentStep; else PosDetB0OffStep <= MotorCurrentStep; end if; end if;
-							if (LastPosSenseBit1B /= PosSenseBit1B_i) then LastPosSenseBit1B <= PosSenseBit1B_i; if (PosSenseBit1B_i = '0') then PosDetB1OnStep <= MotorCurrentStep; else PosDetB1OffStep <= MotorCurrentStep; end if; end if;
-							if (LastPosSenseBit2B /= PosSenseBit2B_i) then LastPosSenseBit2B <= PosSenseBit2B_i; if (PosSenseBit2B_i = '0') then PosDetB2OnStep <= MotorCurrentStep; else PosDetB2OffStep <= MotorCurrentStep; end if; end if;
-						
-							if (LastPosSenseA /= PosSenseA) then
-							
-								LastPosSenseA <= PosSenseA;
-								
-								--~ if (LastPosSenseA = "1111") then
-								
-									case PosSenseA is
-										
-										when "1110" => PosDet0AOnStep <= MotorCurrentStep; 
-										when "1101" => PosDet1AOnStep <= MotorCurrentStep;
-										when "1011" => PosDet2AOnStep <= MotorCurrentStep;
-										when "1001" => PosDet3AOnStep <= MotorCurrentStep;
-										when "0111" => PosDet4AOnStep <= MotorCurrentStep;
-										when "0101" => PosDet5AOnStep <= MotorCurrentStep;
-										when "0011" => PosDet6AOnStep <= MotorCurrentStep;
-										when "0001" => PosDet7AOnStep <= MotorCurrentStep;
-										when others =>
-										
-									end case;
-									
-								--~ end if;
-								
-								--~ if (PosSenseA = "1111") then
-								
-									case LastPosSenseA is
-										
-										when "1110" => PosDet0AOffStep <= MotorCurrentStep; 
-										when "1101" => PosDet1AOffStep <= MotorCurrentStep;
-										when "1011" => PosDet2AOffStep <= MotorCurrentStep;
-										when "1001" => PosDet3AOffStep <= MotorCurrentStep;
-										when "0111" => PosDet4AOffStep <= MotorCurrentStep;
-										when "0101" => PosDet5AOffStep <= MotorCurrentStep;
-										when "0011" => PosDet6AOffStep <= MotorCurrentStep;
-										when "0001" => PosDet7AOffStep <= MotorCurrentStep;
-										when others =>
-										
-									end case;
-									
-								--~ end if;
-								
-							end if;
-							
-							if (LastPosSenseB /= PosSenseB) then
-							
-								LastPosSenseB <= PosSenseB;
-								
-								case PosSenseB is
-									
-									when "1110" => PosDet0BOnStep <= MotorCurrentStep; 
-									when "1101" => PosDet1BOnStep <= MotorCurrentStep;
-									when "1011" => PosDet2BOnStep <= MotorCurrentStep;
-									when "1001" => PosDet3BOnStep <= MotorCurrentStep;
-									when "0111" => PosDet4BOnStep <= MotorCurrentStep;
-									when "0101" => PosDet5BOnStep <= MotorCurrentStep;
-									when "0011" => PosDet6BOnStep <= MotorCurrentStep;
-									when "0001" => PosDet7BOnStep <= MotorCurrentStep;
-									when others =>
-									
-								end case;
-								
-								case LastPosSenseB is
-									
-									when "1110" => PosDet0BOffStep <= MotorCurrentStep; 
-									when "1101" => PosDet1BOffStep <= MotorCurrentStep;
-									when "1011" => PosDet2BOffStep <= MotorCurrentStep;
-									when "1001" => PosDet3BOffStep <= MotorCurrentStep;
-									when "0111" => PosDet4BOffStep <= MotorCurrentStep;
-									when "0101" => PosDet5BOffStep <= MotorCurrentStep;
-									when "0011" => PosDet6BOffStep <= MotorCurrentStep;
-									when "0001" => PosDet7BOffStep <= MotorCurrentStep;
-									when others =>
-									
-								end case;
-								
-							end if;
-							
-						end if;
-						
-					end if;
-						
-				end if;
 				
 			end if;
 			
