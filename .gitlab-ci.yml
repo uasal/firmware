@@ -36,6 +36,17 @@ build-job:
     paths:
       - doxygen
 
+pages:
+    script:
+        - mkdir public
+        - cp -a doxygen/homepage/html/. public/
+    needs:
+        - job: build-job
+          artifacts: true
+    artifacts:
+        paths:
+            - public
+
 # docs-job:
 #   stage: deploy
 #   image: ubuntu:latest
