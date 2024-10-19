@@ -40,6 +40,7 @@ pages:
     script:
         - mkdir public
         - cp -a doxygen/homepage/html/. public/
+        - echo '<html><head><meta http-equiv="refresh" content="0; url=./homepage/html/index.html" /></head><body></body></html>' > public/index.html
     needs:
         - job: build-job
           artifacts: true
