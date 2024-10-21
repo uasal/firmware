@@ -639,7 +639,8 @@ int main(int argc, char *argv[])
     //~ formatf("_end: 0x%.8lX\n", (uint32_t)_end);
     //~ formatf("\n\n");
 
-	formatf("\n\nESC-FW: v%s.b%s; Offset of ControlRegister: 0x%.2lX, expected: 0x%.2lX.", GITVERSION, BUILDNUM, (unsigned long)offsetof(CGraphFWHardwareInterface, ControlRegister), 32UL);
+	//formatf("\n\nESC-FW: v%s.b%s; Offset of ControlRegister: 0x%.2lX, expected: 0x%.2lX.", GITVERSION, BUILDNUM, (unsigned long)offsetof(CGraphFWHardwareInterface, ControlRegister), 32UL);
+    formatf("\n\nESC-FW: Offset of ControlRegister: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, ControlRegister), 32UL);
 	
 	CGraphFWHardwareControlRegister HCR;
 	HCR.PosLedsEnA = 1;

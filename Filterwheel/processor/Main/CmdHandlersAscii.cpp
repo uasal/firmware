@@ -50,11 +50,13 @@ int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsL
 {
 	if (NULL != FW)
 	{
-		formatf("\n\nVersion: Serial Number: %.8X, Global Revision: %s; build number: %u on: %s; fpga build: %u.\n", FW->DeviceSerialNumber, GITVERSION, BuildNum, BuildTimeStr, FW->FpgaFirmwareBuildNumber);
+		//formatf("\n\nVersion: Serial Number: %.8X, Global Revision: %s; build number: %u on: %s; fpga build: %u.\n", FW->DeviceSerialNumber, GITVERSION, BuildNum, BuildTimeStr, FW->FpgaFirmwareBuildNumber);
+		formatf("\n\nVersion: Serial Number: %.8X, Global Revision: %s; build number: %u on: %s; fpga build: %u.\n", FW->DeviceSerialNumber, "n/a", BuildNum, BuildTimeStr, FW->FpgaFirmwareBuildNumber);
 	}
 	else
 	{
-		formatf("\n\nVersion: Global Revision: %s; build number: %u on: %s.\n", GITVERSION, BuildNum, BuildTimeStr);
+		//formatf("\n\nVersion: Global Revision: %s; build number: %u on: %s.\n", GITVERSION, BuildNum, BuildTimeStr);
+	    formatf("\n\nVersion: Global Revision: %s; build number: %u on: %s.\n", "n/a", BuildNum, BuildTimeStr);
 	}
 	
     return(strlen(Params));

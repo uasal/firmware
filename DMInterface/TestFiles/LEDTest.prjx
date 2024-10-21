@@ -49,47 +49,48 @@ LIST REVISIONS
 VALUE="Impl1",NUM=1
 VALUE="Impl2",NUM=2
 VALUE="Impl3",NUM=3
-CURREV=3
+VALUE="Impl4",NUM=4
+CURREV=4
 ENDLIST
 LIST GlobalIncludeFileList
 ENDLIST
 LIST FileManager
 VALUE "<project>/component/Actel/DirectCore/CoreResetP/7.1.100/CoreResetP.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="582"
 PARENT="<project>/component/work/Blink_sb/Blink_sb.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vhdl/core/coreresetp.vhd,hdl"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="75054"
 PARENT="<project>/component/Actel/DirectCore/CoreResetP/7.1.100/CoreResetP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vhdl/core/coreresetp_pcie_hotreset.vhd,hdl"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="9297"
 PARENT="<project>/component/Actel/DirectCore/CoreResetP/7.1.100/CoreResetP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/SgCore/FCCC/2.0.201/FCCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="241"
 PARENT="<project>/component/work/Blink_sb/Blink_sb.cxf"
 PARENT="<project>/component/work/FCCC_C0/FCCC_C0.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/SgCore/OSC/2.0.101/OSC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="682"
 PARENT="<project>/component/work/Blink_sb/Blink_sb.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/SgCore/OSC/2.0.101/osc_comps.vhd,hdl"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="2164"
 PARENT="<project>/component/Actel/SgCore/OSC/2.0.101/OSC.cxf"
 BEGIN_USE_CONSTRAINT
@@ -101,7 +102,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/SgCore/OSC/2.0.101/osc_comps_pre.vhd,hdl"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="2108"
 PARENT="<project>/component/Actel/SgCore/OSC/2.0.101/OSC.cxf"
 BEGIN_USE_CONSTRAINT
@@ -113,147 +114,109 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/SmartFusion2MSS/MSS/1.1.500/MSS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="526"
 PARENT="<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/SmartFusion2MSS/MSS_CC/1.0.100/MSS_CC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="252"
 PARENT="<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/SmartFusion2MSS/MSS_CCC/1.0.100/MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="253"
 PARENT="<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/SmartFusion2MSS/MSS_CFGM/1.1.100/MSS_CFGM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="254"
 PARENT="<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/SmartFusion2MSS/MSS_CM3/1.0.200/MSS_CM3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="253"
 PARENT="<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/SmartFusion2MSS/MSS_DDRB/1.0.200/MSS_DDRB.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="254"
 PARENT="<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/SmartFusion2MSS/MSS_EDAC/1.0.101/MSS_EDAC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="254"
 PARENT="<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/SmartFusion2MSS/MSS_ENVM/1.0.101/MSS_ENVM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="254"
 PARENT="<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/SmartFusion2MSS/MSS_FIC32/1.0.100/MSS_FIC32.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="255"
 PARENT="<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/SmartFusion2MSS/MSS_INTR/1.0.200/MSS_INTR.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="254"
 PARENT="<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/SmartFusion2MSS/MSS_RESET/1.0.100/MSS_RESET.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="255"
 PARENT="<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/SmartFusion2MSS/MSS_SECURITY/1.0.100/MSS_SECURITY.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="258"
 PARENT="<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/SmartFusion2MSS/MSS_SWITCH/1.0.101/MSS_SWITCH.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="256"
 PARENT="<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/component/work/Blink/Blink.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="1926"
 ENDFILE
 VALUE "<project>/component/work/Blink/Blink.vhd,hdl"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="2753"
 PARENT="<project>/component/work/Blink/Blink.cxf"
 IS_READONLY="TRUE"
 ENDFILE
-VALUE "<project>/component/work/Blink_sb/Blink_sb.cxf,actgen_cxf"
-STATE="utd"
-TIME="1716482053"
-SIZE="5140"
-ENDFILE
-VALUE "<project>/component/work/Blink_sb/Blink_sb.vhd,hdl"
-STATE="utd"
-TIME="1716482053"
-SIZE="19462"
-PARENT="<project>/component/work/Blink_sb/Blink_sb.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>/component/work/Blink_sb/CCC_0/Blink_sb_CCC_0_FCCC.cxf,actgen_cxf"
-STATE="utd"
-TIME="1716482053"
-SIZE="692"
-PARENT="<project>/component/work/Blink_sb/Blink_sb.cxf"
-ENDFILE
-VALUE "<project>/component/work/Blink_sb/CCC_0/Blink_sb_CCC_0_FCCC.vhd,hdl"
-STATE="utd"
-TIME="1716482053"
-SIZE="5806"
-PARENT="<project>/component/work/Blink_sb/CCC_0/Blink_sb_CCC_0_FCCC.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>/component/work/Blink_sb/FABOSC_0/Blink_sb_FABOSC_0_OSC.cxf,actgen_cxf"
-STATE="utd"
-TIME="1716482053"
-SIZE="464"
-PARENT="<project>/component/work/Blink_sb/Blink_sb.cxf"
-ENDFILE
-VALUE "<project>/component/work/Blink_sb/FABOSC_0/Blink_sb_FABOSC_0_OSC.vhd,hdl"
-STATE="utd"
-TIME="1716482053"
-SIZE="1532"
-PARENT="<project>/component/work/Blink_sb/FABOSC_0/Blink_sb_FABOSC_0_OSC.cxf"
-IS_READONLY="TRUE"
-ENDFILE
 VALUE "<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="12019"
 ENDFILE
 VALUE "<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.vhd,hdl"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="83420"
 PARENT="<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/Blink_sb_MSS/Blink_sb_MSS_pre.vhd,hdl"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="73578"
 PARENT="<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf"
 BEGIN_USE_CONSTRAINT
@@ -265,7 +228,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/Blink_sb_MSS/Blink_sb_MSS_syn.vhd,hdl"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="73552"
 PARENT="<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf"
 BEGIN_USE_CONSTRAINT
@@ -277,84 +240,69 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/FCCC_C0/FCCC_C0.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="10044"
 ENDFILE
 VALUE "<project>/component/work/FCCC_C0/FCCC_C0.vhd,hdl"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="7080"
 PARENT="<project>/component/work/FCCC_C0/FCCC_C0.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="673"
 PARENT="<project>/component/work/FCCC_C0/FCCC_C0.cxf"
 ENDFILE
 VALUE "<project>/component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.vhd,hdl"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="5395"
 PARENT="<project>/component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/constraint/io/user.pdc,io_pdc"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="2485"
 IS_TARGET="TRUE"
 ENDFILE
 VALUE "<project>/hdl/Main.vhd,hdl"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="1282"
 ENDFILE
 VALUE "<project>/simulation/CM3_compile_bfm.tcl,sim"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="504"
 PARENT="<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/simulation/peripheral_init.bfm,sim"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="8450"
 PARENT="<project>/component/Actel/SmartFusion2MSS/MSS/1.1.500/MSS.cxf"
 ENDFILE
 VALUE "<project>/simulation/subsystem.bfm,sim"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="602"
 PARENT="<project>/component/work/Blink_sb/Blink_sb.cxf"
 ENDFILE
 VALUE "<project>/simulation/test.bfm,sim"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="734"
 PARENT="<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/simulation/user.bfm,sim"
 STATE="utd"
-TIME="1716482053"
+TIME="1715188086"
 SIZE="555"
 PARENT="<project>/component/work/Blink_sb_MSS/Blink_sb_MSS.cxf"
-ENDFILE
-VALUE "<project>/synthesis/Blink.so,so"
-STATE="utd"
-TIME="1716482053"
-SIZE="238"
-ENDFILE
-VALUE "<project>/synthesis/Blink_syn.prj,prj"
-STATE="utd"
-TIME="1716482053"
-SIZE="2842"
-ENDFILE
-VALUE "<project>/synthesis/Blink_vm.sdc,syn_sdc"
-STATE="utd"
-TIME="1716482053"
-SIZE="758"
 ENDFILE
 ENDLIST
 LIST UsedFile
@@ -396,12 +344,16 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl4
+ideSYNTHESIS(<project>/synthesis/Blink.vm,syn_vm)=StateFailure
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
 ENDLIST
+Used_File_List
+ENDUsed_File_List
 ENDLIST
-LIST "Blink_sb::work"
-FILE "<project>/component/work/Blink_sb/Blink_sb.vhd,hdl"
-LIST Other_Association
-VALUE "<project>/simulation/subsystem.bfm,sim"
 ENDLIST
 ENDLIST
 LIST "Blink_sb_MSS::work"
@@ -417,9 +369,6 @@ ENDLIST
 LIST AssociatedStimulus
 ENDLIST
 LIST Other_Association
-LIST Blink_sb
-VALUE "<project>/simulation/subsystem.bfm,sim"
-ENDLIST
 LIST Blink_sb_MSS
 VALUE "<project>/simulation/CM3_compile_bfm.tcl,sim"
 VALUE "<project>/simulation/user.bfm,sim"
@@ -495,8 +444,8 @@ NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
 LOCATION="/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/bin/synplify_pro"
-PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
-BATCH=1
+PARAM=""
+BATCH=0
 LICENSE=""
 IS32BIT="1"
 EndProfile
@@ -551,6 +500,16 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl4
+ideSYNTHESIS(<project>/synthesis/Blink.vm,syn_vm)=StateFailure
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 ENDLIST
 LIST ExcludePackageForSimulation
@@ -573,29 +532,15 @@ LIST "Blink::work","component/work/Blink/Blink.vhd","TRUE","FALSE"
 SUBBLOCK "FCCC_C0::work","component/work/FCCC_C0/FCCC_C0.vhd","TRUE","FALSE"
 SUBBLOCK "Main::work","hdl/Main.vhd","FALSE","FALSE"
 ENDLIST
-LIST "Blink_sb::work","component/work/Blink_sb/Blink_sb.vhd","TRUE","FALSE"
-SUBBLOCK "Blink_sb_CCC_0_FCCC::work","component/work/Blink_sb/CCC_0/Blink_sb_CCC_0_FCCC.vhd","FALSE","FALSE"
-SUBBLOCK "Blink_sb_FABOSC_0_OSC::work","component/work/Blink_sb/FABOSC_0/Blink_sb_FABOSC_0_OSC.vhd","FALSE","FALSE"
-SUBBLOCK "Blink_sb_MSS::work","component/work/Blink_sb_MSS/Blink_sb_MSS.vhd","TRUE","FALSE"
-SUBBLOCK "CoreResetP::work","component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vhdl/core/coreresetp.vhd","FALSE","FALSE"
-ENDLIST
-LIST "Blink_sb_CCC_0_FCCC::work","component/work/Blink_sb/CCC_0/Blink_sb_CCC_0_FCCC.vhd","FALSE","FALSE"
-ENDLIST
-LIST "Blink_sb_FABOSC_0_OSC::work","component/work/Blink_sb/FABOSC_0/Blink_sb_FABOSC_0_OSC.vhd","FALSE","FALSE"
-SUBBLOCK "RCOSC_25_50MHZ_FAB::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.vhd","FALSE","FALSE"
-SUBBLOCK "RCOSC_25_50MHZ::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.vhd","FALSE","FALSE"
-ENDLIST
 LIST "Blink_sb_MSS::work","component/work/Blink_sb_MSS/Blink_sb_MSS.vhd","TRUE","FALSE"
 SUBBLOCK "MSS_025::work","component/work/Blink_sb_MSS/Blink_sb_MSS_syn.vhd","FALSE","FALSE"
-ENDLIST
-LIST "coreresetp_pcie_hotreset::work","component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vhdl/core/coreresetp_pcie_hotreset.vhd","FALSE","FALSE"
 ENDLIST
 LIST "CoreResetP::work","component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vhdl/core/coreresetp.vhd","FALSE","FALSE"
 SUBBLOCK "coreresetp_pcie_hotreset::work","component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vhdl/core/coreresetp_pcie_hotreset.vhd","FALSE","FALSE"
 ENDLIST
-LIST "MSS_025::work","component/work/Blink_sb_MSS/Blink_sb_MSS_syn.vhd","FALSE","FALSE"
+LIST "coreresetp_pcie_hotreset::work","component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vhdl/core/coreresetp_pcie_hotreset.vhd","FALSE","FALSE"
 ENDLIST
-LIST "RCOSC_25_50MHZ::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.vhd","FALSE","FALSE"
+LIST "MSS_025::work","component/work/Blink_sb_MSS/Blink_sb_MSS_syn.vhd","FALSE","FALSE"
 ENDLIST
 LIST "FCCC_C0::work","component/work/FCCC_C0/FCCC_C0.vhd","TRUE","FALSE"
 SUBBLOCK "FCCC_C0_FCCC_C0_0_FCCC::work","component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.vhd","FALSE","FALSE"
@@ -607,6 +552,8 @@ ENDLIST
 LIST "RCOSC_1MHZ::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.vhd","FALSE","FALSE"
 ENDLIST
 LIST "RCOSC_1MHZ_FAB::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.vhd","FALSE","FALSE"
+ENDLIST
+LIST "RCOSC_25_50MHZ::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.vhd","FALSE","FALSE"
 ENDLIST
 LIST "RCOSC_25_50MHZ_FAB::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.vhd","FALSE","FALSE"
 ENDLIST

@@ -1,6 +1,6 @@
 <project name="Ux2FPGA" version="1.2">
     <ProjectDirectory>
-        C:\MicroSemiProj\DMCI_Ux2\designer\Ux2FPGA\Ux2FPGA_fp
+        /home/summer/projects/CGraph/firmware/DMInterface/DMCI_Ux2/designer/Ux2FPGA/Ux2FPGA_fp
     </ProjectDirectory>
     <View>
         ChainView
@@ -9,7 +9,7 @@
         M2S025
     </LiberoTargetDevice>
     <LogFile>
-        C:\MicroSemiProj\DMCI_Ux2\designer\Ux2FPGA\Ux2FPGA_fp\Ux2FPGA.log
+        /home/summer/projects/CGraph/firmware/DMInterface/DMCI_Ux2/designer/Ux2FPGA/Ux2FPGA_fp/Ux2FPGA.log
     </LogFile>
     <SerializationOption>
         Skip
@@ -19,10 +19,10 @@
     </ProgrammingInterface>
     <programmer status="enable" type="FlashPro6" revision="UndefRev" connection="usb2.0">
         <name>
-            16B03B1
+            75047401
         </name>
         <id>
-            16B03B1
+            75047401
         </id>
     </programmer>
     <Servers>
