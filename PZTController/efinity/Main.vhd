@@ -99,7 +99,6 @@ entity CGraphPZTPorts is
 				--~ MosiLvds : in std_logic;
 				--~ MisoLvds : out std_logic;
 				--~ RSckLvds : out std_logic;
-				--How about a shit-ton of testpoints while we ain't using these?
 				TP1 : out std_logic; --Sck+
 				TP2 : out std_logic; --Mosi+
 				TP3 : out std_logic; --Miso+
@@ -637,7 +636,7 @@ architecture CGraphPZT of CGraphPZTPorts is
 							rst : in std_logic;
 							
 							-- Bus:
-							Address : in std_logic_vector(ADDRESS_BITS - 1 downto 0); -- this is fucked, but vhdl can't figure out that ADDRESS_BITS is a constant because it's in a generic map...
+							Address : in std_logic_vector(ADDRESS_BITS - 1 downto 0); -- vhdl can't figure out that ADDRESS_BITS is a constant because it's in a generic map...
 							DataIn : in std_logic_vector(7 downto 0);
 							DataOut : out std_logic_vector(7 downto 0);
 							ReadReq : in  std_logic;

@@ -269,7 +269,7 @@ struct lt244x : pinout, spi
 		{
 			//return((Counts * AdcVRef * 1.061) / CountPosVRef);
 			return(((double)(Counts) * (double)AdcVRef) / (2.0 * ((double)lt244xdetails::CountPosVRef - (double)lt244xdetails::CountNegVRef)));
-			//return( ((double)Counts * (double)AdcVRef * (double)CountPosMax) / ((double)CountPosVRef * (double)CountPosVRef) ); //This is shit, but it's pretty close (1.005x) to correct...
+			//return( ((double)Counts * (double)AdcVRef * (double)CountPosMax) / ((double)CountPosVRef * (double)CountPosVRef) ); //pretty close (1.005x) to correct...
 			//~ return((double)0.0);
 		}
 		

@@ -572,7 +572,7 @@ architecture architecture_Main of Main is
 							rst : in std_logic;
 							
 							-- Bus:
-							Address : in std_logic_vector(ADDRESS_BITS - 1 downto 0); -- this is fucked, but vhdl can't figure out that ADDRESS_BITS is a constant because it's in a generic map...
+							Address : in std_logic_vector(ADDRESS_BITS - 1 downto 0); -- vhdl can't figure out that ADDRESS_BITS is a constant because it's in a generic map...
 							DataIn : in std_logic_vector(31 downto 0);
 							DataOut : out std_logic_vector(31 downto 0);
 							ReadReq : in  std_logic;
