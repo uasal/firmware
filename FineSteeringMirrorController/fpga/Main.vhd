@@ -790,13 +790,17 @@ architecture architecture_Main of Main is
 							-- D/A:
 							nCs : out std_logic;
 							Sck : out std_logic;
-							Mosi : out  std_logic;
-							Miso : in  std_logic;
+							MosiA : out  std_logic;
+							MosiB : out  std_logic;
+							MisoA : in  std_logic;
+							MisoB : in  std_logic;
 							
 							--Control signals
-							WriteOut : in std_logic_vector(BIT_WIDTH - 1 downto 0);
+							WriteOutA : in std_logic_vector(BIT_WIDTH - 1 downto 0);
+							WriteOutB : in std_logic_vector(BIT_WIDTH - 1 downto 0);
 							Transfer : in std_logic;
-							Readback : out std_logic_vector(BIT_WIDTH - 1 downto 0);
+							ReadbackA : out std_logic_vector(BIT_WIDTH - 1 downto 0);
+							ReadbackB : out std_logic_vector(BIT_WIDTH - 1 downto 0);
 							TransferComplete : out std_logic--;
 						); 
 						end component;
@@ -1436,13 +1440,13 @@ begin
 	
 	------------------------------------------ FSM D/A's ---------------------------------------------------
 	
-		IBufFSMDacMisoA : IBufP1Ports port map(clk => MasterClk, I => MosiDacA, O => MisoDacA_i); --No actual Miso on MAX5719, so we're looping back the Mosi signal to see if the bit is stuck on the pcb...
-		IBufFSMDacMisoB : IBufP1Ports port map(clk => MasterClk, I => MosiDacB, O => MisoDacB_i); --No actual Miso on MAX5719, so we're looping back the Mosi signal to see if the bit is stuck on the pcb...
-		IBufFSMDacMisoC : IBufP1Ports port map(clk => MasterClk, I => MosiDacC, O => MisoDacC_i); --No actual Miso on MAX5719, so we're looping back the Mosi signal to see if the bit is stuck on the pcb...
-		IBufFSMDacMisoD : IBufP1Ports port map(clk => MasterClk, I => MosiDacD, O => MisoDacD_i); --No actual Miso on MAX5719, so we're looping back the Mosi signal to see if the bit is stuck on the pcb...
+		--~ IBufFSMDacMisoA : IBufP1Ports port map(clk => MasterClk, I => MosiDacA, O => MisoDacA_i); --No actual Miso on MAX5719, so we're looping back the Mosi signal to see if the bit is stuck on the pcb...
+		--~ IBufFSMDacMisoB : IBufP1Ports port map(clk => MasterClk, I => MosiDacB, O => MisoDacB_i); --No actual Miso on MAX5719, so we're looping back the Mosi signal to see if the bit is stuck on the pcb...
+		--~ IBufFSMDacMisoC : IBufP1Ports port map(clk => MasterClk, I => MosiDacC, O => MisoDacC_i); --No actual Miso on MAX5719, so we're looping back the Mosi signal to see if the bit is stuck on the pcb...
+		--~ IBufFSMDacMisoD : IBufP1Ports port map(clk => MasterClk, I => MosiDacD, O => MisoDacD_i); --No actual Miso on MAX5719, so we're looping back the Mosi signal to see if the bit is stuck on the pcb...
 		
 	--MAX5719 is left-shifted, MSB-first
-	FSMDacs_i : SpiDacTrioPorts
+	FSMDacs_i : SpiDacQuadPorts
 	generic map 
 	(
 		MASTER_CLOCK_FREQHZ => BoardMasterClockFreq--,
@@ -1460,10 +1464,10 @@ begin
 		MosiB => MosiDacB_i,
 		MosiC => MosiDacC_i,
 		MosiD => MosiDacD_i,
-		MisoA => MisoDacA_i,
-		MisoB => MisoDacB_i,
-		MisoC => MisoDacC_i,
-		MisoD => MisoDacD_i,
+		MisoA => MosiDacA_i, --these should really loop back at the board level not the signal level, but we got two d/a's to juggle...
+		MisoB => MosiDacB_i,
+		MisoC => MosiDacC_i,
+		MisoD => MosiDacD_i,
 		WriteDac => WriteDacs,
 		DacWriteOutA => DacASetpoint,
 		DacWriteOutB => DacBSetpoint,
@@ -1527,14 +1531,14 @@ begin
 		IBufSarAdcnDrdyA : IBufP2Ports port map(clk => MasterClk, I => nDrdyAdcA, O => nDrdyAdcA_i);
 		IBufSarAdcnDrdyB : IBufP2Ports port map(clk => MasterClk, I => nDrdyAdcB, O => nDrdyAdcB_i);
 		IBufSarAdcnDrdyC : IBufP2Ports port map(clk => MasterClk, I => nDrdyAdcC, O => nDrdyAdcC_i);
-		IBufSarAdcnDrdyC : IBufP2Ports port map(clk => MasterClk, I => nDrdyAdcD, O => nDrdyAdcD_i);
+		IBufSarAdcnDrdyD : IBufP2Ports port map(clk => MasterClk, I => nDrdyAdcD, O => nDrdyAdcD_i);
 
 		IBufSarAdcMisoA : IBufP2Ports port map(clk => MasterClk, I => MisoAdcA, O => MisoAdcA_i);
 		IBufSarAdcMisoB : IBufP2Ports port map(clk => MasterClk, I => MisoAdcB, O => MisoAdcB_i);
 		IBufSarAdcMisoC : IBufP2Ports port map(clk => MasterClk, I => MisoAdcC, O => MisoAdcC_i);
-		IBufSarAdcMisoC : IBufP2Ports port map(clk => MasterClk, I => MisoAdcD, O => MisoAdcD_i);
+		IBufSarAdcMisoD : IBufP2Ports port map(clk => MasterClk, I => MisoAdcD, O => MisoAdcD_i);
 	
-	ltc2378 : Ltc2378AccumTrioPorts
+	ltc2378 : Ltc2378AccumQuadPorts
 	port map
 	(
 		clk => MasterClk,
@@ -1556,6 +1560,7 @@ begin
 		OverRangeA => open,
 		OverRangeB => open,
 		OverRangeC => open,
+		OverRangeD => open,
 		AdcPowerDown => '0',
 		--~ AdcClkDivider => x"002F", --1MHz
 		--~ AdcClkDivider => x"05DC", --32kHz
@@ -1660,9 +1665,7 @@ begin
 		--~ CLOCK_DIVIDER => 4096,
 		BIT_WIDTH => 8,
 		CPOL => '0',
-		--~ CPOL => '1',
 		CPHA => '0'--,
-		--~ CPHA => '1'--,
 	)
 	port map 
 	(
@@ -1671,18 +1674,24 @@ begin
 		--~ nCs => nCsMonitorAdc_i,
 		nCs => open,
 		Sck => SckMonitorAdc_i,
-		Mosi => MosiMonitorAdc_i,
-		Miso => MisoMonitorAdc_i,
-		WriteOut => MonitorAdcSpiDataIn,
+		MosiA => MosiMonitorAdc_i,
+		MosiB => open,
+		MisoA => MisoMonitorAdc0_i,
+		MisoB => MisoMonitorAdc1_i,
+		WriteOutA => MonitorAdcSpiDataIn,
+		WriteOutB => x"00",
 		Transfer => MonitorAdcSpiXferStart,
 		Readback => MonitorAdcSpiDataOut,
 		TransferComplete => MonitorAdcSpiXferDone--,
 	);
 	
-	nCsMonitorAdc_i <= not(MonitorAdcSpiFrameEnable);
-	nCsMonAdc0 <= nCsMonitorAdc_i;
-	SckMonAdc0 <= SckMonitorAdc_i;
-	MosiMonAdc0 <= MosiMonitorAdc_i;	
+	nCsMonitorAdc_i <= not(MonitorAdcSpiFrameEnable); --this is controlled by a seperate address in the register space, so we can do variable number of bytes per transfer
+	
+	nCsMonAdcs <= nCsMonitorAdc_i;
+	SckMonAdcs <= SckMonitorAdc_i;
+	MosiMonAdcs <= MosiMonitorAdc_i;	
+	
+	TrigMonAdcs <= 'Z'; --We're not driving this rn
 	
 	MonitorAdcReset_i <= MasterReset or MonitorAdcReset;
 	
@@ -2163,37 +2172,37 @@ begin
 	
 
 	
-	--~ UartLabBitClockDiv : VariableClockDividerPorts
-	--~ generic map
-	--~ (
-		--~ WIDTH_BITS => 8,
-		--~ DIVOUT_RST_STATE => '0'--;
-	--~ )
-	--~ port map
-	--~ (
-		--~ --clki => MasterClk,
-		--~ clki => UartClk,
-		--~ rst => MasterReset,
-		--~ rst_count => x"00",
-		--~ --terminal_count => UartLabClkDivider,
-		--~ terminal_count => std_logic_vector(to_unsigned(natural((real(153000000) / ( real(115200) * 16.0)) - 1.0), 8)),
-		--~ clko => UartClkLab
-	--~ );
-	
-	--We're hardcoding Lab to 115,200 bps so we have a reachable benchtest...
-	UartLabRxBitClockDiv : ClockDividerPorts
+	UartLabBitClockDiv : VariableClockDividerPorts
 	generic map
 	(
-		CLOCK_DIVIDER => natural((real(102000000) / ( real(115200) * 16.0)) - 1.0),
-		--~ CLOCK_DIVIDER => natural((real(102000000) / ( real(9600) * 16.0)) - 1.0),
+		WIDTH_BITS => 8,
 		DIVOUT_RST_STATE => '0'--;
 	)
 	port map
 	(
-		clk => UartClk,
+		--clki => MasterClk,
+		clki => UartClk,
 		rst => MasterReset,
-		div => UartClkLab
+		rst_count => x"00",
+		terminal_count => UartLabClkDivider,
+		--~ terminal_count => std_logic_vector(to_unsigned(natural((real(153000000) / ( real(115200) * 16.0)) - 1.0), 8)),
+		clko => UartClkLab
 	);
+	
+	--~ --We're hardcoding Lab to 115,200 bps so we have a reachable benchtest...
+	--~ UartLabRxBitClockDiv : ClockDividerPorts
+	--~ generic map
+	--~ (
+		--~ CLOCK_DIVIDER => natural((real(102000000) / ( real(115200) * 16.0)) - 1.0),
+		--~ --CLOCK_DIVIDER => natural((real(102000000) / ( real(9600) * 16.0)) - 1.0),
+		--~ DIVOUT_RST_STATE => '0'--;
+	--~ )
+	--~ port map
+	--~ (
+		--~ clk => UartClk,
+		--~ rst => MasterReset,
+		--~ div => UartClkLab
+	--~ );
 	
 	UartLabTxBitClockDiv : ClockDividerPorts
 	generic map
