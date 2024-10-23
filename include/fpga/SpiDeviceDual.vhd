@@ -71,7 +71,7 @@ entity SpiDeviceDualPorts is
 		TransferComplete : out std_logic--;
 		
 	); 
-end SpiDevicePorts;
+end SpiDeviceDualPorts;
 
 architecture SpiDeviceDual of SpiDeviceDualPorts is
 
@@ -135,8 +135,8 @@ begin
 		Sck => Sck,
 		MisoA => MisoA,
 		MisoB => MisoB,
-		DataToMosiA => WriteOut, --we don't actually send anything to the A/D
-		DataToMosiB => WriteOut, --we don't actually send anything to the A/D
+		DataToMosiA => WriteOutA, --we don't actually send anything to the A/D
+		DataToMosiB => WriteOutB, --we don't actually send anything to the A/D
 		DataFromMisoA => ReadbackA_i,
 		DataFromMisoB => ReadbackB_i,
 		XferComplete => SpiXferComplete--,
@@ -208,4 +208,4 @@ begin
 		
 	end process;
 	
-end SpiDevice;
+end SpiDeviceDual;

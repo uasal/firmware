@@ -1,6 +1,6 @@
 PROJECT_ROOT = $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
-OBJS = Filterwheel.o
+OBJS = FineSteeringMirror.o
 
 ifeq ($(BUILD_MODE),debug)
 	CFLAGS += -g
@@ -9,15 +9,15 @@ else ifeq ($(BUILD_MODE),run)
 else ifeq ($(BUILD_MODE),linuxtools)
 	CFLAGS += -g -pg -fprofile-arcs -ftest-coverage
 	LDFLAGS += -pg -fprofile-arcs -ftest-coverage
-	EXTRA_CLEAN += Filterwheel.gcda Filterwheel.gcno $(PROJECT_ROOT)gmon.out
-	EXTRA_CMDS = rm -rf Filterwheel.gcda
+	EXTRA_CLEAN += FineSteeringMirror.gcda FineSteeringMirror.gcno $(PROJECT_ROOT)gmon.out
+	EXTRA_CMDS = rm -rf FineSteeringMirror.gcda
 else
     $(error Build mode $(BUILD_MODE) not supported by this Makefile)
 endif
 
-all:	Filterwheel
+all:	FineSteeringMirror
 
-Filterwheel:	$(OBJS)
+FineSteeringMirror:	$(OBJS)
 	$(CXX) $(LDFLAGS) -o $@ $^
 	$(EXTRA_CMDS)
 
@@ -28,4 +28,4 @@ Filterwheel:	$(OBJS)
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) -o $@ $<
 
 clean:
-	rm -fr Filterwheel $(OBJS) $(EXTRA_CLEAN)
+	rm -fr FineSteeringMirror $(OBJS) $(EXTRA_CLEAN)

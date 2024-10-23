@@ -103,7 +103,7 @@
                             							
                             <targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform.279005188" isAbstract="false" osList="all" superClass="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform"/>
                             							
-                            <builder buildPath="${workspace_loc:/Filterwheel}/Debug" id="ilg.gnuarmeclipse.managedbuild.cross.builder.293033838" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="ilg.gnuarmeclipse.managedbuild.cross.builder"/>
+                            <builder buildPath="${workspace_loc:/FineSteeringMirror}/Debug" id="ilg.gnuarmeclipse.managedbuild.cross.builder.293033838" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="ilg.gnuarmeclipse.managedbuild.cross.builder"/>
                             							
                             <tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.166316477" name="GNU ARM Cross Assembler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler">
                                 								
@@ -351,7 +351,7 @@
                             							
                             <targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform.181878658" isAbstract="false" osList="all" superClass="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform"/>
                             							
-                            <builder buildPath="${workspace_loc:/Filterwheel}/Release" id="ilg.gnuarmeclipse.managedbuild.cross.builder.477685766" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="ilg.gnuarmeclipse.managedbuild.cross.builder"/>
+                            <builder buildPath="${workspace_loc:/FineSteeringMirror}/Release" id="ilg.gnuarmeclipse.managedbuild.cross.builder.477685766" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="ilg.gnuarmeclipse.managedbuild.cross.builder"/>
                             							
                             <tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.681997428" name="GNU ARM Cross Assembler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler">
                                 								
@@ -455,7 +455,7 @@
                                 								
                                 <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.scriptfile.2022724185" name="Script files (-T)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.scriptfile" useByScannerDiscovery="false" valueType="stringList">
                                     									
-                                    <listOptionValue builtIn="false" value="/home/summer/projects/CGraph/firmware/Filterwheel/softconsole/firmware/CMSIS/startup_gcc/production-smartfusion2-execute-in-place.ld"/>
+                                    <listOptionValue builtIn="false" value="/home/summer/projects/CGraph/firmware/FineSteeringMirror/softconsole/firmware/CMSIS/startup_gcc/production-smartfusion2-execute-in-place.ld"/>
                                     								
                                 </option>
                                 								
@@ -517,7 +517,7 @@
     	
     <storageModule moduleId="cdtBuildSystem" version="4.0.0">
         		
-        <project id="Filterwheel.ilg.gnuarmeclipse.managedbuild.cross.target.elf.1438740149" name="Executable" projectType="ilg.gnuarmeclipse.managedbuild.cross.target.elf"/>
+        <project id="FineSteeringMirror.ilg.gnuarmeclipse.managedbuild.cross.target.elf.1438740149" name="Executable" projectType="ilg.gnuarmeclipse.managedbuild.cross.target.elf"/>
         	
     </storageModule>
     	
@@ -529,13 +529,13 @@
         		
         <configuration configurationName="Debug">
             			
-            <resource resourceType="PROJECT" workspacePath="/Filterwheel"/>
+            <resource resourceType="PROJECT" workspacePath="/FineSteeringMirror"/>
             		
         </configuration>
         		
         <configuration configurationName="Release">
             			
-            <resource resourceType="PROJECT" workspacePath="/Filterwheel"/>
+            <resource resourceType="PROJECT" workspacePath="/FineSteeringMirror"/>
             		
         </configuration>
         	

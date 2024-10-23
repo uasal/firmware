@@ -20,21 +20,21 @@ port (
 	
 	--D/A's
 	
-	MosiTiDacA : out std_logic;
-	MosiTiDacB : out std_logic;
-	MosiTiDacC : out std_logic;
-	MosiTiDacD : out std_logic;
-	SckTiDacs : out std_logic;
-	nCsTiDacs : out std_logic;
+	MosiTiDacA : inout std_logic;
+	MosiTiDacB : inout std_logic;
+	MosiTiDacC : inout std_logic;
+	MosiTiDacD : inout std_logic;
+	SckTiDacs : inout std_logic;
+	nCsTiDacs : inout std_logic;
 	PowerEnTi : out std_logic;
 	
-	MosiMaxDacA : out std_logic;
-	MosiMaxDacB : out std_logic;
-	MosiMaxDacC : out std_logic;
-	MosiMaxDacD : out std_logic;
-	SckMaxDacs : out std_logic;
-	nCsMaxDacs : out std_logic;
-	nLoadMaxDacs : out std_logic;
+	MosiMaxDacA : inout std_logic;
+	MosiMaxDacB : inout std_logic;
+	MosiMaxDacC : inout std_logic;
+	MosiMaxDacD : inout std_logic;
+	SckMaxDacs : inout std_logic;
+	nCsMaxDacs : inout std_logic;
+	nLoadMaxDacs : inout std_logic;
 	PowerEnMax : out std_logic;
 	
 	--Driver Control
@@ -643,10 +643,12 @@ architecture architecture_Main of Main is
 							MonitorAdcSampleToRead : in std_logic_vector(63 downto 0);
 							MonitorAdcReset : out std_logic;
 							MonitorAdcSpiDataIn : out std_logic_vector(7 downto 0);
-							MonitorAdcSpiDataOut : in std_logic_vector(7 downto 0);
+							MonitorAdcSpiDataOut0 : in std_logic_vector(7 downto 0);
+							MonitorAdcSpiDataOut1 : in std_logic_vector(7 downto 0);
 							MonitorAdcSpiXferStart : out std_logic;
 							MonitorAdcSpiXferDone : in std_logic;
-							MonitorAdcnDrdy  : in std_logic;
+							MonitorAdcnDrdy0  : in std_logic;
+							MonitorAdcnDrdy1  : in std_logic;
 							MonitorAdcSpiFrameEnable : out std_logic;
 							
 							--RS-422
@@ -1011,7 +1013,7 @@ architecture architecture_Main of Main is
 			
 		-- FSM Readback A/Ds
 			
-			signal TrigSyncAdcs_i : std_logic;	
+			signal TrigAdcs_i : std_logic;	
 			signal nDrdyAdcA_i : std_logic;	
 			signal nDrdyAdcB_i : std_logic;	
 			signal nDrdyAdcC_i : std_logic;	
@@ -1031,6 +1033,8 @@ architecture architecture_Main of Main is
 			signal AdcSampleToReadC : std_logic_vector(47 downto 0);	
 			signal AdcSampleToReadD : std_logic_vector(47 downto 0);	
 			signal AdcSampleNumAccums : std_logic_vector(15 downto 0);	
+			signal ChopperMuxPos_i : std_logic;
+			signal ChopperMuxNeg_i : std_logic;			
 			
 			
 		--Monitor A/D
@@ -1050,7 +1054,8 @@ architecture architecture_Main of Main is
 			signal MonitorAdcReset : std_logic;
 			signal MonitorAdcReset_i : std_logic;			
 			signal MonitorAdcSpiDataIn : std_logic_vector(7 downto 0);
-			signal MonitorAdcSpiDataOut : std_logic_vector(7 downto 0);
+			signal MonitorAdcSpiDataOut0 : std_logic_vector(7 downto 0);
+			signal MonitorAdcSpiDataOut1 : std_logic_vector(7 downto 0);
 			signal MonitorAdcSpiXferStart : std_logic;
 			signal MonitorAdcSpiXferDone : std_logic;
 			signal MonitorAdcSpiFrameEnable : std_logic;
@@ -1323,7 +1328,7 @@ begin
 		Uart3OE => OE3,
 		--~ Ux1SelJmp => Ux1SelJmp,
 		Ux1SelJmp => open,
-		Ux2SelJmp => open,
+		--~ Ux2SelJmp => open,
 				
 		--FSM D/A's
 		DacASetpoint => DacASetpoint,
@@ -1355,10 +1360,12 @@ begin
 		MonitorAdcSampleToRead => MonitorAdcSample,
 		MonitorAdcReset => MonitorAdcReset,
 		MonitorAdcSpiDataIn => MonitorAdcSpiDataIn,
-		MonitorAdcSpiDataOut => MonitorAdcSpiDataOut,
+		MonitorAdcSpiDataOut0 => MonitorAdcSpiDataOut0,
+		MonitorAdcSpiDataOut1 => MonitorAdcSpiDataOut1,
 		MonitorAdcSpiXferStart => MonitorAdcSpiXferStart,
 		MonitorAdcSpiXferDone => MonitorAdcSpiXferDone,
-		MonitorAdcnDrdy => nDrdyMonitorAdc_i,
+		MonitorAdcnDrdy0 => nDrdyMonitorAdc0_i,
+		MonitorAdcnDrdy1 => nDrdyMonitorAdc1_i,
 		MonitorAdcSpiFrameEnable => MonitorAdcSpiFrameEnable,			
 		
 		--RS-422
@@ -1480,16 +1487,6 @@ begin
 		TransferComplete => DacTransferComplete
 	);
 
-	nCsDacA <= nCsDacA_i;
-	nCsDacB <= nCsDacB_i;
-	nCsDacC <= nCsDacC_i;
-	nCsDacD <= nCsDacD_i;
-	SckDacs <= SckDacs_i;
-	MosiDacA <= MosiDacA_i;
-	MosiDacB <= MosiDacB_i;
-	MosiDacC <= MosiDacC_i;
-	MosiDacD <= MosiDacD_i;
-	
 	--~ UserJmpJstnCse <= nCsDacA_i;
 	--~ TP3 <= SckDacs_i;
 	--~ TP1 <= MosiDacA_i;
@@ -1510,7 +1507,24 @@ begin
 		shot => nLDacs_i
 	);
 
-	nLDacs <= nLDacs_i;
+	--D/A Muxing:
+	
+	MosiTiDacA <= MosiDacA_i when (DacSelectMaxti = '0') else 'Z';
+	MosiTiDacB <= MosiDacB_i when (DacSelectMaxti = '0') else 'Z';
+	MosiTiDacC <= MosiDacC_i when (DacSelectMaxti = '0') else 'Z';
+	MosiTiDacD <= MosiDacD_i when (DacSelectMaxti = '0') else 'Z';
+	SckTiDacs <= SckDacs_i when (DacSelectMaxti = '0') else 'Z';
+	nCsTiDacs <= nCsDacA_i when (DacSelectMaxti = '0') else 'Z';
+	PowerEnTi <= not(DacSelectMaxti);
+	
+	MosiMaxDacA <= MosiDacA_i when (DacSelectMaxti = '1') else 'Z';
+	MosiMaxDacB <= MosiDacB_i when (DacSelectMaxti = '1') else 'Z';
+	MosiMaxDacC <= MosiDacC_i when (DacSelectMaxti = '1') else 'Z';
+	MosiMaxDacD <= MosiDacD_i when (DacSelectMaxti = '1') else 'Z';
+	SckMaxDacs <= SckDacs_i when (DacSelectMaxti = '1') else 'Z';
+	nCsMaxDacs <= nCsDacA_i when (DacSelectMaxti = '1') else 'Z';
+	nLoadMaxDacs <= nLDacs_i when (DacSelectMaxti = '1') else 'Z';
+	PowerEnMax <= DacSelectMaxti;
 	
 	--~ TP1_i <= nCsDacA_i;
 	--~ TP2_i <= nLDacs_i;
@@ -1524,10 +1538,6 @@ begin
 	
 	----------------------------- A/D's ----------------------------------
 	
-	ChopRef : out std_logic;
-	ChopAdcs : out std_logic;
-	
-			
 		IBufSarAdcnDrdyA : IBufP2Ports port map(clk => MasterClk, I => nDrdyAdcA, O => nDrdyAdcA_i);
 		IBufSarAdcnDrdyB : IBufP2Ports port map(clk => MasterClk, I => nDrdyAdcB, O => nDrdyAdcB_i);
 		IBufSarAdcnDrdyC : IBufP2Ports port map(clk => MasterClk, I => nDrdyAdcC, O => nDrdyAdcC_i);
@@ -1543,7 +1553,7 @@ begin
 	(
 		clk => MasterClk,
 		rst => MasterReset,
-		Trigger => TrigSyncAdcs_i,
+		Trigger => TrigAdcs_i,
 		nDrdyA => nDrdyAdcA_i,
 		nDrdyB => nDrdyAdcB_i,
 		nDrdyC => nDrdyAdcC_i,
@@ -1568,8 +1578,8 @@ begin
 		--~ SamplesToAverage => x"03FF",		
 		SamplesToAverage => x"0001",		
 		ChopperEnable => '0',
-		ChopperMuxPos => CMuxPosAClkAdcs,
-		ChopperMuxNeg => CMuxNegPwrDnAdcs,
+		ChopperMuxPos => ChopperMuxPos_i,
+		ChopperMuxNeg => ChopperMuxNeg_i,
 		ReadAdcSample  => ReadAdcSample,
 		AdcSampleToReadA => AdcSampleToReadA,
 		AdcSampleToReadB => AdcSampleToReadB,
@@ -1587,19 +1597,22 @@ begin
 	);
 
 	--Map the other A/D signals to the actual pins:
-	MosiAdcA <= '0';
-	MosiAdcB <= '0';
-	MosiAdcC <= '0';
-	MosiAdcD <= '0';
-	TrigSyncAdcs <= TrigSyncAdcs_i;
-	nCsAdcA <= nCsAdcA_i;
-	nCsAdcB <= nCsAdcB_i;
-	nCsAdcC <= nCsAdcC_i;
-	nCsAdcD <= nCsAdcD_i;
+	
+	--~ ChopperMuxPos_i
+	--~ ChopperMuxNeg_i
+	ChopRef <= '0';
+	ChopAdcs <= '0';
+	
+	TrigAdcs <= TrigAdcs_i;
+	--~ nCsAdcA <= nCsAdcA_i;
+	--~ nCsAdcB <= nCsAdcB_i;
+	--~ nCsAdcC <= nCsAdcC_i;
+	--~ nCsAdcD <= nCsAdcD_i;
+	nCsAdcs <= nCsAdcA_i;
 	SckAdcs <= SckAdcs_i;
 		
 	--To test between fpga & A/D:
-	--~ TP1_i <= TrigSyncAdcs_i;
+	--~ TP1_i <= TrigAdcs_i;
 	--~ TP2_i <= nDrdyAdcA_i;
 	--~ TP3_i <= nCsAdcA_i;
 	--~ TP4_i <= SckAdcs_i;
@@ -1679,9 +1692,10 @@ begin
 		MisoA => MisoMonitorAdc0_i,
 		MisoB => MisoMonitorAdc1_i,
 		WriteOutA => MonitorAdcSpiDataIn,
-		WriteOutB => x"00",
+		WriteOutB => MonitorAdcSpiDataIn,
 		Transfer => MonitorAdcSpiXferStart,
-		Readback => MonitorAdcSpiDataOut,
+		ReadbackA => MonitorAdcSpiDataOut0,
+		ReadbackB => MonitorAdcSpiDataOut1,
 		TransferComplete => MonitorAdcSpiXferDone--,
 	);
 	
@@ -2259,7 +2273,7 @@ begin
 	);
 	
 	--~ CtsLab <= UartLabRxFifoFull; --polarity??
-	CtsLab <= '1';
+	CtsUsb <= '1';
 	
 	RS4LabLab_TxLab : UartTxFifoExtClk
 	--~ RS4LabLab_TxLab : UartTxFifo
@@ -2414,9 +2428,7 @@ begin
 	MosiXO <= MosiXO_i;
 	
 	----------------------------- Power Supplies ----------------------------------
-	
-	PowernEn5V <= '0';
-	
+		
 	PowerSync <= '1';
 	--~ PowerSyncClockDivider : ClockDividerPorts generic map(CLOCK_DIVIDER => 96, DIVOUT_RST_STATE => '0') port map(clk => MasterClk, rst => MasterReset, div => PowerSync);
 	

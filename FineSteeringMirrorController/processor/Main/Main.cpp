@@ -18,7 +18,7 @@ extern "C" {
   
 #include "hal/hal.h"
 #include "hal/hal_assert.h"
-#include "Filterwheel_hw_platform.h"
+#include "FineSteeringMirror_hw_platform.h"
 
 #ifdef __cplusplus
 }

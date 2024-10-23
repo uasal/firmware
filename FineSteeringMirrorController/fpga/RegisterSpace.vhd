@@ -80,10 +80,12 @@ entity RegisterSpacePorts is
 		MonitorAdcSampleToRead : in std_logic_vector(63 downto 0);
 		MonitorAdcReset : out std_logic;
 		MonitorAdcSpiDataIn : out std_logic_vector(7 downto 0);
-		MonitorAdcSpiDataOut : in std_logic_vector(7 downto 0);
+		MonitorAdcSpiDataOut0 : in std_logic_vector(7 downto 0);
+		MonitorAdcSpiDataOut1 : in std_logic_vector(7 downto 0);
 		MonitorAdcSpiXferStart : out std_logic;
 		MonitorAdcSpiXferDone : in std_logic;
-		MonitorAdcnDrdy  : in std_logic;
+		MonitorAdcnDrdy0  : in std_logic;
+		MonitorAdcnDrdy1  : in std_logic;
 		MonitorAdcSpiFrameEnable : out std_logic;
 		
 		--RS-422
@@ -338,12 +340,6 @@ begin
 	Uart1ClkDivider <= Uart1ClkDivider_i;
 	Uart2ClkDivider <= Uart2ClkDivider_i;
 	Uart3ClkDivider <= Uart3ClkDivider_i;
-	
-	MotorSeekStep <= MotorSeekStep_i;
-	PosLedsEnA <= PosLedsEnA_i;
-	PosLedsEnB <= PosLedsEnB_i;
-	ResetSteps <= ResetSteps_i;
-	MotorEnable <= MotorEnable_i;
 	
 	MonitorAdcChannelReadIndex <= MonitorAdcChannelReadIndex_i;
 	MonitorAdcSpiFrameEnable <= MonitorAdcSpiFrameEnable_i;
@@ -618,15 +614,18 @@ begin
 							
 							when MonitorAdcSpiXferAddr =>
 							
-								DataOut(7 downto 0) <= MonitorAdcSpiDataOut;
-								DataOut(31 downto 8) <= x"000000";
+								DataOut(7 downto 0) <= MonitorAdcSpiDataOut0;
+								DataOut(7 downto 0) <= MonitorAdcSpiDataOut1;
+								--~ DataOut(31 downto 8) <= x"000000";
+								DataOut(31 downto 16) <= x"0000";
 								
 							when MonitorAdcSpiFrameEnableAddr =>
 								
 								DataOut(0) <= MonitorAdcSpiFrameEnable_i;
 								DataOut(1) <= MonitorAdcSpiXferDone;
-								DataOut(2) <= MonitorAdcnDrdy;
-								DataOut(7 downto 3) <= "00000";
+								DataOut(2) <= MonitorAdcnDrdy0;
+								DataOut(3) <= MonitorAdcnDrdy1;
+								DataOut(7 downto 4) <= "0000";
 								DataOut(31 downto 8) <= x"000000";
 								
 							
@@ -839,26 +838,17 @@ begin
 								DataOut(31 downto 16) <= x"0000";
 								
 								
-								
-							--MotorControlStatusAddr
-							when MotorControlStatusAddr =>
-
-								DataOut(15 downto 0) <= MotorSeekStep_i;
-								DataOut(31 downto 16) <= MotorCurrentStep;
-								
-								
-								
 							--ControlRegisterAddr
 							when ControlRegisterAddr =>
 
-								DataOut(0) <= PosLedsEnA_i;
-								DataOut(1) <= PosLedsEnB_i;
-								DataOut(2) <= MotorEnable_i;
-								DataOut(3) <= ResetSteps_i;								
-								DataOut(4) <= MotorAPlus;
-								DataOut(5) <= MotorAMinus;
-								DataOut(6) <= MotorBPlus;
-								DataOut(7) <= MotorBMinus;
+								--~ DataOut(0) <= PosLedsEnA_i;
+								--~ DataOut(1) <= PosLedsEnB_i;
+								--~ DataOut(2) <= MotorEnable_i;
+								--~ DataOut(3) <= ResetSteps_i;								
+								--~ DataOut(4) <= MotorAPlus;
+								--~ DataOut(5) <= MotorAMinus;
+								--~ DataOut(6) <= MotorBPlus;
+								--~ DataOut(7) <= MotorBMinus;
 								
 								DataOut(8) <= Fault1V;
 								DataOut(9) <= Fault3V;
@@ -879,77 +869,6 @@ begin
 								
 								DataOut(31 downto 23) <= "000000000";
 								
-
-							--PosSensAddr
-							when PosSensAddr =>
-							
-								DataOut(0) <= PosSenseHomeA;
-								DataOut(1) <= PosSenseBit0A;
-								DataOut(2) <= PosSenseBit1A;
-								DataOut(3) <= PosSenseBit2A;
-								DataOut(4) <= PosSenseHomeB;
-								DataOut(5) <= PosSenseBit0B;
-								DataOut(6) <= PosSenseBit1B;
-								DataOut(7) <= PosSenseBit2B;
-								DataOut(11 downto 8) <= PosSenseA;
-								DataOut(15 downto 12) <= PosSenseB;
-								DataOut(31 downto 16) <= x"0000";
-								
-							
-							--The infinity of step latches
-							
-							when PosDetHomeAOnStepAddr => DataOut(15 downto 0) <= PosDetHomeAOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetHomeAOffStepAddr => DataOut(15 downto 0) <= PosDetHomeAOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetA0OnStepAddr => DataOut(15 downto 0) <= PosDetA0OnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetA0OffStepAddr => DataOut(15 downto 0) <= PosDetA0OffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetA1OnStepAddr => DataOut(15 downto 0) <= PosDetA1OnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetA1OffStepAddr => DataOut(15 downto 0) <= PosDetA1OffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetA2OnStepAddr => DataOut(15 downto 0) <= PosDetA2OnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetA2OffStepAddr => DataOut(15 downto 0) <= PosDetA2OffStep; DataOut(31 downto 16) <= x"0000";
-							
-							when PosDetHomeBOnStepAddr => DataOut(15 downto 0) <= PosDetHomeBOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetHomeBOffStepAddr => DataOut(15 downto 0) <= PosDetHomeBOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetB0OnStepAddr => DataOut(15 downto 0) <= PosDetB0OnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetB0OffStepAddr => DataOut(15 downto 0) <= PosDetB0OffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetB1OnStepAddr => DataOut(15 downto 0) <= PosDetB1OnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetB1OffStepAddr => DataOut(15 downto 0) <= PosDetB1OffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetB2OnStepAddr => DataOut(15 downto 0) <= PosDetB2OnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetB2OffStepAddr => DataOut(15 downto 0) <= PosDetB2OffStep; DataOut(31 downto 16) <= x"0000";
-							
-							when PosDet0AOnStepAddr => DataOut(15 downto 0) <= PosDet0AOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet0AOffStepAddr => DataOut(15 downto 0) <= PosDet0AOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet1AOnStepAddr => DataOut(15 downto 0) <= PosDet1AOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet1AOffStepAddr => DataOut(15 downto 0) <= PosDet1AOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet2AOnStepAddr => DataOut(15 downto 0) <= PosDet2AOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet2AOffStepAddr => DataOut(15 downto 0) <= PosDet2AOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet3AOnStepAddr => DataOut(15 downto 0) <= PosDet3AOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet3AOffStepAddr => DataOut(15 downto 0) <= PosDet3AOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet4AOnStepAddr => DataOut(15 downto 0) <= PosDet4AOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet4AOffStepAddr => DataOut(15 downto 0) <= PosDet4AOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet5AOnStepAddr => DataOut(15 downto 0) <= PosDet5AOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet5AOffStepAddr => DataOut(15 downto 0) <= PosDet5AOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet6AOnStepAddr => DataOut(15 downto 0) <= PosDet6AOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet6AOffStepAddr => DataOut(15 downto 0) <= PosDet6AOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet7AOnStepAddr => DataOut(15 downto 0) <= PosDet7AOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet7AOffStepAddr => DataOut(15 downto 0) <= PosDet7AOffStep; DataOut(31 downto 16) <= x"0000";
-							
-							when PosDet0BOnStepAddr => DataOut(15 downto 0) <= PosDet0BOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet0BOffStepAddr => DataOut(15 downto 0) <= PosDet0BOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet1BOnStepAddr => DataOut(15 downto 0) <= PosDet1BOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet1BOffStepAddr => DataOut(15 downto 0) <= PosDet1BOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet2BOnStepAddr => DataOut(15 downto 0) <= PosDet2BOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet2BOffStepAddr => DataOut(15 downto 0) <= PosDet2BOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet3BOnStepAddr => DataOut(15 downto 0) <= PosDet3BOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet3BOffStepAddr => DataOut(15 downto 0) <= PosDet3BOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet4BOnStepAddr => DataOut(15 downto 0) <= PosDet4BOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet4BOffStepAddr => DataOut(15 downto 0) <= PosDet4BOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet5BOnStepAddr => DataOut(15 downto 0) <= PosDet5BOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet5BOffStepAddr => DataOut(15 downto 0) <= PosDet5BOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet6BOnStepAddr => DataOut(15 downto 0) <= PosDet6BOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet6BOffStepAddr => DataOut(15 downto 0) <= PosDet6BOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet7BOnStepAddr => DataOut(15 downto 0) <= PosDet7BOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet7BOffStepAddr => DataOut(15 downto 0) <= PosDet7BOffStep; DataOut(31 downto 16) <= x"0000";
-				
 							when others =>
 
 								DataOut <= x"BAADC0DE";
@@ -1187,20 +1106,13 @@ begin
 								
 								
 								
-								
-							--MotorControlStatusAddr
-							when MotorControlStatusAddr =>
-
-								MotorSeekStep_i <= DataIn(15 downto 0);
-								
-								
 							--ControlRegisterAddr
 							when ControlRegisterAddr =>
 
-								PosLedsEnA_i <= DataIn(0);
-								PosLedsEnB_i <= DataIn(1);
-								MotorEnable_i <= DataIn(2);
-								ResetSteps_i <= DataIn(3);
+								--~ PosLedsEnA_i <= DataIn(0);
+								--~ PosLedsEnB_i <= DataIn(1);
+								--~ MotorEnable_i <= DataIn(2);
+								--~ ResetSteps_i <= DataIn(3);
 								
 								nFaultClr1V <= DataIn(8);
 								nFaultClr3V <= DataIn(9);
@@ -1218,8 +1130,6 @@ begin
 								Ux1SelJmp_i <= DataIn(20);
 								Ux2SelJmp_i <= DataIn(21);
 								PPSCountReset <= DataIn(22);	
-								
-								if (ResetSteps_i = '1') then MotorSeekStep_i <= x"0000"; end if;
 								
 								
 							when others => 

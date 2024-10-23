@@ -23,7 +23,7 @@
 --
 
 --------------------------------------------------------------------------------
--- Ltc2378AccumTrio-20 A/D handler
+-- Ltc2378AccumQuad-20 A/D handler
 --
 -- c2013 Franks Development, LLC
 --
@@ -36,7 +36,7 @@ use IEEE.NUMERIC_STD.all;
 --100MHz / 256 (8b) < 400k == 2^19 * 0.75, so we have 13b left for seconds of day, which would repeat every 2.5 hours.
 --And we're writing the actual seconds into the datafile headers, so we'll have to tweak it up in the C code. 100MHz = 27 bits.
 
-entity Ltc2378AccumTrioPorts is
+entity Ltc2378AccumQuadPorts is
 	port (
 	
 		--Globals
@@ -85,9 +85,9 @@ entity Ltc2378AccumTrioPorts is
 		TP3 : out std_logic;
 		TP4 : out std_logic--;
 
-	); end Ltc2378AccumTrioPorts;
+	); end Ltc2378AccumQuadPorts;
 
-architecture Ltc2378AccumTrio of Ltc2378AccumTrioPorts is
+architecture Ltc2378AccumQuad of Ltc2378AccumQuadPorts is
 
 	component IBufP2Ports is
 	port (
@@ -244,7 +244,7 @@ begin
 		--~ CLOCK_DIVIDER => 10, --10MHz
 		--~ CLOCK_DIVIDER => 4, --36MHz
 		--~ CLOCK_DIVIDER => MASTER_CLOCK_FREQHZ / 10000,
-		BYTE_WIDTH => 3, --Ltc2378AccumTrio samples are 18 bits wide; will be left-just to 24bit.
+		BYTE_WIDTH => 3, --Ltc2378AccumQuad samples are 18 bits wide; will be left-just to 24bit.
 		CPOL => '0'--,
 	)
 	port map
@@ -446,7 +446,7 @@ begin
 		
 	end process;
 
-end Ltc2378AccumTrio;
+end Ltc2378AccumQuad;
 
 	------------------------------------------------------------------------------------------------------------  A/D ------------------------------------------------------------------------------------------------------------------ ------------------------------------------------------ 
 	
