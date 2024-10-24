@@ -32,7 +32,7 @@ KEY VendorTechnology_VCCI_1.8_VOLTR "COM"
 KEY VendorTechnology_VCCI_2.5_VOLTR "COM"
 KEY VendorTechnology_VCCI_3.3_VOLTR "COM"
 KEY VendorTechnology_VOLTR "IND"
-KEY ProjectLocation "/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero"
+KEY ProjectLocation "/home/summer/projects/CGraph/firmware/FineSteeringMirrorTq144/Libero"
 KEY ProjectDescription "FineSteeringMirror firmware."
 KEY UseRootLocationForLinkedFiles "FALSE"
 KEY RootLocationENVForLinkedFiles ""
@@ -48,9 +48,7 @@ KEY ActiveRoot "FineSteeringMirror::work"
 LIST REVISIONS
 VALUE="Impl1",NUM=1
 VALUE="Impl2",NUM=2
-VALUE="Impl3",NUM=3
-VALUE="Impl4",NUM=4
-CURREV=4
+CURREV=2
 ENDLIST
 LIST LIBRARIES
 COREAHBLITE_LIB
@@ -81,20 +79,20 @@ ENDLIST
 LIST GlobalIncludeFileList
 ENDLIST
 LIST FileManager
-VALUE "/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/BuildNumber.vhd,hdl"
+VALUE "/home/summer/projects/CGraph/firmware/FineSteeringMirrorTq144/fpga/BuildNumber.vhd,hdl"
 STATE="utd"
-TIME="1727889744"
+TIME="1716482054"
 SIZE="1186"
 ENDFILE
-VALUE "/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd,hdl"
+VALUE "/home/summer/projects/CGraph/firmware/FineSteeringMirrorTq144/fpga/Main.vhd,hdl"
 STATE="utd"
-TIME="1729713267"
-SIZE="77493"
+TIME="1726674523"
+SIZE="88734"
 ENDFILE
-VALUE "/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd,hdl"
+VALUE "/home/summer/projects/CGraph/firmware/FineSteeringMirrorTq144/fpga/RegisterSpace.vhd,hdl"
 STATE="utd"
-TIME="1729712874"
-SIZE="46672"
+TIME="1726674523"
+SIZE="45539"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/include/fpga/ads1258.vhd,hdl"
 STATE="utd"
@@ -166,10 +164,10 @@ STATE="utd"
 TIME="1726674523"
 SIZE="1783"
 ENDFILE
-VALUE "/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd,hdl"
+VALUE "/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumTrio.vhd,hdl"
 STATE="utd"
-TIME="1729727359"
-SIZE="19470"
+TIME="1726674523"
+SIZE="17871"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/include/fpga/ltc244x.vhd,hdl"
 STATE="utd"
@@ -221,15 +219,15 @@ STATE="utd"
 TIME="1726674523"
 SIZE="4703"
 ENDFILE
-VALUE "/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd,hdl"
+VALUE "/home/summer/projects/CGraph/firmware/include/fpga/SpiDacTrio.vhd,hdl"
 STATE="utd"
-TIME="1729702616"
-SIZE="7126"
+TIME="1726674523"
+SIZE="6370"
 ENDFILE
-VALUE "/home/summer/projects/CGraph/firmware/include/fpga/SpiDeviceDual.vhd,hdl"
+VALUE "/home/summer/projects/CGraph/firmware/include/fpga/SpiDevice.vhd,hdl"
 STATE="utd"
-TIME="1729711067"
-SIZE="6191"
+TIME="1726674523"
+SIZE="5461"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBus.vhd,hdl"
 STATE="utd"
@@ -246,15 +244,10 @@ STATE="utd"
 TIME="1726674523"
 SIZE="5186"
 ENDFILE
-VALUE "/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd,hdl"
+VALUE "/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterTrio.vhd,hdl"
 STATE="utd"
-TIME="1729702616"
-SIZE="6133"
-ENDFILE
-VALUE "/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd,hdl"
-STATE="utd"
-TIME="1729702616"
-SIZE="7872"
+TIME="1726674523"
+SIZE="7002"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/include/fpga/UartRxExtClk.vhd,hdl"
 STATE="utd"
@@ -412,11 +405,11 @@ STATE="utd"
 TIME="1726674523"
 SIZE="1783"
 ENDFILE
-VALUE "<project>/../../include/fpga/Ltc2378AccumQuad.vhd,hdl"
+VALUE "<project>/../../include/fpga/Ltc2378AccumTrio.vhd,hdl"
 LINKFILEROOT "<project>/../../include/fpga"
 STATE="utd"
-TIME="1729727359"
-SIZE="19470"
+TIME="1726674523"
+SIZE="17871"
 ENDFILE
 VALUE "<project>/../../include/fpga/ltc244x.vhd,hdl"
 LINKFILEROOT "<project>/../../include/fpga"
@@ -478,11 +471,11 @@ STATE="utd"
 TIME="1726674523"
 SIZE="4703"
 ENDFILE
-VALUE "<project>/../../include/fpga/SpiDacQuad.vhd,hdl"
+VALUE "<project>/../../include/fpga/SpiDacTrio.vhd,hdl"
 LINKFILEROOT "<project>/../../include/fpga"
 STATE="utd"
-TIME="1729702616"
-SIZE="7126"
+TIME="1726674523"
+SIZE="6370"
 ENDFILE
 VALUE "<project>/../../include/fpga/SpiExtBus.vhd,hdl"
 LINKFILEROOT "<project>/../../include/fpga"
@@ -502,17 +495,11 @@ STATE="utd"
 TIME="1726674523"
 SIZE="5186"
 ENDFILE
-VALUE "<project>/../../include/fpga/SpiMasterDual.vhd,hdl"
+VALUE "<project>/../../include/fpga/SpiMasterTrio.vhd,hdl"
 LINKFILEROOT "<project>/../../include/fpga"
 STATE="utd"
-TIME="1729702616"
-SIZE="6133"
-ENDFILE
-VALUE "<project>/../../include/fpga/SpiMasterQuad.vhd,hdl"
-LINKFILEROOT "<project>/../../include/fpga"
-STATE="utd"
-TIME="1729702616"
-SIZE="7872"
+TIME="1726674523"
+SIZE="7002"
 ENDFILE
 VALUE "<project>/../../include/fpga/UartRxExtClk.vhd,hdl"
 LINKFILEROOT "<project>/../../include/fpga"
@@ -595,20 +582,20 @@ ENDFILE
 VALUE "<project>/../fpga/BuildNumber.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
 STATE="utd"
-TIME="1727889744"
+TIME="1716482054"
 SIZE="1186"
 ENDFILE
 VALUE "<project>/../fpga/Main.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
 STATE="utd"
-TIME="1729713267"
-SIZE="77493"
+TIME="1726674523"
+SIZE="88734"
 ENDFILE
 VALUE "<project>/../fpga/RegisterSpace.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
 STATE="utd"
-TIME="1729712874"
-SIZE="46672"
+TIME="1726674523"
+SIZE="45539"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
@@ -996,54 +983,65 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/FineSteeringMirror/FineSteeringMirror.cxf,actgen_cxf"
 STATE="utd"
-TIME="1729727508"
-SIZE="14147"
+TIME="1722543970"
+SIZE="12693"
+ENDFILE
+VALUE "<project>/component/work/FineSteeringMirror/FineSteeringMirror.v,hdl"
+STATE="utd"
+TIME="1722543969"
+SIZE="17817"
+PARENT="<project>/component/work/FineSteeringMirror/FineSteeringMirror.cxf"
+IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/FineSteeringMirror_sb/CCC_0/FineSteeringMirror_sb_CCC_0_FCCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1729727190"
-SIZE="700"
+TIME="1716508968"
+SIZE="679"
 PARENT="<project>/component/work/FineSteeringMirror_sb/FineSteeringMirror_sb.cxf"
 ENDFILE
 VALUE "<project>/component/work/FineSteeringMirror_sb/CCC_0/FineSteeringMirror_sb_CCC_0_FCCC.v,hdl"
 STATE="utd"
-TIME="1729727190"
-SIZE="1666"
+TIME="1716508968"
+SIZE="1659"
 PARENT="<project>/component/work/FineSteeringMirror_sb/CCC_0/FineSteeringMirror_sb_CCC_0_FCCC.cxf"
+IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1729727190"
-SIZE="469"
+TIME="1716508968"
+SIZE="455"
 PARENT="<project>/component/work/FineSteeringMirror_sb/FineSteeringMirror_sb.cxf"
 ENDFILE
 VALUE "<project>/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v,hdl"
 STATE="utd"
-TIME="1729727190"
-SIZE="810"
+TIME="1716508968"
+SIZE="803"
 PARENT="<project>/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.cxf"
+IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/FineSteeringMirror_sb/FineSteeringMirror_sb.cxf,actgen_cxf"
 STATE="utd"
-TIME="1729727190"
-SIZE="9288"
+TIME="1716508970"
+SIZE="9211"
 ENDFILE
 VALUE "<project>/component/work/FineSteeringMirror_sb/FineSteeringMirror_sb.v,hdl"
 STATE="utd"
-TIME="1729727190"
-SIZE="22680"
+TIME="1716508968"
+SIZE="22407"
 PARENT="<project>/component/work/FineSteeringMirror_sb/FineSteeringMirror_sb.cxf"
+IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/FineSteeringMirror_sb_MSS/FineSteeringMirror_sb_MSS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1729727190"
-SIZE="15567"
+TIME="1716508964"
+SIZE="15518"
 ENDFILE
 VALUE "<project>/component/work/FineSteeringMirror_sb_MSS/FineSteeringMirror_sb_MSS.v,hdl"
 STATE="utd"
-TIME="1729727190"
-SIZE="44123"
+TIME="1716508964"
+SIZE="44109"
 PARENT="<project>/component/work/FineSteeringMirror_sb_MSS/FineSteeringMirror_sb_MSS.cxf"
+IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/FineSteeringMirror_sb_MSS/FineSteeringMirror_sb_MSS_pre.v,hdl"
 STATE="utd"
@@ -1055,6 +1053,7 @@ TOOL_CONSTRAINT_TYPE="ideSYNTHESIS"
 TOOL_CONSTRAINT_USE="PRECISION_EXT"
 END_USE_CONSTRAINT
 USE_FOR_ANY_TOOL="FALSE"
+IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/FineSteeringMirror_sb_MSS/FineSteeringMirror_sb_MSS_syn.v,hdl"
 STATE="utd"
@@ -1066,6 +1065,7 @@ TOOL_CONSTRAINT_TYPE="ideSYNTHESIS"
 TOOL_CONSTRAINT_USE="SYNPLIFY7_EXT"
 END_USE_CONSTRAINT
 USE_FOR_ANY_TOOL="FALSE"
+IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/constraint/io/user.pdc,io_pdc"
 STATE="utd"
@@ -1128,8 +1128,8 @@ PARENT="<project>/component/Actel/SmartFusion2MSS/MSS/1.1.500/MSS.cxf"
 ENDFILE
 VALUE "<project>/simulation/subsystem.bfm,sim"
 STATE="utd"
-TIME="1729727189"
-SIZE="780"
+TIME="1722543969"
+SIZE="773"
 PARENT="<project>/component/work/FineSteeringMirror/FineSteeringMirror.cxf"
 PARENT="<project>/component/work/FineSteeringMirror_sb/FineSteeringMirror_sb.cxf"
 ENDFILE
@@ -1145,15 +1145,117 @@ TIME="1716482054"
 SIZE="532"
 PARENT="<project>/component/work/FineSteeringMirror_sb_MSS/FineSteeringMirror_sb_MSS.cxf"
 ENDFILE
+VALUE "<project>/synthesis/FineSteeringMirror.so,so"
+STATE="utd"
+TIME="1724882068"
+SIZE="252"
+ENDFILE
+VALUE "<project>/synthesis/FineSteeringMirror.vm,syn_vm"
+STATE="utd"
+TIME="1724882068"
+SIZE="1420106"
+ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror_syn.prj,prj"
 STATE="utd"
-TIME="1729727190"
-SIZE="6835"
+TIME="1724882069"
+SIZE="6590"
+ENDFILE
+VALUE "<project>/synthesis/FineSteeringMirror_vm.sdc,syn_sdc"
+STATE="utd"
+TIME="1724882068"
+SIZE="7559"
 ENDFILE
 ENDLIST
 LIST UsedFile
 ENDLIST
 LIST NewModulesInfo
+LIST "FineSteeringMirror::work"
+FILE "<project>/component/work/FineSteeringMirror/FineSteeringMirror.v,hdl"
+LIST Other_Association
+VALUE "<project>/simulation/subsystem.bfm,sim"
+ENDLIST
+LIST PNRConstraints
+VALUE "<project>/constraint/io/user.pdc,io_pdc"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+LIST "FineSteeringMirror_sb::work"
+FILE "<project>/component/work/FineSteeringMirror_sb/FineSteeringMirror_sb.v,hdl"
+LIST Other_Association
+VALUE "<project>/simulation/subsystem.bfm,sim"
+VALUE "<project>/simulation/bfmtovec_compile.tcl,sim"
+VALUE "<project>/simulation/coreapb3_usertb_master.bfm,sim"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/coreparameters.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_main.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_ahbtoapb.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apb.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apbslaveext.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apbslave.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/test/user/testbench.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/mti/scripts/wave_user.do,do"
+ENDLIST
+LIST AssociatedStimulus
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/coreparameters.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_main.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_ahbtoapb.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apb.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apbslaveext.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apbslave.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/test/user/testbench.v,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+LIST "FineSteeringMirror_sb_MSS::work"
+FILE "<project>/component/work/FineSteeringMirror_sb_MSS/FineSteeringMirror_sb_MSS.v,hdl"
+LIST Other_Association
+VALUE "<project>/simulation/CM3_compile_bfm.tcl,sim"
+VALUE "<project>/simulation/user.bfm,sim"
+VALUE "<project>/simulation/test.bfm,sim"
+VALUE "<project>/simulation/peripheral_init.bfm,sim"
+ENDLIST
+ENDLIST
 LIST "CORESYSSERVICES_C0_CORESYSSERVICES_C0_0_CORESYSSERVICES::CORESYSSERVICES_LIB"
 FILE "<project>/component/work/CORESYSSERVICES_C0/CORESYSSERVICES_C0_0/rtl/vlog/core/CoreSysServices.v,hdl"
 LIST Other_Association
@@ -1191,30 +1293,19 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl4
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
 ENDLIST
 ENDLIST
 ENDLIST
 LIST AssociatedStimulus
+LIST FineSteeringMirror_sb
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/coreparameters.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_main.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_ahbtoapb.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apb.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apbslaveext.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apbslave.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/test/user/testbench.v,tb_hdl"
+ENDLIST
 LIST CORESYSSERVICES_C0_CORESYSSERVICES_C0_0_CORESYSSERVICES
 VALUE "<project>/component/work/CORESYSSERVICES_C0/CORESYSSERVICES_C0_0/rtl/vlog/test/user/comm_block.v,tb_hdl"
 VALUE "<project>/component/work/CORESYSSERVICES_C0/CORESYSSERVICES_C0_0/rtl/vlog/test/user/testbench.v,tb_hdl"
@@ -1223,6 +1314,28 @@ VALUE "<project>/component/work/CORESYSSERVICES_C0/CORESYSSERVICES_C0_0/corepara
 ENDLIST
 ENDLIST
 LIST Other_Association
+LIST FineSteeringMirror
+VALUE "<project>/simulation/subsystem.bfm,sim"
+ENDLIST
+LIST FineSteeringMirror_sb
+VALUE "<project>/simulation/subsystem.bfm,sim"
+VALUE "<project>/simulation/bfmtovec_compile.tcl,sim"
+VALUE "<project>/simulation/coreapb3_usertb_master.bfm,sim"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/coreparameters.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_main.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_ahbtoapb.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apb.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apbslaveext.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/amba_bfm/bfm_apbslave.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/test/user/testbench.v,tb_hdl"
+VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/mti/scripts/wave_user.do,do"
+ENDLIST
+LIST FineSteeringMirror_sb_MSS
+VALUE "<project>/simulation/CM3_compile_bfm.tcl,sim"
+VALUE "<project>/simulation/user.bfm,sim"
+VALUE "<project>/simulation/test.bfm,sim"
+VALUE "<project>/simulation/peripheral_init.bfm,sim"
+ENDLIST
 LIST CORESYSSERVICES_C0_CORESYSSERVICES_C0_0_CORESYSSERVICES
 VALUE "<project>/component/work/CORESYSSERVICES_C0/CORESYSSERVICES_C0_0/rtl/vlog/test/user/comm_block.v,tb_hdl"
 VALUE "<project>/component/work/CORESYSSERVICES_C0/CORESYSSERVICES_C0_0/rtl/vlog/test/user/testbench.v,tb_hdl"
@@ -1300,8 +1413,8 @@ NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
 LOCATION="/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/bin/synplify_pro"
-PARAM=""
-BATCH=0
+PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
+BATCH=1
 LICENSE=""
 IS32BIT="1"
 EndProfile
@@ -1325,7 +1438,29 @@ IS32BIT="1"
 EndProfile
 ENDLIST
 LIST ProjectState5.1
-LIST "CORESYSSERVICES_C0_CORESYSSERVICES_C0_0_CORESYSSERVICES::CORESYSSERVICES_LIB"
+LIST "FineSteeringMirror::work"
+LIST Impl1
+ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+LIST "FineSteeringMirror_sb::work"
 LIST Impl1
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
@@ -1346,7 +1481,9 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
-LIST Impl3
+ENDLIST
+LIST "CORESYSSERVICES_C0_CORESYSSERVICES_C0_0_CORESYSSERVICES::CORESYSSERVICES_LIB"
+LIST Impl1
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -1356,7 +1493,7 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
-LIST Impl4
+LIST Impl2
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -1380,9 +1517,11 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
+Reports;Reports;0
+ReportsCurrentItem;Run Programming Action:FineSteeringMirror_PROGRAM.log
 SmartDesign;FineSteeringMirror;0
-StartPage;StartPage;0
-ACTIVEVIEW;FineSteeringMirror
+Constraint Manager;Constraint Manager;0
+ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","/home/summer/projects/CGraph/firmware/include/fpga/ads1258.vhd","FALSE","FALSE"
@@ -1395,7 +1534,7 @@ ENDLIST
 LIST "ads1258Ports::work","/home/summer/projects/CGraph/firmware/include/fpga/ads1258.vhd","FALSE","FALSE"
 SUBBLOCK "SpiMasterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd","FALSE","FALSE"
 ENDLIST
-LIST "BuildNumberPorts::work","/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/BuildNumber.vhd","FALSE","FALSE"
+LIST "BuildNumberPorts::work","/home/summer/projects/CGraph/firmware/FineSteeringMirrorTq144/fpga/BuildNumber.vhd","FALSE","FALSE"
 ENDLIST
 LIST "coreresetp_pcie_hotreset::work","component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp_pcie_hotreset.v","FALSE","FALSE"
 ENDLIST
@@ -1414,6 +1553,10 @@ SUBBLOCK "coreresetp_pcie_hotreset::work","component/Actel/DirectCore/CoreResetP
 ENDLIST
 LIST "fifo::work","/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd","FALSE","FALSE"
 ENDLIST
+LIST "FourWireStepperMotorDriverPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd","FALSE","FALSE"
+SUBBLOCK "FourWireStepperMotorPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotor.vhd","FALSE","FALSE"
+SUBBLOCK "OneShotPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd","FALSE","FALSE"
+ENDLIST
 LIST "gated_fifo::work","/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd","FALSE","FALSE"
 SUBBLOCK "fifo::work","/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd","FALSE","FALSE"
 ENDLIST
@@ -1424,17 +1567,12 @@ ENDLIST
 LIST "SpiDacPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd","FALSE","FALSE"
 SUBBLOCK "SpiMasterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd","FALSE","FALSE"
 ENDLIST
-LIST "SpiDacQuadPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd","FALSE","FALSE"
-SUBBLOCK "SpiMasterQuadPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd","FALSE","FALSE"
-ENDLIST
-LIST "SpiDeviceDualPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiDeviceDual.vhd","FALSE","FALSE"
-SUBBLOCK "SpiMasterDualPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd","FALSE","FALSE"
-ENDLIST
-LIST "SpiMasterDualPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd","FALSE","FALSE"
+LIST "SpiDevicePorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiDevice.vhd","FALSE","FALSE"
+SUBBLOCK "SpiMasterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd","FALSE","FALSE"
 ENDLIST
 LIST "SpiMasterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd","FALSE","FALSE"
 ENDLIST
-LIST "SpiMasterQuadPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd","FALSE","FALSE"
+LIST "SpiMasterTrioPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterTrio.vhd","FALSE","FALSE"
 ENDLIST
 LIST "VariableClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd","FALSE","FALSE"
 ENDLIST
@@ -1446,7 +1584,13 @@ LIST "OneShotPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/On
 ENDLIST
 LIST "SpiMasterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd","FALSE","FALSE"
 ENDLIST
-LIST "SpiMasterQuadPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd","FALSE","FALSE"
+LIST "SpiMasterTrioPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterTrio.vhd","FALSE","FALSE"
+ENDLIST
+LIST "ClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd","FALSE","FALSE"
+ENDLIST
+LIST "OneShotPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiMasterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd","FALSE","FALSE"
 ENDLIST
 LIST "ClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 ENDLIST
@@ -1457,6 +1601,8 @@ ENDLIST
 LIST "ClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 ENDLIST
 LIST "SpiMasterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd","FALSE","FALSE"
+ENDLIST
+LIST "ClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 ENDLIST
 LIST "SpiMasterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd","FALSE","FALSE"
 ENDLIST
@@ -1470,30 +1616,26 @@ ENDLIST
 LIST "fifo_gen_tb::work","/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen_tb.vhd","FALSE","FALSE"
 SUBBLOCK "fifo::work","/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd","FALSE","FALSE"
 ENDLIST
-LIST "FineSteeringMirror::work","component/work/FineSteeringMirror/FineSteeringMirror.cxf","TRUE","FALSE"
+LIST "FineSteeringMirror::work","component/work/FineSteeringMirror/FineSteeringMirror.v","TRUE","FALSE"
 SUBBLOCK "FCCC_C0::work","component/work/FCCC_C0/FCCC_C0.v","TRUE","FALSE"
 SUBBLOCK "FineSteeringMirror_sb::work","component/work/FineSteeringMirror_sb/FineSteeringMirror_sb.v","TRUE","FALSE"
-SUBBLOCK "Main::work","/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd","FALSE","FALSE"
+SUBBLOCK "Main::work","/home/summer/projects/CGraph/firmware/FineSteeringMirrorTq144/fpga/Main.vhd","FALSE","FALSE"
 ENDLIST
 LIST "FineSteeringMirror_sb::work","component/work/FineSteeringMirror_sb/FineSteeringMirror_sb.v","TRUE","FALSE"
 SUBBLOCK "FineSteeringMirror_sb_CCC_0_FCCC::work","component/work/FineSteeringMirror_sb/CCC_0/FineSteeringMirror_sb_CCC_0_FCCC.v","FALSE","FALSE"
 SUBBLOCK "FineSteeringMirror_sb_FABOSC_0_OSC::work","component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v","FALSE","FALSE"
+SUBBLOCK "FineSteeringMirror_sb_MSS::work","component/work/FineSteeringMirror_sb_MSS/FineSteeringMirror_sb_MSS.v","TRUE","FALSE"
 SUBBLOCK "CoreResetP::work","component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v","FALSE","FALSE"
 SUBBLOCK "CoreAPB3::COREAPB3_LIB","component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3.v","FALSE","FALSE"
-SUBBLOCK "FineSteeringMirror_sb_MSS::work","component/work/FineSteeringMirror_sb_MSS/FineSteeringMirror_sb_MSS.v","TRUE","FALSE"
 ENDLIST
 LIST "FineSteeringMirror_sb_CCC_0_FCCC::work","component/work/FineSteeringMirror_sb/CCC_0/FineSteeringMirror_sb_CCC_0_FCCC.v","FALSE","FALSE"
 ENDLIST
 LIST "FineSteeringMirror_sb_FABOSC_0_OSC::work","component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v","FALSE","FALSE"
-SUBBLOCK "RCOSC_25_50MHZ::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.v","FALSE","FALSE"
 SUBBLOCK "RCOSC_25_50MHZ_FAB::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.v","FALSE","FALSE"
+SUBBLOCK "RCOSC_25_50MHZ::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.v","FALSE","FALSE"
 ENDLIST
 LIST "FineSteeringMirror_sb_MSS::work","component/work/FineSteeringMirror_sb_MSS/FineSteeringMirror_sb_MSS.v","TRUE","FALSE"
 SUBBLOCK "MSS_010::work","component/work/FineSteeringMirror_sb_MSS/FineSteeringMirror_sb_MSS_syn.v","FALSE","FALSE"
-ENDLIST
-LIST "FourWireStepperMotorDriverPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd","FALSE","FALSE"
-SUBBLOCK "FourWireStepperMotorPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotor.vhd","FALSE","FALSE"
-SUBBLOCK "OneShotPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd","FALSE","FALSE"
 ENDLIST
 LIST "FourWireStepperMotorPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotor.vhd","FALSE","FALSE"
 ENDLIST
@@ -1513,11 +1655,9 @@ ENDLIST
 LIST "IOBufP3Ports::work","/home/summer/projects/CGraph/firmware/include/fpga/IOBufP3.vhd","FALSE","FALSE"
 SUBBLOCK "iobuf::work","","FALSE","FALSE"
 ENDLIST
-LIST "Ltc2378AccumQuadPorts::work","","FALSE","FALSE"
-ENDLIST
-LIST "Ltc2378AccumTrioPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd","FALSE","FALSE"
+LIST "Ltc2378AccumTrioPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumTrio.vhd","FALSE","FALSE"
+SUBBLOCK "SpiMasterTrioPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterTrio.vhd","FALSE","FALSE"
 SUBBLOCK "VariableClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd","FALSE","FALSE"
-SUBBLOCK "SpiMasterQuadPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd","FALSE","FALSE"
 SUBBLOCK "OneShotPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd","FALSE","FALSE"
 ENDLIST
 LIST "ltc244x_types::work","/home/summer/projects/CGraph/firmware/include/fpga/ltc244x_types.vhd","FALSE","FALSE"
@@ -1533,25 +1673,24 @@ ENDLIST
 LIST "ltc244xPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/ltc244x.vhd","FALSE","FALSE"
 SUBBLOCK "SpiMasterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd","FALSE","FALSE"
 ENDLIST
-LIST "Main::work","/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd","FALSE","FALSE"
-SUBBLOCK "BuildNumberPorts::work","/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/BuildNumber.vhd","FALSE","FALSE"
+LIST "Main::work","/home/summer/projects/CGraph/firmware/FineSteeringMirrorTq144/fpga/Main.vhd","FALSE","FALSE"
+SUBBLOCK "BuildNumberPorts::work","/home/summer/projects/CGraph/firmware/FineSteeringMirrorTq144/fpga/BuildNumber.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP1Ports::work","/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP2Ports::work","/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP3Ports::work","/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd","FALSE","FALSE"
-SUBBLOCK "Ltc2378AccumQuadPorts::work","","FALSE","FALSE"
 SUBBLOCK "PPSCountPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd","FALSE","FALSE"
-SUBBLOCK "RegisterSpacePorts::work","/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd","FALSE","FALSE"
+SUBBLOCK "RegisterSpacePorts::work","/home/summer/projects/CGraph/firmware/FineSteeringMirrorTq144/fpga/RegisterSpace.vhd","FALSE","FALSE"
 SUBBLOCK "UartRxFifoExtClk::work","/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClk.vhd","FALSE","FALSE"
 SUBBLOCK "UartTxFifoExtClk::work","/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd","FALSE","FALSE"
 SUBBLOCK "VariableClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd","FALSE","FALSE"
 SUBBLOCK "ClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd","FALSE","FALSE"
+SUBBLOCK "FourWireStepperMotorDriverPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd","FALSE","FALSE"
 SUBBLOCK "OneShotPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd","FALSE","FALSE"
 SUBBLOCK "SpiDacPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd","FALSE","FALSE"
-SUBBLOCK "SpiDacQuadPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd","FALSE","FALSE"
-SUBBLOCK "SpiDeviceDualPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiDeviceDual.vhd","FALSE","FALSE"
+SUBBLOCK "SpiDevicePorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiDevice.vhd","FALSE","FALSE"
+SUBBLOCK "ClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 SUBBLOCK "OneShotPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd","FALSE","FALSE"
-ENDLIST
-LIST "OneShotPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd","FALSE","FALSE"
+SUBBLOCK "ClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 ENDLIST
 LIST "PhaseComparatorPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/PhaseComparator.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP3Ports::work","/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd","FALSE","FALSE"
@@ -1568,9 +1707,12 @@ LIST "RCOSC_25_50MHZ::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.v","FA
 ENDLIST
 LIST "RCOSC_25_50MHZ_FAB::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.v","FALSE","FALSE"
 ENDLIST
-LIST "RegisterSpacePorts::work","/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd","FALSE","FALSE"
+LIST "RegisterSpacePorts::work","/home/summer/projects/CGraph/firmware/FineSteeringMirrorTq144/fpga/RegisterSpace.vhd","FALSE","FALSE"
 ENDLIST
 LIST "RtcCounterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/RtcCounter.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiDacTrioPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiDacTrio.vhd","FALSE","FALSE"
+SUBBLOCK "SpiMasterTrioPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterTrio.vhd","FALSE","FALSE"
 ENDLIST
 LIST "SpiExtBusAddrTxPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBusAddrTx.vhd","FALSE","FALSE"
 SUBBLOCK "UartTx::work","/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd","FALSE","FALSE"
