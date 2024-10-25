@@ -86,13 +86,13 @@ SIZE="1186"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd,hdl"
 STATE="utd"
-TIME="1726674523"
-SIZE="88734"
+TIME="1729702616"
+SIZE="88691"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd,hdl"
 STATE="utd"
-TIME="1726674523"
-SIZE="45539"
+TIME="1729702616"
+SIZE="45519"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/include/fpga/ads1258.vhd,hdl"
 STATE="utd"
@@ -588,14 +588,14 @@ ENDFILE
 VALUE "<project>/../fpga/Main.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
 STATE="utd"
-TIME="1726674523"
-SIZE="88734"
+TIME="1729702616"
+SIZE="88691"
 ENDFILE
 VALUE "<project>/../fpga/RegisterSpace.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
 STATE="utd"
-TIME="1726674523"
-SIZE="45539"
+TIME="1729702616"
+SIZE="45519"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
@@ -1147,22 +1147,22 @@ PARENT="<project>/component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel.so,so"
 STATE="utd"
-TIME="1724882068"
+TIME="1726685864"
 SIZE="252"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel.vm,syn_vm"
-STATE="utd"
-TIME="1724882068"
-SIZE="1420106"
+STATE="ood"
+TIME="1726685863"
+SIZE="1420017"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel_syn.prj,prj"
 STATE="utd"
-TIME="1724882069"
+TIME="1726685864"
 SIZE="6590"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel_vm.sdc,syn_sdc"
 STATE="utd"
-TIME="1724882068"
+TIME="1726685863"
 SIZE="7559"
 ENDFILE
 ENDLIST
@@ -1176,28 +1176,6 @@ VALUE "<project>/simulation/subsystem.bfm,sim"
 ENDLIST
 LIST PNRConstraints
 VALUE "<project>/constraint/io/user.pdc,io_pdc"
-ENDLIST
-LIST ProjectState5.1
-LIST Impl1
-ideSYNTHESIS(<project>/synthesis/Filterwheel.vm,syn_vm)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSYNTHESIS(<project>/synthesis/Filterwheel.vm,syn_vm)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
 ENDLIST
 ENDLIST
 LIST "Filterwheel_sb::work"
@@ -1438,28 +1416,6 @@ IS32BIT="1"
 EndProfile
 ENDLIST
 LIST ProjectState5.1
-LIST "Filterwheel::work"
-LIST Impl1
-ideSYNTHESIS(<project>/synthesis/Filterwheel.vm,syn_vm)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSYNTHESIS(<project>/synthesis/Filterwheel.vm,syn_vm)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
 LIST "Filterwheel_sb::work"
 LIST Impl1
 ideSTIMULUS=StateSuccess
@@ -1517,11 +1473,8 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
-Reports;Reports;0
-ReportsCurrentItem;Run Programming Action:Filterwheel_PROGRAM.log
-SmartDesign;Filterwheel;0
-Constraint Manager;Constraint Manager;0
-ACTIVEVIEW;Reports
+StartPage;StartPage;0
+ACTIVEVIEW;StartPage
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","/home/summer/projects/CGraph/firmware/include/fpga/ads1258.vhd","FALSE","FALSE"

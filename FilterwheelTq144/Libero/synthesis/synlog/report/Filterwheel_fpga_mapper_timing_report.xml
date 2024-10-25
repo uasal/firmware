@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- *************************************************************************************
+FILE DESCRIPTION
+Max Top 5 critical clocks will be reported. For rest user needs to refer to Detailed report
+*******************************************************************************************-->
+<report_table display_priority="2" name="Timing Summary">
+<report_link name="Detailed report">
+<data>/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesis/synlog/Filterwheel_fpga_mapper.srr</data>
+<title>START OF TIMING REPORT</title>
+</report_link>
+<row>
+<data tcl_name="clock_name">Clock Name</data>
+<data tcl_name="req_freq">Req Freq</data>
+<data tcl_name="est_freq">Est Freq</data>
+<data tcl_name="slack">Slack</data>
+</row>
+<row>
+<data>ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock</data>
+<data>100.0 MHz</data>
+<data>255.0 MHz</data>
+<data>6.079</data>
+</row>
+<row>
+<data>ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock</data>
+<data>100.0 MHz</data>
+<data>255.0 MHz</data>
+<data>6.079</data>
+</row>
+<row>
+<data>ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock</data>
+<data>100.0 MHz</data>
+<data>255.0 MHz</data>
+<data>6.079</data>
+</row>
+<row>
+<data>ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock</data>
+<data>100.0 MHz</data>
+<data>255.0 MHz</data>
+<data>6.079</data>
+</row>
+<row>
+<data>ClockDividerPorts_work_main_architecture_main_0layer1_4|div_i_inferred_clock</data>
+<data>100.0 MHz</data>
+<data>255.0 MHz</data>
+<data>6.079</data>
+</row>
+<row>
+<data>ClockDividerPorts_work_main_architecture_main_0layer1_5|div_i_inferred_clock</data>
+<data>100.0 MHz</data>
+<data>255.0 MHz</data>
+<data>6.079</data>
+</row>
+<row>
+<data>ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock</data>
+<data>100.0 MHz</data>
+<data>180.5 MHz</data>
+<data>4.459</data>
+</row>
+<row>
+<data>ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock</data>
+<data>100.0 MHz</data>
+<data>178.0 MHz</data>
+<data>4.384</data>
+</row>
+<row>
+<data>FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock</data>
+<data>100.0 MHz</data>
+<data>131.0 MHz</data>
+<data>2.368</data>
+</row>
+<row>
+<data>Filterwheel_sb_CCC_0_FCCC|GL0_net_inferred_clock</data>
+<data>100.0 MHz</data>
+<data>116.9 MHz</data>
+<data>1.444</data>
+</row>
+<row>
+<data>Filterwheel_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock</data>
+<data>100.0 MHz</data>
+<data>816.1 MHz</data>
+<data>8.775</data>
+</row>
+<row>
+<data>VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock</data>
+<data>100.0 MHz</data>
+<data>181.8 MHz</data>
+<data>4.499</data>
+</row>
+<row>
+<data>VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock</data>
+<data>100.0 MHz</data>
+<data>183.6 MHz</data>
+<data>4.553</data>
+</row>
+<row>
+<data>VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock</data>
+<data>100.0 MHz</data>
+<data>180.7 MHz</data>
+<data>4.466</data>
+</row>
+<row>
+<data>VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock</data>
+<data>100.0 MHz</data>
+<data>181.8 MHz</data>
+<data>4.499</data>
+</row>
+<row>
+<data>System</data>
+<data>100.0 MHz</data>
+<data>272.7 MHz</data>
+<data>6.333</data>
+</row>
+</report_table>
