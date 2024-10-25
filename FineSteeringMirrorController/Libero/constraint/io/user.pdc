@@ -217,21 +217,21 @@ set_io SckExt	\
 	-out_drive 4		\
 	-DIRECTION OUTPUT
 
-set_io PowerMaxEn	\
+set_io PowerEnMax	\
 	-iostd LVCMOS33	\
 	-pinname 43	\
 	-fixed yes	\
 	-out_drive 4	\
-	-slew MEDIUM	\
 	-DIRECTION OUTPUT
-
+	#-slew MEDIUM	\
+	
 set_io XO1	\
 	-iostd LVCMOS33	\
 	-pinname 44	\
 	-fixed yes	\
 	-DIRECTION INPUT
 
-set_io 	GlobalFaultInhibition	\
+set_io 	GlobalFaultInhibit	\
 	-iostd LVCMOS33	\
 	-pinname 46	\
 	-fixed yes	\
@@ -252,7 +252,7 @@ set_io MosiDacDTi	\
 	-DIRECTION OUTPUT
 
 
-set_io nDrdyMonAdc	\
+set_io nDrdyMonAdc1	\
 	-iostd LVCMOS33	\
 	-pinname 49	\
 	-fixed yes	\
@@ -260,17 +260,17 @@ set_io nDrdyMonAdc	\
 	-DIRECTION INPUT	
 
 set_io nCsDacsTi	\
-	-iostd LVMOS33	\
+	-iostd LVCMOS33	\
 	-pinname 52	\
 	-fixed yes	\
-	     -out_drive 4	\
+	-out_drive 4	\
 	-DIRECTION OUTPUT	
 
 set_io MosiDacBTi	\
 	-iostd LVCMOS33	\
-	-pinname 53
+	-pinname 53 \
 	-fixed yes	\
-	     -out_drive 4	\
+	-out_drive 4	\
 	-DIRECTION OUTPUT	
 
 set_io MisoMonAdc1	\
@@ -472,7 +472,7 @@ set_io MosiDacBMax	\
 	    -out_drive 4	\
 	-DIRECTION OUTPUT
 
-set_io PowerTiEn	\
+set_io PowerEnTi	\
 	-iostd LVCMOS33	\
 	-pinname 93	\
 	-fixed yes	\

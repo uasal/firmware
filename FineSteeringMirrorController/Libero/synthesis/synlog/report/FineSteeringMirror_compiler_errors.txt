@@ -1,3 +1,4 @@
-@E: CG159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v":431:5:431:10|Port Rxd0 not found on module definition
-@E::Errors while synthesizing top module FineSteeringMirror.
+@E: CD326 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":2518:1:2518:14|Port sendspiextbussaddr of entity work.spiextbusaddrtxports is unconnected. If a port needs to remain unconnected, use the keyword open.
+@E: CD326 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":2552:1:2552:5|Port writespiextbus of entity work.spiextbusports is unconnected. If a port needs to remain unconnected, use the keyword open.
+@E::Errors, while synthesis.
 

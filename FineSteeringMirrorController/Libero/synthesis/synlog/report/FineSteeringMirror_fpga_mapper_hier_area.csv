@@ -1,19 +1,19 @@
 
 . Module name, SLE, CFG, ARI1, BUFFER, MACC, RAM1K18, RAM64X18, GLOBAL, IO
-. FineSteeringMirror, 2189, 1562, 680, 0, 0, 10, 0, 27, 78
+. FineSteeringMirror, 2176, 1462, 778, 0, 0, 9, 0, 27, 83
 .	. FCCC_C0, 0, 0, 0, 0, 0, 0, 0, 2, 1
 .	.	. FCCC_C0_FCCC_C0_0_FCCC, 0, 0, 0, 0, 0, 0, 0, 2, 1
-.	. FineSteeringMirror_sb, 46, 43, 0, 0, 0, 0, 0, 4, 0
+.	. FineSteeringMirror_sb, 46, 11, 0, 0, 0, 0, 0, 4, 0
 .	.	. CoreAPB3_Z1_layer0, 0, 2, 0, 0, 0, 0, 0, 0, 0
 .	.	. CoreResetP_Z2_layer0, 46, 9, 0, 0, 0, 0, 0, 2, 0
 .	.	. FineSteeringMirror_sb_CCC_0_FCCC, 0, 0, 0, 0, 0, 0, 0, 1, 0
 .	.	. FineSteeringMirror_sb_FABOSC_0_OSC, 0, 0, 0, 0, 0, 0, 0, 1, 0
-.	.	. FineSteeringMirror_sb_MSS, 0, 32, 0, 0, 0, 0, 0, 0, 0
-.	. Main, 2143, 1519, 680, 0, 0, 10, 0, 21, 0
+.	.	. FineSteeringMirror_sb_MSS, 0, 0, 0, 0, 0, 0, 0, 0, 0
+.	. Main, 2130, 1451, 778, 0, 0, 9, 0, 21, 0
 .	.	. ClockDividerPorts_work_main_architecture_main_0layer1_0, 4, 2, 0, 0, 0, 0, 0, 1, 0
 .	.	. ClockDividerPorts_work_main_architecture_main_0layer1_1, 4, 2, 0, 0, 0, 0, 0, 1, 0
-.	.	. ClockDividerPorts_work_main_architecture_main_0layer1_2, 4, 2, 0, 0, 0, 0, 0, 1, 0
-.	.	. ClockDividerPorts_work_main_architecture_main_0layer1_3, 4, 12, 0, 0, 0, 0, 0, 1, 0
+.	.	. ClockDividerPorts_work_main_architecture_main_0layer1_2, 4, 12, 0, 0, 0, 0, 0, 1, 0
+.	.	. ClockDividerPorts_work_main_architecture_main_0layer1_3, 4, 2, 0, 0, 0, 0, 0, 1, 0
 .	.	. ClockDividerPorts_work_main_architecture_main_0layer1_4, 4, 2, 0, 0, 0, 0, 0, 1, 0
 .	.	. IBufP1Ports, 1, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP1Ports_0, 1, 0, 0, 0, 0, 0, 0, 0, 0
@@ -28,7 +28,7 @@
 .	.	. IBufP1Ports_17, 1, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP1Ports_18, 1, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP1Ports_19, 1, 0, 0, 0, 0, 0, 0, 0, 0
-.	.	. IBufP1Ports_2, 1, 0, 0, 0, 0, 0, 0, 0, 0
+.	.	. IBufP1Ports_2, 2, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP1Ports_20, 1, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP1Ports_21, 1, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP1Ports_22, 1, 0, 0, 0, 0, 0, 0, 0, 0
@@ -39,7 +39,7 @@
 .	.	. IBufP1Ports_27, 1, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP1Ports_28, 1, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP1Ports_29, 1, 0, 0, 0, 0, 0, 0, 0, 0
-.	.	. IBufP1Ports_3, 2, 0, 0, 0, 0, 0, 0, 0, 0
+.	.	. IBufP1Ports_3, 1, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP1Ports_30, 1, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP1Ports_31, 1, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP1Ports_32, 1, 0, 0, 0, 0, 0, 0, 0, 0
@@ -50,9 +50,9 @@
 .	.	. IBufP1Ports_37, 1, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP1Ports_38, 1, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP1Ports_39, 1, 0, 0, 0, 0, 0, 0, 0, 0
-.	.	. IBufP1Ports_4, 1, 0, 0, 0, 0, 0, 0, 0, 0
+.	.	. IBufP1Ports_4, 2, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP1Ports_40, 1, 0, 0, 0, 0, 0, 0, 0, 0
-.	.	. IBufP1Ports_5, 2, 0, 0, 0, 0, 0, 0, 0, 0
+.	.	. IBufP1Ports_5, 1, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP1Ports_6, 1, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP1Ports_7, 1, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP1Ports_8, 1, 0, 0, 0, 0, 0, 0, 0, 0
@@ -61,6 +61,7 @@
 .	.	. IBufP2Ports_1, 2, 5, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP2Ports_10, 2, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP2Ports_11, 2, 0, 0, 0, 0, 0, 0, 0, 0
+.	.	. IBufP2Ports_12, 2, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP2Ports_2, 2, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP2Ports_3, 2, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP2Ports_5, 2, 0, 0, 0, 0, 0, 0, 0, 0
@@ -69,6 +70,7 @@
 .	.	. IBufP2Ports_8, 2, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP2Ports_9, 2, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP3Ports, 3, 0, 0, 0, 0, 0, 0, 0, 0
+.	.	. IBufP3Ports_0, 3, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP3Ports_1, 3, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP3Ports_2, 3, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP3Ports_8, 3, 0, 0, 0, 0, 0, 0, 0, 0
@@ -76,20 +78,20 @@
 .	.	. IBufP3Ports_8_1, 3, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP3Ports_8_2, 3, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	. IBufP3Ports_8_3, 3, 0, 0, 0, 0, 0, 0, 0, 0
-.	.	. Ltc2378AccumQuadPorts, 345, 86, 33, 0, 0, 0, 0, 1, 0
+.	.	. Ltc2378AccumQuadPorts, 345, 87, 33, 0, 0, 0, 0, 1, 0
 .	.	.	. OneShotPorts_work_main_architecture_main_2layer1, 4, 4, 0, 0, 0, 0, 0, 1, 0
-.	.	.	. SpiMasterQuadPorts_work_main_architecture_main_0layer1, 113, 57, 0, 0, 0, 0, 0, 0, 0
+.	.	.	. SpiMasterQuadPorts_work_main_architecture_main_0layer1, 113, 58, 0, 0, 0, 0, 0, 0, 0
 .	.	.	. VariableClockDividerPorts_work_main_architecture_main_1layer1, 16, 6, 16, 0, 0, 0, 0, 0, 0
 .	.	. OneShotPorts_work_main_architecture_main_0layer1, 12, 7, 10, 0, 0, 0, 0, 1, 0
 .	.	. OneShotPorts_work_main_architecture_main_1layer1, 4, 1, 0, 0, 0, 0, 0, 0, 0
 .	.	. PPSCountPorts_work_main_architecture_main_0layer1, 67, 11, 63, 0, 0, 0, 0, 0, 0
-.	.	. RegisterSpacePorts_10, 280, 535, 92, 0, 0, 0, 0, 1, 0
-.	.	. SpiDacPorts_102000000_16, 72, 62, 19, 0, 0, 0, 0, 1, 0
-.	.	.	. SpiMasterPorts_work_main_architecture_main_0layer1, 52, 57, 19, 0, 0, 0, 0, 0, 0
-.	.	. SpiDacQuadPorts_102000000, 412, 136, 21, 0, 0, 0, 0, 1, 0
-.	.	.	. SpiMasterQuadPorts_work_main_architecture_main_1layer1, 216, 130, 21, 0, 0, 0, 0, 0, 0
-.	.	. SpiDeviceDualPorts_work_main_architecture_main_0layer1, 47, 38, 12, 0, 0, 0, 0, 1, 0
-.	.	.	. SpiMasterDualPorts_work_main_architecture_main_0layer1, 34, 33, 12, 0, 0, 0, 0, 0, 0
+.	.	. RegisterSpacePorts_10, 289, 507, 201, 0, 0, 0, 0, 1, 0
+.	.	. SpiDacPorts_102000000_16, 71, 57, 19, 0, 0, 0, 0, 1, 0
+.	.	.	. SpiMasterPorts_work_main_architecture_main_0layer1, 51, 52, 19, 0, 0, 0, 0, 0, 0
+.	.	. SpiDacQuadPorts_102000000, 412, 122, 31, 0, 0, 0, 0, 1, 0
+.	.	.	. SpiMasterQuadPorts_work_main_architecture_main_1layer1, 216, 116, 31, 0, 0, 0, 0, 0, 0
+.	.	. SpiDeviceDualPorts_work_main_architecture_main_0layer1, 65, 44, 12, 0, 0, 0, 0, 1, 0
+.	.	.	. SpiMasterDualPorts_work_main_architecture_main_0layer1, 44, 37, 12, 0, 0, 0, 0, 0, 0
 .	.	. UartRxFifoExtClk_10_0, 85, 70, 33, 0, 0, 1, 0, 0, 0
 .	.	.	. IBufP2Ports_0_12, 2, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	.	. UartRxExtClk_4, 27, 35, 0, 0, 0, 0, 0, 0, 0
@@ -104,13 +106,13 @@
 .	.	.	.	. UartRxRaw_3, 25, 35, 0, 0, 0, 0, 0, 0, 0
 .	.	.	. gated_fifo_8_10_1_5, 56, 35, 33, 0, 0, 1, 0, 0, 0
 .	.	.	.	. fifo_8_10_1_5, 52, 33, 33, 0, 0, 1, 0, 0, 0
-.	.	. UartRxFifoExtClk_10_2, 85, 70, 33, 0, 0, 1, 0, 0, 0
+.	.	. UartRxFifoExtClk_10_2, 40, 47, 12, 0, 0, 0, 0, 0, 0
 .	.	.	. IBufP2Ports_0_8, 2, 0, 0, 0, 0, 0, 0, 0, 0
-.	.	.	. UartRxExtClk_2, 27, 35, 0, 0, 0, 0, 0, 0, 0
+.	.	.	. UartRxExtClk_2, 11, 23, 0, 0, 0, 0, 0, 0, 0
 .	.	.	.	. IBufP2Ports_0_2, 2, 0, 0, 0, 0, 0, 0, 0, 0
-.	.	.	.	. UartRxRaw_2, 25, 35, 0, 0, 0, 0, 0, 0, 0
-.	.	.	. gated_fifo_8_10_1_3, 56, 35, 33, 0, 0, 1, 0, 0, 0
-.	.	.	.	. fifo_8_10_1_3, 52, 33, 33, 0, 0, 1, 0, 0, 0
+.	.	.	.	. UartRxRaw_2, 9, 23, 0, 0, 0, 0, 0, 0, 0
+.	.	.	. gated_fifo_8_10_1_3, 27, 24, 12, 0, 0, 0, 0, 0, 0
+.	.	.	.	. fifo_8_10_1_3, 23, 22, 12, 0, 0, 0, 0, 0, 0
 .	.	. UartRxFifoExtClk_10_3, 85, 70, 33, 0, 0, 1, 0, 0, 0
 .	.	.	. IBufP2Ports_0_6, 2, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	.	. UartRxExtClk_1, 27, 35, 0, 0, 0, 0, 0, 0, 0
@@ -125,31 +127,31 @@
 .	.	.	.	. UartRxRaw_0, 25, 35, 0, 0, 0, 0, 0, 0, 0
 .	.	.	. gated_fifo_8_10_0, 56, 35, 33, 0, 0, 1, 0, 0, 0
 .	.	.	.	. fifo_8_10_0, 52, 33, 33, 0, 0, 1, 0, 0, 0
-.	.	. UartTxFifoExtClk_10_0, 65, 50, 37, 0, 0, 1, 0, 0, 0
+.	.	. UartTxFifoExtClk_10_0, 65, 49, 37, 0, 0, 1, 0, 0, 0
 .	.	.	. IBufP2Ports_0_13, 2, 0, 0, 0, 0, 0, 0, 0, 0
-.	.	.	. IBufP2Ports_15_15, 2, 0, 0, 0, 0, 0, 0, 0, 0
+.	.	.	. IBufP2Ports_16_15, 2, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	.	. UartTx_4, 7, 15, 5, 0, 0, 0, 0, 0, 0
 .	.	.	. gated_fifo_8_10_1_8, 48, 28, 32, 0, 0, 1, 0, 0, 0
 .	.	.	.	. fifo_8_10_1_8, 43, 25, 32, 0, 0, 1, 0, 0, 0
-.	.	. UartTxFifoExtClk_10_1, 65, 49, 37, 0, 0, 1, 0, 0, 0
+.	.	. UartTxFifoExtClk_10_1, 65, 48, 37, 0, 0, 1, 0, 0, 0
 .	.	.	. IBufP2Ports_0_11, 2, 0, 0, 0, 0, 0, 0, 0, 0
-.	.	.	. IBufP2Ports_15_11, 2, 0, 0, 0, 0, 0, 0, 0, 0
+.	.	.	. IBufP2Ports_16_11, 2, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	.	. UartTx_3, 7, 14, 5, 0, 0, 0, 0, 0, 0
 .	.	.	. gated_fifo_8_10_1_6, 48, 28, 32, 0, 0, 1, 0, 0, 0
 .	.	.	.	. fifo_8_10_1_6, 43, 25, 32, 0, 0, 1, 0, 0, 0
-.	.	. UartTxFifoExtClk_10_2, 65, 49, 37, 0, 0, 1, 0, 0, 0
+.	.	. UartTxFifoExtClk_10_2, 65, 48, 37, 0, 0, 1, 0, 0, 0
 .	.	.	. IBufP2Ports_0_9, 2, 0, 0, 0, 0, 0, 0, 0, 0
-.	.	.	. IBufP2Ports_15_7, 2, 0, 0, 0, 0, 0, 0, 0, 0
+.	.	.	. IBufP2Ports_16_7, 2, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	.	. UartTx_2, 7, 14, 5, 0, 0, 0, 0, 0, 0
 .	.	.	. gated_fifo_8_10_1_4, 48, 28, 32, 0, 0, 1, 0, 0, 0
 .	.	.	.	. fifo_8_10_1_4, 43, 25, 32, 0, 0, 1, 0, 0, 0
-.	.	. UartTxFifoExtClk_10_3, 65, 49, 37, 0, 0, 1, 0, 0, 0
+.	.	. UartTxFifoExtClk_10_3, 65, 48, 37, 0, 0, 1, 0, 0, 0
 .	.	.	. IBufP2Ports_0_7, 2, 0, 0, 0, 0, 0, 0, 0, 0
-.	.	.	. IBufP2Ports_15_3, 2, 0, 0, 0, 0, 0, 0, 0, 0
+.	.	.	. IBufP2Ports_16_3, 2, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	.	. UartTx_1, 7, 14, 5, 0, 0, 0, 0, 0, 0
 .	.	.	. gated_fifo_8_10_1_2, 48, 28, 32, 0, 0, 1, 0, 0, 0
 .	.	.	.	. fifo_8_10_1_2, 43, 25, 32, 0, 0, 1, 0, 0, 0
-.	.	. UartTxFifoExtClk_10_4, 65, 49, 37, 0, 0, 1, 0, 0, 0
+.	.	. UartTxFifoExtClk_10_4, 65, 48, 37, 0, 0, 1, 0, 0, 0
 .	.	.	. IBufP2Ports_0_5, 2, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	.	. IBufP2Ports_4, 2, 0, 0, 0, 0, 0, 0, 0, 0
 .	.	.	. UartTx_0, 7, 14, 5, 0, 0, 0, 0, 0, 0

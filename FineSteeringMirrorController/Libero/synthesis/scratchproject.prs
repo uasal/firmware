@@ -39,6 +39,8 @@ add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/Spi
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/SpiDeviceDual.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBusAddrTx.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBus.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd"
 add_file -verilog "/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v"
 add_file -fpga_constraint "/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/designer/FineSteeringMirror/synthesis.fdc"

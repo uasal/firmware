@@ -1,5 +1,5 @@
 <html><body><samp><pre>
-<!@TC:1729894776>
+<!@TC:1729897088>
 
 Copyright (C) 1994-2022 Synopsys, Inc.
 This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
@@ -18,7 +18,7 @@ max stack size: 8388608 (bytes)
 
 Implementation : synthesis
 
-# Written on Fri Oct 25 15:19:36 2024
+# Written on Fri Oct 25 15:58:08 2024
 
 ##### DESIGN INFO #######################################################
 
@@ -37,12 +37,14 @@ Found 0 issues in 0 out of 1 constraints
 
 
 
-<a name=clockRelationships100></a>Clock Relationships</a>
+<a name=clockRelationships7></a>Clock Relationships</a>
 *******************
 
 Starting                                                                                  Ending                                                                                    |     rise to rise     |     fall to fall     |     rise to fall     |     fall to rise                     
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 System                                                                                    System                                                                                    |     10.000           |     No paths         |     No paths         |     No paths                         
+System                                                                                    FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             |     10.000           |     No paths         |     No paths         |     No paths                         
+FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             System                                                                                    |     10.000           |     No paths         |     No paths         |     No paths                         
 FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             |     10.000           |     No paths         |     No paths         |     No paths                         
 FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock              |     Diff grp         |     No paths         |     No paths         |     No paths                         
 FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     |     Diff grp         |     No paths         |     No paths         |     No paths                         
@@ -85,10 +87,9 @@ FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock       
        'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
 
 
-<a name=UnconstrainedStartEndPointsCCK101></a>Unconstrained Start/End Points</a>
+<a name=UnconstrainedStartEndPointsCCK8></a>Unconstrained Start/End Points</a>
 ******************************
 
-p:CLK0_PAD
 p:ChopAdc
 p:ChopRef
 p:CtsUsb
@@ -108,6 +109,7 @@ p:MisoAdcA
 p:MisoAdcB
 p:MisoAdcC
 p:MisoAdcD
+p:MisoExt
 p:MisoMonAdc0
 p:MisoMonAdc1
 p:MosiDacAMax
@@ -118,6 +120,7 @@ p:MosiDacCMax
 p:MosiDacCTi
 p:MosiDacDMax
 p:MosiDacDTi
+p:MosiExt
 p:MosiMonAdcs
 p:MosiXO
 p:Oe0
@@ -139,6 +142,7 @@ p:RxdLab
 p:SckAdcs
 p:SckDacsMax
 p:SckDacsTi
+p:SckExt
 p:SckMonAdcs
 p:SckXO
 p:TrigAdcs
@@ -149,9 +153,12 @@ p:Tx2
 p:Tx3
 p:TxdLab
 p:Ux1SelJmp
+p:XO1
 p:nCsAdcs
 p:nCsDacsMax
 p:nCsDacsTi
+p:nCsExt (bidir end point)
+p:nCsExt (bidir start point)
 p:nCsMonAdcs
 p:nCsXO
 p:nDrdyAdcA
@@ -170,25 +177,25 @@ p:nLDacsMax
 p:nPowerCycClr
 
 
-<a name=InapplicableconstraintsCCK102></a>Inapplicable constraints</a>
+<a name=InapplicableconstraintsCCK9></a>Inapplicable constraints</a>
 ************************
 
 (none)
 
 
-<a name=ApplicableConstraintsWithIssuesCCK103></a>Applicable constraints with issues</a>
+<a name=ApplicableConstraintsWithIssuesCCK10></a>Applicable constraints with issues</a>
 **********************************
 
 (none)
 
 
-<a name=ConstraintsWithMatchingWildcardExpressionsCCK104></a>Constraints with matching wildcard expressions</a>
+<a name=ConstraintsWithMatchingWildcardExpressionsCCK11></a>Constraints with matching wildcard expressions</a>
 **********************************************
 
 (none)
 
 
-<a name=LibraryReportCCK105></a>Library Report</a>
+<a name=LibraryReportCCK12></a>Library Report</a>
 **************
 
 

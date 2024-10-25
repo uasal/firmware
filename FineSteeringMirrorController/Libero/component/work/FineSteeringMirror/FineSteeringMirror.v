@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Fri Oct 25 15:19:23 2024
+// Created by SmartDesign Fri Oct 25 15:55:55 2024
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -8,7 +8,6 @@
 // FineSteeringMirror
 module FineSteeringMirror(
     // Inputs
-    CLK0_PAD,
     DEVRST_N,
     Fault1V,
     Fault2VA,
@@ -31,6 +30,7 @@ module FineSteeringMirror(
     Rx2,
     Rx3,
     TxdLab,
+    XO1,
     nDrdyAdcA,
     nDrdyAdcB,
     nDrdyAdcC,
@@ -76,6 +76,7 @@ module FineSteeringMirror(
     nHVEn1,
     nPowerCycClr,
     // Inouts
+    MisoExt,
     MosiDacAMax,
     MosiDacATi,
     MosiDacBMax,
@@ -84,18 +85,20 @@ module FineSteeringMirror(
     MosiDacCTi,
     MosiDacDMax,
     MosiDacDTi,
+    MosiExt,
     SckDacsMax,
     SckDacsTi,
+    SckExt,
     Ux1SelJmp,
     nCsDacsMax,
     nCsDacsTi,
+    nCsExt,
     nLDacsMax
 );
 
 //--------------------------------------------------------------------
 // Input
 //--------------------------------------------------------------------
-input  CLK0_PAD;
 input  DEVRST_N;
 input  Fault1V;
 input  Fault2VA;
@@ -118,6 +121,7 @@ input  Rx1;
 input  Rx2;
 input  Rx3;
 input  TxdLab;
+input  XO1;
 input  nDrdyAdcA;
 input  nDrdyAdcB;
 input  nDrdyAdcC;
@@ -167,6 +171,7 @@ output nPowerCycClr;
 //--------------------------------------------------------------------
 // Inout
 //--------------------------------------------------------------------
+inout  MisoExt;
 inout  MosiDacAMax;
 inout  MosiDacATi;
 inout  MosiDacBMax;
@@ -175,18 +180,20 @@ inout  MosiDacCMax;
 inout  MosiDacCTi;
 inout  MosiDacDMax;
 inout  MosiDacDTi;
+inout  MosiExt;
 inout  SckDacsMax;
 inout  SckDacsTi;
+inout  SckExt;
 inout  Ux1SelJmp;
 inout  nCsDacsMax;
 inout  nCsDacsTi;
+inout  nCsExt;
 inout  nLDacsMax;
 //--------------------------------------------------------------------
 // Nets
 //--------------------------------------------------------------------
 wire          ChopAdc_net_0;
 wire          ChopRef_net_0;
-wire          CLK0_PAD;
 wire          CtsUsb_net_0;
 wire          DEVRST_N;
 wire          Fault1V;
@@ -213,6 +220,7 @@ wire          MisoAdcA;
 wire          MisoAdcB;
 wire          MisoAdcC;
 wire          MisoAdcD;
+wire          MisoExt;
 wire          MisoMonAdc0;
 wire          MisoMonAdc1;
 wire          MosiDacAMax;
@@ -223,11 +231,13 @@ wire          MosiDacCMax;
 wire          MosiDacCTi;
 wire          MosiDacDMax;
 wire          MosiDacDTi;
+wire          MosiExt;
 wire          MosiMonAdcs_net_0;
 wire          MosiXO_net_0;
 wire          nCsAdcs_net_0;
 wire          nCsDacsMax;
 wire          nCsDacsTi;
+wire          nCsExt;
 wire          nCsMonAdcs_net_0;
 wire          nCsXO_net_0;
 wire          nDrdyAdcA;
@@ -263,6 +273,7 @@ wire          RxdLab_net_0;
 wire          SckAdcs_net_0;
 wire          SckDacsMax;
 wire          SckDacsTi;
+wire          SckExt;
 wire          SckMonAdcs_net_0;
 wire          SckXO_net_0;
 wire          TrigAdcs_net_0;
@@ -273,6 +284,7 @@ wire          Tx2_net_0;
 wire          Tx3_net_0;
 wire          TxdLab;
 wire          Ux1SelJmp;
+wire          XO1;
 wire          Oe0_net_1;
 wire          Oe1_net_1;
 wire          Oe2_net_1;
@@ -396,7 +408,7 @@ assign FineSteeringMirror_sb_0_AMBA_SLAVE_0_PADDRS9to0 = AMBA_SLAVE_0_PADDRS_net
 //--------FCCC_C0
 FCCC_C0 FCCC_C0_0(
         // Inputs
-        .CLK0_PAD ( CLK0_PAD ),
+        .CLK0_PAD ( XO1 ),
         // Outputs
         .GL0      ( FCCC_C0_0_GL0 ),
         .GL1      ( FCCC_C0_0_GL1 ),
@@ -516,6 +528,10 @@ Main Main_0(
         .SckMaxDacs         ( SckDacsMax ),
         .nCsMaxDacs         ( nCsDacsMax ),
         .nLoadMaxDacs       ( nLDacsMax ),
+        .SckExt             ( SckExt ),
+        .MosiExt            ( MosiExt ),
+        .MisoExt            ( MisoExt ),
+        .nCsExt             ( nCsExt ),
         .Ux1SelJmp          ( Ux1SelJmp ) 
         );
 

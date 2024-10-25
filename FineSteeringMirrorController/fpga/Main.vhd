@@ -124,6 +124,13 @@ port (
 	Fault5V : in std_logic;
 	FaultHV : in std_logic;
 	
+	--Expansion Bus
+	
+	SckExt : inout std_logic;
+	MosiExt : inout std_logic;
+	MisoExt : inout std_logic;
+	nCsExt : inout std_logic;
+
 	--The testpoints had to be shared with other signals due to lack of fpga pins...
 	--~ LedR : out std_logic;
 	--~ LedG : out std_logic;
@@ -717,6 +724,14 @@ architecture architecture_Main of Main is
 							UartLabTxFifoCount : in std_logic_vector(9 downto 0);
 							UartLabClkDivider : out std_logic_vector(7 downto 0);
 							
+							--Expansion Bus
+							ExtAddrOut : out std_logic_vector(7 downto 0);
+							SetExtAddr : out std_logic;
+							ExtAddrIn : in std_logic_vector(7 downto 0);
+							ExtWriteData : out std_logic_vector(7 downto 0);
+							WriteExt : out std_logic;
+							ExtReadbackData : in std_logic_vector(7 downto 0);
+							
 							--Timing
 							IdealTicksPerSecond : in std_logic_vector(31 downto 0);
 							ActualTicksLastSecond : in std_logic_vector(31 downto 0);
@@ -934,6 +949,49 @@ architecture architecture_Main of Main is
 							TransferComplete : out std_logic--;
 							
 						); end component;
+						
+						
+						component SpiExtBusAddrTxPorts is
+						generic 
+						(
+							MASTER_CLOCK_FREQHZ : natural := 10000000--; --The input clock
+						);
+						port 
+						(
+							clk : in std_logic;
+							rst : in std_logic;
+							ExtAddr : in std_logic_vector(7 downto 0);
+							SendExtAddr : in std_logic;
+							SendingExtAddr : out std_logic;
+							ExtAddrTxdPin : out std_logic--;
+						);
+						end component;
+						
+						component SpiExtBusPorts is
+						generic (
+							MASTER_CLOCK_FREQHZ : natural := 100000000--;
+						);
+						port (
+						
+							--Globals
+							clk : in std_logic;
+							rst : in std_logic;
+							
+							-- D/A:
+							nCs : out std_logic;
+							Sck : out std_logic;
+							Mosi : out  std_logic;
+							Miso : in  std_logic;
+							
+							--Control signals
+							ExtWriteOut : in std_logic_vector(7 downto 0);
+							WriteExt : in std_logic;
+							ExtReadReady : out std_logic;
+							ExtReadback : out std_logic_vector(7 downto 0)--;
+								
+						); end component;
+						
+
 
 						
 --Constants & Setup
@@ -1178,6 +1236,24 @@ architecture architecture_Main of Main is
 			signal MosiXO_i : std_logic;
 			signal MisoXO_i : std_logic;
 			
+		--Expansion Bus
+		
+			signal ExtAddr : std_logic_vector(7 downto 0); --value to set Extaddr to
+			signal SetExtAddr : std_logic; --strobe for above
+			signal ExtAddrExt : std_logic_vector(7 downto 0); --value read in from bus
+			signal ExtAddrTxdPin : std_logic; --This is the txd signal for the Ext addr, actual pin gets tristated with a when statement, hence the buffer signal
+			signal ExtAddrIsOutgoing : std_logic; --Zero while the ExtAddr is being transmitted on bus
+			signal ExtWriteOut : std_logic_vector(7 downto 0);
+			signal WriteExt : std_logic;
+			signal ExtReadback : std_logic_vector(7 downto 0);
+			signal nCsExt_i : std_logic;		
+			signal SckExt_i : std_logic;		
+			signal MosiExt_i : std_logic;		
+			signal MisoExt_i : std_logic;		
+			signal ExtReadReady : std_logic;
+			signal ExtXferInProgress : std_logic;
+			signal ExtInUse : std_logic;
+	
 
 		constant nCsEnabled : std_logic := '0';
 		constant nCsNotEnabled : std_logic := '1';
@@ -1432,7 +1508,15 @@ begin
 		UartLabTxFifoData => UartLabTxFifoData,
 		UartLabTxFifoCount => UartLabTxFifoCount,
 		UartLabClkDivider => UartLabClkDivider,
-				
+		
+		--Expansion Bus
+		ExtAddrOut => ExtAddr,
+		SetExtAddr => SetExtAddr,
+		ExtAddrIn => ExtAddrExt,
+		ExtWriteData => ExtWriteOut,
+		WriteExt => WriteExt,
+		ExtReadbackData => ExtReadback,
+		
 		--Timing
 		IdealTicksPerSecond => std_logic_vector(to_unsigned(BoardMasterClockFreq, 32)),
 		ActualTicksLastSecond => PPSCount,
@@ -2426,6 +2510,82 @@ begin
 	nCsXO <= nCsXO_i;
 	SckXO <= SckXO_i;
 	MosiXO <= MosiXO_i;
+	
+	
+		
+	----------------------------- Expansion Bus ----------------------------------
+
+	ExtAddrOutUart : SpiExtBusAddrTxPorts
+	generic map	(
+		MASTER_CLOCK_FREQHZ => BoardMasterClockFreq--,
+	)
+	port map (
+		clk => MasterClk,
+		rst => MasterReset,
+		ExtAddr => ExtAddr,
+		SendExtAddr => SetExtAddr,
+		SendingExtAddr => ExtAddrIsOutgoing,
+		ExtAddrTxdPin => nCsExt_i--,
+	);
+	
+	ExtAddrInUart : UartRx
+	generic map (
+		CLOCK_FREQHZ => BoardMasterClockFreq,
+		BAUDRATE => 38400--;
+	)
+	port map (						
+		clk => MasterClk,
+		rst => MasterReset,
+		Rxd => nCsExt_i,
+		RxComplete => open,
+		RxData => ExtAddrExt
+	);
+	
+	IBufExtMiso : IBufP2Ports
+	port map
+	(
+		clk => MasterClk,
+		I => MisoExt,
+		O => MisoExt_i--,
+	);
+
+	Ext_i : SpiExtBusPorts
+	generic map 
+	(
+		MASTER_CLOCK_FREQHZ => BoardMasterClockFreq--,
+		--~ CLOCK_DIVIDER => MASTER_CLOCK_FREQHZ / 100000, --100kHz
+	)
+	port map 
+	(
+		clk => MasterClk,
+		rst => MasterReset,
+		nCs => ExtXferInProgress, --We don't actually use the SPI's nCs since we're using a uart for the actual nCs on the bus...should prolly encapsulate this at some point to clean it up and prevent abuse...
+		Sck => SckExt_i,
+		Mosi => MosiExt_i,
+		Miso => MisoExt_i,
+		--~ Miso => MosiExt_i, --debug loopback
+		ExtWriteOut => ExtWriteOut,
+		WriteExt => WriteExt,
+		ExtReadReady => ExtReadReady,
+		ExtReadback => ExtReadback
+		--~ ExtReadback => open
+	);
+	
+	--ExtInUse: this is the readback from the outside world, to see if another card is using the bus as master
+	ExtInUse <= '0' when ( (ExtAddrExt = x"00") or (ExtAddrExt = x"FF") ) else '1';
+	
+	SckExt <= SckExt_i;
+	MosiExt <= MosiExt_i;
+	nCsExt <= nCsExt_i;
+			
+	--~ TP4 <= nCsExtBus_i;
+	--~ TP5 <= SckExt_i;
+	--~ TP6 <= MosiExt_i;
+	--~ TP8 <= ExtReadReady;
+	--~ TP4 <= nCsExt0;
+	--~ TP5 <= SckExt;
+	--~ TP6 <= MosiExt;
+	--~ TP8 <= MisoExt;
 	
 	----------------------------- Power Supplies ----------------------------------
 		

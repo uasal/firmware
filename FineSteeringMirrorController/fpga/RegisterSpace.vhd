@@ -168,6 +168,14 @@ entity RegisterSpacePorts is
 		UartLabTxFifoCount : in std_logic_vector(9 downto 0);
 		UartLabClkDivider : out std_logic_vector(7 downto 0);
 		
+		--Expansion Bus
+		ExtAddrOut : out std_logic_vector(7 downto 0);
+		SetExtAddr : out std_logic;
+		ExtAddrIn : in std_logic_vector(7 downto 0);
+		ExtWriteData : out std_logic_vector(7 downto 0);
+		WriteExt : out std_logic;
+		ExtReadbackData : in std_logic_vector(7 downto 0);
+		
 		--Timing
 		IdealTicksPerSecond : in std_logic_vector(31 downto 0);
 		ActualTicksLastSecond : in std_logic_vector(31 downto 0);
@@ -235,9 +243,10 @@ architecture RegisterSpace of RegisterSpacePorts is
 	constant UartLabFifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(168, MAX_ADDRESS_BITS));
 	constant UartLabFifoReadDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(172, MAX_ADDRESS_BITS));
 	
-	--~ constant UartGpsFifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(128, MAX_ADDRESS_BITS));
-	--~ constant UartGpsFifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(132, MAX_ADDRESS_BITS));
-	--~ constant UartGpsFifoReadDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(136, MAX_ADDRESS_BITS));
+	constant ExtAddrOutAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(16#94#, MAX_ADDRESS_BITS)); --148d
+	constant ExtAddrInAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(16#96#, MAX_ADDRESS_BITS));
+	constant ExtTransactionAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(16#0098#, MAX_ADDRESS_BITS));
+	constant ExtReadbackAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(16#9A#, MAX_ADDRESS_BITS));
 	
 	--Control Signals
 	
@@ -284,6 +293,8 @@ architecture RegisterSpace of RegisterSpacePorts is
 	signal GlobalFaultInhibit_i :  std_logic := '0';
 	signal nFaultsClr_i :  std_logic := '0';
 	
+	signal ExtAddr_i : std_logic_vector(7 downto 0);
+	
 begin
 
 	--~ Address_i(MAX_ADDRESS_BITS - 1 downto ADDRESS_BITS) <= std_logic_vector(to_unsigned(0, MAX_ADDRESS_BITS - ADDRESS_BITS));
@@ -325,6 +336,9 @@ begin
 	DacSelectMaxti <= DacSelectMaxti_i;
 	GlobalFaultInhibit <= GlobalFaultInhibit_i;
 	nFaultsClr <= nFaultsClr_i;
+	
+	ExtAddrOut <= ExtAddr_i;
+	
 		
 	process (clk, rst)
 	begin
@@ -498,7 +512,7 @@ begin
 							when MonitorAdcSpiXferAddr =>
 							
 								DataOut(7 downto 0) <= MonitorAdcSpiDataOut0;
-								DataOut(7 downto 0) <= MonitorAdcSpiDataOut1;
+								DataOut(15 downto 8) <= MonitorAdcSpiDataOut1;
 								--~ DataOut(31 downto 8) <= x"000000";
 								DataOut(31 downto 16) <= x"0000";
 								
@@ -740,6 +754,28 @@ begin
 								 								
 								--~ DataOut(31 downto 23) <= "000000000";
 								
+								
+								
+							--Expansion Bus
+							
+							when ExtAddrOutAddr =>
+
+								DataOut(7 downto 0) <= ExtAddr_i;
+								DataOut(31 downto 8) <= x"000000";
+								
+							when ExtAddrInAddr =>
+
+								DataOut(7 downto 0) <= ExtAddrIn;
+								DataOut(31 downto 8) <= x"000000";
+								
+								
+							when ExtReadbackAddr =>
+
+								DataOut(7 downto 0) <= ExtReadbackData;
+								DataOut(31 downto 8) <= x"000000";
+								
+
+								
 							when others =>
 
 								DataOut <= x"BAADC0DE";
@@ -976,6 +1012,27 @@ begin
 								 --~ <= DataIn(30);
 								 --~ <= DataIn(31);
 								
+							
+							
+							--Expansion Bus
+							
+							when ExtAddrOutAddr =>
+
+								--When we write to this addr, have the uart initiate a transer with the 'set...'signal:
+								SetExtAddr <= '1';								
+								ExtAddr_i <= DataIn(7 downto 0);
+								
+							when ExtTransactionAddr =>
+
+								--When we hit the first address, we grab the data...
+								WriteExt <= '1';
+								ExtWriteData <= DataIn(7 downto 0);
+								
+							when ExtAddrInAddr =>
+							
+								--We might wanna do something here eventually, like pop a fifo...
+								
+
 								
 							when others => 
 
@@ -1023,6 +1080,9 @@ begin
 						
 						nPowerCycClr <= '0';												
 						--~ ??nFaultsClr_i <= DataIn(29);
+						
+						SetExtAddr <= '0';
+						
 					
 					end if;
 					
