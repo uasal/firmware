@@ -1159,8 +1159,8 @@ SIZE="273"
 ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror_syn.prj,prj"
 STATE="utd"
-TIME="1729880696"
-SIZE="6835"
+TIME="1729885555"
+SIZE="6610"
 ENDFILE
 VALUE "<project>/synthesis/synwork/layer1.so,so"
 STATE="utd"
@@ -1583,10 +1583,8 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
-Reports;Reports;0
-ReportsCurrentItem;synthesis:synplify.log
-SmartDesign;FineSteeringMirror;0
-ACTIVEVIEW;FineSteeringMirror
+StartPage;StartPage;0
+ACTIVEVIEW;StartPage
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","/home/summer/projects/CGraph/firmware/include/fpga/ads1258.vhd","FALSE","FALSE"
@@ -1610,13 +1608,6 @@ SUBBLOCK "CoreSF2Reset::work","component/Actel/DirectCore/CoreSF2Reset/3.0.100/r
 ENDLIST
 LIST "CORESYSSERVICES_C0::work","component/work/CORESYSSERVICES_C0/CORESYSSERVICES_C0.v","TRUE","FALSE"
 SUBBLOCK "CORESYSSERVICES_C0_CORESYSSERVICES_C0_0_CORESYSSERVICES::CORESYSSERVICES_LIB","component/work/CORESYSSERVICES_C0/CORESYSSERVICES_C0_0/rtl/vlog/core/CoreSysServices.v","FALSE","FALSE"
-ENDLIST
-LIST "DESIGN_FIRMWARE::work","component/work/DESIGN_FIRMWARE/DESIGN_FIRMWARE.cxf","TRUE","FALSE"
-SUBBLOCK "SmartFusion2_CMSIS::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
 ENDLIST
 LIST "ClockDividerPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 ENDLIST
@@ -1780,16 +1771,6 @@ ENDLIST
 LIST "RegisterSpacePorts::work","/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd","FALSE","FALSE"
 ENDLIST
 LIST "RtcCounterPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/RtcCounter.vhd","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_CMSIS::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
 ENDLIST
 LIST "SpiExtBusAddrTxPorts::work","/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBusAddrTx.vhd","FALSE","FALSE"
 SUBBLOCK "UartTx::work","/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd","FALSE","FALSE"

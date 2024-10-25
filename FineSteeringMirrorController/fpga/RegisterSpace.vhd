@@ -84,6 +84,7 @@ entity RegisterSpacePorts is
 		AdcSampleToReadA : in std_logic_vector(47 downto 0);	
 		AdcSampleToReadB : in std_logic_vector(47 downto 0);	
 		AdcSampleToReadC : in std_logic_vector(47 downto 0);	
+		AdcSampleToReadD : in std_logic_vector(47 downto 0);	
 		AdcSampleNumAccums : in std_logic_vector(15 downto 0);	
 		
 		--Monitor A/D:

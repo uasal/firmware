@@ -73,7 +73,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memor
 
 
 Process completed successfully.
-# Fri Oct 25 12:45:56 2024
+# Fri Oct 25 13:44:10 2024
 
 ###########################################################]
 ###########################################################[
@@ -139,7 +139,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Fri Oct 25 12:45:56 2024
+# Fri Oct 25 13:44:10 2024
 
 ###########################################################]
 ###########################################################[
@@ -563,7 +563,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Fri Oct 25 12:45:56 2024
+# Fri Oct 25 13:44:10 2024
 
 ###########################################################]
 ###########################################################[
@@ -597,10 +597,6 @@ Process completed successfully.
 VHDL syntax check successful!
 @N: CD231 :"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/std1164.vhd":889:16:889:17|Using onehot encoding for type mvl9plus. For example, enumeration 'U' is mapped to "1000000000".
 @N: CD630 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":11:7:11:10|Synthesizing work.main.architecture_main.
-@W: CD279 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":624:7:624:18|Port dacdsetpoint of component registerspaceports not found on corresponding entity
-@W: CD279 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":629:7:629:18|Port dacdreadback of component registerspaceports not found on corresponding entity
-@W: CD279 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":637:7:637:22|Port adcsampletoreadd of component registerspaceports not found on corresponding entity
-@W: CD730 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Component declaration has 136 ports but entity declares 133 ports
 @W: CD326 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1835:1:1835:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
 @W: CD326 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1934:1:1934:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
 @W: CD326 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":2033:1:2033:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
@@ -609,7 +605,6 @@ VHDL syntax check successful!
 @W: CD638 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":998:10:998:19|Signal misodacb_i is undriven. Either assign the signal a value or remove the signal declaration.
 @W: CD638 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":999:10:999:19|Signal misodacc_i is undriven. Either assign the signal a value or remove the signal declaration.
 @W: CD638 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1000:10:1000:19|Signal misodacd_i is undriven. Either assign the signal a value or remove the signal declaration.
-@W: CD638 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1004:10:1004:21|Signal dacdsetpoint is undriven. Either assign the signal a value or remove the signal declaration.
 @W: CD638 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1053:10:1053:25|Signal monitoradcsample is undriven. Either assign the signal a value or remove the signal declaration.
 @W: CD638 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1070:10:1070:27|Signal uart0rxfiforeadack is undriven. Either assign the signal a value or remove the signal declaration.
 @W: CD638 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1083:10:1083:19|Signal uartrx0dbg is undriven. Either assign the signal a value or remove the signal declaration.
@@ -758,16 +753,273 @@ Running optimization stage 1 on SpiDacQuadPorts .......
 @A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd":187:2:187:3|Feedback mux created for signal DacReadbackA[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 Finished optimization stage 1 on SpiDacQuadPorts (CPU Time 0h:00m:00s, Memory Used current: 149MB peak: 149MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":14:7:14:24|Synthesizing work.registerspaceports.registerspace.
-@E: CD395 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":394:19:394:23|Constant width 8 does not match context width 32
-@E: CD395 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":414:19:414:23|Constant width 8 does not match context width 32
-@E: CD395 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":434:19:434:23|Constant width 8 does not match context width 32
-@E: CD297 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":381:8:381:14|Width mismatch, location has width 32, value 8
-# Fri Oct 25 12:45:57 2024
+@W: CD638 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":276:8:276:18|Signal ux2seljmp_i is undriven. Either assign the signal a value or remove the signal declaration.
+Post processing for work.registerspaceports.registerspace
+Running optimization stage 1 on RegisterSpacePorts .......
+@W: CL240 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":169:2:169:18|Signal UartLabClkDivider is floating; a simulation mismatch is possible.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal DataOut[31:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal ReadAdcSample. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal PPSCountReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal nPowerCycClr. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal WriteUartLab. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal WriteUart3. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal WriteUart2. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal WriteUart1. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal WriteUart0. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal WriteClkDac. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal UartLabFifoReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart3FifoReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart2FifoReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart1FifoReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart0FifoReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal ReadUartLab. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal ReadUart3. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal ReadUart2. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal ReadUart1. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal ReadUart0. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal ReadMonitorAdcSample. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal MonitorAdcSpiXferStart. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal MonitorAdcReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal ClkDacWrite[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal UartLabTxFifoData[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart3TxFifoData[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart2TxFifoData[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart1TxFifoData[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart0TxFifoData[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal MonitorAdcSpiDataIn[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal nHVEn1_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal nFaultsClr_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Ux1SelJmp_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart3OE_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart2OE_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart1OE_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart0OE_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal PowernEn_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal PowernEnHV_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal MonitorAdcSpiFrameEnable_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal LedR_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal LedG_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal LedB_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal HVDis2_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal GlobalFaultInhibit_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal DacSelectMaxti_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal ReadAck. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal WriteAck. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+Finished optimization stage 1 on RegisterSpacePorts (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
+@N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd":30:7:30:17|Synthesizing work.ibufp1ports.ibufp1.
+Post processing for work.ibufp1ports.ibufp1
+Running optimization stage 1 on IBufP1Ports .......
+Finished optimization stage 1 on IBufP1Ports (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
+@N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":30:7:30:18|Synthesizing work.oneshotports.oneshot.
+Post processing for work.oneshotports.oneshot
+Running optimization stage 1 on OneShotPorts .......
+Finished optimization stage 1 on OneShotPorts (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
+@N: CD630 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/BuildNumber.vhd":14:7:14:22|Synthesizing work.buildnumberports.buildnumber.
+Post processing for work.buildnumberports.buildnumber
+Running optimization stage 1 on BuildNumberPorts .......
+Finished optimization stage 1 on BuildNumberPorts (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
+Post processing for work.main.architecture_main
+Running optimization stage 1 on Main .......
+@W: CL168 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1221:2:1221:10|Removing instance IBufLatch because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 0 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 1 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 2 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 3 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 4 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 5 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 6 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 7 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 8 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 9 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 10 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 11 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 12 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 13 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 14 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 15 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 16 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 17 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 18 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 19 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 20 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 21 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 22 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 23 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 24 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 25 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 26 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 27 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 28 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 29 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 30 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 31 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 32 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 33 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 34 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 35 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 36 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 37 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 38 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 39 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 40 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 41 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 42 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 43 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 44 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 45 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 46 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 47 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 48 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 49 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 50 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 51 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 52 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 53 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 54 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 55 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 56 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 57 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 58 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 59 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 60 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 61 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 62 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 63 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+Finished optimization stage 1 on Main (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
+Running optimization stage 2 on BuildNumberPorts .......
+Finished optimization stage 2 on BuildNumberPorts (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
+Running optimization stage 2 on OneShotPorts_work_main_architecture_main_0layer1 .......
+Finished optimization stage 2 on OneShotPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
+Running optimization stage 2 on IBufP1Ports .......
+Finished optimization stage 2 on IBufP1Ports (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
+Running optimization stage 2 on RegisterSpacePorts_10 .......
+@N: CL159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":94:2:94:23|Input MonitorAdcSampleToRead is unused.
+@N: CL159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":97:2:97:22|Input MonitorAdcSpiDataOut0 is unused.
+@N: CL159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":116:2:116:17|Input Uart0TxFifoCount is unused.
+@N: CL159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":129:2:129:17|Input Uart1TxFifoCount is unused.
+@N: CL159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":142:2:142:17|Input Uart2TxFifoCount is unused.
+@N: CL159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":155:2:155:17|Input Uart3TxFifoCount is unused.
+@N: CL159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":168:2:168:19|Input UartLabTxFifoCount is unused.
+Finished optimization stage 2 on RegisterSpacePorts_10 (CPU Time 0h:00m:00s, Memory Used current: 157MB peak: 157MB)
+Running optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_1layer1 .......
+Finished optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_1layer1 (CPU Time 0h:00m:00s, Memory Used current: 157MB peak: 157MB)
+Running optimization stage 2 on SpiDacQuadPorts_102000000 .......
+Finished optimization stage 2 on SpiDacQuadPorts_102000000 (CPU Time 0h:00m:00s, Memory Used current: 157MB peak: 157MB)
+Running optimization stage 2 on OneShotPorts_work_main_architecture_main_1layer1 .......
+Finished optimization stage 2 on OneShotPorts_work_main_architecture_main_1layer1 (CPU Time 0h:00m:00s, Memory Used current: 157MB peak: 157MB)
+Running optimization stage 2 on VariableClockDividerPorts_work_main_architecture_main_1layer1 .......
+@W: CL247 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":39:2:39:10|Input port bit 15 of rst_count(15 downto 0) is unused 
+Finished optimization stage 2 on VariableClockDividerPorts_work_main_architecture_main_1layer1 (CPU Time 0h:00m:00s, Memory Used current: 157MB peak: 157MB)
+Running optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_0layer1 .......
+Finished optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 158MB peak: 158MB)
+Running optimization stage 2 on OneShotPorts_work_main_architecture_main_2layer1 .......
+Finished optimization stage 2 on OneShotPorts_work_main_architecture_main_2layer1 (CPU Time 0h:00m:00s, Memory Used current: 158MB peak: 158MB)
+Running optimization stage 2 on Ltc2378AccumQuadPorts .......
+@W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":296:2:296:3|Pruning register bits 47 to 24 of AdcSampleToReadD(47 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":296:2:296:3|Pruning register bits 47 to 24 of AdcSampleToReadC(47 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":296:2:296:3|Pruning register bits 47 to 24 of AdcSampleToReadB(47 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":296:2:296:3|Pruning register bits 47 to 24 of AdcSampleToReadA(47 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+Finished optimization stage 2 on Ltc2378AccumQuadPorts (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
+Running optimization stage 2 on SpiMasterDualPorts_work_main_architecture_main_0layer1 .......
+Finished optimization stage 2 on SpiMasterDualPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
+Running optimization stage 2 on SpiDeviceDualPorts_work_main_architecture_main_0layer1 .......
+Finished optimization stage 2 on SpiDeviceDualPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
+Running optimization stage 2 on VariableClockDividerPorts_work_main_architecture_main_0layer1 .......
+@W: CL247 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":39:2:39:10|Input port bit 7 of rst_count(7 downto 0) is unused 
+Finished optimization stage 2 on VariableClockDividerPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
+Running optimization stage 2 on ClockDividerPorts_work_main_architecture_main_0layer1 .......
+Finished optimization stage 2 on ClockDividerPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
+Running optimization stage 2 on IBufP3Ports .......
+@N: CL135 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd":48:2:48:3|Found sequential shift O with address depth of 3 words and data bit width of 1.
+Finished optimization stage 2 on IBufP3Ports (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
+Running optimization stage 2 on UartRxRaw .......
+Finished optimization stage 2 on UartRxRaw (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
+Running optimization stage 2 on UartRxExtClk .......
+@N: CL159 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxExtClk.vhd":37:2:37:4|Input clk is unused.
+Finished optimization stage 2 on UartRxExtClk (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
+Running optimization stage 2 on UartRxFifoExtClk_10 .......
+Finished optimization stage 2 on UartRxFifoExtClk_10 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
+Running optimization stage 2 on fifo_8_10 .......
+Finished optimization stage 2 on fifo_8_10 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
+Running optimization stage 2 on gated_fifo_8_10 .......
+Finished optimization stage 2 on gated_fifo_8_10 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
+Running optimization stage 2 on UartTx .......
+Finished optimization stage 2 on UartTx (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
+Running optimization stage 2 on UartTxFifoExtClk_10 .......
+Finished optimization stage 2 on UartTxFifoExtClk_10 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
+Running optimization stage 2 on PPSCountPorts_work_main_architecture_main_0layer1 .......
+Finished optimization stage 2 on PPSCountPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
+Running optimization stage 2 on IBufP2Ports .......
+Finished optimization stage 2 on IBufP2Ports (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
+Running optimization stage 2 on SpiMasterPorts_work_main_architecture_main_0layer1 .......
+Finished optimization stage 2 on SpiMasterPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
+Running optimization stage 2 on SpiDacPorts_102000000_16 .......
+Finished optimization stage 2 on SpiDacPorts_102000000_16 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
+Running optimization stage 2 on Main .......
+@N: CL159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":73:1:73:11|Input RamBusLatch is unused.
+Finished optimization stage 2 on Main (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
+
+For a summary of runtime per design unit, please see file:
+==========================================================
+@L: /home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/synthesis/synwork/layer1.duruntime
+
+
+
+At c_vhdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 164MB peak: 164MB)
+
+
+Process completed successfully.
+# Fri Oct 25 13:44:12 2024
 
 ###########################################################]
-@E::Errors, while synthesis.
-@END
+###########################################################[
+
+Copyright (C) 1994-2022 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: T-2022.09M-SP2-1
+Install: /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro
+OS: Linux Mint 21
+Hostname: MountainOps
+max virtual memory: unlimited (bytes)
+max user processes: 125821
+max stack size: 8388608 (bytes)
+
+
+Implementation : synthesis
+Synopsys Synopsys Netlist Linker, Version comp202209synp2, Build 179R, Built Jun 27 2023 09:29:53, @4799148
+
+@N|Running in 64-bit mode
+
+=======================================================================================
+For a summary of linker messages for components that did not bind, please see log file:
+@L: /home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/synthesis/synwork/FineSteeringMirror_comp.linkerlog
+=======================================================================================
+
+
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 135MB peak: 135MB)
+
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Fri Oct 25 12:45:57 2024
+
+Process completed successfully.
+# Fri Oct 25 13:44:12 2024
+
+###########################################################]
+
+For a summary of runtime and memory usage for all design units, please see file:
+==========================================================
+@L: /home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/synthesis/synwork/FineSteeringMirror_comp.rt.csv
+
+@END
+
+At c_hdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 45MB peak: 45MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Fri Oct 25 13:44:12 2024
 
 ###########################################################]
