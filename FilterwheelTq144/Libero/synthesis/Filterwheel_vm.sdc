@@ -1,4 +1,4 @@
-# Written by Synplify Pro version map202209actsp2, Build 145R. Synopsys Run ID: sid1726685836 
+# Written by Synplify Pro version map202209actsp2, Build 145R. Synopsys Run ID: sid1729890702 
 # Top Level Design Parameters 
 
 # Clocks 
@@ -18,6 +18,7 @@ create_clock -period 10.000 -waveform {0.000 5.000} -name {VariableClockDividerP
 create_clock -period 10.000 -waveform {0.000 5.000} -name {Filterwheel_sb_CCC_0_FCCC|GL0_net_inferred_clock} [get_pins {Filterwheel_sb_0/CCC_0/CCC_INST/GL0}] 
 
 # Virtual Clocks 
+create_clock -period 19.608 -waveform {0.000 9.804} -name {CLK0_PAD}
 
 # Generated Clocks 
 
@@ -46,35 +47,6 @@ create_clock -period 10.000 -waveform {0.000 5.000} -name {Filterwheel_sb_CCC_0_
 # set_case Attributes 
 
 # Clock Delay Constraints 
-set Inferred_clkgroup_0 [list FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock]
-set Inferred_clkgroup_1 [list ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock]
-set Inferred_clkgroup_2 [list ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock]
-set Inferred_clkgroup_3 [list ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock]
-set Inferred_clkgroup_4 [list ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock]
-set Inferred_clkgroup_5 [list ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock]
-set Inferred_clkgroup_6 [list VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock]
-set Inferred_clkgroup_7 [list ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock]
-set Inferred_clkgroup_8 [list VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock]
-set Inferred_clkgroup_9 [list ClockDividerPorts_work_main_architecture_main_0layer1_4|div_i_inferred_clock]
-set Inferred_clkgroup_10 [list VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock]
-set Inferred_clkgroup_11 [list ClockDividerPorts_work_main_architecture_main_0layer1_5|div_i_inferred_clock]
-set Inferred_clkgroup_12 [list VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock]
-set Inferred_clkgroup_13 [list Filterwheel_sb_CCC_0_FCCC|GL0_net_inferred_clock]
-set_clock_groups -asynchronous -group $Inferred_clkgroup_0
-set_clock_groups -asynchronous -group $Inferred_clkgroup_1
-set_clock_groups -asynchronous -group $Inferred_clkgroup_2
-set_clock_groups -asynchronous -group $Inferred_clkgroup_3
-set_clock_groups -asynchronous -group $Inferred_clkgroup_4
-set_clock_groups -asynchronous -group $Inferred_clkgroup_5
-set_clock_groups -asynchronous -group $Inferred_clkgroup_6
-set_clock_groups -asynchronous -group $Inferred_clkgroup_7
-set_clock_groups -asynchronous -group $Inferred_clkgroup_8
-set_clock_groups -asynchronous -group $Inferred_clkgroup_9
-set_clock_groups -asynchronous -group $Inferred_clkgroup_10
-set_clock_groups -asynchronous -group $Inferred_clkgroup_11
-set_clock_groups -asynchronous -group $Inferred_clkgroup_12
-set_clock_groups -asynchronous -group $Inferred_clkgroup_13
-
 set_clock_groups -asynchronous -group [get_clocks {FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock}]
 set_clock_groups -asynchronous -group [get_clocks {ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock}]
 set_clock_groups -asynchronous -group [get_clocks {ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock}]

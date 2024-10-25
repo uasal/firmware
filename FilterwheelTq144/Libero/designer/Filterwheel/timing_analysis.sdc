@@ -1,4 +1,7 @@
 # Microsemi Corp.
-# Date: 2024-Jul-21 10:37:08
+# Date: 2024-Oct-25 14:14:01
+# This file was generated based on the following SDC source files:
+#   /home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/constraint/user.sdc
 #
 
+create_clock -name {CLK0_PAD} -period 19.608

@@ -3,7 +3,7 @@
 <doc>
 <title>Resource Report</title>
 <text>Microchip Technology Inc. - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)</text>
-<text>Date: Wed Sep 18 11:57:49 2024
+<text>Date: Fri Oct 25 14:12:02 2024
 </text>
 <section><name>Device Selection</name></section>
 <table>
@@ -106,9 +106,9 @@
 </header>
 <row>
  <cell>4LUT</cell>
- <cell>3468</cell>
+ <cell>3446</cell>
  <cell>12084</cell>
- <cell>28.70</cell>
+ <cell>28.52</cell>
 </row>
 <row>
  <cell>DFF</cell>
@@ -204,7 +204,7 @@
 </header>
 <row>
  <cell>Fabric Logic</cell>
- <cell>3036</cell>
+ <cell>3014</cell>
  <cell>2397</cell>
 </row>
 <row>
@@ -224,7 +224,7 @@
 </row>
 <row>
  <cell>Total Used</cell>
- <cell>3468</cell>
+ <cell>3446</cell>
  <cell>2829</cell>
 </row>
 </table>
@@ -564,12 +564,12 @@
 <row>
  <cell>816</cell>
  <cell>INT_NET</cell>
- <cell>Net   : Main_0/BootupReset/PosDet7BOnStep_0_sqmuxa_0_a3_0_a2_Z</cell>
+ <cell>Net   : Main_0/StepperMotor/StepperMotor/un1_MasterReset_64_or_0_0_a2_Z</cell>
 </row>
 <row>
  <cell></cell>
  <cell></cell>
- <cell>Driver: Main_0/BootupReset/PosDet7BOnStep_0_sqmuxa_0_a3_0_a2</cell>
+ <cell>Driver: Main_0/StepperMotor/StepperMotor/un1_MasterReset_64_or_0_0_a2</cell>
 </row>
 <row>
  <cell>136</cell>
@@ -642,7 +642,7 @@
  <cell>Driver: Main_0/UartUsbFifoReset_i</cell>
 </row>
 <row>
- <cell>97</cell>
+ <cell>96</cell>
  <cell>INT_NET</cell>
  <cell>Net   : Main_0/Address[3]</cell>
 </row>
@@ -652,7 +652,7 @@
  <cell>Driver: Main_0/GenRamAddrBus.3.IBUF_RamAddr_i/O</cell>
 </row>
 <row>
- <cell>88</cell>
+ <cell>77</cell>
  <cell>INT_NET</cell>
  <cell>Net   : Main_0/O</cell>
 </row>
@@ -672,12 +672,12 @@
 <row>
  <cell>816</cell>
  <cell>INT_NET</cell>
- <cell>Net   : Main_0/BootupReset/PosDet7BOnStep_0_sqmuxa_0_a3_0_a2_Z</cell>
+ <cell>Net   : Main_0/StepperMotor/StepperMotor/un1_MasterReset_64_or_0_0_a2_Z</cell>
 </row>
 <row>
  <cell></cell>
  <cell></cell>
- <cell>Driver: Main_0/BootupReset/PosDet7BOnStep_0_sqmuxa_0_a3_0_a2</cell>
+ <cell>Driver: Main_0/StepperMotor/StepperMotor/un1_MasterReset_64_or_0_0_a2</cell>
 </row>
 <row>
  <cell>136</cell>
@@ -750,7 +750,7 @@
  <cell>Driver: Main_0/UartUsbFifoReset_i</cell>
 </row>
 <row>
- <cell>97</cell>
+ <cell>96</cell>
  <cell>INT_NET</cell>
  <cell>Net   : Main_0/Address[3]</cell>
 </row>
@@ -760,7 +760,7 @@
  <cell>Driver: Main_0/GenRamAddrBus.3.IBUF_RamAddr_i/O</cell>
 </row>
 <row>
- <cell>88</cell>
+ <cell>77</cell>
  <cell>INT_NET</cell>
  <cell>Net   : Main_0/O</cell>
 </row>

@@ -3,7 +3,7 @@
 <doc>
 <title>Global Net Report</title>
 <text>Microchip Technology Inc. - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)</text>
-<text>Date: Wed Sep 18 11:58:03 2024
+<text>Date: Fri Oct 25 14:12:57 2024
 </text>
 <section>
 <name>Global Nets Information</name>
@@ -93,7 +93,7 @@
 <row>
  <cell>1</cell>
  <cell>Main_0/Uart2BitClockDiv/clko_i:Q</cell>
- <cell>(392, 37)</cell>
+ <cell>(384, 37)</cell>
  <cell>GB[1] </cell>
  <cell>Main_0/Uart2BitClockDiv/clko_i_0</cell>
  <cell>ROUTED</cell>
@@ -102,7 +102,7 @@
 <row>
  <cell>2</cell>
  <cell>Main_0/UartGpsRxBitClockDiv/div_i:Q</cell>
- <cell>(85, 25)</cell>
+ <cell>(120, 31)</cell>
  <cell>GB[3] </cell>
  <cell>Main_0/UartGpsRxBitClockDiv/div_i_6</cell>
  <cell>ROUTED</cell>
@@ -111,7 +111,7 @@
 <row>
  <cell>3</cell>
  <cell>Main_0/Uart3BitClockDiv/clko_i:Q</cell>
- <cell>(332, 40)</cell>
+ <cell>(356, 49)</cell>
  <cell>GB[5] </cell>
  <cell>Main_0/Uart3BitClockDiv/clko_i_2</cell>
  <cell>ROUTED</cell>
@@ -120,7 +120,7 @@
 <row>
  <cell>4</cell>
  <cell>Main_0/Uart0BitClockDiv/clko_i:Q</cell>
- <cell>(284, 49)</cell>
+ <cell>(176, 37)</cell>
  <cell>GB[6] </cell>
  <cell>Main_0/Uart0BitClockDiv/clko_i_Z</cell>
  <cell>ROUTED</cell>
@@ -129,7 +129,7 @@
 <row>
  <cell>5</cell>
  <cell>Main_0/Uart1BitClockDiv/clko_i:Q</cell>
- <cell>(245, 49)</cell>
+ <cell>(248, 49)</cell>
  <cell>GB[7] </cell>
  <cell>Main_0/Uart1BitClockDiv/clko_i_1</cell>
  <cell>ROUTED</cell>
@@ -253,8 +253,8 @@
  <cell>FCCC_C0_0/FCCC_C0_0/GL1_INST/U0_YNn</cell>
  <cell>2132</cell>
  <cell>1</cell>
- <cell>(218, 57)</cell>
- <cell>108</cell>
+ <cell>(218, 60)</cell>
+ <cell>45</cell>
 </row>
 <row>
  <cell> </cell>
@@ -263,8 +263,8 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
- <cell>(218, 60)</cell>
- <cell>29</cell>
+ <cell>(218, 63)</cell>
+ <cell>2</cell>
 </row>
 <row>
  <cell> </cell>
@@ -293,6 +293,16 @@
  <cell></cell>
  <cell></cell>
  <cell>5</cell>
+ <cell>(219, 57)</cell>
+ <cell>77</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>6</cell>
  <cell>(219, 90)</cell>
  <cell>2</cell>
 </row>
@@ -303,8 +313,8 @@
  <cell>Filterwheel_sb_0/CCC_0/GL0_INST/U0_YNn</cell>
  <cell>32</cell>
  <cell>1</cell>
- <cell>(218, 66)</cell>
- <cell>9</cell>
+ <cell>(218, 57)</cell>
+ <cell>5</cell>
 </row>
 <row>
  <cell> </cell>
@@ -313,6 +323,16 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
+ <cell>(218, 66)</cell>
+ <cell>4</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>3</cell>
  <cell>(218, 69)</cell>
  <cell>13</cell>
 </row>
@@ -322,7 +342,17 @@
  <cell></cell>
  <cell></cell>
  <cell></cell>
- <cell>3</cell>
+ <cell>4</cell>
+ <cell>(218, 72)</cell>
+ <cell>5</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>5</cell>
  <cell>(218, 102)</cell>
  <cell>1</cell>
 </row>
@@ -333,8 +363,8 @@
  <cell>Main_0/Uart2BitClockDiv/clko_i_inferred_clock_RNIMS3/U0_YNn_GSouth</cell>
  <cell>31</cell>
  <cell>1</cell>
- <cell>(218, 21)</cell>
- <cell>11</cell>
+ <cell>(219, 39)</cell>
+ <cell>19</cell>
 </row>
 <row>
  <cell> </cell>
@@ -343,6 +373,16 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
+ <cell>(219, 42)</cell>
+ <cell>12</cell>
+</row>
+<row>
+ <cell>4</cell>
+ <cell>GB[3] </cell>
+ <cell>(221, 54)</cell>
+ <cell>Main_0/UartGpsRxBitClockDiv/div_i_inferred_clock_RNIIMVC/U0_YNn_GSouth</cell>
+ <cell>31</cell>
+ <cell>1</cell>
  <cell>(218, 24)</cell>
  <cell>14</cell>
 </row>
@@ -352,39 +392,19 @@
  <cell></cell>
  <cell></cell>
  <cell></cell>
- <cell>3</cell>
- <cell>(218, 27)</cell>
+ <cell>2</cell>
+ <cell>(218, 30)</cell>
  <cell>6</cell>
 </row>
 <row>
- <cell>4</cell>
- <cell>GB[3] </cell>
- <cell>(221, 54)</cell>
- <cell>Main_0/UartGpsRxBitClockDiv/div_i_inferred_clock_RNIIMVC/U0_YNn_GSouth</cell>
- <cell>31</cell>
- <cell>1</cell>
- <cell>(218, 18)</cell>
- <cell>3</cell>
-</row>
-<row>
  <cell> </cell>
  <cell></cell>
  <cell></cell>
  <cell></cell>
  <cell></cell>
+ <cell>3</cell>
+ <cell>(218, 33)</cell>
  <cell>2</cell>
- <cell>(219, 21)</cell>
- <cell>16</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>3</cell>
- <cell>(219, 24)</cell>
- <cell>8</cell>
 </row>
 <row>
  <cell> </cell>
@@ -393,7 +413,17 @@
  <cell></cell>
  <cell></cell>
  <cell>4</cell>
- <cell>(219, 30)</cell>
+ <cell>(219, 21)</cell>
+ <cell>5</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>5</cell>
+ <cell>(220, 42)</cell>
  <cell>4</cell>
 </row>
 <row>
@@ -403,8 +433,8 @@
  <cell>Main_0/Uart3BitClockDiv/clko_i_inferred_clock_RNINTK/U0_YNn_GSouth</cell>
  <cell>31</cell>
  <cell>1</cell>
- <cell>(218, 30)</cell>
- <cell>11</cell>
+ <cell>(218, 15)</cell>
+ <cell>12</cell>
 </row>
 <row>
  <cell> </cell>
@@ -413,8 +443,8 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
- <cell>(218, 33)</cell>
- <cell>14</cell>
+ <cell>(218, 18)</cell>
+ <cell>10</cell>
 </row>
 <row>
  <cell> </cell>
@@ -423,8 +453,8 @@
  <cell></cell>
  <cell></cell>
  <cell>3</cell>
- <cell>(218, 42)</cell>
- <cell>6</cell>
+ <cell>(218, 21)</cell>
+ <cell>9</cell>
 </row>
 <row>
  <cell>6</cell>
@@ -433,6 +463,16 @@
  <cell>Main_0/Uart0BitClockDiv/clko_i_inferred_clock_RNIKQ1F/U0_YNn_GSouth</cell>
  <cell>31</cell>
  <cell>1</cell>
+ <cell>(220, 15)</cell>
+ <cell>19</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>2</cell>
  <cell>(220, 18)</cell>
  <cell>8</cell>
 </row>
@@ -442,29 +482,9 @@
  <cell></cell>
  <cell></cell>
  <cell></cell>
- <cell>2</cell>
- <cell>(220, 48)</cell>
- <cell>2</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
  <cell>3</cell>
- <cell>(220, 51)</cell>
- <cell>6</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
+ <cell>(220, 36)</cell>
  <cell>4</cell>
- <cell>(221, 21)</cell>
- <cell>15</cell>
 </row>
 <row>
  <cell>7</cell>
@@ -473,8 +493,8 @@
  <cell>Main_0/Uart1BitClockDiv/clko_i_inferred_clock_RNILRIF/U0_YNn_GSouth</cell>
  <cell>31</cell>
  <cell>1</cell>
- <cell>(218, 48)</cell>
- <cell>15</cell>
+ <cell>(218, 36)</cell>
+ <cell>4</cell>
 </row>
 <row>
  <cell> </cell>
@@ -483,8 +503,18 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
- <cell>(218, 51)</cell>
- <cell>16</cell>
+ <cell>(218, 39)</cell>
+ <cell>13</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>3</cell>
+ <cell>(218, 42)</cell>
+ <cell>14</cell>
 </row>
 <row>
  <cell>8</cell>

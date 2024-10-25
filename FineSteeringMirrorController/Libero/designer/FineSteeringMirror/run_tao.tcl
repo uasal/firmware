@@ -37,5 +37,6 @@ read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/FineSteeringMir
 read_verilog -mode system_verilog {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v}
 set_top_level {FineSteeringMirror}
 map_netlist
+read_sdc {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/constraint/user.sdc}
 check_constraints {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/constraint/synthesis_sdc_errors.log}
 write_fdc {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/designer/FineSteeringMirror/synthesis.fdc}

@@ -60,6 +60,7 @@ begin
   begin
      if Reset = '1' then -- Reset
         BitPos := 0;
+		SampleCnt := 0;
 		RxAv <= '0';
      elsif Rising_Edge(Clk) then
         if Enable = '1' then

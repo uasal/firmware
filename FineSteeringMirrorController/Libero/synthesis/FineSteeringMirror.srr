@@ -3,7 +3,7 @@
 #OS: Linux 
 #Hostname: MountainOps
 
-# Fri Oct 25 13:44:10 2024
+# Fri Oct 25 15:19:31 2024
 
 #Implementation: synthesis
 
@@ -82,7 +82,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memor
 
 
 Process completed successfully.
-# Fri Oct 25 13:44:10 2024
+# Fri Oct 25 15:19:32 2024
 
 ###########################################################]
 ###########################################################[
@@ -148,7 +148,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Fri Oct 25 13:44:10 2024
+# Fri Oct 25 15:19:32 2024
 
 ###########################################################]
 ###########################################################[
@@ -572,7 +572,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Fri Oct 25 13:44:10 2024
+# Fri Oct 25 15:19:32 2024
 
 ###########################################################]
 ###########################################################[
@@ -606,10 +606,11 @@ Process completed successfully.
 VHDL syntax check successful!
 @N: CD231 :"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/std1164.vhd":889:16:889:17|Using onehot encoding for type mvl9plus. For example, enumeration 'U' is mapped to "1000000000".
 @N: CD630 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":11:7:11:10|Synthesizing work.main.architecture_main.
-@W: CD326 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1835:1:1835:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
-@W: CD326 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1934:1:1934:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
-@W: CD326 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":2033:1:2033:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
-@W: CD326 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":2144:1:2144:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
+@W: CD326 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1834:1:1834:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
+@W: CD326 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1933:1:1933:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
+@W: CD326 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":2032:1:2032:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
+@W: CD326 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":2143:1:2143:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
+@W: CD638 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":968:10:968:22|Signal rambuslatch_i is undriven. Either assign the signal a value or remove the signal declaration.
 @W: CD638 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":997:10:997:19|Signal misodaca_i is undriven. Either assign the signal a value or remove the signal declaration.
 @W: CD638 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":998:10:998:19|Signal misodacb_i is undriven. Either assign the signal a value or remove the signal declaration.
 @W: CD638 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":999:10:999:19|Signal misodacc_i is undriven. Either assign the signal a value or remove the signal declaration.
@@ -634,16 +635,16 @@ Post processing for work.spidacports.spidac
 Running optimization stage 1 on SpiDacPorts .......
 @A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd":134:2:134:3|Feedback mux created for signal DacReadback[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 Finished optimization stage 1 on SpiDacPorts (CPU Time 0h:00m:00s, Memory Used current: 143MB peak: 143MB)
-@N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":30:7:30:17|Synthesizing work.ibufp2ports.ibufp2.
-Post processing for work.ibufp2ports.ibufp2
-Running optimization stage 1 on IBufP2Ports .......
-Finished optimization stage 1 on IBufP2Ports (CPU Time 0h:00m:00s, Memory Used current: 143MB peak: 143MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":30:7:30:19|Synthesizing work.ppscountports.ppscount.
 Post processing for work.ppscountports.ppscount
 Running optimization stage 1 on PPSCountPorts .......
 @A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":54:65:54:65|Feedback mux created for signal PPSAccum_i[31:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 @A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":54:65:54:65|Feedback mux created for signal LastPPS. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 Finished optimization stage 1 on PPSCountPorts (CPU Time 0h:00m:00s, Memory Used current: 143MB peak: 143MB)
+@N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":30:7:30:17|Synthesizing work.ibufp2ports.ibufp2.
+Post processing for work.ibufp2ports.ibufp2
+Running optimization stage 1 on IBufP2Ports .......
+Finished optimization stage 1 on IBufP2Ports (CPU Time 0h:00m:00s, Memory Used current: 143MB peak: 143MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":33:7:33:22|Synthesizing work.uarttxfifoextclk.implementation.
 @N: CD233 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":122:15:122:16|Using sequential encoding for type states.
 @N: CD604 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":273:5:273:18|OTHERS clause is not synthesized.
@@ -672,7 +673,6 @@ Finished optimization stage 1 on UartTxFifoExtClk (CPU Time 0h:00m:00s, Memory U
 Post processing for work.uartrxraw.behaviour
 Running optimization stage 1 on UartRxRaw .......
 @A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Feedback mux created for signal RReg[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Feedback mux created for signal samplecnt[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 @A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Feedback mux created for signal DataO[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 Finished optimization stage 1 on UartRxRaw (CPU Time 0h:00m:00s, Memory Used current: 144MB peak: 144MB)
 Post processing for work.uartrxextclk.implementation
@@ -762,58 +762,57 @@ Running optimization stage 1 on SpiDacQuadPorts .......
 @A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd":187:2:187:3|Feedback mux created for signal DacReadbackA[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 Finished optimization stage 1 on SpiDacQuadPorts (CPU Time 0h:00m:00s, Memory Used current: 149MB peak: 149MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":14:7:14:24|Synthesizing work.registerspaceports.registerspace.
-@W: CD638 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":276:8:276:18|Signal ux2seljmp_i is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":278:8:278:18|Signal ux2seljmp_i is undriven. Either assign the signal a value or remove the signal declaration.
 Post processing for work.registerspaceports.registerspace
 Running optimization stage 1 on RegisterSpacePorts .......
-@W: CL240 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":169:2:169:18|Signal UartLabClkDivider is floating; a simulation mismatch is possible.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal DataOut[31:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal ReadAdcSample. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal PPSCountReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal nPowerCycClr. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal WriteUartLab. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal WriteUart3. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal WriteUart2. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal WriteUart1. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal WriteUart0. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal WriteClkDac. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal UartLabFifoReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart3FifoReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart2FifoReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart1FifoReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart0FifoReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal ReadUartLab. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal ReadUart3. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal ReadUart2. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal ReadUart1. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal ReadUart0. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal ReadMonitorAdcSample. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal MonitorAdcSpiXferStart. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal MonitorAdcReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal ClkDacWrite[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal UartLabTxFifoData[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart3TxFifoData[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart2TxFifoData[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart1TxFifoData[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart0TxFifoData[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal MonitorAdcSpiDataIn[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal nHVEn1_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal nFaultsClr_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Ux1SelJmp_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart3OE_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart2OE_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart1OE_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal Uart0OE_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal PowernEn_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal PowernEnHV_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal MonitorAdcSpiFrameEnable_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal LedR_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal LedG_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal LedB_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal HVDis2_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal GlobalFaultInhibit_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal DacSelectMaxti_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal ReadAck. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Feedback mux created for signal WriteAck. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal DataOut[31:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal ReadAdcSample. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal PPSCountReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal nPowerCycClr. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal WriteUartLab. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal WriteUart3. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal WriteUart2. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal WriteUart1. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal WriteUart0. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal WriteClkDac. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal UartLabFifoReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal Uart3FifoReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal Uart2FifoReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal Uart1FifoReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal Uart0FifoReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal ReadUartLab. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal ReadUart3. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal ReadUart2. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal ReadUart1. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal ReadUart0. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal ReadMonitorAdcSample. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal MonitorAdcSpiXferStart. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal MonitorAdcReset. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal ClkDacWrite[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal UartLabTxFifoData[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal Uart3TxFifoData[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal Uart2TxFifoData[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal Uart1TxFifoData[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal Uart0TxFifoData[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal MonitorAdcSpiDataIn[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal nHVEn1_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal nFaultsClr_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal Ux1SelJmp_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal Uart3OE_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal Uart2OE_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal Uart1OE_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal Uart0OE_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal PowernEn_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal PowernEnHV_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal MonitorAdcSpiFrameEnable_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal LedR_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal LedG_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal LedB_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal HVDis2_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal GlobalFaultInhibit_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal DacSelectMaxti_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal ReadAck. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Feedback mux created for signal WriteAck. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 Finished optimization stage 1 on RegisterSpacePorts (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd":30:7:30:17|Synthesizing work.ibufp1ports.ibufp1.
 Post processing for work.ibufp1ports.ibufp1
@@ -829,71 +828,70 @@ Running optimization stage 1 on BuildNumberPorts .......
 Finished optimization stage 1 on BuildNumberPorts (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
 Post processing for work.main.architecture_main
 Running optimization stage 1 on Main .......
-@W: CL168 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1221:2:1221:10|Removing instance IBufLatch because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 0 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 1 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 2 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 3 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 4 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 5 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 6 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 7 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 8 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 9 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 10 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 11 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 12 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 13 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 14 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 15 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 16 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 17 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 18 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 19 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 20 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 21 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 22 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 23 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 24 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 25 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 26 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 27 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 28 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 29 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 30 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 31 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 32 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 33 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 34 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 35 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 36 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 37 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 38 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 39 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 40 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 41 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 42 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 43 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 44 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 45 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 46 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 47 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 48 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 49 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 50 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 51 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 52 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 53 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 54 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 55 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 56 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 57 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 58 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 59 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 60 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 61 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 62 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Bit 63 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 0 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 1 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 2 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 3 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 4 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 5 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 6 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 7 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 8 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 9 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 10 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 11 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 12 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 13 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 14 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 15 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 16 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 17 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 18 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 19 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 20 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 21 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 22 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 23 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 24 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 25 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 26 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 27 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 28 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 29 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 30 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 31 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 32 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 33 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 34 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 35 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 36 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 37 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 38 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 39 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 40 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 41 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 42 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 43 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 44 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 45 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 46 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 47 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 48 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 49 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 50 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 51 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 52 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 53 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 54 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 55 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 56 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 57 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 58 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 59 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 60 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 61 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 62 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1272:1:1272:13|Bit 63 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 Finished optimization stage 1 on Main (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
 Running optimization stage 2 on BuildNumberPorts .......
 Finished optimization stage 2 on BuildNumberPorts (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
@@ -956,10 +954,10 @@ Running optimization stage 2 on UartTx .......
 Finished optimization stage 2 on UartTx (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
 Running optimization stage 2 on UartTxFifoExtClk_10 .......
 Finished optimization stage 2 on UartTxFifoExtClk_10 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
-Running optimization stage 2 on PPSCountPorts_work_main_architecture_main_0layer1 .......
-Finished optimization stage 2 on PPSCountPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
 Running optimization stage 2 on IBufP2Ports .......
 Finished optimization stage 2 on IBufP2Ports (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
+Running optimization stage 2 on PPSCountPorts_work_main_architecture_main_0layer1 .......
+Finished optimization stage 2 on PPSCountPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
 Running optimization stage 2 on SpiMasterPorts_work_main_architecture_main_0layer1 .......
 Finished optimization stage 2 on SpiMasterPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
 Running optimization stage 2 on SpiDacPorts_102000000_16 .......
@@ -978,7 +976,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memor
 
 
 Process completed successfully.
-# Fri Oct 25 13:44:12 2024
+# Fri Oct 25 15:19:33 2024
 
 ###########################################################]
 ###########################################################[
@@ -1014,7 +1012,7 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Fri Oct 25 13:44:12 2024
+# Fri Oct 25 15:19:33 2024
 
 ###########################################################]
 
@@ -1029,7 +1027,7 @@ At c_hdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Fri Oct 25 13:44:12 2024
+# Fri Oct 25 15:19:33 2024
 
 ###########################################################]
 ###########################################################[
@@ -1059,12 +1057,12 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Fri Oct 25 13:44:13 2024
+# Fri Oct 25 15:19:35 2024
 
 ###########################################################]
 Premap Report
 
-# Fri Oct 25 13:44:13 2024
+# Fri Oct 25 15:19:35 2024
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -1098,10 +1096,10 @@ See clock summary report "/home/summer/projects/CGraph/firmware/FineSteeringMirr
 @N: MF248 |Running in 64-bit mode.
 @N: MF667 |Clock conversion disabled. (Command "set_option -fix_gated_and_generated_clocks 0" in the project file.)
 
-Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 246MB peak: 246MB)
+Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 247MB peak: 247MB)
 
 
-Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 246MB peak: 246MB)
+Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 247MB peak: 247MB)
 
 
 Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 248MB peak: 248MB)
@@ -1113,33 +1111,34 @@ NConnInternalConnection caching is on
 @W: BN132 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1089:4:1089:9|Removing sequential instance FineSteeringMirror_sb_0.CORERESETP_0.MDDR_DDR_AXI_S_CORE_RESET_N_int because it is equivalent to instance FineSteeringMirror_sb_0.CORERESETP_0.FDDR_CORE_RESET_N_int. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|User-specified initial value defined for instance Main_0.BootupReset.ClkDiv[9:0] is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|User-specified initial value defined for instance Main_0.BootupReset.shot_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.WriteDacs_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacDSetpoint_i[23:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacCSetpoint_i[23:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacBSetpoint_i[23:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacASetpoint_i[23:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart1ClkDivider_i[7:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart0ClkDivider_i[7:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart3ClkDivider_i[7:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart2ClkDivider_i[7:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.nHVEn1_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.nFaultsClr_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.Ux1SelJmp_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart3OE_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart2OE_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart1OE_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart0OE_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.PowernEn_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.PowernEnHV_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.MonitorAdcSpiFrameEnable_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.LedR_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.LedG_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.LedB_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.HVDis2_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.GlobalFaultInhibit_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacSelectMaxti_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.LastWriteReq is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|User-specified initial value defined for instance Main_0.RegisterSpace.LastReadReq is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.WriteDacs_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacDSetpoint_i[23:0] is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacCSetpoint_i[23:0] is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacBSetpoint_i[23:0] is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacASetpoint_i[23:0] is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart1ClkDivider_i[7:0] is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart0ClkDivider_i[7:0] is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.UartLabClkDivider_i[7:0] is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart3ClkDivider_i[7:0] is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart2ClkDivider_i[7:0] is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.nHVEn1_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.nFaultsClr_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.Ux1SelJmp_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart3OE_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart2OE_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart1OE_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart0OE_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.PowernEn_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.PowernEnHV_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.MonitorAdcSpiFrameEnable_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.LedR_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.LedG_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.LedB_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.HVDis2_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.GlobalFaultInhibit_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacSelectMaxti_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.LastWriteReq is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|User-specified initial value defined for instance Main_0.RegisterSpace.LastReadReq is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|User-specified initial value defined for instance Main_0.nLDacsOneShot.ClkDiv[2:0] is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|User-specified initial value defined for instance Main_0.nLDacsOneShot.shot_i is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.ltc2378.clk_div_adcconv.ClkDiv[14] is being ignored due to limitations in architecture. 
@@ -1169,7 +1168,6 @@ NConnInternalConnection caching is on
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.UartLabBitClockDiv.ClkDiv[1] is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.UartLabBitClockDiv.ClkDiv[0] is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|User-specified initial value defined for instance Main_0.UartLabTxBitClockDiv.ClkDiv[2:0] is being ignored due to limitations in architecture. 
-@N: FX1171 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Found instance Main_0.RxdLab_RxLab.Uart.Uart.samplecnt[3:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|User-specified initial value defined for instance Main_0.RxdLab_RxLab.UartFifo.fifo_i.counter_r[10:0] is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|User-specified initial value defined for instance Main_0.RxdLab_RxLab.UartFifo.fifo_i.waddr_r[9:0] is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|User-specified initial value defined for instance Main_0.RxdLab_RxLab.UartFifo.fifo_i.raddr_r[9:0] is being ignored due to limitations in architecture. 
@@ -1197,12 +1195,10 @@ Finished HSTDM IP insertion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:0
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":19:7:19:16|Tristate driver XTLOSC_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net XTLOSC_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":20:7:20:16|Tristate driver XTLOSC_O2F (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net XTLOSC_O2F (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/std1164.vhd":52:28:52:28|Tristate driver TrigMonAdcs_1 (in view: work.Main(architecture_main)) on net TrigMonAdcs_1 (in view: work.Main(architecture_main)) has its enable tied to GND.
-@W: MO129 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":47:2:47:3|Sequential instance Main_0.IBufDacMiso.Temp1 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":676:4:676:9|Sequential instance FineSteeringMirror_sb_0.CORERESETP_0.SDIF0_PERST_N_q1 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":695:4:695:9|Sequential instance FineSteeringMirror_sb_0.CORERESETP_0.SDIF1_PERST_N_q1 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":714:4:714:9|Sequential instance FineSteeringMirror_sb_0.CORERESETP_0.SDIF2_PERST_N_q1 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":733:4:733:9|Sequential instance FineSteeringMirror_sb_0.CORERESETP_0.SDIF3_PERST_N_q1 is reduced to a combinational gate by constant propagation.
-@W: MO129 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":47:2:47:3|Sequential instance Main_0.IBufDacMiso.O is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":769:4:769:9|Sequential instance FineSteeringMirror_sb_0.CORERESETP_0.sm1_areset_n_q1 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":676:4:676:9|Sequential instance FineSteeringMirror_sb_0.CORERESETP_0.SDIF0_PERST_N_q2 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":695:4:695:9|Sequential instance FineSteeringMirror_sb_0.CORERESETP_0.SDIF1_PERST_N_q2 is reduced to a combinational gate by constant propagation.
@@ -1227,7 +1223,6 @@ Finished DisTri Cleanup (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:0
 @N: BN115 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":192:1:192:7|Removing instance IBufCts (in view: work.UartTxFifoExtClk_10_1(implementation)) because it does not drive other instances.
 @N: BN115 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":192:1:192:7|Removing instance IBufCts (in view: work.UartTxFifoExtClk_10_0(implementation)) because it does not drive other instances.
 @N: BN115 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1197:1:1197:13|Removing instance BuildNumber_i (in view: work.Main(architecture_main)) because it does not drive other instances.
-@N: BN115 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":2405:1:2405:11|Removing instance IBufDacMiso (in view: work.Main(architecture_main)) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1089:4:1089:9|Removing sequential instance DDR_READY_int (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1089:4:1089:9|Removing sequential instance SDIF_READY_int (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1089:4:1089:9|Removing sequential instance SDIF_RELEASED_int (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
@@ -1281,37 +1276,39 @@ Finished netlist restructuring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0
 Clock Summary
 ******************
 
-          Start                                                                                     Requested     Requested     Clock        Clock               Clock
-Level     Clock                                                                                     Frequency     Period        Type         Group               Load 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-0 -       System                                                                                    100.0 MHz     10.000        system       system_clkgroup     0    
-                                                                                                                                                                      
-0 -       FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             100.0 MHz     10.000        inferred     (multiple)          1978 
-                                                                                                                                                                      
-0 -       FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                   100.0 MHz     10.000        inferred     (multiple)          36   
-                                                                                                                                                                      
-0 -       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     100.0 MHz     10.000        inferred     (multiple)          31   
-                                                                                                                                                                      
-0 -       VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     100.0 MHz     10.000        inferred     (multiple)          31   
-                                                                                                                                                                      
-0 -       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     100.0 MHz     10.000        inferred     (multiple)          31   
-                                                                                                                                                                      
-0 -       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     100.0 MHz     10.000        inferred     (multiple)          31   
-                                                                                                                                                                      
-0 -       VariableClockDividerPorts_work_main_architecture_main_0layer1_4|clko_i_inferred_clock     100.0 MHz     10.000        inferred     (multiple)          31   
-                                                                                                                                                                      
-0 -       FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock                 100.0 MHz     10.000        inferred     (multiple)          15   
-                                                                                                                                                                      
-0 -       ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock              100.0 MHz     10.000        inferred     (multiple)          9    
-                                                                                                                                                                      
-0 -       ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock              100.0 MHz     10.000        inferred     (multiple)          9    
-                                                                                                                                                                      
-0 -       ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock              100.0 MHz     10.000        inferred     (multiple)          9    
-                                                                                                                                                                      
-0 -       ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock              100.0 MHz     10.000        inferred     (multiple)          9    
-                                                                                                                                                                      
-0 -       ClockDividerPorts_work_main_architecture_main_0layer1_4|div_i_inferred_clock              100.0 MHz     10.000        inferred     (multiple)          9    
-======================================================================================================================================================================
+          Start                                                                                     Requested     Requested     Clock        Clock                      Clock
+Level     Clock                                                                                     Frequency     Period        Type         Group                      Load 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+0 -       CLK0_PAD                                                                                  51.0 MHz      19.608        virtual      default_clkgroup           0    
+                                                                                                                                                                             
+0 -       System                                                                                    100.0 MHz     10.000        system       system_clkgroup            0    
+                                                                                                                                                                             
+0 -       FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             100.0 MHz     10.000        inferred     Inferred_clkgroup_0_1      1993 
+                                                                                                                                                                             
+0 -       FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                   100.0 MHz     10.000        inferred     Inferred_clkgroup_0_12     36   
+                                                                                                                                                                             
+0 -       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     100.0 MHz     10.000        inferred     Inferred_clkgroup_0_3      31   
+                                                                                                                                                                             
+0 -       VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     100.0 MHz     10.000        inferred     Inferred_clkgroup_0_5      31   
+                                                                                                                                                                             
+0 -       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     100.0 MHz     10.000        inferred     Inferred_clkgroup_0_7      31   
+                                                                                                                                                                             
+0 -       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     100.0 MHz     10.000        inferred     Inferred_clkgroup_0_9      31   
+                                                                                                                                                                             
+0 -       VariableClockDividerPorts_work_main_architecture_main_0layer1_4|clko_i_inferred_clock     100.0 MHz     10.000        inferred     Inferred_clkgroup_0_11     31   
+                                                                                                                                                                             
+0 -       FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock                 100.0 MHz     10.000        inferred     Inferred_clkgroup_0_13     15   
+                                                                                                                                                                             
+0 -       ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock              100.0 MHz     10.000        inferred     Inferred_clkgroup_0_2      9    
+                                                                                                                                                                             
+0 -       ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock              100.0 MHz     10.000        inferred     Inferred_clkgroup_0_4      9    
+                                                                                                                                                                             
+0 -       ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock              100.0 MHz     10.000        inferred     Inferred_clkgroup_0_6      9    
+                                                                                                                                                                             
+0 -       ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock              100.0 MHz     10.000        inferred     Inferred_clkgroup_0_8      9    
+                                                                                                                                                                             
+0 -       ClockDividerPorts_work_main_architecture_main_0layer1_4|div_i_inferred_clock              100.0 MHz     10.000        inferred     Inferred_clkgroup_0_10     9    
+=============================================================================================================================================================================
 
 
 
@@ -1321,13 +1318,15 @@ Clock Load Summary
                                                                                           Clock     Source                                                                       Clock Pin                                                                       Non-clock Pin     Non-clock Pin                                                              
 Clock                                                                                     Load      Pin                                                                          Seq Example                                                                     Seq Example       Comb Example                                                               
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CLK0_PAD                                                                                  0         -                                                                            -                                                                               -                 -                                                                          
+                                                                                                                                                                                                                                                                                                                                                              
 System                                                                                    0         -                                                                            -                                                                               -                 -                                                                          
                                                                                                                                                                                                                                                                                                                                                               
-FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             1978      FCCC_C0_0.FCCC_C0_0.CCC_INST.GL1(CCC)                                        Main_0.ClkDac_i.LastWriteDac.C                                                  -                 FCCC_C0_0.FCCC_C0_0.GL1_INST.I(BUFG)                                       
+FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             1993      FCCC_C0_0.FCCC_C0_0.CCC_INST.GL1(CCC)                                        Main_0.ClkDac_i.LastWriteDac.C                                                  -                 FCCC_C0_0.FCCC_C0_0.GL1_INST.I(BUFG)                                       
                                                                                                                                                                                                                                                                                                                                                               
 FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                   36        FineSteeringMirror_sb_0.CCC_0.CCC_INST.GL0(CCC)                              FineSteeringMirror_sb_0.FineSteeringMirror_sb_MSS_0.MSS_ADLIB_INST.CLK_BASE     -                 FineSteeringMirror_sb_0.CCC_0.GL0_INST.I(BUFG)                             
                                                                                                                                                                                                                                                                                                                                                               
-VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     31        Main_0.UartLabBitClockDiv.clko_i.Q[0](dffr)                                  Main_0.RxdLab_RxLab.Uart.Uart.DataO[7:0].C                                      -                 -                                                                          
+VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     31        Main_0.UartLabBitClockDiv.clko_i.Q[0](dffre)                                 Main_0.RxdLab_RxLab.Uart.Uart.DataO[7:0].C                                      -                 -                                                                          
                                                                                                                                                                                                                                                                                                                                                               
 VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     31        Main_0.Uart3BitClockDiv.clko_i.Q[0](dffre)                                   Main_0.RS433_Rx3.Uart.Uart.DataO[7:0].C                                         -                 -                                                                          
                                                                                                                                                                                                                                                                                                                                                               
@@ -1350,7 +1349,7 @@ ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock    
 ClockDividerPorts_work_main_architecture_main_0layer1_4|div_i_inferred_clock              9         Main_0.Uart0TxBitClockDiv.div_i.Q[0](dffre)                                  Main_0.RS422_Tx0.UartTxUart.LastGo.C                                            -                 -                                                                          
 ==============================================================================================================================================================================================================================================================================================================================================================
 
-@W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found inferred clock FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock which controls 1978 sequential elements including Main_0.BootupReset.ClkDiv[9:0]. This clock has no specified timing constraint which may adversely impact design performance. 
+@W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found inferred clock FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock which controls 1993 sequential elements including Main_0.BootupReset.ClkDiv[9:0]. This clock has no specified timing constraint which may adversely impact design performance. 
 @W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":47:2:47:3|Found inferred clock ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock which controls 9 sequential elements including Main_0.RS4LabLab_TxLab.IBufStartTx.Temp1. This clock has no specified timing constraint which may adversely impact design performance. 
 @W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Found inferred clock VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock which controls 31 sequential elements including Main_0.UartLabTxBitClockDiv.div_i. This clock has no specified timing constraint which may adversely impact design performance. 
 @W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":47:2:47:3|Found inferred clock ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock which controls 9 sequential elements including Main_0.RS433_Tx3.IBufStartTx.Temp1. This clock has no specified timing constraint which may adversely impact design performance. 
@@ -1369,7 +1368,7 @@ Finished Pre Mapping Phase.
 @N: MO111 :|Tristate driver TrigMonAdcs_t (in view: work.FineSteeringMirror(verilog)) on net TrigMonAdcs (in view: work.FineSteeringMirror(verilog)) has its enable tied to GND.
 @N: BN225 |Writing default property annotation file /home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/synthesis/FineSteeringMirror.sap.
 
-Starting constraint checker (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 289MB peak: 289MB)
+Starting constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 289MB peak: 289MB)
 
 Encoding state machine sm0_state[6:0] (in view: work.CoreResetP_Z2_layer0(verilog))
 original code -> new code
@@ -1381,22 +1380,22 @@ original code -> new code
    101 -> 0100000
    110 -> 1000000
 
-Finished constraint checker preprocessing (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 289MB peak: 289MB)
+Finished constraint checker preprocessing (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 289MB peak: 289MB)
 
 
-Finished constraint checker (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 289MB peak: 289MB)
+Finished constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 290MB peak: 290MB)
 
 Pre-mapping successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 289MB peak: 289MB)
+At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:01s; Memory used current: 290MB peak: 290MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Fri Oct 25 13:44:14 2024
+# Fri Oct 25 15:19:36 2024
 
 ###########################################################]
 Map & Optimize Report
 
-# Fri Oct 25 13:44:14 2024
+# Fri Oct 25 15:19:36 2024
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -1454,7 +1453,7 @@ Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapse
 Available hyper_sources - for debug and ip models
 	None Found
 
-@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Removing sequential instance ReadMonitorAdcSample (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Removing sequential instance ReadMonitorAdcSample (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd":96:2:96:3|Removing sequential instance DataFromMisoA_1[7] (in view: work.SpiMasterDualPorts_work_main_architecture_main_0layer1(spimasterdual)) of type view:PrimLib.dffrs(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd":96:2:96:3|Removing sequential instance DataFromMisoA_1[6:0] (in view: work.SpiMasterDualPorts_work_main_architecture_main_0layer1(spimasterdual)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
 
@@ -1475,6 +1474,7 @@ original code -> new code
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart1BitClockDiv.ClkDiv[6:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart2BitClockDiv.ClkDiv[6:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart3BitClockDiv.ClkDiv[6:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance UartLabBitClockDiv.ClkDiv[6:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found counter in view:work.Main(architecture_main) instance BootupReset.ClkDiv[9:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd":96:2:96:3|Found counter in view:work.SpiMasterDualPorts_work_main_architecture_main_0layer1(spimasterdual) instance ClkDiv[6:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
@@ -1484,7 +1484,6 @@ original code -> new code
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_0(rtl) instance raddr_r[9:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM fifo_i.ram[7:0] with specified coding style. Inferring block RAM.
 @W: FX107 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|RAM fifo_i.ram[7:0] (in view: work.gated_fifo_8_10_1_0(rtl)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
-@A: BN291 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":123:2:123:3|Boundary register fifo_i.data_r[7:0] (in view: work.gated_fifo_8_10_1_0(rtl)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
 @N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_0(rtl) instance fifo_i.counter_r[10:0]  
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_0(rtl) instance fifo_i.waddr_r[9:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_0(rtl) instance fifo_i.raddr_r[9:0] 
@@ -1495,7 +1494,6 @@ original code -> new code
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_1(rtl) instance raddr_r[9:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM fifo_i.ram[7:0] with specified coding style. Inferring block RAM.
 @W: FX107 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|RAM fifo_i.ram[7:0] (in view: work.gated_fifo_8_10_1_2(rtl)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
-@A: BN291 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":123:2:123:3|Boundary register fifo_i.data_r[7:0] (in view: work.gated_fifo_8_10_1_2(rtl)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
 @N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_2(rtl) instance fifo_i.counter_r[10:0]  
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_2(rtl) instance fifo_i.waddr_r[9:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_2(rtl) instance fifo_i.raddr_r[9:0] 
@@ -1506,7 +1504,6 @@ original code -> new code
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_3(rtl) instance raddr_r[9:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM fifo_i.ram[7:0] with specified coding style. Inferring block RAM.
 @W: FX107 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|RAM fifo_i.ram[7:0] (in view: work.gated_fifo_8_10_1_4(rtl)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
-@A: BN291 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":123:2:123:3|Boundary register fifo_i.data_r[7:0] (in view: work.gated_fifo_8_10_1_4(rtl)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
 @N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_4(rtl) instance fifo_i.counter_r[10:0]  
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_4(rtl) instance fifo_i.waddr_r[9:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_4(rtl) instance fifo_i.raddr_r[9:0] 
@@ -1517,7 +1514,6 @@ original code -> new code
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_5(rtl) instance raddr_r[9:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM fifo_i.ram[7:0] with specified coding style. Inferring block RAM.
 @W: FX107 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|RAM fifo_i.ram[7:0] (in view: work.gated_fifo_8_10_1_6(rtl)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
-@A: BN291 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":123:2:123:3|Boundary register fifo_i.data_r[7:0] (in view: work.gated_fifo_8_10_1_6(rtl)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
 @N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_6(rtl) instance fifo_i.counter_r[10:0]  
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_6(rtl) instance fifo_i.waddr_r[9:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_6(rtl) instance fifo_i.raddr_r[9:0] 
@@ -1528,90 +1524,89 @@ original code -> new code
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_7(rtl) instance raddr_r[9:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM fifo_i.ram[7:0] with specified coding style. Inferring block RAM.
 @W: FX107 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|RAM fifo_i.ram[7:0] (in view: work.gated_fifo_8_10_1_8(rtl)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
-@A: BN291 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":123:2:123:3|Boundary register fifo_i.data_r[7:0] (in view: work.gated_fifo_8_10_1_8(rtl)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
 @N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_8(rtl) instance fifo_i.counter_r[10:0]  
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_8(rtl) instance fifo_i.waddr_r[9:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_8(rtl) instance fifo_i.raddr_r[9:0] 
 
-Starting factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:01s; Memory used current: 287MB peak: 287MB)
+Starting factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 287MB peak: 287MB)
 
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd":48:2:48:3|Removing sequential instance IBufMisoAdc0.O (in view: work.Main(architecture_main)) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd":48:2:48:3|Removing sequential instance IBufMisoAdc0.Temp2 (in view: work.Main(architecture_main)) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd":48:2:48:3|Removing sequential instance IBufMisoAdc0.Temp1 (in view: work.Main(architecture_main)) because it does not drive other instances.
 @A: BN291 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd":48:2:48:3|Boundary register IBufMisoAdc0.Temp1 (in view: work.Main(architecture_main)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
 
-Finished factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 308MB peak: 308MB)
+Finished factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:02s; Memory used current: 315MB peak: 315MB)
 
 NConnInternalConnection caching is on
 
-Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 314MB peak: 314MB)
+Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 320MB peak: 320MB)
 
 
-Starting Early Timing Optimization (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 314MB peak: 314MB)
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 320MB peak: 320MB)
 
 
-Finished Early Timing Optimization (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 314MB peak: 314MB)
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 320MB peak: 320MB)
 
 
-Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 314MB peak: 314MB)
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 320MB peak: 320MB)
 
 
-Finished preparing to map (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 314MB peak: 314MB)
+Finished preparing to map (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:04s; Memory used current: 320MB peak: 320MB)
 
 
-Finished technology mapping (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 314MB peak: 314MB)
+Finished technology mapping (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 320MB peak: 320MB)
 
 Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
-   1		0h:00m:04s		     0.44ns		2141 /      2054
-   2		0h:00m:04s		     0.44ns		2112 /      2054
-   3		0h:00m:04s		     0.52ns		2112 /      2054
-@N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_245 
-@N: FP130 |Promoting Net Main_0.SpiRst_arst on CLKINT  I_246 
-@N: FP130 |Promoting Net Main_0.ltc2378.shot_i_arst_0 on CLKINT  I_247 
-@N: FP130 |Promoting Net Main_0.UartLabFifoReset_i_arst on CLKINT  I_248 
-@N: FP130 |Promoting Net Main_0.Uart3FifoReset_i_arst on CLKINT  I_249 
-@N: FP130 |Promoting Net Main_0.Uart2FifoReset_i_arst on CLKINT  I_250 
-@N: FP130 |Promoting Net Main_0.Uart1FifoReset_i_arst on CLKINT  I_251 
-@N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_arst on CLKINT  I_252 
-@N: FP130 |Promoting Net Main_0.ClkDac_i.SpiRst_arst on CLKINT  I_253 
-@N: FP130 |Promoting Net Main_0.PPSCountReset_arst on CLKINT  I_254 
-@N: FP130 |Promoting Net Main_0.UartClkLab on CLKINT  I_255 
-@N: FP130 |Promoting Net Main_0.UartClk2 on CLKINT  I_256 
-@N: FP130 |Promoting Net Main_0.UartClk3 on CLKINT  I_257 
-@N: FP130 |Promoting Net Main_0.UartClk0 on CLKINT  I_258 
-@N: FP130 |Promoting Net Main_0.UartClk1 on CLKINT  I_259 
-@N: FP130 |Promoting Net Main_0.ads1258.SpiRst_arst on CLKINT  I_260 
-@N: FP130 |Promoting Net FineSteeringMirror_sb_0.CORERESETP_0.sm0_areset_n_clk_base on CLKINT  I_261 
-@N: FP130 |Promoting Net FineSteeringMirror_sb_0.CORERESETP_0.sm0_areset_n_arst on CLKINT  I_262 
-@N: FP130 |Promoting Net Main_0.UartTxClkLab on CLKINT  I_263 
-@N: FP130 |Promoting Net Main_0.UartTxClk2 on CLKINT  I_264 
-@N: FP130 |Promoting Net Main_0.UartTxClk3 on CLKINT  I_265 
-@N: FP130 |Promoting Net Main_0.UartTxClk0 on CLKINT  I_266 
-@N: FP130 |Promoting Net Main_0.UartTxClk1 on CLKINT  I_267 
+   1		0h:00m:04s		     0.44ns		2157 /      2069
+   2		0h:00m:04s		     0.44ns		2109 /      2069
+   3		0h:00m:04s		     0.52ns		2109 /      2069
+@N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_262 
+@N: FP130 |Promoting Net Main_0.SpiRst_arst on CLKINT  I_263 
+@N: FP130 |Promoting Net Main_0.ltc2378.shot_i_arst_0 on CLKINT  I_264 
+@N: FP130 |Promoting Net Main_0.UartLabFifoReset_i_arst on CLKINT  I_265 
+@N: FP130 |Promoting Net Main_0.Uart3FifoReset_i_arst on CLKINT  I_266 
+@N: FP130 |Promoting Net Main_0.Uart2FifoReset_i_arst on CLKINT  I_267 
+@N: FP130 |Promoting Net Main_0.Uart1FifoReset_i_arst on CLKINT  I_268 
+@N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_arst on CLKINT  I_269 
+@N: FP130 |Promoting Net Main_0.ClkDac_i.SpiRst_arst on CLKINT  I_270 
+@N: FP130 |Promoting Net Main_0.PPSCountReset_arst on CLKINT  I_271 
+@N: FP130 |Promoting Net Main_0.UartClkLab on CLKINT  I_272 
+@N: FP130 |Promoting Net Main_0.UartClk2 on CLKINT  I_273 
+@N: FP130 |Promoting Net Main_0.UartClk3 on CLKINT  I_274 
+@N: FP130 |Promoting Net Main_0.UartClk0 on CLKINT  I_275 
+@N: FP130 |Promoting Net Main_0.UartClk1 on CLKINT  I_276 
+@N: FP130 |Promoting Net Main_0.ads1258.SpiRst_arst on CLKINT  I_277 
+@N: FP130 |Promoting Net FineSteeringMirror_sb_0.CORERESETP_0.sm0_areset_n_clk_base on CLKINT  I_278 
+@N: FP130 |Promoting Net FineSteeringMirror_sb_0.CORERESETP_0.sm0_areset_n_arst on CLKINT  I_279 
+@N: FP130 |Promoting Net Main_0.UartTxClkLab on CLKINT  I_280 
+@N: FP130 |Promoting Net Main_0.UartTxClk2 on CLKINT  I_281 
+@N: FP130 |Promoting Net Main_0.UartTxClk3 on CLKINT  I_282 
+@N: FP130 |Promoting Net Main_0.UartTxClk0 on CLKINT  I_283 
+@N: FP130 |Promoting Net Main_0.UartTxClk1 on CLKINT  I_284 
 
 Added 0 Buffers
 Added 0 Cells via replication
 	Added 0 Sequential Cells via replication
 	Added 0 Combinational Cells via replication
 
-Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 316MB peak: 316MB)
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 320MB peak: 320MB)
 
 
-Finished restoring hierarchy (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 317MB peak: 317MB)
+Finished restoring hierarchy (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 320MB peak: 320MB)
 
 
-Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:05s; Memory used current: 317MB peak: 317MB)
+Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 320MB peak: 320MB)
 
 
-Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:05s; Memory used current: 317MB peak: 317MB)
+Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 320MB peak: 320MB)
 
 
-Start Writing Netlists (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 317MB peak: 317MB)
+Start Writing Netlists (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 320MB peak: 320MB)
 
 Writing Analyst data base /home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/synthesis/synwork/FineSteeringMirror_m.srm
 
-Finished Writing Netlist Databases (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 317MB peak: 317MB)
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 320MB peak: 320MB)
 
 Writing Verilog Simulation files
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
@@ -1630,13 +1625,13 @@ Writing Verilog Simulation files
 @W: BW156 :|Option "-name" of set_clock_groups cannot be forward-annotated; there is no equivalent option in your place-and-route tool.
 @W: BW156 :|Option "-name" of set_clock_groups cannot be forward-annotated; there is no equivalent option in your place-and-route tool.
 
-Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 317MB peak: 317MB)
+Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 320MB peak: 320MB)
 
 
-Finished Writing Netlists (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 317MB peak: 317MB)
+Finished Writing Netlists (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 320MB peak: 320MB)
 
 
-Start final timing analysis (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 317MB peak: 317MB)
+Start final timing analysis (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 320MB peak: 320MB)
 
 @W: MT246 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/CCC_0/FineSteeringMirror_sb_CCC_0_FCCC.v":20:36:20:43|Blackbox CCC is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results)
 @W: MT420 |Found inferred clock FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock with period 10.00ns. Please declare a user-defined clock on net FCCC_C0_0.FCCC_C0_0.GL1_net.
@@ -1655,12 +1650,12 @@ Start final timing analysis (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:0
 
 
 ##### START OF TIMING REPORT #####[
-# Timing report written on Fri Oct 25 13:44:21 2024
+# Timing report written on Fri Oct 25 15:19:43 2024
 #
 
 
 Top view:               FineSteeringMirror
-Requested Frequency:    100.0 MHz
+Requested Frequency:    51.0 MHz
 Wire load mode:         top
 Paths requested:        5
 Constraint File(s):    /home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/designer/FineSteeringMirror/synthesis.fdc
@@ -1677,24 +1672,26 @@ Performance Summary
 
 Worst slack in design: 1.444
 
-                                                                                          Requested     Estimated     Requested     Estimated               Clock        Clock          
-Starting Clock                                                                            Frequency     Frequency     Period        Period        Slack     Type         Group          
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock              100.0 MHz     255.0 MHz     10.000        3.921         6.079     inferred     (multiple)     
-ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock              100.0 MHz     255.0 MHz     10.000        3.921         6.079     inferred     (multiple)     
-ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock              100.0 MHz     255.0 MHz     10.000        3.921         6.079     inferred     (multiple)     
-ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock              100.0 MHz     255.0 MHz     10.000        3.921         6.079     inferred     (multiple)     
-ClockDividerPorts_work_main_architecture_main_0layer1_4|div_i_inferred_clock              100.0 MHz     255.0 MHz     10.000        3.921         6.079     inferred     (multiple)     
-FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             100.0 MHz     144.5 MHz     10.000        6.919         3.081     inferred     (multiple)     
-FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                   100.0 MHz     116.9 MHz     10.000        8.556         1.444     inferred     (multiple)     
-FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock                 100.0 MHz     816.1 MHz     10.000        1.225         8.775     inferred     (multiple)     
-VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     100.0 MHz     181.8 MHz     10.000        5.501         4.499     inferred     (multiple)     
-VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     100.0 MHz     181.8 MHz     10.000        5.501         4.499     inferred     (multiple)     
-VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     100.0 MHz     181.8 MHz     10.000        5.501         4.499     inferred     (multiple)     
-VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     100.0 MHz     181.8 MHz     10.000        5.501         4.499     inferred     (multiple)     
-VariableClockDividerPorts_work_main_architecture_main_0layer1_4|clko_i_inferred_clock     100.0 MHz     181.8 MHz     10.000        5.501         4.499     inferred     (multiple)     
-System                                                                                    100.0 MHz     272.7 MHz     10.000        3.667         6.333     system       system_clkgroup
-========================================================================================================================================================================================
+                                                                                          Requested     Estimated     Requested     Estimated               Clock        Clock                 
+Starting Clock                                                                            Frequency     Frequency     Period        Period        Slack     Type         Group                 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CLK0_PAD                                                                                  51.0 MHz      NA            19.608        NA            NA        virtual      default_clkgroup      
+ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock              100.0 MHz     255.0 MHz     10.000        3.921         6.079     inferred     Inferred_clkgroup_0_2 
+ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock              100.0 MHz     255.0 MHz     10.000        3.921         6.079     inferred     Inferred_clkgroup_0_4 
+ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock              100.0 MHz     255.0 MHz     10.000        3.921         6.079     inferred     Inferred_clkgroup_0_6 
+ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock              100.0 MHz     255.0 MHz     10.000        3.921         6.079     inferred     Inferred_clkgroup_0_8 
+ClockDividerPorts_work_main_architecture_main_0layer1_4|div_i_inferred_clock              100.0 MHz     255.0 MHz     10.000        3.921         6.079     inferred     Inferred_clkgroup_0_10
+FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             100.0 MHz     148.0 MHz     10.000        6.756         3.244     inferred     Inferred_clkgroup_0_1 
+FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                   100.0 MHz     116.9 MHz     10.000        8.556         1.444     inferred     Inferred_clkgroup_0_12
+FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock                 100.0 MHz     816.1 MHz     10.000        1.225         8.775     inferred     Inferred_clkgroup_0_13
+VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     100.0 MHz     181.8 MHz     10.000        5.501         4.499     inferred     Inferred_clkgroup_0_3 
+VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     100.0 MHz     181.8 MHz     10.000        5.501         4.499     inferred     Inferred_clkgroup_0_5 
+VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     100.0 MHz     181.8 MHz     10.000        5.501         4.499     inferred     Inferred_clkgroup_0_7 
+VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     100.0 MHz     181.8 MHz     10.000        5.501         4.499     inferred     Inferred_clkgroup_0_9 
+VariableClockDividerPorts_work_main_architecture_main_0layer1_4|clko_i_inferred_clock     100.0 MHz     181.8 MHz     10.000        5.501         4.499     inferred     Inferred_clkgroup_0_11
+System                                                                                    100.0 MHz     272.7 MHz     10.000        3.667         6.333     system       system_clkgroup       
+===============================================================================================================================================================================================
+Estimated period and frequency reported as NA means no slack depends directly on the clock waveform
 
 
 
@@ -1710,7 +1707,7 @@ Starting                                                                        
 System                                                                                 System                                                                                 |  10.000      6.333  |  No paths    -      |  10.000      6.784  |  No paths    -    
 System                                                                                 FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  10.000      6.439  |  No paths    -      |  No paths    -      |  No paths    -    
 FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          System                                                                                 |  10.000      6.739  |  No paths    -      |  10.000      6.739  |  No paths    -    
-FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  10.000      3.081  |  No paths    -      |  No paths    -      |  No paths    -    
+FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  10.000      3.244  |  No paths    -      |  No paths    -      |  No paths    -    
 FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock           |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
 FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock  |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
 FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock           |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
@@ -2203,37 +2200,37 @@ Starting Points with Worst Slack
 Instance                                          Reference                                         Type        Pin           Net                     Time        Slack
                                                   Clock                                                                                                                
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.GenRamAddrBus\.3\.IBUF_RamAddr_i.O         FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE         Q             RamBusAddress_i[3]      0.108       3.081
-Main_0.GenRamAddrBus\.4\.IBUF_RamAddr_i.O         FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE         Q             RamBusAddress_i[4]      0.108       3.140
-Main_0.GenRamAddrBus\.6\.IBUF_RamAddr_i.O         FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE         Q             RamBusAddress_i[6]      0.087       3.197
-Main_0.GenRamAddrBus\.2\.IBUF_RamAddr_i.O         FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE         Q             RamBusAddress_i[2]      0.108       3.257
-Main_0.GenRamAddrBus\.3\.IBUF_RamAddr_i.O_rep     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE         Q             O_rep                   0.108       3.422
-Main_0.BootupReset.shot_i                         FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE         Q             shot_i                  0.108       3.623
+Main_0.GenRamAddrBus\.3\.IBUF_RamAddr_i.O         FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE         Q             RamBusAddress_i[3]      0.108       3.244
+Main_0.GenRamAddrBus\.5\.IBUF_RamAddr_i.O         FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE         Q             RamBusAddress_i[5]      0.108       3.284
+Main_0.GenRamAddrBus\.2\.IBUF_RamAddr_i.O         FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE         Q             RamBusAddress_i[2]      0.108       3.390
+Main_0.GenRamAddrBus\.3\.IBUF_RamAddr_i.O_rep     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE         Q             O_rep_0                 0.087       3.579
+Main_0.BootupReset.shot_i                         FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE         Q             shot_i                  0.108       3.604
 Main_0.IBufSarAdcnDrdyA.O                         FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE         Q             nDrdyAdcA_i             0.108       3.635
 Main_0.ltc2378.LastnDrdy                          FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE         Q             LastnDrdy               0.087       3.727
 Main_0.IBufSarAdcnDrdyB.O                         FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE         Q             nDrdyAdcB_i             0.108       3.880
-Main_0.RS433_Rx3.UartFifo.fifo_i.ram_ram_0_0      FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     RAM1K18     A_DOUT[0]     ram_ram_0_0_NEWA[0]     2.263       3.936
+Main_0.GenRamAddrBus\.4\.IBUF_RamAddr_i.O         FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE         Q             RamBusAddress_i[4]      0.108       3.892
+Main_0.RS422_Rx1.UartFifo.fifo_i.ram_ram_0_0      FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     RAM1K18     A_DOUT[2]     ram_ram_0_0_NEWA[2]     2.263       3.936
 =======================================================================================================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                                     Starting                                                                                                 Required          
-Instance                             Reference                                         Type     Pin     Net                                   Time         Slack
-                                     Clock                                                                                                                      
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.RegisterSpace.DataOut[25]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_serialnumber[25]                  9.745        3.081
-Main_0.RegisterSpace.DataOut[26]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_serialnumber[26]                  9.745        3.081
-Main_0.RegisterSpace.DataOut[18]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_serialnumber[18]                  9.745        3.197
-Main_0.RegisterSpace.DataOut[28]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_serialnumber[28]                  9.745        3.263
-Main_0.RegisterSpace.DataOut[31]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_serialnumber[31]                  9.745        3.263
-Main_0.RegisterSpace.DataOut[13]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_serialnumber[13]                  9.745        3.282
-Main_0.RegisterSpace.DataOut[14]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_serialnumber[14]                  9.745        3.282
-Main_0.RegisterSpace.DataOut[8]      FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_serialnumber[8]                   9.745        3.351
-Main_0.RegisterSpace.DataOut[20]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_serialnumber_1_0_wmux_0_Y[20]     9.745        3.351
-Main_0.RegisterSpace.DataOut[22]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_serialnumber_1_0_wmux_0_Y[22]     9.745        3.351
-================================================================================================================================================================
+                                     Starting                                                                                    Required          
+Instance                             Reference                                         Type     Pin     Net                      Time         Slack
+                                     Clock                                                                                                         
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Main_0.RegisterSpace.DataOut[26]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_serialnumber[26]     9.745        3.244
+Main_0.RegisterSpace.DataOut[1]      FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_serialnumber[1]      9.745        3.284
+Main_0.RegisterSpace.DataOut[3]      FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_serialnumber[3]      9.745        3.284
+Main_0.RegisterSpace.DataOut[14]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_serialnumber[14]     9.745        3.284
+Main_0.RegisterSpace.DataOut[18]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_serialnumber[18]     9.745        3.452
+Main_0.RegisterSpace.DataOut[20]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_serialnumber[20]     9.745        3.452
+Main_0.RegisterSpace.DataOut[25]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_serialnumber[25]     9.745        3.452
+Main_0.RegisterSpace.DataOut[9]      FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_serialnumber[9]      9.745        3.457
+Main_0.RegisterSpace.DataOut[11]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_serialnumber[11]     9.745        3.457
+Main_0.RegisterSpace.DataOut[12]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_serialnumber[12]     9.745        3.457
+===================================================================================================================================================
 
 
 
@@ -2247,45 +2244,45 @@ Path information for path number 1:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.745
 
-    - Propagation time:                      6.664
+    - Propagation time:                      6.501
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 3.081
+    = Slack (non-critical) :                 3.244
 
     Number of logic level(s):                7
     Starting point:                          Main_0.GenRamAddrBus\.3\.IBUF_RamAddr_i.O / Q
-    Ending point:                            Main_0.RegisterSpace.DataOut[25] / D
+    Ending point:                            Main_0.RegisterSpace.DataOut[26] / D
     The start point is clocked by            FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock [rising] (rise=0.000 fall=5.000 period=10.000) on pin CLK
     The end   point is clocked by            FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock [rising] (rise=0.000 fall=5.000 period=10.000) on pin CLK
 
-Instance / Net                                                         Pin      Pin               Arrival     No. of    
-Name                                                          Type     Name     Dir     Delay     Time        Fan Out(s)
-------------------------------------------------------------------------------------------------------------------------
-Main_0.GenRamAddrBus\.3\.IBUF_RamAddr_i.O                     SLE      Q        Out     0.108     0.108 f     -         
-RamBusAddress_i[3]                                            Net      -        -       2.022     -           92        
-Main_0.RegisterSpace.un1_serialnumber_sn_m22_0_1_0            CFG4     D        In      -         2.130 f     -         
-Main_0.RegisterSpace.un1_serialnumber_sn_m22_0_1_0            CFG4     Y        Out     0.326     2.456 f     -         
-un1_serialnumber_sn_N_23_0_1                                  Net      -        -       0.248     -           1         
-Main_0.RegisterSpace.un1_serialnumber_sn_m22_0                CFG3     C        In      -         2.705 f     -         
-Main_0.RegisterSpace.un1_serialnumber_sn_m22_0                CFG3     Y        Out     0.210     2.914 f     -         
-un1_serialnumber_sn_N_23_0                                    Net      -        -       0.248     -           1         
-Main_0.RegisterSpace.un1_serialnumber_sn_m27_0_2_1_0_wmux     ARI1     D        In      -         3.163 f     -         
-Main_0.RegisterSpace.un1_serialnumber_sn_m27_0_2_1_0_wmux     ARI1     Y        Out     0.288     3.450 f     -         
-un1_serialnumber_sn_m27_0_2_1_0_y0                            Net      -        -       0.248     -           1         
-Main_0.RegisterSpace.un1_serialnumber_sn_m27_0_2_1_wmux_0     ARI1     A        In      -         3.699 f     -         
-Main_0.RegisterSpace.un1_serialnumber_sn_m27_0_2_1_wmux_0     ARI1     Y        Out     0.100     3.799 r     -         
-un1_serialnumber_sn_N_28_0                                    Net      -        -       0.248     -           1         
-Main_0.RegisterSpace.un1_serialnumber_sn_m28                  CFG2     A        In      -         4.048 r     -         
-Main_0.RegisterSpace.un1_serialnumber_sn_m28                  CFG2     Y        Out     0.077     4.125 r     -         
-un1_serialnumber_sn_N_60                                      Net      -        -       1.319     -           35        
-Main_0.RegisterSpace.un1_serialnumber_2                       CFG4     D        In      -         5.444 r     -         
-Main_0.RegisterSpace.un1_serialnumber_2                       CFG4     Y        Out     0.271     5.715 r     -         
-un1_serialnumber_2                                            Net      -        -       0.497     -           2         
-Main_0.RegisterSpace.un1_serialnumber[25]                     CFG4     C        In      -         6.212 r     -         
-Main_0.RegisterSpace.un1_serialnumber[25]                     CFG4     Y        Out     0.203     6.415 r     -         
-un1_serialnumber[25]                                          Net      -        -       0.248     -           1         
-Main_0.RegisterSpace.DataOut[25]                              SLE      D        In      -         6.664 r     -         
-========================================================================================================================
-Total path delay (propagation time + setup) of 6.919 is 1.839(26.6%) logic and 5.080(73.4%) route.
+Instance / Net                                                Pin      Pin               Arrival     No. of    
+Name                                                 Type     Name     Dir     Delay     Time        Fan Out(s)
+---------------------------------------------------------------------------------------------------------------
+Main_0.GenRamAddrBus\.3\.IBUF_RamAddr_i.O            SLE      Q        Out     0.108     0.108 f     -         
+RamBusAddress_i[3]                                   Net      -        -       2.270     -           182       
+Main_0.RegisterSpace.un1_serialnumber_sn_m43_1       CFG4     B        In      -         2.378 f     -         
+Main_0.RegisterSpace.un1_serialnumber_sn_m43_1       CFG4     Y        Out     0.165     2.543 r     -         
+un1_serialnumber_sn_m43_1                            Net      -        -       0.248     -           1         
+Main_0.RegisterSpace.un1_serialnumber_sn_m43_2_1     CFG4     B        In      -         2.791 r     -         
+Main_0.RegisterSpace.un1_serialnumber_sn_m43_2_1     CFG4     Y        Out     0.165     2.956 r     -         
+un1_serialnumber_sn_m43_2_1                          Net      -        -       0.248     -           1         
+Main_0.RegisterSpace.un1_serialnumber_sn_m43_2       CFG3     B        In      -         3.204 r     -         
+Main_0.RegisterSpace.un1_serialnumber_sn_m43_2       CFG3     Y        Out     0.143     3.348 f     -         
+un1_serialnumber_sn_N_44                             Net      -        -       1.329     -           36        
+Main_0.RegisterSpace.un1_serialnumber_31_1[26]       CFG4     D        In      -         4.676 f     -         
+Main_0.RegisterSpace.un1_serialnumber_31_1[26]       CFG4     Y        Out     0.317     4.994 r     -         
+N_1666_1                                             Net      -        -       0.248     -           1         
+Main_0.RegisterSpace.un1_serialnumber_31[26]         CFG3     A        In      -         5.242 r     -         
+Main_0.RegisterSpace.un1_serialnumber_31[26]         CFG3     Y        Out     0.077     5.319 r     -         
+N_1666                                               Net      -        -       0.248     -           1         
+Main_0.RegisterSpace.un1_serialnumber_32[26]         CFG4     D        In      -         5.568 r     -         
+Main_0.RegisterSpace.un1_serialnumber_32[26]         CFG4     Y        Out     0.271     5.839 r     -         
+N_1699                                               Net      -        -       0.248     -           1         
+Main_0.RegisterSpace.un1_serialnumber[26]            CFG4     B        In      -         6.088 r     -         
+Main_0.RegisterSpace.un1_serialnumber[26]            CFG4     Y        Out     0.165     6.252 r     -         
+un1_serialnumber[26]                                 Net      -        -       0.248     -           1         
+Main_0.RegisterSpace.DataOut[26]                     SLE      D        In      -         6.501 r     -         
+===============================================================================================================
+Total path delay (propagation time + setup) of 6.756 is 1.666(24.7%) logic and 5.090(75.3%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -2358,22 +2355,22 @@ Path information for path number 1:
     The start point is clocked by            FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock [rising] (rise=0.000 fall=5.000 period=10.000) on pin CLK_BASE
     The end   point is clocked by            FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock [rising] (rise=0.000 fall=5.000 period=10.000) on pin CLK_BASE
 
-Instance / Net                                                                            Pin                Pin               Arrival     No. of    
-Name                                                                          Type        Name               Dir     Delay     Time        Fan Out(s)
------------------------------------------------------------------------------------------------------------------------------------------------------
-FineSteeringMirror_sb_0.FineSteeringMirror_sb_MSS_0.MSS_ADLIB_INST            MSS_010     F_HM0_ADDR[15]     Out     3.614     3.614 f     -         
-AMBA_SLAVE_0_PADDRS_net_0[15]                                                 Net         -                  -       0.248     -           1         
-FineSteeringMirror_sb_0.CoreAPB3_0.iPSELS_1_0[0]                              CFG2        A                  In      -         3.862 f     -         
-FineSteeringMirror_sb_0.CoreAPB3_0.iPSELS_1_0[0]                              CFG2        Y                  Out     0.100     3.962 r     -         
-iPSELS_1[0]                                                                   Net         -                  -       0.248     -           1         
-FineSteeringMirror_sb_0.CoreAPB3_0.iPSELS[0]                                  CFG4        B                  In      -         4.211 r     -         
-FineSteeringMirror_sb_0.CoreAPB3_0.iPSELS[0]                                  CFG4        Y                  Out     0.165     4.375 r     -         
-FineSteeringMirror_sb_0_AMBA_SLAVE_0_PSELS0                                   Net         -                  -       1.309     -           34        
-FineSteeringMirror_sb_0.FineSteeringMirror_sb_MSS_0.MSS_ADLIB_INST_RNO_31     CFG3        C                  In      -         5.685 r     -         
-FineSteeringMirror_sb_0.FineSteeringMirror_sb_MSS_0.MSS_ADLIB_INST_RNO_31     CFG3        Y                  Out     0.226     5.910 f     -         
-Main_0_RamBusAck_i_m_i                                                        Net         -                  -       1.117     -           1         
-FineSteeringMirror_sb_0.FineSteeringMirror_sb_MSS_0.MSS_ADLIB_INST            MSS_010     F_HM0_READY        In      -         7.027 f     -         
-=====================================================================================================================================================
+Instance / Net                                                                     Pin                Pin               Arrival     No. of    
+Name                                                                   Type        Name               Dir     Delay     Time        Fan Out(s)
+----------------------------------------------------------------------------------------------------------------------------------------------
+FineSteeringMirror_sb_0.FineSteeringMirror_sb_MSS_0.MSS_ADLIB_INST     MSS_010     F_HM0_ADDR[15]     Out     3.614     3.614 f     -         
+AMBA_SLAVE_0_PADDRS_net_0[15]                                          Net         -                  -       0.248     -           1         
+FineSteeringMirror_sb_0.CoreAPB3_0.iPSELS_1_0[0]                       CFG2        A                  In      -         3.862 f     -         
+FineSteeringMirror_sb_0.CoreAPB3_0.iPSELS_1_0[0]                       CFG2        Y                  Out     0.100     3.962 r     -         
+iPSELS_1[0]                                                            Net         -                  -       0.248     -           1         
+FineSteeringMirror_sb_0.CoreAPB3_0.iPSELS[0]                           CFG4        B                  In      -         4.211 r     -         
+FineSteeringMirror_sb_0.CoreAPB3_0.iPSELS[0]                           CFG4        Y                  Out     0.165     4.375 r     -         
+FineSteeringMirror_sb_0_AMBA_SLAVE_0_PSELS0                            Net         -                  -       1.309     -           34        
+Main_0.RegisterSpace.WriteAck_RNIQUPB                                  CFG3        C                  In      -         5.685 r     -         
+Main_0.RegisterSpace.WriteAck_RNIQUPB                                  CFG3        Y                  Out     0.226     5.910 f     -         
+Main_0_RamBusAck_i_m_i                                                 Net         -                  -       1.117     -           1         
+FineSteeringMirror_sb_0.FineSteeringMirror_sb_MSS_0.MSS_ADLIB_INST     MSS_010     F_HM0_READY        In      -         7.027 f     -         
+==============================================================================================================================================
 Total path delay (propagation time + setup) of 8.556 is 5.633(65.8%) logic and 2.923(34.2%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
@@ -3008,10 +3005,10 @@ Path delay compensated for clock skew. Clock skew is added to clock-to-out value
 
 Timing exceptions that could not be applied
 
-Finished final timing analysis (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 317MB peak: 317MB)
+Finished final timing analysis (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 320MB peak: 320MB)
 
 
-Finished timing report (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 317MB peak: 317MB)
+Finished timing report (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 320MB peak: 320MB)
 
 ---------------------------------------
 Resource Usage Report for FineSteeringMirror 
@@ -3024,19 +3021,19 @@ MSS_010         1 use
 RCOSC_25_50MHZ  1 use
 RCOSC_25_50MHZ_FAB  1 use
 SYSRESET        1 use
-CFG1           79 uses
-CFG2           356 uses
-CFG3           507 uses
-CFG4           594 uses
+CFG1           78 uses
+CFG2           344 uses
+CFG3           531 uses
+CFG4           609 uses
 
 Carry cells:
-ARI1            511 uses - used for arithmetic functions
-ARI1            197 uses - used for Wide-Mux implementation
-Total ARI1      708 uses
+ARI1            527 uses - used for arithmetic functions
+ARI1            153 uses - used for Wide-Mux implementation
+Total ARI1      680 uses
 
 
 Sequential Cells: 
-SLE            2174 uses
+SLE            2189 uses
 
 DSP Blocks:    0 of 22 (0%)
 
@@ -3052,7 +3049,7 @@ Global Clock Buffers: 27
 RAM/ROM usage summary
 Total Block RAMs (RAM1K18) : 10 of 21 (47%)
 
-Total LUTs:    2244
+Total LUTs:    2242
 
 Extra resources required for RAM and MACC interface logic during P&R:
 
@@ -3060,14 +3057,14 @@ RAM64x18 Interface Logic : SLEs = 0; LUTs = 0;
 RAM1K18  Interface Logic : SLEs = 360; LUTs = 360;
 MACC     Interface Logic : SLEs = 0; LUTs = 0;
 
-Total number of SLEs after P&R:  2174 + 0 + 360 + 0 = 2534;
-Total number of LUTs after P&R:  2244 + 0 + 360 + 0 = 2604;
+Total number of SLEs after P&R:  2189 + 0 + 360 + 0 = 2549;
+Total number of LUTs after P&R:  2242 + 0 + 360 + 0 = 2602;
 
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 317MB peak: 317MB)
+At Mapper Exit (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 320MB peak: 320MB)
 
-Process took 0h:00m:06s realtime, 0h:00m:06s cputime
-# Fri Oct 25 13:44:21 2024
+Process took 0h:00m:07s realtime, 0h:00m:07s cputime
+# Fri Oct 25 15:19:43 2024
 
 ###########################################################]

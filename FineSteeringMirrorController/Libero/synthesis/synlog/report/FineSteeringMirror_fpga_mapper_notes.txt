@@ -8,7 +8,7 @@
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":15:7:15:24|Tristate driver RCOSC_25_50MHZ_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net RCOSC_25_50MHZ_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/std1164.vhd":52:28:52:28|Tristate driver TrigMonAdcs_1 (in view: work.Main(architecture_main)) on net TrigMonAdcs_1 (in view: work.Main(architecture_main)) has its enable tied to GND.
 @N: MO111 :|Tristate driver TrigMonAdcs_t (in view: work.FineSteeringMirror(verilog)) on net TrigMonAdcs (in view: work.FineSteeringMirror(verilog)) has its enable tied to GND.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":329:2:329:3|Removing sequential instance ReadMonitorAdcSample (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":332:2:332:3|Removing sequential instance ReadMonitorAdcSample (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd":96:2:96:3|Removing sequential instance DataFromMisoA_1[7] (in view: work.SpiMasterDualPorts_work_main_architecture_main_0layer1(spimasterdual)) of type view:PrimLib.dffrs(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd":96:2:96:3|Removing sequential instance DataFromMisoA_1[6:0] (in view: work.SpiMasterDualPorts_work_main_architecture_main_0layer1(spimasterdual)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":54:65:54:65|Found counter in view:work.Main(architecture_main) instance PPSAccumulator.PPSAccum_i[31:0] 
@@ -17,6 +17,7 @@
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart1BitClockDiv.ClkDiv[6:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart2BitClockDiv.ClkDiv[6:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart3BitClockDiv.ClkDiv[6:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance UartLabBitClockDiv.ClkDiv[6:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found counter in view:work.Main(architecture_main) instance BootupReset.ClkDiv[9:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd":96:2:96:3|Found counter in view:work.SpiMasterDualPorts_work_main_architecture_main_0layer1(spimasterdual) instance ClkDiv[6:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
@@ -62,29 +63,29 @@
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd":48:2:48:3|Removing sequential instance IBufMisoAdc0.O (in view: work.Main(architecture_main)) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd":48:2:48:3|Removing sequential instance IBufMisoAdc0.Temp2 (in view: work.Main(architecture_main)) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd":48:2:48:3|Removing sequential instance IBufMisoAdc0.Temp1 (in view: work.Main(architecture_main)) because it does not drive other instances.
-@N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_245 
-@N: FP130 |Promoting Net Main_0.SpiRst_arst on CLKINT  I_246 
-@N: FP130 |Promoting Net Main_0.ltc2378.shot_i_arst_0 on CLKINT  I_247 
-@N: FP130 |Promoting Net Main_0.UartLabFifoReset_i_arst on CLKINT  I_248 
-@N: FP130 |Promoting Net Main_0.Uart3FifoReset_i_arst on CLKINT  I_249 
-@N: FP130 |Promoting Net Main_0.Uart2FifoReset_i_arst on CLKINT  I_250 
-@N: FP130 |Promoting Net Main_0.Uart1FifoReset_i_arst on CLKINT  I_251 
-@N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_arst on CLKINT  I_252 
-@N: FP130 |Promoting Net Main_0.ClkDac_i.SpiRst_arst on CLKINT  I_253 
-@N: FP130 |Promoting Net Main_0.PPSCountReset_arst on CLKINT  I_254 
-@N: FP130 |Promoting Net Main_0.UartClkLab on CLKINT  I_255 
-@N: FP130 |Promoting Net Main_0.UartClk2 on CLKINT  I_256 
-@N: FP130 |Promoting Net Main_0.UartClk3 on CLKINT  I_257 
-@N: FP130 |Promoting Net Main_0.UartClk0 on CLKINT  I_258 
-@N: FP130 |Promoting Net Main_0.UartClk1 on CLKINT  I_259 
-@N: FP130 |Promoting Net Main_0.ads1258.SpiRst_arst on CLKINT  I_260 
-@N: FP130 |Promoting Net FineSteeringMirror_sb_0.CORERESETP_0.sm0_areset_n_clk_base on CLKINT  I_261 
-@N: FP130 |Promoting Net FineSteeringMirror_sb_0.CORERESETP_0.sm0_areset_n_arst on CLKINT  I_262 
-@N: FP130 |Promoting Net Main_0.UartTxClkLab on CLKINT  I_263 
-@N: FP130 |Promoting Net Main_0.UartTxClk2 on CLKINT  I_264 
-@N: FP130 |Promoting Net Main_0.UartTxClk3 on CLKINT  I_265 
-@N: FP130 |Promoting Net Main_0.UartTxClk0 on CLKINT  I_266 
-@N: FP130 |Promoting Net Main_0.UartTxClk1 on CLKINT  I_267 
+@N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_262 
+@N: FP130 |Promoting Net Main_0.SpiRst_arst on CLKINT  I_263 
+@N: FP130 |Promoting Net Main_0.ltc2378.shot_i_arst_0 on CLKINT  I_264 
+@N: FP130 |Promoting Net Main_0.UartLabFifoReset_i_arst on CLKINT  I_265 
+@N: FP130 |Promoting Net Main_0.Uart3FifoReset_i_arst on CLKINT  I_266 
+@N: FP130 |Promoting Net Main_0.Uart2FifoReset_i_arst on CLKINT  I_267 
+@N: FP130 |Promoting Net Main_0.Uart1FifoReset_i_arst on CLKINT  I_268 
+@N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_arst on CLKINT  I_269 
+@N: FP130 |Promoting Net Main_0.ClkDac_i.SpiRst_arst on CLKINT  I_270 
+@N: FP130 |Promoting Net Main_0.PPSCountReset_arst on CLKINT  I_271 
+@N: FP130 |Promoting Net Main_0.UartClkLab on CLKINT  I_272 
+@N: FP130 |Promoting Net Main_0.UartClk2 on CLKINT  I_273 
+@N: FP130 |Promoting Net Main_0.UartClk3 on CLKINT  I_274 
+@N: FP130 |Promoting Net Main_0.UartClk0 on CLKINT  I_275 
+@N: FP130 |Promoting Net Main_0.UartClk1 on CLKINT  I_276 
+@N: FP130 |Promoting Net Main_0.ads1258.SpiRst_arst on CLKINT  I_277 
+@N: FP130 |Promoting Net FineSteeringMirror_sb_0.CORERESETP_0.sm0_areset_n_clk_base on CLKINT  I_278 
+@N: FP130 |Promoting Net FineSteeringMirror_sb_0.CORERESETP_0.sm0_areset_n_arst on CLKINT  I_279 
+@N: FP130 |Promoting Net Main_0.UartTxClkLab on CLKINT  I_280 
+@N: FP130 |Promoting Net Main_0.UartTxClk2 on CLKINT  I_281 
+@N: FP130 |Promoting Net Main_0.UartTxClk3 on CLKINT  I_282 
+@N: FP130 |Promoting Net Main_0.UartTxClk0 on CLKINT  I_283 
+@N: FP130 |Promoting Net Main_0.UartTxClk1 on CLKINT  I_284 
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
 @N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 
 @N: MT320 |This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report.

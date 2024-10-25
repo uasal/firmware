@@ -75,18 +75,18 @@ port (
 	
 	--RS-422
 	
-	Txd0 : out std_logic;
+	Tx0 : out std_logic;
 	Oe0 : out std_logic;
-	Rxd0 : in std_logic;
-	Txd1 : out std_logic;
+	Rx0 : in std_logic;
+	Tx1 : out std_logic;
 	Oe1 : out std_logic;
-	Rxd1 : in std_logic;
-	Txd2 : out std_logic;
+	Rx1 : in std_logic;
+	Tx2 : out std_logic;
 	Oe2 : out std_logic;
-	Rxd2 : in std_logic;
-	Txd3 : out std_logic;
+	Rx2 : in std_logic;
+	Tx3 : out std_logic;
 	Oe3 : out std_logic;
-	Rxd3 : in std_logic;
+	Rx3 : in std_logic;
 	
 	RxdLab : out std_logic;
 	TxdLab : in std_logic;
@@ -1218,8 +1218,7 @@ begin
 	
 	------------------------------------------ RegisterSpaces ---------------------------------------------------
 
-		IBufLatch : IBufP2Ports port map(clk => MasterClk, I => RamBusLatch, O => RamBusLatch_i);
-		--~ IBufCE : IBufP2Ports port map(clk => MasterClk, I => RamBusnCs(0), O => RamBusCE_i);
+		--~ IBufLatch : IBufP2Ports port map(clk => MasterClk, I => RamBusLatch, O => RamBusLatch_i);
 		IBufCE : IBufP2Ports port map(clk => MasterClk, I => RamBusnCs, O => RamBusCE_i);
 		IBufWrnRd : IBufP2Ports port map(clk => MasterClk, I => RamBusWrnRd, O => RamBusWrnRd_i);
 
@@ -1797,7 +1796,7 @@ begin
 		div => UartTxClk0
 	);
 		
-	IBufRxd0 : IBufP3Ports port map(clk => UartClk, I => Rxd0, O => Rxd0_i); --if you want to change the pin for this chip select, it's here
+	IBufRxd0 : IBufP3Ports port map(clk => UartClk, I => Rx0, O => Rxd0_i); --if you want to change the pin for this chip select, it's here
 	
 	RS422_Rx0 : UartRxFifoExtClk
 	generic map
@@ -1866,7 +1865,7 @@ begin
 		Txd => Txd0_i--,
 		--~ Txd => open--,
 	);
-	Txd0 <= Txd0_i;
+	Tx0 <= Txd0_i;
 	
 	--Mux master reset (boot) and user reset (datamapper)
 	Uart0FifoReset_i <= MasterReset or Uart0FifoReset;
@@ -1899,7 +1898,7 @@ begin
 		div => UartTxClk1
 	);
 	
-	IBufRxd1 : IBufP3Ports port map(clk => UartClk, I => Rxd1, O => Rxd1_i); --if you want to change the pin for this chip select, it's here
+	IBufRxd1 : IBufP3Ports port map(clk => UartClk, I => Rx1, O => Rxd1_i); --if you want to change the pin for this chip select, it's here
 	
 	RS422_Rx1 : UartRxFifoExtClk
 	generic map
@@ -1962,7 +1961,7 @@ begin
 		Txd => Txd1_i--,
 		--~ Txd => open--,
 	);
-	Txd1 <= Txd1_i;
+	Tx1 <= Txd1_i;
 	
 	--Mux master reset (boot) and user reset (datamapper)
 	Uart1FifoReset_i <= MasterReset or Uart1FifoReset;
@@ -1997,7 +1996,7 @@ begin
 	
 	--~ Ux1SelJmp <= UartClk2;
 	
-	IBufRxd2 : IBufP3Ports port map(clk => UartClk, I => Rxd2, O => Rxd2_i); --if you want to change the pin for this chip select, it's here
+	IBufRxd2 : IBufP3Ports port map(clk => UartClk, I => Rx2, O => Rxd2_i); --if you want to change the pin for this chip select, it's here
 	
 	--~ Ux1SelJmp <= Rxd2;
 	
@@ -2064,7 +2063,7 @@ begin
 		Txd => Txd2_i--,
 		--~ Txd => open--,
 	);
-	Txd2 <= Txd2_i;
+	Tx2 <= Txd2_i;
 	
 	--Debug monitors
 	--~ Txd2 <= Txd0_i;
@@ -2108,7 +2107,7 @@ begin
 	
 	--~ Ux1SelJmp <= UartClk3;
 	
-	IBufRxd3 : IBufP3Ports port map(clk => UartClk, I => Rxd3, O => Rxd3_i); --if you want to change the pin for this chip select, it's here
+	IBufRxd3 : IBufP3Ports port map(clk => UartClk, I => Rx3, O => Rxd3_i); --if you want to change the pin for this chip select, it's here
 	
 	--~ Ux1SelJmp <= Rxd3;
 	
@@ -2175,7 +2174,7 @@ begin
 		Txd => Txd3_i--,
 		--~ Txd => open--,
 	);
-	Txd3 <= Txd3_i;
+	Tx3 <= Txd3_i;
 	
 	--Debug monitors
 	--~ Txd3 <= Txd0_i;
@@ -2402,7 +2401,8 @@ begin
 		--~ Milliseconds => Milliseconds--,
 	--~ );
 	
-	IBufDacMiso : IBufP2Ports port map(clk => MasterClk, I => '1', O => MisoXO_i);
+	--~ IBufDacMiso : IBufP2Ports port map(clk => MasterClk, I => '1', O => MisoXO_i);
+	MisoXO_i <= '1';
 
 	ClkDac_i : SpiDacPorts
 	generic map 
