@@ -1,5 +1,5 @@
 probe \
-    -desdir {/home/summer/projects/CGraph/firmware/FineSteeringMirrorTq144/Libero/designer/FineSteeringMirror} \
+    -desdir {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/designer/FineSteeringMirror} \
     -design FineSteeringMirror \
     -fam SmartFusion2 \
     -die PA4M1000_N \

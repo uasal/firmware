@@ -1,8 +1,10 @@
-# Written by Synplify Pro version map202209actsp2, Build 145R. Synopsys Run ID: sid1729897088 
+# Written by Synplify Pro version map202209actsp2, Build 145R. Synopsys Run ID: sid1730156243 
 # Top Level Design Parameters 
 
 # Clocks 
 create_clock -period 10.000 -waveform {0.000 5.000} -name {FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock} [get_pins {FCCC_C0_0/FCCC_C0_0/CCC_INST/GL1}] 
+create_clock -period 10.000 -waveform {0.000 5.000} -name {ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock} [get_pins {Main_0/ExtAddrInUart/UartClkDiv/div_i/Q}] 
+create_clock -period 10.000 -waveform {0.000 5.000} -name {ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock} [get_pins {Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/div_i/Q}] 
 create_clock -period 10.000 -waveform {0.000 5.000} -name {ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock} [get_pins {Main_0/UartLabTxBitClockDiv/div_i/Q}] 
 create_clock -period 10.000 -waveform {0.000 5.000} -name {VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock} [get_pins {Main_0/UartLabBitClockDiv/clko_i/Q}] 
 create_clock -period 10.000 -waveform {0.000 5.000} -name {ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock} [get_pins {Main_0/Uart3TxBitClockDiv/div_i/Q}] 
@@ -46,6 +48,8 @@ create_clock -period 19.608 -waveform {0.000 9.804} -name {CLK0_PAD}
 
 # Clock Delay Constraints 
 set_clock_groups -asynchronous -group [get_clocks {FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock}]
+set_clock_groups -asynchronous -group [get_clocks {ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock}]
+set_clock_groups -asynchronous -group [get_clocks {ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock}]
 set_clock_groups -asynchronous -group [get_clocks {ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock}]
 set_clock_groups -asynchronous -group [get_clocks {VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock}]
 set_clock_groups -asynchronous -group [get_clocks {ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock}]
@@ -57,7 +61,6 @@ set_clock_groups -asynchronous -group [get_clocks {VariableClockDividerPorts_wor
 set_clock_groups -asynchronous -group [get_clocks {ClockDividerPorts_work_main_architecture_main_0layer1_4|div_i_inferred_clock}]
 set_clock_groups -asynchronous -group [get_clocks {VariableClockDividerPorts_work_main_architecture_main_0layer1_4|clko_i_inferred_clock}]
 set_clock_groups -asynchronous -group [get_clocks {FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock}]
-set_clock_groups -asynchronous -group [get_clocks {FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock}]
 
 # syn_mode Attributes 
 

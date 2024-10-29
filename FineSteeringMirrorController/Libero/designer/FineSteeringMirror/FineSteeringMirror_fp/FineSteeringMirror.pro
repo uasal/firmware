@@ -1,6 +1,6 @@
 <project name="FineSteeringMirror" version="1.2">
     <ProjectDirectory>
-        /home/summer/projects/CGraph/firmware/FineSteeringMirrorTq144/Libero/designer/FineSteeringMirror/FineSteeringMirror_fp
+        /home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/designer/FineSteeringMirror/FineSteeringMirror_fp
     </ProjectDirectory>
     <View>
         ChainView
@@ -9,7 +9,7 @@
         M2S010
     </LiberoTargetDevice>
     <LogFile>
-        /home/summer/projects/CGraph/firmware/FineSteeringMirrorTq144/Libero/designer/FineSteeringMirror/FineSteeringMirror_fp/FineSteeringMirror.log
+        /home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/designer/FineSteeringMirror/FineSteeringMirror_fp/FineSteeringMirror.log
     </LogFile>
     <SerializationOption>
         Skip

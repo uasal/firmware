@@ -1,5 +1,5 @@
 #defaultlanguage:vhdl
-#OPTIONS:"|-mixedhdl|-top|work.Main|-mpparams|/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/synthesis/synwork/_mh_params|-layerid|1|-orig_srs|/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/synthesis/synwork/FineSteeringMirror_comp.srs|-prodtype|synplify_pro|-infer_seqShift|-primux|-dspmac|-pqdpadd|-fixsmult|-sdff_counter|-divnmod|-nram|-actel|-work_is_curlib|1|-encrypt|-pro|-lite|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-vhdl2008|-work_is_curlib|1|-ignore_undefined_lib|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work"
+#OPTIONS:"|-mixedhdl|-top|work.Main|-mpparams|/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/synthesis/synwork/_mh_params|-layerid|1|-orig_srs|/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/synthesis/synwork/FineSteeringMirror_comp.srs|-prodtype|synplify_pro|-infer_seqShift|-primux|-dspmac|-pqdpadd|-fixsmult|-sdff_counter|-divnmod|-nram|-actel|-work_is_curlib|1|-encrypt|-pro|-lite|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-vhdl2008|-work_is_curlib|1|-ignore_undefined_lib|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work"
 #CUR:"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/linux_a_64/c_vhdl":1691490547
 #CUR:"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/location.map":1691490543
 #CUR:"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/std.vhd":1691490543
@@ -11,32 +11,33 @@
 #CUR:"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/arith.vhd":1691490543
 #CUR:"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/unsigned.vhd":1691490543
 #CUR:"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd/hyperents.vhd":1691490543
-#CUR:"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/BuildNumber.vhd":1727889744
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd":1726674523
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":1726674523
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd":1726674523
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":1726674523
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd":1729702616
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":1726674523
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":1729727359
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":1726674523
-#CUR:"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":1729897080
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":1729890075
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/UartRxExtClk.vhd":1726674523
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":1715188086
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":1715188086
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClk.vhd":1726674523
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd":1726674523
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":1726674523
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":1726674523
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd":1726674523
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd":1726674523
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd":1729702616
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd":1729702616
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/SpiDeviceDual.vhd":1729711067
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBusAddrTx.vhd":1726674523
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBus.vhd":1726674523
-#CUR:"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1729897197
+#CUR:"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/BuildNumber.vhd":1716482054
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd":1726443263
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":1726443267
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd":1726443270
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":1726443416
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd":1729633077
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":1726443312
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":1730132404
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":1726443320
+#CUR:"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":1730132404
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":1730132404
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/UartRxExtClk.vhd":1726443366
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":1716482055
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":1716482055
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClk.vhd":1726443369
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd":1726443401
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":1726443406
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":1726443224
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd":1726443358
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd":1726443331
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd":1729631799
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd":1729632946
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/SpiDeviceDual.vhd":1730132404
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBusAddrTx.vhd":1730139249
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBus.vhd":1726443346
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/UartRx.vhd":1683312032
+#CUR:"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1730153167
 0 "/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/BuildNumber.vhd" vhdl
 1 "/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd" vhdl
 2 "/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd" vhdl
@@ -62,7 +63,8 @@
 22 "/home/summer/projects/CGraph/firmware/include/fpga/SpiDeviceDual.vhd" vhdl
 23 "/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBusAddrTx.vhd" vhdl
 24 "/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBus.vhd" vhdl
-25 "/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd" vhdl
+25 "/home/summer/projects/CGraph/firmware/include/fpga/UartRx.vhd" vhdl
+26 "/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd" vhdl
 
 # Dependency Lists (Uses list)
 0 -1
@@ -90,35 +92,37 @@
 22 21 
 23 17 15 
 24 18 
-25 0 6 2 1 9 20 7 3 22 4 17 14 16 8 19 23 24 
+25 17 2 10 
+26 0 6 2 1 9 20 7 3 22 4 17 14 16 8 19 23 25 24 
 
 # Dependency Lists (Users Of)
-0 25 
-1 25 
-2 25 16 14 11 
-3 25 
-4 25 7 
+0 26 
+1 26 
+2 26 25 16 14 11 
+3 26 
+4 26 7 
 5 20 7 
-6 25 7 
-7 25 
-8 25 
-9 25 
-10 11 
+6 26 7 
+7 26 
+8 26 
+9 26 
+10 25 11 
 11 14 
 12 13 
 13 16 14 
-14 25 
+14 26 
 15 23 16 
-16 25 
-17 25 23 
+16 26 
+17 26 25 23 
 18 24 19 
-19 25 
-20 25 
+19 26 
+20 26 
 21 22 
-22 25 
-23 25 
-24 25 
-25 -1
+22 26 
+23 26 
+24 26 
+25 26 
+26 -1
 
 # Design Unit to File Association
 arch work buildnumberports buildnumber 0
@@ -167,12 +171,13 @@ arch work spimasterdualports spimasterdual 21
 module work spimasterdualports 21
 arch work spidevicedualports spidevicedual 22
 module work spidevicedualports 22
-arch work spiextbusaddrtxports spiextbussaddrtx 23
+arch work spiextbusaddrtxports spiextbusaddrtx 23
 module work spiextbusaddrtxports 23
 arch work spiextbusports spiextbus 24
 module work spiextbusports 24
-arch work main architecture_main 25
-module work main 25
+arch work uartrx implementation 25
+module work uartrx 25
+arch work main architecture_main 26
+module work main 26
 
 # Unbound Instances to File Association
-inst work main uartrx 25

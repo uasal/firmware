@@ -3,7 +3,7 @@
 <doc>
 <text>SmartTime Version 2023.2.0.10</text>
 <text>Microsemi Corporation - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)
-Date: Fri Oct 25 15:42:42 2024 </text>
+Date: Mon Oct 28 15:57:50 2024 </text>
 <table>
 <header>
 </header>
@@ -51,51 +51,51 @@ Date: Fri Oct 25 15:42:42 2024 </text>
 <row>
  <cell>Setup</cell>
  <cell>            0</cell>
- <cell>         4162</cell>
- <cell>         4162</cell>
+ <cell>         4198</cell>
+ <cell>         4198</cell>
 </row>
 <row>
  <cell>Recovery</cell>
  <cell>            0</cell>
- <cell>         1328</cell>
- <cell>         1328</cell>
+ <cell>         1338</cell>
+ <cell>         1338</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
  <cell>            0</cell>
- <cell>           53</cell>
- <cell>           53</cell>
+ <cell>           58</cell>
+ <cell>           58</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>         5543</cell>
- <cell>         5543</cell>
+ <cell>         5594</cell>
+ <cell>         5594</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
  <cell>            0</cell>
- <cell>         4162</cell>
- <cell>         4162</cell>
+ <cell>         4198</cell>
+ <cell>         4198</cell>
 </row>
 <row>
  <cell>Removal</cell>
  <cell>            0</cell>
- <cell>         1328</cell>
- <cell>         1328</cell>
+ <cell>         1338</cell>
+ <cell>         1338</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
  <cell>            0</cell>
- <cell>           53</cell>
- <cell>           53</cell>
+ <cell>           58</cell>
+ <cell>           58</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>         5543</cell>
- <cell>         5543</cell>
+ <cell>         5594</cell>
+ <cell>         5594</cell>
 </row>
 </table>
 <section>
@@ -174,51 +174,51 @@ Date: Fri Oct 25 15:42:42 2024 </text>
 <row>
  <cell>Setup</cell>
  <cell>            0</cell>
- <cell>         3808</cell>
- <cell>         3808</cell>
+ <cell>         3857</cell>
+ <cell>         3857</cell>
 </row>
 <row>
  <cell>Recovery</cell>
  <cell>            0</cell>
- <cell>         1182</cell>
- <cell>         1182</cell>
+ <cell>         1223</cell>
+ <cell>         1223</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
  <cell>            0</cell>
- <cell>           41</cell>
- <cell>           41</cell>
+ <cell>           44</cell>
+ <cell>           44</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>         5031</cell>
- <cell>         5031</cell>
+ <cell>         5124</cell>
+ <cell>         5124</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
  <cell>            0</cell>
- <cell>         3808</cell>
- <cell>         3808</cell>
+ <cell>         3857</cell>
+ <cell>         3857</cell>
 </row>
 <row>
  <cell>Removal</cell>
  <cell>            0</cell>
- <cell>         1182</cell>
- <cell>         1182</cell>
+ <cell>         1223</cell>
+ <cell>         1223</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
  <cell>            0</cell>
- <cell>           41</cell>
- <cell>           41</cell>
+ <cell>           44</cell>
+ <cell>           44</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>         5031</cell>
- <cell>         5031</cell>
+ <cell>         5124</cell>
+ <cell>         5124</cell>
 </row>
 </table>
 <section>
@@ -240,6 +240,7 @@ Date: Fri Oct 25 15:42:42 2024 </text>
  <item>MisoAdcB</item>
  <item>MisoAdcC</item>
  <item>MisoAdcD</item>
+ <item>MisoExt</item>
  <item>MisoMonAdc0</item>
  <item>MisoMonAdc1</item>
  <item>PPS</item>
@@ -276,6 +277,7 @@ Date: Fri Oct 25 15:42:42 2024 </text>
  <item>MisoAdcB</item>
  <item>MisoAdcC</item>
  <item>MisoAdcD</item>
+ <item>MisoExt</item>
  <item>MisoMonAdc0</item>
  <item>MisoMonAdc1</item>
  <item>PPS</item>
@@ -311,6 +313,7 @@ Date: Fri Oct 25 15:42:42 2024 </text>
  <item>MosiDacCTi</item>
  <item>MosiDacDMax</item>
  <item>MosiDacDTi</item>
+ <item>MosiExt</item>
  <item>MosiMonAdcs</item>
  <item>MosiXO</item>
  <item>Oe0</item>
@@ -325,6 +328,7 @@ Date: Fri Oct 25 15:42:42 2024 </text>
  <item>SckAdcs</item>
  <item>SckDacsMax</item>
  <item>SckDacsTi</item>
+ <item>SckExt</item>
  <item>SckMonAdcs</item>
  <item>SckXO</item>
  <item>TrigAdcs</item>
@@ -336,6 +340,7 @@ Date: Fri Oct 25 15:42:42 2024 </text>
  <item>nCsAdcs</item>
  <item>nCsDacsMax</item>
  <item>nCsDacsTi</item>
+ <item>nCsExt</item>
  <item>nCsMonAdcs</item>
  <item>nCsXO</item>
  <item>nFaultsClr</item>
@@ -357,6 +362,7 @@ Date: Fri Oct 25 15:42:42 2024 </text>
  <item>MosiDacCTi</item>
  <item>MosiDacDMax</item>
  <item>MosiDacDTi</item>
+ <item>MosiExt</item>
  <item>MosiMonAdcs</item>
  <item>MosiXO</item>
  <item>Oe0</item>
@@ -371,6 +377,7 @@ Date: Fri Oct 25 15:42:42 2024 </text>
  <item>SckAdcs</item>
  <item>SckDacsMax</item>
  <item>SckDacsTi</item>
+ <item>SckExt</item>
  <item>SckMonAdcs</item>
  <item>SckXO</item>
  <item>TrigAdcs</item>
@@ -382,6 +389,7 @@ Date: Fri Oct 25 15:42:42 2024 </text>
  <item>nCsAdcs</item>
  <item>nCsDacsMax</item>
  <item>nCsDacsTi</item>
+ <item>nCsExt</item>
  <item>nCsMonAdcs</item>
  <item>nCsXO</item>
  <item>nFaultsClr</item>
@@ -553,52 +561,52 @@ Date: Fri Oct 25 15:42:42 2024 </text>
  <item>Main_0/ClkDac_i/Spi/XferComplete_i:ALn</item>
  <item>Main_0/ClkDac_i/SpiRst:ALn</item>
  <item>Main_0/ClkDac_i/SpiRst_rep:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[0]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[10]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[11]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[12]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[13]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[14]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[15]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[16]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[17]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[18]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[19]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[1]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[20]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[21]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[22]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[23]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[2]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[3]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[4]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[5]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[6]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[7]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[8]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[9]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[0]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[10]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[11]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[12]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[13]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[14]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[15]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[16]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[17]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[18]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[19]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[1]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[20]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[21]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[22]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[23]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[2]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[3]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[4]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[5]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[6]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[7]:ALn</item>
+ <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[0]:ALn</item>
+ <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[1]:ALn</item>
+ <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[2]:ALn</item>
+ <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[3]:ALn</item>
+ <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[4]:ALn</item>
+ <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[5]:ALn</item>
+ <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[6]:ALn</item>
+ <item>Main_0/ExtAddrInUart/UartClkDiv/div_i:ALn</item>
+ <item>Main_0/ExtAddrOutUart/LatchTxdSpiExtBusAddr:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxNextState[0]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxNextState[1]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[0]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[10]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[1]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[2]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[3]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[4]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[5]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[6]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[7]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[8]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[9]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/div_i:ALn</item>
+ <item>Main_0/ExtAddrOutUart/StartTxdSpiExtBusAddr:ALn</item>
+ <item>Main_0/Ext_i/LastSpiXferComplete:ALn</item>
+ <item>Main_0/Ext_i/LastWriteSpiExtBus:ALn</item>
+ <item>Main_0/Ext_i/Spi/ClkDiv[0]:ALn</item>
+ <item>Main_0/Ext_i/Spi/ClkDiv[1]:ALn</item>
+ <item>Main_0/Ext_i/Spi/ClkDiv[2]:ALn</item>
+ <item>Main_0/Ext_i/Spi/ClkDiv[3]:ALn</item>
+ <item>Main_0/Ext_i/Spi/ClkDiv[4]:ALn</item>
+ <item>Main_0/Ext_i/Spi/ClkDiv[5]:ALn</item>
+ <item>Main_0/Ext_i/Spi/ClkDiv[6]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataFromMiso_1[0]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataFromMiso_1[1]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataFromMiso_1[2]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataFromMiso_1[3]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataFromMiso_1[4]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataFromMiso_1[5]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataFromMiso_1[6]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataFromMiso_1[7]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataToMosiLatched:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataToMosi_i[0]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataToMosi_i[1]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataToMosi_i[2]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataToMosi_i[3]:ALn</item>
 </list>
 <text></text>
 <text> - Hold unconstrained for the following pins:</text>
@@ -763,52 +771,52 @@ Date: Fri Oct 25 15:42:42 2024 </text>
  <item>Main_0/ClkDac_i/Spi/XferComplete_i:ALn</item>
  <item>Main_0/ClkDac_i/SpiRst:ALn</item>
  <item>Main_0/ClkDac_i/SpiRst_rep:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[0]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[10]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[11]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[12]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[13]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[14]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[15]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[16]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[17]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[18]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[19]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[1]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[20]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[21]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[22]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[23]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[2]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[3]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[4]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[5]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[6]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[7]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[8]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutA_i[9]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[0]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[10]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[11]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[12]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[13]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[14]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[15]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[16]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[17]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[18]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[19]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[1]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[20]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[21]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[22]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[23]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[2]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[3]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[4]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[5]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[6]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[7]:ALn</item>
+ <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[0]:ALn</item>
+ <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[1]:ALn</item>
+ <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[2]:ALn</item>
+ <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[3]:ALn</item>
+ <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[4]:ALn</item>
+ <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[5]:ALn</item>
+ <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[6]:ALn</item>
+ <item>Main_0/ExtAddrInUart/UartClkDiv/div_i:ALn</item>
+ <item>Main_0/ExtAddrOutUart/LatchTxdSpiExtBusAddr:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxNextState[0]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxNextState[1]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[0]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[10]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[1]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[2]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[3]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[4]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[5]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[6]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[7]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[8]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[9]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/div_i:ALn</item>
+ <item>Main_0/ExtAddrOutUart/StartTxdSpiExtBusAddr:ALn</item>
+ <item>Main_0/Ext_i/LastSpiXferComplete:ALn</item>
+ <item>Main_0/Ext_i/LastWriteSpiExtBus:ALn</item>
+ <item>Main_0/Ext_i/Spi/ClkDiv[0]:ALn</item>
+ <item>Main_0/Ext_i/Spi/ClkDiv[1]:ALn</item>
+ <item>Main_0/Ext_i/Spi/ClkDiv[2]:ALn</item>
+ <item>Main_0/Ext_i/Spi/ClkDiv[3]:ALn</item>
+ <item>Main_0/Ext_i/Spi/ClkDiv[4]:ALn</item>
+ <item>Main_0/Ext_i/Spi/ClkDiv[5]:ALn</item>
+ <item>Main_0/Ext_i/Spi/ClkDiv[6]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataFromMiso_1[0]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataFromMiso_1[1]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataFromMiso_1[2]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataFromMiso_1[3]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataFromMiso_1[4]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataFromMiso_1[5]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataFromMiso_1[6]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataFromMiso_1[7]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataToMosiLatched:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataToMosi_i[0]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataToMosi_i[1]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataToMosi_i[2]:ALn</item>
+ <item>Main_0/Ext_i/Spi/DataToMosi_i[3]:ALn</item>
 </list>
 <text></text>
 </section>
@@ -827,51 +835,51 @@ Date: Fri Oct 25 15:42:42 2024 </text>
 <row>
  <cell>Setup</cell>
  <cell>            0</cell>
- <cell>           59</cell>
- <cell>           59</cell>
+ <cell>           33</cell>
+ <cell>           33</cell>
 </row>
 <row>
  <cell>Recovery</cell>
  <cell>            0</cell>
- <cell>           31</cell>
- <cell>           31</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
  <cell>            0</cell>
- <cell>            1</cell>
- <cell>            1</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>           91</cell>
- <cell>           91</cell>
+ <cell>           33</cell>
+ <cell>           33</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
  <cell>            0</cell>
- <cell>           59</cell>
- <cell>           59</cell>
+ <cell>           33</cell>
+ <cell>           33</cell>
 </row>
 <row>
  <cell>Removal</cell>
  <cell>            0</cell>
- <cell>           31</cell>
- <cell>           31</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
  <cell>            0</cell>
- <cell>            1</cell>
- <cell>            1</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>           91</cell>
- <cell>           91</cell>
+ <cell>           33</cell>
+ <cell>           33</cell>
 </row>
 </table>
 <section>
@@ -879,48 +887,10 @@ Date: Fri Oct 25 15:42:42 2024 </text>
 <text></text>
 <text> - Clock constraint is missing </text>
 <text></text>
-<text> - Max output delay constraint missing on port:</text>
-<text>   </text>
-<list>
- <item>INIT_DONE</item>
-</list>
-<text></text>
-<text> - Min output delay constraint missing on port:</text>
-<text>   </text>
-<list>
- <item>INIT_DONE</item>
-</list>
-<text></text>
 <text></text>
 <text> - Setup unconstrained for the following pins:</text>
 <text>   </text>
 <list>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/FIC_2_APB_M_PRESET_N_clk_base:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/INIT_DONE_int:EN</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/MSS_HPMS_READY_int:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/POWER_ON_RESET_N_clk_base:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/RESET_N_M2F_clk_base:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/ddr_settled_clk_base:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/ddr_settled_q1:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/mss_ready_select:EN</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/mss_ready_state:EN</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif0_core_clk_base:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif0_core_q1:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif1_core_clk_base:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif1_core_q1:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif2_core_clk_base:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif2_core_q1:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif3_core_clk_base:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif3_core_q1:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif3_spll_lock_q2:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_areset_n_clk_base:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[1]:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[2]:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[3]:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[3]:EN</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[4]:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[5]:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[6]:EN</item>
  <item>FineSteeringMirror_sb_0/FineSteeringMirror_sb_MSS_0/MSS_ADLIB_INST/INST_MSS_010_IP:F_HM0_RDATA[0]</item>
  <item>FineSteeringMirror_sb_0/FineSteeringMirror_sb_MSS_0/MSS_ADLIB_INST/INST_MSS_010_IP:F_HM0_RDATA[10]</item>
  <item>FineSteeringMirror_sb_0/FineSteeringMirror_sb_MSS_0/MSS_ADLIB_INST/INST_MSS_010_IP:F_HM0_RDATA[11]</item>
@@ -954,73 +924,11 @@ Date: Fri Oct 25 15:42:42 2024 </text>
  <item>FineSteeringMirror_sb_0/FineSteeringMirror_sb_MSS_0/MSS_ADLIB_INST/INST_MSS_010_IP:F_HM0_RDATA[8]</item>
  <item>FineSteeringMirror_sb_0/FineSteeringMirror_sb_MSS_0/MSS_ADLIB_INST/INST_MSS_010_IP:F_HM0_RDATA[9]</item>
  <item>FineSteeringMirror_sb_0/FineSteeringMirror_sb_MSS_0/MSS_ADLIB_INST/INST_MSS_010_IP:F_HM0_READY</item>
-</list>
-<text></text>
-<text> - Recovery unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/CONFIG1_DONE_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/FIC_2_APB_M_PRESET_N_clk_base:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/FIC_2_APB_M_PRESET_N_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/INIT_DONE_int:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/MSS_HPMS_READY_int:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/POWER_ON_RESET_N_clk_base:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/POWER_ON_RESET_N_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/RESET_N_M2F_clk_base:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/RESET_N_M2F_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/ddr_settled_clk_base:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/ddr_settled_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/mss_ready_select:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/mss_ready_state:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif0_core_clk_base:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif0_core_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif1_core_clk_base:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif1_core_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif2_core_clk_base:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif2_core_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif3_core_clk_base:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif3_core_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif3_spll_lock_q2:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_areset_n_clk_base:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_areset_n_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[0]:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[1]:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[2]:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[3]:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[4]:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[5]:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[6]:ALn</item>
 </list>
 <text></text>
 <text> - Hold unconstrained for the following pins:</text>
 <text>   </text>
 <list>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/FIC_2_APB_M_PRESET_N_clk_base:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/INIT_DONE_int:EN</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/MSS_HPMS_READY_int:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/POWER_ON_RESET_N_clk_base:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/RESET_N_M2F_clk_base:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/ddr_settled_clk_base:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/ddr_settled_q1:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/mss_ready_select:EN</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/mss_ready_state:EN</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif0_core_clk_base:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif0_core_q1:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif1_core_clk_base:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif1_core_q1:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif2_core_clk_base:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif2_core_q1:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif3_core_clk_base:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif3_core_q1:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif3_spll_lock_q2:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_areset_n_clk_base:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[1]:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[2]:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[3]:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[3]:EN</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[4]:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[5]:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[6]:EN</item>
  <item>FineSteeringMirror_sb_0/FineSteeringMirror_sb_MSS_0/MSS_ADLIB_INST/INST_MSS_010_IP:F_HM0_RDATA[0]</item>
  <item>FineSteeringMirror_sb_0/FineSteeringMirror_sb_MSS_0/MSS_ADLIB_INST/INST_MSS_010_IP:F_HM0_RDATA[10]</item>
  <item>FineSteeringMirror_sb_0/FineSteeringMirror_sb_MSS_0/MSS_ADLIB_INST/INST_MSS_010_IP:F_HM0_RDATA[11]</item>
@@ -1054,49 +962,13 @@ Date: Fri Oct 25 15:42:42 2024 </text>
  <item>FineSteeringMirror_sb_0/FineSteeringMirror_sb_MSS_0/MSS_ADLIB_INST/INST_MSS_010_IP:F_HM0_RDATA[8]</item>
  <item>FineSteeringMirror_sb_0/FineSteeringMirror_sb_MSS_0/MSS_ADLIB_INST/INST_MSS_010_IP:F_HM0_RDATA[9]</item>
  <item>FineSteeringMirror_sb_0/FineSteeringMirror_sb_MSS_0/MSS_ADLIB_INST/INST_MSS_010_IP:F_HM0_READY</item>
-</list>
-<text></text>
-<text> - Removal unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/CONFIG1_DONE_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/FIC_2_APB_M_PRESET_N_clk_base:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/FIC_2_APB_M_PRESET_N_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/INIT_DONE_int:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/MSS_HPMS_READY_int:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/POWER_ON_RESET_N_clk_base:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/POWER_ON_RESET_N_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/RESET_N_M2F_clk_base:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/RESET_N_M2F_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/ddr_settled_clk_base:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/ddr_settled_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/mss_ready_select:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/mss_ready_state:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif0_core_clk_base:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif0_core_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif1_core_clk_base:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif1_core_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif2_core_clk_base:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif2_core_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif3_core_clk_base:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif3_core_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif3_spll_lock_q2:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_areset_n_clk_base:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_areset_n_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[0]:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[1]:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[2]:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[3]:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[4]:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[5]:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_state[6]:ALn</item>
 </list>
 <text></text>
 </section>
 </section>
 <section>
 <name>Clock domain: </name>
-<text>FineSteeringMirror_sb_0/FABOSC_0/I_RCOSC_25_50MHZ:CLKOUT</text>
+<text>Main_0/ExtAddrInUart/UartClkDiv/div_i:Q</text>
 <text></text>
 <table>
 <header>
@@ -1108,14 +980,14 @@ Date: Fri Oct 25 15:42:42 2024 </text>
 <row>
  <cell>Setup</cell>
  <cell>            0</cell>
- <cell>            5</cell>
- <cell>            5</cell>
+ <cell>           42</cell>
+ <cell>           42</cell>
 </row>
 <row>
  <cell>Recovery</cell>
  <cell>            0</cell>
- <cell>           15</cell>
- <cell>           15</cell>
+ <cell>            8</cell>
+ <cell>            8</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
@@ -1126,21 +998,21 @@ Date: Fri Oct 25 15:42:42 2024 </text>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>           20</cell>
- <cell>           20</cell>
+ <cell>           50</cell>
+ <cell>           50</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
  <cell>            0</cell>
- <cell>            5</cell>
- <cell>            5</cell>
+ <cell>           42</cell>
+ <cell>           42</cell>
 </row>
 <row>
  <cell>Removal</cell>
  <cell>            0</cell>
- <cell>           15</cell>
- <cell>           15</cell>
+ <cell>            8</cell>
+ <cell>            8</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
@@ -1151,8 +1023,8 @@ Date: Fri Oct 25 15:42:42 2024 </text>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>           20</cell>
- <cell>           20</cell>
+ <cell>           50</cell>
+ <cell>           50</cell>
 </row>
 </table>
 <section>
@@ -1164,61 +1036,252 @@ Date: Fri Oct 25 15:42:42 2024 </text>
 <text> - Setup unconstrained for the following pins:</text>
 <text>   </text>
 <list>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif0_areset_n_rcosc:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif1_areset_n_rcosc:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif2_areset_n_rcosc:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif3_areset_n_rcosc:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_areset_n_rcosc:D</item>
+ <item>Main_0/ExtAddrInUart/ClkSyncRxd/O:D</item>
+ <item>Main_0/ExtAddrInUart/ClkSyncRxd/Temp1:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[0]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[0]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[1]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[1]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[2]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[2]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[3]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[3]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[4]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[4]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[5]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[5]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[6]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[6]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[7]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[7]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[0]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[0]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[1]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[1]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[2]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[2]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[3]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[3]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[4]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[4]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[5]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[5]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[6]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[6]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[7]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[7]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/bitpos[0]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/bitpos[1]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/bitpos[2]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/bitpos[3]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/samplecnt[0]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/samplecnt[1]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/samplecnt[2]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/samplecnt[3]:D</item>
 </list>
 <text></text>
 <text> - Recovery unconstrained for the following pins:</text>
 <text>   </text>
 <list>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/ddr_settled:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif0_core:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif1_core:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif2_core:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif3_core:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif0_areset_n_rcosc:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif0_areset_n_rcosc_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif1_areset_n_rcosc:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif1_areset_n_rcosc_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif2_areset_n_rcosc:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif2_areset_n_rcosc_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif3_areset_n_rcosc:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif3_areset_n_rcosc_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_areset_n_rcosc:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_areset_n_rcosc_q1:ALn</item>
+ <item>Main_0/ExtAddrInUart/Uart/bitpos[0]:ALn</item>
+ <item>Main_0/ExtAddrInUart/Uart/bitpos[1]:ALn</item>
+ <item>Main_0/ExtAddrInUart/Uart/bitpos[2]:ALn</item>
+ <item>Main_0/ExtAddrInUart/Uart/bitpos[3]:ALn</item>
+ <item>Main_0/ExtAddrInUart/Uart/samplecnt[0]:ALn</item>
+ <item>Main_0/ExtAddrInUart/Uart/samplecnt[1]:ALn</item>
+ <item>Main_0/ExtAddrInUart/Uart/samplecnt[2]:ALn</item>
+ <item>Main_0/ExtAddrInUart/Uart/samplecnt[3]:ALn</item>
 </list>
 <text></text>
 <text> - Hold unconstrained for the following pins:</text>
 <text>   </text>
 <list>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif0_areset_n_rcosc:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif1_areset_n_rcosc:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif2_areset_n_rcosc:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif3_areset_n_rcosc:D</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_areset_n_rcosc:D</item>
+ <item>Main_0/ExtAddrInUart/ClkSyncRxd/O:D</item>
+ <item>Main_0/ExtAddrInUart/ClkSyncRxd/Temp1:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[0]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[0]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[1]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[1]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[2]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[2]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[3]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[3]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[4]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[4]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[5]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[5]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[6]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[6]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[7]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/DataO[7]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[0]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[0]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[1]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[1]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[2]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[2]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[3]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[3]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[4]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[4]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[5]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[5]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[6]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[6]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[7]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/RReg[7]:EN</item>
+ <item>Main_0/ExtAddrInUart/Uart/bitpos[0]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/bitpos[1]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/bitpos[2]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/bitpos[3]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/samplecnt[0]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/samplecnt[1]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/samplecnt[2]:D</item>
+ <item>Main_0/ExtAddrInUart/Uart/samplecnt[3]:D</item>
 </list>
 <text></text>
 <text> - Removal unconstrained for the following pins:</text>
 <text>   </text>
 <list>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/ddr_settled:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif0_core:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif1_core:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif2_core:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/release_sdif3_core:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif0_areset_n_rcosc:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif0_areset_n_rcosc_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif1_areset_n_rcosc:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif1_areset_n_rcosc_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif2_areset_n_rcosc:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif2_areset_n_rcosc_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif3_areset_n_rcosc:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sdif3_areset_n_rcosc_q1:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_areset_n_rcosc:ALn</item>
- <item>FineSteeringMirror_sb_0/CORERESETP_0/sm0_areset_n_rcosc_q1:ALn</item>
+ <item>Main_0/ExtAddrInUart/Uart/bitpos[0]:ALn</item>
+ <item>Main_0/ExtAddrInUart/Uart/bitpos[1]:ALn</item>
+ <item>Main_0/ExtAddrInUart/Uart/bitpos[2]:ALn</item>
+ <item>Main_0/ExtAddrInUart/Uart/bitpos[3]:ALn</item>
+ <item>Main_0/ExtAddrInUart/Uart/samplecnt[0]:ALn</item>
+ <item>Main_0/ExtAddrInUart/Uart/samplecnt[1]:ALn</item>
+ <item>Main_0/ExtAddrInUart/Uart/samplecnt[2]:ALn</item>
+ <item>Main_0/ExtAddrInUart/Uart/samplecnt[3]:ALn</item>
+</list>
+<text></text>
+</section>
+</section>
+<section>
+<name>Clock domain: </name>
+<text>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/div_i:Q</text>
+<text></text>
+<table>
+<header>
+ <cell>Type of check</cell>
+ <cell>Constrained</cell>
+ <cell>UnConstrained</cell>
+ <cell>Total</cell>
+</header>
+<row>
+ <cell>Setup</cell>
+ <cell>            0</cell>
+ <cell>            8</cell>
+ <cell>            8</cell>
+</row>
+<row>
+ <cell>Recovery</cell>
+ <cell>            0</cell>
+ <cell>            7</cell>
+ <cell>            7</cell>
+</row>
+<row>
+ <cell>Output Setup</cell>
+ <cell>            0</cell>
+ <cell>            1</cell>
+ <cell>            1</cell>
+</row>
+<row>
+ <cell>Total Setup</cell>
+ <cell>            0</cell>
+ <cell>           16</cell>
+ <cell>           16</cell>
+</row>
+<separator/>
+<row>
+ <cell>Hold</cell>
+ <cell>            0</cell>
+ <cell>            8</cell>
+ <cell>            8</cell>
+</row>
+<row>
+ <cell>Removal</cell>
+ <cell>            0</cell>
+ <cell>            7</cell>
+ <cell>            7</cell>
+</row>
+<row>
+ <cell>Output Hold</cell>
+ <cell>            0</cell>
+ <cell>            1</cell>
+ <cell>            1</cell>
+</row>
+<row>
+ <cell>Total Hold</cell>
+ <cell>            0</cell>
+ <cell>           16</cell>
+ <cell>           16</cell>
+</row>
+</table>
+<section>
+<name>Enhancement Suggestions</name>
+<text></text>
+<text> - Clock constraint is missing </text>
+<text></text>
+<text> - Max output delay constraint missing on port:</text>
+<text>   </text>
+<list>
+ <item>nCsExt</item>
+</list>
+<text></text>
+<text> - Min output delay constraint missing on port:</text>
+<text>   </text>
+<list>
+ <item>nCsExt</item>
+</list>
+<text></text>
+<text></text>
+<text> - Setup unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[0]:D</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[1]:D</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[2]:D</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[3]:D</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/Busy_i:D</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/LastGo:D</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/LastGo:EN</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/TxD:D</item>
+</list>
+<text></text>
+<text> - Recovery unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[0]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[1]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[2]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[3]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/Busy_i:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/LastGo:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/TxD:ALn</item>
+</list>
+<text></text>
+<text> - Hold unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[0]:D</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[1]:D</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[2]:D</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[3]:D</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/Busy_i:D</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/LastGo:D</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/LastGo:EN</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/TxD:D</item>
+</list>
+<text></text>
+<text> - Removal unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[0]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[1]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[2]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[3]:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/Busy_i:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/LastGo:ALn</item>
+ <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/TxD:ALn</item>
 </list>
 <text></text>
 </section>
@@ -1684,8 +1747,8 @@ Date: Fri Oct 25 15:42:42 2024 </text>
  <item>Main_0/RS422_Rx1/Uart/Uart/samplecnt[2]:D</item>
  <item>Main_0/RS422_Rx1/Uart/Uart/samplecnt[3]:D</item>
  <item>Main_0/Uart1TxBitClockDiv/ClkDiv[0]:D</item>
- <item>Main_0/Uart1TxBitClockDiv/ClkDiv[1]:D</item>
- <item>Main_0/Uart1TxBitClockDiv/ClkDiv[2]:D</item>
+ <item>Main_0/Uart1TxBitClockDiv/ClkDiv_Z[1]:D</item>
+ <item>Main_0/Uart1TxBitClockDiv/ClkDiv_Z[2]:D</item>
  <item>Main_0/Uart1TxBitClockDiv/div_i:D</item>
 </list>
 <text></text>
@@ -1702,8 +1765,8 @@ Date: Fri Oct 25 15:42:42 2024 </text>
  <item>Main_0/RS422_Rx1/Uart/Uart/samplecnt[2]:ALn</item>
  <item>Main_0/RS422_Rx1/Uart/Uart/samplecnt[3]:ALn</item>
  <item>Main_0/Uart1TxBitClockDiv/ClkDiv[0]:ALn</item>
- <item>Main_0/Uart1TxBitClockDiv/ClkDiv[1]:ALn</item>
- <item>Main_0/Uart1TxBitClockDiv/ClkDiv[2]:ALn</item>
+ <item>Main_0/Uart1TxBitClockDiv/ClkDiv_Z[1]:ALn</item>
+ <item>Main_0/Uart1TxBitClockDiv/ClkDiv_Z[2]:ALn</item>
  <item>Main_0/Uart1TxBitClockDiv/div_i:ALn</item>
 </list>
 <text></text>
@@ -1755,8 +1818,8 @@ Date: Fri Oct 25 15:42:42 2024 </text>
  <item>Main_0/RS422_Rx1/Uart/Uart/samplecnt[2]:D</item>
  <item>Main_0/RS422_Rx1/Uart/Uart/samplecnt[3]:D</item>
  <item>Main_0/Uart1TxBitClockDiv/ClkDiv[0]:D</item>
- <item>Main_0/Uart1TxBitClockDiv/ClkDiv[1]:D</item>
- <item>Main_0/Uart1TxBitClockDiv/ClkDiv[2]:D</item>
+ <item>Main_0/Uart1TxBitClockDiv/ClkDiv_Z[1]:D</item>
+ <item>Main_0/Uart1TxBitClockDiv/ClkDiv_Z[2]:D</item>
  <item>Main_0/Uart1TxBitClockDiv/div_i:D</item>
 </list>
 <text></text>
@@ -1773,8 +1836,8 @@ Date: Fri Oct 25 15:42:42 2024 </text>
  <item>Main_0/RS422_Rx1/Uart/Uart/samplecnt[2]:ALn</item>
  <item>Main_0/RS422_Rx1/Uart/Uart/samplecnt[3]:ALn</item>
  <item>Main_0/Uart1TxBitClockDiv/ClkDiv[0]:ALn</item>
- <item>Main_0/Uart1TxBitClockDiv/ClkDiv[1]:ALn</item>
- <item>Main_0/Uart1TxBitClockDiv/ClkDiv[2]:ALn</item>
+ <item>Main_0/Uart1TxBitClockDiv/ClkDiv_Z[1]:ALn</item>
+ <item>Main_0/Uart1TxBitClockDiv/ClkDiv_Z[2]:ALn</item>
  <item>Main_0/Uart1TxBitClockDiv/div_i:ALn</item>
 </list>
 <text></text>
@@ -1929,8 +1992,8 @@ Date: Fri Oct 25 15:42:42 2024 </text>
 <row>
  <cell>Setup</cell>
  <cell>            0</cell>
- <cell>           48</cell>
- <cell>           48</cell>
+ <cell>           16</cell>
+ <cell>           16</cell>
 </row>
 <row>
  <cell>Recovery</cell>
@@ -1947,15 +2010,15 @@ Date: Fri Oct 25 15:42:42 2024 </text>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>           61</cell>
- <cell>           61</cell>
+ <cell>           29</cell>
+ <cell>           29</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
  <cell>            0</cell>
- <cell>           48</cell>
- <cell>           48</cell>
+ <cell>           16</cell>
+ <cell>           16</cell>
 </row>
 <row>
  <cell>Removal</cell>
@@ -1972,8 +2035,8 @@ Date: Fri Oct 25 15:42:42 2024 </text>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>           61</cell>
- <cell>           61</cell>
+ <cell>           29</cell>
+ <cell>           29</cell>
 </row>
 </table>
 <section>
@@ -1987,38 +2050,6 @@ Date: Fri Oct 25 15:42:42 2024 </text>
 <list>
  <item>Main_0/RS422_Rx2/Uart/ClkSyncRxd/O:D</item>
  <item>Main_0/RS422_Rx2/Uart/ClkSyncRxd/Temp1:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[0]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[0]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[1]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[1]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[2]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[2]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[3]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[3]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[4]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[4]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[5]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[5]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[6]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[6]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[7]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[7]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[0]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[0]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[1]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[1]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[2]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[2]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[3]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[3]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[4]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[4]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[5]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[5]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[6]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[6]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[7]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[7]:EN</item>
  <item>Main_0/RS422_Rx2/Uart/Uart/RxAv:D</item>
  <item>Main_0/RS422_Rx2/Uart/Uart/RxAv:EN</item>
  <item>Main_0/RS422_Rx2/Uart/Uart/bitpos[0]:D</item>
@@ -2058,38 +2089,6 @@ Date: Fri Oct 25 15:42:42 2024 </text>
 <list>
  <item>Main_0/RS422_Rx2/Uart/ClkSyncRxd/O:D</item>
  <item>Main_0/RS422_Rx2/Uart/ClkSyncRxd/Temp1:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[0]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[0]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[1]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[1]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[2]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[2]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[3]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[3]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[4]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[4]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[5]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[5]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[6]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[6]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[7]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/DataO[7]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[0]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[0]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[1]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[1]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[2]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[2]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[3]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[3]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[4]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[4]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[5]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[5]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[6]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[6]:EN</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[7]:D</item>
- <item>Main_0/RS422_Rx2/Uart/Uart/RReg[7]:EN</item>
  <item>Main_0/RS422_Rx2/Uart/Uart/RxAv:D</item>
  <item>Main_0/RS422_Rx2/Uart/Uart/RxAv:EN</item>
  <item>Main_0/RS422_Rx2/Uart/Uart/bitpos[0]:D</item>
@@ -2376,8 +2375,8 @@ Date: Fri Oct 25 15:42:42 2024 </text>
  <item>Main_0/RS433_Rx3/Uart/Uart/samplecnt[2]:D</item>
  <item>Main_0/RS433_Rx3/Uart/Uart/samplecnt[3]:D</item>
  <item>Main_0/Uart3TxBitClockDiv/ClkDiv[0]:D</item>
- <item>Main_0/Uart3TxBitClockDiv/ClkDiv_Z[1]:D</item>
- <item>Main_0/Uart3TxBitClockDiv/ClkDiv_Z[2]:D</item>
+ <item>Main_0/Uart3TxBitClockDiv/ClkDiv[1]:D</item>
+ <item>Main_0/Uart3TxBitClockDiv/ClkDiv[2]:D</item>
  <item>Main_0/Uart3TxBitClockDiv/div_i:D</item>
 </list>
 <text></text>
@@ -2394,8 +2393,8 @@ Date: Fri Oct 25 15:42:42 2024 </text>
  <item>Main_0/RS433_Rx3/Uart/Uart/samplecnt[2]:ALn</item>
  <item>Main_0/RS433_Rx3/Uart/Uart/samplecnt[3]:ALn</item>
  <item>Main_0/Uart3TxBitClockDiv/ClkDiv[0]:ALn</item>
- <item>Main_0/Uart3TxBitClockDiv/ClkDiv_Z[1]:ALn</item>
- <item>Main_0/Uart3TxBitClockDiv/ClkDiv_Z[2]:ALn</item>
+ <item>Main_0/Uart3TxBitClockDiv/ClkDiv[1]:ALn</item>
+ <item>Main_0/Uart3TxBitClockDiv/ClkDiv[2]:ALn</item>
  <item>Main_0/Uart3TxBitClockDiv/div_i:ALn</item>
 </list>
 <text></text>
@@ -2447,8 +2446,8 @@ Date: Fri Oct 25 15:42:42 2024 </text>
  <item>Main_0/RS433_Rx3/Uart/Uart/samplecnt[2]:D</item>
  <item>Main_0/RS433_Rx3/Uart/Uart/samplecnt[3]:D</item>
  <item>Main_0/Uart3TxBitClockDiv/ClkDiv[0]:D</item>
- <item>Main_0/Uart3TxBitClockDiv/ClkDiv_Z[1]:D</item>
- <item>Main_0/Uart3TxBitClockDiv/ClkDiv_Z[2]:D</item>
+ <item>Main_0/Uart3TxBitClockDiv/ClkDiv[1]:D</item>
+ <item>Main_0/Uart3TxBitClockDiv/ClkDiv[2]:D</item>
  <item>Main_0/Uart3TxBitClockDiv/div_i:D</item>
 </list>
 <text></text>
@@ -2465,8 +2464,8 @@ Date: Fri Oct 25 15:42:42 2024 </text>
  <item>Main_0/RS433_Rx3/Uart/Uart/samplecnt[2]:ALn</item>
  <item>Main_0/RS433_Rx3/Uart/Uart/samplecnt[3]:ALn</item>
  <item>Main_0/Uart3TxBitClockDiv/ClkDiv[0]:ALn</item>
- <item>Main_0/Uart3TxBitClockDiv/ClkDiv_Z[1]:ALn</item>
- <item>Main_0/Uart3TxBitClockDiv/ClkDiv_Z[2]:ALn</item>
+ <item>Main_0/Uart3TxBitClockDiv/ClkDiv[1]:ALn</item>
+ <item>Main_0/Uart3TxBitClockDiv/ClkDiv[2]:ALn</item>
  <item>Main_0/Uart3TxBitClockDiv/div_i:ALn</item>
 </list>
 <text></text>
@@ -3043,14 +3042,14 @@ Date: Fri Oct 25 15:42:42 2024 </text>
 <row>
  <cell>Output Setup</cell>
  <cell>            0</cell>
- <cell>            0</cell>
- <cell>            0</cell>
+ <cell>            1</cell>
+ <cell>            1</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>            0</cell>
- <cell>            0</cell>
+ <cell>            1</cell>
+ <cell>            1</cell>
 </row>
 <separator/>
 <row>
@@ -3068,16 +3067,48 @@ Date: Fri Oct 25 15:42:42 2024 </text>
 <row>
  <cell>Output Hold</cell>
  <cell>            0</cell>
- <cell>            0</cell>
- <cell>            0</cell>
+ <cell>            1</cell>
+ <cell>            1</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>            0</cell>
- <cell>            0</cell>
+ <cell>            1</cell>
+ <cell>            1</cell>
 </row>
 </table>
+<section>
+<name>Enhancement Suggestions</name>
+<text></text>
+<text> - Max input delay constraint missing on ports:</text>
+<text>   </text>
+<list>
+ <item>DInExt</item>
+ <item>PPS</item>
+</list>
+<text></text>
+<text> - Min input delay constraint missing on ports:</text>
+<text>   </text>
+<list>
+ <item>DInExt</item>
+ <item>PPS</item>
+</list>
+<text></text>
+<text></text>
+<text> - Max output delay constraint missing on port:</text>
+<text>   </text>
+<list>
+ <item>DOutExt</item>
+</list>
+<text></text>
+<text> - Min output delay constraint missing on port:</text>
+<text>   </text>
+<list>
+ <item>DOutExt</item>
+</list>
+<text></text>
+<text></text>
+</section>
 </section>
 <section>
 <name>Clock domain: </name>
@@ -3160,17 +3191,49 @@ Date: Fri Oct 25 15:42:42 2024 </text>
 <row>
  <cell>Output Setup</cell>
  <cell>            0</cell>
- <cell>            0</cell>
- <cell>            0</cell>
+ <cell>            1</cell>
+ <cell>            1</cell>
 </row>
 <separator/>
 <row>
  <cell>Output Hold</cell>
  <cell>            0</cell>
- <cell>            0</cell>
- <cell>            0</cell>
+ <cell>            1</cell>
+ <cell>            1</cell>
 </row>
 </table>
+<section>
+<name>Enhancement Suggestions</name>
+<text></text>
+<text> - Max delay constraint missing on input ports:</text>
+<text>   </text>
+<list>
+ <item>DInExt</item>
+ <item>PPS</item>
+</list>
+<text></text>
+<text> - Min delay constraint missing on input ports:</text>
+<text>   </text>
+<list>
+ <item>DInExt</item>
+ <item>PPS</item>
+</list>
+<text></text>
+<text></text>
+<text> - Max delay constraint missing on output port:</text>
+<text>   </text>
+<list>
+ <item>DOutExt</item>
+</list>
+<text></text>
+<text> - Min delay constraint missing on output port:</text>
+<text>   </text>
+<list>
+ <item>DOutExt</item>
+</list>
+<text></text>
+<text></text>
+</section>
 </section>
 </section>
 </doc>

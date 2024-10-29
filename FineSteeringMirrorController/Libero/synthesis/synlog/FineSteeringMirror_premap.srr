@@ -1,4 +1,4 @@
-# Fri Oct 25 15:58:07 2024
+# Mon Oct 28 15:57:22 2024
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -9,10 +9,10 @@ Synopsys software or the associated documentation is strictly prohibited.
 Tool: Synplify Pro (R)
 Build: T-2022.09M-SP2-1
 Install: /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro
-OS: Linux Mint 21
-Hostname: MountainOps
+OS: Linux Mint 21.3
+Hostname: homework
 max virtual memory: unlimited (bytes)
-max user processes: 125821
+max user processes: 126731
 max stack size: 8388608 (bytes)
 
 
@@ -120,11 +120,15 @@ NConnInternalConnection caching is on
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":205:2:205:3|User-specified initial value defined for instance Main_0.RS4LabLab_TxLab.CurrentState[1:0] is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":205:2:205:3|User-specified initial value defined for instance Main_0.RS4LabLab_TxLab.NextState[1:0] is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":54:65:54:65|User-specified initial value defined for instance Main_0.PPSAccumulator.InvalidatePPSCount is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|User-specified initial value defined for instance Main_0.ExtAddrOutUart.SpiExtBusAddrTxdClockDiv.ClkDiv[10:0] is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBusAddrTx.vhd":112:2:112:3|User-specified initial value defined for instance Main_0.ExtAddrOutUart.SpiExtBusAddrTxCurrentState[1:0] is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBusAddrTx.vhd":112:2:112:3|User-specified initial value defined for instance Main_0.ExtAddrOutUart.SpiExtBusAddrTxNextState[1:0] is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|User-specified initial value defined for instance Main_0.ExtAddrInUart.UartClkDiv.ClkDiv[6:0] is being ignored due to limitations in architecture. 
 
-Starting HSTDM IP insertion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 287MB peak: 287MB)
+Starting HSTDM IP insertion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 288MB peak: 288MB)
 
 
-Finished HSTDM IP insertion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 287MB peak: 287MB)
+Finished HSTDM IP insertion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 288MB peak: 288MB)
 
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":17:7:17:20|Tristate driver RCOSC_1MHZ_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net RCOSC_1MHZ_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":18:7:18:20|Tristate driver RCOSC_1MHZ_O2F (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net RCOSC_1MHZ_O2F (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
@@ -149,17 +153,17 @@ Finished HSTDM IP insertion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:0
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":733:4:733:9|Sequential instance FineSteeringMirror_sb_0.CORERESETP_0.SDIF3_PERST_N_q3 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1388:4:1388:9|Sequential instance FineSteeringMirror_sb_0.CORERESETP_0.RESET_N_F2M_int is reduced to a combinational gate by constant propagation.
 
-Started DisTri Cleanup (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 287MB peak: 287MB)
+Started DisTri Cleanup (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 288MB peak: 288MB)
 
 
-Finished DisTri Cleanup (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 287MB peak: 287MB)
+Finished DisTri Cleanup (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 288MB peak: 288MB)
 
 @N: BN115 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":192:1:192:7|Removing instance IBufCts (in view: work.UartTxFifoExtClk_10_4(implementation)) because it does not drive other instances.
 @N: BN115 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":192:1:192:7|Removing instance IBufCts (in view: work.UartTxFifoExtClk_10_3(implementation)) because it does not drive other instances.
 @N: BN115 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":192:1:192:7|Removing instance IBufCts (in view: work.UartTxFifoExtClk_10_2(implementation)) because it does not drive other instances.
 @N: BN115 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":192:1:192:7|Removing instance IBufCts (in view: work.UartTxFifoExtClk_10_1(implementation)) because it does not drive other instances.
 @N: BN115 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":192:1:192:7|Removing instance IBufCts (in view: work.UartTxFifoExtClk_10_0(implementation)) because it does not drive other instances.
-@N: BN115 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1273:1:1273:13|Removing instance BuildNumber_i (in view: work.Main(architecture_main)) because it does not drive other instances.
+@N: BN115 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1275:1:1275:13|Removing instance BuildNumber_i (in view: work.Main(architecture_main)) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1089:4:1089:9|Removing sequential instance DDR_READY_int (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1089:4:1089:9|Removing sequential instance SDIF_READY_int (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1089:4:1089:9|Removing sequential instance SDIF_RELEASED_int (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
@@ -174,6 +178,7 @@ Finished DisTri Cleanup (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:0
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1365:4:1365:9|Removing sequential instance SDIF3_CORE_RESET_N_0 (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd":110:2:110:3|Removing sequential instance DataToMosiLatched (in view: work.SpiMasterQuadPorts_work_main_architecture_main_0layer1(spimasterquad)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":296:2:296:3|Removing sequential instance SampleLatched (in view: work.Ltc2378AccumQuadPorts(ltc2378accumquad)) of type view:PrimLib.dffse(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBusAddrTx.vhd":112:2:112:3|Removing sequential instance SendingSpiExtBusAddr (in view: work.SpiExtBusAddrTxPorts_102000000(spiextbusaddrtx)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd":96:2:96:3|Removing sequential instance MosiB_i (in view: work.SpiMasterDualPorts_work_main_architecture_main_0layer1(spimasterdual)) of type view:PrimLib.dffrse(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":86:2:86:3|Removing sequential instance r_ack (in view: work.gated_fifo_8_10_0(rtl)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":86:2:86:3|Removing sequential instance r_ack (in view: work.gated_fifo_8_10_1_1(rtl)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
@@ -219,31 +224,35 @@ Level     Clock                                                                 
                                                                                                                                                                              
 0 -       System                                                                                    100.0 MHz     10.000        system       system_clkgroup            0    
                                                                                                                                                                              
-0 -       FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             100.0 MHz     10.000        inferred     Inferred_clkgroup_0_1      2012 
+0 -       FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             100.0 MHz     10.000        inferred     Inferred_clkgroup_0_1      2081 
                                                                                                                                                                              
-0 -       FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                   100.0 MHz     10.000        inferred     Inferred_clkgroup_0_12     36   
+0 -       FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                   100.0 MHz     10.000        inferred     Inferred_clkgroup_0_14     36   
                                                                                                                                                                              
-0 -       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     100.0 MHz     10.000        inferred     Inferred_clkgroup_0_3      31   
+0 -       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     100.0 MHz     10.000        inferred     Inferred_clkgroup_0_5      31   
                                                                                                                                                                              
-0 -       VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     100.0 MHz     10.000        inferred     Inferred_clkgroup_0_5      31   
+0 -       VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     100.0 MHz     10.000        inferred     Inferred_clkgroup_0_7      31   
                                                                                                                                                                              
-0 -       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     100.0 MHz     10.000        inferred     Inferred_clkgroup_0_7      31   
+0 -       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     100.0 MHz     10.000        inferred     Inferred_clkgroup_0_9      31   
                                                                                                                                                                              
-0 -       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     100.0 MHz     10.000        inferred     Inferred_clkgroup_0_9      31   
+0 -       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     100.0 MHz     10.000        inferred     Inferred_clkgroup_0_11     31   
                                                                                                                                                                              
-0 -       VariableClockDividerPorts_work_main_architecture_main_0layer1_4|clko_i_inferred_clock     100.0 MHz     10.000        inferred     Inferred_clkgroup_0_11     31   
+0 -       VariableClockDividerPorts_work_main_architecture_main_0layer1_4|clko_i_inferred_clock     100.0 MHz     10.000        inferred     Inferred_clkgroup_0_13     31   
                                                                                                                                                                              
-0 -       FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock                 100.0 MHz     10.000        inferred     Inferred_clkgroup_0_13     15   
+0 -       ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock                100.0 MHz     10.000        inferred     Inferred_clkgroup_0_2      27   
                                                                                                                                                                              
-0 -       ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock              100.0 MHz     10.000        inferred     Inferred_clkgroup_0_2      9    
+0 -       FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock                 100.0 MHz     10.000        inferred     Inferred_clkgroup_0_15     15   
                                                                                                                                                                              
-0 -       ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock              100.0 MHz     10.000        inferred     Inferred_clkgroup_0_4      9    
+0 -       ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock              100.0 MHz     10.000        inferred     Inferred_clkgroup_0_4      9    
                                                                                                                                                                              
-0 -       ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock              100.0 MHz     10.000        inferred     Inferred_clkgroup_0_6      9    
+0 -       ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock              100.0 MHz     10.000        inferred     Inferred_clkgroup_0_6      9    
                                                                                                                                                                              
-0 -       ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock              100.0 MHz     10.000        inferred     Inferred_clkgroup_0_8      9    
+0 -       ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock              100.0 MHz     10.000        inferred     Inferred_clkgroup_0_8      9    
                                                                                                                                                                              
-0 -       ClockDividerPorts_work_main_architecture_main_0layer1_4|div_i_inferred_clock              100.0 MHz     10.000        inferred     Inferred_clkgroup_0_10     9    
+0 -       ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock              100.0 MHz     10.000        inferred     Inferred_clkgroup_0_10     9    
+                                                                                                                                                                             
+0 -       ClockDividerPorts_work_main_architecture_main_0layer1_4|div_i_inferred_clock              100.0 MHz     10.000        inferred     Inferred_clkgroup_0_12     9    
+                                                                                                                                                                             
+0 -       ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock                100.0 MHz     10.000        inferred     Inferred_clkgroup_0_3      7    
 =============================================================================================================================================================================
 
 
@@ -258,7 +267,7 @@ CLK0_PAD                                                                        
                                                                                                                                                                                                                                                                                                                                                               
 System                                                                                    0         -                                                                            -                                                                               -                 -                                                                          
                                                                                                                                                                                                                                                                                                                                                               
-FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             2012      FCCC_C0_0.FCCC_C0_0.CCC_INST.GL1(CCC)                                        Main_0.IBufExtMiso.O.C                                                          -                 FCCC_C0_0.FCCC_C0_0.GL1_INST.I(BUFG)                                       
+FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             2081      FCCC_C0_0.FCCC_C0_0.CCC_INST.GL1(CCC)                                        Main_0.Ext_i.LastWriteSpiExtBus.C                                               -                 FCCC_C0_0.FCCC_C0_0.GL1_INST.I(BUFG)                                       
                                                                                                                                                                                                                                                                                                                                                               
 FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                   36        FineSteeringMirror_sb_0.CCC_0.CCC_INST.GL0(CCC)                              FineSteeringMirror_sb_0.FineSteeringMirror_sb_MSS_0.MSS_ADLIB_INST.CLK_BASE     -                 FineSteeringMirror_sb_0.CCC_0.GL0_INST.I(BUFG)                             
                                                                                                                                                                                                                                                                                                                                                               
@@ -272,6 +281,8 @@ VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_
                                                                                                                                                                                                                                                                                                                                                               
 VariableClockDividerPorts_work_main_architecture_main_0layer1_4|clko_i_inferred_clock     31        Main_0.Uart0BitClockDiv.clko_i.Q[0](dffre)                                   Main_0.RS422_Rx0.Uart.Uart.DataO[7:0].C                                         -                 -                                                                          
                                                                                                                                                                                                                                                                                                                                                               
+ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock                27        Main_0.ExtAddrInUart.UartClkDiv.div_i.Q[0](dffre)                            Main_0.ExtAddrInUart.Uart.DataO[7:0].C                                          -                 -                                                                          
+                                                                                                                                                                                                                                                                                                                                                              
 FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock                 15        FineSteeringMirror_sb_0.FABOSC_0.I_RCOSC_25_50MHZ.CLKOUT(RCOSC_25_50MHZ)     FineSteeringMirror_sb_0.CORERESETP_0.release_sdif0_core.C                       -                 FineSteeringMirror_sb_0.FABOSC_0.I_RCOSC_25_50MHZ_FAB.A(RCOSC_25_50MHZ_FAB)
                                                                                                                                                                                                                                                                                                                                                               
 ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock              9         Main_0.UartLabTxBitClockDiv.div_i.Q[0](dffre)                                Main_0.RS4LabLab_TxLab.UartTxUart.LastGo.C                                      -                 -                                                                          
@@ -283,9 +294,13 @@ ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock    
 ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock              9         Main_0.Uart1TxBitClockDiv.div_i.Q[0](dffre)                                  Main_0.RS422_Tx1.UartTxUart.LastGo.C                                            -                 -                                                                          
                                                                                                                                                                                                                                                                                                                                                               
 ClockDividerPorts_work_main_architecture_main_0layer1_4|div_i_inferred_clock              9         Main_0.Uart0TxBitClockDiv.div_i.Q[0](dffre)                                  Main_0.RS422_Tx0.UartTxUart.LastGo.C                                            -                 -                                                                          
+                                                                                                                                                                                                                                                                                                                                                              
+ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock                7         Main_0.ExtAddrOutUart.SpiExtBusAddrTxdClockDiv.div_i.Q[0](dffre)             Main_0.ExtAddrOutUart.SpiExtBusAddrOutUart.LastGo.C                             -                 -                                                                          
 ==============================================================================================================================================================================================================================================================================================================================================================
 
-@W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found inferred clock FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock which controls 2012 sequential elements including Main_0.BootupReset.ClkDiv[9:0]. This clock has no specified timing constraint which may adversely impact design performance. 
+@W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found inferred clock FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock which controls 2081 sequential elements including Main_0.BootupReset.ClkDiv[9:0]. This clock has no specified timing constraint which may adversely impact design performance. 
+@W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":47:2:47:3|Found inferred clock ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock which controls 27 sequential elements including Main_0.ExtAddrInUart.ClkSyncRxd.Temp1. This clock has no specified timing constraint which may adversely impact design performance. 
+@W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd":59:2:59:3|Found inferred clock ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock which controls 7 sequential elements including Main_0.ExtAddrOutUart.SpiExtBusAddrOutUart.BitCnt[3:0]. This clock has no specified timing constraint which may adversely impact design performance. 
 @W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":47:2:47:3|Found inferred clock ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock which controls 9 sequential elements including Main_0.RS4LabLab_TxLab.IBufStartTx.Temp1. This clock has no specified timing constraint which may adversely impact design performance. 
 @W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Found inferred clock VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock which controls 31 sequential elements including Main_0.UartLabTxBitClockDiv.div_i. This clock has no specified timing constraint which may adversely impact design performance. 
 @W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":47:2:47:3|Found inferred clock ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock which controls 9 sequential elements including Main_0.RS433_Tx3.IBufStartTx.Temp1. This clock has no specified timing constraint which may adversely impact design performance. 
@@ -304,7 +319,7 @@ Finished Pre Mapping Phase.
 @N: MO111 :|Tristate driver TrigMonAdcs_t (in view: work.FineSteeringMirror(verilog)) on net TrigMonAdcs (in view: work.FineSteeringMirror(verilog)) has its enable tied to GND.
 @N: BN225 |Writing default property annotation file /home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/synthesis/FineSteeringMirror.sap.
 
-Starting constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 289MB peak: 289MB)
+Starting constraint checker (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 289MB peak: 289MB)
 
 Encoding state machine sm0_state[6:0] (in view: work.CoreResetP_Z2_layer0(verilog))
 original code -> new code
@@ -316,16 +331,16 @@ original code -> new code
    101 -> 0100000
    110 -> 1000000
 
-Finished constraint checker preprocessing (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 289MB peak: 289MB)
+Finished constraint checker preprocessing (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 289MB peak: 289MB)
 
 
-Finished constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:01s; Memory used current: 290MB peak: 290MB)
+Finished constraint checker (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 290MB peak: 290MB)
 
 Pre-mapping successful!
 
 At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 290MB peak: 290MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Fri Oct 25 15:58:08 2024
+# Mon Oct 28 15:57:23 2024
 
 ###########################################################]

@@ -35,6 +35,7 @@ read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/Sp
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/SpiDeviceDual.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBusAddrTx.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBus.vhd}
+read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/UartRx.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd}
 read_verilog -mode system_verilog {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v}
 set_top_level {FineSteeringMirror}

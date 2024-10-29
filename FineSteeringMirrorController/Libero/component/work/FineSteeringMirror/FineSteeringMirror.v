@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Fri Oct 25 15:55:55 2024
+// Created by SmartDesign Mon Oct 28 15:39:29 2024
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -9,6 +9,7 @@
 module FineSteeringMirror(
     // Inputs
     DEVRST_N,
+    DInExt,
     Fault1V,
     Fault2VA,
     Fault2VD,
@@ -47,7 +48,6 @@ module FineSteeringMirror(
     CtsUsb,
     GlobalFaultInhibit,
     HVDis2,
-    INIT_DONE,
     MosiMonAdcs,
     MosiXO,
     Oe0,
@@ -76,6 +76,7 @@ module FineSteeringMirror(
     nHVEn1,
     nPowerCycClr,
     // Inouts
+    DOutExt,
     MisoExt,
     MosiDacAMax,
     MosiDacATi,
@@ -100,6 +101,7 @@ module FineSteeringMirror(
 // Input
 //--------------------------------------------------------------------
 input  DEVRST_N;
+input  DInExt;
 input  Fault1V;
 input  Fault2VA;
 input  Fault2VD;
@@ -140,7 +142,6 @@ output ChopRef;
 output CtsUsb;
 output GlobalFaultInhibit;
 output HVDis2;
-output INIT_DONE;
 output MosiMonAdcs;
 output MosiXO;
 output Oe0;
@@ -171,6 +172,7 @@ output nPowerCycClr;
 //--------------------------------------------------------------------
 // Inout
 //--------------------------------------------------------------------
+inout  DOutExt;
 inout  MisoExt;
 inout  MosiDacAMax;
 inout  MosiDacATi;
@@ -196,6 +198,8 @@ wire          ChopAdc_net_0;
 wire          ChopRef_net_0;
 wire          CtsUsb_net_0;
 wire          DEVRST_N;
+wire          DInExt;
+wire          DOutExt;
 wire          Fault1V;
 wire          Fault2VA;
 wire          Fault2VD;
@@ -213,7 +217,6 @@ wire   [31:0] FineSteeringMirror_sb_0_AMBA_SLAVE_0_PWDATAS;
 wire          FineSteeringMirror_sb_0_AMBA_SLAVE_0_PWRITES;
 wire          GlobalFaultInhibit_net_0;
 wire          HVDis2_net_0;
-wire          INIT_DONE_net_0;
 wire          Main_0_RamBusAck;
 wire   [31:0] Main_0_RamBusDataOut;
 wire          MisoAdcA;
@@ -288,7 +291,6 @@ wire          XO1;
 wire          Oe0_net_1;
 wire          Oe1_net_1;
 wire          Oe2_net_1;
-wire          INIT_DONE_net_1;
 wire          nCsXO_net_1;
 wire          SckXO_net_1;
 wire          MosiXO_net_1;
@@ -338,8 +340,6 @@ assign Oe1_net_1                = Oe1_net_0;
 assign Oe1                      = Oe1_net_1;
 assign Oe2_net_1                = Oe2_net_0;
 assign Oe2                      = Oe2_net_1;
-assign INIT_DONE_net_1          = INIT_DONE_net_0;
-assign INIT_DONE                = INIT_DONE_net_1;
 assign nCsXO_net_1              = nCsXO_net_0;
 assign nCsXO                    = nCsXO_net_1;
 assign SckXO_net_1              = SckXO_net_0;
@@ -427,7 +427,7 @@ FineSteeringMirror_sb FineSteeringMirror_sb_0(
         .AMBA_SLAVE_0_PRDATAS0  ( Main_0_RamBusDataOut ),
         // Outputs
         .POWER_ON_RESET_N       (  ),
-        .INIT_DONE              ( INIT_DONE_net_0 ),
+        .INIT_DONE              (  ),
         .AMBA_SLAVE_0_PSELS0    ( FineSteeringMirror_sb_0_AMBA_SLAVE_0_PSELS0 ),
         .AMBA_SLAVE_0_PENABLES  ( FineSteeringMirror_sb_0_AMBA_SLAVE_0_PENABLES ),
         .AMBA_SLAVE_0_PWRITES   ( FineSteeringMirror_sb_0_AMBA_SLAVE_0_PWRITES ),
@@ -479,6 +479,7 @@ Main Main_0(
         .Fault3VD           ( Fault3VD ),
         .Fault5V            ( Fault5V ),
         .FaultHV            ( FaultHV ),
+        .DInExt             ( DInExt ),
         // Outputs
         .nCsXO              ( nCsXO_net_0 ),
         .SckXO              ( SckXO_net_0 ),
@@ -532,6 +533,7 @@ Main Main_0(
         .MosiExt            ( MosiExt ),
         .MisoExt            ( MisoExt ),
         .nCsExt             ( nCsExt ),
+        .DOutExt            ( DOutExt ),
         .Ux1SelJmp          ( Ux1SelJmp ) 
         );
 

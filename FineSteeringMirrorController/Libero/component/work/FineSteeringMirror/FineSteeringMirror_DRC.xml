@@ -3,10 +3,10 @@
 <drcreport>
   <header>FineSteeringMirror</header>
   <drc>
-    <status>/home/summer/microchip/Libero_SoC_v2023.2/Libero/data/drcreport/warn.png</status>
-    <StatusMessage>Warning</StatusMessage>
-    <message>Unconnected Bus Interface</message>
-    <detail>Unconnected bus interface pin FineSteeringMirror_sb_0:AMBA_SLAVE_0</detail>
-    <crossprobe>liberoaction://cross_probe/smartdesign/FineSteeringMirror/pins/FineSteeringMirror_sb_0:AMBA_SLAVE_0</crossprobe>
+    <status>/home/summer/microchip/Libero_SoC_v2023.2/Libero/data/drcreport/error.png</status>
+    <StatusMessage>Error</StatusMessage>
+    <message>Undriven Pin</message>
+    <detail>Unconnected input pin Main_0:DInExt</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/FineSteeringMirror/pins/Main_0:DInExt</crossprobe>
   </drc>
 </drcreport>

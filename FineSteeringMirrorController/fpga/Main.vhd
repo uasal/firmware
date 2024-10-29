@@ -130,6 +130,8 @@ port (
 	MosiExt : inout std_logic;
 	MisoExt : inout std_logic;
 	nCsExt : inout std_logic;
+	DOutExt : inout std_logic;
+	DInExt : in std_logic;
 
 	--The testpoints had to be shared with other signals due to lack of fpga pins...
 	--~ LedR : out std_logic;
@@ -960,10 +962,10 @@ architecture architecture_Main of Main is
 						(
 							clk : in std_logic;
 							rst : in std_logic;
-							ExtAddr : in std_logic_vector(7 downto 0);
-							SendExtAddr : in std_logic;
-							SendingExtAddr : out std_logic;
-							ExtAddrTxdPin : out std_logic--;
+							SpiExtBusAddr : in std_logic_vector(7 downto 0);
+							SendSpiExtBusAddr : in std_logic;
+							SendingSpiExtBusAddr : out std_logic;
+							SpiExtBusAddrTxdPin : out std_logic--;
 						);
 						end component;
 						
@@ -984,10 +986,10 @@ architecture architecture_Main of Main is
 							Miso : in  std_logic;
 							
 							--Control signals
-							ExtWriteOut : in std_logic_vector(7 downto 0);
-							WriteExt : in std_logic;
-							ExtReadReady : out std_logic;
-							ExtReadback : out std_logic_vector(7 downto 0)--;
+							SpiExtBusWriteOut : in std_logic_vector(7 downto 0);
+							WriteSpiExtBus : in std_logic;
+							SpiExtBusReadReady : out std_logic;
+							SpiExtBusReadback : out std_logic_vector(7 downto 0)--;
 								
 						); end component;
 						
@@ -2522,10 +2524,10 @@ begin
 	port map (
 		clk => MasterClk,
 		rst => MasterReset,
-		ExtAddr => ExtAddr,
-		SendExtAddr => SetExtAddr,
-		SendingExtAddr => ExtAddrIsOutgoing,
-		ExtAddrTxdPin => nCsExt_i--,
+		SpiExtBusAddr => ExtAddr,
+		SendSpiExtBusAddr => SetExtAddr,
+		SendingSpiExtBusAddr => ExtAddrIsOutgoing,
+		SpiExtBusAddrTxdPin => nCsExt_i--,
 	);
 	
 	ExtAddrInUart : UartRx
@@ -2564,10 +2566,10 @@ begin
 		Mosi => MosiExt_i,
 		Miso => MisoExt_i,
 		--~ Miso => MosiExt_i, --debug loopback
-		ExtWriteOut => ExtWriteOut,
-		WriteExt => WriteExt,
-		ExtReadReady => ExtReadReady,
-		ExtReadback => ExtReadback
+		SpiExtBusWriteOut => ExtWriteOut,
+		WriteSpiExtBus => WriteExt,
+		SpiExtBusReadReady => ExtReadReady,
+		SpiExtBusReadback => ExtReadback
 		--~ ExtReadback => open
 	);
 	
@@ -2577,6 +2579,9 @@ begin
 	SckExt <= SckExt_i;
 	MosiExt <= MosiExt_i;
 	nCsExt <= nCsExt_i;
+	
+	DOutExt <= PPS xor DInExt;
+	--~ DInExt <= 'Z';
 			
 	--~ TP4 <= nCsExtBus_i;
 	--~ TP5 <= SckExt_i;

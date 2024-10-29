@@ -35,14 +35,14 @@ entity SpiExtBusAddrTxPorts is
 	
 		clk : in std_logic;
 		rst : in std_logic;
-		SpiExtBussAddr : in std_logic_vector(7 downto 0);
-		SendSpiExtBussAddr : in std_logic;
-		SendingSpiExtBussAddr : out std_logic;
-		SpiExtBussAddrTxdPin : out std_logic--;
+		SpiExtBusAddr : in std_logic_vector(7 downto 0);
+		SendSpiExtBusAddr : in std_logic;
+		SendingSpiExtBusAddr : out std_logic;
+		SpiExtBusAddrTxdPin : out std_logic--;
 	);
 end SpiExtBusAddrTxPorts;
 
-architecture SpiExtBussAddrTx of SpiExtBusAddrTxPorts is
+architecture SpiExtBusAddrTx of SpiExtBusAddrTxPorts is
 
 	component ClockDividerPorts is
 	generic (
@@ -69,20 +69,20 @@ architecture SpiExtBussAddrTx of SpiExtBusAddrTxPorts is
 	);
 	end component;
 
-	type SpiExtBussAddrTxStates is (Idle, Load, Loaded, Transmit);
+	type SpiExtBusAddrTxStates is (Idle, Load, Loaded, Transmit);
 
-	signal SpiExtBussAddrTxNextState : SpiExtBussAddrTxStates := Idle;
-	signal SpiExtBussAddrTxCurrentState : SpiExtBussAddrTxStates := Idle;
+	signal SpiExtBusAddrTxNextState : SpiExtBusAddrTxStates := Idle;
+	signal SpiExtBusAddrTxCurrentState : SpiExtBusAddrTxStates := Idle;
 	
-	signal LatchTxdSpiExtBussAddr : std_logic;	
-	signal SpiExtBussAddrTxdClock : std_logic;	
-	signal StartTxdSpiExtBussAddr : std_logic;	
-	signal SpiExtBussAddrTxdInProgress : std_logic;	
+	signal LatchTxdSpiExtBusAddr : std_logic;	
+	signal SpiExtBusAddrTxdClock : std_logic;	
+	signal StartTxdSpiExtBusAddr : std_logic;	
+	signal SpiExtBusAddrTxdInProgress : std_logic;	
 
 begin
 	
-	--SpiExtBuss addressing is always at 38.4kbps:
-	SpiExtBussAddrTxdClockDiv : ClockDividerPorts
+	--SpiExtBus addressing is always at 38.4kbps:
+	SpiExtBusAddrTxdClockDiv : ClockDividerPorts
 	generic map
 	(
 		CLOCK_DIVIDER => natural((real(MASTER_CLOCK_FREQHZ) / ( 38400.0 * 1.0)) + 0.5)
@@ -91,89 +91,89 @@ begin
 	(
 		clk => clk,
 		rst => rst,
-		div => SpiExtBussAddrTxdClock
+		div => SpiExtBusAddrTxdClock
 	);
 
-	SpiExtBussAddrOutUart : UartTx
+	SpiExtBusAddrOutUart : UartTx
 	port map 
 	(	
-		clk => SpiExtBussAddrTxdClock,
+		clk => SpiExtBusAddrTxdClock,
 		reset => rst,
-		Go => StartTxdSpiExtBussAddr,
-		TxD => SpiExtBussAddrTxdPin,
-		Busy => SpiExtBussAddrTxdInProgress,
-		Data => SpiExtBussAddr
+		Go => StartTxdSpiExtBusAddr,
+		TxD => SpiExtBusAddrTxdPin,
+		Busy => SpiExtBusAddrTxdInProgress,
+		Data => SpiExtBusAddr
 	);
 	
-	--Run the SpiExtBuss addr output cycle:
-	process (clk, rst, SpiExtBussAddrTxCurrentState)
+	--Run the SpiExtBus addr output cycle:
+	process (clk, rst, SpiExtBusAddrTxCurrentState)
 	begin
 	
 		if (rst = '1') then
 		
-			LatchTxdSpiExtBussAddr <= '0';
-			StartTxdSpiExtBussAddr <= '0';
-			SendingSpiExtBussAddr <= '0';
-			SpiExtBussAddrTxNextState <= Idle;
+			LatchTxdSpiExtBusAddr <= '0';
+			StartTxdSpiExtBusAddr <= '0';
+			SendingSpiExtBusAddr <= '0';
+			SpiExtBusAddrTxNextState <= Idle;
 		
 		else
 			
 			if ( (clk'event) and (clk = '1') ) then
 			
-				SpiExtBussAddrTxCurrentState <= SpiExtBussAddrTxNextState;
+				SpiExtBusAddrTxCurrentState <= SpiExtBusAddrTxNextState;
 
-				case SpiExtBussAddrTxCurrentState is
+				case SpiExtBusAddrTxCurrentState is
 				
 					when Idle =>
 					
-						if (SendSpiExtBussAddr = '1') then
+						if (SendSpiExtBusAddr = '1') then
 			
-							LatchTxdSpiExtBussAddr <= '1';
+							LatchTxdSpiExtBusAddr <= '1';
 											
 						end if;
 						
-						if ( (SendSpiExtBussAddr = '0') and (LatchTxdSpiExtBussAddr = '1') ) then
+						if ( (SendSpiExtBusAddr = '0') and (LatchTxdSpiExtBusAddr = '1') ) then
 							
-							SpiExtBussAddrTxNextState <= Load;
+							SpiExtBusAddrTxNextState <= Load;
 											
 						end if;
 						
 					when Load =>
 					
-						StartTxdSpiExtBussAddr <= '1';
+						StartTxdSpiExtBusAddr <= '1';
 						
-						LatchTxdSpiExtBussAddr <= '0';
+						LatchTxdSpiExtBusAddr <= '0';
 						
-						SendingSpiExtBussAddr <= '1';
+						SendingSpiExtBusAddr <= '1';
 						
-						SpiExtBussAddrTxNextState <= Loaded;
+						SpiExtBusAddrTxNextState <= Loaded;
 										
 					when Loaded =>
 					
-						if (SpiExtBussAddrTxdInProgress = '1') then
+						if (SpiExtBusAddrTxdInProgress = '1') then
 			
-							StartTxdSpiExtBussAddr <= '0';
+							StartTxdSpiExtBusAddr <= '0';
 							
-							SpiExtBussAddrTxNextState <= Transmit;
+							SpiExtBusAddrTxNextState <= Transmit;
 											
 						end if;						
 						
 					when Transmit =>
 					
-						if (SpiExtBussAddrTxdInProgress = '0') then
+						if (SpiExtBusAddrTxdInProgress = '0') then
 
-							SendingSpiExtBussAddr <= '0';
+							SendingSpiExtBusAddr <= '0';
 							
-							SpiExtBussAddrTxNextState <= Idle;
+							SpiExtBusAddrTxNextState <= Idle;
 											
 						end if;						
 
 					when others => -- ought never to get here...
 					
-						LatchTxdSpiExtBussAddr <= '0';
-						StartTxdSpiExtBussAddr <= '0';
-						SendingSpiExtBussAddr <= '0';
-						SpiExtBussAddrTxNextState <= Idle;
+						LatchTxdSpiExtBusAddr <= '0';
+						StartTxdSpiExtBusAddr <= '0';
+						SendingSpiExtBusAddr <= '0';
+						SpiExtBusAddrTxNextState <= Idle;
 						
 				end case;
 				
@@ -183,4 +183,4 @@ begin
 
 	end process;
 
-end SpiExtBussAddrTx;
+end SpiExtBusAddrTx;
