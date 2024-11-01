@@ -997,8 +997,15 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/FineSteeringMirror/FineSteeringMirror.cxf,actgen_cxf"
 STATE="utd"
-TIME="1730155167"
-SIZE="14684"
+TIME="1730155171"
+SIZE="14991"
+ENDFILE
+VALUE "<project>/component/work/FineSteeringMirror/FineSteeringMirror.v,hdl"
+STATE="utd"
+TIME="1730155170"
+SIZE="16929"
+PARENT="<project>/component/work/FineSteeringMirror/FineSteeringMirror.cxf"
+IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/FineSteeringMirror_sb/CCC_0/FineSteeringMirror_sb_CCC_0_FCCC.cxf,actgen_cxf"
 STATE="utd"
@@ -1070,8 +1077,8 @@ USE_FOR_ANY_TOOL="FALSE"
 ENDFILE
 VALUE "<project>/constraint/io/user.pdc,io_pdc"
 STATE="utd"
-TIME="1730150818"
-SIZE="10280"
+TIME="1730156232"
+SIZE="10330"
 ENDFILE
 VALUE "<project>/constraint/user.sdc,sdc"
 STATE="utd"
@@ -1151,9 +1158,9 @@ TIME="1730139945"
 SIZE="278"
 ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror.vm,syn_vm"
-STATE="ood"
-TIME="1730153413"
-SIZE="1202363"
+STATE="utd"
+TIME="1730156255"
+SIZE="1187587"
 ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror_syn.prj,prj"
 STATE="utd"
@@ -1170,7 +1177,7 @@ LIST UsedFile
 ENDLIST
 LIST NewModulesInfo
 LIST "FineSteeringMirror::work"
-FILE "<project>/component/work/FineSteeringMirror/FineSteeringMirror.cxf,actgen_cxf"
+FILE "<project>/component/work/FineSteeringMirror/FineSteeringMirror.v,hdl"
 LIST SynthesisConstraints
 VALUE "<project>/constraint/user.sdc,sdc"
 ENDLIST
@@ -1180,6 +1187,68 @@ ENDLIST
 LIST PNRConstraints
 VALUE "<project>/constraint/user.sdc,sdc"
 VALUE "<project>/constraint/io/user.pdc,io_pdc"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl3
+ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl4
+ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl5
+ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl6
+ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 ENDLIST
 LIST "FineSteeringMirror_sb::work"
@@ -1497,6 +1566,68 @@ IS32BIT="1"
 EndProfile
 ENDLIST
 LIST ProjectState5.1
+LIST "FineSteeringMirror::work"
+LIST Impl1
+ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl3
+ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl4
+ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl5
+ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl6
+ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
 LIST "FineSteeringMirror_sb::work"
 LIST Impl1
 ideSTIMULUS=StateSuccess
@@ -1635,10 +1766,8 @@ ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 Reports;Reports;0
-ReportsCurrentItem;Synthesize:FineSteeringMirror_compile_netlist.log
-Constraint Manager;Constraint Manager;0
-SmartDesign;FineSteeringMirror;0
-ACTIVEVIEW;FineSteeringMirror
+ReportsCurrentItem;Generate Bitstream:FineSteeringMirror_generateBitstream.log
+ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","/home/summer/projects/CGraph/firmware/include/fpga/ads1258.vhd","FALSE","FALSE"
@@ -1747,7 +1876,7 @@ ENDLIST
 LIST "fifo_gen_tb::work","/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen_tb.vhd","FALSE","FALSE"
 SUBBLOCK "fifo::work","/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd","FALSE","FALSE"
 ENDLIST
-LIST "FineSteeringMirror::work","component/work/FineSteeringMirror/FineSteeringMirror.cxf","TRUE","FALSE"
+LIST "FineSteeringMirror::work","component/work/FineSteeringMirror/FineSteeringMirror.v","TRUE","FALSE"
 SUBBLOCK "FCCC_C0::work","component/work/FCCC_C0/FCCC_C0.v","TRUE","FALSE"
 SUBBLOCK "FineSteeringMirror_sb::work","component/work/FineSteeringMirror_sb/FineSteeringMirror_sb.v","TRUE","FALSE"
 SUBBLOCK "Main::work","/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd","FALSE","FALSE"
