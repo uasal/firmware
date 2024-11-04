@@ -60,13 +60,13 @@ public:
 	
 	virtual bool FindPacketStart(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const
 	{
-		for (size_t i = 0; i < (BufferLen - sizeof(uint32_t)); i++) { if (CGraphMagikPacketStartToken == *((uint32_t*)&(Buffer[i]))) { Offset = i; return(true); } }
+		for (size_t i = 0; i < (BufferLen - sizeof(uint32_t)); i++) { if (CGraphMagikPacketStartToken == *((const uint32_t*)&(Buffer[i]))) { Offset = i; return(true); } }
 		return(false);
 	}
 
 	virtual bool FindPacketEnd(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const
 	{
-		for (size_t i = 0; i <= (BufferLen - sizeof(uint32_t)); i++) { if (CGraphMagikPacketEndToken == *((uint32_t*)&(Buffer[i]))) { Offset = i; return(true); } }
+		for (size_t i = 0; i <= (BufferLen - sizeof(uint32_t)); i++) { if (CGraphMagikPacketEndToken == *((const uint32_t*)&(Buffer[i]))) { Offset = i; return(true); } }
 		return(false);
 	}
 	
@@ -109,7 +109,7 @@ public:
 		if (CGraphMagikPacketStartToken != Header->PacketStartToken) { return(false); }
 		const CGraphPacketFooter* Footer = reinterpret_cast<const CGraphPacketFooter*>(&(Buffer[PacketStartPos + sizeof(CGraphPacketHeader) + Header->PayloadLen]));
 		if (CGraphMagikPacketEndToken != Footer->PacketEndToken) { return(false); }
-		uint32_t CRC = CRC32((uint8_t*)Header, sizeof(CGraphPacketHeader) + Header->PayloadLen);
+		uint32_t CRC = CRC32((const uint8_t*)Header, sizeof(CGraphPacketHeader) + Header->PayloadLen);
 		if (CRC != Footer->CRC32) { return(false); }		
 		return(true);
 	}

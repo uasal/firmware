@@ -11,6 +11,8 @@
 #include <sys/types.h>
 #include <algorithm>
 
+#include "uart/UartStatusRegister.hpp"
+
 #include "format/formatf.h"
 
 union AdcAccumulator 		
@@ -205,29 +207,6 @@ union CGraphFWBaudDividers
 
 } __attribute__((__packed__));
 
-union CGraphFWUartStatusRegister
-{
-    uint32_t all;
-    struct 
-    {
-        uint32_t RxFifoEmpty : 1;
-        uint32_t RxFifoFull : 1;
-        uint32_t TxFifoEmpty : 1;
-        uint32_t TxFifoFull : 1;
-		uint32_t reserved1 : 4;
-		uint32_t RxFifoCount : 10;
-		uint32_t TxFifoCount : 10;
-		uint32_t reserved2 : 4;
-
-    } __attribute__((__packed__));
-
-    CGraphFWUartStatusRegister() { all = 0; }
-
-    //~ void formatf() const { ::formatf("CGraphFWUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", RxFifoEmpty?'Y':'N', RxFifoFull?'Y':'N', TxFifoEmpty?'Y':'N', TxFifoFull?'Y':'N', RxFifoCount + (RxFifoCountHi << 8), TxFifoCount + (TxFifoCountHi << 8)); }
-	void formatf() const { ::formatf("CGraphFWUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%lu, TxC:%lu", RxFifoEmpty?'Y':'N', RxFifoFull?'Y':'N', TxFifoEmpty?'Y':'N', TxFifoFull?'Y':'N', RxFifoCount, TxFifoCount); }
-
-} __attribute__((__packed__));
-
 union CGraphFWMonitorAdcCommandStatusRegister
 {
     uint32_t all;
@@ -269,27 +248,27 @@ struct CGraphFWHardwareInterface
 	CGraphFWBaudDividers BaudDividers; //rw; clock dividers for the configurable serial ports (0-3 RS-485 only)
 	
 	uint32_t UartFifo0; //rw; send or read bytes from uart(s)
-	CGraphFWUartStatusRegister UartStatusRegister0; //ro; what state are the uart(s) in?
+	UartStatusRegister UartStatusRegister0; //ro; what state are the uart(s) in?
 	uint32_t UartFifo0ReadData;
     
 	uint32_t UartFifo1; //rw; send or read bytes from uart(s)
-	CGraphFWUartStatusRegister UartStatusRegister1; //ro; what state are the uart(s) in?
+	UartStatusRegister UartStatusRegister1; //ro; what state are the uart(s) in?
 	uint32_t UartFifo1ReadData;
     
 	uint32_t UartFifo2; //rw; send or read bytes from uart(s)
-	CGraphFWUartStatusRegister UartStatusRegister2; //ro; what state are the uart(s) in?
+	UartStatusRegister UartStatusRegister2; //ro; what state are the uart(s) in?
 	uint32_t UartFifo2ReadData;
     
 	uint32_t UartFifo3; //rw; send or read bytes from uart(s)
-	CGraphFWUartStatusRegister UartStatusRegister3; //ro; what state are the uart(s) in?
+	UartStatusRegister UartStatusRegister3; //ro; what state are the uart(s) in?
 	uint32_t UartFifo3ReadData;
     
 	uint32_t UartFifoUsb; //rw; send or read bytes from uart(s)
-	CGraphFWUartStatusRegister UartStatusRegisterUsb; //ro; what state are the uart(s) in?
+	UartStatusRegister UartStatusRegisterUsb; //ro; what state are the uart(s) in?
 	uint32_t UartFifoUsbReadData;
     
 	uint32_t UartFifoGps; //rw; send or read bytes from uart(s)
-	CGraphFWUartStatusRegister UartStatusRegisterGps; //ro; what state are the uart(s) in?
+	UartStatusRegister UartStatusRegisterGps; //ro; what state are the uart(s) in?
 	uint32_t UartFifoGpsReadData;
     
 	CGraphFWPositionStepRegister PosDetHomeA; //ro; the step at which this signal toggled

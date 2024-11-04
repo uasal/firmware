@@ -210,9 +210,10 @@ int _write_r( void * reent, int file, char * ptr, int len )
  * standalone system; it exploits the symbol _end automatically defined by the
  * GNU linker. 
  */
+extern char _end;       /* Defined by the linker */
+extern char _eheap;     /* Defined by the linker */
 caddr_t _sbrk(int incr)
 {
-    extern char _end;       /* Defined by the linker */
     static char *heap_end;
     char *prev_heap_end;
     char * stack_ptr;
@@ -251,7 +252,6 @@ caddr_t _sbrk(int incr)
          * 0x00000000 memory range to read/write variables/data because of the
          * SmartFusion2 cache design.
          */
-        extern char _eheap;     /* Defined by the linker */
         char *top_of_heap;
         
         top_of_heap = &_eheap;

@@ -16,9 +16,9 @@
 extern "C" {
 #endif
   
-#include "hal/hal.h"
-#include "hal/hal_assert.h"
-#include "Filterwheel_hw_platform.h"
+//~ #include "hal/hal.h"
+//~ #include "hal/hal_assert.h"
+//~ #include "Filterwheel_hw_platform.h"
 
 #ifdef __cplusplus
 }
@@ -34,30 +34,73 @@ extern CGraphFWHardwareInterface* FW;
 
 #include "CmdTableAscii.hpp"
 
+#include "CmdTableBinary.hpp"
+
 #include "uart/BinaryUart.hpp"
 
 #include "uart/linux_pinout_circular_uart.hpp"
 
-#include "FlightComms.hpp"
+#include "uart/uart_pinout_fpga.hpp"
 
-FPGABinaryUartCallbacks PacketCallbacks;
+#include "cgraph/CGraphPacket.hpp"
+
+
+struct FPGABinaryUartCallbacks : public BinaryUartCallbacks
+{
+	FPGABinaryUartCallbacks() { }
+	virtual ~FPGABinaryUartCallbacks() { }
+	
+	//Malformed/corrupted packet handler:
+	virtual void InvalidPacket(const uint8_t* Buffer, const size_t& BufferLen)
+	{ 
+		if ( (NULL == Buffer) || (BufferLen < 1) ) { formatf("\nFPGAUartCallbacks: NULL(%u) InvalidPacket!\n\n", BufferLen); return; }
+	
+		size_t len = BufferLen;
+		if (len > 32) { len = 32; }
+		formatf("\nFPGAUartCallbacks: InvalidPacket! contents: :");
+		for(size_t i = 0; i < len; i++) { formatf("%.2X:", Buffer[i]); }
+		formatf("\n\n");
+	}
+	
+	//Packet with no matching command handler:
+	virtual void UnHandledPacket(const IPacket* Packet, const size_t& PacketLen)
+	{ 
+		if ( (NULL == Packet) || (PacketLen < sizeof(CGraphPacketHeader)) ) { formatf("\nFPGABinaryUartCallbacks: NULL(%u) UnHandledPacket!\n\n", PacketLen); return; }
+		
+		const CGraphPacketHeader* Header = reinterpret_cast<const CGraphPacketHeader*>(Packet);
+		formatf("\nFPGAUartCallbacks: Unhandled packet(%u): ", PacketLen);
+		Header->formatf();
+		formatf("\n\n");
+	}
+	
+	//In case we need to look at every packet that goes by...
+	//~ virtual void EveryPacket(const IPacket& Packet, const size_t& PacketLen) { }
+	
+	//We just wanna see if this is happening, not much to do about it
+	virtual void BufferOverflow(const uint8_t* Buffer, const size_t& BufferLen) 
+	{ 
+		//~ formatf("\nFPGABinaryUartCallbacks: BufferOverflow(%zu)!\n", BufferLen);
+	}
+
+} BinaryPacketCallbacks;
+
 CGraphPacket FPGAUartProtocol;
-FW_pinout_FPGAUart0 FPGAUartPinout0;
-FW_pinout_FPGAUart1 FPGAUartPinout1;
-FW_pinout_FPGAUart2 FPGAUartPinout2;
-FW_pinout_FPGAUart3 FPGAUartPinout3;
-FW_pinout_FPGAUartUsb FPGAUartPinoutUsb;
+uart_pinout_fpga FPGAUartPinout0(&(FW->UartStatusRegister0), &(FW->UartFifo0), &(FW->UartFifo0ReadData), &(FW->UartFifo0), '~');
+uart_pinout_fpga FPGAUartPinout1(&(FW->UartStatusRegister1), &(FW->UartFifo1), &(FW->UartFifo1ReadData), &(FW->UartFifo1), '!');
+uart_pinout_fpga FPGAUartPinout2(&(FW->UartStatusRegister2), &(FW->UartFifo2), &(FW->UartFifo2ReadData), &(FW->UartFifo2), '@');
+uart_pinout_fpga FPGAUartPinout3(&(FW->UartStatusRegister3), &(FW->UartFifo3), &(FW->UartFifo3ReadData), &(FW->UartFifo3), '#');
+uart_pinout_fpga FPGAUartPinoutUsb(&(FW->UartStatusRegisterUsb), &(FW->UartFifoUsb), &(FW->UartFifoUsbReadData), &(FW->UartFifoUsb), '$');
 
 linux_pinout_circular_uart<char, 16, 512> UsbUartAscii; //We handle incoming bytes one at a time, but the outgoing buffer needs to be big enough to hold a whole packet or formatf string...
 linux_pinout_circular_uart<char, 16, 256> UsbUartBinary;
 
 //~ BinaryUart(struct IUart& pinout, struct IPacket& packet, const Cmd* cmds, const size_t numcmds, struct BinaryUartCallbacks& callbacks, const bool verbose = true, const uint64_t serialnum = InvalidSerialNumber);
-BinaryUart FpgaUartParser3(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
-BinaryUart FpgaUartParser2(FPGAUartPinout2, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
-BinaryUart FpgaUartParser1(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
-//~ (ascii instead) BinaryUart FpgaUartParser0(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
-//~ (ascii instead) BinaryUart FpgaUartParserUsb(FPGAUartPinoutUsb, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
-BinaryUart FpgaUartParserUsb(UsbUartBinary, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
+BinaryUart FpgaUartParser3(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, BinaryPacketCallbacks, false);
+BinaryUart FpgaUartParser2(FPGAUartPinout2, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, BinaryPacketCallbacks, false);
+BinaryUart FpgaUartParser1(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, BinaryPacketCallbacks, false);
+//~ (ascii instead) BinaryUart FpgaUartParser0(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, BinaryPacketCallbacks, false);
+//~ (ascii instead) BinaryUart FpgaUartParserUsb(FPGAUartPinoutUsb, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, BinaryPacketCallbacks, false);
+BinaryUart FpgaUartParserUsb(UsbUartBinary, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, BinaryPacketCallbacks, false);
 
 #include "uart/TerminalUart.hpp"
 char prompt[] = "\n\nESC-FW> ";
@@ -620,24 +663,24 @@ int main(int argc, char *argv[])
 	extern unsigned long _end;	
     register char * stack_ptr asm ("sp");
 	
-	//~ formatf("\nBuild parameters: \n");
-    //~ formatf("__vector_table_start: 0x%.8lX\n", (uint32_t)__vector_table_start);
-    //~ formatf("_evector_table: 0x%.8lX\n", (uint32_t)_evector_table);
-    //~ formatf("__text_start: 0x%.8lX\n", (uint32_t)__text_start);
-    //~ formatf("_etext: 0x%.8lX\n", (uint32_t)_etext);
-    //~ formatf("__exidx_start: 0x%.8lX\n", (uint32_t)__exidx_start);
-    //~ formatf("__exidx_end: 0x%.8lX\n", (uint32_t)__exidx_end);
-    //~ formatf("__data_start: 0x%.8lX\n", (uint32_t)__data_start);
-    //~ formatf("_edata: 0x%.8lX\n", (uint32_t)_edata);
-    //~ formatf("__bss_start__: 0x%.8lX\n", (uint32_t)__bss_start__);
-    //~ formatf("_ebss: 0x%.8lX\n", (uint32_t)_ebss);
-    //~ formatf("__heap_start__: 0x%.8lX\n", (uint32_t)__heap_start__);
-    //~ formatf("_eheap: 0x%.8lX\n", (uint32_t)_eheap);
-    //~ formatf("__stack_start__: 0x%.8lX\n", (uint32_t)__stack_start__);
-    //~ formatf("_estack: 0x%.8lX\n", (uint32_t)_estack);
-    //~ formatf("stack pointer: 0x%.8lX\n", (uint32_t)stack_ptr);
-    //~ formatf("_end: 0x%.8lX\n", (uint32_t)_end);
-    //~ formatf("\n\n");
+	formatf("\nBuild parameters: \n");
+    formatf("__vector_table_start: 0x%.8lX\n", (uint32_t)__vector_table_start);
+    formatf("_evector_table: 0x%.8lX\n", (uint32_t)_evector_table);
+    formatf("__text_start: 0x%.8lX\n", (uint32_t)__text_start);
+    formatf("_etext: 0x%.8lX\n", (uint32_t)_etext);
+    formatf("__exidx_start: 0x%.8lX\n", (uint32_t)__exidx_start);
+    formatf("__exidx_end: 0x%.8lX\n", (uint32_t)__exidx_end);
+    formatf("__data_start: 0x%.8lX\n", (uint32_t)__data_start);
+    formatf("_edata: 0x%.8lX\n", (uint32_t)_edata);
+    formatf("__bss_start__: 0x%.8lX\n", (uint32_t)__bss_start__);
+    formatf("_ebss: 0x%.8lX\n", (uint32_t)_ebss);
+    formatf("__heap_start__: 0x%.8lX\n", (uint32_t)__heap_start__);
+    formatf("_eheap: 0x%.8lX\n", (uint32_t)_eheap);
+    formatf("__stack_start__: 0x%.8lX\n", (uint32_t)__stack_start__);
+    formatf("_estack: 0x%.8lX\n", (uint32_t)_estack);
+    formatf("stack pointer: 0x%.8lX\n", (uint32_t)stack_ptr);
+    formatf("_end: 0x%.8lX\n", (uint32_t)_end);
+    formatf("\n\n");
 
 	//formatf("\n\nESC-FW: v%s.b%s; Offset of ControlRegister: 0x%.2lX, expected: 0x%.2lX.", GITVERSION, BUILDNUM, (unsigned long)offsetof(CGraphFWHardwareInterface, ControlRegister), 32UL);
     formatf("\n\nESC-FW: Offset of ControlRegister: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, ControlRegister), 32UL);
@@ -666,7 +709,7 @@ int main(int argc, char *argv[])
 	MonitorAdc.SetMonitor(false);
 	MonitorAdc.Init();
 	
-	uint8_t i = 0;
+	//~ uint8_t i = 0;
     while(true)
     {
 		Process();

@@ -508,7 +508,7 @@ struct ads1258 : spipinout
 		
 		virtual uint8_t Init(uint8_t gpio_output_mask = gpio_output_mask_all_outputs) //All outputs is reccommended in datasheet as inputs are not allowed to float for some ass reason.
 		{
-			uint8_t Return = InitOK;
+			//~ uint8_t Return = InitOK;
 			//see pg 41 of ads1258 revD datasheet.
 
 			//1. Reset spi - disable for 4096xFclk

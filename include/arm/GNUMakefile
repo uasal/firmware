@@ -13,20 +13,24 @@
 #
 # make program = Download the hex file to the device
 #
+#
+# to install the compiler, download the lastest from:
+# https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/
+# and unpack it to $HOME/.local
+# then symlink the versioned folder to a base/generic 'arm-none-eabi"
+#
 
-INCLUDE_ARCH = $(HOME)/lib3/arm-none-eabi/include
-INCLUDE_LOCAL = $(HOME)/projects/zonge/firmware/include
-LIB_ARCH = $(HOME)/lib3/arm-none-eabi/lib
-LIB_LOCAL = $(HOME)/projects/include
+INCLUDE_ARCH = $(HOME)/.local/arm-none-eabi/include
+LIB_ARCH = $(HOME)/.local/arm-none-eabi/lib
 SHELL = sh
-CC = $(HOME)/lib3/bin/arm-none-eabi-gcc
-CPP = $(HOME)/lib3/bin/arm-none-eabi-g++
-AR = $(HOME)/lib3/bin/arm-none-eabi-ar
-OBJCOPY = $(HOME)/lib3/bin/arm-none-eabi-objcopy
-OBJDUMP = $(HOME)/lib3/bin/arm-none-eabi-objdump
-SIZE = $(HOME)/lib3/bin/arm-none-eabi-size
-NM = $(HOME)/lib3/bin/arm-none-eabi-nm
-CROSS_COMPILE ?= /lib3/bin/arm-none-eabi-
+CC = $(HOME)/.local/arm-none-eabi/bin/arm-none-eabi-gcc
+CPP = $(HOME)/.local/arm-none-eabi/bin/arm-none-eabi-g++
+AR = $(HOME)/.local/arm-none-eabi/bin/arm-none-eabi-ar
+OBJCOPY = $(HOME)/.local/arm-none-eabi/bin/arm-none-eabi-objcopy
+OBJDUMP = $(HOME)/.local/arm-none-eabi/bin/arm-none-eabi-objdump
+SIZE = $(HOME)/.local/arm-none-eabi/bin/arm-none-eabi-size
+NM = $(HOME)/.local/arm-none-eabi/bin/arm-none-eabi-nm
+CROSS_COMPILE ?= /.local/arm-none-eabi/bin/arm-none-eabi-
 
 #~ INCLUDE_ARCH = /usr/arm-none-eabi/arm-none-eabi/include
 #~ INCLUDE_LOCAL = $(HOME)/projects/zonge/firmware/include
@@ -119,7 +123,7 @@ CPPSRCARM +=
 ASRC +=
 
 # List Assembler source files here which must be assembled in ARM-Mode..
-ASRCARM += smartfusion/startup_m2sxxx.S
+ASRCARM += 
 
 ## Using the Atmel AT91_lib produces warning with
 ## the default warning-levels.
@@ -145,19 +149,20 @@ FORMAT = ihex
 
 # List any extra directories to look for include files here.
 #     Each directory must be seperated by a space.
-EXTRAINCDIRS = ./../include/ $(INCLUDE_LOCAL) $(INCLUDE_ARCH)
+EXTRAINCDIRS = $(INCLUDE_LOCAL) $(INCLUDE_ARCH)
 
 # List any extra directories to look for library files here.
 #     Each directory must be seperated by a space.
 #EXTRA_LIBDIRS = ../arm7_efsl_0_2_4
-EXTRA_LIBDIRS = ./../lib/ $(LIB_LOCAL) $(LIB_LOCAL)/arm $(LIB_ARCH)
+EXTRA_LIBDIRS = $(LIB_LOCAL) $(LIB_ARCH)
 
 # Compiler flag to set the C Standard level.
 # c89   - "ANSI" C
 # gnu89 - c89 plus GCC extensions
 # c99   - ISO C99 standard (not yet fully implemented)
 # gnu99 - c99 plus GCC extensions
-CSTANDARD = -std=gnu++11
+CSTANDARD = -std=gnu11
+CPPSTANDARD = -std=gnu++11
 
 # Place -D or -U options for C here
 CDEFS =  -D$(RUN_MODE)
@@ -193,7 +198,7 @@ CFLAGS += -fno-strict-aliasing -fno-use-linker-plugin
 CFLAGS += -ffunction-sections -fdata-sections
 # -mapcs-stack-check may or may not be a good idea.  google first...
 #$(HOME) CFLAGS += -mapcs-stack-check -mapcs-frame
-CFLAGS += -Wall -Wimplicit
+CFLAGS += -Wall
 CFLAGS += -Wpointer-arith -Wswitch -Wno-psabi 
 CFLAGS += -Wredundant-decls -Wreturn-type -Wshadow -Wunused
 CFLAGS += -Wa,-adhlns=$(subst $(suffix $<),.lst,$<)
@@ -201,7 +206,7 @@ CFLAGS += $(patsubst %,-I%,$(EXTRAINCDIRS))
 CFLAGS += -munaligned-access
 
 # flags only for C
-CONLYFLAGS += -Wnested-externs
+CONLYFLAGS +=  -Wimplicit -Wnested-externs
 CONLYFLAGS += $(CSTANDARD)
 
 ifneq ($(AT91LIBNOWARN),yes)
@@ -213,8 +218,9 @@ CFLAGS += -Wcast-qual
 endif
 
 # flags only for C++ (arm-elf-g++)
-CPPFLAGS = -fno-rtti -fno-exceptions
-# CPPFLAGS =
+CPPFLAGS += -fno-rtti -fno-exceptions $(CPPSTANDARD)
+#__dso_handle symbol, __cxa_atexit and __cxa_finalize:
+CFLAGS += -fno-use-cxa-atexit 
 
 # Assembler flags.
 #  -Wa,...:   tell GCC to pass this to the assembler.
@@ -243,8 +249,9 @@ MATH_LIB = -lm
 #  -Wl,...:     tell GCC to pass this to linker.
 #    -Map:      create map file
 #    --cref:    add cross reference to  map file
-LDFLAGS = -nostartfiles -Wl,-Map=$(TARGET).map,--cref,--gc-sections
-LDFLAGS += 
+#LDFLAGS = -nostartfiles
+LDFLAGS += -Wl,-Map=$(TARGET).map,--cref,--gc-sections
+LDFLAGS += --specs=nano.specs
 LDFLAGS += -lc
 LDFLAGS += $(NEWLIBLPC) $(MATH_LIB)
 LDFLAGS += -lc -lgcc
@@ -417,7 +424,7 @@ endif
 	@echo
 	@echo $(MSG_FLASH) $@
 	$(OBJCOPY) -O $(FORMAT) $< $@
-	$(CROSS_COMPILE)objdump -d -g -C -l -S --prefix-addresses $(TARGET) > builds/$(TARGET).v$(GITVERSION).b$(BUILDNUM).lss
+	$(OBJDUMP) -d -g -C -l -S --prefix-addresses $(TARGET).elf > builds/$(TARGET).v$(GITVERSION).b$(BUILDNUM).lss
 	$(COPY) $@ builds/$(TARGET).v$(GITVERSION).b$(BUILDNUM).hex
 
 # Create final output file (.bin) from ELF output file.

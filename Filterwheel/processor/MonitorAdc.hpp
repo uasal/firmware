@@ -161,8 +161,9 @@ private:
 
 public:
 	
-	CGraphFWMonitorAdc() : Adc(4.096),  AdcFound(false), Monitor(false),
-							P1V2(0), P2V2(0), P28V(0), P2V5(0), P6V(0), P5V(0), P3V3D(0), P4V3(0), P2I2(0), P4I3(0), P6I(0), Aux0(0), Aux1(0), Aux2(0), AmbientLight(0), Temperature(0)//,
+	CGraphFWMonitorAdc() :  AdcFound(false), Monitor(false),
+							P1V2(0), P2V2(0), P28V(0), P2V5(0), P6V(0), P5V(0), P3V3D(0), P4V3(0), P2I2(0), P4I3(0), P6I(0), Aux0(0), Aux1(0), Aux2(0), AmbientLight(0), Temperature(0),
+							Adc(4.096) //,
 	{ }
 	
 	~CGraphFWMonitorAdc() { }

@@ -44,6 +44,14 @@ extern BinaryUart FpgaUartParser2;
 extern BinaryUart FpgaUartParser1;
 //~ extern BinaryUart FpgaUartParser0;
 
+#include "uart/uart_pinout_fpga.hpp"
+
+extern uart_pinout_fpga FPGAUartPinout0;
+extern uart_pinout_fpga FPGAUartPinout1;
+extern uart_pinout_fpga FPGAUartPinout2;
+extern uart_pinout_fpga FPGAUartPinout3;
+extern uart_pinout_fpga FPGAUartPinoutUsb;
+
 char Buffer[4096];
 
 int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
@@ -64,7 +72,7 @@ int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsL
 
 int8_t ReadFpgaCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	uint32_t Buffer;
+	uint32_t RdFpgaBuf;
 
 	//Convert parameter to an integer
     size_t addr = 0;
@@ -75,22 +83,22 @@ int8_t ReadFpgaCommand(char const* Name, char const* Params, const size_t Params
 		//~ for (addr = 0; addr <= 64; addr++)
 		for (addr = 0; addr <= 128; addr+=4)
 		{
-			Buffer = *(((uint8_t*)FW)+addr);
-			formatf("\n0x%.2zX: 0x%.2X ", addr, Buffer);
-			formatf("[%u]", Buffer);
-			//~ formatf(" ('%c')", Buffer);
+			RdFpgaBuf = *(((uint8_t*)FW)+addr);
+			formatf("\n0x%.2zX: 0x%.2X ", addr, RdFpgaBuf);
+			formatf("[%u]", RdFpgaBuf);
+			//~ formatf(" ('%c')", RdFpgaBuf);
 		}	
 		formatf("\n\n");
     }
 	else
 	{
 		addr -= (addr%4);
-		Buffer = *(((uint8_t*)FW)+addr);
+		RdFpgaBuf = *(((uint8_t*)FW)+addr);
 		formatf("\nReadFpgaCommand: ");
-		//~ formatf("\n%zu: 0x%.2X ", addr, Buffer);
-		formatf("\n0x%.2zX: 0x%.8lX ", addr, (unsigned long)Buffer);
-		formatf("[%lu]", (unsigned long)Buffer);
-		formatf(" ('%c')\n\n", Buffer);
+		//~ formatf("\n%zu: 0x%.2X ", addr, RdFpgaBuf);
+		formatf("\n0x%.2zX: 0x%.8lX ", addr, (unsigned long)RdFpgaBuf);
+		formatf("[%lu]", (unsigned long)RdFpgaBuf);
+		formatf(" ('%c')\n\n", RdFpgaBuf);
 	}
 	
 	return(ParamsLen);
@@ -394,11 +402,6 @@ int8_t PrintBuffersCommand(char const* Name, char const* Params, const size_t Pa
 	return(ParamsLen);
 }
 
-extern bool MonitorSerial0;
-extern bool MonitorSerial1;
-extern bool MonitorSerial2;
-extern bool MonitorSerial3;
-
 int8_t MonitorSerialCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	unsigned long port = 0;
@@ -416,10 +419,10 @@ int8_t MonitorSerialCommand(char const* Name, char const* Params, const size_t P
 		
 		switch(port)
 		{
-			case 0 : { MonitorSerial0 = OnOff; break; }			
-			case 1 : { MonitorSerial1 = OnOff; break; }			
-			case 2 : { MonitorSerial2 = OnOff; break; }			
-			case 3 : { MonitorSerial3 = OnOff; break; }			
+			case 0 : { FPGAUartPinout0.Monitor(OnOff); break; }			
+			case 1 : { FPGAUartPinout1.Monitor(OnOff); break; }			
+			case 2 : { FPGAUartPinout2.Monitor(OnOff); break; }			
+			case 3 : { FPGAUartPinout3.Monitor(OnOff); break; }			
 			default : 
 			{ 
 				formatf("\n\nMonitorSerialCommand: Invalid port %lu; max is #2.\n", port);
@@ -431,10 +434,10 @@ int8_t MonitorSerialCommand(char const* Name, char const* Params, const size_t P
 	
 	formatf("\n\nMonitorSerialCommand: Insufficient parameters (%u; should be 2); querying...", numfound);
 
-	formatf("\nMonitorSerialCommand: Monitoring port 0: %c.\n", MonitorSerial0?'Y':'N');
-	formatf("\nMonitorSerialCommand: Monitoring port 1: %c.\n", MonitorSerial1?'Y':'N');
-	formatf("\nMonitorSerialCommand: Monitoring port 2: %c.\n", MonitorSerial2?'Y':'N');	
-	formatf("\nMonitorSerialCommand: Monitoring port 3: %c.\n", MonitorSerial3?'Y':'N');	
+	formatf("\nMonitorSerialCommand: Monitoring port 0: %c.\n", FPGAUartPinout0.Monitor()?'Y':'N');
+	formatf("\nMonitorSerialCommand: Monitoring port 1: %c.\n", FPGAUartPinout1.Monitor()?'Y':'N');
+	formatf("\nMonitorSerialCommand: Monitoring port 2: %c.\n", FPGAUartPinout2.Monitor()?'Y':'N');	
+	formatf("\nMonitorSerialCommand: Monitoring port 3: %c.\n", FPGAUartPinout3.Monitor()?'Y':'N');	
 	
     return(strlen(Params));
 }

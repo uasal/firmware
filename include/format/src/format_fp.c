@@ -640,10 +640,10 @@ static int do_conv_efg( T_FormatSpec *     pspec,
     if ( is_f && really_g )
     {
         DEC_MANT_REG_TYPE  m = mantissa;
-        int i;
+        int j;
 
         /* strip extraneous digits */
-        for ( i = sigfig; i > n_left + n_right; i--, m /= 10 );
+        for ( j = sigfig; j > n_left + n_right; j--, m /= 10 );
 
         /* strip trailing zeros */
         for ( ; n_right > 0 && m % 10 == 0; m /= 10, n_right-- );
@@ -891,6 +891,9 @@ static int do_conv_k( T_FormatSpec * pspec,
         double d;
         DEC_MANT_REG_TYPE b;
     } u;
+	
+	u.d = 0.0;
+	u.b = 0;
 
     if ( total_bytes == 0 )
         return EXBADFORMAT;
