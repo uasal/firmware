@@ -77,8 +77,9 @@ BUILDNUM:= $(shell bquery $(TARGET))
 
 # MCU name and submodel
 #~ MCU      = arm7tdmi
-THUMB    = -mthumb
-#THUMB_IW = -mthumb-interwork
+#~ THUMB    = -mthumb
+# Do we need interworking??
+#~ THUMB_IW = -mthumb-interwork
 
 ## Create ROM-Image (final)
 #RUN_MODE=ROM_RUN
@@ -251,6 +252,7 @@ MATH_LIB = -lm
 #    --cref:    add cross reference to  map file
 #LDFLAGS = -nostartfiles
 LDFLAGS += -Wl,-Map=$(TARGET).map,--cref,--gc-sections
+#Nano.specs makes a lot smaller binary - does it break anything??
 LDFLAGS += --specs=nano.specs
 LDFLAGS += -lc
 LDFLAGS += $(NEWLIBLPC) $(MATH_LIB)

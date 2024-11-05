@@ -429,23 +429,7 @@ bool ValidateFWPostition()
 	return(false);
 }
 
-//Enable this if malloc problems occur (!!we shouldn't be using malloc, but c-libraries sometimes link it in!!)
-//~ class MTracer
-//~ {
-//~ public:
-
-//~ MTracer()
-//~ {
-//~ putenv("MALLOC_TRACE=/home/root/FWTrace.txt");
-//~ mtrace(); /* Starts the recording of memory allocations and releases */
-//~ }
-//~ } mtracer;
-
-extern "C"
-{
-    void wooinit(void) __attribute__((constructor));
-};
-
+//This code is to make "syscalls.c" replace vendor's "newlib_stubs.c" and make printf() and friends connect to a real serial port in our actual hardware! Only useful if we can compile our own code from makefile and replace vendor's "softconsole" version...
 extern "C"
 {
 	int stdio_hook_putc(int c) 
@@ -581,6 +565,15 @@ void ProcessAllUarts()
 
 int main(int argc, char *argv[])
 {	
+	//disable interrupts
+	//~ asm volatile
+	//~ (\
+	//~ "mrs r0, PRIMASK ;" \
+    //~ "cpsid I ;" \
+    //~ "bx lr ;" \
+	//~ \
+	//~ );
+	
     //Tell C lib (stdio.h) not to buffer output, so we can ditch all the fflush(stdout) calls...
     //~ setvbuf(stdout, NULL, _IONBF, 0);
 

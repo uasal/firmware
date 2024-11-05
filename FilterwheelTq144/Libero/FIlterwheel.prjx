@@ -236,8 +236,8 @@ SIZE="5415"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBusAddrTx.vhd,hdl"
 STATE="utd"
-TIME="1726674523"
-SIZE="4641"
+TIME="1730333359"
+SIZE="4589"
 ENDFILE
 VALUE "/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd,hdl"
 STATE="utd"
@@ -486,8 +486,8 @@ ENDFILE
 VALUE "<project>/../../include/fpga/SpiExtBusAddrTx.vhd,hdl"
 LINKFILEROOT "<project>/../../include/fpga"
 STATE="utd"
-TIME="1726674523"
-SIZE="4641"
+TIME="1730333359"
+SIZE="4589"
 ENDFILE
 VALUE "<project>/../../include/fpga/SpiMaster.vhd,hdl"
 LINKFILEROOT "<project>/../../include/fpga"
@@ -1147,7 +1147,7 @@ PARENT="<project>/component/work/Filterwheel_sb_MSS/Filterwheel_sb_MSS.cxf"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel.so,so"
 STATE="utd"
-TIME="1726685864"
+TIME="1729890718"
 SIZE="252"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel.vm,syn_vm"
@@ -1157,13 +1157,13 @@ SIZE="1410607"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel_syn.prj,prj"
 STATE="utd"
-TIME="1726685864"
+TIME="1729890718"
 SIZE="6590"
 ENDFILE
 VALUE "<project>/synthesis/Filterwheel_vm.sdc,syn_sdc"
 STATE="utd"
-TIME="1726685863"
-SIZE="7559"
+TIME="1729890717"
+SIZE="5308"
 ENDFILE
 ENDLIST
 LIST UsedFile
@@ -1420,8 +1420,8 @@ NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
 LOCATION="/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/bin/synplify_pro"
-PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
-BATCH=1
+PARAM=""
+BATCH=0
 LICENSE=""
 IS32BIT="1"
 EndProfile
@@ -1524,13 +1524,8 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
-Timing Report Explorer;Timing Report Explorer;0
-Reports;Reports;0
-ReportsCurrentItem;Verify Timing:Filterwheel_timing_constraints_coverage.xml
-Constraint Manager;Constraint Manager;0
-SmartDesign;Filterwheel;0
 StartPage;StartPage;0
-ACTIVEVIEW;Reports
+ACTIVEVIEW;StartPage
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","/home/summer/projects/CGraph/firmware/include/fpga/ads1258.vhd","FALSE","FALSE"

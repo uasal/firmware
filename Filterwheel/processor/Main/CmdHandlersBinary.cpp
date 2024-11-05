@@ -35,7 +35,7 @@ extern CGraphFWMonitorAdc MonitorAdc;
 
 #include "FilterWheel.hpp"
 
-#include "../FWBuildNum"
+#include "MainBuildNum"
 
 #include "CmdTableBinary.hpp"
 
