@@ -15,7 +15,7 @@
 
 #include "MonitorAdc.hpp"
 
-CGraphFWMonitorAdc MonitorAdc;
+CGraphFSMMonitorAdc MonitorAdc;
 
 MonitorAdcCalibratedInput P1V2Calibrate(1.0, 0.0); //1:1
 MonitorAdcCalibratedInput P2V2Calibrate(2.0, 0.0); //1:2
@@ -84,7 +84,7 @@ const char TestMonitorAdcHelp[] = "\"TestMonitorAdc\"; Show raw A/D counts...";
 int8_t TestMonitorAdcCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	size_t cycle = 0;
-	int key = 1;
+	//~ int key = 1;
 	
 	{
 		cycle++;

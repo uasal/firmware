@@ -1,10 +1,29 @@
 //
-///           University of Arizona
-///           Steward Observatory
-///           UASAL - UA Space Astrophysics Labratory
-///           CAAO - Center for Astronomical Adaptive Optics
-///           MagAOX
+///           Copyright (c) by Franks Development, LLC
 //
+// This software is copyrighted by and is the sole property of Franks
+// Development, LLC. All rights, title, ownership, or other interests
+// in the software remain the property of Franks Development, LLC. This
+// software may only be used in accordance with the corresponding
+// license agreement.  Any unauthorized use, duplication, transmission,
+// distribution, or disclosure of this software is expressly forbidden.
+//
+// This Copyright notice may not be removed or modified without prior
+// written consent of Franks Development, LLC.
+//
+// Franks Development, LLC. reserves the right to modify this software
+// without notice.
+//
+// Franks Development, LLC            support@franks-development.com
+// 500 N. Bahamas Dr. #101           http://www.franks-development.com
+// Tucson, AZ 85710
+// USA
+//
+/// \file
+/// $Source: /raincloud/src/clients/UACGraph/Zeus/Zeus3/firmware/arm/main/CmdTable.hpp,v $
+/// $Revision: 1.27 $
+/// $Date: 2010/06/08 23:54:01 $
+/// $Author: summer $
 
 #include <stdint.h>
 
@@ -17,12 +36,12 @@
 ///The actual table (array) of commands for the system - links with CmdSystem.cpp.o
 const Cmd AsciiCmds[] =
 {
-	Cmd(
+    Cmd(
         "VERSION",
 		"\"Version\": Shows hardware and firmware version info.",
 		VersionCommand
     ),
-    
+	
 	Cmd (
         "READFPGA",
         "ReadFpga <address>",
@@ -48,27 +67,39 @@ const Cmd AsciiCmds[] =
     ),
 
     Cmd(
-        "FWSTATUS",
-        "\"FWStatus <A>,<B>,<C>\": Sets/queries the FW D/A's (hexadecimal lsb units).",
-        FWStatusCommand
+        "FSMDACS",
+        "\"FSMDacs <A>,<B>,<C>\": Sets/queries the FSM D/A's (hexadecimal lsb units).",
+        FSMDacsCommand
     ),
 	
 	Cmd(
-        "SENSORSTEPS",
-        "\"SensorSteps <A>,<B>,<C>\": Sets/queries the FW D/A's (decimal voltage units).",
-        SensorStepsCommand
+        "D",
+        "\"D(FSMDacs) <A>,<B>,<C>\": Sets/queries the FSM D/A's (hexadecimal lsb units).",
+        FSMDacsCommand
     ),
 	
 	Cmd(
-        "MOTOR",
-        "\"Motor <A>,<B>,<C>\": Sets/queries the FW A/D's.",
-        MotorCommand
+        "VOLTAGE",
+        "\"Voltage <A>,<B>,<C>\": Sets/queries the FSM D/A's (decimal voltage units).",
+        VoltageCommand
     ),
 	
 	Cmd(
-        "FILTERSELECT",
-        "\"FilterSelect <1-8>\": Sets/queries the currently loaded filter; respose of 0 means wheel is in motion/currently seeking a position.",
-        FilterSelectCommand
+        "V",
+        "\"V(oltage) <A>,<B>,<C>\": Sets/queries the FSM D/A's (decimal voltage units).",
+        VoltageCommand
+    ),
+	
+	Cmd(
+        "FSMADCS",
+        "\"FSMAdcs <A>,<B>,<C>\": Sets/queries the FSM A/D's.",
+        FSMAdcsCommand
+    ),
+	
+	Cmd(
+        "A",
+        "\"A(FSMAdcs) <A>,<B>,<C>\": Sets/queries the FSM A/D's.",
+        FSMAdcsCommand
     ),
 	
 	Cmd(
@@ -106,10 +137,40 @@ const Cmd AsciiCmds[] =
         "\"BIST\": Runs a self-test, logs values to terminal.",
         BISTCommand
     ),
-		
+	
+	Cmd(
+        "CIRCLES",
+        "\"Circles <radius:0...1.0,ratems:0...10k>\": Runs a self-test, moves actuator in a circle.",
+        CirclesCommand
+    ),
+	
+	Cmd(
+        "C",
+        "\"C(ircles).",
+        CirclesCommand
+    ),
+	
+	Cmd(
+        "GOXY",
+        "\"GoXY <X:0...1.0,Y:0...1.0>\": Moves the actuator to the given coordinates.",
+        GoXYCommand
+    ),
+	
+	Cmd(
+        "UART",
+        "\"Uart\": Twiddle the uart.",
+        UartCommand
+    ),
+	
+	Cmd(
+        "U",
+        "\"U(art)\": Twiddle the uart.",
+        UartCommand
+    ),
+	
 	Cmd(
         "BAUDDIVIDERS",
-        "\"BaudDividers < W | W, X, Y, Z >\": Set/query the divider to change the baudrate for each port...",
+        "\"BaudDividers\": 0,1,2: Set the divider to change the baudrate for each port...",
         BaudDividersCommand
     ),
 	
@@ -121,7 +182,7 @@ const Cmd AsciiCmds[] =
 	
 	Cmd(
         "MONITORSERIAL",
-        "\"MonitorSerial < 0 | 1 | 2 | 3 > <Y | N>\": Show/hide incoming serial bytes.",
+        "\"MonitorSerial <0 | 1 | 2> <Y | N>\": Show/hide incoming serial bytes.",
         MonitorSerialCommand
     ),
 };

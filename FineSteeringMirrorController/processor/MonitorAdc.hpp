@@ -23,8 +23,8 @@
 
 extern void ProcessAllUarts();
 
-#include "cgraph/CGraphFWHardwareInterface.hpp"
-extern CGraphFWHardwareInterface* FW;	
+#include "cgraph/CGraphFSMHardwareInterface.hpp"
+extern CGraphFSMHardwareInterface* FSM;	
 
 //Note: if any offsets are not 4-byte aligned, the M3 processor WILL crash:
 const size_t MonitorAdcFpgaAdcSampleAddr = 104;
@@ -36,13 +36,13 @@ struct PinoutMonitorAdc
 {
 	PinoutMonitorAdc() { }
 	virtual ~PinoutMonitorAdc() { }
-	static uint8_t GetAdcReadChannel()								{ uint8_t val = *(((uint8_t*)FW)+MonitorAdcFpgaAdcChannelAddr); return(val); }
-	static void SetAdcReadChannel(const uint8_t val) 					{ *(((uint8_t*)FW)+MonitorAdcFpgaAdcChannelAddr) = (uint8_t)val; }
-	//~ old way to hopefully implement later: static void GetAdcSample(Ltc244xAccumulator& val) 				{ val = *((Ltc244xAccumulator*)(((uint8_t*)FW)+MonitorAdcFpgaAdcSampleAddr)); }		
+	static uint8_t GetAdcReadChannel()								{ uint8_t val = *(((uint8_t*)FSM)+MonitorAdcFpgaAdcChannelAddr); return(val); }
+	static void SetAdcReadChannel(const uint8_t val) 					{ *(((uint8_t*)FSM)+MonitorAdcFpgaAdcChannelAddr) = (uint8_t)val; }
+	//~ old way to hopefully implement later: static void GetAdcSample(Ltc244xAccumulator& val) 				{ val = *((Ltc244xAccumulator*)(((uint8_t*)FSM)+MonitorAdcFpgaAdcSampleAddr)); }		
 	
 	static const size_t spi_timeout = 100;
 	
-	static bool busy() { return(0 == (FW->MonitorAdcSpiCommandStatusRegister.TransactionComplete) ); }
+	static bool busy() { return(0 == (FSM->MonitorAdcSpiCommandStatusRegister.TransactionComplete) ); }
 	static void waitbusytimeout()
 	{
 		size_t i = 0;
@@ -54,12 +54,12 @@ struct PinoutMonitorAdc
 		if (i >= spi_timeout - 2) { formatf("\nPinoutMonitorAdc: T/O."); }
 	}
 	
-	static void enable(const bool en) { FW->MonitorAdcSpiCommandStatusRegister.all = (uint32_t)en; }
+	static void enable(const bool en) { FSM->MonitorAdcSpiCommandStatusRegister.all = (uint32_t)en; }
 	
 	static void transmit(const uint8_t val) 					
 	{ 
 		waitbusytimeout();
-		FW->MonitorAdcSpiTransactionRegister = (uint32_t)val; 
+		FSM->MonitorAdcSpiTransactionRegister = (uint32_t)val; 
 	}
 	
 	static uint8_t receive(uint8_t val) 				
@@ -68,18 +68,18 @@ struct PinoutMonitorAdc
 		
 		//Do the xfer
 		waitbusytimeout();
-		FW->MonitorAdcSpiTransactionRegister = (uint32_t)val; 
+		FSM->MonitorAdcSpiTransactionRegister = (uint32_t)val; 
 		
 		//readback
 		waitbusytimeout();
-		out = FW->MonitorAdcSpiTransactionRegister; 
+		out = FSM->MonitorAdcSpiTransactionRegister; 
 		
 		return(out);
 	}		
 	
 	static bool nDrdy() 				
 	{ 
-		return(0 == (FW->MonitorAdcSpiCommandStatusRegister.nDrdy) );
+		return(0 == (FSM->MonitorAdcSpiCommandStatusRegister.nDrdy) );
 	}		
 	
 	static void setclkpolarity(const bool en) { } //handled by fpga
@@ -126,7 +126,7 @@ extern MonitorAdcCalibratedInput AmbientLightCalibrate;
 extern MonitorAdcCalibratedInput TemperatureCalibrate;
 
 //~ template <class spi, class adcpinout, unsigned int spiclkdivider = 39>
-struct CGraphFWMonitorAdc
+struct CGraphFSMMonitorAdc
 {
 	
 private:
@@ -161,17 +161,18 @@ private:
 
 public:
 	
-	CGraphFWMonitorAdc() : Adc(4.096),  AdcFound(false), Monitor(false),
-							P1V2(0), P2V2(0), P28V(0), P2V5(0), P6V(0), P5V(0), P3V3D(0), P4V3(0), P2I2(0), P4I3(0), P6I(0), Aux0(0), Aux1(0), Aux2(0), AmbientLight(0), Temperature(0)//,
+	CGraphFSMMonitorAdc() : AdcFound(false), Monitor(false),
+							P1V2(0), P2V2(0), P28V(0), P2V5(0), P6V(0), P5V(0), P3V3D(0), P4V3(0), P2I2(0), P4I3(0), P6I(0), Aux0(0), Aux1(0), Aux2(0), AmbientLight(0), Temperature(0),
+							Adc(4.096)//,
 	{ }
 	
-	~CGraphFWMonitorAdc() { }
+	~CGraphFSMMonitorAdc() { }
 	
 	ads1258<PinoutMonitorAdc> Adc;
 	
-	//~ static uint8_t GetAdcReadChannel()								{ uint8_t val = *(((uint8_t*)FW)+MonitorAdcFpgaAdcChannelAddr); return(val); }
-	//~ static void SetAdcReadChannel(const uint8_t val) 					{ *(((uint8_t*)FW)+MonitorAdcFpgaAdcChannelAddr) = (uint8_t)val; }
-	//~ static void GetAdcSample(Ltc244xAccumulator& val) 				{ val = *((Ltc244xAccumulator*)(((uint8_t*)FW)+MonitorAdcFpgaAdcSampleAddr)); }		
+	//~ static uint8_t GetAdcReadChannel()								{ uint8_t val = *(((uint8_t*)FSM)+MonitorAdcFpgaAdcChannelAddr); return(val); }
+	//~ static void SetAdcReadChannel(const uint8_t val) 					{ *(((uint8_t*)FSM)+MonitorAdcFpgaAdcChannelAddr) = (uint8_t)val; }
+	//~ static void GetAdcSample(Ltc244xAccumulator& val) 				{ val = *((Ltc244xAccumulator*)(((uint8_t*)FSM)+MonitorAdcFpgaAdcSampleAddr)); }		
 	
 	//Adc channels:
 	#define P1V2Channel ads1258details::chan_se1

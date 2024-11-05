@@ -13,6 +13,7 @@ LIB_LOCAL = $(INCLUDE_LOCAL)
 MCU = cortex-m3
 RUN_MODE = ROM_RUN
 TARGET = Main
+PROJECT_NAME = Filterwheel
 
 CFLAGS += -Wno-address-of-packed-member
 

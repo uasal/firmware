@@ -12,61 +12,9 @@
 
 #include "format/formatf.h"
 
-union AdcAccumulator 		
-{
-    uint64_t all;
-    struct 
-    {
-        //~ int64_t Samples : 48;
-		int64_t Samples : 24;
-		int64_t reserved : 24;
-        uint16_t NumAccums;
+#include "uart/UartStatusRegister.hpp"
 
-    } __attribute__((__packed__));
-
-    //static const int32_t AdcFullScale = 0x7FFFFFFFL; //2^32 - 1; must divide accumulator by numaccums first obviously
-
-    AdcAccumulator() { all = 0; }
-
-    void formatf() const { ::formatf("AdcAccumulator: Samples: %+10.0lf ", (double)Samples); ::formatf("(0x%.8lX", (unsigned long)(all >> 32));  ::formatf("%.8lX)", (unsigned long)(all)); ::formatf(", NumAccums: %lu ", (unsigned long)NumAccums); ::formatf("(0x%lX)", (unsigned long)NumAccums); }
-
-} __attribute__((__packed__));
-
-union AdcTimestamp
-{
-    uint32_t all;
-    struct 
-    {
-        uint32_t SubsecondTicks : 27; //Max FPGA clock rate for 27b is 134,217,728Hz (134MHz) works well for our target speed of 103MHz.
-        uint32_t UnixTimeLsbs: 5; //We'd really like a little more granularity, but it's only ambiguous every 32 seconds I think we can deal with that...
-
-    } __attribute__((__packed__));
-
-    //~ AdcTimestamp() { all = 0; }
-
-    //~ void formatf() const { ::formatf("AdcTimestamp: SubsecondTicks: %+10.0lf ", (double)SubsecondTicks); ::formatf("(0x%.8lX", (unsigned long)(all >> 32));  ::formatf("%.8lX)", (unsigned long)(all)); ::formatf(", NumAccums: %lu ", (unsigned long)NumAccums); ::formatf("(0x%lX)", (unsigned long)NumAccums); }
-
-} __attribute__((__packed__));
-
-union AdcFifo
-{
-    uint64_t all;
-    struct 
-    {
-        int32_t Sample;
-        AdcTimestamp Timestamp;
-        //~ uint16_t NumSamplesInFifo; //this makes it 10 bytes instead of 8...which for some reason makes acessing uartstatusregister segfault
-
-    } __attribute__((__packed__));
-
-    //~ static const int32_t AdcFullScale = 0x7FFFFFFFL; //2^32 - 1;
-    //~ static const uint16_t FifoMaxDepth = 0x0FFFUL; //The FPGA doesn't actually have very much ram for fifos.
-
-    AdcFifo() { all = 0; }
-
-    //~ void formatf() const { ::formatf("AdcFifo: Sample: %+10.0lf ", (double)Sample); ::formatf("(0x%.8lX", (unsigned long)(all >> 32));  ::formatf("%.8lX)", (unsigned long)(all)); ::formatf(", NumAccums: %lu ", (unsigned long)NumAccums); ::formatf("(0x%lX)", (unsigned long)NumAccums); }
-
-} __attribute__((__packed__));
+#include "CGraphCommon.hpp"
 
 union CGraphFSMHardwareControlRegister
 {
@@ -108,31 +56,6 @@ union CGraphFSMHardwareStatusRegister
 
 } __attribute__((__packed__));
 
-union CGraphFSMUartStatusRegister
-{
-    uint32_t all;
-    struct 
-    {
-        uint32_t Uart2RxFifoEmpty : 1;
-        uint32_t Uart2RxFifoFull : 1;
-        uint32_t Uart2TxFifoEmpty : 1;
-        uint32_t Uart2TxFifoFull : 1;
-		uint32_t reserved1 : 4;
-		uint32_t Uart2RxFifoCount : 8;
-		uint32_t Uart2TxFifoCount : 8;
-		uint32_t Uart2RxFifoCountHi : 2;
-		uint32_t Uart2TxFifoCountHi : 2;
-		uint32_t reserved2 : 4;
-
-    } __attribute__((__packed__));
-
-    CGraphFSMUartStatusRegister() { all = 0; }
-
-    //~ void formatf() const { ::formatf("CGraphFSMUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", Uart2RxFifoEmpty?'Y':'N', Uart2RxFifoFull?'Y':'N', Uart2TxFifoEmpty?'Y':'N', Uart2TxFifoFull?'Y':'N', Uart2RxFifoCount + (Uart2RxFifoCountHi << 8), Uart2TxFifoCount + (Uart2TxFifoCountHi << 8)); }
-	void formatf() const { ::formatf("CGraphFSMUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", Uart2RxFifoEmpty?'Y':'N', Uart2RxFifoFull?'Y':'N', Uart2TxFifoEmpty?'Y':'N', Uart2TxFifoFull?'Y':'N', Uart2RxFifoCount, Uart2TxFifoCount); }
-
-} __attribute__((__packed__));
-
 struct CGraphFSMHardwareInterface
 {
     uint32_t DeviceSerialNumber; //ro; FPGA manufacturer hardcoded device UUID
@@ -156,17 +79,21 @@ struct CGraphFSMHardwareInterface
     int32_t PPSRtcPhaseComparator; //ro;
     int32_t PPSAdcPhaseComparator; //ro;
 	AdcAccumulator MonitorAdcAccumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
-	uint32_t MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
+	uint32_t reserved; //rw; which channel to read for MonitorA/D
 	uint32_t UartFifo2; //rw; send or read bytes from uart(s)
-	CGraphFSMUartStatusRegister UartStatusRegister2; //ro; what state are the uart(s) in?
+	UartStatusRegister UartStatusRegister2; //ro; what state are the uart(s) in?
 	uint32_t UartFifo1; //rw; send or read bytes from uart(s)
-	CGraphFSMUartStatusRegister UartStatusRegister1; //ro; what state are the uart(s) in?
+	UartStatusRegister UartStatusRegister1; //ro; what state are the uart(s) in?
 	uint32_t UartFifo0; //rw; send or read bytes from uart(s)
-	CGraphFSMUartStatusRegister UartStatusRegister0; //ro; what state are the uart(s) in?
+	UartStatusRegister UartStatusRegister0; //ro; what state are the uart(s) in?
 	uint8_t BaudDivider0; //rw; clock divider for the first serial port
 	uint8_t BaudDivider1;
 	uint8_t BaudDivider2;
 	uint8_t BaudDivider3;
+	uint32_t MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
+	uint32_t MonitorAdcSpiTransactionRegister;
+	CGraphMonitorAdcCommandStatusRegister MonitorAdcSpiCommandStatusRegister;
+	
 	
     static const uint32_t DacFullScale; //2^20 - 1
     static const double DacDriverFullScaleOutputVoltage; //150 Volts, don't get your fingers near this thing!

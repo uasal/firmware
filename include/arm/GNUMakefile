@@ -424,8 +424,9 @@ endif
 	@echo
 	@echo $(MSG_FLASH) $@
 	$(OBJCOPY) -O $(FORMAT) $< $@
-	$(OBJDUMP) -d -g -C -l -S --prefix-addresses $(TARGET).elf > builds/$(TARGET).v$(GITVERSION).b$(BUILDNUM).lss
-	$(COPY) $@ builds/$(TARGET).v$(GITVERSION).b$(BUILDNUM).hex
+	$(eval BUILDNUMAFTER := $(shell bquery $(TARGET)))
+	$(OBJDUMP) -d -g -C -l -S --prefix-addresses $(TARGET).elf > builds/$(PROJECT_NAME).v$(GITVERSION).b$(BUILDNUMAFTER).lss
+	$(COPY) $@ builds/$(PROJECT_NAME).v$(GITVERSION).b$(BUILDNUMAFTER).hex
 
 # Create final output file (.bin) from ELF output file.
 %.bin: %.elf
