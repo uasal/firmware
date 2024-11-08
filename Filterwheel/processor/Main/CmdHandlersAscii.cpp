@@ -314,19 +314,24 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	{
 		//Show the monitor A/D
 		{
-			CGraphFWHardwareControlRegister HCR;
-			HCR.PosLedsEnA = 1;
-			HCR.PosLedsEnB = 1;
-			HCR.MotorEnable = 1;
-			HCR.ResetSteps = 1;
-			FW->ControlRegister = HCR;		
-			HCR.ResetSteps = 0;
-			FW->ControlRegister = HCR;		
+			//~ CGraphFWHardwareControlRegister HCR;
+			//~ HCR.PosLedsEnA = 1;
+			//~ HCR.PosLedsEnB = 1;
+			//~ HCR.MotorEnable = 1;
+			//~ HCR.ResetSteps = 1;
+			//~ FW->ControlRegister = HCR;		
+			//~ HCR.ResetSteps = 0;
+			//~ FW->ControlRegister = HCR;		
 			
 			//~ CGraphFWMotorControlStatusRegister MCSR;
 			//~ MCSR.SeekStep = 730;
 			//~ FW->MotorControlStatus = MCSR;		
 		}
+		
+		//Test hardfault handler:
+		//~ int* a = (int*)0x00000003;
+		//~ (*a)++;
+		formatf("\nBIST: About to crash: %d", *(((char*)FW)+3));
 	}
 	
 	return(ParamsLen);

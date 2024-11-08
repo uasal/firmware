@@ -443,7 +443,7 @@ extern "C"
 extern "C"
 {
 	//These still aren't getting called for some reason (just try to acess a variable at an odd address to test)
-	void asm_hard_fault_handler_c_container()
+	/*void asm_hard_fault_handler_c_container()
 	{
 		asm volatile
 		(\
@@ -461,6 +461,7 @@ extern "C"
 			\
 		);
 	}
+	*/
 	
 	void hard_fault_handler_c (unsigned int * hardfault_args)
 	{
@@ -488,7 +489,6 @@ extern "C"
 		stacked_pc = ((unsigned long) hardfault_args[6]);
 		stacked_psr = ((unsigned long) hardfault_args[7]);
 
-		formatf ("\n\n[Hard fault handler - all numbers in hex]\n");
 		formatf ("R0 = %x\n", stacked_r0);
 		formatf ("R1 = %x\n", stacked_r1);
 		formatf ("R2 = %x\n", stacked_r2);
@@ -504,7 +504,9 @@ extern "C"
 		formatf ("AFSR = %x\n", (*((volatile unsigned long *)(0xE000ED3C))));
 		//~ this is an STM32 thing? formatf ("SCB_SHCSR = %x\n", SCB->SHCSR);
 
-		while (1);
+		//~ while (1);
+		void (*boot)() = 0;
+		boot();
 	}
 
 	//Does the current clib need this?
@@ -565,17 +567,18 @@ void ProcessAllUarts()
 
 int main(int argc, char *argv[])
 {	
-	//disable interrupts
-	//~ asm volatile
-	//~ (\
-	//~ "mrs r0, PRIMASK ;" \
-    //~ "cpsid I ;" \
-    //~ "bx lr ;" \
-	//~ \
-	//~ );
+	/* //disable interrupts
+	asm volatile
+	(\
+	"mrs r0, PRIMASK ;" \
+    "cpsid I ;" \
+    "bx lr ;" \
+	\
+	);
+	*/
 	
     //Tell C lib (stdio.h) not to buffer output, so we can ditch all the fflush(stdout) calls...
-    //~ setvbuf(stdout, NULL, _IONBF, 0);
+    setvbuf(stdout, NULL, _IONBF, 0);
 
     //~ if (argc > 2)
 
@@ -675,8 +678,8 @@ int main(int argc, char *argv[])
     formatf("_end: 0x%.8lX\n", (uint32_t)_end);
     formatf("\n\n");
 
-	//formatf("\n\nESC-FW: v%s.b%s; Offset of ControlRegister: 0x%.2lX, expected: 0x%.2lX.", GITVERSION, BUILDNUM, (unsigned long)offsetof(CGraphFWHardwareInterface, ControlRegister), 32UL);
-    formatf("\n\nESC-FW: Offset of ControlRegister: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, ControlRegister), 32UL);
+	formatf("\n\nESC-FW: v%s.b%s; Offset of ControlRegister: 0x%.2lX, expected: 0x%.2lX.", GITVERSION, BUILDNUM, (unsigned long)offsetof(CGraphFWHardwareInterface, ControlRegister), 32UL);
+    //~ formatf("\n\nESC-FW: Offset of ControlRegister: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, ControlRegister), 32UL);
 	
 	CGraphFWHardwareControlRegister HCR;
 	HCR.PosLedsEnA = 1;

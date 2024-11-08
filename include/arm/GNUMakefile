@@ -263,7 +263,7 @@ LDFLAGS += $(patsubst %,-L%,$(EXTRA_LIBDIRS))
 LDFLAGS += $(patsubst %,-l%,$(EXTRA_LIBS))
 
 # Set Linker-Script Depending On Selected Memory and Controller
-ifeq ($(RUN_MODE),RAM_RUN)
+ifeq ($(RUN_MODE),DEBUG)
 LDFLAGS +=-T$(INCLUDE_LOCAL)/arm/smartfusion/debug-in-microsemi-smartfusion2-envm.ld
 else
 LDFLAGS +=-T$(INCLUDE_LOCAL)/arm/smartfusion/production-smartfusion2-execute-in-place.ld
@@ -408,13 +408,7 @@ ifeq ($(FLASH_TOOL),OPENOCD)
 	#~ $(OOCD) $(OOCD_DBG) -f $(OOCD_CFG)
 #~ endif
 program: $(TARGET).elf
-	echo "Starting debugger..."
-	shell "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(INCLUDE_LOCAL)/arm/openocd/fpserver"
-	shell "export OPENOCD_SCRIPTS=$(INCLUDE_LOCAL)/arm/openocd/scripts"
-	$(INCLUDE_LOCAL)/arm/openocd/fpserver/fpServer
-	$(OOCD) --command "gdb_port 3333" --command "tcl_port 6666" --command "telnet_port 4444" --command "set DEVICE M2S010" --file board/microsemi-cortex-m3.cfg
-	$(GDB) target remote localhost:3333 --command "set mem inaccessible-by-default off" --command "file $(TARGET).elf"
-	nemiver
+	export INCLUDE_LOCAL=$(INCLUDE_LOCAL) && export OOCD=$(OOCD) && export GDB=$(GDB) && export TARGET=$(TARGET) && $(INCLUDE_LOCAL)/arm/smartfusion/sf2_debug.sh
 endif
 
 
