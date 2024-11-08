@@ -24,6 +24,7 @@ INCLUDE_ARCH = $(HOME)/.local/arm-none-eabi/include
 LIB_ARCH = $(HOME)/.local/arm-none-eabi/lib
 SHELL = sh
 CC = $(HOME)/.local/arm-none-eabi/bin/arm-none-eabi-gcc
+GDB = $(HOME)/.local/arm-none-eabi/bin/arm-none-eabi-gdb
 CPP = $(HOME)/.local/arm-none-eabi/bin/arm-none-eabi-g++
 AR = $(HOME)/.local/arm-none-eabi/bin/arm-none-eabi-ar
 OBJCOPY = $(HOME)/.local/arm-none-eabi/bin/arm-none-eabi-objcopy
@@ -60,7 +61,7 @@ CROSS_COMPILE ?= /.local/arm-none-eabi/bin/arm-none-eabi-
 
 REMOVE = rm -f
 COPY = cp
-OOCD = openocd
+OOCD = $(INCLUDE_LOCAL)/arm/openocd/openocd
 LPC21ISP = lpc21isp
 JTAG = /usr$(HOME)/bin/jtag
 
@@ -396,16 +397,27 @@ endif
 ifeq ($(FLASH_TOOL),OPENOCD)
 # Program the device with Dominic Rath's OPENOCD in "batch-mode", needs cfg and "reset-script".
 #The used interface either FTDI(=WinARM-JTAG, JTAGKEY etc.) or PP(="Wiggler")
-OOCD_INTERFACE = FTDI
-OOCD_CFG = $(INCLUDE_LOCAL)/arm/lpc2xxx_armusbocd.cfg
+#~ OOCD_INTERFACE = FTDI
+#~ OOCD_CFG = $(INCLUDE_LOCAL)/arm/lpc2xxx_armusbocd.cfg
 #OOCD_INTERFACE = PP
 #OOCD_CFG=openocd_lpc2138_flash_wiggler.cfg
 #OOCD = /usr/local/bin/openocd-pp.exe
-OOCD_DBG = -d 3
-program: $(TARGET).hex
-	echo "Programming with OPENOCD"
-	$(OOCD) $(OOCD_DBG) -f $(OOCD_CFG)
+#~ OOCD_DBG = -d 3
+#~ program: $(TARGET).hex
+	#~ echo "Programming with OPENOCD"
+	#~ $(OOCD) $(OOCD_DBG) -f $(OOCD_CFG)
+#~ endif
+program: $(TARGET).elf
+	echo "Starting debugger..."
+	shell "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(INCLUDE_LOCAL)/arm/openocd/fpserver"
+	shell "export OPENOCD_SCRIPTS=$(INCLUDE_LOCAL)/arm/openocd/scripts"
+	$(INCLUDE_LOCAL)/arm/openocd/fpserver/fpServer
+	$(OOCD) --command "gdb_port 3333" --command "tcl_port 6666" --command "telnet_port 4444" --command "set DEVICE M2S010" --file board/microsemi-cortex-m3.cfg
+	$(GDB) target remote localhost:3333 --command "set mem inaccessible-by-default off" --command "file $(TARGET).elf"
+	nemiver
 endif
+
+
 
 ifeq ($(FLASH_TOOL),LPC21ISP)
 # Program the device.  - lpc21isp will not work for SAM7
