@@ -28,7 +28,7 @@ CPPSRC = CmdTableAscii.cpp CmdHandlersAscii.cpp CmdTableBinary.cpp CmdHandlersBi
 
 OPT = 0
 RUN_MODE = DEBUG
-CFLAGS += -g
+CFLAGS += -ggdb
 
 FLASH_TOOL = OPENOCD
 
