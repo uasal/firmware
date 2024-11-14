@@ -14,7 +14,7 @@
 
 #include "uart/UartStatusRegister.hpp"
 
-#include "CGraphCommon.hpp"
+#include "cgraph/CGraphCommon.hpp"
 
 union CGraphFSMHardwareControlRegister
 {
@@ -65,35 +65,50 @@ struct CGraphFSMHardwareInterface
     uint32_t ActualTicksLastSecond; //ro; Count of clock ticks for entire last second; equal to IdealTicksPerSecond unless clock was set or GPS PPS signal is present
 	uint32_t ClockTicksThisSecondAddr; //ro Running count of clock ticks since the start of the current second
     uint32_t ClockSteeringDacSetpoint; //rw; 
+	uint32_t reserved1;
+	CGraphFSMHardwareControlRegister ControlRegister;
+	uint32_t reserved2;
+	uint32_t reserved3;
     uint32_t DacASetpoint; //rw; First D/A; Zero = zero travel, DacFullScale = full scale travel
     uint32_t DacBSetpoint; //rw; Second D/A; Zero = zero travel, DacFullScale = full scale travel
     uint32_t DacCSetpoint; //rw; Third D/A; Zero = zero travel, DacFullScale = full scale travel
+	uint32_t DacDSetpoint; //rw; Third D/A; Zero = zero travel, DacFullScale = full scale travel
     AdcAccumulator AdcAAccumulator; //rw; First A/D; read or write any value to clear & reset accumulator
     AdcAccumulator AdcBAccumulator; //rw; Second A/D; read or write any value to clear & reset accumulator
     AdcAccumulator AdcCAccumulator; //rw; Third A/D; read or write any value to clear & reset accumulator
-    AdcFifo AdcAFifo; //rw; First A/D; read of first byte of this structure latches entire structure on bus and removes one sample from fifo; write of any value clears fifo
-    AdcFifo AdcBFifo; //rw; Second A/D; read of first byte of this structure latches entire structure on bus and removes one sample from fifo; write of any value clears fifo
-    AdcFifo AdcCFifo; //rw; Third A/D; read of first byte of this structure latches entire structure on bus and removes one sample from fifo; write of any value clears fifo
-    CGraphFSMHardwareControlRegister ControlRegister; //rw; see definition above
-    CGraphFSMHardwareStatusRegister StatusRegister; //ro; see definition above
-    int32_t PPSRtcPhaseComparator; //ro;
-    int32_t PPSAdcPhaseComparator; //ro;
+	AdcAccumulator AdcDAccumulator; //rw; Third A/D; read or write any value to clear & reset accumulator
+    
 	AdcAccumulator MonitorAdcAccumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
-	uint32_t reserved; //rw; which channel to read for MonitorA/D
-	uint32_t UartFifo2; //rw; send or read bytes from uart(s)
-	UartStatusRegister UartStatusRegister2; //ro; what state are the uart(s) in?
-	uint32_t UartFifo1; //rw; send or read bytes from uart(s)
-	UartStatusRegister UartStatusRegister1; //ro; what state are the uart(s) in?
-	uint32_t UartFifo0; //rw; send or read bytes from uart(s)
-	UartStatusRegister UartStatusRegister0; //ro; what state are the uart(s) in?
-	uint8_t BaudDivider0; //rw; clock divider for the first serial port
-	uint8_t BaudDivider1;
-	uint8_t BaudDivider2;
-	uint8_t BaudDivider3;
 	uint32_t MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
 	uint32_t MonitorAdcSpiTransactionRegister;
 	CGraphMonitorAdcCommandStatusRegister MonitorAdcSpiCommandStatusRegister;
 	
+	CGraphBaudDividers BaudDividers;
+	
+	uint32_t UartFifo0; //rw; send or read bytes from uart(s)
+	UartStatusRegister UartStatusRegister0; //ro; what state are the uart(s) in?
+	uint32_t UartFifo0ReadData;
+    
+	uint32_t UartFifo1; //rw; send or read bytes from uart(s)
+	UartStatusRegister UartStatusRegister1; //ro; what state are the uart(s) in?
+	uint32_t UartFifo1ReadData;
+    
+	uint32_t UartFifo2; //rw; send or read bytes from uart(s)
+	UartStatusRegister UartStatusRegister2; //ro; what state are the uart(s) in?
+	uint32_t UartFifo2ReadData;
+    
+	uint32_t UartFifo3; //rw; send or read bytes from uart(s)
+	UartStatusRegister UartStatusRegister3; //ro; what state are the uart(s) in?
+	uint32_t UartFifo3ReadData;
+    
+	uint32_t UartFifoLab; //rw; send or read bytes from uart(s)
+	UartStatusRegister UartStatusRegisterLab; //ro; what state are the uart(s) in?
+	uint32_t UartFifoLabReadData;
+
+	uint32_t ExtSpiAddrOut; //
+	uint32_t ExtSpiAddrIn; //
+	uint32_t ExtSpiXfer; //
+	uint32_t ExtSpiReadback; //
 	
     static const uint32_t DacFullScale; //2^20 - 1
     static const double DacDriverFullScaleOutputVoltage; //150 Volts, don't get your fingers near this thing!

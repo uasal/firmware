@@ -52,7 +52,7 @@ using namespace std;
 
 #include "uart/AsciiCmdUserInterfaceLinux.h"
 
-#include "cgraph/CGraphFSMHardwareInterface.hpp"
+#include "cgraph/CGraphDeprecatedPZTHardwareInterface.hpp"
 extern int MmapHandle;
 extern CGraphFSMHardwareInterface* FSM;	
 

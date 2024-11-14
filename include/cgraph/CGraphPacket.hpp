@@ -16,7 +16,7 @@
 
 #include "uart/IPacket.hpp"
 
-uint32_t CRC32(const uint8_t* data, const size_t length);
+#include "uart/Crc32Bzip2.h"
 
 static const uint32_t CGraphMagikPacketStartToken = 0x1BADBABEUL;
 
@@ -42,12 +42,12 @@ static const uint32_t CGraphMagikPacketEndToken = 0x0A0FADEDUL; //\n(0a) goes in
 
 struct CGraphPacketFooter
 {
-	uint32_t CRC32;
+	uint32_t CRC32BZIP2;
 	uint32_t PacketEndToken;
 	
-	CGraphPacketFooter() : CRC32(0), PacketEndToken(CGraphMagikPacketEndToken) { }
+	CGraphPacketFooter() : CRC32BZIP2(0), PacketEndToken(CGraphMagikPacketEndToken) { }
 	
-	//~ void formatf() const { ::formatf("CGraphPacketFooter: CRC: 0x%.8lX; PacketEndToken(0x%.8lX): 0x%.8lX", CRC32, CGraphMagikPacketEndToken, PacketEndToken); }
+	//~ void formatf() const { ::formatf("CGraphPacketFooter: CRC: 0x%.8lX; PacketEndToken(0x%.8lX): 0x%.8lX", CRC32BZIP2, CGraphMagikPacketEndToken, PacketEndToken); }
 
 } __attribute__((__packed__));
 
@@ -109,8 +109,8 @@ public:
 		if (CGraphMagikPacketStartToken != Header->PacketStartToken) { return(false); }
 		const CGraphPacketFooter* Footer = reinterpret_cast<const CGraphPacketFooter*>(&(Buffer[PacketStartPos + sizeof(CGraphPacketHeader) + Header->PayloadLen]));
 		if (CGraphMagikPacketEndToken != Footer->PacketEndToken) { return(false); }
-		uint32_t CRC = CRC32((const uint8_t*)Header, sizeof(CGraphPacketHeader) + Header->PayloadLen);
-		if (CRC != Footer->CRC32) { return(false); }		
+		uint32_t CRC = CRC32BZIP2((const uint8_t*)Header, sizeof(CGraphPacketHeader) + Header->PayloadLen);
+		if (CRC != Footer->CRC32BZIP2) { return(false); }		
 		return(true);
 	}
 	
@@ -123,8 +123,8 @@ public:
 		memcpy(Buffer, &Header, sizeof(CGraphPacketHeader));
 		if (NULL != Payload) { memcpy(&(Buffer[sizeof(CGraphPacketHeader)]), Payload, PayloadLen); }
 		CGraphPacketFooter* Footer = reinterpret_cast<CGraphPacketFooter*>(&(Buffer[sizeof(CGraphPacketHeader) + PayloadLen]));
-		uint32_t CRC = CRC32(Buffer, sizeof(CGraphPacketHeader) + PayloadLen);
-		Footer->CRC32 = CRC;
+		uint32_t CRC = CRC32BZIP2(Buffer, sizeof(CGraphPacketHeader) + PayloadLen);
+		Footer->CRC32BZIP2 = CRC;
 		Footer->PacketEndToken = CGraphMagikPacketEndToken;
 		return(sizeof(CGraphPacketHeader) + PayloadLen + sizeof(CGraphPacketFooter));
 	}

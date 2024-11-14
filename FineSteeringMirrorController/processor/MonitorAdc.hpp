@@ -16,7 +16,7 @@
 #include "Delay.h"
 //~ #include "adc/lt244x_accum.h"
 //~ #include "adc/lt244x.h"
-#define DEBUG
+#define DEBUGADC
 #include "adc/ads1258.h"
 #include "temp/TempLM35.hpp"
 #include "format/formatf.h"

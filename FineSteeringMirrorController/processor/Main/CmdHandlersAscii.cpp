@@ -63,7 +63,7 @@ extern uart_pinout_fpga FPGAUartPinoutUsb;
 extern BinaryUart FpgaUartParser3;
 extern BinaryUart FpgaUartParser2;
 extern BinaryUart FpgaUartParser1;
-extern BinaryUart FpgaUartParser0;
+//~ extern BinaryUart FpgaUartParser0; //using this one for ascii rn...
 
 char Buffer[4096];
 
@@ -638,9 +638,10 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
     printf("\nUartCommand: Sending response (%u bytes): ", sizeof(CGraphVersionPayload));
     Version.formatf();
     printf("\n");
-	TxBinaryPacket(&FpgaUartParser0, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
+	//~ TxBinaryPacket(&FpgaUartParser0, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
 	TxBinaryPacket(&FpgaUartParser1, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
     TxBinaryPacket(&FpgaUartParser2, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
+    TxBinaryPacket(&FpgaUartParser3, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
     
 	printf("\nUartCommand: complete.\n");
 
@@ -649,7 +650,7 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 
 int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	unsigned long A = 0, B = 0, C = 0;
+	unsigned long A = 0, B = 0, C = 0, D = 0;
 	
 	if (NULL == FSM)
 	{
@@ -658,31 +659,32 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 	}
 	
 	//Convert parameters
-    int8_t numfound = sscanf(Params, "%lu,%lu,%lu", &A, &B, &C);
-    if (numfound >= 3)
+    int8_t numfound = sscanf(Params, "%lu,%lu,%lu,%lu", &A, &B, &C, &D);
+    if (numfound >= 4)
     {
-		FSM->BaudDivider0 = A;
-		FSM->BaudDivider1 = B;
-		FSM->BaudDivider2 = C;
-		printf("\n\nBaudDividers: setting to: %lu, %lu, %lu.\n", A, B, C);
+		FSM->BaudDividers.Divider0 = A;
+		FSM->BaudDividers.Divider1 = B;
+		FSM->BaudDividers.Divider2 = C;
+		FSM->BaudDividers.Divider3 = D;
+		printf("\n\nBaudDividers: setting to: %lu, %lu, %lu, %lu.\n", A, B, C, D);
     }
 	else
 	{
 		if (numfound >= 1)
 		{
-			FSM->BaudDivider0 = A;
-			FSM->BaudDivider1 = A;
-			//~ FSM->DacBSetpoint = 0x006FFFFFUL; //Sometimes this is 100V
-			//~ FSM->DacBSetpoint = 0x00CFFFFFUL; //Aaaaaand, sometimes this is 100V
-			FSM->BaudDivider2 = A;
-			printf("\n\nBaudDividers: setting to: %lu, %lu, %lu.\n", A, A, A);
+			FSM->BaudDividers.Divider0 = A;
+			FSM->BaudDividers.Divider1 = A;
+			FSM->BaudDividers.Divider2 = A;
+			FSM->BaudDividers.Divider3 = A;
+			printf("\n\nBaudDividers: setting to: %lu, %lu, %lu, %lu.\n", A, A, A, A);
 		}
 	}
 	
-	A = FSM->BaudDivider0;
-	B = FSM->BaudDivider1;
-	C = FSM->BaudDivider2;
-	printf("\n\nBaudDividers: current values: %lu, %lu, %lu.\n", A, B, C);
+	A = FSM->BaudDividers.Divider0;
+	B = FSM->BaudDividers.Divider1;
+	C = FSM->BaudDividers.Divider2;
+	D = FSM->BaudDividers.Divider3;
+	printf("\n\nBaudDividers: current values: %lu, %lu, %lu, %lu.\n", A, B, C, D);
 	
 	//~ printf("\nBaudDividers: (331 = 9600, 83 = 38400, 55 = 57600, 27 = 115200, 13 = 230400, 7 = 460800, 3 = 921600)\n");
 	
@@ -690,16 +692,20 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 	//~ unsigned int ActualDividerA = (A + 1) * 2;
 	//~ unsigned int ActualDividerB = (B + 1) * 2;
 	//~ unsigned int ActualDividerC = (C + 1) * 2;
+	//~ unsigned int ActualDividerD = (D + 1) * 2;
 	unsigned int ActualDividerA = (A + 1);
 	unsigned int ActualDividerB = (B + 1);
 	unsigned int ActualDividerC = (C + 1);
+	unsigned int ActualDividerD = (D + 1);
 	double BaudRateA = (BaudClock / ActualDividerA) / 16;
 	double BaudRateB = (BaudClock / ActualDividerB) / 16;
 	double BaudRateC = (BaudClock / ActualDividerC) / 16;
+	double BaudRateD = (BaudClock / ActualDividerD) / 16;
 	
 	printf("\nBaudDividers: Port0 final division ratio: %u (/16); Actual baudrate: %.5lf", ActualDividerA, BaudRateA);
 	printf("\nBaudDividers: Port1 final division ratio: %u (/16); Actual baudrate: %.5lf", ActualDividerB, BaudRateB);
 	printf("\nBaudDividers: Port2 final division ratio: %u (/16); Actual baudrate: %.5lf\n", ActualDividerC, BaudRateC);
+	printf("\nBaudDividers: Port3 final division ratio: %u (/16); Actual baudrate: %.5lf\n", ActualDividerD, BaudRateD);
 	
 	return(ParamsLen);
 }
@@ -707,9 +713,10 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 int8_t PrintBuffersCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	printf("\nShowBuffersCommand: FpgaUartParser: ");
-	FpgaUartParser2.formatf();
+	//~ FpgaUartParser0.formatf();
 	FpgaUartParser1.formatf();
-	FpgaUartParser0.formatf();
+	FpgaUartParser2.formatf();
+	FpgaUartParser3.formatf();
 	printf("\n\n");
 	return(ParamsLen);
 }

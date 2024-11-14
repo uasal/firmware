@@ -25,7 +25,7 @@
 #pragma once
 
 #include <stdint.h>
-#ifdef DEBUG
+#ifdef DEBUGADC
 	#include <stdio.h>
 	#include <string.h>
 #endif
@@ -155,7 +155,7 @@ namespace ads1258details
 		bool operator!=(config0register& rhs)
 			{ return(all != rhs.all); }
 
-		#ifdef DEBUG
+		#ifdef DEBUGADC
 			void sformatf(char* s) { ::sformatf(s, "config0reg: timeo=%d, mux=%d, byp=%d, clk=%d, chop=%d, stat=%d", spiresettimeout, muxmod, bypass, clkout, chop, stat); }
 		#endif
 	} __attribute__((__packed__));
@@ -181,7 +181,7 @@ namespace ads1258details
 		bool operator!=(config1register& rhs)
 			{ return(all != rhs.all); }
 
-		#ifdef DEBUG
+		#ifdef DEBUGADC
 			void sformatf(char* s) { ::sformatf(s, "config1reg: idle=%d, delay=%d, bias=%d, rate=%d", idlemode, delay, sensorbiascurrent, datarate); }
 		#endif
 	} __attribute__((__packed__));
@@ -205,7 +205,7 @@ namespace ads1258details
 		bool operator!=(muxschregister& rhs)
 			{ return(all != rhs.all); }
 
-		#ifdef DEBUG
+		#ifdef DEBUGADC
 			void sformatf(char* s) { ::sformatf(s, "muxschregister: neg=%d, pos=%d", chan_negin, chan_posin); }
 		#endif
 	} __attribute__((__packed__));
@@ -235,7 +235,7 @@ namespace ads1258details
 		bool operator!=(sysreadregister& rhs)
 			{ return(all != rhs.all); }
 
-		#ifdef DEBUG
+		#ifdef DEBUGADC
 			void sformatf(char* s) { ::sformatf(s, "sysreadregister: ref=%d, gain=%d, temp=%d, vcc=%d, off=%d", scan_ref, scan_gain, scan_temp, scan_vcc, scan_offset); }
 		#endif
 
@@ -326,7 +326,7 @@ struct ads1258 : spipinout
 			ReadRegister(ads1258details::register_muxsch, temp);
 			if (muxsch.all != temp)
 			{
-				#ifdef DEBUG
+				#ifdef DEBUGADC
 					formatf("ads1258::ConvertOnceDiff(): muxsch mismatch (reads:0x%.2X)\n", temp);
 				#endif
 				return(ads1258details::register_muxdif);
@@ -422,28 +422,28 @@ struct ads1258 : spipinout
 			ReadRegister(ads1258details::register_muxdif, temp);
 			if (ScanChansDiff != temp)
 			{
-				//~ #ifdef DEBUG
+				//~ #ifdef DEBUGADC
 					formatf("ads1258::SetScanChannels(): muxdif mismatch (reads:0x%.2X)\n", temp);
 				//~ #endif
 			}
 			ReadRegister(ads1258details::register_muxsg0, temp);
 			if (ScanChansSELo != temp)
 			{
-				//~ #ifdef DEBUG
+				//~ #ifdef DEBUGADC
 					formatf("ads1258::SetScanChannels(): muxsg0 mismatch (reads:0x%.2X)\n", temp);
 				//~ #endif
 			}
 			ReadRegister(ads1258details::register_muxsg1, temp);
 			if (ScanChansSEHi != temp)
 			{
-				//~ #ifdef DEBUG
+				//~ #ifdef DEBUGADC
 					formatf("ads1258::SetScanChannels(): muxsg1 mismatch (reads:0x%.2X)\n", temp);
 				//~ #endif
 			}
 			ReadRegister(ads1258details::register_sysread, temp);
 			if (ScanChansInternal != temp)
 			{
-				//~ #ifdef DEBUG
+				//~ #ifdef DEBUGADC
 					formatf("ads1258::SetScanChannels(): sysred mismatch (reads:0x%.2X)\n", temp);
 				//~ #endif
 			}
@@ -548,7 +548,7 @@ struct ads1258 : spipinout
 				ReadRegister(ads1258details::register_config0, temp);
 				if (config0.all != temp)
 				{
-					//~ #ifdef DEBUG
+					//~ #ifdef DEBUGADC
 						::formatf("ads1258::init(): config0 mismatch (reads:0x%.2X, wanted:0x%.2X)\n", temp, config0.all);
 					//~ #endif
 					return(ads1258details::register_config0);
@@ -558,7 +558,7 @@ struct ads1258 : spipinout
 				ReadRegister(ads1258details::register_config1, temp);
 				if (config1.all != temp)
 				{
-					//~ #ifdef DEBUG
+					//~ #ifdef DEBUGADC
 						::formatf("ads1258::init(): config1 mismatch (reads:0x%.2X, wanted:0x%.2X)\n", temp, config1.all);
 					//~ #endif
 					return(ads1258details::register_config1);
@@ -568,7 +568,7 @@ struct ads1258 : spipinout
 				ReadRegister(ads1258details::register_sysread, temp);
 				if (sysread.all != temp)
 				{
-					//~ #ifdef DEBUG
+					//~ #ifdef DEBUGADC
 						::formatf("ads1258::init(): sysread mismatch (reads:0x%.2X, wanted:0x%.2X)\n", temp, sysread.all);
 					//~ #endif
 					return(ads1258details::register_sysread);
@@ -579,7 +579,7 @@ struct ads1258 : spipinout
 				ReadRegister(ads1258details::register_gpioc, temp);
 				if (gpio_output_mask != temp)
 				{
-					//~ #ifdef DEBUG
+					//~ #ifdef DEBUGADC
 						::formatf("ads1258::init(): gpioc mismatch (reads:0x%.2X, wanted:0x%.2X)\n", temp, gpio_output_mask);
 					//~ #endif
 					return(ads1258details::register_gpioc);
@@ -592,7 +592,7 @@ struct ads1258 : spipinout
 				ReadRegister(ads1258details::register_idnum, temp);
 				if (0x8B != temp)
 				{
-					//~ #ifdef DEBUG
+					//~ #ifdef DEBUGADC
 						::formatf("ads1258::init(): idnum mismatch (reads:0x%.2X, wanted:0x%.2X)\n", temp, 0x8B);
 					//~ #endif
 					return(ads1258details::register_idnum);

@@ -39,7 +39,7 @@ using namespace std;
 
 #include "cgraph/CGraphPacket.hpp"
 
-#include "cgraph/CGraphFSMHardwareInterface.hpp"
+#include "cgraph/CGraphDeprecatedPZTHardwareInterface.hpp"
 extern CGraphFSMHardwareInterface* FSM;	
 
 #include "../MonitorAdc.hpp"

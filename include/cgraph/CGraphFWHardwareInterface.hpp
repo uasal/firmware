@@ -15,25 +15,7 @@
 
 #include "format/formatf.h"
 
-union AdcAccumulator 		
-{
-    uint64_t all;
-    struct 
-    {
-        //~ int64_t Samples : 48;
-		int64_t Samples : 24;
-		int64_t reserved : 24;
-        uint16_t NumAccums;
-
-    } __attribute__((__packed__));
-
-    //static const int32_t AdcFullScale = 0x7FFFFFFFL; //2^32 - 1; must divide accumulator by numaccums first obviously
-
-    AdcAccumulator() { all = 0; }
-
-    void formatf() const { ::formatf("AdcAccumulator: Samples: %+10.0lf ", (double)Samples); ::formatf("(0x%.8lX", (unsigned long)(all >> 32));  ::formatf("%.8lX)", (unsigned long)(all)); ::formatf(", NumAccums: %lu ", (unsigned long)NumAccums); ::formatf("(0x%lX)", (unsigned long)NumAccums); }
-
-} __attribute__((__packed__));
+#include "cgraph/CGraphCommon.hpp"
 
 union CGraphFWHardwareControlRegister
 {
@@ -182,48 +164,6 @@ union CGraphFWPositionStepRegister
 
 } __attribute__((__packed__));
 
-union CGraphFWBaudDividers
-{
-    uint32_t all;
-    struct 
-    {
-        uint32_t Divider0 : 8;
-		uint32_t Divider1 : 8;  //8b offsets reliably crash uC
-		uint32_t Divider2 : 8;
-		uint32_t Divider3 : 8;
-        
-    } __attribute__((__packed__));
-
-    CGraphFWBaudDividers() { all = 0; }
-	
-	void formatf() const 
-	{ 
-		::formatf("CGraphFWBaudDividers: All: %.4X ", all); 
-		::formatf(", Divider0: %u ", (unsigned)Divider0);
-		::formatf(", Divider1: %u ", (unsigned)Divider1);
-		::formatf(", Divider2: %u ", (unsigned)Divider2);
-		::formatf(", Divider3: %u ", (unsigned)Divider3);
-	}
-
-} __attribute__((__packed__));
-
-union CGraphFWMonitorAdcCommandStatusRegister
-{
-    uint32_t all;
-    struct 
-    {
-        uint32_t FrameEnable : 1; //1=nCs asserted (0), 0=nCs clear (1)
-        uint32_t TransactionComplete : 1; //Is the bus busy?
-        uint32_t nDrdy : 1; //Samples ready?
-        
-    } __attribute__((__packed__));
-
-    CGraphFWMonitorAdcCommandStatusRegister() { all = 0; }
-
-    void formatf() const { ::formatf("CGraphFWMonitorAdcCommandStatusRegister: FrameEnable:%c, TransactionComplete:%c, nDrdy:%c", FrameEnable?'1':'0', TransactionComplete?'1':'0', nDrdy?'1':'0'); }
-
-} __attribute__((__packed__));
-
 struct CGraphFWHardwareInterface
 {
     uint32_t DeviceSerialNumber; //ro; FPGA manufacturer hardcoded device UUID
@@ -243,9 +183,9 @@ struct CGraphFWHardwareInterface
 	AdcAccumulator MonitorAdcAccumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
 	uint32_t MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
 	uint32_t MonitorAdcSpiTransactionRegister;
-	CGraphFWMonitorAdcCommandStatusRegister MonitorAdcSpiCommandStatusRegister;
+	CGraphMonitorAdcCommandStatusRegister MonitorAdcSpiCommandStatusRegister;
 	
-	CGraphFWBaudDividers BaudDividers; //rw; clock dividers for the configurable serial ports (0-3 RS-485 only)
+	CGraphBaudDividers BaudDividers; //rw; clock dividers for the configurable serial ports (0-3 RS-485 only)
 	
 	uint32_t UartFifo0; //rw; send or read bytes from uart(s)
 	UartStatusRegister UartStatusRegister0; //ro; what state are the uart(s) in?

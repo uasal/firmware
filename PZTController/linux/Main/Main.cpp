@@ -18,7 +18,7 @@
 #include "arm/imx6-eim.h"
 #include "uart/AsciiCmdUserInterfaceLinux.h"
 
-#include "cgraph/CGraphFSMHardwareInterface.hpp"
+#include "cgraph/CGraphDeprecatedPZTHardwareInterface.hpp"
 int MmapHandle = 0;
 CGraphFSMHardwareInterface* FSM = NULL;
 
