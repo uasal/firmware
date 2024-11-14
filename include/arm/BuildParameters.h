@@ -6,9 +6,16 @@
 ///           MagAOX
 //
 
-#include "CGraphFSMHardwareInterface.hpp"
+#pragma once
 
-CGraphFSMHardwareInterface* FSM = (CGraphFSMHardwareInterface*)0x50000000UL;
-//CGraphFSMHardwareInterface* FSM = (CGraphFSMHardwareInterface*)0x30000000UL;
+#ifdef __cplusplus
+extern "C" {
+#endif
+  	
+	void ShowBuildParameters();
+	
+#ifdef __cplusplus
+}
+#endif
 
 //EOF

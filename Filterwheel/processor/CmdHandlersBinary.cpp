@@ -30,8 +30,7 @@ using namespace std;
 #include "cgraph/CGraphFWHardwareInterface.hpp"
 extern CGraphFWHardwareInterface* FW;	
 
-#include "../MonitorAdc.hpp"
-extern CGraphFWMonitorAdc MonitorAdc;
+#include "MonitorAdc.hpp"
 
 #include "FilterWheel.hpp"
 

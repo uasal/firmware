@@ -148,6 +148,26 @@ struct CGraphVersionPayload
 static const uint16_t CGraphPayloadTypeBaudClock = 0x1002U; //Payload: 64-bit uint; master clock rate in Hz
 static const uint16_t CGraphPayloadTypeBaudDividers = 0x1003U; //Payload: 4 8-bit uint's which generate baud * 16 from master BaudClock. !!Beware: can change speed of port currently being talked to!!
 
+static const uint16_t CGraphPayloadTypeHardFault = 0x1004U;
+struct CGraphHardFaultPayload
+{
+	uint32_t R0;
+	uint32_t R1;
+	uint32_t R2;
+	uint32_t R3;
+	uint32_t R12;
+	uint32_t LR;
+	uint32_t PC;
+	uint32_t PSR;
+	uint32_t BFAR;
+	uint32_t CFSR;
+	uint32_t HFSR;
+	uint32_t DFSR;
+	uint32_t AFSR;
+	
+	void formatf() const { ::printf("CGraphHardFaultPayload: R0: 0x%lX, R1: %lu, R2: %lu, R3: %lu, R12: %lu, LR: %lu, PC: %lu, PSR: %lu, BFAR: %lu, CFSR: %lu, HFSR: %lu, DFSR: %lu, AFSR: %lu", (unsigned long) R0,	(unsigned long) R1,	(unsigned long) R2,	(unsigned long) R3,	(unsigned long) R12,	(unsigned long) LR,	(unsigned long) PC,	(unsigned long) PSR,	(unsigned long) BFAR,	(unsigned long) CFSR,	(unsigned long) HFSR,	(unsigned long) DFSR,	(unsigned long) AFSR); }
+};
+
 //--------------------------------------------------------------------- FSM Fine Steering Mirror 0x2000 packets -------------------------------------------------------------
 
 static const uint16_t CGraphPayloadTypeFSMDacs = 0x2002U;

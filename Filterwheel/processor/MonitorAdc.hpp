@@ -20,11 +20,8 @@
 #include "adc/ads1258.h"
 #include "temp/TempLM35.hpp"
 #include "format/formatf.h"
-
-extern void ProcessAllUarts();
-
 #include "cgraph/CGraphFWHardwareInterface.hpp"
-extern CGraphFWHardwareInterface* FW;	
+#include "Uarts.hpp"
 
 //Note: if any offsets are not 4-byte aligned, the M3 processor WILL crash:
 const size_t MonitorAdcFpgaAdcSampleAddr = 104;
@@ -418,6 +415,8 @@ public:
 		BufferMaxInBufferUsedOut = (32 * sizeof(double));
 	}
 };
+
+extern CGraphFWMonitorAdc MonitorAdc;
 
 //Command Parser interface:
 extern const char ScanMonitorAdcCmdString[];

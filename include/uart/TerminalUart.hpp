@@ -35,6 +35,7 @@
 //~ #include <queue> //Using std::queue calls malloc and screws everything up....
 
 #include "uart/IUart.h"
+#include "uart/IUartParser.hpp"
 
 #include "format/formatf.h"
 
@@ -64,7 +65,7 @@ static const char* NoPrefix = (const char*)(0);
 
 static const char* (*NoPrompt)() __attribute__ ((used)) = 0;
 
-template<uint16_t txbufferlenbytes, uint16_t rxbufferlenbytes> struct TerminalUart //: public IPktSender
+template<uint16_t txbufferlenbytes, uint16_t rxbufferlenbytes> struct TerminalUart : IUartParser //, public IPktSender
 {
 	//This is where the received characters go while we are building a line up from the input
 	char RxBuffer[rxbufferlenbytes] __attribute__((aligned(4)));
@@ -77,7 +78,7 @@ template<uint16_t txbufferlenbytes, uint16_t rxbufferlenbytes> struct TerminalUa
 	char LastC;
 	bool UseCrLf;
 	bool BlockOnTxBuffFull;
-	IUart& Pinout;
+	//~ IUart& Pinout;
 	const Cmd* Cmds;
 	size_t NumCmds;
 	const char* (*TerminalUartPrompt)();
@@ -88,6 +89,7 @@ template<uint16_t txbufferlenbytes, uint16_t rxbufferlenbytes> struct TerminalUa
 	
 	TerminalUart(struct IUart& pinout, const Cmd* cmds, const size_t numcmds, const char* (*terminaluartprompt)() = 0, struct RTSCallback& rts = NoRTS, const char* prefix = NoPrefix, const uint16_t strlenprefix = 0, const bool verbose = true)
 		:
+			IUartParser(pinout),
 		    TxBuffer(),
 			RxCount(0),
 			TxCount(0),
@@ -96,7 +98,7 @@ template<uint16_t txbufferlenbytes, uint16_t rxbufferlenbytes> struct TerminalUa
 			LastC('\0'),
 			UseCrLf(false),
 			BlockOnTxBuffFull(true),
-			Pinout(pinout),
+			//~ Pinout(pinout),
 			Cmds(cmds),
 			NumCmds(numcmds),
 			TerminalUartPrompt(terminaluartprompt),

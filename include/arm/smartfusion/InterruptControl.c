@@ -6,9 +6,23 @@
 ///           MagAOX
 //
 
-#include "CGraphFSMHardwareInterface.hpp"
+#include <stdint.h>
 
-CGraphFSMHardwareInterface* FSM = (CGraphFSMHardwareInterface*)0x50000000UL;
-//CGraphFSMHardwareInterface* FSM = (CGraphFSMHardwareInterface*)0x30000000UL;
+#ifdef __cplusplus
+extern "C" {
+#endif
 
+	/* //disable interrupts
+	asm volatile
+	(\
+	"mrs r0, PRIMASK ;" \
+    "cpsid I ;" \
+    "bx lr ;" \
+	\
+	);
+	*/
+
+#ifdef __cplusplus
+};
+#endif
 //EOF

@@ -30,8 +30,7 @@ extern CGraphFWHardwareInterface* FW;
 
 #include "cgraph/CGraphPacket.hpp"
 
-#include "../MonitorAdc.hpp"
-extern CGraphFWMonitorAdc MonitorAdc;
+#include "MonitorAdc.hpp"
 
 #include "FilterWheel.hpp"
 

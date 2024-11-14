@@ -39,6 +39,7 @@
 
 #include "uart/IProtocol.hpp"
 #include "uart/IPacket.hpp"
+#include "uart/IUartParser.hpp"
 
 struct BinaryUartCallbacks
 {
@@ -58,14 +59,14 @@ struct BinaryUartCallbacks
 	virtual void BufferOverflow(const uint8_t* Buffer, const size_t& BufferLen) { }
 };
 
-struct BinaryUart
+struct BinaryUart : IUartParser
 {
     //This is where the received characters go while we are building a line up from the input
 	static const size_t RxBufferLenBytes = 4096;
 	static const size_t TxBufferLenBytes = 4096;
     uint8_t RxBuffer[RxBufferLenBytes];
     uint16_t RxCount;
-    IUart& Pinout;
+    //~ IUart& Pinout;
 	IPacket& Packet;
     const BinaryCmd* Cmds;
     size_t NumCmds;
@@ -80,8 +81,9 @@ struct BinaryUart
 	
     BinaryUart(struct IUart& pinout, struct IPacket& packet, const BinaryCmd* cmds, const size_t numcmds, struct BinaryUartCallbacks& callbacks, const bool verbose = true, const uint64_t serialnum = InvalidSerialNumber)
         :
+		IUartParser(pinout),
 		RxCount(0),
-        Pinout(pinout),
+        //~ Pinout(pinout),
 		Packet(packet),
         Cmds(cmds),
         NumCmds(numcmds),
@@ -92,8 +94,8 @@ struct BinaryUart
 		PacketStart(0),
 		PacketLen(0),
 		//~ Argument(argument),
-		SerialNum(serialnum)
-        
+		SerialNum(serialnum)	
+	
     {
 
     }

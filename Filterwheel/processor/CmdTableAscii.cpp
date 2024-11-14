@@ -10,7 +10,7 @@
 
 #include "uart/CmdSystem.hpp"
 
-#include "../MonitorAdc.hpp"
+#include "MonitorAdc.hpp"
 
 #include "CmdTableAscii.hpp"
 

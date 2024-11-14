@@ -8,6 +8,8 @@
 
 #include <stdint.h>
 #include "format/formatf.h"
+#include "uart/UartParserTable.hpp"
+#include "cgraph/CGraphPacket.hpp"
 
 #ifdef __cplusplus
 extern "C" {
@@ -53,6 +55,28 @@ extern "C" {
 		formatf ("AFSR = %x\n", (*((volatile unsigned long *)(0xE000ED3C))));
 		//~ this is an STM32 thing? formatf ("SCB_SHCSR = %x\n", SCB->SHCSR);
 		
+		CGraphHardFaultPayload Fault;
+	
+		Fault.R0 = stacked_r0;
+		Fault.R1 = stacked_r1;
+		Fault.R2 = stacked_r2;
+		Fault.R3 = stacked_r3;
+		Fault.R12 = stacked_r12;
+		Fault.LR = stacked_lr;
+		Fault.PC = stacked_pc;
+		Fault.PSR = stacked_psr;
+		Fault.BFAR = (*((volatile unsigned long *)(0xE000ED38)));
+		Fault.CFSR = (*((volatile unsigned long *)(0xE000ED28)));
+		Fault.HFSR = (*((volatile unsigned long *)(0xE000ED2C)));
+		Fault.DFSR = (*((volatile unsigned long *)(0xE000ED30)));
+		Fault.AFSR = (*((volatile unsigned long *)(0xE000ED3C)));
+
+		for (size_t i = 0; i < NumBinaryUartParsers; i++)
+		{
+			//void TxBinaryPacket(const uint16_t PayloadType, const uint32_t SerialNumber, const void* PayloadData, const size_t PayloadLen) const
+			if (NULL != BinaryUartParsers[i]) { BinaryUartParsers[i]->TxBinaryPacket(CGraphPayloadTypeHardFault, 0, &Fault, sizeof(CGraphHardFaultPayload)); }
+		}
+
 		//~ while (1); //we really don't wanna lock up in flight!
 		
 		//Just attempt to reboot and recover...
