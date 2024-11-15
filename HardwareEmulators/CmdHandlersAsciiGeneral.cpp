@@ -148,7 +148,40 @@ int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsL
 {
 	printf("\n\nVersion: This PearlHardwareEmulator App: Global Revision: %s; build number: %u on: %s.\n", GITVERSION, BuildNum, BuildTimeStr);
 	
-	TxBinaryPacket(&UartParser, CGraphPayloadTypeVersion, 0, NULL, 0);
+	CGraphVersionPayload Version;
+    Version.SerialNum = 0xDEADB10D;
+	Version.ProcessorFirmwareBuildNum = BuildNum;
+	Version.FPGAFirmwareBuildNum = 0x0A11D0E5;
+    TxBinaryPacket(&UartParser, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
+
+	return(strlen(Params));
+}
+
+int8_t HardFaultCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	printf("\n\nHardFault: pretending we just crashed!\n");
+	
+	CGraphHardFaultPayload Fault;
+
+	Fault.R0 = 0x00000000UL;
+	Fault.R1 = 0x00000001UL;
+	Fault.R2 = 0x00000002UL;
+	Fault.R3 = 0x00000003UL;
+	Fault.R12 = 0x00000012UL;
+	Fault.LR = 0x00000013UL;
+	//~ Fault.PC = __builtin_return_address(0);
+	Fault.PC = 0x00000666UL;
+	Fault.PSR = (uint64_t)(__builtin_return_address(0));
+	Fault.BFAR = 0xE000ED38;
+	Fault.CFSR = 0xE000ED28;
+	Fault.HFSR = 0xE000ED2C;
+	Fault.DFSR = 0xE000ED30;
+	Fault.AFSR = 0xE000ED3C;
+
+	Fault.formatf();
+	printf("\n\n");
+
+    TxBinaryPacket(&UartParser, CGraphPayloadTypeHardFault, 0, &Fault, sizeof(CGraphHardFaultPayload));
 	
 	return(strlen(Params));
 }

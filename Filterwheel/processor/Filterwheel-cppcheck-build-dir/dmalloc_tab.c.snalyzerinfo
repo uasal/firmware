@@ -1,0 +1,12 @@
+hash call:[while]
+which_bucket call:[hash,sizeof,strlen] noreturn:[hash]
+entry_cmp
+swap_bytes
+insert_sort call:[entry_cmp,memcpy,memmove] noreturn:[memcpy]
+split call:[abort,entry_cmp,insert_sort,memcpy,swap_bytes,while] noreturn:[abort,swap_bytes]
+log_entry call:[dmalloc_message] noreturn:[dmalloc_message]
+add_entry
+_dmalloc_table_clear call:[memset,sizeof,while] noreturn:[while]
+_dmalloc_table_insert call:[which_bucket]
+_dmalloc_table_delete call:[which_bucket,while]
+_dmalloc_table_log_info call:[_dmalloc_chunk_desc_pnt,add_entry,dmalloc_message,loc_snprintf,log_entry,memset,sizeof,split,strncpy] noreturn:[add_entry,dmalloc_message,log_entry]

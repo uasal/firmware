@@ -56,3 +56,19 @@ int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_
 	}
     return(ParamsLen);
 }
+
+int8_t BinaryHardFaultCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	if ( (NULL != Params) && (ParamsLen >= sizeof(CGraphHardFaultPayload)) )
+	{
+		const CGraphHardFaultPayload* HardFault = reinterpret_cast<const CGraphHardFaultPayload*>(Params);
+		printf("\nBinaryHardFaultCommand: ");
+		HardFault->formatf();
+		printf("\n");
+	}
+	else
+	{
+		printf("\nBinaryHardFaultCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, sizeof(CGraphHardFaultPayload));
+	}
+    return(ParamsLen);
+}

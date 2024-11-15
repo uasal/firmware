@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="1687326354">
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/core_cm3.h:1598:22" my-argnr="3" my-argname="pPreemptPriority" file="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/core_cm3.h" line="1607" col="4" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/core_cm3.h:1598:22" my-argnr="4" my-argname="pSubPriority" file="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/core_cm3.h" line="1608" col="4" value="0"/>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/core_cm3.h:1598:22" my-argnr="3" my-argname="pPreemptPriority" file="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/core_cm3.h" line="1607" col="4" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/core_cm3.h:1598:22" my-argnr="4" my-argname="pSubPriority" file="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/core_cm3.h" line="1608" col="4" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functioncall functionName="AIRCR"/>
+    <functioncall functionName="IRQn"/>
+    <functioncall functionName="ITM_RxBuffer"/>
+    <functioncall functionName="NVIC_SetPriority"/>
+    <functioncall functionName="PreemptPriorityBits"/>
+    <functioncall functionName="Priority"/>
+    <functioncall functionName="PriorityGroupTmp"/>
+    <functioncall functionName="SubPriorityBits"/>
+    <functioncall functionName="SysTick_IRQn"/>
+    <functioncall functionName="__DSB"/>
+    <functioncall functionName="__NOP"/>
+    <functioncall functionName="asm"/>
+    <functioncall functionName="ch"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="int32_t"/>
+    <functioncall functionName="op2"/>
+    <functioncall functionName="reg_value"/>
+    <functioncall functionName="result"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="uint16_t"/>
+    <functioncall functionName="uint32_t"/>
+    <functioncall functionName="uint8_t"/>
+    <functioncall functionName="void"/>
+    <functioncall functionName="while"/>
+  </FileInfo>
+</analyzerinfo>

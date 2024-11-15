@@ -42,6 +42,12 @@ const BinaryCmd BinaryCmds[] =
 		"BinaryVersionCommandDeprecated",
 		BinaryVersionCommand
     ),
+
+	BinaryCmd (
+		CGraphPayloadTypeHardFault,
+		"BinaryHardFaultCommand",
+		BinaryHardFaultCommand
+    ),	
 	
 	//FineSteeringMirror Commands
 	

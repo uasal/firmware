@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="4200841313">
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected. See also: https://www.securecoding.cert.org/confluence/display/cplusplus/EXP05-CPP.+Do+not+use+C-style+casts." cwe="398" file0="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphDMHardwareInterface.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphDMHardwareInterface.cpp" line="62" column="19"/>
+        </error>
+  <FileInfo check="Class">
+<class name="CGraphFSMHardwareInterface" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphFSMHardwareInterface.hpp" line="59" col="1" hash="12400727681004813832"/>
+<class name="CGraphDMCIHardwareInterface" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphDMHardwareInterface.hpp" line="82" col="1" hash="17173933565986062322"/>
+<class name="CGraphDMCIProtoHardwareMmapper" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphDMHardwareInterface.hpp" line="140" col="1" hash="15223235265058908857"/>
+  </FileInfo>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected. See also: https://www.securecoding.cert.org/confluence/display/cplusplus/EXP05-CPP.+Do+not+use+C-style+casts." cwe="398" file0="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphDMHardwareInterface.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphDMHardwareInterface.cpp" line="60" column="19"/>
+        </error>
+  <FileInfo check="Class">
+<class name="CGraphFSMHardwareInterface" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphFSMHardwareInterface.hpp" line="59" col="1" hash="12400727681004813832"/>
+<class name="CGraphDMCIHardwareInterface" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphDMHardwareInterface.hpp" line="82" col="1" hash="17173933565986062322"/>
+<class name="CGraphDMCIProtoHardwareMmapper" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphDMHardwareInterface.hpp" line="140" col="1" hash="10579694513734006372"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="open" lineNumber="31"/>
+    <functiondecl functionName="close" lineNumber="83"/>
+    <functiondecl functionName="read" lineNumber="112"/>
+    <functiondecl functionName="write" lineNumber="126"/>
+    <functiondecl functionName="open" lineNumber="31"/>
+    <functiondecl functionName="close" lineNumber="83"/>
+    <functiondecl functionName="read" lineNumber="112"/>
+    <functiondecl functionName="write" lineNumber="126"/>
+    <functioncall functionName="AdcAccumulator"/>
+    <functioncall functionName="AdcFifo"/>
+    <functioncall functionName="Address"/>
+    <functioncall functionName="Buffer"/>
+    <functioncall functionName="CGraphBaudDividers"/>
+    <functioncall functionName="CGraphDMCIHardwareControlRegister"/>
+    <functioncall functionName="CGraphDMCIHardwareInterface"/>
+    <functioncall functionName="CGraphDMCIHardwareStatusRegister"/>
+    <functioncall functionName="CGraphDMCIUartStatusRegister"/>
+    <functioncall functionName="CGraphFSMHardwareControlRegister"/>
+    <functioncall functionName="CGraphFSMHardwareStatusRegister"/>
+    <functioncall functionName="CGraphMonitorAdcCommandStatusRegister"/>
+    <functioncall functionName="Divider0"/>
+    <functioncall functionName="Divider1"/>
+    <functioncall functionName="Divider2"/>
+    <functioncall functionName="Divider3"/>
+    <functioncall functionName="EALREADY"/>
+    <functioncall functionName="EBADF"/>
+    <functioncall functionName="EFAULT"/>
+    <functioncall functionName="EINVAL"/>
+    <functioncall functionName="FpgaBus"/>
+    <functioncall functionName="FpgaBusEmulationPathName"/>
+    <functioncall functionName="FpgaHandle"/>
+    <functioncall functionName="Len"/>
+    <functioncall functionName="MAP_SHARED"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="NumAccums"/>
+    <functioncall functionName="O_CREAT"/>
+    <functioncall functionName="O_SYNC"/>
+    <functioncall functionName="PROT_WRITE"/>
+    <functioncall functionName="RxFifoCount"/>
+    <functioncall functionName="S_IWGRP"/>
+    <functioncall functionName="Samples"/>
+    <functioncall functionName="TxFifoCount"/>
+    <functioncall functionName="UartRxFifoCount"/>
+    <functioncall functionName="UartStatusRegister"/>
+    <functioncall functionName="UartTxFifoCount"/>
+    <functioncall functionName="all"/>
+    <functioncall functionName="close"/>
+    <functioncall functionName="double"/>
+    <functioncall functionName="errno"/>
+    <functioncall functionName="formatf"/>
+    <functioncall functionName="ftruncate"/>
+    <functioncall functionName="getenv"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="int"/>
+    <functioncall functionName="long"/>
+    <functioncall functionName="memcpy"/>
+    <functioncall functionName="mmap"/>
+    <functioncall functionName="munmap"/>
+    <functioncall functionName="open"/>
+    <functioncall functionName="perror"/>
+    <functioncall functionName="printf"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="sizeof"/>
+  </FileInfo>
+</analyzerinfo>

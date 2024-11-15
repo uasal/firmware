@@ -13,7 +13,6 @@
 #include <algorithm>
 
 #include "cgraph/CGraphFWHardwareInterface.hpp"
-extern CGraphFWHardwareInterface* FW;	
 
 #include "format/formatf.h"
 
@@ -21,12 +20,14 @@ extern CGraphFWHardwareInterface* FW;
 
 #include "FilterWheel.hpp"
 
-uint32_t FWPosition = (uint32_t)-1; //Start invalid so we initialize
+uint32_t FWPosition = (uint32_t)-1; //Which filter do we believe we are currently at? Start invalid so we initialize on first request
 
 int16_t ValidatedFWHomeStep()
 {
+	//Our final best answer:
 	int16_t HomeStep = 0;
 	
+	//Where does each sensor think home was at?
 	CGraphFWPositionStepRegister HomeA = FW->PosDetHomeA;
 	CGraphFWPositionStepRegister HomeB = FW->PosDetHomeB;
 	
@@ -35,9 +36,11 @@ int16_t ValidatedFWHomeStep()
 	formatf(";");
 	HomeB.formatf();
 	
+	//If on & off both zero, they've been reset
 	bool AValid = (HomeA.OnStep != 0) && (HomeA.OffStep != 0);
 	bool BValid = (HomeB.OnStep != 0) && (HomeB.OffStep != 0);
-	//Seen some pretty weird values in all instances...but when they're weird, they match...
+	
+	//Also if they match it's not real
 	if (HomeA.OnStep == HomeA.OffStep) { AValid = false; }
 	if (HomeB.OnStep == HomeB.OffStep) { BValid = false; }
 		
@@ -53,7 +56,7 @@ int16_t ValidatedFWHomeStep()
 	if (HomeB.OnStep < 0) { HomeB.OnStep += MotorFullCircleSteps; }
 	if (HomeB.OffStep < 0) { HomeB.OffStep += MotorFullCircleSteps; }
 	
-	//Correct splits
+	//Correct splits/wrap-around
 	if (abs((int)HomeA.OnStep - (int)HomeA.OffStep) > (MotorFullCircleSteps / 2)) { (HomeA.OnStep < HomeA.OffStep) ? HomeA.OnStep += MotorFullCircleSteps : HomeA.OffStep += MotorFullCircleSteps; }
 	if (abs((int)HomeB.OnStep - (int)HomeB.OffStep) > (MotorFullCircleSteps / 2)) { (HomeB.OnStep < HomeB.OffStep) ? HomeB.OnStep += MotorFullCircleSteps : HomeB.OffStep += MotorFullCircleSteps; }
 	
@@ -66,6 +69,7 @@ int16_t ValidatedFWHomeStep()
 	formatf(";");
 	HomeB.formatf();
 		
+	//Pick the good one or average them
 	if (AValid) { HomeStep = HomeA.MidStep(); }
 	if (BValid) { HomeStep += HomeB.MidStep(); }
 	if (AValid && BValid) { HomeStep /= 2; }
@@ -84,8 +88,8 @@ void FWHome()
 	HCR.MotorEnable = 1;
 	FW->ControlRegister = HCR;		
 	
-	//stabilize
-	delayms(100);
+	//stabilize lights & sensors
+	delayms(SensorPowerOnDelayMs);
 
 	//Try to start with motor homed
 	CGraphFWMotorControlStatusRegister MCSR;
@@ -107,7 +111,7 @@ void FWHome()
 	HCR.ResetSteps = 0;
 	FW->ControlRegister = HCR;		
 
-	//Now go around
+	//Now go around all the way once
 	MCSR.SeekStep = MotorFindHomeSteps;
 	FW->MotorControlStatus = MCSR;		
 	
@@ -119,20 +123,20 @@ void FWHome()
 		delayms(1);
 	}
 	
-	//Now send it home.
+	//Now send it to the real home we just passed on our way around.
 	int16_t HomeStep = ValidatedFWHomeStep();
 	
 	//Backlash
-	MCSR.SeekStep = HomeStep - 45;
+	MCSR.SeekStep = HomeStep - BacklashSteps;
 	FW->MotorControlStatus = MCSR;		
 	
-	formatf("\nESC-FW: Attempting to move motor to: %d.", HomeStep - 45);
+	formatf("\nESC-FW: Attempting to move motor to: %d.", HomeStep - BacklashSteps);
 	
 	//Wait for it to move
 	for (i = 0; i < MotorFindHomeTimeoutMs; i++)
 	{
 		MCSR = FW->MotorControlStatus;
-		if ((HomeStep - 45) == MCSR.CurrentStep) { break; }
+		if ((HomeStep - BacklashSteps) == MCSR.CurrentStep) { break; }
 		delayms(1);
 	}
 	
@@ -166,6 +170,7 @@ void FWHome()
 	formatf(";");
 	HomeB.formatf();
 	
+	//Lets assume that all worked and we're really at the home filter!
 	FWPosition = 1;
 	
 	//Turn things off
@@ -177,8 +182,9 @@ void FWHome()
 
 void FWSeekPosition(const uint32_t SeekPos)
 {
-	int16_t DestinationStep = 0;
 	size_t i = 0;
+	
+	int16_t DestinationStep = 0; //Where we going in terms of motor units?
 	
 	//is the index bogus? We either need to initialize for the first time, or the user asked us to do a forced intializeaiton...
 	if (SeekPos > FWMaxPosition) { FWHome(); }
@@ -186,7 +192,7 @@ void FWSeekPosition(const uint32_t SeekPos)
 	//Already there?
 	if (FWPosition == SeekPos) { return; }
 		
-	//Sun safe position? the lights are invalid, as long at the motor is in approximately the right location it's ok
+	//Sun safe position? 
 	if (0 == SeekPos)
 	{
 		DestinationStep = MotorSunSafeStep;
@@ -203,30 +209,31 @@ void FWSeekPosition(const uint32_t SeekPos)
 	HCR.MotorEnable = 1;
 	FW->ControlRegister = HCR;		
 	
-	//stabilize
-	delayms(100);
+	//stabilize lights & sensors
+	delayms(SensorPowerOnDelayMs);
 
+	//Where we at?
 	CGraphFWMotorControlStatusRegister MCSR;
 	MCSR = FW->MotorControlStatus;
-	
-	formatf("\nESC-FW: Attempting to move motor to: %d.", DestinationStep - 45);
-	
+		
 	//Backlash
-	MCSR.SeekStep = DestinationStep - 45;
+	formatf("\nESC-FW: Attempting to move motor to: %d.", DestinationStep - BacklashSteps);
+	MCSR.SeekStep = DestinationStep - BacklashSteps;
 	FW->MotorControlStatus = MCSR;		
+	
 	//Wait for it to move
 	for (i = 0; i < MotorFindHomeTimeoutMs; i++)
 	{
 		MCSR = FW->MotorControlStatus;
-		if ((DestinationStep - 45) == MCSR.CurrentStep) { break; }
+		if ((DestinationStep - BacklashSteps) == MCSR.CurrentStep) { break; }
 		delayms(1);
 	}	
-
-	formatf("\nESC-FW: Attempting to move motor to: %d.", DestinationStep);
 	
 	//Final resting place
+	formatf("\nESC-FW: Attempting to move motor to: %d.", DestinationStep);
 	MCSR.SeekStep = DestinationStep;
 	FW->MotorControlStatus = MCSR;		
+
 	//Wait for it to move
 	for (i = 0; i < MotorFindHomeTimeoutMs; i++)
 	{
@@ -237,6 +244,7 @@ void FWSeekPosition(const uint32_t SeekPos)
 
 	formatf("\nESC-FW: Move complete; motor reports: %d, i = %u.", MCSR.CurrentStep, i);
 	
+	//Ok, let's assume we are where we think we are now!
 	FWPosition = SeekPos;
 	
 	//Turn things off
@@ -246,7 +254,7 @@ void FWSeekPosition(const uint32_t SeekPos)
 	FW->ControlRegister = HCR;		
 }
 
-bool ValidateFWPostition()
+bool ValidateFWPosition()
 {
 	//is the index bogus? We either need to initialize for the first time, or the user asked us to do a forced intializeaiton
 	if (FWPosition > FWMaxPosition) { FWHome(); }
@@ -276,8 +284,8 @@ bool ValidateFWPostition()
 	HCR.MotorEnable = 0;
 	FW->ControlRegister = HCR;		
 	
-	//stabilize
-	delayms(100);
+	//stabilize lights & sensors
+	delayms(SensorPowerOnDelayMs);
 	
 	//Get the lights
 	CGraphFWPositionSenseRegister PSR;
@@ -318,6 +326,7 @@ bool ValidateFWPostition()
 	bool Lights8A = ( (PSR.PosSenseHomeA == 1) & (PSR.PosSenseBit0A == 0) & (PSR.PosSenseBit1A == 0) & (PSR.PosSenseBit2A == 0) );
 	bool Lights8B = ( (PSR.PosSenseHomeB == 1) & (PSR.PosSenseBit0B == 0) & (PSR.PosSenseBit1B == 0) & (PSR.PosSenseBit2B == 0) );
 
+	//So do the lights match or not?
 	switch(FWPosition)
 	{
 		case 1: { return(Lights1A | Lights1B); }

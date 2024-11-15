@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="1675629494">
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;BinaryUart::RxBuffer&apos; is not initialized in the constructor." verbose="Member variable &apos;BinaryUart::RxBuffer&apos; is not initialized in the constructor." cwe="398" file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="82" column="5"/>
+            <symbol>BinaryUart::RxBuffer</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;TerminalUart &lt; 16 , 4096 &gt;::RxBuffer&apos; is not initialized in the constructor." verbose="Member variable &apos;TerminalUart &lt; 16 , 4096 &gt;::RxBuffer&apos; is not initialized in the constructor." cwe="398" file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="90" column="2"/>
+            <symbol>TerminalUart &lt; 16 , 4096 &gt;::RxBuffer</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;fixedqueue &lt; char , 16 &gt;::data&apos; is not initialized in the constructor." verbose="Member variable &apos;fixedqueue &lt; char , 16 &gt;::data&apos; is not initialized in the constructor." cwe="398" file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/fixedqueue.hpp" line="51" column="3"/>
+            <symbol>fixedqueue &lt; char , 16 &gt;::data</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Process&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Process&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="122" column="10" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IUartParser.hpp" line="42" column="15" info="Virtual function in base class"/>
+            <symbol>Process</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;FindPacketStart&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;FindPacketStart&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="61" column="15" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="37" column="15" info="Virtual function in base class"/>
+            <symbol>FindPacketStart</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;FindPacketEnd&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;FindPacketEnd&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="67" column="15" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="38" column="15" info="Virtual function in base class"/>
+            <symbol>FindPacketEnd</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;HeaderLen&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;HeaderLen&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="73" column="17" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="39" column="17" info="Virtual function in base class"/>
+            <symbol>HeaderLen</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;FooterLen&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;FooterLen&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="74" column="17" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="40" column="17" info="Virtual function in base class"/>
+            <symbol>FooterLen</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;PayloadOffset&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;PayloadOffset&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="75" column="17" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="41" column="17" info="Virtual function in base class"/>
+            <symbol>PayloadOffset</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;MaxPayloadLength&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;MaxPayloadLength&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="76" column="17" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="42" column="17" info="Virtual function in base class"/>
+            <symbol>MaxPayloadLength</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;IsBroadcastSerialNum&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;IsBroadcastSerialNum&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="77" column="15" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="45" column="15" info="Virtual function in base class"/>
+            <symbol>IsBroadcastSerialNum</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;SerialNum&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;SerialNum&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="78" column="19" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="46" column="19" info="Virtual function in base class"/>
+            <symbol>SerialNum</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;PayloadLen&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;PayloadLen&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="80" column="17" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="43" column="17" info="Virtual function in base class"/>
+            <symbol>PayloadLen</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;PayloadType&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;PayloadType&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="87" column="19" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="47" column="19" info="Virtual function in base class"/>
+            <symbol>PayloadType</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;DoesPayloadTypeMatch&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;DoesPayloadTypeMatch&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="94" column="15" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="48" column="15" info="Virtual function in base class"/>
+            <symbol>DoesPayloadTypeMatch</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;IsValid&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;IsValid&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="104" column="15" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="44" column="15" info="Virtual function in base class"/>
+            <symbol>IsValid</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;MakePacket&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;MakePacket&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="117" column="17" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="49" column="17" info="Virtual function in base class"/>
+            <symbol>MakePacket</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Process&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Process&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="276" column="7" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IUartParser.hpp" line="42" column="15" info="Virtual function in base class"/>
+            <symbol>Process</symbol>
+        </error>
+        <error id="nullPointer" severity="error" msg="Null pointer dereference: boot" verbose="Null pointer dereference: boot" cwe="476" file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp" line="84" column="3" info="Null pointer dereference"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp" line="83" column="20" info="Assignment &apos;boot=0&apos;, assigned value is 0"/>
+            <symbol>boot</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;PacketEnd&apos; can be reduced." verbose="The scope of the variable &apos;PacketEnd&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="144" column="10"/>
+            <symbol>PacketEnd</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;c&apos; can be reduced." verbose="The scope of the variable &apos;c&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="219" column="8"/>
+            <symbol>c</symbol>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:11:5" call-funcname="formatf" call-argnr="2" file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="158" col="26" call-argexpr="RxBuffer" call-argvaluetype="7" call-argvalue="4096"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:11:5" call-funcname="formatf" call-argnr="2" file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="316" col="12" call-argexpr="PayloadType" call-argvaluetype="0" call-argvalue="0">
+  <path file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="311" col="37" info="Safe checks: Assuming argument has value 0"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:11:5" call-funcname="formatf" call-argnr="3" file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="316" col="12" call-argexpr="PayloadLen" call-argvaluetype="0" call-argvalue="0">
+  <path file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="311" col="117" info="Safe checks: Assuming argument has value 0"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:12:5" call-funcname="sformatf" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="210" col="13" call-argexpr="s" call-argvaluetype="7" call-argvalue="2147483648"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="257" col="22" call-argexpr="RxBuffer" call-argvaluetype="7" call-argvalue="2147483648"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="5" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="257" col="22" call-argexpr="false" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="8" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="257" col="22" call-argexpr="false" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="261" col="22" call-argexpr="RxBuffer" call-argvaluetype="7" call-argvalue="2147483648"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="8" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="261" col="22" call-argexpr="false" call-argvaluetype="0" call-argvalue="0"/>  </FileInfo>
+  <FileInfo check="Bounds checking">
+    <array-index>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp:20:7" my-argnr="1" my-argname="hardfault_args" file="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp" line="33" col="33" value="0"/>
+    </array-index>
+  </FileInfo>
+  <FileInfo check="Class">
+<class name="Cmd" file="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp" line="31" col="1" hash="6556146030387306101"/>
+<class name="BinaryCmd" file="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp" line="52" col="1" hash="6672978655474459042"/>
+<class name="BinaryUartCallbacks" file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="44" col="1" hash="5656475519430945737"/>
+<class name="BinaryUart" file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="62" col="1" hash="3148362143544099142"/>
+<class name="RTSCallback" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="56" col="1" hash="362755928346803656"/>
+<class name="CGraphPacketHeader" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="23" col="1" hash="4112921634813253096"/>
+<class name="CGraphPacketFooter" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="43" col="1" hash="12766666285239492845"/>
+<class name="CGraphPacket" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="55" col="1" hash="3934370168336901307"/>
+<class name="CGraphVersionPayload" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="140" col="1" hash="2407920983509944106"/>
+<class name="CGraphHardFaultPayload" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="152" col="1" hash="15437502405086285757"/>
+<class name="CGraphFSMTelemetryPayload" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="184" col="1" hash="5430704964686648762"/>
+<class name="CGraphDMTelemetryPayload" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="208" col="1" hash="11875402881160296853"/>
+<class name="CGraphFWTelemetryPayload" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="237" col="1" hash="14021932172769939899"/>
+<class name="TerminalUart &lt; 16 , 4096 &gt;" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="68" col="64" hash="5836284467467332894"/>
+<class name="fixedqueue &lt; char , 16 &gt;" file="/home/summer/projects/CGraph/firmware/include/fixedqueue.hpp" line="31" col="41" hash="18102530312450100968"/>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp:20:7" my-argnr="1" my-argname="hardfault_args" file="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp" line="33" col="33" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp:20:7" my-argnr="1" my-argname="hardfault_args" file="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/HardFaultHandler.cpp" line="33" col="33" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="hard_fault_handler_c" lineNumber="20"/>
+    <functioncall functionName="AFSR"/>
+    <functioncall functionName="BFAR"/>
+    <functioncall functionName="BinaryCmd"/>
+    <functioncall functionName="BinaryUart"/>
+    <functioncall functionName="BinaryUartCallbacks"/>
+    <functioncall functionName="BlockOnTxBuffFull"/>
+    <functioncall functionName="Buffer"/>
+    <functioncall functionName="BufferOverflow"/>
+    <functioncall functionName="CFSR"/>
+    <functioncall functionName="CGraphHardFaultPayload"/>
+    <functioncall functionName="CGraphMagikPacketEndToken"/>
+    <functioncall functionName="CGraphMagikPacketStartToken"/>
+    <functioncall functionName="CGraphPacketFooter"/>
+    <functioncall functionName="CGraphPacketHeader"/>
+    <functioncall functionName="CGraphPayloadTypeHardFault"/>
+    <functioncall functionName="CRC"/>
+    <functioncall functionName="CRC32BZIP2"/>
+    <functioncall functionName="Callbacks"/>
+    <functioncall functionName="Cmd"/>
+    <functioncall functionName="CmdFound"/>
+    <functioncall functionName="Cmds"/>
+    <functioncall functionName="DFSR"/>
+    <functioncall functionName="DoesPayloadTypeMatch"/>
+    <functioncall functionName="Echo"/>
+    <functioncall functionName="EveryPacket"/>
+    <functioncall functionName="FPGAFirmwareBuildNum"/>
+    <functioncall functionName="Fault"/>
+    <functioncall functionName="FindPacketEnd"/>
+    <functioncall functionName="FindPacketStart"/>
+    <functioncall functionName="FooterLen"/>
+    <functioncall functionName="HFSR"/>
+    <functioncall functionName="Header"/>
+    <functioncall functionName="HeaderLen"/>
+    <functioncall functionName="Help"/>
+    <functioncall functionName="IPacket"/>
+    <functioncall functionName="IUartParser"/>
+    <functioncall functionName="InPacket"/>
+    <functioncall functionName="InvalidPacket"/>
+    <functioncall functionName="InvalidSerialNumber"/>
+    <functioncall functionName="IsBroadcastSerialNum"/>
+    <functioncall functionName="IsValid"/>
+    <functioncall functionName="LR"/>
+    <functioncall functionName="LastC"/>
+    <functioncall functionName="MakePacket"/>
+    <functioncall functionName="MaxPayloadLength"/>
+    <functioncall functionName="Name"/>
+    <functioncall functionName="NoPrefix"/>
+    <functioncall functionName="NoRTS"/>
+    <functioncall functionName="NumCmds"/>
+    <functioncall functionName="PC"/>
+    <functioncall functionName="PSR"/>
+    <functioncall functionName="Packet"/>
+    <functioncall functionName="PacketEnd"/>
+    <functioncall functionName="PacketEndToken"/>
+    <functioncall functionName="PacketLen"/>
+    <functioncall functionName="PacketStart"/>
+    <functioncall functionName="PacketStartPos"/>
+    <functioncall functionName="PacketStartToken"/>
+    <functioncall functionName="Params"/>
+    <functioncall functionName="ParseCmd"/>
+    <functioncall functionName="Parsed"/>
+    <functioncall functionName="Payload"/>
+    <functioncall functionName="PayloadData"/>
+    <functioncall functionName="PayloadLen"/>
+    <functioncall functionName="PayloadOffset"/>
+    <functioncall functionName="PayloadType"/>
+    <functioncall functionName="PayloadTypeToken"/>
+    <functioncall functionName="Pinout"/>
+    <functioncall functionName="Prefix"/>
+    <functioncall functionName="ProcessByte"/>
+    <functioncall functionName="ProcessRx"/>
+    <functioncall functionName="ProcessTx"/>
+    <functioncall functionName="Processed"/>
+    <functioncall functionName="ProcessorFirmwareBuildNum"/>
+    <functioncall functionName="R0"/>
+    <functioncall functionName="R1"/>
+    <functioncall functionName="R12"/>
+    <functioncall functionName="R2"/>
+    <functioncall functionName="R3"/>
+    <functioncall functionName="RTS"/>
+    <functioncall functionName="RTSPinout"/>
+    <functioncall functionName="Response"/>
+    <functioncall functionName="RxBuffer"/>
+    <functioncall functionName="RxBufferLenBytes"/>
+    <functioncall functionName="RxCount"/>
+    <functioncall functionName="SerialNum"/>
+    <functioncall functionName="SerialNumber"/>
+    <functioncall functionName="StdEcho"/>
+    <functioncall functionName="Strlen"/>
+    <functioncall functionName="StrlenPrefix"/>
+    <functioncall functionName="TerminalUart &lt; 16 , 4096 &gt;"/>
+    <functioncall functionName="TerminalUartPrompt"/>
+    <functioncall functionName="TxBinaryPacket"/>
+    <functioncall functionName="TxBuffer"/>
+    <functioncall functionName="TxBufferLenBytes"/>
+    <functioncall functionName="TxCount"/>
+    <functioncall functionName="TxPktContext"/>
+    <functioncall functionName="UnHandledPacket"/>
+    <functioncall functionName="UseCrLf"/>
+    <functioncall functionName="Verbose"/>
+    <functioncall functionName="arg"/>
+    <functioncall functionName="begin"/>
+    <functioncall functionName="block"/>
+    <functioncall functionName="boot"/>
+    <functioncall functionName="break"/>
+    <functioncall functionName="c"/>
+    <functioncall functionName="callbacks"/>
+    <functioncall functionName="ch"/>
+    <functioncall functionName="char"/>
+    <functioncall functionName="clear"/>
+    <functioncall functionName="clr"/>
+    <functioncall functionName="cmds"/>
+    <functioncall functionName="const"/>
+    <functioncall functionName="crlf"/>
+    <functioncall functionName="dataready"/>
+    <functioncall functionName="dbg"/>
+    <functioncall functionName="debug"/>
+    <functioncall functionName="echostate"/>
+    <functioncall functionName="element"/>
+    <functioncall functionName="empty"/>
+    <functioncall functionName="end"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="format"/>
+    <functioncall functionName="formatf"/>
+    <functioncall functionName="full"/>
+    <functioncall functionName="getcqq"/>
+    <functioncall functionName="help"/>
+    <functioncall functionName="i"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="int"/>
+    <functioncall functionName="int8_t"/>
+    <functioncall functionName="len"/>
+    <functioncall functionName="long"/>
+    <functioncall functionName="maybegetc"/>
+    <functioncall functionName="maybegetline"/>
+    <functioncall functionName="memcpy"/>
+    <functioncall functionName="memset"/>
+    <functioncall functionName="name"/>
+    <functioncall functionName="next"/>
+    <functioncall functionName="numcmds"/>
+    <functioncall functionName="packet"/>
+    <functioncall functionName="packettype"/>
+    <functioncall functionName="payloadlen"/>
+    <functioncall functionName="payloadtype"/>
+    <functioncall functionName="pinout"/>
+    <functioncall functionName="pop"/>
+    <functioncall functionName="pos"/>
+    <functioncall functionName="prefix"/>
+    <functioncall functionName="printf"/>
+    <functioncall functionName="put"/>
+    <functioncall functionName="putcqq"/>
+    <functioncall functionName="puts"/>
+    <functioncall functionName="reinterpret_cast"/>
+    <functioncall functionName="resp"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="rts"/>
+    <functioncall functionName="s"/>
+    <functioncall functionName="serialnum"/>
+    <functioncall functionName="sformatf"/>
+    <functioncall functionName="sizeof"/>
+    <functioncall functionName="stacked_lr"/>
+    <functioncall functionName="stacked_pc"/>
+    <functioncall functionName="stacked_psr"/>
+    <functioncall functionName="stacked_r0"/>
+    <functioncall functionName="stacked_r1"/>
+    <functioncall functionName="stacked_r12"/>
+    <functioncall functionName="stacked_r2"/>
+    <functioncall functionName="stacked_r3"/>
+    <functioncall functionName="stdio_hook_putc"/>
+    <functioncall functionName="strlen"/>
+    <functioncall functionName="strlenprefix"/>
+    <functioncall functionName="strnlen"/>
+    <functioncall functionName="terminaluartprompt"/>
+    <functioncall functionName="this"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="uint32_t"/>
+    <functioncall functionName="uint8_t"/>
+    <functioncall functionName="va_end"/>
+    <functioncall functionName="va_start"/>
+    <functioncall functionName="verbose"/>
+    <functioncall functionName="void"/>
+  </FileInfo>
+</analyzerinfo>

@@ -1,0 +1,18 @@
+UartStatusRegister
+formatf call:[formatf] noreturn:[formatf]
+AdcAccumulator
+formatf call:[formatf] noreturn:[formatf]
+AdcFifo
+CGraphBaudDividers
+formatf call:[formatf] noreturn:[formatf]
+CGraphMonitorAdcCommandStatusRegister
+formatf call:[formatf] noreturn:[formatf]
+CGraphFWHardwareControlRegister
+formatf call:[formatf] noreturn:[formatf]
+CGraphFWMotorControlStatusRegister
+formatf call:[formatf] noreturn:[formatf]
+CGraphFWPositionSenseRegister
+formatf call:[formatf] noreturn:[formatf]
+CGraphFWPositionStepRegister
+MidStep call:[abs,min,return] noreturn:[return]
+formatf call:[MidStep,formatf] noreturn:[formatf]

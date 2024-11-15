@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="900111247">
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;diff&apos; can be reduced." verbose="The scope of the variable &apos;diff&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/home/summer/projects/CGraph/firmware/include/dbg/dmalloc-5.5.2/heap.c">
+            <location file="/home/summer/projects/CGraph/firmware/include/dbg/dmalloc-5.5.2/heap.c" line="188" column="8"/>
+            <symbol>diff</symbol>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/dbg/dmalloc-5.5.2/compat.h:70:5" call-funcname="loc_snprintf" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/dbg/dmalloc-5.5.2/heap.c" line="118" col="25" call-argexpr="str" call-argvaluetype="7" call-argvalue="128"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/dbg/dmalloc-5.5.2/error.h:219:6" call-funcname="_dmalloc_die" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/dbg/dmalloc-5.5.2/heap.c" line="121" col="19" call-argexpr="0" call-argvaluetype="0" call-argvalue="0"/>  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="heap_extend" lineNumber="77"/>
+    <functiondecl functionName="_dmalloc_heap_startup" lineNumber="163"/>
+    <functiondecl functionName="_dmalloc_heap_alloc" lineNumber="185"/>
+    <functioncall functionName="_dmalloc_die"/>
+    <functioncall functionName="_dmalloc_flags"/>
+    <functioncall functionName="_dmalloc_heap_high"/>
+    <functioncall functionName="_dmalloc_heap_low"/>
+    <functioncall functionName="break"/>
+    <functioncall functionName="diff"/>
+    <functioncall functionName="dmalloc_error"/>
+    <functioncall functionName="dmalloc_message"/>
+    <functioncall functionName="heap_diff"/>
+    <functioncall functionName="heap_extend"/>
+    <functioncall functionName="heap_new"/>
+    <functioncall functionName="high"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="incr"/>
+    <functioncall functionName="int"/>
+    <functioncall functionName="len"/>
+    <functioncall functionName="loc_snprintf"/>
+    <functioncall functionName="long"/>
+    <functioncall functionName="ret"/>
+    <functioncall functionName="sbrk"/>
+    <functioncall functionName="size"/>
+    <functioncall functionName="sizeof"/>
+    <functioncall functionName="str"/>
+    <functioncall functionName="void"/>
+    <functioncall functionName="while"/>
+    <functioncall functionName="write"/>
+  </FileInfo>
+</analyzerinfo>

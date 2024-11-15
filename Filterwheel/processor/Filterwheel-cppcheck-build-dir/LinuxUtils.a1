@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="2718894104">
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long}&apos;." cwe="686" file0="/home/summer/projects/CGraph/firmware/include/arm/LinuxUtils.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/arm/LinuxUtils.cpp" line="47" column="3"/>
+        </error>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/LinuxUtils.h:6:5" my-argnr="1" my-argname="exe" file="/home/summer/projects/CGraph/firmware/include/arm/LinuxUtils.cpp" line="29" col="38" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/LinuxUtils.h:6:5" my-argnr="2" my-argname="paramA" file="/home/summer/projects/CGraph/firmware/include/arm/LinuxUtils.cpp" line="29" col="62" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/LinuxUtils.h:6:5" my-argnr="3" my-argname="paramB" file="/home/summer/projects/CGraph/firmware/include/arm/LinuxUtils.cpp" line="29" col="89" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/LinuxUtils.h:6:5" my-argnr="4" my-argname="paramC" file="/home/summer/projects/CGraph/firmware/include/arm/LinuxUtils.cpp" line="29" col="116" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/LinuxUtils.h:6:5" my-argnr="5" my-argname="paramD" file="/home/summer/projects/CGraph/firmware/include/arm/LinuxUtils.cpp" line="29" col="143" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/LinuxUtils.h:6:5" my-argnr="6" my-argname="paramE" file="/home/summer/projects/CGraph/firmware/include/arm/LinuxUtils.cpp" line="29" col="170" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/LinuxUtils.h:6:5" my-argnr="7" my-argname="paramF" file="/home/summer/projects/CGraph/firmware/include/arm/LinuxUtils.cpp" line="29" col="197" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/LinuxUtils.h:6:5" my-argnr="8" my-argname="paramG" file="/home/summer/projects/CGraph/firmware/include/arm/LinuxUtils.cpp" line="29" col="224" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="CreateTempFolder" lineNumber="10"/>
+    <functiondecl functionName="spawn" lineNumber="25"/>
+    <functiondecl functionName="ShowCallStack" lineNumber="39"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="S_IRGRP"/>
+    <functioncall functionName="_argv"/>
+    <functioncall functionName="array"/>
+    <functioncall functionName="backtrace"/>
+    <functioncall functionName="backtrace_symbols_fd"/>
+    <functioncall functionName="char"/>
+    <functioncall functionName="const_cast"/>
+    <functioncall functionName="environ"/>
+    <functioncall functionName="errno"/>
+    <functioncall functionName="exe"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="int"/>
+    <functioncall functionName="long"/>
+    <functioncall functionName="mkdir"/>
+    <functioncall functionName="paramA"/>
+    <functioncall functionName="paramB"/>
+    <functioncall functionName="paramC"/>
+    <functioncall functionName="paramD"/>
+    <functioncall functionName="paramE"/>
+    <functioncall functionName="paramF"/>
+    <functioncall functionName="paramG"/>
+    <functioncall functionName="perror"/>
+    <functioncall functionName="pid"/>
+    <functioncall functionName="posix_spawn"/>
+    <functioncall functionName="printf"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="s"/>
+    <functioncall functionName="size"/>
+  </FileInfo>
+</analyzerinfo>

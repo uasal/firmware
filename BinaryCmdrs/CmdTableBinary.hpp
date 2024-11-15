@@ -28,6 +28,7 @@
 
 //General Cmds
 int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t BinaryHardFaultCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument);
 
 //FSM Cmds
 int8_t BinaryFSMDacsCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument);

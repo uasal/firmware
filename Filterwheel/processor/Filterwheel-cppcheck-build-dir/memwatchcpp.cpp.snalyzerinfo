@@ -1,0 +1,7 @@
+MemWatch global:[mwInited,mwUseAtexit] call:[mwInit] noreturn:[mwInit]
+MemWatch global:[mwUseAtexit] call:[mwTerm] noreturn:[mwTerm]
+operatornew global:[mwNCur] call:[mwMalloc] noreturn:[mwMalloc]
+operatornew global:[mwNCur] call:[mwMalloc] noreturn:[mwMalloc]
+operatornew[] global:[mwNCur] call:[mwMalloc] noreturn:[mwMalloc]
+operatordelete global:[mwInited,mwNCur,mwNFile,mwNLine] call:[mwFree,mwFree_] noreturn:[mwFree_]
+operatordelete[] global:[mwInited,mwNCur,mwNFile,mwNLine] call:[mwFree,mwFree_] noreturn:[mwFree_]

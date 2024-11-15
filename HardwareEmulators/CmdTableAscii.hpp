@@ -32,6 +32,7 @@ int8_t HelpCommand(char const* Name, char const* Params, const size_t ParamsLen,
 
 //General Cmds
 int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t HardFaultCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 
 //FSM Cmds
 int8_t FSMDacsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);

@@ -1,0 +1,24 @@
+NVIC_SetPriorityGrouping
+NVIC_GetPriorityGrouping call:[return] noreturn:[return]
+NVIC_EnableIRQ
+NVIC_DisableIRQ
+NVIC_GetPendingIRQ call:[return] noreturn:[return]
+NVIC_SetPendingIRQ
+NVIC_ClearPendingIRQ
+NVIC_GetActive call:[return] noreturn:[return]
+NVIC_SetPriority
+NVIC_GetPriority call:[return] noreturn:[return]
+NVIC_EncodePriority call:[return] noreturn:[return]
+NVIC_DecodePriority
+NVIC_SystemReset call:[__DSB,__NOP] noreturn:[__NOP]
+SysTick_Config call:[NVIC_SetPriority,return] noreturn:[return]
+ITM_SendChar call:[__NOP,return] noreturn:[__NOP,return]
+ITM_ReceiveChar global:[ITM_RxBuffer] call:[return] noreturn:[return]
+ITM_CheckChar global:[ITM_RxBuffer] call:[return] noreturn:[return]
+SystemInit call:[mscc_post_hw_cfg_init,silicon_workarounds] noreturn:[mscc_post_hw_cfg_init]
+SystemCoreClockUpdate global:[SystemCoreClock,g_FrequencyFIC0,g_FrequencyFIC1,g_FrequencyFIC64,g_FrequencyPCLK0,g_FrequencyPCLK1,g_FrequencyPCLK2] call:[get_rcosc_25_50mhz_frequency,set_clock_frequency_globals] noreturn:[set_clock_frequency_globals]
+get_rcosc_25_50mhz_frequency
+set_clock_frequency_globals global:[SystemCoreClock,g_FrequencyFIC0,g_FrequencyFIC1,g_FrequencyFIC64,g_FrequencyPCLK0,g_FrequencyPCLK1,g_FrequencyPCLK2]
+get_silicon_revision
+silicon_workarounds call:[get_silicon_revision,m2s050_rev_a_workarounds]
+m2s050_rev_a_workarounds

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="3318688627">
+  <FileInfo check="ctu">
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:11:5" call-funcname="formatf" call-argnr="2" file="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.cpp" line="126" col="10" call-argexpr="LineInUpperCase" call-argvaluetype="7" call-argvalue="32"/>  </FileInfo>
+  <FileInfo check="Class">
+<class name="Cmd" file="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp" line="31" col="1" hash="6556146030387306101"/>
+<class name="BinaryCmd" file="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp" line="52" col="1" hash="6672978655474459042"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="ParseCmd" lineNumber="44"/>
+    <functiondecl functionName="HelpCmds" lineNumber="148"/>
+    <functioncall functionName="Argument"/>
+    <functioncall functionName="Binary"/>
+    <functioncall functionName="BinaryCmd"/>
+    <functioncall functionName="Cmd"/>
+    <functioncall functionName="Cmds"/>
+    <functioncall functionName="Help"/>
+    <functioncall functionName="HelpCmds"/>
+    <functioncall functionName="LineIn"/>
+    <functioncall functionName="LineInUpperCase"/>
+    <functioncall functionName="LineLen"/>
+    <functioncall functionName="MaxCmdNameLen"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="Name"/>
+    <functioncall functionName="NumCmds"/>
+    <functioncall functionName="Params"/>
+    <functioncall functionName="Prefix"/>
+    <functioncall functionName="PrefixLen"/>
+    <functioncall functionName="Response"/>
+    <functioncall functionName="Strlen"/>
+    <functioncall functionName="char"/>
+    <functioncall functionName="const_cast"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="formatf"/>
+    <functioncall functionName="help"/>
+    <functioncall functionName="i"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="int8_t"/>
+    <functioncall functionName="j"/>
+    <functioncall functionName="min"/>
+    <functioncall functionName="name"/>
+    <functioncall functionName="resp"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="strlen"/>
+    <functioncall functionName="strncmp"/>
+    <functioncall functionName="strnlen"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="ucaselen"/>
+  </FileInfo>
+</analyzerinfo>

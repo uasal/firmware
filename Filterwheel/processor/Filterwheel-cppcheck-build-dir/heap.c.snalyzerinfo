@@ -1,0 +1,3 @@
+heap_extend global:[_dmalloc_flags,_dmalloc_heap_high,_dmalloc_heap_low,dmalloc_errno] call:[_dmalloc_die,dmalloc_error,dmalloc_message,loc_snprintf,sbrk,sizeof,write] noreturn:[_dmalloc_die,dmalloc_error,dmalloc_message]
+_dmalloc_heap_startup
+_dmalloc_heap_alloc global:[dmalloc_errno] call:[dmalloc_error,heap_extend]

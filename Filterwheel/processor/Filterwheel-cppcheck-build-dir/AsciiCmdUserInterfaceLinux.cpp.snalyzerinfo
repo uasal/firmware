@@ -1,0 +1,9 @@
+Cmd call:[strlen] noreturn:[strlen]
+BinaryCmd
+stdio_hook_putc call:[putchar,return] noreturn:[return]
+StartUserInterface global:[AsciiCmds,NumAsciiCmds,linelock] call:[printf,pthread_create,pthread_mutex_init] noreturn:[printf]
+ProcessUserInterface global:[AsciiCmds,NumAsciiCmds,line,linelen,linelock,newline] call:[ParseCmd,pthread_mutex_trylock,pthread_mutex_unlock,return] noreturn:[pthread_mutex_unlock,return]
+Wait50 call:[memset,nanosleep,sizeof] noreturn:[nanosleep]
+StdInClientThread global:[line,linelen,linelock,linemaxlen,newline] call:[Wait50,fgets,printf,pthread_mutex_lock,pthread_mutex_unlock,return,strnlen] noreturn:[Wait50,return]
+strupr global:[linemaxlen] call:[printf,return,toupper] noreturn:[return,toupper]
+ParseConfigFile global:[AsciiCmds,NumAsciiCmds] call:[ParseCmd,close,fstat,memchr,memcpy,mmap,munmap,open,perror,printf] noreturn:[perror,printf]

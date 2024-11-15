@@ -1,0 +1,7 @@
+build_logfile_path global:[dmalloc_logpath,error_str] call:[gethostname,getpid,getuid,loc_snprintf,sizeof,time,write] noreturn:[loc_snprintf,write]
+_dmalloc_open_log global:[_dmalloc_address,_dmalloc_address_seen_n,_dmalloc_check_interval,_dmalloc_flags,_dmalloc_lock_on,_dmalloc_memory_limit,_dmalloc_start,dmalloc_logpath,dmalloc_version,error_str,outfile_fd] call:[_dmalloc_ptime,build_logfile_path,dmalloc_message,getpid,loc_snprintf,open,sizeof,write] noreturn:[dmalloc_message]
+_dmalloc_reopen_log global:[dmalloc_logpath,outfile_fd] call:[close,dmalloc_message] noreturn:[dmalloc_message]
+_dmalloc_ptime global:[_dmalloc_start] call:[loc_snprintf] noreturn:[loc_snprintf]
+_dmalloc_vmessage global:[_dmalloc_flags,_dmalloc_iter_c,dmalloc_logpath,message_str,outfile_fd] call:[_dmalloc_open_log,_dmalloc_reopen_log,getpid,loc_snprintf,loc_vsnprintf,sizeof,time,write] noreturn:[_dmalloc_open_log,loc_snprintf,write]
+_dmalloc_die global:[_dmalloc_aborting_b,_dmalloc_flags,dmalloc_errno,error_str] call:[_exit,dmalloc_strerror,kill,loc_snprintf,sizeof,write] noreturn:[_exit,kill,write]
+dmalloc_error global:[_dmalloc_flags,dmalloc_errno,dmalloc_logpath] call:[_dmalloc_die,dmalloc_message,dmalloc_strerror,fork] noreturn:[_dmalloc_die,dmalloc_message]

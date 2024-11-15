@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="4130119976">
+        <error id="redundantAssignment" severity="style" msg="Variable &apos;FW-&gt;ControlRegister&apos; is reassigned a value before the old one has been used." verbose="Variable &apos;FW-&gt;ControlRegister&apos; is reassigned a value before the old one has been used." cwe="563" file0="Filterwheel.cpp">
+            <location file="Filterwheel.cpp" line="108" column="22" info="FW-&gt;ControlRegister is overwritten"/>
+            <location file="Filterwheel.cpp" line="106" column="22" info="FW-&gt;ControlRegister is assigned"/>
+            <symbol>FW-&gt;ControlRegister</symbol>
+        </error>
+        <error id="redundantAssignment" severity="style" msg="Variable &apos;FW-&gt;ControlRegister&apos; is reassigned a value before the old one has been used." verbose="Variable &apos;FW-&gt;ControlRegister&apos; is reassigned a value before the old one has been used." cwe="563" file0="Filterwheel.cpp">
+            <location file="Filterwheel.cpp" line="159" column="22" info="FW-&gt;ControlRegister is overwritten"/>
+            <location file="Filterwheel.cpp" line="157" column="22" info="FW-&gt;ControlRegister is assigned"/>
+            <symbol>FW-&gt;ControlRegister</symbol>
+        </error>
+  <FileInfo check="Class">
+<class name="CGraphFWHardwareInterface" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphFWHardwareInterface.hpp" line="167" col="1" hash="6056725122833233180"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="ValidatedFWHomeStep" lineNumber="26"/>
+    <functiondecl functionName="FWHome" lineNumber="76"/>
+    <functiondecl functionName="FWSeekPosition" lineNumber="178"/>
+    <functiondecl functionName="ValidateFWPostition" lineNumber="249"/>
+    <functioncall functionName="AValid"/>
+    <functioncall functionName="AdcAccumulator"/>
+    <functioncall functionName="AdcFifo"/>
+    <functioncall functionName="BValid"/>
+    <functioncall functionName="CGraphBaudDividers"/>
+    <functioncall functionName="CGraphFWHardwareControlRegister"/>
+    <functioncall functionName="CGraphFWMotorControlStatusRegister"/>
+    <functioncall functionName="CGraphFWPositionSenseRegister"/>
+    <functioncall functionName="CGraphFWPositionStepRegister"/>
+    <functioncall functionName="CGraphMonitorAdcCommandStatusRegister"/>
+    <functioncall functionName="CurrentStep"/>
+    <functioncall functionName="DestinationStep"/>
+    <functioncall functionName="Divider0"/>
+    <functioncall functionName="Divider1"/>
+    <functioncall functionName="Divider2"/>
+    <functioncall functionName="Divider3"/>
+    <functioncall functionName="FWHome"/>
+    <functioncall functionName="FWMaxPosition"/>
+    <functioncall functionName="FWPosition"/>
+    <functioncall functionName="Fault1V"/>
+    <functioncall functionName="Fault3V"/>
+    <functioncall functionName="Fault5V"/>
+    <functioncall functionName="HCR"/>
+    <functioncall functionName="HomeStep"/>
+    <functioncall functionName="LedB"/>
+    <functioncall functionName="LedG"/>
+    <functioncall functionName="LedR"/>
+    <functioncall functionName="Lights1B"/>
+    <functioncall functionName="Lights2B"/>
+    <functioncall functionName="Lights3B"/>
+    <functioncall functionName="Lights4B"/>
+    <functioncall functionName="Lights5B"/>
+    <functioncall functionName="Lights6B"/>
+    <functioncall functionName="Lights7B"/>
+    <functioncall functionName="Lights8B"/>
+    <functioncall functionName="MCSR"/>
+    <functioncall functionName="MidStep"/>
+    <functioncall functionName="MotorAMinus"/>
+    <functioncall functionName="MotorAPlus"/>
+    <functioncall functionName="MotorBMinus"/>
+    <functioncall functionName="MotorBPlus"/>
+    <functioncall functionName="MotorControlStatus"/>
+    <functioncall functionName="MotorEnable"/>
+    <functioncall functionName="MotorFindHomeSteps"/>
+    <functioncall functionName="MotorSunSafeStep"/>
+    <functioncall functionName="NumAccums"/>
+    <functioncall functionName="OffStep"/>
+    <functioncall functionName="OnStep"/>
+    <functioncall functionName="PosDetHomeA"/>
+    <functioncall functionName="PosDetHomeB"/>
+    <functioncall functionName="PosLedsEnA"/>
+    <functioncall functionName="PosLedsEnB"/>
+    <functioncall functionName="PosSenseA"/>
+    <functioncall functionName="PosSenseB"/>
+    <functioncall functionName="PosSenseBit0A"/>
+    <functioncall functionName="PosSenseBit0B"/>
+    <functioncall functionName="PosSenseBit1A"/>
+    <functioncall functionName="PosSenseBit1B"/>
+    <functioncall functionName="PosSenseBit2A"/>
+    <functioncall functionName="PosSenseBit2B"/>
+    <functioncall functionName="PosSenseHomeA"/>
+    <functioncall functionName="PosSenseHomeB"/>
+    <functioncall functionName="PositionSensors"/>
+    <functioncall functionName="PowerCycd"/>
+    <functioncall functionName="PowernEn5V"/>
+    <functioncall functionName="ResetSteps"/>
+    <functioncall functionName="RxFifoCount"/>
+    <functioncall functionName="Samples"/>
+    <functioncall functionName="SeekPos"/>
+    <functioncall functionName="SeekStep"/>
+    <functioncall functionName="TxFifoCount"/>
+    <functioncall functionName="Uart0OE"/>
+    <functioncall functionName="Uart1OE"/>
+    <functioncall functionName="Uart2OE"/>
+    <functioncall functionName="Uart3OE"/>
+    <functioncall functionName="UartStatusRegister"/>
+    <functioncall functionName="Ux1SelJmp"/>
+    <functioncall functionName="Ux2SelJmp"/>
+    <functioncall functionName="ValidatedFWHomeStep"/>
+    <functioncall functionName="abs"/>
+    <functioncall functionName="all"/>
+    <functioncall functionName="break"/>
+    <functioncall functionName="delayms"/>
+    <functioncall functionName="double"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="formatf"/>
+    <functioncall functionName="i"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="int"/>
+    <functioncall functionName="long"/>
+    <functioncall functionName="min"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="switch"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="uint32_t"/>
+  </FileInfo>
+</analyzerinfo>

@@ -119,7 +119,7 @@ struct BinaryUart : IUartParser
 	//~ void SetArgument(const void* argument) { Argument = argument; }
 	//~ const void* GetArgument() { return(Argument); }	
 	
-    bool Process()
+    virtual bool Process()
     {
 	    //New char?
         if ( !(Pinout.dataready()) ) { return(false); }

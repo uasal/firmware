@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="2471675471">
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="delayus" lineNumber="20"/>
+    <functiondecl functionName="delayms" lineNumber="27"/>
+    <functiondecl functionName="delays" lineNumber="32"/>
+    <functioncall functionName="ArmDelayLoop"/>
+    <functioncall functionName="asm"/>
+    <functioncall functionName="delayms"/>
+    <functioncall functionName="delayus"/>
+    <functioncall functionName="long"/>
+    <functioncall functionName="loops"/>
+    <functioncall functionName="microseconds"/>
+  </FileInfo>
+</analyzerinfo>

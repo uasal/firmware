@@ -273,7 +273,7 @@ template<uint16_t txbufferlenbytes, uint16_t rxbufferlenbytes> struct TerminalUa
 		return(Parsed);
 	}
 
-	bool Process()
+	virtual bool Process()
 	{
 		ProcessTx();
 		return(ProcessRx());

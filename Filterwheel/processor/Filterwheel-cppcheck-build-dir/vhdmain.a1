@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="1710057907">
+        <error id="asctimeCalled" severity="style" msg="Obsolete function &apos;asctime&apos; called. It is recommended to use &apos;strftime&apos; instead." verbose="Obsolete function &apos;asctime&apos; called. It is recommended to use &apos;strftime&apos; instead." cwe="477" file0="/home/summer/projects/CGraph/firmware/include/buildtracer/vhdmain.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/buildtracer/vhdmain.cpp" line="139" column="17"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="warning" msg="%ld in format string (no. 1) requires &apos;long&apos; but the argument type is &apos;unsigned long&apos;." verbose="%ld in format string (no. 1) requires &apos;long&apos; but the argument type is &apos;unsigned long&apos;." cwe="686" file0="/home/summer/projects/CGraph/firmware/include/buildtracer/vhdmain.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/buildtracer/vhdmain.cpp" line="119" column="5"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;line&apos; can be reduced." verbose="The scope of the variable &apos;line&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/home/summer/projects/CGraph/firmware/include/buildtracer/vhdmain.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/buildtracer/vhdmain.cpp" line="59" column="7"/>
+            <symbol>line</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;BuildNumFound&apos; can be reduced." verbose="The scope of the variable &apos;BuildNumFound&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/home/summer/projects/CGraph/firmware/include/buildtracer/vhdmain.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/buildtracer/vhdmain.cpp" line="73" column="7"/>
+            <symbol>BuildNumFound</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;BuildTimeFound&apos; can be reduced." verbose="The scope of the variable &apos;BuildTimeFound&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/home/summer/projects/CGraph/firmware/include/buildtracer/vhdmain.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/buildtracer/vhdmain.cpp" line="74" column="7"/>
+            <symbol>BuildTimeFound</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;strposBuildNumHeader&apos; can be reduced." verbose="The scope of the variable &apos;strposBuildNumHeader&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/home/summer/projects/CGraph/firmware/include/buildtracer/vhdmain.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/buildtracer/vhdmain.cpp" line="75" column="8"/>
+            <symbol>strposBuildNumHeader</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;strposBuildTimeHeader&apos; can be reduced." verbose="The scope of the variable &apos;strposBuildTimeHeader&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/home/summer/projects/CGraph/firmware/include/buildtracer/vhdmain.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/buildtracer/vhdmain.cpp" line="76" column="8"/>
+            <symbol>strposBuildTimeHeader</symbol>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared with const" verbose="Parameter &apos;argv&apos; can be declared with const" cwe="398" file0="/home/summer/projects/CGraph/firmware/include/buildtracer/vhdmain.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/buildtracer/vhdmain.cpp" line="54" column="27" info="Parameter &apos;argv&apos; can be declared with const"/>
+            <symbol>argv</symbol>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="main" lineNumber="54"/>
+    <functioncall functionName="BUILDNUMHEADER"/>
+    <functioncall functionName="BUILDTIMEHEADER"/>
+    <functioncall functionName="BuildNumFound"/>
+    <functioncall functionName="BuildTimeFound"/>
+    <functioncall functionName="In"/>
+    <functioncall functionName="Out"/>
+    <functioncall functionName="asc"/>
+    <functioncall functionName="asctime"/>
+    <functioncall functionName="ascwocrlf"/>
+    <functioncall functionName="buildNumber"/>
+    <functioncall functionName="c_str"/>
+    <functioncall functionName="crlfpos"/>
+    <functioncall functionName="eof"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="getline"/>
+    <functioncall functionName="gmtime"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="is_open"/>
+    <functioncall functionName="line"/>
+    <functioncall functionName="ptm"/>
+    <functioncall functionName="rawtime"/>
+    <functioncall functionName="remove"/>
+    <functioncall functionName="rename"/>
+    <functioncall functionName="sprintf"/>
+    <functioncall functionName="sscanf"/>
+    <functioncall functionName="strcat"/>
+    <functioncall functionName="strcpy"/>
+    <functioncall functionName="strcspn"/>
+    <functioncall functionName="strlen"/>
+    <functioncall functionName="strncpy"/>
+    <functioncall functionName="strposBuildNumHeader"/>
+    <functioncall functionName="strposBuildTimeHeader"/>
+    <functioncall functionName="strstr"/>
+    <functioncall functionName="temp"/>
+    <functioncall functionName="time"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="while"/>
+  </FileInfo>
+</analyzerinfo>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="1537958772">
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="delayus" lineNumber="41"/>
+    <functiondecl functionName="delayms" lineNumber="65"/>
+    <functiondecl functionName="delays" lineNumber="70"/>
+    <functioncall functionName="break"/>
+    <functioncall functionName="delay"/>
+    <functioncall functionName="delayms"/>
+    <functioncall functionName="delayus"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="memcpy"/>
+    <functioncall functionName="memset"/>
+    <functioncall functionName="nanosleep"/>
+    <functioncall functionName="remaining"/>
+    <functioncall functionName="sizeof"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="while"/>
+  </FileInfo>
+</analyzerinfo>

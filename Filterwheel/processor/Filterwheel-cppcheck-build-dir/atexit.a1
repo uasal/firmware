@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="2902196569">
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="atexit" lineNumber="48"/>
+    <functiondecl functionName="exit" lineNumber="57"/>
+    <functioncall functionName="__atexit_registered"/>
+    <functioncall functionName="_exit"/>
+    <functioncall functionName="fn"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="int"/>
+    <functioncall functionName="status"/>
+    <functioncall functionName="void"/>
+    <functioncall functionName="while"/>
+  </FileInfo>
+</analyzerinfo>

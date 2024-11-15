@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="2839658700">
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="auto_seed" lineNumber="62"/>
+    <functiondecl functionName="_dmalloc_srand" lineNumber="83"/>
+    <functiondecl functionName="_dmalloc_rand" lineNumber="103"/>
+    <functioncall functionName="auto_seed"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="seed"/>
+    <functioncall functionName="void"/>
+  </FileInfo>
+</analyzerinfo>

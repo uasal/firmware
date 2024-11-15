@@ -61,6 +61,12 @@ const Cmd AsciiCmds[] =
 		VersionCommand
     ),
 	
+	Cmd(
+        "HARDFAULT",
+		"\"HardFault\": Emulate a hard fault such as divide by zero or invalid pointer deref.",
+		HardFaultCommand
+    ),
+
 	//~ //FSM Commands
 	
 	//~ Cmd(

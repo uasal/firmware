@@ -1,0 +1,27 @@
+Cmd call:[strlen] noreturn:[strlen]
+BinaryCmd
+IPacket
+IPacket
+CGraphPacketHeader
+CGraphPacketHeader
+PayloadData call:[return] noreturn:[return]
+PayloadDataNonConst call:[return] noreturn:[return]
+formatf call:[printf] noreturn:[printf]
+CGraphPacketFooter
+CGraphPacket
+CGraphPacket
+FindPacketStart global:[CGraphMagikPacketStartToken] call:[return,sizeof] noreturn:[return]
+FindPacketEnd global:[CGraphMagikPacketEndToken] call:[return,sizeof] noreturn:[return]
+HeaderLen call:[return,sizeof] noreturn:[return]
+FooterLen call:[return,sizeof] noreturn:[return]
+PayloadOffset call:[return,sizeof] noreturn:[return]
+MaxPayloadLength call:[return] noreturn:[return]
+IsBroadcastSerialNum call:[return] noreturn:[return]
+SerialNum call:[return] noreturn:[return]
+PayloadLen call:[return,sizeof] noreturn:[return]
+PayloadType call:[return,sizeof] noreturn:[return]
+DoesPayloadTypeMatch call:[return,sizeof] noreturn:[return]
+IsValid global:[CGraphMagikPacketEndToken,CGraphMagikPacketStartToken] call:[CRC32BZIP2,return,sizeof] noreturn:[return]
+MakePacket global:[CGraphMagikPacketEndToken] call:[CRC32BZIP2,memcpy,return,sizeof] noreturn:[memcpy,return]
+formatf call:[printf] noreturn:[printf]
+formatf call:[printf] noreturn:[printf]

@@ -222,7 +222,7 @@ int8_t BinaryFWFilterSelectCommand(const uint32_t Name, char const* Params, cons
 		TxBinaryPacket(Argument, CGraphPayloadTypeFWFilterSelect, 0, &response, sizeof(uint32_t));
 		formatf("\nBinaryFWFilterSelectCommand: moving to: %lu\n", FilterSelect);
 		FWSeekPosition(FilterSelect);
-		if (!ValidateFWPostition())
+		if (!ValidateFWPosition())
 		{
 			response = (uint32_t)-2; //-2 means invalid position
 			TxBinaryPacket(Argument, CGraphPayloadTypeFWFilterSelect, 0, &response, sizeof(uint32_t));		
@@ -252,7 +252,7 @@ int8_t BinaryFWFilterSelectCommand(const uint32_t Name, char const* Params, cons
 	}
 	
 	//If not, do we have any idea where we are?
-	if (!ValidateFWPostition())
+	if (!ValidateFWPosition())
 	{
 		formatf("\n\nBinaryFWFilterSelectCommand: current position invalid!!\n");
 		FilterSelect = (uint32_t)-2; //-2 means we have no idea where we are!

@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="944264603">
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/core_cm3.h:1598:22" my-argnr="3" my-argname="pPreemptPriority" file="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/core_cm3.h" line="1607" col="4" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/core_cm3.h:1598:22" my-argnr="4" my-argname="pSubPriority" file="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/core_cm3.h" line="1608" col="4" value="0"/>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/core_cm3.h:1598:22" my-argnr="3" my-argname="pPreemptPriority" file="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/core_cm3.h" line="1607" col="4" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/core_cm3.h:1598:22" my-argnr="4" my-argname="pSubPriority" file="/home/summer/projects/CGraph/firmware/include/arm/smartfusion/core_cm3.h" line="1608" col="4" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="SystemInit" lineNumber="432"/>
+    <functiondecl functionName="SystemCoreClockUpdate" lineNumber="557"/>
+    <functiondecl functionName="get_rcosc_25_50mhz_frequency" lineNumber="632"/>
+    <functiondecl functionName="set_clock_frequency_globals" lineNumber="664"/>
+    <functiondecl functionName="get_silicon_revision" lineNumber="915"/>
+    <functiondecl functionName="silicon_workarounds" lineNumber="942"/>
+    <functiondecl functionName="m2s050_rev_a_workarounds" lineNumber="966"/>
+    <functiondecl functionName="SystemInit" lineNumber="432"/>
+    <functiondecl functionName="SystemCoreClockUpdate" lineNumber="557"/>
+    <functiondecl functionName="get_rcosc_25_50mhz_frequency" lineNumber="632"/>
+    <functiondecl functionName="set_clock_frequency_globals" lineNumber="664"/>
+    <functiondecl functionName="get_silicon_revision" lineNumber="915"/>
+    <functiondecl functionName="silicon_workarounds" lineNumber="942"/>
+    <functiondecl functionName="m2s050_rev_a_workarounds" lineNumber="966"/>
+    <functioncall functionName="AIRCR"/>
+    <functioncall functionName="DEVICE_VERSION"/>
+    <functioncall functionName="IRQn"/>
+    <functioncall functionName="ITM_RxBuffer"/>
+    <functioncall functionName="NVIC_SetPriority"/>
+    <functioncall functionName="PreemptPriorityBits"/>
+    <functioncall functionName="Priority"/>
+    <functioncall functionName="PriorityGroupTmp"/>
+    <functioncall functionName="SubPriorityBits"/>
+    <functioncall functionName="SysTick_IRQn"/>
+    <functioncall functionName="__DSB"/>
+    <functioncall functionName="__NOP"/>
+    <functioncall functionName="asm"/>
+    <functioncall functionName="break"/>
+    <functioncall functionName="ch"/>
+    <functioncall functionName="clk_src"/>
+    <functioncall functionName="clock_source"/>
+    <functioncall functionName="default"/>
+    <functioncall functionName="device_version"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="get_rcosc_25_50mhz_frequency"/>
+    <functioncall functionName="get_silicon_revision"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="int32_t"/>
+    <functioncall functionName="m2s050_rev_a_workarounds"/>
+    <functioncall functionName="mscc_post_hw_cfg_init"/>
+    <functioncall functionName="op2"/>
+    <functioncall functionName="reg_value"/>
+    <functioncall functionName="result"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="set_clock_frequency_globals"/>
+    <functioncall functionName="silicon_revision"/>
+    <functioncall functionName="silicon_workarounds"/>
+    <functioncall functionName="standby_clk"/>
+    <functioncall functionName="standby_sel"/>
+    <functioncall functionName="switch"/>
+    <functioncall functionName="uint16_t"/>
+    <functioncall functionName="uint32_t"/>
+    <functioncall functionName="uint8_t"/>
+    <functioncall functionName="void"/>
+    <functioncall functionName="while"/>
+  </FileInfo>
+</analyzerinfo>

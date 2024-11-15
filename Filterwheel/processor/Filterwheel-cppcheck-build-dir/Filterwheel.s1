@@ -1,0 +1,22 @@
+UartStatusRegister
+formatf call:[formatf] noreturn:[formatf]
+AdcAccumulator
+formatf call:[formatf] noreturn:[formatf]
+AdcFifo
+CGraphBaudDividers
+formatf call:[formatf] noreturn:[formatf]
+CGraphMonitorAdcCommandStatusRegister
+formatf call:[formatf] noreturn:[formatf]
+CGraphFWHardwareControlRegister
+formatf call:[formatf] noreturn:[formatf]
+CGraphFWMotorControlStatusRegister
+formatf call:[formatf] noreturn:[formatf]
+CGraphFWPositionSenseRegister
+formatf call:[formatf] noreturn:[formatf]
+CGraphFWPositionStepRegister
+MidStep call:[abs,min,return] noreturn:[return]
+formatf call:[MidStep,formatf] noreturn:[formatf]
+ValidatedFWHomeStep global:[FW,MotorFullCircleSteps] call:[MidStep,abs,formatf,return] noreturn:[MidStep,return]
+FWHome global:[FW,FWPosition,MotorFindHomeSteps,MotorFindHomeTimeoutMs] call:[ValidatedFWHomeStep,delayms,formatf] noreturn:[delayms]
+FWSeekPosition global:[FW,FWMaxPosition,FWPosition,MotorFindHomeTimeoutMs,MotorFullCircleSteps,MotorSunSafeStep] call:[FWHome,delayms,formatf] noreturn:[FWHome,delayms]
+ValidateFWPostition global:[FW,FWMaxPosition,FWPosition,MotorSunSafeStep] call:[FWHome,delayms,formatf,return] noreturn:[FWHome,return]

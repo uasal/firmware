@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="3796189983">
+        <error id="knownConditionTrueFalse" severity="style" msg="Condition &apos;!sign&apos; is always true" verbose="Condition &apos;!sign&apos; is always true" cwe="571" file0="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c">
+            <location file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="364" column="15" info="Condition &apos;!sign&apos; is always true"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="362" column="10" info="Assuming that condition &apos;sign&apos; is not redundant"/>
+        </error>
+        <error id="knownConditionTrueFalse" severity="style" msg="Condition &apos;!sign&apos; is always true" verbose="Condition &apos;!sign&apos; is always true" cwe="571" file0="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c">
+            <location file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="366" column="15" info="Condition &apos;!sign&apos; is always true"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="362" column="10" info="Assuming that condition &apos;sign&apos; is not redundant"/>
+        </error>
+        <error id="knownConditionTrueFalse" severity="style" msg="Condition &apos;!sign&apos; is always true" verbose="Condition &apos;!sign&apos; is always true" cwe="571" file0="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c">
+            <location file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="581" column="15" info="Condition &apos;!sign&apos; is always true"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="579" column="10" info="Assuming that condition &apos;sign&apos; is not redundant"/>
+        </error>
+        <error id="knownConditionTrueFalse" severity="style" msg="Condition &apos;!sign&apos; is always true" verbose="Condition &apos;!sign&apos; is always true" cwe="571" file0="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c">
+            <location file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="583" column="15" info="Condition &apos;!sign&apos; is always true"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="579" column="10" info="Assuming that condition &apos;sign&apos; is not redundant"/>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:119:13" call-funcname="round_mantissa" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="590" col="19" call-argexpr="&amp;mantissa" call-argvaluetype="7" call-argvalue="8"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:119:13" call-funcname="round_mantissa" call-argnr="2" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="590" col="19" call-argexpr="&amp;exponent" call-argvaluetype="7" call-argvalue="4"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:119:13" call-funcname="round_mantissa" call-argnr="4" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="590" col="19" call-argexpr="is_f" call-argvaluetype="0" call-argvalue="0" warning="true">
+  <path file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="601" col="10" info="Assuming that condition &apos;is_f&apos; is not redundant"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:119:13" call-funcname="round_mantissa" call-argnr="5" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="590" col="19" call-argexpr="really_g" call-argvaluetype="0" call-argvalue="0" warning="true">
+  <path file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="640" col="18" info="Assuming that condition &apos;really_g&apos; is not redundant"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:119:13" call-funcname="round_mantissa" call-argnr="6" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="590" col="19" call-argexpr="pspec-&gt;flags&amp;0x20" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:109:12" call-funcname="mant_to_char" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="748" col="32" call-argexpr="e_s" call-argvaluetype="7" call-argvalue="9"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:109:12" call-funcname="mant_to_char" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="765" col="33" call-argexpr="e_s" call-argvaluetype="7" call-argvalue="9"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:107:13" call-funcname="radix_convert" call-argnr="2" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="852" col="18" call-argexpr="&amp;sign" call-argvaluetype="7" call-argvalue="4"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:107:13" call-funcname="radix_convert" call-argnr="3" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="852" col="18" call-argexpr="&amp;mantissa" call-argvaluetype="7" call-argvalue="8"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:107:13" call-funcname="radix_convert" call-argnr="4" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="852" col="18" call-argexpr="&amp;exponent" call-argvaluetype="7" call-argvalue="4"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:107:13" call-funcname="radix_convert" call-argnr="4" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="852" col="18" call-argexpr="exponent" call-argvaluetype="4" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:107:13" call-funcname="radix_convert" call-argnr="2" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="957" col="22" call-argexpr="&amp;sign" call-argvaluetype="7" call-argvalue="4"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:107:13" call-funcname="radix_convert" call-argnr="3" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="957" col="22" call-argexpr="&amp;mantissa" call-argvaluetype="7" call-argvalue="8"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:107:13" call-funcname="radix_convert" call-argnr="4" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="957" col="22" call-argexpr="&amp;exponent" call-argvaluetype="7" call-argvalue="4"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:509:12" call-funcname="do_conv_efg" call-argnr="5" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="960" col="23" call-argexpr="sign" call-argvaluetype="0" call-argvalue="0">
+  <path file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="912" col="20" info="Assignment &apos;sign=0&apos;, assigned value is 0"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:509:12" call-funcname="do_conv_efg" call-argnr="6" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="960" col="23" call-argexpr="mantissa" call-argvaluetype="0" call-argvalue="0">
+  <path file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="913" col="20" info="Assignment &apos;mantissa=0&apos;, assigned value is 0"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:509:12" call-funcname="do_conv_efg" call-argnr="7" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="960" col="23" call-argexpr="exponent" call-argvaluetype="0" call-argvalue="0">
+  <path file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="914" col="20" info="Assignment &apos;exponent=0&apos;, assigned value is 0"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:114:12" call-funcname="do_conv_infnan" call-argnr="3" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="858" col="16" my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:111:12" my-argnr="4"/>
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:114:12" call-funcname="do_conv_infnan" call-argnr="4" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="858" col="16" my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:111:12" my-argnr="5"/>
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:509:12" call-funcname="do_conv_efg" call-argnr="3" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="960" col="12" my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:878:12" my-argnr="4"/>
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:509:12" call-funcname="do_conv_efg" call-argnr="4" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="960" col="12" my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:878:12" my-argnr="5"/>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:119:13" my-argnr="1" my-argname="mantissa" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="435" col="5" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:119:13" my-argnr="2" my-argname="exponent" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="400" col="13" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:509:12" my-argnr="1" my-argname="pspec" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="537" col="31" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:111:12" my-argnr="1" my-argname="pspec" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="848" col="10" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:878:12" my-argnr="1" my-argname="pspec" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="884" col="25" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:119:13" my-argnr="1" my-argname="mantissa" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="435" col="5" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:119:13" my-argnr="2" my-argname="exponent" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="400" col="13" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:111:12" my-argnr="1" my-argname="pspec" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="848" col="10" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:878:12" my-argnr="1" my-argname="pspec" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="884" col="25" value="0"/>
+  </FileInfo>
+  <FileInfo check="ctu">
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:119:13" call-funcname="round_mantissa" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="590" col="19" call-argexpr="&amp;mantissa" call-argvaluetype="7" call-argvalue="8"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:119:13" call-funcname="round_mantissa" call-argnr="2" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="590" col="19" call-argexpr="&amp;exponent" call-argvaluetype="7" call-argvalue="4"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:119:13" call-funcname="round_mantissa" call-argnr="4" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="590" col="19" call-argexpr="is_f" call-argvaluetype="0" call-argvalue="0" warning="true">
+  <path file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="601" col="10" info="Assuming that condition &apos;is_f&apos; is not redundant"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:119:13" call-funcname="round_mantissa" call-argnr="5" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="590" col="19" call-argexpr="really_g" call-argvaluetype="0" call-argvalue="0" warning="true">
+  <path file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="640" col="18" info="Assuming that condition &apos;really_g&apos; is not redundant"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:119:13" call-funcname="round_mantissa" call-argnr="6" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="590" col="19" call-argexpr="pspec-&gt;flags&amp;0x20" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:109:12" call-funcname="mant_to_char" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="748" col="32" call-argexpr="e_s" call-argvaluetype="7" call-argvalue="9"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:109:12" call-funcname="mant_to_char" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="765" col="33" call-argexpr="e_s" call-argvaluetype="7" call-argvalue="9"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:107:13" call-funcname="radix_convert" call-argnr="2" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="852" col="18" call-argexpr="&amp;sign" call-argvaluetype="7" call-argvalue="4"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:107:13" call-funcname="radix_convert" call-argnr="3" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="852" col="18" call-argexpr="&amp;mantissa" call-argvaluetype="7" call-argvalue="8"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:107:13" call-funcname="radix_convert" call-argnr="4" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="852" col="18" call-argexpr="&amp;exponent" call-argvaluetype="7" call-argvalue="4"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:107:13" call-funcname="radix_convert" call-argnr="4" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="852" col="18" call-argexpr="exponent" call-argvaluetype="4" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:107:13" call-funcname="radix_convert" call-argnr="2" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="957" col="22" call-argexpr="&amp;sign" call-argvaluetype="7" call-argvalue="4"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:107:13" call-funcname="radix_convert" call-argnr="3" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="957" col="22" call-argexpr="&amp;mantissa" call-argvaluetype="7" call-argvalue="8"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:107:13" call-funcname="radix_convert" call-argnr="4" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="957" col="22" call-argexpr="&amp;exponent" call-argvaluetype="7" call-argvalue="4"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:509:12" call-funcname="do_conv_efg" call-argnr="5" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="960" col="23" call-argexpr="sign" call-argvaluetype="0" call-argvalue="0">
+  <path file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="912" col="20" info="Assignment &apos;sign=0&apos;, assigned value is 0"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:509:12" call-funcname="do_conv_efg" call-argnr="6" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="960" col="23" call-argexpr="mantissa" call-argvaluetype="0" call-argvalue="0">
+  <path file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="913" col="20" info="Assignment &apos;mantissa=0&apos;, assigned value is 0"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:509:12" call-funcname="do_conv_efg" call-argnr="7" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="960" col="23" call-argexpr="exponent" call-argvaluetype="0" call-argvalue="0">
+  <path file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="914" col="20" info="Assignment &apos;exponent=0&apos;, assigned value is 0"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:114:12" call-funcname="do_conv_infnan" call-argnr="3" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="858" col="16" my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:111:12" my-argnr="4"/>
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:114:12" call-funcname="do_conv_infnan" call-argnr="4" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="858" col="16" my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:111:12" my-argnr="5"/>
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:509:12" call-funcname="do_conv_efg" call-argnr="3" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="960" col="12" my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:878:12" my-argnr="4"/>
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:509:12" call-funcname="do_conv_efg" call-argnr="4" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="960" col="12" my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:878:12" my-argnr="5"/>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:119:13" my-argnr="1" my-argname="mantissa" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="435" col="5" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:119:13" my-argnr="2" my-argname="exponent" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="400" col="13" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:509:12" my-argnr="1" my-argname="pspec" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="537" col="31" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:111:12" my-argnr="1" my-argname="pspec" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="848" col="10" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:878:12" my-argnr="1" my-argname="pspec" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="884" col="25" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:119:13" my-argnr="1" my-argname="mantissa" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="435" col="5" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:119:13" my-argnr="2" my-argname="exponent" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="400" col="13" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:111:12" my-argnr="1" my-argname="pspec" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="848" col="10" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c:878:12" my-argnr="1" my-argname="pspec" file="/home/summer/projects/CGraph/firmware/include/format/src/format_fp.c" line="884" col="25" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="radix_convert" lineNumber="160"/>
+    <functiondecl functionName="mant_to_char" lineNumber="290"/>
+    <functiondecl functionName="do_conv_infnan" lineNumber="335"/>
+    <functiondecl functionName="round_mantissa" lineNumber="389"/>
+    <functiondecl functionName="do_conv_efg" lineNumber="509"/>
+    <functiondecl functionName="do_conv_fp" lineNumber="836"/>
+    <functiondecl functionName="do_conv_k" lineNumber="878"/>
+    <functiondecl functionName="radix_convert" lineNumber="160"/>
+    <functiondecl functionName="mant_to_char" lineNumber="290"/>
+    <functiondecl functionName="do_conv_infnan" lineNumber="335"/>
+    <functiondecl functionName="round_mantissa" lineNumber="389"/>
+    <functiondecl functionName="do_conv_efg" lineNumber="509"/>
+    <functiondecl functionName="do_conv_fp" lineNumber="836"/>
+    <functiondecl functionName="do_conv_k" lineNumber="878"/>
+    <functioncall functionName="DEBUG_LOG"/>
+    <functioncall functionName="INT_MAX"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="STRLEN"/>
+    <functioncall functionName="absexp"/>
+    <functioncall functionName="bits"/>
+    <functioncall functionName="break"/>
+    <functioncall functionName="calc_space_padding"/>
+    <functioncall functionName="char"/>
+    <functioncall functionName="code"/>
+    <functioncall functionName="compressed"/>
+    <functioncall functionName="cons"/>
+    <functioncall functionName="continue"/>
+    <functioncall functionName="d"/>
+    <functioncall functionName="d_exponent"/>
+    <functioncall functionName="d_mantissa"/>
+    <functioncall functionName="d_sign"/>
+    <functioncall functionName="digits_to_convert"/>
+    <functioncall functionName="do_conv_efg"/>
+    <functioncall functionName="do_conv_infnan"/>
+    <functioncall functionName="double"/>
+    <functioncall functionName="dv"/>
+    <functioncall functionName="e"/>
+    <functioncall functionName="e_n"/>
+    <functioncall functionName="e_s"/>
+    <functioncall functionName="epfx_s"/>
+    <functioncall functionName="exponent"/>
+    <functioncall functionName="flags"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="gen_out"/>
+    <functioncall functionName="i"/>
+    <functioncall functionName="idx"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="int"/>
+    <functioncall functionName="is_f"/>
+    <functioncall functionName="j"/>
+    <functioncall functionName="length"/>
+    <functioncall functionName="long"/>
+    <functioncall functionName="mant_to_char"/>
+    <functioncall functionName="mantissa"/>
+    <functioncall functionName="n_exp"/>
+    <functioncall functionName="n_left"/>
+    <functioncall functionName="n_right"/>
+    <functioncall functionName="parg"/>
+    <functioncall functionName="pfx_n"/>
+    <functioncall functionName="pfx_s"/>
+    <functioncall functionName="prec"/>
+    <functioncall functionName="ps1"/>
+    <functioncall functionName="ps2"/>
+    <functioncall functionName="pspec"/>
+    <functioncall functionName="pz1"/>
+    <functioncall functionName="pz2"/>
+    <functioncall functionName="pz3"/>
+    <functioncall functionName="pz4"/>
+    <functioncall functionName="radix_convert"/>
+    <functioncall functionName="really_g"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="round_mantissa"/>
+    <functioncall functionName="shift"/>
+    <functioncall functionName="si"/>
+    <functioncall functionName="sigfig"/>
+    <functioncall functionName="sign"/>
+    <functioncall functionName="sitab"/>
+    <functioncall functionName="sizeof"/>
+    <functioncall functionName="v"/>
+    <functioncall functionName="va_arg"/>
+    <functioncall functionName="va_list"/>
+    <functioncall functionName="w_frac"/>
+    <functioncall functionName="w_int"/>
+    <functioncall functionName="want_dp"/>
+    <functioncall functionName="while"/>
+    <functioncall functionName="width"/>
+  </FileInfo>
+</analyzerinfo>

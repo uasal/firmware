@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="1714936943">
+        <error id="invalidPointerCast" severity="portability" msg="Casting from const double * to const unsigned int * is not portable due to different binary data representations on different platforms." verbose="Casting from const double * to const unsigned int * is not portable due to different binary data representations on different platforms." cwe="704" file0="/home/summer/projects/CGraph/firmware/include/stdintle.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/stdintle.cpp" line="115" column="24"/>
+        </error>
+        <error id="invalidPointerCast" severity="portability" msg="Casting from double * to unsigned int * is not portable due to different binary data representations on different platforms." verbose="Casting from double * to unsigned int * is not portable due to different binary data representations on different platforms." cwe="704" file0="/home/summer/projects/CGraph/firmware/include/stdintle.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/stdintle.cpp" line="116" column="19"/>
+        </error>
+  <FileInfo check="Class">
+<class name="uint16be_t" file="/home/summer/projects/CGraph/firmware/include/stdintle.h" line="38" col="1" hash="9156832741432821228"/>
+<class name="uint32be_t" file="/home/summer/projects/CGraph/firmware/include/stdintle.h" line="47" col="1" hash="3347135626012795939"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="endianswap_uint16_t" lineNumber="30"/>
+    <functiondecl functionName="endianswap_uint32_t" lineNumber="40"/>
+    <functiondecl functionName="endianswap_uint64_t" lineNumber="52"/>
+    <functiondecl functionName="endianswap_float" lineNumber="68"/>
+    <functiondecl functionName="endianswap_double" lineNumber="80"/>
+    <functiondecl functionName="endianswap_double_arm7" lineNumber="96"/>
+    <functiondecl functionName="endianswap_doublehalves_arm7" lineNumber="112"/>
+    <functioncall functionName="all"/>
+    <functioncall functionName="eight"/>
+    <functioncall functionName="five"/>
+    <functioncall functionName="four"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="one"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="seven"/>
+    <functioncall functionName="six"/>
+    <functioncall functionName="source"/>
+    <functioncall functionName="temp"/>
+    <functioncall functionName="three"/>
+    <functioncall functionName="two"/>
+    <functioncall functionName="uint16_t"/>
+    <functioncall functionName="uint32_t"/>
+  </FileInfo>
+</analyzerinfo>

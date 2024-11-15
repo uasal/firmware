@@ -1,0 +1,18 @@
+_close
+_execve
+_exit
+_fork
+_fstat
+_getpid
+_isatty
+_kill
+_link
+_lseek
+_open
+_read
+_write_r
+_sbrk global:[_eheap,_end] call:[_exit,_write_r,asm,return] noreturn:[_exit]
+_stat
+_times
+_unlink
+_wait

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="2391082034">
+  <FileInfo check="ctu">
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/format/lib/printf.h:43:12" call-funcname="vsprintf" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/format/lib/sprintf.c" line="116" col="12" my-id="/home/summer/projects/CGraph/firmware/include/format/lib/printf.h:39:12" my-argnr="1"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="bufwrite" lineNumber="66"/>
+    <functiondecl functionName="vsprintf" lineNumber="90"/>
+    <functiondecl functionName="sprintf" lineNumber="110"/>
+    <functioncall functionName="ap"/>
+    <functioncall functionName="arg"/>
+    <functioncall functionName="buf"/>
+    <functioncall functionName="bufwrite"/>
+    <functioncall functionName="done"/>
+    <functioncall functionName="fmt"/>
+    <functioncall functionName="format"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="long"/>
+    <functioncall functionName="memptr"/>
+    <functioncall functionName="va_end"/>
+    <functioncall functionName="va_list"/>
+    <functioncall functionName="va_start"/>
+    <functioncall functionName="vsprintf"/>
+    <functioncall functionName="while"/>
+  </FileInfo>
+</analyzerinfo>

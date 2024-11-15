@@ -1,0 +1,3 @@
+outfunc call:[putchar,return] noreturn:[putchar]
+vprintf call:[format] noreturn:[format]
+printf call:[va_end,va_start,vprintf]

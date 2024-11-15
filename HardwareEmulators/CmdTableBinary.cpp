@@ -42,7 +42,7 @@ const BinaryCmd BinaryCmds[] =
 		"BinaryVersionCommandDeprecated",
 		BinaryVersionCommand
     ),
-	
+
 	//FineSteeringMirror Commands
 	
 	BinaryCmd (

@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="602331630">
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;EIM_EAR::error_addr&apos; is never used." verbose="struct member &apos;EIM_EAR::error_addr&apos; is never used." cwe="563" file0="/home/summer/projects/CGraph/firmware/include/arm/imx6/imx6-eim.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/arm/imx6/imx6-eim.cpp" line="217" column="25"/>
+            <symbol>EIM_EAR::error_addr</symbol>
+        </error>
+  <FileInfo check="Class">
+<class name="EIM_EAR" file="/home/summer/projects/CGraph/firmware/include/arm/imx6/imx6-eim.cpp" line="215" col="1" hash="3083595702112138497"/>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/imx6/imx6-eim.cpp:243:6" my-argnr="2" my-argname="pvalue" file="/home/summer/projects/CGraph/firmware/include/arm/imx6/imx6-eim.cpp" line="249" col="17" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/imx6/imx6-eim.cpp:256:6" my-argnr="2" my-argname="pvalue" file="/home/summer/projects/CGraph/firmware/include/arm/imx6/imx6-eim.cpp" line="262" col="12" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/arm/imx6/imx6-eim.cpp:243:6" my-argnr="2" my-argname="pvalue" file="/home/summer/projects/CGraph/firmware/include/arm/imx6/imx6-eim.cpp" line="249" col="17" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="formatf" lineNumber="65"/>
+    <functiondecl functionName="formatf" lineNumber="85"/>
+    <functiondecl functionName="formatf" lineNumber="111"/>
+    <functiondecl functionName="formatf" lineNumber="132"/>
+    <functiondecl functionName="formatf" lineNumber="156"/>
+    <functiondecl functionName="formatf" lineNumber="170"/>
+    <functiondecl functionName="formatf" lineNumber="192"/>
+    <functiondecl functionName="formatf" lineNumber="211"/>
+    <functiondecl functionName="eim_write_32" lineNumber="243"/>
+    <functiondecl functionName="eim_read_32" lineNumber="256"/>
+    <functiondecl functionName="_eim_calc_offset" lineNumber="269"/>
+    <functiondecl functionName="_eim_remap_mem" lineNumber="291"/>
+    <functiondecl functionName="eim_setup" lineNumber="320"/>
+    <functiondecl functionName="_eim_cleanup" lineNumber="355"/>
+    <functiondecl functionName="_eim_setup_eim" lineNumber="371"/>
+    <functioncall functionName="EIM_CS0GCR1"/>
+    <functioncall functionName="EIM_CS0GCR2"/>
+    <functioncall functionName="EIM_CS0RCR1"/>
+    <functioncall functionName="EIM_CS0RCR2"/>
+    <functioncall functionName="EIM_CS0WCR1"/>
+    <functioncall functionName="EIM_CS0WCR2"/>
+    <functioncall functionName="EXIT_FAILURE"/>
+    <functioncall functionName="MAP_FAILED"/>
+    <functioncall functionName="MAP_SHARED"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="O_SYNC"/>
+    <functioncall functionName="PROT_WRITE"/>
+    <functioncall functionName="_SC_PAGESIZE"/>
+    <functioncall functionName="_eim_calc_offset"/>
+    <functioncall functionName="_eim_cleanup"/>
+    <functioncall functionName="_eim_remap_mem"/>
+    <functioncall functionName="_eim_setup_eim"/>
+    <functioncall functionName="aclk_en"/>
+    <functioncall functionName="adh"/>
+    <functioncall functionName="all"/>
+    <functioncall functionName="apr"/>
+    <functioncall functionName="atexit"/>
+    <functioncall functionName="aus"/>
+    <functioncall functionName="bcd"/>
+    <functioncall functionName="bcm"/>
+    <functioncall functionName="bcs"/>
+    <functioncall functionName="bl"/>
+    <functioncall functionName="close"/>
+    <functioncall functionName="cre"/>
+    <functioncall functionName="crep"/>
+    <functioncall functionName="csen"/>
+    <functioncall functionName="csrec"/>
+    <functioncall functionName="dae"/>
+    <functioncall functionName="dap"/>
+    <functioncall functionName="daps"/>
+    <functioncall functionName="dsz"/>
+    <functioncall functionName="eim_read_32"/>
+    <functioncall functionName="eim_write_32"/>
+    <functioncall functionName="errst"/>
+    <functioncall functionName="exit"/>
+    <functioncall functionName="formatf"/>
+    <functioncall functionName="fprintf"/>
+    <functioncall functionName="gbc"/>
+    <functioncall functionName="gbcd"/>
+    <functioncall functionName="gcr1"/>
+    <functioncall functionName="gcr2"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="inten"/>
+    <functioncall functionName="intpol"/>
+    <functioncall functionName="ips_ack"/>
+    <functioncall functionName="ips_req"/>
+    <functioncall functionName="irq"/>
+    <functioncall functionName="mem_base_addr"/>
+    <functioncall functionName="mem_dev_fd"/>
+    <functioncall functionName="mem_map_ptr"/>
+    <functioncall functionName="mem_page_size"/>
+    <functioncall functionName="memcpy"/>
+    <functioncall functionName="mmap"/>
+    <functioncall functionName="mum"/>
+    <functioncall functionName="munmap"/>
+    <functioncall functionName="mux16_byp_grant"/>
+    <functioncall functionName="oea"/>
+    <functioncall functionName="oen"/>
+    <functioncall functionName="off_t"/>
+    <functioncall functionName="offset"/>
+    <functioncall functionName="open"/>
+    <functioncall functionName="pat"/>
+    <functioncall functionName="printf"/>
+    <functioncall functionName="psz"/>
+    <functioncall functionName="ptr"/>
+    <functioncall functionName="pvalue"/>
+    <functioncall functionName="radva"/>
+    <functioncall functionName="radvn"/>
+    <functioncall functionName="ral"/>
+    <functioncall functionName="rbe"/>
+    <functioncall functionName="rbea"/>
+    <functioncall functionName="rben"/>
+    <functioncall functionName="rcr1"/>
+    <functioncall functionName="rcr2"/>
+    <functioncall functionName="rcsa"/>
+    <functioncall functionName="rcsn"/>
+    <functioncall functionName="reserved_11"/>
+    <functioncall functionName="reserved_11_10"/>
+    <functioncall functionName="reserved_15"/>
+    <functioncall functionName="reserved_23"/>
+    <functioncall functionName="reserved_3"/>
+    <functioncall functionName="reserved_31_1"/>
+    <functioncall functionName="reserved_31_11"/>
+    <functioncall functionName="reserved_31_13"/>
+    <functioncall functionName="reserved_31_16"/>
+    <functioncall functionName="reserved_31_30"/>
+    <functioncall functionName="reserved_31_5"/>
+    <functioncall functionName="reserved_3_2"/>
+    <functioncall functionName="reserved_7"/>
+    <functioncall functionName="reserved_7_6"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="rfl"/>
+    <functioncall functionName="rl"/>
+    <functioncall functionName="rwsc"/>
+    <functioncall functionName="sizeof"/>
+    <functioncall functionName="sp"/>
+    <functioncall functionName="srd"/>
+    <functioncall functionName="stderr"/>
+    <functioncall functionName="swr"/>
+    <functioncall functionName="sysconf"/>
+    <functioncall functionName="uint32_t"/>
+    <functioncall functionName="void"/>
+    <functioncall functionName="wadva"/>
+    <functioncall functionName="wadvn"/>
+    <functioncall functionName="wal"/>
+    <functioncall functionName="wbcdd"/>
+    <functioncall functionName="wbea"/>
+    <functioncall functionName="wbed"/>
+    <functioncall functionName="wben"/>
+    <functioncall functionName="wc"/>
+    <functioncall functionName="wcr1"/>
+    <functioncall functionName="wcr2"/>
+    <functioncall functionName="wcsa"/>
+    <functioncall functionName="wcsn"/>
+    <functioncall functionName="wdog_en"/>
+    <functioncall functionName="wdog_limit"/>
+    <functioncall functionName="wea"/>
+    <functioncall functionName="wen"/>
+    <functioncall functionName="wfl"/>
+    <functioncall functionName="while"/>
+    <functioncall functionName="wp"/>
+    <functioncall functionName="wwsc"/>
+  </FileInfo>
+</analyzerinfo>

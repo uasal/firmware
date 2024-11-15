@@ -1,0 +1,754 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="1283372984">
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;BinaryUart::RxBuffer&apos; is not initialized in the constructor." verbose="Member variable &apos;BinaryUart::RxBuffer&apos; is not initialized in the constructor." cwe="398" file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="82" column="5"/>
+            <symbol>BinaryUart::RxBuffer</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;TerminalUart &lt; 16 , 4096 &gt;::RxBuffer&apos; is not initialized in the constructor." verbose="Member variable &apos;TerminalUart &lt; 16 , 4096 &gt;::RxBuffer&apos; is not initialized in the constructor." cwe="398" file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="90" column="2"/>
+            <symbol>TerminalUart &lt; 16 , 4096 &gt;::RxBuffer</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;fixedqueue &lt; char , 16 &gt;::data&apos; is not initialized in the constructor." verbose="Member variable &apos;fixedqueue &lt; char , 16 &gt;::data&apos; is not initialized in the constructor." cwe="398" file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/fixedqueue.hpp" line="51" column="3"/>
+            <symbol>fixedqueue &lt; char , 16 &gt;::data</symbol>
+        </error>
+        <error id="noExplicitConstructor" severity="style" msg="Struct &apos;ads1258 &lt; PinoutMonitorAdc &gt;&apos; has a constructor with 1 argument that is not explicit." verbose="Struct &apos;ads1258 &lt; PinoutMonitorAdc &gt;&apos; has a constructor with 1 argument that is not explicit. Such constructors should in general be explicit for type safety reasons. Using the explicit keyword in the constructor means some mistakes when using the class can be avoided." cwe="398" file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="297" column="3"/>
+            <symbol>ads1258 &lt; PinoutMonitorAdc &gt;</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Process&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Process&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="122" column="10" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IUartParser.hpp" line="42" column="15" info="Virtual function in base class"/>
+            <symbol>Process</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;FindPacketStart&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;FindPacketStart&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="61" column="15" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="37" column="15" info="Virtual function in base class"/>
+            <symbol>FindPacketStart</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;FindPacketEnd&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;FindPacketEnd&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="67" column="15" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="38" column="15" info="Virtual function in base class"/>
+            <symbol>FindPacketEnd</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;HeaderLen&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;HeaderLen&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="73" column="17" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="39" column="17" info="Virtual function in base class"/>
+            <symbol>HeaderLen</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;FooterLen&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;FooterLen&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="74" column="17" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="40" column="17" info="Virtual function in base class"/>
+            <symbol>FooterLen</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;PayloadOffset&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;PayloadOffset&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="75" column="17" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="41" column="17" info="Virtual function in base class"/>
+            <symbol>PayloadOffset</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;MaxPayloadLength&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;MaxPayloadLength&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="76" column="17" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="42" column="17" info="Virtual function in base class"/>
+            <symbol>MaxPayloadLength</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;IsBroadcastSerialNum&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;IsBroadcastSerialNum&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="77" column="15" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="45" column="15" info="Virtual function in base class"/>
+            <symbol>IsBroadcastSerialNum</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;SerialNum&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;SerialNum&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="78" column="19" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="46" column="19" info="Virtual function in base class"/>
+            <symbol>SerialNum</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;PayloadLen&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;PayloadLen&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="80" column="17" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="43" column="17" info="Virtual function in base class"/>
+            <symbol>PayloadLen</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;PayloadType&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;PayloadType&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="87" column="19" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="47" column="19" info="Virtual function in base class"/>
+            <symbol>PayloadType</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;DoesPayloadTypeMatch&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;DoesPayloadTypeMatch&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="94" column="15" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="48" column="15" info="Virtual function in base class"/>
+            <symbol>DoesPayloadTypeMatch</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;IsValid&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;IsValid&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="104" column="15" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="44" column="15" info="Virtual function in base class"/>
+            <symbol>IsValid</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;MakePacket&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;MakePacket&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="117" column="17" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IPacket.hpp" line="49" column="17" info="Virtual function in base class"/>
+            <symbol>MakePacket</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;dataready&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;dataready&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/uart_pinout_fpga.hpp" line="57" column="15" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IUart.h" line="52" column="15" info="Virtual function in base class"/>
+            <symbol>dataready</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;getcqq&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;getcqq&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/uart_pinout_fpga.hpp" line="63" column="15" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IUart.h" line="53" column="15" info="Virtual function in base class"/>
+            <symbol>getcqq</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;putcqq&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;putcqq&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/uart_pinout_fpga.hpp" line="73" column="15" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IUart.h" line="54" column="15" info="Virtual function in base class"/>
+            <symbol>putcqq</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;flushoutput&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;flushoutput&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/uart_pinout_fpga.hpp" line="87" column="15" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IUart.h" line="55" column="15" info="Virtual function in base class"/>
+            <symbol>flushoutput</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;purgeinput&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;purgeinput&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/uart_pinout_fpga.hpp" line="88" column="15" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IUart.h" line="56" column="15" info="Virtual function in base class"/>
+            <symbol>purgeinput</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;isopen&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;isopen&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/uart_pinout_fpga.hpp" line="90" column="15" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IUart.h" line="57" column="15" info="Virtual function in base class"/>
+            <symbol>isopen</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Process&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Process&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="276" column="7" info="Function in derived class"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/IUartParser.hpp" line="42" column="15" info="Virtual function in base class"/>
+            <symbol>Process</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;PacketEnd&apos; can be reduced." verbose="The scope of the variable &apos;PacketEnd&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="144" column="10"/>
+            <symbol>PacketEnd</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;OnOff&apos; can be reduced." verbose="The scope of the variable &apos;OnOff&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="CmdHandlersAscii.cpp">
+            <location file="CmdHandlersAscii.cpp" line="414" column="10"/>
+            <symbol>OnOff</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;c&apos; can be reduced." verbose="The scope of the variable &apos;c&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="219" column="8"/>
+            <symbol>c</symbol>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;val&apos; can be declared with const" verbose="Parameter &apos;val&apos; can be declared with const" cwe="398" file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="85" column="27" info="Parameter &apos;val&apos; can be declared with const"/>
+            <symbol>val</symbol>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;rhs&apos; can be declared with const" verbose="Parameter &apos;rhs&apos; can be declared with const" cwe="398" file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="129" column="37" info="Parameter &apos;rhs&apos; can be declared with const"/>
+            <symbol>rhs</symbol>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;rhs&apos; can be declared with const" verbose="Parameter &apos;rhs&apos; can be declared with const" cwe="398" file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="155" column="36" info="Parameter &apos;rhs&apos; can be declared with const"/>
+            <symbol>rhs</symbol>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;rhs&apos; can be declared with const" verbose="Parameter &apos;rhs&apos; can be declared with const" cwe="398" file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="181" column="36" info="Parameter &apos;rhs&apos; can be declared with const"/>
+            <symbol>rhs</symbol>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;rhs&apos; can be declared with const" verbose="Parameter &apos;rhs&apos; can be declared with const" cwe="398" file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="205" column="35" info="Parameter &apos;rhs&apos; can be declared with const"/>
+            <symbol>rhs</symbol>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;rhs&apos; can be declared with const" verbose="Parameter &apos;rhs&apos; can be declared with const" cwe="398" file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="235" column="36" info="Parameter &apos;rhs&apos; can be declared with const"/>
+            <symbol>rhs</symbol>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;Buffer&apos; can be declared with const" verbose="Parameter &apos;Buffer&apos; can be declared with const" cwe="398" file0="CmdHandlersAscii.cpp">
+            <location file="MonitorAdc.hpp" line="345" column="24" info="Parameter &apos;Buffer&apos; can be declared with const"/>
+            <symbol>Buffer</symbol>
+        </error>
+        <error id="shiftTooManyBits" severity="error" msg="Shifting 64-bit value by 4294967295 bits is undefined behaviour" verbose="Shifting 64-bit value by 4294967295 bits is undefined behaviour" cwe="758" file0="CmdHandlersAscii.cpp">
+            <location file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="395" column="38" info="Shift"/>
+            <location file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="392" column="41" info="Safe checks: Assuming argument has value 4294967295"/>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:11:5" call-funcname="formatf" call-argnr="2" file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="158" col="26" call-argexpr="RxBuffer" call-argvaluetype="7" call-argvalue="4096"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:11:5" call-funcname="formatf" call-argnr="2" file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="316" col="12" call-argexpr="PayloadType" call-argvaluetype="0" call-argvalue="0">
+  <path file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="311" col="37" info="Safe checks: Assuming argument has value 0"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:11:5" call-funcname="formatf" call-argnr="3" file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="316" col="12" call-argexpr="PayloadLen" call-argvaluetype="0" call-argvalue="0">
+  <path file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="311" col="117" info="Safe checks: Assuming argument has value 0"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:11:5" call-funcname="formatf" call-argnr="5" file="CmdHandlersAscii.cpp" line="61" col="10" call-argexpr="BuildTimeStr" call-argvaluetype="7" call-argvalue="25"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:11:5" call-funcname="formatf" call-argnr="4" file="CmdHandlersAscii.cpp" line="66" col="13" call-argexpr="BuildTimeStr" call-argvaluetype="7" call-argvalue="25"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:11:5" call-funcname="formatf" call-argnr="2" file="CmdHandlersAscii.cpp" line="86" col="11" call-argexpr="addr" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:11:5" call-funcname="formatf" call-argnr="2" file="CmdHandlersAscii.cpp" line="422" col="10" call-argexpr="port" call-argvaluetype="0" call-argvalue="0" warning="true">
+  <path file="CmdHandlersAscii.cpp" line="426" col="4" info="case 0: port is 0 here."/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:12:5" call-funcname="sformatf" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="210" col="13" call-argexpr="s" call-argvaluetype="7" call-argvalue="2147483648"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="257" col="22" call-argexpr="RxBuffer" call-argvaluetype="7" call-argvalue="2147483648"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="5" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="257" col="22" call-argexpr="false" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="8" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="257" col="22" call-argexpr="false" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="261" col="22" call-argexpr="RxBuffer" call-argvaluetype="7" call-argvalue="2147483648"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="8" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="261" col="22" call-argexpr="false" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:632:19" call-funcname="WriteRegister" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="320" col="17" call-argexpr="ads1258details::register_config0" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:637:20" call-funcname="ReadRegister" call-argnr="2" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="326" col="16" call-argexpr="temp" call-argvaluetype="0" call-argvalue="0">
+  <path file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="325" col="19" info="Assignment &apos;temp=0&apos;, assigned value is 0"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:632:19" call-funcname="WriteRegister" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="461" col="17" call-argexpr="ads1258details::register_config0" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="MonitorAdc.hpp:54:14" call-funcname="enable" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="516" col="11" call-argexpr="false" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:632:19" call-funcname="WriteRegister" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="535" col="18" call-argexpr="ads1258details::register_config0" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:632:19" call-funcname="WriteRegister" call-argnr="2" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="540" col="18" call-argexpr="gpio_output_mask" call-argvaluetype="0" call-argvalue="0">
+  <path file="MonitorAdc.hpp" line="199" col="40" info="Calling function &apos;Init&apos;, 1st argument &apos;GpioDirections&apos; value is 0"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:632:19" call-funcname="WriteRegister" call-argnr="2" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="541" col="18" call-argexpr="0x00" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:637:20" call-funcname="ReadRegister" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="548" col="17" call-argexpr="ads1258details::register_config0" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="MonitorAdc.hpp:54:14" call-funcname="enable" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="620" col="79" call-argexpr="false" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:624:19" call-funcname="txb" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="632" col="111" call-argexpr="val" call-argvaluetype="0" call-argvalue="0">
+  <path file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="541" col="51" info="Calling function &apos;WriteRegister&apos;, 2nd argument &apos;0x00&apos; value is 0"/>
+</function-call>  </FileInfo>
+  <FileInfo check="Class">
+<class name="CGraphFWHardwareInterface" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphFWHardwareInterface.hpp" line="167" col="1" hash="6056725122833233180"/>
+<class name="Cmd" file="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp" line="31" col="1" hash="6556146030387306101"/>
+<class name="BinaryCmd" file="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp" line="52" col="1" hash="6672978655474459042"/>
+<class name="BinaryUartCallbacks" file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="44" col="1" hash="5656475519430945737"/>
+<class name="BinaryUart" file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="62" col="1" hash="3148362143544099142"/>
+<class name="CGraphPacketHeader" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="23" col="1" hash="4112921634813253096"/>
+<class name="CGraphPacketFooter" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="43" col="1" hash="12766666285239492845"/>
+<class name="CGraphPacket" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="55" col="1" hash="3934370168336901307"/>
+<class name="CGraphVersionPayload" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="140" col="1" hash="2407920983509944106"/>
+<class name="CGraphHardFaultPayload" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="152" col="1" hash="15437502405086285757"/>
+<class name="CGraphFSMTelemetryPayload" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="184" col="1" hash="5430704964686648762"/>
+<class name="CGraphDMTelemetryPayload" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="208" col="1" hash="11875402881160296853"/>
+<class name="CGraphFWTelemetryPayload" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="237" col="1" hash="14021932172769939899"/>
+<class name="TempLM35" file="/home/summer/projects/CGraph/firmware/include/temp/TempLM35.hpp" line="33" col="1" hash="16739023779391991502"/>
+<class name="uart_pinout_fpga" file="/home/summer/projects/CGraph/firmware/include/uart/uart_pinout_fpga.hpp" line="31" col="1" hash="12982914641552435626"/>
+<class name="RTSCallback" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="56" col="1" hash="362755928346803656"/>
+<class name="PinoutMonitorAdc" file="MonitorAdc.hpp" line="32" col="1" hash="8568600080941326984"/>
+<class name="MonitorAdcCalibratedInput" file="MonitorAdc.hpp" line="86" col="1" hash="17213448378508664050"/>
+<class name="CGraphFWMonitorAdc" file="MonitorAdc.hpp" line="126" col="1" hash="2909461045053934061"/>
+<class name="TerminalUart &lt; 16 , 4096 &gt;" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="68" col="64" hash="5836284467467332894"/>
+<class name="ads1258 &lt; PinoutMonitorAdc &gt;" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="281" col="1" hash="15951013263092659178"/>
+<class name="ads1258 &lt; PinoutMonitorAdc &gt;::spi_busmsg" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="617" col="3" hash="4016587050535413225"/>
+<class name="fixedqueue &lt; char , 16 &gt;" file="/home/summer/projects/CGraph/firmware/include/fixedqueue.hpp" line="31" col="41" hash="18102530312450100968"/>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="CmdTableAscii.hpp:14:8" my-argnr="2" my-argname="Params" file="CmdHandlersAscii.cpp" line="69" col="19" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:46:16" my-argnr="1" my-argname="Counts" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="48" col="19" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:46:16" my-argnr="2" my-argname="AdcVRef" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="48" col="36" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:129:8" my-argnr="1" my-argname="rhs" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="130" col="20" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:155:8" my-argnr="1" my-argname="rhs" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="156" col="20" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:181:8" my-argnr="1" my-argname="rhs" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="182" col="20" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:205:8" my-argnr="1" my-argname="rhs" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="206" col="20" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:235:8" my-argnr="1" my-argname="rhs" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="236" col="20" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/temp/TempLM35.hpp:41:17" my-argnr="1" my-argname="Volts" file="/home/summer/projects/CGraph/firmware/include/temp/TempLM35.hpp" line="43" col="11" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/temp/TempLM35.hpp:46:17" my-argnr="1" my-argname="Volts" file="/home/summer/projects/CGraph/firmware/include/temp/TempLM35.hpp" line="48" col="11" value="0"/>
+    <unsafe-usage my-id="MonitorAdc.hpp:101:9" my-argnr="1" my-argname="RawInput" file="MonitorAdc.hpp" line="101" col="96" value="0"/>
+    <unsafe-usage my-id="CmdTableAscii.hpp:14:8" my-argnr="2" my-argname="Params" file="CmdHandlersAscii.cpp" line="69" col="19" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:310:10" my-argnr="1" my-argname="Counts" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="312" col="20" value="0"/>
+  </FileInfo>
+  <FileInfo check="ctu">
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:11:5" call-funcname="formatf" call-argnr="2" file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="158" col="26" call-argexpr="RxBuffer" call-argvaluetype="7" call-argvalue="4096"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:11:5" call-funcname="formatf" call-argnr="2" file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="316" col="12" call-argexpr="PayloadType" call-argvaluetype="0" call-argvalue="0">
+  <path file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="311" col="37" info="Safe checks: Assuming argument has value 0"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:11:5" call-funcname="formatf" call-argnr="3" file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="316" col="12" call-argexpr="PayloadLen" call-argvaluetype="0" call-argvalue="0">
+  <path file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="311" col="117" info="Safe checks: Assuming argument has value 0"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:11:5" call-funcname="formatf" call-argnr="5" file="CmdHandlersAscii.cpp" line="61" col="10" call-argexpr="BuildTimeStr" call-argvaluetype="7" call-argvalue="25"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:11:5" call-funcname="formatf" call-argnr="4" file="CmdHandlersAscii.cpp" line="66" col="13" call-argexpr="BuildTimeStr" call-argvaluetype="7" call-argvalue="25"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:11:5" call-funcname="formatf" call-argnr="2" file="CmdHandlersAscii.cpp" line="86" col="11" call-argexpr="addr" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:11:5" call-funcname="formatf" call-argnr="2" file="CmdHandlersAscii.cpp" line="422" col="10" call-argexpr="port" call-argvaluetype="0" call-argvalue="0" warning="true">
+  <path file="CmdHandlersAscii.cpp" line="426" col="4" info="case 0: port is 0 here."/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:12:5" call-funcname="sformatf" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="210" col="13" call-argexpr="s" call-argvaluetype="7" call-argvalue="2147483648"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="257" col="22" call-argexpr="RxBuffer" call-argvaluetype="7" call-argvalue="2147483648"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="5" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="257" col="22" call-argexpr="false" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="8" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="257" col="22" call-argexpr="false" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="261" col="22" call-argexpr="RxBuffer" call-argvaluetype="7" call-argvalue="2147483648"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="8" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="261" col="22" call-argexpr="false" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:632:19" call-funcname="WriteRegister" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="320" col="17" call-argexpr="ads1258details::register_config0" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:637:20" call-funcname="ReadRegister" call-argnr="2" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="326" col="16" call-argexpr="temp" call-argvaluetype="0" call-argvalue="0">
+  <path file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="325" col="19" info="Assignment &apos;temp=0&apos;, assigned value is 0"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:632:19" call-funcname="WriteRegister" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="461" col="17" call-argexpr="ads1258details::register_config0" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="MonitorAdc.hpp:54:14" call-funcname="enable" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="516" col="11" call-argexpr="false" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:632:19" call-funcname="WriteRegister" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="535" col="18" call-argexpr="ads1258details::register_config0" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:632:19" call-funcname="WriteRegister" call-argnr="2" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="540" col="18" call-argexpr="gpio_output_mask" call-argvaluetype="0" call-argvalue="0">
+  <path file="MonitorAdc.hpp" line="199" col="40" info="Calling function &apos;Init&apos;, 1st argument &apos;GpioDirections&apos; value is 0"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:632:19" call-funcname="WriteRegister" call-argnr="2" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="541" col="18" call-argexpr="0x00" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:637:20" call-funcname="ReadRegister" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="548" col="17" call-argexpr="ads1258details::register_config0" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="MonitorAdc.hpp:54:14" call-funcname="enable" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="620" col="79" call-argexpr="false" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:624:19" call-funcname="txb" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="632" col="111" call-argexpr="val" call-argvaluetype="0" call-argvalue="0">
+  <path file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="541" col="51" info="Calling function &apos;WriteRegister&apos;, 2nd argument &apos;0x00&apos; value is 0"/>
+</function-call><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:12:5" call-funcname="sformatf" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="159" col="31" my-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:159:9" my-argnr="1"/>
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:12:5" call-funcname="sformatf" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="185" col="31" my-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:185:9" my-argnr="1"/>
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:12:5" call-funcname="sformatf" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="209" col="31" my-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:209:9" my-argnr="1"/>
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/format/formatf.h:12:5" call-funcname="sformatf" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="239" col="31" my-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:239:9" my-argnr="1"/>
+  </FileInfo>
+  <FileInfo check="Class">
+<class name="CGraphFWHardwareInterface" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphFWHardwareInterface.hpp" line="167" col="1" hash="6056725122833233180"/>
+<class name="Cmd" file="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp" line="31" col="1" hash="6556146030387306101"/>
+<class name="BinaryCmd" file="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp" line="52" col="1" hash="6672978655474459042"/>
+<class name="BinaryUartCallbacks" file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="44" col="1" hash="5656475519430945737"/>
+<class name="BinaryUart" file="/home/summer/projects/CGraph/firmware/include/uart/BinaryUart.hpp" line="62" col="1" hash="3148362143544099142"/>
+<class name="CGraphPacketHeader" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="23" col="1" hash="4112921634813253096"/>
+<class name="CGraphPacketFooter" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="43" col="1" hash="12766666285239492845"/>
+<class name="CGraphPacket" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="55" col="1" hash="3934370168336901307"/>
+<class name="CGraphVersionPayload" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="140" col="1" hash="2407920983509944106"/>
+<class name="CGraphHardFaultPayload" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="152" col="1" hash="15437502405086285757"/>
+<class name="CGraphFSMTelemetryPayload" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="184" col="1" hash="5430704964686648762"/>
+<class name="CGraphDMTelemetryPayload" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="208" col="1" hash="11875402881160296853"/>
+<class name="CGraphFWTelemetryPayload" file="/home/summer/projects/CGraph/firmware/include/cgraph/CGraphPacket.hpp" line="237" col="1" hash="14021932172769939899"/>
+<class name="TempLM35" file="/home/summer/projects/CGraph/firmware/include/temp/TempLM35.hpp" line="33" col="1" hash="16739023779391991502"/>
+<class name="uart_pinout_fpga" file="/home/summer/projects/CGraph/firmware/include/uart/uart_pinout_fpga.hpp" line="31" col="1" hash="12982914641552435626"/>
+<class name="RTSCallback" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="56" col="1" hash="362755928346803656"/>
+<class name="PinoutMonitorAdc" file="MonitorAdc.hpp" line="32" col="1" hash="8568600080941326984"/>
+<class name="MonitorAdcCalibratedInput" file="MonitorAdc.hpp" line="86" col="1" hash="17213448378508664050"/>
+<class name="CGraphFWMonitorAdc" file="MonitorAdc.hpp" line="126" col="1" hash="2909461045053934061"/>
+<class name="TerminalUart &lt; 16 , 4096 &gt;" file="/home/summer/projects/CGraph/firmware/include/uart/TerminalUart.hpp" line="68" col="64" hash="5836284467467332894"/>
+<class name="ads1258 &lt; PinoutMonitorAdc &gt;" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="281" col="1" hash="2270749969701577437"/>
+<class name="ads1258 &lt; PinoutMonitorAdc &gt;::spi_busmsg" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="617" col="3" hash="4016587050535413225"/>
+<class name="fixedqueue &lt; char , 16 &gt;" file="/home/summer/projects/CGraph/firmware/include/fixedqueue.hpp" line="31" col="41" hash="18102530312450100968"/>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="CmdTableAscii.hpp:14:8" my-argnr="2" my-argname="Params" file="CmdHandlersAscii.cpp" line="69" col="19" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:46:16" my-argnr="1" my-argname="Counts" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="48" col="19" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:46:16" my-argnr="2" my-argname="AdcVRef" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="48" col="36" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:129:8" my-argnr="1" my-argname="rhs" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="130" col="20" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:155:8" my-argnr="1" my-argname="rhs" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="156" col="20" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:181:8" my-argnr="1" my-argname="rhs" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="182" col="20" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:205:8" my-argnr="1" my-argname="rhs" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="206" col="20" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:235:8" my-argnr="1" my-argname="rhs" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="236" col="20" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/temp/TempLM35.hpp:41:17" my-argnr="1" my-argname="Volts" file="/home/summer/projects/CGraph/firmware/include/temp/TempLM35.hpp" line="43" col="11" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/temp/TempLM35.hpp:46:17" my-argnr="1" my-argname="Volts" file="/home/summer/projects/CGraph/firmware/include/temp/TempLM35.hpp" line="48" col="11" value="0"/>
+    <unsafe-usage my-id="MonitorAdc.hpp:101:9" my-argnr="1" my-argname="RawInput" file="MonitorAdc.hpp" line="101" col="96" value="0"/>
+    <unsafe-usage my-id="CmdTableAscii.hpp:14:8" my-argnr="2" my-argname="Params" file="CmdHandlersAscii.cpp" line="69" col="19" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h:310:10" my-argnr="1" my-argname="Counts" file="/home/summer/projects/CGraph/firmware/include/adc/ads1258.h" line="312" col="20" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="VersionCommand" lineNumber="56"/>
+    <functiondecl functionName="ReadFpgaCommand" lineNumber="72"/>
+    <functiondecl functionName="WriteFpgaCommand" lineNumber="106"/>
+    <functiondecl functionName="FWStatusCommand" lineNumber="127"/>
+    <functiondecl functionName="SensorStepsCommand" lineNumber="159"/>
+    <functiondecl functionName="MotorCommand" lineNumber="205"/>
+    <functiondecl functionName="FilterSelectCommand" lineNumber="256"/>
+    <functiondecl functionName="BISTCommand" lineNumber="311"/>
+    <functiondecl functionName="BaudDividersCommand" lineNumber="339"/>
+    <functiondecl functionName="PrintBuffersCommand" lineNumber="397"/>
+    <functiondecl functionName="MonitorSerialCommand" lineNumber="409"/>
+    <functiondecl functionName="VersionCommand" lineNumber="56"/>
+    <functiondecl functionName="ReadFpgaCommand" lineNumber="72"/>
+    <functiondecl functionName="WriteFpgaCommand" lineNumber="106"/>
+    <functiondecl functionName="FWStatusCommand" lineNumber="127"/>
+    <functiondecl functionName="SensorStepsCommand" lineNumber="159"/>
+    <functiondecl functionName="MotorCommand" lineNumber="205"/>
+    <functiondecl functionName="FilterSelectCommand" lineNumber="256"/>
+    <functiondecl functionName="BISTCommand" lineNumber="311"/>
+    <functiondecl functionName="BaudDividersCommand" lineNumber="339"/>
+    <functiondecl functionName="PrintBuffersCommand" lineNumber="397"/>
+    <functiondecl functionName="MonitorSerialCommand" lineNumber="409"/>
+    <functioncall functionName="A"/>
+    <functioncall functionName="AFSR"/>
+    <functioncall functionName="ActualDividerA"/>
+    <functioncall functionName="ActualDividerB"/>
+    <functioncall functionName="ActualDividerC"/>
+    <functioncall functionName="ActualDividerD"/>
+    <functioncall functionName="Adc"/>
+    <functioncall functionName="AdcAccumulator"/>
+    <functioncall functionName="AdcFifo"/>
+    <functioncall functionName="AdcFound"/>
+    <functioncall functionName="AdcInit"/>
+    <functioncall functionName="AdcVRef"/>
+    <functioncall functionName="AddScanChannel"/>
+    <functioncall functionName="AmbientLight"/>
+    <functioncall functionName="AutoScan"/>
+    <functioncall functionName="Aux0"/>
+    <functioncall functionName="Aux1"/>
+    <functioncall functionName="Aux2"/>
+    <functioncall functionName="B"/>
+    <functioncall functionName="BFAR"/>
+    <functioncall functionName="BaudRateA"/>
+    <functioncall functionName="BaudRateB"/>
+    <functioncall functionName="BaudRateC"/>
+    <functioncall functionName="BaudRateD"/>
+    <functioncall functionName="BinaryCmd"/>
+    <functioncall functionName="BinaryUart"/>
+    <functioncall functionName="BinaryUartCallbacks"/>
+    <functioncall functionName="BlockOnTxBuffFull"/>
+    <functioncall functionName="Buffer"/>
+    <functioncall functionName="BufferMaxInBufferUsedOut"/>
+    <functioncall functionName="BufferOverflow"/>
+    <functioncall functionName="BuildNum"/>
+    <functioncall functionName="BuildTimeStr"/>
+    <functioncall functionName="C"/>
+    <functioncall functionName="CFSR"/>
+    <functioncall functionName="CGraphBaudDividers"/>
+    <functioncall functionName="CGraphFWHardwareControlRegister"/>
+    <functioncall functionName="CGraphFWHardwareInterface"/>
+    <functioncall functionName="CGraphFWMotorControlStatusRegister"/>
+    <functioncall functionName="CGraphFWPositionSenseRegister"/>
+    <functioncall functionName="CGraphFWPositionStepRegister"/>
+    <functioncall functionName="CGraphMagikPacketEndToken"/>
+    <functioncall functionName="CGraphMagikPacketStartToken"/>
+    <functioncall functionName="CGraphMonitorAdcCommandStatusRegister"/>
+    <functioncall functionName="CGraphPacketFooter"/>
+    <functioncall functionName="CGraphPacketHeader"/>
+    <functioncall functionName="CRC"/>
+    <functioncall functionName="CRC32BZIP2"/>
+    <functioncall functionName="Callbacks"/>
+    <functioncall functionName="ClearScanChannels"/>
+    <functioncall functionName="Cmd"/>
+    <functioncall functionName="CmdFound"/>
+    <functioncall functionName="Cmds"/>
+    <functioncall functionName="CommitScanChannels"/>
+    <functioncall functionName="ControlRegister"/>
+    <functioncall functionName="CountPosVRef"/>
+    <functioncall functionName="CountsToVolts"/>
+    <functioncall functionName="CurrentChan"/>
+    <functioncall functionName="CurrentStep"/>
+    <functioncall functionName="D"/>
+    <functioncall functionName="DFSR"/>
+    <functioncall functionName="DeviceSerialNumber"/>
+    <functioncall functionName="Divider0"/>
+    <functioncall functionName="Divider1"/>
+    <functioncall functionName="Divider2"/>
+    <functioncall functionName="Divider3"/>
+    <functioncall functionName="DoesPayloadTypeMatch"/>
+    <functioncall functionName="Echo"/>
+    <functioncall functionName="EveryPacket"/>
+    <functioncall functionName="FPGAFirmwareBuildNum"/>
+    <functioncall functionName="FW"/>
+    <functioncall functionName="FWHome"/>
+    <functioncall functionName="FWMaxPosition"/>
+    <functioncall functionName="FWPosition"/>
+    <functioncall functionName="FWSeekPosition"/>
+    <functioncall functionName="Fault1V"/>
+    <functioncall functionName="Fault3V"/>
+    <functioncall functionName="Fault5V"/>
+    <functioncall functionName="FilterSelect"/>
+    <functioncall functionName="FindPacketEnd"/>
+    <functioncall functionName="FindPacketStart"/>
+    <functioncall functionName="FooterLen"/>
+    <functioncall functionName="FpgaFirmwareBuildNumber"/>
+    <functioncall functionName="Gain"/>
+    <functioncall functionName="GetLastSample"/>
+    <functioncall functionName="GetScanChannelsMask"/>
+    <functioncall functionName="GpioDirections"/>
+    <functioncall functionName="HCR"/>
+    <functioncall functionName="HFSR"/>
+    <functioncall functionName="Header"/>
+    <functioncall functionName="HeaderLen"/>
+    <functioncall functionName="Help"/>
+    <functioncall functionName="IPacket"/>
+    <functioncall functionName="IUart"/>
+    <functioncall functionName="IUartOK"/>
+    <functioncall functionName="IUartParser"/>
+    <functioncall functionName="InPacket"/>
+    <functioncall functionName="Init"/>
+    <functioncall functionName="InitOK"/>
+    <functioncall functionName="InvalidPacket"/>
+    <functioncall functionName="InvalidSerialNumber"/>
+    <functioncall functionName="IsBroadcastSerialNum"/>
+    <functioncall functionName="IsScanChannel"/>
+    <functioncall functionName="IsValid"/>
+    <functioncall functionName="LR"/>
+    <functioncall functionName="LastC"/>
+    <functioncall functionName="LedB"/>
+    <functioncall functionName="LedG"/>
+    <functioncall functionName="LedR"/>
+    <functioncall functionName="MCSR"/>
+    <functioncall functionName="MakePacket"/>
+    <functioncall functionName="Mask"/>
+    <functioncall functionName="MaxPayloadLength"/>
+    <functioncall functionName="MidStep"/>
+    <functioncall functionName="Monitor"/>
+    <functioncall functionName="MonitorAdcCalibratedInput"/>
+    <functioncall functionName="MonitorAdcFpgaAdcChannelAddr"/>
+    <functioncall functionName="MonitorAdcSpiTransactionRegister"/>
+    <functioncall functionName="MonitorPrefaceChar"/>
+    <functioncall functionName="MotorAMinus"/>
+    <functioncall functionName="MotorAPlus"/>
+    <functioncall functionName="MotorBMinus"/>
+    <functioncall functionName="MotorBPlus"/>
+    <functioncall functionName="MotorControlStatus"/>
+    <functioncall functionName="MotorEnable"/>
+    <functioncall functionName="Name"/>
+    <functioncall functionName="NoPrefix"/>
+    <functioncall functionName="NoRTS"/>
+    <functioncall functionName="NumAccums"/>
+    <functioncall functionName="NumChannels"/>
+    <functioncall functionName="NumCmds"/>
+    <functioncall functionName="OffStep"/>
+    <functioncall functionName="Offset"/>
+    <functioncall functionName="OnOff"/>
+    <functioncall functionName="OnStep"/>
+    <functioncall functionName="P1V2"/>
+    <functioncall functionName="P28V"/>
+    <functioncall functionName="P2I2"/>
+    <functioncall functionName="P2V2"/>
+    <functioncall functionName="P2V5"/>
+    <functioncall functionName="P3V3D"/>
+    <functioncall functionName="P4I3"/>
+    <functioncall functionName="P4V3"/>
+    <functioncall functionName="P5V"/>
+    <functioncall functionName="P6I"/>
+    <functioncall functionName="P6V"/>
+    <functioncall functionName="PC"/>
+    <functioncall functionName="PSR"/>
+    <functioncall functionName="Packet"/>
+    <functioncall functionName="PacketEnd"/>
+    <functioncall functionName="PacketEndToken"/>
+    <functioncall functionName="PacketLen"/>
+    <functioncall functionName="PacketStart"/>
+    <functioncall functionName="PacketStartPos"/>
+    <functioncall functionName="PacketStartToken"/>
+    <functioncall functionName="Params"/>
+    <functioncall functionName="ParamsLen"/>
+    <functioncall functionName="ParseCmd"/>
+    <functioncall functionName="Parsed"/>
+    <functioncall functionName="Payload"/>
+    <functioncall functionName="PayloadData"/>
+    <functioncall functionName="PayloadLen"/>
+    <functioncall functionName="PayloadOffset"/>
+    <functioncall functionName="PayloadType"/>
+    <functioncall functionName="PayloadTypeToken"/>
+    <functioncall functionName="Pinout"/>
+    <functioncall functionName="PinoutMonitorAdc"/>
+    <functioncall functionName="PosDet7B"/>
+    <functioncall functionName="PosDetHomeA"/>
+    <functioncall functionName="PosLedsEnA"/>
+    <functioncall functionName="PosLedsEnB"/>
+    <functioncall functionName="PosSenseA"/>
+    <functioncall functionName="PosSenseB"/>
+    <functioncall functionName="PosSenseBit0A"/>
+    <functioncall functionName="PosSenseBit0B"/>
+    <functioncall functionName="PosSenseBit1A"/>
+    <functioncall functionName="PosSenseBit1B"/>
+    <functioncall functionName="PosSenseBit2A"/>
+    <functioncall functionName="PosSenseBit2B"/>
+    <functioncall functionName="PosSenseHomeA"/>
+    <functioncall functionName="PosSenseHomeB"/>
+    <functioncall functionName="PositionSensors"/>
+    <functioncall functionName="PowerCycd"/>
+    <functioncall functionName="PowernEn5V"/>
+    <functioncall functionName="Prefix"/>
+    <functioncall functionName="ProcessAllUarts"/>
+    <functioncall functionName="ProcessByte"/>
+    <functioncall functionName="ProcessRx"/>
+    <functioncall functionName="ProcessTx"/>
+    <functioncall functionName="Processed"/>
+    <functioncall functionName="ProcessorFirmwareBuildNum"/>
+    <functioncall functionName="R0"/>
+    <functioncall functionName="R1"/>
+    <functioncall functionName="R12"/>
+    <functioncall functionName="R2"/>
+    <functioncall functionName="R3"/>
+    <functioncall functionName="RTS"/>
+    <functioncall functionName="RTSPinout"/>
+    <functioncall functionName="RawInput"/>
+    <functioncall functionName="RdFpgaBuf"/>
+    <functioncall functionName="ReadCalibrated"/>
+    <functioncall functionName="ReadDataRegister"/>
+    <functioncall functionName="ReadLastChannel"/>
+    <functioncall functionName="ReadRegister"/>
+    <functioncall functionName="ReadRequestRegister"/>
+    <functioncall functionName="ResetSteps"/>
+    <functioncall functionName="Response"/>
+    <functioncall functionName="RxBuffer"/>
+    <functioncall functionName="RxBufferLenBytes"/>
+    <functioncall functionName="RxCount"/>
+    <functioncall functionName="RxFifoCount"/>
+    <functioncall functionName="RxFifoEmpty"/>
+    <functioncall functionName="Samples"/>
+    <functioncall functionName="ScanChannels"/>
+    <functioncall functionName="ScanChansDiff"/>
+    <functioncall functionName="ScanChansInternal"/>
+    <functioncall functionName="ScanChansSEHi"/>
+    <functioncall functionName="ScanChansSELo"/>
+    <functioncall functionName="SeekStep"/>
+    <functioncall functionName="SendCommand"/>
+    <functioncall functionName="SerialNum"/>
+    <functioncall functionName="SerialNumber"/>
+    <functioncall functionName="SetScanChannelsMask"/>
+    <functioncall functionName="StartChannelScan"/>
+    <functioncall functionName="StartPinMask"/>
+    <functioncall functionName="StatusRegister"/>
+    <functioncall functionName="StdEcho"/>
+    <functioncall functionName="Strlen"/>
+    <functioncall functionName="StrlenPrefix"/>
+    <functioncall functionName="Sucess"/>
+    <functioncall functionName="Temperature"/>
+    <functioncall functionName="TerminalUart &lt; 16 , 4096 &gt;"/>
+    <functioncall functionName="TerminalUartPrompt"/>
+    <functioncall functionName="TransactionComplete"/>
+    <functioncall functionName="TxBinaryPacket"/>
+    <functioncall functionName="TxBuffer"/>
+    <functioncall functionName="TxBufferLenBytes"/>
+    <functioncall functionName="TxCount"/>
+    <functioncall functionName="TxFifoCount"/>
+    <functioncall functionName="TxPktContext"/>
+    <functioncall functionName="Uart0OE"/>
+    <functioncall functionName="Uart1OE"/>
+    <functioncall functionName="Uart2OE"/>
+    <functioncall functionName="Uart3OE"/>
+    <functioncall functionName="UartStatusRegister"/>
+    <functioncall functionName="UnHandledPacket"/>
+    <functioncall functionName="UseCrLf"/>
+    <functioncall functionName="Ux1SelJmp"/>
+    <functioncall functionName="Ux2SelJmp"/>
+    <functioncall functionName="ValidateFWPostition"/>
+    <functioncall functionName="Verbose"/>
+    <functioncall functionName="WriteDataRegister"/>
+    <functioncall functionName="WriteRegister"/>
+    <functioncall functionName="a"/>
+    <functioncall functionName="abs"/>
+    <functioncall functionName="adcvref"/>
+    <functioncall functionName="addr"/>
+    <functioncall functionName="ads1258 &lt; PinoutMonitorAdc &gt;"/>
+    <functioncall functionName="ads1258cmdheader"/>
+    <functioncall functionName="ads1258numchannels"/>
+    <functioncall functionName="ads1258sample"/>
+    <functioncall functionName="all"/>
+    <functioncall functionName="arg"/>
+    <functioncall functionName="b"/>
+    <functioncall functionName="begin"/>
+    <functioncall functionName="block"/>
+    <functioncall functionName="break"/>
+    <functioncall functionName="busy"/>
+    <functioncall functionName="bypass"/>
+    <functioncall functionName="byte"/>
+    <functioncall functionName="c"/>
+    <functioncall functionName="callbacks"/>
+    <functioncall functionName="ch"/>
+    <functioncall functionName="chan_diff"/>
+    <functioncall functionName="chan_internal"/>
+    <functioncall functionName="chan_negin"/>
+    <functioncall functionName="chan_posin"/>
+    <functioncall functionName="chan_se0"/>
+    <functioncall functionName="chan_se1"/>
+    <functioncall functionName="chan_se10"/>
+    <functioncall functionName="chan_se11"/>
+    <functioncall functionName="chan_se12"/>
+    <functioncall functionName="chan_se13"/>
+    <functioncall functionName="chan_se14"/>
+    <functioncall functionName="chan_se15"/>
+    <functioncall functionName="chan_se2"/>
+    <functioncall functionName="chan_se3"/>
+    <functioncall functionName="chan_se4"/>
+    <functioncall functionName="chan_se5"/>
+    <functioncall functionName="chan_se6"/>
+    <functioncall functionName="chan_se7"/>
+    <functioncall functionName="chan_se8"/>
+    <functioncall functionName="chan_se9"/>
+    <functioncall functionName="chan_se_hi"/>
+    <functioncall functionName="chan_se_lo"/>
+    <functioncall functionName="channeg"/>
+    <functioncall functionName="channel"/>
+    <functioncall functionName="chanpos"/>
+    <functioncall functionName="char"/>
+    <functioncall functionName="chop"/>
+    <functioncall functionName="clear"/>
+    <functioncall functionName="clkout"/>
+    <functioncall functionName="clr"/>
+    <functioncall functionName="cmds"/>
+    <functioncall functionName="cmdtype_pulseconvert"/>
+    <functioncall functionName="cmdtype_registerread"/>
+    <functioncall functionName="cmdtype_reset"/>
+    <functioncall functionName="config0"/>
+    <functioncall functionName="config0register"/>
+    <functioncall functionName="config1"/>
+    <functioncall functionName="config1register"/>
+    <functioncall functionName="const"/>
+    <functioncall functionName="crlf"/>
+    <functioncall functionName="d"/>
+    <functioncall functionName="datarate"/>
+    <functioncall functionName="dataready"/>
+    <functioncall functionName="dbg"/>
+    <functioncall functionName="debug"/>
+    <functioncall functionName="default"/>
+    <functioncall functionName="delay"/>
+    <functioncall functionName="delayms"/>
+    <functioncall functionName="delayus"/>
+    <functioncall functionName="double"/>
+    <functioncall functionName="e"/>
+    <functioncall functionName="echostate"/>
+    <functioncall functionName="element"/>
+    <functioncall functionName="empty"/>
+    <functioncall functionName="en"/>
+    <functioncall functionName="enable"/>
+    <functioncall functionName="end"/>
+    <functioncall functionName="f"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="fflush"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="format"/>
+    <functioncall functionName="formatf"/>
+    <functioncall functionName="full"/>
+    <functioncall functionName="gain"/>
+    <functioncall functionName="getcqq"/>
+    <functioncall functionName="gpio_output_mask"/>
+    <functioncall functionName="gpio_output_mask_all_outputs"/>
+    <functioncall functionName="help"/>
+    <functioncall functionName="i"/>
+    <functioncall functionName="idlemode"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="int"/>
+    <functioncall functionName="int32_t"/>
+    <functioncall functionName="int8_t"/>
+    <functioncall functionName="isbrownout"/>
+    <functioncall functionName="isclipped"/>
+    <functioncall functionName="isnew"/>
+    <functioncall functionName="len"/>
+    <functioncall functionName="long"/>
+    <functioncall functionName="m"/>
+    <functioncall functionName="maybegetc"/>
+    <functioncall functionName="maybegetline"/>
+    <functioncall functionName="memcpy"/>
+    <functioncall functionName="memset"/>
+    <functioncall functionName="min"/>
+    <functioncall functionName="monitor"/>
+    <functioncall functionName="monitorprefacechar"/>
+    <functioncall functionName="muxmod"/>
+    <functioncall functionName="muxsch"/>
+    <functioncall functionName="muxschregister"/>
+    <functioncall functionName="nDrdy"/>
+    <functioncall functionName="name"/>
+    <functioncall functionName="next"/>
+    <functioncall functionName="numcmds"/>
+    <functioncall functionName="numfound"/>
+    <functioncall functionName="offset"/>
+    <functioncall functionName="offsetof"/>
+    <functioncall functionName="onoff"/>
+    <functioncall functionName="out"/>
+    <functioncall functionName="packet"/>
+    <functioncall functionName="packettype"/>
+    <functioncall functionName="payloadlen"/>
+    <functioncall functionName="payloadtype"/>
+    <functioncall functionName="pinout"/>
+    <functioncall functionName="pop"/>
+    <functioncall functionName="port"/>
+    <functioncall functionName="pos"/>
+    <functioncall functionName="prefix"/>
+    <functioncall functionName="printf"/>
+    <functioncall functionName="put"/>
+    <functioncall functionName="putcqq"/>
+    <functioncall functionName="puts"/>
+    <functioncall functionName="readdataregister"/>
+    <functioncall functionName="readrequestregister"/>
+    <functioncall functionName="receive"/>
+    <functioncall functionName="register_config0"/>
+    <functioncall functionName="register_config1"/>
+    <functioncall functionName="register_gpioc"/>
+    <functioncall functionName="register_gpiod"/>
+    <functioncall functionName="register_idnum"/>
+    <functioncall functionName="register_muxdif"/>
+    <functioncall functionName="register_muxsch"/>
+    <functioncall functionName="register_muxsg0"/>
+    <functioncall functionName="register_muxsg1"/>
+    <functioncall functionName="register_sysread"/>
+    <functioncall functionName="reinterpret_cast"/>
+    <functioncall functionName="resp"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="rts"/>
+    <functioncall functionName="rxb"/>
+    <functioncall functionName="s"/>
+    <functioncall functionName="sample"/>
+    <functioncall functionName="scan_gain"/>
+    <functioncall functionName="scan_offset"/>
+    <functioncall functionName="scan_ref"/>
+    <functioncall functionName="scan_temp"/>
+    <functioncall functionName="scan_vcc"/>
+    <functioncall functionName="sensorbiascurrent"/>
+    <functioncall functionName="seperator"/>
+    <functioncall functionName="serialnum"/>
+    <functioncall functionName="setclkphase"/>
+    <functioncall functionName="setclkpolarity"/>
+    <functioncall functionName="sformatf"/>
+    <functioncall functionName="sizeof"/>
+    <functioncall functionName="spiresettimeout"/>
+    <functioncall functionName="sscanf"/>
+    <functioncall functionName="stat"/>
+    <functioncall functionName="statusregister"/>
+    <functioncall functionName="stdio_hook_putc"/>
+    <functioncall functionName="stdout"/>
+    <functioncall functionName="strlen"/>
+    <functioncall functionName="strlenprefix"/>
+    <functioncall functionName="strnlen"/>
+    <functioncall functionName="switch"/>
+    <functioncall functionName="sysread"/>
+    <functioncall functionName="sysreadregister"/>
+    <functioncall functionName="temp"/>
+    <functioncall functionName="terminaluartprompt"/>
+    <functioncall functionName="this"/>
+    <functioncall functionName="transmit"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="txb"/>
+    <functioncall functionName="uint32_t"/>
+    <functioncall functionName="uint8_t"/>
+    <functioncall functionName="va_end"/>
+    <functioncall functionName="va_start"/>
+    <functioncall functionName="val"/>
+    <functioncall functionName="verbose"/>
+    <functioncall functionName="void"/>
+    <functioncall functionName="waitbusytimeout"/>
+    <functioncall functionName="writedataregister"/>
+    <functioncall functionName="x"/>
+  </FileInfo>
+</analyzerinfo>

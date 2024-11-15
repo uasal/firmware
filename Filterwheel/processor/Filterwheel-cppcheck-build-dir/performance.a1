@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="1315141148">
+  <FileInfo check="ctu">
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/format/test/performance.c:83:12" call-funcname="test_sprintf" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/format/test/performance.c" line="106" col="21" call-argexpr="buf" call-argvaluetype="7" call-argvalue="1024"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/format/test/performance.c:83:12" call-funcname="test_sprintf" call-argnr="2" file="/home/summer/projects/CGraph/firmware/include/format/test/performance.c" line="106" col="9" my-id="/home/summer/projects/CGraph/firmware/include/format/test/performance.c:100:12" my-argnr="2"/>
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/format/test/performance.c:126:13" call-funcname="run_timed_loop" call-argnr="4" file="/home/summer/projects/CGraph/firmware/include/format/test/performance.c" line="150" col="5" my-id="/home/summer/projects/CGraph/firmware/include/format/test/performance.c:148:13" my-argnr="2"/>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/test/performance.c:69:15" my-argnr="1" my-argname="memptr" file="/home/summer/projects/CGraph/firmware/include/format/test/performance.c" line="71" col="30" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/test/performance.c:69:15" my-argnr="2" my-argname="buf" file="/home/summer/projects/CGraph/firmware/include/format/test/performance.c" line="71" col="38" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/test/performance.c:126:13" my-argnr="1" my-argname="name" file="/home/summer/projects/CGraph/firmware/include/format/test/performance.c" line="142" col="13" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/test/performance.c:69:15" my-argnr="2" my-argname="buf" file="/home/summer/projects/CGraph/firmware/include/format/test/performance.c" line="71" col="38" value="0"/>
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/format/test/performance.c:126:13" my-argnr="2" my-argname="pf" file="/home/summer/projects/CGraph/firmware/include/format/test/performance.c" line="133" col="11" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="bufwrite" lineNumber="69"/>
+    <functiondecl functionName="test_sprintf" lineNumber="83"/>
+    <functiondecl functionName="format_test" lineNumber="100"/>
+    <functiondecl functionName="native_test" lineNumber="113"/>
+    <functiondecl functionName="run_timed_loop" lineNumber="126"/>
+    <functiondecl functionName="run_dual_test" lineNumber="148"/>
+    <functiondecl functionName="run_perf_tests" lineNumber="161"/>
+    <functiondecl functionName="main" lineNumber="190"/>
+    <functioncall functionName="EXIT_FAILURE"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="arg"/>
+    <functioncall functionName="buf"/>
+    <functioncall functionName="bufwrite"/>
+    <functioncall functionName="count"/>
+    <functioncall functionName="delta"/>
+    <functioncall functionName="done"/>
+    <functioncall functionName="end"/>
+    <functioncall functionName="exit"/>
+    <functioncall functionName="fmt"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="format"/>
+    <functioncall functionName="format_test"/>
+    <functioncall functionName="gettimeofday"/>
+    <functioncall functionName="i"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="int"/>
+    <functioncall functionName="iter"/>
+    <functioncall functionName="memcpy"/>
+    <functioncall functionName="memptr"/>
+    <functioncall functionName="n"/>
+    <functioncall functionName="name"/>
+    <functioncall functionName="native_test"/>
+    <functioncall functionName="pf"/>
+    <functioncall functionName="printf"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="run_dual_test"/>
+    <functioncall functionName="run_perf_tests"/>
+    <functioncall functionName="run_timed_loop"/>
+    <functioncall functionName="sprintf"/>
+    <functioncall functionName="start"/>
+    <functioncall functionName="test_sprintf"/>
+    <functioncall functionName="timersub"/>
+    <functioncall functionName="tv_sec"/>
+    <functioncall functionName="tv_usec"/>
+    <functioncall functionName="va_end"/>
+    <functioncall functionName="va_start"/>
+    <functioncall functionName="val"/>
+    <functioncall functionName="void"/>
+  </FileInfo>
+</analyzerinfo>

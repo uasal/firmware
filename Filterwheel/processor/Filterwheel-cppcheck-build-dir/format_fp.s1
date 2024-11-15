@@ -1,0 +1,7 @@
+radix_convert call:[DEBUG_LOG,sizeof]
+mant_to_char
+do_conv_infnan call:[STRLEN,calc_space_padding,gen_out] noreturn:[gen_out]
+round_mantissa call:[DEBUG_LOG] noreturn:[DEBUG_LOG]
+do_conv_efg call:[DEBUG_LOG,STRLEN,calc_space_padding,gen_out,mant_to_char,round_mantissa,sizeof]
+do_conv_fp call:[do_conv_efg,do_conv_infnan,radix_convert,return,va_arg] noreturn:[do_conv_efg,do_conv_infnan,return]
+do_conv_k call:[DEBUG_LOG,do_conv_efg,radix_convert,return,sizeof,va_arg] noreturn:[do_conv_efg,radix_convert,return,va_arg]

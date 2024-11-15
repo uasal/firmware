@@ -270,7 +270,7 @@ int8_t FilterSelectCommand(char const* Name, char const* Params, const size_t Pa
 		
 		formatf("\n\nFilterSelectCommand: moving to: %lu\n", FilterSelect);
 		FWSeekPosition(FilterSelect);
-		if (!ValidateFWPostition())
+		if (!ValidateFWPosition())
 		{
 			formatf("\n\nFilterSelectCommand: move failed!\n");
 			FWHome();
@@ -294,7 +294,7 @@ int8_t FilterSelectCommand(char const* Name, char const* Params, const size_t Pa
 	}
 	
 	//If not, do we have any idea where we are?
-	if (!ValidateFWPostition())
+	if (!ValidateFWPosition())
 	{
 		formatf("\n\nFilterSelectCommand: current position invalid!! Re-homing wheel...\n");
 		FWHome();

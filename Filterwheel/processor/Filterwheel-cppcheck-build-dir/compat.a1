@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="3948862524">
+  <FileInfo check="ctu">
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/dbg/dmalloc-5.5.2/compat.h:62:5" call-funcname="loc_vsnprintf" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/dbg/dmalloc-5.5.2/compat.c" line="173" col="9" my-id="/home/summer/projects/CGraph/firmware/include/dbg/dmalloc-5.5.2/compat.h:70:5" my-argnr="1"/>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/dbg/dmalloc-5.5.2/compat.h:62:5" my-argnr="3" my-argname="format" file="/home/summer/projects/CGraph/firmware/include/dbg/dmalloc-5.5.2/compat.c" line="145" col="34" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="/home/summer/projects/CGraph/firmware/include/dbg/dmalloc-5.5.2/compat.h:62:5" my-argnr="3" my-argname="format" file="/home/summer/projects/CGraph/firmware/include/dbg/dmalloc-5.5.2/compat.c" line="145" col="34" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="loc_atoul" lineNumber="118"/>
+    <functiondecl functionName="loc_vsnprintf" lineNumber="139"/>
+    <functiondecl functionName="loc_snprintf" lineNumber="167"/>
+    <functioncall functionName="args"/>
+    <functioncall functionName="buf"/>
+    <functioncall functionName="buf_size"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="format"/>
+    <functioncall functionName="loc_vsnprintf"/>
+    <functioncall functionName="long"/>
+    <functioncall functionName="str"/>
+    <functioncall functionName="va_end"/>
+    <functioncall functionName="va_start"/>
+    <functioncall functionName="void"/>
+    <functioncall functionName="vsnprintf"/>
+  </FileInfo>
+</analyzerinfo>

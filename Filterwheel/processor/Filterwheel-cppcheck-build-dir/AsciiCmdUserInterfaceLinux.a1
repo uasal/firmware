@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="3680646577">
+  <FileInfo check="ctu">
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/uart/AsciiCmdUserInterfaceLinux.cpp" line="97" col="12" call-argexpr="line" call-argvaluetype="7" call-argvalue="512"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="5" file="/home/summer/projects/CGraph/firmware/include/uart/AsciiCmdUserInterfaceLinux.cpp" line="97" col="12" call-argexpr="false" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/uart/AsciiCmdUserInterfaceLinux.cpp" line="216" col="11" call-argexpr="Line" call-argvaluetype="7" call-argvalue="4097"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="6" file="/home/summer/projects/CGraph/firmware/include/uart/AsciiCmdUserInterfaceLinux.cpp" line="216" col="11" call-argexpr="0" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="7" file="/home/summer/projects/CGraph/firmware/include/uart/AsciiCmdUserInterfaceLinux.cpp" line="216" col="11" call-argexpr="0" call-argvaluetype="0" call-argvalue="0"/>  </FileInfo>
+  <FileInfo check="Class">
+<class name="Cmd" file="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp" line="31" col="1" hash="6556146030387306101"/>
+<class name="BinaryCmd" file="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp" line="52" col="1" hash="6672978655474459042"/>
+  </FileInfo>
+  <FileInfo check="ctu">
+<function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/uart/AsciiCmdUserInterfaceLinux.cpp" line="97" col="12" call-argexpr="line" call-argvaluetype="7" call-argvalue="512"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="5" file="/home/summer/projects/CGraph/firmware/include/uart/AsciiCmdUserInterfaceLinux.cpp" line="97" col="12" call-argexpr="false" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="1" file="/home/summer/projects/CGraph/firmware/include/uart/AsciiCmdUserInterfaceLinux.cpp" line="216" col="11" call-argexpr="Line" call-argvaluetype="7" call-argvalue="4097"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="6" file="/home/summer/projects/CGraph/firmware/include/uart/AsciiCmdUserInterfaceLinux.cpp" line="216" col="11" call-argexpr="0" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp:64:6" call-funcname="ParseCmd" call-argnr="7" file="/home/summer/projects/CGraph/firmware/include/uart/AsciiCmdUserInterfaceLinux.cpp" line="216" col="11" call-argexpr="0" call-argvaluetype="0" call-argvalue="0"/>  </FileInfo>
+  <FileInfo check="Class">
+<class name="Cmd" file="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp" line="31" col="1" hash="6556146030387306101"/>
+<class name="BinaryCmd" file="/home/summer/projects/CGraph/firmware/include/uart/CmdSystem.hpp" line="52" col="1" hash="6672978655474459042"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="stdio_hook_putc" lineNumber="58"/>
+    <functiondecl functionName="StartUserInterface" lineNumber="70"/>
+    <functiondecl functionName="ProcessUserInterface" lineNumber="88"/>
+    <functiondecl functionName="Wait50" lineNumber="109"/>
+    <functiondecl functionName="StdInClientThread" lineNumber="118"/>
+    <functiondecl functionName="strupr" lineNumber="142"/>
+    <functiondecl functionName="ParseConfigFile" lineNumber="155"/>
+    <functiondecl functionName="stdio_hook_putc" lineNumber="58"/>
+    <functiondecl functionName="StartUserInterface" lineNumber="70"/>
+    <functiondecl functionName="ProcessUserInterface" lineNumber="88"/>
+    <functiondecl functionName="Wait50" lineNumber="109"/>
+    <functiondecl functionName="StdInClientThread" lineNumber="118"/>
+    <functiondecl functionName="strupr" lineNumber="142"/>
+    <functiondecl functionName="ParseConfigFile" lineNumber="155"/>
+    <functioncall functionName="AsciiCmds"/>
+    <functioncall functionName="BinaryCmd"/>
+    <functioncall functionName="BufPos"/>
+    <functioncall functionName="Cmd"/>
+    <functioncall functionName="ConfigFileName"/>
+    <functioncall functionName="DidSomething"/>
+    <functioncall functionName="FileLen"/>
+    <functioncall functionName="Help"/>
+    <functioncall functionName="Line"/>
+    <functioncall functionName="LineLen"/>
+    <functioncall functionName="MAP_SHARED"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="Name"/>
+    <functioncall functionName="NumAsciiCmds"/>
+    <functioncall functionName="O_RDONLY"/>
+    <functioncall functionName="PROT_READ"/>
+    <functioncall functionName="ParseCmd"/>
+    <functioncall functionName="ParseConfigFileDataBuffer"/>
+    <functioncall functionName="ParseFileHandle"/>
+    <functioncall functionName="Response"/>
+    <functioncall functionName="S_IWGRP"/>
+    <functioncall functionName="StdInClientThread"/>
+    <functioncall functionName="Strlen"/>
+    <functioncall functionName="Wait50"/>
+    <functioncall functionName="break"/>
+    <functioncall functionName="c"/>
+    <functioncall functionName="close"/>
+    <functioncall functionName="errno"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="fgets"/>
+    <functioncall functionName="fiftymilliseconds"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="fstat"/>
+    <functioncall functionName="help"/>
+    <functioncall functionName="i"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="int"/>
+    <functioncall functionName="int8_t"/>
+    <functioncall functionName="line"/>
+    <functioncall functionName="linelen"/>
+    <functioncall functionName="linelock"/>
+    <functioncall functionName="linemaxlen"/>
+    <functioncall functionName="long"/>
+    <functioncall functionName="memchr"/>
+    <functioncall functionName="memcpy"/>
+    <functioncall functionName="memset"/>
+    <functioncall functionName="mmap"/>
+    <functioncall functionName="munmap"/>
+    <functioncall functionName="name"/>
+    <functioncall functionName="nanosleep"/>
+    <functioncall functionName="newline"/>
+    <functioncall functionName="noexcept"/>
+    <functioncall functionName="open"/>
+    <functioncall functionName="perror"/>
+    <functioncall functionName="pline"/>
+    <functioncall functionName="printf"/>
+    <functioncall functionName="pthread_create"/>
+    <functioncall functionName="pthread_mutex_init"/>
+    <functioncall functionName="pthread_mutex_lock"/>
+    <functioncall functionName="pthread_mutex_trylock"/>
+    <functioncall functionName="pthread_mutex_unlock"/>
+    <functioncall functionName="putchar"/>
+    <functioncall functionName="rc"/>
+    <functioncall functionName="resp"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="s"/>
+    <functioncall functionName="sizeof"/>
+    <functioncall functionName="st_size"/>
+    <functioncall functionName="stdin"/>
+    <functioncall functionName="strlen"/>
+    <functioncall functionName="strnlen"/>
+    <functioncall functionName="thread"/>
+    <functioncall functionName="toupper"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="void"/>
+    <functioncall functionName="while"/>
+  </FileInfo>
+</analyzerinfo>
