@@ -466,7 +466,7 @@ endif
 	$(CPP) $(THUMB) $(ALL_CFLAGS) $(AOBJARM) $(AOBJ) $(COBJARM) $(COBJ) $(CPPOBJ) $(CPPOBJARM) $(LIBS) --output $@ $(LDFLAGS)
 	
 #increment build number
-$(TARGET)BuildNum: $(wildcard *.h) $(wildcard *.hpp) $(wildcard *.c) $(wildcard *.cpp) $(wildcard ../*.h) $(wildcard ../*.hpp) $(wildcard ../*.c) $(wildcard ../*.cpp)
+$(TARGET)BuildNum: $(wildcard .dep/*.o.d) $(wildcard *.h) $(wildcard *.hpp) $(wildcard *.c) $(wildcard *.cpp) $(wildcard ../*.h) $(wildcard ../*.hpp) $(wildcard ../*.c) $(wildcard ../*.cpp)
 	btracer $(TARGET)
 
 # Compile: create object files from C source files. ARM/Thumb
