@@ -1,4 +1,0 @@
-Cmd call:[strlen] noreturn:[strlen]
-BinaryCmd
-ParseCmd global:[LineInUpperCase,MaxCmdNameLen] call:[HelpCmds,Response,formatf,return,strncmp,strnlen] noreturn:[HelpCmds,formatf,return]
-HelpCmds call:[formatf] noreturn:[formatf]

@@ -1,3 +1,0 @@
-CreateTempFolder call:[mkdir,printf,return] noreturn:[return]
-spawn call:[perror,posix_spawn,printf,return] noreturn:[perror,printf,return]
-ShowCallStack call:[backtrace,backtrace_symbols_fd,printf] noreturn:[backtrace_symbols_fd]

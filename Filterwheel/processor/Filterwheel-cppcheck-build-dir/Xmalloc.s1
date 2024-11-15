@@ -1,5 +1,0 @@
-_XtAllocError call:[exit,strlen,write] noreturn:[exit]
-XtMalloc call:[GET_RET_ADDR,_XtAllocError,_malloc_leap] noreturn:[_XtAllocError]
-XtFree call:[GET_RET_ADDR,_free_leap] noreturn:[_free_leap]
-XtCalloc call:[GET_RET_ADDR,_XtAllocError,_calloc_leap] noreturn:[_XtAllocError]
-XtRealloc call:[GET_RET_ADDR,_XtAllocError,_realloc_leap] noreturn:[_XtAllocError]

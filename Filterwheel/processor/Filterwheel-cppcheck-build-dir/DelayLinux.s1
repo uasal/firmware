@@ -1,3 +1,0 @@
-delayus call:[memcpy,memset,nanosleep,sizeof] noreturn:[memcpy]
-delayms call:[delayus] noreturn:[delayus]
-delays call:[delayms] noreturn:[delayms]

@@ -1,4 +1,0 @@
-lcd_putc call:[printf] noreturn:[printf]
-lcd_putat call:[lcd_putc,return]
-lcd_printf call:[format,va_end,va_start]
-main call:[lcd_printf]

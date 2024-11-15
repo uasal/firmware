@@ -1,7 +1,0 @@
-stdout_func call:[return,stdio_hook_putc] noreturn:[return,stdio_hook_putc]
-wrstr_func call:[memcpy,printf,return] noreturn:[return]
-wrf_func call:[putc,return] noreturn:[putc,return]
-formatf call:[format,va_end,va_start]
-sformatf call:[format,va_end,va_start]
-snformatf call:[format,va_end,va_start]
-fformatf call:[format,va_end,va_start]

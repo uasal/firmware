@@ -1,8 +1,0 @@
-bufwrite call:[memcpy,return] noreturn:[return]
-test_sprintf call:[format,va_end,va_start]
-format_test call:[test_sprintf] noreturn:[test_sprintf]
-native_test call:[sprintf] noreturn:[sprintf]
-run_timed_loop call:[exit,gettimeofday,printf,timersub] noreturn:[exit,printf]
-run_dual_test call:[run_timed_loop] noreturn:[run_timed_loop]
-run_perf_tests call:[printf,run_dual_test] noreturn:[run_dual_test]
-main call:[printf,run_perf_tests]

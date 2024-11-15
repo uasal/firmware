@@ -1,4 +1,0 @@
-Delay4CyclesArm7tdmi call:[asm] noreturn:[asm]
-delayus global:[fclk_for_delay_loops] call:[ArmDelayLoop] noreturn:[ArmDelayLoop]
-delayms call:[delayus] noreturn:[delayus]
-delays call:[delayms] noreturn:[delayms]
