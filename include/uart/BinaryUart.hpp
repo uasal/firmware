@@ -119,7 +119,7 @@ struct BinaryUart : IUartParser
 	//~ void SetArgument(const void* argument) { Argument = argument; }
 	//~ const void* GetArgument() { return(Argument); }	
 	
-    virtual bool Process()
+    bool Process() override
     {
 	    //New char?
         if ( !(Pinout.dataready()) ) { return(false); }
@@ -141,8 +141,7 @@ struct BinaryUart : IUartParser
 	bool ProcessByte(const char c)
 	{
 		bool Processed = false;
-		size_t PacketEnd = 0;
-		
+
 		//~ stdio_hook_putc(c);
         //~ ::formatf(":0x%.2X", c);
         //~ ::formatf("\"%c\":", c);
@@ -178,6 +177,8 @@ struct BinaryUart : IUartParser
 		//Packet End?
 		if ( (InPacket) && (RxCount >= (Packet.HeaderLen() + Packet.FooterLen())) )
 		{
+			size_t PacketEnd = 0;
+
 			if (Packet.FindPacketEnd(RxBuffer, RxCount, PacketEnd)) //This is wasteful, we really only need to look at the 4 newest bytes every time...
 			{
 				if (debug) { ::formatf("\n\nBinaryUart: Packet end detected; Looking for matching packet handlers.\n"); }

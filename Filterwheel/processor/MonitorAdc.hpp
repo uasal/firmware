@@ -342,7 +342,7 @@ public:
 	void GetAmbientLightRaw(int32_t& val) { val = (AmbientLight); }
 	void GetTemperatureRaw(int32_t& val) { val = (Temperature); }
 	
-	void SaveCals(double* Buffer, size_t& BufferMaxInBufferUsedOut)
+	void SaveCals(double* const Buffer, size_t& BufferMaxInBufferUsedOut)
 	{
 		if ( (NULL == Buffer) || (BufferMaxInBufferUsedOut < (32 * sizeof(double))) )
 		{ 

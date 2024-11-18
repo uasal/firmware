@@ -44,7 +44,7 @@ struct FPGABinaryUartCallbacks : public BinaryUartCallbacks
 	virtual ~FPGABinaryUartCallbacks() { }
 	
 	//Malformed/corrupted packet handler:
-	virtual void InvalidPacket(const uint8_t* Buffer, const size_t& BufferLen)
+	virtual void InvalidPacket(const uint8_t* Buffer, const size_t& BufferLen) override
 	{ 
 		if ( (NULL == Buffer) || (BufferLen < 1) ) { formatf("\nFPGAUartCallbacks: NULL(%u) InvalidPacket!\n\n", BufferLen); return; }
 	
@@ -56,7 +56,7 @@ struct FPGABinaryUartCallbacks : public BinaryUartCallbacks
 	}
 	
 	//Packet with no matching command handler:
-	virtual void UnHandledPacket(const IPacket* Packet, const size_t& PacketLen)
+	virtual void UnHandledPacket(const IPacket* Packet, const size_t& PacketLen) override
 	{ 
 		if ( (NULL == Packet) || (PacketLen < sizeof(CGraphPacketHeader)) ) { formatf("\nFPGABinaryUartCallbacks: NULL(%u) UnHandledPacket!\n\n", PacketLen); return; }
 		
@@ -67,10 +67,10 @@ struct FPGABinaryUartCallbacks : public BinaryUartCallbacks
 	}
 	
 	//In case we need to look at every packet that goes by...
-	//~ virtual void EveryPacket(const IPacket& Packet, const size_t& PacketLen) { }
+	//~ virtual void EveryPacket(const IPacket& Packet, const size_t& PacketLen) override { }
 	
 	//We just wanna see if this is happening, not much to do about it
-	virtual void BufferOverflow(const uint8_t* Buffer, const size_t& BufferLen) 
+	virtual void BufferOverflow(const uint8_t* Buffer, const size_t& BufferLen) override
 	{ 
 		//~ formatf("\nFPGABinaryUartCallbacks: BufferOverflow(%zu)!\n", BufferLen);
 	}

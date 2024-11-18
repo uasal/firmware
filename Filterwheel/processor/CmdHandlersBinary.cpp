@@ -64,7 +64,7 @@ int8_t BinaryFWHardwareControlStatusCommand(const uint32_t Name, char const* Par
 	
 	if ( (NULL != Params) && (ParamsLen >= (sizeof(CGraphFWHardwareControlRegister))) )
 	{
-		const CGraphFWHardwareControlRegister* HCR = (const CGraphFWHardwareControlRegister*)Params;
+		const CGraphFWHardwareControlRegister* HCR = reinterpret_cast<const CGraphFWHardwareControlRegister*>(Params);
 		
 		formatf("\nBinaryFWHardwareControlStatusCommand: Setting to ");
 		HCR->formatf();
@@ -88,7 +88,7 @@ int8_t BinaryFWMotorControlStatusCommand(const uint32_t Name, char const* Params
 	
 	if ( (NULL != Params) && (ParamsLen >= (sizeof(CGraphFWMotorControlStatusRegister))) )
 	{
-		const CGraphFWMotorControlStatusRegister* MCSR = (const CGraphFWMotorControlStatusRegister*)Params;
+		const CGraphFWMotorControlStatusRegister* MCSR = reinterpret_cast<const CGraphFWMotorControlStatusRegister*>(Params);
 		
 		formatf("\nBinaryFWMotorControlStatusCommand: Setting to ");
 		MCSR->formatf();

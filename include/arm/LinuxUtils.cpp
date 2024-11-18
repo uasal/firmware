@@ -39,7 +39,7 @@ int spawn(const char* exe, const char* paramA, const char* paramB, const char* p
 void ShowCallStack(void* RealAddr)
 {
   void *array[20];
-  size_t size;
+  ssize_t size;
   //~ char **strings;
   //~ size_t i;
 

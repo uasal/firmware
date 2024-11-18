@@ -67,7 +67,7 @@ template<typename T, size_t queue_size> class fixedqueue
 			return temp;
 		}
 
-		void clear() { begin = end = 0; }
+		void clear() { begin = 0; end = 0; }
 		T const& front() const { return data[begin]; }
 		T const& back() const { return data[end ? (end-1) : (queue_size-1)]; }
 

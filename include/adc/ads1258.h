@@ -82,7 +82,7 @@ namespace ads1258details
 			ads1258status status; //MSBs
 		}  __attribute__((__packed__));
 
-		ads1258sample(uint32_t &val) { all = val; }
+		ads1258sample(const uint32_t &val) { all = val; }
 		ads1258sample() { all = 0; }
 
 		void formatf() { ::formatf("ADS1258 sample: %ld, ", sample); status.formatf(); ::formatf("\n"); }
@@ -126,7 +126,7 @@ namespace ads1258details
 		ads1258cmdheader(uint8_t c, uint8_t m, uint8_t a)
 			{ cmdtype = c; multiple = m; address = a; }
 
-		bool operator!=(ads1258cmdheader& rhs)
+		bool operator!=(const ads1258cmdheader& rhs)
 			{ return(all != rhs.all); }
 	} __attribute__((__packed__));
 
@@ -152,7 +152,7 @@ namespace ads1258details
 		config0register(uint8_t a, uint8_t b, uint8_t c, uint8_t d, uint8_t e, uint8_t f)
 			{ mustbezero = 0; spiresettimeout = a; muxmod = b; bypass = c; clkout = d; chop = e; stat = f; alsomustbezero = 0; }
 
-		bool operator!=(config0register& rhs)
+		bool operator!=(const config0register& rhs)
 			{ return(all != rhs.all); }
 
 		#ifdef DEBUGADC
@@ -178,7 +178,7 @@ namespace ads1258details
 		config1register(uint8_t a, uint8_t b, uint8_t c, uint8_t d)
 			{ idlemode = a; delay = b; sensorbiascurrent = c; datarate = d; }
 
-		bool operator!=(config1register& rhs)
+		bool operator!=(const config1register& rhs)
 			{ return(all != rhs.all); }
 
 		#ifdef DEBUGADC
@@ -202,7 +202,7 @@ namespace ads1258details
 		muxschregister(uint8_t a, uint8_t b)
 			{ chan_negin = a; chan_posin = b; }
 
-		bool operator!=(muxschregister& rhs)
+		bool operator!=(const muxschregister& rhs)
 			{ return(all != rhs.all); }
 
 		#ifdef DEBUGADC
@@ -232,7 +232,7 @@ namespace ads1258details
 		sysreadregister(uint8_t a, uint8_t b, uint8_t c, uint8_t d, uint8_t e)
 			{ reserve0 = 0; reserve1 = 0; scan_ref = a; scan_gain = b; scan_temp = c; scan_vcc = d; scan_offset = e; reserve2 = 0; }
 
-		bool operator!=(sysreadregister& rhs)
+		bool operator!=(const sysreadregister& rhs)
 			{ return(all != rhs.all); }
 
 		#ifdef DEBUGADC
@@ -294,7 +294,7 @@ struct ads1258 : spipinout
 	
 		const double AdcVRef;
 
-		ads1258(const double adcvref) :
+		explicit ads1258(const double adcvref) :
 			AdcVRef(adcvref),
 			ScanChansDiff(0),
 			ScanChansSELo(0),
@@ -391,6 +391,7 @@ struct ads1258 : spipinout
 		
 		bool IsScanChannel(const unsigned int chan)
 		{
+			if (chan > ads1258numchannels) { return(false); }
 			uint32_t ScanChannels = GetScanChannelsMask();
 			return( 0 != (ScanChannels & (1UL << chan)) );
 		}

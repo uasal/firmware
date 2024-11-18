@@ -411,12 +411,13 @@ int8_t MonitorSerialCommand(char const* Name, char const* Params, const size_t P
 	unsigned long port = 0;
 	char seperator[8];
 	char onoff;
-    bool OnOff = false;
 
 	//Convert parameters
     int8_t numfound = sscanf(Params, "%lu%2[,\t ]%c", &port, seperator, &onoff);
     if (numfound >= 4)
-    {
+	{
+	    bool OnOff = false;
+
 		if ( ('Y' == onoff) || ('y' == onoff) || ('T' == onoff) || ('t' == onoff) || ('1' == onoff) ) { OnOff = true; }
 		
 		formatf("\n\nMonitorSerialCommand: Monitoring port %lu: %c.\n", port, OnOff?'Y':'N');

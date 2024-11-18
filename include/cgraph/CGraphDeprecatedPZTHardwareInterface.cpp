@@ -58,9 +58,9 @@ int CGraphFSMProtoHardwareMmapper::open(int& FpgaHandle, CGraphFSMHardwareInterf
         #endif
 
         #ifdef EMULATE_FSM_HARDWARE
-        FpgaBus = (CGraphFSMHardwareInterface*)mmap(0, sizeof(CGraphFSMHardwareInterface), PROT_READ | PROT_WRITE, MAP_SHARED, FpgaHandle, 0);
+        FpgaBus = reinterpret_cast<CGraphFSMHardwareInterface*>(mmap(0, sizeof(CGraphFSMHardwareInterface), PROT_READ | PROT_WRITE, MAP_SHARED, FpgaHandle, 0));
         #else
-        FpgaBus = (CGraphFSMHardwareInterface*)mmap(0, sizeof(CGraphFSMHardwareInterface), PROT_READ | PROT_WRITE, MAP_SHARED, FpgaHandle, FPGA_MEM_ADDR & ~FPGA_MAP_MASK); //we're using #define's here for FPGA_MEM_ADDR cause this code worked, using the off_t consts seems suspect (like ~ is just gonna turn all the high bits on?
+        FpgaBus = reinterpret_cast<CGraphFSMHardwareInterface*>(mmap(0, sizeof(CGraphFSMHardwareInterface), PROT_READ | PROT_WRITE, MAP_SHARED, FpgaHandle, FPGA_MEM_ADDR & ~FPGA_MAP_MASK)); //we're using #define's here for FPGA_MEM_ADDR cause this code worked, using the off_t consts seems suspect (like ~ is just gonna turn all the high bits on?
         #endif
 
         if (MAP_FAILED == FpgaBus)

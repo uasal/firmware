@@ -54,13 +54,13 @@ public:
 	
 	virtual ~uart_pinout_fpga() { }
 
-	virtual bool dataready() const
+	virtual bool dataready() const override
 	{
 		if (NULL == StatusRegister) { return(false); }
 		return(0 == StatusRegister->RxFifoEmpty);
 	}
 
-	virtual char getcqq()
+	virtual char getcqq() override
 	{
 		if ( (NULL == ReadRequestRegister) || (NULL == ReadDataRegister) ) { return(false); }
 		volatile uint32_t c = 0;
@@ -70,27 +70,24 @@ public:
 		return((char)(c));
 	}
 
-	virtual char putcqq(char c)
+	virtual char putcqq(char c) override
 	{
 		if (NULL != WriteDataRegister) { *WriteDataRegister = c; }
 		return(c);
 	}
 	
-	virtual size_t depth() const
+	size_t depth() const
 	{
 		if (NULL == StatusRegister) { return(0); }
 		return(StatusRegister->RxFifoCount);
 	}
 
-	virtual int init(const uint32_t nc, const char* nc3) { return(IUartOK); }
-	virtual void deinit() { }
-	virtual void flushoutput() { } // if (FW) { FW->UartTxStatusRegister = 0; } //Need to make tx & rx status registers seperate...
-	virtual void purgeinput() { } // if (FW) { FW->UartRxStatusRegister = 0; }	
-	virtual bool connected() { return(true); }	
-	virtual bool isopen() const { return(true); }	
+	virtual void flushoutput() override { } // if (FW) { FW->UartTxStatusRegister = 0; } //Need to make tx & rx status registers seperate...
+	virtual void purgeinput() override { } // if (FW) { FW->UartRxStatusRegister = 0; }
+	virtual bool isopen() const override { return(true); }
 	
-	virtual void Monitor(const bool m) { monitor = m; }	
-	virtual bool Monitor() const { return(monitor); }	
+	void Monitor(const bool m) { monitor = m; }
+	bool Monitor() const { return(monitor); }
 	
 	
 };

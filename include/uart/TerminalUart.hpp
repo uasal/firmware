@@ -30,6 +30,11 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdint.h>
+#include <string.h>
+#include <string>
+#include <cstring>
+
+using namespace std;
 
 #include "fixedqueue.hpp"
 //~ #include <queue> //Using std::queue calls malloc and screws everything up....
@@ -216,12 +221,12 @@ template<uint16_t txbufferlenbytes, uint16_t rxbufferlenbytes> struct TerminalUa
 	{
 		bool Processed = false;
 		
-		char c = '\0';
-
 		if (RTSPinout.RTS())
 		{
 			if (!(TxBuffer.empty()))
 			{
+				char c = '\0';
+
 				Processed = true;
 				//~ c = TxBuffer.front(); //old way
 				//~ TxBuffer.pop(); //old way
@@ -273,7 +278,7 @@ template<uint16_t txbufferlenbytes, uint16_t rxbufferlenbytes> struct TerminalUa
 		return(Parsed);
 	}
 
-	virtual bool Process()
+	bool Process() override
 	{
 		ProcessTx();
 		return(ProcessRx());
