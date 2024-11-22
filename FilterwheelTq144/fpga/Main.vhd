@@ -1240,6 +1240,7 @@ begin
 	
 	--~ BuildNumber <= x"69696969";
 	
+	--Replace with external 74VHC123 or RC
 	BootupReset : OneShotPorts
 	generic map (
 		CLOCK_FREQHZ => BoardMasterClockFreq,
