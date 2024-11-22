@@ -30,7 +30,7 @@
 
 #include "MonitorAdc.hpp"
 
-CGraphFSMMonitorAdc MonitorAdc;
+CGraphPZTMonitorAdc MonitorAdc;
 
 MonitorAdcCalibratedInput P1V2Calibrate(1.0, 0.0); //1:1
 MonitorAdcCalibratedInput P2V2Calibrate(2.0, 0.0); //1:2

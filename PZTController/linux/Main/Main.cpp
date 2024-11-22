@@ -15,12 +15,12 @@
 #include "Delay.h"
 
 #include "arm/LinuxUtils.h"
-#include "arm/imx6-eim.h"
+#include "arm/imx6/imx6-eim.h"
 #include "uart/AsciiCmdUserInterfaceLinux.h"
 
 #include "cgraph/CGraphDeprecatedPZTHardwareInterface.hpp"
 int MmapHandle = 0;
-CGraphFSMHardwareInterface* FSM = NULL;
+CGraphPZTHardwareInterface* PZT = NULL;
 
 #include "uart/BinaryUart.hpp"
 extern BinaryUart FpgaUartParser2;
@@ -31,6 +31,8 @@ extern BinaryUart FpgaUartParser0;
 #include "CmdTableAscii.hpp"
 
 #include "ClientSocket.hpp"
+
+#include "eeprom/SDLogfileLinuxMmap.hpp"
 
 //~ char prompt[] = "\n\nPZT> ";
 //~ const char* TerminalUartPrompt()
@@ -143,6 +145,8 @@ bool Process()
 
 int main(int argc, char *argv[])
 {
+	char LogBuffer[4096];
+
     //Tell C lib (stdio.h) not to buffer output, so we can ditch all the fflush(stdout) calls...
     setvbuf(stdout, NULL, _IONBF, 0);
 
@@ -280,7 +284,7 @@ int main(int argc, char *argv[])
 
 	printf("\n\nPZT: Connect to hardware...");    
     
-	int err = CGraphFSMProtoHardwareMmapper::open(MmapHandle, FSM);
+	int err = CGraphPZTProtoHardwareMmapper::open(MmapHandle, PZT);
 	
 	if (err < 0) { printf("\n\nPZT: Coudn't connect to hardware: %d", err); }
 	
@@ -289,6 +293,15 @@ int main(int argc, char *argv[])
 	InitClientSocket();
 
     //~ GlobalRestore();
+	
+	SDLogfileLinuxMmap Logfile;
+	Logfile.InitLogFile("/media/mmcblk1p1/PZTAdcLog.csv", "");
+	if (Logfile.IsOpen())
+	{
+		snprintf(LogBuffer, 4095, "Time_s, Time_us, Araw, Braw, Craw, Avolts, Bvolts, Cvolts\n");
+		Logfile.Log(LogBuffer, strnlen(LogBuffer, 4095));
+	}
+	
 
     char pwd[PATH_MAX];
     getcwd(pwd, PATH_MAX);
@@ -301,6 +314,9 @@ int main(int argc, char *argv[])
 
 	StartUserInterface();
 	
+	AdcAccumulator A, B, C;
+	AdcAccumulator LastA, LastB, LastC;
+						
     while(true)
     {
 		bool Bored = true;
@@ -314,9 +330,9 @@ int main(int argc, char *argv[])
 		//ENable this stuff if we want an intermediate buffer between the threads.
 		//~ //Handle fpga (remote) user interface:
 		//~ {
-			//~ if (NULL != FSM) 
+			//~ if (NULL != PZT) 
 			//~ {
-				//~ CGraphFSMUartStatusRegister UartStatus = FSM->UartStatusRegister;
+				//~ CGraphPZTUartStatusRegister UartStatus = PZT->UartStatusRegister;
 				//~ UartStatus.printf();	
 				
 				//~ uint16_t FpgaUartBufferLen = UartStatus.Uart2RxFifoCount;
@@ -327,7 +343,7 @@ int main(int argc, char *argv[])
 				//~ for (size_t i = 0; i < FpgaUartBufferLen; i++) 
 				//~ { 
 					//~ Bored = false; //if we're multithreaded, we need to know to give up our timeslice...
-					//~ char c = FSM->UartFifo;
+					//~ char c = PZT->UartFifo;
 					//~ putchar('$');
 					//~ putchar(c);
 					//~ putchar('\n');
@@ -341,6 +357,32 @@ int main(int argc, char *argv[])
 		if (FpgaUartParser2.Process()) { Bored = false; }
 		if (FpgaUartParser1.Process()) { Bored = false; }
 		if (FpgaUartParser0.Process()) { Bored = false; }
+		
+		//Log the A/D's if possible:
+		if (Logfile.IsOpen())
+		{
+			struct timeval Now;
+			gettimeofday(&Now,NULL);
+
+			A = PZT->AdcAAccumulator;
+			B = PZT->AdcBAccumulator;
+			C = PZT->AdcCAccumulator;
+			
+			if ( (A.all != LastA.all) || (B.all != LastB.all) || (C.all != LastC.all) )
+			{
+				LastA = A;
+				LastB = B;
+				LastC = C;
+				
+				double Av, Bv, Cv;
+				Av = (8.192 * ((A.Samples - 0) / A.NumAccums)) / 16777216.0;
+				Bv = (8.192 * ((B.Samples - 0) / B.NumAccums)) / 16777216.0;
+				Cv = (8.192 * ((C.Samples - 0) / C.NumAccums)) / 16777216.0;
+				
+				snprintf(LogBuffer, 4095, "\n%08ld, %lf, %+lld, %+lld, %+lld, %+1.6lf, %+1.6lf, %+1.6lf\n", Now.tv_sec, ((double)Now.tv_usec / 1000000.0), A.Samples, B.Samples, C.Samples, Av, Bv, Cv);
+				Logfile.Log(LogBuffer, strnlen(LogBuffer, 4095));
+			}
+		}
 		
         //give up our timeslice so as not to bog the system:
         if (Bored)

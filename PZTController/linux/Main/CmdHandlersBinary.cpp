@@ -40,10 +40,10 @@ using namespace std;
 #include "cgraph/CGraphPacket.hpp"
 
 #include "cgraph/CGraphDeprecatedPZTHardwareInterface.hpp"
-extern CGraphFSMHardwareInterface* FSM;	
+extern CGraphPZTHardwareInterface* PZT;	
 
 #include "../MonitorAdc.hpp"
-extern CGraphFSMMonitorAdc MonitorAdc;
+extern CGraphPZTMonitorAdc MonitorAdc;
 
 #include "../PZTBuildNum"
 
@@ -57,10 +57,10 @@ int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_
     Version.SerialNum = 0;
 	Version.ProcessorFirmwareBuildNum = BuildNum;
 	Version.FPGAFirmwareBuildNum = 0;
-	if (FSM) 
+	if (PZT) 
 	{ 
-		Version.SerialNum = FSM->DeviceSerialNumber; 
-		Version.FPGAFirmwareBuildNum = FSM->FpgaFirmwareBuildNumber; 
+		Version.SerialNum = PZT->DeviceSerialNumber; 
+		Version.FPGAFirmwareBuildNum = PZT->FpgaFirmwareBuildNumber; 
 	}
     printf("\nBinaryVersionCommand: Sending response (%u bytes): ", sizeof(CGraphVersionPayload));
     Version.formatf();
@@ -75,14 +75,14 @@ int8_t BinaryPZTDacsCommand(const uint32_t Name, char const* Params, const size_
 	{
 		const uint32_t* DacSetpoints = (const uint32_t*)Params;
 		printf("\nBinaryPZTDacsCommand Setting to (0x%X, 0x%X, 0x%X).\n\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2]);
-		FSM->DacASetpoint = DacSetpoints[0];
-		FSM->DacBSetpoint = DacSetpoints[1];
-		FSM->DacCSetpoint = DacSetpoints[2];		
+		PZT->DacASetpoint = DacSetpoints[0];
+		PZT->DacBSetpoint = DacSetpoints[1];
+		PZT->DacCSetpoint = DacSetpoints[2];		
 	}
 	uint32_t DacSetpoints[3];
-	DacSetpoints[0] = FSM->DacASetpoint;
-	DacSetpoints[1] = FSM->DacBSetpoint;
-	DacSetpoints[2] = FSM->DacCSetpoint;	
+	DacSetpoints[0] = PZT->DacASetpoint;
+	DacSetpoints[1] = PZT->DacBSetpoint;
+	DacSetpoints[2] = PZT->DacCSetpoint;	
 	printf("\nBinaryPZTDacsCommand  Replying (0x%X, 0x%X, 0x%X)...\n\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2]);
 	TxBinaryPacket(Argument, CGraphPayloadTypeFSMDacs, 0, DacSetpoints, 3 * sizeof(uint32_t));
 
@@ -92,9 +92,9 @@ int8_t BinaryPZTDacsCommand(const uint32_t Name, char const* Params, const size_
 int8_t BinaryPZTAdcsCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	AdcAccumulator AdcVals[3];	
-	AdcVals[0] = FSM->AdcAAccumulator;
-	AdcVals[1] = FSM->AdcBAccumulator;
-	AdcVals[2] = FSM->AdcCAccumulator;	
+	AdcVals[0] = PZT->AdcAAccumulator;
+	AdcVals[1] = PZT->AdcBAccumulator;
+	AdcVals[2] = PZT->AdcCAccumulator;	
 	printf("\nBinaryPZTAdcsCommand  Replying (%lld, %lld, %lld)...\n\n", AdcVals[0].Samples, AdcVals[1].Samples, AdcVals[2].Samples);
 	TxBinaryPacket(Argument, CGraphPayloadTypeFSMAdcs, 0, AdcVals, 3 * sizeof(AdcAccumulator));
     return(ParamsLen);
@@ -106,9 +106,9 @@ int8_t BinaryPZTAdcsFloatingPointCommand(const uint32_t Name, char const* Params
 	
 	double AdcVals[3];
 	AdcAccumulator A, B, C;
-	A = FSM->AdcAAccumulator;
-	B = FSM->AdcBAccumulator;
-	C = FSM->AdcCAccumulator;
+	A = PZT->AdcAAccumulator;
+	B = PZT->AdcBAccumulator;
+	C = PZT->AdcCAccumulator;
 	AdcVals[0] = (8.192 * ((A.Samples - 0) / A.NumAccums)) / 16777216.0;
 	AdcVals[1] = (8.192 * ((B.Samples - 0) / B.NumAccums)) / 16777216.0;
 	AdcVals[2] = (8.192 * ((C.Samples - 0) / C.NumAccums)) / 16777216.0;
@@ -137,16 +137,16 @@ int8_t BinaryPZTDacsFloatingPointCommand(const uint32_t Name, char const* Params
 		
 		printf("\n\nBinaryPZTDacsCommand: Setting to: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C);
 		
-		FSM->DacASetpoint = DacSetpoints[0];
-		FSM->DacBSetpoint = DacSetpoints[1];
-		FSM->DacCSetpoint = DacSetpoints[2];		
+		PZT->DacASetpoint = DacSetpoints[0];
+		PZT->DacBSetpoint = DacSetpoints[1];
+		PZT->DacCSetpoint = DacSetpoints[2];		
 	}
 	
 	uint32_t DacSetpoints[3];
 	
-	A = FSM->DacASetpoint;
-	B = FSM->DacBSetpoint;
-	C = FSM->DacCSetpoint;	
+	A = PZT->DacASetpoint;
+	B = PZT->DacBSetpoint;
+	C = PZT->DacCSetpoint;	
 	
 	VA = 4.096 * (double)(A) / ((double)(0x00FFFFFFUL) * 60.0);
 	VB = 4.096 * (double)(B) / ((double)(0x00FFFFFFUL) * 60.0);

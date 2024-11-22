@@ -21,7 +21,7 @@
 #include "cgraph/CGraphPacket.hpp"
 
 #include "cgraph/CGraphDeprecatedPZTHardwareInterface.hpp"
-extern CGraphFSMHardwareInterface* FSM;	
+extern CGraphPZTHardwareInterface* PZT;	
 
 #include "CmdTableBinary.hpp"
 
@@ -43,16 +43,16 @@ public:
 	
 	virtual bool dataready() const
 	{
-		if (NULL == FSM) { return(false); }
-		CGraphFSMUartStatusRegister UartStatus = FSM->UartStatusRegister2;
+		if (NULL == PZT) { return(false); }
+		CGraphPZTUartStatusRegister UartStatus = PZT->UartStatusRegister2;
 		return(0 == UartStatus.Uart2RxFifoEmpty);
 	}
 
 	virtual char getcqq()
 	{
-		if (NULL == FSM) { return(false); }
+		if (NULL == PZT) { return(false); }
 		uint16_t c = 0;
-		c = FSM->UartFifo2;
+		c = PZT->UartFifo2;
 		c >>= 8;
 		//~ printf("|%c", c);
 		if (MonitorSerial2) { printf("|%.2x", c); }
@@ -62,26 +62,26 @@ public:
 
 	virtual char putcqq(char c)
 	{
-		if (NULL == FSM) { return(c); }
-		FSM->UartFifo2 = c;		
+		if (NULL == PZT) { return(c); }
+		PZT->UartFifo2 = c;		
 		delayus(12); //This was neccessary the last hardware we tried this on...
 		return(c);
 	}
 	
 	virtual size_t depth() const
 	{
-		if (NULL == FSM) { return(false); }
-		CGraphFSMUartStatusRegister UartStatus = FSM->UartStatusRegister2;
+		if (NULL == PZT) { return(false); }
+		CGraphPZTUartStatusRegister UartStatus = PZT->UartStatusRegister2;
 		return(UartStatus.Uart2RxFifoCount);
 	}
 
-	virtual void flushoutput() { } // if (FSM) { FSM->UartTxStatusRegister = 0; } //Need to make tx & rx status registers seperate...
-	virtual void purgeinput() { } // if (FSM) { FSM->UartRxStatusRegister = 0; }	
+	virtual void flushoutput() { } // if (PZT) { PZT->UartTxStatusRegister = 0; } //Need to make tx & rx status registers seperate...
+	virtual void purgeinput() { } // if (PZT) { PZT->UartRxStatusRegister = 0; }	
 	virtual bool connected() { return(true); }	
 	virtual bool isopen() const { return(true); }	
 	
 	private:
-		//~ CGraphFSMHardwareInterface* fpgaFSM;	
+		//~ CGraphPZTHardwareInterface* fpgaPZT;	
 	
 } FPGAUartPinout2;
 
@@ -98,16 +98,16 @@ public:
 	
 	virtual bool dataready() const
 	{
-		if (NULL == FSM) { return(false); }
-		CGraphFSMUartStatusRegister UartStatus = FSM->UartStatusRegister1;
+		if (NULL == PZT) { return(false); }
+		CGraphPZTUartStatusRegister UartStatus = PZT->UartStatusRegister1;
 		return(0 == UartStatus.Uart2RxFifoEmpty);
 	}
 
 	virtual char getcqq()
 	{
-		if (NULL == FSM) { return(false); }
+		if (NULL == PZT) { return(false); }
 		uint16_t c = 0;
-		c = FSM->UartFifo1;
+		c = PZT->UartFifo1;
 		c >>= 8;
 		//~ printf("|%c", c);
 		if (MonitorSerial1) { printf("!%.2x", c); }
@@ -117,26 +117,26 @@ public:
 
 	virtual char putcqq(char c)
 	{
-		if (NULL == FSM) { return(c); }
-		FSM->UartFifo1 = c;		
+		if (NULL == PZT) { return(c); }
+		PZT->UartFifo1 = c;		
 		delayus(12); //This was neccessary the last hardware we tried this on...
 		return(c);
 	}
 	
 	virtual size_t depth() const
 	{
-		if (NULL == FSM) { return(false); }
-		CGraphFSMUartStatusRegister UartStatus = FSM->UartStatusRegister1;
+		if (NULL == PZT) { return(false); }
+		CGraphPZTUartStatusRegister UartStatus = PZT->UartStatusRegister1;
 		return(UartStatus.Uart2RxFifoCount);
 	}
 
-	virtual void flushoutput() { } // if (FSM) { FSM->UartTxStatusRegister = 0; } //Need to make tx & rx status registers seperate...
-	virtual void purgeinput() { } // if (FSM) { FSM->UartRxStatusRegister = 0; }	
+	virtual void flushoutput() { } // if (PZT) { PZT->UartTxStatusRegister = 0; } //Need to make tx & rx status registers seperate...
+	virtual void purgeinput() { } // if (PZT) { PZT->UartRxStatusRegister = 0; }	
 	virtual bool connected() { return(true); }	
 	virtual bool isopen() const { return(true); }	
 	
 	private:
-		//~ CGraphFSMHardwareInterface* fpgaFSM;	
+		//~ CGraphPZTHardwareInterface* fpgaPZT;	
 	
 } FPGAUartPinout1;
 
@@ -153,16 +153,16 @@ public:
 	
 	virtual bool dataready() const
 	{
-		if (NULL == FSM) { return(false); }
-		CGraphFSMUartStatusRegister UartStatus = FSM->UartStatusRegister0;
+		if (NULL == PZT) { return(false); }
+		CGraphPZTUartStatusRegister UartStatus = PZT->UartStatusRegister0;
 		return(0 == UartStatus.Uart2RxFifoEmpty);
 	}
 
 	virtual char getcqq()
 	{
-		if (NULL == FSM) { return(false); }
+		if (NULL == PZT) { return(false); }
 		uint16_t c = 0;
-		c = FSM->UartFifo0;
+		c = PZT->UartFifo0;
 		c >>= 8;
 		//~ printf("|%c", c);
 		if (MonitorSerial0) { printf(":%.2x", c); }
@@ -172,26 +172,26 @@ public:
 
 	virtual char putcqq(char c)
 	{
-		if (NULL == FSM) { return(c); }
-		FSM->UartFifo0 = c;		
+		if (NULL == PZT) { return(c); }
+		PZT->UartFifo0 = c;		
 		delayus(12); //This was neccessary the last hardware we tried this on...
 		return(c);
 	}
 	
 	virtual size_t depth() const
 	{
-		if (NULL == FSM) { return(false); }
-		CGraphFSMUartStatusRegister UartStatus = FSM->UartStatusRegister0;
+		if (NULL == PZT) { return(false); }
+		CGraphPZTUartStatusRegister UartStatus = PZT->UartStatusRegister0;
 		return(UartStatus.Uart2RxFifoCount);
 	}
 
-	virtual void flushoutput() { } // if (FSM) { FSM->UartTxStatusRegister = 0; } //Need to make tx & rx status registers seperate...
-	virtual void purgeinput() { } // if (FSM) { FSM->UartRxStatusRegister = 0; }	
+	virtual void flushoutput() { } // if (PZT) { PZT->UartTxStatusRegister = 0; } //Need to make tx & rx status registers seperate...
+	virtual void purgeinput() { } // if (PZT) { PZT->UartRxStatusRegister = 0; }	
 	virtual bool connected() { return(true); }	
 	virtual bool isopen() const { return(true); }	
 	
 	private:
-		//~ CGraphFSMHardwareInterface* fpgaFSM;	
+		//~ CGraphPZTHardwareInterface* fpgaPZT;	
 	
 } FPGAUartPinout0;
 

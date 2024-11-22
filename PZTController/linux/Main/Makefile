@@ -46,9 +46,9 @@ CFLAGS += -DGITVERSION="\"${GITVERSION}\"" -DBUILDNUM="\"${BUILDNUM}\"" -static-
 %.o: %.c
 	$(CC) $(CFLAGS) -I. -c $< -o $@
 	
-PZT: Main.o ../MonitorAdc.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o CmdTableAscii.o CmdHandlersAscii.o FlightComms.o ClientSocket.o CmdTableBinary.o CmdHandlersBinary.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o $(INCLUDE_LOCAL)/DelayLinux.o $(INCLUDE_LOCAL)/stdintle.o $(INCLUDE_LOCAL)/arm/LinuxUtils.o $(INCLUDE_LOCAL)/arm/imx6-eim.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o #$(INCLUDE_LOCAL)/dbg/memwatch.o $(INCLUDE_LOCAL)/dbg/memwatchcpp.o $(INCLUDE_LOCAL)/gprof-helper.o 
+PZT: Main.o ../MonitorAdc.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o CmdTableAscii.o CmdHandlersAscii.o FlightComms.o ClientSocket.o CmdTableBinary.o CmdHandlersBinary.o $(INCLUDE_LOCAL)/cgraph/CGraphDeprecatedPZTHardwareInterface.o $(INCLUDE_LOCAL)/uart/Crc32Bzip2.o $(INCLUDE_LOCAL)/eeprom/SDLogfileLinuxMmap.o $(INCLUDE_LOCAL)/DelayLinux.o $(INCLUDE_LOCAL)/stdintle.o $(INCLUDE_LOCAL)/arm/LinuxUtils.o $(INCLUDE_LOCAL)/arm/imx6/imx6-eim.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o #$(INCLUDE_LOCAL)/dbg/memwatch.o $(INCLUDE_LOCAL)/dbg/memwatchcpp.o $(INCLUDE_LOCAL)/gprof-helper.o 
 	btracer ../PZT
-	$(CC) Main.o ../MonitorAdc.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o CmdTableAscii.o CmdHandlersAscii.o FlightComms.o ClientSocket.o CmdTableBinary.o CmdHandlersBinary.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o $(INCLUDE_LOCAL)/DelayLinux.o $(INCLUDE_LOCAL)/stdintle.o $(INCLUDE_LOCAL)/arm/LinuxUtils.o $(INCLUDE_LOCAL)/arm/imx6-eim.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o -o PZT $(CFLAGS) $(LDFLAGS) -L. -L/lib -L/usr/lib -L/usr/local/lib -pthread -lpthread -lc -lstdc++ -lm -ldl -lrt
+	$(CC) Main.o ../MonitorAdc.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o CmdTableAscii.o CmdHandlersAscii.o FlightComms.o ClientSocket.o CmdTableBinary.o CmdHandlersBinary.o $(INCLUDE_LOCAL)/cgraph/CGraphDeprecatedPZTHardwareInterface.o $(INCLUDE_LOCAL)/uart/Crc32Bzip2.o $(INCLUDE_LOCAL)/eeprom/SDLogfileLinuxMmap.o $(INCLUDE_LOCAL)/DelayLinux.o $(INCLUDE_LOCAL)/stdintle.o $(INCLUDE_LOCAL)/arm/LinuxUtils.o $(INCLUDE_LOCAL)/arm/imx6/imx6-eim.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o -o PZT $(CFLAGS) $(LDFLAGS) -L. -L/lib -L/usr/lib -L/usr/local/lib -pthread -lpthread -lc -lstdc++ -lm -ldl -lrt
 	$(CROSS_COMPILE)objdump -d -g -C -l -S --prefix-addresses PZT > builds/PZT.v$(GITVERSION).b$(BUILDNUM).lss
 	cp $@ builds/PZT.v$(GITVERSION).b$(BUILDNUM)
 	
@@ -58,9 +58,9 @@ program: PZT
 	#~ -ssh root@192.168.1.223 systemctl stop PZT
 	#~ -ssh root@192.168.1.223 killall PZT
 	#~ -scp PZT root@192.168.1.223:/home/root
-	-ssh root@fsm systemctl stop PZT
-	-ssh root@fsm killall PZT
-	-scp PZT root@fsm:/home/root
+	-ssh root@PZT systemctl stop PZT
+	-ssh root@PZT killall PZT
+	-scp PZT root@PZT:/home/root
 	
 burn:
 	-ssh root@192.168.1.223 systemctl stop PZT

@@ -54,10 +54,10 @@ using namespace std;
 
 #include "cgraph/CGraphDeprecatedPZTHardwareInterface.hpp"
 extern int MmapHandle;
-extern CGraphFSMHardwareInterface* FSM;	
+extern CGraphPZTHardwareInterface* PZT;	
 
 #include "../MonitorAdc.hpp"
-extern CGraphFSMMonitorAdc MonitorAdc;
+extern CGraphPZTMonitorAdc MonitorAdc;
 
 #include "../PZTBuildNum"
 
@@ -106,9 +106,9 @@ int8_t ParseConfigFileCommand(char const* Name, char const* Params, const size_t
 
 int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	if (NULL != FSM)
+	if (NULL != PZT)
 	{
-		printf("\n\nVersion: Serial Number: %.8X, Global Revision: %s; build number: %u on: %s; fpga build: %u.\n", FSM->DeviceSerialNumber, GITVERSION, BuildNum, BuildTimeStr, FSM->FpgaFirmwareBuildNumber);
+		printf("\n\nVersion: Serial Number: %.8X, Global Revision: %s; build number: %u on: %s; fpga build: %u.\n", PZT->DeviceSerialNumber, GITVERSION, BuildNum, BuildTimeStr, PZT->FpgaFirmwareBuildNumber);
 	}
 	else
 	{
@@ -122,7 +122,7 @@ int8_t InitFpgaCommand(char const* Name, char const* Params, const size_t Params
 {
 	printf("\n\nInitFpga: Initializing...");
 
-	int err = CGraphFSMProtoHardwareMmapper::open(MmapHandle, FSM);
+	int err = CGraphPZTProtoHardwareMmapper::open(MmapHandle, PZT);
 	
 	if (err < 0) { printf("\n\nInitFpga: Coudn't connect to hardware: %d", err); }
 	
@@ -133,7 +133,7 @@ int8_t DeInitFpgaCommand(char const* Name, char const* Params, const size_t Para
 {
 	printf("\n\nDeInitFpga: De-initializing...");
 
-	int err = CGraphFSMProtoHardwareMmapper::close(MmapHandle, FSM);
+	int err = CGraphPZTProtoHardwareMmapper::close(MmapHandle, PZT);
 	
 	if (err < 0) { printf("\n\nDeInitFpga: Coudn't connect to hardware: %d", err); }
 	
@@ -153,7 +153,7 @@ int8_t ReadFpgaCommand(char const* Name, char const* Params, const size_t Params
 		//~ for (addr = 0; addr <= 64; addr++)
 		for (addr = 0; addr <= 128; addr++)
 		{
-			Buffer = *(((uint8_t*)FSM)+addr);
+			Buffer = *(((uint8_t*)PZT)+addr);
 			printf("\n0x%.2zX: 0x%.2X ", addr, Buffer);
 			printf("[%u]", Buffer);
 			//~ printf(" ('%c')", Buffer);
@@ -162,7 +162,7 @@ int8_t ReadFpgaCommand(char const* Name, char const* Params, const size_t Params
     }
 	else
 	{
-		Buffer = *(((uint8_t*)FSM)+addr);
+		Buffer = *(((uint8_t*)PZT)+addr);
 		printf("\nReadFpgaCommand: ");
 		//~ printf("\n%zu: 0x%.2X ", addr, Buffer);
 		printf("\n0x%.2zX: 0x%.2X ", addr, Buffer);
@@ -186,7 +186,7 @@ int8_t WriteFpgaCommand(char const* Name, char const* Params, const size_t Param
     }
 
 	//Write data to fpga:
-	*(((uint8_t*)FSM)+addr) = (uint8_t)val;
+	*(((uint8_t*)PZT)+addr) = (uint8_t)val;
 
 	printf("\nWriteFpgaCommand: Wrote %lu to ", val);
 	printf("0x%.4zX.\n", addr);
@@ -198,7 +198,7 @@ int8_t WriteFpgaCommand(char const* Name, char const* Params, const size_t Param
 int8_t PZTDacsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
     unsigned long A = 0, B = 0, C = 0;	
-	if (NULL == FSM)
+	if (NULL == PZT)
 	{
 		printf("\n\nPZTDacs: Fpga interface is not initialized! Please call InitFpga first!.");
 		return(ParamsLen);
@@ -208,34 +208,34 @@ int8_t PZTDacsCommand(char const* Name, char const* Params, const size_t ParamsL
     int8_t numfound = sscanf(Params, "%lx,%lx,%lx", &A, &B, &C);
     if (numfound >= 3)
     {
-		FSM->DacASetpoint = A;
-		FSM->DacBSetpoint = B;
-		FSM->DacCSetpoint = C;
+		PZT->DacASetpoint = A;
+		PZT->DacBSetpoint = B;
+		PZT->DacCSetpoint = C;
 		printf("\n\nPZTDacs: set to: %lx, %lx, %lx.\n", A, B, C);
 		return(ParamsLen);
     }
 	if (numfound >= 1)
     {
-		FSM->DacASetpoint = A;
-		FSM->DacBSetpoint = A;
-		//~ FSM->DacBSetpoint = 0x006FFFFFUL; //Sometimes this is 100V
-		//~ FSM->DacBSetpoint = 0x00CFFFFFUL; //Aaaaaand, sometimes this is 100V
-		FSM->DacCSetpoint = A;
+		PZT->DacASetpoint = A;
+		PZT->DacBSetpoint = A;
+		//~ PZT->DacBSetpoint = 0x006FFFFFUL; //Sometimes this is 100V
+		//~ PZT->DacBSetpoint = 0x00CFFFFFUL; //Aaaaaand, sometimes this is 100V
+		PZT->DacCSetpoint = A;
 		printf("\n\nPZTDacs: set to: %lx, %lx, %lx.\n", A, A, A);
 		return(ParamsLen);
     }
 
-	A = FSM->DacASetpoint;
-	B = FSM->DacBSetpoint;
-	C = FSM->DacCSetpoint;
+	A = PZT->DacASetpoint;
+	B = PZT->DacBSetpoint;
+	C = PZT->DacCSetpoint;
 	printf("\n\nPZTDacs: current value: %lx, %lx, %lx.\n", A, B, C);
 	
 	//Show current A/D values:
 	{
 		AdcAccumulator A, B, C;
-		A = FSM->AdcAAccumulator;
-		B = FSM->AdcBAccumulator;
-		C = FSM->AdcCAccumulator;
+		A = PZT->AdcAAccumulator;
+		B = PZT->AdcBAccumulator;
+		C = PZT->AdcCAccumulator;
 
 		double Av, Bv, Cv;
 		Av = (8.192 * ((A.Samples - 0) / A.NumAccums)) / 16777216.0;
@@ -247,7 +247,7 @@ int8_t PZTDacsCommand(char const* Name, char const* Params, const size_t ParamsL
 		printf("\nPZTDacs: Sensor A/D's: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, Av, Bv, Cv);
 	}
 	
-	//~ printf("\n\nPZTdaca: D/A registers at: %u, %u, %u.\n", offsetof(CGraphFSMHardwareInterface, DacASetpoint), offsetof(CGraphFSMHardwareInterface, DacBSetpoint), offsetof(CGraphFSMHardwareInterface, DacCSetpoint));
+	//~ printf("\n\nPZTdaca: D/A registers at: %u, %u, %u.\n", offsetof(CGraphPZTHardwareInterface, DacASetpoint), offsetof(CGraphPZTHardwareInterface, DacBSetpoint), offsetof(CGraphPZTHardwareInterface, DacCSetpoint));
 	
     return(ParamsLen);
 }
@@ -257,7 +257,7 @@ int8_t VoltageCommand(char const* Name, char const* Params, const size_t ParamsL
 	double VA = 0.0, VB = 0.0, VC = 0.0;	
 	unsigned long A = 0, B = 0, C = 0;	
 	
-	if (NULL == FSM)
+	if (NULL == PZT)
 	{
 		printf("\n\nVoltage: Fpga interface is not initialized! Please call InitFpga first!.");
 		return(ParamsLen);
@@ -272,26 +272,26 @@ int8_t VoltageCommand(char const* Name, char const* Params, const size_t ParamsL
 	
     if (numfound >= 3)
     {
-		FSM->DacASetpoint = A;
-		FSM->DacBSetpoint = B;
-		FSM->DacCSetpoint = C;
+		PZT->DacASetpoint = A;
+		PZT->DacBSetpoint = B;
+		PZT->DacCSetpoint = C;
 		printf("\n\nVoltage: set to: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C);
 		return(ParamsLen);
     }
 	if (numfound >= 1)
     {
-		FSM->DacASetpoint = A;
-		FSM->DacBSetpoint = A;
-		//~ FSM->DacBSetpoint = 0x006FFFFFUL; //Sometimes this is 100V
-		//~ FSM->DacBSetpoint = 0x00CFFFFFUL; //Aaaaaand, sometimes this is 100V
-		FSM->DacCSetpoint = A;
+		PZT->DacASetpoint = A;
+		PZT->DacBSetpoint = A;
+		//~ PZT->DacBSetpoint = 0x006FFFFFUL; //Sometimes this is 100V
+		//~ PZT->DacBSetpoint = 0x00CFFFFFUL; //Aaaaaand, sometimes this is 100V
+		PZT->DacCSetpoint = A;
 		printf("\n\nVoltage: set to: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C);
 		return(ParamsLen);
     }
 
-	A = FSM->DacASetpoint;
-	B = FSM->DacBSetpoint;
-	C = FSM->DacCSetpoint;
+	A = PZT->DacASetpoint;
+	B = PZT->DacBSetpoint;
+	C = PZT->DacCSetpoint;
 	
 	VA = 4.096 * (double)(A) / ((double)(0x00FFFFFFUL) * 60.0);
 	VB = 4.096 * (double)(A) / ((double)(0x00FFFFFFUL) * 60.0);
@@ -307,7 +307,7 @@ int8_t PZTAdcsCommand(char const* Name, char const* Params, const size_t ParamsL
 	//~ size_t cycle = 0;
 	//~ int key = 0;
 
-	if (NULL == FSM)
+	if (NULL == PZT)
 	{
 		printf("\n\nPZTAdcs: Fpga interface is not initialized! Please call InitFpga first!.");
 		return(ParamsLen);
@@ -320,9 +320,9 @@ int8_t PZTAdcsCommand(char const* Name, char const* Params, const size_t ParamsL
 		//Show current A/D values:
 		{
 			AdcAccumulator A, B, C;
-			A = FSM->AdcAAccumulator;
-			B = FSM->AdcBAccumulator;
-			C = FSM->AdcCAccumulator;
+			A = PZT->AdcAAccumulator;
+			B = PZT->AdcBAccumulator;
+			C = PZT->AdcCAccumulator;
 
 			double Av, Bv, Cv;
 			Av = (8.192 * ((A.Samples - 0) / A.NumAccums)) / 16777216.0;
@@ -379,25 +379,25 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		//~ //Show current A/D values:
 		//~ {
 			//~ AdcAccumulator A, B, C;
-			//~ A = FSM->AdcAAccumulator;
-			//~ B = FSM->AdcBAccumulator;
-			//~ C = FSM->AdcCAccumulator;
+			//~ A = PZT->AdcAAccumulator;
+			//~ B = PZT->AdcBAccumulator;
+			//~ C = PZT->AdcCAccumulator;
 
 			//~ double Av, Bv, Cv;
 			//~ Av = (4.096 * ((A.Samples - 0) / A.NumAccums)) / 8388608.0;
 			//~ Bv = (4.096 * ((B.Samples - 0) / B.NumAccums)) / 8388608.0;
 			//~ Cv = (4.096 * ((C.Samples - 0) / C.NumAccums)) / 8388608.0;
 			
-			//~ printf("\n\nBIST: current A/D values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf; %u, %u, %u.\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, Av, Bv, Cv, offsetof(CGraphFSMHardwareInterface, AdcAAccumulator), offsetof(CGraphFSMHardwareInterface, AdcBAccumulator), offsetof(CGraphFSMHardwareInterface, AdcCAccumulator));
+			//~ printf("\n\nBIST: current A/D values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf; %u, %u, %u.\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, Av, Bv, Cv, offsetof(CGraphPZTHardwareInterface, AdcAAccumulator), offsetof(CGraphPZTHardwareInterface, AdcBAccumulator), offsetof(CGraphPZTHardwareInterface, AdcCAccumulator));
 		//~ }
 		
 		//~ //Update the D/A's every so often
 		//~ if (0 == cycle % 4)
 		//~ {
-			//~ FSM->DacASetpoint = daca;
-			//~ //FSM->DacBSetpoint = daca;
-			//~ FSM->DacBSetpoint = 0x00CFFFFFUL;
-			//~ FSM->DacCSetpoint = daca;
+			//~ PZT->DacASetpoint = daca;
+			//~ //PZT->DacBSetpoint = daca;
+			//~ PZT->DacBSetpoint = 0x00CFFFFFUL;
+			//~ PZT->DacCSetpoint = daca;
 			//~ printf("\n\nBIST: D/A's set to: %lx.\n", daca);	
 
 			//~ switch(daca)
@@ -489,17 +489,17 @@ int8_t CirclesCommand(char const* Name, char const* Params, const size_t ParamsL
 		
 		//Update the D/A's every so often
 		{
-			FSM->DacASetpoint = daca;
-			FSM->DacBSetpoint = dacb;
-			//~ FSM->DacBSetpoint = 0x00AAAAAAUL;
-			//~ FSM->DacBSetpoint = 0x006FFFFFUL;
-			//~ FSM->DacBSetpoint = 0x00CFFFFFUL;
-			FSM->DacCSetpoint = dacc;
+			PZT->DacASetpoint = daca;
+			PZT->DacBSetpoint = dacb;
+			//~ PZT->DacBSetpoint = 0x00AAAAAAUL;
+			//~ PZT->DacBSetpoint = 0x006FFFFFUL;
+			//~ PZT->DacBSetpoint = 0x00CFFFFFUL;
+			PZT->DacCSetpoint = dacc;
 			//~ printf("\n\nBIST: D/A's set to: %lx, %lx, %lx.\n", daca, 0x006FFFFFUL, dacc);	
 
-			unsigned long rba = FSM->DacASetpoint;
-			unsigned long rbb = FSM->DacBSetpoint;
-			unsigned long rbc = FSM->DacCSetpoint;
+			unsigned long rba = PZT->DacASetpoint;
+			unsigned long rbb = PZT->DacBSetpoint;
+			unsigned long rbc = PZT->DacCSetpoint;
 			printf("\n%lu, %lu, %lu", rba, rbb, rbc);
 			
 			
@@ -564,7 +564,7 @@ int8_t GoXYCommand(char const* Name, char const* Params, const size_t ParamsLen,
 {
     unsigned long A = 0, B = 0, C = 0;
 	
-	if (NULL == FSM)
+	if (NULL == PZT)
 	{
 		printf("\n\nGoXY: Fpga interface is not initialized! Please call InitFpga first!.");
 		return(ParamsLen);
@@ -582,24 +582,24 @@ int8_t GoXYCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	A = (unsigned long)(X * 0x00CFFFFFUL);
 	C = (unsigned long)(Y * 0x00CFFFFFUL);
 	
-	FSM->DacASetpoint = A;
-	FSM->DacBSetpoint = 0x006FFFFFUL;
-	FSM->DacBSetpoint = 0x00CFFFFFUL;
-	FSM->DacCSetpoint = C;
+	PZT->DacASetpoint = A;
+	PZT->DacBSetpoint = 0x006FFFFFUL;
+	PZT->DacBSetpoint = 0x00CFFFFFUL;
+	PZT->DacCSetpoint = C;
 	printf("\n\nGoXY: set to: %lx, %lx, %lx.\n", A, 0x00CFFFFFUL, C);
 
 
-	A = FSM->DacASetpoint;
-	B = FSM->DacBSetpoint;
-	C = FSM->DacCSetpoint;
+	A = PZT->DacASetpoint;
+	B = PZT->DacBSetpoint;
+	C = PZT->DacCSetpoint;
 	printf("\n\nGoXY: current value: %lx, %lx, %lx (%lfV x %lfV).\n", A, B, C, X * 100.0, Y * 100.0);
 	
 	//Show current A/D values:
 	{
 		AdcAccumulator A, B, C;
-		A = FSM->AdcAAccumulator;
-		B = FSM->AdcBAccumulator;
-		C = FSM->AdcCAccumulator;
+		A = PZT->AdcAAccumulator;
+		B = PZT->AdcBAccumulator;
+		C = PZT->AdcCAccumulator;
 
 		double Av, Bv, Cv;
 		Av = (8.192 * ((A.Samples - 0) / A.NumAccums)) / 16777216.0;
@@ -611,7 +611,7 @@ int8_t GoXYCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		printf("\nGoXY: Sensor A/D's: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, Av, Bv, Cv);
 	}
 	
-	//~ printf("\n\nPZTdaca: D/A registers at: %u, %u, %u.\n", offsetof(CGraphFSMHardwareInterface, DacASetpoint), offsetof(CGraphFSMHardwareInterface, DacBSetpoint), offsetof(CGraphFSMHardwareInterface, DacCSetpoint));
+	//~ printf("\n\nPZTdaca: D/A registers at: %u, %u, %u.\n", offsetof(CGraphPZTHardwareInterface, DacASetpoint), offsetof(CGraphPZTHardwareInterface, DacBSetpoint), offsetof(CGraphPZTHardwareInterface, DacCSetpoint));
 	
     return(ParamsLen);
 }
@@ -642,16 +642,16 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
         //~ return(-1);
     //~ }
 	
-	//~ printf("\nUartCommand: FSM@0x%p, USR@%u, UF@%u, MAA@%u, ACF@%u, ACF is %u, ", (void*)FSM, offsetof(CGraphFSMHardwareInterface, UartStatusRegister), offsetof(CGraphFSMHardwareInterface, UartFifo), offsetof(CGraphFSMHardwareInterface, MonitorAdcAccumulator), offsetof(CGraphFSMHardwareInterface, AdcCFifo), sizeof(AdcFifo));
-	printf("\nUartCommand: %u, %u. ", offsetof(CGraphFSMHardwareInterface, UartFifo2), offsetof(CGraphFSMHardwareInterface, UartStatusRegister2));
+	//~ printf("\nUartCommand: PZT@0x%p, USR@%u, UF@%u, MAA@%u, ACF@%u, ACF is %u, ", (void*)PZT, offsetof(CGraphPZTHardwareInterface, UartStatusRegister), offsetof(CGraphPZTHardwareInterface, UartFifo), offsetof(CGraphPZTHardwareInterface, MonitorAdcAccumulator), offsetof(CGraphPZTHardwareInterface, AdcCFifo), sizeof(AdcFifo));
+	printf("\nUartCommand: %u, %u. ", offsetof(CGraphPZTHardwareInterface, UartFifo2), offsetof(CGraphPZTHardwareInterface, UartStatusRegister2));
 	
 	if (0 == strncmp(&(Params[1]), "loop", 4))
 	{
 		while(true)
 		{
-			//~ FSM->UartFifo0 = 0x55;
-			//~ FSM->UartFifo1 = 0x55;	
-			FSM->UartFifo2 = 0x55;
+			//~ PZT->UartFifo0 = 0x55;
+			//~ PZT->UartFifo1 = 0x55;	
+			PZT->UartFifo2 = 0x55;
 			
 			//Quit on any keypress
 			{
@@ -677,32 +677,32 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		}
 	}
 	
-	//~ CGraphFSMUartStatusRegister UartStatus = FSM->UartStatusRegister2;
+	//~ CGraphPZTUartStatusRegister UartStatus = PZT->UartStatusRegister2;
 	//~ UartStatus.printf();	
 	
 	//~ printf("; about to write to uart... ");	
-	//~ FSM->UartFifo = 'H';
+	//~ PZT->UartFifo = 'H';
 	//~ nanosleep(&sleeptime, NULL);
-	//~ FSM->UartFifo = 'e';
+	//~ PZT->UartFifo = 'e';
 	//~ nanosleep(&sleeptime, NULL);
-	//~ FSM->UartFifo = 'l';
+	//~ PZT->UartFifo = 'l';
 	//~ nanosleep(&sleeptime, NULL);
-	//~ FSM->UartFifo = 'l';
+	//~ PZT->UartFifo = 'l';
 	//~ nanosleep(&sleeptime, NULL);
-	//~ FSM->UartFifo = 'o';
+	//~ PZT->UartFifo = 'o';
 	//~ nanosleep(&sleeptime, NULL);
-	//~ FSM->UartFifo = '!';
+	//~ PZT->UartFifo = '!';
 	//~ nanosleep(&sleeptime, NULL);
 	
-	//~ UartStatus = FSM->UartStatusRegister; 
+	//~ UartStatus = PZT->UartStatusRegister; 
 	//~ printf("; uart written; ");	
 	//~ UartStatus.printf();	
 	
-	//~ CGraphFSMUartStatusRegister UartStatus2;
+	//~ CGraphPZTUartStatusRegister UartStatus2;
 	
 	//~ for(size_t i = 0; i < 100000; i++)
 	//~ { 
-		//~ UartStatus = FSM->UartStatusRegister; 
+		//~ UartStatus = PZT->UartStatusRegister; 
 		//~ if (0 == UartStatus.Uart2TxFifoEmpty) { break; }
 	//~ }
 	
@@ -720,16 +720,16 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	//~ for(size_t i = 0; i < 4096; i++)
 	//~ {
 		//~ if (0 != UartStatus.Uart2RxFifoEmpty) { break; }
-		//~ printf(":%.2X", FSM->UartFifo);
-		//~ UartStatus = FSM->UartStatusRegister; 		
+		//~ printf(":%.2X", PZT->UartFifo);
+		//~ UartStatus = PZT->UartStatusRegister; 		
 	//~ }
 	
 	//~ {
 		//~ //clear buffer:
-		//~ FSM->UartStatusRegister.all = 1;
+		//~ PZT->UartStatusRegister.all = 1;
 	//~ }
 	
-	//~ printf(":%.4X", FSM->UartFifo2);
+	//~ printf(":%.4X", PZT->UartFifo2);
 	
 	//~ printf("\n");
 	//~ UartStatus.printf();	
@@ -738,10 +738,10 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
     Version.SerialNum = 0;
 	Version.ProcessorFirmwareBuildNum = BuildNum;
 	Version.FPGAFirmwareBuildNum = 0;
-	if (FSM) 
+	if (PZT) 
 	{ 
-		Version.SerialNum = FSM->DeviceSerialNumber; 
-		Version.FPGAFirmwareBuildNum = FSM->FpgaFirmwareBuildNumber; 
+		Version.SerialNum = PZT->DeviceSerialNumber; 
+		Version.FPGAFirmwareBuildNum = PZT->FpgaFirmwareBuildNumber; 
 	}
     printf("\nUartCommand: Sending response (%u bytes): ", sizeof(CGraphVersionPayload));
     Version.formatf();
@@ -759,7 +759,7 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 {
 	unsigned long A = 0, B = 0, C = 0;
 	
-	if (NULL == FSM)
+	if (NULL == PZT)
 	{
 		printf("\n\nBaudDividers: Fpga interface is not initialized! Please call InitFpga first!.");
 		return(ParamsLen);
@@ -769,27 +769,27 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
     int8_t numfound = sscanf(Params, "%lu,%lu,%lu", &A, &B, &C);
     if (numfound >= 3)
     {
-		FSM->BaudDivider0 = A;
-		FSM->BaudDivider1 = B;
-		FSM->BaudDivider2 = C;
+		PZT->BaudDivider0 = A;
+		PZT->BaudDivider1 = B;
+		PZT->BaudDivider2 = C;
 		printf("\n\nBaudDividers: setting to: %lu, %lu, %lu.\n", A, B, C);
     }
 	else
 	{
 		if (numfound >= 1)
 		{
-			FSM->BaudDivider0 = A;
-			FSM->BaudDivider1 = A;
-			//~ FSM->DacBSetpoint = 0x006FFFFFUL; //Sometimes this is 100V
-			//~ FSM->DacBSetpoint = 0x00CFFFFFUL; //Aaaaaand, sometimes this is 100V
-			FSM->BaudDivider2 = A;
+			PZT->BaudDivider0 = A;
+			PZT->BaudDivider1 = A;
+			//~ PZT->DacBSetpoint = 0x006FFFFFUL; //Sometimes this is 100V
+			//~ PZT->DacBSetpoint = 0x00CFFFFFUL; //Aaaaaand, sometimes this is 100V
+			PZT->BaudDivider2 = A;
 			printf("\n\nBaudDividers: setting to: %lu, %lu, %lu.\n", A, A, A);
 		}
 	}
 	
-	A = FSM->BaudDivider0;
-	B = FSM->BaudDivider1;
-	C = FSM->BaudDivider2;
+	A = PZT->BaudDivider0;
+	B = PZT->BaudDivider1;
+	C = PZT->BaudDivider2;
 	printf("\n\nBaudDividers: current values: %lu, %lu, %lu.\n", A, B, C);
 	
 	//~ printf("\nBaudDividers: (331 = 9600, 83 = 38400, 55 = 57600, 27 = 115200, 13 = 230400, 7 = 460800, 3 = 921600)\n");

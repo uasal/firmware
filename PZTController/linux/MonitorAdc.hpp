@@ -30,8 +30,8 @@
 #include "temp/TempLM35.hpp"
 #include "format/formatf.h"
 
-#include "cgraph/CGraphFSMHardwareInterface.hpp"
-extern CGraphFSMHardwareInterface* FSM;	
+#include "cgraph/CGraphDeprecatedPZTHardwareInterface.hpp"
+extern CGraphPZTHardwareInterface* PZT;	
 
 const uint8_t MonitorAdcFpgaAdcSampleAddr = 104;
 const uint8_t MonitorAdcFpgaAdcChannelAddr = 112;
@@ -39,9 +39,9 @@ const uint8_t MonitorAdcFpgaAdcChannelAddr = 112;
 struct PinoutMonitorAdc
 {
 	PinoutMonitorAdc() { }
-	static uint8_t GetAdcReadChannel()								{ uint8_t val = *(((uint8_t*)FSM)+MonitorAdcFpgaAdcChannelAddr); return(val); }
-	static void SetAdcReadChannel(const uint8_t val) 					{ *(((uint8_t*)FSM)+MonitorAdcFpgaAdcChannelAddr) = (uint8_t)val; }
-	static void GetAdcSample(Ltc244xAccumulator& val) 				{ val = *((Ltc244xAccumulator*)(((uint8_t*)FSM)+MonitorAdcFpgaAdcSampleAddr)); }		
+	static uint8_t GetAdcReadChannel()								{ uint8_t val = *(((uint8_t*)PZT)+MonitorAdcFpgaAdcChannelAddr); return(val); }
+	static void SetAdcReadChannel(const uint8_t val) 					{ *(((uint8_t*)PZT)+MonitorAdcFpgaAdcChannelAddr) = (uint8_t)val; }
+	static void GetAdcSample(Ltc244xAccumulator& val) 				{ val = *((Ltc244xAccumulator*)(((uint8_t*)PZT)+MonitorAdcFpgaAdcSampleAddr)); }		
 };
 
 struct MonitorAdcCalibratedInput
@@ -85,7 +85,7 @@ extern MonitorAdcCalibratedInput AmbientLightCalibrate;
 extern MonitorAdcCalibratedInput TemperatureCalibrate;
 
 //~ template <class spi, class adcpinout, unsigned int spiclkdivider = 39>
-struct CGraphFSMMonitorAdc
+struct CGraphPZTMonitorAdc
 {
 	
 private:
@@ -94,14 +94,14 @@ private:
 	
 public:
 	
-	CGraphFSMMonitorAdc() : Adc(4.096)//, 
+	CGraphPZTMonitorAdc() : Adc(4.096)//, 
 	{ }
 	
-	~CGraphFSMMonitorAdc() { }
+	~CGraphPZTMonitorAdc() { }
 	
-	static uint8_t GetAdcReadChannel()								{ uint8_t val = *(((uint8_t*)FSM)+MonitorAdcFpgaAdcChannelAddr); return(val); }
-	static void SetAdcReadChannel(const uint8_t val) 					{ *(((uint8_t*)FSM)+MonitorAdcFpgaAdcChannelAddr) = (uint8_t)val; }
-	static void GetAdcSample(Ltc244xAccumulator& val) 				{ val = *((Ltc244xAccumulator*)(((uint8_t*)FSM)+MonitorAdcFpgaAdcSampleAddr)); }		
+	static uint8_t GetAdcReadChannel()								{ uint8_t val = *(((uint8_t*)PZT)+MonitorAdcFpgaAdcChannelAddr); return(val); }
+	static void SetAdcReadChannel(const uint8_t val) 					{ *(((uint8_t*)PZT)+MonitorAdcFpgaAdcChannelAddr) = (uint8_t)val; }
+	static void GetAdcSample(Ltc244xAccumulator& val) 				{ val = *((Ltc244xAccumulator*)(((uint8_t*)PZT)+MonitorAdcFpgaAdcSampleAddr)); }		
 	
 	//Adc channels:
 	#define P1V2Channel Adc.chan_se0
