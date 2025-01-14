@@ -10,7 +10,7 @@ build-job:
     # Build FilterWheel processor docs
     - mkdir -p ${CI_PROJECT_DIR}/doxygen/Filterwheel/processor
     - ls ${CI_PROJECT_DIR}/doxygen
-    - cd ${CI_PROJECT_DIR}/Filterwheel/processor/Main/dox
+    - cd ${CI_PROJECT_DIR}/Filterwheel/processor/dox
     - doxygen
     # Build FilterWheel fpga docs
     - mkdir -p ${CI_PROJECT_DIR}/doxygen/FilterwheelTq144/fpga
