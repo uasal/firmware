@@ -139,7 +139,7 @@ struct BinaryUart : IUartParser
 		InPacket = InPacketInit;
         memset(RxBuffer, EmptyBufferChar, RxBufferLenBytes);
 
-		::formatf("\n\nBinary Uart: Init(PktH %u, PktF %u).\n", Packet.HeaderLen(), Packet.FooterLen());
+		if (debug) { ::formatf("\n\nBinary Uart: Init(PktH %u, PktF %u).\n", Packet.HeaderLen(), Packet.FooterLen()); }
 
         return(0);
     }

@@ -47,7 +47,7 @@
 class ClientSocketThread : public EzThread
 {
 public:
-	ClientSocketThread() { BoredDelayuS = 1000; strcpy(ThreadName, "ClientSocketThread"); }
+	ClientSocketThread() { BoredDelayuS = 100; strcpy(ThreadName, "ClientSocketThread"); }
 	virtual void ThreadInit() { nice(-2); }
 	virtual ~ClientSocketThread() { }
 	virtual bool Process();

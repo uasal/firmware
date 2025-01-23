@@ -122,16 +122,18 @@ int InitClientSocket()
 //~ bool ProcessClientSocket()
 bool ClientSocketThread::Process()
 {
+	bool Processed = false;
+	
 	for (size_t Client = 0; Client < MaxClientConnections; Client++)
 	{
 		for (size_t c = 0; c < 255; c++)
 		{
-			bool Processed = ClientConnections[Client].SocketHandler.Process();
+			Processed = ClientConnections[Client].SocketHandler.Process();
 			if (!Processed) { break; }
 		}
 	}
 	
-    return(false);
+    return(Processed);
 }
 
 void SocketConnect(const size_t Client)

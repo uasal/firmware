@@ -49,6 +49,8 @@ extern CGraphPZTMonitorAdc MonitorAdc;
 
 #include "CmdTableBinary.hpp"
 
+extern bool MonitorBinaryUarts;
+
 int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	//(Don't validate version; always reply, even though it will cause a mess, so everyone knows we're here!)
@@ -62,9 +64,11 @@ int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_
 		Version.SerialNum = PZT->DeviceSerialNumber; 
 		Version.FPGAFirmwareBuildNum = PZT->FpgaFirmwareBuildNumber; 
 	}
-    printf("\nBinaryVersionCommand: Sending response (%u bytes): ", sizeof(CGraphVersionPayload));
-    Version.formatf();
-    printf("\n");
+	if (MonitorBinaryUarts) {
+		printf("\nBinaryVersionCommand: Sending response (%u bytes): ", sizeof(CGraphVersionPayload));
+		Version.formatf();
+		printf("\n");
+	}
     TxBinaryPacket(Argument, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
     return(ParamsLen);
 }
@@ -74,7 +78,7 @@ int8_t BinaryPZTDacsCommand(const uint32_t Name, char const* Params, const size_
 	if (ParamsLen >= (3 * sizeof(uint32_t)))
 	{
 		const uint32_t* DacSetpoints = (const uint32_t*)Params;
-		printf("\nBinaryPZTDacsCommand Setting to (0x%X, 0x%X, 0x%X).\n\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2]);
+		if (MonitorBinaryUarts) { printf("\nBinaryPZTDacsCommand Setting to (0x%X, 0x%X, 0x%X).\n\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2]); }
 		PZT->DacASetpoint = DacSetpoints[0];
 		PZT->DacBSetpoint = DacSetpoints[1];
 		PZT->DacCSetpoint = DacSetpoints[2];		
@@ -83,7 +87,7 @@ int8_t BinaryPZTDacsCommand(const uint32_t Name, char const* Params, const size_
 	DacSetpoints[0] = PZT->DacASetpoint;
 	DacSetpoints[1] = PZT->DacBSetpoint;
 	DacSetpoints[2] = PZT->DacCSetpoint;	
-	printf("\nBinaryPZTDacsCommand  Replying (0x%X, 0x%X, 0x%X)...\n\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2]);
+	if (MonitorBinaryUarts) { printf("\nBinaryPZTDacsCommand  Replying (0x%X, 0x%X, 0x%X)...\n\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2]); }
 	TxBinaryPacket(Argument, CGraphPayloadTypeFSMDacs, 0, DacSetpoints, 3 * sizeof(uint32_t));
 
     return(ParamsLen);
@@ -95,14 +99,14 @@ int8_t BinaryPZTAdcsCommand(const uint32_t Name, char const* Params, const size_
 	AdcVals[0] = PZT->AdcAAccumulator;
 	AdcVals[1] = PZT->AdcBAccumulator;
 	AdcVals[2] = PZT->AdcCAccumulator;	
-	printf("\nBinaryPZTAdcsCommand  Replying (%lld, %lld, %lld)...\n\n", AdcVals[0].Samples, AdcVals[1].Samples, AdcVals[2].Samples);
+	if (MonitorBinaryUarts) { printf("\nBinaryPZTAdcsCommand  Replying (%lld, %lld, %lld)...\n\n", AdcVals[0].Samples, AdcVals[1].Samples, AdcVals[2].Samples); }
 	TxBinaryPacket(Argument, CGraphPayloadTypeFSMAdcs, 0, AdcVals, 3 * sizeof(AdcAccumulator));
     return(ParamsLen);
 }
 	
 int8_t BinaryPZTAdcsFloatingPointCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	printf("\nBinaryPZTAdcsCommand processing(%u)...\n\n", ParamsLen);
+	if (MonitorBinaryUarts) { printf("\nBinaryPZTAdcsCommand processing(%u)...\n\n", ParamsLen); }
 	
 	double AdcVals[3];
 	AdcAccumulator A, B, C;
@@ -112,7 +116,7 @@ int8_t BinaryPZTAdcsFloatingPointCommand(const uint32_t Name, char const* Params
 	AdcVals[0] = (8.192 * ((A.Samples - 0) / A.NumAccums)) / 16777216.0;
 	AdcVals[1] = (8.192 * ((B.Samples - 0) / B.NumAccums)) / 16777216.0;
 	AdcVals[2] = (8.192 * ((C.Samples - 0) / C.NumAccums)) / 16777216.0;
-	printf("\nBinaryPZTAdcsFloatingPointCommand  Replying (%lf, %lf, %lf)...\n\n", AdcVals[0], AdcVals[1], AdcVals[2]);
+	if (MonitorBinaryUarts) { printf("\nBinaryPZTAdcsFloatingPointCommand  Replying (%lf, %lf, %lf)...\n\n", AdcVals[0], AdcVals[1], AdcVals[2]); }
 	TxBinaryPacket(Argument, CGraphPayloadTypeFSMAdcsFloatingPoint, 0, AdcVals, 3 * sizeof(double));
 
     return(ParamsLen);
@@ -135,7 +139,7 @@ int8_t BinaryPZTDacsFloatingPointCommand(const uint32_t Name, char const* Params
 		B = (VB * (double)(0x00FFFFFFUL) * 60.0) / 4.096;
 		C = (VC * (double)(0x00FFFFFFUL) * 60.0) / 4.096;
 		
-		printf("\n\nBinaryPZTDacsCommand: Setting to: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C);
+		if (MonitorBinaryUarts) { printf("\n\nBinaryPZTDacsCommand: Setting to: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C); }
 		
 		PZT->DacASetpoint = DacSetpoints[0];
 		PZT->DacBSetpoint = DacSetpoints[1];
@@ -156,7 +160,7 @@ int8_t BinaryPZTDacsFloatingPointCommand(const uint32_t Name, char const* Params
 	DacSetpoints[1] = VB;
 	DacSetpoints[2] = VC;	
 	
-	printf("\n\nBinaryPZTDacsCommand: Replying: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C);
+	if (MonitorBinaryUarts) { printf("\n\nBinaryPZTDacsCommand: Replying: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C); }
 	TxBinaryPacket(Argument, CGraphPayloadTypeFSMDacsFloatingPoint, 0, DacSetpoints, 3 * sizeof(double));
 
     return(ParamsLen);
@@ -179,23 +183,23 @@ int8_t BinaryPZTStatusCommand(const uint32_t Name, char const* Params, const siz
 	Status.N6V = MonitorAdc.GetN6V();
 	Status.P150V = MonitorAdc.GetP150V();
 
-	printf("\n\nBinaryPZTStatusCommand: CurrentValues:\n\n");
+	if (MonitorBinaryUarts)
+	{	
+		printf("\n\nBinaryPZTStatusCommand: CurrentValues:\n\n");	
+		formatf("P1V2: %3.6lf V\n", Status.P1V2);
+		formatf("P2V2: %3.6lf V\n", Status.P2V2);
+		formatf("P28V: %3.6lf V\n", Status.P28V);
+		formatf("P2V5: %3.6lf V\n", Status.P2V5);
+		formatf("P3V3A: %3.6lf V\n", Status.P3V3A);
+		formatf("P6V: %3.6lf V\n", Status.P6V);
+		formatf("P5V: %3.6lf V\n", Status.P5V);
+		formatf("P3V3D: %3.6lf V\n", Status.P3V3D);
+		formatf("P4V3: %3.6lf V\n", Status.P4V3);
+		formatf("N5V: %3.6lf V\n", Status.N5V);
+		formatf("N6V: %3.6lf V\n", Status.N6V);
+		formatf("P150V: %3.6lf V\n", Status.P150V);
+	}
 	
-	formatf("P1V2: %3.6lf V\n", Status.P1V2);
-	formatf("P2V2: %3.6lf V\n", Status.P2V2);
-	formatf("P28V: %3.6lf V\n", Status.P28V);
-	formatf("P2V5: %3.6lf V\n", Status.P2V5);
-	formatf("P3V3A: %3.6lf V\n", Status.P3V3A);
-	formatf("P6V: %3.6lf V\n", Status.P6V);
-	formatf("P5V: %3.6lf V\n", Status.P5V);
-	formatf("P3V3D: %3.6lf V\n", Status.P3V3D);
-	formatf("P4V3: %3.6lf V\n", Status.P4V3);
-	formatf("N5V: %3.6lf V\n", Status.N5V);
-	formatf("N6V: %3.6lf V\n", Status.N6V);
-	formatf("P150V: %3.6lf V\n", Status.P150V);
-
-	
-	printf("\nBinaryPZTStatusCommand: Replying...\n");
 	TxBinaryPacket(Argument, CGraphPayloadTypeFSMTelemetry, 0, &Status, sizeof(CGraphFSMTelemetryPayload));
 
 	return(ParamsLen);

@@ -37,6 +37,8 @@ int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsL
 int8_t FSMDacsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t FSMAdcsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t FSMTelemetryCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t FSMCirclesCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t FSMGoXYCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 
 //DM Cmds
 int8_t DMDacCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);

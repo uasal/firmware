@@ -93,6 +93,18 @@ const Cmd AsciiCmds[] =
         FSMTelemetryCommand
     ),
 	
+	Cmd(
+        "FSMCIRCLES",
+        "\"FSMCircles <radius:0...1.0,ratems:0...10k>\": Runs a self-test, moves actuator in a circle.",
+        FSMCirclesCommand
+    ),
+	
+	Cmd(
+        "FSMGOXY",
+        "\"FSMGoXY <X:0...1.0,Y:0...1.0>\": Moves the actuator to the given coordinates.",
+        FSMGoXYCommand
+    ),
+	
 	//DM Commands
 	
 	Cmd(

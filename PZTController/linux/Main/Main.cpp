@@ -22,6 +22,8 @@
 int MmapHandle = 0;
 CGraphPZTHardwareInterface* PZT = NULL;
 
+bool MonitorBinaryUarts = false;
+
 #include "uart/BinaryUart.hpp"
 extern BinaryUart FpgaUartParser2;
 extern BinaryUart FpgaUartParser1;
@@ -295,12 +297,12 @@ int main(int argc, char *argv[])
     //~ GlobalRestore();
 	
 	SDLogfileLinuxMmap Logfile;
-	Logfile.InitLogFile("/media/mmcblk1p1/PZTAdcLog.csv", "");
-	if (Logfile.IsOpen())
-	{
-		snprintf(LogBuffer, 4095, "Time_s, Time_us, Araw, Braw, Craw, Avolts, Bvolts, Cvolts\n");
-		Logfile.Log(LogBuffer, strnlen(LogBuffer, 4095));
-	}
+	//~ Logfile.InitLogFile("/media/mmcblk1p1/PZTAdcLog.csv", "");
+	//~ if (Logfile.IsOpen())
+	//~ {
+		//~ snprintf(LogBuffer, 4095, "Time_s, Time_us, Araw, Braw, Craw, Avolts, Bvolts, Cvolts\n");
+		//~ Logfile.Log(LogBuffer, strnlen(LogBuffer, 4095));
+	//~ }
 	
 
     char pwd[PATH_MAX];
@@ -387,7 +389,7 @@ int main(int argc, char *argv[])
         //give up our timeslice so as not to bog the system:
         if (Bored)
         {
-            delayms(100);
+            delayus(100);
         }
     }
 
