@@ -12,6 +12,9 @@
 
 #include "format/formatf.h"
 
+#include "uart/UartStatusRegister.hpp"
+
+#include "cgraph/CGraphCommon.hpp"
 #include "CGraphFSMHardwareInterface.hpp" //AdcAccumulator definition
 
 union CGraphDMCIHardwareControlRegister

@@ -18,6 +18,8 @@
 
 #include "CGraphDMHardwareInterface.hpp"
 
+CGraphDMHardwareInterface* DMCI = (CGraphDMHardwareInterface*)0x50000000UL;
+
 #define FPGA_MEM_ADDR 0x08000000
 #define FPGA_MAP_MASK 0x00000FFF
 
