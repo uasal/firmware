@@ -1,0 +1,13 @@
+--------------------------------------------------------------------------------
+-- UA Extra-Solar Camera DM Controller Project FPGA Firmware
+--
+-- Register Space Definitions & Interface
+--
+--------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.all;
+
+
+entity RegisterSpacePorts

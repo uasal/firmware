@@ -1,0 +1,317 @@
+//
+// Written by Synplify Pro 
+// Product Version "T-2022.09M-SP2-1"
+// Program "Synplify Pro", Mapper "map202209actsp2, Build 145R"
+// Mon Feb 17 14:18:05 2025
+//
+// Source file index table:
+// Object locations will have the form <file>:<line>
+// file 0 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\generic\smartfusion2.v "
+// file 1 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vlog\hypermods.v "
+// file 2 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vlog\umr_capim.v "
+// file 3 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vlog\scemi_objects.v "
+// file 4 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vlog\scemi_pipes.svh "
+// file 5 "\c:\microsemiproj\libero\ux1_ver2\component\work\evalsandbox_mss\ccc_0\evalsandbox_mss_ccc_0_fccc.v "
+// file 6 "\c:\microsemiproj\libero\ux1_ver2\component\actel\sgcore\osc\2.0.101\osc_comps.v "
+// file 7 "\c:\microsemiproj\libero\ux1_ver2\component\work\evalsandbox_mss\fabosc_0\evalsandbox_mss_fabosc_0_osc.v "
+// file 8 "\c:\microsemiproj\libero\ux1_ver2\component\work\evalsandbox_mss_mss\evalsandbox_mss_mss_syn.v "
+// file 9 "\c:\microsemiproj\libero\ux1_ver2\component\work\evalsandbox_mss_mss\evalsandbox_mss_mss.v "
+// file 10 "\c:\microsemiproj\libero\ux1_ver2\component\actel\directcore\coreresetp\7.1.100\rtl\vlog\core\coreresetp_pcie_hotreset.v "
+// file 11 "\c:\microsemiproj\libero\ux1_ver2\component\actel\directcore\coreresetp\7.1.100\rtl\vlog\core\coreresetp.v "
+// file 12 "\c:\microsemiproj\libero\ux1_ver2\component\actel\directcore\coreapb3\4.1.100\rtl\vlog\core\coreapb3_muxptob3.v "
+// file 13 "\c:\microsemiproj\libero\ux1_ver2\component\actel\directcore\coreapb3\4.1.100\rtl\vlog\core\coreapb3_iaddr_reg.v "
+// file 14 "\c:\microsemiproj\libero\ux1_ver2\component\actel\directcore\coreapb3\4.1.100\rtl\vlog\core\coreapb3.v "
+// file 15 "\c:\microsemiproj\libero\ux1_ver2\component\work\evalsandbox_mss\evalsandbox_mss.v "
+// file 16 "\c:\microsemiproj\libero\ux1_ver2\component\work\fccc_c0\fccc_c0_0\fccc_c0_fccc_c0_0_fccc.v "
+// file 17 "\c:\microsemiproj\libero\ux1_ver2\component\work\fccc_c0\fccc_c0.v "
+// file 18 "\c:\microsemiproj\libero\ux1_ver2\component\work\evalboardsandbox\evalboardsandbox.v "
+// file 19 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd2008\std.vhd "
+// file 20 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd\snps_haps_pkg.vhd "
+// file 21 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd2008\std1164.vhd "
+// file 22 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd2008\std_textio.vhd "
+// file 23 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd2008\numeric.vhd "
+// file 24 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd\umr_capim.vhd "
+// file 25 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd2008\arith.vhd "
+// file 26 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd2008\unsigned.vhd "
+// file 27 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\vhd\hyperents.vhd "
+// file 28 "\c:\microsemiproj\libero\ux1_ver2\hdl\registerspace.vhd "
+// file 29 "\c:\microsemiproj\libero\ux1_ver2\hdl\spidac.vhd "
+// file 30 "\c:\users\skaye\repos5\firmware\include\fpga\ibufp2.vhd "
+// file 31 "\c:\users\skaye\repos5\firmware\include\fpga\uartrxraw.vhd "
+// file 32 "\c:\users\skaye\repos5\firmware\include\fpga\fifo_gen.vhd "
+// file 33 "\c:\users\skaye\repos5\firmware\include\fpga\uarttx.vhd "
+// file 34 "\c:\users\skaye\repos5\firmware\include\fpga\uartrxextclk.vhd "
+// file 35 "\c:\users\skaye\repos5\firmware\include\fpga\gated_fifo.vhd "
+// file 36 "\c:\users\skaye\repos5\firmware\include\fpga\uartrxfifoextclk.vhd "
+// file 37 "\c:\users\skaye\repos5\firmware\include\fpga\uarttxfifoextclk.vhd "
+// file 38 "\c:\microchip\libero_soc_v2023.2\synplifypro\lib\nlconst.dat "
+// file 39 "\c:\microsemiproj\libero\ux1_ver2\designer\evalboardsandbox\synthesis.fdc "
+// file 40 "\c:/microsemiproj/libero/ux1_ver2/designer/evalboardsandbox/synthesis.fdc "
+
+`timescale 100 ps/100 ps
+module EvalBoardSandbox (
+  CLK0_PAD,
+  DEVRST_N,
+  Rx0,
+  MosiA,
+  MosiB,
+  MosiC,
+  MosiD,
+  MosiE,
+  MosiF,
+  SckA,
+  SckB,
+  SckC,
+  SckD,
+  SckE,
+  SckF,
+  Tx0,
+  Uart0OE,
+  nCsA,
+  nCsB,
+  nCsC,
+  nCsD,
+  nCsE,
+  nCsF
+)
+;
+input CLK0_PAD ;
+input DEVRST_N ;
+input Rx0 ;
+output MosiA ;
+output MosiB ;
+output MosiC ;
+output MosiD ;
+output MosiE ;
+output MosiF ;
+output SckA ;
+output SckB ;
+output SckC ;
+output SckD ;
+output SckE ;
+output SckF ;
+output Tx0 ;
+output Uart0OE ;
+output [3:0] nCsA ;
+output [3:0] nCsB ;
+output [3:0] nCsC ;
+output [3:0] nCsD ;
+output [3:0] nCsE ;
+output [3:0] nCsF ;
+wire CLK0_PAD ;
+wire DEVRST_N ;
+wire Rx0 ;
+wire MosiA ;
+wire MosiB ;
+wire MosiC ;
+wire MosiD ;
+wire MosiE ;
+wire MosiF ;
+wire SckA ;
+wire SckB ;
+wire SckC ;
+wire SckD ;
+wire SckE ;
+wire SckF ;
+wire Tx0 ;
+wire Uart0OE ;
+wire VCC ;
+wire GND ;
+// @18:46
+  OUTBUF MosiA_obuf (
+	.PAD(MosiA),
+	.D(GND)
+);
+// @18:47
+  OUTBUF MosiB_obuf (
+	.PAD(MosiB),
+	.D(VCC)
+);
+// @18:48
+  OUTBUF MosiC_obuf (
+	.PAD(MosiC),
+	.D(VCC)
+);
+// @18:49
+  OUTBUF MosiD_obuf (
+	.PAD(MosiD),
+	.D(VCC)
+);
+// @18:50
+  OUTBUF MosiE_obuf (
+	.PAD(MosiE),
+	.D(VCC)
+);
+// @18:51
+  OUTBUF MosiF_obuf (
+	.PAD(MosiF),
+	.D(VCC)
+);
+// @18:52
+  OUTBUF SckA_obuf (
+	.PAD(SckA),
+	.D(VCC)
+);
+// @18:53
+  OUTBUF SckB_obuf (
+	.PAD(SckB),
+	.D(VCC)
+);
+// @18:54
+  OUTBUF SckC_obuf (
+	.PAD(SckC),
+	.D(VCC)
+);
+// @18:55
+  OUTBUF SckD_obuf (
+	.PAD(SckD),
+	.D(VCC)
+);
+// @18:56
+  OUTBUF SckE_obuf (
+	.PAD(SckE),
+	.D(VCC)
+);
+// @18:57
+  OUTBUF SckF_obuf (
+	.PAD(SckF),
+	.D(VCC)
+);
+// @18:58
+  OUTBUF Tx0_obuf (
+	.PAD(Tx0),
+	.D(VCC)
+);
+// @18:59
+  OUTBUF Uart0OE_obuf (
+	.PAD(Uart0OE),
+	.D(GND)
+);
+// @18:60
+  OUTBUF \nCsA_obuf[0]  (
+	.PAD(nCsA[0]),
+	.D(VCC)
+);
+// @18:60
+  OUTBUF \nCsA_obuf[1]  (
+	.PAD(nCsA[1]),
+	.D(VCC)
+);
+// @18:60
+  OUTBUF \nCsA_obuf[2]  (
+	.PAD(nCsA[2]),
+	.D(VCC)
+);
+// @18:60
+  OUTBUF \nCsA_obuf[3]  (
+	.PAD(nCsA[3]),
+	.D(VCC)
+);
+// @18:61
+  OUTBUF \nCsB_obuf[0]  (
+	.PAD(nCsB[0]),
+	.D(VCC)
+);
+// @18:61
+  OUTBUF \nCsB_obuf[1]  (
+	.PAD(nCsB[1]),
+	.D(VCC)
+);
+// @18:61
+  OUTBUF \nCsB_obuf[2]  (
+	.PAD(nCsB[2]),
+	.D(VCC)
+);
+// @18:61
+  OUTBUF \nCsB_obuf[3]  (
+	.PAD(nCsB[3]),
+	.D(VCC)
+);
+// @18:62
+  OUTBUF \nCsC_obuf[0]  (
+	.PAD(nCsC[0]),
+	.D(VCC)
+);
+// @18:62
+  OUTBUF \nCsC_obuf[1]  (
+	.PAD(nCsC[1]),
+	.D(VCC)
+);
+// @18:62
+  OUTBUF \nCsC_obuf[2]  (
+	.PAD(nCsC[2]),
+	.D(VCC)
+);
+// @18:62
+  OUTBUF \nCsC_obuf[3]  (
+	.PAD(nCsC[3]),
+	.D(VCC)
+);
+// @18:63
+  OUTBUF \nCsD_obuf[0]  (
+	.PAD(nCsD[0]),
+	.D(VCC)
+);
+// @18:63
+  OUTBUF \nCsD_obuf[1]  (
+	.PAD(nCsD[1]),
+	.D(VCC)
+);
+// @18:63
+  OUTBUF \nCsD_obuf[2]  (
+	.PAD(nCsD[2]),
+	.D(VCC)
+);
+// @18:63
+  OUTBUF \nCsD_obuf[3]  (
+	.PAD(nCsD[3]),
+	.D(VCC)
+);
+// @18:64
+  OUTBUF \nCsE_obuf[0]  (
+	.PAD(nCsE[0]),
+	.D(VCC)
+);
+// @18:64
+  OUTBUF \nCsE_obuf[1]  (
+	.PAD(nCsE[1]),
+	.D(VCC)
+);
+// @18:64
+  OUTBUF \nCsE_obuf[2]  (
+	.PAD(nCsE[2]),
+	.D(VCC)
+);
+// @18:64
+  OUTBUF \nCsE_obuf[3]  (
+	.PAD(nCsE[3]),
+	.D(VCC)
+);
+// @18:65
+  OUTBUF \nCsF_obuf[0]  (
+	.PAD(nCsF[0]),
+	.D(VCC)
+);
+// @18:65
+  OUTBUF \nCsF_obuf[1]  (
+	.PAD(nCsF[1]),
+	.D(VCC)
+);
+// @18:65
+  OUTBUF \nCsF_obuf[2]  (
+	.PAD(nCsF[2]),
+	.D(VCC)
+);
+// @18:65
+  OUTBUF \nCsF_obuf[3]  (
+	.PAD(nCsF[3]),
+	.D(VCC)
+);
+  GND GND_Z (
+	.Y(GND)
+);
+  VCC VCC_Z (
+	.Y(VCC)
+);
+endmodule /* EvalBoardSandbox */
+

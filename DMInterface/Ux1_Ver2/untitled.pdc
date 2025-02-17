@@ -1,0 +1,67 @@
+# Microchip Physical design constraints file
+
+# Version: 2023.2 2023.2.0.10
+
+# Design Name: EvalBoardSandbox 
+
+# Input Netlist Format: EDIF 
+
+# Family: SmartFusion2 , Die: M2S010 , Package: 256 VF , Speed grade: STD 
+
+# Date generated: Thu Feb 13 14:08:09 2025 
+
+
+#
+# IO banks setting
+#
+
+set_iobank Bank1 -vcci 3.30 -fixed no
+set_iobank Bank2 -vcci 3.30 -fixed no
+set_iobank Bank4 -vcci 3.30 -fixed no
+set_iobank Bank7 -vcci 3.30 -fixed no
+
+#
+# I/O constraints
+#
+
+set_io CLK0 -DIRECTION INPUT -pinname H16 -fixed yes
+set_io DEVRST_N -DIRECTION INPUT -pinname M11
+set_io MosiA -DIRECTION OUTPUT -pinname K12 -fixed yes
+set_io MosiB -DIRECTION OUTPUT -pinname N14 -fixed yes
+set_io MosiC -DIRECTION OUTPUT -pinname P13 -fixed yes
+set_io MosiD -DIRECTION OUTPUT -pinname R11 -fixed yes
+set_io MosiE -DIRECTION OUTPUT -pinname P8 -fixed yes
+set_io MosiF -DIRECTION OUTPUT -pinname G3 -fixed yes
+set_io Rx0 -DIRECTION INPUT -pinname G12 -fixed yes
+set_io SckA -DIRECTION OUTPUT -pinname L15 -fixed yes
+set_io SckB -DIRECTION OUTPUT -pinname L13 -fixed yes
+set_io SckC -DIRECTION OUTPUT -pinname P12 -fixed yes
+set_io SckD -DIRECTION OUTPUT -pinname P9 -fixed yes
+set_io SckE -DIRECTION OUTPUT -pinname R8 -fixed yes
+set_io SckF -DIRECTION OUTPUT -pinname G5 -fixed yes
+set_io Tx0 -DIRECTION OUTPUT -pinname H13 -fixed yes
+set_io Uart0OE -DIRECTION OUTPUT -pinname H14 -fixed yes
+set_io nCsA\[0\] -DIRECTION OUTPUT -pinname M16 -fixed yes
+set_io nCsA\[1\] -DIRECTION OUTPUT -pinname K14 -fixed yes
+set_io nCsA\[2\] -DIRECTION OUTPUT -pinname P7 -fixed yes
+set_io nCsA\[3\] -DIRECTION OUTPUT -pinname L14 -fixed yes
+set_io nCsB\[0\] -DIRECTION OUTPUT -pinname M15 -fixed yes
+set_io nCsB\[1\] -DIRECTION OUTPUT -pinname N16 -fixed yes
+set_io nCsB\[2\] -DIRECTION OUTPUT -pinname N15 -fixed yes
+set_io nCsB\[3\] -DIRECTION OUTPUT -pinname R13 -fixed yes
+set_io nCsC\[0\] -DIRECTION OUTPUT -pinname L11 -fixed yes
+set_io nCsC\[1\] -DIRECTION OUTPUT -pinname T12 -fixed yes
+set_io nCsC\[2\] -DIRECTION OUTPUT -pinname M10 -fixed yes
+set_io nCsC\[3\] -DIRECTION OUTPUT -pinname P10 -fixed yes
+set_io nCsD\[0\] -DIRECTION OUTPUT -pinname N8 -fixed yes
+set_io nCsD\[1\] -DIRECTION OUTPUT -pinname R9 -fixed yes
+set_io nCsD\[2\] -DIRECTION OUTPUT -pinname M9 -fixed yes
+set_io nCsD\[3\] -DIRECTION OUTPUT -pinname T9 -fixed yes
+set_io nCsE\[0\] -DIRECTION OUTPUT -pinname T7 -fixed yes
+set_io nCsE\[1\] -DIRECTION OUTPUT -pinname T6 -fixed yes
+set_io nCsE\[2\] -DIRECTION OUTPUT -pinname R6 -fixed yes
+set_io nCsE\[3\] -DIRECTION OUTPUT -pinname P6 -fixed yes
+set_io nCsF\[0\] -DIRECTION OUTPUT -pinname F3 -fixed yes
+set_io nCsF\[1\] -DIRECTION OUTPUT -pinname F2 -fixed yes
+set_io nCsF\[2\] -DIRECTION OUTPUT -pinname F5 -fixed yes
+set_io nCsF\[3\] -DIRECTION OUTPUT -pinname F4 -fixed yes

@@ -1,0 +1,290 @@
+# Microchip I/O Physical Design Constraints file
+
+# User I/O Constraints file 
+
+# Version: 2023.2 2023.2.0.10
+
+# Family: SmartFusion2 , Die: M2S010 , Package: 256 VF
+
+# Date generated: Thu Feb 13 13:45:56 2025 
+
+
+# 
+# User Locked I/O Bank Settings
+# 
+
+
+# 
+# Unlocked I/O Bank Settings
+# The I/O Bank Settings can be locked by directly editing this file
+# or by making changes in the I/O Attribute Editor
+# 
+
+
+# 
+# User Locked I/O settings
+# 
+
+set_io CLK0_PAD           \
+    -pinname H16      \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+
+set_io MosiA           \
+    -pinname K12       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io MosiB           \
+    -pinname N14       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io MosiC           \
+    -pinname P13       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io MosiD           \
+    -pinname R11       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io MosiE           \
+    -pinname P8        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io MosiF           \
+    -pinname G3        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io Rx0            \
+    -pinname G12      \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+
+set_io SckA            \
+    -pinname L15       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io SckB            \
+    -pinname L13       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io SckC            \
+    -pinname P12       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io SckD            \
+    -pinname P9        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io SckE            \
+    -pinname R8        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io SckF            \
+    -pinname G5        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io Tx0             \
+    -pinname H13       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io Uart0OE         \
+    -pinname H14       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsA[0]}       \
+    -pinname M16       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsA[1]}       \
+    -pinname K14       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsA[2]}       \
+    -pinname P7        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsA[3]}       \
+    -pinname L14       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsB[0]}       \
+    -pinname M15       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsB[1]}       \
+    -pinname N16       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsB[2]}       \
+    -pinname N15       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsB[3]}       \
+    -pinname R13       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsC[0]}       \
+    -pinname L11       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsC[1]}       \
+    -pinname T12       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsC[2]}       \
+    -pinname M10       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsC[3]}       \
+    -pinname P10       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsD[0]}       \
+    -pinname N8        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsD[1]}       \
+    -pinname R9        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsD[2]}       \
+    -pinname M9        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsD[3]}       \
+    -pinname T9        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsE[0]}       \
+    -pinname T7        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsE[1]}       \
+    -pinname T6        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsE[2]}       \
+    -pinname R6        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsE[3]}       \
+    -pinname P6        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsF[0]}       \
+    -pinname F3        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsF[1]}       \
+    -pinname F2        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsF[2]}       \
+    -pinname F5        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {nCsF[3]}       \
+    -pinname F4        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+
+# 
+# Dedicated Peripheral I/O Settings
+# 
+
+
+# 
+# Unlocked I/O settings
+# The I/Os in this section are unplaced or placed but are not locked
+# the other listed attributes have been applied
+# 
+
+
+#
+#Ports using Dedicated Pins
+
+#
+
+set_io DEVRST_N       \
+    -pinname M11      \
+    -DIRECTION INPUT
+
+
