@@ -10,8 +10,8 @@
     <voltage>1.2</voltage>
     <hdl-type>Verilog</hdl-type>
     <project-description>This project should have a UART port as well as a SPI port.</project-description>
-    <location>C:/MicroSemiProj/Libero/Ux1_Ver2/component/work/EvalBoardSandbox</location>
-    <state>GENERATED ( Mon Feb 17 14:26:32 2025 )</state>
+    <location>C:/Users/SKaye/repos5/firmware/DMInterface/Ux1_Ver2/component/work/EvalBoardSandbox</location>
+    <state>GENERATED ( Tue Feb 18 13:38:39 2025 )</state>
     <swide-toolchain>SoftConsole workspace has not been generated</swide-toolchain>
   </project-settings>
   <site-map>
@@ -96,9 +96,9 @@
           <fullPinName>
           </fullPinName>
           <remapAddress>0x6000_0000</remapAddress>
-          <fullAddressSpace>0x6000_0000 - 0x6000_C77F</fullAddressSpace>
-          <range>0xC780</range>
-          <Size>49KB</Size>
+          <fullAddressSpace>0x6000_0000 - 0x6000_C07F</fullAddressSpace>
+          <range>0xC080</range>
+          <Size>48KB</Size>
         </slave>
         <slave>
           <name>EvalSandbox_MSS_0:AMBA_SLAVE_0</name>

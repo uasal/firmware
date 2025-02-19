@@ -1,0 +1,1218 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<?xml-stylesheet href="rptstyle.xsl" type="text/xsl" ?>
+<doc>
+<text>SmartTime Version 2023.2.0.10</text>
+<text>Microsemi Corporation - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)
+Date: Tue Feb 18 13:46:55 2025 </text>
+<table>
+<header>
+</header>
+<row>
+ <cell>Design</cell>
+ <cell>EvalBoardSandbox</cell>
+</row>
+<row>
+ <cell>Family</cell>
+ <cell>SmartFusion2</cell>
+</row>
+<row>
+ <cell>Die</cell>
+ <cell>M2S010</cell>
+</row>
+<row>
+ <cell>Package</cell>
+ <cell>256 VF</cell>
+</row>
+<row>
+ <cell>Temperature Range</cell>
+ <cell>-40 - 100 C</cell>
+</row>
+<row>
+ <cell>Voltage Range</cell>
+ <cell>1.14 - 1.26 V</cell>
+</row>
+<row>
+ <cell>Speed Grade</cell>
+ <cell>STD</cell>
+</row>
+</table>
+<text></text>
+<text></text>
+<section>
+<name>Coverage Summary</name>
+<text></text>
+<table>
+<header>
+ <cell>Type of check</cell>
+ <cell>Constrained</cell>
+ <cell>UnConstrained</cell>
+ <cell>Total</cell>
+</header>
+<row>
+ <cell>Setup</cell>
+ <cell>          614</cell>
+ <cell>          114</cell>
+ <cell>          728</cell>
+</row>
+<row>
+ <cell>Recovery</cell>
+ <cell>           79</cell>
+ <cell>           16</cell>
+ <cell>           95</cell>
+</row>
+<row>
+ <cell>Output Setup</cell>
+ <cell>            0</cell>
+ <cell>            6</cell>
+ <cell>            6</cell>
+</row>
+<row>
+ <cell>Total Setup</cell>
+ <cell>          693</cell>
+ <cell>          136</cell>
+ <cell>          829</cell>
+</row>
+<separator/>
+<row>
+ <cell>Hold</cell>
+ <cell>          614</cell>
+ <cell>          114</cell>
+ <cell>          728</cell>
+</row>
+<row>
+ <cell>Removal</cell>
+ <cell>           79</cell>
+ <cell>           16</cell>
+ <cell>           95</cell>
+</row>
+<row>
+ <cell>Output Hold</cell>
+ <cell>            0</cell>
+ <cell>            6</cell>
+ <cell>            6</cell>
+</row>
+<row>
+ <cell>Total Hold</cell>
+ <cell>          693</cell>
+ <cell>          136</cell>
+ <cell>          829</cell>
+</row>
+</table>
+<section>
+<name>Clock domain: </name>
+<text>CLK0_PAD</text>
+<text></text>
+<table>
+<header>
+ <cell>Type of check</cell>
+ <cell>Constrained</cell>
+ <cell>UnConstrained</cell>
+ <cell>Total</cell>
+</header>
+<row>
+ <cell>Setup</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Recovery</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Output Setup</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Total Setup</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<separator/>
+<row>
+ <cell>Hold</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Removal</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Output Hold</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Total Hold</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+</table>
+</section>
+<section>
+<name>Clock domain: </name>
+<text>DMMainPorts_1/Uart0BitClockDiv/clko_i:Q</text>
+<text></text>
+<table>
+<header>
+ <cell>Type of check</cell>
+ <cell>Constrained</cell>
+ <cell>UnConstrained</cell>
+ <cell>Total</cell>
+</header>
+<row>
+ <cell>Setup</cell>
+ <cell>            0</cell>
+ <cell>           48</cell>
+ <cell>           48</cell>
+</row>
+<row>
+ <cell>Recovery</cell>
+ <cell>            0</cell>
+ <cell>            9</cell>
+ <cell>            9</cell>
+</row>
+<row>
+ <cell>Output Setup</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Total Setup</cell>
+ <cell>            0</cell>
+ <cell>           57</cell>
+ <cell>           57</cell>
+</row>
+<separator/>
+<row>
+ <cell>Hold</cell>
+ <cell>            0</cell>
+ <cell>           48</cell>
+ <cell>           48</cell>
+</row>
+<row>
+ <cell>Removal</cell>
+ <cell>            0</cell>
+ <cell>            9</cell>
+ <cell>            9</cell>
+</row>
+<row>
+ <cell>Output Hold</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Total Hold</cell>
+ <cell>            0</cell>
+ <cell>           57</cell>
+ <cell>           57</cell>
+</row>
+</table>
+<section>
+<name>Enhancement Suggestions</name>
+<text></text>
+<text> - Clock constraint is missing </text>
+<text></text>
+<text></text>
+<text> - Setup unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/ClkSyncRxd/O:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/ClkSyncRxd/Temp1:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[0]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[0]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[1]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[1]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[2]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[2]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[3]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[3]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[4]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[4]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[5]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[5]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[6]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[6]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[7]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[7]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[0]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[0]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[1]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[1]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[2]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[2]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[3]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[3]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[4]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[4]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[5]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[5]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[6]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[6]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[7]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[7]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RxAv:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RxAv:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[0]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[1]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[2]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[3]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[0]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[1]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[2]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[3]:D</item>
+ <item>DMMainPorts_1/Uart0TxBitClockDiv/ClkDiv[0]:D</item>
+ <item>DMMainPorts_1/Uart0TxBitClockDiv/ClkDiv_Z[1]:D</item>
+ <item>DMMainPorts_1/Uart0TxBitClockDiv/ClkDiv_Z[2]:D</item>
+ <item>DMMainPorts_1/Uart0TxBitClockDiv/div_i:D</item>
+</list>
+<text></text>
+<text> - Recovery unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RxAv:ALn</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[0]:ALn</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[1]:ALn</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[2]:ALn</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[3]:ALn</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[0]:ALn</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[1]:ALn</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[2]:ALn</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[3]:ALn</item>
+</list>
+<text></text>
+<text> - Hold unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/ClkSyncRxd/O:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/ClkSyncRxd/Temp1:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[0]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[0]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[1]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[1]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[2]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[2]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[3]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[3]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[4]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[4]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[5]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[5]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[6]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[6]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[7]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[7]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[0]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[0]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[1]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[1]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[2]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[2]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[3]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[3]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[4]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[4]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[5]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[5]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[6]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[6]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[7]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[7]:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RxAv:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RxAv:EN</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[0]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[1]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[2]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[3]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[0]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[1]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[2]:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[3]:D</item>
+ <item>DMMainPorts_1/Uart0TxBitClockDiv/ClkDiv[0]:D</item>
+ <item>DMMainPorts_1/Uart0TxBitClockDiv/ClkDiv_Z[1]:D</item>
+ <item>DMMainPorts_1/Uart0TxBitClockDiv/ClkDiv_Z[2]:D</item>
+ <item>DMMainPorts_1/Uart0TxBitClockDiv/div_i:D</item>
+</list>
+<text></text>
+<text> - Removal unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RxAv:ALn</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[0]:ALn</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[1]:ALn</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[2]:ALn</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[3]:ALn</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[0]:ALn</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[1]:ALn</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[2]:ALn</item>
+ <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[3]:ALn</item>
+</list>
+<text></text>
+</section>
+</section>
+<section>
+<name>Clock domain: </name>
+<text>DMMainPorts_1/Uart0TxBitClockDiv/div_i:Q</text>
+<text></text>
+<table>
+<header>
+ <cell>Type of check</cell>
+ <cell>Constrained</cell>
+ <cell>UnConstrained</cell>
+ <cell>Total</cell>
+</header>
+<row>
+ <cell>Setup</cell>
+ <cell>            0</cell>
+ <cell>           10</cell>
+ <cell>           10</cell>
+</row>
+<row>
+ <cell>Recovery</cell>
+ <cell>            0</cell>
+ <cell>            7</cell>
+ <cell>            7</cell>
+</row>
+<row>
+ <cell>Output Setup</cell>
+ <cell>            0</cell>
+ <cell>            1</cell>
+ <cell>            1</cell>
+</row>
+<row>
+ <cell>Total Setup</cell>
+ <cell>            0</cell>
+ <cell>           18</cell>
+ <cell>           18</cell>
+</row>
+<separator/>
+<row>
+ <cell>Hold</cell>
+ <cell>            0</cell>
+ <cell>           10</cell>
+ <cell>           10</cell>
+</row>
+<row>
+ <cell>Removal</cell>
+ <cell>            0</cell>
+ <cell>            7</cell>
+ <cell>            7</cell>
+</row>
+<row>
+ <cell>Output Hold</cell>
+ <cell>            0</cell>
+ <cell>            1</cell>
+ <cell>            1</cell>
+</row>
+<row>
+ <cell>Total Hold</cell>
+ <cell>            0</cell>
+ <cell>           18</cell>
+ <cell>           18</cell>
+</row>
+</table>
+<section>
+<name>Enhancement Suggestions</name>
+<text></text>
+<text> - Clock constraint is missing </text>
+<text></text>
+<text> - Max output delay constraint missing on port:</text>
+<text>   </text>
+<list>
+ <item>Tx0</item>
+</list>
+<text></text>
+<text> - Min output delay constraint missing on port:</text>
+<text>   </text>
+<list>
+ <item>Tx0</item>
+</list>
+<text></text>
+<text></text>
+<text> - Setup unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>DMMainPorts_1/RS422_Tx0/IBufStartTx/O:D</item>
+ <item>DMMainPorts_1/RS422_Tx0/IBufStartTx/Temp1:D</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/BitCnt[0]:D</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/BitCnt[1]:D</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/BitCnt[2]:D</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/BitCnt[3]:D</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/Busy_i:D</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/LastGo:D</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/LastGo:EN</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/TxD:D</item>
+</list>
+<text></text>
+<text> - Recovery unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/BitCnt[0]:ALn</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/BitCnt[1]:ALn</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/BitCnt[2]:ALn</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/BitCnt[3]:ALn</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/Busy_i:ALn</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/LastGo:ALn</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/TxD:ALn</item>
+</list>
+<text></text>
+<text> - Hold unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>DMMainPorts_1/RS422_Tx0/IBufStartTx/O:D</item>
+ <item>DMMainPorts_1/RS422_Tx0/IBufStartTx/Temp1:D</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/BitCnt[0]:D</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/BitCnt[1]:D</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/BitCnt[2]:D</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/BitCnt[3]:D</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/Busy_i:D</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/LastGo:D</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/LastGo:EN</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/TxD:D</item>
+</list>
+<text></text>
+<text> - Removal unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/BitCnt[0]:ALn</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/BitCnt[1]:ALn</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/BitCnt[2]:ALn</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/BitCnt[3]:ALn</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/Busy_i:ALn</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/LastGo:ALn</item>
+ <item>DMMainPorts_1/RS422_Tx0/UartTxUart/TxD:ALn</item>
+</list>
+<text></text>
+</section>
+</section>
+<section>
+<name>Clock domain: </name>
+<text>DMMainPorts_1/Uart1BitClockDiv/clko_i:Q</text>
+<text></text>
+<table>
+<header>
+ <cell>Type of check</cell>
+ <cell>Constrained</cell>
+ <cell>UnConstrained</cell>
+ <cell>Total</cell>
+</header>
+<row>
+ <cell>Setup</cell>
+ <cell>            0</cell>
+ <cell>           12</cell>
+ <cell>           12</cell>
+</row>
+<row>
+ <cell>Recovery</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Output Setup</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Total Setup</cell>
+ <cell>            0</cell>
+ <cell>           12</cell>
+ <cell>           12</cell>
+</row>
+<separator/>
+<row>
+ <cell>Hold</cell>
+ <cell>            0</cell>
+ <cell>           12</cell>
+ <cell>           12</cell>
+</row>
+<row>
+ <cell>Removal</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Output Hold</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Total Hold</cell>
+ <cell>            0</cell>
+ <cell>           12</cell>
+ <cell>           12</cell>
+</row>
+</table>
+<section>
+<name>Enhancement Suggestions</name>
+<text></text>
+<text> - Clock constraint is missing </text>
+<text></text>
+<text></text>
+<text> - Setup unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>DMMainPorts_1/Uart1TxBitClockDiv/ClkDiv[0]:D</item>
+ <item>DMMainPorts_1/Uart1TxBitClockDiv/ClkDiv_Z[1]:D</item>
+ <item>DMMainPorts_1/Uart1TxBitClockDiv/ClkDiv_Z[2]:D</item>
+ <item>DMMainPorts_1/Uart1TxBitClockDiv/div_i:D</item>
+ <item>DMMainPorts_1/Uart2TxBitClockDiv/ClkDiv[0]:D</item>
+ <item>DMMainPorts_1/Uart2TxBitClockDiv/ClkDiv_Z[1]:D</item>
+ <item>DMMainPorts_1/Uart2TxBitClockDiv/ClkDiv_Z[2]:D</item>
+ <item>DMMainPorts_1/Uart2TxBitClockDiv/div_i:D</item>
+ <item>DMMainPorts_1/Uart3TxBitClockDiv/ClkDiv[0]:D</item>
+ <item>DMMainPorts_1/Uart3TxBitClockDiv/ClkDiv[1]:D</item>
+ <item>DMMainPorts_1/Uart3TxBitClockDiv/ClkDiv[2]:D</item>
+ <item>DMMainPorts_1/Uart3TxBitClockDiv/div_i:D</item>
+</list>
+<text></text>
+<text> - Hold unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>DMMainPorts_1/Uart1TxBitClockDiv/ClkDiv[0]:D</item>
+ <item>DMMainPorts_1/Uart1TxBitClockDiv/ClkDiv_Z[1]:D</item>
+ <item>DMMainPorts_1/Uart1TxBitClockDiv/ClkDiv_Z[2]:D</item>
+ <item>DMMainPorts_1/Uart1TxBitClockDiv/div_i:D</item>
+ <item>DMMainPorts_1/Uart2TxBitClockDiv/ClkDiv[0]:D</item>
+ <item>DMMainPorts_1/Uart2TxBitClockDiv/ClkDiv_Z[1]:D</item>
+ <item>DMMainPorts_1/Uart2TxBitClockDiv/ClkDiv_Z[2]:D</item>
+ <item>DMMainPorts_1/Uart2TxBitClockDiv/div_i:D</item>
+ <item>DMMainPorts_1/Uart3TxBitClockDiv/ClkDiv[0]:D</item>
+ <item>DMMainPorts_1/Uart3TxBitClockDiv/ClkDiv[1]:D</item>
+ <item>DMMainPorts_1/Uart3TxBitClockDiv/ClkDiv[2]:D</item>
+ <item>DMMainPorts_1/Uart3TxBitClockDiv/div_i:D</item>
+</list>
+<text></text>
+</section>
+</section>
+<section>
+<name>Clock domain: </name>
+<text>DMMainPorts_1/Uart1TxBitClockDiv/div_i:Q</text>
+<text></text>
+<table>
+<header>
+ <cell>Type of check</cell>
+ <cell>Constrained</cell>
+ <cell>UnConstrained</cell>
+ <cell>Total</cell>
+</header>
+<row>
+ <cell>Setup</cell>
+ <cell>            0</cell>
+ <cell>           10</cell>
+ <cell>           10</cell>
+</row>
+<row>
+ <cell>Recovery</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Output Setup</cell>
+ <cell>            0</cell>
+ <cell>            1</cell>
+ <cell>            1</cell>
+</row>
+<row>
+ <cell>Total Setup</cell>
+ <cell>            0</cell>
+ <cell>           11</cell>
+ <cell>           11</cell>
+</row>
+<separator/>
+<row>
+ <cell>Hold</cell>
+ <cell>            0</cell>
+ <cell>           10</cell>
+ <cell>           10</cell>
+</row>
+<row>
+ <cell>Removal</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Output Hold</cell>
+ <cell>            0</cell>
+ <cell>            1</cell>
+ <cell>            1</cell>
+</row>
+<row>
+ <cell>Total Hold</cell>
+ <cell>            0</cell>
+ <cell>           11</cell>
+ <cell>           11</cell>
+</row>
+</table>
+<section>
+<name>Enhancement Suggestions</name>
+<text></text>
+<text> - Clock constraint is missing </text>
+<text></text>
+<text> - Max output delay constraint missing on port:</text>
+<text>   </text>
+<list>
+ <item>Tx1</item>
+</list>
+<text></text>
+<text> - Min output delay constraint missing on port:</text>
+<text>   </text>
+<list>
+ <item>Tx1</item>
+</list>
+<text></text>
+<text></text>
+<text> - Setup unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>DMMainPorts_1/RS422_Tx1/IBufStartTx/O:D</item>
+ <item>DMMainPorts_1/RS422_Tx1/IBufStartTx/Temp1:D</item>
+ <item>DMMainPorts_1/RS422_Tx1/UartTxUart/BitCnt[0]:D</item>
+ <item>DMMainPorts_1/RS422_Tx1/UartTxUart/BitCnt[1]:D</item>
+ <item>DMMainPorts_1/RS422_Tx1/UartTxUart/BitCnt[2]:D</item>
+ <item>DMMainPorts_1/RS422_Tx1/UartTxUart/BitCnt[3]:D</item>
+ <item>DMMainPorts_1/RS422_Tx1/UartTxUart/Busy_i:D</item>
+ <item>DMMainPorts_1/RS422_Tx1/UartTxUart/LastGo:D</item>
+ <item>DMMainPorts_1/RS422_Tx1/UartTxUart/LastGo:EN</item>
+ <item>DMMainPorts_1/RS422_Tx1/UartTxUart/TxD:D</item>
+</list>
+<text></text>
+<text> - Hold unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>DMMainPorts_1/RS422_Tx1/IBufStartTx/O:D</item>
+ <item>DMMainPorts_1/RS422_Tx1/IBufStartTx/Temp1:D</item>
+ <item>DMMainPorts_1/RS422_Tx1/UartTxUart/BitCnt[0]:D</item>
+ <item>DMMainPorts_1/RS422_Tx1/UartTxUart/BitCnt[1]:D</item>
+ <item>DMMainPorts_1/RS422_Tx1/UartTxUart/BitCnt[2]:D</item>
+ <item>DMMainPorts_1/RS422_Tx1/UartTxUart/BitCnt[3]:D</item>
+ <item>DMMainPorts_1/RS422_Tx1/UartTxUart/Busy_i:D</item>
+ <item>DMMainPorts_1/RS422_Tx1/UartTxUart/LastGo:D</item>
+ <item>DMMainPorts_1/RS422_Tx1/UartTxUart/LastGo:EN</item>
+ <item>DMMainPorts_1/RS422_Tx1/UartTxUart/TxD:D</item>
+</list>
+<text></text>
+</section>
+</section>
+<section>
+<name>Clock domain: </name>
+<text>DMMainPorts_1/Uart2TxBitClockDiv/div_i:Q</text>
+<text></text>
+<table>
+<header>
+ <cell>Type of check</cell>
+ <cell>Constrained</cell>
+ <cell>UnConstrained</cell>
+ <cell>Total</cell>
+</header>
+<row>
+ <cell>Setup</cell>
+ <cell>            0</cell>
+ <cell>           10</cell>
+ <cell>           10</cell>
+</row>
+<row>
+ <cell>Recovery</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Output Setup</cell>
+ <cell>            0</cell>
+ <cell>            1</cell>
+ <cell>            1</cell>
+</row>
+<row>
+ <cell>Total Setup</cell>
+ <cell>            0</cell>
+ <cell>           11</cell>
+ <cell>           11</cell>
+</row>
+<separator/>
+<row>
+ <cell>Hold</cell>
+ <cell>            0</cell>
+ <cell>           10</cell>
+ <cell>           10</cell>
+</row>
+<row>
+ <cell>Removal</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Output Hold</cell>
+ <cell>            0</cell>
+ <cell>            1</cell>
+ <cell>            1</cell>
+</row>
+<row>
+ <cell>Total Hold</cell>
+ <cell>            0</cell>
+ <cell>           11</cell>
+ <cell>           11</cell>
+</row>
+</table>
+<section>
+<name>Enhancement Suggestions</name>
+<text></text>
+<text> - Clock constraint is missing </text>
+<text></text>
+<text> - Max output delay constraint missing on port:</text>
+<text>   </text>
+<list>
+ <item>Tx2</item>
+</list>
+<text></text>
+<text> - Min output delay constraint missing on port:</text>
+<text>   </text>
+<list>
+ <item>Tx2</item>
+</list>
+<text></text>
+<text></text>
+<text> - Setup unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>DMMainPorts_1/RS422_Tx2/IBufStartTx/O:D</item>
+ <item>DMMainPorts_1/RS422_Tx2/IBufStartTx/Temp1:D</item>
+ <item>DMMainPorts_1/RS422_Tx2/UartTxUart/BitCnt[0]:D</item>
+ <item>DMMainPorts_1/RS422_Tx2/UartTxUart/BitCnt[1]:D</item>
+ <item>DMMainPorts_1/RS422_Tx2/UartTxUart/BitCnt[2]:D</item>
+ <item>DMMainPorts_1/RS422_Tx2/UartTxUart/BitCnt[3]:D</item>
+ <item>DMMainPorts_1/RS422_Tx2/UartTxUart/Busy_i:D</item>
+ <item>DMMainPorts_1/RS422_Tx2/UartTxUart/LastGo:D</item>
+ <item>DMMainPorts_1/RS422_Tx2/UartTxUart/LastGo:EN</item>
+ <item>DMMainPorts_1/RS422_Tx2/UartTxUart/TxD:D</item>
+</list>
+<text></text>
+<text> - Hold unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>DMMainPorts_1/RS422_Tx2/IBufStartTx/O:D</item>
+ <item>DMMainPorts_1/RS422_Tx2/IBufStartTx/Temp1:D</item>
+ <item>DMMainPorts_1/RS422_Tx2/UartTxUart/BitCnt[0]:D</item>
+ <item>DMMainPorts_1/RS422_Tx2/UartTxUart/BitCnt[1]:D</item>
+ <item>DMMainPorts_1/RS422_Tx2/UartTxUart/BitCnt[2]:D</item>
+ <item>DMMainPorts_1/RS422_Tx2/UartTxUart/BitCnt[3]:D</item>
+ <item>DMMainPorts_1/RS422_Tx2/UartTxUart/Busy_i:D</item>
+ <item>DMMainPorts_1/RS422_Tx2/UartTxUart/LastGo:D</item>
+ <item>DMMainPorts_1/RS422_Tx2/UartTxUart/LastGo:EN</item>
+ <item>DMMainPorts_1/RS422_Tx2/UartTxUart/TxD:D</item>
+</list>
+<text></text>
+</section>
+</section>
+<section>
+<name>Clock domain: </name>
+<text>DMMainPorts_1/Uart3TxBitClockDiv/div_i:Q</text>
+<text></text>
+<table>
+<header>
+ <cell>Type of check</cell>
+ <cell>Constrained</cell>
+ <cell>UnConstrained</cell>
+ <cell>Total</cell>
+</header>
+<row>
+ <cell>Setup</cell>
+ <cell>            0</cell>
+ <cell>           10</cell>
+ <cell>           10</cell>
+</row>
+<row>
+ <cell>Recovery</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Output Setup</cell>
+ <cell>            0</cell>
+ <cell>            1</cell>
+ <cell>            1</cell>
+</row>
+<row>
+ <cell>Total Setup</cell>
+ <cell>            0</cell>
+ <cell>           11</cell>
+ <cell>           11</cell>
+</row>
+<separator/>
+<row>
+ <cell>Hold</cell>
+ <cell>            0</cell>
+ <cell>           10</cell>
+ <cell>           10</cell>
+</row>
+<row>
+ <cell>Removal</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Output Hold</cell>
+ <cell>            0</cell>
+ <cell>            1</cell>
+ <cell>            1</cell>
+</row>
+<row>
+ <cell>Total Hold</cell>
+ <cell>            0</cell>
+ <cell>           11</cell>
+ <cell>           11</cell>
+</row>
+</table>
+<section>
+<name>Enhancement Suggestions</name>
+<text></text>
+<text> - Clock constraint is missing </text>
+<text></text>
+<text> - Max output delay constraint missing on port:</text>
+<text>   </text>
+<list>
+ <item>Tx3</item>
+</list>
+<text></text>
+<text> - Min output delay constraint missing on port:</text>
+<text>   </text>
+<list>
+ <item>Tx3</item>
+</list>
+<text></text>
+<text></text>
+<text> - Setup unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>DMMainPorts_1/RS433_Tx3/IBufStartTx/O:D</item>
+ <item>DMMainPorts_1/RS433_Tx3/IBufStartTx/Temp1:D</item>
+ <item>DMMainPorts_1/RS433_Tx3/UartTxUart/BitCnt[0]:D</item>
+ <item>DMMainPorts_1/RS433_Tx3/UartTxUart/BitCnt[1]:D</item>
+ <item>DMMainPorts_1/RS433_Tx3/UartTxUart/BitCnt[2]:D</item>
+ <item>DMMainPorts_1/RS433_Tx3/UartTxUart/BitCnt[3]:D</item>
+ <item>DMMainPorts_1/RS433_Tx3/UartTxUart/Busy_i:D</item>
+ <item>DMMainPorts_1/RS433_Tx3/UartTxUart/LastGo:D</item>
+ <item>DMMainPorts_1/RS433_Tx3/UartTxUart/LastGo:EN</item>
+ <item>DMMainPorts_1/RS433_Tx3/UartTxUart/TxD:D</item>
+</list>
+<text></text>
+<text> - Hold unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>DMMainPorts_1/RS433_Tx3/IBufStartTx/O:D</item>
+ <item>DMMainPorts_1/RS433_Tx3/IBufStartTx/Temp1:D</item>
+ <item>DMMainPorts_1/RS433_Tx3/UartTxUart/BitCnt[0]:D</item>
+ <item>DMMainPorts_1/RS433_Tx3/UartTxUart/BitCnt[1]:D</item>
+ <item>DMMainPorts_1/RS433_Tx3/UartTxUart/BitCnt[2]:D</item>
+ <item>DMMainPorts_1/RS433_Tx3/UartTxUart/BitCnt[3]:D</item>
+ <item>DMMainPorts_1/RS433_Tx3/UartTxUart/Busy_i:D</item>
+ <item>DMMainPorts_1/RS433_Tx3/UartTxUart/LastGo:D</item>
+ <item>DMMainPorts_1/RS433_Tx3/UartTxUart/LastGo:EN</item>
+ <item>DMMainPorts_1/RS433_Tx3/UartTxUart/TxD:D</item>
+</list>
+<text></text>
+</section>
+</section>
+<section>
+<name>Clock domain: </name>
+<text>EvalSandbox_MSS_0/CCC_0/GL0</text>
+<text></text>
+<table>
+<header>
+ <cell>Type of check</cell>
+ <cell>Constrained</cell>
+ <cell>UnConstrained</cell>
+ <cell>Total</cell>
+</header>
+<row>
+ <cell>Setup</cell>
+ <cell>           33</cell>
+ <cell>            0</cell>
+ <cell>           33</cell>
+</row>
+<row>
+ <cell>Recovery</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Output Setup</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Total Setup</cell>
+ <cell>           33</cell>
+ <cell>            0</cell>
+ <cell>           33</cell>
+</row>
+<separator/>
+<row>
+ <cell>Hold</cell>
+ <cell>           33</cell>
+ <cell>            0</cell>
+ <cell>           33</cell>
+</row>
+<row>
+ <cell>Removal</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Output Hold</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Total Hold</cell>
+ <cell>           33</cell>
+ <cell>            0</cell>
+ <cell>           33</cell>
+</row>
+</table>
+</section>
+<section>
+<name>Clock domain: </name>
+<text>FCCC_C0_0/FCCC_C0_0/GL0</text>
+<text></text>
+<table>
+<header>
+ <cell>Type of check</cell>
+ <cell>Constrained</cell>
+ <cell>UnConstrained</cell>
+ <cell>Total</cell>
+</header>
+<row>
+ <cell>Setup</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Recovery</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Output Setup</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Total Setup</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<separator/>
+<row>
+ <cell>Hold</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Removal</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Output Hold</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<row>
+ <cell>Total Hold</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+</table>
+</section>
+<section>
+<name>Clock domain: </name>
+<text>FCCC_C0_0/FCCC_C0_0/GL1</text>
+<text></text>
+<table>
+<header>
+ <cell>Type of check</cell>
+ <cell>Constrained</cell>
+ <cell>UnConstrained</cell>
+ <cell>Total</cell>
+</header>
+<row>
+ <cell>Setup</cell>
+ <cell>          581</cell>
+ <cell>           14</cell>
+ <cell>          595</cell>
+</row>
+<row>
+ <cell>Recovery</cell>
+ <cell>           79</cell>
+ <cell>            0</cell>
+ <cell>           79</cell>
+</row>
+<row>
+ <cell>Output Setup</cell>
+ <cell>            0</cell>
+ <cell>            2</cell>
+ <cell>            2</cell>
+</row>
+<row>
+ <cell>Total Setup</cell>
+ <cell>          660</cell>
+ <cell>           16</cell>
+ <cell>          676</cell>
+</row>
+<separator/>
+<row>
+ <cell>Hold</cell>
+ <cell>          581</cell>
+ <cell>           14</cell>
+ <cell>          595</cell>
+</row>
+<row>
+ <cell>Removal</cell>
+ <cell>           79</cell>
+ <cell>            0</cell>
+ <cell>           79</cell>
+</row>
+<row>
+ <cell>Output Hold</cell>
+ <cell>            0</cell>
+ <cell>            2</cell>
+ <cell>            2</cell>
+</row>
+<row>
+ <cell>Total Hold</cell>
+ <cell>          660</cell>
+ <cell>           16</cell>
+ <cell>          676</cell>
+</row>
+</table>
+<section>
+<name>Enhancement Suggestions</name>
+<text></text>
+<text> - Max input delay constraint missing on port:</text>
+<text>   </text>
+<list>
+ <item>Rx0</item>
+</list>
+<text></text>
+<text> - Min input delay constraint missing on port:</text>
+<text>   </text>
+<list>
+ <item>Rx0</item>
+</list>
+<text></text>
+<text></text>
+<text> - Max output delay constraint missing on ports:</text>
+<text>   </text>
+<list>
+ <item>Oe0</item>
+ <item>Tx0</item>
+</list>
+<text></text>
+<text> - Min output delay constraint missing on ports:</text>
+<text>   </text>
+<list>
+ <item>Oe0</item>
+ <item>Tx0</item>
+</list>
+<text></text>
+<text></text>
+<text> - Setup unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>DMMainPorts_1/IBufRxd0/Temp1:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/ClkSyncWrite/Temp1:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[0]</item>
+ <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[1]</item>
+ <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[2]</item>
+ <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[3]</item>
+ <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[4]</item>
+ <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[5]</item>
+ <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[6]</item>
+ <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[7]</item>
+ <item>DMMainPorts_1/RS422_Tx0/IBufTxInProgress_i/Temp1:D</item>
+ <item>DMMainPorts_1/RS422_Tx1/IBufTxInProgress_i/Temp1:D</item>
+ <item>DMMainPorts_1/RS422_Tx2/IBufTxInProgress_i/Temp1:D</item>
+ <item>DMMainPorts_1/RS433_Tx3/IBufTxInProgress_i/Temp1:D</item>
+</list>
+<text></text>
+<text> - Hold unconstrained for the following pins:</text>
+<text>   </text>
+<list>
+ <item>DMMainPorts_1/IBufRxd0/Temp1:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/ClkSyncWrite/Temp1:D</item>
+ <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[0]</item>
+ <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[1]</item>
+ <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[2]</item>
+ <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[3]</item>
+ <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[4]</item>
+ <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[5]</item>
+ <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[6]</item>
+ <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[7]</item>
+ <item>DMMainPorts_1/RS422_Tx0/IBufTxInProgress_i/Temp1:D</item>
+ <item>DMMainPorts_1/RS422_Tx1/IBufTxInProgress_i/Temp1:D</item>
+ <item>DMMainPorts_1/RS422_Tx2/IBufTxInProgress_i/Temp1:D</item>
+ <item>DMMainPorts_1/RS433_Tx3/IBufTxInProgress_i/Temp1:D</item>
+</list>
+<text></text>
+</section>
+</section>
+<section>
+<name>Input to Output</name>
+<table>
+<header>
+ <cell>Type of check</cell>
+ <cell>Constrained</cell>
+ <cell>UnConstrained</cell>
+ <cell>Total</cell>
+</header>
+<row>
+ <cell>Output Setup</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+<separator/>
+<row>
+ <cell>Output Hold</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
+</row>
+</table>
+</section>
+</section>
+</doc>

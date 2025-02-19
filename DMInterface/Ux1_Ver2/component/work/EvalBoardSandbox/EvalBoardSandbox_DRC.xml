@@ -3,10 +3,10 @@
 <drcreport>
   <header>EvalBoardSandbox</header>
   <drc>
-    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
-    <StatusMessage>Warning</StatusMessage>
-    <message>Unconnected Bus Interface</message>
-    <detail>Unconnected bus interface pin EvalSandbox_MSS_0:AMBA_SLAVE_0</detail>
-    <crossprobe>liberoaction://cross_probe/smartdesign/EvalBoardSandbox/pins/EvalSandbox_MSS_0:AMBA_SLAVE_0</crossprobe>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\error.png</status>
+    <StatusMessage>Error</StatusMessage>
+    <message>Out-of-date Instance</message>
+    <detail>Component definition is not consistent for instance DMMainPorts_1</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/EvalBoardSandbox/instances/DMMainPorts_1</crossprobe>
   </drc>
 </drcreport>

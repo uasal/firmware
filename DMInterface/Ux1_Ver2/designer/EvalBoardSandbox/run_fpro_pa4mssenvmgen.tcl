@@ -3,11 +3,11 @@ set_device \
     -die PA4M1000_N \
     -pkg vf256
 set_input_cfg \
-	-path {C:/MicroSemiProj/Libero/DMCIOverhaul/component/work/EvalSandbox_MSS_MSS/ENVM.cfg}
+	-path {C:/Users/SKaye/repos5/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS_MSS/ENVM.cfg}
 set_output_efc \
-    -path {C:\MicroSemiProj\Libero\DMCIOverhaul\designer\EvalBoardSandbox\EvalBoardSandbox.efc}
+    -path {C:\Users\SKaye\repos5\firmware\DMInterface\Ux1_Ver2\designer\EvalBoardSandbox\EvalBoardSandbox.efc}
 set_proj_dir \
-    -path {C:\MicroSemiProj\Libero\DMCIOverhaul}
+    -path {C:\Users\SKaye\repos5\firmware\DMInterface\Ux1_Ver2}
 set_is_relative_path \
     -value {FALSE}
 set_root_path_dir \
