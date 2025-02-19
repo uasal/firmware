@@ -49,6 +49,7 @@ impl -add /home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesi
 #implementation attributes
 
 set_option -vlog_std sysv
+set_option -include_path {/home/summer/projects/CGraph/firmware/include}
 
 #device options
 set_option -technology SmartFusion2

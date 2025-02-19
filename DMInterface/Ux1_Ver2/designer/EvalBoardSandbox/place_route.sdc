@@ -1,7 +1,7 @@
 # Microsemi Corp.
-# Date: 2025-Feb-17 11:58:35
+# Date: 2025-Feb-18 11:22:40
 # This file was generated based on the following SDC source files:
-#   C:/MicroSemiProj/Libero/DMCIOverhaul/constraint/EvalBoardSandbox_derived_constraints.sdc
+#   /home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/constraint/EvalBoardSandbox_derived_constraints.sdc
 #
 
-create_clock -name {CLK0} -period 19.6078 [ get_ports { CLK0 } ]
+create_clock -name {CLK0_PAD} -period 19.6078 [ get_ports { CLK0_PAD } ]

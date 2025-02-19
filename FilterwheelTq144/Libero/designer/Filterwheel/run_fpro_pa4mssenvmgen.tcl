@@ -9,7 +9,7 @@ set_output_efc \
 set_proj_dir \
     -path {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero}
 set_is_relative_path \
-    -value {FALSE}
+    -value {TRUE}
 set_root_path_dir \
-    -path {}
+    -path {CGRAPH_FIRMWARE}
 gen_prg -use_init false

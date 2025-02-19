@@ -3,7 +3,7 @@
 <doc>
 <text>SmartTime Version 2023.2.0.10</text>
 <text>Microsemi Corporation - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)
-Date: Mon Oct 28 15:57:50 2024 </text>
+Date: Tue Feb 18 19:15:07 2025 </text>
 <table>
 <header>
 </header>
@@ -51,14 +51,14 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 <row>
  <cell>Setup</cell>
  <cell>            0</cell>
- <cell>         4198</cell>
- <cell>         4198</cell>
+ <cell>         3763</cell>
+ <cell>         3763</cell>
 </row>
 <row>
  <cell>Recovery</cell>
  <cell>            0</cell>
- <cell>         1338</cell>
- <cell>         1338</cell>
+ <cell>         1167</cell>
+ <cell>         1167</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
@@ -69,21 +69,21 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>         5594</cell>
- <cell>         5594</cell>
+ <cell>         4988</cell>
+ <cell>         4988</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
  <cell>            0</cell>
- <cell>         4198</cell>
- <cell>         4198</cell>
+ <cell>         3763</cell>
+ <cell>         3763</cell>
 </row>
 <row>
  <cell>Removal</cell>
  <cell>            0</cell>
- <cell>         1338</cell>
- <cell>         1338</cell>
+ <cell>         1167</cell>
+ <cell>         1167</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
@@ -94,8 +94,8 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>         5594</cell>
- <cell>         5594</cell>
+ <cell>         4988</cell>
+ <cell>         4988</cell>
 </row>
 </table>
 <section>
@@ -174,51 +174,51 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 <row>
  <cell>Setup</cell>
  <cell>            0</cell>
- <cell>         3857</cell>
- <cell>         3857</cell>
+ <cell>         3498</cell>
+ <cell>         3498</cell>
 </row>
 <row>
  <cell>Recovery</cell>
  <cell>            0</cell>
- <cell>         1223</cell>
- <cell>         1223</cell>
+ <cell>         1087</cell>
+ <cell>         1087</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
  <cell>            0</cell>
- <cell>           44</cell>
- <cell>           44</cell>
+ <cell>           39</cell>
+ <cell>           39</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>         5124</cell>
- <cell>         5124</cell>
+ <cell>         4624</cell>
+ <cell>         4624</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
  <cell>            0</cell>
- <cell>         3857</cell>
- <cell>         3857</cell>
+ <cell>         3498</cell>
+ <cell>         3498</cell>
 </row>
 <row>
  <cell>Removal</cell>
  <cell>            0</cell>
- <cell>         1223</cell>
- <cell>         1223</cell>
+ <cell>         1087</cell>
+ <cell>         1087</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
  <cell>            0</cell>
- <cell>           44</cell>
- <cell>           44</cell>
+ <cell>           39</cell>
+ <cell>           39</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>         5124</cell>
- <cell>         5124</cell>
+ <cell>         4624</cell>
+ <cell>         4624</cell>
 </row>
 </table>
 <section>
@@ -233,6 +233,7 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>Fault2VD</item>
  <item>Fault3VA</item>
  <item>Fault3VD</item>
+ <item>Fault43V</item>
  <item>Fault5V</item>
  <item>FaultHV</item>
  <item>FaultNegV</item>
@@ -240,7 +241,6 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>MisoAdcB</item>
  <item>MisoAdcC</item>
  <item>MisoAdcD</item>
- <item>MisoExt</item>
  <item>MisoMonAdc0</item>
  <item>MisoMonAdc1</item>
  <item>PPS</item>
@@ -249,7 +249,6 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>Rx1</item>
  <item>Rx2</item>
  <item>Rx3</item>
- <item>TxdLab</item>
  <item>nDrdyAdcA</item>
  <item>nDrdyAdcB</item>
  <item>nDrdyAdcC</item>
@@ -270,6 +269,7 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>Fault2VD</item>
  <item>Fault3VA</item>
  <item>Fault3VD</item>
+ <item>Fault43V</item>
  <item>Fault5V</item>
  <item>FaultHV</item>
  <item>FaultNegV</item>
@@ -277,7 +277,6 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>MisoAdcB</item>
  <item>MisoAdcC</item>
  <item>MisoAdcD</item>
- <item>MisoExt</item>
  <item>MisoMonAdc0</item>
  <item>MisoMonAdc1</item>
  <item>PPS</item>
@@ -286,7 +285,6 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>Rx1</item>
  <item>Rx2</item>
  <item>Rx3</item>
- <item>TxdLab</item>
  <item>nDrdyAdcA</item>
  <item>nDrdyAdcB</item>
  <item>nDrdyAdcC</item>
@@ -304,7 +302,8 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 <text>   </text>
 <list>
  <item>GlobalFaultInhibit</item>
- <item>HVDis2</item>
+ <item>HVEn1</item>
+ <item>HVEn2</item>
  <item>MosiDacAMax</item>
  <item>MosiDacATi</item>
  <item>MosiDacBMax</item>
@@ -313,7 +312,6 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>MosiDacCTi</item>
  <item>MosiDacDMax</item>
  <item>MosiDacDTi</item>
- <item>MosiExt</item>
  <item>MosiMonAdcs</item>
  <item>MosiXO</item>
  <item>Oe0</item>
@@ -324,11 +322,9 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>PowerEnTi</item>
  <item>PowernEn</item>
  <item>PowernEnHV</item>
- <item>RxdLab</item>
  <item>SckAdcs</item>
  <item>SckDacsMax</item>
  <item>SckDacsTi</item>
- <item>SckExt</item>
  <item>SckMonAdcs</item>
  <item>SckXO</item>
  <item>TrigAdcs</item>
@@ -336,15 +332,12 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>Tx1</item>
  <item>Tx2</item>
  <item>Tx3</item>
- <item>Ux1SelJmp</item>
  <item>nCsAdcs</item>
  <item>nCsDacsMax</item>
  <item>nCsDacsTi</item>
- <item>nCsExt</item>
  <item>nCsMonAdcs</item>
  <item>nCsXO</item>
  <item>nFaultsClr</item>
- <item>nHVEn1</item>
  <item>nLDacsMax</item>
  <item>nPowerCycClr</item>
 </list>
@@ -353,7 +346,8 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 <text>   </text>
 <list>
  <item>GlobalFaultInhibit</item>
- <item>HVDis2</item>
+ <item>HVEn1</item>
+ <item>HVEn2</item>
  <item>MosiDacAMax</item>
  <item>MosiDacATi</item>
  <item>MosiDacBMax</item>
@@ -362,7 +356,6 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>MosiDacCTi</item>
  <item>MosiDacDMax</item>
  <item>MosiDacDTi</item>
- <item>MosiExt</item>
  <item>MosiMonAdcs</item>
  <item>MosiXO</item>
  <item>Oe0</item>
@@ -373,11 +366,9 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>PowerEnTi</item>
  <item>PowernEn</item>
  <item>PowernEnHV</item>
- <item>RxdLab</item>
  <item>SckAdcs</item>
  <item>SckDacsMax</item>
  <item>SckDacsTi</item>
- <item>SckExt</item>
  <item>SckMonAdcs</item>
  <item>SckXO</item>
  <item>TrigAdcs</item>
@@ -385,15 +376,12 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>Tx1</item>
  <item>Tx2</item>
  <item>Tx3</item>
- <item>Ux1SelJmp</item>
  <item>nCsAdcs</item>
  <item>nCsDacsMax</item>
  <item>nCsDacsTi</item>
- <item>nCsExt</item>
  <item>nCsMonAdcs</item>
  <item>nCsXO</item>
  <item>nFaultsClr</item>
- <item>nHVEn1</item>
  <item>nLDacsMax</item>
  <item>nPowerCycClr</item>
 </list>
@@ -561,52 +549,52 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>Main_0/ClkDac_i/Spi/XferComplete_i:ALn</item>
  <item>Main_0/ClkDac_i/SpiRst:ALn</item>
  <item>Main_0/ClkDac_i/SpiRst_rep:ALn</item>
- <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[0]:ALn</item>
- <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[1]:ALn</item>
- <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[2]:ALn</item>
- <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[3]:ALn</item>
- <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[4]:ALn</item>
- <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[5]:ALn</item>
- <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[6]:ALn</item>
- <item>Main_0/ExtAddrInUart/UartClkDiv/div_i:ALn</item>
- <item>Main_0/ExtAddrOutUart/LatchTxdSpiExtBusAddr:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxNextState[0]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxNextState[1]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[0]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[10]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[1]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[2]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[3]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[4]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[5]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[6]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[7]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[8]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[9]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/div_i:ALn</item>
- <item>Main_0/ExtAddrOutUart/StartTxdSpiExtBusAddr:ALn</item>
- <item>Main_0/Ext_i/LastSpiXferComplete:ALn</item>
- <item>Main_0/Ext_i/LastWriteSpiExtBus:ALn</item>
- <item>Main_0/Ext_i/Spi/ClkDiv[0]:ALn</item>
- <item>Main_0/Ext_i/Spi/ClkDiv[1]:ALn</item>
- <item>Main_0/Ext_i/Spi/ClkDiv[2]:ALn</item>
- <item>Main_0/Ext_i/Spi/ClkDiv[3]:ALn</item>
- <item>Main_0/Ext_i/Spi/ClkDiv[4]:ALn</item>
- <item>Main_0/Ext_i/Spi/ClkDiv[5]:ALn</item>
- <item>Main_0/Ext_i/Spi/ClkDiv[6]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataFromMiso_1[0]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataFromMiso_1[1]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataFromMiso_1[2]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataFromMiso_1[3]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataFromMiso_1[4]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataFromMiso_1[5]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataFromMiso_1[6]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataFromMiso_1[7]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataToMosiLatched:ALn</item>
- <item>Main_0/Ext_i/Spi/DataToMosi_i[0]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataToMosi_i[1]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataToMosi_i[2]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataToMosi_i[3]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[0]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[10]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[11]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[12]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[13]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[14]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[15]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[16]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[17]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[18]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[19]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[1]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[20]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[21]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[22]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[23]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[2]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[3]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[4]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[5]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[6]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[7]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[8]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[9]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[0]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[10]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[11]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[12]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[13]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[14]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[15]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[16]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[17]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[18]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[19]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[1]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[20]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[21]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[22]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[23]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[2]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[3]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[4]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[5]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[6]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[7]:ALn</item>
 </list>
 <text></text>
 <text> - Hold unconstrained for the following pins:</text>
@@ -771,52 +759,52 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>Main_0/ClkDac_i/Spi/XferComplete_i:ALn</item>
  <item>Main_0/ClkDac_i/SpiRst:ALn</item>
  <item>Main_0/ClkDac_i/SpiRst_rep:ALn</item>
- <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[0]:ALn</item>
- <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[1]:ALn</item>
- <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[2]:ALn</item>
- <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[3]:ALn</item>
- <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[4]:ALn</item>
- <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[5]:ALn</item>
- <item>Main_0/ExtAddrInUart/UartClkDiv/ClkDiv[6]:ALn</item>
- <item>Main_0/ExtAddrInUart/UartClkDiv/div_i:ALn</item>
- <item>Main_0/ExtAddrOutUart/LatchTxdSpiExtBusAddr:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxNextState[0]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxNextState[1]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[0]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[10]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[1]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[2]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[3]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[4]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[5]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[6]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[7]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[8]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/ClkDiv[9]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/div_i:ALn</item>
- <item>Main_0/ExtAddrOutUart/StartTxdSpiExtBusAddr:ALn</item>
- <item>Main_0/Ext_i/LastSpiXferComplete:ALn</item>
- <item>Main_0/Ext_i/LastWriteSpiExtBus:ALn</item>
- <item>Main_0/Ext_i/Spi/ClkDiv[0]:ALn</item>
- <item>Main_0/Ext_i/Spi/ClkDiv[1]:ALn</item>
- <item>Main_0/Ext_i/Spi/ClkDiv[2]:ALn</item>
- <item>Main_0/Ext_i/Spi/ClkDiv[3]:ALn</item>
- <item>Main_0/Ext_i/Spi/ClkDiv[4]:ALn</item>
- <item>Main_0/Ext_i/Spi/ClkDiv[5]:ALn</item>
- <item>Main_0/Ext_i/Spi/ClkDiv[6]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataFromMiso_1[0]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataFromMiso_1[1]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataFromMiso_1[2]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataFromMiso_1[3]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataFromMiso_1[4]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataFromMiso_1[5]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataFromMiso_1[6]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataFromMiso_1[7]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataToMosiLatched:ALn</item>
- <item>Main_0/Ext_i/Spi/DataToMosi_i[0]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataToMosi_i[1]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataToMosi_i[2]:ALn</item>
- <item>Main_0/Ext_i/Spi/DataToMosi_i[3]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[0]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[10]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[11]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[12]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[13]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[14]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[15]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[16]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[17]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[18]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[19]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[1]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[20]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[21]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[22]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[23]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[2]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[3]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[4]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[5]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[6]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[7]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[8]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutA_i[9]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[0]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[10]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[11]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[12]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[13]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[14]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[15]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[16]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[17]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[18]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[19]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[1]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[20]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[21]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[22]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[23]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[2]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[3]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[4]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[5]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[6]:ALn</item>
+ <item>Main_0/FSMDacs_i/DacWriteOutB_i[7]:ALn</item>
 </list>
 <text></text>
 </section>
@@ -847,14 +835,14 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 <row>
  <cell>Output Setup</cell>
  <cell>            0</cell>
- <cell>            0</cell>
- <cell>            0</cell>
+ <cell>            7</cell>
+ <cell>            7</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>           33</cell>
- <cell>           33</cell>
+ <cell>           40</cell>
+ <cell>           40</cell>
 </row>
 <separator/>
 <row>
@@ -872,20 +860,44 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 <row>
  <cell>Output Hold</cell>
  <cell>            0</cell>
- <cell>            0</cell>
- <cell>            0</cell>
+ <cell>            7</cell>
+ <cell>            7</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>           33</cell>
- <cell>           33</cell>
+ <cell>           40</cell>
+ <cell>           40</cell>
 </row>
 </table>
 <section>
 <name>Enhancement Suggestions</name>
 <text></text>
 <text> - Clock constraint is missing </text>
+<text></text>
+<text> - Max output delay constraint missing on ports:</text>
+<text>   </text>
+<list>
+ <item>TP1</item>
+ <item>TP2</item>
+ <item>TP3</item>
+ <item>TP4</item>
+ <item>TP5</item>
+ <item>TP7</item>
+ <item>Ux1SelJmp</item>
+</list>
+<text></text>
+<text> - Min output delay constraint missing on ports:</text>
+<text>   </text>
+<list>
+ <item>TP1</item>
+ <item>TP2</item>
+ <item>TP3</item>
+ <item>TP4</item>
+ <item>TP5</item>
+ <item>TP7</item>
+ <item>Ux1SelJmp</item>
+</list>
 <text></text>
 <text></text>
 <text> - Setup unconstrained for the following pins:</text>
@@ -962,326 +974,6 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>FineSteeringMirror_sb_0/FineSteeringMirror_sb_MSS_0/MSS_ADLIB_INST/INST_MSS_010_IP:F_HM0_RDATA[8]</item>
  <item>FineSteeringMirror_sb_0/FineSteeringMirror_sb_MSS_0/MSS_ADLIB_INST/INST_MSS_010_IP:F_HM0_RDATA[9]</item>
  <item>FineSteeringMirror_sb_0/FineSteeringMirror_sb_MSS_0/MSS_ADLIB_INST/INST_MSS_010_IP:F_HM0_READY</item>
-</list>
-<text></text>
-</section>
-</section>
-<section>
-<name>Clock domain: </name>
-<text>Main_0/ExtAddrInUart/UartClkDiv/div_i:Q</text>
-<text></text>
-<table>
-<header>
- <cell>Type of check</cell>
- <cell>Constrained</cell>
- <cell>UnConstrained</cell>
- <cell>Total</cell>
-</header>
-<row>
- <cell>Setup</cell>
- <cell>            0</cell>
- <cell>           42</cell>
- <cell>           42</cell>
-</row>
-<row>
- <cell>Recovery</cell>
- <cell>            0</cell>
- <cell>            8</cell>
- <cell>            8</cell>
-</row>
-<row>
- <cell>Output Setup</cell>
- <cell>            0</cell>
- <cell>            0</cell>
- <cell>            0</cell>
-</row>
-<row>
- <cell>Total Setup</cell>
- <cell>            0</cell>
- <cell>           50</cell>
- <cell>           50</cell>
-</row>
-<separator/>
-<row>
- <cell>Hold</cell>
- <cell>            0</cell>
- <cell>           42</cell>
- <cell>           42</cell>
-</row>
-<row>
- <cell>Removal</cell>
- <cell>            0</cell>
- <cell>            8</cell>
- <cell>            8</cell>
-</row>
-<row>
- <cell>Output Hold</cell>
- <cell>            0</cell>
- <cell>            0</cell>
- <cell>            0</cell>
-</row>
-<row>
- <cell>Total Hold</cell>
- <cell>            0</cell>
- <cell>           50</cell>
- <cell>           50</cell>
-</row>
-</table>
-<section>
-<name>Enhancement Suggestions</name>
-<text></text>
-<text> - Clock constraint is missing </text>
-<text></text>
-<text></text>
-<text> - Setup unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>Main_0/ExtAddrInUart/ClkSyncRxd/O:D</item>
- <item>Main_0/ExtAddrInUart/ClkSyncRxd/Temp1:D</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[0]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[0]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[1]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[1]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[2]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[2]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[3]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[3]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[4]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[4]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[5]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[5]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[6]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[6]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[7]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[7]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[0]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[0]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[1]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[1]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[2]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[2]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[3]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[3]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[4]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[4]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[5]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[5]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[6]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[6]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[7]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[7]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/bitpos[0]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/bitpos[1]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/bitpos[2]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/bitpos[3]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/samplecnt[0]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/samplecnt[1]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/samplecnt[2]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/samplecnt[3]:D</item>
-</list>
-<text></text>
-<text> - Recovery unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>Main_0/ExtAddrInUart/Uart/bitpos[0]:ALn</item>
- <item>Main_0/ExtAddrInUart/Uart/bitpos[1]:ALn</item>
- <item>Main_0/ExtAddrInUart/Uart/bitpos[2]:ALn</item>
- <item>Main_0/ExtAddrInUart/Uart/bitpos[3]:ALn</item>
- <item>Main_0/ExtAddrInUart/Uart/samplecnt[0]:ALn</item>
- <item>Main_0/ExtAddrInUart/Uart/samplecnt[1]:ALn</item>
- <item>Main_0/ExtAddrInUart/Uart/samplecnt[2]:ALn</item>
- <item>Main_0/ExtAddrInUart/Uart/samplecnt[3]:ALn</item>
-</list>
-<text></text>
-<text> - Hold unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>Main_0/ExtAddrInUart/ClkSyncRxd/O:D</item>
- <item>Main_0/ExtAddrInUart/ClkSyncRxd/Temp1:D</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[0]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[0]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[1]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[1]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[2]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[2]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[3]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[3]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[4]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[4]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[5]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[5]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[6]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[6]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[7]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/DataO[7]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[0]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[0]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[1]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[1]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[2]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[2]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[3]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[3]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[4]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[4]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[5]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[5]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[6]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[6]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[7]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/RReg[7]:EN</item>
- <item>Main_0/ExtAddrInUart/Uart/bitpos[0]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/bitpos[1]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/bitpos[2]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/bitpos[3]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/samplecnt[0]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/samplecnt[1]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/samplecnt[2]:D</item>
- <item>Main_0/ExtAddrInUart/Uart/samplecnt[3]:D</item>
-</list>
-<text></text>
-<text> - Removal unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>Main_0/ExtAddrInUart/Uart/bitpos[0]:ALn</item>
- <item>Main_0/ExtAddrInUart/Uart/bitpos[1]:ALn</item>
- <item>Main_0/ExtAddrInUart/Uart/bitpos[2]:ALn</item>
- <item>Main_0/ExtAddrInUart/Uart/bitpos[3]:ALn</item>
- <item>Main_0/ExtAddrInUart/Uart/samplecnt[0]:ALn</item>
- <item>Main_0/ExtAddrInUart/Uart/samplecnt[1]:ALn</item>
- <item>Main_0/ExtAddrInUart/Uart/samplecnt[2]:ALn</item>
- <item>Main_0/ExtAddrInUart/Uart/samplecnt[3]:ALn</item>
-</list>
-<text></text>
-</section>
-</section>
-<section>
-<name>Clock domain: </name>
-<text>Main_0/ExtAddrOutUart/SpiExtBusAddrTxdClockDiv/div_i:Q</text>
-<text></text>
-<table>
-<header>
- <cell>Type of check</cell>
- <cell>Constrained</cell>
- <cell>UnConstrained</cell>
- <cell>Total</cell>
-</header>
-<row>
- <cell>Setup</cell>
- <cell>            0</cell>
- <cell>            8</cell>
- <cell>            8</cell>
-</row>
-<row>
- <cell>Recovery</cell>
- <cell>            0</cell>
- <cell>            7</cell>
- <cell>            7</cell>
-</row>
-<row>
- <cell>Output Setup</cell>
- <cell>            0</cell>
- <cell>            1</cell>
- <cell>            1</cell>
-</row>
-<row>
- <cell>Total Setup</cell>
- <cell>            0</cell>
- <cell>           16</cell>
- <cell>           16</cell>
-</row>
-<separator/>
-<row>
- <cell>Hold</cell>
- <cell>            0</cell>
- <cell>            8</cell>
- <cell>            8</cell>
-</row>
-<row>
- <cell>Removal</cell>
- <cell>            0</cell>
- <cell>            7</cell>
- <cell>            7</cell>
-</row>
-<row>
- <cell>Output Hold</cell>
- <cell>            0</cell>
- <cell>            1</cell>
- <cell>            1</cell>
-</row>
-<row>
- <cell>Total Hold</cell>
- <cell>            0</cell>
- <cell>           16</cell>
- <cell>           16</cell>
-</row>
-</table>
-<section>
-<name>Enhancement Suggestions</name>
-<text></text>
-<text> - Clock constraint is missing </text>
-<text></text>
-<text> - Max output delay constraint missing on port:</text>
-<text>   </text>
-<list>
- <item>nCsExt</item>
-</list>
-<text></text>
-<text> - Min output delay constraint missing on port:</text>
-<text>   </text>
-<list>
- <item>nCsExt</item>
-</list>
-<text></text>
-<text></text>
-<text> - Setup unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[0]:D</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[1]:D</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[2]:D</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[3]:D</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/Busy_i:D</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/LastGo:D</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/LastGo:EN</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/TxD:D</item>
-</list>
-<text></text>
-<text> - Recovery unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[0]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[1]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[2]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[3]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/Busy_i:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/LastGo:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/TxD:ALn</item>
-</list>
-<text></text>
-<text> - Hold unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[0]:D</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[1]:D</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[2]:D</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[3]:D</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/Busy_i:D</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/LastGo:D</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/LastGo:EN</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/TxD:D</item>
-</list>
-<text></text>
-<text> - Removal unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[0]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[1]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[2]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/BitCnt[3]:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/Busy_i:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/LastGo:ALn</item>
- <item>Main_0/ExtAddrOutUart/SpiExtBusAddrOutUart/TxD:ALn</item>
 </list>
 <text></text>
 </section>
@@ -1747,8 +1439,8 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>Main_0/RS422_Rx1/Uart/Uart/samplecnt[2]:D</item>
  <item>Main_0/RS422_Rx1/Uart/Uart/samplecnt[3]:D</item>
  <item>Main_0/Uart1TxBitClockDiv/ClkDiv[0]:D</item>
- <item>Main_0/Uart1TxBitClockDiv/ClkDiv_Z[1]:D</item>
- <item>Main_0/Uart1TxBitClockDiv/ClkDiv_Z[2]:D</item>
+ <item>Main_0/Uart1TxBitClockDiv/ClkDiv[1]:D</item>
+ <item>Main_0/Uart1TxBitClockDiv/ClkDiv[2]:D</item>
  <item>Main_0/Uart1TxBitClockDiv/div_i:D</item>
 </list>
 <text></text>
@@ -1765,8 +1457,8 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>Main_0/RS422_Rx1/Uart/Uart/samplecnt[2]:ALn</item>
  <item>Main_0/RS422_Rx1/Uart/Uart/samplecnt[3]:ALn</item>
  <item>Main_0/Uart1TxBitClockDiv/ClkDiv[0]:ALn</item>
- <item>Main_0/Uart1TxBitClockDiv/ClkDiv_Z[1]:ALn</item>
- <item>Main_0/Uart1TxBitClockDiv/ClkDiv_Z[2]:ALn</item>
+ <item>Main_0/Uart1TxBitClockDiv/ClkDiv[1]:ALn</item>
+ <item>Main_0/Uart1TxBitClockDiv/ClkDiv[2]:ALn</item>
  <item>Main_0/Uart1TxBitClockDiv/div_i:ALn</item>
 </list>
 <text></text>
@@ -1818,8 +1510,8 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>Main_0/RS422_Rx1/Uart/Uart/samplecnt[2]:D</item>
  <item>Main_0/RS422_Rx1/Uart/Uart/samplecnt[3]:D</item>
  <item>Main_0/Uart1TxBitClockDiv/ClkDiv[0]:D</item>
- <item>Main_0/Uart1TxBitClockDiv/ClkDiv_Z[1]:D</item>
- <item>Main_0/Uart1TxBitClockDiv/ClkDiv_Z[2]:D</item>
+ <item>Main_0/Uart1TxBitClockDiv/ClkDiv[1]:D</item>
+ <item>Main_0/Uart1TxBitClockDiv/ClkDiv[2]:D</item>
  <item>Main_0/Uart1TxBitClockDiv/div_i:D</item>
 </list>
 <text></text>
@@ -1836,8 +1528,8 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>Main_0/RS422_Rx1/Uart/Uart/samplecnt[2]:ALn</item>
  <item>Main_0/RS422_Rx1/Uart/Uart/samplecnt[3]:ALn</item>
  <item>Main_0/Uart1TxBitClockDiv/ClkDiv[0]:ALn</item>
- <item>Main_0/Uart1TxBitClockDiv/ClkDiv_Z[1]:ALn</item>
- <item>Main_0/Uart1TxBitClockDiv/ClkDiv_Z[2]:ALn</item>
+ <item>Main_0/Uart1TxBitClockDiv/ClkDiv[1]:ALn</item>
+ <item>Main_0/Uart1TxBitClockDiv/ClkDiv[2]:ALn</item>
  <item>Main_0/Uart1TxBitClockDiv/div_i:ALn</item>
 </list>
 <text></text>
@@ -1992,8 +1684,8 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 <row>
  <cell>Setup</cell>
  <cell>            0</cell>
- <cell>           16</cell>
- <cell>           16</cell>
+ <cell>           48</cell>
+ <cell>           48</cell>
 </row>
 <row>
  <cell>Recovery</cell>
@@ -2010,15 +1702,15 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>           29</cell>
- <cell>           29</cell>
+ <cell>           61</cell>
+ <cell>           61</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
  <cell>            0</cell>
- <cell>           16</cell>
- <cell>           16</cell>
+ <cell>           48</cell>
+ <cell>           48</cell>
 </row>
 <row>
  <cell>Removal</cell>
@@ -2035,8 +1727,8 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>           29</cell>
- <cell>           29</cell>
+ <cell>           61</cell>
+ <cell>           61</cell>
 </row>
 </table>
 <section>
@@ -2050,6 +1742,38 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 <list>
  <item>Main_0/RS422_Rx2/Uart/ClkSyncRxd/O:D</item>
  <item>Main_0/RS422_Rx2/Uart/ClkSyncRxd/Temp1:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[0]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[0]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[1]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[1]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[2]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[2]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[3]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[3]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[4]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[4]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[5]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[5]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[6]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[6]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[7]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[7]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[0]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[0]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[1]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[1]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[2]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[2]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[3]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[3]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[4]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[4]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[5]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[5]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[6]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[6]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[7]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[7]:EN</item>
  <item>Main_0/RS422_Rx2/Uart/Uart/RxAv:D</item>
  <item>Main_0/RS422_Rx2/Uart/Uart/RxAv:EN</item>
  <item>Main_0/RS422_Rx2/Uart/Uart/bitpos[0]:D</item>
@@ -2089,6 +1813,38 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 <list>
  <item>Main_0/RS422_Rx2/Uart/ClkSyncRxd/O:D</item>
  <item>Main_0/RS422_Rx2/Uart/ClkSyncRxd/Temp1:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[0]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[0]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[1]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[1]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[2]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[2]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[3]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[3]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[4]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[4]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[5]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[5]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[6]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[6]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[7]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[7]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[0]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[0]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[1]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[1]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[2]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[2]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[3]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[3]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[4]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[4]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[5]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[5]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[6]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[6]:EN</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[7]:D</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[7]:EN</item>
  <item>Main_0/RS422_Rx2/Uart/Uart/RxAv:D</item>
  <item>Main_0/RS422_Rx2/Uart/Uart/RxAv:EN</item>
  <item>Main_0/RS422_Rx2/Uart/Uart/bitpos[0]:D</item>
@@ -2375,8 +2131,8 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>Main_0/RS433_Rx3/Uart/Uart/samplecnt[2]:D</item>
  <item>Main_0/RS433_Rx3/Uart/Uart/samplecnt[3]:D</item>
  <item>Main_0/Uart3TxBitClockDiv/ClkDiv[0]:D</item>
- <item>Main_0/Uart3TxBitClockDiv/ClkDiv[1]:D</item>
- <item>Main_0/Uart3TxBitClockDiv/ClkDiv[2]:D</item>
+ <item>Main_0/Uart3TxBitClockDiv/ClkDiv_Z[1]:D</item>
+ <item>Main_0/Uart3TxBitClockDiv/ClkDiv_Z[2]:D</item>
  <item>Main_0/Uart3TxBitClockDiv/div_i:D</item>
 </list>
 <text></text>
@@ -2393,8 +2149,8 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>Main_0/RS433_Rx3/Uart/Uart/samplecnt[2]:ALn</item>
  <item>Main_0/RS433_Rx3/Uart/Uart/samplecnt[3]:ALn</item>
  <item>Main_0/Uart3TxBitClockDiv/ClkDiv[0]:ALn</item>
- <item>Main_0/Uart3TxBitClockDiv/ClkDiv[1]:ALn</item>
- <item>Main_0/Uart3TxBitClockDiv/ClkDiv[2]:ALn</item>
+ <item>Main_0/Uart3TxBitClockDiv/ClkDiv_Z[1]:ALn</item>
+ <item>Main_0/Uart3TxBitClockDiv/ClkDiv_Z[2]:ALn</item>
  <item>Main_0/Uart3TxBitClockDiv/div_i:ALn</item>
 </list>
 <text></text>
@@ -2446,8 +2202,8 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>Main_0/RS433_Rx3/Uart/Uart/samplecnt[2]:D</item>
  <item>Main_0/RS433_Rx3/Uart/Uart/samplecnt[3]:D</item>
  <item>Main_0/Uart3TxBitClockDiv/ClkDiv[0]:D</item>
- <item>Main_0/Uart3TxBitClockDiv/ClkDiv[1]:D</item>
- <item>Main_0/Uart3TxBitClockDiv/ClkDiv[2]:D</item>
+ <item>Main_0/Uart3TxBitClockDiv/ClkDiv_Z[1]:D</item>
+ <item>Main_0/Uart3TxBitClockDiv/ClkDiv_Z[2]:D</item>
  <item>Main_0/Uart3TxBitClockDiv/div_i:D</item>
 </list>
 <text></text>
@@ -2464,8 +2220,8 @@ Date: Mon Oct 28 15:57:50 2024 </text>
  <item>Main_0/RS433_Rx3/Uart/Uart/samplecnt[2]:ALn</item>
  <item>Main_0/RS433_Rx3/Uart/Uart/samplecnt[3]:ALn</item>
  <item>Main_0/Uart3TxBitClockDiv/ClkDiv[0]:ALn</item>
- <item>Main_0/Uart3TxBitClockDiv/ClkDiv[1]:ALn</item>
- <item>Main_0/Uart3TxBitClockDiv/ClkDiv[2]:ALn</item>
+ <item>Main_0/Uart3TxBitClockDiv/ClkDiv_Z[1]:ALn</item>
+ <item>Main_0/Uart3TxBitClockDiv/ClkDiv_Z[2]:ALn</item>
  <item>Main_0/Uart3TxBitClockDiv/div_i:ALn</item>
 </list>
 <text></text>
@@ -2608,354 +2364,6 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 </section>
 <section>
 <name>Clock domain: </name>
-<text>Main_0/UartLabBitClockDiv/clko_i:Q</text>
-<text></text>
-<table>
-<header>
- <cell>Type of check</cell>
- <cell>Constrained</cell>
- <cell>UnConstrained</cell>
- <cell>Total</cell>
-</header>
-<row>
- <cell>Setup</cell>
- <cell>            0</cell>
- <cell>           48</cell>
- <cell>           48</cell>
-</row>
-<row>
- <cell>Recovery</cell>
- <cell>            0</cell>
- <cell>           13</cell>
- <cell>           13</cell>
-</row>
-<row>
- <cell>Output Setup</cell>
- <cell>            0</cell>
- <cell>            0</cell>
- <cell>            0</cell>
-</row>
-<row>
- <cell>Total Setup</cell>
- <cell>            0</cell>
- <cell>           61</cell>
- <cell>           61</cell>
-</row>
-<separator/>
-<row>
- <cell>Hold</cell>
- <cell>            0</cell>
- <cell>           48</cell>
- <cell>           48</cell>
-</row>
-<row>
- <cell>Removal</cell>
- <cell>            0</cell>
- <cell>           13</cell>
- <cell>           13</cell>
-</row>
-<row>
- <cell>Output Hold</cell>
- <cell>            0</cell>
- <cell>            0</cell>
- <cell>            0</cell>
-</row>
-<row>
- <cell>Total Hold</cell>
- <cell>            0</cell>
- <cell>           61</cell>
- <cell>           61</cell>
-</row>
-</table>
-<section>
-<name>Enhancement Suggestions</name>
-<text></text>
-<text> - Clock constraint is missing </text>
-<text></text>
-<text></text>
-<text> - Setup unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>Main_0/RxdLab_RxLab/Uart/ClkSyncRxd/O:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/ClkSyncRxd/Temp1:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[0]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[0]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[1]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[1]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[2]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[2]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[3]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[3]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[4]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[4]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[5]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[5]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[6]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[6]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[7]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[7]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[0]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[0]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[1]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[1]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[2]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[2]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[3]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[3]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[4]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[4]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[5]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[5]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[6]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[6]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[7]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[7]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RxAv:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RxAv:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/bitpos[0]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/bitpos[1]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/bitpos[2]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/bitpos[3]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/samplecnt[0]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/samplecnt[1]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/samplecnt[2]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/samplecnt[3]:D</item>
- <item>Main_0/UartLabTxBitClockDiv/ClkDiv[0]:D</item>
- <item>Main_0/UartLabTxBitClockDiv/ClkDiv_Z[1]:D</item>
- <item>Main_0/UartLabTxBitClockDiv/ClkDiv_Z[2]:D</item>
- <item>Main_0/UartLabTxBitClockDiv/div_i:D</item>
-</list>
-<text></text>
-<text> - Recovery unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RxAv:ALn</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/bitpos[0]:ALn</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/bitpos[1]:ALn</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/bitpos[2]:ALn</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/bitpos[3]:ALn</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/samplecnt[0]:ALn</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/samplecnt[1]:ALn</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/samplecnt[2]:ALn</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/samplecnt[3]:ALn</item>
- <item>Main_0/UartLabTxBitClockDiv/ClkDiv[0]:ALn</item>
- <item>Main_0/UartLabTxBitClockDiv/ClkDiv_Z[1]:ALn</item>
- <item>Main_0/UartLabTxBitClockDiv/ClkDiv_Z[2]:ALn</item>
- <item>Main_0/UartLabTxBitClockDiv/div_i:ALn</item>
-</list>
-<text></text>
-<text> - Hold unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>Main_0/RxdLab_RxLab/Uart/ClkSyncRxd/O:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/ClkSyncRxd/Temp1:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[0]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[0]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[1]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[1]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[2]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[2]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[3]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[3]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[4]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[4]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[5]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[5]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[6]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[6]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[7]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/DataO[7]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[0]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[0]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[1]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[1]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[2]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[2]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[3]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[3]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[4]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[4]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[5]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[5]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[6]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[6]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[7]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RReg[7]:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RxAv:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RxAv:EN</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/bitpos[0]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/bitpos[1]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/bitpos[2]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/bitpos[3]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/samplecnt[0]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/samplecnt[1]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/samplecnt[2]:D</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/samplecnt[3]:D</item>
- <item>Main_0/UartLabTxBitClockDiv/ClkDiv[0]:D</item>
- <item>Main_0/UartLabTxBitClockDiv/ClkDiv_Z[1]:D</item>
- <item>Main_0/UartLabTxBitClockDiv/ClkDiv_Z[2]:D</item>
- <item>Main_0/UartLabTxBitClockDiv/div_i:D</item>
-</list>
-<text></text>
-<text> - Removal unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/RxAv:ALn</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/bitpos[0]:ALn</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/bitpos[1]:ALn</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/bitpos[2]:ALn</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/bitpos[3]:ALn</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/samplecnt[0]:ALn</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/samplecnt[1]:ALn</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/samplecnt[2]:ALn</item>
- <item>Main_0/RxdLab_RxLab/Uart/Uart/samplecnt[3]:ALn</item>
- <item>Main_0/UartLabTxBitClockDiv/ClkDiv[0]:ALn</item>
- <item>Main_0/UartLabTxBitClockDiv/ClkDiv_Z[1]:ALn</item>
- <item>Main_0/UartLabTxBitClockDiv/ClkDiv_Z[2]:ALn</item>
- <item>Main_0/UartLabTxBitClockDiv/div_i:ALn</item>
-</list>
-<text></text>
-</section>
-</section>
-<section>
-<name>Clock domain: </name>
-<text>Main_0/UartLabTxBitClockDiv/div_i:Q</text>
-<text></text>
-<table>
-<header>
- <cell>Type of check</cell>
- <cell>Constrained</cell>
- <cell>UnConstrained</cell>
- <cell>Total</cell>
-</header>
-<row>
- <cell>Setup</cell>
- <cell>            0</cell>
- <cell>           10</cell>
- <cell>           10</cell>
-</row>
-<row>
- <cell>Recovery</cell>
- <cell>            0</cell>
- <cell>            7</cell>
- <cell>            7</cell>
-</row>
-<row>
- <cell>Output Setup</cell>
- <cell>            0</cell>
- <cell>            2</cell>
- <cell>            2</cell>
-</row>
-<row>
- <cell>Total Setup</cell>
- <cell>            0</cell>
- <cell>           19</cell>
- <cell>           19</cell>
-</row>
-<separator/>
-<row>
- <cell>Hold</cell>
- <cell>            0</cell>
- <cell>           10</cell>
- <cell>           10</cell>
-</row>
-<row>
- <cell>Removal</cell>
- <cell>            0</cell>
- <cell>            7</cell>
- <cell>            7</cell>
-</row>
-<row>
- <cell>Output Hold</cell>
- <cell>            0</cell>
- <cell>            2</cell>
- <cell>            2</cell>
-</row>
-<row>
- <cell>Total Hold</cell>
- <cell>            0</cell>
- <cell>           19</cell>
- <cell>           19</cell>
-</row>
-</table>
-<section>
-<name>Enhancement Suggestions</name>
-<text></text>
-<text> - Clock constraint is missing </text>
-<text></text>
-<text> - Max output delay constraint missing on ports:</text>
-<text>   </text>
-<list>
- <item>RxdLab</item>
- <item>Ux1SelJmp</item>
-</list>
-<text></text>
-<text> - Min output delay constraint missing on ports:</text>
-<text>   </text>
-<list>
- <item>RxdLab</item>
- <item>Ux1SelJmp</item>
-</list>
-<text></text>
-<text></text>
-<text> - Setup unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>Main_0/RS4LabLab_TxLab/IBufStartTx/O:D</item>
- <item>Main_0/RS4LabLab_TxLab/IBufStartTx/Temp1:D</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/BitCnt[0]:D</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/BitCnt[1]:D</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/BitCnt[2]:D</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/BitCnt[3]:D</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/Busy_i:D</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/LastGo:D</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/LastGo:EN</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/TxD:D</item>
-</list>
-<text></text>
-<text> - Recovery unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/BitCnt[0]:ALn</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/BitCnt[1]:ALn</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/BitCnt[2]:ALn</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/BitCnt[3]:ALn</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/Busy_i:ALn</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/LastGo:ALn</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/TxD:ALn</item>
-</list>
-<text></text>
-<text> - Hold unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>Main_0/RS4LabLab_TxLab/IBufStartTx/O:D</item>
- <item>Main_0/RS4LabLab_TxLab/IBufStartTx/Temp1:D</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/BitCnt[0]:D</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/BitCnt[1]:D</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/BitCnt[2]:D</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/BitCnt[3]:D</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/Busy_i:D</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/LastGo:D</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/LastGo:EN</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/TxD:D</item>
-</list>
-<text></text>
-<text> - Removal unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/BitCnt[0]:ALn</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/BitCnt[1]:ALn</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/BitCnt[2]:ALn</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/BitCnt[3]:ALn</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/Busy_i:ALn</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/LastGo:ALn</item>
- <item>Main_0/RS4LabLab_TxLab/UartTxUart/TxD:ALn</item>
-</list>
-<text></text>
-</section>
-</section>
-<section>
-<name>Clock domain: </name>
 <text>XO1</text>
 <text></text>
 <table>
@@ -3042,14 +2450,14 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 <row>
  <cell>Output Setup</cell>
  <cell>            0</cell>
- <cell>            1</cell>
- <cell>            1</cell>
+ <cell>            2</cell>
+ <cell>            2</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>            1</cell>
- <cell>            1</cell>
+ <cell>            2</cell>
+ <cell>            2</cell>
 </row>
 <separator/>
 <row>
@@ -3067,14 +2475,14 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 <row>
  <cell>Output Hold</cell>
  <cell>            0</cell>
- <cell>            1</cell>
- <cell>            1</cell>
+ <cell>            2</cell>
+ <cell>            2</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>            1</cell>
- <cell>            1</cell>
+ <cell>            2</cell>
+ <cell>            2</cell>
 </row>
 </table>
 <section>
@@ -3083,28 +2491,34 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 <text> - Max input delay constraint missing on ports:</text>
 <text>   </text>
 <list>
- <item>DInExt</item>
- <item>PPS</item>
+ <item>Fault1V</item>
+ <item>Fault3VA</item>
+ <item>Fault5V</item>
+ <item>PowerCycd</item>
 </list>
 <text></text>
 <text> - Min input delay constraint missing on ports:</text>
 <text>   </text>
 <list>
- <item>DInExt</item>
- <item>PPS</item>
+ <item>Fault1V</item>
+ <item>Fault3VA</item>
+ <item>Fault5V</item>
+ <item>PowerCycd</item>
 </list>
 <text></text>
 <text></text>
-<text> - Max output delay constraint missing on port:</text>
+<text> - Max output delay constraint missing on ports:</text>
 <text>   </text>
 <list>
- <item>DOutExt</item>
+ <item>TP6</item>
+ <item>TP8</item>
 </list>
 <text></text>
-<text> - Min output delay constraint missing on port:</text>
+<text> - Min output delay constraint missing on ports:</text>
 <text>   </text>
 <list>
- <item>DOutExt</item>
+ <item>TP6</item>
+ <item>TP8</item>
 </list>
 <text></text>
 <text></text>
@@ -3136,14 +2550,14 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 <row>
  <cell>Output Setup</cell>
  <cell>            0</cell>
- <cell>            5</cell>
- <cell>            5</cell>
+ <cell>            4</cell>
+ <cell>            4</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>            5</cell>
- <cell>            5</cell>
+ <cell>            4</cell>
+ <cell>            4</cell>
 </row>
 <separator/>
 <row>
@@ -3161,14 +2575,14 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 <row>
  <cell>Output Hold</cell>
  <cell>            0</cell>
- <cell>            5</cell>
- <cell>            5</cell>
+ <cell>            4</cell>
+ <cell>            4</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>            5</cell>
- <cell>            5</cell>
+ <cell>            4</cell>
+ <cell>            4</cell>
 </row>
 </table>
 <section>
@@ -3191,15 +2605,15 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 <row>
  <cell>Output Setup</cell>
  <cell>            0</cell>
- <cell>            1</cell>
- <cell>            1</cell>
+ <cell>            2</cell>
+ <cell>            2</cell>
 </row>
 <separator/>
 <row>
  <cell>Output Hold</cell>
  <cell>            0</cell>
- <cell>            1</cell>
- <cell>            1</cell>
+ <cell>            2</cell>
+ <cell>            2</cell>
 </row>
 </table>
 <section>
@@ -3208,28 +2622,34 @@ Date: Mon Oct 28 15:57:50 2024 </text>
 <text> - Max delay constraint missing on input ports:</text>
 <text>   </text>
 <list>
- <item>DInExt</item>
- <item>PPS</item>
+ <item>Fault1V</item>
+ <item>Fault3VA</item>
+ <item>Fault5V</item>
+ <item>PowerCycd</item>
 </list>
 <text></text>
 <text> - Min delay constraint missing on input ports:</text>
 <text>   </text>
 <list>
- <item>DInExt</item>
- <item>PPS</item>
+ <item>Fault1V</item>
+ <item>Fault3VA</item>
+ <item>Fault5V</item>
+ <item>PowerCycd</item>
 </list>
 <text></text>
 <text></text>
-<text> - Max delay constraint missing on output port:</text>
+<text> - Max delay constraint missing on output ports:</text>
 <text>   </text>
 <list>
- <item>DOutExt</item>
+ <item>TP6</item>
+ <item>TP8</item>
 </list>
 <text></text>
-<text> - Min delay constraint missing on output port:</text>
+<text> - Min delay constraint missing on output ports:</text>
 <text>   </text>
 <list>
- <item>DOutExt</item>
+ <item>TP6</item>
+ <item>TP8</item>
 </list>
 <text></text>
 <text></text>

@@ -10,6 +10,7 @@ use IEEE.numeric_std.all;
 
 entity Main is
 port (
+
     clk : in  std_logic;
 	
 	--ClkDac
@@ -39,8 +40,8 @@ port (
 	
 	--Driver Control
 	
-	nHVEn1 : out std_logic;
-	HVDis2 : out std_logic;
+	HVEn1 : out std_logic;
+	HVEn2 : out std_logic;
 	PowernEnHV : out std_logic;	
 	nHVFaultA : in std_logic;
 	nHVFaultB : in std_logic;
@@ -87,10 +88,6 @@ port (
 	Tx3 : out std_logic;
 	Oe3 : out std_logic;
 	Rx3 : in std_logic;
-	
-	RxdLab : out std_logic;
-	TxdLab : in std_logic;
-	CtsUsb : out std_logic;
 	PPS : in std_logic;
 	
 	--MonitorA/D
@@ -121,30 +118,20 @@ port (
 	Fault2VD : in std_logic;
 	Fault3VA : in std_logic;
 	Fault3VD : in std_logic;
+	Fault43V : in std_logic;
 	Fault5V : in std_logic;
 	FaultHV : in std_logic;
 	
-	--Expansion Bus
+	--Testpoints
 	
-	SckExt : inout std_logic;
-	MosiExt : inout std_logic;
-	MisoExt : inout std_logic;
-	nCsExt : inout std_logic;
-	DOutExt : inout std_logic;
-	DInExt : in std_logic;
-
-	--The testpoints had to be shared with other signals due to lack of fpga pins...
-	--~ LedR : out std_logic;
-	--~ LedG : out std_logic;
-	--~ LedB : out std_logic;
-	--~ TP1 : out std_logic;
-	--~ TP2 : out std_logic;
-	--~ TP3 : out std_logic;
-	--~ TP4 : out std_logic;
-	--~ TP5 : out std_logic;
-	--~ TP6 : out std_logic;
-	--~ TP7 : out std_logic;
-	--~ TP8 : out std_logic;
+	TP1 : out std_logic;
+	TP2 : out std_logic;
+	TP3 : out std_logic;
+	TP4 : out std_logic;
+	TP5 : out std_logic;
+	TP6 : out std_logic;
+	TP7 : out std_logic;
+	TP8 : out std_logic;
 	
 	Ux1SelJmp : inout std_logic--;
 );
@@ -596,8 +583,8 @@ architecture architecture_Main of Main is
 							BuildNumber : in std_logic_vector(31 downto 0);
 							
 							--Faults and control
-							nHVEn1 : out std_logic;
-							HVDis2 : out std_logic;
+							HVEn1 : out std_logic;
+							HVEn2 : out std_logic;
 							PowernEnHV : out std_logic;	
 							DacSelectMaxti : out std_logic;
 							FaultNegV : in std_logic;
@@ -606,6 +593,7 @@ architecture architecture_Main of Main is
 							Fault2VD : in std_logic;
 							Fault3VA : in std_logic;
 							Fault3VD : in std_logic;
+							Fault43V : in std_logic;
 							Fault5V : in std_logic;
 							FaultHV : in std_logic;
 							nHVFaultA : in std_logic;
@@ -617,9 +605,6 @@ architecture architecture_Main of Main is
 							PowerCycd : in std_logic;
 							nPowerCycClr : out std_logic;								
 							PowernEn : out std_logic;
-							LedR : out std_logic;
-							LedG : out std_logic;
-							LedB : out std_logic;
 							Uart0OE : out std_logic;
 							Uart1OE : out std_logic;
 							Uart2OE : out std_logic;
@@ -712,27 +697,6 @@ architecture architecture_Main of Main is
 							Uart3TxFifoData : out std_logic_vector(7 downto 0);
 							Uart3TxFifoCount : in std_logic_vector(9 downto 0);
 							Uart3ClkDivider : out std_logic_vector(7 downto 0);
-							
-							UartLabFifoReset : out std_logic;
-							ReadUartLab : out std_logic;
-							UartLabRxFifoFull : in std_logic;
-							UartLabRxFifoEmpty : in std_logic;
-							UartLabRxFifoData : in std_logic_vector(7 downto 0);
-							UartLabRxFifoCount : in std_logic_vector(9 downto 0);
-							WriteUartLab : out std_logic;
-							UartLabTxFifoFull : in std_logic;
-							UartLabTxFifoEmpty : in std_logic;
-							UartLabTxFifoData : out std_logic_vector(7 downto 0);
-							UartLabTxFifoCount : in std_logic_vector(9 downto 0);
-							UartLabClkDivider : out std_logic_vector(7 downto 0);
-							
-							--Expansion Bus
-							ExtAddrOut : out std_logic_vector(7 downto 0);
-							SetExtAddr : out std_logic;
-							ExtAddrIn : in std_logic_vector(7 downto 0);
-							ExtWriteData : out std_logic_vector(7 downto 0);
-							WriteExt : out std_logic;
-							ExtReadbackData : in std_logic_vector(7 downto 0);
 							
 							--Timing
 							IdealTicksPerSecond : in std_logic_vector(31 downto 0);
@@ -1202,26 +1166,7 @@ architecture architecture_Main of Main is
 			signal Rxd3_i : std_logic;
 			signal UartRx3Dbg : std_logic;		
 
-			signal UartLabFifoReset : std_logic;
-			signal UartLabFifoReset_i : std_logic;
-			signal ReadUartLab : std_logic;
-			signal UartLabRxFifoFull : std_logic;
-			signal UartLabRxFifoEmpty : std_logic;
-			signal UartLabRxFifoReadAck : std_logic;
-			signal UartLabRxFifoData : std_logic_vector(7 downto 0);
-			signal UartLabRxFifoCount : std_logic_vector(9 downto 0);
-			signal WriteUartLab : std_logic;
-			signal UartLabTxFifoFull : std_logic;
-			signal UartLabTxFifoEmpty : std_logic;
-			signal UartLabTxFifoData : std_logic_vector(7 downto 0);
-			signal UartLabTxFifoCount : std_logic_vector(9 downto 0);
-			signal UartLabClkDivider : std_logic_vector(7 downto 0);
-			signal UartClkLab : std_logic;			
-			signal UartTxClkLab : std_logic;			
-			signal TxdLab_i : std_logic;
-			signal RxdLab_i : std_logic;
-			signal UartRxLabDbg : std_logic;					
-			signal TxdUartBitCount : std_logic_vector(3 downto 0);
+			signal TxdUartBitCount : std_logic_vector(3 downto 0); --debug
 			
 		-- Timing
 		
@@ -1237,25 +1182,6 @@ architecture architecture_Main of Main is
 			signal SckXO_i : std_logic;
 			signal MosiXO_i : std_logic;
 			signal MisoXO_i : std_logic;
-			
-		--Expansion Bus
-		
-			signal ExtAddr : std_logic_vector(7 downto 0); --value to set Extaddr to
-			signal SetExtAddr : std_logic; --strobe for above
-			signal ExtAddrExt : std_logic_vector(7 downto 0); --value read in from bus
-			signal ExtAddrTxdPin : std_logic; --This is the txd signal for the Ext addr, actual pin gets tristated with a when statement, hence the buffer signal
-			signal ExtAddrIsOutgoing : std_logic; --Zero while the ExtAddr is being transmitted on bus
-			signal ExtWriteOut : std_logic_vector(7 downto 0);
-			signal WriteExt : std_logic;
-			signal ExtReadback : std_logic_vector(7 downto 0);
-			signal nCsExt_i : std_logic;		
-			signal SckExt_i : std_logic;		
-			signal MosiExt_i : std_logic;		
-			signal MisoExt_i : std_logic;		
-			signal ExtReadReady : std_logic;
-			signal ExtXferInProgress : std_logic;
-			signal ExtInUse : std_logic;
-	
 
 		constant nCsEnabled : std_logic := '0';
 		constant nCsNotEnabled : std_logic := '1';
@@ -1372,8 +1298,8 @@ begin
 		BuildNumber => BuildNumber,
 		
 		--Faults and control
-		nHVEn1 => nHVEn1,
-		HVDis2 => HVDis2,
+		HVEn1 => HVEn1,
+		HVEn2 => HVEn2,
 		PowernEnHV => PowernEnHV,
 		DacSelectMaxti => DacSelectMaxti,
 		FaultNegV => FaultNegV,
@@ -1382,6 +1308,7 @@ begin
 		Fault2VD => Fault2VD,
 		Fault3VA => Fault3VA,
 		Fault3VD => Fault3VD,
+		Fault43V => Fault43V,
 		Fault5V => Fault5V,
 		FaultHV => FaultHV,
 		nHVFaultA => nHVFaultA,
@@ -1393,19 +1320,12 @@ begin
 		PowernEn => PowernEn,
 		PowerCycd => PowerCycd,
 		nPowerCycClr => nPowerCycClr,
-		--~ LedR => LedR,
-		--~ LedG => LedG,
-		--~ LedB => LedB,
-		LedR => open,
-		LedG => open,
-		LedB => open,
 		Uart0OE => OE0,
 		Uart1OE => OE1,
 		Uart2OE => OE2,
 		Uart3OE => OE3,
 		--~ Ux1SelJmp => Ux1SelJmp,
 		Ux1SelJmp => open,
-		--~ Ux2SelJmp => open,
 				
 		--FSM D/A's
 		DacASetpoint => DacASetpoint,
@@ -1497,28 +1417,7 @@ begin
 		Uart3TxFifoData => Uart3TxFifoData,
 		Uart3TxFifoCount => Uart3TxFifoCount,
 		Uart3ClkDivider => Uart3ClkDivider,
-		
-		UartLabFifoReset => UartLabFifoReset,
-		ReadUartLab => ReadUartLab,
-		UartLabRxFifoFull => UartLabRxFifoFull,
-		UartLabRxFifoEmpty => UartLabRxFifoEmpty,
-		UartLabRxFifoData => UartLabRxFifoData,
-		UartLabRxFifoCount => UartLabRxFifoCount,
-		WriteUartLab => WriteUartLab,
-		UartLabTxFifoFull => UartLabTxFifoFull,
-		UartLabTxFifoEmpty => UartLabTxFifoEmpty,
-		UartLabTxFifoData => UartLabTxFifoData,
-		UartLabTxFifoCount => UartLabTxFifoCount,
-		UartLabClkDivider => UartLabClkDivider,
-		
-		--Expansion Bus
-		ExtAddrOut => ExtAddr,
-		SetExtAddr => SetExtAddr,
-		ExtAddrIn => ExtAddrExt,
-		ExtWriteData => ExtWriteOut,
-		WriteExt => WriteExt,
-		ExtReadbackData => ExtReadback,
-		
+				
 		--Timing
 		IdealTicksPerSecond => std_logic_vector(to_unsigned(BoardMasterClockFreq, 32)),
 		ActualTicksLastSecond => PPSCount,
@@ -2268,136 +2167,8 @@ begin
 	
 	--Mux master reset (boot) and user reset (datamapper)
 	Uart3FifoReset_i <= MasterReset or Uart3FifoReset;
-	
 
-	
-	UartLabBitClockDiv : VariableClockDividerPorts
-	generic map
-	(
-		WIDTH_BITS => 8,
-		DIVOUT_RST_STATE => '0'--;
-	)
-	port map
-	(
-		--clki => MasterClk,
-		clki => UartClk,
-		rst => MasterReset,
-		rst_count => x"00",
-		terminal_count => UartLabClkDivider,
-		--~ terminal_count => std_logic_vector(to_unsigned(natural((real(153000000) / ( real(115200) * 16.0)) - 1.0), 8)),
-		clko => UartClkLab
-	);
-	
-	--~ --We're hardcoding Lab to 115,200 bps so we have a reachable benchtest...
-	--~ UartLabRxBitClockDiv : ClockDividerPorts
-	--~ generic map
-	--~ (
-		--~ CLOCK_DIVIDER => natural((real(102000000) / ( real(115200) * 16.0)) - 1.0),
-		--~ --CLOCK_DIVIDER => natural((real(102000000) / ( real(9600) * 16.0)) - 1.0),
-		--~ DIVOUT_RST_STATE => '0'--;
-	--~ )
-	--~ port map
-	--~ (
-		--~ clk => UartClk,
-		--~ rst => MasterReset,
-		--~ div => UartClkLab
-	--~ );
-	
-	UartLabTxBitClockDiv : ClockDividerPorts
-	generic map
-	(
-		CLOCK_DIVIDER => 16,
-		--~ CLOCK_DIVIDER => 8, --8 not 16 cause has to be rising edge of clk for each state so intrinsic /2
-		DIVOUT_RST_STATE => '0'--;
-	)
-	port map
-	(
-		clk => UartClkLab,
-		rst => MasterReset,
-		div => UartTxClkLab
-	);
-	
-	--~ Ux1SelJmp <= UartClkLab;
-	
-	IBufRxdLab : IBufP3Ports port map(clk => UartClk, I => TxdLab, O => RxdLab_i); --if you want to change the pin for this chip select, it's here
-	
-	--~ TP2 <= RxdLab_i;
-	--~ LedB <= not(TxdLab);
-	
-	--~ Ux1SelJmp <= RxdLab;
-	
-	RxdLab_RxLab : UartRxFifoExtClk
-	generic map
-	(
-		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
-		FIFO_BITS => 10--,
-		--~ BAUD_DIVIDER_BITS => 8--,
-		--~ BAUDRATE => 1Lab500000--,
-		--~ BAUDRATE => 8000000--,
-		--~ BAUDRATE => BoardMasterClockFreq / 16--, --9.Lab16MHz
-		--~ BAUDRATE => BoardMasterClockFreq / 819Lab--,
-		--~ BAUDRATE => 115Lab00--,
-	)
-	port map
-	(
-		clk => MasterClk,
-		uclk => UartClkLab,
-		rst => UartLabFifoReset_i,
-		--~ BaudDivider => UartLabClkDivider,
-		Rxd => RxdLab_i,
-		--~ Dbg1 => TP4,
-		--~ RxComplete => TP3,
-		Dbg1 => open,
-		RxComplete => open,
-		ReadFifo => ReadUartLab,
-		FifoFull => UartLabRxFifoFull,
-		FifoEmpty => UartLabRxFifoEmpty,
-		FifoReadData => UartLabRxFifoData,
-		FifoCount => UartLabRxFifoCount,
-		FifoReadAck => open--,		
-	);
-	
-	--~ CtsLab <= UartLabRxFifoFull; --polarity??
-	CtsUsb <= '1';
-	
-	RS4LabLab_TxLab : UartTxFifoExtClk
-	--~ RS4LabLab_TxLab : UartTxFifo
-	generic map
-	(
-		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
-		--~ FIFO_BITS => 10,
-		FIFO_BITS => 10--,
-		--~ BAUD_DIVIDER_BITS => 8--,
-		--~ BAUDRATE => 1Lab500000--,
-		--~ BAUDRATE => 8000000--,
-		--~ BAUDRATE => BoardMasterClockFreq / 16--, --9.Lab16MHz
-		--~ BAUDRATE => BoardMasterClockFreq / 819Lab--,
-		--~ BAUDRATE => 115Lab00--,
-	)
-	port map
-	(
-		clk => MasterClk,
-		--~ uclk => MasterClk,
-		uclk => UartTxClkLab,
-		rst => UartLabFifoReset_i,
-		--~ BaudDivider => UartLabClkDivider,
-		BitClockOut => open,
-		--~ BitClockOut => Ux1SelJmp,		
-		BitCountOut => TxdUartBitCount,
-		WriteStrobe => WriteUartLab,
-		WriteData => UartLabTxFifoData,
-		FifoFull => UartLabTxFifoFull,
-		FifoEmpty => UartLabTxFifoEmpty,
-		FifoCount => UartLabTxFifoCount,
-		TxInProgress => open,
-		--~ TxInProgress => TP3,		
-		Cts => '0', --RtsLab in this case, ignore cause the computer can pretty much alwyays keep up
-		Txd => TxdLab_i--,
-		--~ Txd => open--,
-	);
-	RxdLab <= TxdLab_i;
-	
-	Ux1SelJmp <= not(TxdLab_i);
+	--DEBUG
 	--~ TP8 <= TxdLab_i;
 	
 	--~ LedR <= not(TxdLab_i);
@@ -2406,9 +2177,6 @@ begin
 	--Debug monitors
 	--~ TxdLab <= Txd0_i;
 	--~ Txd1 <= Rxd0_i;
-	
-	--Mux master reset (boot) and user reset (datamapper)
-	UartLabFifoReset_i <= MasterReset or UartLabFifoReset;
 	
 	--~ TP1 <= RxdUsb_i;
 	--~ TP2 <= UartClkUsb;
@@ -2513,85 +2281,6 @@ begin
 	SckXO <= SckXO_i;
 	MosiXO <= MosiXO_i;
 	
-	
-		
-	----------------------------- Expansion Bus ----------------------------------
-
-	ExtAddrOutUart : SpiExtBusAddrTxPorts
-	generic map	(
-		MASTER_CLOCK_FREQHZ => BoardMasterClockFreq--,
-	)
-	port map (
-		clk => MasterClk,
-		rst => MasterReset,
-		SpiExtBusAddr => ExtAddr,
-		SendSpiExtBusAddr => SetExtAddr,
-		SendingSpiExtBusAddr => ExtAddrIsOutgoing,
-		SpiExtBusAddrTxdPin => nCsExt_i--,
-	);
-	
-	ExtAddrInUart : UartRx
-	generic map (
-		CLOCK_FREQHZ => BoardMasterClockFreq,
-		BAUDRATE => 38400--;
-	)
-	port map (						
-		clk => MasterClk,
-		rst => MasterReset,
-		Rxd => nCsExt_i,
-		RxComplete => open,
-		RxData => ExtAddrExt
-	);
-	
-	IBufExtMiso : IBufP2Ports
-	port map
-	(
-		clk => MasterClk,
-		I => MisoExt,
-		O => MisoExt_i--,
-	);
-
-	Ext_i : SpiExtBusPorts
-	generic map 
-	(
-		MASTER_CLOCK_FREQHZ => BoardMasterClockFreq--,
-		--~ CLOCK_DIVIDER => MASTER_CLOCK_FREQHZ / 100000, --100kHz
-	)
-	port map 
-	(
-		clk => MasterClk,
-		rst => MasterReset,
-		nCs => ExtXferInProgress, --We don't actually use the SPI's nCs since we're using a uart for the actual nCs on the bus...should prolly encapsulate this at some point to clean it up and prevent abuse...
-		Sck => SckExt_i,
-		Mosi => MosiExt_i,
-		Miso => MisoExt_i,
-		--~ Miso => MosiExt_i, --debug loopback
-		SpiExtBusWriteOut => ExtWriteOut,
-		WriteSpiExtBus => WriteExt,
-		SpiExtBusReadReady => ExtReadReady,
-		SpiExtBusReadback => ExtReadback
-		--~ ExtReadback => open
-	);
-	
-	--ExtInUse: this is the readback from the outside world, to see if another card is using the bus as master
-	ExtInUse <= '0' when ( (ExtAddrExt = x"00") or (ExtAddrExt = x"FF") ) else '1';
-	
-	SckExt <= SckExt_i;
-	MosiExt <= MosiExt_i;
-	nCsExt <= nCsExt_i;
-	
-	DOutExt <= PPS xor DInExt;
-	--~ DInExt <= 'Z';
-			
-	--~ TP4 <= nCsExtBus_i;
-	--~ TP5 <= SckExt_i;
-	--~ TP6 <= MosiExt_i;
-	--~ TP8 <= ExtReadReady;
-	--~ TP4 <= nCsExt0;
-	--~ TP5 <= SckExt;
-	--~ TP6 <= MosiExt;
-	--~ TP8 <= MisoExt;
-	
 	----------------------------- Power Supplies ----------------------------------
 		
 	PowerSync <= '1';
@@ -2599,32 +2288,21 @@ begin
 	
 	----------------------------- DEBUG IDEAS ----------------------------------
 	
-	--~ Ux1SelJmp <= RamBusDataIn(0);
+	Ux1SelJmp <= RamBusDataIn(0);
 	--~ Ux1SelJmp <= MotorSeekStep(0);
 	--~ Ux1SelJmp <= '1' when ( (Rxd1 = '1') and (Rxd2 = '0') ) else '0' when ( (Rxd1 = '0') and (Rxd2 = '1') ) else 'Z';
 	--~ Ux1SelJmp <= MasterClk;
 		
 	--  Discrete I/O Connections
-
-		--~ LedR <= '1';
-		--~ LedG <= '1';
-		--~ LedB <= '1';
-		--~ LedR <= not(PosSenseBit0A);
-		--~ LedG <= not(PosSenseBit1A);
-		--~ LedB <= not(PosSenseBit2A);
-		
-		--~ TP1 <= RamBusnCs;
-		--~ TP2 <= RamBusWrnRd;
-		--~ TP3 <= RamBusDataIn(0);
-		--~ TP4 <= WriteUartUsb;
-		--~ TP5 <= TxdUsb_i;
-		--~ TP6 <= UartClkUsb;
-		--~ TP7 <= '1';
-		--~ TP8 <= '1';
-		--~ TP5 <= 'Fault5V;
-		--~ TP6 <= PowerCycd;
-		--~ TP7 <= UartUsbFifoReset_i;
-		--~ TP8 <= Fault3V or Fault1V or PowerCycd or Fault5V;
+	
+		TP1 <= RamBusnCs;
+		TP2 <= RamBusWrnRd;
+		TP3 <= RamBusDataIn(0);
+		TP4 <= RamBusDataIn(1);
+		TP5 <= RamBusDataIn(2);
+		TP6 <= PowerCycd;
+		TP7 <= RamBusDataIn(3);
+		TP8 <= Fault3VA or Fault1V or PowerCycd or Fault5V;
 			
 	----------------------------- Clocked Logic / Main Loop ----------------------------------
 	

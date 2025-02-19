@@ -7,29 +7,23 @@ GLOBAL THRESHOLD - 5000
 
 NET NAME                                               CLOCK LOADS     ASYNC RST LOADS     DATA LOADS     TOTAL FANOUT     GLOBAL BUFFER PRESENT
 ------------------------------------------------------------------------------------------------------------------------------------------------
-FCCC_C0_0_GL1                                          2022            0                   0              2022             YES                  
-Main_0.UartClk0                                        31              0                   0              31               YES                  
+FCCC_C0_0_GL1                                          1818            0                   0              1818             YES                  
 Main_0.UartClk1                                        31              0                   0              31               YES                  
-Main_0.UartClkLab                                      31              0                   0              31               YES                  
+Main_0.UartClk0                                        31              0                   0              31               YES                  
 Main_0.UartClk3                                        31              0                   0              31               YES                  
-Main_0.ExtAddrInUart.UartClk                           26              0                   0              26               YES                  
-Main_0.UartClk2                                        15              0                   0              15               YES                  
+Main_0.UartClk2                                        31              0                   0              31               YES                  
 Main_0.UartTxClk0                                      9               0                   0              9                YES                  
-Main_0.UartTxClk2                                      9               0                   0              9                YES                  
 Main_0.UartTxClk1                                      9               0                   0              9                YES                  
-Main_0.UartTxClkLab                                    9               0                   0              9                YES                  
+Main_0.UartTxClk2                                      9               0                   0              9                YES                  
 Main_0.UartTxClk3                                      9               0                   0              9                YES                  
-Main_0.ExtAddrOutUart.SpiExtBusAddrTxdClock            7               0                   0              7                YES                  
-Main_0.BootupReset.shot_i_arst                         0               387                 0              387              YES                  
+Main_0.BootupReset.shot_i_arst                         0               324                 0              324              YES                  
 Main_0.SpiRst_arst                                     0               203                 0              203              YES                  
 Main_0.ltc2378.SpiEnableDelayOneShot.shot_i_arst_0     0               103                 0              103              YES                  
 Main_0.Uart1FifoReset_i_arst                           0               95                  0              95               YES                  
-Main_0.UartLabFifoReset_i_arst                         0               95                  0              95               YES                  
-Main_0.Uart0FifoReset_i_arst                           0               95                  0              95               YES                  
+Main_0.Uart2FifoReset_i_arst                           0               95                  0              95               YES                  
 Main_0.Uart3FifoReset_i_arst                           0               95                  0              95               YES                  
-Main_0.Uart2FifoReset_i_arst                           0               75                  0              75               YES                  
+Main_0.Uart0FifoReset_i_arst                           0               95                  0              95               YES                  
 Main_0.ClkDac_i.SpiRst_arst                            0               49                  0              49               YES                  
 Main_0.ads1258.SpiRst_arst                             0               36                  0              36               YES                  
 Main_0.RegisterSpace.PPSCountReset_arst                0               34                  0              34               YES                  
-Main_0.Ext_i.SpiRst_arst                               0               29                  0              29               YES                  
 ================================================================================================================================================

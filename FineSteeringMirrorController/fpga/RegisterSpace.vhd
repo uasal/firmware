@@ -37,8 +37,8 @@ entity RegisterSpacePorts is
 		BuildNumber : in std_logic_vector(31 downto 0);
 		
 		--Faults and control
-		nHVEn1 : out std_logic;
-		HVDis2 : out std_logic;
+		HVEn1 : out std_logic;
+		HVEn2 : out std_logic;
 		PowernEnHV : out std_logic;	
 		DacSelectMaxti : out std_logic;
 		FaultNegV : in std_logic;
@@ -47,6 +47,7 @@ entity RegisterSpacePorts is
 		Fault2VD : in std_logic;
 		Fault3VA : in std_logic;
 		Fault3VD : in std_logic;
+		Fault43V : in std_logic;
 		Fault5V : in std_logic;
 		FaultHV : in std_logic;
 		nHVFaultA : in std_logic;
@@ -58,9 +59,6 @@ entity RegisterSpacePorts is
 		PowerCycd : in std_logic;
 		nPowerCycClr : out std_logic;								
 		PowernEn : out std_logic;
-		LedR : out std_logic;
-		LedG : out std_logic;
-		LedB : out std_logic;
 		Uart0OE : out std_logic;
 		Uart1OE : out std_logic;
 		Uart2OE : out std_logic;
@@ -155,27 +153,6 @@ entity RegisterSpacePorts is
 		Uart3TxFifoCount : in std_logic_vector(9 downto 0);
 		Uart3ClkDivider : out std_logic_vector(7 downto 0);
 		
-		UartLabFifoReset : out std_logic;
-		ReadUartLab : out std_logic;
-		UartLabRxFifoFull : in std_logic;
-		UartLabRxFifoEmpty : in std_logic;
-		UartLabRxFifoData : in std_logic_vector(7 downto 0);
-		UartLabRxFifoCount : in std_logic_vector(9 downto 0);
-		WriteUartLab : out std_logic;
-		UartLabTxFifoFull : in std_logic;
-		UartLabTxFifoEmpty : in std_logic;
-		UartLabTxFifoData : out std_logic_vector(7 downto 0);
-		UartLabTxFifoCount : in std_logic_vector(9 downto 0);
-		UartLabClkDivider : out std_logic_vector(7 downto 0);
-		
-		--Expansion Bus
-		ExtAddrOut : out std_logic_vector(7 downto 0);
-		SetExtAddr : out std_logic;
-		ExtAddrIn : in std_logic_vector(7 downto 0);
-		ExtWriteData : out std_logic_vector(7 downto 0);
-		WriteExt : out std_logic;
-		ExtReadbackData : in std_logic_vector(7 downto 0);
-		
 		--Timing
 		IdealTicksPerSecond : in std_logic_vector(31 downto 0);
 		ActualTicksLastSecond : in std_logic_vector(31 downto 0);
@@ -239,15 +216,6 @@ architecture RegisterSpace of RegisterSpacePorts is
 	constant Uart3FifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(156, MAX_ADDRESS_BITS));
 	constant Uart3FifoReadDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(160, MAX_ADDRESS_BITS));
 	
-	constant UartLabFifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(164, MAX_ADDRESS_BITS));
-	constant UartLabFifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(168, MAX_ADDRESS_BITS));
-	constant UartLabFifoReadDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(172, MAX_ADDRESS_BITS));
-	
-	constant ExtAddrOutAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(16#94#, MAX_ADDRESS_BITS)); --148d
-	constant ExtAddrInAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(16#96#, MAX_ADDRESS_BITS));
-	constant ExtTransactionAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(16#0098#, MAX_ADDRESS_BITS));
-	constant ExtReadbackAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(16#9A#, MAX_ADDRESS_BITS));
-	
 	--Control Signals
 	
 	signal LastReadReq :  std_logic := '0';		
@@ -263,7 +231,6 @@ architecture RegisterSpace of RegisterSpacePorts is
 	--signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(230400) * 16.0)) - 1.0), 8));	--230k
 	signal Uart2ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8));	--"real fast"
 	signal Uart3ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8));	--"real fast"
-	signal UartLabClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8));	--"real fast"
 	
 	
 	signal MonitorAdcChannelReadIndex_i : std_logic_vector(4 downto 0);	
@@ -276,25 +243,19 @@ architecture RegisterSpace of RegisterSpacePorts is
 	signal DacDSetpoint_i :  std_logic_vector(23 downto 0) := x"000000";	
 	
 	signal PowernEn_i :  std_logic := '0';								
-	signal LedR_i :  std_logic := '0';
-	signal LedG_i :  std_logic := '0';
-	signal LedB_i :  std_logic := '0';
 	signal Uart0OE_i :  std_logic := '0';
 	signal Uart1OE_i :  std_logic := '0';
 	signal Uart2OE_i :  std_logic := '0';
 	signal Uart3OE_i :  std_logic := '0';								
 	signal Ux1SelJmp_i :  std_logic := '0';
-	signal Ux2SelJmp_i :  std_logic := '0';
-
+	
 	signal PowernEnHV_i :  std_logic := '0';
-	signal nHVEn1_i :  std_logic := '0';
-	signal HVDis2_i :  std_logic := '0';
+	signal HVEn1_i :  std_logic := '0';
+	signal HVEn2_i :  std_logic := '0';
 	signal DacSelectMaxti_i :  std_logic := '0';								
 	signal GlobalFaultInhibit_i :  std_logic := '0';
 	signal nFaultsClr_i :  std_logic := '0';
-	
-	signal ExtAddr_i : std_logic_vector(7 downto 0);
-	
+		
 begin
 
 	--~ Address_i(MAX_ADDRESS_BITS - 1 downto ADDRESS_BITS) <= std_logic_vector(to_unsigned(0, MAX_ADDRESS_BITS - ADDRESS_BITS));
@@ -312,7 +273,6 @@ begin
 	Uart1ClkDivider <= Uart1ClkDivider_i;
 	Uart2ClkDivider <= Uart2ClkDivider_i;
 	Uart3ClkDivider <= Uart3ClkDivider_i;
-	UartLabClkDivider <= UartLabClkDivider_i;
 	
 	MonitorAdcChannelReadIndex <= MonitorAdcChannelReadIndex_i;
 	MonitorAdcSpiFrameEnable <= MonitorAdcSpiFrameEnable_i;
@@ -322,22 +282,17 @@ begin
 	--~ Fault5V <= Fault5V_i;
 	PowernEn <= PowernEn_i;								
 	--~ PowerCycd <= PowerCycd_i;
-	LedR <= LedR_i;
-	LedG <= LedG_i;
-	LedB <= LedB_i;
 	Uart0OE <= Uart0OE_i;
 	Uart1OE <= Uart1OE_i;
 	Uart2OE <= Uart2OE_i;
 	Uart3OE <= Uart3OE_i;								
 	Ux1SelJmp <= Ux1SelJmp_i;	
 	PowernEnHV <= PowernEnHV_i;
-	nHVEn1 <= nHVEn1_i;
-	HVDis2 <= HVDis2_i;
+	HVEn1 <= HVEn1_i;
+	HVEn2 <= HVEn2_i;
 	DacSelectMaxti <= DacSelectMaxti_i;
 	GlobalFaultInhibit <= GlobalFaultInhibit_i;
 	nFaultsClr <= nFaultsClr_i;
-	
-	ExtAddrOut <= ExtAddr_i;
 	
 		
 	process (clk, rst)
@@ -352,8 +307,6 @@ begin
 			Uart1ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));
 			Uart2ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
 			Uart3ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
-			UartLabClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
-			
 			
 			MonitorAdcChannelReadIndex_i <= "00000";	
 			
@@ -641,38 +594,6 @@ begin
 								DataOut(27 downto 18) <= Uart3RxFifoCount;
 								DataOut(31 downto 28) <= "0000";
 								
-								
-								
-							when UartLabFifoAddr =>
-
-								ReadUartLab <= '1';
-								--~ DataOut(7 downto 0) <= UartLabRxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
-								--~ DataOut(31 downto 8) <= x"000000";
-								DataOut <= x"BAADC0DE";
-								
-							when UartLabFifoReadDataAddr =>
-
-								DataOut(7 downto 0) <= UartLabRxFifoData; --note that as the fifo hasn't actually had time to do the read yet, this will actually be the previous byte
-								DataOut(31 downto 8) <= x"000000";
-							
-							when UartLabFifoStatusAddr =>
-
-								DataOut(0) <= UartLabRxFifoEmpty;
-								DataOut(1) <= UartLabRxFifoFull;
-								DataOut(2) <= UartLabTxFifoEmpty;
-								DataOut(3) <= UartLabTxFifoFull;
-								DataOut(4) <= '0';
-								DataOut(5) <= '0';
-								DataOut(6) <= '0';
-								DataOut(7) <= '0';
-								DataOut(17 downto 8) <= UartLabRxFifoCount;
-								DataOut(27 downto 18) <= UartLabRxFifoCount;
-								DataOut(31 downto 28) <= "0000";
-
-
-
-								
-								
 							--Uart Clock dividers
 							when UartClockDividersAddr =>
 
@@ -681,11 +602,10 @@ begin
 								DataOut(23 downto 16) <= Uart2ClkDivider_i;
 								DataOut(31 downto 24) <= Uart3ClkDivider_i;
 								
-							when UartClockDividersAddr + std_logic_vector(to_unsigned(4, MAX_ADDRESS_BITS)) =>
-							
-								DataOut(7 downto 0) <= UartLabClkDivider_i;
-								DataOut(31 downto 8) <= x"000000";
-												
+								
+
+
+								
 							--Timing
 				
 							--IdealTicksPerSecond
@@ -722,17 +642,17 @@ begin
 								DataOut(3) <= Fault2VD;								
 								DataOut(4) <= Fault3VA;
 								DataOut(5) <= Fault3VD;
-								DataOut(6) <= Fault5V;
-								DataOut(7) <= FaultHV;
+								DataOut(6) <= Fault43V;
+								DataOut(7) <= Fault5V;
 								
-								DataOut(8) <= nHVFaultA;
-								DataOut(9) <= nHVFaultB;
-								DataOut(10) <= nHVFaultC;
-								DataOut(11) <= nHVFaultD;								
-								DataOut(12) <= PowerCycd;
-								DataOut(13) <= LedR_i;
-								DataOut(14) <= LedG_i;
-								DataOut(15) <= LedB_i;
+								DataOut(8) <= FaultHV;
+								DataOut(9) <= nHVFaultA;
+								DataOut(10) <= nHVFaultB;
+								DataOut(11) <= nHVFaultC;
+								DataOut(12) <= nHVFaultD;								
+								DataOut(13) <= PowerCycd;
+								DataOut(14) <= PowernEn_i;
+								DataOut(15) <= '0';
 								
 								DataOut(16) <= Uart0OE_i;
 								DataOut(17) <= Uart1OE_i;
@@ -744,8 +664,8 @@ begin
 								DataOut(23) <= '0';
 								
 								DataOut(24) <= PowernEnHV_i;
-								DataOut(25) <= nHVEn1_i;
-								DataOut(26) <= HVDis2_i;
+								DataOut(25) <= HVEn1_i;
+								DataOut(26) <= HVEn2_i;
 								DataOut(27) <= DacSelectMaxti_i;
 								DataOut(28) <= GlobalFaultInhibit_i;
 								DataOut(29) <= nFaultsClr_i;
@@ -753,26 +673,6 @@ begin
 								DataOut(31) <= '0';
 								 								
 								--~ DataOut(31 downto 23) <= "000000000";
-								
-								
-								
-							--Expansion Bus
-							
-							when ExtAddrOutAddr =>
-
-								DataOut(7 downto 0) <= ExtAddr_i;
-								DataOut(31 downto 8) <= x"000000";
-								
-							when ExtAddrInAddr =>
-
-								DataOut(7 downto 0) <= ExtAddrIn;
-								DataOut(31 downto 8) <= x"000000";
-								
-								
-							when ExtReadbackAddr =>
-
-								DataOut(7 downto 0) <= ExtReadbackData;
-								DataOut(31 downto 8) <= x"000000";
 								
 
 								
@@ -810,8 +710,7 @@ begin
 						ReadUart1 <= '0';						
 						ReadUart2 <= '0';		
 						ReadUart3 <= '0';		
-						ReadUartLab <= '0';		
-						
+	
 					end if;
 					
 				end if;
@@ -937,16 +836,6 @@ begin
 
 								Uart3FifoReset <= '1';
 								
-							when UartLabFifoAddr =>
-
-								WriteUartLab <= '1';
-								UartLabTxFifoData <= DataIn(7 downto 0);
-								
-							when UartLabFifoStatusAddr =>
-
-								UartLabFifoReset <= '1';
-							
-							
 							--Uart Clock dividers
 							when UartClockDividersAddr =>
 
@@ -954,10 +843,6 @@ begin
 								Uart1ClkDivider_i <= DataIn(15 downto 8);
 								Uart2ClkDivider_i <= DataIn(23 downto 16);
 								Uart3ClkDivider_i <= DataIn(31 downto 24);
-								
-							when UartClockDividersAddr + std_logic_vector(to_unsigned(4, MAX_ADDRESS_BITS)) =>
-							
-								UartLabClkDivider_i <= DataIn(7 downto 0);
 							
 							
 								
@@ -985,53 +870,24 @@ begin
 								--~ MotorEnable_i <= DataIn(6);
 								--~ ResetSteps_i <= DataIn(7);
 								
-								--~ nFaultClr1V <= DataIn(8);
-								--~ nFaultClr3V <= DataIn(9);
-								--~ nFaultClr5V <= DataIn(10);
-								PowernEn_i <= DataIn(11);
-								nPowerCycClr <= DataIn(12);
-								LedR_i <= DataIn(13);
-								LedG_i <= DataIn(14);
-								LedB_i <= DataIn(15);
+								nPowerCycClr <= DataIn(13);
+								PowernEn_i <= DataIn(14);
 								
 								Uart0OE_i <= DataIn(16);
 								Uart1OE_i <= DataIn(17);
 								Uart2OE_i <= DataIn(18);
 								Uart3OE_i <= DataIn(19);
 								Ux1SelJmp_i <= DataIn(20);
-								--~ Ux2SelJmp_i <= DataIn(21);
 								PPSCountReset <= DataIn(22);	
-								 --~ <= DataIn(23);
 								
 								PowernEnHV_i <= DataIn(24);
-								nHVEn1_i <= DataIn(25);
-								HVDis2_i <= DataIn(26);
+								HVEn1_i <= DataIn(25);
+								HVEn2_i <= DataIn(26);
 								DacSelectMaxti_i <= DataIn(27);
 								GlobalFaultInhibit_i <= DataIn(28);
 								nFaultsClr_i <= DataIn(29);
-								 --~ <= DataIn(30);
-								 --~ <= DataIn(31);
 								
 							
-							
-							--Expansion Bus
-							
-							when ExtAddrOutAddr =>
-
-								--When we write to this addr, have the uart initiate a transer with the 'set...'signal:
-								SetExtAddr <= '1';								
-								ExtAddr_i <= DataIn(7 downto 0);
-								
-							when ExtTransactionAddr =>
-
-								--When we hit the first address, we grab the data...
-								WriteExt <= '1';
-								ExtWriteData <= DataIn(7 downto 0);
-								
-							when ExtAddrInAddr =>
-							
-								--We might wanna do something here eventually, like pop a fifo...
-								
 
 								
 							when others => 
@@ -1075,13 +931,9 @@ begin
 						Uart2FifoReset <= '0';						
 						WriteUart3 <= '0';		
 						Uart3FifoReset <= '0';						
-						WriteUartLab <= '0';		
-						UartLabFifoReset <= '0';						
 						
 						nPowerCycClr <= '0';												
 						--~ ??nFaultsClr_i <= DataIn(29);
-						
-						SetExtAddr <= '0';
 						
 					
 					end if;

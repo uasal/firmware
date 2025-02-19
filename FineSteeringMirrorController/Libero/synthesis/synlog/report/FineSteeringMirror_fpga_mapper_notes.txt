@@ -9,16 +9,13 @@
 @N: MO111 :"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/std1164.vhd":52:28:52:28|Tristate driver TrigMonAdcs_1 (in view: work.Main(architecture_main)) on net TrigMonAdcs_1 (in view: work.Main(architecture_main)) has its enable tied to GND.
 @N: MO111 :|Tristate driver TrigMonAdcs_t (in view: work.FineSteeringMirror(verilog)) on net TrigMonAdcs (in view: work.FineSteeringMirror(verilog)) has its enable tied to GND.
 @N: BN115 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FineSteeringMirror_sb.v":347:0:347:11|Removing instance FineSteeringMirror_sb_0.CORERESETP_0 (in view: work.FineSteeringMirror(verilog)) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":346:2:346:3|Removing sequential instance ReadMonitorAdcSample (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Removing sequential instance RxAv (in view: work.UartRxRaw_1(behaviour)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBus.vhd":141:2:141:3|Removing sequential instance SpiExtBusReadReady (in view: work.SpiExtBusPorts_102000000(spiextbus)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|Removing sequential instance ReadMonitorAdcSample (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":54:65:54:65|Found counter in view:work.Main(architecture_main) instance PPSAccumulator.PPSAccum_i[31:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":296:2:296:3|Found counter in view:work.Main(architecture_main) instance ltc2378.SamplesAveraged[15:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart0BitClockDiv.ClkDiv[6:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart1BitClockDiv.ClkDiv[6:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart2BitClockDiv.ClkDiv[6:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart3BitClockDiv.ClkDiv[6:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance UartLabBitClockDiv.ClkDiv[6:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found counter in view:work.Main(architecture_main) instance BootupReset.ClkDiv[9:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd":96:2:96:3|Found counter in view:work.SpiMasterDualPorts_work_main_architecture_main_0layer1(spimasterdual) instance ClkDiv[6:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
@@ -53,58 +50,24 @@
 @N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_6(rtl) instance fifo_i.counter_r[10:0]  
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_6(rtl) instance fifo_i.waddr_r[9:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_6(rtl) instance fifo_i.raddr_r[9:0] 
-@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
-@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.fifo_8_10_1_7(rtl) instance counter_r[10:0]  
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_7(rtl) instance waddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_7(rtl) instance raddr_r[9:0] 
-@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM fifo_i.ram[7:0] with specified coding style. Inferring block RAM.
-@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_8(rtl) instance fifo_i.counter_r[10:0]  
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_8(rtl) instance fifo_i.waddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_8(rtl) instance fifo_i.raddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Found counter in view:work.ClockDividerPorts_work_main_architecture_main_2layer1(clockdivider) instance ClkDiv[10:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Found counter in view:work.ClockDividerPorts_work_main_architecture_main_1layer1(clockdivider) instance ClkDiv[6:0] 
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Removing sequential instance Main_0.RS422_Rx2.UartFifo.fifo_i.waddr_r[9:0] (in view: work.FineSteeringMirror(verilog)) of type view:PrimLib.counter(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Removing sequential instance Main_0.RS422_Rx2.UartFifo.fifo_i.raddr_r[9:0] (in view: work.FineSteeringMirror(verilog)) of type view:PrimLib.counter(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Removing sequential instance Main_0.RS422_Rx2.Uart.Uart.DataO[7] (in view: work.FineSteeringMirror(verilog)) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Removing sequential instance Main_0.RS422_Rx2.Uart.Uart.DataO[6] (in view: work.FineSteeringMirror(verilog)) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Removing sequential instance Main_0.RS422_Rx2.Uart.Uart.DataO[5] (in view: work.FineSteeringMirror(verilog)) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Removing sequential instance Main_0.RS422_Rx2.Uart.Uart.DataO[4] (in view: work.FineSteeringMirror(verilog)) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Removing sequential instance Main_0.RS422_Rx2.Uart.Uart.DataO[3] (in view: work.FineSteeringMirror(verilog)) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Removing sequential instance Main_0.RS422_Rx2.Uart.Uart.DataO[2] (in view: work.FineSteeringMirror(verilog)) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Removing sequential instance Main_0.RS422_Rx2.Uart.Uart.DataO[1] (in view: work.FineSteeringMirror(verilog)) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Removing sequential instance Main_0.RS422_Rx2.Uart.Uart.DataO[0] (in view: work.FineSteeringMirror(verilog)) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Removing sequential instance Main_0.RS422_Rx2.Uart.Uart.RReg[7] (in view: work.FineSteeringMirror(verilog)) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Removing sequential instance Main_0.RS422_Rx2.Uart.Uart.RReg[6] (in view: work.FineSteeringMirror(verilog)) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Removing sequential instance Main_0.RS422_Rx2.Uart.Uart.RReg[5] (in view: work.FineSteeringMirror(verilog)) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Removing sequential instance Main_0.RS422_Rx2.Uart.Uart.RReg[4] (in view: work.FineSteeringMirror(verilog)) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Removing sequential instance Main_0.RS422_Rx2.Uart.Uart.RReg[3] (in view: work.FineSteeringMirror(verilog)) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Removing sequential instance Main_0.RS422_Rx2.Uart.Uart.RReg[2] (in view: work.FineSteeringMirror(verilog)) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Removing sequential instance Main_0.RS422_Rx2.Uart.Uart.RReg[1] (in view: work.FineSteeringMirror(verilog)) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Removing sequential instance Main_0.RS422_Rx2.Uart.Uart.RReg[0] (in view: work.FineSteeringMirror(verilog)) because it does not drive other instances.
-@N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_314 
-@N: FP130 |Promoting Net Main_0.SpiRst_arst on CLKINT  I_315 
-@N: FP130 |Promoting Net Main_0.ltc2378.shot_i_arst_0 on CLKINT  I_316 
-@N: FP130 |Promoting Net Main_0.UartLabFifoReset_i_arst on CLKINT  I_317 
-@N: FP130 |Promoting Net Main_0.Uart3FifoReset_i_arst on CLKINT  I_318 
-@N: FP130 |Promoting Net Main_0.Uart1FifoReset_i_arst on CLKINT  I_319 
-@N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_arst on CLKINT  I_320 
-@N: FP130 |Promoting Net Main_0.Uart2FifoReset_i_arst on CLKINT  I_321 
-@N: FP130 |Promoting Net Main_0.ClkDac_i.SpiRst_arst on CLKINT  I_322 
-@N: FP130 |Promoting Net Main_0.ads1258.SpiRst_arst on CLKINT  I_323 
-@N: FP130 |Promoting Net Main_0.PPSCountReset_arst on CLKINT  I_324 
-@N: FP130 |Promoting Net Main_0.UartClk3 on CLKINT  I_325 
-@N: FP130 |Promoting Net Main_0.UartClk1 on CLKINT  I_326 
-@N: FP130 |Promoting Net Main_0.UartClkLab on CLKINT  I_327 
-@N: FP130 |Promoting Net Main_0.UartClk0 on CLKINT  I_328 
-@N: FP130 |Promoting Net Main_0.Ext_i.SpiRst_arst on CLKINT  I_329 
-@N: FP130 |Promoting Net Main_0.ExtAddrInUart.UartClk on CLKINT  I_330 
-@N: FP130 |Promoting Net Main_0.UartClk2 on CLKINT  I_331 
-@N: FP130 |Promoting Net Main_0.UartTxClkLab on CLKINT  I_332 
-@N: FP130 |Promoting Net Main_0.UartTxClk3 on CLKINT  I_333 
-@N: FP130 |Promoting Net Main_0.UartTxClk2 on CLKINT  I_334 
-@N: FP130 |Promoting Net Main_0.UartTxClk1 on CLKINT  I_335 
-@N: FP130 |Promoting Net Main_0.UartTxClk0 on CLKINT  I_336 
-@N: FP130 |Promoting Net Main_0.ExtAddrOutUart.SpiExtBusAddrTxdClock on CLKINT  I_337 
+@N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_214 
+@N: FP130 |Promoting Net Main_0.SpiRst_arst on CLKINT  I_215 
+@N: FP130 |Promoting Net Main_0.ltc2378.shot_i_arst_0 on CLKINT  I_216 
+@N: FP130 |Promoting Net Main_0.Uart1FifoReset_i_arst on CLKINT  I_217 
+@N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_arst on CLKINT  I_218 
+@N: FP130 |Promoting Net Main_0.Uart3FifoReset_i_arst on CLKINT  I_219 
+@N: FP130 |Promoting Net Main_0.Uart2FifoReset_i_arst on CLKINT  I_220 
+@N: FP130 |Promoting Net Main_0.ClkDac_i.SpiRst_arst on CLKINT  I_221 
+@N: FP130 |Promoting Net Main_0.ads1258.SpiRst_arst on CLKINT  I_222 
+@N: FP130 |Promoting Net Main_0.PPSCountReset_arst on CLKINT  I_223 
+@N: FP130 |Promoting Net Main_0.UartClk2 on CLKINT  I_224 
+@N: FP130 |Promoting Net Main_0.UartClk3 on CLKINT  I_225 
+@N: FP130 |Promoting Net Main_0.UartClk0 on CLKINT  I_226 
+@N: FP130 |Promoting Net Main_0.UartClk1 on CLKINT  I_227 
+@N: FP130 |Promoting Net Main_0.UartTxClk2 on CLKINT  I_228 
+@N: FP130 |Promoting Net Main_0.UartTxClk3 on CLKINT  I_229 
+@N: FP130 |Promoting Net Main_0.UartTxClk0 on CLKINT  I_230 
+@N: FP130 |Promoting Net Main_0.UartTxClk1 on CLKINT  I_231 
 @N: MT611 :|Automatically generated clock FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock is not used and is being removed
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
 @N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 

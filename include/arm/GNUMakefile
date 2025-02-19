@@ -436,7 +436,7 @@ endif
 %.hex: %.elf
 	@echo
 	@echo $(MSG_FLASH) $@
-	$(OBJCOPY) -O $(FORMAT) $< $@
+	$(OBJCOPY) -S -O $(FORMAT) $< $@
 	$(eval BUILDNUMAFTER := $(shell bquery $(TARGET)))
 	$(OBJDUMP) -d -g -C -l -S --prefix-addresses $(TARGET).elf > builds/$(PROJECT_NAME).v$(GITVERSION).b$(BUILDNUMAFTER).lss
 	$(COPY) $@ builds/$(PROJECT_NAME).v$(GITVERSION).b$(BUILDNUMAFTER).hex

@@ -1,7 +1,7 @@
 #--  Synopsys, Inc.
 #--  Version T-2022.09M-SP2-1
 #--  Project file /home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/synthesis/run_options.txt
-#--  Written on Mon Oct 28 15:57:18 2024
+#--  Written on Tue Feb 18 19:14:36 2025
 
 
 #project files
@@ -41,9 +41,6 @@ add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/Spi
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/SpiDeviceDual.vhd"
-add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBusAddrTx.vhd"
-add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/SpiExtBus.vhd"
-add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/UartRx.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd"
 add_file -verilog "/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v"
 add_file -fpga_constraint "/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/designer/FineSteeringMirror/synthesis.fdc"
@@ -56,6 +53,7 @@ impl -add synthesis -type fpga
 #implementation attributes
 
 set_option -vlog_std sysv
+set_option -include_path {/home/summer/projects/CGraph/firmware/include}
 
 #device options
 set_option -technology SmartFusion2
