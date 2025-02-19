@@ -3,7 +3,7 @@
 <doc>
 <title>Global Net Report</title>
 <text>Microchip Technology Inc. - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)</text>
-<text>Date: Tue Feb 18 13:47:07 2025
+<text>Date: Wed Feb 19 11:10:20 2025
 </text>
 <section>
 <name>Global Nets Information</name>
@@ -404,13 +404,7 @@
  <cell>1</cell>
  <cell>DMMainPorts_1/Uart1BitClockDiv/clko_i:Q</cell>
  <cell>DMMainPorts_1/clko_i_i</cell>
- <cell>DMMainPorts_1/Uart2TxBitClockDiv/div_i:CLK</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>DMMainPorts_1/Uart3TxBitClockDiv/div_i:CLK</cell>
+ <cell>DMMainPorts_1/Uart1TxBitClockDiv/ClkDiv_Z[2]:CLK</cell>
 </row>
 <row>
  <cell></cell>
@@ -422,13 +416,25 @@
  <cell></cell>
  <cell></cell>
  <cell></cell>
+ <cell>DMMainPorts_1/Uart3TxBitClockDiv/ClkDiv[1]:CLK</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>DMMainPorts_1/Uart2TxBitClockDiv/div_i:CLK</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
  <cell>DMMainPorts_1/Uart2TxBitClockDiv/ClkDiv_Z[1]:CLK</cell>
 </row>
 <row>
  <cell></cell>
  <cell></cell>
  <cell></cell>
- <cell>DMMainPorts_1/Uart1TxBitClockDiv/div_i:CLK</cell>
+ <cell>DMMainPorts_1/Uart3TxBitClockDiv/div_i:CLK</cell>
 </row>
 <row>
  <cell></cell>
@@ -440,7 +446,13 @@
  <cell></cell>
  <cell></cell>
  <cell></cell>
- <cell>DMMainPorts_1/Uart1TxBitClockDiv/ClkDiv_Z[1]:CLK</cell>
+ <cell>DMMainPorts_1/Uart2TxBitClockDiv/ClkDiv_Z[2]:CLK</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>DMMainPorts_1/Uart1TxBitClockDiv/div_i:CLK</cell>
 </row>
 <row>
  <cell></cell>
@@ -452,25 +464,13 @@
  <cell></cell>
  <cell></cell>
  <cell></cell>
- <cell>DMMainPorts_1/Uart2TxBitClockDiv/ClkDiv_Z[2]:CLK</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell></cell>
  <cell>DMMainPorts_1/Uart3TxBitClockDiv/ClkDiv[2]:CLK</cell>
 </row>
 <row>
  <cell></cell>
  <cell></cell>
  <cell></cell>
- <cell>DMMainPorts_1/Uart1TxBitClockDiv/ClkDiv_Z[2]:CLK</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>DMMainPorts_1/Uart3TxBitClockDiv/ClkDiv[1]:CLK</cell>
+ <cell>DMMainPorts_1/Uart1TxBitClockDiv/ClkDiv_Z[1]:CLK</cell>
 </row>
 </table>
 </section>

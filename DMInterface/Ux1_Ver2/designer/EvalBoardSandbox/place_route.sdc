@@ -1,7 +1,7 @@
 # Microsemi Corp.
-# Date: 2025-Feb-18 13:46:52
+# Date: 2025-Feb-19 11:10:04
 # This file was generated based on the following SDC source files:
-#   C:/Users/SKaye/repos5/firmware/DMInterface/Ux1_Ver2/constraint/EvalBoardSandbox_derived_constraints.sdc
+#   C:/Users/SKaye/repos/firmware/DMInterface/Ux1_Ver2/constraint/EvalBoardSandbox_derived_constraints.sdc
 #
 
 create_clock -name {CLK0_PAD} -period 19.6078 [ get_ports { CLK0_PAD } ]
