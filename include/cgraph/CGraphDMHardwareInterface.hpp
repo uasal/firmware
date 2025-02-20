@@ -17,7 +17,7 @@
 #include "cgraph/CGraphCommon.hpp"
 #include "CGraphFSMHardwareInterface.hpp" //AdcAccumulator definition
 
-union CGraphDMCIHardwareControlRegister
+union CGraphDMHardwareControlRegister
 {
     uint32_t all;
     struct 
@@ -27,13 +27,13 @@ union CGraphDMCIHardwareControlRegister
 
     } __attribute__((__packed__));
 
-    CGraphDMCIHardwareControlRegister() { all = 0; }
+    CGraphDMHardwareControlRegister() { all = 0; }
 
-    //~ void formatf() const { ::formatf("CGraphDMCIHardwareControlRegister: Sample: %+10.0lf ", (double)Sample); ::formatf("(0x%.8lX", (unsigned long)(all >> 32));  ::formatf("%.8lX)", (unsigned long)(all)); ::formatf(", NumAccums: %lu ", (unsigned long)NumAccums); ::formatf("(0x%lX)", (unsigned long)NumAccums); }
+    //~ void formatf() const { ::formatf("CGraphDMHardwareControlRegister: Sample: %+10.0lf ", (double)Sample); ::formatf("(0x%.8lX", (unsigned long)(all >> 32));  ::formatf("%.8lX)", (unsigned long)(all)); ::formatf(", NumAccums: %lu ", (unsigned long)NumAccums); ::formatf("(0x%lX)", (unsigned long)NumAccums); }
 
 } __attribute__((__packed__));
 
-union CGraphDMCIHardwareStatusRegister
+union CGraphDMHardwareStatusRegister
 {
     uint32_t all;
     struct 
@@ -51,13 +51,13 @@ union CGraphDMCIHardwareStatusRegister
         
     } __attribute__((__packed__));
 
-    CGraphDMCIHardwareStatusRegister() { all = 0; }
+    CGraphDMHardwareStatusRegister() { all = 0; }
 
-    //~ void formatf() const { ::formatf("CGraphDMCIHardwareStatusRegister: Sample: %+10.0lf ", (double)Sample); ::formatf("(0x%.8lX", (uint32_t)(all >> 32));  ::formatf("%.8lX)", (uint32_t)(all)); ::formatf(", NumAccums: %lu ", (uint32_t)NumAccums); ::formatf("(0x%lX)", (uint32_t)NumAccums); }
+    //~ void formatf() const { ::formatf("CGraphDMHardwareStatusRegister: Sample: %+10.0lf ", (double)Sample); ::formatf("(0x%.8lX", (uint32_t)(all >> 32));  ::formatf("%.8lX)", (uint32_t)(all)); ::formatf(", NumAccums: %lu ", (uint32_t)NumAccums); ::formatf("(0x%lX)", (uint32_t)NumAccums); }
 
 } __attribute__((__packed__));
 
-union CGraphDMCIUartStatusRegister
+union CGraphDMUartStatusRegister
 {
     uint32_t all;
     struct 
@@ -75,14 +75,14 @@ union CGraphDMCIUartStatusRegister
 
     } __attribute__((__packed__));
 
-    CGraphDMCIUartStatusRegister() { all = 0; }
+    CGraphDMUartStatusRegister() { all = 0; }
 
-    //~ void formatf() const { ::formatf("CGraphDMCIUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", UartRxFifoEmpty?'Y':'N', UartRxFifoFull?'Y':'N', UartTxFifoEmpty?'Y':'N', UartTxFifoFull?'Y':'N', UartRxFifoCount + (UartRxFifoCountHi << 8), UartTxFifoCount + (UartTxFifoCountHi << 8)); }
-	void formatf() const { ::formatf("CGraphDMCIUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", UartRxFifoEmpty?'Y':'N', UartRxFifoFull?'Y':'N', UartTxFifoEmpty?'Y':'N', UartTxFifoFull?'Y':'N', UartRxFifoCount, UartTxFifoCount); }
+    //~ void formatf() const { ::formatf("CGraphDMUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", UartRxFifoEmpty?'Y':'N', UartRxFifoFull?'Y':'N', UartTxFifoEmpty?'Y':'N', UartTxFifoFull?'Y':'N', UartRxFifoCount + (UartRxFifoCountHi << 8), UartTxFifoCount + (UartTxFifoCountHi << 8)); }
+	void formatf() const { ::formatf("CGraphDMUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", UartRxFifoEmpty?'Y':'N', UartRxFifoFull?'Y':'N', UartTxFifoEmpty?'Y':'N', UartTxFifoFull?'Y':'N', UartRxFifoCount, UartTxFifoCount); }
 
 } __attribute__((__packed__));
 
-struct CGraphDMCIHardwareInterface
+struct CGraphDMHardwareInterface
 {
     uint32_t DeviceSerialNumber; //ro; FPGA manufacturer hardcoded device UUID
     uint32_t FpgaFirmwareBuildNumber; //ro; Auto-incremented firmware UUID
@@ -93,8 +93,8 @@ struct CGraphDMCIHardwareInterface
     uint32_t ClockSteeringDacSetpoint; //rw; 
     uint32_t DacChannelIndex; //either this way of setting Dac's or the flat model, below...
     uint32_t DacSetpoint; //either this way of setting Dac's or the flat model, below...
-    CGraphDMCIHardwareControlRegister ControlRegister; //rw; see definition above
-    CGraphDMCIHardwareStatusRegister StatusRegister; //ro; see definition above
+    CGraphDMHardwareControlRegister ControlRegister; //rw; see definition above
+    CGraphDMHardwareStatusRegister StatusRegister; //ro; see definition above
     int32_t PPSRtcPhaseComparator; //ro;
     int32_t PPSAdcPhaseComparator; //ro;
 	AdcAccumulator MonitorAdc0Accumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
@@ -114,13 +114,17 @@ struct CGraphDMCIHardwareInterface
 	AdcAccumulator DMController5MonitorAdcAccumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
 	uint32_t DMController5MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
 	uint32_t UartFifo0; //rw; send or read bytes from uart(s)
-	CGraphDMCIUartStatusRegister UartStatusRegister0; //ro; what state are the uart(s) in?
+	UartStatusRegister UartStatusRegister0; //ro; what state are the uart(s) in?
+        uint32_t UartFifo0ReadData;
 	uint32_t UartFifo1; //rw; send or read bytes from uart(s)
-	CGraphDMCIUartStatusRegister UartStatusRegister1; //ro; what state are the uart(s) in?
+	UartStatusRegister UartStatusRegister1; //ro; what state are the uart(s) in?
+        uint32_t UartFifo1ReadData;
 	uint32_t UartFifo2; //rw; send or read bytes from uart(s)
-	CGraphDMCIUartStatusRegister UartStatusRegister2; //ro; what state are the uart(s) in?
+	UartStatusRegister UartStatusRegister2; //ro; what state are the uart(s) in?
+        uint32_t UartFifo2ReadData;
 	uint32_t UartFifo3; //rw; send or read bytes from uart(s)
-	CGraphDMCIUartStatusRegister UartStatusRegister3; //ro; what state are the uart(s) in?
+	UartStatusRegister UartStatusRegister3; //ro; what state are the uart(s) in?
+        uint32_t UartFifo3ReadData;
 	uint8_t BaudDivider0; //rw; clock divider for the first serial port
 	uint8_t BaudDivider1;
 	uint8_t BaudDivider2;
@@ -134,13 +138,13 @@ struct CGraphDMCIHardwareInterface
 	
     static const uint32_t DacFullScale;
     static const double DacDriverFullScaleOutputVoltage; //150 Volts, don't get your fingers near this thing!
-    static const double DMCIDriverFullScaleOutputTravel; //Meters; note our granularity is this / DacFullScale which is approx 10pm
+    static const double DMDriverFullScaleOutputTravel; //Meters; note our granularity is this / DacFullScale which is approx 10pm
 
-    //~ void formatf() const { ::formatf("CGraphDMCIHardwareInterface: Sample: %+10.0lf ", (double)Sample); ::formatf("(0x%.8lX", (uint32_t)(all >> 32));  ::formatf("%.8lX)", (uint32_t)(all)); ::formatf(", NumAccums: %lu ", (uint32_t)NumAccums); ::formatf("(0x%lX)", (uint32_t)NumAccums); }
+    //~ void formatf() const { ::formatf("CGraphDMHardwareInterface: Sample: %+10.0lf ", (double)Sample); ::formatf("(0x%.8lX", (uint32_t)(all >> 32));  ::formatf("%.8lX)", (uint32_t)(all)); ::formatf(", NumAccums: %lu ", (uint32_t)NumAccums); ::formatf("(0x%lX)", (uint32_t)NumAccums); }
 
 } __attribute__((__packed__));
 
-class CGraphDMCIProtoHardwareMmapper
+class CGraphDMProtoHardwareMmapper
 {
 public:
 
@@ -151,19 +155,19 @@ public:
     //~ int FpgaHandle;
     //~ void* FpgaBus;
 
-    //~ CGraphDMCIHardwareMmapper(const bool OpenOnConstruct = false) :
+    //~ CGraphDMHardwareMmapper(const bool OpenOnConstruct = false) :
 
     //~ FpgaHandle(0),
     //~ FpgaBus(MAP_FAILED)//,
 
     //~ { if (OpenOnConstruct) { open(); } }
 
-    //~ ~CGraphDMCIHardwareMmapper() { close(); }
+    //~ ~CGraphDMHardwareMmapper() { close(); }
 
-    static int open(int& FpgaHandle, CGraphDMCIHardwareInterface*& FpgaBus);
-    static int close(int& FpgaHandle, CGraphDMCIHardwareInterface*& FpgaBus);
-    static int read(const CGraphDMCIHardwareInterface* FpgaBus, const size_t Address, void* Buffer, const size_t Len);
-    static int write(CGraphDMCIHardwareInterface* FpgaBus, const size_t Address, const void* Buffer, const size_t Len);
+    static int open(int& FpgaHandle, CGraphDMHardwareInterface*& FpgaBus);
+    static int close(int& FpgaHandle, CGraphDMHardwareInterface*& FpgaBus);
+    static int read(const CGraphDMHardwareInterface* FpgaBus, const size_t Address, void* Buffer, const size_t Len);
+    static int write(CGraphDMHardwareInterface* FpgaBus, const size_t Address, const void* Buffer, const size_t Len);
 };
 
 //EOF
