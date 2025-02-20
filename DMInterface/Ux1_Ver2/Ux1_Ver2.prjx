@@ -1397,7 +1397,7 @@ SIZE="1697"
 ENDFILE
 VALUE "<project>\component\work\EvalBoardSandbox\EvalBoardSandbox.cxf,actgen_cxf"
 STATE="utd"
-TIME="1739911119"
+TIME="1740009650"
 SIZE="6849"
 ENDFILE
 VALUE "<project>\component\work\EvalBoardSandbox\EvalBoardSandbox.v,hdl"
@@ -1810,7 +1810,7 @@ TIME="1739910911"
 SIZE="258"
 ENDFILE
 VALUE "<project>\synthesis\EvalBoardSandbox.vm,syn_vm"
-STATE="ood"
+STATE="utd"
 TIME="1739910910"
 SIZE="314992"
 ENDFILE
@@ -2232,6 +2232,7 @@ ENDLIST
 LIST ProjectState5.1
 LIST Impl1
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -2693,6 +2694,7 @@ ENDLIST
 LIST "EvalBoardSandbox::work"
 LIST Impl1
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -2777,8 +2779,11 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
+Reports;Reports;0
+ReportsCurrentItem;Generate Memory Map:EvalBoardSandbox_DataSheet.xml
+SmartDesign;EvalBoardSandbox;0
 StartPage;StartPage;0
-ACTIVEVIEW;StartPage
+ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
 LIST "BuildNumberPorts::work","hdl\BuildNumber.vhd","FALSE","FALSE"
