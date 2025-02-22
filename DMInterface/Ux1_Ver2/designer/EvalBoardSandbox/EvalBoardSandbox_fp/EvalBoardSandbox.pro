@@ -1,6 +1,6 @@
 <project name="EvalBoardSandbox" version="1.2">
     <ProjectDirectory>
-        C:\MicroSemiProj\Libero\DMCIOverhaul\designer\EvalBoardSandbox\EvalBoardSandbox_fp
+        C:\Users\SKaye\repos5\firmware\DMInterface\Ux1_Ver2\designer\EvalBoardSandbox\EvalBoardSandbox_fp
     </ProjectDirectory>
     <View>
         ChainView
@@ -9,7 +9,7 @@
         M2S010
     </LiberoTargetDevice>
     <LogFile>
-        C:\MicroSemiProj\Libero\DMCIOverhaul\designer\EvalBoardSandbox\EvalBoardSandbox_fp\EvalBoardSandbox.log
+        C:\Users\SKaye\repos5\firmware\DMInterface\Ux1_Ver2\designer\EvalBoardSandbox\EvalBoardSandbox_fp\EvalBoardSandbox.log
     </LogFile>
     <SerializationOption>
         Skip

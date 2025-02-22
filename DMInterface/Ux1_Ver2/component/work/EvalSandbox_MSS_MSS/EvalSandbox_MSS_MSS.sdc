@@ -1,6 +1,6 @@
 set_component EvalSandbox_MSS_MSS
 # Microsemi Corp.
-# Date: 2025-Feb-17 13:44:59
+# Date: 2025-Feb-18 10:04:43
 #
 
 create_clock -period 39.2157 [ get_pins { MSS_ADLIB_INST/CLK_CONFIG_APB } ]

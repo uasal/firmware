@@ -6,7 +6,7 @@
 
 # Family: SmartFusion2 , Die: M2S010 , Package: 256 VF
 
-# Date generated: Mon Feb 17 13:51:38 2025 
+# Date generated: Tue Feb 18 13:46:05 2025 
 
 
 # 
@@ -24,6 +24,12 @@
 # 
 # User Locked I/O settings
 # 
+
+set_io CLK0_PAD       \
+    -pinname H16      \
+    -fixed yes        \
+    -DIRECTION INPUT
+
 
 set_io MosiA           \
     -pinname K12       \
@@ -59,6 +65,30 @@ set_io MosiF           \
     -pinname G3        \
     -fixed yes         \
     -DIRECTION OUTPUT
+
+
+set_io Oe0             \
+    -pinname H14       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io Oe1             \
+    -pinname H4        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io Oe2             \
+    -pinname H15       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io Rx0            \
+    -pinname G12      \
+    -fixed yes        \
+    -DIRECTION INPUT
 
 
 set_io SckA            \
@@ -103,8 +133,14 @@ set_io Tx0             \
     -DIRECTION OUTPUT
 
 
-set_io Uart0OE         \
-    -pinname H14       \
+set_io Tx1             \
+    -pinname H12       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io Tx2             \
+    -pinname G16       \
     -fixed yes         \
     -DIRECTION OUTPUT
 

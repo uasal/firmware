@@ -35,33 +35,33 @@ entity RegisterSpacePorts is
     BuildNumber : in std_logic_vector(31 downto 0);
     
     -- Dummy bus
-    DbusAddr : in std_logic_vector(31 downto 10);
-    DEnable : in std_logic;
+--    DbusAddr : in std_logic_vector(31 downto 10);
+--    DEnable : in std_logic;
 
     --Faults and Control (need to look over schematic)
     -- Leave space for these
-    PowernEnHV : out std_logic;	
-    PowernEn : out std_logic;
+    --PowernEnHV : out std_logic;	
+    --PowernEn : out std_logic;
     Uart0OE : out std_logic;
---    Uart1OE : out std_logic;
---    Uart2OE : out std_logic;
---    Uart3OE : out std_logic;				
+    Uart1OE : out std_logic;
+    Uart2OE : out std_logic;
+    Uart3OE : out std_logic;				
     Ux1SelJmp : out std_logic;
 
     --DM Board D/A's
-    DacABdSetpoint : out std_logic_vector(31 downto 0);
-    DacBBdSetpoint : out std_logic_vector(31 downto 0);
-    DacCBdSetpoint : out std_logic_vector(31 downto 0);
-    DacDBdSetpoint : out std_logic_vector(31 downto 0);
-    DacEBdSetpoint : out std_logic_vector(31 downto 0);
-    DacFBdSetpoint : out std_logic_vector(31 downto 0);
+    DacBdASetpoint : out std_logic_vector(31 downto 0);
+    DacBdBSetpoint : out std_logic_vector(31 downto 0);
+    DacBdCSetpoint : out std_logic_vector(31 downto 0);
+    DacBdDSetpoint : out std_logic_vector(31 downto 0);
+    DacBdESetpoint : out std_logic_vector(31 downto 0);
+    DacBdFSetpoint : out std_logic_vector(31 downto 0);
     WriteDacs : out std_logic; --do we wanna write all three boards at once? Seems likely...
-    DacABdReadback : in std_logic_vector(31 downto 0);
-    DacBBdReadback : in std_logic_vector(31 downto 0);
-    DacCBdReadback : in std_logic_vector(31 downto 0);
-    DacDBdReadback : in std_logic_vector(31 downto 0);
-    DacEBdReadback : in std_logic_vector(31 downto 0);
-    DacFBdReadback : in std_logic_vector(31 downto 0);
+    DacBdAReadback : in std_logic_vector(31 downto 0);
+    DacBdBReadback : in std_logic_vector(31 downto 0);
+    DacBdCReadback : in std_logic_vector(31 downto 0);
+    DacBdDReadback : in std_logic_vector(31 downto 0);
+    DacBdEReadback : in std_logic_vector(31 downto 0);
+    DacBdFReadback : in std_logic_vector(31 downto 0);
     DacTransferCompleteA : in std_logic; --Dont write new data to the D/A's while xfer is in progress
     DacTransferCompleteB : in std_logic;
     DacTransferCompleteC : in std_logic;
@@ -106,44 +106,44 @@ entity RegisterSpacePorts is
     Uart0TxFifoCount : in std_logic_vector(9 downto 0);
     Uart0ClkDivider : out std_logic_vector(7 downto 0);
     
---    Uart1FifoReset : out std_logic;
---    ReadUart1 : out std_logic;
---    Uart1RxFifoFull : in std_logic;
---    Uart1RxFifoEmpty : in std_logic;
---    Uart1RxFifoData : in std_logic_vector(7 downto 0);
---    Uart1RxFifoCount : in std_logic_vector(9 downto 0);
---    WriteUart1 : out std_logic;
---    Uart1TxFifoFull : in std_logic;
---    Uart1TxFifoEmpty : in std_logic;
---    Uart1TxFifoData : out std_logic_vector(7 downto 0);
---    Uart1TxFifoCount : in std_logic_vector(9 downto 0);
---    Uart1ClkDivider : out std_logic_vector(7 downto 0);
---		
---    Uart2FifoReset : out std_logic;
---    ReadUart2 : out std_logic;
---    Uart2RxFifoFull : in std_logic;
---    Uart2RxFifoEmpty : in std_logic;
---    Uart2RxFifoData : in std_logic_vector(7 downto 0);
---    Uart2RxFifoCount : in std_logic_vector(9 downto 0);
---    WriteUart2 : out std_logic;
---    Uart2TxFifoFull : in std_logic;
---    Uart2TxFifoEmpty : in std_logic;
---    Uart2TxFifoData : out std_logic_vector(7 downto 0);
---    Uart2TxFifoCount : in std_logic_vector(9 downto 0);
---    Uart2ClkDivider : out std_logic_vector(7 downto 0);
---		
---    Uart3FifoReset : out std_logic;
---    ReadUart3 : out std_logic;
---    Uart3RxFifoFull : in std_logic;
---    Uart3RxFifoEmpty : in std_logic;
---    Uart3RxFifoData : in std_logic_vector(7 downto 0);
---    Uart3RxFifoCount : in std_logic_vector(9 downto 0);
---    WriteUart3 : out std_logic;
---    Uart3TxFifoFull : in std_logic;
---    Uart3TxFifoEmpty : in std_logic;
---    Uart3TxFifoData : out std_logic_vector(7 downto 0);
---    Uart3TxFifoCount : in std_logic_vector(9 downto 0);
---    Uart3ClkDivider : out std_logic_vector(7 downto 0);
+    Uart1FifoReset : out std_logic;
+    ReadUart1 : out std_logic;
+    Uart1RxFifoFull : in std_logic;
+    Uart1RxFifoEmpty : in std_logic;
+    Uart1RxFifoData : in std_logic_vector(7 downto 0);
+    Uart1RxFifoCount : in std_logic_vector(9 downto 0);
+    WriteUart1 : out std_logic;
+    Uart1TxFifoFull : in std_logic;
+    Uart1TxFifoEmpty : in std_logic;
+    Uart1TxFifoData : out std_logic_vector(7 downto 0);
+    Uart1TxFifoCount : in std_logic_vector(9 downto 0);
+    Uart1ClkDivider : out std_logic_vector(7 downto 0);
+		
+    Uart2FifoReset : out std_logic;
+    ReadUart2 : out std_logic;
+    Uart2RxFifoFull : in std_logic;
+    Uart2RxFifoEmpty : in std_logic;
+    Uart2RxFifoData : in std_logic_vector(7 downto 0);
+    Uart2RxFifoCount : in std_logic_vector(9 downto 0);
+    WriteUart2 : out std_logic;
+    Uart2TxFifoFull : in std_logic;
+    Uart2TxFifoEmpty : in std_logic;
+    Uart2TxFifoData : out std_logic_vector(7 downto 0);
+    Uart2TxFifoCount : in std_logic_vector(9 downto 0);
+    Uart2ClkDivider : out std_logic_vector(7 downto 0);
+		
+    Uart3FifoReset : out std_logic;
+    ReadUart3 : out std_logic;
+    Uart3RxFifoFull : in std_logic;
+    Uart3RxFifoEmpty : in std_logic;
+    Uart3RxFifoData : in std_logic_vector(7 downto 0);
+    Uart3RxFifoCount : in std_logic_vector(9 downto 0);
+    WriteUart3 : out std_logic;
+    Uart3TxFifoFull : in std_logic;
+    Uart3TxFifoEmpty : in std_logic;
+    Uart3TxFifoData : out std_logic_vector(7 downto 0);
+    Uart3TxFifoCount : in std_logic_vector(9 downto 0);
+    Uart3ClkDivider : out std_logic_vector(7 downto 0);
 
     --Timing
     IdealTicksPerSecond : in std_logic_vector(31 downto 0);
@@ -282,14 +282,14 @@ begin
 --  MonitorAdcChannelReadIndex <= MonitorAdcChannelReadIndex_i;
 --  MonitorAdcSpiFrameEnable <= MonitorAdcSpiFrameEnable_i;
 
-  PowernEn <= PowernEn_i;
+--  PowernEn <= PowernEn_i;
 
   Uart0OE <= Uart0OE_i;
 --  Uart1OE <= Uart1OE_i;
 --  Uart2OE <= Uart2OE_i;
 --  Uart3OE <= Uart3OE_i;								
   Ux1SelJmp <= Ux1SelJmp_i;	
-  PowernEnHV <= PowernEnHV_i;
+--  PowernEnHV <= PowernEnHV_i;
 
 --  nHVEn1 <= nHVEn1_i;
 --  HVDis2 <= HVDis2_i;
@@ -332,27 +332,27 @@ begin
 							
               --DacBoardSetpoints
               when DacsBdASetpointAddr =>
-                DataOut(31 downto 0) <= DacABdReadback;
+                DataOut(31 downto 0) <= DacBdAReadback;
                 --~ DataOut(31 downto 24) <= x"58";
                 --DataOut(31 downto 24) <= x"00";
               when DacsBdBSetpointAddr =>
-                DataOut(31 downto 0) <= DacBBdReadback;
+                DataOut(31 downto 0) <= DacBdBReadback;
                 --~ DataOut(31 downto 24) <= x"58";
                 --DataOut(31 downto 24) <= x"00";
               when DacsBdCSetpointAddr =>
-                DataOut(31 downto 0) <= DacCBdReadback;
+                DataOut(31 downto 0) <= DacBdCReadback;
                 --~ DataOut(31 downto 24) <= x"58";
                 --DataOut(31 downto 24) <= x"00";
               when DacsBdDSetpointAddr =>
-                DataOut(31 downto 0) <= DacDBdReadback;
+                DataOut(31 downto 0) <= DacBdDReadback;
                 --~ DataOut(31 downto 24) <= x"58";
                 --DataOut(31 downto 24) <= x"00";
               when DacsBdESetpointAddr =>
-                DataOut(31 downto 0) <= DacEBdReadback;
+                DataOut(31 downto 0) <= DacBdEReadback;
                 --~ DataOut(31 downto 24) <= x"58";
                 --DataOut(31 downto 24) <= x"00";
               when DacsBdFSetpointAddr =>
-                DataOut(31 downto 0) <= DacFBdReadback;
+                DataOut(31 downto 0) <= DacBdFReadback;
                 --~ DataOut(31 downto 24) <= x"58";
                 --DataOut(31 downto 24) <= x"00";
 

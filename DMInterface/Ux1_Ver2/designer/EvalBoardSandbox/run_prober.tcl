@@ -1,5 +1,5 @@
 probe \
-    -desdir {C:\MicroSemiProj\Libero\DMCIOverhaul\designer\EvalBoardSandbox} \
+    -desdir {C:\Users\SKaye\repos5\firmware\DMInterface\Ux1_Ver2\designer\EvalBoardSandbox} \
     -design EvalBoardSandbox \
     -fam SmartFusion2 \
     -die PA4M1000_N \

@@ -204,6 +204,8 @@ static const uint16_t CGraphPayloadTypeDMDac = 0x3002U;
 static const uint16_t CGraphPayloadTypeDMTelemetry = 0x3004U;
 static const uint16_t CGraphPayloadTypeDMHVSwitch = 0x3007U;
 static const uint16_t CGraphPayloadTypeDMDacConfig = 0x3009U;
+static const uint16_t CGraphPayloadTypeDMVector = 0x3008U;
+static const uint16_t CGraphPayloadTypeDMUart = 0x300AU;
 
 struct CGraphDMTelemetryPayload
 {
