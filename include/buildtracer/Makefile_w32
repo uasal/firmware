@@ -1,0 +1,44 @@
+CC = i686-w64-mingw32-gcc
+vpath %.h $(INCLUDE_LOCAL)
+vpath %.hpp $(INCLUDE_LOCAL)
+vpath %.c $(LIB_LOCAL)
+vpath %.cpp $(LIB_LOCAL)
+vpath %.o $(LIB_LOCAL)
+vpath %.a $(LIB_LOCAL)
+EXTRAINCDIRS = . ./../../../../include/ $(INCLUDE_LOCAL)
+EXTRA_LIBDIRS = . ./../lib/ $(LIB_LOCAL)
+CFLAGS += $(patsubst %,-I%,$(EXTRAINCDIRS))
+CFLAGS += -mno-ms-bitfields -static -m32 -Wall -O0 -g -Wl,--subsystem,console -DDEBUG -mno-ms-bitfields
+LDFLAGS += $(patsubst %,-L%,$(EXTRA_LIBDIRS))
+LDFLAGS += $(patsubst %,-l%,$(EXTRA_LIBS))
+
+HERE:= $(shell pwd)
+
+program: main.o vhdmain.o qmain.o qvhdmain.o
+	$(CC) main.o -o btracer -L/lib -L/usr/lib -L/usr/local/lib -lstdc++
+	$(CC) vhdmain.o -o vhdbtracer -L/lib -L/usr/lib -L/usr/local/lib -lstdc++
+	$(CC) qmain.o -o bquery -L/lib -L/usr/lib -L/usr/local/lib -lstdc++
+	$(CC) qvhdmain.o -o vhdbquery -L/lib -L/usr/lib -L/usr/local/lib -lstdc++
+	#~ $(CC) main.o -o btracer -L/lib -L/usr/lib -L/usr/local/lib -lc -lstdc++
+	#~ $(CC) vhdmain.o -o vhdbtracer -L/lib -L/usr/lib -L/usr/local/lib -lc -lstdc++
+	#~ $(CC) qmain.o -o bquery -L/lib -L/usr/lib -L/usr/local/lib -lc -lstdc++
+	#~ $(CC) qvhdmain.o -o vhdbquery -L/lib -L/usr/lib -L/usr/local/lib -lc -lstdc++
+	
+main.o: main.cpp
+	$(CC) -c main.cpp -o main.o
+
+vhdmain.o: vhdmain.cpp
+	$(CC) -c vhdmain.cpp -o vhdmain.o
+
+qmain.o: qmain.cpp
+	$(CC) -c qmain.cpp -o qmain.o
+
+qvhdmain.o: qvhdmain.cpp
+	$(CC) -c qvhdmain.cpp -o qvhdmain.o
+
+clean:
+	-rm *.o
+	-rm btracer.exe
+	-rm vhdbtracer.exe
+	-rm qbtracer.exe
+	-rm qvhdbtracer.exe
