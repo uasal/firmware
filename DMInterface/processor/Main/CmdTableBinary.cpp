@@ -21,7 +21,7 @@
 
 #include <stdint.h>
 #include "uart/CmdSystem.hpp"
-#include "uart/CGraphPacket.hpp"
+#include "cgraph/CGraphPacket.hpp"
 #include "CmdTableBinary.hpp"
 
 /* Which FPGA are we programming? */
@@ -42,19 +42,19 @@ const BinaryCmd BinaryCmds[] =
 		BinaryVersionCommand
     ),
 	BinaryCmd (
-		CGraphPayloadTypeDMDacs,
-		"BinaryDMDacsCommand",
-		BinaryDMDacsCommand
+		CGraphPayloadTypeDMDac,
+		"BinaryDMDacCommand",
+		BinaryDMDacCommand
     ),	
 	BinaryCmd (
-		CGraphPayloadTypeDMStatus,
-		"BinaryDMStatusCommand",
-		BinaryDMStatusCommand
+		CGraphPayloadTypeDMTelemetry,
+		"BinaryDMTelemetryCommand",
+		BinaryDMTelemetryCommand
     ),
         BinaryCmd (
-                CGraphPayloadTypeDMConfigDacs,
-                "BinaryDMConfigDacsCommand",
-                BinaryDMConfigDacsCommand
+                CGraphPayloadTypeDMDacConfig,
+                "BinaryDMDacConfigCommand",
+                BinaryDMDacConfigCommand
     ),
         BinaryCmd (
                 CGraphPayloadTypeDMVector,
@@ -77,25 +77,25 @@ const BinaryCmd BinaryCmds[] =
 		"BinaryVersionCommand",
 		BinaryVersionCommand
     ),
-	BinaryCmd (
-		CGraphPayloadTypeDMAdcs,
-		"BinaryDMAdcsCommand",
-		BinaryDMAdcsCommand
-    ),
-	BinaryCmd (
-		CGraphPayloadTypeDMAdcsFloatingPoint,
-		"BinaryDMAdcsFloatingPointCommand",
-		BinaryDMAdcsFloatingPointCommand
-    ),	
-	BinaryCmd (
-		CGraphPayloadTypeDMStatus,
-		"BinaryDMStatusCommand",
-		BinaryDMStatusCommand
-    ),
+//	BinaryCmd (
+//		CGraphPayloadTypeDMAdcs,
+//		"BinaryDMAdcsCommand",
+//		BinaryDMAdcsCommand
+//    ),
+//	BinaryCmd (
+//		CGraphPayloadTypeDMAdcsFloatingPoint,
+//		"BinaryDMAdcsFloatingPointCommand",
+//		BinaryDMAdcsFloatingPointCommand
+//    ),	
+//	BinaryCmd (
+//		CGraphPayloadTypeDMStatus,
+//		"BinaryDMStatusCommand",
+//		BinaryDMStatusCommand
+//    ),
         BinaryCmd (
-                CGraphPayloadTypeHVSwitch,
-                "BinaryHVSwitchCommand",
-                BinaryHVSwitchCommand
+                CGraphPayloadTypeDMHVSwitch,
+                "BinaryDMHVSwitchCommand",
+                BinaryDMHVSwitchCommand
     ),
 
 };

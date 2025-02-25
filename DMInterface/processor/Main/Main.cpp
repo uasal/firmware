@@ -9,28 +9,44 @@
  * SVN $Revision: 7985 $
  * SVN $Date: 2015-10-12 12:26:08 +0530 (Mon, 12 Oct 2015) $
  */
-#include "core_uart_apb.h"
-#include "coreuartapb_regs.h"
-#include "mss_nvm.h"
-#include "mss_gpio.h"
-#include "EvalBoardSandbox_hw_platform.h"
-#include "Delay.h"
-#include "hw_reg_io.h"
-#include "mss_pdma.h"
+
+
+
+#include <stdint.h>
+#include <string.h>
 #include <stdio.h>
+#include <sys/types.h>
+#include <algorithm>
 
-#include "cgraph/CGraphSF2HardwareInterface.hpp"
+#include "Delay.h"
 
-//int MmapHandle = 0;
+#include "arm/BuildParameters.h"
+
+#include "cgraph/CGraphPacket.hpp"
+
+#include "cgraph/CGraphDMHardwareInterface.hpp"
 extern CGraphDMHardwareInterface* DMCI;  // Contains a bunch of variables
 
-bool MonitorSerial1 = false;
+#include "format/formatf.h"
 
-#include "uart/BinaryUart.hpp"
-#include "uart/CGraphPacket.hpp"
+//#include "CmdTableAscii.hpp"
 #include "CmdTableBinary.hpp"
 
-// Formula for Baud rate
+#include "uart/BinaryUart.hpp"
+#include "uart/uart_pinout_fpga.hpp"
+
+//#include "hw_reg_io.h"
+#include "drivers/CoreUARTapb/core_uart_apb.h"
+#include "drivers/CoreUARTapb/coreuartapb_regs.h"
+//#include "mss_nvm.h"
+#include "drivers/mss_gpio/mss_gpio.h"
+#include "drivers/mss_pdma/mss_pdma.h"
+#include "EvalBoardSandbox_hw_platform.h"
+
+//int MmapHandle = 0;
+
+
+// Formula for Baud rate fpr the core_uart_apb
 // Baud_rate_value = (clk_in_Hz/(Baud_rate*16)) - 1
 // clk_in_Hz = 
 // A few pre-calculated baud rates
@@ -46,73 +62,11 @@ bool MonitorSerial1 = false;
   UART selection.
  */
 UART_instance_t my_uart;
-uint8_t rx_data[MAX_RX_DATA_SIZE];
-uint8_t rx_size = 0;
-uint8_t rx_err_status;
+//uint8_t rx_data[MAX_RX_DATA_SIZE];
+//uint8_t rx_size = 0;
+//uint8_t rx_err_status;
 
-// Binary Uart Declaration
-class DMCI_pinout_FPGAUart1 : public IUart
-{
-public:
-
-  DMCI_pinout_FPGAUart1() : IUart() { }
-  virtual ~DMCI_pinout_FPGAUart1() { }
-  
-  virtual int init(const uint32_t nc, const char* nc2) { return(IUartOK); }
-  
-  virtual void deinit() { }
-	
-  virtual bool dataready() const {
-    if (!(MSS_GPIO_get_inputs() & MSS_GPIO_0_MASK)) {
-      return(false);
-    }
-    else {
-      return(true);
-    }
-  }
-
-  // Get one byte to accommodate the remaining infrastructure
-  virtual char getcqq() {
-    uint8_t rx_buf[128];
-    
-    rx_err_status = UART_get_rx_status(&my_uart);
-    if ((UART_APB_NO_ERROR == rx_err_status)) {
-      char c = '\0';   // what does this do for us?
-      rx_size = UART_get_rx(&my_uart, rx_buf, 1);  // Get 1 byte
-      UART_polled_tx_string(&my_uart, (const uint8_t*)&rx_size);
-      c = *rx_buf;
-      if (MonitorSerial1) { printf("!%.2x",c); }
-      //return(rx_buf[0]);
-      return((char)(c));
-    }
-    else {
-      UART_polled_tx_string(&my_uart, (const uint8_t*)&rx_err_status);
-      return(false); }
-    
-  }
-
-  virtual char putcqq(char c) {
-    if (NULL == DMCI) { return(c); }
-    DMCI->UartFifo1 = c;		
-    delayus(12); //This was necessary the last hardware we tried this on...
-    return(c);
-  }
-	
-  virtual size_t depth() const {
-    if (NULL == DMCI) { return(false); }
-    CGraphDMUartStatusRegister UartStatus = DMCI->UartStatusRegister1;
-    return(UartStatus.UartRxFifoCount);
-  }
-
-  virtual void flushoutput() { } // if (DMCI) { DMCI->UartTxStatusRegister = 0; } //Need to make tx & rx status registers seperate...
-  virtual void purgeinput() { } // if (DMCI) { DMCI->UartRxStatusRegister = 0; }	
-  virtual bool connected() { return(true); }	
-  virtual bool isopen() const { return(true); }	
-	
-private:
-  //~ CGraphDMCIHardwareInterface* fpgaDMCI;	
-	
-} FPGAUartPinout1;
+//uart_pinout_fpga FPGAUartPinout;
 
 struct FPGABinaryUartCallbacks : public BinaryUartCallbacks
 {
@@ -122,7 +76,7 @@ struct FPGABinaryUartCallbacks : public BinaryUartCallbacks
 	//Malformed/corrupted packet handler:
 	virtual void InvalidPacket(const uint8_t* Buffer, const size_t& BufferLen)
 	{ 
-		if ( (NULL == Buffer) || (BufferLen < 1) ) { printf("\nFPGAUartCallbacks: NULL(%u) InvalidPacket!\n\n", BufferLen); return; }
+		if ( (NULL == Buffer) || (BufferLen < 1) ) { formatf("\nFPGAUartCallbacks: NULL(%u) InvalidPacket!\n\n", BufferLen); return; }
 	
 		size_t len = BufferLen;
 		if (len > 32) { len = 32; }
@@ -154,8 +108,39 @@ struct FPGABinaryUartCallbacks : public BinaryUartCallbacks
 } PacketCallbacks;
 
 CGraphPacket FPGAUartProtocol;
+uart_pinout_fpga FPGAUartPinout0(&(DMCI->UartStatusRegister0), &(DMCI->UartFifo0), &(DMCI->UartFifo0ReadData), &(DMCI->UartFifo0), '~');
+uart_pinout_fpga FPGAUartPinout1(&(DMCI->UartStatusRegister1), &(DMCI->UartFifo1), &(DMCI->UartFifo1ReadData), &(DMCI->UartFifo1), '!');
+uart_pinout_fpga FPGAUartPinout2(&(DMCI->UartStatusRegister2), &(DMCI->UartFifo2), &(DMCI->UartFifo2ReadData), &(DMCI->UartFifo2), '@');
+
+
 BinaryUart FpgaUartParser1(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false); // No serial number given, so Invalid is used by default
+BinaryUart FpgaUartParser2(FPGAUartPinout2, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false); // No serial number given, so Invalid is used by default
+
+// Need this for initialization
+struct CGraphSingleDacPayload
+{
+  uint32_t Board;
+  uint32_t dacNum;
+  uint32_t dacChan;
+  uint32_t data;
+};
+
 CGraphSingleDacPayload dacPayload;
+
+#include "uart/TerminalUart.hpp"
+char prompt[] = "\n\nESC-FSM> ";
+const char* TerminalUartPrompt()
+{
+    return(prompt);
+}
+//Handle incoming ascii cmds & binary packets from the usb
+// Maybe we should put in the Usb UartFifoLab infrastructure
+//TerminalUart<16, 4096> DbgUartUsb(FPGAUartPinoutUsb, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
+
+//TerminalUart<16, 4096> DbgUart485_0(FPGAUartPinout0, AsciiCmds, NumAsciiCmds, &TerminalUartPrompt, NoRTS, NoPrefix, false);
+
+//#include "../MonitorAdc.hpp"
+//extern CGraphFSMMonitorAdc MonitorAdc;
 
 /*------------------------------------------------------------------------------
   GPIO variables
@@ -163,30 +148,83 @@ CGraphSingleDacPayload dacPayload;
 uint32_t gpio_inputs;
 
 
+extern "C"
+{	
+	unsigned long long fclk_for_delay_loops = 102000000;
+
+	//This code is to make "syscalls.c" replace vendor's "newlib_stubs.c" and make printf() and friends connect to a real serial port in our actual hardware! Only useful if we can compile our own code from makefile and replace vendor's "softconsole" version...
+	int stdio_hook_putc(int c) 
+	{ 
+		FPGAUartPinout0.putcqq(c); 
+		//FPGAUartPinoutUsb.putcqq(c);
+		return(c);
+	}
+
+    void wooinit(void) __attribute__((constructor));
+
+	//Does the current clib need this?
+    void AtExit()
+    {
+        //~ mwTerm();
+    }
+
+	//Does the current clib need this?
+    void mwOutFunc(int c)
+    {
+        putchar(c);
+    }
+};
+
+bool Process()
+{
+    bool Bored = true;
+	
+    //	MonitorAdc.Process();
+	
+	//Enable this if we need to debug ascii and binary on the same uart (note: madness ensues!)
+	//~ {
+		//~ if (FPGAUartPinoutUsb.dataready())
+		//~ {
+			//~ Bored = false;
+			
+			//~ char c = FPGAUartPinoutUsb.getcqq();
+			
+			//~ UsbUartAscii.remoteputcqq(c);
+			//~ UsbUartBinary.remoteputcqq(c);
+		//~ }
+		//~ if (UsbUartAscii.remotedataready()) { FPGAUartPinoutUsb.putcqq(UsbUartAscii.remotegetcqq()); }
+		//~ if (UsbUartBinary.remotedataready()) { FPGAUartPinoutUsb.putcqq(UsbUartBinary.remotegetcqq()); }
+	//~ }
+	
+        //if (FpgaUartParser3.Process()) { Bored = false; }    
+    if (FpgaUartParser2.Process()) { Bored = false; }    
+	if (FpgaUartParser1.Process()) { Bored = false; }    
+	//if (DbgUartUsb.Process()) { Bored = false; }    
+        //if (DbgUart485_0.Process()) { Bored = false; }
+	
+    return(Bored);
+}
+
+void ProcessAllUarts()
+{
+        //FpgaUartParser3.Process();
+	FpgaUartParser2.Process();
+	FpgaUartParser1.Process();
+	//DbgUartUsb.Process();
+	//DbgUart485_0.Process();
+}
+
 /*==============================================================================
  * main function.
  */
-int main()
+int main(int argc, char *argv[])
 {
-    size_t rx_size;
-    uint8_t rx_buff[1];
-    uint32_t duty_cycle = 1;
-    uint32_t duty_cycle2 = 2;
-    uint32_t testdac=0;
-    int direction = 1;
-    int direction2 = 2;
-    int dacNum, board;
 
-    /*--------------------------------------------------------------------------*
-     * Initialize the BinaryUart                                                *
-     *--------------------------------------------------------------------------*/
-    /* This clears teh RxBuffer, will this help with the three times to recognize a command? */
-    //FpgaUartParser1.Init(FpgaUartParser1.SerialNum); // InvalidSerialNumber from uart/BinaryUart.hpp
-    
     /*--------------------------------------------------------------------------*
      * Initialize and configure UART.                                           *
      *--------------------------------------------------------------------------*/
-    UART_init(&my_uart, COREUARTAPB_C0_0,
+    // Won't need this
+    UART_init(&my_uart, 0, //COREUARTAPB_C0_0,
               BAUD_VALUE_115200,
               (DATA_8_BITS | NO_PARITY));
 
@@ -199,8 +237,8 @@ int main()
     /*--------------------------------------------------------------------------*
      * Initiailize the GPIO                                                     *
      *--------------------------------------------------------------------------*/
+    // Might need this.  Keep in for now.
     MSS_GPIO_init();  // Need to call this before anything else for the GPIO
-
     
     MSS_GPIO_config(MSS_GPIO_0, MSS_GPIO_INPUT_MODE);  // Make RxRdy an input
     MSS_GPIO_config(MSS_GPIO_1, MSS_GPIO_OUTPUT_MODE); // Make SpiReset an output
@@ -221,6 +259,7 @@ int main()
     /*--------------------------------------------------------------------------*
      * Initialize the PDMA                                                      *
      *--------------------------------------------------------------------------*/
+    // Will want this
     PDMA_init();  // Initializes the PDMA controller
 
     /* Now configure the streams -----------------------------------------------*/
@@ -285,13 +324,6 @@ int main()
 //                   PDMA_LOW_PRIORITY | PDMA_HALFWORD_TRANSFER,
 //                   PDMA_DEFAULT_WRITE_ADJ);               
     
-    /* Test to see if this compiles */
-    /* Yes, it does.  But is the size correct? */
-//    PDMA_start(PDMA_CHANNEL_0,
-//               COREUARTAPB_C0_0 + RXDATA_REG_OFFSET,
-//               0x20000000,
-//               sizeof(COREUARTAPB_C0_0 + RXDATA_REG_OFFSET));
-
     // Reset the DACs
     // How long is this delay?
     MSS_GPIO_set_output(MSS_GPIO_5,0); // set nRstDacs to 0
@@ -311,36 +343,48 @@ int main()
 
     // Need to write 0 to all of the Dacs otherwise the default value will
     // be loaded when Dacs are loaded
-//    for (int board; board < 6; board++) {
-//      for (int dac; dac < 24; dac++) {
-//        for (int chan; chan < 40; chan++) {
-//          dacPayload.Board = board;
-//          dacPayload.dacNum = dac;
-//          dacPayload.dacChan = chan;
-//          dacPayload.data = 0;
-//
-//          const char* Params = reinterpret_cast<char*>(&dacPayload);
-//          // Call the BinaryHandler directly??
-//          BinaryDMDacsCommand(CGraphPayloadTypeDMDacs, Params, sizeof(CGraphSingleDacPayload), NULL);
-//          // Put in a delay loop
-//          for (int ii; ii < 10000; ii++) {
-//              MSS_GPIO_set_output(MSS_GPIO_5,1); // set nRstDacs to 1
-//          }
-//        }
-//      }
-//    }
+    for (int board; board < 6; board++) {
+      for (int dac; dac < 24; dac++) {
+        for (int chan; chan < 40; chan++) {
+          dacPayload.Board = board;
+          dacPayload.dacNum = dac;
+          dacPayload.dacChan = chan;
+          dacPayload.data = 0;
+
+          const char* Params = reinterpret_cast<char*>(&dacPayload);
+          // Call the BinaryHandler directly??
+          BinaryDMDacCommand(CGraphPayloadTypeDMDac, Params, sizeof(CGraphSingleDacPayload), NULL);
+          // Put in a delay loop
+          for (int ii; ii < 10000; ii++) {
+              MSS_GPIO_set_output(MSS_GPIO_5,1); // set nRstDacs to 1
+          }
+        }
+      }
+    }
+
+    //    ShowBuildParameters(); // What is this??
+    //DbgUartUsb.Init();
+    //DbgUart485_0.Init();
+
+    //DbgUartUsb.SetEcho(false);
+    //DbgUart485_0.SetEcho(false);
+
+//    MonitorAdc.SetMonitor(false);
+//    MonitorAdc.Init();
 
 //    for (;;) {
     while(1) {
-      bool Bored = true;
-
-      if (FpgaUartParser1.Process()) {
-        Bored = false;
-      }
-
-      //give up our timeslice so as not to bog the system:
-      if (Bored) {
-        delayus(100);
-      }
+//      bool Bored = true;
+//
+//      if (FpgaUartParser1.Process()) {
+//        Bored = false;
+//      }
+//
+//      //give up our timeslice so as not to bog the system:
+//      if (Bored) {
+//        delayus(100);
+//      }
+      Process();
     }
+    return(0);
 }
