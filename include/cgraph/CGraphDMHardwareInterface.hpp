@@ -15,7 +15,7 @@
 #include "uart/UartStatusRegister.hpp"
 
 #include "cgraph/CGraphCommon.hpp"
-#include "CGraphFSMHardwareInterface.hpp" //AdcAccumulator definition
+//#include "CGraphFSMHardwareInterface.hpp" //AdcAccumulator definition
 
 union CGraphDMHardwareControlRegister
 {
@@ -57,30 +57,30 @@ union CGraphDMHardwareStatusRegister
 
 } __attribute__((__packed__));
 
-union CGraphDMUartStatusRegister
-{
-    uint32_t all;
-    struct 
-    {
-        uint32_t UartRxFifoEmpty : 1;
-        uint32_t UartRxFifoFull : 1;
-        uint32_t UartTxFifoEmpty : 1;
-        uint32_t UartTxFifoFull : 1;
-		uint32_t reserved1 : 4;
-		uint32_t UartRxFifoCount : 8;
-		uint32_t UartTxFifoCount : 8;
-		uint32_t UartRxFifoCountHi : 2;
-		uint32_t UartTxFifoCountHi : 2;
-		uint32_t reserved2 : 4;
-
-    } __attribute__((__packed__));
-
-    CGraphDMUartStatusRegister() { all = 0; }
-
-    //~ void formatf() const { ::formatf("CGraphDMUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", UartRxFifoEmpty?'Y':'N', UartRxFifoFull?'Y':'N', UartTxFifoEmpty?'Y':'N', UartTxFifoFull?'Y':'N', UartRxFifoCount + (UartRxFifoCountHi << 8), UartTxFifoCount + (UartTxFifoCountHi << 8)); }
-	void formatf() const { ::formatf("CGraphDMUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", UartRxFifoEmpty?'Y':'N', UartRxFifoFull?'Y':'N', UartTxFifoEmpty?'Y':'N', UartTxFifoFull?'Y':'N', UartRxFifoCount, UartTxFifoCount); }
-
-} __attribute__((__packed__));
+//union CGraphDMUartStatusRegister
+//{
+//    uint32_t all;
+//    struct 
+//    {
+//        uint32_t UartRxFifoEmpty : 1;
+//        uint32_t UartRxFifoFull : 1;
+//        uint32_t UartTxFifoEmpty : 1;
+//        uint32_t UartTxFifoFull : 1;
+//		uint32_t reserved1 : 4;
+//		uint32_t UartRxFifoCount : 8;
+//		uint32_t UartTxFifoCount : 8;
+//		uint32_t UartRxFifoCountHi : 2;
+//		uint32_t UartTxFifoCountHi : 2;
+//		uint32_t reserved2 : 4;
+//
+//    } __attribute__((__packed__));
+//
+//    CGraphDMUartStatusRegister() { all = 0; }
+//
+//    //~ void formatf() const { ::formatf("CGraphDMUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", UartRxFifoEmpty?'Y':'N', UartRxFifoFull?'Y':'N', UartTxFifoEmpty?'Y':'N', UartTxFifoFull?'Y':'N', UartRxFifoCount + (UartRxFifoCountHi << 8), UartTxFifoCount + (UartTxFifoCountHi << 8)); }
+//	void formatf() const { ::formatf("CGraphDMUartStatusRegister: RxE:%c, RxF:%c, TxE:%c, TxF:%c, RxC:%u, TxC:%u", UartRxFifoEmpty?'Y':'N', UartRxFifoFull?'Y':'N', UartTxFifoEmpty?'Y':'N', UartTxFifoFull?'Y':'N', UartRxFifoCount, UartTxFifoCount); }
+//
+//} __attribute__((__packed__));
 
 struct CGraphDMHardwareInterface
 {
