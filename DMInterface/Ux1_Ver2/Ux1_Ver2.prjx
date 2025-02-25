@@ -1397,7 +1397,7 @@ SIZE="1697"
 ENDFILE
 VALUE "<project>\component\work\EvalBoardSandbox\EvalBoardSandbox.cxf,actgen_cxf"
 STATE="utd"
-TIME="1740009650"
+TIME="1740439317"
 SIZE="6849"
 ENDFILE
 VALUE "<project>\component\work\EvalBoardSandbox\EvalBoardSandbox.v,hdl"
@@ -1806,22 +1806,22 @@ PARENT="<project>\component\Actel\DirectCore\CORESPI\5.2.104\CORESPI.cxf"
 ENDFILE
 VALUE "<project>\synthesis\EvalBoardSandbox.so,so"
 STATE="utd"
-TIME="1739910911"
-SIZE="258"
+TIME="1739988590"
+SIZE="257"
 ENDFILE
 VALUE "<project>\synthesis\EvalBoardSandbox.vm,syn_vm"
 STATE="utd"
-TIME="1739910910"
-SIZE="314992"
+TIME="1739988589"
+SIZE="314965"
 ENDFILE
 VALUE "<project>\synthesis\EvalBoardSandbox_syn.prj,prj"
 STATE="utd"
-TIME="1739910911"
-SIZE="6086"
+TIME="1739988591"
+SIZE="6059"
 ENDFILE
 VALUE "<project>\synthesis\EvalBoardSandbox_vm.sdc,syn_sdc"
 STATE="utd"
-TIME="1739910910"
+TIME="1739988589"
 SIZE="5879"
 ENDFILE
 VALUE "<project>\synthesis\synwork\layer0.so,so"
@@ -2630,8 +2630,8 @@ NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
 LOCATION="C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\bin\synplify_pro.exe"
-PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
-BATCH=1
+PARAM=""
+BATCH=0
 LICENSE=""
 IS32BIT="1"
 EndProfile
@@ -2782,6 +2782,7 @@ ORIENTATION;HORIZONTAL
 Reports;Reports;0
 ReportsCurrentItem;Generate Memory Map:EvalBoardSandbox_DataSheet.xml
 SmartDesign;EvalBoardSandbox;0
+SmartDesign;DESIGN_FIRMWARE;0
 StartPage;StartPage;0
 ACTIVEVIEW;Reports
 ENDLIST
