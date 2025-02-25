@@ -9,25 +9,25 @@
 #include <stdio.h>
 #include "sextet_regs.h"  // Need this for register offset in HAL call
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-  
-#include "hal/hal.h"
-#include "hal/hal_assert.h"
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
+//  
+//#include "hal/hal.h"
+//#include "hal/hal_assert.h"
+//
+//#ifdef __cplusplus
+//}
+//#endif
 
-#ifdef __cplusplus
-}
-#endif
-
-#include "drivers/mss_gpio/mss_gpio.h"
-#include "drivers/CoreUARTapb/core_uart_apb.h"
-#include "drivers/CoreUARTapb/coreuartapb_regs.h"
-#include "EvalBoardSandbox_hw_platform.h"
+//#include "drivers/mss_gpio/mss_gpio.h"
+//#include "drivers/CoreUARTapb/core_uart_apb.h"
+//#include "drivers/CoreUARTapb/coreuartapb_regs.h"
+//#include "EvalBoardSandbox_hw_platform.h"
 #include <string.h>
 #include <math.h>
 
-extern UART_instance_t my_uart;
+//extern UART_instance_t my_uart;
 
 #define DriverBoards 6
 #define DacPerBoard  4
@@ -101,15 +101,15 @@ struct DACspi {
     nCs = dacNum % 4;
     if (addr != 0) {
         ambaPWrite = (nCs << 28) + 0x020000; // Write offset reg. 0
-        MSS_GPIO_set_output(MSS_GPIO_1, 0); // begin a SPI transaction clear rst to low
+        //MSS_GPIO_set_output(MSS_GPIO_1, 0); // begin a SPI transaction clear rst to low
         // Send data to a homebrew SPI peripheral
-        HAL_set_32bit_reg(addr, MOSIA, ambaPWrite);
+        //        HAL_set_32bit_reg(addr, MOSIA, ambaPWrite);
     
         // check on the MSS_GPIO_2 input to see if the xfer is done
         while(!xferDone) {
-          xferDone = (MSS_GPIO_get_inputs() & MSS_GPIO_2_MASK);
+          //xferdone = (//MSS_GPIO_get_inputs() & //MSS_GPIO_2_MASK);
         }
-        MSS_GPIO_set_output(MSS_GPIO_1, 1); // SPI transaction done, set rst high
+        //MSS_GPIO_set_output(MSS_GPIO_1, 1); // SPI transaction done, set rst high
       }
     else {
       return -1;
@@ -155,15 +155,15 @@ struct DACspi {
     nCs = dacNum % 4;
     if (addr != 0) {
         ambaPWrite = (nCs << 28) + 0x030000; // Write offset reg. 0
-        MSS_GPIO_set_output(MSS_GPIO_1, 0); // begin a SPI transaction clear rst to low
+        //MSS_GPIO_set_output(MSS_GPIO_1, 0); // begin a SPI transaction clear rst to low
         // Send data to a homebrew SPI peripheral
-        HAL_set_32bit_reg(addr, MOSIA, ambaPWrite);
+        //        HAL_set_32bit_reg(addr, MOSIA, ambaPWrite);
     
         // check on the MSS_GPIO_2 input to see if the xfer is done
         while(!xferDone) {
-          xferDone = (MSS_GPIO_get_inputs() & MSS_GPIO_2_MASK);
+          //xferdone = (//MSS_GPIO_get_inputs() & //MSS_GPIO_2_MASK);
         }
-        MSS_GPIO_set_output(MSS_GPIO_1, 1); // SPI transaction done, set rst high
+        //MSS_GPIO_set_output(MSS_GPIO_1, 1); // SPI transaction done, set rst high
       }
     else {
       return -1;
@@ -210,15 +210,15 @@ struct DACspi {
     nCs = dacNum % 4;
     if (addr != 0) {
         ambaPWrite = (nCs << 28) + 0x0B0000; // Write offset reg. 0
-        MSS_GPIO_set_output(MSS_GPIO_1, 0); // begin a SPI transaction clear rst to low
+        //MSS_GPIO_set_output(MSS_GPIO_1, 0); // begin a SPI transaction clear rst to low
         // Send data to a homebrew SPI peripheral
-        HAL_set_32bit_reg(addr, MOSIA, ambaPWrite);
+        //        HAL_set_32bit_reg(addr, MOSIA, ambaPWrite);
     
         // check on the MSS_GPIO_2 input to see if the xfer is done
         while(!xferDone) {
-          xferDone = (MSS_GPIO_get_inputs() & MSS_GPIO_2_MASK);
+          //xferdone = (//MSS_GPIO_get_inputs() & //MSS_GPIO_2_MASK);
         }
-        MSS_GPIO_set_output(MSS_GPIO_1, 1); // SPI transaction done, set rst high
+        //MSS_GPIO_set_output(MSS_GPIO_1, 1); // SPI transaction done, set rst high
       }
     else {
       return -1;
@@ -265,15 +265,15 @@ struct DACspi {
     nCs = dacNum % 4;
     if (addr != 0) {
         ambaPWrite = (nCs << 28) + dacWord; // Write offset reg. 0
-        MSS_GPIO_set_output(MSS_GPIO_1, 0); // begin a SPI transaction clear rst to low
+        //MSS_GPIO_set_output(MSS_GPIO_1, 0); // begin a SPI transaction clear rst to low
         // Send data to a homebrew SPI peripheral
-        HAL_set_32bit_reg(addr, MOSIA, ambaPWrite);
+        //        HAL_set_32bit_reg(addr, MOSIA, ambaPWrite);
     
         // check on the MSS_GPIO_2 input to see if the xfer is done
         while(!xferDone) {
-          xferDone = (MSS_GPIO_get_inputs() & MSS_GPIO_2_MASK);
+          //xferdone = (//MSS_GPIO_get_inputs() & //MSS_GPIO_2_MASK);
         }
-        MSS_GPIO_set_output(MSS_GPIO_1, 1); // SPI transaction done, set rst high
+        //MSS_GPIO_set_output(MSS_GPIO_1, 1); // SPI transaction done, set rst high
 
 
       // delay a little bit between the SPI transactions
@@ -348,7 +348,7 @@ struct DACspi {
       return -1;
     }
 
-    UART_polled_tx_string(&my_uart,(const uint8_t*)"Conf ");  // This will show we did the config
+    //    UART_polled_tx_string(&my_uart,(const uint8_t*)"Conf ");  // This will show we did the config
     return 0;
 
   }
@@ -398,24 +398,24 @@ struct DACspi {
     
 
     if (addr != 0) {
-      MSS_GPIO_set_output(MSS_GPIO_1, 0); // begin a SPI transaction clear rst to low
+      //MSS_GPIO_set_output(MSS_GPIO_1, 0); // begin a SPI transaction clear rst to low
       // Send data to a homebrew SPI peripheral
-      HAL_set_32bit_reg(addr, MOSIA, ambaPWrite);
+      //      HAL_set_32bit_reg(addr, MOSIA, ambaPWrite);
     
       // check on the MSS_GPIO_2 input to see if the xfer is done
       while(!xferDone) {
-        xferDone = (MSS_GPIO_get_inputs() & MSS_GPIO_2_MASK);
+        //xferdone = (MSS_GPIO_get_inputs() & MSS_GPIO_2_MASK);
       }
-      MSS_GPIO_set_output(MSS_GPIO_1, 1); // SPI transaction done, set rst high
+      //MSS_GPIO_set_output(MSS_GPIO_1, 1); // SPI transaction done, set rst high
     }
     else {
       return -1;
     }
     // Data has been set.  To load into the Dac, need to drop nLDac low for > 10ns
     // This will load the DAC value
-    MSS_GPIO_set_output(MSS_GPIO_4, 0); // set to 0
+    //MSS_GPIO_set_output(MSS_GPIO_4, 0); // set to 0
     // Need a delay or will this be > 10ns (probably)
-    MSS_GPIO_set_output(MSS_GPIO_4, 1); // set back to 1
+    //MSS_GPIO_set_output(MSS_GPIO_4, 1); // set back to 1
 
     return 0;
   };
@@ -428,12 +428,12 @@ struct DACspi {
     //    HAL_set_16bit_reg(SPIMASTERTRIOPORTS_0_BIF_1, NO_OFFSET, 0xf432);
     //HW_set_16bit_reg(SPIMASTERTRIOPORTS_0_BIF_2, 0x234f);
 
-    MSS_GPIO_set_output(MSS_GPIO_1, 0); // set rst on the SPI module to low to begin a SPI transaction
+    //MSS_GPIO_set_output(MSS_GPIO_1, 0); // set rst on the SPI module to low to begin a SPI transaction
     // The transaction should be going now
         while(!xferDone) {
-      xferDone = (MSS_GPIO_get_inputs() & MSS_GPIO_2_MASK);
+      //xferdone = (MSS_GPIO_get_inputs() & MSS_GPIO_2_MASK);
     }
-    MSS_GPIO_set_output(MSS_GPIO_1, 1); // SPI transaction done, set rst high
+    //MSS_GPIO_set_output(MSS_GPIO_1, 1); // SPI transaction done, set rst high
 
 //    SPI_set_slave_select(&dacSpi[board], (spi_slave_t)dacNum);
 //    SPI_transfer_frame(&dacSpi[board], 0xf456);

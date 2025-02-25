@@ -36,12 +36,12 @@ extern CGraphDMHardwareInterface* DMCI;  // Contains a bunch of variables
 #include "uart/uart_pinout_fpga.hpp"
 
 //#include "hw_reg_io.h"
-#include "drivers/CoreUARTapb/core_uart_apb.h"
-#include "drivers/CoreUARTapb/coreuartapb_regs.h"
+//#include "drivers/CoreUARTapb/core_uart_apb.h"
+//#include "drivers/CoreUARTapb/coreuartapb_regs.h"
 //#include "mss_nvm.h"
-#include "drivers/mss_gpio/mss_gpio.h"
-#include "drivers/mss_pdma/mss_pdma.h"
-#include "EvalBoardSandbox_hw_platform.h"
+//#include "drivers/mss_gpio/mss_gpio.h"
+//#include "drivers/mss_pdma/mss_pdma.h"
+//#include "EvalBoardSandbox_hw_platform.h"
 
 //int MmapHandle = 0;
 
@@ -61,7 +61,7 @@ extern CGraphDMHardwareInterface* DMCI;  // Contains a bunch of variables
 /*------------------------------------------------------------------------------
   UART selection.
  */
-UART_instance_t my_uart;
+//UART_instance_t my_uart;
 //uint8_t rx_data[MAX_RX_DATA_SIZE];
 //uint8_t rx_size = 0;
 //uint8_t rx_err_status;
@@ -224,9 +224,9 @@ int main(int argc, char *argv[])
      * Initialize and configure UART.                                           *
      *--------------------------------------------------------------------------*/
     // Won't need this
-    UART_init(&my_uart, 0, //COREUARTAPB_C0_0,
-              BAUD_VALUE_115200,
-              (DATA_8_BITS | NO_PARITY));
+//    UART_init(&my_uart, 0, //COREUARTAPB_C0_0,
+//              BAUD_VALUE_115200,
+//              (DATA_8_BITS | NO_PARITY));
 
     //    UART_polled_tx_string(&my_uart,(const uint8_t*)"Ux1Init\n"); // getting here?
 
@@ -238,29 +238,29 @@ int main(int argc, char *argv[])
      * Initiailize the GPIO                                                     *
      *--------------------------------------------------------------------------*/
     // Might need this.  Keep in for now.
-    MSS_GPIO_init();  // Need to call this before anything else for the GPIO
-    
-    MSS_GPIO_config(MSS_GPIO_0, MSS_GPIO_INPUT_MODE);  // Make RxRdy an input
-    MSS_GPIO_config(MSS_GPIO_1, MSS_GPIO_OUTPUT_MODE); // Make SpiReset an output
-    MSS_GPIO_config(MSS_GPIO_2, MSS_GPIO_INPUT_MODE);  // Make SpiXferComplete an input
-    MSS_GPIO_config(MSS_GPIO_3, MSS_GPIO_OUTPUT_MODE);  // Make nClrDacs an output
-    MSS_GPIO_config(MSS_GPIO_4, MSS_GPIO_OUTPUT_MODE);  // Make nLDacs an output
-    MSS_GPIO_config(MSS_GPIO_5, MSS_GPIO_OUTPUT_MODE);  // Make nRstDacs an output
-    MSS_GPIO_config(MSS_GPIO_6, MSS_GPIO_OUTPUT_MODE);  // Make PowerHVnEn an output
-    MSS_GPIO_config(MSS_GPIO_7, MSS_GPIO_INPUT_MODE);  // Make Ux1Sel an input
-    
-    MSS_GPIO_set_output(MSS_GPIO_1, 1); // set the rst of the SPI module to 1 to hold it in reset until time to send SPI data
-    MSS_GPIO_set_output(MSS_GPIO_3, 1); // set the nClrDacs to 1
-    MSS_GPIO_set_output(MSS_GPIO_4, 1); // set the nLDacs to 1
-    MSS_GPIO_set_output(MSS_GPIO_5, 1); // set the nRstDacs 1
-    MSS_GPIO_set_output(MSS_GPIO_6, 0); // set the PwrHVnEn 0.  HV power on at start up
+//    MSS_GPIO_init();  // Need to call this before anything else for the GPIO
+//    
+//    MSS_GPIO_config(MSS_GPIO_0, MSS_GPIO_INPUT_MODE);  // Make RxRdy an input
+//    MSS_GPIO_config(MSS_GPIO_1, MSS_GPIO_OUTPUT_MODE); // Make SpiReset an output
+//    MSS_GPIO_config(MSS_GPIO_2, MSS_GPIO_INPUT_MODE);  // Make SpiXferComplete an input
+//    MSS_GPIO_config(MSS_GPIO_3, MSS_GPIO_OUTPUT_MODE);  // Make nClrDacs an output
+//    MSS_GPIO_config(MSS_GPIO_4, MSS_GPIO_OUTPUT_MODE);  // Make nLDacs an output
+//    MSS_GPIO_config(MSS_GPIO_5, MSS_GPIO_OUTPUT_MODE);  // Make nRstDacs an output
+//    MSS_GPIO_config(MSS_GPIO_6, MSS_GPIO_OUTPUT_MODE);  // Make PowerHVnEn an output
+//    MSS_GPIO_config(MSS_GPIO_7, MSS_GPIO_INPUT_MODE);  // Make Ux1Sel an input
+//    
+//    MSS_GPIO_set_output(MSS_GPIO_1, 1); // set the rst of the SPI module to 1 to hold it in reset until time to send SPI data
+//    MSS_GPIO_set_output(MSS_GPIO_3, 1); // set the nClrDacs to 1
+//    MSS_GPIO_set_output(MSS_GPIO_4, 1); // set the nLDacs to 1
+//    MSS_GPIO_set_output(MSS_GPIO_5, 1); // set the nRstDacs 1
+//    MSS_GPIO_set_output(MSS_GPIO_6, 0); // set the PwrHVnEn 0.  HV power on at start up
     /*--------------------------------------------------------------------------*/
 
     /*--------------------------------------------------------------------------*
      * Initialize the PDMA                                                      *
      *--------------------------------------------------------------------------*/
     // Will want this
-    PDMA_init();  // Initializes the PDMA controller
+//    PDMA_init();  // Initializes the PDMA controller
 
     /* Now configure the streams -----------------------------------------------*/
     /* Our peripherals or in the FPGA fabric in the FIC 1 address space         *
@@ -279,11 +279,11 @@ int main(int argc, char *argv[])
     /* PDMA Channel 4 memory to SpiMasterPorts3 */
     /* PDMA Channel 5 memory to SpiMasterPorts4 */
     /* PDMA Channel 6 memory to SpiMasterPorts5 */
-    PDMA_configure(PDMA_CHANNEL_0,
-                   PDMA_MEM_TO_MEM,
-                   PDMA_LOW_PRIORITY | PDMA_HALFWORD_TRANSFER
-                   | PDMA_INC_DEST_ONE_BYTE | PDMA_INC_SRC_FOUR_BYTES,  // increment src causes problems why??
-                   0);
+//    PDMA_configure(PDMA_CHANNEL_0,
+//                   PDMA_MEM_TO_MEM,
+//                   PDMA_LOW_PRIORITY | PDMA_HALFWORD_TRANSFER
+//                   | PDMA_INC_DEST_ONE_BYTE | PDMA_INC_SRC_FOUR_BYTES,  // increment src causes problems why??
+//                   0);
     // DEST Two bytes, SRC four bytes has output of first element, then third element, then 5th element.  Remaining 2 spi outputs are static
     // DEST one byte, SRC four bytes
     // DEST four bytes, SRC four bytes
@@ -294,10 +294,10 @@ int main(int argc, char *argv[])
 //                   PDMA_LOW_PRIORITY | PDMA_WORD_TRANSFER,
 //                   PDMA_DEFAULT_WRITE_ADJ);
 
-    PDMA_configure(PDMA_CHANNEL_1,
-                   PDMA_TO_FIC_0_DMAREADY_0,
-                   PDMA_LOW_PRIORITY | PDMA_HALFWORD_TRANSFER,
-                   PDMA_DEFAULT_WRITE_ADJ);
+//    PDMA_configure(PDMA_CHANNEL_1,
+//                   PDMA_TO_FIC_0_DMAREADY_0,
+//                   PDMA_LOW_PRIORITY | PDMA_HALFWORD_TRANSFER,
+//                   PDMA_DEFAULT_WRITE_ADJ);
     
 //    PDMA_configure(PDMA_CHANNEL_2,
 //                   PDMA_TO_FIC_0_DMAREADY_0,
@@ -326,41 +326,41 @@ int main(int argc, char *argv[])
     
     // Reset the DACs
     // How long is this delay?
-    MSS_GPIO_set_output(MSS_GPIO_5,0); // set nRstDacs to 0
-    for (int ii; ii < 10000; ii++) {  // a delay
-      MSS_GPIO_set_output(MSS_GPIO_5,0); // set nRstDacs to 0
-    }
-    MSS_GPIO_set_output(MSS_GPIO_5,1); // set nRstDacs to 1
-    // Dacs are now reset
-
-    // Clear the Dacs
-    MSS_GPIO_set_output(MSS_GPIO_3,0); // set nClrDacs to 0
-    for (int ii; ii < 10000; ii++) {  // a delay
-      MSS_GPIO_set_output(MSS_GPIO_3,0); // set nClrDacs to 0
-    }
-    MSS_GPIO_set_output(MSS_GPIO_3,1); // set nClrDacs to 1
-    // Dacs are now clear
-
-    // Need to write 0 to all of the Dacs otherwise the default value will
-    // be loaded when Dacs are loaded
-    for (int board; board < 6; board++) {
-      for (int dac; dac < 24; dac++) {
-        for (int chan; chan < 40; chan++) {
-          dacPayload.Board = board;
-          dacPayload.dacNum = dac;
-          dacPayload.dacChan = chan;
-          dacPayload.data = 0;
-
-          const char* Params = reinterpret_cast<char*>(&dacPayload);
-          // Call the BinaryHandler directly??
-          BinaryDMDacCommand(CGraphPayloadTypeDMDac, Params, sizeof(CGraphSingleDacPayload), NULL);
-          // Put in a delay loop
-          for (int ii; ii < 10000; ii++) {
-              MSS_GPIO_set_output(MSS_GPIO_5,1); // set nRstDacs to 1
-          }
-        }
-      }
-    }
+//    MSS_GPIO_set_output(MSS_GPIO_5,0); // set nRstDacs to 0
+//    for (int ii; ii < 10000; ii++) {  // a delay
+//      MSS_GPIO_set_output(MSS_GPIO_5,0); // set nRstDacs to 0
+//    }
+//    MSS_GPIO_set_output(MSS_GPIO_5,1); // set nRstDacs to 1
+//    // Dacs are now reset
+//
+//    // Clear the Dacs
+//    MSS_GPIO_set_output(MSS_GPIO_3,0); // set nClrDacs to 0
+//    for (int ii; ii < 10000; ii++) {  // a delay
+//      MSS_GPIO_set_output(MSS_GPIO_3,0); // set nClrDacs to 0
+//    }
+//    MSS_GPIO_set_output(MSS_GPIO_3,1); // set nClrDacs to 1
+//    // Dacs are now clear
+//
+//    // Need to write 0 to all of the Dacs otherwise the default value will
+//    // be loaded when Dacs are loaded
+//    for (int board; board < 6; board++) {
+//      for (int dac; dac < 24; dac++) {
+//        for (int chan; chan < 40; chan++) {
+//          dacPayload.Board = board;
+//          dacPayload.dacNum = dac;
+//          dacPayload.dacChan = chan;
+//          dacPayload.data = 0;
+//
+//          const char* Params = reinterpret_cast<char*>(&dacPayload);
+//          // Call the BinaryHandler directly??
+//          BinaryDMDacCommand(CGraphPayloadTypeDMDac, Params, sizeof(CGraphSingleDacPayload), NULL);
+//          // Put in a delay loop
+//          for (int ii; ii < 10000; ii++) {
+//              MSS_GPIO_set_output(MSS_GPIO_5,1); // set nRstDacs to 1
+//          }
+//        }
+//      }
+//    }
 
     //    ShowBuildParameters(); // What is this??
     //DbgUartUsb.Init();

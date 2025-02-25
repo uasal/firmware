@@ -42,7 +42,7 @@ using namespace std;
 #include "cgraph/CGraphDMHardwareInterface.hpp"
 #include "CmdTableBinary.hpp"
 #include "MirrorMap.hpp"
-#include "drivers/mss_pdma/mss_pdma.h"
+//#include "drivers/mss_pdma/mss_pdma.h"
 
 
 #define DriverBoards 6
@@ -52,7 +52,7 @@ using namespace std;
 #define NO_OFFSET            0x00u
 
 DACspi  SpiContainer;
-extern UART_instance_t my_uart;
+//extern UART_instance_t my_uart;
 
 int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
@@ -135,11 +135,11 @@ int8_t BinaryDMUartCommand(const uint32_t Name, char const* Params, const size_t
 
   // This is to test the Uart and see if the UART us indeed setting the limit on amount of data
   // Check to see we're getting here
-  UART_polled_tx_string(&my_uart,(const uint8_t*)"In BUart Cmd ");
+  //  UART_polled_tx_string(&my_uart,(const uint8_t*)"In BUart Cmd ");
   // Not really necessary, but we'll keep this test in to stay close to the original
   if ( (NULL != Params) && (ParamsLen >= (30 * sizeof(uint16_t))) )  {
-    UART_polled_tx_string(&my_uart,(const uint8_t*)"Sending back params ");
-    UART_polled_tx_string(&my_uart,(const uint8_t*)Params);  // Send the string right back
+    //    UART_polled_tx_string(&my_uart,(const uint8_t*)"Sending back params ");
+    //    UART_polled_tx_string(&my_uart,(const uint8_t*)Params);  // Send the string right back
     //    UART_polled_tx_string(&my_uart,(const uint8_t*)DMSetPoints[1]);  // Send the string right back
   }
   return(ParamsLen);
@@ -157,7 +157,7 @@ int8_t BinaryDMVectorCommand(const uint32_t Name, char const* Params, const size
   // I think that may have been the problem
   
   // Check to see we're getting here
-  UART_polled_tx_string(&my_uart,(const uint8_t*)"In Vector Cmd ");
+  //  UART_polled_tx_string(&my_uart,(const uint8_t*)"In Vector Cmd ");
   esram_addr = 0x20000000;
   // This will normally be a vector of all 952 mirror set points
   // if ( (NULL != Params) && (ParamsLen >= (952 * sizeof(uint16_t))) )  
@@ -168,18 +168,18 @@ int8_t BinaryDMVectorCommand(const uint32_t Name, char const* Params, const size
   if ( (NULL != Params) && (ParamsLen >= (30 * sizeof(uint16_t))) )  {
     
     const uint16_t* DMSetPoints = reinterpret_cast<const uint16_t*>(Params);
-    UART_polled_tx_string(&my_uart,(const uint8_t*)"Have Params ");
+    //    UART_polled_tx_string(&my_uart,(const uint8_t*)"Have Params ");
     size_t numElements = sizeof(Params)/sizeof(uint16_t);
     
 
     // Write to the memory locations
     for (ii=0; ii <ParamsLen/2; ii++) {
-      PDMA_start(PDMA_CHANNEL_0,
-                 (uint32_t)(DMSetPoints+ii),
-                 esram_addr+2*ii,
-                 1);
+//      PDMA_start(PDMA_CHANNEL_0,
+//                 (uint32_t)(DMSetPoints+ii),
+//                 esram_addr+2*ii,
+//                 1);
       do {
-        status = PDMA_status(PDMA_CHANNEL_0);
+//        status = PDMA_status(PDMA_CHANNEL_0);
       } while (0 == status);
     }
 
@@ -194,16 +194,16 @@ int8_t BinaryDMVectorCommand(const uint32_t Name, char const* Params, const size
     // Just use one SPI port
     for (ii=0; ii < ParamsLen/2; ii++) {
       
-      MSS_GPIO_set_output(MSS_GPIO_1, 0); // begin a SPI transaction clear rst to low
-      PDMA_start(PDMA_CHANNEL_1,
-                 esram_addr+2*ii,
-                 0, //SPIMASTERPORTS_0,
-                 1);              // 160 transfers of 16 bytes
+//      MSS_GPIO_set_output(MSS_GPIO_1, 0); // begin a SPI transaction clear rst to low
+//      PDMA_start(PDMA_CHANNEL_1,
+//                 esram_addr+2*ii,
+//                 0, //SPIMASTERPORTS_0,
+//                 1);              // 160 transfers of 16 bytes
     
-    while(!xferDone) {
-        xferDone = (MSS_GPIO_get_inputs() & MSS_GPIO_2_MASK);
-      }
-      MSS_GPIO_set_output(MSS_GPIO_1, 1); // SPI transaction done, set rst high
+//    while(!xferDone) {
+//        xferDone = (MSS_GPIO_get_inputs() & MSS_GPIO_2_MASK);
+//      }
+//      MSS_GPIO_set_output(MSS_GPIO_1, 1); // SPI transaction done, set rst high
     }
     
 //    PDMA_start(PDMA_CHANNEL_2,
@@ -232,7 +232,7 @@ int8_t BinaryDMVectorCommand(const uint32_t Name, char const* Params, const size
     printf("\nBinaryDMDacsCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (3 * sizeof(uint32_t)));
   }
 
-  UART_polled_tx_string(&my_uart,(const uint8_t*)"end of vector ");
+    //  UART_polled_tx_string(&my_uart,(const uint8_t*)"end of vector ");
   return(ParamsLen);
 }
 
@@ -306,19 +306,19 @@ int8_t BinaryDMDacConfigCommand(const uint32_t Name, char const* Params, const s
 
   // First reset and clear all DACs
   // Reset the DACs
-  MSS_GPIO_set_output(MSS_GPIO_5,0); // set nRstDacs to 0
-  for (int ii; ii < 10000; ii++) {  // a delay
-    MSS_GPIO_set_output(MSS_GPIO_5,0); // set nRstDacs to 0
-  }
-  MSS_GPIO_set_output(MSS_GPIO_5,1); // set nRstDacs to 1
+//  MSS_GPIO_set_output(MSS_GPIO_5,0); // set nRstDacs to 0
+//  for (int ii; ii < 10000; ii++) {  // a delay
+//    MSS_GPIO_set_output(MSS_GPIO_5,0); // set nRstDacs to 0
+//  }
+//  MSS_GPIO_set_output(MSS_GPIO_5,1); // set nRstDacs to 1
   // Dacs are now reset
 
   // Clear the Dacs
-  MSS_GPIO_set_output(MSS_GPIO_3,0); // set nClrDacs to 0
-  for (int ii; ii < 10000; ii++) {  // a delay
-    MSS_GPIO_set_output(MSS_GPIO_3,0); // set nClrDacs to 0
-  }
-  MSS_GPIO_set_output(MSS_GPIO_3,1); // set nClrDacs to 1
+//  MSS_GPIO_set_output(MSS_GPIO_3,0); // set nClrDacs to 0
+//  for (int ii; ii < 10000; ii++) {  // a delay
+//    MSS_GPIO_set_output(MSS_GPIO_3,0); // set nClrDacs to 0
+//  }
+//  MSS_GPIO_set_output(MSS_GPIO_3,1); // set nClrDacs to 1
   // Dacs are now clear
 
   for (dacNum = 0; dacNum <24; dacNum++) {
