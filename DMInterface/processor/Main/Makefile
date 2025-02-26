@@ -30,7 +30,7 @@ CPPSRC = CmdTableBinary.cpp CmdHandlersBinary.cpp $(INCLUDE_LOCAL)/cgraph/CGraph
 #~ OPT = 3
 
 OPT = 0
-RUN_MODE = DEBUG
+RUN_MODE = NODEBUG
 CFLAGS += -g
 
 FLASH_TOOL = OPENOCD

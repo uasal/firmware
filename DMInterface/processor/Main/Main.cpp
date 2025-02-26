@@ -35,16 +35,6 @@ extern CGraphDMHardwareInterface* DMCI;  // Contains a bunch of variables
 #include "uart/BinaryUart.hpp"
 #include "uart/uart_pinout_fpga.hpp"
 
-//#include "hw_reg_io.h"
-//#include "drivers/CoreUARTapb/core_uart_apb.h"
-//#include "drivers/CoreUARTapb/coreuartapb_regs.h"
-//#include "mss_nvm.h"
-//#include "drivers/mss_gpio/mss_gpio.h"
-//#include "drivers/mss_pdma/mss_pdma.h"
-//#include "EvalBoardSandbox_hw_platform.h"
-
-//int MmapHandle = 0;
-
 
 // Formula for Baud rate fpr the core_uart_apb
 // Baud_rate_value = (clk_in_Hz/(Baud_rate*16)) - 1
