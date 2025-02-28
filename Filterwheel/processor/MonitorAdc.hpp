@@ -344,7 +344,7 @@ public:
 	
 	void SaveCals(double* const Buffer, size_t& BufferMaxInBufferUsedOut)
 	{
-		if ( (NULL == Buffer) || (BufferMaxInBufferUsedOut < (32 * sizeof(double))) )
+		if ( (nullptr == Buffer) || (BufferMaxInBufferUsedOut < (32 * sizeof(double))) )
 		{ 
 			formatf("\nMonitorAdc: Insufficient Buffer to save Calibrates! Given: %zu, required: %zu\n\n", BufferMaxInBufferUsedOut, (32 * sizeof(double)));
 			return; 
@@ -389,7 +389,7 @@ public:
 
 	void RestoreCals(const double* Buffer, size_t& BufferMaxInBufferUsedOut)	
 	{
-		if ( (NULL == Buffer) || ((BufferMaxInBufferUsedOut < (32 * sizeof(double)))) )
+		if ( (nullptr == Buffer) || ((BufferMaxInBufferUsedOut < (32 * sizeof(double)))) )
 		{ 
 			formatf("\nMonitorAdc: Insufficient Buffer to restore Calibrates! Given: %zu, required: %zu\n\n", BufferMaxInBufferUsedOut, (32 * sizeof(double)));
 			return; 

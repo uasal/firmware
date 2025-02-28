@@ -46,7 +46,7 @@ struct FPGABinaryUartCallbacks : public BinaryUartCallbacks
 	//Malformed/corrupted packet handler:
 	virtual void InvalidPacket(const uint8_t* Buffer, const size_t& BufferLen) override
 	{ 
-		if ( (NULL == Buffer) || (BufferLen < 1) ) { formatf("\nFPGAUartCallbacks: NULL(%u) InvalidPacket!\n\n", BufferLen); return; }
+		if ( (nullptr == Buffer) || (BufferLen < 1) ) { formatf("\nFPGAUartCallbacks: NULL(%u) InvalidPacket!\n\n", BufferLen); return; }
 	
 		size_t len = BufferLen;
 		if (len > 32) { len = 32; }
@@ -58,7 +58,7 @@ struct FPGABinaryUartCallbacks : public BinaryUartCallbacks
 	//Packet with no matching command handler:
 	virtual void UnHandledPacket(const IPacket* Packet, const size_t& PacketLen) override
 	{ 
-		if ( (NULL == Packet) || (PacketLen < sizeof(CGraphPacketHeader)) ) { formatf("\nFPGABinaryUartCallbacks: NULL(%u) UnHandledPacket!\n\n", PacketLen); return; }
+		if ( (nullptr == Packet) || (PacketLen < sizeof(CGraphPacketHeader)) ) { formatf("\nFPGABinaryUartCallbacks: NULL(%u) UnHandledPacket!\n\n", PacketLen); return; }
 		
 		const CGraphPacketHeader* Header = reinterpret_cast<const CGraphPacketHeader*>(Packet);
 		formatf("\nFPGAUartCallbacks: Unhandled packet(%u): ", PacketLen);
@@ -118,7 +118,7 @@ void ProcessAllUarts()
 {	
 	for (size_t i = 0; i < NumUartParsers; i++)
 	{
-		if (NULL != UartParsers[i]) { UartParsers[i]->Process(); }
+		if (nullptr != UartParsers[i]) { UartParsers[i]->Process(); }
 	}
 }
 

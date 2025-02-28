@@ -19,41 +19,41 @@ const BinaryCmd BinaryCmds[] =
 {
 	BinaryCmd (
 		CGraphPayloadTypeVersion,
-		"BinaryVersionCommand",
+		"Query CGraphVersionPayload packet",
 		BinaryVersionCommand
     ),
 	BinaryCmd (
 		CGraphPayloadTypeFWHardwareControlStatus,
-		"BinaryFWDacsCommand",
+		"Set/query CGraphFWHardwareControlRegister packet",
 		BinaryFWHardwareControlStatusCommand
     ),
 	BinaryCmd (
 		CGraphPayloadTypeFWMotorControlStatus,
-		"BinaryFWAdcsCommand",
+		"Set/query CGraphFWMotorControlStatusRegister packet",
 		BinaryFWMotorControlStatusCommand
     ),
 
 	BinaryCmd (
 		CGraphPayloadTypeFWPositionSenseControlStatus,
-		"BinaryFWAdcsFloatingPointCommand",
+		"Query CGraphFWPositionSenseRegister packet",
 		BinaryFWPositionSenseControlStatusCommand
     ),
 	
 	BinaryCmd (
 		CGraphPayloadTypeFWPositionSteps,
-		"BinaryFWDacsFloatingPointCommand",
+		"Set/query CGraphFWPositionStepRegister packet",
 		BinaryFWPositionStepsCommand
     ),
 	
 	BinaryCmd (
 		CGraphPayloadTypeFWTelemetry,
-		"BinaryFWStatusCommand",
+		"Query CGraphFWTelemetryPayload packet",
 		BinaryFWTelemetryADCCommand
     ),
 
 	BinaryCmd (
 		CGraphPayloadTypeFWFilterSelect,
-		"BinaryFWStatusCommand",
+		"Set/query Filter poosition (32b integer). Returns final position (0=sunsafe), -1 if moving, or -2 if positioning error.",
 		BinaryFWFilterSelectCommand
     ),
 };

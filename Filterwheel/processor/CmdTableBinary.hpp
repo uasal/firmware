@@ -5,6 +5,7 @@
 ///           CAAO - Center for Astronomical Adaptive Optics
 ///           MagAOX
 //
+#pragma once
 
 #include <stdint.h>
 

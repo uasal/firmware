@@ -62,7 +62,7 @@ int8_t BinaryFWHardwareControlStatusCommand(const uint32_t Name, char const* Par
 {
 	formatf("\nBinaryFWHardwareControlStatusCommand: processing(%u)...\n\n", ParamsLen);
 	
-	if ( (NULL != Params) && (ParamsLen >= (sizeof(CGraphFWHardwareControlRegister))) )
+	if ( (nullptr != Params) && (ParamsLen >= (sizeof(CGraphFWHardwareControlRegister))) )
 	{
 		const CGraphFWHardwareControlRegister* HCR = reinterpret_cast<const CGraphFWHardwareControlRegister*>(Params);
 		
@@ -86,7 +86,7 @@ int8_t BinaryFWMotorControlStatusCommand(const uint32_t Name, char const* Params
 {
 	formatf("\nBinaryFWMotorControlStatusCommand: processing(%u)...\n\n", ParamsLen);
 	
-	if ( (NULL != Params) && (ParamsLen >= (sizeof(CGraphFWMotorControlStatusRegister))) )
+	if ( (nullptr != Params) && (ParamsLen >= (sizeof(CGraphFWMotorControlStatusRegister))) )
 	{
 		const CGraphFWMotorControlStatusRegister* MCSR = reinterpret_cast<const CGraphFWMotorControlStatusRegister*>(Params);
 		
@@ -205,7 +205,7 @@ int8_t BinaryFWFilterSelectCommand(const uint32_t Name, char const* Params, cons
 	
 	formatf("\nBinaryFWFilterSelectCommand: processing(%u)...\n\n", ParamsLen);
 	
-	if ( (NULL != Params) && (ParamsLen >= (sizeof(uint32_t))) )
+	if ( (nullptr != Params) && (ParamsLen >= (sizeof(uint32_t))) )
 	{
 		FilterSelect = *(const uint32_t*)Params;
 		

@@ -134,12 +134,12 @@ int8_t CalibrateMonitorAdcCommand(char const* Name, char const* Params, const si
 	bool Query = true;
 	
 	char* InputName = strtok(const_cast<char*>(Params)," ,\t\r\n");
-	char* Gn = strtok((char*)NULL," ,\t\r\n");
-	char* Of = strtok((char*)NULL," ,\t\r\n");
+	char* Gn = strtok((char*)nullptr," ,\t\r\n");
+	char* Of = strtok((char*)nullptr," ,\t\r\n");
 	double Gain = 1.0;
 	double Offset = 0.0;
 	
-	if (NULL == InputName)
+	if (nullptr == InputName)
 	{
 		formatf("\nMonitorAdcCalibrate: Invalid parameters; must give at least name of input calibration to query!\n\n");
 		return(strlen(Params));
@@ -151,13 +151,13 @@ int8_t CalibrateMonitorAdcCommand(char const* Name, char const* Params, const si
 		InputName[i] = toupper(InputName[i]); //(1 to skip first whitespace)
 	}
 	
-	if (NULL != Gn)
+	if (nullptr != Gn)
 	{
 		Query = false;
 		sscanf(Gn, "%le", &Gain);
 	}
 	
-	if (NULL != Of)
+	if (nullptr != Of)
 	{
 		Query = false;
 		sscanf(Of, "%le", &Offset);
@@ -185,7 +185,7 @@ int8_t CalibrateMonitorAdcCommand(char const* Name, char const* Params, const si
 		return(strlen(Params));
 	}
 
-	MonitorAdcCalibratedInput* CalibrateMe = NULL;
+	MonitorAdcCalibratedInput* CalibrateMe = nullptr;
 	
 	if (0 == strncmp(InputName, "P1V2", 8)) { CalibrateMe = &P1V2Calibrate; } 
 	if (0 == strncmp(InputName, "P2V2", 8)) { CalibrateMe = &P2V2Calibrate; } 
@@ -204,7 +204,7 @@ int8_t CalibrateMonitorAdcCommand(char const* Name, char const* Params, const si
 	if (0 == strncmp(InputName, "AMBIENTLIGHT", 8)) { CalibrateMe = &AmbientLightCalibrate; } 
 	if (0 == strncmp(InputName, "TEMPERATURE", 8)) { CalibrateMe = &TemperatureCalibrate; } 
 
-	if (NULL != CalibrateMe)
+	if (nullptr != CalibrateMe)
 	{
 		if (!Query)
 		{

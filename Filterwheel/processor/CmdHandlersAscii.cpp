@@ -55,7 +55,7 @@ char Buffer[4096];
 
 int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	if (NULL != FW)
+	if (nullptr != FW)
 	{
 		//formatf("\n\nVersion: Serial Number: %.8X, Global Revision: %s; build number: %u on: %s; fpga build: %u.\n", FW->DeviceSerialNumber, GITVERSION, BuildNum, BuildTimeStr, FW->FpgaFirmwareBuildNumber);
 		formatf("\n\nVersion: Serial Number: %.8X, Global Revision: %s; build number: %u on: %s; fpga build: %u.\n", FW->DeviceSerialNumber, "n/a", BuildNum, BuildTimeStr, FW->FpgaFirmwareBuildNumber);
@@ -130,7 +130,7 @@ int8_t FWStatusCommand(char const* Name, char const* Params, const size_t Params
 	CGraphFWMotorControlStatusRegister MCSR;
 	CGraphFWPositionSenseRegister PSR;
 	
-	if (NULL == FW)
+	if (nullptr == FW)
 	{
 		formatf("\n\nFWStatusCommand: Fpga interface is not initialized! Please call InitFpga first!.");
 		return(ParamsLen);
@@ -158,7 +158,7 @@ int8_t FWStatusCommand(char const* Name, char const* Params, const size_t Params
 
 int8_t SensorStepsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	if (NULL == FW)
+	if (nullptr == FW)
 	{
 		formatf("\n\nSensorStepsCommand: Fpga interface is not initialized! Please call InitFpga first!.");
 		return(ParamsLen);
@@ -207,7 +207,7 @@ int8_t MotorCommand(char const* Name, char const* Params, const size_t ParamsLen
 	CGraphFWMotorControlStatusRegister MCSR;
 	unsigned long SeekStep;
 	
-	if (NULL == FW)
+	if (nullptr == FW)
 	{
 		formatf("\n\nMotorCommand: Fpga interface is not initialized! Please call InitFpga first!.");
 		return(ParamsLen);
@@ -340,7 +340,7 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 {
 	unsigned long A = 0, B = 0, C = 0, D = 0;
 	
-	if (NULL == FW)
+	if (nullptr == FW)
 	{
 		formatf("\n\nBaudDividers: Fpga interface is not initialized! Please call InitFpga first!.");
 		return(ParamsLen);
