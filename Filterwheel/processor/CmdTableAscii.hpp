@@ -6,6 +6,8 @@
 ///           MagAOX
 //
 
+#pragma once
+
 #include <stdint.h>
 
 #include "uart/CmdSystem.hpp"

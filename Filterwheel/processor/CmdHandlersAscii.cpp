@@ -53,6 +53,7 @@ extern uart_pinout_fpga FPGAUartPinoutUsb;
 
 char Buffer[4096];
 
+//Show user firmware version info
 int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	if (nullptr != FW)
@@ -69,6 +70,7 @@ int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsL
     return(strlen(Params));
 }
 
+//Debug coommand - read raw address from fpga without regard to data type or contents
 int8_t ReadFpgaCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	uint32_t RdFpgaBuf;
@@ -80,7 +82,7 @@ int8_t ReadFpgaCommand(char const* Name, char const* Params, const size_t Params
     {
 		formatf("\nReadFpgaCommand: ");
 		//~ for (addr = 0; addr <= 64; addr++)
-		for (addr = 0; addr <= 128; addr+=4)
+		//~ for (addr = 0; addr <= sizeof(CGraphFWHardwareInterface); addr+=4)
 		{
 			RdFpgaBuf = *(((uint8_t*)FW)+addr);
 			formatf("\n0x%.2zX: 0x%.2X ", addr, RdFpgaBuf);
@@ -103,6 +105,7 @@ int8_t ReadFpgaCommand(char const* Name, char const* Params, const size_t Params
 	return(ParamsLen);
 }
 
+//Debug coommand - Write raw address to fpga without regard to data type or contents
 int8_t WriteFpgaCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	//Convert parameter to an integer
@@ -124,6 +127,7 @@ int8_t WriteFpgaCommand(char const* Name, char const* Params, const size_t Param
 	return(ParamsLen);
 }
 
+//Show all FPGA registers
 int8_t FWStatusCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	CGraphFWHardwareControlRegister HCR;
@@ -156,6 +160,7 @@ int8_t FWStatusCommand(char const* Name, char const* Params, const size_t Params
     return(ParamsLen);
 }
 
+//Show sensor step registers
 int8_t SensorStepsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	if (nullptr == FW)
@@ -202,6 +207,7 @@ int8_t SensorStepsCommand(char const* Name, char const* Params, const size_t Par
 	return(ParamsLen);	
 }
 
+//Query/Move motor position
 int8_t MotorCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	CGraphFWMotorControlStatusRegister MCSR;
@@ -253,6 +259,7 @@ int8_t MotorCommand(char const* Name, char const* Params, const size_t ParamsLen
 	return(ParamsLen);
 }
 
+//Change to a specific filter (0=sunsafe)
 int8_t FilterSelectCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	unsigned long FilterSelect = 0;
@@ -307,7 +314,7 @@ int8_t FilterSelectCommand(char const* Name, char const* Params, const size_t Pa
 	return(ParamsLen);
 }
 
-
+//Debug command - "Built In Safe Test"- contemnts/functiuonality may change without warning
 int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	{
@@ -336,6 +343,7 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	return(ParamsLen);
 }
 
+//Change hardware dividers for uarts; aka change the baud rate.
 int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	unsigned long A = 0, B = 0, C = 0, D = 0;
@@ -394,6 +402,7 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 	return(ParamsLen);
 }
 
+//Show current uart buffer contents
 int8_t PrintBuffersCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	formatf("\nShowBuffersCommand: FpgaUartParser: ");
@@ -406,6 +415,7 @@ int8_t PrintBuffersCommand(char const* Name, char const* Params, const size_t Pa
 	return(ParamsLen);
 }
 
+//Show each raw byte from uarts as they are parsed
 int8_t MonitorSerialCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	unsigned long port = 0;
