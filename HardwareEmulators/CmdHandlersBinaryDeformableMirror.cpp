@@ -43,10 +43,13 @@ using namespace std;
 
 #include "CmdTableBinary.hpp"
 
+CGraphDMMappingPayload DMMappings[DMMaxActuators];
+uint32_t DMActuatorVals [DMMaxControllerBoards][DMMDacsPerControllerBoard][DMActuatorsPerDac];
+
 // These are what's returned from the Control Interface
 int8_t BinaryDMDacCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	//~ if ( (NULL != Params) && (ParamsLen >= 4*(sizeof(uint32_t))) )
+	//~ if ( (nullptr != Params) && (ParamsLen >= 4*(sizeof(uint32_t))) )
 	//~ {
 		//~ const uint32_t DacParameters = *reinterpret_cast<const uint32_t*>(Params);
 		//~ printf("\nBinaryDacCommand: Setting a mirror voltage: %lu\n", (unsigned long)DacParameters);
@@ -100,7 +103,7 @@ int8_t BinaryDMTelemetryCommand(const uint32_t Name, char const* Params, const s
 
 int8_t BinaryDMHVSwitchCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	//~ if ( (NULL != Params) && (ParamsLen >= (sizeof(uint32_t))) )
+	//~ if ( (nullptr != Params) && (ParamsLen >= (sizeof(uint32_t))) )
 	//~ {
 		//~ const uint32_t FilterSelect = *reinterpret_cast<const uint32_t*>(Params);
 		//~ printf("\nBinaryHVSwitchCommand: FilterSelected(0=select inprogress): %lu\n", (unsigned long)FilterSelect);
@@ -115,7 +118,7 @@ int8_t BinaryDMHVSwitchCommand(const uint32_t Name, char const* Params, const si
 
 int8_t BinaryDMDacConfigCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	//~ if ( (NULL != Params) && (ParamsLen >= (sizeof(uint32_t))) )
+	//~ if ( (nullptr != Params) && (ParamsLen >= (sizeof(uint32_t))) )
 	//~ {
 		//~ const uint32_t FilterSelect = *reinterpret_cast<const uint32_t*>(Params);
 		//~ printf("\nBinaryDacConfigCommand: FilterSelected(0=select inprogress): %lu\n", (unsigned long)FilterSelect);
@@ -126,5 +129,130 @@ int8_t BinaryDMDacConfigCommand(const uint32_t Name, char const* Params, const s
 		//~ printf("\nBinaryDacConfigCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (sizeof(uint32_t)));
 	//~ }
 	TxBinaryPacket(Argument, CGraphPayloadTypeDMDacConfig, 0, Params, ParamsLen);
+    return(ParamsLen);
+}
+
+int8_t BinaryDMMappingCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	if ( (nullptr != Params) && (ParamsLen > sizeof(CGraphDMPixelPayloadHeader)) )
+	{
+		const CGraphDMPixelPayloadHeader PixelHeader = *reinterpret_cast<const CGraphDMPixelPayloadHeader*>(Params);
+		const unsigned long StartPixel = PixelHeader.StartPixel;
+		if (StartPixel > DMMaxActuators) 
+		{
+			printf("\nBinaryDMMappingCommand: Invalid StartPixel: %lu!\n", (unsigned long)StartPixel);
+		}
+		else
+		{
+			unsigned long NumPixels = (ParamsLen - sizeof(CGraphDMPixelPayloadHeader)) / sizeof(CGraphDMMappingPayload);
+			if ((NumPixels + StartPixel) > DMMaxActuators) { NumPixels = DMMaxActuators - StartPixel; }
+			
+			printf("\nBinaryDMMappingCommand: StartPixel: %lu, NumPixels: %lu\n", StartPixel, NumPixels);
+			
+			for (size_t i = 0; i < NumPixels; i++)
+			{
+				const CGraphDMMappingPayload Mapping = *reinterpret_cast<const CGraphDMMappingPayload*>(Params+sizeof(CGraphDMPixelPayloadHeader)+(i*sizeof(CGraphDMMappingPayload)));
+				if (Mapping.ControllerBoardIndex >= DMMaxControllerBoards)
+				{
+					printf("\nBinaryDMMappingCommand: Invalid Controller Board for mapping %lu: %lu!\n", (unsigned long)i, (unsigned long)Mapping.ControllerBoardIndex);
+				}
+				else
+				{
+					if (Mapping.DacIndex >= DMMDacsPerControllerBoard)
+					{
+						printf("\nBinaryDMMappingCommand: Invalid Dac Number for mapping %lu: %lu!\n", (unsigned long)i, (unsigned long)Mapping.DacIndex);
+					}
+					else
+					{
+						if (Mapping.DacChannel >= DMActuatorsPerDac)
+						{
+							printf("\nBinaryDMMappingCommand: Invalid Dac channel for mapping %lu: %lu!\n", (unsigned long)i, (unsigned long)Mapping.DacChannel);
+						}
+						else
+						{
+							//Yay! Finally valid data!
+							DMMappings[i] = Mapping;
+							printf("\nBinaryDMMappingCommand: Set mapping %l to ", (unsigned long)i);
+							Mapping.formatf();
+							printf("\n\n");
+						}
+					}
+				}
+			}
+		}
+	}
+	else
+	{
+		//NEED TO IMPLEMENT QUERY INSTEAD OF JUST GIVING ERROR:
+		printf("\nBinaryDMMappingCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (sizeof(CGraphDMPixelPayloadHeader)));
+	}
+		
+	TxBinaryPacket(Argument, CGraphPayloadTypeDMMappings, 0, &NumPixels, sizeof(unsigned long));
+    return(ParamsLen);
+}
+
+int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	if ( (nullptr != Params) && (ParamsLen >= sizeof(CGraphDMPixelPayloadHeader)) )
+	{
+		const CGraphDMPixelPayloadHeader PixelHeader = *reinterpret_cast<const CGraphDMPixelPayloadHeader*>(Params);
+		const unsigned long StartPixel = PixelHeader.StartPixel;
+		if (StartPixel > DMMaxActuators) 
+		{
+			printf("\nBinaryDMShortPixelsCommand: Invalid StartPixel: %lu!\n", (unsigned long)StartPixel);
+		}
+		else
+		{
+			//Set
+			if (ParamsLen >= sizeof(CGraphDMPixelPayloadHeader))
+			{
+				unsigned long NumPixels = (ParamsLen - sizeof(CGraphDMPixelPayloadHeader)) / sizeof(CGraphDMMappingPayload);
+				if ((NumPixels + StartPixel) > DMMaxActuators) { NumPixels = DMMaxActuators - StartPixel; }
+				
+				printf("\nBinaryDMShortPixelsCommand: StartPixel: %lu, NumPixels: %lu\n", StartPixel, NumPixels);
+				
+				for (size_t i = 0; i < NumPixels; i++)
+				{
+					const uint16_t DacVal = *reinterpret_cast<const uint16_t*>(Params+sizeof(CGraphDMPixelPayloadHeader)+(i*sizeof(uint16_t)));
+					
+					if ( (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) )
+					{
+						printf("\nBinaryDMShortPixelsCommand: Invalid mapping %lu; please reinitialize mappings!: ", (unsigned long)i);
+						DMMappings[i].formatf();
+						printf("\n\n");
+					}
+					else
+					{
+						DMActuatorVals[DMMappings[i].ControllerBoardIndex][DMMappings[i].DacIndex][DMMappings[i].DacChannel] = DacVal;
+						printf("\nBinaryDMShortPixelsCommand: Set actuator %lu to %lu", (unsigned long)i, (unsigned long)DacVal);
+					}			
+				}
+			}
+			//query
+			else
+			{
+				
+			}
+		}
+	}
+	else
+	{
+		//NEED TO IMPLEMENT QUERY INSTEAD OF JUST GIVING ERROR:
+		printf("\nBinaryDMMappingCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (sizeof(CGraphDMPixelPayloadHeader)));
+	}
+		
+	TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &NumPixels, sizeof(unsigned long));
+    return(ParamsLen);
+}
+
+
+int8_t BinaryDMDitherCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	printf("\nBinaryDMDitherCommand: Ask your EE team to implement this command!\n");
+    return(ParamsLen);
+}
+int8_t BinaryDMLongCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	printf("\nBinaryDMLongCommand: Ask your EE team to implement this command!\n");
     return(ParamsLen);
 }

@@ -200,12 +200,22 @@ struct CGraphFSMTelemetryPayload
 };
 
 //--------------------------------------------------------------------- DM Deformable Mirror 0x3000 packets -------------------------------------------------------------
+
+static const uint16_t DMMaxControllerBoards = 6;
+static const uint16_t DMMDacsPerControllerBoard = 4;
+static const uint16_t DMActuatorsPerDac = 40;
+static const uint16_t DMMaxActuators = DMActuatorsPerDac * DMMDacsPerControllerBoard * DMMaxControllerBoards;
+
 static const uint16_t CGraphPayloadTypeDMDac = 0x3002U;
 static const uint16_t CGraphPayloadTypeDMTelemetry = 0x3004U;
 static const uint16_t CGraphPayloadTypeDMHVSwitch = 0x3007U;
 static const uint16_t CGraphPayloadTypeDMDacConfig = 0x3009U;
 static const uint16_t CGraphPayloadTypeDMVector = 0x3008U;
 static const uint16_t CGraphPayloadTypeDMUart = 0x300AU;
+static const uint16_t CGraphPayloadTypeDMMappings = 0x300BU; //Payload: CGraphDMPixelPayloadHeader followed by one or more CGraphDMMappingPayload structs (num defined by packet payload length filed)
+static const uint16_t CGraphPayloadTypeDMShortPixels = 0x300CU; //Payload: CGraphDMPixelPayloadHeader followed by one or more 16b pixel values (num defined by packet payload length filed)
+static const uint16_t CGraphPayloadTypeDMDither = 0x300DU; //Payload: CGraphDMPixelPayloadHeader followed by one or more 8b dither values (num defined by packet payload length filed)[we reserve the right to be really tricky and bitpack multiple pixels per byte since dither will always be <8b / pix]
+static const uint16_t CGraphPayloadTypeDMLongPixels = 0x300EU; //Payload: CGraphDMPixelPayloadHeader followed by one or more 24b pixel values (num defined by packet payload length filed)- this is gonna cause some funky math & casts when parsing packet to ram...
 
 struct CGraphDMTelemetryPayload
 {
@@ -222,6 +232,23 @@ struct CGraphDMTelemetryPayload
 	double P6I;
 	
 	//~ void formatf() const { ::printf("CGraphFSMStatusPayload: SerialNum: 0x%lX, ProcessorFirmwareBuildNum: %lu, FPGAFirmwareBuildNum: %lu", (long)SerialNum, (unsigned long)ProcessorFirmwareBuildNum, (unsigned long)FPGAFirmwareBuildNum); }
+};
+
+struct CGraphDMPixelPayloadHeader
+{
+	uint16_t StartPixel;
+	
+	void formatf() const { ::printf("CGraphDMPixelPayloadHeader: StartPixel: %lu", (unsigned long)StartPixel); }
+};
+
+//May send multiple copies per packet; array of 1...N of the following:
+struct CGraphDMMappingPayload
+{
+	uint8_t ControllerBoardIndex; // 0 ... DMMaxControllerBoards - 1
+	uint8_t DacIndex; // 0 ... DMMDacsPerControllerBoard - 1
+	uint8_t DacChannel; // 0 ... DMActuatorsPerDac - 1
+	
+	void formatf() const { ::printf("CGraphDMMappingPayload: ControllerBoardIndex: %lu, DacIndex: %lu, DacChannel: %lu", (unsigned long)ControllerBoardIndex, (unsigned long)DacIndex, (unsigned long)DacChannel); }
 };
 
 //--------------------------------------------------------------------- FW Filterwheel 0x4000 packets -------------------------------------------------------------
