@@ -103,6 +103,7 @@ uart_pinout_fpga FPGAUartPinout1(&(DMCI->UartStatusRegister1), &(DMCI->UartFifo1
 uart_pinout_fpga FPGAUartPinout2(&(DMCI->UartStatusRegister2), &(DMCI->UartFifo2), &(DMCI->UartFifo2ReadData), &(DMCI->UartFifo2), '@');
 
 
+BinaryUart FpgaUartParser0(FPGAUartPinout0, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false); // No serial number given, so Invalid is used by default
 BinaryUart FpgaUartParser1(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false); // No serial number given, so Invalid is used by default
 BinaryUart FpgaUartParser2(FPGAUartPinout2, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false); // No serial number given, so Invalid is used by default
 
@@ -187,11 +188,17 @@ bool Process()
 	//~ }
 	
         //if (FpgaUartParser3.Process()) { Bored = false; }    
-    if (FpgaUartParser2.Process()) { Bored = false; }    
-	if (FpgaUartParser1.Process()) { Bored = false; }    
+    if (FpgaUartParser2.Process()) { Bored = false; }
+    if (FpgaUartParser1.Process()) { Bored = false; }
+    if (FpgaUartParser0.Process()) { Bored = false; }
 	//if (DbgUartUsb.Process()) { Bored = false; }    
         //if (DbgUart485_0.Process()) { Bored = false; }
-	
+//    uint32_t dval = 0x23456789;
+//    uint32_t* DummyData;
+//    DummyData = &dval;
+//    FpgaUartParser0.TxBinaryPacket(CGraphPayloadTypeDMDac, 0, DummyData, sizeof(uint32_t));
+    FPGAUartPinout0.putcqq('h'); 
+
     return(Bored);
 }
 
