@@ -60,16 +60,31 @@ DACspi  SpiContainer;
 
 int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-  if ( (NULL != Params) && (ParamsLen >= sizeof(CGraphVersionPayload)) ) {
-    const CGraphVersionPayload* Version = reinterpret_cast<const CGraphVersionPayload*>(Params);
-    printf("\nBinaryVersionCommand: ");
-    Version->formatf();
-    printf("\n");
+  CGraphVersionPayload Version;
+  Version.SerialNum = 0;
+  Version.ProcessorFirmwareBuildNum = BuildNum;
+  Version.FPGAFirmwareBuildNum = 0;
+
+  if (DM) { 
+    //    Version.SerialNum = DM->DeviceSerialNumber; 
+    Version.FPGAFirmwareBuildNum = DM->FpgaFirmwareBuildNumber; 
   }
-  else {
-    printf("\nBinaryVersionCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, sizeof(CGraphVersionPayload));
-  }
-  TxBinaryPacket(Argument, CGraphPayloadTypeDMDac, 0, DacSetpoints, 4*sizeof(uint32_t));
+  printf("\nBinaryVersionCommand: Sending response (%u bytes): ", sizeof(CGraphVersionPayload));
+  Version.formatf();
+  printf("\n");
+  TxBinaryPacket(Argument, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
+  
+  //if ( (NULL != Params) && (ParamsLen >= sizeof(CGraphVersionPayload)) ) {
+  //  const CGraphVersionPayload* Version = reinterpret_cast<const CGraphVersionPayload*>(Params);
+  //  printf("\nBinaryVersionCommand: ");
+  //  Version->formatf();
+  //  printf("\n");
+  //}
+  //else {
+  //  printf("\nBinaryVersionCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, sizeof(CGraphVersionPayload));
+  //}
+  //TxBinaryPacket(Argument, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
+  
   return(ParamsLen);
 }
 

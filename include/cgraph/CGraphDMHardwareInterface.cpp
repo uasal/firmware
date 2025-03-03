@@ -8,7 +8,7 @@
 
 
 #include "CGraphDMHardwareInterface.hpp"
-CGraphDMHardwareInterface* DMCI = (CGraphDMHardwareInterface*)0x50000000UL;
+CGraphDMHardwareInterface* DM = (CGraphDMHardwareInterface*)0x50000000UL;
 
 
 //EOF

@@ -25,7 +25,7 @@
 #include "cgraph/CGraphPacket.hpp"
 
 #include "cgraph/CGraphDMHardwareInterface.hpp"
-extern CGraphDMHardwareInterface* DMCI;  // Contains a bunch of variables
+extern CGraphDMHardwareInterface* DM;  // Contains a bunch of variables
 
 #include "format/formatf.h"
 
@@ -98,9 +98,9 @@ struct FPGABinaryUartCallbacks : public BinaryUartCallbacks
 } PacketCallbacks;
 
 CGraphPacket FPGAUartProtocol;
-uart_pinout_fpga FPGAUartPinout0(&(DMCI->UartStatusRegister0), &(DMCI->UartFifo0), &(DMCI->UartFifo0ReadData), &(DMCI->UartFifo0), '~');
-uart_pinout_fpga FPGAUartPinout1(&(DMCI->UartStatusRegister1), &(DMCI->UartFifo1), &(DMCI->UartFifo1ReadData), &(DMCI->UartFifo1), '!');
-uart_pinout_fpga FPGAUartPinout2(&(DMCI->UartStatusRegister2), &(DMCI->UartFifo2), &(DMCI->UartFifo2ReadData), &(DMCI->UartFifo2), '@');
+uart_pinout_fpga FPGAUartPinout0(&(DM->UartStatusRegister0), &(DM->UartFifo0), &(DM->UartFifo0ReadData), &(DM->UartFifo0), '~');
+uart_pinout_fpga FPGAUartPinout1(&(DM->UartStatusRegister1), &(DM->UartFifo1), &(DM->UartFifo1ReadData), &(DM->UartFifo1), '!');
+uart_pinout_fpga FPGAUartPinout2(&(DM->UartStatusRegister2), &(DM->UartFifo2), &(DM->UartFifo2ReadData), &(DM->UartFifo2), '@');
 
 
 BinaryUart FpgaUartParser0(FPGAUartPinout0, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false); // No serial number given, so Invalid is used by default
