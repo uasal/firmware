@@ -136,11 +136,13 @@ int8_t BinaryDMMappingCommand(const uint32_t Name, char const* Params, const siz
 {
 	if ( (nullptr != Params) && (ParamsLen > sizeof(CGraphDMPixelPayloadHeader)) )
 	{
+		//Find a start index followed by some mappings
 		const CGraphDMPixelPayloadHeader PixelHeader = *reinterpret_cast<const CGraphDMPixelPayloadHeader*>(Params);
 		const unsigned long StartPixel = PixelHeader.StartPixel;
 		if (StartPixel > DMMaxActuators) 
 		{
 			printf("\nBinaryDMMappingCommand: Invalid StartPixel: %lu!\n", (unsigned long)StartPixel);
+			TxBinaryPacket(Argument, CGraphPayloadTypeDMMappings, 0, &StartPixel, sizeof(unsigned long));
 		}
 		else
 		{
@@ -172,22 +174,23 @@ int8_t BinaryDMMappingCommand(const uint32_t Name, char const* Params, const siz
 						{
 							//Yay! Finally valid data!
 							DMMappings[i] = Mapping;
-							printf("\nBinaryDMMappingCommand: Set mapping %l to ", (unsigned long)i);
+							printf("\nBinaryDMMappingCommand: Set mapping %lu to ", (unsigned long)i);
 							Mapping.formatf();
 							printf("\n\n");
 						}
 					}
 				}
 			}
+			TxBinaryPacket(Argument, CGraphPayloadTypeDMMappings, 0, &NumPixels, sizeof(unsigned long));
 		}
 	}
+	//Query
 	else
 	{
-		//NEED TO IMPLEMENT QUERY INSTEAD OF JUST GIVING ERROR:
-		printf("\nBinaryDMMappingCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (sizeof(CGraphDMPixelPayloadHeader)));
+		printf("\nBinaryDMMappingCommand: Empty packet, returning query\n");
+		TxBinaryPacket(Argument, CGraphPayloadTypeDMMappings, 0, DMMappings, sizeof(CGraphDMMappingPayload) * DMMaxActuators);
 	}
-		
-	TxBinaryPacket(Argument, CGraphPayloadTypeDMMappings, 0, &NumPixels, sizeof(unsigned long));
+	
     return(ParamsLen);
 }
 
@@ -195,64 +198,187 @@ int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const
 {
 	if ( (nullptr != Params) && (ParamsLen >= sizeof(CGraphDMPixelPayloadHeader)) )
 	{
+		//ok, first we're looking for a packet with the start pixel and some pix's in it:
 		const CGraphDMPixelPayloadHeader PixelHeader = *reinterpret_cast<const CGraphDMPixelPayloadHeader*>(Params);
 		const unsigned long StartPixel = PixelHeader.StartPixel;
 		if (StartPixel > DMMaxActuators) 
 		{
+			//Complain and bail out, something is horribly wrong:
 			printf("\nBinaryDMShortPixelsCommand: Invalid StartPixel: %lu!\n", (unsigned long)StartPixel);
+			TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &StartPixel, sizeof(unsigned long));
 		}
 		else
 		{
-			//Set
+			//Now do we have some actual pix to set?
 			if (ParamsLen >= sizeof(CGraphDMPixelPayloadHeader))
 			{
 				unsigned long NumPixels = (ParamsLen - sizeof(CGraphDMPixelPayloadHeader)) / sizeof(CGraphDMMappingPayload);
-				if ((NumPixels + StartPixel) > DMMaxActuators) { NumPixels = DMMaxActuators - StartPixel; }
+				if ((NumPixels + StartPixel) > DMMaxActuators) { NumPixels = DMMaxActuators - StartPixel; } //do let's try not to blow our array...
 				
 				printf("\nBinaryDMShortPixelsCommand: StartPixel: %lu, NumPixels: %lu\n", StartPixel, NumPixels);
 				
 				for (size_t i = 0; i < NumPixels; i++)
 				{
+					//pull a pix out of the packet:
 					const uint16_t DacVal = *reinterpret_cast<const uint16_t*>(Params+sizeof(CGraphDMPixelPayloadHeader)+(i*sizeof(uint16_t)));
 					
+					//What D/A ram does this pix belong to?
 					if ( (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) )
 					{
 						printf("\nBinaryDMShortPixelsCommand: Invalid mapping %lu; please reinitialize mappings!: ", (unsigned long)i);
 						DMMappings[i].formatf();
 						printf("\n\n");
 					}
+					//Yay, we got here, things are actaully correct and we have something to do!
 					else
 					{
-						DMActuatorVals[DMMappings[i].ControllerBoardIndex][DMMappings[i].DacIndex][DMMappings[i].DacChannel] = DacVal;
+						DMActuatorVals[DMMappings[i].ControllerBoardIndex][DMMappings[i].DacIndex][DMMappings[i].DacChannel] = ((uint32_t)DacVal) << 8; //<<8 cause we really want 24b values when we dither
 						printf("\nBinaryDMShortPixelsCommand: Set actuator %lu to %lu", (unsigned long)i, (unsigned long)DacVal);
 					}			
 				}
+				
+				//Ok, tell them how many we wrote (i.e. 952, or maybe 16 or something if we shorten the packets)(note there are no errors if the mappings aren't set right now it will silently fail every time)
+				TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &NumPixels, sizeof(unsigned long));
 			}
-			//query
 			else
 			{
-				
+				printf("\nBinaryDMMappingCommand: Short packet: %lu (exptected >%lu bytes): ", ParamsLen, (sizeof(CGraphDMPixelPayloadHeader)));
+				TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &StartPixel, sizeof(unsigned long));
 			}
 		}
 	}
+	//empty packet? query.
 	else
 	{
-		//NEED TO IMPLEMENT QUERY INSTEAD OF JUST GIVING ERROR:
-		printf("\nBinaryDMMappingCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (sizeof(CGraphDMPixelPayloadHeader)));
+		//Not sure what to do besides send back the whole entire block!
+		TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, DMActuatorVals, sizeof(uint32_t) * DMMaxControllerBoards * DMMDacsPerControllerBoard * DMActuatorsPerDac);
 	}
 		
-	TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &NumPixels, sizeof(unsigned long));
     return(ParamsLen);
 }
 
 
 int8_t BinaryDMDitherCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	printf("\nBinaryDMDitherCommand: Ask your EE team to implement this command!\n");
+	if ( (nullptr != Params) && (ParamsLen >= sizeof(CGraphDMPixelPayloadHeader)) )
+	{
+		//ok, first we're looking for a packet with the start pixel and some pix's in it:
+		const CGraphDMPixelPayloadHeader PixelHeader = *reinterpret_cast<const CGraphDMPixelPayloadHeader*>(Params);
+		const unsigned long StartPixel = PixelHeader.StartPixel;
+		if (StartPixel > DMMaxActuators) 
+		{
+			//Complain and bail out, something is horribly wrong:
+			printf("\nBinaryDMDitherCommand: Invalid StartPixel: %lu!\n", (unsigned long)StartPixel);
+			TxBinaryPacket(Argument, CGraphPayloadTypeDMDither, 0, &StartPixel, sizeof(unsigned long));
+		}
+		else
+		{
+			//Now do we have some actual pix to set?
+			if (ParamsLen >= sizeof(CGraphDMPixelPayloadHeader))
+			{
+				unsigned long NumPixels = (ParamsLen - sizeof(CGraphDMPixelPayloadHeader)) / sizeof(CGraphDMMappingPayload);
+				if ((NumPixels + StartPixel) > DMMaxActuators) { NumPixels = DMMaxActuators - StartPixel; } //do let's try not to blow our array...
+				
+				printf("\nBinaryDMDitherCommand: StartPixel: %lu, NumPixels: %lu\n", StartPixel, NumPixels);
+				
+				for (size_t i = 0; i < NumPixels; i++)
+				{
+					//pull a pix out of the packet:
+					const uint8_t DacVal = *reinterpret_cast<const uint8_t*>(Params+sizeof(CGraphDMPixelPayloadHeader)+(i*sizeof(uint8_t)));
+					
+					//What D/A ram does this pix belong to?
+					if ( (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) )
+					{
+						printf("\nBinaryDMDitherCommand: Invalid mapping %lu; please reinitialize mappings!: ", (unsigned long)i);
+						DMMappings[i].formatf();
+						printf("\n\n");
+					}
+					//Yay, we got here, things are actaully correct and we have something to do!
+					else
+					{
+						DMActuatorVals[DMMappings[i].ControllerBoardIndex][DMMappings[i].DacIndex][DMMappings[i].DacChannel] |= (uint32_t)DacVal; //note value is OR'ed in, high bytes never get altered by this command...
+						printf("\nBinaryDMDitherCommand: Set actuator %lu to %lu", (unsigned long)i, (unsigned long)DacVal);
+					}			
+				}
+				
+				//Ok, tell them how many we wrote (i.e. 952, or maybe 16 or something if we Ditheren the packets)(note there are no errors if the mappings aren't set right now it will silently fail every time)
+				TxBinaryPacket(Argument, CGraphPayloadTypeDMDither, 0, &NumPixels, sizeof(unsigned long));
+			}
+			else
+			{
+				printf("\nBinaryDMMappingCommand: Dither packet: %lu (exptected >%lu bytes): ", ParamsLen, (sizeof(CGraphDMPixelPayloadHeader)));
+				TxBinaryPacket(Argument, CGraphPayloadTypeDMDither, 0, &StartPixel, sizeof(unsigned long));
+			}
+		}
+	}
+	//empty packet? query.
+	else
+	{
+		//Not sure what to do besides send back the whole entire block!
+		TxBinaryPacket(Argument, CGraphPayloadTypeDMDither, 0, DMActuatorVals, sizeof(uint32_t) * DMMaxControllerBoards * DMMDacsPerControllerBoard * DMActuatorsPerDac);
+	}
+		
     return(ParamsLen);
 }
 int8_t BinaryDMLongCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	printf("\nBinaryDMLongCommand: Ask your EE team to implement this command!\n");
+	if ( (nullptr != Params) && (ParamsLen >= sizeof(CGraphDMPixelPayloadHeader)) )
+	{
+		//ok, first we're looking for a packet with the start pixel and some pix's in it:
+		const CGraphDMPixelPayloadHeader PixelHeader = *reinterpret_cast<const CGraphDMPixelPayloadHeader*>(Params);
+		const unsigned long StartPixel = PixelHeader.StartPixel;
+		if (StartPixel > DMMaxActuators) 
+		{
+			//Complain and bail out, something is horribly wrong:
+			printf("\nBinaryDMLongPixelsCommand: Invalid StartPixel: %lu!\n", (unsigned long)StartPixel);
+			TxBinaryPacket(Argument, CGraphPayloadTypeDMLongPixels, 0, &StartPixel, sizeof(unsigned long));
+		}
+		else
+		{
+			//Now do we have some actual pix to set?
+			if (ParamsLen >= sizeof(CGraphDMPixelPayloadHeader))
+			{
+				unsigned long NumPixels = (ParamsLen - sizeof(CGraphDMPixelPayloadHeader)) / sizeof(CGraphDMMappingPayload);
+				if ((NumPixels + StartPixel) > DMMaxActuators) { NumPixels = DMMaxActuators - StartPixel; } //do let's try not to blow our array...
+				
+				printf("\nBinaryDMLongPixelsCommand: StartPixel: %lu, NumPixels: %lu\n", StartPixel, NumPixels);
+				
+				for (size_t i = 0; i < NumPixels; i++)
+				{
+					//pull a pix out of the packet:
+					const uint32_t DacVal = *reinterpret_cast<const uint32_t*>(Params+sizeof(CGraphDMPixelPayloadHeader)+(i*3*sizeof(uint8_t))); //Note the "*3" for 24-bit pixels!!!
+					
+					//What D/A ram does this pix belong to?
+					if ( (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) )
+					{
+						printf("\nBinaryDMLongPixelsCommand: Invalid mapping %lu; please reinitialize mappings!: ", (unsigned long)i);
+						DMMappings[i].formatf();
+						printf("\n\n");
+					}
+					//Yay, we got here, things are actaully correct and we have something to do!
+					else
+					{
+						DMActuatorVals[DMMappings[i].ControllerBoardIndex][DMMappings[i].DacIndex][DMMappings[i].DacChannel] = DacVal & 0x00FFFFFF; //mask off the byte we picked up from the last pixel since there's no concept of a "uint24_t"
+						printf("\nBinaryDMLongPixelsCommand: Set actuator %lu to %lu", (unsigned long)i, (unsigned long)DacVal);
+					}			
+				}
+				
+				//Ok, tell them how many we wrote (i.e. 952, or maybe 16 or something if we Longen the packets)(note there are no errors if the mappings aren't set right now it will silently fail every time)
+				TxBinaryPacket(Argument, CGraphPayloadTypeDMLongPixels, 0, &NumPixels, sizeof(unsigned long));
+			}
+			else
+			{
+				printf("\nBinaryDMMappingCommand: Long packet: %lu (exptected >%lu bytes): ", ParamsLen, (sizeof(CGraphDMPixelPayloadHeader)));
+				TxBinaryPacket(Argument, CGraphPayloadTypeDMLongPixels, 0, &StartPixel, sizeof(unsigned long));
+			}
+		}
+	}
+	//empty packet? query.
+	else
+	{
+		//Not sure what to do besides send back the whole entire block!
+		TxBinaryPacket(Argument, CGraphPayloadTypeDMLongPixels, 0, DMActuatorVals, sizeof(uint32_t) * DMMaxControllerBoards * DMMDacsPerControllerBoard * DMActuatorsPerDac);
+	}
+		
     return(ParamsLen);
 }
