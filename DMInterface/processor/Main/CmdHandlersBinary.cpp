@@ -26,20 +26,24 @@
 #include <time.h>
 #include <inttypes.h>
 
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
+//#include <sys/types.h>
+//#include <sys/stat.h>
+//#include <fcntl.h>
+//#include <unistd.h>
 //#include <sys/mman.h>
-#include <errno.h>
+//#include <errno.h>
 #include <unordered_map>
 using namespace std;
 
-#include "cgraph/CGraphPacket.hpp"
-
 #include "uart/BinaryUart.hpp"
 
+#include "cgraph/CGraphPacket.hpp"
+
 #include "cgraph/CGraphDMHardwareInterface.hpp"
+extern CGraphDMHardwareInterface* DM;
+
+#include "MainBuildNum"
+
 #include "CmdTableBinary.hpp"
 #include "MirrorMap.hpp"
 //#include "drivers/mss_pdma/mss_pdma.h"
@@ -56,43 +60,58 @@ DACspi  SpiContainer;
 
 int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	if ( (NULL != Params) && (ParamsLen >= sizeof(CGraphVersionPayload)) )
-	{
-		const CGraphVersionPayload* Version = reinterpret_cast<const CGraphVersionPayload*>(Params);
-		printf("\nBinaryVersionCommand: ");
-		Version->formatf();
-		printf("\n");
-	}
-	else
-	{
-		printf("\nBinaryVersionCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, sizeof(CGraphVersionPayload));
-	}
-    return(ParamsLen);
+  CGraphVersionPayload Version;
+  Version.SerialNum = 0;
+  Version.ProcessorFirmwareBuildNum = BuildNum;
+  Version.FPGAFirmwareBuildNum = 0;
+
+  if (DM) { 
+    //    Version.SerialNum = DM->DeviceSerialNumber; 
+    Version.FPGAFirmwareBuildNum = DM->FpgaFirmwareBuildNumber; 
+  }
+  printf("\nBinaryVersionCommand: Sending response (%u bytes): ", sizeof(CGraphVersionPayload));
+  Version.formatf();
+  printf("\n");
+  TxBinaryPacket(Argument, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
+  
+  //if ( (NULL != Params) && (ParamsLen >= sizeof(CGraphVersionPayload)) ) {
+  //  const CGraphVersionPayload* Version = reinterpret_cast<const CGraphVersionPayload*>(Params);
+  //  printf("\nBinaryVersionCommand: ");
+  //  Version->formatf();
+  //  printf("\n");
+  //}
+  //else {
+  //  printf("\nBinaryVersionCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, sizeof(CGraphVersionPayload));
+  //}
+  //TxBinaryPacket(Argument, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
+  
+  return(ParamsLen);
 }
 
 int8_t BinaryDMDacCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
   uint32_t board, dacNum, dacCh, data;
+  const uint32_t* DacSetpoints = reinterpret_cast<const uint32_t*>(Params);
   
-	if ( (NULL != Params) && (ParamsLen >= (4 * sizeof(uint32_t))) )
-	{
-		const uint32_t* DacSetpoints = reinterpret_cast<const uint32_t*>(Params);
-		printf("\nBinaryDMDacsCommand: 0x%X | 0x%X | 0x%X\n\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2], DacSetpoints[3]);
-                board = DacSetpoints[0];
-                dacNum = DacSetpoints[1];
-                dacCh = DacSetpoints[2];
-                data = DacSetpoints[3];
+  if ( (NULL != Params) && (ParamsLen >= (4 * sizeof(uint32_t))) ) {
+    //    const uint32_t* DacSetpoints = reinterpret_cast<const uint32_t*>(Params);
+    printf("\nBinaryDMDacsCommand: 0x%X | 0x%X | 0x%X\n\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2], DacSetpoints[3]);
+    board = DacSetpoints[0];
+    dacNum = DacSetpoints[1];
+    dacCh = DacSetpoints[2];
+    data = DacSetpoints[3];
 
-                SpiContainer.sendSingleDacSpi(DacSetpoints[0],
-                                              DacSetpoints[1],
-                                              DacSetpoints[2],
-                                              DacSetpoints[3]); // param1: board number (don't care); param2: dac number
-	}
-	else
-	{
-		printf("\nBinaryDMDacsCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (3 * sizeof(uint32_t)));
-	}
-    return(ParamsLen);
+    SpiContainer.sendSingleDacSpi(DacSetpoints[0],
+                                  DacSetpoints[1],
+                                  DacSetpoints[2],
+                                  DacSetpoints[3]); // param1: board number (don't care); param2: dac number
+  }
+  else {
+    printf("\nBinaryDMDacsCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (3 * sizeof(uint32_t)));
+  }
+        
+  TxBinaryPacket(Argument, CGraphPayloadTypeDMDac, 0, DacSetpoints, 4*sizeof(uint32_t));
+  return(ParamsLen);
 }
 
 //int8_t BinaryDMVectorCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument) {
