@@ -63,16 +63,17 @@ struct DACspi {
     return 0;
   };
 
-  int configOffset1(int board, int dacNum) {
+  int configOffset1(int cf1board, int dacNum) {
     int        xferDone=0;
-    int        ii=0;
-    uint8_t    addrByte, nCs;
+    //~ int        ii=0;
+    //~ uint8_t    addrByte
+	uint8_t	   nCs;
     uint32_t   ambaPWrite;
     uint32_t   addr=0;
 
     
     // Use the board number to choose SPI channel
-    switch(board) {
+    switch(cf1board) {
     case 0:
       addr = 5; //SPIMASTERPORTS_5;
       break;
@@ -117,16 +118,17 @@ struct DACspi {
     return 0;
   }
 
-  int configOffset2(int board, int dacNum) {
+  int configOffset2(int cfo2board, int dacNum) {
     int        xferDone=0;
-    int        ii=0;
-    uint8_t    addrByte, nCs;
+    //~ int        ii=0;
+    //~ uint8_t    addrByte;
+	uint8_t    nCs;
     uint32_t   ambaPWrite;
     uint32_t   addr=0;
 
     
     // Use the board number to choose SPI channel
-    switch(board) {
+    switch(cfo2board) {
     case 0:
       addr = 5; //SPIMASTERPORTS_5;
       break;
@@ -172,16 +174,17 @@ struct DACspi {
     return 0;
   }
 
-    int configRegSelect(int board, int dacNum) {
+    int configRegSelect(int crsboard, int dacNum) {
     int        xferDone=0;
-    int        ii=0;
-    uint8_t    addrByte, nCs;
+    //~ int        ii=0;
+    //~ uint8_t    addrByte
+	uint8_t    nCs;
     uint32_t   ambaPWrite;
     uint32_t   addr=0;
 
     
     // Use the board number to choose SPI channel
-    switch(board) {
+    switch(crsboard) {
     case 0:
       addr = 5; //SPIMASTERPORTS_5;
       break;
@@ -227,16 +230,17 @@ struct DACspi {
     return 0;
   }
 
-  int configDacs(int board, int dacNum, uint32_t dacWord) {
+  int configDacs(int cdboard, int dacNum, uint32_t dacWord) {
     int        xferDone=0;
-    int        ii=0;
-    uint8_t    addrByte, nCs;
+    //~ int        ii=0;
+    //~ uint8_t    addrByte, 
+	uint8_t    nCs;
     uint32_t   ambaPWrite;
     uint32_t   addr=0;
 
     
     // Use the board number to choose SPI channel
-    switch(board) {
+    switch(cdboard) {
     case 0:
       addr = 5; //SPIMASTERPORTS_5;
       break;
@@ -353,9 +357,10 @@ struct DACspi {
 
   }
 
-  int sendSingleDacSpi(int board, int dacNum, int dacChan, const uint32_t data) {
+  int sendSingleDacSpi(int ssdboard, int dacNum, int dacChan, const uint32_t data) {
     int        xferDone=0;
-    uint8_t    addrByte, nCs;
+    uint8_t    addrByte;
+	uint8_t    nCs;
     uint16_t   myData;
     uint32_t   addr=0;
     uint32_t   ambaPWrite;
@@ -363,7 +368,7 @@ struct DACspi {
     // Board is determined by the dacNum from the original Mirror Map
     //board = floor(dacNum/4);
     // Use the board number to choose SPI channel
-    switch(board) {
+    switch(ssdboard) {
     case 0:
       addr = 5; //SPIMASTERPORTS_5;
       break;
@@ -420,8 +425,8 @@ struct DACspi {
     return 0;
   };
 
-  void sendTwoDacSpi(int board, int dacNum) {
-    uint16_t    data1, data2;
+  void sendTwoDacSpi(int stdboard, int dacNum) {
+    //~ uint16_t    data1, data2;
     int    xferDone=0;
 
     // Send data to a homebrew SPI peripheral

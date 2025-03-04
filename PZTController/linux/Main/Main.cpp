@@ -318,13 +318,7 @@ int main(int argc, char *argv[])
 	
 	AdcAccumulator A, B, C;
 	AdcAccumulator LastA, LastB, LastC;
-	
-	err = nice(-18); //(keep the nice value set to a unique # so we can still find this thread in htop even though we are really using setscheduler() to set the priority)
-	if (err < 0)
-	{
-		perror("\nMainThread: nice() error: ");
-	}
-	
+		
 	//since nice only applies to default SCHED_OTHER processes: let's hot things up a bit and turn on the realtime scheduler:
 	//~ int sched_pri = (sched_get_priority_max(SCHED_FIFO) - sched_get_priority_min(SCHED_FIFO)) / 4;
 	//~ printf("Setting SCHED_FIFO and priority to %d\n", sched_pri);
@@ -342,6 +336,13 @@ int main(int argc, char *argv[])
 	{
 		perror("\nMainThread: sched_setscheduler() error: ");
 	}
+	
+	err = nice(-16); //(keep the nice value set to a unique # so we can still find this thread in htop even though we are really using setscheduler() to set the priority)
+	if (err < 0)
+	{
+		perror("\nMainThread: nice() error: ");
+	}
+
 						
     while(true)
     {
@@ -384,38 +385,44 @@ int main(int argc, char *argv[])
 		if (FpgaUartParser1.Process()) { Bored = false; }
 		if (FpgaUartParser0.Process()) { Bored = false; }
 		
-		//Log the A/D's if possible:
-		if (Logfile.IsOpen())
-		{
-			struct timeval Now;
-			gettimeofday(&Now,NULL);
+		//~ //Log the A/D's if possible:
+		//~ if (Logfile.IsOpen())
+		//~ {
+			//~ struct timeval Now;
+			//~ gettimeofday(&Now,NULL);
 
-			A = PZT->AdcAAccumulator;
-			B = PZT->AdcBAccumulator;
-			C = PZT->AdcCAccumulator;
+			//~ A = PZT->AdcAAccumulator;
+			//~ B = PZT->AdcBAccumulator;
+			//~ C = PZT->AdcCAccumulator;
 			
-			if ( (A.all != LastA.all) || (B.all != LastB.all) || (C.all != LastC.all) )
-			{
-				LastA = A;
-				LastB = B;
-				LastC = C;
+			//~ if ( (A.all != LastA.all) || (B.all != LastB.all) || (C.all != LastC.all) )
+			//~ {
+				//~ LastA = A;
+				//~ LastB = B;
+				//~ LastC = C;
 				
-				double Av, Bv, Cv;
-				Av = (8.192 * ((A.Samples - 0) / A.NumAccums)) / 16777216.0;
-				Bv = (8.192 * ((B.Samples - 0) / B.NumAccums)) / 16777216.0;
-				Cv = (8.192 * ((C.Samples - 0) / C.NumAccums)) / 16777216.0;
+				//~ double Av, Bv, Cv;
+				//~ Av = (8.192 * ((A.Samples - 0) / A.NumAccums)) / 16777216.0;
+				//~ Bv = (8.192 * ((B.Samples - 0) / B.NumAccums)) / 16777216.0;
+				//~ Cv = (8.192 * ((C.Samples - 0) / C.NumAccums)) / 16777216.0;
 				
-				snprintf(LogBuffer, 4095, "\n%08ld, %lf, %+lld, %+lld, %+lld, %+1.6lf, %+1.6lf, %+1.6lf\n", Now.tv_sec, ((double)Now.tv_usec / 1000000.0), A.Samples, B.Samples, C.Samples, Av, Bv, Cv);
-				Logfile.Log(LogBuffer, strnlen(LogBuffer, 4095));
-			}
-		}
+				//~ snprintf(LogBuffer, 4095, "\n%08ld, %lf, %+lld, %+lld, %+lld, %+1.6lf, %+1.6lf, %+1.6lf\n", Now.tv_sec, ((double)Now.tv_usec / 1000000.0), A.Samples, B.Samples, C.Samples, Av, Bv, Cv);
+				//~ Logfile.Log(LogBuffer, strnlen(LogBuffer, 4095));
+			//~ }
+		//~ }
 		
         //give up our timeslice so as not to bog the system:
-        //~ if (Bored)
+        if (Bored)
         {
-            //~ delayus(100);
-			delayus(10);
+            delayus(100);
         }
+		else
+		{
+			struct timespec tenmilliseconds;
+			memset((char *)&tenmilliseconds,0,sizeof(tenmilliseconds));
+			tenmilliseconds.tv_nsec = 100;
+			nanosleep(&tenmilliseconds, NULL);
+		}
     }
 
     return(0);

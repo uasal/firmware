@@ -66,6 +66,31 @@ const BinaryCmd BinaryCmds[] =
                 "BinaryDMUartCommand",
                 BinaryDMUartCommand
     ),
+	
+	BinaryCmd (
+		CGraphPayloadTypeDMMappings,
+		"BinaryDMMappingCommand",
+		BinaryDMMappingCommand
+    ),
+
+	BinaryCmd (
+		CGraphPayloadTypeDMShortPixels,
+		"BinaryDMShortPixelsCommand",
+		BinaryDMShortPixelsCommand
+    ),
+
+	BinaryCmd (
+		CGraphPayloadTypeDMDither,
+		"BinaryDMDitherCommand",
+		BinaryDMDitherCommand
+    ),
+
+	BinaryCmd (
+		CGraphPayloadTypeDMLongPixels,
+		"BinaryDMLongPixelsCommand",
+		BinaryDMLongPixelsCommand
+    ),
+
 };
 #endif
 

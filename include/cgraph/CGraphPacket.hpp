@@ -13,6 +13,7 @@
 #include <stdarg.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "uart/IPacket.hpp"
 
@@ -255,6 +256,46 @@ struct CGraphDMMappingPayload
 	CGraphDMMappingPayload(unsigned long bi, unsigned long di, unsigned long dc) : ControllerBoardIndex(bi), DacIndex(di), DacChannel(dc) { }
 	
 	void formatf() const { ::printf("CGraphDMMappingPayload: ControllerBoardIndex: %lu, DacIndex: %lu, DacChannel: %lu", (unsigned long)ControllerBoardIndex, (unsigned long)DacIndex, (unsigned long)DacChannel); }
+};
+
+//May send multiple copies per packet; array of 1...N of the following:
+struct CGraphDMMappings
+{
+	CGraphDMMappingPayload Mappings[DMMaxActuators];
+	
+	//Let's just make a default initialization so it's not totally null until uploaded, cause that causes all actuators to write ram0:0:0 over & over
+	CGraphDMMappings()
+	{
+		uint8_t ControllerBoardIndex = 0;
+		uint8_t DacIndex = 0;
+		uint8_t DacChannel = 0;
+
+		for (size_t i = 0; i < DMMaxActuators; i++)
+		{
+			Mappings[i].ControllerBoardIndex = ControllerBoardIndex;
+			Mappings[i].DacIndex = DacIndex;
+			Mappings[i].DacChannel = DacChannel;
+			
+			DacChannel++;
+			if (DacChannel >= DMActuatorsPerDac)
+			{
+				DacChannel = 0;
+				DacIndex++;
+				if (DacIndex >= DMMDacsPerControllerBoard)
+				{
+					DacIndex = 0;
+					ControllerBoardIndex++;
+					if (ControllerBoardIndex >= DMMaxControllerBoards)
+					{
+						//We really really really shouldn't get here, but just in case we do it's better than crashing...
+						ControllerBoardIndex = 0;
+					}
+				}
+			}
+		}
+	}
+	
+	//~ void formatf() const { ::printf("CGraphDMMappingPayload: ControllerBoardIndex: %lu, DacIndex: %lu, DacChannel: %lu", (unsigned long)ControllerBoardIndex, (unsigned long)DacIndex, (unsigned long)DacChannel); }
 };
 
 //--------------------------------------------------------------------- FW Filterwheel 0x4000 packets -------------------------------------------------------------

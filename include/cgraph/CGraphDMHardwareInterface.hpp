@@ -15,6 +15,7 @@
 #include "uart/UartStatusRegister.hpp"
 
 #include "cgraph/CGraphCommon.hpp"
+#include "cgraph/CGraphPacket.hpp"
 //#include "CGraphFSMHardwareInterface.hpp" //AdcAccumulator definition
 
 union CGraphDMHardwareControlRegister
@@ -134,7 +135,8 @@ struct CGraphDMHardwareInterface
 	uint16_t SpiExtBusDataOut;
 	uint16_t SpiExtBusDataIn;
 	uint32_t reserved[208]; //if we counted correctly there's 48 4-byte registers preceeding this padding...
-	uint32_t DacSetpoints[960]; //These should start at offset 1024 / 0x0400
+	uint32_t DacSetpoints[DMMaxControllerBoards][DMMDacsPerControllerBoard][DMActuatorsPerDac];
+
 	
     static const uint32_t DacFullScale;
     static const double DacDriverFullScaleOutputVoltage; //150 Volts, don't get your fingers near this thing!
