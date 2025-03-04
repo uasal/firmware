@@ -46,7 +46,7 @@ using namespace std;
 // These are what's returned from the Control Interface
 int8_t BinaryDMDacCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	if ( (NULL != Params) && (ParamsLen >= 4*(sizeof(uint32_t))) )
+	if ( (nullptr != Params) && (ParamsLen >= 4*(sizeof(uint32_t))) )
 	{
 		const uint32_t DacParameters = *reinterpret_cast<const uint32_t*>(Params);
 		printf("\nBinaryDacCommand: Setting a mirror voltage: %lu\n", (unsigned long)DacParameters);
@@ -60,7 +60,7 @@ int8_t BinaryDMDacCommand(const uint32_t Name, char const* Params, const size_t 
 
 int8_t BinaryDMTelemetryCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	//~ if ( (NULL != Params) && (ParamsLen >= (sizeof(CGraphDMTelemetryADCPayload))) )
+	//~ if ( (nullptr != Params) && (ParamsLen >= (sizeof(CGraphDMTelemetryADCPayload))) )
 	//~ {
 		//~ const CGraphDMTelemetryADCPayload* Telemetry = reinterpret_cast<const CGraphDMTelemetryADCPayload*>(Params);
 
@@ -89,7 +89,7 @@ int8_t BinaryDMTelemetryCommand(const uint32_t Name, char const* Params, const s
 
 int8_t BinaryDMHVSwitchCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	if ( (NULL != Params) && (ParamsLen >= (sizeof(uint32_t))) )
+	if ( (nullptr != Params) && (ParamsLen >= (sizeof(uint32_t))) )
 	{
 		const uint32_t FilterSelect = *reinterpret_cast<const uint32_t*>(Params);
 		printf("\nBinaryHVSwitchCommand: FilterSelected(0=select inprogress): %lu\n", (unsigned long)FilterSelect);
@@ -103,7 +103,7 @@ int8_t BinaryDMHVSwitchCommand(const uint32_t Name, char const* Params, const si
 
 int8_t BinaryDMDacConfigCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	if ( (NULL != Params) && (ParamsLen >= (sizeof(uint32_t))) )
+	if ( (nullptr != Params) && (ParamsLen >= (sizeof(uint32_t))) )
 	{
 		const uint32_t FilterSelect = *reinterpret_cast<const uint32_t*>(Params);
 		printf("\nBinaryDacConfigCommand: FilterSelected(0=select inprogress): %lu\n", (unsigned long)FilterSelect);
@@ -115,3 +115,130 @@ int8_t BinaryDMDacConfigCommand(const uint32_t Name, char const* Params, const s
 	}
     return(ParamsLen);
 }
+
+int8_t BinaryDMMappingCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	if ( (nullptr != Params) && (ParamsLen >= sizeof(CGraphDMPixelPayloadHeader)) )
+	{
+		//Find a start index followed by some mappings
+		const CGraphDMPixelPayloadHeader PixelHeader = *reinterpret_cast<const CGraphDMPixelPayloadHeader*>(Params);
+		const unsigned long StartPixel = PixelHeader.StartPixel;
+		printf("\nBinaryDMMappingCommand: Returned StartPixel: %lu\n", (unsigned long)StartPixel);
+		
+		unsigned long NumPixels = (ParamsLen - sizeof(CGraphDMPixelPayloadHeader)) / sizeof(CGraphDMMappingPayload);
+		if ((NumPixels + StartPixel) > DMMaxActuators) 
+		{
+			printf("\nBinaryDMMappingCommand: Invalid NumPixels (truncating): %lu\n", (unsigned long)NumPixels);					
+			NumPixels = DMMaxActuators - StartPixel; 
+		}
+						
+		for (size_t i = 0; i < NumPixels; i++)
+		{
+			const CGraphDMMappingPayload Mapping = *reinterpret_cast<const CGraphDMMappingPayload*>(Params+sizeof(CGraphDMPixelPayloadHeader)+(i*sizeof(CGraphDMMappingPayload)));
+			printf("\nBinaryDMMappingCommand: Mapping %lu: ", (unsigned long)i);
+			Mapping.formatf();
+		}
+		printf("\n\n");
+	}
+	else
+	{
+		printf("\nBinaryDMMappingCommand: Empty packet returned!\n\n");
+	}
+	
+    return(ParamsLen);
+}
+
+int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	if ( (nullptr != Params) && (ParamsLen >= sizeof(CGraphDMPixelPayloadHeader)) )
+	{
+		//Find a start index followed by some mappings
+		const CGraphDMPixelPayloadHeader PixelHeader = *reinterpret_cast<const CGraphDMPixelPayloadHeader*>(Params);
+		const unsigned long StartPixel = PixelHeader.StartPixel;
+		printf("\nBinaryDMShortPixelsCommand: Returned StartPixel: %lu\n", (unsigned long)StartPixel);
+		
+		unsigned long NumPixels = (ParamsLen - sizeof(CGraphDMPixelPayloadHeader)) / sizeof(uint16_t);
+		if ((NumPixels + StartPixel) > DMMaxActuators) 
+		{
+			printf("\nBinaryDMShortPixelsCommand: Invalid NumPixels (truncating): %lu\n", (unsigned long)NumPixels);					
+			NumPixels = DMMaxActuators - StartPixel; 
+		}
+						
+		for (size_t i = 0; i < NumPixels; i++)
+		{
+			const uint16_t Pixel = *reinterpret_cast<const uint16_t*>(Params+sizeof(CGraphDMPixelPayloadHeader)+(i*sizeof(uint16_t)));
+			printf("\nBinaryDMShortPixelsCommand: Pixel %lu: %lu", (unsigned long)i, (unsigned long)Pixel);
+		}
+		printf("\n\n");
+	}
+	else
+	{
+		printf("\nBinaryDMShortPixelsCommand: Empty packet returned!\n\n");
+	}
+	
+    return(ParamsLen);
+}
+
+int8_t BinaryDMDitherCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	if ( (nullptr != Params) && (ParamsLen >= sizeof(CGraphDMPixelPayloadHeader)) )
+	{
+		//Find a start index followed by some mappings
+		const CGraphDMPixelPayloadHeader PixelHeader = *reinterpret_cast<const CGraphDMPixelPayloadHeader*>(Params);
+		const unsigned long StartPixel = PixelHeader.StartPixel;
+		printf("\nBinaryDMDitherCommand: Returned StartPixel: %lu\n", (unsigned long)StartPixel);
+		
+		unsigned long NumPixels = (ParamsLen - sizeof(CGraphDMPixelPayloadHeader)) / sizeof(uint8_t);
+		if ((NumPixels + StartPixel) > DMMaxActuators) 
+		{
+			printf("\nBinaryDMDitherCommand: Invalid NumPixels (truncating): %lu\n", (unsigned long)NumPixels);					
+			NumPixels = DMMaxActuators - StartPixel; 
+		}
+						
+		for (size_t i = 0; i < NumPixels; i++)
+		{
+			const uint32_t Pixel = *reinterpret_cast<const uint32_t*>(Params+sizeof(CGraphDMPixelPayloadHeader)+(i*sizeof(uint32_t)));
+			printf("\nBinaryDMDitherCommand: Pixel %lu: %lu", (unsigned long)i, (unsigned long)Pixel);
+		}
+		printf("\n\n");
+	}
+	else
+	{
+		printf("\nBinaryDMDitherCommand: Empty packet returned!\n\n");
+	}
+	
+    return(ParamsLen);
+}
+
+int8_t BinaryDMLongPixelsCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	if ( (nullptr != Params) && (ParamsLen >= sizeof(CGraphDMPixelPayloadHeader)) )
+	{
+		//Find a start index followed by some mappings
+		const CGraphDMPixelPayloadHeader PixelHeader = *reinterpret_cast<const CGraphDMPixelPayloadHeader*>(Params);
+		const unsigned long StartPixel = PixelHeader.StartPixel;
+		printf("\nBinaryDMLongPixelsCommand: Returned StartPixel: %lu\n", (unsigned long)StartPixel);
+		
+		unsigned long NumPixels = (ParamsLen - sizeof(CGraphDMPixelPayloadHeader)) / (3 * sizeof(uint8_t));
+		if ((NumPixels + StartPixel) > DMMaxActuators) 
+		{
+			printf("\nBinaryDMLongPixelsCommand: Invalid NumPixels (truncating): %lu\n", (unsigned long)NumPixels);					
+			NumPixels = DMMaxActuators - StartPixel; 
+		}
+						
+		for (size_t i = 0; i < NumPixels; i++)
+		{
+			const uint32_t Pixel = *reinterpret_cast<const uint32_t*>(Params+sizeof(CGraphDMPixelPayloadHeader)+(i*3*sizeof(uint8_t)));
+			printf("\nBinaryDMLongPixelsCommand: Pixel %lu: %lu", (unsigned long)i, (unsigned long)Pixel & 0x00FFFFFFUL);
+		}
+		printf("\n\n");
+	}
+	else
+	{
+		printf("\nBinaryDMLongPixelsCommand: Empty packet returned!\n\n");
+	}
+	
+    return(ParamsLen);
+}
+
+

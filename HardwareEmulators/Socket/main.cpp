@@ -91,7 +91,7 @@ int main(int argc, char *argv[])
 	//Tell C lib (stdio.h) not to buffer output, so we can ditch all the fflush(stdout) calls...
 	setvbuf(stdout, NULL, _IONBF, 0);
 	
-	formatf("\n\n\n\nWelcome to SerialPortHardwareEmulator!");
+	formatf("\n\n\n\nWelcome to UASALHardwareEmulator!");
 	
 	//~ #ifdef WIN32
 	//~ // set to line buffered mode.
@@ -116,10 +116,10 @@ int main(int argc, char *argv[])
     int err = LocalPortPinout.init(nHostPort, PortName);
     if (IUart::IUartOK != err)
     {
-        formatf("\nSerialPortHardwareEmulator: can't open socket (%s:%u): %d, exiting.\n", PortName, nHostPort, err);
+        formatf("\nUASALHardwareEmulator: can't open socket (%s:%u): %d, exiting.\n", PortName, nHostPort, err);
     }
 	
-	printf("\n\nSerialPortHardwareEmulator: Start User Interface...");    
+	printf("\n\nUASALHardwareEmulator: Start User Interface...");    
 	
 	StartUserInterface();
 	

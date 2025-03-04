@@ -90,8 +90,8 @@ int main(int argc, char *argv[])
 	
 	//Tell C lib (stdio.h) not to buffer output, so we can ditch all the fflush(stdout) calls...
 	setvbuf(stdout, NULL, _IONBF, 0);
-	
-	formatf("\n\n\n\nWelcome to SerialPortBinaryCmdr!");
+
+	formatf("\n\n\n\nWelcome to UASALBinaryCmdr!");
 	formatf("\n\nIn order to tunnel to the lab use the following command before running this program: \"ssh -L 1337:localhost:1337 -N -f fsm\" (where fsm is the ssh alias of the remote server)!\n\n");
 	
 	
@@ -116,11 +116,11 @@ int main(int argc, char *argv[])
     int err = LocalPortPinout.init(nHostPort, PortName);
     if (IUart::IUartOK != err)
     {
-        formatf("SerialPortBinaryCmdr: can't open socket (%s:%u), exiting.\n", PortName, nHostPort);
+        formatf("UASALBinaryCmdr: can't open socket (%s:%u), exiting.\n", PortName, nHostPort);
         exit(-1);
     }
 	
-	printf("\n\nSerialPortBinaryCmdr: Start User Interface...");    
+	printf("\n\nUASALBinaryCmdr: Start User Interface...");    
 	
 	StartUserInterface();
 	
@@ -147,7 +147,7 @@ int main(int argc, char *argv[])
 			int err = LocalPortPinout.init(nHostPort, PortName);
 			if (IUart::IUartOK != err)
 			{
-				formatf("SerialPortBinaryCmdr: can't open socket (%s:%l).\n", PortName, nHostPort);
+				formatf("UASALBinaryCmdr: can't open socket (%s:%l).\n", PortName, nHostPort);
 				//~ exit(-1);
 			}
 		}

@@ -120,3 +120,158 @@ int8_t DMDacConfigCommand(char const* Name, char const* Params, const size_t Par
   TxBinaryPacket(&UartParser, CGraphPayloadTypeDMDacConfig, 0, NULL, 0);
   return(ParamsLen);
 }
+
+int8_t DMMappingCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	unsigned long A = 0, B = 0, C = 0, D = 0;
+
+	//Convert parameters - at the moment we're being lazy and only support testing a single mapping at a time...
+	int8_t numfound = sscanf(Params, "%lu,%lu,%lu,%lu", &A, &B, &C, &D);
+	if (numfound >= 4)
+	{
+		CGraphDMPixelPayloadHeader PixelIndex(A);
+		CGraphDMMappingPayload Mapping(B, C, D);
+		
+		//Make a really big buffer (cause we're on a desktop computer) for later when we support testing large mappings!
+		uint8_t Buffer[(DMMaxActuators * sizeof(CGraphDMMappingPayload)) + sizeof(CGraphDMPixelPayloadHeader)];
+		memcpy(Buffer, &PixelIndex, sizeof(CGraphDMPixelPayloadHeader));
+		memcpy(&(Buffer[sizeof(CGraphDMPixelPayloadHeader)]), &Mapping, sizeof(CGraphDMMappingPayload));
+		
+		TxBinaryPacket(&UartParser, CGraphPayloadTypeDMMappings, 0, Buffer, sizeof(CGraphDMMappingPayload) + sizeof(CGraphDMPixelPayloadHeader));		
+	}
+	//query?
+	else
+	{
+		printf("\n\nDMMappingCommand: No parameters given; querying...\n");
+		TxBinaryPacket(&UartParser, CGraphPayloadTypeDMMappings, 0, NULL, 0);		
+	}
+		
+    return(ParamsLen);
+}
+
+int8_t DMShortPixelsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	unsigned long A = 0;
+	
+	char* PixInd = strtok(const_cast<char*>(Params)," ,\t\r\n");
+
+	//Convert start pixel
+	int8_t numfound = sscanf(Params, "%lu", &A);
+	if (numfound >= 1)
+	{
+		CGraphDMPixelPayloadHeader PixelIndex(A);
+		
+		//Make a really big buffer (cause we're on a desktop computer) for later when we support testing large mappings!
+		uint8_t Buffer[(DMMaxActuators * sizeof(uint16_t)) + sizeof(CGraphDMPixelPayloadHeader)];
+		memcpy(Buffer, &PixelIndex, sizeof(CGraphDMPixelPayloadHeader));
+
+		//Now we start building an array of pixels...icky parsing lol
+		size_t i = 0;
+		for (i = 0; i < DMMaxActuators; i++)
+		{
+			char* PixStr = strtok((char*)nullptr," ,\t\r\n");
+			if (nullptr == PixStr) { break; }
+			uint16_t Pixel = atoi(PixStr);
+			uint16_t* PixBuf = reinterpret_cast<uint16_t*>(&(Buffer[(i * sizeof(uint16_t)) + sizeof(CGraphDMPixelPayloadHeader)]));
+			*PixBuf = Pixel;
+		}
+
+		printf("\n\nDMShortPixelsCommand: Writing %lu pixels starting at %lu...\n", (unsigned long)i, A);		
+		TxBinaryPacket(&UartParser, CGraphPayloadTypeDMShortPixels, 0, Buffer, (i * sizeof(uint16_t)) + sizeof(CGraphDMPixelPayloadHeader));		
+	}
+	//query?
+	else
+	{
+		printf("\n\nDMShortPixelsCommand: No parameters given; querying...\n");
+		TxBinaryPacket(&UartParser, CGraphPayloadTypeDMShortPixels, 0, NULL, 0);		
+	}
+		
+    return(ParamsLen);
+
+}
+
+int8_t DMDitherCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	unsigned long A = 0;
+	
+	char* PixInd = strtok(const_cast<char*>(Params)," ,\t\r\n");
+
+	//Convert start pixel
+	int8_t numfound = sscanf(Params, "%lu", &A);
+	if (numfound >= 1)
+	{
+		CGraphDMPixelPayloadHeader PixelIndex(A);
+		
+		//Make a really big buffer (cause we're on a desktop computer) for later when we support testing large mappings!
+		uint8_t Buffer[(DMMaxActuators * sizeof(uint8_t)) + sizeof(CGraphDMPixelPayloadHeader)];
+		memcpy(Buffer, &PixelIndex, sizeof(CGraphDMPixelPayloadHeader));
+
+		//Now we start building an array of pixels...icky parsing lol
+		size_t i = 0;
+		for (i = 0; i < DMMaxActuators; i++)
+		{
+			char* PixStr = strtok((char*)nullptr," ,\t\r\n");
+			if (nullptr == PixStr) { break; }
+			uint8_t Pixel = atoi(PixStr);
+			uint8_t* PixBuf = reinterpret_cast<uint8_t*>(&(Buffer[(i * sizeof(uint8_t)) + sizeof(CGraphDMPixelPayloadHeader)]));
+			*PixBuf = Pixel;
+		}
+
+		printf("\n\nDMShortPixelsCommand: Writing %lu pixels starting at %lu...\n", (unsigned long)i, A);		
+		TxBinaryPacket(&UartParser, CGraphPayloadTypeDMShortPixels, 0, Buffer, (i * sizeof(uint8_t)) + sizeof(CGraphDMPixelPayloadHeader));		
+	}
+	//query?
+	else
+	{
+		printf("\n\nDMShortPixelsCommand: No parameters given; querying...\n");
+		TxBinaryPacket(&UartParser, CGraphPayloadTypeDMShortPixels, 0, NULL, 0);		
+	}
+		
+    return(ParamsLen);
+
+}
+
+int8_t DMLongPixelsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	unsigned long A = 0;
+	
+	char* PixInd = strtok(const_cast<char*>(Params)," ,\t\r\n");
+
+	//Convert start pixel
+	int8_t numfound = sscanf(Params, "%lu", &A);
+	if (numfound >= 1)
+	{
+		CGraphDMPixelPayloadHeader PixelIndex(A);
+		
+		//Make a really big buffer (cause we're on a desktop computer) for later when we support testing large mappings!
+		uint8_t Buffer[(DMMaxActuators * sizeof(uint32_t)) + sizeof(CGraphDMPixelPayloadHeader)];
+		memcpy(Buffer, &PixelIndex, sizeof(CGraphDMPixelPayloadHeader));
+
+		//Now we start building an array of pixels...icky parsing lol
+		size_t i = 0;
+		for (i = 0; i < DMMaxActuators; i++)
+		{
+			char* PixStr = strtok((char*)nullptr," ,\t\r\n");
+			if (nullptr == PixStr) { break; }
+			uint32_t Pixel = atoi(PixStr);
+			uint8_t* PixBuf = reinterpret_cast<uint8_t*>(&(Buffer[(i * 3 * sizeof(uint8_t)) + sizeof(CGraphDMPixelPayloadHeader)]));
+			//Yes, we're hard-coding an endianness here, have a nice day =)
+			PixBuf[0] = (uint8_t)(Pixel & 0x000000FFUL);
+			PixBuf[1] = (uint8_t)((Pixel & 0x0000FF00UL) >> 8);
+			PixBuf[2] = (uint8_t)((Pixel & 0x00FF0000UL) >> 16);
+		}
+
+		printf("\n\nDMShortPixelsCommand: Writing %lu pixels starting at %lu...\n", (unsigned long)i, A);		
+		TxBinaryPacket(&UartParser, CGraphPayloadTypeDMShortPixels, 0, Buffer, (i * 3 * sizeof(uint8_t)) + sizeof(CGraphDMPixelPayloadHeader));		
+	}
+	//query?
+	else
+	{
+		printf("\n\nDMShortPixelsCommand: No parameters given; querying...\n");
+		TxBinaryPacket(&UartParser, CGraphPayloadTypeDMShortPixels, 0, NULL, 0);		
+	}
+		
+    return(ParamsLen);
+
+}
+

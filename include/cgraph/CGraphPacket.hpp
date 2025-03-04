@@ -238,6 +238,9 @@ struct CGraphDMPixelPayloadHeader
 {
 	uint16_t StartPixel;
 	
+	CGraphDMPixelPayloadHeader() : StartPixel(0) { }
+	CGraphDMPixelPayloadHeader(unsigned long sp) : StartPixel(sp) { }
+	
 	void formatf() const { ::printf("CGraphDMPixelPayloadHeader: StartPixel: %lu", (unsigned long)StartPixel); }
 };
 
@@ -247,6 +250,9 @@ struct CGraphDMMappingPayload
 	uint8_t ControllerBoardIndex; // 0 ... DMMaxControllerBoards - 1
 	uint8_t DacIndex; // 0 ... DMMDacsPerControllerBoard - 1
 	uint8_t DacChannel; // 0 ... DMActuatorsPerDac - 1
+	
+	CGraphDMMappingPayload() : ControllerBoardIndex(0), DacIndex(0), DacChannel(0) { }
+	CGraphDMMappingPayload(unsigned long bi, unsigned long di, unsigned long dc) : ControllerBoardIndex(bi), DacIndex(di), DacChannel(dc) { }
 	
 	void formatf() const { ::printf("CGraphDMMappingPayload: ControllerBoardIndex: %lu, DacIndex: %lu, DacChannel: %lu", (unsigned long)ControllerBoardIndex, (unsigned long)DacIndex, (unsigned long)DacChannel); }
 };

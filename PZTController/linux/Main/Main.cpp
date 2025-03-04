@@ -387,9 +387,10 @@ int main(int argc, char *argv[])
 		}
 		
         //give up our timeslice so as not to bog the system:
-        if (Bored)
+        //~ if (Bored)
         {
-            delayus(100);
+            //~ delayus(100);
+			delayus(10);
         }
     }
 

@@ -19,7 +19,7 @@ LDFLAGS += $(patsubst %,-l%,$(EXTRA_LIBS))
 
 HERE:= $(shell pwd)
 GITVERSION:= $(shell git rev-parse HEAD)
-BUILDNUM:= $(shell bquery ../Pearl)
+BUILDNUM:= $(shell bquery ../UASAL)
 #~ CFLAGS += -DGITVERSION="\"${GITVERSION}\"" -DBUILDNUM="\"${BUILDNUM}\""  -static -static-libstdc++ -std=gnu++11 # -fsanitize=address -fsanitize=undefined
 CFLAGS += -DGITVERSION="\"${GITVERSION}\"" -DBUILDNUM="\"${BUILDNUM}\"" -static-libstdc++ -std=gnu++11 # -fsanitize=address -fsanitize=undefined
 
@@ -29,15 +29,15 @@ CFLAGS += -DGITVERSION="\"${GITVERSION}\"" -DBUILDNUM="\"${BUILDNUM}\"" -static-
 %.o: %.c
 	gcc $(CFLAGS) -g -I. -c $< -o $@
 
-PearlHardwareEmulatorSerial: main.o ../CmdTableAscii.o ../CmdHandlersAsciiGeneral.o ../CmdHandlersAsciiFineSteeringMirror.o ../CmdHandlersAsciiDeformableMirror.o ../CmdHandlersAsciiFilterWheel.o ../CmdTableBinary.o ../CmdHandlersBinaryGeneral.o ../CmdHandlersBinaryFineSteeringMirror.o ../CmdHandlersBinaryDeformableMirror.o ../CmdHandlersBinaryFilterWheel.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphDMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphFWHardwareInterface.o $(INCLUDE_LOCAL)/uart/Crc32Bzip2.o 
-	btracer ../PearlHardwareEmulatorSerial
-	gcc main.o ../CmdTableAscii.o ../CmdHandlersAsciiGeneral.o ../CmdHandlersAsciiFineSteeringMirror.o ../CmdHandlersAsciiDeformableMirror.o ../CmdHandlersAsciiFilterWheel.o ../CmdTableBinary.o ../CmdHandlersBinaryGeneral.o ../CmdHandlersBinaryFineSteeringMirror.o ../CmdHandlersBinaryDeformableMirror.o ../CmdHandlersBinaryFilterWheel.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphDMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphFWHardwareInterface.o $(INCLUDE_LOCAL)/uart/Crc32Bzip2.o -g -o PearlHardwareEmulatorSerial $(CFLAGS) $(LDFLAGS) -g -L. -L/lib -L/usr/lib -L/usr/local/lib -lc -lstdc++ -lm -lpthread -lncurses
+UASALHardwareEmulatorSerial: main.o ../CmdTableAscii.o ../CmdHandlersAsciiGeneral.o ../CmdHandlersAsciiFineSteeringMirror.o ../CmdHandlersAsciiDeformableMirror.o ../CmdHandlersAsciiFilterWheel.o ../CmdTableBinary.o ../CmdHandlersBinaryGeneral.o ../CmdHandlersBinaryFineSteeringMirror.o ../CmdHandlersBinaryDeformableMirror.o ../CmdHandlersBinaryFilterWheel.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphDMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphFWHardwareInterface.o $(INCLUDE_LOCAL)/uart/Crc32Bzip2.o 
+	btracer ../UASALHardwareEmulatorSerial
+	gcc main.o ../CmdTableAscii.o ../CmdHandlersAsciiGeneral.o ../CmdHandlersAsciiFineSteeringMirror.o ../CmdHandlersAsciiDeformableMirror.o ../CmdHandlersAsciiFilterWheel.o ../CmdTableBinary.o ../CmdHandlersBinaryGeneral.o ../CmdHandlersBinaryFineSteeringMirror.o ../CmdHandlersBinaryDeformableMirror.o ../CmdHandlersBinaryFilterWheel.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphDMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphFWHardwareInterface.o $(INCLUDE_LOCAL)/uart/Crc32Bzip2.o -g -o UASALHardwareEmulatorSerial $(CFLAGS) $(LDFLAGS) -g -L. -L/lib -L/usr/lib -L/usr/local/lib -lc -lstdc++ -lm -lpthread -lncurses
 	cp $@ ~/bin/
 	
-all: PearlHardwareEmulatorSerial
+all: UASALHardwareEmulatorSerial
 
-program: PearlHardwareEmulatorSerial
-	-mate-terminal -e "$(HERE)/PearlHardwareEmulatorSerial /dev/ttyUSB0 38400"
+program: UASALHardwareEmulatorSerial
+	-mate-terminal -e "$(HERE)/UASALHardwareEmulatorSerial /dev/ttyUSB0 38400"
 
 clean:
 	-rm ../*.o
@@ -47,6 +47,6 @@ clean:
 	-rm $(INCLUDE_LOCAL)/uart/*.o
 	-rm $(INCLUDE_LOCAL)/format/*.o
 	-rm $(INCLUDE_LOCAL)/cgraph/*.o
-	-rm PearlHardwareEmulatorSerial
-	-killall PearlHardwareEmulatorSerial
+	-rm UASALHardwareEmulatorSerial
+	-killall UASALHardwareEmulatorSerial
 	

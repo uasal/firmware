@@ -43,7 +43,7 @@ int8_t BinaryDMDacConfigCommand(const uint32_t Name, char const* Params, const s
 int8_t BinaryDMMappingCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t BinaryDMDitherCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument);
-int8_t BinaryDMLongCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t BinaryDMLongPixelsCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument);
 
 //FW Cmds
 int8_t BinaryFWHardwareControlStatusCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument);

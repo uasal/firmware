@@ -127,9 +127,33 @@ const Cmd AsciiCmds[] =
 
 	Cmd(
         "DMCONFIGDACS",
-        "\"DMDacConfigCommand\": ",
+        "\"DMConfigDacsCommand\": ",
         DMDacConfigCommand
     ),	
+	
+	Cmd (
+		"DMMAPPINGS",
+		"\"DMMappings\": Pixel index, Board index, D/A index, D/A channel number: Set a mapping",
+		DMMappingCommand
+    ),
+
+	Cmd (
+		"DMSHORTPIXELS",
+		"\"DMShortPixels\": StartPixel, Pix0, Pix1, ... PixN: Send pixel values (16bit)",
+		DMShortPixelsCommand
+    ),
+
+	Cmd (
+		"DMDITHER",
+		"\"DMDither\": StartPixel, Pix0, Pix1, ... PixN: Send pixel dither values (8bit)",
+		DMDitherCommand
+    ),
+
+	Cmd (
+		"DMLONGPIXELS",
+		"\"DMLongPixels\": StartPixel, Pix0, Pix1, ... PixN: Send pixel values (32bit)",
+		DMLongPixelsCommand
+    ),
 	
 	//FilterWheel Commands
 	

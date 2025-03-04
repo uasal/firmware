@@ -142,7 +142,7 @@ int8_t BinaryDMMappingCommand(const uint32_t Name, char const* Params, const siz
 		if (StartPixel > DMMaxActuators) 
 		{
 			printf("\nBinaryDMMappingCommand: Invalid StartPixel: %lu!\n", (unsigned long)StartPixel);
-			TxBinaryPacket(Argument, CGraphPayloadTypeDMMappings, 0, &StartPixel, sizeof(unsigned long));
+			TxBinaryPacket(Argument, CGraphPayloadTypeDMMappings, 0, &StartPixel, sizeof(uint16_t));
 		}
 		else
 		{
@@ -151,9 +151,9 @@ int8_t BinaryDMMappingCommand(const uint32_t Name, char const* Params, const siz
 			
 			printf("\nBinaryDMMappingCommand: StartPixel: %lu, NumPixels: %lu\n", StartPixel, NumPixels);
 			
-			for (size_t i = 0; i < NumPixels; i++)
+			for (size_t i = StartPixel; i < (StartPixel + NumPixels); i++)
 			{
-				const CGraphDMMappingPayload Mapping = *reinterpret_cast<const CGraphDMMappingPayload*>(Params+sizeof(CGraphDMPixelPayloadHeader)+(i*sizeof(CGraphDMMappingPayload)));
+				const CGraphDMMappingPayload Mapping = *reinterpret_cast<const CGraphDMMappingPayload*>(Params+sizeof(CGraphDMPixelPayloadHeader)+((i - StartPixel)*sizeof(CGraphDMMappingPayload)));
 				if (Mapping.ControllerBoardIndex >= DMMaxControllerBoards)
 				{
 					printf("\nBinaryDMMappingCommand: Invalid Controller Board for mapping %lu: %lu!\n", (unsigned long)i, (unsigned long)Mapping.ControllerBoardIndex);
@@ -181,14 +181,19 @@ int8_t BinaryDMMappingCommand(const uint32_t Name, char const* Params, const siz
 					}
 				}
 			}
-			TxBinaryPacket(Argument, CGraphPayloadTypeDMMappings, 0, &NumPixels, sizeof(unsigned long));
+			TxBinaryPacket(Argument, CGraphPayloadTypeDMMappings, 0, &NumPixels, sizeof(uint16_t));
 		}
 	}
 	//Query
 	else
 	{
 		printf("\nBinaryDMMappingCommand: Empty packet, returning query\n");
-		TxBinaryPacket(Argument, CGraphPayloadTypeDMMappings, 0, DMMappings, sizeof(CGraphDMMappingPayload) * DMMaxActuators);
+		uint8_t Buffer[(DMMaxActuators * sizeof(CGraphDMMappingPayload)) + sizeof(CGraphDMPixelPayloadHeader)];
+		uint16_t StartPix = 0;
+		memcpy(Buffer, &StartPix, sizeof(CGraphDMPixelPayloadHeader));
+		memcpy(&(Buffer[sizeof(CGraphDMPixelPayloadHeader)]), DMMappings, sizeof(CGraphDMMappingPayload) * DMMaxActuators);
+		
+		TxBinaryPacket(Argument, CGraphPayloadTypeDMMappings, 0, Buffer, (sizeof(CGraphDMMappingPayload) * DMMaxActuators) + sizeof(CGraphDMPixelPayloadHeader));
 	}
 	
     return(ParamsLen);
@@ -205,22 +210,22 @@ int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const
 		{
 			//Complain and bail out, something is horribly wrong:
 			printf("\nBinaryDMShortPixelsCommand: Invalid StartPixel: %lu!\n", (unsigned long)StartPixel);
-			TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &StartPixel, sizeof(unsigned long));
+			TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &StartPixel, sizeof(uint16_t));
 		}
 		else
 		{
 			//Now do we have some actual pix to set?
 			if (ParamsLen >= sizeof(CGraphDMPixelPayloadHeader))
 			{
-				unsigned long NumPixels = (ParamsLen - sizeof(CGraphDMPixelPayloadHeader)) / sizeof(CGraphDMMappingPayload);
+				unsigned long NumPixels = (ParamsLen - sizeof(CGraphDMPixelPayloadHeader)) / sizeof(uint16_t);
 				if ((NumPixels + StartPixel) > DMMaxActuators) { NumPixels = DMMaxActuators - StartPixel; } //do let's try not to blow our array...
 				
 				printf("\nBinaryDMShortPixelsCommand: StartPixel: %lu, NumPixels: %lu\n", StartPixel, NumPixels);
 				
-				for (size_t i = 0; i < NumPixels; i++)
+				for (size_t i = StartPixel; i < (StartPixel + NumPixels); i++)
 				{
 					//pull a pix out of the packet:
-					const uint16_t DacVal = *reinterpret_cast<const uint16_t*>(Params+sizeof(CGraphDMPixelPayloadHeader)+(i*sizeof(uint16_t)));
+					const uint16_t DacVal = *reinterpret_cast<const uint16_t*>(Params+sizeof(CGraphDMPixelPayloadHeader)+((i - StartPixel)*sizeof(uint16_t)));
 					
 					//What D/A ram does this pix belong to?
 					if ( (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) )
@@ -238,12 +243,12 @@ int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const
 				}
 				
 				//Ok, tell them how many we wrote (i.e. 952, or maybe 16 or something if we shorten the packets)(note there are no errors if the mappings aren't set right now it will silently fail every time)
-				TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &NumPixels, sizeof(unsigned long));
+				TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &NumPixels, sizeof(uint16_t));
 			}
 			else
 			{
 				printf("\nBinaryDMMappingCommand: Short packet: %lu (exptected >%lu bytes): ", ParamsLen, (sizeof(CGraphDMPixelPayloadHeader)));
-				TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &StartPixel, sizeof(unsigned long));
+				TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &StartPixel, sizeof(uint16_t));
 			}
 		}
 	}
@@ -251,7 +256,15 @@ int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const
 	else
 	{
 		//Not sure what to do besides send back the whole entire block!
-		TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, DMActuatorVals, sizeof(uint32_t) * DMMaxControllerBoards * DMMDacsPerControllerBoard * DMActuatorsPerDac);
+		uint8_t Buffer[(DMMaxActuators * sizeof(uint16_t)) + sizeof(CGraphDMPixelPayloadHeader)];
+		uint16_t StartPix = 0;
+		memcpy(Buffer, &StartPix, sizeof(CGraphDMPixelPayloadHeader));
+		for (size_t j = 0; j < DMMaxActuators; j++)
+		{
+			uint16_t* Pixel = reinterpret_cast<uint16_t*>(Buffer+sizeof(CGraphDMPixelPayloadHeader)+(j*sizeof(uint16_t)));
+			*Pixel = (reinterpret_cast<uint32_t*>(DMActuatorVals)[j] >> 8);
+		}
+		TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, Buffer, sizeof(CGraphDMPixelPayloadHeader) + (sizeof(uint16_t) * DMMaxControllerBoards * DMMDacsPerControllerBoard * DMActuatorsPerDac));
 	}
 		
     return(ParamsLen);
@@ -269,22 +282,22 @@ int8_t BinaryDMDitherCommand(const uint32_t Name, char const* Params, const size
 		{
 			//Complain and bail out, something is horribly wrong:
 			printf("\nBinaryDMDitherCommand: Invalid StartPixel: %lu!\n", (unsigned long)StartPixel);
-			TxBinaryPacket(Argument, CGraphPayloadTypeDMDither, 0, &StartPixel, sizeof(unsigned long));
+			TxBinaryPacket(Argument, CGraphPayloadTypeDMDither, 0, &StartPixel, sizeof(uint16_t));
 		}
 		else
 		{
 			//Now do we have some actual pix to set?
 			if (ParamsLen >= sizeof(CGraphDMPixelPayloadHeader))
 			{
-				unsigned long NumPixels = (ParamsLen - sizeof(CGraphDMPixelPayloadHeader)) / sizeof(CGraphDMMappingPayload);
+				unsigned long NumPixels = (ParamsLen - sizeof(CGraphDMPixelPayloadHeader)) / sizeof(uint8_t);
 				if ((NumPixels + StartPixel) > DMMaxActuators) { NumPixels = DMMaxActuators - StartPixel; } //do let's try not to blow our array...
 				
 				printf("\nBinaryDMDitherCommand: StartPixel: %lu, NumPixels: %lu\n", StartPixel, NumPixels);
 				
-				for (size_t i = 0; i < NumPixels; i++)
+				for (size_t i = StartPixel; i < (StartPixel + NumPixels); i++)
 				{
 					//pull a pix out of the packet:
-					const uint8_t DacVal = *reinterpret_cast<const uint8_t*>(Params+sizeof(CGraphDMPixelPayloadHeader)+(i*sizeof(uint8_t)));
+					const uint8_t DacVal = *reinterpret_cast<const uint8_t*>(Params+sizeof(CGraphDMPixelPayloadHeader)+((i - StartPixel)*sizeof(uint8_t)));
 					
 					//What D/A ram does this pix belong to?
 					if ( (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) )
@@ -302,12 +315,12 @@ int8_t BinaryDMDitherCommand(const uint32_t Name, char const* Params, const size
 				}
 				
 				//Ok, tell them how many we wrote (i.e. 952, or maybe 16 or something if we Ditheren the packets)(note there are no errors if the mappings aren't set right now it will silently fail every time)
-				TxBinaryPacket(Argument, CGraphPayloadTypeDMDither, 0, &NumPixels, sizeof(unsigned long));
+				TxBinaryPacket(Argument, CGraphPayloadTypeDMDither, 0, &NumPixels, sizeof(uint16_t));
 			}
 			else
 			{
 				printf("\nBinaryDMMappingCommand: Dither packet: %lu (exptected >%lu bytes): ", ParamsLen, (sizeof(CGraphDMPixelPayloadHeader)));
-				TxBinaryPacket(Argument, CGraphPayloadTypeDMDither, 0, &StartPixel, sizeof(unsigned long));
+				TxBinaryPacket(Argument, CGraphPayloadTypeDMDither, 0, &StartPixel, sizeof(uint16_t));
 			}
 		}
 	}
@@ -315,12 +328,20 @@ int8_t BinaryDMDitherCommand(const uint32_t Name, char const* Params, const size
 	else
 	{
 		//Not sure what to do besides send back the whole entire block!
-		TxBinaryPacket(Argument, CGraphPayloadTypeDMDither, 0, DMActuatorVals, sizeof(uint32_t) * DMMaxControllerBoards * DMMDacsPerControllerBoard * DMActuatorsPerDac);
+		uint8_t Buffer[(DMMaxActuators * sizeof(uint16_t)) + sizeof(CGraphDMPixelPayloadHeader)];
+		uint16_t StartPix = 0;
+		memcpy(Buffer, &StartPix, sizeof(CGraphDMPixelPayloadHeader));
+		for (size_t j = 0; j < DMMaxActuators; j++)
+		{
+			uint8_t* Pixel = reinterpret_cast<uint8_t*>(Buffer+sizeof(CGraphDMPixelPayloadHeader)+(j*sizeof(uint8_t)));
+			*Pixel = (reinterpret_cast<uint32_t*>(DMActuatorVals)[j] & 0x000000FFUL);
+		}
+		TxBinaryPacket(Argument, CGraphPayloadTypeDMDither, 0, Buffer, sizeof(CGraphDMPixelPayloadHeader) + (sizeof(uint8_t) * DMMaxControllerBoards * DMMDacsPerControllerBoard * DMActuatorsPerDac));
 	}
 		
     return(ParamsLen);
 }
-int8_t BinaryDMLongCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
+int8_t BinaryDMLongPixelsCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	if ( (nullptr != Params) && (ParamsLen >= sizeof(CGraphDMPixelPayloadHeader)) )
 	{
@@ -331,22 +352,22 @@ int8_t BinaryDMLongCommand(const uint32_t Name, char const* Params, const size_t
 		{
 			//Complain and bail out, something is horribly wrong:
 			printf("\nBinaryDMLongPixelsCommand: Invalid StartPixel: %lu!\n", (unsigned long)StartPixel);
-			TxBinaryPacket(Argument, CGraphPayloadTypeDMLongPixels, 0, &StartPixel, sizeof(unsigned long));
+			TxBinaryPacket(Argument, CGraphPayloadTypeDMLongPixels, 0, &StartPixel, sizeof(uint16_t));
 		}
 		else
 		{
 			//Now do we have some actual pix to set?
 			if (ParamsLen >= sizeof(CGraphDMPixelPayloadHeader))
 			{
-				unsigned long NumPixels = (ParamsLen - sizeof(CGraphDMPixelPayloadHeader)) / sizeof(CGraphDMMappingPayload);
+				unsigned long NumPixels = (ParamsLen - sizeof(CGraphDMPixelPayloadHeader)) / (3 * sizeof(uint8_t));
 				if ((NumPixels + StartPixel) > DMMaxActuators) { NumPixels = DMMaxActuators - StartPixel; } //do let's try not to blow our array...
 				
 				printf("\nBinaryDMLongPixelsCommand: StartPixel: %lu, NumPixels: %lu\n", StartPixel, NumPixels);
 				
-				for (size_t i = 0; i < NumPixels; i++)
+				for (size_t i = StartPixel; i < (StartPixel + NumPixels); i++)
 				{
 					//pull a pix out of the packet:
-					const uint32_t DacVal = *reinterpret_cast<const uint32_t*>(Params+sizeof(CGraphDMPixelPayloadHeader)+(i*3*sizeof(uint8_t))); //Note the "*3" for 24-bit pixels!!!
+					const uint32_t DacVal = *reinterpret_cast<const uint32_t*>(Params+sizeof(CGraphDMPixelPayloadHeader)+((i - StartPixel)*3*sizeof(uint8_t))); //Note the "*3" for 24-bit pixels!!!
 					
 					//What D/A ram does this pix belong to?
 					if ( (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings[i].ControllerBoardIndex >= DMMaxControllerBoards) )
@@ -364,12 +385,12 @@ int8_t BinaryDMLongCommand(const uint32_t Name, char const* Params, const size_t
 				}
 				
 				//Ok, tell them how many we wrote (i.e. 952, or maybe 16 or something if we Longen the packets)(note there are no errors if the mappings aren't set right now it will silently fail every time)
-				TxBinaryPacket(Argument, CGraphPayloadTypeDMLongPixels, 0, &NumPixels, sizeof(unsigned long));
+				TxBinaryPacket(Argument, CGraphPayloadTypeDMLongPixels, 0, &NumPixels, sizeof(uint16_t));
 			}
 			else
 			{
 				printf("\nBinaryDMMappingCommand: Long packet: %lu (exptected >%lu bytes): ", ParamsLen, (sizeof(CGraphDMPixelPayloadHeader)));
-				TxBinaryPacket(Argument, CGraphPayloadTypeDMLongPixels, 0, &StartPixel, sizeof(unsigned long));
+				TxBinaryPacket(Argument, CGraphPayloadTypeDMLongPixels, 0, &StartPixel, sizeof(uint16_t));
 			}
 		}
 	}
@@ -377,7 +398,17 @@ int8_t BinaryDMLongCommand(const uint32_t Name, char const* Params, const size_t
 	else
 	{
 		//Not sure what to do besides send back the whole entire block!
-		TxBinaryPacket(Argument, CGraphPayloadTypeDMLongPixels, 0, DMActuatorVals, sizeof(uint32_t) * DMMaxControllerBoards * DMMDacsPerControllerBoard * DMActuatorsPerDac);
+		uint8_t Buffer[(DMMaxActuators * 3 * sizeof(uint8_t)) + sizeof(CGraphDMPixelPayloadHeader)];
+		uint16_t StartPix = 0;
+		memcpy(Buffer, &StartPix, sizeof(CGraphDMPixelPayloadHeader));
+		for (size_t j = 0; j < DMMaxActuators; j++)
+		{
+			uint8_t* Pixel = reinterpret_cast<uint8_t*>(Buffer+sizeof(CGraphDMPixelPayloadHeader)+(j*3*sizeof(uint8_t)));
+			Pixel[0] = (uint8_t)(reinterpret_cast<uint32_t*>(DMActuatorVals)[j] & 0x000000FFUL);
+			Pixel[1] = (uint8_t)((reinterpret_cast<uint32_t*>(DMActuatorVals)[j] & 0x0000FF00UL) >> 8);
+			Pixel[2] = (uint8_t)((reinterpret_cast<uint32_t*>(DMActuatorVals)[j] & 0x00FF0000UL) >> 16);
+		}
+		TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, Buffer, sizeof(CGraphDMPixelPayloadHeader) + (sizeof(uint8_t) * 3 * DMMaxControllerBoards * DMMDacsPerControllerBoard * DMActuatorsPerDac));
 	}
 		
     return(ParamsLen);

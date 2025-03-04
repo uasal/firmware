@@ -55,7 +55,7 @@ using namespace std;
 //~ #include "../MonitorAdc.hpp"
 //~ extern CGraphFSMMonitorAdc MonitorAdc;
 
-#include "../PearlCmdrSerialBuildNum"
+#include "../UASALCmdrSerialBuildNum"
 
 char Buffer[4096];
 

@@ -117,26 +117,26 @@ const BinaryCmd BinaryCmds[] =
 	
 	BinaryCmd (
 		CGraphPayloadTypeDMMappings,
-		"BinaryDMDacConfigCommand",
+		"BinaryDMMappingCommand",
 		BinaryDMMappingCommand
     ),
 
 	BinaryCmd (
 		CGraphPayloadTypeDMShortPixels,
-		"BinaryDMDacConfigCommand",
+		"BinaryDMShortPixelsCommand",
 		BinaryDMShortPixelsCommand
     ),
 
 	BinaryCmd (
 		CGraphPayloadTypeDMDither,
-		"BinaryDMDacConfigCommand",
+		"BinaryDMDitherCommand",
 		BinaryDMDitherCommand
     ),
 
 	BinaryCmd (
 		CGraphPayloadTypeDMLongPixels,
-		"BinaryDMDacConfigCommand",
-		BinaryDMLongCommand
+		"BinaryDMLongPixelsCommand",
+		BinaryDMLongPixelsCommand
     ),
 
 	//FilterWheel Commands

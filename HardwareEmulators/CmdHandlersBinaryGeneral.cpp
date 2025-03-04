@@ -41,7 +41,7 @@ using namespace std;
 
 #include "CmdTableBinary.hpp"
 
-#include "../PearlHardwareEmulatorSerialBuildNum"
+#include "../UASALHardwareEmulatorSerialBuildNum"
 
 int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {

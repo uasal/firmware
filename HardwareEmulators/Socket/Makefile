@@ -20,7 +20,7 @@ LDFLAGS += $(patsubst %,-l%,$(EXTRA_LIBS))
 
 HERE:= $(shell pwd)
 GITVERSION:= $(shell git rev-parse HEAD)
-BUILDNUM:= $(shell bquery ../Pearl)
+BUILDNUM:= $(shell bquery ../UASAL)
 #~ CFLAGS += -DGITVERSION="\"${GITVERSION}\"" -DBUILDNUM="\"${BUILDNUM}\""  -static -static-libstdc++ -std=gnu++11 # -fsanitize=address -fsanitize=undefined
 CFLAGS += -DGITVERSION="\"${GITVERSION}\"" -DBUILDNUM="\"${BUILDNUM}\"" -static-libstdc++ -std=gnu++11 # -fsanitize=address -fsanitize=undefined
 
@@ -30,15 +30,15 @@ CFLAGS += -DGITVERSION="\"${GITVERSION}\"" -DBUILDNUM="\"${BUILDNUM}\"" -static-
 %.o: %.c
 	gcc $(CFLAGS) -g -I. -c $< -o $@
 
-PearlHardwareEmulatorSocket: main.o ../CmdTableAscii.o ../CmdHandlersAsciiGeneral.o ../CmdHandlersAsciiFineSteeringMirror.o ../CmdHandlersAsciiDeformableMirror.o ../CmdHandlersAsciiFilterWheel.o ../CmdTableBinary.o ../CmdHandlersBinaryGeneral.o ../CmdHandlersBinaryFineSteeringMirror.o ../CmdHandlersBinaryDeformableMirror.o ../CmdHandlersBinaryFilterWheel.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphDMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphFWHardwareInterface.o $(INCLUDE_LOCAL)/uart/Crc32Bzip2.o
-	btracer ../PearlHardwareEmulatorSocket
-	gcc main.o ../CmdTableAscii.o ../CmdHandlersAsciiGeneral.o ../CmdHandlersAsciiFineSteeringMirror.o ../CmdHandlersAsciiDeformableMirror.o ../CmdHandlersAsciiFilterWheel.o ../CmdTableBinary.o ../CmdHandlersBinaryGeneral.o ../CmdHandlersBinaryFineSteeringMirror.o ../CmdHandlersBinaryDeformableMirror.o ../CmdHandlersBinaryFilterWheel.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphDMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphFWHardwareInterface.o $(INCLUDE_LOCAL)/uart/Crc32Bzip2.o -g -o PearlHardwareEmulatorSocket $(CFLAGS) $(LDFLAGS) -g -L. -L/lib -L/usr/lib -L/usr/local/lib -lc -lstdc++ -lm -lpthread -lncurses
+UASALHardwareEmulatorSocket: main.o ../CmdTableAscii.o ../CmdHandlersAsciiGeneral.o ../CmdHandlersAsciiFineSteeringMirror.o ../CmdHandlersAsciiDeformableMirror.o ../CmdHandlersAsciiFilterWheel.o ../CmdTableBinary.o ../CmdHandlersBinaryGeneral.o ../CmdHandlersBinaryFineSteeringMirror.o ../CmdHandlersBinaryDeformableMirror.o ../CmdHandlersBinaryFilterWheel.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphDMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphFWHardwareInterface.o $(INCLUDE_LOCAL)/uart/Crc32Bzip2.o
+	btracer ../UASALHardwareEmulatorSocket
+	gcc main.o ../CmdTableAscii.o ../CmdHandlersAsciiGeneral.o ../CmdHandlersAsciiFineSteeringMirror.o ../CmdHandlersAsciiDeformableMirror.o ../CmdHandlersAsciiFilterWheel.o ../CmdTableBinary.o ../CmdHandlersBinaryGeneral.o ../CmdHandlersBinaryFineSteeringMirror.o ../CmdHandlersBinaryDeformableMirror.o ../CmdHandlersBinaryFilterWheel.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphDMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphFWHardwareInterface.o $(INCLUDE_LOCAL)/uart/Crc32Bzip2.o -g -o UASALHardwareEmulatorSocket $(CFLAGS) $(LDFLAGS) -g -L. -L/lib -L/usr/lib -L/usr/local/lib -lc -lstdc++ -lm -lpthread -lncurses
 	cp $@ ~/bin/
 	
-all: PearlHardwareEmulatorSocket
+all: UASALHardwareEmulatorSocket
 
 program:
-	mate-terminal -e "$(HERE)/PearlHardwareEmulatorSocket"
+	mate-terminal -e "$(HERE)/UASALHardwareEmulatorSocket"
 
 clean:
 	-rm ../*.o
@@ -48,7 +48,7 @@ clean:
 	-rm $(INCLUDE_LOCAL)/uart/*.o
 	-rm $(INCLUDE_LOCAL)/format/*.o
 	-rm $(INCLUDE_LOCAL)/cgraph/*.o
-	-rm PearlHardwareEmulatorSocket
-	-killall PearlHardwareEmulatorSocket
+	-rm UASALHardwareEmulatorSocket
+	-killall UASALHardwareEmulatorSocket
 	
 	
