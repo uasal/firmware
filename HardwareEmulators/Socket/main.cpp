@@ -76,6 +76,10 @@ linux_pinout_server_socket LocalPortPinout;
 
 BinaryUart UartParser(LocalPortPinout, BinaryProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 
+#include "cgraph/CGraphDMHardwareInterface.hpp"
+CGraphDMHardwareInterface iDM;
+CGraphDMHardwareInterface* DM = &iDM;
+
 bool Process()
 {
     return(ProcessUserInterface());
