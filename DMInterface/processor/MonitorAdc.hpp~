@@ -42,7 +42,7 @@ struct PinoutMonitorAdc
 	
 	static const size_t spi_timeout = 100;
 	
-  //	static bool busy() { return(0 == (DM->MonitorAdcSpiCommandStatusRegister.TransactionComplete) ); }
+	static bool busy() { return(0 == (DM->MonitorAdcSpiCommandStatusRegister.TransactionComplete) ); }
 	static void waitbusytimeout()
 	{
 		size_t i = 0;
@@ -54,12 +54,12 @@ struct PinoutMonitorAdc
 		if (i >= spi_timeout - 2) { formatf("\nPinoutMonitorAdc: T/O."); }
 	}
 	
-  //	static void enable(const bool en) { DM->MonitorAdcSpiCommandStatusRegister.all = (uint32_t)en; }
+	static void enable(const bool en) { DM->MonitorAdcSpiCommandStatusRegister.all = (uint32_t)en; }
 	
 	static void transmit(const uint8_t val) 					
 	{ 
 		waitbusytimeout();
-                //		DM->MonitorAdcSpiTransactionRegister = (uint32_t)val; 
+		DM->MonitorAdcSpiTransactionRegister = (uint32_t)val; 
 	}
 	
 	static uint8_t receive(uint8_t val) 				
@@ -68,18 +68,18 @@ struct PinoutMonitorAdc
 		
 		//Do the xfer
 		waitbusytimeout();
-                //	DM->MonitorAdcSpiTransactionRegister = (uint32_t)val; 
+		DM->MonitorAdcSpiTransactionRegister = (uint32_t)val; 
 		
 		//readback
 		waitbusytimeout();
-                //	out = DM->MonitorAdcSpiTransactionRegister; 
+		out = DM->MonitorAdcSpiTransactionRegister; 
 		
 		return(out);
 	}		
 	
 	static bool nDrdy() 				
 	{ 
-          //	return(0 == (DM->MonitorAdcSpiCommandStatusRegister.nDrdy) );
+		return(0 == (DM->MonitorAdcSpiCommandStatusRegister.nDrdy) );
 	}		
 	
 	static void setclkpolarity(const bool en) { } //handled by fpga
@@ -168,7 +168,7 @@ public:
 	
 	~CGraphDMMonitorAdc() { }
 	
-  //	ads1258<PinoutMonitorAdc> Adc;
+	ads1258<PinoutMonitorAdc> Adc;
 	
 	//~ static uint8_t GetAdcReadChannel()								{ uint8_t val = *(((uint8_t*)DM)+MonitorAdcFpgaAdcChannelAddr); return(val); }
 	//~ static void SetAdcReadChannel(const uint8_t val) 					{ *(((uint8_t*)DM)+MonitorAdcFpgaAdcChannelAddr) = (uint8_t)val; }
