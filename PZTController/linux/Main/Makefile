@@ -63,9 +63,12 @@ program: PZT
 	-scp PZT root@PZT:/home/root
 	
 burn:
-	-ssh root@192.168.1.223 systemctl stop PZT
-	-ssh root@192.168.1.223 killall PZT
-	-scp PZT root@192.168.1.223:/home/root
+	#~ -ssh root@192.168.1.223 systemctl stop PZT
+	#~ -ssh root@192.168.1.223 killall PZT
+	#~ -scp PZT root@192.168.1.223:/home/root
+	-ssh torizon@192.168.1.223 sudo -S systemctl stop PZT
+	-ssh torizon@192.168.1.223 sudo -S killall PZT
+	-scp PZT torizon@192.168.1.223:/home/torizon
 
 clean:
 	-rm *.o

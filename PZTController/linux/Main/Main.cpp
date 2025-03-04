@@ -318,6 +318,30 @@ int main(int argc, char *argv[])
 	
 	AdcAccumulator A, B, C;
 	AdcAccumulator LastA, LastB, LastC;
+	
+	err = nice(-18); //(keep the nice value set to a unique # so we can still find this thread in htop even though we are really using setscheduler() to set the priority)
+	if (err < 0)
+	{
+		perror("\nMainThread: nice() error: ");
+	}
+	
+	//since nice only applies to default SCHED_OTHER processes: let's hot things up a bit and turn on the realtime scheduler:
+	//~ int sched_pri = (sched_get_priority_max(SCHED_FIFO) - sched_get_priority_min(SCHED_FIFO)) / 4;
+	//~ printf("Setting SCHED_FIFO and priority to %d\n", sched_pri);
+	//~ struct sched_param param;
+	//~ param.sched_priority = sched_pri;
+	//~ sched_setscheduler(0, SCHED_FIFO, &param);
+	//~ int sched_pri = (sched_get_priority_max(SCHED_RR) - sched_get_priority_min(SCHED_RR)) / 4;
+	//~ int sched_pri = ((sched_get_priority_max(SCHED_RR) - sched_get_priority_min(SCHED_RR)) / 2) - 1;
+	int sched_pri = ((sched_get_priority_max(SCHED_RR) - sched_get_priority_min(SCHED_RR)) / 2);
+	printf("Setting SCHED_RR and priority to %d\n", sched_pri);
+	struct sched_param param;
+	param.sched_priority = sched_pri;
+	err = sched_setscheduler(0, SCHED_RR, &param);
+	if (err < 0)
+	{
+		perror("\nMainThread: sched_setscheduler() error: ");
+	}
 						
     while(true)
     {

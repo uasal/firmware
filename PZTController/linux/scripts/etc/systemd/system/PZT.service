@@ -10,6 +10,14 @@ ExecStart=/home/root/PZT.service.sh
 WorkingDirectory=/home/root
 Restart=always
 User=root
+
+#ExecStartPre=/bin/cp /home/torizon/PZT.log /home/torizon/PZT.`date +"%Y.%m.%d.%H.%M.%S"`.log
+#ExecStart=/bin/sh -c "/home/torizon/PZT | tee /home/torizon/PZT.`date +'%Y.%m.%d.%H.%M.%S'`.log 2>&1"
+#ExecStart=/home/torizon/PZT.service.sh
+#WorkingDirectory=/home/torizon
+#Restart=always
+#User=torizon
+ 
  
 [Install]
 WantedBy=multi-user.target

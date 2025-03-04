@@ -48,7 +48,36 @@ class ClientSocketThread : public EzThread
 {
 public:
 	ClientSocketThread() { BoredDelayuS = 100; strcpy(ThreadName, "ClientSocketThread"); }
-	virtual void ThreadInit() { nice(-2); }
+	virtual void ThreadInit() 
+	{ 
+		pid_t tid = syscall(SYS_gettid);
+		printf("\nClientSocketThread: launched! ID: %d", tid);
+		
+		int err = nice(-16); //(keep the nice value set to a unique # so we can still find this thread in htop even though we are really using setscheduler() to set the priority)
+		if (err < 0)
+		{
+			perror("\nClientSocketThread: nice() error: ");
+		}
+		//since nice only applies to default SCHED_OTHER processes: let's hot things up a bit and turn on the realtime scheduler:
+		//~ int sched_pri = (sched_get_priority_max(SCHED_FIFO) - sched_get_priority_min(SCHED_FIFO)) / 4;
+		//~ printf("Setting SCHED_FIFO and priority to %d\n", sched_pri);
+		//~ struct sched_param param;
+		//~ param.sched_priority = sched_pri;
+		//~ sched_setscheduler(0, SCHED_FIFO, &param);
+		//~ int sched_pri = (sched_get_priority_max(SCHED_RR) - sched_get_priority_min(SCHED_RR)) / 4;
+		//~ int sched_pri = ((sched_get_priority_max(SCHED_RR) - sched_get_priority_min(SCHED_RR)) / 2) - 1;
+		int sched_pri = ((sched_get_priority_max(SCHED_RR) - sched_get_priority_min(SCHED_RR)) / 2);
+		printf("Setting SCHED_RR and priority to %d\n", sched_pri);
+		struct sched_param param;
+		param.sched_priority = sched_pri;
+		err = sched_setscheduler(0, SCHED_RR, &param);	
+		if (err < 0)
+		{
+			perror("\nClientSocketThread: sched_setscheduler() error: ");
+		}
+
+		nice(-2);
+	}
 	virtual ~ClientSocketThread() { }
 	virtual bool Process();
 	//~ virtual void TenHzRoutines();
