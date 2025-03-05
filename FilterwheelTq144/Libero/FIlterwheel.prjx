@@ -36,7 +36,7 @@ KEY ProjectLocation "/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libe
 KEY ProjectDescription "Filterwheel firmware."
 KEY UseRootLocationForLinkedFiles "TRUE"
 KEY RootLocationENVForLinkedFiles "CGRAPH_FIRMWARE"
-KEY RootLocationForLinkedFiles "/home/summer/projects/CGraph/firmware"
+KEY RootLocationForLinkedFiles "${CGRAPH_FIRMWARE}"
 KEY GlobalIncludePaths "${CGRAPH_FIRMWARE}/include;"
 KEY Pa4PeripheralNewSeq "GOOD"
 KEY MemoryMapDrcSeverity "FALSE"

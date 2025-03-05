@@ -5,6 +5,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+use DM_types.all;
 
 entity DMMainPorts is
   port (
@@ -455,7 +456,9 @@ architecture DMMain of DMMainPorts is
 
     ClkDacWrite : out std_logic_vector(15 downto 0);
     WriteClkDac : out std_logic;
-    ClkDacReadback : in std_logic_vector(15 downto 0)--;
+    ClkDacReadback : in std_logic_vector(15 downto 0);
+	
+	DacSetpoints : out DMDacSetpointRam--;	
     );
   end component;    
 
@@ -699,7 +702,40 @@ architecture DMMain of DMMainPorts is
   signal SckXO_i            : std_logic;
   signal MosiXO_i           : std_logic;
   signal MisoXO_i           : std_logic;
+  
+  signal DacSetpoints : DMDacSetpointRam;
 
+  --these are just for testing the above!
+  signal Board0Dac0Setpoints : std_logic_vector(31 downto 0);
+  signal Board0Dac1Setpoints : std_logic_vector(31 downto 0);
+  signal Board0Dac2Setpoints : std_logic_vector(31 downto 0);
+  signal Board0Dac3Setpoints : std_logic_vector(31 downto 0);
+  
+  signal Board1Dac0Setpoints : std_logic_vector(31 downto 0);
+  signal Board1Dac1Setpoints : std_logic_vector(31 downto 0);
+  signal Board1Dac2Setpoints : std_logic_vector(31 downto 0);
+  signal Board1Dac3Setpoints : std_logic_vector(31 downto 0);
+  
+  signal Board2Dac0Setpoints : std_logic_vector(31 downto 0);
+  signal Board2Dac1Setpoints : std_logic_vector(31 downto 0);
+  signal Board2Dac2Setpoints : std_logic_vector(31 downto 0);
+  signal Board2Dac3Setpoints : std_logic_vector(31 downto 0);
+  
+  signal Board3Dac0Setpoints : std_logic_vector(31 downto 0);
+  signal Board3Dac1Setpoints : std_logic_vector(31 downto 0);
+  signal Board3Dac2Setpoints : std_logic_vector(31 downto 0);
+  signal Board3Dac3Setpoints : std_logic_vector(31 downto 0);
+  
+  signal Board4Dac0Setpoints : std_logic_vector(31 downto 0);
+  signal Board4Dac1Setpoints : std_logic_vector(31 downto 0);
+  signal Board4Dac2Setpoints : std_logic_vector(31 downto 0);
+  signal Board4Dac3Setpoints : std_logic_vector(31 downto 0);
+  
+  signal Board5Dac0Setpoints : std_logic_vector(31 downto 0);
+  signal Board5Dac1Setpoints : std_logic_vector(31 downto 0);
+  signal Board5Dac2Setpoints : std_logic_vector(31 downto 0);
+  signal Board5Dac3Setpoints : std_logic_vector(31 downto 0);
+  
   -- And a few constants
   constant nCsEnabled : std_logic := '0';
   constant nCsNotEnabled : std_logic := '1';
@@ -775,7 +811,7 @@ begin
   --- Mapping the register space.  These come from RegisterSpace.vhd
   RegisterSpace : RegisterSpacePorts
   generic map (
-    ADDRESS_BITS => 10--,
+    ADDRESS_BITS => 13--,
   )
   port map (
     clk => MasterClk,
@@ -909,7 +945,9 @@ begin
     ClockTicksThisSecond  => PPSCounter   , 
     ClkDacWrite           => ClkDacWrite  , 
     WriteClkDac           => WriteClkDac  , 
-    ClkDacReadback        => ClkDacReadback--,
+    ClkDacReadback        => ClkDacReadback,
+	
+	DacSetpoints => DacSetpoints--,
   );
 
   --- DM D/As ---
@@ -1459,7 +1497,8 @@ begin
     PPSReset => PPSCountReset,
     PPSDetected => PPSDetected,
     PPSCounter => PPSCounter,
-    PPSAccum => PPSCount--,
+    --~ PPSAccum => PPSCount--,
+	PPSAccum => open--,
   );
 
   --- Don't know what this is
@@ -1488,7 +1527,21 @@ begin
   nCsXO <= nCsXO_i;
   SckXO <= SckXO_i;
   MosiXO <= MosiXO_i;
+  
 
+--Ok, we're gonna find a way to xor all the setpoints into the PPSCount var just for testing so it doesn't all get synthesized outta existence...  
+  --~ PPSCount(23 downto 0) <= DacSetpoints
+  			--~ --DacSetpointsAddr:
+			--~ GenCBAddr: for i in 0 to (DMMaxControllerBoards - 1) generate begin
+				--~ GenDPCBAddr: for j in 0 to (DMMDacsPerControllerBoard - 1) generate begin
+					--~ GenAPDAddr: for k in 0 to (DMActuatorsPerDac - 1) generate begin
+						--~ when DacSetpointsAddr + std_logic_vector(to_unsigned(4 * ( (i * DMMDacsPerControllerBoard * DMActuatorsPerDac) + (j * DMActuatorsPerDac) + k), MAX_ADDRESS_BITS)) => DacSetpoints(i)(j)(k) <= DataIn(23 downto 0);
+					--~ end generate;
+				--~ end generate;
+			--~ end generate;
+			
+
+  
 
   ----------------------------- Power Supplies ----------------------------------
   --- Is this also part of the FSM?

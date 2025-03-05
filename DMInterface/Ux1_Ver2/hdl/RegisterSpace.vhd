@@ -8,7 +8,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.all;
-
+use DM_types.all;
 
 entity RegisterSpacePorts is
   generic(
@@ -154,7 +154,9 @@ entity RegisterSpacePorts is
 
     ClkDacWrite : out std_logic_vector(15 downto 0);
     WriteClkDac : out std_logic;
-    ClkDacReadback : in std_logic_vector(15 downto 0)--;
+    ClkDacReadback : in std_logic_vector(15 downto 0);
+	
+	DacSetpoints : out DMDacSetpointRam--;	
     );
 end RegisterSpacePorts;
 
@@ -223,9 +225,12 @@ architecture RegisterSpace of RegisterSpacePorts is
   constant Uart2FifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(128, MAX_ADDRESS_BITS));
   constant Uart2FifoReadDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(132, MAX_ADDRESS_BITS));
 	
-  constant Uart3FifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(136, MAX_ADDRESS_BITS));
-  constant Uart3FifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(140, MAX_ADDRESS_BITS));
-  constant Uart3FifoReadDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(144, MAX_ADDRESS_BITS));
+    constant Uart3FifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(152, MAX_ADDRESS_BITS));
+  constant Uart3FifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(156, MAX_ADDRESS_BITS));
+  constant Uart3FifoReadDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(160, MAX_ADDRESS_BITS));
+  
+  --! 13 bits of address space (8192b) required for this!
+  constant DacSetpointsAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(1024, MAX_ADDRESS_BITS));
 
   	--Control Signals
 	
@@ -269,6 +274,8 @@ architecture RegisterSpace of RegisterSpacePorts is
 --  signal nFaultsClr_i :  std_logic := '0';
 	
 --  signal ExtAddr_i : std_logic_vector(7 downto 0);
+
+  variable DacSetpoints : DMDacSetpointRam;
 
 begin
   
@@ -357,7 +364,16 @@ begin
                 DataOut(31 downto 0) <= DacBdFReadback;
                 --~ DataOut(31 downto 24) <= x"58";
                 --DataOut(31 downto 24) <= x"00";
-
+			
+			--DacSetpointsAddr:
+			GenCBAddr: for i in 0 to DMMaxControllerBoards - 1 generate begin
+				GenDPCBAddr: for j in 0 to DMMDacsPerControllerBoard - 1 generate begin
+					GenAPDAddr: for k in 0 to DMActuatorsPerDac - 1 generate begin
+						when DacSetpointsAddr + std_logic_vector(to_unsigned((i * DMMDacsPerControllerBoard * DMActuatorsPerDac) + (j * DMActuatorsPerDac) + k, MAX_ADDRESS_BITS)) => DataOut(23 downto 0) <= Board0Dac0Setpoints(i)(j)(k); DataOut(31 downto 24) <= x"00";
+					end generate;
+				end generate;
+			end generate;
+			
               --FSM Readback A/D's
 							
               --AdcSampleToReadA
@@ -724,6 +740,16 @@ begin
 --                nFaultsClr_i <= DataIn(29);
                 --~ <= DataIn(30);
                 --~ <= DataIn(31);
+				
+			--DacSetpointsAddr:
+			GenCBAddr: for i in 0 to (DMMaxControllerBoards - 1) generate begin
+				GenDPCBAddr: for j in 0 to (DMMDacsPerControllerBoard - 1) generate begin
+					GenAPDAddr: for k in 0 to (DMActuatorsPerDac - 1) generate begin
+						when DacSetpointsAddr + std_logic_vector(to_unsigned(4 * ( (i * DMMDacsPerControllerBoard * DMActuatorsPerDac) + (j * DMActuatorsPerDac) + k), MAX_ADDRESS_BITS)) => DacSetpoints(i)(j)(k) <= DataIn(23 downto 0);
+					end generate;
+				end generate;
+			end generate;
+			
               when others => 
             end case;
           else
