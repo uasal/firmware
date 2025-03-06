@@ -30,9 +30,11 @@
 #include <stdio.h>   /* Standard input/output definitions */
 #include <string.h>  /* String function definitions */
 #ifdef WIN32
-	//~ #include <windows.h>
-	#include <io.h>
 	#include <winsock.h>
+	#include <winsock2.h>
+	#include <ws2tcpip.h>
+	#include <io.h>
+	//~ #include <windows.h>
 #else
 	#include <unistd.h>  /* UNIX standard function definitions */
 	#include <fcntl.h>   /* File control definitions */
@@ -81,9 +83,23 @@ public:
 			{
 				nHostPort = HostPort;
 			}
-				
+			
+			#ifdef WIN32
+			formatf("\nStarting Winsock");
+			WSADATA wsaData;
+			if (WSAStartup(MAKEWORD(2,0), &wsaData) != 0) 
+			{
+				printf("\nZigSockServer: WSAStartup failed.\n");
+				return 0;
+			}
+			#endif
+							
 			formatf("\nlinux_pinout_server_socket: Making socket");
+			#ifdef WIN32
+			hServer=socket(AF_INET, SOCK_STREAM, 0); //supposedly all sockets are non-blocking on w32
+			#else
 			hServer=socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK, 0);
+			#endif
 			if(hServer == -1)
 			{
 				perror("\nlinux_pinout_server_socket: Could not make a socket");
@@ -94,7 +110,7 @@ public:
 			// setsockopt w/ SO_REUSEADDR option BEFORE calling bind.
 			// Make the address is reuseable so we don't get the nasty message.
 			int so_reuseaddr = 1; // Enabled.
-			int reuseAddrResult = setsockopt(hServer, SOL_SOCKET, SO_REUSEADDR, &so_reuseaddr, sizeof(so_reuseaddr));
+			int reuseAddrResult = setsockopt(hServer, SOL_SOCKET, SO_REUSEADDR, (const char*)&so_reuseaddr, sizeof(so_reuseaddr));
 			if(reuseAddrResult == -1)
 			{
 				perror("\nlinux_pinout_server_socket: Could not re-use socket");
@@ -143,7 +159,11 @@ public:
 	int SocketConnect()
 	{
 		/* get the connected socket */
+		#ifdef WIN32
+		hSocket=accept((int)hServer, (struct sockaddr*)&Address, (socklen_t*)&nAddressSize); //supposedly all sockets non-blocking on w32
+		#else
 		hSocket=accept4((int)hServer, (struct sockaddr*)&Address, (socklen_t*)&nAddressSize, SOCK_NONBLOCK);
+		#endif
 		if (hSocket < 0)
 		{
 			hSocket = -1;

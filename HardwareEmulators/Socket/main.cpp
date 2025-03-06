@@ -39,7 +39,7 @@ struct SocketBinaryUartCallbacks : public BinaryUartCallbacks
 	//Malformed/corrupted packet handler:
 	virtual void InvalidPacket(const uint8_t* Buffer, const size_t& BufferLen)
 	{ 
-		if ( (NULL == Buffer) || (BufferLen < 1) ) { printf("\nSocketUartCallbacks: NULL(%lu) InvalidPacket!\n\n", BufferLen); return; }
+		if ( (NULL == Buffer) || (BufferLen < 1) ) { printf("\nSocketUartCallbacks: NULL(%lu) InvalidPacket!\n\n", (unsigned long)BufferLen); return; }
 	
 		size_t len = BufferLen;
 		if (len > 32) { len = 32; }
@@ -51,10 +51,10 @@ struct SocketBinaryUartCallbacks : public BinaryUartCallbacks
 	//Packet with no matching command handler:
 	virtual void UnHandledPacket(const IPacket* Packet, const size_t& PacketLen)
 	{ 
-		if ( (NULL == Packet) || (PacketLen < sizeof(CGraphPacketHeader)) ) { printf("\nSocketUartCallbacks: NULL(%lu) UnHandledPacket!\n\n", PacketLen); return; }
+		if ( (NULL == Packet) || (PacketLen < sizeof(CGraphPacketHeader)) ) { printf("\nSocketUartCallbacks: NULL(%lu) UnHandledPacket!\n\n", (unsigned long)PacketLen); return; }
 		
 		const CGraphPacketHeader* Header = reinterpret_cast<const CGraphPacketHeader*>(Packet);
-		printf("\nSocketUartCallbacks: Unhandled packet(%lu): ", PacketLen);
+		printf("\nSocketUartCallbacks: Unhandled packet(%lu): ", (unsigned long)PacketLen);
 		Header->formatf();
 		printf("\n\n");
 	}

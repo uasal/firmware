@@ -30,7 +30,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <sys/mman.h>
+//~ #include <sys/mman.h>
 #include <errno.h>
 #include <unordered_map>
 using namespace std;
@@ -49,7 +49,7 @@ int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_
     Version.SerialNum = 0xDEADF00D;
 	Version.ProcessorFirmwareBuildNum = BuildNum;
 	Version.FPGAFirmwareBuildNum = (uint32_t)(atoi(GITVERSION));
-	printf("\nBinaryVersionCommand: Sending response (%lu bytes): ", sizeof(CGraphVersionPayload));
+	printf("\nBinaryVersionCommand: Sending response (%lu bytes): ", (unsigned long)sizeof(CGraphVersionPayload));
     Version.formatf();
     printf("\n");
     TxBinaryPacket(Argument, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));

@@ -35,19 +35,19 @@
 //offsetof:
 #include <cstddef>
 //kbhit
-#include <termios.h>
+//~ #include <termios.h>
 
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <sys/ioctl.h>
+//~ #include <sys/ioctl.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <sys/mman.h>
+//~ #include <sys/mman.h>
 #include <errno.h>
 #include <unordered_map>
 using namespace std;
 
-#include <mcheck.h>
+//~ #include <mcheck.h>
 #include "dbg/memwatch.h"
 
 #include "uart/AsciiCmdUserInterfaceLinux.h"

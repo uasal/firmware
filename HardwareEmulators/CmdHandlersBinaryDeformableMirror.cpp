@@ -30,7 +30,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <sys/mman.h>
+//~ #include <sys/mman.h>
 #include <errno.h>
 #include <unordered_map>
 using namespace std;
@@ -253,7 +253,7 @@ int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const
 			}
 			else
 			{
-				printf("\nBinaryDMMappingCommand: Short packet: %lu (exptected >%lu bytes): ", ParamsLen, (sizeof(CGraphDMPixelPayloadHeader)));
+				printf("\nBinaryDMMappingCommand: Short packet: %lu (exptected >%lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(CGraphDMPixelPayloadHeader)));
 				TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &StartPixel, sizeof(uint16_t));
 			}
 		}
@@ -331,7 +331,7 @@ int8_t BinaryDMDitherCommand(const uint32_t Name, char const* Params, const size
 			}
 			else
 			{
-				printf("\nBinaryDMMappingCommand: Dither packet: %lu (exptected >%lu bytes): ", ParamsLen, (sizeof(CGraphDMPixelPayloadHeader)));
+				printf("\nBinaryDMMappingCommand: Dither packet: %lu (exptected >%lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(CGraphDMPixelPayloadHeader)));
 				TxBinaryPacket(Argument, CGraphPayloadTypeDMDither, 0, &StartPixel, sizeof(uint16_t));
 			}
 		}
@@ -407,7 +407,7 @@ int8_t BinaryDMLongPixelsCommand(const uint32_t Name, char const* Params, const 
 			}
 			else
 			{
-				printf("\nBinaryDMMappingCommand: Long packet: %lu (exptected >%lu bytes): ", ParamsLen, (sizeof(CGraphDMPixelPayloadHeader)));
+				printf("\nBinaryDMMappingCommand: short packet: %lu (exptected >%lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(CGraphDMPixelPayloadHeader)));
 				TxBinaryPacket(Argument, CGraphPayloadTypeDMLongPixels, 0, &StartPixel, sizeof(uint16_t));
 			}
 		}
