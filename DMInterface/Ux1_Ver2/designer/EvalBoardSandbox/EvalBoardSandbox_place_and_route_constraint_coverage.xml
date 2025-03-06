@@ -3,7 +3,7 @@
 <doc>
 <text>SmartTime Version 2023.2.0.10</text>
 <text>Microsemi Corporation - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)
-Date: Wed Feb 19 11:10:07 2025 </text>
+Date: Thu Mar  6 15:19:17 2025 </text>
 <table>
 <header>
 </header>
@@ -50,15 +50,15 @@ Date: Wed Feb 19 11:10:07 2025 </text>
 </header>
 <row>
  <cell>Setup</cell>
- <cell>          614</cell>
- <cell>          114</cell>
- <cell>          728</cell>
+ <cell>          449</cell>
+ <cell>           60</cell>
+ <cell>          509</cell>
 </row>
 <row>
  <cell>Recovery</cell>
- <cell>           79</cell>
- <cell>           16</cell>
- <cell>           95</cell>
+ <cell>           42</cell>
+ <cell>            7</cell>
+ <cell>           49</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
@@ -68,22 +68,22 @@ Date: Wed Feb 19 11:10:07 2025 </text>
 </row>
 <row>
  <cell>Total Setup</cell>
- <cell>          693</cell>
- <cell>          136</cell>
- <cell>          829</cell>
+ <cell>          491</cell>
+ <cell>           73</cell>
+ <cell>          564</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
- <cell>          614</cell>
- <cell>          114</cell>
- <cell>          728</cell>
+ <cell>          449</cell>
+ <cell>           60</cell>
+ <cell>          509</cell>
 </row>
 <row>
  <cell>Removal</cell>
- <cell>           79</cell>
- <cell>           16</cell>
- <cell>           95</cell>
+ <cell>           42</cell>
+ <cell>            7</cell>
+ <cell>           49</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
@@ -93,9 +93,9 @@ Date: Wed Feb 19 11:10:07 2025 </text>
 </row>
 <row>
  <cell>Total Hold</cell>
- <cell>          693</cell>
- <cell>          136</cell>
- <cell>          829</cell>
+ <cell>          491</cell>
+ <cell>           73</cell>
+ <cell>          564</cell>
 </row>
 </table>
 <section>
@@ -174,14 +174,14 @@ Date: Wed Feb 19 11:10:07 2025 </text>
 <row>
  <cell>Setup</cell>
  <cell>            0</cell>
- <cell>           48</cell>
- <cell>           48</cell>
+ <cell>            4</cell>
+ <cell>            4</cell>
 </row>
 <row>
  <cell>Recovery</cell>
  <cell>            0</cell>
- <cell>            9</cell>
- <cell>            9</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
@@ -192,21 +192,21 @@ Date: Wed Feb 19 11:10:07 2025 </text>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>           57</cell>
- <cell>           57</cell>
+ <cell>            4</cell>
+ <cell>            4</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
  <cell>            0</cell>
- <cell>           48</cell>
- <cell>           48</cell>
+ <cell>            4</cell>
+ <cell>            4</cell>
 </row>
 <row>
  <cell>Removal</cell>
  <cell>            0</cell>
- <cell>            9</cell>
- <cell>            9</cell>
+ <cell>            0</cell>
+ <cell>            0</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
@@ -217,8 +217,8 @@ Date: Wed Feb 19 11:10:07 2025 </text>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>           57</cell>
- <cell>           57</cell>
+ <cell>            4</cell>
+ <cell>            4</cell>
 </row>
 </table>
 <section>
@@ -230,135 +230,19 @@ Date: Wed Feb 19 11:10:07 2025 </text>
 <text> - Setup unconstrained for the following pins:</text>
 <text>   </text>
 <list>
- <item>DMMainPorts_1/RS422_Rx0/Uart/ClkSyncRxd/O:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/ClkSyncRxd/Temp1:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[0]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[0]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[1]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[1]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[2]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[2]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[3]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[3]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[4]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[4]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[5]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[5]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[6]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[6]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[7]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[7]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[0]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[0]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[1]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[1]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[2]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[2]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[3]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[3]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[4]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[4]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[5]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[5]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[6]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[6]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[7]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[7]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RxAv:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RxAv:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[0]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[1]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[2]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[3]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[0]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[1]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[2]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[3]:D</item>
  <item>DMMainPorts_1/Uart0TxBitClockDiv/ClkDiv[0]:D</item>
- <item>DMMainPorts_1/Uart0TxBitClockDiv/ClkDiv_Z[1]:D</item>
- <item>DMMainPorts_1/Uart0TxBitClockDiv/ClkDiv_Z[2]:D</item>
+ <item>DMMainPorts_1/Uart0TxBitClockDiv/ClkDiv[1]:D</item>
+ <item>DMMainPorts_1/Uart0TxBitClockDiv/ClkDiv[2]:D</item>
  <item>DMMainPorts_1/Uart0TxBitClockDiv/div_i:D</item>
-</list>
-<text></text>
-<text> - Recovery unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RxAv:ALn</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[0]:ALn</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[1]:ALn</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[2]:ALn</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[3]:ALn</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[0]:ALn</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[1]:ALn</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[2]:ALn</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[3]:ALn</item>
 </list>
 <text></text>
 <text> - Hold unconstrained for the following pins:</text>
 <text>   </text>
 <list>
- <item>DMMainPorts_1/RS422_Rx0/Uart/ClkSyncRxd/O:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/ClkSyncRxd/Temp1:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[0]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[0]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[1]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[1]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[2]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[2]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[3]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[3]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[4]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[4]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[5]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[5]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[6]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[6]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[7]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/DataO[7]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[0]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[0]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[1]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[1]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[2]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[2]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[3]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[3]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[4]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[4]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[5]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[5]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[6]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[6]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[7]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RReg[7]:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RxAv:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RxAv:EN</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[0]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[1]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[2]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[3]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[0]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[1]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[2]:D</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[3]:D</item>
  <item>DMMainPorts_1/Uart0TxBitClockDiv/ClkDiv[0]:D</item>
- <item>DMMainPorts_1/Uart0TxBitClockDiv/ClkDiv_Z[1]:D</item>
- <item>DMMainPorts_1/Uart0TxBitClockDiv/ClkDiv_Z[2]:D</item>
+ <item>DMMainPorts_1/Uart0TxBitClockDiv/ClkDiv[1]:D</item>
+ <item>DMMainPorts_1/Uart0TxBitClockDiv/ClkDiv[2]:D</item>
  <item>DMMainPorts_1/Uart0TxBitClockDiv/div_i:D</item>
-</list>
-<text></text>
-<text> - Removal unconstrained for the following pins:</text>
-<text>   </text>
-<list>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/RxAv:ALn</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[0]:ALn</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[1]:ALn</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[2]:ALn</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/bitpos[3]:ALn</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[0]:ALn</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[1]:ALn</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[2]:ALn</item>
- <item>DMMainPorts_1/RS422_Rx0/Uart/Uart/samplecnt[3]:ALn</item>
 </list>
 <text></text>
 </section>
@@ -569,12 +453,12 @@ Date: Wed Feb 19 11:10:07 2025 </text>
 <text>   </text>
 <list>
  <item>DMMainPorts_1/Uart1TxBitClockDiv/ClkDiv[0]:D</item>
- <item>DMMainPorts_1/Uart1TxBitClockDiv/ClkDiv_Z[1]:D</item>
- <item>DMMainPorts_1/Uart1TxBitClockDiv/ClkDiv_Z[2]:D</item>
+ <item>DMMainPorts_1/Uart1TxBitClockDiv/ClkDiv[1]:D</item>
+ <item>DMMainPorts_1/Uart1TxBitClockDiv/ClkDiv[2]:D</item>
  <item>DMMainPorts_1/Uart1TxBitClockDiv/div_i:D</item>
  <item>DMMainPorts_1/Uart2TxBitClockDiv/ClkDiv[0]:D</item>
- <item>DMMainPorts_1/Uart2TxBitClockDiv/ClkDiv_Z[1]:D</item>
- <item>DMMainPorts_1/Uart2TxBitClockDiv/ClkDiv_Z[2]:D</item>
+ <item>DMMainPorts_1/Uart2TxBitClockDiv/ClkDiv[1]:D</item>
+ <item>DMMainPorts_1/Uart2TxBitClockDiv/ClkDiv[2]:D</item>
  <item>DMMainPorts_1/Uart2TxBitClockDiv/div_i:D</item>
  <item>DMMainPorts_1/Uart3TxBitClockDiv/ClkDiv[0]:D</item>
  <item>DMMainPorts_1/Uart3TxBitClockDiv/ClkDiv[1]:D</item>
@@ -586,12 +470,12 @@ Date: Wed Feb 19 11:10:07 2025 </text>
 <text>   </text>
 <list>
  <item>DMMainPorts_1/Uart1TxBitClockDiv/ClkDiv[0]:D</item>
- <item>DMMainPorts_1/Uart1TxBitClockDiv/ClkDiv_Z[1]:D</item>
- <item>DMMainPorts_1/Uart1TxBitClockDiv/ClkDiv_Z[2]:D</item>
+ <item>DMMainPorts_1/Uart1TxBitClockDiv/ClkDiv[1]:D</item>
+ <item>DMMainPorts_1/Uart1TxBitClockDiv/ClkDiv[2]:D</item>
  <item>DMMainPorts_1/Uart1TxBitClockDiv/div_i:D</item>
  <item>DMMainPorts_1/Uart2TxBitClockDiv/ClkDiv[0]:D</item>
- <item>DMMainPorts_1/Uart2TxBitClockDiv/ClkDiv_Z[1]:D</item>
- <item>DMMainPorts_1/Uart2TxBitClockDiv/ClkDiv_Z[2]:D</item>
+ <item>DMMainPorts_1/Uart2TxBitClockDiv/ClkDiv[1]:D</item>
+ <item>DMMainPorts_1/Uart2TxBitClockDiv/ClkDiv[2]:D</item>
  <item>DMMainPorts_1/Uart2TxBitClockDiv/div_i:D</item>
  <item>DMMainPorts_1/Uart3TxBitClockDiv/ClkDiv[0]:D</item>
  <item>DMMainPorts_1/Uart3TxBitClockDiv/ClkDiv[1]:D</item>
@@ -947,9 +831,9 @@ Date: Wed Feb 19 11:10:07 2025 </text>
 </header>
 <row>
  <cell>Setup</cell>
- <cell>           33</cell>
+ <cell>           25</cell>
  <cell>            0</cell>
- <cell>           33</cell>
+ <cell>           25</cell>
 </row>
 <row>
  <cell>Recovery</cell>
@@ -965,16 +849,16 @@ Date: Wed Feb 19 11:10:07 2025 </text>
 </row>
 <row>
  <cell>Total Setup</cell>
- <cell>           33</cell>
+ <cell>           25</cell>
  <cell>            0</cell>
- <cell>           33</cell>
+ <cell>           25</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
- <cell>           33</cell>
+ <cell>           25</cell>
  <cell>            0</cell>
- <cell>           33</cell>
+ <cell>           25</cell>
 </row>
 <row>
  <cell>Removal</cell>
@@ -990,9 +874,9 @@ Date: Wed Feb 19 11:10:07 2025 </text>
 </row>
 <row>
  <cell>Total Hold</cell>
- <cell>           33</cell>
+ <cell>           25</cell>
  <cell>            0</cell>
- <cell>           33</cell>
+ <cell>           25</cell>
 </row>
 </table>
 </section>
@@ -1071,15 +955,15 @@ Date: Wed Feb 19 11:10:07 2025 </text>
 </header>
 <row>
  <cell>Setup</cell>
- <cell>          581</cell>
- <cell>           14</cell>
- <cell>          595</cell>
+ <cell>          424</cell>
+ <cell>            4</cell>
+ <cell>          428</cell>
 </row>
 <row>
  <cell>Recovery</cell>
- <cell>           79</cell>
+ <cell>           42</cell>
  <cell>            0</cell>
- <cell>           79</cell>
+ <cell>           42</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
@@ -1089,22 +973,22 @@ Date: Wed Feb 19 11:10:07 2025 </text>
 </row>
 <row>
  <cell>Total Setup</cell>
- <cell>          660</cell>
- <cell>           16</cell>
- <cell>          676</cell>
+ <cell>          466</cell>
+ <cell>            6</cell>
+ <cell>          472</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
- <cell>          581</cell>
- <cell>           14</cell>
- <cell>          595</cell>
+ <cell>          424</cell>
+ <cell>            4</cell>
+ <cell>          428</cell>
 </row>
 <row>
  <cell>Removal</cell>
- <cell>           79</cell>
+ <cell>           42</cell>
  <cell>            0</cell>
- <cell>           79</cell>
+ <cell>           42</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
@@ -1114,25 +998,13 @@ Date: Wed Feb 19 11:10:07 2025 </text>
 </row>
 <row>
  <cell>Total Hold</cell>
- <cell>          660</cell>
- <cell>           16</cell>
- <cell>          676</cell>
+ <cell>          466</cell>
+ <cell>            6</cell>
+ <cell>          472</cell>
 </row>
 </table>
 <section>
 <name>Enhancement Suggestions</name>
-<text></text>
-<text> - Max input delay constraint missing on port:</text>
-<text>   </text>
-<list>
- <item>Rx0</item>
-</list>
-<text></text>
-<text> - Min input delay constraint missing on port:</text>
-<text>   </text>
-<list>
- <item>Rx0</item>
-</list>
 <text></text>
 <text></text>
 <text> - Max output delay constraint missing on ports:</text>
@@ -1153,16 +1025,6 @@ Date: Wed Feb 19 11:10:07 2025 </text>
 <text> - Setup unconstrained for the following pins:</text>
 <text>   </text>
 <list>
- <item>DMMainPorts_1/IBufRxd0/Temp1:D</item>
- <item>DMMainPorts_1/RS422_Rx0/ClkSyncWrite/Temp1:D</item>
- <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[0]</item>
- <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[1]</item>
- <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[2]</item>
- <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[3]</item>
- <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[4]</item>
- <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[5]</item>
- <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[6]</item>
- <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[7]</item>
  <item>DMMainPorts_1/RS422_Tx0/IBufTxInProgress_i/Temp1:D</item>
  <item>DMMainPorts_1/RS422_Tx1/IBufTxInProgress_i/Temp1:D</item>
  <item>DMMainPorts_1/RS422_Tx2/IBufTxInProgress_i/Temp1:D</item>
@@ -1172,16 +1034,6 @@ Date: Wed Feb 19 11:10:07 2025 </text>
 <text> - Hold unconstrained for the following pins:</text>
 <text>   </text>
 <list>
- <item>DMMainPorts_1/IBufRxd0/Temp1:D</item>
- <item>DMMainPorts_1/RS422_Rx0/ClkSyncWrite/Temp1:D</item>
- <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[0]</item>
- <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[1]</item>
- <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[2]</item>
- <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[3]</item>
- <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[4]</item>
- <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[5]</item>
- <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[6]</item>
- <item>DMMainPorts_1/RS422_Rx0/UartFifo/fifo_i/ram_ram_0_0/INST_RAM1K18_IP:B_DIN[7]</item>
  <item>DMMainPorts_1/RS422_Tx0/IBufTxInProgress_i/Temp1:D</item>
  <item>DMMainPorts_1/RS422_Tx1/IBufTxInProgress_i/Temp1:D</item>
  <item>DMMainPorts_1/RS422_Tx2/IBufTxInProgress_i/Temp1:D</item>

@@ -5,7 +5,8 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-use DM_types.all;
+use IEEE.std_logic_unsigned.all;
+use work.CGraphDMTypes.all;
 
 entity DMMainPorts is
   port (
@@ -63,7 +64,7 @@ entity DMMainPorts is
 --    nDrdyAdcD : in std_logic;
 	
     --uC Ram Bus 
-    RamBusAddress : in std_logic_vector(9 downto 0); 
+    RamBusAddress : in std_logic_vector(13 downto 0); 
     RamBusDataIn : in std_logic_vector(31 downto 0);
     RamBusDataOut : out std_logic_vector(31 downto 0);
     RamBusnCs : in std_logic;
@@ -458,7 +459,9 @@ architecture DMMain of DMMainPorts is
     WriteClkDac : out std_logic;
     ClkDacReadback : in std_logic_vector(15 downto 0);
 	
-	DacSetpoints : out DMDacSetpointRam--;	
+	--~ DacSetpoints : out DMDacSetpointRam--;	
+	DacChannelReadIndex : in std_logic_vector(5 downto 0);
+	DacSetpoints : out DMDacSetpointRegisters--;
     );
   end component;    
 
@@ -524,7 +527,7 @@ architecture DMMain of DMMainPorts is
   signal RamBusLatch_i   : std_logic;		
   signal RamBusCE_i      : std_logic;		
   signal RamBusWrnRd_i   : std_logic;		
-  signal RamBusAddress_i : std_logic_vector(9 downto 0);		
+  signal RamBusAddress_i : std_logic_vector(13 downto 0);		
   signal RamDataOut      : std_logic_vector(31 downto 0);		
   signal RamDataIn       : std_logic_vector(31 downto 0);		
   signal RamBusAck_i     : std_logic;
@@ -703,38 +706,18 @@ architecture DMMain of DMMainPorts is
   signal MosiXO_i           : std_logic;
   signal MisoXO_i           : std_logic;
   
-  signal DacSetpoints : DMDacSetpointRam;
+  --~ signal DacSetpoints : DMDacSetpointRam;
+  signal DacChannelReadIndex : std_logic_vector(5 downto 0);
+  signal DacSetpoints : DMDacSetpointRegisters;
+
 
   --these are just for testing the above!
-  signal Board0Dac0Setpoints : std_logic_vector(31 downto 0);
-  signal Board0Dac1Setpoints : std_logic_vector(31 downto 0);
-  signal Board0Dac2Setpoints : std_logic_vector(31 downto 0);
-  signal Board0Dac3Setpoints : std_logic_vector(31 downto 0);
-  
-  signal Board1Dac0Setpoints : std_logic_vector(31 downto 0);
-  signal Board1Dac1Setpoints : std_logic_vector(31 downto 0);
-  signal Board1Dac2Setpoints : std_logic_vector(31 downto 0);
-  signal Board1Dac3Setpoints : std_logic_vector(31 downto 0);
-  
-  signal Board2Dac0Setpoints : std_logic_vector(31 downto 0);
-  signal Board2Dac1Setpoints : std_logic_vector(31 downto 0);
-  signal Board2Dac2Setpoints : std_logic_vector(31 downto 0);
-  signal Board2Dac3Setpoints : std_logic_vector(31 downto 0);
-  
-  signal Board3Dac0Setpoints : std_logic_vector(31 downto 0);
-  signal Board3Dac1Setpoints : std_logic_vector(31 downto 0);
-  signal Board3Dac2Setpoints : std_logic_vector(31 downto 0);
-  signal Board3Dac3Setpoints : std_logic_vector(31 downto 0);
-  
-  signal Board4Dac0Setpoints : std_logic_vector(31 downto 0);
-  signal Board4Dac1Setpoints : std_logic_vector(31 downto 0);
-  signal Board4Dac2Setpoints : std_logic_vector(31 downto 0);
-  signal Board4Dac3Setpoints : std_logic_vector(31 downto 0);
-  
-  signal Board5Dac0Setpoints : std_logic_vector(31 downto 0);
-  signal Board5Dac1Setpoints : std_logic_vector(31 downto 0);
-  signal Board5Dac2Setpoints : std_logic_vector(31 downto 0);
-  signal Board5Dac3Setpoints : std_logic_vector(31 downto 0);
+  signal Board0OredSetpoints : std_logic_vector(23 downto 0);
+  signal Board1OredSetpoints : std_logic_vector(23 downto 0);
+  signal Board2OredSetpoints : std_logic_vector(23 downto 0);
+  signal Board3OredSetpoints : std_logic_vector(23 downto 0);
+  signal Board4OredSetpoints : std_logic_vector(23 downto 0);
+  signal Board5OredSetpoints : std_logic_vector(23 downto 0);
   
   -- And a few constants
   constant nCsEnabled : std_logic := '0';
@@ -778,7 +761,7 @@ begin
   IBufCE : IBufP2Ports port map(clk => MasterClk, I => RamBusnCs, O => RamBusCE_i);
   IBufWrnRd : IBufP2Ports port map(clk => MasterClk, I => RamBusWrnRd, O => RamBusWrnRd_i);
   
-  GenRamAddrBus: for i in 0 to 9 generate
+  GenRamAddrBus: for i in 0 to 13 generate
   begin
     IBUF_RamAddr_i : IBufP1Ports
       port map (
@@ -811,7 +794,7 @@ begin
   --- Mapping the register space.  These come from RegisterSpace.vhd
   RegisterSpace : RegisterSpacePorts
   generic map (
-    ADDRESS_BITS => 13--,
+    ADDRESS_BITS => 14--,
   )
   port map (
     clk => MasterClk,
@@ -947,7 +930,8 @@ begin
     WriteClkDac           => WriteClkDac  , 
     ClkDacReadback        => ClkDacReadback,
 	
-	DacSetpoints => DacSetpoints--,
+	DacSetpoints => DacSetpoints,
+	DacChannelReadIndex => DacChannelReadIndex--,
   );
 
   --- DM D/As ---
@@ -1529,19 +1513,16 @@ begin
   MosiXO <= MosiXO_i;
   
 
---Ok, we're gonna find a way to xor all the setpoints into the PPSCount var just for testing so it doesn't all get synthesized outta existence...  
-  --~ PPSCount(23 downto 0) <= DacSetpoints
-  			--~ --DacSetpointsAddr:
-			--~ GenCBAddr: for i in 0 to (DMMaxControllerBoards - 1) generate begin
-				--~ GenDPCBAddr: for j in 0 to (DMMDacsPerControllerBoard - 1) generate begin
-					--~ GenAPDAddr: for k in 0 to (DMActuatorsPerDac - 1) generate begin
-						--~ when DacSetpointsAddr + std_logic_vector(to_unsigned(4 * ( (i * DMMDacsPerControllerBoard * DMActuatorsPerDac) + (j * DMActuatorsPerDac) + k), MAX_ADDRESS_BITS)) => DacSetpoints(i)(j)(k) <= DataIn(23 downto 0);
-					--~ end generate;
-				--~ end generate;
-			--~ end generate;
-			
+  --Ok, we're gonna find a way to xor all the setpoints into the PPSCount var just for testing so it doesn't all get synthesized outta existence...  
+  Board0OredSetpoints <= DacSetpoints(0, 0) xor DacSetpoints(0, 1) xor DacSetpoints(0, 2) xor DacSetpoints(0, 3);
+  Board1OredSetpoints <= DacSetpoints(1, 0) xor DacSetpoints(1, 1) xor DacSetpoints(1, 2) xor DacSetpoints(1, 3);
+  Board2OredSetpoints <= DacSetpoints(2, 0) xor DacSetpoints(2, 1) xor DacSetpoints(2, 2) xor DacSetpoints(2, 3);
+  Board3OredSetpoints <= DacSetpoints(3, 0) xor DacSetpoints(3, 1) xor DacSetpoints(3, 2) xor DacSetpoints(3, 3);
+  Board4OredSetpoints <= DacSetpoints(4, 0) xor DacSetpoints(4, 1) xor DacSetpoints(4, 2) xor DacSetpoints(4, 3);
+  Board5OredSetpoints <= DacSetpoints(5, 0) xor DacSetpoints(5, 1) xor DacSetpoints(5, 2) xor DacSetpoints(5, 3);
 
-  
+  PPSCount(31 downto 24) <= x"00";
+  PPSCount(23 downto 0) <= Board0OredSetpoints xor Board1OredSetpoints xor Board2OredSetpoints xor Board3OredSetpoints xor Board4OredSetpoints xor Board5OredSetpoints;
 
   ----------------------------- Power Supplies ----------------------------------
   --- Is this also part of the FSM?
@@ -1556,6 +1537,17 @@ begin
       --This is where we have to actually set all of our registers, since the M2S devices don't support initialization as though they are from the 1980's...
     else
       if ( (MasterClk'event) and (MasterClk = '1') ) then
+	  
+		if (DacChannelReadIndex < "100111") then
+		
+			DacChannelReadIndex <= DacChannelReadIndex + "000001";
+			
+		else
+		
+			DacChannelReadIndex <= "000000";
+			
+		end if;
+		
       end if;
     end if;	
 

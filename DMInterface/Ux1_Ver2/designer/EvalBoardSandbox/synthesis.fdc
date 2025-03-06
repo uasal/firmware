@@ -1,7 +1,7 @@
 # Microsemi Corp.
-# Date: 2025-Feb-19 11:09:19
+# Date: 2025-Mar-06 15:18:23
 # This file was generated based on the following SDC source files:
-#   C:/Users/SKaye/repos/firmware/DMInterface/Ux1_Ver2/constraint/EvalBoardSandbox_derived_constraints.sdc
+#   /home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/constraint/EvalBoardSandbox_derived_constraints.sdc
 #
 
 create_clock -name {EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT} -period 20 [ get_pins { EvalSandbox_MSS_0.FABOSC_0.I_RCOSC_25_50MHZ.CLKOUT } ]
