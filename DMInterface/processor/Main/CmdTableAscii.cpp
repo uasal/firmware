@@ -155,6 +155,30 @@ const Cmd AsciiCmds[] =
         "\"MonitorSerial <0 | 1 | 2> <Y | N>\": Show/hide incoming serial bytes.",
         MonitorSerialCommand
     ),
+	
+	Cmd (
+		"DMMAPPINGS",
+		"\"DMMappings\": Pixel index, Board index, D/A index, D/A channel number: Set a mapping",
+		DMMappingCommand
+    ),
+
+	Cmd (
+		"DMSHORTPIXELS",
+		"\"DMShortPixels\": StartPixel, Pix0, Pix1, ... PixN: Send pixel values (16bit)",
+		DMShortPixelsCommand
+    ),
+
+	Cmd (
+		"DMDITHER",
+		"\"DMDither\": StartPixel, Pix0, Pix1, ... PixN: Send pixel dither values (8bit)",
+		DMDitherCommand
+    ),
+
+	Cmd (
+		"DMLONGPIXELS",
+		"\"DMLongPixels\": StartPixel, Pix0, Pix1, ... PixN: Send pixel values (32bit)",
+		DMLongPixelsCommand
+    ),
 };
 
 //Calculate the number of commands instanciated in the system - links with CmdSystem.cpp.o

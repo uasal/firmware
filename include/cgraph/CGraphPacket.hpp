@@ -295,7 +295,14 @@ struct CGraphDMMappings
 		}
 	}
 	
-	//~ void formatf() const { ::printf("CGraphDMMappingPayload: ControllerBoardIndex: %lu, DacIndex: %lu, DacChannel: %lu", (unsigned long)ControllerBoardIndex, (unsigned long)DacIndex, (unsigned long)DacChannel); }
+	void formatf() const 
+	{ 
+		for (size_t i = 0; i < DMMaxActuators; i++)
+		{
+			Mappings[i].formatf();
+			::printf("\n");
+		}
+	}
 };
 
 //--------------------------------------------------------------------- FW Filterwheel 0x4000 packets -------------------------------------------------------------

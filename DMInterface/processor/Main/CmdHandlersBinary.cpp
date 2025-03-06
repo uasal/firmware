@@ -513,7 +513,7 @@ int8_t BinaryDMDitherCommand(const uint32_t Name, char const* Params, const size
 {
 	if (nullptr == DM)
 	{
-		printf("\nBinaryDMShortPixelsCommand: DM pointer is NULL! Firmware corrupted!\n");	
+		printf("\nBinaryDMDitherCommand: DM pointer is NULL! Firmware corrupted!\n");	
 		return(ParamsLen);
 	}
 
@@ -589,7 +589,7 @@ int8_t BinaryDMLongPixelsCommand(const uint32_t Name, char const* Params, const 
 {
 	if (nullptr == DM)
 	{
-		printf("\nBinaryDMShortPixelsCommand: DM pointer is NULL! Firmware corrupted!\n");	
+		printf("\nBinaryDMLongPixelsCommand: DM pointer is NULL! Firmware corrupted!\n");	
 		return(ParamsLen);
 	}
 
@@ -658,7 +658,7 @@ int8_t BinaryDMLongPixelsCommand(const uint32_t Name, char const* Params, const 
 			Pixel[1] = (uint8_t)((reinterpret_cast<uint32_t*>(DM->DacSetpoints)[j] & 0x0000FF00UL) >> 8);
 			Pixel[2] = (uint8_t)((reinterpret_cast<uint32_t*>(DM->DacSetpoints)[j] & 0x00FF0000UL) >> 16);
 		}
-		TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, Buffer, sizeof(CGraphDMPixelPayloadHeader) + (sizeof(uint8_t) * 3 * DMMaxControllerBoards * DMMDacsPerControllerBoard * DMActuatorsPerDac));
+		TxBinaryPacket(Argument, CGraphPayloadTypeDMLongPixels, 0, Buffer, sizeof(CGraphDMPixelPayloadHeader) + (sizeof(uint8_t) * 3 * DMMaxControllerBoards * DMMDacsPerControllerBoard * DMActuatorsPerDac));
 	}
 		
     return(ParamsLen);

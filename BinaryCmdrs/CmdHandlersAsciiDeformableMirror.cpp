@@ -217,14 +217,14 @@ int8_t DMDitherCommand(char const* Name, char const* Params, const size_t Params
 			*PixBuf = Pixel;
 		}
 
-		printf("\n\nDMShortPixelsCommand: Writing %lu pixels starting at %lu...\n", (unsigned long)i, A);		
-		TxBinaryPacket(&UartParser, CGraphPayloadTypeDMShortPixels, 0, Buffer, (i * sizeof(uint8_t)) + sizeof(CGraphDMPixelPayloadHeader));		
+		printf("\n\nDMDitherCommand: Writing %lu pixels starting at %lu...\n", (unsigned long)i, A);		
+		TxBinaryPacket(&UartParser, CGraphPayloadTypeDMDither, 0, Buffer, (i * sizeof(uint8_t)) + sizeof(CGraphDMPixelPayloadHeader));		
 	}
 	//query?
 	else
 	{
-		printf("\n\nDMShortPixelsCommand: No parameters given; querying...\n");
-		TxBinaryPacket(&UartParser, CGraphPayloadTypeDMShortPixels, 0, NULL, 0);		
+		printf("\n\nDMDitherCommand: No parameters given; querying...\n");
+		TxBinaryPacket(&UartParser, CGraphPayloadTypeDMDither, 0, NULL, 0);		
 	}
 		
     return(ParamsLen);
@@ -261,14 +261,14 @@ int8_t DMLongPixelsCommand(char const* Name, char const* Params, const size_t Pa
 			PixBuf[2] = (uint8_t)((Pixel & 0x00FF0000UL) >> 16);
 		}
 
-		printf("\n\nDMShortPixelsCommand: Writing %lu pixels starting at %lu...\n", (unsigned long)i, A);		
-		TxBinaryPacket(&UartParser, CGraphPayloadTypeDMShortPixels, 0, Buffer, (i * 3 * sizeof(uint8_t)) + sizeof(CGraphDMPixelPayloadHeader));		
+		printf("\n\nDMLongPixelsCommand: Writing %lu pixels starting at %lu...\n", (unsigned long)i, A);		
+		TxBinaryPacket(&UartParser, CGraphPayloadTypeDMLongPixels, 0, Buffer, (i * 3 * sizeof(uint8_t)) + sizeof(CGraphDMPixelPayloadHeader));		
 	}
 	//query?
 	else
 	{
-		printf("\n\nDMShortPixelsCommand: No parameters given; querying...\n");
-		TxBinaryPacket(&UartParser, CGraphPayloadTypeDMShortPixels, 0, NULL, 0);		
+		printf("\n\nDMLongPixelsCommand: No parameters given; querying...\n");
+		TxBinaryPacket(&UartParser, CGraphPayloadTypeDMLongPixels, 0, NULL, 0);		
 	}
 		
     return(ParamsLen);

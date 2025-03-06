@@ -65,6 +65,8 @@ extern BinaryUart FpgaUartParser2;
 extern BinaryUart FpgaUartParser1;
 extern BinaryUart FpgaUartParser0; //using this one for ascii rn...
 
+extern CGraphDMMappings DMMappings;
+
 char Buffer[4096];
 
 int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
@@ -461,6 +463,182 @@ int8_t MonitorSerialCommand(char const* Name, char const* Params, const size_t P
   //formatf("\nMonitorSerialCommand: Monitoring port 3: %c.\n", FPGAUartPinout3.Monitor()?'Y':'N');	
 	
   return(strlen(Params));
+}
+
+int8_t DMMappingCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	unsigned long A = 0, B = 0, C = 0, D = 0;
+
+	//Convert parameters - at the moment we're being lazy and only support testing a single mapping at a time...
+	int8_t numfound = sscanf(Params, "%lu,%lu,%lu,%lu", &A, &B, &C, &D);
+	if (numfound >= 4)
+	{
+		CGraphDMMappingPayload Mapping(B, C, D);
+		
+		DMMappings.Mappings[A] = Mapping;
+		printf("\nBinaryDMMappingCommand: Set mapping %lu to ", (unsigned long)A);
+		Mapping.formatf();
+		printf("\n\n");
+	}
+	//query?
+	else
+	{
+		printf("\n\nDMMappingCommand: No parameters given; all mappings follow:\n");
+		DMMappings.formatf();
+		printf("\n\n");
+	}
+		
+    return(ParamsLen);
+}
+
+int8_t DMShortPixelsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	if (nullptr == DM)
+	{
+		printf("\nDMShortPixelsCommand: DM pointer is NULL! Firmware corrupted!\n");	
+		return(ParamsLen);
+	}
+
+	unsigned long A = 0;
+	
+	strtok(const_cast<char*>(Params)," ,\t\r\n");
+
+	//Convert start pixel
+	int8_t numfound = sscanf(Params, "%lu", &A);
+	if (numfound >= 1)
+	{
+		//Now we start building an array of pixels...icky parsing lol
+		size_t i = 0;
+		for (i = A; i < DMMaxActuators; i++)
+		{
+			char* PixStr = strtok((char*)nullptr," ,\t\r\n");
+			if (nullptr == PixStr) { break; }
+			uint16_t Pixel = atoi(PixStr);
+			
+			//What D/A ram does this pix belong to?
+			if ( (DMMappings.Mappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings.Mappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings.Mappings[i].ControllerBoardIndex >= DMMaxControllerBoards) )
+			{
+				printf("\nDMShortPixelsCommand: Invalid mapping %lu; please reinitialize mappings!: ", (unsigned long)i);
+				DMMappings.Mappings[i].formatf();
+				printf("\n\n");
+			}
+			//Yay, we got here, things are actaully correct and we have something to do!
+			else
+			{
+				DM->DacSetpoints[DMMappings.Mappings[i].ControllerBoardIndex][DMMappings.Mappings[i].DacIndex][DMMappings.Mappings[i].DacChannel] = ((uint32_t)Pixel) << 8; //<<8 cause we really want 24b values when we dither
+				printf("\nDMShortPixelsCommand: Set actuator %lu to %lu", (unsigned long)i, (unsigned long)Pixel);
+			}			
+
+		}
+	}
+	//query?
+	else
+	{
+		printf("\n\nDMShortPixelsCommand: No parameters given; querying...\n");
+		
+	}
+		
+    return(ParamsLen);
+}
+
+int8_t DMDitherCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	if (nullptr == DM)
+	{
+		printf("\nDMDitherCommand: DM pointer is NULL! Firmware corrupted!\n");	
+		return(ParamsLen);
+	}
+
+	unsigned long A = 0;
+	
+	strtok(const_cast<char*>(Params)," ,\t\r\n");
+
+	//Convert start pixel
+	int8_t numfound = sscanf(Params, "%lu", &A);
+	if (numfound >= 1)
+	{
+		//Now we start building an array of pixels...icky parsing lol
+		size_t i = 0;
+		for (i = A; i < DMMaxActuators; i++)
+		{
+			char* PixStr = strtok((char*)nullptr," ,\t\r\n");
+			if (nullptr == PixStr) { break; }
+			uint16_t Pixel = atoi(PixStr);
+			
+			//What D/A ram does this pix belong to?
+			if ( (DMMappings.Mappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings.Mappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings.Mappings[i].ControllerBoardIndex >= DMMaxControllerBoards) )
+			{
+				printf("\nDMDitherCommand: Invalid mapping %lu; please reinitialize mappings!: ", (unsigned long)i);
+				DMMappings.Mappings[i].formatf();
+				printf("\n\n");
+			}
+			//Yay, we got here, things are actaully correct and we have something to do!
+			else
+			{
+				DM->DacSetpoints[DMMappings.Mappings[i].ControllerBoardIndex][DMMappings.Mappings[i].DacIndex][DMMappings.Mappings[i].DacChannel] |= (uint8_t)Pixel; //<<8 cause we really want 24b values when we dither
+				printf("\nDMDitherCommand: Set actuator %lu to %lu", (unsigned long)i, (unsigned long)Pixel);
+			}			
+
+		}
+	}
+	//query?
+	else
+	{
+		printf("\n\nDMDitherCommand: No parameters given; querying...\n");
+		
+	}
+		
+    return(ParamsLen);
+}
+
+int8_t DMLongPixelsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	if (nullptr == DM)
+	{
+		printf("\nDMLongPixelsCommand: DM pointer is NULL! Firmware corrupted!\n");	
+		return(ParamsLen);
+	}
+
+	unsigned long A = 0;
+	
+	strtok(const_cast<char*>(Params)," ,\t\r\n");
+
+	//Convert start pixel
+	int8_t numfound = sscanf(Params, "%lu", &A);
+	if (numfound >= 1)
+	{
+		//Now we start building an array of pixels...icky parsing lol
+		size_t i = 0;
+		for (i = A; i < DMMaxActuators; i++)
+		{
+			char* PixStr = strtok((char*)nullptr," ,\t\r\n");
+			if (nullptr == PixStr) { break; }
+			uint16_t Pixel = atoi(PixStr);
+			
+			//What D/A ram does this pix belong to?
+			if ( (DMMappings.Mappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings.Mappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings.Mappings[i].ControllerBoardIndex >= DMMaxControllerBoards) )
+			{
+				printf("\nDMLongPixelsCommand: Invalid mapping %lu; please reinitialize mappings!: ", (unsigned long)i);
+				DMMappings.Mappings[i].formatf();
+				printf("\n\n");
+			}
+			//Yay, we got here, things are actaully correct and we have something to do!
+			else
+			{
+				DM->DacSetpoints[DMMappings.Mappings[i].ControllerBoardIndex][DMMappings.Mappings[i].DacIndex][DMMappings.Mappings[i].DacChannel] =  (uint32_t)Pixel & 0x00FFFFFF; //<<8 cause we really want 24b values when we dither
+				printf("\nDMLongPixelsCommand: Set actuator %lu to %lu", (unsigned long)i, (unsigned long)Pixel);
+			}			
+
+		}
+	}
+	//query?
+	else
+	{
+		printf("\n\nDMLongPixelsCommand: No parameters given; querying...\n");
+		
+	}
+		
+    return(ParamsLen);
 }
 
 
