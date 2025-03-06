@@ -30,7 +30,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <sys/mman.h>
+//~ #include <sys/mman.h>
 #include <errno.h>
 #include <unordered_map>
 using namespace std;
@@ -54,7 +54,7 @@ int8_t BinaryFWHardwareControlStatusCommand(const uint32_t Name, char const* Par
 	}
 	else
 	{
-		printf("\nBinaryFWHardwareControlStatusCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (sizeof(CGraphFWHardwareControlRegister)));
+		printf("\nBinaryFWHardwareControlStatusCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(CGraphFWHardwareControlRegister)));
 	}
     return(ParamsLen);
 }
@@ -70,7 +70,7 @@ int8_t BinaryFWMotorControlStatusCommand(const uint32_t Name, char const* Params
 	}
 	else
 	{
-		printf("\nBinaryFWMotorControlStatusCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (sizeof(CGraphFWMotorControlStatusRegister)));
+		printf("\nBinaryFWMotorControlStatusCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(CGraphFWMotorControlStatusRegister)));
 	}
     return(ParamsLen);
 }
@@ -86,7 +86,7 @@ int8_t BinaryFWPositionSenseControlStatusCommand(const uint32_t Name, char const
 	}
 	else
 	{
-		printf("\nBinaryFWPositionSenseControlStatusCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (sizeof(CGraphFWPositionSenseRegister)));
+		printf("\nBinaryFWPositionSenseControlStatusCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(CGraphFWPositionSenseRegister)));
 	}
     return(ParamsLen);
 }
@@ -130,7 +130,7 @@ int8_t BinaryFWPositionStepsCommand(const uint32_t Name, char const* Params, con
 	}
 	else
 	{
-		printf("\nBinaryFWPositionStepsCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (48 * sizeof(uint32_t)));
+		printf("\nBinaryFWPositionStepsCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(48 * sizeof(uint32_t)));
 	}
     return(ParamsLen);
 }
@@ -160,7 +160,7 @@ int8_t BinaryFWTelemetryCommand(const uint32_t Name, char const* Params, const s
 	}
 	else
 	{
-		printf("\nBinaryFWTelemetryCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (sizeof(CGraphFWTelemetryPayload)));
+		printf("\nBinaryFWTelemetryCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(CGraphFWTelemetryPayload)));
 	}
     return(ParamsLen);
 }
@@ -175,7 +175,7 @@ int8_t BinaryFWFilterSelectCommand(const uint32_t Name, char const* Params, cons
 	}
 	else
 	{
-		printf("\nBinaryFWFilterSelectCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (sizeof(uint32_t)));
+		printf("\nBinaryFWFilterSelectCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(uint32_t)));
 	}
     return(ParamsLen);
 }

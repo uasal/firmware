@@ -30,7 +30,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <sys/mman.h>
+//~ #include <sys/mman.h>
 #include <errno.h>
 #include <unordered_map>
 using namespace std;
@@ -52,7 +52,7 @@ int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_
 	}
 	else
 	{
-		printf("\nBinaryVersionCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, sizeof(CGraphVersionPayload));
+		printf("\nBinaryVersionCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)sizeof(CGraphVersionPayload));
 	}
     return(ParamsLen);
 }
@@ -68,7 +68,7 @@ int8_t BinaryHardFaultCommand(const uint32_t Name, char const* Params, const siz
 	}
 	else
 	{
-		printf("\nBinaryHardFaultCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, sizeof(CGraphHardFaultPayload));
+		printf("\nBinaryHardFaultCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)sizeof(CGraphHardFaultPayload));
 	}
     return(ParamsLen);
 }

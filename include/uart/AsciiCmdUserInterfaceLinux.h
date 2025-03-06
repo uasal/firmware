@@ -38,11 +38,11 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
+//~ #include <sys/socket.h>
+//~ #include <netinet/in.h>
 #include <pthread.h>
 #include <sched.h>
-#include <sys/mman.h>
+//~ #include <sys/mman.h>
 #include <errno.h>
 #include <dirent.h>
 

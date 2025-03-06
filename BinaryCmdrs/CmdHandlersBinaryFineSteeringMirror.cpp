@@ -30,7 +30,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <sys/mman.h>
+//~ #include <sys/mman.h>
 #include <errno.h>
 #include <unordered_map>
 using namespace std;
@@ -52,7 +52,7 @@ int8_t BinaryFSMDacsCommand(const uint32_t Name, char const* Params, const size_
 	}
 	else
 	{
-		printf("\nBinaryFSMDacsCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (3 * sizeof(uint32_t)));
+		printf("\nBinaryFSMDacsCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(3 * sizeof(uint32_t)));
 	}
     return(ParamsLen);
 }
@@ -72,7 +72,7 @@ int8_t BinaryFSMAdcsCommand(const uint32_t Name, char const* Params, const size_
 	}
 	else
 	{
-		printf("\nBinaryFSMAdcsCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (3 * sizeof(AdcAccumulator)));
+		printf("\nBinaryFSMAdcsCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(3 * sizeof(AdcAccumulator)));
 	}
     return(ParamsLen);
 }
@@ -86,7 +86,7 @@ int8_t BinaryFSMAdcsFloatingPointCommand(const uint32_t Name, char const* Params
 	}
 	else
 	{
-		printf("\nBinaryFSMAdcsFPCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (3 * sizeof(double)));
+		printf("\nBinaryFSMAdcsFPCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(3 * sizeof(double)));
 	}
     return(ParamsLen);
 }
@@ -116,7 +116,7 @@ int8_t BinaryFSMTelemetryCommand(const uint32_t Name, char const* Params, const 
 	}
 	else
 	{
-		printf("\nBinaryFSMTelemetry: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (sizeof(CGraphFSMTelemetryPayload)));
+		printf("\nBinaryFSMTelemetry: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(CGraphFSMTelemetryPayload)));
 	}
     return(ParamsLen);
 }

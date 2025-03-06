@@ -34,20 +34,23 @@
 #include <inttypes.h>
 //offsetof:
 #include <cstddef>
+
+#ifndef WIN32
 //kbhit
 #include <termios.h>
+#endif
 
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <sys/ioctl.h>
+//~ #include <sys/ioctl.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <sys/mman.h>
+//~ #include <sys/mman.h>
 #include <errno.h>
 #include <unordered_map>
 using namespace std;
 
-#include <mcheck.h>
+//~ #include <mcheck.h>
 #include "dbg/memwatch.h"
 
 #include "uart/AsciiCmdUserInterfaceLinux.h"
@@ -116,7 +119,7 @@ int8_t FSMCirclesCommand(char const* Name, char const* Params, const size_t Para
 	unsigned long daca = 0;
 	unsigned long dacb = 0;
 	unsigned long dacc = 0;
-	int key = 0;
+	int key = 1;
 	
 	double radius = 1.0;
 	double delayinms = 1.0; //1ms
@@ -158,8 +161,8 @@ int8_t FSMCirclesCommand(char const* Name, char const* Params, const size_t Para
 		}
 		
 		//Quit on any keypress
-		//Quit on any keypress
 		{
+			#ifndef WIN32
 			struct termios argin, argout;
 			tcgetattr(0,&argin);
 			argout = argin;
@@ -172,6 +175,7 @@ int8_t FSMCirclesCommand(char const* Name, char const* Params, const size_t Para
 			//read(0, &key, 1);
 			ioctl(0, FIONREAD, &key);
 			tcsetattr(0,TCSADRAIN,&argin);
+			#endif
 			if (0 != key) 
 			{ 
 				fflush(stdin);

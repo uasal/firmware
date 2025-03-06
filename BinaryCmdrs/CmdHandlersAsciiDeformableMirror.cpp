@@ -35,19 +35,19 @@
 //offsetof:
 #include <cstddef>
 //kbhit
-#include <termios.h>
+//~ #include <termios.h>
 
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <sys/ioctl.h>
+//~ #include <sys/ioctl.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <sys/mman.h>
+//~ #include <sys/mman.h>
 #include <errno.h>
 #include <unordered_map>
 using namespace std;
 
-#include <mcheck.h>
+//~ #include <mcheck.h>
 #include "dbg/memwatch.h"
 
 #include "uart/AsciiCmdUserInterfaceLinux.h"
@@ -153,7 +153,7 @@ int8_t DMShortPixelsCommand(char const* Name, char const* Params, const size_t P
 {
 	unsigned long A = 0;
 	
-	char* PixInd = strtok(const_cast<char*>(Params)," ,\t\r\n");
+	strtok(const_cast<char*>(Params)," ,\t\r\n");
 
 	//Convert start pixel
 	int8_t numfound = sscanf(Params, "%lu", &A);
@@ -194,7 +194,7 @@ int8_t DMDitherCommand(char const* Name, char const* Params, const size_t Params
 {
 	unsigned long A = 0;
 	
-	char* PixInd = strtok(const_cast<char*>(Params)," ,\t\r\n");
+	strtok(const_cast<char*>(Params)," ,\t\r\n");
 
 	//Convert start pixel
 	int8_t numfound = sscanf(Params, "%lu", &A);
@@ -235,7 +235,7 @@ int8_t DMLongPixelsCommand(char const* Name, char const* Params, const size_t Pa
 {
 	unsigned long A = 0;
 	
-	char* PixInd = strtok(const_cast<char*>(Params)," ,\t\r\n");
+	strtok(const_cast<char*>(Params)," ,\t\r\n");
 
 	//Convert start pixel
 	int8_t numfound = sscanf(Params, "%lu", &A);

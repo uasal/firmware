@@ -37,11 +37,11 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
+//~ #include <sys/socket.h>
+//~ #include <netinet/in.h>
 #include <pthread.h>
 #include <sched.h>
-#include <sys/mman.h>
+//~ #include <sys/mman.h>
 #include <errno.h>
 #include <dirent.h>
 
@@ -108,11 +108,15 @@ bool ProcessUserInterface()
 
 void Wait50()
 {
+	#ifndef WIN32		
 	//good practice to always wait at end of while(true) loops, in case something allows us to freerun, so we don't hog 100% cpu...
 	struct timespec fiftymilliseconds;
 	memset((char *)&fiftymilliseconds,0,sizeof(fiftymilliseconds));
 	fiftymilliseconds.tv_nsec = 50000000;
 	nanosleep(&fiftymilliseconds, NULL);
+	#else
+	sleep(50);
+	#endif
 }
 
 void* StdInClientThread(void *argument)
@@ -154,6 +158,7 @@ char* strupr(char* s)
 
 void ParseConfigFile(const char* ConfigFileName)
 {
+	#ifndef WIN32		/* replace with: https://github.com/boldowa/mman-win32 when we have oodles of time on our hands... */
 	char Line[4096 + 1];
 	size_t BufPos = 0;
 	size_t FileLen = 0;
@@ -230,4 +235,5 @@ void ParseConfigFile(const char* ConfigFileName)
 	close(ParseFileHandle);
 
 	printf("\b\nParseConfigFile(%s): Complete.\n", ConfigFileName);
+	#endif
 }

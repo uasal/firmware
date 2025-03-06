@@ -36,6 +36,11 @@
 extern "C" {
 #endif
 
+	//~ c++11 alternative (still not on mingw):
+	//~ #include <chrono>
+	//~ #include <thread>
+	//~ std::this_thread::sleep_for(std::chrono::microseconds(usec));
+
 	//All the following pinout functions are very hardware & device dependant, so they are implemented in C files elsewhere (i.e. arm/lpcinitxyz.c
 
 	void delayus(const unsigned long microseconds) //2^32 usec is ~1.5hrs; don't know why we'd delay longer than that...

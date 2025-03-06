@@ -85,7 +85,6 @@ union CGraphDMHardwareStatusRegister
 
 struct CGraphDMHardwareInterface
 {
-<<<<<<< HEAD
   uint32_t DeviceSerialNumber; //ro; FPGA manufacturer hardcoded device UUID 0
   uint32_t FpgaFirmwareBuildNumber; //ro; Auto-incremented firmware UUID     4
   uint32_t UnixSeconds; //rw; equivalent to time_t for 32b systems; low order bits of time_t on 64b systems; write to set/initialize FPGA clock 8
@@ -148,62 +147,8 @@ struct CGraphDMHardwareInterface
   uint16_t SpiExtBusDataOut;
   uint16_t SpiExtBusDataIn;
   uint32_t reserved[208]; //if we counted correctly there's 48 4-byte registers preceeding this padding...
-  uint32_t DacSetpoints[960]; //These should start at offset 1024 / 0x0400
-=======
-    uint32_t DeviceSerialNumber; //ro; FPGA manufacturer hardcoded device UUID
-    uint32_t FpgaFirmwareBuildNumber; //ro; Auto-incremented firmware UUID
-    uint32_t UnixSeconds; //rw; equivalent to time_t for 32b systems; low order bits of time_t on 64b systems; write to set/initialize FPGA clock
-    uint32_t IdealTicksPerSecond; //ro; Target clock speed of FPGA device, approx 100M; likely 14.7456M * 7 = 103,219,200.
-    uint32_t ActualTicksLastSecond; //ro; Count of clock ticks for entire last second; equal to IdealTicksPerSecond unless clock was set or GPS PPS signal is present
-	uint32_t ClockTicksThisSecondAddr; //ro Running count of clock ticks since the start of the current second
-    uint32_t ClockSteeringDacSetpoint; //rw; 
-    uint32_t DacChannelIndex; //either this way of setting Dac's or the flat model, below...
-    uint32_t DacSetpoint; //either this way of setting Dac's or the flat model, below...
-    CGraphDMHardwareControlRegister ControlRegister; //rw; see definition above
-    CGraphDMHardwareStatusRegister StatusRegister; //ro; see definition above
-    int32_t PPSRtcPhaseComparator; //ro;
-    int32_t PPSAdcPhaseComparator; //ro;
-	AdcAccumulator MonitorAdc0Accumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
-	uint32_t MonitorAdc0ReadChannel; //rw; which channel to read for MonitorA/D
-	AdcAccumulator MonitorAdc1Accumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
-	uint32_t MonitorAdc1ReadChannel; //rw; which channel to read for MonitorA/D
-	AdcAccumulator DMController0MonitorAdcAccumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
-	uint32_t DMController0MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
-	AdcAccumulator DMController1MonitorAdcAccumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
-	uint32_t DMController1MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
-	AdcAccumulator DMController2MonitorAdcAccumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
-	uint32_t DMController2MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
-	AdcAccumulator DMController3MonitorAdcAccumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
-	uint32_t DMController3MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
-	AdcAccumulator DMController4MonitorAdcAccumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
-	uint32_t DMController4MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
-	AdcAccumulator DMController5MonitorAdcAccumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
-	uint32_t DMController5MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
-	uint32_t UartFifo0; //rw; send or read bytes from uart(s)
-	UartStatusRegister UartStatusRegister0; //ro; what state are the uart(s) in?
-        uint32_t UartFifo0ReadData;
-	uint32_t UartFifo1; //rw; send or read bytes from uart(s)
-	UartStatusRegister UartStatusRegister1; //ro; what state are the uart(s) in?
-        uint32_t UartFifo1ReadData;
-	uint32_t UartFifo2; //rw; send or read bytes from uart(s)
-	UartStatusRegister UartStatusRegister2; //ro; what state are the uart(s) in?
-        uint32_t UartFifo2ReadData;
-	uint32_t UartFifo3; //rw; send or read bytes from uart(s)
-	UartStatusRegister UartStatusRegister3; //ro; what state are the uart(s) in?
-        uint32_t UartFifo3ReadData;
-	uint8_t BaudDivider0; //rw; clock divider for the first serial port
-	uint8_t BaudDivider1;
-	uint8_t BaudDivider2;
-	uint8_t BaudDivider3;
-	uint16_t SpiExtBusAddrOut;
-	uint16_t SpiExtBusAddrIn;
-	uint16_t SpiExtBusDataOut;
-	uint16_t SpiExtBusDataIn;
-	uint32_t reserved[208]; //if we counted correctly there's 48 4-byte registers preceeding this padding...
-	uint32_t DacSetpoints[DMMaxControllerBoards][DMMDacsPerControllerBoard][DMActuatorsPerDac];
-
->>>>>>> 4dfb563d822ae55fe37287a93f574c015541a291
-	
+  uint32_t DacSetpoints[DMMaxControllerBoards][DMMDacsPerControllerBoard][DMActuatorsPerDac];
+  
   static const uint32_t DacFullScale;
   static const double DacDriverFullScaleOutputVoltage; //150 Volts, don't get your fingers near this thing!
   static const double DMDriverFullScaleOutputTravel; //Meters; note our granularity is this / DacFullScale which is approx 10pm

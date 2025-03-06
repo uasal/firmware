@@ -30,7 +30,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <sys/mman.h>
+//~ #include <sys/mman.h>
 #include <errno.h>
 #include <unordered_map>
 using namespace std;
@@ -53,7 +53,7 @@ int8_t BinaryDMDacCommand(const uint32_t Name, char const* Params, const size_t 
 	}
 	else
 	{
-		printf("\nBinaryDacCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (sizeof(uint32_t)));
+		printf("\nBinaryDacCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(uint32_t)));
 	}
     return(ParamsLen);
 }
@@ -82,7 +82,7 @@ int8_t BinaryDMTelemetryCommand(const uint32_t Name, char const* Params, const s
 	//~ }
 	//~ else
 	//~ {
-		//~ printf("\nBinaryTelemetryCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (sizeof(CGraphDMTelemetryADCPayload)));
+		//~ printf("\nBinaryTelemetryCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(CGraphDMTelemetryADCPayload)));
 	//~ }
     return(ParamsLen);
 }
@@ -96,7 +96,7 @@ int8_t BinaryDMHVSwitchCommand(const uint32_t Name, char const* Params, const si
 	}
 	else
 	{
-		printf("\nBinaryHVSwitchCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (sizeof(uint32_t)));
+		printf("\nBinaryHVSwitchCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(uint32_t)));
 	}
     return(ParamsLen);
 }
@@ -111,7 +111,7 @@ int8_t BinaryDMDacConfigCommand(const uint32_t Name, char const* Params, const s
 	else
 	{
           printf("\nI am not sending anything back right now.  Work in progress...");
-		printf("\nBinaryDacConfigCommand: Short packet: %lu (exptected %lu bytes): ", ParamsLen, (sizeof(uint32_t)));
+		printf("\nBinaryDacConfigCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(uint32_t)));
 	}
     return(ParamsLen);
 }
