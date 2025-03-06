@@ -123,8 +123,8 @@ ENDLIST
 LIST FileManager
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/CGraphDMTypes.vhd,hdl"
 STATE="utd"
-TIME="1741286170"
-SIZE="1840"
+TIME="1741297883"
+SIZE="2802"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/ClockDivider.vhd,hdl"
 LINKFILEROOT "./${CGRAPH_FIRMWARE}/include/fpga"
@@ -1907,8 +1907,8 @@ SIZE="2006"
 ENDFILE
 VALUE "<project>/hdl/DMMain.vhd,hdl"
 STATE="utd"
-TIME="1741285825"
-SIZE="51685"
+TIME="1741298422"
+SIZE="51325"
 ENDFILE
 VALUE "<project>/hdl/IBufP1.vhd,hdl"
 STATE="utd"
@@ -1932,8 +1932,8 @@ SIZE="3260"
 ENDFILE
 VALUE "<project>/hdl/RegisterSpace.vhd,hdl"
 STATE="utd"
-TIME="1741285820"
-SIZE="35906"
+TIME="1741298496"
+SIZE="39279"
 ENDFILE
 VALUE "<project>/hdl/SpiDac.vhd,hdl"
 STATE="utd"
@@ -2065,9 +2065,9 @@ TIME="1740186107"
 SIZE="251"
 ENDFILE
 VALUE "<project>/synthesis/EvalBoardSandbox.vm,syn_vm"
-STATE="ood"
-TIME="1740186107"
-SIZE="300129"
+STATE="utd"
+TIME="1741299543"
+SIZE="514664"
 ENDFILE
 VALUE "<project>/synthesis/EvalBoardSandbox_syn.prj,prj"
 STATE="utd"
@@ -2247,6 +2247,7 @@ ENDLIST
 LIST ProjectState5.1
 LIST Impl1
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>/synthesis/EvalBoardSandbox.vm,syn_vm)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -2271,6 +2272,7 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl2
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>/synthesis/EvalBoardSandbox.vm,syn_vm)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -2691,8 +2693,8 @@ NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
 LOCATION="/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/bin/synplify_pro"
-PARAM=""
-BATCH=0
+PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
+BATCH=1
 LICENSE=""
 IS32BIT="1"
 EndProfile
@@ -2785,6 +2787,7 @@ ENDLIST
 LIST "EvalBoardSandbox::work"
 LIST Impl1
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>/synthesis/EvalBoardSandbox.vm,syn_vm)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -2809,6 +2812,7 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl2
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>/synthesis/EvalBoardSandbox.vm,syn_vm)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -2929,13 +2933,15 @@ ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 Reports;Reports;0
-ReportsCurrentItem;synthesis:synplify.log
+ReportsCurrentItem;Place and Route:EvalBoardSandbox_layout_log.log
+Constraint Manager;Constraint Manager;0
 SmartDesign;EvalBoardSandbox;0
-StartPage;StartPage;0
-ACTIVEVIEW;Reports
+ACTIVEVIEW;EvalBoardSandbox
 ENDLIST
 LIST ModuleSubBlockList
 LIST "BuildNumberPorts::work","hdl/BuildNumber.vhd","FALSE","FALSE"
+ENDLIST
+LIST "CGraphDMTypes::work","${CGRAPH_FIRMWARE}/include/fpga/CGraphDMTypes.vhd","FALSE","FALSE"
 ENDLIST
 LIST "CoreAHBLite_C0::work","component/work/CoreAHBLite_C0/CoreAHBLite_C0.v","TRUE","FALSE"
 SUBBLOCK "CoreAHBLite_C0_CoreAHBLite_C0_0_CoreAHBLite::COREAHBLITE_LIB","component/work/CoreAHBLite_C0/CoreAHBLite_C0_0/rtl/vlog/core/coreahblite.v","FALSE","FALSE"
