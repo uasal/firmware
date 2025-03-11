@@ -155,7 +155,7 @@ entity RegisterSpacePorts is
 
     ClkDacWrite : out std_logic_vector(15 downto 0);
     WriteClkDac : out std_logic;
-    ClkDacReadback : in std_logic_vector(15 downto 0);
+    ClkDacReadback : in std_logic_vector(15 downto 0)--;
 
 	--~ Board0Dac0Channel : in std_logic_vector(5 downto 0);	
 	--~ Board0Dac0Setpoint : out std_logic_vector(23 downto 0);	
@@ -213,8 +213,8 @@ entity RegisterSpacePorts is
 	
 	--~ DacSetpoints : out DMDacSetpointRam--;	
 	
-	DacChannelReadIndex : in std_logic_vector(5 downto 0);
-	DacSetpoints : out DMDacSetpointRegisters--;
+	--~ DacChannelReadIndex : in std_logic_vector(5 downto 0);
+	--~ DacSetpoints : out DMDacSetpointRegisters--;
     );
 end RegisterSpacePorts;
 
@@ -288,7 +288,7 @@ architecture RegisterSpace of RegisterSpacePorts is
   constant Uart3FifoReadDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(148, MAX_ADDRESS_BITS));
   
   --! 13 bits of address space (8192b) required for this!
-  constant DacSetpointsAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(1024, MAX_ADDRESS_BITS));
+  --~ constant DacSetpointsAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(1024, MAX_ADDRESS_BITS));
 
   	--Control Signals
 	
@@ -334,7 +334,7 @@ architecture RegisterSpace of RegisterSpacePorts is
 --  signal ExtAddr_i : std_logic_vector(7 downto 0);
 
   --~ variable DacSetpoints : DMDacSetpointRam;
-  shared variable DacSetpoints_i : DMDacSetpointRam;
+  --~ shared variable DacSetpoints_i : DMDacSetpointRam;
 
 begin
   
@@ -386,12 +386,12 @@ begin
     else
       if ( (clk'event) and (clk = '1') ) then
 	  
-		--Mux ram outputs
-		for i in 0 to (DMMaxControllerBoards - 1) loop
-			for j in 0 to (DMMDacsPerControllerBoard - 1) loop
-				DacSetpoints(i,j) <= DacSetpoints_i(i,j,to_integer(unsigned(DacChannelReadIndex))); 
-			end loop;
-		end loop;
+		--~ --Mux ram outputs
+		--~ for i in 0 to (DMMaxControllerBoards - 1) loop
+			--~ for j in 0 to (DMMDacsPerControllerBoard - 1) loop
+				--~ DacSetpoints(i,j) <= DacSetpoints_i(i,j,to_integer(unsigned(DacChannelReadIndex))); 
+			--~ end loop;
+		--~ end loop;
 
         if (ReadReq = '1') then
           --ReadReq Rising Edge
@@ -654,17 +654,17 @@ begin
                 --~ DataOut <= x"BAADC0DE";
             end case;
 			
-			--DacSetpointsAddr:
-			for i in 0 to (DMMaxControllerBoards - 1) loop
-				for j in 0 to (DMMDacsPerControllerBoard - 1) loop
-					for k in 0 to (DMActuatorsPerDac - 1) loop
-						if (Address_i = (DacSetpointsAddr + std_logic_vector(to_unsigned((i * DMMDacsPerControllerBoard * DMActuatorsPerDac) + (j * DMActuatorsPerDac) + k, MAX_ADDRESS_BITS)))) then
-							DataOut(23 downto 0) <= DacSetpoints_i(i,j,k); 
-							DataOut(31 downto 24) <= x"00";
-						end if;
-					end loop;
-				end loop;
-			end loop;
+			--~ --DacSetpointsAddr:
+			--~ for i in 0 to (DMMaxControllerBoards - 1) loop
+				--~ for j in 0 to (DMMDacsPerControllerBoard - 1) loop
+					--~ for k in 0 to (DMActuatorsPerDac - 1) loop
+						--~ if (Address_i = (DacSetpointsAddr + std_logic_vector(to_unsigned((i * DMMDacsPerControllerBoard * DMActuatorsPerDac) + (j * DMActuatorsPerDac) + k, MAX_ADDRESS_BITS)))) then
+							--~ DataOut(23 downto 0) <= DacSetpoints_i(i,j,k); 
+							--~ DataOut(31 downto 24) <= x"00";
+						--~ end if;
+					--~ end loop;
+				--~ end loop;
+			--~ end loop;
 						
           else
             ReadAck <= '1';
@@ -818,17 +818,17 @@ begin
               when others => 
             end case;
 			
-			--DacSetpointsAddr:
-			for i in 0 to (DMMaxControllerBoards - 1) loop
-				for j in 0 to (DMMDacsPerControllerBoard - 1) loop
-					for k in 0 to (DMActuatorsPerDac - 1) loop
-						if (Address_i = (DacSetpointsAddr + std_logic_vector(to_unsigned((i * DMMDacsPerControllerBoard * DMActuatorsPerDac) + (j * DMActuatorsPerDac) + k, MAX_ADDRESS_BITS)))) then
-							--~ DacSetpoints_i(i,j,k) <= DataIn(23 downto 0);
-							DacSetpoints_i(i,j,k) := DataIn(23 downto 0);
-						end if;
-					end loop;
-				end loop;
-			end loop;
+			--~ --DacSetpointsAddr:
+			--~ for i in 0 to (DMMaxControllerBoards - 1) loop
+				--~ for j in 0 to (DMMDacsPerControllerBoard - 1) loop
+					--~ for k in 0 to (DMActuatorsPerDac - 1) loop
+						--~ if (Address_i = (DacSetpointsAddr + std_logic_vector(to_unsigned((i * DMMDacsPerControllerBoard * DMActuatorsPerDac) + (j * DMActuatorsPerDac) + k, MAX_ADDRESS_BITS)))) then
+							--~ --DacSetpoints_i(i,j,k) <= DataIn(23 downto 0);
+							--~ DacSetpoints_i(i,j,k) := DataIn(23 downto 0);
+						--~ end if;
+					--~ end loop;
+				--~ end loop;
+			--~ end loop;
 			
           else
             WriteAck <= '1';					

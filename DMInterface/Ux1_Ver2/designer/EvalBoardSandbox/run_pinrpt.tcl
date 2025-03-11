@@ -1,6 +1,6 @@
 DESIGN=EvalBoardSandbox
-DESDIR=C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\designer\EvalBoardSandbox
-TARGET_DIR=C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\designer\EvalBoardSandbox
+DESDIR=/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/designer/EvalBoardSandbox
+TARGET_DIR=/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/designer/EvalBoardSandbox
 FAM=SmartFusion2
 DIE=PA4M1000_N
 PACKAGE=vf256

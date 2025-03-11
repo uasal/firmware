@@ -21,29 +21,26 @@
 --
 -- Permission granted for perpetual non-exclusive end-use by the University of Arizona August 1, 2020
 --
-
---------------------------------------------------------------------------------
--- ltc244x accumulator infrastructure
---------------------------------------------------------------------------------
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.all;
 library work;
-use work.ltc244x_types.all;
 
 package CGraphDMTypes is 
 
-	constant DMMaxControllerBoards : natural := 6;
-	constant DMMDacsPerControllerBoard : natural := 4;
-	constant DMActuatorsPerDac : natural := 40;
-	constant DMMaxActuators : natural := DMActuatorsPerDac * DMMDacsPerControllerBoard * DMMaxControllerBoards;
+	constant DMSetpointMSB : integer := 23;
+	constant DMMaxControllerBoards : integer := 6;
+	constant DMMDacsPerControllerBoard : integer := 4;
+	constant DMActuatorsPerDac : integer := 40;
+	constant DMMaxActuators : integer := DMActuatorsPerDac * DMMDacsPerControllerBoard * DMMaxControllerBoards;
 
-	type DMDacSetpointRam is array(0 to DMMaxControllerBoards - 1, 0 to DMMDacsPerControllerBoard - 1, 0 to DMActuatorsPerDac) of std_logic_vector(23 downto 0);
+	type DMDacSetpointRam is array(0 to DMMaxControllerBoards - 1, 0 to DMMDacsPerControllerBoard - 1, 0 to DMActuatorsPerDac) of std_logic_vector(DMSetpointMSB downto 0);
 	
 	--~ type DMDacSetpointChannel is array(0 to DMMaxControllerBoards - 1, 0 to DMMDacsPerControllerBoard - 1) of std_logic_vector(5 downto 0);
-	type DMDacSetpointRegisters is array(0 to DMMaxControllerBoards - 1, 0 to DMMDacsPerControllerBoard - 1) of std_logic_vector(23 downto 0);
+	type DMDacSetpointRegisters is array(0 to DMMaxControllerBoards - 1, 0 to DMMDacsPerControllerBoard - 1) of std_logic_vector(DMSetpointMSB downto 0);
+
+	type DMProtoDacSetpointRegisters is array(0 to DMMaxControllerBoards - 1) of std_logic_vector(DMSetpointMSB downto 0);
 	
 	--~ entity ram_singleport_noreg is
 	--~ port (
