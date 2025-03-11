@@ -1,12 +1,12 @@
-# Written by Synplify Pro version map202209actsp2, Build 145R. Synopsys Run ID: sid1741299530 
+# Written by Synplify Pro version map202209actsp2, Build 145R. Synopsys Run ID: sid1741651099 
 # Top Level Design Parameters 
 
 # Clocks 
 create_clock -period 19.608 -waveform {0.000 9.804} -name {CLK0_PAD} [get_ports {CLK0_PAD}] 
 create_clock -period 10.000 -waveform {0.000 5.000} -name {ClockDividerPorts_work_dmmainports_dmmain_0layer1_0|div_i_inferred_clock} [get_pins {DMMainPorts_1/Uart3TxBitClockDiv/div_i/Q}] 
-create_clock -period 10.000 -waveform {0.000 5.000} -name {VariableClockDividerPorts_work_dmmainports_dmmain_0layer1_0|clko_i_inferred_clock} [get_pins {DMMainPorts_1/Uart1BitClockDiv/clko_i/Q}] 
+create_clock -period 10.000 -waveform {0.000 5.000} -name {VariableClockDividerPorts_work_dmmainports_dmmain_0layer1_0|clko_i_inferred_clock} [get_pins {DMMainPorts_1/Uart3BitClockDiv/clko_i/Q}] 
 create_clock -period 10.000 -waveform {0.000 5.000} -name {ClockDividerPorts_work_dmmainports_dmmain_0layer1_1|div_i_inferred_clock} [get_pins {DMMainPorts_1/Uart2TxBitClockDiv/div_i/Q}] 
-create_clock -period 10.000 -waveform {0.000 5.000} -name {VariableClockDividerPorts_work_dmmainports_dmmain_0layer1_1|clko_i_inferred_clock} [get_pins {DMMainPorts_1/Uart1BitClockDiv/clko_i/Q}] 
+create_clock -period 10.000 -waveform {0.000 5.000} -name {VariableClockDividerPorts_work_dmmainports_dmmain_0layer1_1|clko_i_inferred_clock} [get_pins {DMMainPorts_1/Uart2BitClockDiv/clko_i/Q}] 
 create_clock -period 10.000 -waveform {0.000 5.000} -name {ClockDividerPorts_work_dmmainports_dmmain_0layer1_2|div_i_inferred_clock} [get_pins {DMMainPorts_1/Uart1TxBitClockDiv/div_i/Q}] 
 create_clock -period 10.000 -waveform {0.000 5.000} -name {VariableClockDividerPorts_work_dmmainports_dmmain_0layer1_2|clko_i_inferred_clock} [get_pins {DMMainPorts_1/Uart1BitClockDiv/clko_i/Q}] 
 create_clock -period 10.000 -waveform {0.000 5.000} -name {ClockDividerPorts_work_dmmainports_dmmain_0layer1_3|div_i_inferred_clock} [get_pins {DMMainPorts_1/Uart0TxBitClockDiv/div_i/Q}] 

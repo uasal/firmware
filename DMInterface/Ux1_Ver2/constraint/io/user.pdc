@@ -6,7 +6,7 @@
 
 # Family: SmartFusion2 , Die: M2S010 , Package: 256 VF
 
-# Date generated: Tue Feb 18 13:46:05 2025 
+# Date generated: Fri Mar  7 15:55:38 2025 
 
 
 # 
@@ -85,7 +85,7 @@ set_io Oe2             \
     -DIRECTION OUTPUT
 
 
-set_io Rx0            \
+#set_io Rx0            \
     -pinname G12      \
     -fixed yes        \
     -DIRECTION INPUT
@@ -128,19 +128,25 @@ set_io SckF            \
 
 
 set_io Tx0             \
-    -pinname H13       \
+    -pinname G13       \
     -fixed yes         \
     -DIRECTION OUTPUT
 
 
 set_io Tx1             \
-    -pinname H12       \
+    -pinname G1        \
     -fixed yes         \
     -DIRECTION OUTPUT
 
 
 set_io Tx2             \
-    -pinname G16       \
+    -pinname G2        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io Tx3             \
+    -pinname G14       \
     -fixed yes         \
     -DIRECTION OUTPUT
 

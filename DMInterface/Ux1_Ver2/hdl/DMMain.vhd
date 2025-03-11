@@ -64,7 +64,7 @@ entity DMMainPorts is
 --    nDrdyAdcD : in std_logic;
 	
     --uC Ram Bus 
-    RamBusAddress : in std_logic_vector(13 downto 0); 
+    RamBusAddress : in std_logic_vector(13 downto 0); -- Address vector is 14 bits
     RamBusDataIn : in std_logic_vector(31 downto 0);
     RamBusDataOut : out std_logic_vector(31 downto 0);
     RamBusnCs : in std_logic;
@@ -316,7 +316,7 @@ architecture DMMain of DMMainPorts is
   -- The Register Space component
   component RegisterSpacePorts is
   generic(
-    ADDRESS_BITS : natural := 10--; 
+    ADDRESS_BITS : natural := 14--; 
    --~ FIFO_BITS : natural := 9--;
   );
   port (

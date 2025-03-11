@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Thu Mar  6 11:26:49 2025
+// Created by SmartDesign Mon Mar 10 17:08:21 2025
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -120,24 +120,24 @@ wire   [31:0] AMBA_SLAVE_0_PADDRS_net_0;
 // TiedOff Nets
 //--------------------------------------------------------------------
 wire          VCC_net;
+wire          GND_net;
 wire   [3:0]  nCsA_const_net_0;
 wire   [3:0]  nCsB_const_net_0;
 wire   [3:0]  nCsC_const_net_0;
 wire   [3:0]  nCsD_const_net_0;
 wire   [3:0]  nCsE_const_net_0;
 wire   [3:0]  nCsF_const_net_0;
-wire          GND_net;
 //--------------------------------------------------------------------
 // Constant assignments
 //--------------------------------------------------------------------
 assign VCC_net          = 1'b1;
+assign GND_net          = 1'b0;
 assign nCsA_const_net_0 = 4'hF;
 assign nCsB_const_net_0 = 4'hF;
 assign nCsC_const_net_0 = 4'hF;
 assign nCsD_const_net_0 = 4'hF;
 assign nCsE_const_net_0 = 4'hF;
 assign nCsF_const_net_0 = 4'hF;
-assign GND_net          = 1'b0;
 //--------------------------------------------------------------------
 // TieOff assignments
 //--------------------------------------------------------------------
@@ -147,7 +147,7 @@ assign MosiC     = 1'b1;
 assign MosiD     = 1'b1;
 assign MosiE     = 1'b1;
 assign MosiF     = 1'b1;
-assign SckA      = 1'b1;
+assign SckA      = 1'b0;
 assign SckB      = 1'b1;
 assign SckC      = 1'b1;
 assign SckD      = 1'b1;
@@ -189,8 +189,6 @@ assign EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDRS13to0 = AMBA_SLAVE_0_PADDRS_net_0[13
 DMMainPorts DMMainPorts_1(
         // Inputs
         .clk           ( FCCC_C0_0_GL1 ),
-        .RamBusAddress ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDRS13to0 ),
-        .RamBusDataIn  ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PWDATAS ),
         .RamBusnCs     ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PSELS0 ),
         .RamBusWrnRd   ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PWRITES ),
         .RamBusLatch   ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PENABLES ),
@@ -199,11 +197,12 @@ DMMainPorts DMMainPorts_1(
         .Rx2           ( Rx2 ),
         .Rx3           ( Rx3 ),
         .PPS           ( VCC_net ),
+        .RamBusAddress ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDRS13to0 ),
+        .RamBusDataIn  ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PWDATAS ),
         // Outputs
         .nCsXO         (  ),
         .SckXO         (  ),
         .MosiXO        (  ),
-        .RamBusDataOut ( DMMainPorts_1_RamBusDataOut ),
         .RamBusAck     ( DMMainPorts_1_RamBusAck ),
         .Tx0           ( Tx0_net_0 ),
         .Oe0           ( Oe0_net_0 ),
@@ -213,6 +212,7 @@ DMMainPorts DMMainPorts_1(
         .Oe2           ( Oe2_net_0 ),
         .Tx3           ( Tx3_net_0 ),
         .Oe3           ( Oe3_net_0 ),
+        .RamBusDataOut ( DMMainPorts_1_RamBusDataOut ),
         // Inouts
         .Ux1SelJmp     ( VCC_net ) 
         );

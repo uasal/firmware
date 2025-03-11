@@ -156,7 +156,7 @@ entity RegisterSpacePorts is
     ClkDacWrite : out std_logic_vector(15 downto 0);
     WriteClkDac : out std_logic;
     ClkDacReadback : in std_logic_vector(15 downto 0);
-	
+
 	--~ Board0Dac0Channel : in std_logic_vector(5 downto 0);	
 	--~ Board0Dac0Setpoint : out std_logic_vector(23 downto 0);	
 	--~ Board0Dac1Channel : in std_logic_vector(5 downto 0);	
@@ -221,7 +221,7 @@ end RegisterSpacePorts;
 
 architecture RegisterSpace of RegisterSpacePorts is
 
-  constant MAX_ADDRESS_BITS : natural := 10;
+  constant MAX_ADDRESS_BITS : natural := ADDRESS_BITS;
   signal Address_i : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0);
 
   -- Here is the adress space
@@ -271,21 +271,21 @@ architecture RegisterSpace of RegisterSpacePorts is
   constant UartClockDividersAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(96, MAX_ADDRESS_BITS));
 -- 8bytes?  This looks like 32 bit in include/cgraph/CGraphCommon.hpp
 
-  constant Uart0FifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(100, MAX_ADDRESS_BITS));
-  constant Uart0FifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(104, MAX_ADDRESS_BITS));
-  constant Uart0FifoReadDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(108, MAX_ADDRESS_BITS));
+  constant Uart0FifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(104, MAX_ADDRESS_BITS));
+  constant Uart0FifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(108, MAX_ADDRESS_BITS));
+  constant Uart0FifoReadDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(112, MAX_ADDRESS_BITS));
 	
-  constant Uart1FifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(112, MAX_ADDRESS_BITS));
-  constant Uart1FifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(116, MAX_ADDRESS_BITS));
-  constant Uart1FifoReadDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(120, MAX_ADDRESS_BITS));
+  constant Uart1FifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(116, MAX_ADDRESS_BITS));
+  constant Uart1FifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(120, MAX_ADDRESS_BITS));
+  constant Uart1FifoReadDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(124, MAX_ADDRESS_BITS));
 	
-  constant Uart2FifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(124, MAX_ADDRESS_BITS));
-  constant Uart2FifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(128, MAX_ADDRESS_BITS));
-  constant Uart2FifoReadDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(132, MAX_ADDRESS_BITS));
+  constant Uart2FifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(128, MAX_ADDRESS_BITS));
+  constant Uart2FifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(132, MAX_ADDRESS_BITS));
+  constant Uart2FifoReadDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(136, MAX_ADDRESS_BITS));
 	
-    constant Uart3FifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(152, MAX_ADDRESS_BITS));
-  constant Uart3FifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(156, MAX_ADDRESS_BITS));
-  constant Uart3FifoReadDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(160, MAX_ADDRESS_BITS));
+    constant Uart3FifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(140, MAX_ADDRESS_BITS));
+  constant Uart3FifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(144, MAX_ADDRESS_BITS));
+  constant Uart3FifoReadDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(148, MAX_ADDRESS_BITS));
   
   --! 13 bits of address space (8192b) required for this!
   constant DacSetpointsAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(1024, MAX_ADDRESS_BITS));
@@ -318,9 +318,9 @@ architecture RegisterSpace of RegisterSpacePorts is
   --signal LedG_i :  std_logic := '0';
   --signal LedB_i :  std_logic := '0';
   signal Uart0OE_i :  std_logic := '0';
---  signal Uart1OE_i :  std_logic := '0';
---  signal Uart2OE_i :  std_logic := '0';
---  signal Uart3OE_i :  std_logic := '0';								
+  signal Uart1OE_i :  std_logic := '0';
+  signal Uart2OE_i :  std_logic := '0';
+  signal Uart3OE_i :  std_logic := '0';								
   signal Ux1SelJmp_i :  std_logic := '0';
   signal Ux2SelJmp_i :  std_logic := '0';
 
@@ -338,14 +338,14 @@ architecture RegisterSpace of RegisterSpacePorts is
 
 begin
   
-  Address_i <= Address(9 downto 0);
+  Address_i <= Address(13 downto 0);
 
   WriteDacs <= WriteDacs_i;
 
   Uart0ClkDivider <= Uart0ClkDivider_i;
---  Uart1ClkDivider <= Uart1ClkDivider_i;
---  Uart2ClkDivider <= Uart2ClkDivider_i;
---  Uart3ClkDivider <= Uart3ClkDivider_i;
+  Uart1ClkDivider <= Uart1ClkDivider_i;
+  Uart2ClkDivider <= Uart2ClkDivider_i;
+  Uart3ClkDivider <= Uart3ClkDivider_i;
 
 --  MonitorAdcChannelReadIndex <= MonitorAdcChannelReadIndex_i;
 --  MonitorAdcSpiFrameEnable <= MonitorAdcSpiFrameEnable_i;
@@ -353,9 +353,9 @@ begin
 --  PowernEn <= PowernEn_i;
 
   Uart0OE <= Uart0OE_i;
---  Uart1OE <= Uart1OE_i;
---  Uart2OE <= Uart2OE_i;
---  Uart3OE <= Uart3OE_i;								
+  Uart1OE <= Uart1OE_i;
+  Uart2OE <= Uart2OE_i;
+  Uart3OE <= Uart3OE_i;								
   Ux1SelJmp <= Ux1SelJmp_i;	
 --  PowernEnHV <= PowernEnHV_i;
 
@@ -367,7 +367,7 @@ begin
 
 --  ExtAddrOut <= ExtAddr_i;
 
-	--~ DacSetpoints <= DacSetpoints_i;
+	-- DacSetpoints <= DacSetpoints_i;
 
   process (clk, rst)
   begin
@@ -376,9 +376,9 @@ begin
       LastWriteReq <= '0';
 
       Uart0ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 16.0)) - 1.0), 8));
---      Uart1ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));
---      Uart2ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
---      Uart3ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
+      Uart1ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));
+      Uart2ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
+      Uart3ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
 
 --      MonitorAdcChannelReadIndex_i <= "00000";
       WriteDacs_i <= '0';		
@@ -524,67 +524,69 @@ begin
                 DataOut(27 downto 18) <= Uart0RxFifoCount;
                 DataOut(31 downto 28) <= "0000";
 
---              when Uart1FifoAddr =>
---                ReadUart1 <= '1';
---                DataOut <= x"BAADC0DE";
---              when Uart1FifoReadDataAddr =>
---                DataOut(7 downto 0) <= Uart1RxFifoData; --note fifo hasn't actually had time to do the read yet, this will actually be the previous byte
---                DataOut(31 downto 8) <= x"000000";
---              when Uart1FifoStatusAddr =>
---                DataOut(0) <= Uart1RxFifoEmpty;
---                DataOut(1) <= Uart1RxFifoFull;
---                DataOut(2) <= Uart1TxFifoEmpty;
---                DataOut(3) <= Uart1TxFifoFull;
---                DataOut(4) <= '0';
---                DataOut(5) <= '0';
---                DataOut(6) <= '0';
---                DataOut(7) <= '0';
---                DataOut(17 downto 8) <= Uart1RxFifoCount;
---                DataOut(27 downto 18) <= Uart1RxFifoCount;
---                DataOut(31 downto 28) <= "0000";
---              when Uart2FifoAddr =>
---                ReadUart2 <= '1';
---                DataOut <= x"BAADC0DE";
---              when Uart2FifoReadDataAddr =>
---                DataOut(7 downto 0) <= Uart2RxFifoData; --note fifo hasn't actually had time to do the read yet, this will actually be the previous byte
---                DataOut(31 downto 8) <= x"000000";
---              when Uart2FifoStatusAddr =>
---                DataOut(0) <= Uart2RxFifoEmpty;
---                DataOut(1) <= Uart2RxFifoFull;
---                DataOut(2) <= Uart2TxFifoEmpty;
---                DataOut(3) <= Uart2TxFifoFull;
---                DataOut(4) <= '0';
---                DataOut(5) <= '0';
---                DataOut(6) <= '0';
---                DataOut(7) <= '0';
---                DataOut(17 downto 8) <= Uart2RxFifoCount;
---                DataOut(27 downto 18) <= Uart2RxFifoCount;
---                DataOut(31 downto 28) <= "0000";
---              when Uart3FifoAddr =>
---                ReadUart3 <= '1';
---                DataOut <= x"BAADC0DE";
---              when Uart3FifoReadDataAddr =>
---                DataOut(7 downto 0) <= Uart3RxFifoData; --note fifo hasn't actually had time to do the read yet, this will actually be the previous byte
---                DataOut(31 downto 8) <= x"000000";
---              when Uart3FifoStatusAddr =>
---                DataOut(0) <= Uart3RxFifoEmpty;
---                DataOut(1) <= Uart3RxFifoFull;
---                DataOut(2) <= Uart3TxFifoEmpty;
---                DataOut(3) <= Uart3TxFifoFull;
---                DataOut(4) <= '0';
---                DataOut(5) <= '0';
---                DataOut(6) <= '0';
---                DataOut(7) <= '0';
---                DataOut(17 downto 8) <= Uart3RxFifoCount;
---                DataOut(27 downto 18) <= Uart3RxFifoCount;
---                DataOut(31 downto 28) <= "0000";
+              when Uart1FifoAddr =>
+                ReadUart1 <= '1';
+                DataOut <= x"BAADC0DE";
+              when Uart1FifoReadDataAddr =>
+                DataOut(7 downto 0) <= Uart1RxFifoData; --note fifo hasn't actually had time to do the read yet, this will actually be the previous byte
+                DataOut(31 downto 8) <= x"000000";
+              when Uart1FifoStatusAddr =>
+                DataOut(0) <= Uart1RxFifoEmpty;
+                DataOut(1) <= Uart1RxFifoFull;
+                DataOut(2) <= Uart1TxFifoEmpty;
+                DataOut(3) <= Uart1TxFifoFull;
+                DataOut(4) <= '0';
+                DataOut(5) <= '0';
+                DataOut(6) <= '0';
+                DataOut(7) <= '0';
+                DataOut(17 downto 8) <= Uart1RxFifoCount;
+                DataOut(27 downto 18) <= Uart1RxFifoCount;
+                DataOut(31 downto 28) <= "0000";
+                
+              when Uart2FifoAddr =>
+                ReadUart2 <= '1';
+                DataOut <= x"BAADC0DE";
+              when Uart2FifoReadDataAddr =>
+                DataOut(7 downto 0) <= Uart2RxFifoData; --note fifo hasn't actually had time to do the read yet, this will actually be the previous byte
+                DataOut(31 downto 8) <= x"000000";
+              when Uart2FifoStatusAddr =>
+                DataOut(0) <= Uart2RxFifoEmpty;
+                DataOut(1) <= Uart2RxFifoFull;
+                DataOut(2) <= Uart2TxFifoEmpty;
+                DataOut(3) <= Uart2TxFifoFull;
+                DataOut(4) <= '0';
+                DataOut(5) <= '0';
+                DataOut(6) <= '0';
+                DataOut(7) <= '0';
+                DataOut(17 downto 8) <= Uart2RxFifoCount;
+                DataOut(27 downto 18) <= Uart2RxFifoCount;
+                DataOut(31 downto 28) <= "0000";
+                
+              when Uart3FifoAddr =>
+                ReadUart3 <= '1';
+                DataOut <= x"BAADC0DE";
+              when Uart3FifoReadDataAddr =>
+                DataOut(7 downto 0) <= Uart3RxFifoData; --note fifo hasn't actually had time to do the read yet, this will actually be the previous byte
+                DataOut(31 downto 8) <= x"000000";
+              when Uart3FifoStatusAddr =>
+                DataOut(0) <= Uart3RxFifoEmpty;
+                DataOut(1) <= Uart3RxFifoFull;
+                DataOut(2) <= Uart3TxFifoEmpty;
+                DataOut(3) <= Uart3TxFifoFull;
+                DataOut(4) <= '0';
+                DataOut(5) <= '0';
+                DataOut(6) <= '0';
+                DataOut(7) <= '0';
+                DataOut(17 downto 8) <= Uart3RxFifoCount;
+                DataOut(27 downto 18) <= Uart3RxFifoCount;
+                DataOut(31 downto 28) <= "0000";
 								
               --Uart Clock dividers
               when UartClockDividersAddr =>
                 DataOut(7 downto 0) <= Uart0ClkDivider_i;
---                DataOut(15 downto 8) <= Uart1ClkDivider_i;
---                DataOut(23 downto 16) <= Uart2ClkDivider_i;
---                DataOut(31 downto 24) <= Uart3ClkDivider_i;
+                DataOut(15 downto 8) <= Uart1ClkDivider_i;
+                DataOut(23 downto 16) <= Uart2ClkDivider_i;
+                DataOut(31 downto 24) <= Uart3ClkDivider_i;
                 
 --              when UartClockDividersAddr + std_logic_vector(to_unsigned(4, MAX_ADDRESS_BITS)) =>
 --                DataOut(7 downto 0) <= UartLabClkDivider_i;
@@ -630,9 +632,9 @@ begin
 --                DataOut(15) <= LedB_i;
 								
                 DataOut(16) <= Uart0OE_i;
---                DataOut(17) <= Uart1OE_i;
---                DataOut(18) <= Uart2OE_i;
---                DataOut(19) <= Uart3OE_i;								
+                DataOut(17) <= Uart1OE_i;
+                DataOut(18) <= Uart2OE_i;
+                DataOut(19) <= Uart3OE_i;								
                 DataOut(20) <= Ux1SelJmp_i;
                 DataOut(21) <= '0';
                 DataOut(22) <= PPSDetected;
@@ -679,9 +681,9 @@ begin
             --DataOut <= x"9182"; 
 --            ReadAdcSample <= '0';		
             ReadUart0 <= '0';						
---            ReadUart1 <= '0';						
---            ReadUart2 <= '0';		
---            ReadUart3 <= '0';		
+            ReadUart1 <= '0';						
+            ReadUart2 <= '0';		
+            ReadUart3 <= '0';		
           end if;
         end if;
 
@@ -744,30 +746,30 @@ begin
               when Uart0FifoStatusAddr =>
                 Uart0FifoReset <= '1';
 
---              when Uart1FifoAddr =>
---                WriteUart1 <= '1';
---                Uart1TxFifoData <= DataIn(7 downto 0);
---              when Uart1FifoStatusAddr =>
---                Uart1FifoReset <= '1';
---
---              when Uart2FifoAddr =>
---                WriteUart2 <= '1';
---                Uart2TxFifoData <= DataIn(7 downto 0);
---              when Uart2FifoStatusAddr =>
---                Uart2FifoReset <= '1';
---								
---              when Uart3FifoAddr =>
---                WriteUart3 <= '1';
---                Uart3TxFifoData <= DataIn(7 downto 0);
---              when Uart3FifoStatusAddr =>
---                Uart3FifoReset <= '1';
+              when Uart1FifoAddr =>
+                WriteUart1 <= '1';
+                Uart1TxFifoData <= DataIn(7 downto 0);
+              when Uart1FifoStatusAddr =>
+                Uart1FifoReset <= '1';
+
+              when Uart2FifoAddr =>
+                WriteUart2 <= '1';
+                Uart2TxFifoData <= DataIn(7 downto 0);
+              when Uart2FifoStatusAddr =>
+                Uart2FifoReset <= '1';
+								
+              when Uart3FifoAddr =>
+                WriteUart3 <= '1';
+                Uart3TxFifoData <= DataIn(7 downto 0);
+              when Uart3FifoStatusAddr =>
+                Uart3FifoReset <= '1';
 								
               --Uart Clock dividers
               when UartClockDividersAddr =>
                 Uart0ClkDivider_i <= DataIn(7 downto 0);
---                Uart1ClkDivider_i <= DataIn(15 downto 8);
---                Uart2ClkDivider_i <= DataIn(23 downto 16);
---                Uart3ClkDivider_i <= DataIn(31 downto 24);
+                Uart1ClkDivider_i <= DataIn(15 downto 8);
+                Uart2ClkDivider_i <= DataIn(23 downto 16);
+                Uart3ClkDivider_i <= DataIn(31 downto 24);
 
               --Timing
               when ClockSteeringDacSetpointAddr =>
@@ -796,9 +798,9 @@ begin
                 --~ LedB_i <= DataIn(15);
 
                 Uart0OE_i <= DataIn(16);
---                Uart1OE_i <= DataIn(17);
---                Uart2OE_i <= DataIn(18);
---                Uart3OE_i <= DataIn(19);
+                Uart1OE_i <= DataIn(17);
+                Uart2OE_i <= DataIn(18);
+                Uart3OE_i <= DataIn(19);
                 Ux1SelJmp_i <= DataIn(20);
                 --~ Ux2SelJmp_i <= DataIn(21);
                 PPSCountReset <= DataIn(22);	
@@ -851,12 +853,12 @@ begin
 
             WriteUart0 <= '0';		
             Uart0FifoReset <= '0';						
---            WriteUart1 <= '0';		
---            Uart1FifoReset <= '0';						
---            WriteUart2 <= '0';		
---            Uart2FifoReset <= '0';						
---            WriteUart3 <= '0';		
---            Uart3FifoReset <= '0';						
+            WriteUart1 <= '0';		
+            Uart1FifoReset <= '0';						
+            WriteUart2 <= '0';		
+            Uart2FifoReset <= '0';						
+            WriteUart3 <= '0';		
+            Uart3FifoReset <= '0';						
 
 --            nPowerCycClr <= '0';												
             --~ ??nFaultsClr_i <= DataIn(29);
