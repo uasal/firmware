@@ -119,11 +119,11 @@ int main(int argc, char *argv[])
     int err = LocalPortPinout.init(BaudRate, PortName);
     if (IUart::IUartOK != err)
     {
-        formatf("UASALHardwareEmulator: can't open port (%s:%d), exiting.\n", PortName, BaudRate);
+        formatf("UASALBinaryCmdr: can't open port (%s:%d), exiting.\n", PortName, BaudRate);
         exit(-1);
     }
 	
-	printf("\n\nUASALHardwareEmulator: Start User Interface...");    
+	printf("\n\nUASALBinaryCmdr: Start User Interface...");    
 	
 	StartUserInterface();
 	
