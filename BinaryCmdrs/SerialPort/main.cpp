@@ -19,7 +19,11 @@ using namespace std;
 
 #include "cgraph/CGraphPacket.hpp"
 
+#ifdef WIN32
+#include "uart/win32_pinout_uart.hpp"
+#else
 #include "uart/linux_pinout_uart.hpp"
+#endif
 
 #include "uart/AsciiCmdUserInterfaceLinux.h"
 
@@ -72,7 +76,11 @@ struct UartBinaryUartCallbacks : public BinaryUartCallbacks
 
 CGraphPacket SocketProtocol;
 
+#ifdef WIN32
+win32_pinout_uart LocalPortPinout;
+#else
 linux_pinout_uart LocalPortPinout;
+#endif
 
 BinaryUart UartParser(LocalPortPinout, SocketProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 

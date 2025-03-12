@@ -1,20 +1,25 @@
 CC = i686-w64-mingw32-gcc
-INCLUDE_LOCAL = /home/steve/projects/zonge/firmware/include
-LIB_LOCAL = /home/steve/projects/zonge/firmware/include
+INCLUDE_LOCAL = ../../include
 vpath %.h $(INCLUDE_LOCAL)
 vpath %.hpp $(INCLUDE_LOCAL)
 vpath %.c $(LIB_LOCAL)
 vpath %.cpp $(LIB_LOCAL)
 vpath %.o $(LIB_LOCAL)
 vpath %.a $(LIB_LOCAL)
-EXTRAINCDIRS = . ./../../../../include/ $(INCLUDE_LOCAL)
-EXTRA_LIBDIRS = . ./../lib/ $(LIB_LOCAL)
+EXTRAINCDIRS = . ./../../include/ $(INCLUDE_LOCAL)
+EXTRA_LIBDIRS = . ./../../lib/ $(LIB_LOCAL)
 CFLAGS += $(patsubst %,-I%,$(EXTRAINCDIRS))
-CFLAGS += -mno-ms-bitfields -static -m32 -Wall -O0 -g -Wl,--subsystem,console -DDEBUG -mno-ms-bitfields
+CFLAGS += -mno-ms-bitfields -static -Wall -O0 -g -DDEBUG -mno-ms-bitfields
+CFLAGS += -m32
+CFLAGS += -Wl,--subsystem,console
 LDFLAGS += $(patsubst %,-L%,$(EXTRA_LIBDIRS))
 LDFLAGS += $(patsubst %,-l%,$(EXTRA_LIBS))
 
 HERE:= $(shell pwd)
+GITVERSION:= $(shell git rev-parse HEAD)
+BUILDNUM:= $(shell bquery ../UASAL)
+#~ CFLAGS += -DGITVERSION="\"${GITVERSION}\"" -DBUILDNUM="\"${BUILDNUM}\""  -static -static-libstdc++ -std=gnu++11 # -fsanitize=address -fsanitize=undefined
+CFLAGS += -DGITVERSION="\"${GITVERSION}\"" -DBUILDNUM="\"${BUILDNUM}\"" -static-libstdc++ -std=gnu++11
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -g -I. -c $< -o $@
@@ -22,21 +27,25 @@ HERE:= $(shell pwd)
 %.o: %.c
 	$(CC) $(CFLAGS) -g -I. -c $< -o $@
 
-SerialPortBinaryCmdr: main.o ../CmdTableAscii.o ../CmdHandlersCmdrs.o ../CmdHandlersConfig.o ../CmdHandlersDatacard.o ../CmdHandlersDebug.o ../CmdHandlersGps.o ../CmdHandlersSchedule.o ../CmdHandlersCalibrator.o ../CmdHandlersServer.o ../CmdTableBinary.o ../CmdHandlersConfigBinary.o ../CmdHandlersDatacardBinary.o ../CmdHandlersDebugBinary.o ../CmdHandlersGpsBinary.o ../CmdHandlersScheduleBinary.o ../CmdHandlersCalibratorBinary.o ../CmdHandlersServerBinary.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf.o $(INCLUDE_LOCAL)/format/src/format.o 
-	$(CC) main.o ../CmdTableAscii.o ../CmdHandlersCmdrs.o ../CmdHandlersConfig.o ../CmdHandlersDatacard.o ../CmdHandlersDebug.o ../CmdHandlersGps.o ../CmdHandlersSchedule.o ../CmdHandlersCalibrator.o ../CmdHandlersServer.o ../CmdTableBinary.o ../CmdHandlersConfigBinary.o ../CmdHandlersDatacardBinary.o ../CmdHandlersDebugBinary.o ../CmdHandlersGpsBinary.o ../CmdHandlersScheduleBinary.o ../CmdHandlersCalibratorBinary.o ../CmdHandlersServerBinary.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf.o $(INCLUDE_LOCAL)/format/src/format.o -g -o SerialPortBinaryCmdr.exe $(CFLAGS) $(LDFLAGS) -g -L. -L/lib -L/usr/lib -L/usr/local/lib -lstdc++ -lm -pthread -lws2_32
+UASALCmdrSerial.exe: main.o ../CmdTableAscii.o ../CmdHandlersAsciiGeneral.o ../CmdHandlersAsciiFineSteeringMirror.o ../CmdHandlersAsciiDeformableMirror.o ../CmdHandlersAsciiFilterWheel.o ../CmdTableBinary.o ../CmdHandlersBinaryGeneral.o ../CmdHandlersBinaryFineSteeringMirror.o ../CmdHandlersBinaryDeformableMirror.o ../CmdHandlersBinaryFilterWheel.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphDMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphFWHardwareInterface.o $(INCLUDE_LOCAL)/uart/Crc32Bzip2.o
+	btracer ../UASALCmdrSerial
+	#~ $(CC) main.o ../CmdTableAscii.o ../CmdHandlersAsciiGeneral.o ../CmdHandlersAsciiFineSteeringMirror.o ../CmdHandlersAsciiDeformableMirror.o ../CmdHandlersAsciiFilterWheel.o ../CmdTableBinary.o ../CmdHandlersBinaryGeneral.o ../CmdHandlersBinaryFineSteeringMirror.o ../CmdHandlersBinaryDeformableMirror.o ../CmdHandlersBinaryFilterWheel.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphDMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphFWHardwareInterface.o $(INCLUDE_LOCAL)/uart/Crc32Bzip2.o -g -o UASALCmdrSerial.exe $(CFLAGS) $(LDFLAGS) -g -L. -L/lib -L/usr/lib -L/usr/local/lib -lc -lstdc++ -lm -lpthread -lncurses
+	$(CC) main.o ../CmdTableAscii.o ../CmdHandlersAsciiGeneral.o ../CmdHandlersAsciiFineSteeringMirror.o ../CmdHandlersAsciiDeformableMirror.o ../CmdHandlersAsciiFilterWheel.o ../CmdTableBinary.o ../CmdHandlersBinaryGeneral.o ../CmdHandlersBinaryFineSteeringMirror.o ../CmdHandlersBinaryDeformableMirror.o ../CmdHandlersBinaryFilterWheel.o $(INCLUDE_LOCAL)/uart/AsciiCmdUserInterfaceLinux.o $(INCLUDE_LOCAL)/uart/CmdSystem.o $(INCLUDE_LOCAL)/format/formatf_stdio.o $(INCLUDE_LOCAL)/cgraph/CGraphFSMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphDMHardwareInterface.o $(INCLUDE_LOCAL)/cgraph/CGraphFWHardwareInterface.o $(INCLUDE_LOCAL)/uart/Crc32Bzip2.o -g -o UASALCmdrSerial.exe $(CFLAGS) $(LDFLAGS) -g -L. -L/lib -L/usr/lib -L/usr/local/lib -lstdc++ -lm -lpthread -lws2_32
+	cp $@ ~/bin/
+	
+all: UASALCmdrSerial.exe
 
-all: SerialPortBinaryCmdr
-
-program:
-	mate-terminal -e "$(HERE)/SerialPortBinaryCmdr"
+program: UASALCmdrSerial.exe
+	-mate-terminal -e "wine $(HERE)/UASALCmdrSerial.exe /dev/ttyUSB0 38400"
 
 clean:
-	-rm $(INCLUDE_LOCAL)/format/formatf.o
-	-rm $(INCLUDE_LOCAL)/format/src/format.o
-	-rm $(INCLUDE_LOCAL)/uart/CmdSystem.o
-	-rm $(INCLUDE_LOCAL)/rf/ZongeProtocol.o
 	-rm ../*.o
 	-rm *.o
-	-rm SerialPortBinaryCmdr.exe
-	-killall SerialPortBinaryCmdr.exe
+	-rm $(INCLUDE_LOCAL)/*.o
+	-rm $(INCLUDE_LOCAL)/arm/*.o
+	-rm $(INCLUDE_LOCAL)/uart/*.o
+	-rm $(INCLUDE_LOCAL)/format/*.o
+	-rm $(INCLUDE_LOCAL)/cgraph/*.o
+	-rm UASALCmdrSerial.exe
+	-killall UASALCmdrSerial
 	
