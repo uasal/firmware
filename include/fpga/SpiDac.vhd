@@ -61,8 +61,8 @@ entity SpiDacPorts is
 		--Control signals
 		DacWriteOut : in std_logic_vector(BIT_WIDTH - 1 downto 0);
 		WriteDac : in std_logic;
-		DacReadback : out std_logic_vector(BIT_WIDTH - 1 downto 0)--;
-		--~ TransferComplete : out std_logic;
+		DacReadback : out std_logic_vector(BIT_WIDTH - 1 downto 0);
+		TransferComplete : out std_logic--;
 		
 	); end SpiDacPorts;
 
@@ -136,6 +136,7 @@ begin
 			SpiRst <= '1';			
 			LastWriteDac <= '0';
 			LastSpiXferComplete <= '0';
+			TransferComplete <= '0';
 			
 		else
 			
@@ -146,15 +147,19 @@ begin
 				
 					LastWriteDac <= WriteDac;
 					
+					TransferComplete <= '0';
+					
 					--Here we go...
 					if (WriteDac = '1') then
 					
 						--Initiate reading the data.
 						SpiRst <= '0';
-											
+																	
 					end if;
 					
 				else
+				
+				if (WriteDac = '0') then TransferComplete <= '0'; end if;
 
 					--Wait for Spi xfer to complete, then grab the sample and we're done
 					if (SpiXferComplete /= LastSpiXferComplete) then
@@ -168,6 +173,7 @@ begin
 												
 							--turn off spi master bus
 							SpiRst <= '1';
+							TransferComplete <= '1';
 							
 						end if;
 						

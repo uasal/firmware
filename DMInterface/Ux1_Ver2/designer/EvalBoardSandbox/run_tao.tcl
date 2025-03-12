@@ -5,8 +5,6 @@ read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/IB
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd}
-read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd}
-read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/UartRxExtClk.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd}
@@ -17,6 +15,8 @@ read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/Ua
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider2X.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/hdl/RegisterSpace.vhd}
+read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd}
+read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/hdl/DMMain.vhd}
 read_verilog -mode system_verilog {/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS/CCC_0/EvalSandbox_MSS_CCC_0_FCCC.v}
 read_verilog -mode system_verilog {/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS/FABOSC_0/EvalSandbox_MSS_FABOSC_0_OSC.v}

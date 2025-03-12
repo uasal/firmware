@@ -246,8 +246,8 @@ architecture DMMain of DMMainPorts is
       --Control signals
       DacWriteOut : in std_logic_vector(BIT_WIDTH - 1 downto 0);
       WriteDac : in std_logic;
-      DacReadback : out std_logic_vector(BIT_WIDTH - 1 downto 0)--;
-	--~ TransferComplete : out std_logic;
+      DacReadback : out std_logic_vector(BIT_WIDTH - 1 downto 0);
+	  TransferComplete : out std_logic--;
       );
   end component;
 
@@ -736,7 +736,14 @@ architecture DMMain of DMMainPorts is
 	signal DacSetpointReadAddressDac : integer range (DMMDacsPerControllerBoard - 1) downto 0;
 	signal DacSetpointReadAddressChannel : integer range (DMActuatorsPerDac - 1) downto 0;
 	signal DacSetpointWriteAddress : integer range (DMMaxActuators - 1) downto 0;
-	signal DacSetpointToWrite : std_logic_vector(DMSetpointMSB downto 0);
+	
+	signal DacSetpointToWriteToRam : std_logic_vector(DMSetpointMSB downto 0);
+	signal DacASetpointToWrite : std_logic_vector(DMSetpointMSB downto 0);
+	signal DacBSetpointToWrite : std_logic_vector(DMSetpointMSB downto 0);
+	signal DacCSetpointToWrite : std_logic_vector(DMSetpointMSB downto 0);
+	signal DacDSetpointToWrite : std_logic_vector(DMSetpointMSB downto 0);
+	signal DacESetpointToWrite : std_logic_vector(DMSetpointMSB downto 0);
+	signal DacFSetpointToWrite : std_logic_vector(DMSetpointMSB downto 0);
 	signal DacSetpointFromRead : std_logic_vector(DMSetpointMSB downto 0);
 	signal DacSetpointWriteReq : std_logic;
 	
@@ -771,14 +778,17 @@ architecture DMMain of DMMainPorts is
 	signal nCsDacs3_i : std_logic;
 	signal nCsDacs4_i : std_logic;
 	signal nCsDacs5_i : std_logic;
-
-  --these are just for testing the above!
-  signal Board0OredSetpoints : std_logic_vector(DMSetpointMSB downto 0);
-  signal Board1OredSetpoints : std_logic_vector(DMSetpointMSB downto 0);
-  signal Board2OredSetpoints : std_logic_vector(DMSetpointMSB downto 0);
-  signal Board3OredSetpoints : std_logic_vector(DMSetpointMSB downto 0);
-  signal Board4OredSetpoints : std_logic_vector(DMSetpointMSB downto 0);
-  signal Board5OredSetpoints : std_logic_vector(DMSetpointMSB downto 0);
+	
+	signal DacASetpointWritten : std_logic;
+	signal DacBSetpointWritten : std_logic;
+	signal DacCSetpointWritten : std_logic;
+	signal DacDSetpointWritten : std_logic;
+	signal DacESetpointWritten : std_logic;
+	signal DacFSetpointWritten : std_logic;
+	
+	type DacProtoWriteStates is ( Idle, ReadChannel, WriteCs0, WriteCs1, WriteCs2, WriteCs3, NextChannel);
+	signal DacWriteNextState : DacProtoWriteStates;
+	signal DacWriteCurrentState : DacProtoWriteStates;
   
   -- And a few constants
   constant nCsEnabled : std_logic := '0';
@@ -846,7 +856,7 @@ begin
 
   
 	DacSetpointWriteAddress <= conv_integer(RamAddress) - 1024;
-	DacSetpointToWrite <= RamDataIn(DMSetpointMSB downto 0);
+	DacSetpointToWriteToRam <= RamDataIn(DMSetpointMSB downto 0);
 	DacSetpointWriteReq <= '1' when ( (RamBusCE_i = '1') and (RamBusWrnRd_i = '1') and (RamAddress >= std_logic_vector(to_unsigned(1024, ADDRESS_BUS_BITS))) ) else '0';
   
     DmDacRam : DmDacRamPorts
@@ -857,7 +867,7 @@ begin
 		ReadAddressDac => DacSetpointReadAddressDac,
 		ReadAddressChannel => DacSetpointReadAddressChannel,
 		WriteAddress => DacSetpointWriteAddress,
-		DacSetpointIn => DacSetpointToWrite,
+		DacSetpointIn => DacSetpointToWriteToRam,
 		DacSetpointOut => DacSetpointFromRead,
 		WriteReq => DacSetpointWriteReq--,
 	);
@@ -1079,7 +1089,7 @@ begin
   DMDacsA_i : SpiDacPorts
   generic map (
     CLOCK_DIVIDER => 1000, --how much do you want to knock down the global clock to get to the spi clock rate?
-    BIT_WIDTH => 16--; --how many bytes per transaction?
+    BIT_WIDTH => 24--; --how many bytes per transaction?
   )
   port map (
     clk => MasterClk,
@@ -1091,15 +1101,15 @@ begin
     Miso => MisoDacA_i,
     -- Control signals
     WriteDac => WriteDacs,
-    DacWriteOut => ProtoDacSetpoints(0)(23 downto 8),
-    DacReadback => ProtoDacReadbacks(0)(23 downto 8)--,
-    --~ XferComplete => DacTransferCompleteA
+    DacWriteOut => DacASetpointToWrite,
+    DacReadback => ProtoDacReadbacks(0),
+    TransferComplete => DacASetpointWritten
   );
 
   DMDacsB_i : SpiDacPorts
   generic map (
     CLOCK_DIVIDER => 1000, --how much do you want to knock down the global clock to get to the spi clock rate?
-    BIT_WIDTH => 16--; --how many bytes per transaction?
+    BIT_WIDTH => 24--; --how many bytes per transaction?
   )
   port map (
     clk => MasterClk,
@@ -1111,15 +1121,15 @@ begin
     Miso => MisoDacB_i,
     -- Control signals
     WriteDac => WriteDacs,
-    DacWriteOut => ProtoDacSetpoints(1)(23 downto 8),
-    DacReadback => ProtoDacReadbacks(1)(23 downto 8)--,
-    --~ XferComplete => DacTransferCompleteB
+    DacWriteOut => DacBSetpointToWrite,
+    DacReadback => ProtoDacReadbacks(1),
+    TransferComplete => DacBSetpointWritten
   );
 
   DMDacsC_i : SpiDacPorts
   generic map (
     CLOCK_DIVIDER => 1000, --how much do you want to knock down the global clock to get to the spi clock rate?
-    BIT_WIDTH => 16--; --how many bytes per transaction?
+    BIT_WIDTH => 24--; --how many bytes per transaction?
   )
   port map (
     clk => MasterClk,
@@ -1131,15 +1141,15 @@ begin
     Miso => MisoDacC_i,
     -- Control signals
     WriteDac => WriteDacs,
-    DacWriteOut => ProtoDacSetpoints(2)(23 downto 8),
-    DacReadback => ProtoDacReadbacks(2)(23 downto 8)--,
-    --~ XferComplete => DacTransferCompleteC
+    DacWriteOut => DacCSetpointToWrite,
+    DacReadback => ProtoDacReadbacks(2),
+    TransferComplete => DacCSetpointWritten
   );
   
   DMDacsD_i : SpiDacPorts
   generic map (
     CLOCK_DIVIDER => 1000, --how much do you want to knock down the global clock to get to the spi clock rate?
-    BIT_WIDTH => 16--; --how many bytes per transaction?
+    BIT_WIDTH => 24--; --how many bytes per transaction?
   )
   port map (
     clk => MasterClk,
@@ -1151,15 +1161,15 @@ begin
     Miso => MisoDacD_i,
     -- Control signals
     WriteDac => WriteDacs,
-    DacWriteOut => ProtoDacSetpoints(3)(23 downto 8),
-    DacReadback => ProtoDacReadbacks(3)(23 downto 8)--,
-    --~ XferComplete => DacTransferCompleteD
+    DacWriteOut => DacDSetpointToWrite,
+    DacReadback => ProtoDacReadbacks(3),
+    TransferComplete => DacDSetpointWritten
   );
   
   DMDacsE_i : SpiDacPorts
   generic map (
     CLOCK_DIVIDER => 1000, --how much do you want to knock down the global clock to get to the spi clock rate?
-    BIT_WIDTH => 16--; --how many bytes per transaction?
+    BIT_WIDTH => 24--; --how many bytes per transaction?
   )
   port map (
     clk => MasterClk,
@@ -1171,15 +1181,15 @@ begin
     Miso => MisoDacE_i,
     -- Control signals
     WriteDac => WriteDacs,
-    DacWriteOut => ProtoDacSetpoints(4)(23 downto 8),
-    DacReadback => ProtoDacReadbacks(4)(23 downto 8)--,
-    --~ XferComplete => DacTransferCompleteE
+    DacWriteOut => DacESetpointToWrite,
+    DacReadback => ProtoDacReadbacks(4),
+    TransferComplete => DacESetpointWritten
   );
   
   DMDacsF_i : SpiDacPorts
   generic map (
     CLOCK_DIVIDER => 1000, --how much do you want to knock down the global clock to get to the spi clock rate?
-    BIT_WIDTH => 16--; --how many bytes per transaction?
+    BIT_WIDTH => 24--; --how many bytes per transaction?
   )
   port map (
     clk => MasterClk,
@@ -1191,9 +1201,9 @@ begin
     Miso => MisoDacF_i,
     -- Control signals
     WriteDac => WriteDacs,
-    DacWriteOut => ProtoDacSetpoints(5)(23 downto 8),
-    DacReadback => ProtoDacReadbacks(5)(23 downto 8)--,
-    --~ XferComplete => DacTransferCompleteF
+    DacWriteOut => DacFSetpointToWrite,
+    DacReadback => ProtoDacReadbacks(5),
+    TransferComplete => DacFSetpointWritten
   );
 
   -- Is this how we deal with loading the DACs?  All at once?
@@ -1608,8 +1618,8 @@ begin
     PPSReset => PPSCountReset,
     PPSDetected => PPSDetected,
     PPSCounter => PPSCounter,
-    --~ PPSAccum => PPSCount--,
-	PPSAccum => open--,
+    PPSAccum => PPSCount--,
+	--~ PPSAccum => open--,
   );
 
   --- Don't know what this is
@@ -1639,18 +1649,6 @@ begin
   SckXO <= SckXO_i;
   MosiXO <= MosiXO_i;
   
-
-  --Ok, we're gonna find a way to xor all the setpoints into the PPSCount var just for testing so it doesn't all get synthesized outta existence...  
-  Board0OredSetpoints <= DacSetpoints(0, 0) xor DacSetpoints(0, 1) xor DacSetpoints(0, 2) xor DacSetpoints(0, 3);
-  Board1OredSetpoints <= DacSetpoints(1, 0) xor DacSetpoints(1, 1) xor DacSetpoints(1, 2) xor DacSetpoints(1, 3);
-  Board2OredSetpoints <= DacSetpoints(2, 0) xor DacSetpoints(2, 1) xor DacSetpoints(2, 2) xor DacSetpoints(2, 3);
-  Board3OredSetpoints <= DacSetpoints(3, 0) xor DacSetpoints(3, 1) xor DacSetpoints(3, 2) xor DacSetpoints(3, 3);
-  Board4OredSetpoints <= DacSetpoints(4, 0) xor DacSetpoints(4, 1) xor DacSetpoints(4, 2) xor DacSetpoints(4, 3);
-  Board5OredSetpoints <= DacSetpoints(5, 0) xor DacSetpoints(5, 1) xor DacSetpoints(5, 2) xor DacSetpoints(5, 3);
-
-  PPSCount(31 downto DMSetpointMSB + 1) <= x"00";
-  PPSCount(DMSetpointMSB downto 0) <= Board0OredSetpoints xor Board1OredSetpoints xor Board2OredSetpoints xor Board3OredSetpoints xor Board4OredSetpoints xor Board5OredSetpoints;
-
   ----------------------------- Power Supplies ----------------------------------
   --- Is this also part of the FSM?
 --  PowerSync <= '1';
@@ -1664,44 +1662,143 @@ begin
       --This is where we have to actually set all of our registers, since the M2S devices don't support initialization as though they are from the 1980's...
     else
       if ( (MasterClk'event) and (MasterClk = '1') ) then
-	  
-		--Just move the addresses for the ram (in code way up above) ahead round-robin each clock for now so we can test...(need to read all 40 channels each write cycle in the real version)
-		if (DacSetpointReadAddressController < (DMMaxControllerBoards - 1)) then DacSetpointReadAddressController <= DacSetpointReadAddressController + 1; else DacSetpointReadAddressController <= 0; end if;
-		if (DacSetpointReadAddressDac < (DMMDacsPerControllerBoard - 1)) then DacSetpointReadAddressDac <= DacSetpointReadAddressDac + 1; else DacSetpointReadAddressDac <= 0; end if;
-		if (DacSetpointReadAddressChannel < (DMActuatorsPerDac - 1)) then DacSetpointReadAddressChannel <= DacSetpointReadAddressChannel + 1; else DacSetpointReadAddressChannel <= 0; end if;
 
-		--copy from ram to register (this works on a single clock cause we set the ram up for aysnc read)
-		DacSetpoints(DacSetpointReadAddressController, DacSetpointReadAddressDac) <= DacSetpointFromRead;
-		ProtoDacSetpoints(DacSetpointReadAddressController) <= DacSetpointFromRead;
-		
+		--Change state when requested
+		DacWriteCurrentState <= DacWriteNextState;
+
+		case DacWriteCurrentState is
+
+			when Idle =>
+			
+				DacSetpointReadAddressController <= 0; 
+				DacSetpointReadAddressDac <= 0; 
+				DacSetpointReadAddressChannel <= 0; 
+
+				WriteDacs <= '0';
+				
+				DacWriteNextState <= ReadChannel;
+				
+			
+			when ReadChannel =>
+
+				--copy from ram to register (this works on a single clock cause we set the ram up for aysnc read)
+				DacSetpoints(DacSetpointReadAddressController, DacSetpointReadAddressDac) <= DacSetpointFromRead;
+
+				--Just move the addresses for the ram ahead round-robin each clock
+				if (DacSetpointReadAddressDac < (DMMDacsPerControllerBoard - 1)) then 
+				
+					DacSetpointReadAddressDac <= DacSetpointReadAddressDac + 1; 
+					
+				else 
+				
+					DacSetpointReadAddressDac <= 0; 
+					
+					if (DacSetpointReadAddressController < (DMMaxControllerBoards - 1)) then 
+					
+						DacSetpointReadAddressController <= DacSetpointReadAddressController + 1; 
+						
+					else 
+					
+						DacWriteNextState <= WriteCs0;
+						
+					end if;				
+					
+				end if;
+
+			when WriteCs0 =>
+			
+				WriteDacs <= '1';
+				DacASetpointToWrite <= DacSetpoints(0,0);
+				DacBSetpointToWrite <= DacSetpoints(1,0);
+				DacCSetpointToWrite <= DacSetpoints(2,0);
+				DacDSetpointToWrite <= DacSetpoints(3,0);
+				DacESetpointToWrite <= DacSetpoints(4,0);
+				DacFSetpointToWrite <= DacSetpoints(5,0);
+				
+				if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
+				
+					WriteDacs <= '0';
+					DacWriteNextState <= WriteCs0;
+				
+				end if;
+				
+			when WriteCs1 =>
+			
+				WriteDacs <= '1';
+				DacASetpointToWrite <= DacSetpoints(0,1);
+				DacBSetpointToWrite <= DacSetpoints(1,1);
+				DacCSetpointToWrite <= DacSetpoints(2,1);
+				DacDSetpointToWrite <= DacSetpoints(3,1);
+				DacESetpointToWrite <= DacSetpoints(4,1);
+				DacFSetpointToWrite <= DacSetpoints(5,1);
+				
+				if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
+				
+					WriteDacs <= '0';
+					DacWriteNextState <= WriteCs0;
+				
+				end if;
+
+			when WriteCs2 =>
+			
+				WriteDacs <= '1';
+				DacASetpointToWrite <= DacSetpoints(0,2);
+				DacBSetpointToWrite <= DacSetpoints(1,2);
+				DacCSetpointToWrite <= DacSetpoints(2,2);
+				DacDSetpointToWrite <= DacSetpoints(3,2);
+				DacESetpointToWrite <= DacSetpoints(4,2);
+				DacFSetpointToWrite <= DacSetpoints(5,2);
+				
+				if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
+				
+					WriteDacs <= '0';
+					DacWriteNextState <= WriteCs0;
+				
+				end if;
+
+			when WriteCs3 =>
+			
+				WriteDacs <= '1';
+				DacASetpointToWrite <= DacSetpoints(0,3);
+				DacBSetpointToWrite <= DacSetpoints(1,3);
+				DacCSetpointToWrite <= DacSetpoints(2,3);
+				DacDSetpointToWrite <= DacSetpoints(3,3);
+				DacESetpointToWrite <= DacSetpoints(4,3);
+				DacFSetpointToWrite <= DacSetpoints(5,3);
+				
+				if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
+				
+					WriteDacs <= '0';
+					DacWriteNextState <= WriteCs0;
+				
+				end if;
+
+
+			when NextChannel =>
+			
+				if (DacSetpointReadAddressChannel < (DMActuatorsPerDac - 1)) then 
+				
+					DacSetpointReadAddressChannel <= DacSetpointReadAddressChannel + 1; 
+					
+				else 
+				
+					DacWriteNextState <= Idle;
+					
+				end if;
+
+
+			when others => -- ought never to get here...reset everything!
+							
+				DacWriteNextState <= Idle;
+				DacWriteCurrentState <= Idle;
+				
+		end case;
+
+				
 			--~ --Mux ram outputs
 			--~ for i in 0 to (DMMaxControllerBoards - 1) loop
 				--~ for j in 0 to (DMMDacsPerControllerBoard - 1) loop
 					--~ DacSetpoints(i,j) <= DacSetpoints_i(i,j,to_integer(unsigned(DacChannelReadIndex))); 
-				--~ end loop;
-			--~ end loop;
-
-			--~ --DacSetpointsAddr:
-			--~ for i in 0 to (DMMaxControllerBoards - 1) loop
-				--~ for j in 0 to (DMMDacsPerControllerBoard - 1) loop
-					--~ for k in 0 to (DMActuatorsPerDac - 1) loop
-						--~ if (Address_i = (DacSetpointsAddr + std_logic_vector(to_unsigned((i * DMMDacsPerControllerBoard * DMActuatorsPerDac) + (j * DMActuatorsPerDac) + k, MAX_ADDRESS_BITS)))) then
-							--~ DataOut(DMSetpointMSB downto 0) <= DacSetpoints_i(i,j,k); 
-							--~ DataOut(31 downto 24) <= x"00";
-						--~ end if;
-					--~ end loop;
-				--~ end loop;
-			--~ end loop;
-			
-			--~ --DacSetpointsAddr:
-			--~ for i in 0 to (DMMaxControllerBoards - 1) loop
-				--~ for j in 0 to (DMMDacsPerControllerBoard - 1) loop
-					--~ for k in 0 to (DMActuatorsPerDac - 1) loop
-						--~ if (Address_i = (DacSetpointsAddr + std_logic_vector(to_unsigned((i * DMMDacsPerControllerBoard * DMActuatorsPerDac) + (j * DMActuatorsPerDac) + k, MAX_ADDRESS_BITS)))) then
-							--~ --DacSetpoints_i(i,j,k) <= DataIn(DMSetpointMSB downto 0);
-							--~ DacSetpoints_i(i,j,k) := DataIn(DMSetpointMSB downto 0);
-						--~ end if;
-					--~ end loop;
 				--~ end loop;
 			--~ end loop;
 
