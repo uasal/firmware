@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Tue Mar 11 13:06:53 2025
+// Created by SmartDesign Wed Mar 12 11:55:19 2025
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -273,9 +273,6 @@ DMMainPorts DMMainPorts_1(
         .Rx3           ( Rx3 ),
         .PPS           ( PPS ),
         // Outputs
-        .nCsXO         (  ),
-        .SckXO         (  ),
-        .MosiXO        (  ),
         .MosiA         ( MosiA_net_0 ),
         .MosiB         ( MosiB_net_0 ),
         .MosiC         ( MosiC_net_0 ),

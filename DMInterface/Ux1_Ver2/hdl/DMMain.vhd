@@ -11,12 +11,6 @@ use work.CGraphDMTypes.all;
 entity DMMainPorts is
   port (
     clk : in  std_logic;
-
-    --ClkDac
-
-    nCsXO : out std_logic;
-    SckXO : out std_logic;
-    MosiXO : out std_logic;
 	
     --D/A's
     MosiA : out std_logic;
@@ -43,32 +37,7 @@ entity DMMainPorts is
     nCsD : out std_logic_vector(3 downto 0);
     nCsE : out std_logic_vector(3 downto 0);
     nCsF : out std_logic_vector(3 downto 0);
-
-    --Driver Control
-    -- Will need to understand and work on this
---    nHVEn1 : out std_logic;
---    HVDis2 : out std_logic;
---    PowernEnHV : out std_logic;	
---    nHVFaultA : in std_logic;
---    nHVFaultB : in std_logic;
---    nHVFaultC : in std_logic;
---    nHVFaultD : in std_logic;
-	
-    --A/D's
---    ChopRef : out std_logic;
---    ChopAdcs : out std_logic;
---    TrigAdcs : out std_logic;	
---    SckAdcs : out std_logic;
---    nCsAdcs : out std_logic;
---    MisoAdcA : in std_logic;
---    MisoAdcB : in std_logic;
---    MisoAdcC : in std_logic;
---    MisoAdcD : in std_logic;
---    nDrdyAdcA : in std_logic;
---    nDrdyAdcB : in std_logic;
---    nDrdyAdcC : in std_logic;
---    nDrdyAdcD : in std_logic;
-	
+		
     --uC Ram Bus 
     RamBusAddress : in std_logic_vector(13 downto 0); -- Address vector is ADDRESS_BUS_BITS bits
     RamBusDataIn : in std_logic_vector(31 downto 0);
@@ -92,56 +61,7 @@ entity DMMainPorts is
     Oe3 : out std_logic;
     Rx3 : in std_logic;
     PPS : in std_logic;
-	
-    --MonitorA/D
---    nCsMonAdcs : out std_logic;
---    SckMonAdcs : out std_logic;
---    MosiMonAdcs : out std_logic;
---    TrigMonAdcs : out std_logic;
---    MisoMonAdc0 : in std_logic;
---    nDrdyMonAdc0 : in std_logic;
---    MisoMonAdc1 : in std_logic;
---    nDrdyMonAdc1 : in std_logic;
-
-    --Power Supplies
---    PowerSync : out std_logic;
---    PowernEn : out std_logic;
---    GlobalFaultInhibit : out std_logic;
---    nFaultsClr : out std_logic;
---    nPowerCycClr : out std_logic;
---    PowerCycd: in std_logic;
-	
-    --Faults
---    FaultNegV : in std_logic;
---    Fault1V : in std_logic;
---    Fault2VA : in std_logic;
---    Fault2VD : in std_logic;
---    Fault3VA : in std_logic;
---    Fault3VD : in std_logic;
---    Fault5V : in std_logic;
---    FaultHV : in std_logic;
-	
-    --Expansion Bus
---    SckExt : inout std_logic;
---    MosiExt : inout std_logic;
---    MisoExt : inout std_logic;
---    nCsExt : inout std_logic;
---    DOutExt : inout std_logic;
---    DInExt : in std_logic;
-
-    --The testpoints had to be shared with other signals due to lack of fpga pins...
-    --~ LedR : out std_logic;
-    --~ LedG : out std_logic;
-    --~ LedB : out std_logic;
-    --~ TP1 : out std_logic;
-    --~ TP2 : out std_logic;
-    --~ TP3 : out std_logic;
-    --~ TP4 : out std_logic;
-    --~ TP5 : out std_logic;
-    --~ TP6 : out std_logic;
-    --~ TP7 : out std_logic;
-    --~ TP8 : out std_logic;
-	
+		
     Ux1SelJmp : inout std_logic--;
   );
 end DMMainPorts;
@@ -354,30 +274,6 @@ architecture DMMain of DMMainPorts is
     Uart3OE : out std_logic;				
     Ux1SelJmp : out std_logic;
 
-    --DM Board D/A's
-    -- Are these set points going to be 32 bits since
-    -- we also need dac number information. This will be decoded
-    -- in each Spi module.  They can all be the same.
-    DacBdASetpoint : out std_logic_vector(31 downto 0);
-    DacBdBSetpoint : out std_logic_vector(31 downto 0);
-    DacBdCSetpoint : out std_logic_vector(31 downto 0);
-    DacBdDSetpoint : out std_logic_vector(31 downto 0);
-    DacBdESetpoint : out std_logic_vector(31 downto 0);
-    DacBdFSetpoint : out std_logic_vector(31 downto 0);
-    WriteDacs : out std_logic; --do we wanna write all three boards at once? Seems likely...
-    DacBdAReadback : in std_logic_vector(31 downto 0);
-    DacBdBReadback : in std_logic_vector(31 downto 0);
-    DacBdCReadback : in std_logic_vector(31 downto 0);
-    DacBdDReadback : in std_logic_vector(31 downto 0);
-    DacBdEReadback : in std_logic_vector(31 downto 0);
-    DacBdFReadback : in std_logic_vector(31 downto 0);
-    DacTransferCompleteA : in std_logic; --Prolly a bad idea if we try writing new data to the D/A's while a xfer is in progress...
-    DacTransferCompleteB : in std_logic;
-    DacTransferCompleteC : in std_logic;
-    DacTransferCompleteD : in std_logic;
-    DacTransferCompleteE : in std_logic;
-    DacTransferCompleteF : in std_logic;
-
     -- DM Readback A/Ds
 --    ReadAdcSample : out std_logic;
 --    AdcSampleToReadA : in std_logic_vector(47 downto 0);
@@ -471,46 +367,6 @@ architecture DMMain of DMMainPorts is
     );
   end component;    
 
-  -- SpiDeviceDualPorts is used for the adc, but I'm not going to work on that
-  -- right now
-
-  -- Another Spi port component, but will need to modify for my needs
-  component SpiDacQuadPorts is
-    generic (
-      MASTER_CLOCK_FREQHZ : natural := 100000000--;
-      );
-    port (
-      --Globals
-      clk : in std_logic;
-      rst : in std_logic;
-      -- D/A:
-      nCsA : out std_logic;
-      nCsB : out std_logic;
-      nCsC : out std_logic;
-      nCsD : out std_logic;
-      Sck : out std_logic;
-      MosiA : out  std_logic;
-      MosiB : out  std_logic;
-      MosiC : out  std_logic;
-      MosiD : out  std_logic;
-      MisoA : in  std_logic;
-      MisoB : in  std_logic;
-      MisoC : in  std_logic;
-      MisoD : in  std_logic;
-      --Control signals
-      WriteDac : in std_logic;
-      DacWriteOutA : in std_logic_vector(31 downto 0);
-      DacWriteOutB : in std_logic_vector(31 downto 0);
-      DacWriteOutC : in std_logic_vector(31 downto 0);
-      DacWriteOutD : in std_logic_vector(31 downto 0);
-      DacReadbackA : out std_logic_vector(31 downto 0);
-      DacReadbackB : out std_logic_vector(31 downto 0);
-      DacReadbackC : out std_logic_vector(31 downto 0);
-      DacReadbackD : out std_logic_vector(31 downto 0);
-      TransferComplete : out std_logic--;
-      );
-  end component;
-  
     component DmDacRamPorts is
 	  port (
 		clk : in std_logic;
@@ -548,7 +404,7 @@ architecture DMMain of DMMainPorts is
 
   -- Ram Bus (which is the Amba Bus to/from the processor. Internally.)
   constant ADDRESS_BUS_BITS : natural := 14;
-  signal RamBusLatch_i   : std_logic;		
+  --~ signal RamBusLatch_i   : std_logic;		
   signal RamBusCE_i      : std_logic;		
   signal RamBusWrnRd_i   : std_logic;		
   signal RamAddress : std_logic_vector((ADDRESS_BUS_BITS - 1) downto 0);		
@@ -565,53 +421,6 @@ architecture DMMain of DMMainPorts is
   signal RegisterSpaceReadAck : std_logic;
                                              
   -- DM D/As (These might get subsumed in the SPI port compoenents)
-  signal DacSelectMaxti      : std_logic;
-  signal nCsDacBdA_i         : std_logic;
-  signal nCsDacBdB_i         : std_logic;
-  signal nCsDacBdC_i         : std_logic;
-  signal nCsDacBdD_i         : std_logic;
-  signal nCsDacBdE_i         : std_logic;
-  signal nCsDacBdF_i         : std_logic;
-  signal MosiDacBdA_i        : std_logic;
-  signal MosiDacBdB_i        : std_logic;
-  signal MosiDacBdC_i        : std_logic;
-  signal MosiDacBdD_i        : std_logic;
-  signal MosiDacBdE_i        : std_logic;
-  signal MosiDacBdF_i        : std_logic;
-  signal MisoDacBdA_i        : std_logic;
-  signal MisoDacBdB_i        : std_logic;
-  signal MisoDacBdC_i        : std_logic;
-  signal MisoDacBdD_i        : std_logic;
-  signal MisoDacBdE_i        : std_logic;
-  signal MisoDacBdF_i        : std_logic;
-  signal DacBdASetpoint      : std_logic_vector(31 downto 0);
-  signal DacBdBSetpoint      : std_logic_vector(31 downto 0);
-  signal DacBdCSetpoint      : std_logic_vector(31 downto 0);
-  signal DacBdDSetpoint      : std_logic_vector(31 downto 0);
-  signal DacBdESetpoint      : std_logic_vector(31 downto 0);
-  signal DacBdFSetpoint      : std_logic_vector(31 downto 0);
-  signal WriteDacs           : std_logic;
-  signal DacBdAReadback      : std_logic_vector(31 downto 0);
-  signal DacBdBReadback      : std_logic_vector(31 downto 0);
-  signal DacBdCReadback      : std_logic_vector(31 downto 0);
-  signal DacBdDReadback      : std_logic_vector(31 downto 0);
-  signal DacBdEReadback      : std_logic_vector(31 downto 0);
-  signal DacBdFReadback      : std_logic_vector(31 downto 0);
-  signal nLDacs_i            : std_logic;	
-  signal DacTransferCompleteA : std_logic;
-  signal DacTransferCompleteB : std_logic;
-  signal DacTransferCompleteC : std_logic;
-  signal DacTransferCompleteD : std_logic;
-  signal DacTransferCompleteE : std_logic;
-  signal DacTransferCompleteF : std_logic;
-
-  -- DM Readback A/Ds
---  signal ReadAdcSample       : std_logic;
---  signal AdcSampleToReadA    : std_logic_vector(47 downto 0);	
---  signal AdcSampleToReadB    : std_logic_vector(47 downto 0);	
---  signal AdcSampleToReadC    : std_logic_vector(47 downto 0);	
---  signal AdcSampleToReadD    : std_logic_vector(47 downto 0);	
---  signal AdcSampleNumAccums  : std_logic_vector(15 downto 0);	
 
   -- Monitor A/D
 --  signal MonitorAdcChannelReadIndex : std_logic_vector(4 downto 0);
@@ -708,28 +517,8 @@ architecture DMMain of DMMainPorts is
   signal Rxd3_i             : std_logic;
   signal UartRx3Dbg         : std_logic;
 
-  -- Timing signals
-  signal PPS_i              : std_logic;	
-  signal PPSCountReset      : std_logic; --generated by register read
-   -- are edges occuring on PPS?
-   -- Mainly used by rtc to decide wether to roll the clock over on
-   -- it's own or let PPS sync it
-  signal PPSDetected        : std_logic;
-   -- How many MasterClocks have gone by since the last PPS edge?
-   -- (so we can phase-lock oscillator to GPS time)
-  signal PPSCount           : std_logic_vector(31 downto 0) := x"00000000";
-   --This is current count for this second, not total for the last second
-  signal PPSCounter         : std_logic_vector(31 downto 0) := x"00000000";
-  signal ClkDacWrite        : std_logic_vector(15 downto 0) := x"0000";
-  signal WriteClkDac        : std_logic;
-  signal ClkDacReadback     : std_logic_vector(15 downto 0);
-  signal nCsXO_i            : std_logic;
-  signal SckXO_i            : std_logic;
-  signal MosiXO_i           : std_logic;
-  signal MisoXO_i           : std_logic;
-  
 	signal DacSetpoints : DMDacSetpointRegisters;
-	signal ProtoDacSetpoints : DMProtoDacSetpointRegisters;
+	--~ signal ProtoDacSetpoints : DMProtoDacSetpointRegisters;
 	signal ProtoDacReadbacks : DMProtoDacSetpointRegisters;
 	
 	signal DacSetpointReadAddressController : integer range (DMMaxControllerBoards - 1) downto 0;
@@ -747,6 +536,9 @@ architecture DMMain of DMMainPorts is
 	signal DacSetpointFromRead : std_logic_vector(DMSetpointMSB downto 0);
 	signal DacSetpointWriteReq : std_logic;
 	
+	signal WriteDacs           : std_logic;
+	signal nLDacs_i            : std_logic;	
+
 	signal MosiDacA_i : std_logic;
 	signal MosiDacB_i : std_logic;
 	signal MosiDacC_i : std_logic;
@@ -803,6 +595,7 @@ begin
   UartClk <= clk;
 
   SerialNumber <= x"DEADBEEF"; -- this is the DM serial number
+  BuildNumber <=  x"000FADED"; -- this is the DM serial number
 
 -- This is not in the include, but will copy to teh DMCIOverhaul directory
 --  BuildNumber_i : BuildNumberPorts
@@ -811,19 +604,19 @@ begin
 --    BuildNumber => BuildNumber--;
 --  );
 
---  BootupReset : OneShotPorts
---  generic map (
---    CLOCK_FREQHZ => BoardMasterClockFreq;
---    DELAY_SECONDS => 0.000010,
---    SHOT_RST_STATE => '1',
---    SHOT_PRETRIGGER_STATE => '1'--,
---  )
---  port map 
---  (	
---    clk => MasterClk,
---    rst => '0',
---    shot => MasterReset
---  );
+  BootupReset : OneShotPorts
+  generic map (
+    CLOCK_FREQHZ => BoardMasterClockFreq,
+    DELAY_SECONDS => 0.000010,
+    SHOT_RST_STATE => '1',
+    SHOT_PRETRIGGER_STATE => '1'--,
+  )
+  port map 
+  (	
+    clk => MasterClk,
+    rst => '0',
+    shot => MasterReset
+  );
 
   --- Register Spaces ---
   --- This is the ram bus that reads and writes to memory spaces
@@ -913,27 +706,6 @@ begin
     --~ Ux1SelJmp => Ux1SelJmp,
     Ux1SelJmp => open,
 
-    --- DM D/As ---
-    DacBdASetpoint      => DacBdASetpoint,
-    DacBdBSetpoint      => DacBdBSetpoint,
-    DacBdCSetpoint      => DacBdCSetpoint,
-    DacBdDSetpoint      => DacBdDSetpoint,
-    DacBdESetpoint      => DacBdESetpoint,
-    DacBdFSetpoint      => DacBdFSetpoint,
-    WriteDacs           => WriteDacs,
-    DacBdAReadback      => DacBdAReadback,
-    DacBdBReadback      => DacBdBReadback,
-    DacBdCReadback      => DacBdCReadback,
-    DacBdDReadback      => DacBdDReadback,
-    DacBdEReadback      => DacBdEReadback,
-    DacBdFReadback      => DacBdFReadback,
-    DacTransferCompleteA => DacTransferCompleteA,
-    DacTransferCompleteB => DacTransferCompleteB,
-    DacTransferCompleteC => DacTransferCompleteC,
-    DacTransferCompleteD => DacTransferCompleteD,
-    DacTransferCompleteE => DacTransferCompleteE,
-    DacTransferCompleteF => DacTransferCompleteF,
-
     -- DM Readback A/Ds
 --    ReadAdcSample      => ReadAdcSample,
 --    AdcSampleToReadA   => AdcSampleToReadA,
@@ -1011,13 +783,13 @@ begin
 
     --- Timing ---
     IdealTicksPerSecond   => std_logic_vector(to_unsigned(BoardMasterClockFreq, 32)), 
-    ActualTicksLastSecond => PPSCount,
-    PPSCountReset         => PPSCountReset, 
-    PPSDetected           => PPSDetected  , 
-    ClockTicksThisSecond  => PPSCounter   , 
-    ClkDacWrite           => ClkDacWrite  , 
-    WriteClkDac           => WriteClkDac  , 
-    ClkDacReadback        => ClkDacReadback--,
+    ActualTicksLastSecond => x"00000000",
+    PPSCountReset         => open, 
+    PPSDetected           => '0'  , 
+    ClockTicksThisSecond  => x"00000000"   , 
+    ClkDacWrite           => open  , 
+    WriteClkDac           => open  , 
+    ClkDacReadback        => x"0000"--,
 	
 	--~ DacSetpoints => DacSetpoints,
 	--~ DacChannelReadIndex => DacChannelReadIndex--,
@@ -1029,12 +801,6 @@ begin
 	MosiD <= MosiDacD_i;
 	MosiE <= MosiDacE_i;
 	MosiF <= MosiDacF_i;
-	--~ MisoDacA_i <= MisoDacA;
-	--~ MisoDacB_i <= MisoDacB;
-	--~ MisoDacC_i <= MisoDacC;
-	--~ MisoDacD_i <= MisoDacD;
-	--~ MisoDacE_i <= MisoDacE;
-	--~ MisoDacF_i <= MisoDacF;
 	SckA <= SckDacA_i;
 	SckB <= SckDacB_i;
 	SckC <= SckDacC_i;
@@ -1054,36 +820,6 @@ begin
 	IBufMisoDacE : IBufP2Ports port map(clk => MasterClk, I => MisoE, O => MisoDacE_i);
 	IBufMisoDacF : IBufP2Ports port map(clk => MasterClk, I => MisoF, O => MisoDacF_i);
 	
-	nCsDacsA_i(0) <= nCsDacs0_i when DacSetpointReadAddressDac = 0 else '1';
-	nCsDacsA_i(1) <= nCsDacs0_i when DacSetpointReadAddressDac = 1 else '1';
-	nCsDacsA_i(2) <= nCsDacs0_i when DacSetpointReadAddressDac = 2 else '1';
-	nCsDacsA_i(3) <= nCsDacs0_i when DacSetpointReadAddressDac = 3 else '1';
-
-	nCsDacsB_i(0) <= nCsDacs1_i when DacSetpointReadAddressDac = 0 else '1';
-	nCsDacsB_i(1) <= nCsDacs1_i when DacSetpointReadAddressDac = 1 else '1';
-	nCsDacsB_i(2) <= nCsDacs1_i when DacSetpointReadAddressDac = 2 else '1';
-	nCsDacsB_i(3) <= nCsDacs1_i when DacSetpointReadAddressDac = 3 else '1';
-
-	nCsDacsC_i(0) <= nCsDacs2_i when DacSetpointReadAddressDac = 0 else '1';
-	nCsDacsC_i(1) <= nCsDacs2_i when DacSetpointReadAddressDac = 1 else '1';
-	nCsDacsC_i(2) <= nCsDacs2_i when DacSetpointReadAddressDac = 2 else '1';
-	nCsDacsC_i(3) <= nCsDacs2_i when DacSetpointReadAddressDac = 3 else '1';
-
-	nCsDacsD_i(0) <= nCsDacs3_i when DacSetpointReadAddressDac = 0 else '1';
-	nCsDacsD_i(1) <= nCsDacs3_i when DacSetpointReadAddressDac = 1 else '1';
-	nCsDacsD_i(2) <= nCsDacs3_i when DacSetpointReadAddressDac = 2 else '1';
-	nCsDacsD_i(3) <= nCsDacs3_i when DacSetpointReadAddressDac = 3 else '1';
-
-	nCsDacsE_i(0) <= nCsDacs4_i when DacSetpointReadAddressDac = 0 else '1';
-	nCsDacsE_i(1) <= nCsDacs4_i when DacSetpointReadAddressDac = 1 else '1';
-	nCsDacsE_i(2) <= nCsDacs4_i when DacSetpointReadAddressDac = 2 else '1';
-	nCsDacsE_i(3) <= nCsDacs4_i when DacSetpointReadAddressDac = 3 else '1';
-
-	nCsDacsF_i(0) <= nCsDacs5_i when DacSetpointReadAddressDac = 0 else '1';
-	nCsDacsF_i(1) <= nCsDacs5_i when DacSetpointReadAddressDac = 1 else '1';
-	nCsDacsF_i(2) <= nCsDacs5_i when DacSetpointReadAddressDac = 2 else '1';
-	nCsDacsF_i(3) <= nCsDacs5_i when DacSetpointReadAddressDac = 3 else '1';
-
   --- DM D/As ---
   
   DMDacsA_i : SpiDacPorts
@@ -1232,7 +968,6 @@ begin
     DIVOUT_RST_STATE => '0'--;
   )
   port map (
-    --~ clki => MasterClk,
     clki => UartClk,
     rst => MasterReset,
     rst_count => x"00",
@@ -1254,23 +989,12 @@ begin
 	
   RS422_Rx0 : UartRxFifoExtClk
   generic map (
-    --~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
     FIFO_BITS => 10--,
-   --~ BAUD_DIVIDER_BITS => 8--,
-   --~ BAUDRATE => BoardMasterClockFreq--,
-   --~ BAUDRATE => 8000000--,
-   --~ BAUDRATE => 4000000--,
-   --~ BAUDRATE => 2000000--,
-   --~ BAUDRATE => 1000000--,
-   --~ BAUDRATE => BoardMasterClockFreq / 16--, --9.216MHz
-   --~ BAUDRATE => BoardMasterClockFreq / 8192--,
-   --~ BAUDRATE => 115200--,
   )
   port map (
     clk => MasterClk,
     uclk => UartClk0,
     rst => Uart0FifoReset_i,
-    --~ BaudDivider => Uart0ClkDivider,
     Rxd => Rxd0_i,
     --~ Dbg1 => UartRx0Dbg,
     Dbg1 => open,
@@ -1285,23 +1009,12 @@ begin
 	
   RS422_Tx0 : UartTxFifoExtClk
   generic map (
-    --~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
     FIFO_BITS => 10--,
-   --~ BAUD_DIVIDER_BITS => 8--,
-   --~ BAUDRATE => 12500000--,
-   --~ BAUDRATE => 8000000--,
-   --~ BAUDRATE => 4000000--,
-   --~ BAUDRATE => 2000000--,
-   --~ BAUDRATE => 1000000--,
-   --~ BAUDRATE => BoardMasterClockFreq / 16--, --9.216MHz
-   --~ BAUDRATE => BoardMasterClockFreq / 8192--,
-   --~ BAUDRATE => 115200--,
   )
   port map (
     clk => MasterClk,
     uclk => UartTxClk0,
     rst => Uart0FifoReset_i,
-    --~ BaudDivider => Uart0ClkDivider,
     BitClockOut => open,
     --~ BitClockOut => Ux1SelJmp,		
     WriteStrobe => WriteUart0,
@@ -1327,7 +1040,6 @@ begin
     DIVOUT_RST_STATE => '0'--;
   )
   port map (
-    --~ clki => MasterClk,
     clki => UartClk,
     rst => MasterReset,
     rst_count => x"00",
@@ -1350,21 +1062,12 @@ begin
 	
   RS422_Rx1 : UartRxFifoExtClk
   generic map (
-    --~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
     FIFO_BITS => 10--,
-   --~ BAUD_DIVIDER_BITS => 8--,
-   --~ BAUDRATE => 12500000--,
-   --~ BAUDRATE => 8000000--,
-   --~ BAUDRATE => BoardMasterClockFreq / 16--, --9.216MHz
-   --~ BAUDRATE => BoardMasterClockFreq / 8192--,
-   --~ BAUDRATE => 921600--,
-   --~ BAUDRATE => 460800--, --calcs show 460k is the fastest standard baudrate with a clean divisor...
   )
   port map (
     clk => MasterClk,
     uclk => UartClk1,
     rst => Uart1FifoReset_i,
-    --~ BaudDivider => Uart1ClkDivider,
     Rxd => Rxd1_i,
     Dbg1 => open,
     RxComplete => open,
@@ -1378,21 +1081,12 @@ begin
 
   RS422_Tx1 : UartTxFifoExtClk
   generic map (
-    --~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
     FIFO_BITS => 10--,
-   --~ BAUD_DIVIDER_BITS => 8--,
-   --~ BAUDRATE => 12500000--,
-   --~ BAUDRATE => 8000000--,
-   --~ BAUDRATE => BoardMasterClockFreq / 16--, --9.216MHz
-   --~ BAUDRATE => BoardMasterClockFreq / 8192--,
-   --~ BAUDRATE => 921600--,
-   --~ BAUDRATE => 460800--, --calcs show 460k is the fastest standard baudrate with a clean divisor...
   )
   port map (
     clk => MasterClk,
     uclk => UartTxClk1,
     rst => Uart1FifoReset_i,
-    --~ BaudDivider => Uart1ClkDivider,
     BitClockOut => open,
     WriteStrobe => WriteUart1,
     WriteData => Uart1TxFifoData,
@@ -1417,7 +1111,6 @@ begin
     DIVOUT_RST_STATE => '0'--;
   )
   port map (
-    --~ clki => MasterClk,
     clki => UartClk,
     rst => MasterReset,
     rst_count => x"00",
@@ -1444,20 +1137,12 @@ begin
 	
   RS422_Rx2 : UartRxFifoExtClk
   generic map (
-    --~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
     FIFO_BITS => 10--,
-   --~ BAUD_DIVIDER_BITS => 8--,
-   --~ BAUDRATE => 12500000--,
-   --~ BAUDRATE => 8000000--,
-   --~ BAUDRATE => BoardMasterClockFreq / 16--, --9.216MHz
-   --~ BAUDRATE => BoardMasterClockFreq / 8192--,
-   --~ BAUDRATE => 115200--,
   )
   port map (
     clk => MasterClk,
     uclk => UartClk2,
     rst => Uart2FifoReset_i,
-    --~ BaudDivider => Uart2ClkDivider,
     Rxd => Rxd2_i,
     Dbg1 => open,
     RxComplete => open,
@@ -1471,22 +1156,12 @@ begin
 	
   RS422_Tx2 : UartTxFifoExtClk
   generic map (
-    --~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
-    --~ FIFO_BITS => 10,
     FIFO_BITS => 10--,
-   --~ BAUD_DIVIDER_BITS => 8--,
-   --~ BAUDRATE => 12500000--,
-   --~ BAUDRATE => 8000000--,
-   --~ BAUDRATE => BoardMasterClockFreq / 16--, --9.216MHz
-   --~ BAUDRATE => BoardMasterClockFreq / 8192--,
-   --~ BAUDRATE => 115200--,
   )
   port map (
     clk => MasterClk,
-    --~ uclk => MasterClk,
     uclk => UartTxClk2,
     rst => Uart2FifoReset_i,
-    --~ BaudDivider => Uart2ClkDivider,
     BitClockOut => open,
     --~ BitClockOut => Ux1SelJmp,		
     WriteStrobe => WriteUart2,
@@ -1541,20 +1216,12 @@ begin
 	
   RS433_Rx3 : UartRxFifoExtClk
   generic map (
-    --~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
     FIFO_BITS => 10--,
-   --~ BAUD_DIVIDER_BITS => 8--,
-   --~ BAUDRATE => (ADDRESS_BUS_BITS - 1)500000--,
-   --~ BAUDRATE => 8000000--,
-   --~ BAUDRATE => BoardMasterClockFreq / 16--, --9.316MHz
-   --~ BAUDRATE => BoardMasterClockFreq / 8193--,
-   --~ BAUDRATE => 115300--,
   )
   port map (
     clk => MasterClk,
     uclk => UartClk3,
     rst => Uart3FifoReset_i,
-    --~ BaudDivider => Uart3ClkDivider,
     Rxd => Rxd3_i,
     Dbg1 => open,
     RxComplete => open,
@@ -1568,22 +1235,12 @@ begin
 	
   RS433_Tx3 : UartTxFifoExtClk
   generic map (
-    --~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
-    --~ FIFO_BITS => 10,
     FIFO_BITS => 10--,
-   --~ BAUD_DIVIDER_BITS => 8--,
-   --~ BAUDRATE => (ADDRESS_BUS_BITS - 1)500000--,
-   --~ BAUDRATE => 8000000--,
-   --~ BAUDRATE => BoardMasterClockFreq / 16--, --9.316MHz
-   --~ BAUDRATE => BoardMasterClockFreq / 8193--,
-   --~ BAUDRATE => 115300--,
   )
   port map (
     clk => MasterClk,
-    --~ uclk => MasterClk,
     uclk => UartTxClk3,
     rst => Uart3FifoReset_i,
-    --~ BaudDivider => Uart3ClkDivider,
     BitClockOut => open,
     --~ BitClockOut => Ux1SelJmp,		
     WriteStrobe => WriteUart3,
@@ -1605,49 +1262,6 @@ begin
   --Mux master reset (boot) and user reset (datamapper)
   Uart3FifoReset_i <= MasterReset or Uart3FifoReset;
 
-  ----------------------------- Timing ----------------------------------
-	
-  --~ --Just sync external PPS to master clock
-  IBufPPS : IBufP2Ports port map(clk => MasterClk, I => PPS, O => PPS_i);
-		
-  --~ --Count up MasterClocks per PPS so we can sync the oscilator to the GPS clock
-  PPSAccumulator : PPSCountPorts
-  port map (
-    clk => MasterClk,
-    PPS => PPS_i,
-    PPSReset => PPSCountReset,
-    PPSDetected => PPSDetected,
-    PPSCounter => PPSCounter,
-    PPSAccum => PPSCount--,
-	--~ PPSAccum => open--,
-  );
-
-  --- Don't know what this is
-  --- Is this just part of the FineSteering Mirror Hardware?
-  --- Need to check out
-  MisoXO_i <= '1';
-
-  -- Have all the SPI ports earlier in the code, not sure what this is
---  ClkDac_i : SpiDacPorts
---  generic map (
---    MASTER_CLOCK_FREQHZ => BoardMasterClockFreq,
---    BIT_WIDTH => 16
---  )
---  port map (
---    clk => MasterClk,
---    rst => MasterReset,
---    nCs => nCsXO_i,
---    Sck => SckXO_i,
---    Mosi => MosiXO_i,
---    Miso => MisoXO_i,
---    DacWriteOut => ClkDacWrite,
---    WriteDac => WriteClkDac,
---    DacReadback => ClkDacReadback
---  );
-
-  nCsXO <= nCsXO_i;
-  SckXO <= SckXO_i;
-  MosiXO <= MosiXO_i;
   
   ----------------------------- Power Supplies ----------------------------------
   --- Is this also part of the FSM?
@@ -1715,6 +1329,31 @@ begin
 				DacESetpointToWrite <= DacSetpoints(4,0);
 				DacFSetpointToWrite <= DacSetpoints(5,0);
 				
+				nCsDacsA_i(0) <= nCsDacs0_i;
+				nCsDacsA_i(1) <= nCsNotEnabled;
+				nCsDacsA_i(2) <= nCsNotEnabled;
+				nCsDacsA_i(3) <= nCsNotEnabled;
+				nCsDacsB_i(0) <= nCsDacs1_i;
+				nCsDacsB_i(1) <= nCsNotEnabled;
+				nCsDacsB_i(2) <= nCsNotEnabled;
+				nCsDacsB_i(3) <= nCsNotEnabled;
+				nCsDacsC_i(0) <= nCsDacs2_i;
+				nCsDacsC_i(1) <= nCsNotEnabled;
+				nCsDacsC_i(2) <= nCsNotEnabled;
+				nCsDacsC_i(3) <= nCsNotEnabled;
+				nCsDacsD_i(0) <= nCsDacs3_i;
+				nCsDacsD_i(1) <= nCsNotEnabled;
+				nCsDacsD_i(2) <= nCsNotEnabled;
+				nCsDacsD_i(3) <= nCsNotEnabled;
+				nCsDacsE_i(0) <= nCsDacs4_i;
+				nCsDacsE_i(1) <= nCsNotEnabled;
+				nCsDacsE_i(2) <= nCsNotEnabled;
+				nCsDacsE_i(3) <= nCsNotEnabled;
+				nCsDacsF_i(0) <= nCsDacs5_i;
+				nCsDacsF_i(1) <= nCsNotEnabled;
+				nCsDacsF_i(2) <= nCsNotEnabled;
+				nCsDacsF_i(3) <= nCsNotEnabled;
+
 				if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
 				
 					WriteDacs <= '0';
@@ -1732,6 +1371,31 @@ begin
 				DacESetpointToWrite <= DacSetpoints(4,1);
 				DacFSetpointToWrite <= DacSetpoints(5,1);
 				
+				nCsDacsA_i(0) <= nCsNotEnabled;
+				nCsDacsA_i(1) <= nCsDacs0_i;
+				nCsDacsA_i(2) <= nCsNotEnabled;
+				nCsDacsA_i(3) <= nCsNotEnabled;
+				nCsDacsB_i(0) <= nCsNotEnabled;
+				nCsDacsB_i(1) <= nCsDacs1_i;
+				nCsDacsB_i(2) <= nCsNotEnabled;
+				nCsDacsB_i(3) <= nCsNotEnabled;
+				nCsDacsC_i(0) <= nCsNotEnabled;
+				nCsDacsC_i(1) <= nCsDacs2_i;
+				nCsDacsC_i(2) <= nCsNotEnabled;
+				nCsDacsC_i(3) <= nCsNotEnabled;
+				nCsDacsD_i(0) <= nCsNotEnabled;
+				nCsDacsD_i(1) <= nCsDacs3_i;
+				nCsDacsD_i(2) <= nCsNotEnabled;
+				nCsDacsD_i(3) <= nCsNotEnabled;
+				nCsDacsE_i(0) <= nCsNotEnabled;
+				nCsDacsE_i(1) <= nCsDacs4_i;
+				nCsDacsE_i(2) <= nCsNotEnabled;
+				nCsDacsE_i(3) <= nCsNotEnabled;
+				nCsDacsF_i(0) <= nCsNotEnabled;
+				nCsDacsF_i(1) <= nCsDacs5_i;
+				nCsDacsF_i(2) <= nCsNotEnabled;
+				nCsDacsF_i(3) <= nCsNotEnabled;
+
 				if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
 				
 					WriteDacs <= '0';
@@ -1749,6 +1413,31 @@ begin
 				DacESetpointToWrite <= DacSetpoints(4,2);
 				DacFSetpointToWrite <= DacSetpoints(5,2);
 				
+				nCsDacsA_i(0) <= nCsNotEnabled;
+				nCsDacsA_i(1) <= nCsNotEnabled;
+				nCsDacsA_i(2) <= nCsDacs0_i;
+				nCsDacsA_i(3) <= nCsNotEnabled;
+				nCsDacsB_i(0) <= nCsNotEnabled;
+				nCsDacsB_i(1) <= nCsNotEnabled;
+				nCsDacsB_i(2) <= nCsDacs1_i;
+				nCsDacsB_i(3) <= nCsNotEnabled;
+				nCsDacsC_i(0) <= nCsNotEnabled;
+				nCsDacsC_i(1) <= nCsNotEnabled;
+				nCsDacsC_i(2) <= nCsDacs2_i;
+				nCsDacsC_i(3) <= nCsNotEnabled;
+				nCsDacsD_i(0) <= nCsNotEnabled;
+				nCsDacsD_i(1) <= nCsNotEnabled;
+				nCsDacsD_i(2) <= nCsDacs3_i;
+				nCsDacsD_i(3) <= nCsNotEnabled;
+				nCsDacsE_i(0) <= nCsNotEnabled;
+				nCsDacsE_i(1) <= nCsNotEnabled;
+				nCsDacsE_i(2) <= nCsDacs4_i;
+				nCsDacsE_i(3) <= nCsNotEnabled;
+				nCsDacsF_i(0) <= nCsNotEnabled;
+				nCsDacsF_i(1) <= nCsNotEnabled;
+				nCsDacsF_i(2) <= nCsDacs5_i;
+				nCsDacsF_i(3) <= nCsNotEnabled;
+				
 				if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
 				
 					WriteDacs <= '0';
@@ -1765,6 +1454,31 @@ begin
 				DacDSetpointToWrite <= DacSetpoints(3,3);
 				DacESetpointToWrite <= DacSetpoints(4,3);
 				DacFSetpointToWrite <= DacSetpoints(5,3);
+				
+				nCsDacsA_i(0) <= nCsNotEnabled;
+				nCsDacsA_i(1) <= nCsNotEnabled;
+				nCsDacsA_i(2) <= nCsNotEnabled;
+				nCsDacsA_i(3) <= nCsDacs0_i;
+				nCsDacsB_i(0) <= nCsNotEnabled;
+				nCsDacsB_i(1) <= nCsNotEnabled;
+				nCsDacsB_i(2) <= nCsNotEnabled;
+				nCsDacsB_i(3) <= nCsDacs1_i;
+				nCsDacsC_i(0) <= nCsNotEnabled;
+				nCsDacsC_i(1) <= nCsNotEnabled;
+				nCsDacsC_i(2) <= nCsNotEnabled;
+				nCsDacsC_i(3) <= nCsDacs2_i;
+				nCsDacsD_i(0) <= nCsNotEnabled;
+				nCsDacsD_i(1) <= nCsNotEnabled;
+				nCsDacsD_i(2) <= nCsNotEnabled;
+				nCsDacsD_i(3) <= nCsDacs3_i;
+				nCsDacsE_i(0) <= nCsNotEnabled;
+				nCsDacsE_i(1) <= nCsNotEnabled;
+				nCsDacsE_i(2) <= nCsNotEnabled;
+				nCsDacsE_i(3) <= nCsDacs4_i;
+				nCsDacsF_i(0) <= nCsNotEnabled;
+				nCsDacsF_i(1) <= nCsNotEnabled;
+				nCsDacsF_i(2) <= nCsNotEnabled;
+				nCsDacsF_i(3) <= nCsDacs5_i;
 				
 				if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
 				

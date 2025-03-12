@@ -35,10 +35,6 @@ entity RegisterSpacePorts is
     SerialNumber : in std_logic_vector(31 downto 0);
     BuildNumber : in std_logic_vector(31 downto 0);
     
-    -- Dummy bus
---    DbusAddr : in std_logic_vector(31 downto 10);
---    DEnable : in std_logic;
-
     --Faults and Control (need to look over schematic)
     -- Leave space for these
     --PowernEnHV : out std_logic;	
@@ -48,27 +44,6 @@ entity RegisterSpacePorts is
     Uart2OE : out std_logic;
     Uart3OE : out std_logic;				
     Ux1SelJmp : out std_logic;
-
-    --DM Board D/A's
-    DacBdASetpoint : out std_logic_vector(31 downto 0);
-    DacBdBSetpoint : out std_logic_vector(31 downto 0);
-    DacBdCSetpoint : out std_logic_vector(31 downto 0);
-    DacBdDSetpoint : out std_logic_vector(31 downto 0);
-    DacBdESetpoint : out std_logic_vector(31 downto 0);
-    DacBdFSetpoint : out std_logic_vector(31 downto 0);
-    WriteDacs : out std_logic; --do we wanna write all three boards at once? Seems likely...
-    DacBdAReadback : in std_logic_vector(31 downto 0);
-    DacBdBReadback : in std_logic_vector(31 downto 0);
-    DacBdCReadback : in std_logic_vector(31 downto 0);
-    DacBdDReadback : in std_logic_vector(31 downto 0);
-    DacBdEReadback : in std_logic_vector(31 downto 0);
-    DacBdFReadback : in std_logic_vector(31 downto 0);
-    DacTransferCompleteA : in std_logic; --Dont write new data to the D/A's while xfer is in progress
-    DacTransferCompleteB : in std_logic;
-    DacTransferCompleteC : in std_logic;
-    DacTransferCompleteD : in std_logic;
-    DacTransferCompleteE : in std_logic;
-    DacTransferCompleteF : in std_logic;
     
     -- DM Readback A/Ds
 --    ReadAdcSample : out std_logic;
@@ -157,64 +132,6 @@ entity RegisterSpacePorts is
     WriteClkDac : out std_logic;
     ClkDacReadback : in std_logic_vector(15 downto 0)--;
 
-	--~ Board0Dac0Channel : in std_logic_vector(5 downto 0);	
-	--~ Board0Dac0Setpoint : out std_logic_vector(23 downto 0);	
-	--~ Board0Dac1Channel : in std_logic_vector(5 downto 0);	
-	--~ Board0Dac1Setpoint : out std_logic_vector(23 downto 0);	
-	--~ Board0Dac2Channel : in std_logic_vector(5 downto 0);	
-	--~ Board0Dac2Setpoint : out std_logic_vector(23 downto 0);	
-	--~ Board0Dac3Channel : in std_logic_vector(5 downto 0);	
-	--~ Board0Dac3Setpoint : out std_logic_vector(23 downto 0);	
-	
-	--~ Board1Dac0Channel : in std_logic_vector(5 downto 0);	
-	--~ Board1Dac0Setpoint : out std_logic_vector(23 downto 0);	
-	--~ Board1Dac1Channel : in std_logic_vector(5 downto 0);	
-	--~ Board1Dac1Setpoint : out std_logic_vector(23 downto 0);	
-	--~ Board1Dac2Channel : in std_logic_vector(5 downto 0);	
-	--~ Board1Dac2Setpoint : out std_logic_vector(23 downto 0);	
-	--~ Board1Dac3Channel : in std_logic_vector(5 downto 0);	
-	--~ Board1Dac3Setpoint : out std_logic_vector(23 downto 0);	
-	
-	--~ Board2Dac0Channel : in std_logic_vector(5 downto 0);	
-	--~ Board2Dac0Setpoint : out std_logic_vector(23 downto 0);	
-	--~ Board2Dac1Channel : in std_logic_vector(5 downto 0);	
-	--~ Board2Dac1Setpoint : out std_logic_vector(23 downto 0);	
-	--~ Board2Dac2Channel : in std_logic_vector(5 downto 0);	
-	--~ Board2Dac2Setpoint : out std_logic_vector(23 downto 0);	
-	--~ Board2Dac3Channel : in std_logic_vector(5 downto 0);	
-	--~ Board2Dac3Setpoint : out std_logic_vector(23 downto 0);	
-	
-	--~ Board3Dac0Channel : in std_logic_vector(5 downto 0);	
-	--~ Board3Dac0Setpoint : out std_logic_vector(23 downto 0);	
-	--~ Board3Dac1Channel : in std_logic_vector(5 downto 0);	
-	--~ Board3Dac1Setpoint : out std_logic_vector(23 downto 0);	
-	--~ Board3Dac2Channel : in std_logic_vector(5 downto 0);	
-	--~ Board3Dac2Setpoint : out std_logic_vector(23 downto 0);	
-	--~ Board3Dac3Channel : in std_logic_vector(5 downto 0);	
-	--~ Board3Dac3Setpoint : out std_logic_vector(23 downto 0);	
-	
-	--~ Board4Dac0Channel : in std_logic_vector(5 downto 0);	
-	--~ Board4Dac0Setpoint : out std_logic_vector(23 downto 0);	
-	--~ Board4Dac1Channel : in std_logic_vector(5 downto 0);	
-	--~ Board4Dac1Setpoint : out std_logic_vector(23 downto 0);	
-	--~ Board4Dac2Channel : in std_logic_vector(5 downto 0);	
-	--~ Board4Dac2Setpoint : out std_logic_vector(23 downto 0);	
-	--~ Board4Dac3Channel : in std_logic_vector(5 downto 0);	
-	--~ Board4Dac3Setpoint : out std_logic_vector(23 downto 0);	
-	
-	--~ Board5Dac0Channel : in std_logic_vector(5 downto 0);	
-	--~ Board5Dac0Setpoint : out std_logic_vector(23 downto 0);	
-	--~ Board5Dac1Channel : in std_logic_vector(5 downto 0);	
-	--~ Board5Dac1Setpoint : out std_logic_vector(23 downto 0);	
-	--~ Board5Dac2Channel : in std_logic_vector(5 downto 0);	
-	--~ Board5Dac2Setpoint : out std_logic_vector(23 downto 0);	
-	--~ Board5Dac3Channel : in std_logic_vector(5 downto 0);	
-	--~ Board5Dac3Setpoint : out std_logic_vector(23 downto 0);	
-	
-	--~ DacSetpoints : out DMDacSetpointRam--;	
-	
-	--~ DacChannelReadIndex : in std_logic_vector(5 downto 0);
-	--~ DacSetpoints : out DMDacSetpointRegisters--;
     );
 end RegisterSpacePorts;
 
@@ -306,7 +223,6 @@ architecture RegisterSpace of RegisterSpacePorts is
   signal MonitorAdcChannelReadIndex_i : std_logic_vector(4 downto 0);	
   signal MonitorAdcSpiFrameEnable_i : std_logic := '0';	
 	
-  signal WriteDacs_i :  std_logic := '0';
   -- we have a large amount of DacSetpoints to set to x"000000"
   signal DacASetpoint_i :  std_logic_vector(31 downto 0) := x"00000000";		
   signal DacBSetpoint_i :  std_logic_vector(31 downto 0) := x"00000000";		
@@ -339,8 +255,6 @@ architecture RegisterSpace of RegisterSpacePorts is
 begin
   
   Address_i <= Address(13 downto 0);
-
-  WriteDacs <= WriteDacs_i;
 
   Uart0ClkDivider <= Uart0ClkDivider_i;
   Uart1ClkDivider <= Uart1ClkDivider_i;
@@ -381,8 +295,7 @@ begin
       Uart3ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
 
 --      MonitorAdcChannelReadIndex_i <= "00000";
-      WriteDacs_i <= '0';		
-
+      
     else
       if ( (clk'event) and (clk = '1') ) then
 	  
@@ -407,82 +320,9 @@ begin
               when FpgaFirmwareBuildNumberAddr =>
                 DataOut <= BuildNumber;
               --D/A's
-							
-              --DacBoardSetpoints
-              when DacsBdASetpointAddr =>
-                DataOut(31 downto 0) <= DacBdAReadback;
-                --~ DataOut(31 downto 24) <= x"58";
-                --DataOut(31 downto 24) <= x"00";
-              when DacsBdBSetpointAddr =>
-                DataOut(31 downto 0) <= DacBdBReadback;
-                --~ DataOut(31 downto 24) <= x"58";
-                --DataOut(31 downto 24) <= x"00";
-              when DacsBdCSetpointAddr =>
-                DataOut(31 downto 0) <= DacBdCReadback;
-                --~ DataOut(31 downto 24) <= x"58";
-                --DataOut(31 downto 24) <= x"00";
-              when DacsBdDSetpointAddr =>
-                DataOut(31 downto 0) <= DacBdDReadback;
-                --~ DataOut(31 downto 24) <= x"58";
-                --DataOut(31 downto 24) <= x"00";
-              when DacsBdESetpointAddr =>
-                DataOut(31 downto 0) <= DacBdEReadback;
-                --~ DataOut(31 downto 24) <= x"58";
-                --DataOut(31 downto 24) <= x"00";
-              when DacsBdFSetpointAddr =>
-                DataOut(31 downto 0) <= DacBdFReadback;
-                --~ DataOut(31 downto 24) <= x"58";
-                --DataOut(31 downto 24) <= x"00";
-						
+													
               --FSM Readback A/D's
 							
-              --AdcSampleToReadA
---              when AdcAAccumulatorAddr =>
---                DataOut <= AdcSampleToReadA(31 downto 0);
---                ReadAdcSample <= '1';	
---              when AdcAAccumulatorAddr + std_logic_vector(to_unsigned(4, MAX_ADDRESS_BITS)) =>
---                DataOut(15 downto 0) <= AdcSampleToReadA(47 downto 32);
---                DataOut(31 downto 16) <= AdcSampleNumAccums;
---															
---              --AdcSampleToReadB
---              when AdcBAccumulatorAddr =>
---                DataOut <= AdcSampleToReadB(31 downto 0);
---                ReadAdcSample <= '1';	
---              when AdcBAccumulatorAddr + std_logic_vector(to_unsigned(4, MAX_ADDRESS_BITS)) =>
---                DataOut(15 downto 0) <= AdcSampleToReadB(47 downto 32);
---                DataOut(31 downto 16) <= AdcSampleNumAccums;
---					
---              --AdcSampleToReadC
---              when AdcCAccumulatorAddr =>
---                DataOut <= AdcSampleToReadC(31 downto 0);
---                ReadAdcSample <= '1';	
---              when AdcCAccumulatorAddr + std_logic_vector(to_unsigned(4, MAX_ADDRESS_BITS)) =>
---                DataOut(15 downto 0) <= AdcSampleToReadC(47 downto 32);
---                DataOut(31 downto 16) <= AdcSampleNumAccums;
---
---              --AdcSampleToReadD
---              when AdcDAccumulatorAddr =>
---                DataOut <= AdcSampleToReadD(31 downto 0);
---                ReadAdcSample <= '1';	
---              when AdcDAccumulatorAddr + std_logic_vector(to_unsigned(4, MAX_ADDRESS_BITS)) =>
---                DataOut(15 downto 0) <= AdcSampleToReadD(47 downto 32);
---                DataOut(31 downto 16) <= AdcSampleNumAccums;
-
-              --AdcSampleToReadE
---              when AdcEAccumulatorAddr =>
---                DataOut <= AdcSampleToReadE(31 downto 0);
---                ReadAdcSample <= '1';	
---              when AdcEAccumulatorAddr + std_logic_vector(to_unsigned(4, MAX_ADDRESS_BITS)) =>
---                DataOut(15 downto 0) <= AdcSampleToReadE(47 downto 32);
---                DataOut(31 downto 16) <= AdcSampleNumAccums;
---
---              --AdcSampleToReadF
---              when AdcFAccumulatorAddr =>
---                DataOut <= AdcSampleToReadF(31 downto 0);
---                ReadAdcSample <= '1';	
---              when AdcFAccumulatorAddr + std_logic_vector(to_unsigned(4, MAX_ADDRESS_BITS)) =>
---                DataOut(15 downto 0) <= AdcSampleToReadF(47 downto 32);
---                DataOut(31 downto 16) <= AdcSampleNumAccums;
 										
               --Monitor A/D
 --              when MonitorAdcReadChannel =>
@@ -653,19 +493,7 @@ begin
               when others =>
                 --~ DataOut <= x"BAADC0DE";
             end case;
-			
-			--~ --DacSetpointsAddr:
-			--~ for i in 0 to (DMMaxControllerBoards - 1) loop
-				--~ for j in 0 to (DMMDacsPerControllerBoard - 1) loop
-					--~ for k in 0 to (DMActuatorsPerDac - 1) loop
-						--~ if (Address_i = (DacSetpointsAddr + std_logic_vector(to_unsigned((i * DMMDacsPerControllerBoard * DMActuatorsPerDac) + (j * DMActuatorsPerDac) + k, MAX_ADDRESS_BITS)))) then
-							--~ DataOut(23 downto 0) <= DacSetpoints_i(i,j,k); 
-							--~ DataOut(31 downto 24) <= x"00";
-						--~ end if;
-					--~ end loop;
-				--~ end loop;
-			--~ end loop;
-						
+									
           else
             ReadAck <= '1';
           end if;				
@@ -694,38 +522,6 @@ begin
             WriteAck <= '0';
             case Address_i is
               --D/A's
-
-              --DacASetpoint
-              when DacsBdASetpointAddr =>
-                DacASetpoint_i <= DataIn(31 downto 0);
-                --The $$$ question: does our processor hit the low addr last or the high one???
-                --Also we shold prolly wait until all the D/A registers are loaded, and do it on channel "C" only
-                --~ WriteDacs_i <= '1';
-		
-              --DacBSetpoint
-              when DacsBdBSetpointAddr =>
-                DacBSetpoint_i <= DataIn(31 downto 0);
-								
-              --DacCSetpoint
-              when DacsBdCSetpointAddr =>
-                DacCSetpoint_i <= DataIn(31 downto 0);
-							
-              --DacDSetpoint
-              when DacsBdDSetpointAddr =>
-                DacDSetpoint_i <= DataIn(31 downto 0);
-                --The $$$ question: does our processor hit the low addr last or the high one???
-                --Also we shold prolly wait until all the D/A registers are loaded, and do it on channel "C" only
-		--~ WriteDacs_i <= '1';					
-                --The $$$ question: does our processor hit the low addr last or the high one???
-
-              -- This is preparing to write to the Spi port component
-              -- WriteDacs_i will go on to the output WriteDacs
-              if ('1' = DacTransferCompleteA) then
-                WriteDacs_i <= '1';
-              end if;
-                  --~ --FSM Readback A/D's
-                  --~ when AdcAAccumulatorAddr =>
-		  --~ ReadAdcSample <= '1';	
 
               --Monitor A/D
 --              when MonitorAdcSample =>
@@ -817,19 +613,7 @@ begin
 				
               when others => 
             end case;
-			
-			--~ --DacSetpointsAddr:
-			--~ for i in 0 to (DMMaxControllerBoards - 1) loop
-				--~ for j in 0 to (DMMDacsPerControllerBoard - 1) loop
-					--~ for k in 0 to (DMActuatorsPerDac - 1) loop
-						--~ if (Address_i = (DacSetpointsAddr + std_logic_vector(to_unsigned((i * DMMDacsPerControllerBoard * DMActuatorsPerDac) + (j * DMActuatorsPerDac) + k, MAX_ADDRESS_BITS)))) then
-							--~ --DacSetpoints_i(i,j,k) <= DataIn(23 downto 0);
-							--~ DacSetpoints_i(i,j,k) := DataIn(23 downto 0);
-						--~ end if;
-					--~ end loop;
-				--~ end loop;
-			--~ end loop;
-			
+						
           else
             WriteAck <= '1';					
           end if;
@@ -841,8 +625,7 @@ begin
             LastWriteReq <= '0';
           else
             WriteAck <= '0';
-            WriteDacs_i <= '0';		
-
+            
 --            ReadMonitorAdcSample <= '0';
 --            MonitorAdcReset <= '0';
 --            MonitorAdcSpiXferStart <= '0';
