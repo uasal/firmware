@@ -36,6 +36,7 @@ package CGraphDMTypes is
 	constant DMMaxActuators : integer := DMActuatorsPerDac * DMMDacsPerControllerBoard * DMMaxControllerBoards;
 
 	type DMDacSetpointRam is array(0 to DMMaxControllerBoards - 1, 0 to DMMDacsPerControllerBoard - 1, 0 to DMActuatorsPerDac) of std_logic_vector(DMSetpointMSB downto 0);
+	type DMDacSetpointRamFlat is array(0 to DMMaxActuators - 1) of std_logic_vector(DMSetpointMSB downto 0);
 	
 	--~ type DMDacSetpointChannel is array(0 to DMMaxControllerBoards - 1, 0 to DMMDacsPerControllerBoard - 1) of std_logic_vector(5 downto 0);
 	type DMDacSetpointRegisters is array(0 to DMMaxControllerBoards - 1, 0 to DMMDacsPerControllerBoard - 1) of std_logic_vector(DMSetpointMSB downto 0);

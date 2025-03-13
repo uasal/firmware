@@ -383,6 +383,20 @@ architecture DMMain of DMMainPorts is
 	  );
 	end component;
 
+    component DmDacRamFlatPorts is
+	  port (
+		clk : in std_logic;
+		rst : in std_logic;
+			
+		-- Bus:
+		ReadAddress : in integer range (DMMaxActuators - 1) downto 0;
+		WriteAddress : in integer range (DMMaxActuators - 1) downto 0;
+		DacSetpointIn : in std_logic_vector(DMSetpointMSB downto 0);
+		DacSetpointOut : out std_logic_vector(DMSetpointMSB downto 0);
+		WriteReq : in std_logic--;
+	  );
+	end component;
+
 --- End component setup
 
 -- Now let's figure out how they all go together
@@ -524,6 +538,7 @@ architecture DMMain of DMMainPorts is
 	signal DacSetpointReadAddressController : integer range (DMMaxControllerBoards - 1) downto 0;
 	signal DacSetpointReadAddressDac : integer range (DMMDacsPerControllerBoard - 1) downto 0;
 	signal DacSetpointReadAddressChannel : integer range (DMActuatorsPerDac - 1) downto 0;
+	signal DacSetpointReadAddress : integer range (DMMaxActuators - 1) downto 0;
 	signal DacSetpointWriteAddress : integer range (DMMaxActuators - 1) downto 0;
 	
 	signal DacSetpointToWriteToRam : std_logic_vector(DMSetpointMSB downto 0);
@@ -657,18 +672,22 @@ begin
 	DacSetpointToWriteToRam <= RamDataIn(DMSetpointMSB downto 0);
 	DacSetpointWriteReq <= '1' when ( (RamBusCE_i = '1') and (RamBusWrnRd_i = '1') and (RamAddress >= std_logic_vector(to_unsigned(1024, ADDRESS_BUS_BITS))) ) else '0';
   
-    DmDacRam : DmDacRamPorts
+    DmDacRam : DmDacRamFlatPorts
 	port map (
 		clk => MasterClk,
 		rst => MasterReset,
-		ReadAddressController => DacSetpointReadAddressController,
-		ReadAddressDac => DacSetpointReadAddressDac,
-		ReadAddressChannel => DacSetpointReadAddressChannel,
+		--~ ReadAddressController => DacSetpointReadAddressController,
+		--~ ReadAddressDac => DacSetpointReadAddressDac,
+		--~ ReadAddressChannel => DacSetpointReadAddressChannel,
+		ReadAddress => DacSetpointReadAddress,
 		WriteAddress => DacSetpointWriteAddress,
 		DacSetpointIn => DacSetpointToWriteToRam,
 		DacSetpointOut => DacSetpointFromRead,
 		WriteReq => DacSetpointWriteReq--,
 	);
+	
+	-- n = (z * numy * numx) + (y * numx) + x
+	DacSetpointReadAddress <= (DacSetpointReadAddressController * DMMDacsPerControllerBoard * DMActuatorsPerDac) + (DacSetpointReadAddressDac * DMActuatorsPerDac) + DacSetpointReadAddressChannel;
 
   RegisterSpaceDataToWrite <= RamDataIn;
   RegisterSpaceWriteReq <= '1' when ( (RamBusCE_i = '1') and (RamBusWrnRd_i = '1') and (RamAddress < std_logic_vector(to_unsigned(1024, ADDRESS_BUS_BITS))) ) else '0';

@@ -28,46 +28,29 @@ use IEEE.NUMERIC_STD.all;
 use work.CGraphDMTypes.all;
 library work;
 
-entity DmDacRamPorts is
+entity DmDacRamFlatPorts is
   port (
     clk : in std_logic;
     rst : in std_logic;
 		
     -- Bus:
-    ReadAddressController : in integer range (DMMaxControllerBoards - 1) downto 0;
-    ReadAddressDac : in integer range (DMMDacsPerControllerBoard - 1) downto 0;
-    ReadAddressChannel : in integer range (DMActuatorsPerDac - 1) downto 0;
+    ReadAddress : in integer range (DMMaxActuators - 1) downto 0;
 	WriteAddress : in integer range (DMMaxActuators - 1) downto 0;
     DacSetpointIn : in std_logic_vector(DMSetpointMSB downto 0);
     DacSetpointOut : out std_logic_vector(DMSetpointMSB downto 0);
-	--~ ReadReq : in std_logic--;
     WriteReq : in std_logic--;
   );
-end DmDacRamPorts;
+end DmDacRamFlatPorts;
 
 
-architecture DmDacRam of DmDacRamPorts is
+architecture DmDacRamFlat of DmDacRamFlatPorts is
 
-	signal WriteAddressController : integer range (DMMaxControllerBoards - 1) downto 0;
-	signal WriteAddressDac : integer range (DMMDacsPerControllerBoard - 1) downto 0;
-	signal WriteAddressChannel : integer range (DMActuatorsPerDac - 1) downto 0;
-
-	shared variable DacSetpoints : DMDacSetpointRam;
+	shared variable DacSetpoints : DMDacSetpointRamFlat;
 
   begin
   
-	--~ DacSetpointOut <= DacSetpoints(ReadAddressController, ReadAddressDac, ReadAddressChannel); --for asynchronous read
+	--~ DacSetpointOut <= DacSetpoints(ReadAddress); --for asynchronous read
 	
-	-- <where '%' is mod operator>
-	-- n = (z * numy * numx) + (y * numx) + x
-	-- z = n / (numy * numx)
-	-- y = (n / numx) % numy
-	-- x = n % numx
-	
-	WriteAddressController <= WriteAddress / (DMActuatorsPerDac * DMMDacsPerControllerBoard);
-	WriteAddressDac <= (WriteAddress / DMActuatorsPerDac) mod DMMDacsPerControllerBoard;
-	WriteAddressChannel <= WriteAddress mod DMActuatorsPerDac;
-
   process (clk, rst)
   begin
     if (rst = '1') then
@@ -77,11 +60,11 @@ architecture DmDacRam of DmDacRamPorts is
     else
       if ( (clk'event) and (clk = '1') ) then
 
-		DacSetpointOut <= DacSetpoints(ReadAddressController, ReadAddressDac, ReadAddressChannel); --for synchronous read
+		DacSetpointOut <= DacSetpoints(ReadAddress); --for synchronous read
 		
 		if (WriteReq = '1') then
 		
-			DacSetpoints(WriteAddressController, WriteAddressDac, WriteAddressChannel) := DacSetpointIn;
+			DacSetpoints(WriteAddress) := DacSetpointIn;
 		
 		end if;
 		
@@ -90,5 +73,5 @@ architecture DmDacRam of DmDacRamPorts is
     end if;
   end process;
 
-end DmDacRam;
+end DmDacRamFlat;
 

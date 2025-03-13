@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Wed Mar 12 17:02:44 2025
+// Created by SmartDesign Thu Mar 13 07:33:17 2025
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -167,13 +167,13 @@ wire          SckD_net_1;
 wire          SckE_net_1;
 wire          SckF_net_1;
 wire          MosiA_net_2;
+wire          SckA_net_2;
 wire   [3:0]  nCsA_net_1;
 wire   [3:0]  nCsB_net_1;
 wire   [3:0]  nCsC_net_1;
 wire   [3:0]  nCsD_net_1;
 wire   [3:0]  nCsE_net_1;
 wire   [3:0]  nCsF_net_1;
-wire          SckA_net_2;
 wire   [31:0] AMBA_SLAVE_0_PADDRS_net_0;
 //--------------------------------------------------------------------
 // TiedOff Nets
@@ -226,6 +226,8 @@ assign SckF_net_1  = SckF_net_0;
 assign SckF        = SckF_net_1;
 assign MosiA_net_2 = MosiA_net_0;
 assign TP1         = MosiA_net_2;
+assign SckA_net_2  = SckA_net_0;
+assign TP2         = SckA_net_2;
 assign nCsA_net_1  = nCsA_net_0;
 assign nCsA[3:0]   = nCsA_net_1;
 assign nCsB_net_1  = nCsB_net_0;
@@ -238,8 +240,6 @@ assign nCsE_net_1  = nCsE_net_0;
 assign nCsE[3:0]   = nCsE_net_1;
 assign nCsF_net_1  = nCsF_net_0;
 assign nCsF[3:0]   = nCsF_net_1;
-assign SckA_net_2  = SckA_net_0;
-assign TP2         = SckA_net_2;
 //--------------------------------------------------------------------
 // Slices assignments
 //--------------------------------------------------------------------
