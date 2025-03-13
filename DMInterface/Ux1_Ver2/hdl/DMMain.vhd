@@ -648,7 +648,12 @@ begin
   end generate;
 
   
-	DacSetpointWriteAddress <= conv_integer(RamAddress) - 1024;
+	DacSetpointWriteAddress <= (conv_integer(RamAddress) - 1024)/4;  --
+                                                                         --keep
+                                                                         --this
+                                                                         --in
+                                                                         --mind
+                                                                         --when debugging
 	DacSetpointToWriteToRam <= RamDataIn(DMSetpointMSB downto 0);
 	DacSetpointWriteReq <= '1' when ( (RamBusCE_i = '1') and (RamBusWrnRd_i = '1') and (RamAddress >= std_logic_vector(to_unsigned(1024, ADDRESS_BUS_BITS))) ) else '0';
   
@@ -1286,7 +1291,7 @@ begin
 			
 				DacSetpointReadAddressController <= 0; 
 				DacSetpointReadAddressDac <= 0; 
-				DacSetpointReadAddressChannel <= 0; 
+				--DacSetpointReadAddressChannel <= 0; 
 
 				WriteDacs <= '0';
 				
@@ -1357,7 +1362,7 @@ begin
 				if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
 				
 					WriteDacs <= '0';
-					DacWriteNextState <= WriteCs0;
+					DacWriteNextState <= WriteCs1;
 				
 				end if;
 				
@@ -1399,7 +1404,7 @@ begin
 				if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
 				
 					WriteDacs <= '0';
-					DacWriteNextState <= WriteCs0;
+					DacWriteNextState <= WriteCs2;
 				
 				end if;
 
@@ -1441,7 +1446,7 @@ begin
 				if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
 				
 					WriteDacs <= '0';
-					DacWriteNextState <= WriteCs0;
+					DacWriteNextState <= WriteCs3;
 				
 				end if;
 
@@ -1483,7 +1488,7 @@ begin
 				if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
 				
 					WriteDacs <= '0';
-					DacWriteNextState <= WriteCs0;
+					DacWriteNextState <= NextChannel;
 				
 				end if;
 
@@ -1491,16 +1496,13 @@ begin
 			when NextChannel =>
 			
 				if (DacSetpointReadAddressChannel < (DMActuatorsPerDac - 1)) then 
+                                  DacSetpointReadAddressChannel <= DacSetpointReadAddressChannel + 1;
+                                else
+                                  DacSetpointReadAddressChannel <= 0;
+                                end if;
 				
-					DacSetpointReadAddressChannel <= DacSetpointReadAddressChannel + 1; 
+                                DacWriteNextState <= Idle;
 					
-				else 
-				
-					DacWriteNextState <= Idle;
-					
-				end if;
-
-
 			when others => -- ought never to get here...reset everything!
 							
 				DacWriteNextState <= Idle;

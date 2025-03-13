@@ -125,18 +125,18 @@ struct CGraphDMHardwareInterface
   //AdcAccumulator DMController5MonitorAdcAccumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
   //uint32_t DMController5MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
   CGraphBaudDividers BaudDividers;  // 32 or 64 bits?
-  uint32_t UartFifo0; //rw; 104 send or read bytes from uart(s)
-  UartStatusRegister UartStatusRegister0; //ro; 108 what state are the uart(s) in?
-  uint32_t UartFifo0ReadData; // 112
-  uint32_t UartFifo1; //rw; 116 send or read bytes from uart(s)
-  UartStatusRegister UartStatusRegister1; //ro; 120 what state are the uart(s) in?
-  uint32_t UartFifo1ReadData; // 124
-  uint32_t UartFifo2; //rw; 128 send or read bytes from uart(s)
-  UartStatusRegister UartStatusRegister2; //ro; 132 what state are the uart(s) in?
-  uint32_t UartFifo2ReadData; // 136
-  uint32_t UartFifo3; //rw; 140 send or read bytes from uart(s)
-  UartStatusRegister UartStatusRegister3; //ro; 144 what state are the uart(s) in?
-  uint32_t UartFifo3ReadData; // 148
+  uint32_t UartFifo0; //rw; 100 send or read bytes from uart(s)
+  UartStatusRegister UartStatusRegister0; //ro; 104 what state are the uart(s) in?
+  uint32_t UartFifo0ReadData; // 108
+  uint32_t UartFifo1; //rw; 112 send or read bytes from uart(s)
+  UartStatusRegister UartStatusRegister1; //ro; 116 what state are the uart(s) in?
+  uint32_t UartFifo1ReadData; // 120
+  uint32_t UartFifo2; //rw; 124 send or read bytes from uart(s)
+  UartStatusRegister UartStatusRegister2; //ro; 128 what state are the uart(s) in?
+  uint32_t UartFifo2ReadData; // 132
+  uint32_t UartFifo3; //rw; 136 send or read bytes from uart(s)
+  UartStatusRegister UartStatusRegister3; //ro; 140 what state are the uart(s) in?
+  uint32_t UartFifo3ReadData; // 144
   
   uint8_t BaudDivider0; //rw; clock divider for the first serial port
   uint8_t BaudDivider1;
@@ -146,7 +146,7 @@ struct CGraphDMHardwareInterface
   uint16_t SpiExtBusAddrIn;
   uint16_t SpiExtBusDataOut;
   uint16_t SpiExtBusDataIn;
-  uint32_t reserved[208]; //if we counted correctly there's 48 4-byte registers preceeding this padding...
+  uint32_t reserved[217]; //if we counted correctly there's 48 4-byte registers preceeding this padding...
   uint32_t DacSetpoints[DMMaxControllerBoards][DMMDacsPerControllerBoard][DMActuatorsPerDac];
   
   static const uint32_t DacFullScale;
