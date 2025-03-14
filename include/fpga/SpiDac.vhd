@@ -137,6 +137,7 @@ begin
 			LastWriteDac <= '0';
 			LastSpiXferComplete <= '0';
 			TransferComplete <= '0';
+			DacReadback <= (others => '0');
 			
 		else
 			

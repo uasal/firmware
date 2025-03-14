@@ -62,6 +62,8 @@ begin
         BitPos := 0;
 		SampleCnt := 0;
 		RxAv <= '0';
+		RReg <= x"00";
+		DataO <= x"00";
      elsif Rising_Edge(Clk) then
         if Enable = '1' then
            case BitPos is

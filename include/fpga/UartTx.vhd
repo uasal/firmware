@@ -93,7 +93,7 @@ begin
 						
 						--~ TxD <= Data(to_integer(BitCnt(2 downto 0)));
 						--~ BitCnt <= BitCnt + CntOne;
-						TxD <= Data(BitCnt);
+						TxD <= Data(BitCnt mod 8);
 						BitCnt <= BitCnt + 1;
 						Busy_i <= '1';
 					

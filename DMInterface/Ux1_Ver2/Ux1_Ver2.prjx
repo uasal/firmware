@@ -146,12 +146,12 @@ SIZE="3093"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/CGraphDmDacRamFlat.vhd,hdl"
 STATE="utd"
-TIME="1741878379"
-SIZE="2193"
+TIME="1741878961"
+SIZE="2143"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/CGraphDmTypes.vhd,hdl"
 LINKFILEROOT "./include/fpga"
-STATE="absent"
+STATE="utd"
 TIME="1741878245"
 SIZE="2861"
 ENDFILE
@@ -302,8 +302,8 @@ ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/SpiDac.vhd,hdl"
 LINKFILEROOT "./include/fpga"
 STATE="utd"
-TIME="1741743604"
-SIZE="4868"
+TIME="1741893291"
+SIZE="4903"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/SpiDacQuad.vhd,hdl"
 LINKFILEROOT "./include/fpga"
@@ -398,14 +398,14 @@ ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/UartRxRaw.vhd,hdl"
 LINKFILEROOT "./include/fpga"
 STATE="utd"
-TIME="1730132404"
-SIZE="6153"
+TIME="1741892574"
+SIZE="6188"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/UartTx.vhd,hdl"
 LINKFILEROOT "./include/fpga"
 STATE="utd"
-TIME="1726443401"
-SIZE="3193"
+TIME="1741892437"
+SIZE="3199"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/UartTxFifo.vhd,hdl"
 LINKFILEROOT "./include/fpga"
@@ -416,8 +416,8 @@ ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/UartTxFifoExtClk.vhd,hdl"
 LINKFILEROOT "./include/fpga"
 STATE="utd"
-TIME="1726443406"
-SIZE="7270"
+TIME="1741892484"
+SIZE="7295"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/UartTxFifoParity.vhd,hdl"
 LINKFILEROOT "./include/fpga"
@@ -2048,7 +2048,7 @@ SIZE="6574"
 ENDFILE
 VALUE "<project>/simulation/subsystem.bfm,sim"
 STATE="utd"
-TIME="1741869669"
+TIME="1741876398"
 SIZE="774"
 PARENT="<project>/component/work/EvalBoardSandbox/EvalBoardSandbox.cxf"
 PARENT="<project>/component/work/EvalSandbox_MSS/EvalSandbox_MSS.cxf"
@@ -2073,22 +2073,22 @@ PARENT="<project>/component/Actel/DirectCore/CORESPI/5.2.104/CORESPI.cxf"
 ENDFILE
 VALUE "<project>/synthesis/EvalBoardSandbox.so,so"
 STATE="utd"
-TIME="1741869669"
-SIZE="252"
+TIME="1741879036"
+SIZE="259"
 ENDFILE
 VALUE "<project>/synthesis/EvalBoardSandbox.vm,syn_vm"
 STATE="utd"
-TIME="1741878849"
-SIZE="1039666"
+TIME="1741894152"
+SIZE="1052581"
 ENDFILE
 VALUE "<project>/synthesis/EvalBoardSandbox_syn.prj,prj"
 STATE="utd"
-TIME="1741869669"
-SIZE="6115"
+TIME="1741894076"
+SIZE="5944"
 ENDFILE
 VALUE "<project>/synthesis/EvalBoardSandbox_vm.sdc,syn_sdc"
 STATE="utd"
-TIME="1741869669"
+TIME="1741879036"
 SIZE="5802"
 ENDFILE
 ENDLIST
@@ -3846,7 +3846,6 @@ LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 Reports;Reports;0
 ReportsCurrentItem;synthesis:synplify.log
-SmartDesign;EvalBoardSandbox;0
 ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
@@ -3943,20 +3942,12 @@ LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_ram128x8_pa4::work","component/work/CoreUA
 ENDLIST
 LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async::work","component/work/CoreUARTapb_C0/CoreUARTapb_C0_0/rtl/vlog/core_obfuscated/Tx_async.v","FALSE","FALSE"
 ENDLIST
-LIST "DESIGN_FIRMWARE::work","component/work/DESIGN_FIRMWARE/DESIGN_FIRMWARE.cxf","TRUE","FALSE"
-SUBBLOCK "SmartFusion2_CMSIS::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_PDMA_Driver::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "DmDacRamFlatPorts::work","","FALSE","FALSE"
+LIST "DmDacRamFlatPorts::work","${CGRAPH_FIRMWARE}/include/fpga/CGraphDmDacRamFlat.vhd","FALSE","FALSE"
 ENDLIST
 LIST "DmDacRamPorts::work","${CGRAPH_FIRMWARE}/include/fpga/CGraphDmDacRam.vhd","FALSE","FALSE"
 ENDLIST
 LIST "DMMainPorts::work","hdl/DMMain.vhd","FALSE","FALSE"
-SUBBLOCK "DmDacRamFlatPorts::work","","FALSE","FALSE"
+SUBBLOCK "DmDacRamFlatPorts::work","${CGRAPH_FIRMWARE}/include/fpga/CGraphDmDacRamFlat.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP1Ports::work","${CGRAPH_FIRMWARE}/include/fpga/IBufP1.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP2Ports::work","${CGRAPH_FIRMWARE}/include/fpga/IBufP2.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP3Ports::work","${CGRAPH_FIRMWARE}/include/fpga/IBufP3.vhd","FALSE","FALSE"
@@ -4146,18 +4137,6 @@ ENDLIST
 LIST "RCOSC_25_50MHZ_FAB::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.v","FALSE","FALSE"
 ENDLIST
 LIST "RtcCounterPorts::work","${CGRAPH_FIRMWARE}/include/fpga/RtcCounter.vhd","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_CMSIS::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_PDMA_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
 ENDLIST
 LIST "SpiDacQuadPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiDacQuad.vhd","FALSE","FALSE"
 SUBBLOCK "SpiMasterQuadPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiMasterQuad.vhd","FALSE","FALSE"
