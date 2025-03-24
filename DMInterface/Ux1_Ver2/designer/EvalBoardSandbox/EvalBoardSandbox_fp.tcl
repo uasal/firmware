@@ -1,6 +1,6 @@
 new_project \
          -name {EvalBoardSandbox} \
-         -location {/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/designer/EvalBoardSandbox/EvalBoardSandbox_fp} \
+         -location {C:\Users\SKaye\repos9\firmware\DMInterface\Ux1_Ver2\designer\EvalBoardSandbox\EvalBoardSandbox_fp} \
          -mode {chain} \
          -connect_programmers {FALSE}
 add_actel_device \

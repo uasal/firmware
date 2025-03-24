@@ -3,7 +3,7 @@
 <doc>
 <title>Global Net Report</title>
 <text>Microchip Technology Inc. - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)</text>
-<text>Date: Thu Mar 13 08:18:00 2025
+<text>Date: Mon Mar 24 13:57:02 2025
 </text>
 <section>
 <name>Global Nets Information</name>
@@ -33,7 +33,7 @@
  <cell>3</cell>
  <cell>GB[2] </cell>
  <cell>(220, 54)</cell>
- <cell>DMMainPorts_1/Uart0BitClockDiv/clko_i_inferred_clock_RNIU2I7/U0_YNn_GSouth</cell>
+ <cell>DMMainPorts_1/Uart0BitClockDiv/clko_i_inferred_clock_RNIU2I7/U0_YNn</cell>
  <cell>32</cell>
 </row>
 <row>
@@ -48,7 +48,7 @@
  <cell>GB[3] </cell>
  <cell>(221, 54)</cell>
  <cell>DMMainPorts_1/Uart3BitClockDiv/clko_i_inferred_clock_RNI1659/U0_YNn_GSouth</cell>
- <cell>14</cell>
+ <cell>30</cell>
 </row>
 <row>
  <cell>6</cell>
@@ -93,7 +93,7 @@
 <row>
  <cell>1</cell>
  <cell>DMMainPorts_1/Uart2BitClockDiv/clko_i:Q</cell>
- <cell>(381, 52)</cell>
+ <cell>(392, 61)</cell>
  <cell>GB[1] </cell>
  <cell>DMMainPorts_1/Uart2BitClockDiv/clko_i_2</cell>
  <cell>ROUTED</cell>
@@ -102,7 +102,7 @@
 <row>
  <cell>2</cell>
  <cell>DMMainPorts_1/Uart0BitClockDiv/clko_i:Q</cell>
- <cell>(389, 49)</cell>
+ <cell>(393, 58)</cell>
  <cell>GB[2] </cell>
  <cell>DMMainPorts_1/Uart0BitClockDiv/clko_i_0</cell>
  <cell>ROUTED</cell>
@@ -111,7 +111,7 @@
 <row>
  <cell>3</cell>
  <cell>DMMainPorts_1/Uart1BitClockDiv/clko_i:Q</cell>
- <cell>(369, 43)</cell>
+ <cell>(309, 43)</cell>
  <cell>GB[5] </cell>
  <cell>DMMainPorts_1/Uart1BitClockDiv/clko_i_1</cell>
  <cell>ROUTED</cell>
@@ -120,7 +120,7 @@
 <row>
  <cell>4</cell>
  <cell>DMMainPorts_1/Uart3BitClockDiv/clko_i:Q</cell>
- <cell>(371, 28)</cell>
+ <cell>(393, 52)</cell>
  <cell>GB[3] </cell>
  <cell>DMMainPorts_1/Uart3BitClockDiv/clko_i_Z</cell>
  <cell>ROUTED</cell>
@@ -129,7 +129,7 @@
 <row>
  <cell>5</cell>
  <cell>DMMainPorts_1/Uart0TxBitClockDiv/div_i:Q</cell>
- <cell>(268, 49)</cell>
+ <cell>(318, 61)</cell>
  <cell>GB[6] </cell>
  <cell>DMMainPorts_1/Uart0TxBitClockDiv/div_i_0</cell>
  <cell>ROUTED</cell>
@@ -253,7 +253,7 @@
  <cell>FCCC_C0_0/FCCC_C0_0/GL1_INST/U0_YNn</cell>
  <cell>1718</cell>
  <cell>1</cell>
- <cell>(218, 63)</cell>
+ <cell>(218, 84)</cell>
  <cell>2</cell>
 </row>
 <row>
@@ -264,7 +264,7 @@
  <cell></cell>
  <cell>2</cell>
  <cell>(219, 57)</cell>
- <cell>56</cell>
+ <cell>50</cell>
 </row>
 <row>
  <cell> </cell>
@@ -273,8 +273,18 @@
  <cell></cell>
  <cell></cell>
  <cell>3</cell>
- <cell>(219, 60)</cell>
+ <cell>(219, 66)</cell>
  <cell>3</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>4</cell>
+ <cell>(220, 60)</cell>
+ <cell>32</cell>
 </row>
 <row>
  <cell>2</cell>
@@ -284,7 +294,7 @@
  <cell>32</cell>
  <cell>1</cell>
  <cell>(218, 57)</cell>
- <cell>13</cell>
+ <cell>25</cell>
 </row>
 <row>
  <cell> </cell>
@@ -293,17 +303,17 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
- <cell>(218, 60)</cell>
- <cell>8</cell>
+ <cell>(219, 60)</cell>
+ <cell>3</cell>
 </row>
 <row>
  <cell>3</cell>
  <cell>GB[2] </cell>
  <cell>(220, 54)</cell>
- <cell>DMMainPorts_1/Uart0BitClockDiv/clko_i_inferred_clock_RNIU2I7/U0_YNn_GSouth</cell>
+ <cell>DMMainPorts_1/Uart0BitClockDiv/clko_i_inferred_clock_RNIU2I7/U0_YNn</cell>
  <cell>32</cell>
  <cell>1</cell>
- <cell>(218, 48)</cell>
+ <cell>(218, 60)</cell>
  <cell>13</cell>
 </row>
 <row>
@@ -313,8 +323,18 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
- <cell>(218, 51)</cell>
- <cell>19</cell>
+ <cell>(218, 63)</cell>
+ <cell>11</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>3</cell>
+ <cell>(218, 66)</cell>
+ <cell>8</cell>
 </row>
 <row>
  <cell>4</cell>
@@ -323,8 +343,8 @@
  <cell>DMMainPorts_1/Uart1BitClockDiv/clko_i_inferred_clock_RNIV338/U0_YNn_GSouth</cell>
  <cell>32</cell>
  <cell>1</cell>
- <cell>(218, 39)</cell>
- <cell>9</cell>
+ <cell>(218, 36)</cell>
+ <cell>8</cell>
 </row>
 <row>
  <cell> </cell>
@@ -333,18 +353,28 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
+ <cell>(218, 39)</cell>
+ <cell>14</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>3</cell>
  <cell>(218, 42)</cell>
- <cell>23</cell>
+ <cell>10</cell>
 </row>
 <row>
  <cell>5</cell>
  <cell>GB[3] </cell>
  <cell>(221, 54)</cell>
  <cell>DMMainPorts_1/Uart3BitClockDiv/clko_i_inferred_clock_RNI1659/U0_YNn_GSouth</cell>
- <cell>14</cell>
+ <cell>30</cell>
  <cell>1</cell>
- <cell>(219, 33)</cell>
- <cell>9</cell>
+ <cell>(219, 30)</cell>
+ <cell>11</cell>
 </row>
 <row>
  <cell> </cell>
@@ -353,8 +383,18 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
- <cell>(219, 36)</cell>
- <cell>5</cell>
+ <cell>(219, 33)</cell>
+ <cell>17</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>3</cell>
+ <cell>(221, 39)</cell>
+ <cell>2</cell>
 </row>
 <row>
  <cell>6</cell>
@@ -362,19 +402,9 @@
  <cell>(224, 54)</cell>
  <cell>DMMainPorts_1/Uart0TxBitClockDiv/div_i_inferred_clock_RNI4L74/U0_YNn_GSouth</cell>
  <cell>9</cell>
- <cell>1</cell>
- <cell>(220, 39)</cell>
- <cell>3</cell>
-</row>
-<row>
  <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>2</cell>
- <cell>(221, 42)</cell>
- <cell>6</cell>
+ <cell>(220, 39)</cell>
+ <cell>9</cell>
 </row>
 <row>
  <cell>7</cell>
@@ -412,96 +442,12 @@
 </header>
 <row>
  <cell>1</cell>
- <cell>DMMainPorts_1/DMDacsE_i/Spi/N_336_i:Y</cell>
- <cell>DMMainPorts_1/DMDacsE_i/Spi/N_336_i_Z</cell>
- <cell>DMMainPorts_1/DMDacsE_i/Spi/un1_rst_3_rs:CLK</cell>
-</row>
-<row>
- <cell>2</cell>
- <cell>DMMainPorts_1/DMDacsD_i/Spi/N_3033_i:Y</cell>
- <cell>DMMainPorts_1/DMDacsD_i/Spi/N_3033_i_Z</cell>
- <cell>DMMainPorts_1/DMDacsD_i/Spi/un1_rst_3_rs:CLK</cell>
-</row>
-<row>
- <cell>3</cell>
- <cell>DMMainPorts_1/DMDacsA_i/Spi/N_486_i:Y</cell>
- <cell>DMMainPorts_1/DMDacsA_i/Spi/N_486_i_Z</cell>
- <cell>DMMainPorts_1/DMDacsA_i/Spi/un1_rst_3_rs:CLK</cell>
-</row>
-<row>
- <cell>4</cell>
- <cell>DMMainPorts_1/DMDacsF_i/Spi/N_3043_i:Y</cell>
- <cell>DMMainPorts_1/DMDacsF_i/Spi/N_3043_i_Z</cell>
+ <cell>DMMainPorts_1/DMDacsF_i/Spi/N_2854_i:Y</cell>
+ <cell>DMMainPorts_1/DMDacsF_i/Spi/N_2854_i_Z</cell>
  <cell>DMMainPorts_1/DMDacsF_i/Spi/un1_rst_3_rs:CLK</cell>
 </row>
 <row>
- <cell>5</cell>
- <cell>DMMainPorts_1/DMDacsC_i/Spi/N_3040_i:Y</cell>
- <cell>DMMainPorts_1/DMDacsC_i/Spi/N_3040_i_Z</cell>
- <cell>DMMainPorts_1/DMDacsC_i/Spi/un1_rst_3_rs:CLK</cell>
-</row>
-<row>
- <cell>6</cell>
- <cell>DMMainPorts_1/DMDacsB_i/Spi/N_322_i:Y</cell>
- <cell>DMMainPorts_1/DMDacsB_i/Spi/N_322_i_Z</cell>
- <cell>DMMainPorts_1/DMDacsB_i/Spi/un1_rst_3_rs:CLK</cell>
-</row>
-<row>
- <cell>7</cell>
- <cell>DMMainPorts_1/Uart1TxBitClockDiv/div_i:Q</cell>
- <cell>DMMainPorts_1/Uart1TxBitClockDiv/div_i_2</cell>
- <cell>DMMainPorts_1/RS422_Tx1/UartTxUart/BitCnt[1]:CLK</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>DMMainPorts_1/RS422_Tx1/UartTxUart/TxD:CLK</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>DMMainPorts_1/RS422_Tx1/UartTxUart/BitCnt[2]:CLK</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>DMMainPorts_1/RS422_Tx1/UartTxUart/BitCnt[0]:CLK</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>DMMainPorts_1/RS422_Tx1/UartTxUart/BitCnt[3]:CLK</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>DMMainPorts_1/RS422_Tx1/IBufStartTx/O:CLK</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>DMMainPorts_1/RS422_Tx1/UartTxUart/Busy_i:CLK</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>DMMainPorts_1/RS422_Tx1/IBufStartTx/Temp1:CLK</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>DMMainPorts_1/RS422_Tx1/UartTxUart/LastGo:CLK</cell>
-</row>
-<row>
- <cell>8</cell>
+ <cell>2</cell>
  <cell>DMMainPorts_1/Uart2TxBitClockDiv/div_i:Q</cell>
  <cell>DMMainPorts_1/Uart2TxBitClockDiv/div_i_1</cell>
  <cell>DMMainPorts_1/RS422_Tx2/UartTxUart/BitCnt[3]:CLK</cell>
@@ -553,6 +499,90 @@
  <cell></cell>
  <cell></cell>
  <cell>DMMainPorts_1/RS422_Tx2/UartTxUart/BitCnt[2]:CLK</cell>
+</row>
+<row>
+ <cell>3</cell>
+ <cell>DMMainPorts_1/Uart1TxBitClockDiv/div_i:Q</cell>
+ <cell>DMMainPorts_1/Uart1TxBitClockDiv/div_i_2</cell>
+ <cell>DMMainPorts_1/RS422_Tx1/UartTxUart/TxD:CLK</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>DMMainPorts_1/RS422_Tx1/UartTxUart/BitCnt[1]:CLK</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>DMMainPorts_1/RS422_Tx1/UartTxUart/BitCnt[2]:CLK</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>DMMainPorts_1/RS422_Tx1/UartTxUart/BitCnt[0]:CLK</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>DMMainPorts_1/RS422_Tx1/UartTxUart/BitCnt[3]:CLK</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>DMMainPorts_1/RS422_Tx1/IBufStartTx/O:CLK</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>DMMainPorts_1/RS422_Tx1/UartTxUart/Busy_i:CLK</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>DMMainPorts_1/RS422_Tx1/IBufStartTx/Temp1:CLK</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>DMMainPorts_1/RS422_Tx1/UartTxUart/LastGo:CLK</cell>
+</row>
+<row>
+ <cell>4</cell>
+ <cell>DMMainPorts_1/DMDacsD_i/Spi/un1_rst_1:Y</cell>
+ <cell>DMMainPorts_1/DMDacsD_i/Spi/un1_rst_1_Z</cell>
+ <cell>DMMainPorts_1/DMDacsD_i/Spi/un1_rst_3_rs:CLK</cell>
+</row>
+<row>
+ <cell>5</cell>
+ <cell>DMMainPorts_1/DMDacsC_i/Spi/un1_rst_1:Y</cell>
+ <cell>DMMainPorts_1/DMDacsC_i/Spi/un1_rst_1_Z</cell>
+ <cell>DMMainPorts_1/DMDacsC_i/Spi/un1_rst_3_rs:CLK</cell>
+</row>
+<row>
+ <cell>6</cell>
+ <cell>DMMainPorts_1/DMDacsA_i/Spi/un1_rst_1:Y</cell>
+ <cell>DMMainPorts_1/DMDacsA_i/Spi/un1_rst_1_Z</cell>
+ <cell>DMMainPorts_1/DMDacsA_i/Spi/un1_rst_3_rs:CLK</cell>
+</row>
+<row>
+ <cell>7</cell>
+ <cell>DMMainPorts_1/DMDacsE_i/Spi/un1_rst_1:Y</cell>
+ <cell>DMMainPorts_1/DMDacsE_i/Spi/un1_rst_1_Z</cell>
+ <cell>DMMainPorts_1/DMDacsE_i/Spi/un1_rst_3_rs:CLK</cell>
+</row>
+<row>
+ <cell>8</cell>
+ <cell>DMMainPorts_1/DMDacsB_i/Spi/N_2856_i:Y</cell>
+ <cell>DMMainPorts_1/DMDacsB_i/Spi/N_2856_i_Z</cell>
+ <cell>DMMainPorts_1/DMDacsB_i/Spi/un1_rst_3_rs:CLK</cell>
 </row>
 <row>
  <cell>9</cell>

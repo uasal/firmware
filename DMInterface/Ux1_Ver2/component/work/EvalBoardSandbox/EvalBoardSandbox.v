@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Thu Mar 13 07:33:17 2025
+// Created by SmartDesign Mon Mar 24 13:54:34 2025
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -37,7 +37,6 @@ module EvalBoardSandbox(
     SckE,
     SckF,
     TP1,
-    TP2,
     Tx0,
     Tx1,
     Tx2,
@@ -85,7 +84,6 @@ output       SckD;
 output       SckE;
 output       SckF;
 output       TP1;
-output       TP2;
 output       Tx0;
 output       Tx1;
 output       Tx2;
@@ -166,7 +164,6 @@ wire          SckC_net_1;
 wire          SckD_net_1;
 wire          SckE_net_1;
 wire          SckF_net_1;
-wire          MosiA_net_2;
 wire          SckA_net_2;
 wire   [3:0]  nCsA_net_1;
 wire   [3:0]  nCsB_net_1;
@@ -224,10 +221,8 @@ assign SckE_net_1  = SckE_net_0;
 assign SckE        = SckE_net_1;
 assign SckF_net_1  = SckF_net_0;
 assign SckF        = SckF_net_1;
-assign MosiA_net_2 = MosiA_net_0;
-assign TP1         = MosiA_net_2;
 assign SckA_net_2  = SckA_net_0;
-assign TP2         = SckA_net_2;
+assign TP1         = SckA_net_2;
 assign nCsA_net_1  = nCsA_net_0;
 assign nCsA[3:0]   = nCsA_net_1;
 assign nCsB_net_1  = nCsB_net_0;

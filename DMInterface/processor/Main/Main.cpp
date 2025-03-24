@@ -197,7 +197,7 @@ bool Process()
 //    uint32_t* DummyData;
 //    DummyData = &dval;
 //    FpgaUartParser0.TxBinaryPacket(CGraphPayloadTypeDMDac, 0, DummyData, sizeof(uint32_t));
-    FPGAUartPinout0.putcqq('h'); 
+//    FPGAUartPinout0.putcqq('h'); 
 
     return(Bored);
 }
