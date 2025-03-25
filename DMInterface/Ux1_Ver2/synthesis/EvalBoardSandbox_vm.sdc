@@ -1,23 +1,15 @@
-# Written by Synplify Pro version map202209actsp2, Build 145R. Synopsys Run ID: sid1742849748 
+# Written by Synplify Pro version map202209actsp2, Build 145R. Synopsys Run ID: sid1742906775 
 # Top Level Design Parameters 
 
 # Clocks 
-create_clock -period 19.608 -waveform {0.000 9.804} -name {CLK0_PAD} [get_ports {CLK0_PAD}] 
-create_clock -period 10.000 -waveform {0.000 5.000} -name {ClockDividerPorts_work_dmmainports_dmmain_0layer1_0|div_i_inferred_clock} [get_pins {DMMainPorts_1/Uart3TxBitClockDiv/div_i/Q}] 
-create_clock -period 10.000 -waveform {0.000 5.000} -name {VariableClockDividerPorts_work_dmmainports_dmmain_0layer1_0|clko_i_inferred_clock} [get_pins {DMMainPorts_1/Uart3BitClockDiv/clko_i/Q}] 
-create_clock -period 10.000 -waveform {0.000 5.000} -name {ClockDividerPorts_work_dmmainports_dmmain_0layer1_1|div_i_inferred_clock} [get_pins {DMMainPorts_1/Uart2TxBitClockDiv/div_i/Q}] 
-create_clock -period 10.000 -waveform {0.000 5.000} -name {VariableClockDividerPorts_work_dmmainports_dmmain_0layer1_1|clko_i_inferred_clock} [get_pins {DMMainPorts_1/Uart2BitClockDiv/clko_i/Q}] 
-create_clock -period 10.000 -waveform {0.000 5.000} -name {ClockDividerPorts_work_dmmainports_dmmain_0layer1_2|div_i_inferred_clock} [get_pins {DMMainPorts_1/Uart1TxBitClockDiv/div_i/Q}] 
-create_clock -period 10.000 -waveform {0.000 5.000} -name {VariableClockDividerPorts_work_dmmainports_dmmain_0layer1_2|clko_i_inferred_clock} [get_pins {DMMainPorts_1/Uart1BitClockDiv/clko_i/Q}] 
-create_clock -period 10.000 -waveform {0.000 5.000} -name {ClockDividerPorts_work_dmmainports_dmmain_0layer1_3|div_i_inferred_clock} [get_pins {DMMainPorts_1/Uart0TxBitClockDiv/div_i/Q}] 
-create_clock -period 10.000 -waveform {0.000 5.000} -name {VariableClockDividerPorts_work_dmmainports_dmmain_0layer1_3|clko_i_inferred_clock} [get_pins {DMMainPorts_1/Uart0BitClockDiv/clko_i/Q}] 
+create_clock -period 19.608 -waveform {0.000 9.804} -name {VCXO_In} [get_ports {CLK0_PAD}] 
 
 # Virtual Clocks 
 
 # Generated Clocks 
-create_generated_clock -name {FCCC_C0_0/FCCC_C0_0/GL0} -multiply_by {4} -divide_by {2} -source [get_pins {FCCC_C0_0/FCCC_C0_0/CCC_INST/CLK0_PAD}]  [get_pins {FCCC_C0_0/FCCC_C0_0/CCC_INST/GL0}] 
-create_generated_clock -name {EvalSandbox_MSS_0/CCC_0/GL0} -multiply_by {3} -divide_by {3} -source [get_pins {EvalSandbox_MSS_0/CCC_0/CCC_INST/CLK0}]  [get_pins {EvalSandbox_MSS_0/CCC_0/CCC_INST/GL0}] 
-create_generated_clock -name {FCCC_C0_0/FCCC_C0_0/GL1} -multiply_by {4} -divide_by {2} -source [get_pins {FCCC_C0_0/FCCC_C0_0/CCC_INST/CLK0_PAD}]  [get_pins {FCCC_C0_0/FCCC_C0_0/CCC_INST/GL1}] 
+create_generated_clock -name {MasterClk} -multiply_by {4} -divide_by {2} -source [get_pins {FCCC_C0_0/FCCC_C0_0/CCC_INST/CLK0_PAD}]  [get_pins {FCCC_C0_0/FCCC_C0_0/CCC_INST/GL0}] 
+create_generated_clock -name {uC_Internal} -multiply_by {3} -divide_by {3} -source [get_pins {EvalSandbox_MSS_0/CCC_0/CCC_INST/CLK0}]  [get_pins {EvalSandbox_MSS_0/CCC_0/CCC_INST/GL0}] 
+create_generated_clock -name {OldFpgaClk} -multiply_by {4} -divide_by {2} -source [get_pins {FCCC_C0_0/FCCC_C0_0/CCC_INST/CLK0_PAD}]  [get_pins {FCCC_C0_0/FCCC_C0_0/CCC_INST/GL1}] 
 
 # Paths Between Clocks 
 
@@ -44,14 +36,6 @@ create_generated_clock -name {FCCC_C0_0/FCCC_C0_0/GL1} -multiply_by {4} -divide_
 # set_case Attributes 
 
 # Clock Delay Constraints 
-set_clock_groups -asynchronous -group [get_clocks {ClockDividerPorts_work_dmmainports_dmmain_0layer1_0|div_i_inferred_clock}]
-set_clock_groups -asynchronous -group [get_clocks {VariableClockDividerPorts_work_dmmainports_dmmain_0layer1_0|clko_i_inferred_clock}]
-set_clock_groups -asynchronous -group [get_clocks {ClockDividerPorts_work_dmmainports_dmmain_0layer1_1|div_i_inferred_clock}]
-set_clock_groups -asynchronous -group [get_clocks {VariableClockDividerPorts_work_dmmainports_dmmain_0layer1_1|clko_i_inferred_clock}]
-set_clock_groups -asynchronous -group [get_clocks {ClockDividerPorts_work_dmmainports_dmmain_0layer1_2|div_i_inferred_clock}]
-set_clock_groups -asynchronous -group [get_clocks {VariableClockDividerPorts_work_dmmainports_dmmain_0layer1_2|clko_i_inferred_clock}]
-set_clock_groups -asynchronous -group [get_clocks {ClockDividerPorts_work_dmmainports_dmmain_0layer1_3|div_i_inferred_clock}]
-set_clock_groups -asynchronous -group [get_clocks {VariableClockDividerPorts_work_dmmainports_dmmain_0layer1_3|clko_i_inferred_clock}]
 
 # syn_mode Attributes 
 
@@ -63,6 +47,14 @@ set_clock_groups -asynchronous -group [get_clocks {VariableClockDividerPorts_wor
 
 # Unused constraints (intentionally commented out) 
 # create_clock -name EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT -period 20 [get_pins { EvalSandbox_MSS_0.FABOSC_0.I_RCOSC_25_50MHZ.CLKOUT }]
+# create_generated_clock -name uart0clk -divide_by 2 -source [get_pins { FCCC_C0_0.FCCC_C0_0.CCC_INST.GL0 }] [get_pins { DMMainPorts_1.Uart0BitClockDiv.clko_i.Q }]
+# create_generated_clock -name uart0txclk -divide_by 2 -source [get_pins { FCCC_C0_0.FCCC_C0_0.CCC_INST.GL0 }] [get_pins { DMMainPorts_1.Uart0TxBitClockDiv.div_i.Q }]
+# create_generated_clock -name uart1clk -divide_by 2 -source [get_pins { FCCC_C0_0.FCCC_C0_0.CCC_INST.GL0 }] [get_pins { DMMainPorts_1.Uart1BitClockDiv.clko_i.Q }]
+# create_generated_clock -name uart1txclk -divide_by 2 -source [get_pins { FCCC_C0_0.FCCC_C0_0.CCC_INST.GL0 }] [get_pins { DMMainPorts_1.Uart1TxBitClockDiv.div_i.Q }]
+# create_generated_clock -name uart2clk -divide_by 2 -source [get_pins { FCCC_C0_0.FCCC_C0_0.CCC_INST.GL0 }] [get_pins { DMMainPorts_1.Uart2BitClockDiv.clko_i.Q }]
+# create_generated_clock -name uart2txclk -divide_by 2 -source [get_pins { FCCC_C0_0.FCCC_C0_0.CCC_INST.GL0 }] [get_pins { DMMainPorts_1.Uart2TxBitClockDiv.div_i.Q }]
+# create_generated_clock -name uart3clk -divide_by 2 -source [get_pins { FCCC_C0_0.FCCC_C0_0.CCC_INST.GL0 }] [get_pins { DMMainPorts_1.Uart3BitClockDiv.clko_i.Q }]
+# create_generated_clock -name uart3txclk -divide_by 2 -source [get_pins { FCCC_C0_0.FCCC_C0_0.CCC_INST.GL0 }] [get_pins { DMMainPorts_1.Uart3TxBitClockDiv.div_i.Q }]
 # set_false_path -through [get_nets { EvalSandbox_MSS_0.CORERESETP_0.ddr_settled EvalSandbox_MSS_0.CORERESETP_0.count_ddr_enable EvalSandbox_MSS_0.CORERESETP_0.release_sdif*_core EvalSandbox_MSS_0.CORERESETP_0.count_sdif*_enable }]
 # set_false_path -from [get_cells { EvalSandbox_MSS_0.CORERESETP_0.MSS_HPMS_READY_int }] -to [get_cells { EvalSandbox_MSS_0.CORERESETP_0.sm0_areset_n_rcosc EvalSandbox_MSS_0.CORERESETP_0.sm0_areset_n_rcosc_q1 }]
 # set_false_path -from [get_cells { EvalSandbox_MSS_0.CORERESETP_0.MSS_HPMS_READY_int EvalSandbox_MSS_0.CORERESETP_0.SDIF*_PERST_N_re }] -to [get_cells { EvalSandbox_MSS_0.CORERESETP_0.sdif*_areset_n_rcosc* }]

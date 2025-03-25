@@ -3,10 +3,10 @@
 <drcreport>
   <header>EvalBoardSandbox</header>
   <drc>
-    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\error.png</status>
-    <StatusMessage>Error</StatusMessage>
-    <message>Undriven Pin</message>
-    <detail>Unconnected input pin DMMainPorts_1:Rx0</detail>
-    <crossprobe>liberoaction://cross_probe/smartdesign/EvalBoardSandbox/pins/DMMainPorts_1:Rx0</crossprobe>
+    <status>/home/summer/microchip/Libero_SoC_v2023.2/Libero/data/drcreport/warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin FCCC_C0_0:GL1</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/EvalBoardSandbox/pins/FCCC_C0_0:GL1</crossprobe>
   </drc>
 </drcreport>

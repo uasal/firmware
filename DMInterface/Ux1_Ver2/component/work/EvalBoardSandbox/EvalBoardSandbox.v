@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Mon Mar 24 13:54:34 2025
+// Created by SmartDesign Tue Mar 25 05:39:22 2025
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -110,7 +110,6 @@ wire          EvalSandbox_MSS_0_AMBA_SLAVE_0_PSELS0;
 wire   [31:0] EvalSandbox_MSS_0_AMBA_SLAVE_0_PWDATAS;
 wire          EvalSandbox_MSS_0_AMBA_SLAVE_0_PWRITES;
 wire          FCCC_C0_0_GL0;
-wire          FCCC_C0_0_GL1;
 wire          MisoA;
 wire          MisoB;
 wire          MisoC;
@@ -245,7 +244,7 @@ assign EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDRS13to0 = AMBA_SLAVE_0_PADDRS_net_0[13
 //--------DMMainPorts
 DMMainPorts DMMainPorts_1(
         // Inputs
-        .clk           ( FCCC_C0_0_GL1 ),
+        .clk           ( FCCC_C0_0_GL0 ),
         .MisoA         ( MisoA ),
         .MisoB         ( MisoB ),
         .MisoC         ( MisoC ),
@@ -323,7 +322,7 @@ FCCC_C0 FCCC_C0_0(
         .CLK0_PAD ( CLK0_PAD ),
         // Outputs
         .GL0      ( FCCC_C0_0_GL0 ),
-        .GL1      ( FCCC_C0_0_GL1 ),
+        .GL1      (  ),
         .LOCK     (  ) 
         );
 

@@ -34,5 +34,4 @@ set_top_level {EvalBoardSandbox}
 map_netlist
 read_sdc {/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/constraint/EvalBoardSandbox_derived_constraints.sdc}
 read_sdc {/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/constraint/user.sdc}
-check_constraints -ignore_errors {/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/constraint/synthesis_sdc_errors.log}
-write_fdc {/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/designer/EvalBoardSandbox/synthesis.fdc}
+check_constraints {/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/constraint/synthesis_sdc_check.log}

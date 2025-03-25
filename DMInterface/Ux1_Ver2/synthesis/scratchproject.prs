@@ -1,52 +1,52 @@
 #--  Synopsys, Inc.
 #--  Version T-2022.09M-SP2-1
-#--  Project file C:\Users\SKaye\repos9\firmware\DMInterface\Ux1_Ver2\synthesis\scratchproject.prs
+#--  Project file /home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/synthesis/scratchproject.prs
 
 #project files
-add_file -vhdl -lib work "C:/Users/SKaye/repos9/firmware/include/fpga/CGraphDmTypes.vhd"
-add_file -vhdl -lib work "C:/Users/SKaye/repos9/firmware/include/fpga/CGraphDmDacRamFlat.vhd"
-add_file -vhdl -lib work "C:/Users/SKaye/repos9/firmware/include/fpga/IBufP1.vhd"
-add_file -vhdl -lib work "C:/Users/SKaye/repos9/firmware/include/fpga/IBufP2.vhd"
-add_file -vhdl -lib work "C:/Users/SKaye/repos9/firmware/include/fpga/IBufP3.vhd"
-add_file -vhdl -lib work "C:/Users/SKaye/repos9/firmware/include/fpga/UartRxRaw.vhd"
-add_file -vhdl -lib work "C:/Users/SKaye/repos9/firmware/include/fpga/UartRxExtClk.vhd"
-add_file -vhdl -lib work "C:/Users/SKaye/repos9/firmware/include/fpga/fifo_gen.vhd"
-add_file -vhdl -lib work "C:/Users/SKaye/repos9/firmware/include/fpga/gated_fifo.vhd"
-add_file -vhdl -lib work "C:/Users/SKaye/repos9/firmware/include/fpga/UartRxFifoExtClk.vhd"
-add_file -vhdl -lib work "C:/Users/SKaye/repos9/firmware/include/fpga/UartTx.vhd"
-add_file -vhdl -lib work "C:/Users/SKaye/repos9/firmware/include/fpga/UartTxFifoExtClk.vhd"
-add_file -vhdl -lib work "C:/Users/SKaye/repos9/firmware/include/fpga/VariableClockDivider2X.vhd"
-add_file -vhdl -lib work "C:/Users/SKaye/repos9/firmware/include/fpga/ClockDivider2X.vhd"
-add_file -vhdl -lib work "C:/Users/SKaye/repos9/firmware/include/fpga/OneShot.vhd"
-add_file -vhdl -lib work "C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/hdl/RegisterSpace.vhd"
-add_file -vhdl -lib work "C:/Users/SKaye/repos9/firmware/include/fpga/SpiMaster.vhd"
-add_file -vhdl -lib work "C:/Users/SKaye/repos9/firmware/include/fpga/SpiDac.vhd"
-add_file -vhdl -lib work "C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/hdl/DMMain.vhd"
-add_file -verilog "C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS/CCC_0/EvalSandbox_MSS_CCC_0_FCCC.v"
-add_file -verilog "C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/component/Actel/SgCore/OSC/2.0.101/osc_comps.v"
-add_file -verilog "C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS/FABOSC_0/EvalSandbox_MSS_FABOSC_0_OSC.v"
-add_file -verilog "C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS_MSS/EvalSandbox_MSS_MSS_syn.v"
-add_file -verilog "C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS_MSS/EvalSandbox_MSS_MSS.v"
-add_file -verilog "C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp_pcie_hotreset.v"
-add_file -verilog "C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v"
-add_file -verilog -lib COREAPB3_LIB "C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3_muxptob3.v"
-add_file -verilog -lib COREAPB3_LIB "C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3_iaddr_reg.v"
-add_file -verilog -lib COREAPB3_LIB "C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3.v"
-add_file -verilog "C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS/EvalSandbox_MSS.v"
-add_file -verilog "C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.v"
-add_file -verilog "C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/component/work/FCCC_C0/FCCC_C0.v"
-add_file -verilog "C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/component/work/EvalBoardSandbox/EvalBoardSandbox.v"
-add_file -fpga_constraint "C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/designer/EvalBoardSandbox/synthesis.fdc"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/CGraphDmTypes.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/CGraphDmDacRamFlat.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/UartRxExtClk.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClk.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider2X.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/hdl/RegisterSpace.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/hdl/DMMain.vhd"
+add_file -verilog "/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS/CCC_0/EvalSandbox_MSS_CCC_0_FCCC.v"
+add_file -verilog "/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/component/Actel/SgCore/OSC/2.0.101/osc_comps.v"
+add_file -verilog "/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS/FABOSC_0/EvalSandbox_MSS_FABOSC_0_OSC.v"
+add_file -verilog "/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS_MSS/EvalSandbox_MSS_MSS_syn.v"
+add_file -verilog "/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS_MSS/EvalSandbox_MSS_MSS.v"
+add_file -verilog "/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp_pcie_hotreset.v"
+add_file -verilog "/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v"
+add_file -verilog -lib COREAPB3_LIB "/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3_muxptob3.v"
+add_file -verilog -lib COREAPB3_LIB "/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3_iaddr_reg.v"
+add_file -verilog -lib COREAPB3_LIB "/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3.v"
+add_file -verilog "/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS/EvalSandbox_MSS.v"
+add_file -verilog "/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.v"
+add_file -verilog "/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/component/work/FCCC_C0/FCCC_C0.v"
+add_file -verilog "/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/component/work/EvalBoardSandbox/EvalBoardSandbox.v"
+add_file -fpga_constraint "/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/designer/EvalBoardSandbox/synthesis.fdc"
 
 
 #implementation: "synthesis"
-impl -add C:\Users\SKaye\repos9\firmware\DMInterface\Ux1_Ver2\synthesis -type fpga
+impl -add /home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/synthesis -type fpga
 
 #
 #implementation attributes
 
 set_option -vlog_std sysv
-set_option -include_path {C:/Users/SKaye/repos9/firmware/include/fpga}
+set_option -include_path {/home/summer/projects/CGraph/firmware/include/fpga}
 
 #device options
 set_option -technology SmartFusion2
@@ -127,5 +127,5 @@ set_option -vhdl2008 1
 set_option -write_apr_constraint 1
 
 #set result format/file last
-project -result_file "C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/synthesis/EvalBoardSandbox.vm"
+project -result_file "/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/synthesis/EvalBoardSandbox.vm"
 impl -active "synthesis"
