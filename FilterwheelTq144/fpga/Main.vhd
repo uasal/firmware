@@ -11,6 +11,7 @@ use IEEE.numeric_std.all;
 entity Main is
 port (
     clk : in  std_logic;
+    rst_out : out std_logic;
 	
 	--ClkDac
 	nCsXO : out std_logic;
@@ -1254,6 +1255,8 @@ begin
 		rst => '0',
 		shot => MasterReset
 	);
+	
+	rst_out <= MasterReset;
 	
 	------------------------------------------ RegisterSpaces ---------------------------------------------------
 

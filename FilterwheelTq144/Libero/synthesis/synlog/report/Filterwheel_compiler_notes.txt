@@ -51,7 +51,7 @@
 @N: CG364 :"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/generic/smartfusion2.v":720:7:720:14|Synthesizing module SYSRESET in library work.
 @N: CG364 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/Filterwheel_sb/Filterwheel_sb.v":9:7:9:20|Synthesizing module Filterwheel_sb in library work.
 @N: CG364 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/Filterwheel/Filterwheel.v":9:7:9:17|Synthesizing module Filterwheel in library work.
-@N: CG794 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/Filterwheel/Filterwheel.v":434:5:434:10|Using module Main from library work
+@N: CG794 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/Filterwheel/Filterwheel.v":436:5:436:10|Using module Main from library work
 @N: CL159 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/Filterwheel_sb/FABOSC_0/Filterwheel_sb_FABOSC_0_OSC.v":14:7:14:9|Input XTL is unused.
 @N: CL201 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1365:4:1365:9|Trying to extract state machine for register sdif3_state.
 @N: CL201 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1300:4:1300:9|Trying to extract state machine for register sdif2_state.
@@ -176,7 +176,7 @@
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":30:7:30:19|Synthesizing work.ppscountports.ppscount.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":33:7:33:22|Synthesizing work.uarttxfifoextclk.implementation.
 @N: CD233 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":122:15:122:16|Using sequential encoding for type states.
-@N: CD604 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":273:5:273:18|OTHERS clause is not synthesized.
+@N: CD604 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":274:5:274:18|OTHERS clause is not synthesized.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd":30:7:30:12|Synthesizing work.uarttx.behaviour.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":11:7:11:16|Synthesizing work.gated_fifo.rtl.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":11:7:11:10|Synthesizing work.fifo.rtl.
@@ -204,6 +204,6 @@
 @N: CL159 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":228:2:228:19|Input UartGpsTxFifoCount is unused.
 @N: CL135 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd":48:2:48:3|Found sequential shift O with address depth of 3 words and data bit width of 1.
 @N: CL159 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxExtClk.vhd":37:2:37:4|Input clk is unused.
-@N: CL159 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":50:1:50:11|Input RamBusLatch is unused.
+@N: CL159 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":51:1:51:11|Input RamBusLatch is unused.
 @N|Running in 64-bit mode
 

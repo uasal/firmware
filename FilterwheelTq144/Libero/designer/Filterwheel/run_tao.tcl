@@ -35,6 +35,6 @@ read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/FilterwheelTq14
 read_verilog -mode system_verilog {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/Filterwheel/Filterwheel.v}
 set_top_level {Filterwheel}
 map_netlist
-read_sdc {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/constraint/user.sdc}
-check_constraints {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/constraint/synthesis_sdc_errors.log}
+read_sdc {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/constraint/Filterwheel_derived_constraints.sdc}
+check_constraints -ignore_errors {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/constraint/synthesis_sdc_errors.log}
 write_fdc {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/synthesis.fdc}

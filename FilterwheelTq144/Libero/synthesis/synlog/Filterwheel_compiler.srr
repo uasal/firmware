@@ -7,10 +7,10 @@ Synopsys software or the associated documentation is strictly prohibited.
 Tool: Synplify Pro (R)
 Build: T-2022.09M-SP2-1
 Install: /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro
-OS: Linux Mint 21.3
-Hostname: homework
+OS: Linux Mint 21
+Hostname: MountainOps
 max virtual memory: unlimited (bytes)
-max user processes: 126748
+max user processes: 125700
 max stack size: 8388608 (bytes)
 
 
@@ -28,10 +28,10 @@ Synopsys software or the associated documentation is strictly prohibited.
 Tool: Synplify Pro (R)
 Build: T-2022.09M-SP2-1
 Install: /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro
-OS: Linux Mint 21.3
-Hostname: homework
+OS: Linux Mint 21
+Hostname: MountainOps
 max virtual memory: unlimited (bytes)
-max user processes: 126748
+max user processes: 125700
 max stack size: 8388608 (bytes)
 
 
@@ -71,7 +71,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memor
 
 
 Process completed successfully.
-# Tue Feb 18 19:19:04 2025
+# Wed Mar 26 16:16:25 2025
 
 ###########################################################]
 ###########################################################[
@@ -84,10 +84,10 @@ Synopsys software or the associated documentation is strictly prohibited.
 Tool: Synplify Pro (R)
 Build: T-2022.09M-SP2-1
 Install: /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro
-OS: Linux Mint 21.3
-Hostname: homework
+OS: Linux Mint 21
+Hostname: MountainOps
 max virtual memory: unlimited (bytes)
-max user processes: 126748
+max user processes: 125700
 max stack size: 8388608 (bytes)
 
 
@@ -137,7 +137,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Tue Feb 18 19:19:04 2025
+# Wed Mar 26 16:16:25 2025
 
 ###########################################################]
 ###########################################################[
@@ -385,7 +385,7 @@ Finished optimization stage 1 on SYSRESET (CPU Time 0h:00m:00s, Memory Used curr
 Running optimization stage 1 on Filterwheel_sb .......
 Finished optimization stage 1 on Filterwheel_sb (CPU Time 0h:00m:00s, Memory Used current: 143MB peak: 143MB)
 @N: CG364 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/Filterwheel/Filterwheel.v":9:7:9:17|Synthesizing module Filterwheel in library work.
-@N: CG794 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/Filterwheel/Filterwheel.v":434:5:434:10|Using module Main from library work
+@N: CG794 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/Filterwheel/Filterwheel.v":436:5:436:10|Using module Main from library work
 Running optimization stage 1 on Filterwheel .......
 Finished optimization stage 1 on Filterwheel (CPU Time 0h:00m:00s, Memory Used current: 143MB peak: 143MB)
 Running optimization stage 2 on Filterwheel .......
@@ -561,7 +561,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Tue Feb 18 19:19:04 2025
+# Wed Mar 26 16:16:25 2025
 
 ###########################################################]
 ###########################################################[
@@ -593,25 +593,28 @@ Process completed successfully.
 VHDL syntax check successful!
 @N: CD231 :"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/std1164.vhd":889:16:889:17|Using onehot encoding for type mvl9plus. For example, enumeration 'U' is mapped to "1000000000".
 @N: CD630 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":11:7:11:10|Synthesizing work.main.architecture_main.
-@W: CD326 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1741:1:1741:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
-@W: CD326 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1840:1:1840:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
-@W: CD326 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1939:1:1939:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
-@W: CD326 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2050:1:2050:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
-@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":968:10:968:25|Signal monitoradcsample is undriven. Either assign the signal a value or remove the signal declaration.
-@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":984:10:984:27|Signal uart0rxfiforeadack is undriven. Either assign the signal a value or remove the signal declaration.
-@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":997:10:997:19|Signal uartrx0dbg is undriven. Either assign the signal a value or remove the signal declaration.
-@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1004:10:1004:27|Signal uart1rxfiforeadack is undriven. Either assign the signal a value or remove the signal declaration.
-@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1017:10:1017:19|Signal uartrx1dbg is undriven. Either assign the signal a value or remove the signal declaration.
-@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1024:10:1024:27|Signal uart2rxfiforeadack is undriven. Either assign the signal a value or remove the signal declaration.
-@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1037:10:1037:19|Signal uartrx2dbg is undriven. Either assign the signal a value or remove the signal declaration.
-@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1044:10:1044:27|Signal uart3rxfiforeadack is undriven. Either assign the signal a value or remove the signal declaration.
-@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1057:10:1057:19|Signal uartrx3dbg is undriven. Either assign the signal a value or remove the signal declaration.
-@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1064:10:1064:29|Signal uartusbrxfiforeadack is undriven. Either assign the signal a value or remove the signal declaration.
-@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1077:10:1077:21|Signal uartrxusbdbg is undriven. Either assign the signal a value or remove the signal declaration.
-@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1085:10:1085:29|Signal uartgpsrxfiforeadack is undriven. Either assign the signal a value or remove the signal declaration.
-@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1098:10:1098:21|Signal uartrxgpsdbg is undriven. Either assign the signal a value or remove the signal declaration.
-@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1140:9:1140:18|Signal posledsena is undriven. Either assign the signal a value or remove the signal declaration.
-@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1151:9:1151:18|Signal posledsenb is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD326 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1744:1:1744:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
+@W: CD326 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1843:1:1843:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
+@W: CD326 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1942:1:1942:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
+@W: CD326 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2053:1:2053:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
+@W: CD276 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd":65:2:65:17|Map for port transfercomplete of component spidacports not found
+@W: CD730 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2428:1:2428:8|Component declaration has 9 ports but entity declares 10 ports
+@W: CD326 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2428:1:2428:8|Port transfercomplete of entity work.spidacports is unconnected. If a port needs to remain unconnected, use the keyword open.
+@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":969:10:969:25|Signal monitoradcsample is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":985:10:985:27|Signal uart0rxfiforeadack is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":998:10:998:19|Signal uartrx0dbg is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1005:10:1005:27|Signal uart1rxfiforeadack is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1018:10:1018:19|Signal uartrx1dbg is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1025:10:1025:27|Signal uart2rxfiforeadack is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1038:10:1038:19|Signal uartrx2dbg is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1045:10:1045:27|Signal uart3rxfiforeadack is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1058:10:1058:19|Signal uartrx3dbg is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1065:10:1065:29|Signal uartusbrxfiforeadack is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1078:10:1078:21|Signal uartrxusbdbg is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1086:10:1086:29|Signal uartgpsrxfiforeadack is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1099:10:1099:21|Signal uartrxgpsdbg is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1141:9:1141:18|Signal posledsena is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1152:9:1152:18|Signal posledsenb is undriven. Either assign the signal a value or remove the signal declaration.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd":35:7:35:37|Synthesizing work.fourwiresteppermotordriverports.fourwiresteppermotordriver.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotor.vhd":35:7:35:31|Synthesizing work.fourwiresteppermotorports.fourwiresteppermotor.
 Post processing for work.fourwiresteppermotorports.fourwiresteppermotor
@@ -639,7 +642,6 @@ Running optimization stage 1 on SpiMasterPorts .......
 Finished optimization stage 1 on SpiMasterPorts (CPU Time 0h:00m:00s, Memory Used current: 145MB peak: 145MB)
 Post processing for work.spidacports.spidac
 Running optimization stage 1 on SpiDacPorts .......
-@A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd":134:2:134:3|Feedback mux created for signal DacReadback[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 Finished optimization stage 1 on SpiDacPorts (CPU Time 0h:00m:00s, Memory Used current: 145MB peak: 145MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":30:7:30:17|Synthesizing work.ibufp2ports.ibufp2.
 Post processing for work.ibufp2ports.ibufp2
@@ -653,9 +655,8 @@ Running optimization stage 1 on PPSCountPorts .......
 Finished optimization stage 1 on PPSCountPorts (CPU Time 0h:00m:00s, Memory Used current: 145MB peak: 145MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":33:7:33:22|Synthesizing work.uarttxfifoextclk.implementation.
 @N: CD233 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":122:15:122:16|Using sequential encoding for type states.
-@N: CD604 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":273:5:273:18|OTHERS clause is not synthesized.
+@N: CD604 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":274:5:274:18|OTHERS clause is not synthesized.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd":30:7:30:12|Synthesizing work.uarttx.behaviour.
-@W: CD610 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd":96:13:96:24|Index value 0 to 15 could be out of prefix range 7 downto 0. 
 Post processing for work.uarttx.behaviour
 Running optimization stage 1 on UartTx .......
 Finished optimization stage 1 on UartTx (CPU Time 0h:00m:00s, Memory Used current: 146MB peak: 146MB)
@@ -671,15 +672,12 @@ Running optimization stage 1 on gated_fifo .......
 Finished optimization stage 1 on gated_fifo (CPU Time 0h:00m:00s, Memory Used current: 146MB peak: 146MB)
 Post processing for work.uarttxfifoextclk.implementation
 Running optimization stage 1 on UartTxFifoExtClk .......
-@A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":205:2:205:3|Feedback mux created for signal CurrentState[1:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 Finished optimization stage 1 on UartTxFifoExtClk (CPU Time 0h:00m:00s, Memory Used current: 146MB peak: 146MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClk.vhd":34:7:34:22|Synthesizing work.uartrxfifoextclk.implementation.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxExtClk.vhd":34:7:34:18|Synthesizing work.uartrxextclk.implementation.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":32:7:32:15|Synthesizing work.uartrxraw.behaviour.
 Post processing for work.uartrxraw.behaviour
 Running optimization stage 1 on UartRxRaw .......
-@A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Feedback mux created for signal RReg[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":61:5:61:6|Feedback mux created for signal DataO[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 Finished optimization stage 1 on UartRxRaw (CPU Time 0h:00m:00s, Memory Used current: 146MB peak: 146MB)
 Post processing for work.uartrxextclk.implementation
 Running optimization stage 1 on UartRxExtClk .......
@@ -711,62 +709,12 @@ Finished optimization stage 1 on VariableClockDividerPorts (CPU Time 0h:00m:00s,
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd":38:7:38:20|Synthesizing work.spimasterports.spimaster.
 Post processing for work.spimasterports.spimaster
 Running optimization stage 1 on SpiMasterPorts .......
-Finished optimization stage 1 on SpiMasterPorts (CPU Time 0h:00m:00s, Memory Used current: 147MB peak: 147MB)
+Finished optimization stage 1 on SpiMasterPorts (CPU Time 0h:00m:00s, Memory Used current: 146MB peak: 146MB)
 Post processing for work.spideviceports.spidevice
 Running optimization stage 1 on SpiDevicePorts .......
 @A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDevice.vhd":142:2:142:3|Feedback mux created for signal Readback[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-Finished optimization stage 1 on SpiDevicePorts (CPU Time 0h:00m:00s, Memory Used current: 147MB peak: 147MB)
+Finished optimization stage 1 on SpiDevicePorts (CPU Time 0h:00m:00s, Memory Used current: 146MB peak: 146MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":14:7:14:24|Synthesizing work.registerspaceports.registerspace.
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":394:18:394:32|Expression does not match type unresolved_signed
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":725:34:725:49|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":779:62:779:78|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":780:63:780:80|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":781:59:781:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":782:60:782:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":783:59:783:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":784:60:784:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":785:59:785:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":786:60:786:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":788:62:788:78|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":789:63:789:80|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":790:59:790:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":791:60:791:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":792:59:792:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":793:60:793:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":794:59:794:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":795:60:795:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":797:59:797:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":798:60:798:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":799:59:799:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":800:60:800:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":801:59:801:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":802:60:802:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":803:59:803:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":804:60:804:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":805:59:805:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":806:60:806:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":807:59:807:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":808:60:808:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":809:59:809:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":810:60:810:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":811:59:811:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":812:60:812:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":814:59:814:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":815:60:815:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":816:59:816:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":817:60:817:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":818:59:818:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":819:60:819:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":820:59:820:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":821:60:821:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":822:59:822:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":823:60:823:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":824:59:824:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":825:60:825:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":826:59:826:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":827:60:827:74|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":828:59:828:72|Expression does not match type std_ulogic_vector
-@W: CD648 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":829:60:829:74|Expression does not match type std_ulogic_vector
 Post processing for work.registerspaceports.registerspace
 Running optimization stage 1 on RegisterSpacePorts .......
 @W: CL240 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":229:2:229:18|Signal UartGpsClkDivider is floating; a simulation mismatch is possible.
@@ -835,110 +783,114 @@ Running optimization stage 1 on BuildNumberPorts .......
 Finished optimization stage 1 on BuildNumberPorts (CPU Time 0h:00m:00s, Memory Used current: 156MB peak: 156MB)
 Post processing for work.main.architecture_main
 Running optimization stage 1 on Main .......
-@W: CL168 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1260:2:1260:10|Removing instance IBufLatch because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 0 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 1 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 2 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 3 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 4 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 5 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 6 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 7 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 8 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 9 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 10 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 11 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 12 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 13 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 14 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 15 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 16 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 17 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 18 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 19 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 20 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 21 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 22 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 23 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 24 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 25 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 26 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 27 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 28 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 29 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 30 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 31 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 32 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 33 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 34 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 35 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 36 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 37 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 38 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 39 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 40 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 41 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 42 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 43 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 44 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 45 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 46 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 47 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 48 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 49 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 50 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 51 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 52 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 53 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 54 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 55 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 56 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 57 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 58 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 59 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 60 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 61 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 62 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1312:1:1312:13|Bit 63 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet7BOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet7AOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet6BOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet6AOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet5BOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet5AOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet4BOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet4AOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet3BOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet3AOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet2BOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet2AOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet1BOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet1AOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet0BOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet0AOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet7BOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet7AOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet6BOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet6AOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet5BOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet5AOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet4BOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet4AOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet3BOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet3AOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet2BOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet2AOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet1BOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet1AOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet0BOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDet0AOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal LastPosSenseB[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal LastPosSenseA[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDetHomeBOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDetHomeBOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDetHomeAOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDetHomeAOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2618:2:2618:3|Feedback mux created for signal PosDetB2OnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@W: CL168 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1263:2:1263:10|Removing instance IBufLatch because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 0 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 1 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 2 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 3 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 4 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 5 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 6 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 7 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 8 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 9 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 10 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 11 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 12 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 13 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 14 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 15 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 16 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 17 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 18 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 19 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 20 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 21 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 22 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 23 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 24 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 25 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 26 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 27 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 28 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 29 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 30 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 31 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 32 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 33 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 34 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 35 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 36 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 37 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 38 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 39 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 40 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 41 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 42 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 43 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 44 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 45 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 46 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 47 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 48 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 49 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 50 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 51 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 52 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 53 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 54 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 55 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 56 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 57 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 58 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 59 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 60 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 61 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 62 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL245 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1315:1:1315:13|Bit 63 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet7BOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet7AOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet6BOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet6AOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet5BOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet5AOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet4BOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet4AOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet3BOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet3AOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet2BOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet2AOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet1BOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet1AOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet0BOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet0AOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet7BOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet7AOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet6BOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet6AOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet5BOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet5AOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet4BOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet4AOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet3BOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet3AOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet2BOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet2AOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet1BOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet1AOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet0BOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDet0AOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal LastPosSenseB[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal LastPosSenseA[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDetHomeBOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDetHomeBOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDetHomeAOnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDetHomeAOffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDetB2OnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDetB2OffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDetB1OnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDetB1OffStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":2621:2:2621:3|Feedback mux created for signal PosDetB0OnStep[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 
 Only the first 100 messages of id 'CL282' are reported. To see all messages use 'report_messages -log /home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesis/synlog/Filterwheel_compiler.srr -id CL282' in the Tcl shell. To see all messages in future runs, use the command 'message_override -limit {CL282} -count unlimited' in the Tcl shell.
 Finished optimization stage 1 on Main (CPU Time 0h:00m:00s, Memory Used current: 157MB peak: 157MB)
@@ -1005,7 +957,7 @@ Finished optimization stage 2 on FourWireStepperMotorPorts (CPU Time 0h:00m:00s,
 Running optimization stage 2 on FourWireStepperMotorDriverPorts_102000000_0.010000 .......
 Finished optimization stage 2 on FourWireStepperMotorDriverPorts_102000000_0.010000 (CPU Time 0h:00m:00s, Memory Used current: 162MB peak: 162MB)
 Running optimization stage 2 on Main .......
-@N: CL159 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":50:1:50:11|Input RamBusLatch is unused.
+@N: CL159 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":51:1:51:11|Input RamBusLatch is unused.
 Finished optimization stage 2 on Main (CPU Time 0h:00m:00s, Memory Used current: 162MB peak: 162MB)
 
 For a summary of runtime per design unit, please see file:
@@ -1018,7 +970,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memor
 
 
 Process completed successfully.
-# Tue Feb 18 19:19:06 2025
+# Wed Mar 26 16:16:27 2025
 
 ###########################################################]
 ###########################################################[
@@ -1031,10 +983,10 @@ Synopsys software or the associated documentation is strictly prohibited.
 Tool: Synplify Pro (R)
 Build: T-2022.09M-SP2-1
 Install: /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro
-OS: Linux Mint 21.3
-Hostname: homework
+OS: Linux Mint 21
+Hostname: MountainOps
 max virtual memory: unlimited (bytes)
-max user processes: 126748
+max user processes: 125700
 max stack size: 8388608 (bytes)
 
 
@@ -1054,7 +1006,7 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Tue Feb 18 19:19:06 2025
+# Wed Mar 26 16:16:27 2025
 
 ###########################################################]
 
@@ -1064,11 +1016,11 @@ For a summary of runtime and memory usage for all design units, please see file:
 
 @END
 
-At c_hdl Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 45MB peak: 45MB)
+At c_hdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 45MB peak: 45MB)
 
-Process took 0h:00m:02s realtime, 0h:00m:02s cputime
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Tue Feb 18 19:19:06 2025
+# Wed Mar 26 16:16:27 2025
 
 ###########################################################]

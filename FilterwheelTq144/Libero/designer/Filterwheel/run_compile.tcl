@@ -11,7 +11,7 @@ set_defvar -name {PA4_GB_HIGH_FANOUT_THRESHOLD} -value {5000}
 set_defvar -name {PA4_GB_COUNT} -value {8}
 set_defvar -name {RESTRICTPROBEPINS} -value {0}
 set_defvar -name {RESTRICTSPIPINS} -value {0}
-set_defvar -name {PDC_IMPORT_HARDERROR} -value {1}
+set_defvar -name {PDC_IMPORT_HARDERROR} -value {0}
 set_defvar -name {PA4_IDDQ_FF_FIX} -value {1}
 set_defvar -name {BLOCK_PLACEMENT_CONFLICTS} -value {ERROR}
 set_defvar -name {BLOCK_ROUTING_CONFLICTS} -value {LOCK}

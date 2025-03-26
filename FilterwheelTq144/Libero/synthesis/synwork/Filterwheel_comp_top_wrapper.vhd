@@ -1,6 +1,6 @@
 --
 -- Synopsys
--- Vhdl wrapper for top level design, written on Tue Feb 18 19:19:06 2025
+-- Vhdl wrapper for top level design, written on Wed Mar 26 16:16:27 2025
 --
 library ieee;
 use ieee.std_logic_1164.all;
@@ -9,6 +9,7 @@ use ieee.numeric_std.all;
 entity wrapper_for_Main is
    port (
       clk : in std_logic;
+      rst_out : out std_logic;
       nCsXO : out std_logic;
       SckXO : out std_logic;
       MosiXO : out std_logic;
@@ -90,6 +91,7 @@ architecture architecture_main of wrapper_for_Main is
 component Main
  port (
    clk : in std_logic;
+   rst_out : out std_logic;
    nCsXO : out std_logic;
    SckXO : out std_logic;
    MosiXO : out std_logic;
@@ -167,6 +169,7 @@ component Main
 end component;
 
 signal tmp_clk : std_logic;
+signal tmp_rst_out : std_logic;
 signal tmp_nCsXO : std_logic;
 signal tmp_SckXO : std_logic;
 signal tmp_MosiXO : std_logic;
@@ -244,6 +247,8 @@ signal tmp_Ux1SelJmp : std_logic;
 begin
 
 tmp_clk <= clk;
+
+rst_out <= tmp_rst_out;
 
 nCsXO <= tmp_nCsXO;
 
@@ -395,6 +400,7 @@ tmp_Ux1SelJmp <= Ux1SelJmp;
 
 u1:   Main port map (
 		clk => tmp_clk,
+		rst_out => tmp_rst_out,
 		nCsXO => tmp_nCsXO,
 		SckXO => tmp_SckXO,
 		MosiXO => tmp_MosiXO,

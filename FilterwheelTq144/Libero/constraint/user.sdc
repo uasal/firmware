@@ -1,4 +1,17 @@
-#Libero SoC uses “/” as the hierarchy separator and pin separators in the *.sdc file
-create_clock -name CLK0_PAD -period 19.608
-#create_generated_clock -name {<top_level_instance_name>/FCCC_C0_0/GL0} -multiply_by 2 -divide_by 1 -source [get_pins {<top_level_instance_name>/FCCC_C0_0/CCC_INST/GL0}]
-#create_generated_clock -name {<top_level_instance_name>/FCCC_C0_0/GL1} -multiply_by 4 -divide_by 1 -source [get_pins {<top_level_instance_name>/FCCC_C0_0/CCC_INST/GL1}]
+create_generated_clock -name uart0clk -multiply_by 1 -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/GL0 } ] [ get_pins { Main_0/Uart0BitClockDiv/clko_i/Q } ]
+create_generated_clock -name uart0txclk -multiply_by 1 -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/GL0 } ] [ get_pins { Main_0/Uart0TxBitClockDiv/div_i/Q } ]
+
+create_generated_clock -name uart1clk -multiply_by 1 -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/GL0 } ] [ get_pins { Main_0/Uart1BitClockDiv/clko_i/Q } ]
+create_generated_clock -name uart1txclk -multiply_by 1 -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/GL0 } ] [ get_pins { Main_0/Uart1TxBitClockDiv/div_i/Q } ]
+
+create_generated_clock -name uart2clk -multiply_by 1 -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/GL0 } ] [ get_pins { Main_0/Uart2BitClockDiv/clko_i/Q } ]
+create_generated_clock -name uart2txclk -multiply_by 1 -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/GL0 } ] [ get_pins { Main_0/Uart2TxBitClockDiv/div_i/Q } ]
+
+create_generated_clock -name uart3clk -multiply_by 1 -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/GL0 } ] [ get_pins { Main_0/Uart3BitClockDiv/clko_i/Q } ]
+create_generated_clock -name uart3txclk -multiply_by 1 -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/GL0 } ] [ get_pins { Main_0/Uart3TxBitClockDiv/div_i/Q } ]
+
+create_generated_clock -name uartgpsclk -multiply_by 1 -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/GL0 } ] [ get_pins { Main_0/UartGpsBitClockDiv/clko_i/Q } ]
+create_generated_clock -name uartgpstxclk -multiply_by 1 -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/GL0 } ] [ get_pins { Main_0/UartGpsTxBitClockDiv/div_i/Q } ]
+
+create_generated_clock -name uartusbclk -multiply_by 1 -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/GL0 } ] [ get_pins { Main_0/UartUsbBitClockDiv/clko_i/Q } ]
+create_generated_clock -name uartusbtxclk -multiply_by 1 -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/GL0 } ] [ get_pins { Main_0/UartUsbTxBitClockDiv/div_i/Q } ]

@@ -227,6 +227,7 @@ begin
 	
 		if (rst = '1') then
 		
+			CurrentState <= Idle;
 			NextState <= Idle;
 			ReadStrobe <= '0';
 			StartTx <= '0';

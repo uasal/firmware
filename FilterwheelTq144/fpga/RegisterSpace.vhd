@@ -391,7 +391,7 @@ begin
 	Uart2ClkDivider <= Uart2ClkDivider_i;
 	Uart3ClkDivider <= Uart3ClkDivider_i;
 	
-	MotorSeekStep <= MotorSeekStep_i;
+	MotorSeekStep <= signed(MotorSeekStep_i);
 	PosLedsEnA <= PosLedsEnA_i;
 	PosLedsEnB <= PosLedsEnB_i;
 	ResetSteps <= ResetSteps_i;
@@ -722,7 +722,7 @@ begin
 							when MotorControlStatusAddr =>
 
 								DataOut(15 downto 0) <= MotorSeekStep_i;
-								DataOut(31 downto 16) <= MotorCurrentStep;
+								DataOut(31 downto 16) <= std_logic_vector(MotorCurrentStep);
 								
 								
 								
@@ -776,57 +776,57 @@ begin
 							
 							--The infinity of step latches
 							
-							when PosDetHomeAOnStepAddr => DataOut(15 downto 0) <= PosDetHomeAOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetHomeAOffStepAddr => DataOut(15 downto 0) <= PosDetHomeAOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetA0OnStepAddr => DataOut(15 downto 0) <= PosDetA0OnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetA0OffStepAddr => DataOut(15 downto 0) <= PosDetA0OffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetA1OnStepAddr => DataOut(15 downto 0) <= PosDetA1OnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetA1OffStepAddr => DataOut(15 downto 0) <= PosDetA1OffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetA2OnStepAddr => DataOut(15 downto 0) <= PosDetA2OnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetA2OffStepAddr => DataOut(15 downto 0) <= PosDetA2OffStep; DataOut(31 downto 16) <= x"0000";
+							when PosDetHomeAOnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDetHomeAOnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDetHomeAOffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDetHomeAOffStep); DataOut(31 downto 16) <= x"0000";
+							when PosDetA0OnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDetA0OnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDetA0OffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDetA0OffStep); DataOut(31 downto 16) <= x"0000";
+							when PosDetA1OnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDetA1OnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDetA1OffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDetA1OffStep); DataOut(31 downto 16) <= x"0000";
+							when PosDetA2OnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDetA2OnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDetA2OffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDetA2OffStep); DataOut(31 downto 16) <= x"0000";
 							
-							when PosDetHomeBOnStepAddr => DataOut(15 downto 0) <= PosDetHomeBOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetHomeBOffStepAddr => DataOut(15 downto 0) <= PosDetHomeBOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetB0OnStepAddr => DataOut(15 downto 0) <= PosDetB0OnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetB0OffStepAddr => DataOut(15 downto 0) <= PosDetB0OffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetB1OnStepAddr => DataOut(15 downto 0) <= PosDetB1OnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetB1OffStepAddr => DataOut(15 downto 0) <= PosDetB1OffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetB2OnStepAddr => DataOut(15 downto 0) <= PosDetB2OnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDetB2OffStepAddr => DataOut(15 downto 0) <= PosDetB2OffStep; DataOut(31 downto 16) <= x"0000";
+							when PosDetHomeBOnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDetHomeBOnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDetHomeBOffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDetHomeBOffStep); DataOut(31 downto 16) <= x"0000";
+							when PosDetB0OnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDetB0OnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDetB0OffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDetB0OffStep); DataOut(31 downto 16) <= x"0000";
+							when PosDetB1OnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDetB1OnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDetB1OffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDetB1OffStep); DataOut(31 downto 16) <= x"0000";
+							when PosDetB2OnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDetB2OnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDetB2OffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDetB2OffStep); DataOut(31 downto 16) <= x"0000";
 							
-							when PosDet0AOnStepAddr => DataOut(15 downto 0) <= PosDet0AOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet0AOffStepAddr => DataOut(15 downto 0) <= PosDet0AOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet1AOnStepAddr => DataOut(15 downto 0) <= PosDet1AOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet1AOffStepAddr => DataOut(15 downto 0) <= PosDet1AOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet2AOnStepAddr => DataOut(15 downto 0) <= PosDet2AOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet2AOffStepAddr => DataOut(15 downto 0) <= PosDet2AOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet3AOnStepAddr => DataOut(15 downto 0) <= PosDet3AOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet3AOffStepAddr => DataOut(15 downto 0) <= PosDet3AOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet4AOnStepAddr => DataOut(15 downto 0) <= PosDet4AOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet4AOffStepAddr => DataOut(15 downto 0) <= PosDet4AOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet5AOnStepAddr => DataOut(15 downto 0) <= PosDet5AOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet5AOffStepAddr => DataOut(15 downto 0) <= PosDet5AOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet6AOnStepAddr => DataOut(15 downto 0) <= PosDet6AOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet6AOffStepAddr => DataOut(15 downto 0) <= PosDet6AOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet7AOnStepAddr => DataOut(15 downto 0) <= PosDet7AOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet7AOffStepAddr => DataOut(15 downto 0) <= PosDet7AOffStep; DataOut(31 downto 16) <= x"0000";
+							when PosDet0AOnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet0AOnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet0AOffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet0AOffStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet1AOnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet1AOnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet1AOffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet1AOffStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet2AOnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet2AOnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet2AOffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet2AOffStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet3AOnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet3AOnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet3AOffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet3AOffStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet4AOnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet4AOnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet4AOffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet4AOffStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet5AOnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet5AOnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet5AOffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet5AOffStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet6AOnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet6AOnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet6AOffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet6AOffStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet7AOnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet7AOnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet7AOffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet7AOffStep); DataOut(31 downto 16) <= x"0000";
 							
-							when PosDet0BOnStepAddr => DataOut(15 downto 0) <= PosDet0BOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet0BOffStepAddr => DataOut(15 downto 0) <= PosDet0BOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet1BOnStepAddr => DataOut(15 downto 0) <= PosDet1BOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet1BOffStepAddr => DataOut(15 downto 0) <= PosDet1BOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet2BOnStepAddr => DataOut(15 downto 0) <= PosDet2BOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet2BOffStepAddr => DataOut(15 downto 0) <= PosDet2BOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet3BOnStepAddr => DataOut(15 downto 0) <= PosDet3BOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet3BOffStepAddr => DataOut(15 downto 0) <= PosDet3BOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet4BOnStepAddr => DataOut(15 downto 0) <= PosDet4BOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet4BOffStepAddr => DataOut(15 downto 0) <= PosDet4BOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet5BOnStepAddr => DataOut(15 downto 0) <= PosDet5BOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet5BOffStepAddr => DataOut(15 downto 0) <= PosDet5BOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet6BOnStepAddr => DataOut(15 downto 0) <= PosDet6BOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet6BOffStepAddr => DataOut(15 downto 0) <= PosDet6BOffStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet7BOnStepAddr => DataOut(15 downto 0) <= PosDet7BOnStep; DataOut(31 downto 16) <= x"0000";
-							when PosDet7BOffStepAddr => DataOut(15 downto 0) <= PosDet7BOffStep; DataOut(31 downto 16) <= x"0000";
+							when PosDet0BOnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet0BOnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet0BOffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet0BOffStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet1BOnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet1BOnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet1BOffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet1BOffStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet2BOnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet2BOnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet2BOffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet2BOffStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet3BOnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet3BOnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet3BOffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet3BOffStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet4BOnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet4BOnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet4BOffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet4BOffStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet5BOnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet5BOnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet5BOffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet5BOffStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet6BOnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet6BOnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet6BOffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet6BOffStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet7BOnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet7BOnStep); DataOut(31 downto 16) <= x"0000";
+							when PosDet7BOffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet7BOffStep); DataOut(31 downto 16) <= x"0000";
 				
 							when others =>
 

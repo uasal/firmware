@@ -7,8 +7,8 @@ GLOBAL THRESHOLD - 5000
 
 NET NAME                                                CLOCK LOADS     ASYNC RST LOADS     DATA LOADS     TOTAL FANOUT     GLOBAL BUFFER PRESENT
 -------------------------------------------------------------------------------------------------------------------------------------------------
-FCCC_C0_0_GL1                                           2132            0                   0              2132             YES                  
-Filterwheel_sb_0.GL0_INST                               32              0                   0              32               YES                  
+FCCC_C0_0_GL0                                           2132            0                   1              2133             YES                  
+Filterwheel_sb_0.GL0_INST                               35              0                   0              35               YES                  
 Main_0.UartClk0                                         31              0                   0              31               YES                  
 Main_0.UartClk1                                         31              0                   0              31               YES                  
 Main_0.UartClk2                                         31              0                   0              31               YES                  
@@ -22,13 +22,13 @@ Main_0.UartTxClk2                                       9               0       
 Main_0.UartTxClk3                                       9               0                   0              9                YES                  
 Main_0.UartTxClkUsb                                     9               0                   0              9                YES                  
 Main_0.UartTxClkGps                                     9               0                   0              9                YES                  
-Main_0.BootupReset.shot_i_arst                          0               136                 0              136              YES                  
-Main_0.UartGpsFifoReset_i_arst                          0               95                  0              95               YES                  
-Main_0.Uart1FifoReset_i_arst                            0               95                  0              95               YES                  
-Main_0.Uart2FifoReset_i_arst                            0               95                  0              95               YES                  
-Main_0.Uart0FifoReset_i_arst                            0               95                  0              95               YES                  
-Main_0.Uart3FifoReset_i_arst                            0               95                  0              95               YES                  
-Main_0.UartUsbFifoReset_i_arst                          0               95                  0              95               YES                  
+shot_i_arst                                             0               154                 0              154              YES                  
+Main_0.Uart2FifoReset_i_arst                            0               113                 0              113              YES                  
+Main_0.Uart0FifoReset_i_arst                            0               113                 0              113              YES                  
+Main_0.Uart1FifoReset_i_arst                            0               113                 0              113              YES                  
+Main_0.UartUsbFifoReset_i_arst                          0               113                 0              113              YES                  
+Main_0.UartGpsFifoReset_i_arst                          0               113                 0              113              YES                  
+Main_0.Uart3FifoReset_i_arst                            0               113                 0              113              YES                  
 Main_0.ClkDac_i.SpiRst_arst                             0               49                  0              49               YES                  
 Main_0.RegisterSpace.PPSCountReset_arst                 0               34                  0              34               YES                  
 Main_0.ads1258.SpiRst_arst                              0               29                  0              29               YES                  
@@ -39,5 +39,5 @@ Main_0.MotorAMinus_arst                                 0               18      
 Main_0.MotorBMinus_arst                                 0               18                  0              18               YES                  
 Main_0.MotorAPlus_arst                                  0               18                  0              18               YES                  
 Main_0.MotorBPlus_arst                                  0               18                  0              18               YES                  
-Filterwheel_sb_0.CORERESETP_0.sm0_areset_n_arst         0               12                  0              12               YES                  
+Filterwheel_sb_0.CORERESETP_0.sm0_areset_n              0               12                  0              12               NO                   
 =================================================================================================================================================

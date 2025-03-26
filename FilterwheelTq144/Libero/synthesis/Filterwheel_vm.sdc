@@ -1,8 +1,9 @@
-# Written by Synplify Pro version map202209actsp2, Build 145R. Synopsys Run ID: sid1739931549 
+# Written by Synplify Pro version map202209actsp2, Build 145R. Synopsys Run ID: sid1743030989 
 # Top Level Design Parameters 
 
 # Clocks 
-create_clock -period 10.000 -waveform {0.000 5.000} -name {FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock} [get_pins {FCCC_C0_0/FCCC_C0_0/CCC_INST/GL1}] 
+create_clock -period 19.608 -waveform {0.000 9.804} -name {VCXO} [get_ports {CLK0_PAD}] 
+create_clock -period 20.000 -waveform {0.000 10.000} -name {Filterwheel_sb_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT} [get_pins {Filterwheel_sb_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT}] 
 create_clock -period 10.000 -waveform {0.000 5.000} -name {ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock} [get_pins {Main_0/UartGpsTxBitClockDiv/div_i/Q}] 
 create_clock -period 10.000 -waveform {0.000 5.000} -name {ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock} [get_pins {Main_0/UartGpsRxBitClockDiv/div_i/Q}] 
 create_clock -period 10.000 -waveform {0.000 5.000} -name {ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock} [get_pins {Main_0/UartUsbTxBitClockDiv/div_i/Q}] 
@@ -15,12 +16,12 @@ create_clock -period 10.000 -waveform {0.000 5.000} -name {ClockDividerPorts_wor
 create_clock -period 10.000 -waveform {0.000 5.000} -name {VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock} [get_pins {Main_0/Uart1BitClockDiv/clko_i/Q}] 
 create_clock -period 10.000 -waveform {0.000 5.000} -name {ClockDividerPorts_work_main_architecture_main_0layer1_5|div_i_inferred_clock} [get_pins {Main_0/Uart0TxBitClockDiv/div_i/Q}] 
 create_clock -period 10.000 -waveform {0.000 5.000} -name {VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock} [get_pins {Main_0/Uart0BitClockDiv/clko_i/Q}] 
-create_clock -period 10.000 -waveform {0.000 5.000} -name {Filterwheel_sb_CCC_0_FCCC|GL0_net_inferred_clock} [get_pins {Filterwheel_sb_0/CCC_0/CCC_INST/GL0}] 
 
 # Virtual Clocks 
-create_clock -period 19.608 -waveform {0.000 9.804} -name {CLK0_PAD}
 
 # Generated Clocks 
+create_generated_clock -name {MasterClk} -multiply_by {4} -divide_by {2} -source [get_pins {FCCC_C0_0/FCCC_C0_0/CCC_INST/CLK0_PAD}]  [get_pins {FCCC_C0_0/FCCC_C0_0/CCC_INST/GL0}] 
+create_generated_clock -name {Filterwheel_sb_0/CCC_0/GL0} -multiply_by {3} -divide_by {3} -source [get_pins {Filterwheel_sb_0/CCC_0/CCC_INST/CLK0}]  [get_pins {Filterwheel_sb_0/CCC_0/CCC_INST/GL0}] 
 
 # Paths Between Clocks 
 
@@ -29,6 +30,10 @@ create_clock -period 19.608 -waveform {0.000 9.804} -name {CLK0_PAD}
 # Point-to-point Delay Constraints 
 
 # False Path Constraints 
+set_false_path -through [get_pins {Filterwheel_sb_0/SYSRESET_POR/POWER_ON_RESET_N}] 
+set_false_path -through [get_pins {Filterwheel_sb_0/CORERESETP_0/release_sdif3_core/Q Filterwheel_sb_0/CORERESETP_0/release_sdif2_core/Q Filterwheel_sb_0/CORERESETP_0/release_sdif1_core/Q Filterwheel_sb_0/CORERESETP_0/release_sdif0_core/Q Filterwheel_sb_0/CORERESETP_0/ddr_settled/Q}] 
+set_false_path -from [get_cells {Filterwheel_sb_0/CORERESETP_0/MSS_HPMS_READY_int}] -to [get_cells {Filterwheel_sb_0/CORERESETP_0/sdif3_areset_n_rcosc_q1 Filterwheel_sb_0/CORERESETP_0/sdif3_areset_n_rcosc Filterwheel_sb_0/CORERESETP_0/sdif2_areset_n_rcosc_q1 Filterwheel_sb_0/CORERESETP_0/sdif2_areset_n_rcosc Filterwheel_sb_0/CORERESETP_0/sdif1_areset_n_rcosc_q1 Filterwheel_sb_0/CORERESETP_0/sdif1_areset_n_rcosc Filterwheel_sb_0/CORERESETP_0/sdif0_areset_n_rcosc_q1 Filterwheel_sb_0/CORERESETP_0/sdif0_areset_n_rcosc}] 
+set_false_path -from [get_cells {Filterwheel_sb_0/CORERESETP_0/MSS_HPMS_READY_int}] -to [get_cells {Filterwheel_sb_0/CORERESETP_0/sm0_areset_n_rcosc_q1 Filterwheel_sb_0/CORERESETP_0/sm0_areset_n_rcosc}] 
 
 # Output Load Constraints 
 
@@ -47,7 +52,6 @@ create_clock -period 19.608 -waveform {0.000 9.804} -name {CLK0_PAD}
 # set_case Attributes 
 
 # Clock Delay Constraints 
-set_clock_groups -asynchronous -group [get_clocks {FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock}]
 set_clock_groups -asynchronous -group [get_clocks {ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock}]
 set_clock_groups -asynchronous -group [get_clocks {ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock}]
 set_clock_groups -asynchronous -group [get_clocks {ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock}]
@@ -60,8 +64,6 @@ set_clock_groups -asynchronous -group [get_clocks {ClockDividerPorts_work_main_a
 set_clock_groups -asynchronous -group [get_clocks {VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock}]
 set_clock_groups -asynchronous -group [get_clocks {ClockDividerPorts_work_main_architecture_main_0layer1_5|div_i_inferred_clock}]
 set_clock_groups -asynchronous -group [get_clocks {VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock}]
-set_clock_groups -asynchronous -group [get_clocks {Filterwheel_sb_CCC_0_FCCC|GL0_net_inferred_clock}]
-set_clock_groups -asynchronous -group [get_clocks {Filterwheel_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock}]
 
 # syn_mode Attributes 
 
@@ -72,6 +74,8 @@ set_clock_groups -asynchronous -group [get_clocks {Filterwheel_sb_FABOSC_0_OSC|N
 # Input Transition Constraints 
 
 # Unused constraints (intentionally commented out) 
+# set_false_path -through [get_nets { Filterwheel_sb_0.CORERESETP_0.CONFIG1_DONE Filterwheel_sb_0.CORERESETP_0.CONFIG2_DONE Filterwheel_sb_0.CORERESETP_0.SDIF*_PERST_N Filterwheel_sb_0.CORERESETP_0.SDIF*_PSEL Filterwheel_sb_0.CORERESETP_0.SDIF*_PWRITE Filterwheel_sb_0.CORERESETP_0.SDIF*_PRDATA[*] Filterwheel_sb_0.CORERESETP_0.SOFT_EXT_RESET_OUT Filterwheel_sb_0.CORERESETP_0.SOFT_RESET_F2M Filterwheel_sb_0.CORERESETP_0.SOFT_M3_RESET Filterwheel_sb_0.CORERESETP_0.SOFT_MDDR_DDR_AXI_S_CORE_RESET Filterwheel_sb_0.CORERESETP_0.SOFT_FDDR_CORE_RESET Filterwheel_sb_0.CORERESETP_0.SOFT_SDIF*_PHY_RESET Filterwheel_sb_0.CORERESETP_0.SOFT_SDIF*_CORE_RESET Filterwheel_sb_0.CORERESETP_0.SOFT_SDIF0_0_CORE_RESET Filterwheel_sb_0.CORERESETP_0.SOFT_SDIF0_1_CORE_RESET }]
+# set_false_path -through [get_pins { Filterwheel_sb_0.Filterwheel_sb_MSS_0.MSS_ADLIB_INST.CONFIG_PRESET_N }]
 
 
 # Non-forward-annotatable constraints (intentionally commented out) 

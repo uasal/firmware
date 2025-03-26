@@ -58,6 +58,7 @@ begin
 			BitCnt <= "1110";
 			Busy <= '0';
 			ParityBit <= '0';
+			LastGo <= '0';
         else
 			if (Rising_Edge(Clk)) then
 			

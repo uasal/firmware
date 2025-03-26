@@ -12,15 +12,35 @@ set min_viol_slow_lv_ht "not_run"
 set coverage            "not_run"
 set_options -max_opcond worst
 set_options -min_opcond best
+set max_viol_slow_lv_ht [report \
+    -type     timing_violations \
+    -analysis max \
+    -format   text \
+    -use_slack_threshold  yes \
+    -slack_threshold  0.0 \
+    -max_paths  20 \
+    -max_expanded_paths  0 \
+    -max_parallel_paths  1 \
+    {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/Filterwheel_max_timing_violations_slow_1.14V_100C.txt} ]
+set max_slow_lv_ht [report \
+    -type     timing \
+    -analysis max \
+    -format   text \
+    -use_slack_threshold no \
+    -slack_threshold  0.0 \
+    -max_paths  5 \
+    -max_expanded_paths  1 \
+    -max_parallel_paths  1 \
+    {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/Filterwheel_max_timing_slow_1.14V_100C.txt} ]
 set coverage [report \
     -type     constraints_coverage \
-    -format   xml \
+    -format   text \
     -slacks   no \
-    {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/Filterwheel_timing_constraints_coverage.xml} ]
+    {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/Filterwheel_timing_constraints_coverage.txt} ]
 report \
     -type     combinational_loops \
-    -format   xml \
-    {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/Filterwheel_timing_combinational_loops.xml}
+    -format   text \
+    {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/Filterwheel_timing_combinational_loops.txt}
 set_options -max_opcond best
 set_options -min_opcond worst
 set has_violations {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/Filterwheel_has_violations}
@@ -44,52 +64,12 @@ report_timing \
     -max_paths  1000 \
     -file      \
     {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/min_report.json}
-set max_timing_violations_multi_corner [report \
-    -type     timing_violations \
-    -analysis max \
-    -format   xml \
-    -multi_corner yes \
-    -use_slack_threshold  yes \
-    -slack_threshold  0.0 \
-    -max_paths  20 \
-    -max_expanded_paths  0 \
-    -max_parallel_paths  1 \
-    {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/Filterwheel_max_timing_violations_multi_corner.xml} ]
+set max_timing_violations_multi_corner "not_run"
 puts $fp "_max_timing_violations_multi_corner $max_timing_violations_multi_corner"
-set max_timing_multi_corner [report \
-    -type     timing \
-    -analysis max \
-    -format   xml \
-    -multi_corner yes \
-    -use_slack_threshold no \
-    -slack_threshold  0.0 \
-    -max_paths  5 \
-    -max_expanded_paths  1 \
-    -max_parallel_paths  1 \
-    {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/Filterwheel_max_timing_multi_corner.xml} ]
+set max_timing_multi_corner "not_run"
 puts $fp "_max_timing_multi_corner $max_timing_multi_corner"
-set min_timing_violations_multi_corner [report \
-    -type     timing_violations \
-    -analysis min \
-    -format   xml \
-    -multi_corner yes \
-    -use_slack_threshold  yes \
-    -slack_threshold  0.0 \
-    -max_paths  20 \
-    -max_expanded_paths  0 \
-    -max_parallel_paths  1 \
-    {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/Filterwheel_min_timing_violations_multi_corner.xml} ]
+set min_timing_violations_multi_corner "not_run"
 puts $fp "_min_timing_violations_multi_corner $min_timing_violations_multi_corner"
-set min_timing_multi_corner [report \
-    -type     timing \
-    -analysis min \
-    -format   xml \
-    -multi_corner yes \
-    -use_slack_threshold no \
-    -slack_threshold  0.0 \
-    -max_paths  5 \
-    -max_expanded_paths  1 \
-    -max_parallel_paths  1 \
-    {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/Filterwheel_min_timing_multi_corner.xml} ]
+set min_timing_multi_corner "not_run"
 puts $fp "_min_timing_multi_corner $min_timing_multi_corner"
 close $fp
