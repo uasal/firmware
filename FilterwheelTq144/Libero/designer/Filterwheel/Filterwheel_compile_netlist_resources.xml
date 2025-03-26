@@ -3,7 +3,7 @@
 <doc>
 <title>Resource Report</title>
 <text>Microchip Technology Inc. - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)</text>
-<text>Date: Wed Mar 26 16:16:50 2025
+<text>Date: Wed Mar 26 16:48:14 2025
 </text>
 <section><name>Device Selection</name></section>
 <table>
@@ -93,7 +93,7 @@
 </row>
 <row>
  <cell>Limit the number of high fanout nets to display to</cell>
- <cell>10</cell>
+ <cell>32</cell>
 </row>
 </table>
 <section><name>Resource Usage</name></section>
@@ -106,15 +106,15 @@
 </header>
 <row>
  <cell>4LUT</cell>
- <cell>3457</cell>
+ <cell>3586</cell>
  <cell>12084</cell>
- <cell>28.61</cell>
+ <cell>29.68</cell>
 </row>
 <row>
  <cell>DFF</cell>
- <cell>2832</cell>
+ <cell>2877</cell>
  <cell>12084</cell>
- <cell>23.44</cell>
+ <cell>23.81</cell>
 </row>
 <row>
  <cell>I/O Register</cell>
@@ -204,8 +204,8 @@
 </header>
 <row>
  <cell>Fabric Logic</cell>
- <cell>3025</cell>
- <cell>2400</cell>
+ <cell>3154</cell>
+ <cell>2445</cell>
 </row>
 <row>
  <cell>RAM64x18 Interface Logic</cell>
@@ -224,8 +224,8 @@
 </row>
 <row>
  <cell>Total Used</cell>
- <cell>3457</cell>
- <cell>2832</cell>
+ <cell>3586</cell>
+ <cell>2877</cell>
 </row>
 </table>
 <section><name>MSS Resource Usage</name></section>
@@ -426,7 +426,7 @@
  <cell>Name</cell>
 </header>
 <row>
- <cell>2133</cell>
+ <cell>2181</cell>
  <cell>INT_NET</cell>
  <cell>Net   : FCCC_C0_0_GL0</cell>
 </row>
@@ -441,7 +441,7 @@
  <cell>Source: NETLIST</cell>
 </row>
 <row>
- <cell>35</cell>
+ <cell>32</cell>
  <cell>INT_NET</cell>
  <cell>Net   : Filterwheel_sb_0/GL0_INST</cell>
 </row>
@@ -572,7 +572,27 @@
  <cell>Driver: Main_0/RegisterSpace/ResetSteps_i_RNIDTSH</cell>
 </row>
 <row>
- <cell>154</cell>
+ <cell>330</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/RamBusAddress_i[6]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/GenRamAddrBus.6.IBUF_RamAddr_i/O</cell>
+</row>
+<row>
+ <cell>240</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/RegisterSpace/N_2661</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/RegisterSpace/un94_readreq_0_a3_0_a2_1</cell>
+</row>
+<row>
+ <cell>152</cell>
  <cell>INT_NET</cell>
  <cell>Net   : Main_0/BootupReset/shot_i_rep_Z</cell>
 </row>
@@ -642,7 +662,77 @@
  <cell>Driver: Main_0/UartUsbFifoReset_i</cell>
 </row>
 <row>
- <cell>89</cell>
+ <cell>92</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/Address[8]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/GenRamAddrBus.8.IBUF_RamAddr_i/O</cell>
+</row>
+<row>
+ <cell>87</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/RegisterSpace/N_2657</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/RegisterSpace/un1_serialnumber_0_iv_0_0_a2_7[20]</cell>
+</row>
+<row>
+ <cell>80</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/RegisterSpace/N_583</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/RegisterSpace/un1_rst_1_i_a2_0_a2</cell>
+</row>
+<row>
+ <cell>75</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/O</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/GenRamAddrBus.2.IBUF_RamAddr_i/O</cell>
+</row>
+<row>
+ <cell>60</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/RegisterSpace/N_2171</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/RegisterSpace/un22_readreq_0_a2_1_o2</cell>
+</row>
+<row>
+ <cell>59</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/RegisterSpace/N_2668</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/RegisterSpace/un134_readreq_0_a3_0_a2_1</cell>
+</row>
+<row>
+ <cell>58</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/Address[7]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/GenRamAddrBus.7.IBUF_RamAddr_i/O</cell>
+</row>
+<row>
+ <cell>58</cell>
  <cell>INT_NET</cell>
  <cell>Net   : Main_0/Address[3]</cell>
 </row>
@@ -652,14 +742,144 @@
  <cell>Driver: Main_0/GenRamAddrBus.3.IBUF_RamAddr_i/O</cell>
 </row>
 <row>
- <cell>71</cell>
+ <cell>56</cell>
  <cell>INT_NET</cell>
- <cell>Net   : Main_0/O</cell>
+ <cell>Net   : Main_0/RegisterSpace/N_2680</cell>
 </row>
 <row>
  <cell></cell>
  <cell></cell>
- <cell>Driver: Main_0/GenRamAddrBus.2.IBUF_RamAddr_i/O</cell>
+ <cell>Driver: Main_0/RegisterSpace/un1_serialnumber_1_iv_i_0_0_a2_13[25]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[15]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[15]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[14]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[14]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[13]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[13]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[12]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[12]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[11]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[11]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[10]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[10]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[9]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[9]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[8]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[8]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[7]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[7]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[6]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[6]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[5]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[5]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[4]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[4]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[3]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[3]</cell>
 </row>
 </table>
 <section><name>High fanout nets (through buffer trees)</name></section>
@@ -680,7 +900,27 @@
  <cell>Driver: Main_0/RegisterSpace/ResetSteps_i_RNIDTSH</cell>
 </row>
 <row>
- <cell>154</cell>
+ <cell>330</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/RamBusAddress_i[6]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/GenRamAddrBus.6.IBUF_RamAddr_i/O</cell>
+</row>
+<row>
+ <cell>240</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/RegisterSpace/N_2661</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/RegisterSpace/un94_readreq_0_a3_0_a2_1</cell>
+</row>
+<row>
+ <cell>152</cell>
  <cell>INT_NET</cell>
  <cell>Net   : Main_0/BootupReset/shot_i_rep_Z</cell>
 </row>
@@ -750,7 +990,77 @@
  <cell>Driver: Main_0/UartUsbFifoReset_i</cell>
 </row>
 <row>
- <cell>89</cell>
+ <cell>92</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/Address[8]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/GenRamAddrBus.8.IBUF_RamAddr_i/O</cell>
+</row>
+<row>
+ <cell>87</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/RegisterSpace/N_2657</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/RegisterSpace/un1_serialnumber_0_iv_0_0_a2_7[20]</cell>
+</row>
+<row>
+ <cell>80</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/RegisterSpace/N_583</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/RegisterSpace/un1_rst_1_i_a2_0_a2</cell>
+</row>
+<row>
+ <cell>75</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/O</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/GenRamAddrBus.2.IBUF_RamAddr_i/O</cell>
+</row>
+<row>
+ <cell>60</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/RegisterSpace/N_2171</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/RegisterSpace/un22_readreq_0_a2_1_o2</cell>
+</row>
+<row>
+ <cell>59</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/RegisterSpace/N_2668</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/RegisterSpace/un134_readreq_0_a3_0_a2_1</cell>
+</row>
+<row>
+ <cell>58</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/Address[7]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/GenRamAddrBus.7.IBUF_RamAddr_i/O</cell>
+</row>
+<row>
+ <cell>58</cell>
  <cell>INT_NET</cell>
  <cell>Net   : Main_0/Address[3]</cell>
 </row>
@@ -760,14 +1070,144 @@
  <cell>Driver: Main_0/GenRamAddrBus.3.IBUF_RamAddr_i/O</cell>
 </row>
 <row>
- <cell>71</cell>
+ <cell>56</cell>
  <cell>INT_NET</cell>
- <cell>Net   : Main_0/O</cell>
+ <cell>Net   : Main_0/RegisterSpace/N_2680</cell>
 </row>
 <row>
  <cell></cell>
  <cell></cell>
- <cell>Driver: Main_0/GenRamAddrBus.2.IBUF_RamAddr_i/O</cell>
+ <cell>Driver: Main_0/RegisterSpace/un1_serialnumber_1_iv_i_0_0_a2_13[25]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[15]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[15]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[14]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[14]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[13]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[13]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[12]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[12]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[11]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[11]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[10]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[10]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[9]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[9]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[8]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[8]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[7]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[7]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[6]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[6]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[5]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[5]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[4]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[4]</cell>
+</row>
+<row>
+ <cell>52</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/MotorCurrentStep[3]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/StepperMotor/CurrentStep_i[3]</cell>
 </row>
 </table>
 </doc>

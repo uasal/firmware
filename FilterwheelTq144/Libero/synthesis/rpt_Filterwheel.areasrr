@@ -27,19 +27,19 @@ Part:			M2S010VF400STD (Microchip)
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2400               100 %                
+SLE      2445               100 %                
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Filterwheel:	2400 (40.61 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Filterwheel:	2445 (40.18 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-CFG           2326               100 %                
+CFG           2455               100 %                
 ARI1          732                100 %                
 BLACK BOX     6                  100 %                
 ======================================================
-Total COMBINATIONAL LOGIC in the block Filterwheel:	3064 (51.84 % Utilization)
+Total COMBINATIONAL LOGIC in the block Filterwheel:	3193 (52.47 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -53,9 +53,9 @@ Total MEMORY ELEMENTS in the block Filterwheel:	12 (0.20 % Utilization)
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     32                 100 %                
+GLOBAL     33                 100 %                
 ===================================================
-Total GLOBAL BUFFERS in the block Filterwheel:	32 (0.54 % Utilization)
+Total GLOBAL BUFFERS in the block Filterwheel:	33 (0.54 % Utilization)
 
 
 IO PADS
@@ -63,7 +63,7 @@ Name     Total elements     Utilization     Notes
 -------------------------------------------------
 IO       68                 100 %                
 =================================================
-Total IO PADS in the block Filterwheel:	68 (1.15 % Utilization)
+Total IO PADS in the block Filterwheel:	68 (1.12 % Utilization)
 
 -------------------------------------------------------------
 ########   Utilization report for  cell:   FCCC_C0   ########
@@ -81,7 +81,7 @@ Total COMBINATIONAL LOGIC in the block Filterwheel.FCCC_C0:	1 (0.02 % Utilizatio
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     1                  3.12 %               
+GLOBAL     1                  3.03 %               
 ===================================================
 Total GLOBAL BUFFERS in the block Filterwheel.FCCC_C0:	1 (0.02 % Utilization)
 
@@ -109,7 +109,7 @@ Total COMBINATIONAL LOGIC in the block FCCC_C0.FCCC_C0_FCCC_C0_0_FCCC:	1 (0.02 %
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     1                  3.12 %               
+GLOBAL     1                  3.03 %               
 ===================================================
 Total GLOBAL BUFFERS in the block FCCC_C0.FCCC_C0_FCCC_C0_0_FCCC:	1 (0.02 % Utilization)
 
@@ -129,26 +129,26 @@ Instance path:   Filterwheel.Filterwheel_sb
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      49                 2.04 %               
+SLE      46                 1.88 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Filterwheel.Filterwheel_sb:	49 (0.83 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Filterwheel.Filterwheel_sb:	46 (0.76 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-CFG           11                 0.4730 %             
+CFG           11                 0.4480 %             
 BLACK BOX     5                  83.3 %               
 ======================================================
-Total COMBINATIONAL LOGIC in the block Filterwheel.Filterwheel_sb:	16 (0.27 % Utilization)
+Total COMBINATIONAL LOGIC in the block Filterwheel.Filterwheel_sb:	16 (0.26 % Utilization)
 
 
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     3                  9.38 %               
+GLOBAL     4                  12.1 %               
 ===================================================
-Total GLOBAL BUFFERS in the block Filterwheel.Filterwheel_sb:	3 (0.05 % Utilization)
+Total GLOBAL BUFFERS in the block Filterwheel.Filterwheel_sb:	4 (0.07 % Utilization)
 
 ------------------------------------------------------------------------
 ########   Utilization report for  cell:   CoreAPB3_Z1_layer0   ########
@@ -158,7 +158,7 @@ Instance path:   Filterwheel_sb.CoreAPB3_Z1_layer0
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      2                  0.0860 %             
+CFG      2                  0.08150 %            
 =================================================
 Total COMBINATIONAL LOGIC in the block Filterwheel_sb.CoreAPB3_Z1_layer0:	2 (0.03 % Utilization)
 
@@ -170,15 +170,15 @@ Instance path:   Filterwheel_sb.CoreResetP_Z2_layer0
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      49                 2.04 %               
+SLE      46                 1.88 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Filterwheel_sb.CoreResetP_Z2_layer0:	49 (0.83 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Filterwheel_sb.CoreResetP_Z2_layer0:	46 (0.76 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      9                  0.3870 %             
+CFG      9                  0.3670 %             
 =================================================
 Total COMBINATIONAL LOGIC in the block Filterwheel_sb.CoreResetP_Z2_layer0:	9 (0.15 % Utilization)
 
@@ -186,9 +186,9 @@ Total COMBINATIONAL LOGIC in the block Filterwheel_sb.CoreResetP_Z2_layer0:	9 (0
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     1                  3.12 %               
+GLOBAL     2                  6.06 %               
 ===================================================
-Total GLOBAL BUFFERS in the block Filterwheel_sb.CoreResetP_Z2_layer0:	1 (0.02 % Utilization)
+Total GLOBAL BUFFERS in the block Filterwheel_sb.CoreResetP_Z2_layer0:	2 (0.03 % Utilization)
 
 -------------------------------------------------------------------------------
 ########   Utilization report for  cell:   Filterwheel_sb_CCC_0_FCCC   ########
@@ -206,7 +206,7 @@ Total COMBINATIONAL LOGIC in the block Filterwheel_sb.Filterwheel_sb_CCC_0_FCCC:
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     1                  3.12 %               
+GLOBAL     1                  3.03 %               
 ===================================================
 Total GLOBAL BUFFERS in the block Filterwheel_sb.Filterwheel_sb_CCC_0_FCCC:	1 (0.02 % Utilization)
 
@@ -226,7 +226,7 @@ Total COMBINATIONAL LOGIC in the block Filterwheel_sb.Filterwheel_sb_FABOSC_0_OS
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     1                  3.12 %               
+GLOBAL     1                  3.03 %               
 ===================================================
 Total GLOBAL BUFFERS in the block Filterwheel_sb.Filterwheel_sb_FABOSC_0_OSC:	1 (0.02 % Utilization)
 
@@ -250,18 +250,18 @@ Instance path:   Filterwheel.Main
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2351               98 %                 
+SLE      2399               98.1 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Filterwheel.Main:	2351 (39.78 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Filterwheel.Main:	2399 (39.42 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      2309               99.3 %               
+CFG      2438               99.3 %               
 ARI1     732                100 %                
 =================================================
-Total COMBINATIONAL LOGIC in the block Filterwheel.Main:	3041 (51.46 % Utilization)
+Total COMBINATIONAL LOGIC in the block Filterwheel.Main:	3170 (52.10 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -275,9 +275,9 @@ Total MEMORY ELEMENTS in the block Filterwheel.Main:	12 (0.20 % Utilization)
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     28                 87.5 %               
+GLOBAL     28                 84.8 %               
 ===================================================
-Total GLOBAL BUFFERS in the block Filterwheel.Main:	28 (0.47 % Utilization)
+Total GLOBAL BUFFERS in the block Filterwheel.Main:	28 (0.46 % Utilization)
 
 -------------------------------------------------------------------------------------------------------------
 ########   Utilization report for  cell:   ClockDividerPorts_work_main_architecture_main_0layer1_0   ########
@@ -287,7 +287,7 @@ Instance path:   Main.ClockDividerPorts_work_main_architecture_main_0layer1_0
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      4                  0.1670 %             
+SLE      4                  0.1640 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.ClockDividerPorts_work_main_architecture_main_0layer1_0:	4 (0.07 % Utilization)
 
@@ -295,7 +295,7 @@ Total SEQUENTIAL ELEMENTS in the block Main.ClockDividerPorts_work_main_architec
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      2                  0.0860 %             
+CFG      2                  0.08150 %            
 =================================================
 Total COMBINATIONAL LOGIC in the block Main.ClockDividerPorts_work_main_architecture_main_0layer1_0:	2 (0.03 % Utilization)
 
@@ -303,7 +303,7 @@ Total COMBINATIONAL LOGIC in the block Main.ClockDividerPorts_work_main_architec
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     1                  3.12 %               
+GLOBAL     1                  3.03 %               
 ===================================================
 Total GLOBAL BUFFERS in the block Main.ClockDividerPorts_work_main_architecture_main_0layer1_0:	1 (0.02 % Utilization)
 
@@ -315,7 +315,7 @@ Instance path:   Main.ClockDividerPorts_work_main_architecture_main_0layer1_1
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      4                  0.1670 %             
+SLE      4                  0.1640 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.ClockDividerPorts_work_main_architecture_main_0layer1_1:	4 (0.07 % Utilization)
 
@@ -323,7 +323,7 @@ Total SEQUENTIAL ELEMENTS in the block Main.ClockDividerPorts_work_main_architec
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      2                  0.0860 %             
+CFG      2                  0.08150 %            
 =================================================
 Total COMBINATIONAL LOGIC in the block Main.ClockDividerPorts_work_main_architecture_main_0layer1_1:	2 (0.03 % Utilization)
 
@@ -331,7 +331,7 @@ Total COMBINATIONAL LOGIC in the block Main.ClockDividerPorts_work_main_architec
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     1                  3.12 %               
+GLOBAL     1                  3.03 %               
 ===================================================
 Total GLOBAL BUFFERS in the block Main.ClockDividerPorts_work_main_architecture_main_0layer1_1:	1 (0.02 % Utilization)
 
@@ -343,7 +343,7 @@ Instance path:   Main.ClockDividerPorts_work_main_architecture_main_0layer1_2
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      4                  0.1670 %             
+SLE      4                  0.1640 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.ClockDividerPorts_work_main_architecture_main_0layer1_2:	4 (0.07 % Utilization)
 
@@ -351,7 +351,7 @@ Total SEQUENTIAL ELEMENTS in the block Main.ClockDividerPorts_work_main_architec
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      2                  0.0860 %             
+CFG      2                  0.08150 %            
 =================================================
 Total COMBINATIONAL LOGIC in the block Main.ClockDividerPorts_work_main_architecture_main_0layer1_2:	2 (0.03 % Utilization)
 
@@ -359,7 +359,7 @@ Total COMBINATIONAL LOGIC in the block Main.ClockDividerPorts_work_main_architec
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     1                  3.12 %               
+GLOBAL     1                  3.03 %               
 ===================================================
 Total GLOBAL BUFFERS in the block Main.ClockDividerPorts_work_main_architecture_main_0layer1_2:	1 (0.02 % Utilization)
 
@@ -371,7 +371,7 @@ Instance path:   Main.ClockDividerPorts_work_main_architecture_main_0layer1_3
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      4                  0.1670 %             
+SLE      4                  0.1640 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.ClockDividerPorts_work_main_architecture_main_0layer1_3:	4 (0.07 % Utilization)
 
@@ -379,15 +379,15 @@ Total SEQUENTIAL ELEMENTS in the block Main.ClockDividerPorts_work_main_architec
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      14                 0.6020 %             
+CFG      14                 0.570 %              
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.ClockDividerPorts_work_main_architecture_main_0layer1_3:	14 (0.24 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.ClockDividerPorts_work_main_architecture_main_0layer1_3:	14 (0.23 % Utilization)
 
 
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     1                  3.12 %               
+GLOBAL     1                  3.03 %               
 ===================================================
 Total GLOBAL BUFFERS in the block Main.ClockDividerPorts_work_main_architecture_main_0layer1_3:	1 (0.02 % Utilization)
 
@@ -399,7 +399,7 @@ Instance path:   Main.ClockDividerPorts_work_main_architecture_main_0layer1_4
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      4                  0.1670 %             
+SLE      4                  0.1640 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.ClockDividerPorts_work_main_architecture_main_0layer1_4:	4 (0.07 % Utilization)
 
@@ -407,7 +407,7 @@ Total SEQUENTIAL ELEMENTS in the block Main.ClockDividerPorts_work_main_architec
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      2                  0.0860 %             
+CFG      2                  0.08150 %            
 =================================================
 Total COMBINATIONAL LOGIC in the block Main.ClockDividerPorts_work_main_architecture_main_0layer1_4:	2 (0.03 % Utilization)
 
@@ -415,7 +415,7 @@ Total COMBINATIONAL LOGIC in the block Main.ClockDividerPorts_work_main_architec
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     1                  3.12 %               
+GLOBAL     1                  3.03 %               
 ===================================================
 Total GLOBAL BUFFERS in the block Main.ClockDividerPorts_work_main_architecture_main_0layer1_4:	1 (0.02 % Utilization)
 
@@ -427,7 +427,7 @@ Instance path:   Main.ClockDividerPorts_work_main_architecture_main_0layer1_5
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      4                  0.1670 %             
+SLE      4                  0.1640 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.ClockDividerPorts_work_main_architecture_main_0layer1_5:	4 (0.07 % Utilization)
 
@@ -435,7 +435,7 @@ Total SEQUENTIAL ELEMENTS in the block Main.ClockDividerPorts_work_main_architec
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      2                  0.0860 %             
+CFG      2                  0.08150 %            
 =================================================
 Total COMBINATIONAL LOGIC in the block Main.ClockDividerPorts_work_main_architecture_main_0layer1_5:	2 (0.03 % Utilization)
 
@@ -443,7 +443,7 @@ Total COMBINATIONAL LOGIC in the block Main.ClockDividerPorts_work_main_architec
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     1                  3.12 %               
+GLOBAL     1                  3.03 %               
 ===================================================
 Total GLOBAL BUFFERS in the block Main.ClockDividerPorts_work_main_architecture_main_0layer1_5:	1 (0.02 % Utilization)
 
@@ -455,7 +455,7 @@ Instance path:   Main.ClockDividerPorts_work_main_architecture_main_1layer1
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      6                  0.250 %              
+SLE      6                  0.2450 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.ClockDividerPorts_work_main_architecture_main_1layer1:	6 (0.10 % Utilization)
 
@@ -463,15 +463,15 @@ Total SEQUENTIAL ELEMENTS in the block Main.ClockDividerPorts_work_main_architec
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      8                  0.3440 %             
+CFG      8                  0.3260 %             
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.ClockDividerPorts_work_main_architecture_main_1layer1:	8 (0.14 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.ClockDividerPorts_work_main_architecture_main_1layer1:	8 (0.13 % Utilization)
 
 
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     1                  3.12 %               
+GLOBAL     1                  3.03 %               
 ===================================================
 Total GLOBAL BUFFERS in the block Main.ClockDividerPorts_work_main_architecture_main_1layer1:	1 (0.02 % Utilization)
 
@@ -483,24 +483,24 @@ Instance path:   Main.ClockDividerPorts_work_main_architecture_main_2layer1
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      10                 0.4170 %             
+SLE      10                 0.4090 %             
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.ClockDividerPorts_work_main_architecture_main_2layer1:	10 (0.17 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.ClockDividerPorts_work_main_architecture_main_2layer1:	10 (0.16 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      13                 0.5590 %             
+CFG      13                 0.530 %              
 ARI1     9                  1.23 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.ClockDividerPorts_work_main_architecture_main_2layer1:	22 (0.37 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.ClockDividerPorts_work_main_architecture_main_2layer1:	22 (0.36 % Utilization)
 
 
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     1                  3.12 %               
+GLOBAL     1                  3.03 %               
 ===================================================
 Total GLOBAL BUFFERS in the block Main.ClockDividerPorts_work_main_architecture_main_2layer1:	1 (0.02 % Utilization)
 
@@ -512,24 +512,24 @@ Instance path:   Main.FourWireStepperMotorDriverPorts_102000000_0\.010000
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      47                 1.96 %               
+SLE      47                 1.92 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.FourWireStepperMotorDriverPorts_102000000_0\.010000:	47 (0.80 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.FourWireStepperMotorDriverPorts_102000000_0\.010000:	47 (0.77 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      24                 1.03 %               
+CFG      24                 0.9780 %             
 ARI1     61                 8.33 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.FourWireStepperMotorDriverPorts_102000000_0\.010000:	85 (1.44 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.FourWireStepperMotorDriverPorts_102000000_0\.010000:	85 (1.40 % Utilization)
 
 
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     5                  15.6 %               
+GLOBAL     5                  15.2 %               
 ===================================================
 Total GLOBAL BUFFERS in the block Main.FourWireStepperMotorDriverPorts_102000000_0\.010000:	5 (0.08 % Utilization)
 
@@ -541,7 +541,7 @@ Instance path:   FourWireStepperMotorDriverPorts_102000000_0\.010000.FourWireSte
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      7                  0.2920 %             
+SLE      7                  0.2860 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block FourWireStepperMotorDriverPorts_102000000_0\.010000.FourWireStepperMotorPorts:	7 (0.12 % Utilization)
 
@@ -549,7 +549,7 @@ Total SEQUENTIAL ELEMENTS in the block FourWireStepperMotorDriverPorts_102000000
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      7                  0.3010 %             
+CFG      7                  0.2850 %             
 =================================================
 Total COMBINATIONAL LOGIC in the block FourWireStepperMotorDriverPorts_102000000_0\.010000.FourWireStepperMotorPorts:	7 (0.12 % Utilization)
 
@@ -561,18 +561,18 @@ Instance path:   FourWireStepperMotorDriverPorts_102000000_0\.010000.OneShotPort
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      21                 0.8750 %             
+SLE      21                 0.8590 %             
 =================================================
-Total SEQUENTIAL ELEMENTS in the block FourWireStepperMotorDriverPorts_102000000_0\.010000.OneShotPorts_work_main_architecture_main_2layer1:	21 (0.36 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block FourWireStepperMotorDriverPorts_102000000_0\.010000.OneShotPorts_work_main_architecture_main_2layer1:	21 (0.35 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      10                 0.430 %              
+CFG      10                 0.4070 %             
 ARI1     20                 2.73 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block FourWireStepperMotorDriverPorts_102000000_0\.010000.OneShotPorts_work_main_architecture_main_2layer1:	30 (0.51 % Utilization)
+Total COMBINATIONAL LOGIC in the block FourWireStepperMotorDriverPorts_102000000_0\.010000.OneShotPorts_work_main_architecture_main_2layer1:	30 (0.49 % Utilization)
 
 -----------------------------------------------------------------
 ########   Utilization report for  cell:   IBufP1Ports   ########
@@ -582,7 +582,7 @@ Instance path:   Main.IBufP1Ports
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports:	1 (0.02 % Utilization)
 
@@ -594,7 +594,7 @@ Instance path:   Main.IBufP1Ports_0
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_0:	1 (0.02 % Utilization)
 
@@ -606,7 +606,7 @@ Instance path:   Main.IBufP1Ports_1
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_1:	1 (0.02 % Utilization)
 
@@ -618,7 +618,7 @@ Instance path:   Main.IBufP1Ports_10
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_10:	1 (0.02 % Utilization)
 
@@ -630,7 +630,7 @@ Instance path:   Main.IBufP1Ports_11
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_11:	1 (0.02 % Utilization)
 
@@ -642,7 +642,7 @@ Instance path:   Main.IBufP1Ports_12
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_12:	1 (0.02 % Utilization)
 
@@ -654,7 +654,7 @@ Instance path:   Main.IBufP1Ports_13
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_13:	1 (0.02 % Utilization)
 
@@ -666,7 +666,7 @@ Instance path:   Main.IBufP1Ports_14
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_14:	1 (0.02 % Utilization)
 
@@ -678,7 +678,7 @@ Instance path:   Main.IBufP1Ports_15
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_15:	1 (0.02 % Utilization)
 
@@ -690,7 +690,7 @@ Instance path:   Main.IBufP1Ports_16
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_16:	1 (0.02 % Utilization)
 
@@ -702,7 +702,7 @@ Instance path:   Main.IBufP1Ports_17
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_17:	1 (0.02 % Utilization)
 
@@ -714,7 +714,7 @@ Instance path:   Main.IBufP1Ports_18
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_18:	1 (0.02 % Utilization)
 
@@ -726,7 +726,7 @@ Instance path:   Main.IBufP1Ports_19
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_19:	1 (0.02 % Utilization)
 
@@ -738,7 +738,7 @@ Instance path:   Main.IBufP1Ports_2
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_2:	1 (0.02 % Utilization)
 
@@ -750,7 +750,7 @@ Instance path:   Main.IBufP1Ports_20
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_20:	1 (0.02 % Utilization)
 
@@ -762,7 +762,7 @@ Instance path:   Main.IBufP1Ports_21
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_21:	1 (0.02 % Utilization)
 
@@ -774,7 +774,7 @@ Instance path:   Main.IBufP1Ports_22
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_22:	1 (0.02 % Utilization)
 
@@ -786,7 +786,7 @@ Instance path:   Main.IBufP1Ports_23
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_23:	1 (0.02 % Utilization)
 
@@ -798,7 +798,7 @@ Instance path:   Main.IBufP1Ports_24
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_24:	1 (0.02 % Utilization)
 
@@ -810,7 +810,7 @@ Instance path:   Main.IBufP1Ports_25
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_25:	1 (0.02 % Utilization)
 
@@ -822,7 +822,7 @@ Instance path:   Main.IBufP1Ports_26
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_26:	1 (0.02 % Utilization)
 
@@ -834,7 +834,7 @@ Instance path:   Main.IBufP1Ports_27
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_27:	1 (0.02 % Utilization)
 
@@ -846,7 +846,7 @@ Instance path:   Main.IBufP1Ports_28
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_28:	1 (0.02 % Utilization)
 
@@ -858,7 +858,7 @@ Instance path:   Main.IBufP1Ports_29
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_29:	1 (0.02 % Utilization)
 
@@ -870,7 +870,7 @@ Instance path:   Main.IBufP1Ports_3
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_3:	1 (0.02 % Utilization)
 
@@ -882,7 +882,7 @@ Instance path:   Main.IBufP1Ports_30
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_30:	1 (0.02 % Utilization)
 
@@ -894,7 +894,7 @@ Instance path:   Main.IBufP1Ports_31
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_31:	1 (0.02 % Utilization)
 
@@ -906,7 +906,7 @@ Instance path:   Main.IBufP1Ports_32
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_32:	1 (0.02 % Utilization)
 
@@ -918,7 +918,7 @@ Instance path:   Main.IBufP1Ports_33
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_33:	1 (0.02 % Utilization)
 
@@ -930,7 +930,7 @@ Instance path:   Main.IBufP1Ports_34
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_34:	1 (0.02 % Utilization)
 
@@ -942,7 +942,7 @@ Instance path:   Main.IBufP1Ports_35
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_35:	1 (0.02 % Utilization)
 
@@ -954,7 +954,7 @@ Instance path:   Main.IBufP1Ports_36
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_36:	1 (0.02 % Utilization)
 
@@ -966,7 +966,7 @@ Instance path:   Main.IBufP1Ports_37
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_37:	1 (0.02 % Utilization)
 
@@ -978,7 +978,7 @@ Instance path:   Main.IBufP1Ports_38
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_38:	1 (0.02 % Utilization)
 
@@ -990,7 +990,7 @@ Instance path:   Main.IBufP1Ports_39
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_39:	1 (0.02 % Utilization)
 
@@ -1002,7 +1002,7 @@ Instance path:   Main.IBufP1Ports_4
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_4:	1 (0.02 % Utilization)
 
@@ -1014,7 +1014,7 @@ Instance path:   Main.IBufP1Ports_40
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_40:	1 (0.02 % Utilization)
 
@@ -1026,7 +1026,7 @@ Instance path:   Main.IBufP1Ports_5
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_5:	1 (0.02 % Utilization)
 
@@ -1038,7 +1038,7 @@ Instance path:   Main.IBufP1Ports_6
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_6:	1 (0.02 % Utilization)
 
@@ -1050,7 +1050,7 @@ Instance path:   Main.IBufP1Ports_7
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_7:	1 (0.02 % Utilization)
 
@@ -1062,7 +1062,7 @@ Instance path:   Main.IBufP1Ports_8
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_8:	1 (0.02 % Utilization)
 
@@ -1074,7 +1074,7 @@ Instance path:   Main.IBufP1Ports_9
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      1                  0.04170 %            
+SLE      1                  0.04090 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP1Ports_9:	1 (0.02 % Utilization)
 
@@ -1086,7 +1086,7 @@ Instance path:   Main.IBufP2Ports
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP2Ports:	2 (0.03 % Utilization)
 
@@ -1098,7 +1098,7 @@ Instance path:   Main.IBufP2Ports_1
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP2Ports_1:	2 (0.03 % Utilization)
 
@@ -1106,7 +1106,7 @@ Total SEQUENTIAL ELEMENTS in the block Main.IBufP2Ports_1:	2 (0.03 % Utilization
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      2                  0.0860 %             
+CFG      2                  0.08150 %            
 =================================================
 Total COMBINATIONAL LOGIC in the block Main.IBufP2Ports_1:	2 (0.03 % Utilization)
 
@@ -1118,7 +1118,7 @@ Instance path:   Main.IBufP2Ports_2
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP2Ports_2:	2 (0.03 % Utilization)
 
@@ -1130,7 +1130,7 @@ Instance path:   Main.IBufP3Ports
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      3                  0.1250 %             
+SLE      3                  0.1230 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP3Ports:	3 (0.05 % Utilization)
 
@@ -1142,7 +1142,7 @@ Instance path:   Main.IBufP3Ports_0
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      3                  0.1250 %             
+SLE      3                  0.1230 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP3Ports_0:	3 (0.05 % Utilization)
 
@@ -1154,7 +1154,7 @@ Instance path:   Main.IBufP3Ports_1
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      3                  0.1250 %             
+SLE      3                  0.1230 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP3Ports_1:	3 (0.05 % Utilization)
 
@@ -1166,7 +1166,7 @@ Instance path:   Main.IBufP3Ports_7
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      3                  0.1250 %             
+SLE      3                  0.1230 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP3Ports_7:	3 (0.05 % Utilization)
 
@@ -1178,7 +1178,7 @@ Instance path:   Main.IBufP3Ports_7_0
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      3                  0.1250 %             
+SLE      3                  0.1230 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP3Ports_7_0:	3 (0.05 % Utilization)
 
@@ -1190,7 +1190,7 @@ Instance path:   Main.IBufP3Ports_7_1
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      3                  0.1250 %             
+SLE      3                  0.1230 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP3Ports_7_1:	3 (0.05 % Utilization)
 
@@ -1202,7 +1202,7 @@ Instance path:   Main.IBufP3Ports_7_2
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      3                  0.1250 %             
+SLE      3                  0.1230 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP3Ports_7_2:	3 (0.05 % Utilization)
 
@@ -1214,7 +1214,7 @@ Instance path:   Main.IBufP3Ports_7_3
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      3                  0.1250 %             
+SLE      3                  0.1230 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.IBufP3Ports_7_3:	3 (0.05 % Utilization)
 
@@ -1226,7 +1226,7 @@ Instance path:   Main.OneShotPorts_work_main_architecture_main_0layer1
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      12                 0.50 %               
+SLE      12                 0.4910 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.OneShotPorts_work_main_architecture_main_0layer1:	12 (0.20 % Utilization)
 
@@ -1234,16 +1234,16 @@ Total SEQUENTIAL ELEMENTS in the block Main.OneShotPorts_work_main_architecture_
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      7                  0.3010 %             
+CFG      7                  0.2850 %             
 ARI1     10                 1.37 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.OneShotPorts_work_main_architecture_main_0layer1:	17 (0.29 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.OneShotPorts_work_main_architecture_main_0layer1:	17 (0.28 % Utilization)
 
 
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     1                  3.12 %               
+GLOBAL     1                  3.03 %               
 ===================================================
 Total GLOBAL BUFFERS in the block Main.OneShotPorts_work_main_architecture_main_0layer1:	1 (0.02 % Utilization)
 
@@ -1255,7 +1255,7 @@ Instance path:   Main.OneShotPorts_work_main_architecture_main_1layer1_0
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      18                 0.750 %              
+SLE      18                 0.7360 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.OneShotPorts_work_main_architecture_main_1layer1_0:	18 (0.30 % Utilization)
 
@@ -1263,10 +1263,10 @@ Total SEQUENTIAL ELEMENTS in the block Main.OneShotPorts_work_main_architecture_
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      8                  0.3440 %             
+CFG      8                  0.3260 %             
 ARI1     17                 2.32 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.OneShotPorts_work_main_architecture_main_1layer1_0:	25 (0.42 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.OneShotPorts_work_main_architecture_main_1layer1_0:	25 (0.41 % Utilization)
 
 --------------------------------------------------------------------------------------------------------
 ########   Utilization report for  cell:   OneShotPorts_work_main_architecture_main_1layer1_1   ########
@@ -1276,7 +1276,7 @@ Instance path:   Main.OneShotPorts_work_main_architecture_main_1layer1_1
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      18                 0.750 %              
+SLE      18                 0.7360 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.OneShotPorts_work_main_architecture_main_1layer1_1:	18 (0.30 % Utilization)
 
@@ -1284,10 +1284,10 @@ Total SEQUENTIAL ELEMENTS in the block Main.OneShotPorts_work_main_architecture_
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      8                  0.3440 %             
+CFG      8                  0.3260 %             
 ARI1     17                 2.32 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.OneShotPorts_work_main_architecture_main_1layer1_1:	25 (0.42 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.OneShotPorts_work_main_architecture_main_1layer1_1:	25 (0.41 % Utilization)
 
 --------------------------------------------------------------------------------------------------------
 ########   Utilization report for  cell:   OneShotPorts_work_main_architecture_main_1layer1_2   ########
@@ -1297,7 +1297,7 @@ Instance path:   Main.OneShotPorts_work_main_architecture_main_1layer1_2
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      18                 0.750 %              
+SLE      18                 0.7360 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.OneShotPorts_work_main_architecture_main_1layer1_2:	18 (0.30 % Utilization)
 
@@ -1305,10 +1305,10 @@ Total SEQUENTIAL ELEMENTS in the block Main.OneShotPorts_work_main_architecture_
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      8                  0.3440 %             
+CFG      8                  0.3260 %             
 ARI1     17                 2.32 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.OneShotPorts_work_main_architecture_main_1layer1_2:	25 (0.42 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.OneShotPorts_work_main_architecture_main_1layer1_2:	25 (0.41 % Utilization)
 
 --------------------------------------------------------------------------------------------------------
 ########   Utilization report for  cell:   OneShotPorts_work_main_architecture_main_1layer1_3   ########
@@ -1318,7 +1318,7 @@ Instance path:   Main.OneShotPorts_work_main_architecture_main_1layer1_3
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      18                 0.750 %              
+SLE      18                 0.7360 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block Main.OneShotPorts_work_main_architecture_main_1layer1_3:	18 (0.30 % Utilization)
 
@@ -1326,10 +1326,10 @@ Total SEQUENTIAL ELEMENTS in the block Main.OneShotPorts_work_main_architecture_
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      8                  0.3440 %             
+CFG      8                  0.3260 %             
 ARI1     17                 2.32 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.OneShotPorts_work_main_architecture_main_1layer1_3:	25 (0.42 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.OneShotPorts_work_main_architecture_main_1layer1_3:	25 (0.41 % Utilization)
 
 -------------------------------------------------------------------------------------------------------
 ########   Utilization report for  cell:   PPSCountPorts_work_main_architecture_main_0layer1   ########
@@ -1339,18 +1339,18 @@ Instance path:   Main.PPSCountPorts_work_main_architecture_main_0layer1
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      67                 2.79 %               
+SLE      67                 2.74 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.PPSCountPorts_work_main_architecture_main_0layer1:	67 (1.13 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.PPSCountPorts_work_main_architecture_main_0layer1:	67 (1.10 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      11                 0.4730 %             
+CFG      11                 0.4480 %             
 ARI1     63                 8.61 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.PPSCountPorts_work_main_architecture_main_0layer1:	74 (1.25 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.PPSCountPorts_work_main_architecture_main_0layer1:	74 (1.22 % Utilization)
 
 ---------------------------------------------------------------------------
 ########   Utilization report for  cell:   RegisterSpacePorts_10   ########
@@ -1360,23 +1360,23 @@ Instance path:   Main.RegisterSpacePorts_10
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      204                8.5 %                
+SLE      252                10.3 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.RegisterSpacePorts_10:	204 (3.45 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.RegisterSpacePorts_10:	252 (4.14 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      1267               54.5 %               
+CFG      1399               57 %                 
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.RegisterSpacePorts_10:	1267 (21.44 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.RegisterSpacePorts_10:	1399 (22.99 % Utilization)
 
 
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     2                  6.25 %               
+GLOBAL     2                  6.06 %               
 ===================================================
 Total GLOBAL BUFFERS in the block Main.RegisterSpacePorts_10:	2 (0.03 % Utilization)
 
@@ -1388,24 +1388,24 @@ Instance path:   Main.SpiDacPorts_102000000_16
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      71                 2.96 %               
+SLE      71                 2.9 %                
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.SpiDacPorts_102000000_16:	71 (1.20 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.SpiDacPorts_102000000_16:	71 (1.17 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      60                 2.58 %               
+CFG      59                 2.4 %                
 ARI1     19                 2.6 %                
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.SpiDacPorts_102000000_16:	79 (1.34 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.SpiDacPorts_102000000_16:	78 (1.28 % Utilization)
 
 
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     1                  3.12 %               
+GLOBAL     1                  3.03 %               
 ===================================================
 Total GLOBAL BUFFERS in the block Main.SpiDacPorts_102000000_16:	1 (0.02 % Utilization)
 
@@ -1417,18 +1417,18 @@ Instance path:   SpiDacPorts_102000000_16.SpiMasterPorts_work_main_architecture_
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      51                 2.12 %               
+SLE      51                 2.09 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block SpiDacPorts_102000000_16.SpiMasterPorts_work_main_architecture_main_0layer1:	51 (0.86 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block SpiDacPorts_102000000_16.SpiMasterPorts_work_main_architecture_main_0layer1:	51 (0.84 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      55                 2.36 %               
+CFG      54                 2.2 %                
 ARI1     19                 2.6 %                
 =================================================
-Total COMBINATIONAL LOGIC in the block SpiDacPorts_102000000_16.SpiMasterPorts_work_main_architecture_main_0layer1:	74 (1.25 % Utilization)
+Total COMBINATIONAL LOGIC in the block SpiDacPorts_102000000_16.SpiMasterPorts_work_main_architecture_main_0layer1:	73 (1.20 % Utilization)
 
 --------------------------------------------------------------------------------------------------------
 ########   Utilization report for  cell:   SpiDevicePorts_work_main_architecture_main_0layer1   ########
@@ -1438,24 +1438,24 @@ Instance path:   Main.SpiDevicePorts_work_main_architecture_main_0layer1
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      47                 1.96 %               
+SLE      47                 1.92 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.SpiDevicePorts_work_main_architecture_main_0layer1:	47 (0.80 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.SpiDevicePorts_work_main_architecture_main_0layer1:	47 (0.77 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      38                 1.63 %               
+CFG      38                 1.55 %               
 ARI1     12                 1.64 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.SpiDevicePorts_work_main_architecture_main_0layer1:	50 (0.85 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.SpiDevicePorts_work_main_architecture_main_0layer1:	50 (0.82 % Utilization)
 
 
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     1                  3.12 %               
+GLOBAL     1                  3.03 %               
 ===================================================
 Total GLOBAL BUFFERS in the block Main.SpiDevicePorts_work_main_architecture_main_0layer1:	1 (0.02 % Utilization)
 
@@ -1467,18 +1467,18 @@ Instance path:   SpiDevicePorts_work_main_architecture_main_0layer1.SpiMasterPor
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      34                 1.42 %               
+SLE      34                 1.39 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block SpiDevicePorts_work_main_architecture_main_0layer1.SpiMasterPorts_work_main_architecture_main_1layer1:	34 (0.58 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block SpiDevicePorts_work_main_architecture_main_0layer1.SpiMasterPorts_work_main_architecture_main_1layer1:	34 (0.56 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      33                 1.42 %               
+CFG      33                 1.34 %               
 ARI1     12                 1.64 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block SpiDevicePorts_work_main_architecture_main_0layer1.SpiMasterPorts_work_main_architecture_main_1layer1:	45 (0.76 % Utilization)
+Total COMBINATIONAL LOGIC in the block SpiDevicePorts_work_main_architecture_main_0layer1.SpiMasterPorts_work_main_architecture_main_1layer1:	45 (0.74 % Utilization)
 
 ---------------------------------------------------------------------------
 ########   Utilization report for  cell:   UartRxFifoExtClk_10_0   ########
@@ -1488,18 +1488,18 @@ Instance path:   Main.UartRxFifoExtClk_10_0
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      85                 3.54 %               
+SLE      85                 3.48 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.UartRxFifoExtClk_10_0:	85 (1.44 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.UartRxFifoExtClk_10_0:	85 (1.40 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      71                 3.05 %               
+CFG      70                 2.85 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.UartRxFifoExtClk_10_0:	104 (1.76 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.UartRxFifoExtClk_10_0:	103 (1.69 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -1517,7 +1517,7 @@ Instance path:   UartRxFifoExtClk_10_0.IBufP2Ports_0_15
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_0.IBufP2Ports_0_15:	2 (0.03 % Utilization)
 
@@ -1529,17 +1529,17 @@ Instance path:   UartRxFifoExtClk_10_0.UartRxExtClk_5
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      27                 1.12 %               
+SLE      27                 1.1 %                
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_0.UartRxExtClk_5:	27 (0.46 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_0.UartRxExtClk_5:	27 (0.44 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      36                 1.55 %               
+CFG      35                 1.43 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_0.UartRxExtClk_5:	36 (0.61 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_0.UartRxExtClk_5:	35 (0.58 % Utilization)
 
 ---------------------------------------------------------------------
 ########   Utilization report for  cell:   IBufP2Ports_0_5   ########
@@ -1549,7 +1549,7 @@ Instance path:   UartRxExtClk_5.IBufP2Ports_0_5
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartRxExtClk_5.IBufP2Ports_0_5:	2 (0.03 % Utilization)
 
@@ -1561,17 +1561,17 @@ Instance path:   UartRxExtClk_5.UartRxRaw_5
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      25                 1.04 %               
+SLE      25                 1.02 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartRxExtClk_5.UartRxRaw_5:	25 (0.42 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartRxExtClk_5.UartRxRaw_5:	25 (0.41 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      36                 1.55 %               
+CFG      35                 1.43 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartRxExtClk_5.UartRxRaw_5:	36 (0.61 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartRxExtClk_5.UartRxRaw_5:	35 (0.58 % Utilization)
 
 -------------------------------------------------------------------------
 ########   Utilization report for  cell:   gated_fifo_8_10_1_9   ########
@@ -1581,18 +1581,18 @@ Instance path:   UartRxFifoExtClk_10_0.gated_fifo_8_10_1_9
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      56                 2.33 %               
+SLE      56                 2.29 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_0.gated_fifo_8_10_1_9:	56 (0.95 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_0.gated_fifo_8_10_1_9:	56 (0.92 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      35                 1.5 %                
+CFG      35                 1.43 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_0.gated_fifo_8_10_1_9:	68 (1.15 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_0.gated_fifo_8_10_1_9:	68 (1.12 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -1610,18 +1610,18 @@ Instance path:   gated_fifo_8_10_1_9.fifo_8_10_1_9
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      52                 2.17 %               
+SLE      52                 2.13 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_9.fifo_8_10_1_9:	52 (0.88 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_9.fifo_8_10_1_9:	52 (0.85 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      33                 1.42 %               
+CFG      33                 1.34 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_9.fifo_8_10_1_9:	66 (1.12 % Utilization)
+Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_9.fifo_8_10_1_9:	66 (1.08 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -1639,18 +1639,18 @@ Instance path:   Main.UartRxFifoExtClk_10_1
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      85                 3.54 %               
+SLE      85                 3.48 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.UartRxFifoExtClk_10_1:	85 (1.44 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.UartRxFifoExtClk_10_1:	85 (1.40 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      70                 3.01 %               
+CFG      70                 2.85 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.UartRxFifoExtClk_10_1:	103 (1.74 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.UartRxFifoExtClk_10_1:	103 (1.69 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -1668,7 +1668,7 @@ Instance path:   UartRxFifoExtClk_10_1.IBufP2Ports_0_13
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_1.IBufP2Ports_0_13:	2 (0.03 % Utilization)
 
@@ -1680,17 +1680,17 @@ Instance path:   UartRxFifoExtClk_10_1.UartRxExtClk_4
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      27                 1.12 %               
+SLE      27                 1.1 %                
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_1.UartRxExtClk_4:	27 (0.46 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_1.UartRxExtClk_4:	27 (0.44 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      35                 1.5 %                
+CFG      35                 1.43 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_1.UartRxExtClk_4:	35 (0.59 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_1.UartRxExtClk_4:	35 (0.58 % Utilization)
 
 ---------------------------------------------------------------------
 ########   Utilization report for  cell:   IBufP2Ports_0_4   ########
@@ -1700,7 +1700,7 @@ Instance path:   UartRxExtClk_4.IBufP2Ports_0_4
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartRxExtClk_4.IBufP2Ports_0_4:	2 (0.03 % Utilization)
 
@@ -1712,17 +1712,17 @@ Instance path:   UartRxExtClk_4.UartRxRaw_4
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      25                 1.04 %               
+SLE      25                 1.02 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartRxExtClk_4.UartRxRaw_4:	25 (0.42 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartRxExtClk_4.UartRxRaw_4:	25 (0.41 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      35                 1.5 %                
+CFG      35                 1.43 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartRxExtClk_4.UartRxRaw_4:	35 (0.59 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartRxExtClk_4.UartRxRaw_4:	35 (0.58 % Utilization)
 
 -------------------------------------------------------------------------
 ########   Utilization report for  cell:   gated_fifo_8_10_1_7   ########
@@ -1732,18 +1732,18 @@ Instance path:   UartRxFifoExtClk_10_1.gated_fifo_8_10_1_7
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      56                 2.33 %               
+SLE      56                 2.29 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_1.gated_fifo_8_10_1_7:	56 (0.95 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_1.gated_fifo_8_10_1_7:	56 (0.92 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      35                 1.5 %                
+CFG      35                 1.43 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_1.gated_fifo_8_10_1_7:	68 (1.15 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_1.gated_fifo_8_10_1_7:	68 (1.12 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -1761,18 +1761,18 @@ Instance path:   gated_fifo_8_10_1_7.fifo_8_10_1_7
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      52                 2.17 %               
+SLE      52                 2.13 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_7.fifo_8_10_1_7:	52 (0.88 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_7.fifo_8_10_1_7:	52 (0.85 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      33                 1.42 %               
+CFG      33                 1.34 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_7.fifo_8_10_1_7:	66 (1.12 % Utilization)
+Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_7.fifo_8_10_1_7:	66 (1.08 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -1790,18 +1790,18 @@ Instance path:   Main.UartRxFifoExtClk_10_2
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      85                 3.54 %               
+SLE      85                 3.48 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.UartRxFifoExtClk_10_2:	85 (1.44 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.UartRxFifoExtClk_10_2:	85 (1.40 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      70                 3.01 %               
+CFG      70                 2.85 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.UartRxFifoExtClk_10_2:	103 (1.74 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.UartRxFifoExtClk_10_2:	103 (1.69 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -1819,7 +1819,7 @@ Instance path:   UartRxFifoExtClk_10_2.IBufP2Ports_0_11
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_2.IBufP2Ports_0_11:	2 (0.03 % Utilization)
 
@@ -1831,17 +1831,17 @@ Instance path:   UartRxFifoExtClk_10_2.UartRxExtClk_3
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      27                 1.12 %               
+SLE      27                 1.1 %                
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_2.UartRxExtClk_3:	27 (0.46 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_2.UartRxExtClk_3:	27 (0.44 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      35                 1.5 %                
+CFG      35                 1.43 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_2.UartRxExtClk_3:	35 (0.59 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_2.UartRxExtClk_3:	35 (0.58 % Utilization)
 
 ---------------------------------------------------------------------
 ########   Utilization report for  cell:   IBufP2Ports_0_3   ########
@@ -1851,7 +1851,7 @@ Instance path:   UartRxExtClk_3.IBufP2Ports_0_3
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartRxExtClk_3.IBufP2Ports_0_3:	2 (0.03 % Utilization)
 
@@ -1863,17 +1863,17 @@ Instance path:   UartRxExtClk_3.UartRxRaw_3
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      25                 1.04 %               
+SLE      25                 1.02 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartRxExtClk_3.UartRxRaw_3:	25 (0.42 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartRxExtClk_3.UartRxRaw_3:	25 (0.41 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      35                 1.5 %                
+CFG      35                 1.43 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartRxExtClk_3.UartRxRaw_3:	35 (0.59 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartRxExtClk_3.UartRxRaw_3:	35 (0.58 % Utilization)
 
 -------------------------------------------------------------------------
 ########   Utilization report for  cell:   gated_fifo_8_10_1_5   ########
@@ -1883,18 +1883,18 @@ Instance path:   UartRxFifoExtClk_10_2.gated_fifo_8_10_1_5
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      56                 2.33 %               
+SLE      56                 2.29 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_2.gated_fifo_8_10_1_5:	56 (0.95 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_2.gated_fifo_8_10_1_5:	56 (0.92 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      35                 1.5 %                
+CFG      35                 1.43 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_2.gated_fifo_8_10_1_5:	68 (1.15 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_2.gated_fifo_8_10_1_5:	68 (1.12 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -1912,18 +1912,18 @@ Instance path:   gated_fifo_8_10_1_5.fifo_8_10_1_5
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      52                 2.17 %               
+SLE      52                 2.13 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_5.fifo_8_10_1_5:	52 (0.88 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_5.fifo_8_10_1_5:	52 (0.85 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      33                 1.42 %               
+CFG      33                 1.34 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_5.fifo_8_10_1_5:	66 (1.12 % Utilization)
+Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_5.fifo_8_10_1_5:	66 (1.08 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -1941,18 +1941,18 @@ Instance path:   Main.UartRxFifoExtClk_10_3
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      85                 3.54 %               
+SLE      85                 3.48 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.UartRxFifoExtClk_10_3:	85 (1.44 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.UartRxFifoExtClk_10_3:	85 (1.40 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      70                 3.01 %               
+CFG      70                 2.85 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.UartRxFifoExtClk_10_3:	103 (1.74 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.UartRxFifoExtClk_10_3:	103 (1.69 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -1970,7 +1970,7 @@ Instance path:   UartRxFifoExtClk_10_3.IBufP2Ports_0_9
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_3.IBufP2Ports_0_9:	2 (0.03 % Utilization)
 
@@ -1982,17 +1982,17 @@ Instance path:   UartRxFifoExtClk_10_3.UartRxExtClk_2
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      27                 1.12 %               
+SLE      27                 1.1 %                
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_3.UartRxExtClk_2:	27 (0.46 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_3.UartRxExtClk_2:	27 (0.44 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      35                 1.5 %                
+CFG      35                 1.43 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_3.UartRxExtClk_2:	35 (0.59 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_3.UartRxExtClk_2:	35 (0.58 % Utilization)
 
 ---------------------------------------------------------------------
 ########   Utilization report for  cell:   IBufP2Ports_0_2   ########
@@ -2002,7 +2002,7 @@ Instance path:   UartRxExtClk_2.IBufP2Ports_0_2
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartRxExtClk_2.IBufP2Ports_0_2:	2 (0.03 % Utilization)
 
@@ -2014,17 +2014,17 @@ Instance path:   UartRxExtClk_2.UartRxRaw_2
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      25                 1.04 %               
+SLE      25                 1.02 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartRxExtClk_2.UartRxRaw_2:	25 (0.42 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartRxExtClk_2.UartRxRaw_2:	25 (0.41 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      35                 1.5 %                
+CFG      35                 1.43 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartRxExtClk_2.UartRxRaw_2:	35 (0.59 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartRxExtClk_2.UartRxRaw_2:	35 (0.58 % Utilization)
 
 -------------------------------------------------------------------------
 ########   Utilization report for  cell:   gated_fifo_8_10_1_3   ########
@@ -2034,18 +2034,18 @@ Instance path:   UartRxFifoExtClk_10_3.gated_fifo_8_10_1_3
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      56                 2.33 %               
+SLE      56                 2.29 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_3.gated_fifo_8_10_1_3:	56 (0.95 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_3.gated_fifo_8_10_1_3:	56 (0.92 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      35                 1.5 %                
+CFG      35                 1.43 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_3.gated_fifo_8_10_1_3:	68 (1.15 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_3.gated_fifo_8_10_1_3:	68 (1.12 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2063,18 +2063,18 @@ Instance path:   gated_fifo_8_10_1_3.fifo_8_10_1_3
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      52                 2.17 %               
+SLE      52                 2.13 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_3.fifo_8_10_1_3:	52 (0.88 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_3.fifo_8_10_1_3:	52 (0.85 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      33                 1.42 %               
+CFG      33                 1.34 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_3.fifo_8_10_1_3:	66 (1.12 % Utilization)
+Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_3.fifo_8_10_1_3:	66 (1.08 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2092,18 +2092,18 @@ Instance path:   Main.UartRxFifoExtClk_10_4
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      85                 3.54 %               
+SLE      85                 3.48 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.UartRxFifoExtClk_10_4:	85 (1.44 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.UartRxFifoExtClk_10_4:	85 (1.40 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      70                 3.01 %               
+CFG      70                 2.85 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.UartRxFifoExtClk_10_4:	103 (1.74 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.UartRxFifoExtClk_10_4:	103 (1.69 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2121,7 +2121,7 @@ Instance path:   UartRxFifoExtClk_10_4.IBufP2Ports_0_7
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_4.IBufP2Ports_0_7:	2 (0.03 % Utilization)
 
@@ -2133,17 +2133,17 @@ Instance path:   UartRxFifoExtClk_10_4.UartRxExtClk_1
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      27                 1.12 %               
+SLE      27                 1.1 %                
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_4.UartRxExtClk_1:	27 (0.46 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_4.UartRxExtClk_1:	27 (0.44 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      35                 1.5 %                
+CFG      35                 1.43 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_4.UartRxExtClk_1:	35 (0.59 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_4.UartRxExtClk_1:	35 (0.58 % Utilization)
 
 ---------------------------------------------------------------------
 ########   Utilization report for  cell:   IBufP2Ports_0_1   ########
@@ -2153,7 +2153,7 @@ Instance path:   UartRxExtClk_1.IBufP2Ports_0_1
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartRxExtClk_1.IBufP2Ports_0_1:	2 (0.03 % Utilization)
 
@@ -2165,17 +2165,17 @@ Instance path:   UartRxExtClk_1.UartRxRaw_1
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      25                 1.04 %               
+SLE      25                 1.02 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartRxExtClk_1.UartRxRaw_1:	25 (0.42 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartRxExtClk_1.UartRxRaw_1:	25 (0.41 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      35                 1.5 %                
+CFG      35                 1.43 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartRxExtClk_1.UartRxRaw_1:	35 (0.59 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartRxExtClk_1.UartRxRaw_1:	35 (0.58 % Utilization)
 
 -------------------------------------------------------------------------
 ########   Utilization report for  cell:   gated_fifo_8_10_1_1   ########
@@ -2185,18 +2185,18 @@ Instance path:   UartRxFifoExtClk_10_4.gated_fifo_8_10_1_1
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      56                 2.33 %               
+SLE      56                 2.29 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_4.gated_fifo_8_10_1_1:	56 (0.95 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_4.gated_fifo_8_10_1_1:	56 (0.92 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      35                 1.5 %                
+CFG      35                 1.43 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_4.gated_fifo_8_10_1_1:	68 (1.15 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_4.gated_fifo_8_10_1_1:	68 (1.12 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2214,18 +2214,18 @@ Instance path:   gated_fifo_8_10_1_1.fifo_8_10_1_1
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      52                 2.17 %               
+SLE      52                 2.13 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_1.fifo_8_10_1_1:	52 (0.88 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_1.fifo_8_10_1_1:	52 (0.85 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      33                 1.42 %               
+CFG      33                 1.34 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_1.fifo_8_10_1_1:	66 (1.12 % Utilization)
+Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_1.fifo_8_10_1_1:	66 (1.08 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2243,18 +2243,18 @@ Instance path:   Main.UartRxFifoExtClk_10_5
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      85                 3.54 %               
+SLE      85                 3.48 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.UartRxFifoExtClk_10_5:	85 (1.44 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.UartRxFifoExtClk_10_5:	85 (1.40 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      71                 3.05 %               
+CFG      70                 2.85 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.UartRxFifoExtClk_10_5:	104 (1.76 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.UartRxFifoExtClk_10_5:	103 (1.69 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2272,7 +2272,7 @@ Instance path:   UartRxFifoExtClk_10_5.IBufP2Ports_0
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_5.IBufP2Ports_0:	2 (0.03 % Utilization)
 
@@ -2284,17 +2284,17 @@ Instance path:   UartRxFifoExtClk_10_5.UartRxExtClk_0
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      27                 1.12 %               
+SLE      27                 1.1 %                
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_5.UartRxExtClk_0:	27 (0.46 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_5.UartRxExtClk_0:	27 (0.44 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      36                 1.55 %               
+CFG      35                 1.43 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_5.UartRxExtClk_0:	36 (0.61 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_5.UartRxExtClk_0:	35 (0.58 % Utilization)
 
 ---------------------------------------------------------------------
 ########   Utilization report for  cell:   IBufP2Ports_0_0   ########
@@ -2304,7 +2304,7 @@ Instance path:   UartRxExtClk_0.IBufP2Ports_0_0
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartRxExtClk_0.IBufP2Ports_0_0:	2 (0.03 % Utilization)
 
@@ -2316,17 +2316,17 @@ Instance path:   UartRxExtClk_0.UartRxRaw_0
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      25                 1.04 %               
+SLE      25                 1.02 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartRxExtClk_0.UartRxRaw_0:	25 (0.42 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartRxExtClk_0.UartRxRaw_0:	25 (0.41 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      36                 1.55 %               
+CFG      35                 1.43 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartRxExtClk_0.UartRxRaw_0:	36 (0.61 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartRxExtClk_0.UartRxRaw_0:	35 (0.58 % Utilization)
 
 -----------------------------------------------------------------------
 ########   Utilization report for  cell:   gated_fifo_8_10_0   ########
@@ -2336,18 +2336,18 @@ Instance path:   UartRxFifoExtClk_10_5.gated_fifo_8_10_0
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      56                 2.33 %               
+SLE      56                 2.29 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_5.gated_fifo_8_10_0:	56 (0.95 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartRxFifoExtClk_10_5.gated_fifo_8_10_0:	56 (0.92 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      35                 1.5 %                
+CFG      35                 1.43 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_5.gated_fifo_8_10_0:	68 (1.15 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartRxFifoExtClk_10_5.gated_fifo_8_10_0:	68 (1.12 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2365,18 +2365,18 @@ Instance path:   gated_fifo_8_10_0.fifo_8_10_0
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      52                 2.17 %               
+SLE      52                 2.13 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_0.fifo_8_10_0:	52 (0.88 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_0.fifo_8_10_0:	52 (0.85 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      33                 1.42 %               
+CFG      33                 1.34 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_0.fifo_8_10_0:	66 (1.12 % Utilization)
+Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_0.fifo_8_10_0:	66 (1.08 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2394,18 +2394,18 @@ Instance path:   Main.UartTxFifoExtClk_10_0
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      65                 2.71 %               
+SLE      65                 2.66 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.UartTxFifoExtClk_10_0:	65 (1.10 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.UartTxFifoExtClk_10_0:	65 (1.07 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      49                 2.11 %               
+CFG      49                 2 %                  
 ARI1     38                 5.19 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.UartTxFifoExtClk_10_0:	87 (1.47 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.UartTxFifoExtClk_10_0:	87 (1.43 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2423,7 +2423,7 @@ Instance path:   UartTxFifoExtClk_10_0.IBufP2Ports_0_16
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_0.IBufP2Ports_0_16:	2 (0.03 % Utilization)
 
@@ -2435,7 +2435,7 @@ Instance path:   UartTxFifoExtClk_10_0.IBufP2Ports_8_19
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_0.IBufP2Ports_8_19:	2 (0.03 % Utilization)
 
@@ -2447,7 +2447,7 @@ Instance path:   UartTxFifoExtClk_10_0.UartTx_5
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      7                  0.2920 %             
+SLE      7                  0.2860 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_0.UartTx_5:	7 (0.12 % Utilization)
 
@@ -2455,10 +2455,10 @@ Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_0.UartTx_5:	7 (0.12 %
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      14                 0.6020 %             
+CFG      14                 0.570 %              
 ARI1     5                  0.6830 %             
 =================================================
-Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_0.UartTx_5:	19 (0.32 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_0.UartTx_5:	19 (0.31 % Utilization)
 
 --------------------------------------------------------------------------
 ########   Utilization report for  cell:   gated_fifo_8_10_1_10   ########
@@ -2468,18 +2468,18 @@ Instance path:   UartTxFifoExtClk_10_0.gated_fifo_8_10_1_10
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      48                 2 %                  
+SLE      48                 1.96 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_0.gated_fifo_8_10_1_10:	48 (0.81 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_0.gated_fifo_8_10_1_10:	48 (0.79 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      28                 1.2 %                
+CFG      28                 1.14 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_0.gated_fifo_8_10_1_10:	61 (1.03 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_0.gated_fifo_8_10_1_10:	61 (1.00 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2497,18 +2497,18 @@ Instance path:   gated_fifo_8_10_1_10.fifo_8_10_1_10
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      43                 1.79 %               
+SLE      43                 1.76 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_10.fifo_8_10_1_10:	43 (0.73 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_10.fifo_8_10_1_10:	43 (0.71 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      25                 1.07 %               
+CFG      25                 1.02 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_10.fifo_8_10_1_10:	58 (0.98 % Utilization)
+Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_10.fifo_8_10_1_10:	58 (0.95 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2526,18 +2526,18 @@ Instance path:   Main.UartTxFifoExtClk_10_1
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      65                 2.71 %               
+SLE      65                 2.66 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.UartTxFifoExtClk_10_1:	65 (1.10 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.UartTxFifoExtClk_10_1:	65 (1.07 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      50                 2.15 %               
+CFG      50                 2.04 %               
 ARI1     38                 5.19 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.UartTxFifoExtClk_10_1:	88 (1.49 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.UartTxFifoExtClk_10_1:	88 (1.45 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2555,7 +2555,7 @@ Instance path:   UartTxFifoExtClk_10_1.IBufP2Ports_0_14
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_1.IBufP2Ports_0_14:	2 (0.03 % Utilization)
 
@@ -2567,7 +2567,7 @@ Instance path:   UartTxFifoExtClk_10_1.IBufP2Ports_8_15
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_1.IBufP2Ports_8_15:	2 (0.03 % Utilization)
 
@@ -2579,7 +2579,7 @@ Instance path:   UartTxFifoExtClk_10_1.UartTx_4
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      7                  0.2920 %             
+SLE      7                  0.2860 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_1.UartTx_4:	7 (0.12 % Utilization)
 
@@ -2587,10 +2587,10 @@ Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_1.UartTx_4:	7 (0.12 %
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      15                 0.6450 %             
+CFG      15                 0.6110 %             
 ARI1     5                  0.6830 %             
 =================================================
-Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_1.UartTx_4:	20 (0.34 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_1.UartTx_4:	20 (0.33 % Utilization)
 
 -------------------------------------------------------------------------
 ########   Utilization report for  cell:   gated_fifo_8_10_1_8   ########
@@ -2600,18 +2600,18 @@ Instance path:   UartTxFifoExtClk_10_1.gated_fifo_8_10_1_8
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      48                 2 %                  
+SLE      48                 1.96 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_1.gated_fifo_8_10_1_8:	48 (0.81 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_1.gated_fifo_8_10_1_8:	48 (0.79 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      28                 1.2 %                
+CFG      28                 1.14 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_1.gated_fifo_8_10_1_8:	61 (1.03 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_1.gated_fifo_8_10_1_8:	61 (1.00 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2629,18 +2629,18 @@ Instance path:   gated_fifo_8_10_1_8.fifo_8_10_1_8
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      43                 1.79 %               
+SLE      43                 1.76 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_8.fifo_8_10_1_8:	43 (0.73 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_8.fifo_8_10_1_8:	43 (0.71 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      25                 1.07 %               
+CFG      25                 1.02 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_8.fifo_8_10_1_8:	58 (0.98 % Utilization)
+Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_8.fifo_8_10_1_8:	58 (0.95 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2658,18 +2658,18 @@ Instance path:   Main.UartTxFifoExtClk_10_2
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      65                 2.71 %               
+SLE      65                 2.66 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.UartTxFifoExtClk_10_2:	65 (1.10 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.UartTxFifoExtClk_10_2:	65 (1.07 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      49                 2.11 %               
+CFG      49                 2 %                  
 ARI1     38                 5.19 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.UartTxFifoExtClk_10_2:	87 (1.47 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.UartTxFifoExtClk_10_2:	87 (1.43 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2687,7 +2687,7 @@ Instance path:   UartTxFifoExtClk_10_2.IBufP2Ports_0_12
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_2.IBufP2Ports_0_12:	2 (0.03 % Utilization)
 
@@ -2699,7 +2699,7 @@ Instance path:   UartTxFifoExtClk_10_2.IBufP2Ports_8_11
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_2.IBufP2Ports_8_11:	2 (0.03 % Utilization)
 
@@ -2711,7 +2711,7 @@ Instance path:   UartTxFifoExtClk_10_2.UartTx_3
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      7                  0.2920 %             
+SLE      7                  0.2860 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_2.UartTx_3:	7 (0.12 % Utilization)
 
@@ -2719,10 +2719,10 @@ Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_2.UartTx_3:	7 (0.12 %
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      14                 0.6020 %             
+CFG      14                 0.570 %              
 ARI1     5                  0.6830 %             
 =================================================
-Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_2.UartTx_3:	19 (0.32 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_2.UartTx_3:	19 (0.31 % Utilization)
 
 -------------------------------------------------------------------------
 ########   Utilization report for  cell:   gated_fifo_8_10_1_6   ########
@@ -2732,18 +2732,18 @@ Instance path:   UartTxFifoExtClk_10_2.gated_fifo_8_10_1_6
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      48                 2 %                  
+SLE      48                 1.96 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_2.gated_fifo_8_10_1_6:	48 (0.81 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_2.gated_fifo_8_10_1_6:	48 (0.79 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      28                 1.2 %                
+CFG      28                 1.14 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_2.gated_fifo_8_10_1_6:	61 (1.03 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_2.gated_fifo_8_10_1_6:	61 (1.00 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2761,18 +2761,18 @@ Instance path:   gated_fifo_8_10_1_6.fifo_8_10_1_6
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      43                 1.79 %               
+SLE      43                 1.76 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_6.fifo_8_10_1_6:	43 (0.73 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_6.fifo_8_10_1_6:	43 (0.71 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      25                 1.07 %               
+CFG      25                 1.02 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_6.fifo_8_10_1_6:	58 (0.98 % Utilization)
+Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_6.fifo_8_10_1_6:	58 (0.95 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2790,18 +2790,18 @@ Instance path:   Main.UartTxFifoExtClk_10_3
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      65                 2.71 %               
+SLE      65                 2.66 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.UartTxFifoExtClk_10_3:	65 (1.10 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.UartTxFifoExtClk_10_3:	65 (1.07 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      49                 2.11 %               
+CFG      49                 2 %                  
 ARI1     38                 5.19 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.UartTxFifoExtClk_10_3:	87 (1.47 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.UartTxFifoExtClk_10_3:	87 (1.43 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2819,7 +2819,7 @@ Instance path:   UartTxFifoExtClk_10_3.IBufP2Ports_0_10
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_3.IBufP2Ports_0_10:	2 (0.03 % Utilization)
 
@@ -2831,7 +2831,7 @@ Instance path:   UartTxFifoExtClk_10_3.IBufP2Ports_8_7
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_3.IBufP2Ports_8_7:	2 (0.03 % Utilization)
 
@@ -2843,7 +2843,7 @@ Instance path:   UartTxFifoExtClk_10_3.UartTx_2
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      7                  0.2920 %             
+SLE      7                  0.2860 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_3.UartTx_2:	7 (0.12 % Utilization)
 
@@ -2851,10 +2851,10 @@ Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_3.UartTx_2:	7 (0.12 %
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      14                 0.6020 %             
+CFG      14                 0.570 %              
 ARI1     5                  0.6830 %             
 =================================================
-Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_3.UartTx_2:	19 (0.32 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_3.UartTx_2:	19 (0.31 % Utilization)
 
 -------------------------------------------------------------------------
 ########   Utilization report for  cell:   gated_fifo_8_10_1_4   ########
@@ -2864,18 +2864,18 @@ Instance path:   UartTxFifoExtClk_10_3.gated_fifo_8_10_1_4
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      48                 2 %                  
+SLE      48                 1.96 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_3.gated_fifo_8_10_1_4:	48 (0.81 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_3.gated_fifo_8_10_1_4:	48 (0.79 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      28                 1.2 %                
+CFG      28                 1.14 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_3.gated_fifo_8_10_1_4:	61 (1.03 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_3.gated_fifo_8_10_1_4:	61 (1.00 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2893,18 +2893,18 @@ Instance path:   gated_fifo_8_10_1_4.fifo_8_10_1_4
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      43                 1.79 %               
+SLE      43                 1.76 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_4.fifo_8_10_1_4:	43 (0.73 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_4.fifo_8_10_1_4:	43 (0.71 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      25                 1.07 %               
+CFG      25                 1.02 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_4.fifo_8_10_1_4:	58 (0.98 % Utilization)
+Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_4.fifo_8_10_1_4:	58 (0.95 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2922,18 +2922,18 @@ Instance path:   Main.UartTxFifoExtClk_10_4
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      65                 2.71 %               
+SLE      65                 2.66 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.UartTxFifoExtClk_10_4:	65 (1.10 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.UartTxFifoExtClk_10_4:	65 (1.07 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      49                 2.11 %               
+CFG      49                 2 %                  
 ARI1     38                 5.19 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.UartTxFifoExtClk_10_4:	87 (1.47 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.UartTxFifoExtClk_10_4:	87 (1.43 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -2951,7 +2951,7 @@ Instance path:   UartTxFifoExtClk_10_4.IBufP2Ports_0_8
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_4.IBufP2Ports_0_8:	2 (0.03 % Utilization)
 
@@ -2963,7 +2963,7 @@ Instance path:   UartTxFifoExtClk_10_4.IBufP2Ports_8_3
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_4.IBufP2Ports_8_3:	2 (0.03 % Utilization)
 
@@ -2975,7 +2975,7 @@ Instance path:   UartTxFifoExtClk_10_4.UartTx_1
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      7                  0.2920 %             
+SLE      7                  0.2860 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_4.UartTx_1:	7 (0.12 % Utilization)
 
@@ -2983,10 +2983,10 @@ Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_4.UartTx_1:	7 (0.12 %
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      14                 0.6020 %             
+CFG      14                 0.570 %              
 ARI1     5                  0.6830 %             
 =================================================
-Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_4.UartTx_1:	19 (0.32 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_4.UartTx_1:	19 (0.31 % Utilization)
 
 -------------------------------------------------------------------------
 ########   Utilization report for  cell:   gated_fifo_8_10_1_2   ########
@@ -2996,18 +2996,18 @@ Instance path:   UartTxFifoExtClk_10_4.gated_fifo_8_10_1_2
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      48                 2 %                  
+SLE      48                 1.96 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_4.gated_fifo_8_10_1_2:	48 (0.81 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_4.gated_fifo_8_10_1_2:	48 (0.79 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      28                 1.2 %                
+CFG      28                 1.14 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_4.gated_fifo_8_10_1_2:	61 (1.03 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_4.gated_fifo_8_10_1_2:	61 (1.00 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -3025,18 +3025,18 @@ Instance path:   gated_fifo_8_10_1_2.fifo_8_10_1_2
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      43                 1.79 %               
+SLE      43                 1.76 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_2.fifo_8_10_1_2:	43 (0.73 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_2.fifo_8_10_1_2:	43 (0.71 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      25                 1.07 %               
+CFG      25                 1.02 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_2.fifo_8_10_1_2:	58 (0.98 % Utilization)
+Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_2.fifo_8_10_1_2:	58 (0.95 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -3054,18 +3054,18 @@ Instance path:   Main.UartTxFifoExtClk_10_5
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      65                 2.71 %               
+SLE      65                 2.66 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.UartTxFifoExtClk_10_5:	65 (1.10 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.UartTxFifoExtClk_10_5:	65 (1.07 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      49                 2.11 %               
+CFG      49                 2 %                  
 ARI1     38                 5.19 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.UartTxFifoExtClk_10_5:	87 (1.47 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.UartTxFifoExtClk_10_5:	87 (1.43 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -3083,7 +3083,7 @@ Instance path:   UartTxFifoExtClk_10_5.IBufP2Ports_0_6
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_5.IBufP2Ports_0_6:	2 (0.03 % Utilization)
 
@@ -3095,7 +3095,7 @@ Instance path:   UartTxFifoExtClk_10_5.IBufP2Ports_4
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      2                  0.08330 %            
+SLE      2                  0.08180 %            
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_5.IBufP2Ports_4:	2 (0.03 % Utilization)
 
@@ -3107,7 +3107,7 @@ Instance path:   UartTxFifoExtClk_10_5.UartTx_0
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      7                  0.2920 %             
+SLE      7                  0.2860 %             
 =================================================
 Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_5.UartTx_0:	7 (0.12 % Utilization)
 
@@ -3115,10 +3115,10 @@ Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_5.UartTx_0:	7 (0.12 %
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      14                 0.6020 %             
+CFG      14                 0.570 %              
 ARI1     5                  0.6830 %             
 =================================================
-Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_5.UartTx_0:	19 (0.32 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_5.UartTx_0:	19 (0.31 % Utilization)
 
 -------------------------------------------------------------------------
 ########   Utilization report for  cell:   gated_fifo_8_10_1_0   ########
@@ -3128,18 +3128,18 @@ Instance path:   UartTxFifoExtClk_10_5.gated_fifo_8_10_1_0
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      48                 2 %                  
+SLE      48                 1.96 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_5.gated_fifo_8_10_1_0:	48 (0.81 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block UartTxFifoExtClk_10_5.gated_fifo_8_10_1_0:	48 (0.79 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      28                 1.2 %                
+CFG      28                 1.14 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_5.gated_fifo_8_10_1_0:	61 (1.03 % Utilization)
+Total COMBINATIONAL LOGIC in the block UartTxFifoExtClk_10_5.gated_fifo_8_10_1_0:	61 (1.00 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -3157,18 +3157,18 @@ Instance path:   gated_fifo_8_10_1_0.fifo_8_10_1_0
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      43                 1.79 %               
+SLE      43                 1.76 %               
 =================================================
-Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_0.fifo_8_10_1_0:	43 (0.73 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block gated_fifo_8_10_1_0.fifo_8_10_1_0:	43 (0.71 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      25                 1.07 %               
+CFG      25                 1.02 %               
 ARI1     33                 4.51 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_0.fifo_8_10_1_0:	58 (0.98 % Utilization)
+Total COMBINATIONAL LOGIC in the block gated_fifo_8_10_1_0.fifo_8_10_1_0:	58 (0.95 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -3186,24 +3186,24 @@ Instance path:   Main.VariableClockDividerPorts_work_main_architecture_main_0lay
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      8                  0.3330 %             
+SLE      8                  0.3270 %             
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.VariableClockDividerPorts_work_main_architecture_main_0layer1_0:	8 (0.14 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.VariableClockDividerPorts_work_main_architecture_main_0layer1_0:	8 (0.13 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      1                  0.0430 %             
+CFG      1                  0.04070 %            
 ARI1     16                 2.19 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.VariableClockDividerPorts_work_main_architecture_main_0layer1_0:	17 (0.29 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.VariableClockDividerPorts_work_main_architecture_main_0layer1_0:	17 (0.28 % Utilization)
 
 
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     1                  3.12 %               
+GLOBAL     1                  3.03 %               
 ===================================================
 Total GLOBAL BUFFERS in the block Main.VariableClockDividerPorts_work_main_architecture_main_0layer1_0:	1 (0.02 % Utilization)
 
@@ -3215,24 +3215,24 @@ Instance path:   Main.VariableClockDividerPorts_work_main_architecture_main_0lay
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      8                  0.3330 %             
+SLE      8                  0.3270 %             
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.VariableClockDividerPorts_work_main_architecture_main_0layer1_1:	8 (0.14 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.VariableClockDividerPorts_work_main_architecture_main_0layer1_1:	8 (0.13 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      1                  0.0430 %             
+CFG      1                  0.04070 %            
 ARI1     16                 2.19 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.VariableClockDividerPorts_work_main_architecture_main_0layer1_1:	17 (0.29 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.VariableClockDividerPorts_work_main_architecture_main_0layer1_1:	17 (0.28 % Utilization)
 
 
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     1                  3.12 %               
+GLOBAL     1                  3.03 %               
 ===================================================
 Total GLOBAL BUFFERS in the block Main.VariableClockDividerPorts_work_main_architecture_main_0layer1_1:	1 (0.02 % Utilization)
 
@@ -3244,24 +3244,24 @@ Instance path:   Main.VariableClockDividerPorts_work_main_architecture_main_0lay
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      8                  0.3330 %             
+SLE      8                  0.3270 %             
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.VariableClockDividerPorts_work_main_architecture_main_0layer1_2:	8 (0.14 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.VariableClockDividerPorts_work_main_architecture_main_0layer1_2:	8 (0.13 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      1                  0.0430 %             
+CFG      1                  0.04070 %            
 ARI1     16                 2.19 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.VariableClockDividerPorts_work_main_architecture_main_0layer1_2:	17 (0.29 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.VariableClockDividerPorts_work_main_architecture_main_0layer1_2:	17 (0.28 % Utilization)
 
 
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     1                  3.12 %               
+GLOBAL     1                  3.03 %               
 ===================================================
 Total GLOBAL BUFFERS in the block Main.VariableClockDividerPorts_work_main_architecture_main_0layer1_2:	1 (0.02 % Utilization)
 
@@ -3273,24 +3273,24 @@ Instance path:   Main.VariableClockDividerPorts_work_main_architecture_main_0lay
 SEQUENTIAL ELEMENTS
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-SLE      8                  0.3330 %             
+SLE      8                  0.3270 %             
 =================================================
-Total SEQUENTIAL ELEMENTS in the block Main.VariableClockDividerPorts_work_main_architecture_main_0layer1_3:	8 (0.14 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block Main.VariableClockDividerPorts_work_main_architecture_main_0layer1_3:	8 (0.13 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-CFG      1                  0.0430 %             
+CFG      1                  0.04070 %            
 ARI1     16                 2.19 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block Main.VariableClockDividerPorts_work_main_architecture_main_0layer1_3:	17 (0.29 % Utilization)
+Total COMBINATIONAL LOGIC in the block Main.VariableClockDividerPorts_work_main_architecture_main_0layer1_3:	17 (0.28 % Utilization)
 
 
 GLOBAL BUFFERS
 Name       Total elements     Utilization     Notes
 ---------------------------------------------------
-GLOBAL     1                  3.12 %               
+GLOBAL     1                  3.03 %               
 ===================================================
 Total GLOBAL BUFFERS in the block Main.VariableClockDividerPorts_work_main_architecture_main_0layer1_3:	1 (0.02 % Utilization)
 

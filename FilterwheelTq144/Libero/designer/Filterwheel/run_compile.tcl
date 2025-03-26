@@ -3,7 +3,7 @@ set_defvar -name {VOLTAGE} -value {1.2}
 set_defvar -name {TEMPR}   -value {IND}
 set_defvar -name {PART_RANGE}   -value {IND}
 set_defvar -name {IO_DEFT_STD} -value {LVCMOS33}
-set_defvar -name {PACOMP_PARPT_MAX_NET} -value {10}
+set_defvar -name {PACOMP_PARPT_MAX_NET} -value {32}
 set_defvar -name {PA4_GB_MAX_RCLKINT_INSERTION} -value {16}
 set_defvar -name {PA4_GB_MIN_GB_FANOUT_TO_USE_RCLKINT} -value {300}
 set_defvar -name {PA4_GB_MAX_FANOUT_DATA_MOVE} -value {5000}
@@ -95,7 +95,7 @@ set_compile_info \
 set_compile_info \
     -category {"Options"} \
     -name {"Limit the number of high fanout nets to display to"} \
-    -value {"10"}
+    -value {"32"}
 compile \
     -desdir {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel} \
     -design Filterwheel \

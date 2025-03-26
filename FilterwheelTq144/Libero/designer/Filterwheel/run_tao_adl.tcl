@@ -3,5 +3,6 @@ read_adl {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer
 read_afl {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/Filterwheel.afl}
 map_netlist
 read_sdc {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/constraint/Filterwheel_derived_constraints.sdc}
+read_sdc {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/constraint/user.sdc}
 check_constraints -ignore_errors {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/constraint/placer_sdc_errors.log}
 write_sdc -mode layout {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/place_route.sdc}

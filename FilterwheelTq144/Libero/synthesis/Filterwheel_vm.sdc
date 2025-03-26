@@ -1,4 +1,4 @@
-# Written by Synplify Pro version map202209actsp2, Build 145R. Synopsys Run ID: sid1743030989 
+# Written by Synplify Pro version map202209actsp2, Build 145R. Synopsys Run ID: sid1743032869 
 # Top Level Design Parameters 
 
 # Clocks 
@@ -32,8 +32,8 @@ create_generated_clock -name {Filterwheel_sb_0/CCC_0/GL0} -multiply_by {3} -divi
 # False Path Constraints 
 set_false_path -through [get_pins {Filterwheel_sb_0/SYSRESET_POR/POWER_ON_RESET_N}] 
 set_false_path -through [get_pins {Filterwheel_sb_0/CORERESETP_0/release_sdif3_core/Q Filterwheel_sb_0/CORERESETP_0/release_sdif2_core/Q Filterwheel_sb_0/CORERESETP_0/release_sdif1_core/Q Filterwheel_sb_0/CORERESETP_0/release_sdif0_core/Q Filterwheel_sb_0/CORERESETP_0/ddr_settled/Q}] 
-set_false_path -from [get_cells {Filterwheel_sb_0/CORERESETP_0/MSS_HPMS_READY_int}] -to [get_cells {Filterwheel_sb_0/CORERESETP_0/sdif3_areset_n_rcosc_q1 Filterwheel_sb_0/CORERESETP_0/sdif3_areset_n_rcosc Filterwheel_sb_0/CORERESETP_0/sdif2_areset_n_rcosc_q1 Filterwheel_sb_0/CORERESETP_0/sdif2_areset_n_rcosc Filterwheel_sb_0/CORERESETP_0/sdif1_areset_n_rcosc_q1 Filterwheel_sb_0/CORERESETP_0/sdif1_areset_n_rcosc Filterwheel_sb_0/CORERESETP_0/sdif0_areset_n_rcosc_q1 Filterwheel_sb_0/CORERESETP_0/sdif0_areset_n_rcosc}] 
 set_false_path -from [get_cells {Filterwheel_sb_0/CORERESETP_0/MSS_HPMS_READY_int}] -to [get_cells {Filterwheel_sb_0/CORERESETP_0/sm0_areset_n_rcosc_q1 Filterwheel_sb_0/CORERESETP_0/sm0_areset_n_rcosc}] 
+set_false_path -from [get_cells {Filterwheel_sb_0/CORERESETP_0/MSS_HPMS_READY_int}] -to [get_cells {Filterwheel_sb_0/CORERESETP_0/sdif3_areset_n_rcosc_q1 Filterwheel_sb_0/CORERESETP_0/sdif3_areset_n_rcosc Filterwheel_sb_0/CORERESETP_0/sdif2_areset_n_rcosc_q1 Filterwheel_sb_0/CORERESETP_0/sdif2_areset_n_rcosc Filterwheel_sb_0/CORERESETP_0/sdif1_areset_n_rcosc_q1 Filterwheel_sb_0/CORERESETP_0/sdif1_areset_n_rcosc Filterwheel_sb_0/CORERESETP_0/sdif0_areset_n_rcosc_q1 Filterwheel_sb_0/CORERESETP_0/sdif0_areset_n_rcosc}] 
 
 # Output Load Constraints 
 

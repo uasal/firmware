@@ -1,7 +1,7 @@
 #--  Synopsys, Inc.
 #--  Version T-2022.09M-SP2-1
 #--  Project file /home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesis/run_options.txt
-#--  Written on Wed Mar 26 16:16:25 2025
+#--  Written on Wed Mar 26 16:47:44 2025
 
 
 #project files
@@ -92,7 +92,7 @@ set_option -low_power_ram_decomp 0
 set_option -seqshift_to_uram 0
 set_option -disable_io_insertion 0
 set_option -opcond COMTC
-set_option -retiming 0
+set_option -retiming 1
 set_option -report_path 4000
 set_option -update_models_cp 0
 set_option -preserve_registers 0

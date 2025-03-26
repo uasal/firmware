@@ -1,4 +1,4 @@
-# Wed Mar 26 16:16:28 2025
+# Wed Mar 26 16:47:48 2025
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -216,14 +216,17 @@ Finished HSTDM IP insertion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:0
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":733:4:733:9|Sequential instance Filterwheel_sb_0.CORERESETP_0.SDIF3_PERST_N_q1 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":676:4:676:9|Sequential instance Filterwheel_sb_0.CORERESETP_0.SDIF0_PERST_N_q1 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":47:2:47:3|Sequential instance Main_0.IBufDacMiso.O is reduced to a combinational gate by constant propagation.
+@W: MO129 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":769:4:769:9|Sequential instance Filterwheel_sb_0.CORERESETP_0.sm1_areset_n_q1 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":695:4:695:9|Sequential instance Filterwheel_sb_0.CORERESETP_0.SDIF1_PERST_N_q2 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":714:4:714:9|Sequential instance Filterwheel_sb_0.CORERESETP_0.SDIF2_PERST_N_q2 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":733:4:733:9|Sequential instance Filterwheel_sb_0.CORERESETP_0.SDIF3_PERST_N_q2 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":676:4:676:9|Sequential instance Filterwheel_sb_0.CORERESETP_0.SDIF0_PERST_N_q2 is reduced to a combinational gate by constant propagation.
+@W: MO129 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":769:4:769:9|Sequential instance Filterwheel_sb_0.CORERESETP_0.sm1_areset_n_clk_base is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":695:4:695:9|Sequential instance Filterwheel_sb_0.CORERESETP_0.SDIF1_PERST_N_q3 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":714:4:714:9|Sequential instance Filterwheel_sb_0.CORERESETP_0.SDIF2_PERST_N_q3 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":733:4:733:9|Sequential instance Filterwheel_sb_0.CORERESETP_0.SDIF3_PERST_N_q3 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":676:4:676:9|Sequential instance Filterwheel_sb_0.CORERESETP_0.SDIF0_PERST_N_q3 is reduced to a combinational gate by constant propagation.
+@W: MO129 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1388:4:1388:9|Sequential instance Filterwheel_sb_0.CORERESETP_0.RESET_N_F2M_int is reduced to a combinational gate by constant propagation.
 
 Started DisTri Cleanup (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 286MB peak: 286MB)
 
@@ -297,7 +300,7 @@ Level     Clock                                                                 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 0 -       VCXO                                                                                      51.0 MHz      19.608        declared                  default_clkgroup           0    
 1 .         MasterClk                                                                               102.0 MHz     9.804         generated (from VCXO)     default_clkgroup           2185 
-2 ..          Filterwheel_sb_0/CCC_0/GL0                                                            102.0 MHz     9.804         generated (from VCXO)     default_clkgroup           39   
+2 ..          Filterwheel_sb_0/CCC_0/GL0                                                            102.0 MHz     9.804         generated (from VCXO)     default_clkgroup           36   
                                                                                                                                                                                           
 0 -       Filterwheel_sb_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT                                         50.0 MHz      20.000        declared                  default_clkgroup           15   
                                                                                                                                                                                           
@@ -336,7 +339,7 @@ Clock                                                                           
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 VCXO                                                                                      0         CLK0_PAD(port)                                                        -                                                                 -                 FCCC_C0_0.FCCC_C0_0.CLK0_PAD_INST.I(IBUF)                           
 MasterClk                                                                                 2185      FCCC_C0_0.FCCC_C0_0.CCC_INST.GL0(CCC)                                 Main_0.LastMotorStepEdge.C                                        -                 FCCC_C0_0.FCCC_C0_0.GL0_INST.I(BUFG)                                
-Filterwheel_sb_0/CCC_0/GL0                                                                39        Filterwheel_sb_0.CCC_0.CCC_INST.GL0(CCC)                              Filterwheel_sb_0.Filterwheel_sb_MSS_0.MSS_ADLIB_INST.CLK_BASE     -                 Filterwheel_sb_0.CCC_0.GL0_INST.I(BUFG)                             
+Filterwheel_sb_0/CCC_0/GL0                                                                36        Filterwheel_sb_0.CCC_0.CCC_INST.GL0(CCC)                              Filterwheel_sb_0.Filterwheel_sb_MSS_0.MSS_ADLIB_INST.CLK_BASE     -                 Filterwheel_sb_0.CCC_0.GL0_INST.I(BUFG)                             
                                                                                                                                                                                                                                                                                                                                   
 Filterwheel_sb_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT                                         15        Filterwheel_sb_0.FABOSC_0.I_RCOSC_25_50MHZ.CLKOUT(RCOSC_25_50MHZ)     Filterwheel_sb_0.CORERESETP_0.release_sdif0_core.C                -                 Filterwheel_sb_0.FABOSC_0.I_RCOSC_25_50MHZ_FAB.A(RCOSC_25_50MHZ_FAB)
                                                                                                                                                                                                                                                                                                                                   
@@ -382,7 +385,7 @@ ClockDividerPorts_work_main_architecture_main_0layer1_5|div_i_inferred_clock    
 Finished Pre Mapping Phase.
 @N: BN225 |Writing default property annotation file /home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesis/Filterwheel.sap.
 
-Starting constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:01s; Memory used current: 288MB peak: 288MB)
+Starting constraint checker (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 288MB peak: 288MB)
 
 Encoding state machine sm0_state[6:0] (in view: work.CoreResetP_Z2_layer0(verilog))
 original code -> new code
@@ -405,6 +408,6 @@ Pre-mapping successful!
 At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 289MB peak: 289MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Wed Mar 26 16:16:29 2025
+# Wed Mar 26 16:47:49 2025
 
 ###########################################################]
