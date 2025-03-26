@@ -998,6 +998,7 @@ begin
     terminal_count => Uart0ClkDivider,
     clko => UartClk0
   );
+  
   Uart0TxBitClockDiv : ClockDividerPorts
   generic map (
     CLOCK_DIVIDER => 16,
@@ -1298,6 +1299,9 @@ begin
 
     if (MasterReset = '1') then	
       --This is where we have to actually set all of our registers, since the M2S devices don't support initialization as though they are from the 1980's...
+      -- Do we have anything for the Master Reset?
+      DacWriteNextState <= Idle;
+      DacWriteCurrentState <= Idle;
     else
       if ( (MasterClk'event) and (MasterClk = '1') ) then
 

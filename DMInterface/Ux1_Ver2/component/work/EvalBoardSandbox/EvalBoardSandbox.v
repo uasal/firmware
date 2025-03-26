@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Tue Mar 25 05:39:22 2025
+// Created by SmartDesign Wed Mar 26 15:04:59 2025
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -37,6 +37,9 @@ module EvalBoardSandbox(
     SckE,
     SckF,
     TP1,
+    TP2,
+    TP3,
+    TP4,
     Tx0,
     Tx1,
     Tx2,
@@ -84,6 +87,9 @@ output       SckD;
 output       SckE;
 output       SckF;
 output       TP1;
+output       TP2;
+output       TP3;
+output       TP4;
 output       Tx0;
 output       Tx1;
 output       Tx2;
@@ -116,7 +122,6 @@ wire          MisoC;
 wire          MisoD;
 wire          MisoE;
 wire          MisoF;
-wire          MosiA_net_0;
 wire          MosiB_net_0;
 wire          MosiC_net_0;
 wire          MosiD_net_0;
@@ -141,6 +146,9 @@ wire          SckC_net_0;
 wire          SckD_net_0;
 wire          SckE_net_0;
 wire          SckF_net_0;
+wire   [0:0]  TP2_net_0;
+wire          TP3_net_0;
+wire   [1:1]  TP4_net_0;
 wire          Tx0_net_0;
 wire          Tx1_net_0;
 wire          Tx2_net_0;
@@ -151,7 +159,7 @@ wire          Tx1_net_1;
 wire          Oe1_net_1;
 wire          Tx2_net_1;
 wire          Oe2_net_1;
-wire          MosiA_net_1;
+wire          TP3_net_1;
 wire          MosiB_net_1;
 wire          MosiC_net_1;
 wire          MosiD_net_1;
@@ -164,12 +172,17 @@ wire          SckD_net_1;
 wire          SckE_net_1;
 wire          SckF_net_1;
 wire          SckA_net_2;
+wire          TP2_net_1;
 wire   [3:0]  nCsA_net_1;
 wire   [3:0]  nCsB_net_1;
 wire   [3:0]  nCsC_net_1;
 wire   [3:0]  nCsD_net_1;
 wire   [3:0]  nCsE_net_1;
 wire   [3:0]  nCsF_net_1;
+wire          TP3_net_2;
+wire          TP4_net_1;
+wire   [2:2]  nCsA_slice_0;
+wire   [3:3]  nCsA_slice_1;
 wire   [31:0] AMBA_SLAVE_0_PADDRS_net_0;
 //--------------------------------------------------------------------
 // TiedOff Nets
@@ -196,8 +209,8 @@ assign Tx2_net_1   = Tx2_net_0;
 assign Tx2         = Tx2_net_1;
 assign Oe2_net_1   = Oe2_net_0;
 assign Oe2         = Oe2_net_1;
-assign MosiA_net_1 = MosiA_net_0;
-assign MosiA       = MosiA_net_1;
+assign TP3_net_1   = TP3_net_0;
+assign MosiA       = TP3_net_1;
 assign MosiB_net_1 = MosiB_net_0;
 assign MosiB       = MosiB_net_1;
 assign MosiC_net_1 = MosiC_net_0;
@@ -222,6 +235,8 @@ assign SckF_net_1  = SckF_net_0;
 assign SckF        = SckF_net_1;
 assign SckA_net_2  = SckA_net_0;
 assign TP1         = SckA_net_2;
+assign TP2_net_1   = TP2_net_0[0];
+assign TP2         = TP2_net_1;
 assign nCsA_net_1  = nCsA_net_0;
 assign nCsA[3:0]   = nCsA_net_1;
 assign nCsB_net_1  = nCsB_net_0;
@@ -234,10 +249,18 @@ assign nCsE_net_1  = nCsE_net_0;
 assign nCsE[3:0]   = nCsE_net_1;
 assign nCsF_net_1  = nCsF_net_0;
 assign nCsF[3:0]   = nCsF_net_1;
+assign TP3_net_2   = TP3_net_0;
+assign TP3         = TP3_net_2;
+assign TP4_net_1   = TP4_net_0[1];
+assign TP4         = TP4_net_1;
 //--------------------------------------------------------------------
 // Slices assignments
 //--------------------------------------------------------------------
 assign EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDRS13to0 = AMBA_SLAVE_0_PADDRS_net_0[13:0];
+assign TP2_net_0[0]                               = nCsA_net_0[0:0];
+assign TP4_net_0[1]                               = nCsA_net_0[1:1];
+assign nCsA_slice_0[2]                            = nCsA_net_0[2:2];
+assign nCsA_slice_1[3]                            = nCsA_net_0[3:3];
 //--------------------------------------------------------------------
 // Component instances
 //--------------------------------------------------------------------
@@ -262,7 +285,7 @@ DMMainPorts DMMainPorts_1(
         .RamBusAddress ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDRS13to0 ),
         .RamBusDataIn  ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PWDATAS ),
         // Outputs
-        .MosiA         ( MosiA_net_0 ),
+        .MosiA         ( TP3_net_0 ),
         .MosiB         ( MosiB_net_0 ),
         .MosiC         ( MosiC_net_0 ),
         .MosiD         ( MosiD_net_0 ),
