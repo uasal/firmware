@@ -9,6 +9,8 @@
 #include <stdint.h>
 #include "format/formatf.h"
 
+void Process();
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -54,11 +56,54 @@ extern "C" {
 		//~ this is an STM32 thing? formatf ("SCB_SHCSR = %x\n", SCB->SHCSR);
 		
 		//~ while (1); //we really don't wanna lock up in flight!
+		//debug
+		while(1) { Process(); }
 		
 		//Just attempt to reboot and recover...
 		void (*boot)() = 0;
 		boot();
 	}
+	
+		void bus_fault_handler_c (unsigned int * hardfault_args)
+	{
+		unsigned int stacked_lr;
+		unsigned int stacked_pc;
+		
+		formatf ("\n\n\n!BusFault!\n");
+		
+		stacked_pc = ((unsigned long) hardfault_args[6]);
+		stacked_lr = ((unsigned long) hardfault_args[5]);
+
+		formatf ("PC [R15] = %x\n", stacked_pc);
+		formatf ("LR [R14] = %x\n", stacked_lr);
+		
+		while(1) { Process(); }
+		
+		//Flight: just attempt to reboot and recover...
+		void (*boot)() = 0;
+		boot();
+	}
+	
+	void usage_fault_handler_c (unsigned int * hardfault_args)
+	{
+		unsigned int stacked_lr;
+		unsigned int stacked_pc;
+		
+		formatf ("\n\n\n!UsageFault!\n");
+		
+		stacked_pc = ((unsigned long) hardfault_args[6]);
+		stacked_lr = ((unsigned long) hardfault_args[5]);
+
+		formatf ("PC [R15] = %x\n", stacked_pc);
+		formatf ("LR [R14] = %x\n", stacked_lr);
+		
+		while(1) { Process(); }
+		
+		//Flight: just attempt to reboot and recover...
+		void (*boot)() = 0;
+		boot();
+	}
+
 
 #ifdef __cplusplus
 }
