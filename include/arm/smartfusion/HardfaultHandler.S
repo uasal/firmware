@@ -9,6 +9,8 @@
 	.syntax unified 
 	
 	.extern hard_fault_handler_c 
+	.extern bus_fault_handler_c 
+	.extern usage_fault_handler_c 
 	
 	.global HardFault_Handler 
 	.type   HardFault_Handler, %function
@@ -26,7 +28,7 @@
 	ITE EQ 
 	MRSEQ R0, MSP 
 	MRSNE R0, PSP 
-	B hard_fault_handler_c 
+	B bus_fault_handler_c 
 	
 	.global UsageFault_Handler 
 	.type   UsageFault_Handler, %function
@@ -35,6 +37,6 @@
 	ITE EQ 
 	MRSEQ R0, MSP 
 	MRSNE R0, PSP 
-	B hard_fault_handler_c 
+	B usage_fault_handler_c 
 			
 #EOF

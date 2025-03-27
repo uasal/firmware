@@ -184,6 +184,7 @@ int8_t SensorStepsCommand(char const* Name, char const* Params, const size_t Par
 	formatf("\nPosDetB1:    \t"); FW->PosDetB1.formatf();
 	formatf("\nPosDetB2:    \t"); FW->PosDetB2.formatf();
 	
+	for(size_t i = 0; i < 4096; i++) { ProcessAllUarts(); }
 	formatf("\n");
 	formatf("\nPosDet0A: "); FW->PosDet0A.formatf();
 	formatf("\nPosDet1A: "); FW->PosDet1A.formatf();
@@ -194,6 +195,7 @@ int8_t SensorStepsCommand(char const* Name, char const* Params, const size_t Par
 	formatf("\nPosDet6A: "); FW->PosDet6A.formatf();
 	formatf("\nPosDet7A: "); FW->PosDet7A.formatf();
 	
+	for(size_t i = 0; i < 4096; i++) { ProcessAllUarts(); }
 	formatf("\n");
 	formatf("\nPosDet0B: "); FW->PosDet0B.formatf();
 	formatf("\nPosDet1B: "); FW->PosDet1B.formatf();
@@ -238,6 +240,12 @@ int8_t MotorCommand(char const* Name, char const* Params, const size_t ParamsLen
 		{
 			MCSR = FW->MotorControlStatus;
 			if (MCSR.SeekStep == MCSR.CurrentStep) { break; }
+			if (0 == (MCSR.CurrentStep % 25))
+			{
+				formatf("\n\nMotorCommand: moving:\n");
+				MCSR.formatf();
+				formatf("\n");	
+			}
 			delayms(1);
 		}	
 

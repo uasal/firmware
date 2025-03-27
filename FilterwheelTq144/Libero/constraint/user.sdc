@@ -46,3 +46,22 @@ create_generated_clock -name uart3txclk -multiply_by 1 -divide_by 2 -source [ ge
 #    9      0      0      'Main_0/Uart3TxBitClockDiv/div_i_inferred_clock_RNIT85'
 #    9      0      0      'Main_0/UartGpsTxBitClockDiv/div_i_inferred_clock_RNIKO1E'
 #    9      0      0      'Main_0/UartUsbTxBitClockDiv/div_i_inferred_clock_RNIKNEA'
+
+#If this is a UART output then it has no timing requirements relative to the clock or any other signal inside the FPGA so add this constraint to the .sdc to clear this warning:
+
+set_false_path -to [ get_ports { Txd0 } ]
+set_false_path -to [ get_ports { Txd1 } ]
+set_false_path -to [ get_ports { Txd2 } ]
+set_false_path -to [ get_ports { Txd3 } ]
+set_false_path -to [ get_ports { RxdUsb } ]
+set_false_path -to [ get_ports { TxdGps } ]
+
+#If each of these is a UART input then each has no timing requirements relative to the clock or any other signal inside the FPGA so add this constraint to the .sdc to clear this warning:
+
+set_false_path -from [ get_ports { Rxd0 Rxd1 Rxd2 Rxd3 TxdUsb RxdGps } ]
+
+#"I'd try constraining each output to be 1 ns less than MasterClk's period for now. If some fail this then we can look closer at those. I'm guessing none of the outputs need to have a non-zero minimum clock to out delay (like PCI bus does for example).
+
+set_clock_to_output -min  0 -clock { MasterClk } { MosiMonAdc0 }
+set_clock_to_output -min  0 -clock { MasterClk } { SckMonAdc0 }
+set_clock_to_output -min  0 -clock { MasterClk } { nCsMonAdc0 }

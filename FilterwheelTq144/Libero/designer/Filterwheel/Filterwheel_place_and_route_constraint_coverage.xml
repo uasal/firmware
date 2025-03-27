@@ -3,7 +3,7 @@
 <doc>
 <text>SmartTime Version 2023.2.0.10</text>
 <text>Microsemi Corporation - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)
-Date: Wed Mar 26 16:48:26 2025 </text>
+Date: Thu Mar 27 14:09:37 2025 </text>
 <table>
 <header>
 </header>
@@ -50,8 +50,8 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </header>
 <row>
  <cell>Setup</cell>
- <cell>         5326</cell>
- <cell>          161</cell>
+ <cell>         5332</cell>
+ <cell>          155</cell>
  <cell>         5487</cell>
 </row>
 <row>
@@ -62,21 +62,21 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </row>
 <row>
  <cell>Output Setup</cell>
- <cell>            0</cell>
- <cell>           63</cell>
+ <cell>           14</cell>
+ <cell>           49</cell>
  <cell>           63</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
- <cell>         6366</cell>
- <cell>          298</cell>
+ <cell>         6386</cell>
+ <cell>          278</cell>
  <cell>         6664</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
- <cell>         5326</cell>
- <cell>          161</cell>
+ <cell>         5332</cell>
+ <cell>          155</cell>
  <cell>         5487</cell>
 </row>
 <row>
@@ -87,14 +87,14 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </row>
 <row>
  <cell>Output Hold</cell>
- <cell>            0</cell>
- <cell>           63</cell>
+ <cell>           17</cell>
+ <cell>           46</cell>
  <cell>           63</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
- <cell>         6366</cell>
- <cell>          298</cell>
+ <cell>         6389</cell>
+ <cell>          275</cell>
  <cell>         6664</cell>
 </row>
 </table>
@@ -173,8 +173,8 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </header>
 <row>
  <cell>Setup</cell>
- <cell>         5030</cell>
- <cell>           45</cell>
+ <cell>         5036</cell>
+ <cell>           39</cell>
  <cell>         5075</cell>
 </row>
 <row>
@@ -185,21 +185,21 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </row>
 <row>
  <cell>Output Setup</cell>
- <cell>            0</cell>
- <cell>           32</cell>
+ <cell>            6</cell>
+ <cell>           26</cell>
  <cell>           32</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
- <cell>         5882</cell>
- <cell>           77</cell>
+ <cell>         5894</cell>
+ <cell>           65</cell>
  <cell>         5959</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
- <cell>         5030</cell>
- <cell>           45</cell>
+ <cell>         5036</cell>
+ <cell>           39</cell>
  <cell>         5075</cell>
 </row>
 <row>
@@ -210,14 +210,14 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </row>
 <row>
  <cell>Output Hold</cell>
- <cell>            0</cell>
- <cell>           32</cell>
+ <cell>            9</cell>
+ <cell>           23</cell>
  <cell>           32</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
- <cell>         5882</cell>
- <cell>           77</cell>
+ <cell>         5897</cell>
+ <cell>           62</cell>
  <cell>         5959</cell>
 </row>
 </table>
@@ -241,12 +241,6 @@ Date: Wed Mar 26 16:48:26 2025 </text>
  <item>PosSenseHomeA</item>
  <item>PosSenseHomeB</item>
  <item>PowerCycd</item>
- <item>Rxd0</item>
- <item>Rxd1</item>
- <item>Rxd2</item>
- <item>Rxd3</item>
- <item>RxdGps</item>
- <item>TxdUsb</item>
  <item>nDrdyMonAdc0</item>
 </list>
 <text></text>
@@ -267,12 +261,6 @@ Date: Wed Mar 26 16:48:26 2025 </text>
  <item>PosSenseHomeA</item>
  <item>PosSenseHomeB</item>
  <item>PowerCycd</item>
- <item>Rxd0</item>
- <item>Rxd1</item>
- <item>Rxd2</item>
- <item>Rxd3</item>
- <item>RxdGps</item>
- <item>TxdUsb</item>
  <item>nDrdyMonAdc0</item>
 </list>
 <text></text>
@@ -296,15 +284,9 @@ Date: Wed Mar 26 16:48:26 2025 </text>
  <item>Oe3</item>
  <item>PosLEDEnA</item>
  <item>PosLEDEnB</item>
- <item>RxdUsb</item>
  <item>SckMonAdc0</item>
  <item>SckXO</item>
  <item>TP8</item>
- <item>Txd0</item>
- <item>Txd1</item>
- <item>Txd2</item>
- <item>Txd3</item>
- <item>TxdGps</item>
  <item>Ux1SelJmp</item>
  <item>nCsMonAdc0</item>
  <item>nCsXO</item>
@@ -317,7 +299,6 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 <text> - Min output delay constraint missing on ports:</text>
 <text>   </text>
 <list>
- <item>MosiMonAdc0</item>
  <item>MosiXO</item>
  <item>MotorDriveAMinus</item>
  <item>MotorDriveAMinusPrime</item>
@@ -333,17 +314,9 @@ Date: Wed Mar 26 16:48:26 2025 </text>
  <item>Oe3</item>
  <item>PosLEDEnA</item>
  <item>PosLEDEnB</item>
- <item>RxdUsb</item>
- <item>SckMonAdc0</item>
  <item>SckXO</item>
  <item>TP8</item>
- <item>Txd0</item>
- <item>Txd1</item>
- <item>Txd2</item>
- <item>Txd3</item>
- <item>TxdGps</item>
  <item>Ux1SelJmp</item>
- <item>nCsMonAdc0</item>
  <item>nCsXO</item>
  <item>nFaultClr1V</item>
  <item>nFaultClr3V</item>
@@ -357,12 +330,6 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 <list>
  <item>Main_0/IBufMisoAdc/Temp1:D</item>
  <item>Main_0/IBufPPS/Temp1:D</item>
- <item>Main_0/IBufRxd0/Temp1:D</item>
- <item>Main_0/IBufRxd1/Temp1:D</item>
- <item>Main_0/IBufRxd2/Temp1:D</item>
- <item>Main_0/IBufRxd3/Temp1:D</item>
- <item>Main_0/IBufRxdGps/Temp1:D</item>
- <item>Main_0/IBufRxdUsb/Temp1:D</item>
  <item>Main_0/IBufnDrdyAdc/Temp1:D</item>
  <item>Main_0/LastPosSenseA[0]:D</item>
  <item>Main_0/LastPosSenseA[1]:D</item>
@@ -407,12 +374,6 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 <list>
  <item>Main_0/IBufMisoAdc/Temp1:D</item>
  <item>Main_0/IBufPPS/Temp1:D</item>
- <item>Main_0/IBufRxd0/Temp1:D</item>
- <item>Main_0/IBufRxd1/Temp1:D</item>
- <item>Main_0/IBufRxd2/Temp1:D</item>
- <item>Main_0/IBufRxd3/Temp1:D</item>
- <item>Main_0/IBufRxdGps/Temp1:D</item>
- <item>Main_0/IBufRxdUsb/Temp1:D</item>
  <item>Main_0/IBufnDrdyAdc/Temp1:D</item>
  <item>Main_0/LastPosSenseA[0]:D</item>
  <item>Main_0/LastPosSenseA[1]:D</item>
@@ -697,14 +658,14 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </row>
 <row>
  <cell>Output Setup</cell>
- <cell>            0</cell>
  <cell>            1</cell>
+ <cell>            0</cell>
  <cell>            1</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
- <cell>           17</cell>
- <cell>            1</cell>
+ <cell>           18</cell>
+ <cell>            0</cell>
  <cell>           18</cell>
 </row>
 <separator/>
@@ -722,35 +683,17 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </row>
 <row>
  <cell>Output Hold</cell>
- <cell>            0</cell>
  <cell>            1</cell>
+ <cell>            0</cell>
  <cell>            1</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
- <cell>           17</cell>
- <cell>            1</cell>
+ <cell>           18</cell>
+ <cell>            0</cell>
  <cell>           18</cell>
 </row>
 </table>
-<section>
-<name>Enhancement Suggestions</name>
-<text></text>
-<text></text>
-<text> - Max output delay constraint missing on port:</text>
-<text>   </text>
-<list>
- <item>Txd0</item>
-</list>
-<text></text>
-<text> - Min output delay constraint missing on port:</text>
-<text>   </text>
-<list>
- <item>Txd0</item>
-</list>
-<text></text>
-<text></text>
-</section>
 </section>
 <section>
 <name>Clock domain: </name>
@@ -839,14 +782,14 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </row>
 <row>
  <cell>Output Setup</cell>
- <cell>            0</cell>
  <cell>            1</cell>
+ <cell>            0</cell>
  <cell>            1</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
- <cell>           17</cell>
- <cell>            1</cell>
+ <cell>           18</cell>
+ <cell>            0</cell>
  <cell>           18</cell>
 </row>
 <separator/>
@@ -864,35 +807,17 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </row>
 <row>
  <cell>Output Hold</cell>
- <cell>            0</cell>
  <cell>            1</cell>
+ <cell>            0</cell>
  <cell>            1</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
- <cell>           17</cell>
- <cell>            1</cell>
+ <cell>           18</cell>
+ <cell>            0</cell>
  <cell>           18</cell>
 </row>
 </table>
-<section>
-<name>Enhancement Suggestions</name>
-<text></text>
-<text></text>
-<text> - Max output delay constraint missing on port:</text>
-<text>   </text>
-<list>
- <item>Txd1</item>
-</list>
-<text></text>
-<text> - Min output delay constraint missing on port:</text>
-<text>   </text>
-<list>
- <item>Txd1</item>
-</list>
-<text></text>
-<text></text>
-</section>
 </section>
 <section>
 <name>Clock domain: </name>
@@ -981,14 +906,14 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </row>
 <row>
  <cell>Output Setup</cell>
- <cell>            0</cell>
  <cell>            1</cell>
+ <cell>            0</cell>
  <cell>            1</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
- <cell>           17</cell>
- <cell>            1</cell>
+ <cell>           18</cell>
+ <cell>            0</cell>
  <cell>           18</cell>
 </row>
 <separator/>
@@ -1006,35 +931,17 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </row>
 <row>
  <cell>Output Hold</cell>
- <cell>            0</cell>
  <cell>            1</cell>
+ <cell>            0</cell>
  <cell>            1</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
- <cell>           17</cell>
- <cell>            1</cell>
+ <cell>           18</cell>
+ <cell>            0</cell>
  <cell>           18</cell>
 </row>
 </table>
-<section>
-<name>Enhancement Suggestions</name>
-<text></text>
-<text></text>
-<text> - Max output delay constraint missing on port:</text>
-<text>   </text>
-<list>
- <item>Txd2</item>
-</list>
-<text></text>
-<text> - Min output delay constraint missing on port:</text>
-<text>   </text>
-<list>
- <item>Txd2</item>
-</list>
-<text></text>
-<text></text>
-</section>
 </section>
 <section>
 <name>Clock domain: </name>
@@ -1123,14 +1030,14 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </row>
 <row>
  <cell>Output Setup</cell>
- <cell>            0</cell>
  <cell>            1</cell>
+ <cell>            0</cell>
  <cell>            1</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
- <cell>           17</cell>
- <cell>            1</cell>
+ <cell>           18</cell>
+ <cell>            0</cell>
  <cell>           18</cell>
 </row>
 <separator/>
@@ -1148,35 +1055,17 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </row>
 <row>
  <cell>Output Hold</cell>
- <cell>            0</cell>
  <cell>            1</cell>
+ <cell>            0</cell>
  <cell>            1</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
- <cell>           17</cell>
- <cell>            1</cell>
+ <cell>           18</cell>
+ <cell>            0</cell>
  <cell>           18</cell>
 </row>
 </table>
-<section>
-<name>Enhancement Suggestions</name>
-<text></text>
-<text></text>
-<text> - Max output delay constraint missing on port:</text>
-<text>   </text>
-<list>
- <item>Txd3</item>
-</list>
-<text></text>
-<text> - Min output delay constraint missing on port:</text>
-<text>   </text>
-<list>
- <item>Txd3</item>
-</list>
-<text></text>
-<text></text>
-</section>
 </section>
 <section>
 <name>Clock domain: </name>
@@ -1446,14 +1335,14 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </row>
 <row>
  <cell>Output Setup</cell>
- <cell>            0</cell>
  <cell>            1</cell>
+ <cell>            0</cell>
  <cell>            1</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
- <cell>            0</cell>
- <cell>           18</cell>
+ <cell>            1</cell>
+ <cell>           17</cell>
  <cell>           18</cell>
 </row>
 <separator/>
@@ -1471,14 +1360,14 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </row>
 <row>
  <cell>Output Hold</cell>
- <cell>            0</cell>
  <cell>            1</cell>
+ <cell>            0</cell>
  <cell>            1</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
- <cell>            0</cell>
- <cell>           18</cell>
+ <cell>            1</cell>
+ <cell>           17</cell>
  <cell>           18</cell>
 </row>
 </table>
@@ -1486,18 +1375,6 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 <name>Enhancement Suggestions</name>
 <text></text>
 <text> - Clock constraint is missing </text>
-<text></text>
-<text> - Max output delay constraint missing on port:</text>
-<text>   </text>
-<list>
- <item>TxdGps</item>
-</list>
-<text></text>
-<text> - Min output delay constraint missing on port:</text>
-<text>   </text>
-<list>
- <item>TxdGps</item>
-</list>
 <text></text>
 <text></text>
 <text> - Setup unconstrained for the following pins:</text>
@@ -1824,14 +1701,14 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </row>
 <row>
  <cell>Output Setup</cell>
- <cell>            0</cell>
- <cell>            2</cell>
+ <cell>            1</cell>
+ <cell>            1</cell>
  <cell>            2</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
- <cell>            0</cell>
- <cell>           19</cell>
+ <cell>            1</cell>
+ <cell>           18</cell>
  <cell>           19</cell>
 </row>
 <separator/>
@@ -1849,14 +1726,14 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </row>
 <row>
  <cell>Output Hold</cell>
- <cell>            0</cell>
- <cell>            2</cell>
+ <cell>            1</cell>
+ <cell>            1</cell>
  <cell>            2</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
- <cell>            0</cell>
- <cell>           19</cell>
+ <cell>            1</cell>
+ <cell>           18</cell>
  <cell>           19</cell>
 </row>
 </table>
@@ -1865,17 +1742,15 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 <text></text>
 <text> - Clock constraint is missing </text>
 <text></text>
-<text> - Max output delay constraint missing on ports:</text>
+<text> - Max output delay constraint missing on port:</text>
 <text>   </text>
 <list>
- <item>RxdUsb</item>
  <item>Ux1SelJmp</item>
 </list>
 <text></text>
-<text> - Min output delay constraint missing on ports:</text>
+<text> - Min output delay constraint missing on port:</text>
 <text>   </text>
 <list>
- <item>RxdUsb</item>
  <item>Ux1SelJmp</item>
 </list>
 <text></text>
@@ -1961,14 +1836,14 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </row>
 <row>
  <cell>Output Setup</cell>
- <cell>            0</cell>
- <cell>           13</cell>
+ <cell>            1</cell>
+ <cell>           12</cell>
  <cell>           13</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
- <cell>            0</cell>
- <cell>           13</cell>
+ <cell>            1</cell>
+ <cell>           12</cell>
  <cell>           13</cell>
 </row>
 <separator/>
@@ -1986,14 +1861,14 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </row>
 <row>
  <cell>Output Hold</cell>
- <cell>            0</cell>
- <cell>           13</cell>
+ <cell>            1</cell>
+ <cell>           12</cell>
  <cell>           13</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
- <cell>            0</cell>
- <cell>           13</cell>
+ <cell>            1</cell>
+ <cell>           12</cell>
  <cell>           13</cell>
 </row>
 </table>
@@ -2016,15 +1891,15 @@ Date: Wed Mar 26 16:48:26 2025 </text>
 </header>
 <row>
  <cell>Output Setup</cell>
- <cell>            0</cell>
- <cell>           10</cell>
+ <cell>            1</cell>
+ <cell>            9</cell>
  <cell>           10</cell>
 </row>
 <separator/>
 <row>
  <cell>Output Hold</cell>
- <cell>            0</cell>
- <cell>           10</cell>
+ <cell>            1</cell>
+ <cell>            9</cell>
  <cell>           10</cell>
 </row>
 </table>
@@ -2040,7 +1915,6 @@ Date: Wed Mar 26 16:48:26 2025 </text>
  <item>PosSenseBit2A</item>
  <item>PosSenseHomeA</item>
  <item>PosSenseHomeB</item>
- <item>TxdUsb</item>
 </list>
 <text></text>
 <text> - Min delay constraint missing on input ports:</text>
@@ -2052,7 +1926,6 @@ Date: Wed Mar 26 16:48:26 2025 </text>
  <item>PosSenseBit2A</item>
  <item>PosSenseHomeA</item>
  <item>PosSenseHomeB</item>
- <item>TxdUsb</item>
 </list>
 <text></text>
 <text></text>
@@ -2068,7 +1941,6 @@ Date: Wed Mar 26 16:48:26 2025 </text>
  <item>TP4</item>
  <item>TP5</item>
  <item>TP6</item>
- <item>TP7</item>
 </list>
 <text></text>
 <text> - Min delay constraint missing on output ports:</text>
@@ -2083,7 +1955,6 @@ Date: Wed Mar 26 16:48:26 2025 </text>
  <item>TP4</item>
  <item>TP5</item>
  <item>TP6</item>
- <item>TP7</item>
 </list>
 <text></text>
 <text></text>

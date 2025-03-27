@@ -1,4 +1,4 @@
-# Wed Mar 26 16:47:49 2025
+# Thu Mar 27 14:08:59 2025
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -147,35 +147,35 @@ original code -> new code
 Starting factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 297MB peak: 297MB)
 
 
-Finished factoring (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 343MB peak: 343MB)
+Finished factoring (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 343MB peak: 343MB)
 
 NConnInternalConnection caching is on
 
 Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 349MB peak: 349MB)
 
 
-Starting Early Timing Optimization (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 349MB peak: 349MB)
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 349MB peak: 349MB)
 
 
-Finished Early Timing Optimization (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 349MB peak: 349MB)
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 349MB peak: 349MB)
 
 
-Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 349MB peak: 349MB)
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 349MB peak: 349MB)
 
 
-Finished preparing to map (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 349MB peak: 349MB)
+Finished preparing to map (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 349MB peak: 349MB)
 
 
-Finished technology mapping (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 399MB peak: 399MB)
+Finished technology mapping (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:12s; Memory used current: 399MB peak: 399MB)
 
 Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
-   1		0h:00m:11s		    -1.60ns		3131 /      2278
-   2		0h:00m:11s		    -1.33ns		3075 /      2326
-   3		0h:00m:11s		     0.32ns		3075 /      2326
-   4		0h:00m:12s		     0.32ns		3074 /      2326
-   5		0h:00m:13s		     0.32ns		3074 /      2326
-   6		0h:00m:14s		     0.32ns		3074 /      2326
+   1		0h:00m:13s		    -1.60ns		3131 /      2278
+   2		0h:00m:13s		    -1.33ns		3075 /      2326
+   3		0h:00m:13s		     0.32ns		3075 /      2326
+   4		0h:00m:14s		     0.32ns		3074 /      2326
+   5		0h:00m:15s		     0.32ns		3074 /      2326
+   6		0h:00m:15s		     0.32ns		3074 /      2326
 @N: MF322 |Retiming summary: 16 registers retimed to 64 
 
 		#####  BEGIN RETIMING REPORT  #####
@@ -305,23 +305,23 @@ Added 0 Cells via replication
 	Added 0 Sequential Cells via replication
 	Added 0 Combinational Cells via replication
 
-Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:17s; Memory used current: 402MB peak: 402MB)
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:18s; Memory used current: 402MB peak: 402MB)
 
 
-Finished restoring hierarchy (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:17s; Memory used current: 403MB peak: 403MB)
+Finished restoring hierarchy (Real Time elapsed 0h:00m:18s; CPU Time elapsed 0h:00m:18s; Memory used current: 403MB peak: 403MB)
 
 
-Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:17s; Memory used current: 403MB peak: 403MB)
+Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:18s; CPU Time elapsed 0h:00m:18s; Memory used current: 403MB peak: 403MB)
 
 
-Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:17s; Memory used current: 403MB peak: 403MB)
+Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:18s; CPU Time elapsed 0h:00m:18s; Memory used current: 403MB peak: 403MB)
 
 
 Start Writing Netlists (Real Time elapsed 0h:00m:18s; CPU Time elapsed 0h:00m:18s; Memory used current: 403MB peak: 403MB)
 
 Writing Analyst data base /home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesis/synwork/Filterwheel_m.srm
 
-Finished Writing Netlist Databases (Real Time elapsed 0h:00m:18s; CPU Time elapsed 0h:00m:18s; Memory used current: 403MB peak: 403MB)
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:19s; CPU Time elapsed 0h:00m:19s; Memory used current: 403MB peak: 403MB)
 
 Writing Verilog Simulation files
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
@@ -367,7 +367,7 @@ Start final timing analysis (Real Time elapsed 0h:00m:20s; CPU Time elapsed 0h:0
 
 
 ##### START OF TIMING REPORT #####[
-# Timing report written on Wed Mar 26 16:48:10 2025
+# Timing report written on Thu Mar 27 14:09:20 2025
 #
 
 
@@ -1947,6 +1947,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:20s; CPU Time elapsed 0h:00m:20s; Memory used current: 403MB peak: 403MB)
 
 Process took 0h:00m:20s realtime, 0h:00m:20s cputime
-# Wed Mar 26 16:48:10 2025
+# Thu Mar 27 14:09:20 2025
 
 ###########################################################]

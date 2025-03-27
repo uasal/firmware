@@ -3,7 +3,7 @@
 #OS: Linux 
 #Hostname: MountainOps
 
-# Wed Mar 26 16:47:44 2025
+# Thu Mar 27 14:08:54 2025
 
 #Implementation: synthesis
 
@@ -80,7 +80,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memor
 
 
 Process completed successfully.
-# Wed Mar 26 16:47:45 2025
+# Thu Mar 27 14:08:54 2025
 
 ###########################################################]
 ###########################################################[
@@ -146,7 +146,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Wed Mar 26 16:47:45 2025
+# Thu Mar 27 14:08:54 2025
 
 ###########################################################]
 ###########################################################[
@@ -187,7 +187,6 @@ Process completed successfully.
 @I::"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/Filterwheel/Filterwheel.v" (library work)
 @N|stack limit increased to max
 Verilog syntax check successful!
-File /home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/Filterwheel/Filterwheel.v changed - recompiling
 @N: CG364 :"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/generic/smartfusion2.v":362:7:362:12|Synthesizing module CLKINT in library work.
 Running optimization stage 1 on CLKINT .......
 Finished optimization stage 1 on CLKINT (CPU Time 0h:00m:00s, Memory Used current: 137MB peak: 137MB)
@@ -571,24 +570,12 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Wed Mar 26 16:47:45 2025
+# Thu Mar 27 14:08:55 2025
 
 ###########################################################]
 ###########################################################[
 @N|stack limit increased to max
 @N:"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":11:7:11:10|Top entity is set to Main.
-File /home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd changed - recompiling
-File /home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd changed - recompiling
-File /home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd changed - recompiling
-File /home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd changed - recompiling
-File /home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotor.vhd changed - recompiling
-File /home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd changed - recompiling
-File /home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd changed - recompiling
-File /home/summer/projects/CGraph/firmware/include/fpga/UartRxExtClk.vhd changed - recompiling
-File /home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd changed - recompiling
-File /home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClk.vhd changed - recompiling
-File /home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd changed - recompiling
-File /home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd changed - recompiling
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/BuildNumber.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd'.
@@ -731,11 +718,11 @@ Finished optimization stage 1 on VariableClockDividerPorts (CPU Time 0h:00m:00s,
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd":38:7:38:20|Synthesizing work.spimasterports.spimaster.
 Post processing for work.spimasterports.spimaster
 Running optimization stage 1 on SpiMasterPorts .......
-Finished optimization stage 1 on SpiMasterPorts (CPU Time 0h:00m:00s, Memory Used current: 147MB peak: 147MB)
+Finished optimization stage 1 on SpiMasterPorts (CPU Time 0h:00m:00s, Memory Used current: 146MB peak: 146MB)
 Post processing for work.spideviceports.spidevice
 Running optimization stage 1 on SpiDevicePorts .......
 @A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDevice.vhd":142:2:142:3|Feedback mux created for signal Readback[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-Finished optimization stage 1 on SpiDevicePorts (CPU Time 0h:00m:00s, Memory Used current: 147MB peak: 147MB)
+Finished optimization stage 1 on SpiDevicePorts (CPU Time 0h:00m:00s, Memory Used current: 146MB peak: 146MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":14:7:14:24|Synthesizing work.registerspaceports.registerspace.
 Post processing for work.registerspaceports.registerspace
 Running optimization stage 1 on RegisterSpacePorts .......
@@ -992,7 +979,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memor
 
 
 Process completed successfully.
-# Wed Mar 26 16:47:46 2025
+# Thu Mar 27 14:08:56 2025
 
 ###########################################################]
 ###########################################################[
@@ -1016,8 +1003,6 @@ Implementation : synthesis
 Synopsys Synopsys Netlist Linker, Version comp202209synp2, Build 179R, Built Jun 27 2023 09:29:53, @4799148
 
 @N|Running in 64-bit mode
-File /home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesis/synwork/layer0.srs changed - recompiling
-File /home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesis/synwork/layer1.srs changed - recompiling
 
 =======================================================================================
 For a summary of linker messages for components that did not bind, please see log file:
@@ -1030,7 +1015,7 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Wed Mar 26 16:47:47 2025
+# Thu Mar 27 14:08:56 2025
 
 ###########################################################]
 
@@ -1045,7 +1030,7 @@ At c_hdl Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory
 Process took 0h:00m:02s realtime, 0h:00m:02s cputime
 
 Process completed successfully.
-# Wed Mar 26 16:47:47 2025
+# Thu Mar 27 14:08:56 2025
 
 ###########################################################]
 ###########################################################[
@@ -1069,19 +1054,18 @@ Implementation : synthesis
 Synopsys Synopsys Netlist Linker, Version comp202209synp2, Build 179R, Built Jun 27 2023 09:29:53, @4799148
 
 @N|Running in 64-bit mode
-File /home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesis/synwork/Filterwheel_comp.srs changed - recompiling
 
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 137MB peak: 137MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Wed Mar 26 16:47:48 2025
+# Thu Mar 27 14:08:58 2025
 
 ###########################################################]
 Premap Report
 
-# Wed Mar 26 16:47:48 2025
+# Thu Mar 27 14:08:58 2025
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -1491,12 +1475,12 @@ Pre-mapping successful!
 At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 289MB peak: 289MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Wed Mar 26 16:47:49 2025
+# Thu Mar 27 14:08:59 2025
 
 ###########################################################]
 Map & Optimize Report
 
-# Wed Mar 26 16:47:49 2025
+# Thu Mar 27 14:08:59 2025
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -1645,35 +1629,35 @@ original code -> new code
 Starting factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 297MB peak: 297MB)
 
 
-Finished factoring (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 343MB peak: 343MB)
+Finished factoring (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 343MB peak: 343MB)
 
 NConnInternalConnection caching is on
 
 Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 349MB peak: 349MB)
 
 
-Starting Early Timing Optimization (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 349MB peak: 349MB)
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 349MB peak: 349MB)
 
 
-Finished Early Timing Optimization (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 349MB peak: 349MB)
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 349MB peak: 349MB)
 
 
-Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 349MB peak: 349MB)
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 349MB peak: 349MB)
 
 
-Finished preparing to map (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 349MB peak: 349MB)
+Finished preparing to map (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 349MB peak: 349MB)
 
 
-Finished technology mapping (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 399MB peak: 399MB)
+Finished technology mapping (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:12s; Memory used current: 399MB peak: 399MB)
 
 Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
-   1		0h:00m:11s		    -1.60ns		3131 /      2278
-   2		0h:00m:11s		    -1.33ns		3075 /      2326
-   3		0h:00m:11s		     0.32ns		3075 /      2326
-   4		0h:00m:12s		     0.32ns		3074 /      2326
-   5		0h:00m:13s		     0.32ns		3074 /      2326
-   6		0h:00m:14s		     0.32ns		3074 /      2326
+   1		0h:00m:13s		    -1.60ns		3131 /      2278
+   2		0h:00m:13s		    -1.33ns		3075 /      2326
+   3		0h:00m:13s		     0.32ns		3075 /      2326
+   4		0h:00m:14s		     0.32ns		3074 /      2326
+   5		0h:00m:15s		     0.32ns		3074 /      2326
+   6		0h:00m:15s		     0.32ns		3074 /      2326
 @N: MF322 |Retiming summary: 16 registers retimed to 64 
 
 		#####  BEGIN RETIMING REPORT  #####
@@ -1803,23 +1787,23 @@ Added 0 Cells via replication
 	Added 0 Sequential Cells via replication
 	Added 0 Combinational Cells via replication
 
-Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:17s; Memory used current: 402MB peak: 402MB)
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:18s; Memory used current: 402MB peak: 402MB)
 
 
-Finished restoring hierarchy (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:17s; Memory used current: 403MB peak: 403MB)
+Finished restoring hierarchy (Real Time elapsed 0h:00m:18s; CPU Time elapsed 0h:00m:18s; Memory used current: 403MB peak: 403MB)
 
 
-Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:17s; Memory used current: 403MB peak: 403MB)
+Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:18s; CPU Time elapsed 0h:00m:18s; Memory used current: 403MB peak: 403MB)
 
 
-Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:17s; Memory used current: 403MB peak: 403MB)
+Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:18s; CPU Time elapsed 0h:00m:18s; Memory used current: 403MB peak: 403MB)
 
 
 Start Writing Netlists (Real Time elapsed 0h:00m:18s; CPU Time elapsed 0h:00m:18s; Memory used current: 403MB peak: 403MB)
 
 Writing Analyst data base /home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesis/synwork/Filterwheel_m.srm
 
-Finished Writing Netlist Databases (Real Time elapsed 0h:00m:18s; CPU Time elapsed 0h:00m:18s; Memory used current: 403MB peak: 403MB)
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:19s; CPU Time elapsed 0h:00m:19s; Memory used current: 403MB peak: 403MB)
 
 Writing Verilog Simulation files
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
@@ -1865,7 +1849,7 @@ Start final timing analysis (Real Time elapsed 0h:00m:20s; CPU Time elapsed 0h:0
 
 
 ##### START OF TIMING REPORT #####[
-# Timing report written on Wed Mar 26 16:48:10 2025
+# Timing report written on Thu Mar 27 14:09:20 2025
 #
 
 
@@ -3445,6 +3429,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:20s; CPU Time elapsed 0h:00m:20s; Memory used current: 403MB peak: 403MB)
 
 Process took 0h:00m:20s realtime, 0h:00m:20s cputime
-# Wed Mar 26 16:48:10 2025
+# Thu Mar 27 14:09:20 2025
 
 ###########################################################]

@@ -36,5 +36,4 @@ read_verilog -mode system_verilog {/home/summer/projects/CGraph/firmware/Filterw
 set_top_level {Filterwheel}
 map_netlist
 read_sdc {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/constraint/Filterwheel_derived_constraints.sdc}
-read_sdc {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/constraint/user.sdc}
 check_constraints {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/constraint/synthesis_sdc_check.log}

@@ -33,7 +33,6 @@ extern "C" {
 	
 	void ShowBuildParameters()
 	{
-		register char * stack_ptr asm ("sp");
 		
 		formatf("\nBuild parameters: \n");
 		formatf("__vector_table_start: 0x%.8lX\n", (uint32_t)__vector_table_start);
@@ -50,7 +49,6 @@ extern "C" {
 		formatf("_eheap: 0x%.8lX\n", (uint32_t)_eheap);
 		formatf("__stack_start__: 0x%.8lX\n", (uint32_t)__stack_start__);
 		formatf("_estack: 0x%.8lX\n", (uint32_t)_estack);
-		formatf("stack pointer: 0x%.8lX\n", (uint32_t)stack_ptr);
 		formatf("_end: 0x%.8lX\n", (uint32_t)_end);
 		formatf("\n\n");
 	}
