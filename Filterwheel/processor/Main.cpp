@@ -12,6 +12,8 @@
 #include <sys/types.h>
 #include <algorithm>
 
+#include "arm/smartfusion/CortexMFaults.hpp"
+
 #include "Delay.h"
 
 #include "arm/BuildParameters.h"
@@ -48,6 +50,11 @@ int main(int argc, char *argv[])
 {	
     //Tell C lib (stdio.h) not to buffer output, so we can ditch all the fflush(stdout) calls...
     setvbuf(stdout, NULL, _IONBF, 0);
+	
+	// Turn off all optimizations that might make debugging harder; also makes processor slower...
+	ACTLR->DisMCycInt = 1; 
+	ACTLR->DisDefWBuf = 1;
+	ACTLR->DisITFold = 1;
 
     //~ if (argc > 2)
 

@@ -343,9 +343,24 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		}
 		
 		//Test hardfault handler:
-		//~ int* a = (int*)0x00000003;
-		//~ (*a)++;
-		formatf("\nBIST: About to crash: %d", *(((char*)FW)+3));
+		unsigned long key = 0;
+
+		//Convert parameters
+		int8_t numfound = sscanf(Params, "%lu", &key);
+		if ((numfound >= 1) && (key = 0xBAADC0DE) )
+		{
+
+			//~ int* a = (int*)0x00000003;
+			//~ (*a)++;
+			formatf("\n\nBIST: Magic key match! About to crash!!");
+			for (size_t i = 0; i < 4096; i++) { ProcessAllUarts(); }		
+			formatf("%d", *(((char*)FW)+3));
+		}
+		else
+		{
+			formatf("\n\nBIST: Magic key not found / incorrect; not testing crash handlers...\n");
+		}
+		
 	}
 	
 	return(ParamsLen);

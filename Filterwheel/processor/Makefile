@@ -23,7 +23,8 @@ CSRC = $(INCLUDE_LOCAL)/arm/smartfusion/system_m2sxxx.c $(INCLUDE_LOCAL)/arm/sma
 CPPSRC = Filterwheel.cpp CmdTableAscii.cpp CmdHandlersAscii.cpp CmdTableBinary.cpp CmdHandlersBinary.cpp Uarts.cpp MonitorAdc.cpp $(INCLUDE_LOCAL)/cgraph/CGraphFWHardwareInterface.cpp $(INCLUDE_LOCAL)/uart/CmdSystem.cpp $(INCLUDE_LOCAL)/format/formatf.cpp $(INCLUDE_LOCAL)/arm/smartfusion/HardFaultHandlers.cpp
 #$(INCLUDE_LOCAL)/dbg/memwatch.cpp $(INCLUDE_LOCAL)/dbg/memwatchcpp.cpp $(INCLUDE_LOCAL)/gprof-helper.cpp 
 
-OPT = s
+OPT = 0
+#~ OPT = s
 #~ OPT = 3
 RUN_MODE = RELEASE
 
