@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Mon Mar 10 17:08:08 2025
+// Created by SmartDesign Fri Mar 28 09:18:58 2025
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -8,6 +8,9 @@
 // EvalSandbox_MSS
 module EvalSandbox_MSS(
     // Inputs
+    AMBA_SLAVE_0_1_PRDATAS1,
+    AMBA_SLAVE_0_1_PREADYS1,
+    AMBA_SLAVE_0_1_PSLVERRS1,
     AMBA_SLAVE_0_PRDATAS0,
     AMBA_SLAVE_0_PREADYS0,
     AMBA_SLAVE_0_PSLVERRS0,
@@ -15,6 +18,11 @@ module EvalSandbox_MSS(
     DEVRST_N,
     FAB_RESET_N,
     // Outputs
+    AMBA_SLAVE_0_1_PADDRS,
+    AMBA_SLAVE_0_1_PENABLES,
+    AMBA_SLAVE_0_1_PSELS1,
+    AMBA_SLAVE_0_1_PWDATAS,
+    AMBA_SLAVE_0_1_PWRITES,
     AMBA_SLAVE_0_PADDRS,
     AMBA_SLAVE_0_PENABLES,
     AMBA_SLAVE_0_PSELS0,
@@ -30,6 +38,9 @@ module EvalSandbox_MSS(
 //--------------------------------------------------------------------
 // Input
 //--------------------------------------------------------------------
+input  [31:0] AMBA_SLAVE_0_1_PRDATAS1;
+input         AMBA_SLAVE_0_1_PREADYS1;
+input         AMBA_SLAVE_0_1_PSLVERRS1;
 input  [31:0] AMBA_SLAVE_0_PRDATAS0;
 input         AMBA_SLAVE_0_PREADYS0;
 input         AMBA_SLAVE_0_PSLVERRS0;
@@ -39,6 +50,11 @@ input         FAB_RESET_N;
 //--------------------------------------------------------------------
 // Output
 //--------------------------------------------------------------------
+output [31:0] AMBA_SLAVE_0_1_PADDRS;
+output        AMBA_SLAVE_0_1_PENABLES;
+output        AMBA_SLAVE_0_1_PSELS1;
+output [31:0] AMBA_SLAVE_0_1_PWDATAS;
+output        AMBA_SLAVE_0_1_PWRITES;
 output [31:0] AMBA_SLAVE_0_PADDRS;
 output        AMBA_SLAVE_0_PENABLES;
 output        AMBA_SLAVE_0_PSELS0;
@@ -60,6 +76,10 @@ wire          AMBA_SLAVE_0_PSELx;
 wire          AMBA_SLAVE_0_PSLVERRS0;
 wire   [31:0] AMBA_SLAVE_0_PWDATA;
 wire          AMBA_SLAVE_0_PWRITE;
+wire   [31:0] AMBA_SLAVE_0_1_PRDATAS1;
+wire          AMBA_SLAVE_0_1_PREADYS1;
+wire          AMBA_SLAVE_0_1_PSELx;
+wire          AMBA_SLAVE_0_1_PSLVERRS1;
 wire          CLK0;
 wire          CORERESETP_0_RESET_N_F2M;
 wire          DEVRST_N;
@@ -87,6 +107,11 @@ wire          AMBA_SLAVE_0_PSELx_net_0;
 wire          AMBA_SLAVE_0_PENABLE_net_0;
 wire          AMBA_SLAVE_0_PWRITE_net_0;
 wire   [31:0] AMBA_SLAVE_0_PWDATA_net_0;
+wire   [31:0] AMBA_SLAVE_0_PADDR_net_1;
+wire          AMBA_SLAVE_0_1_PSELx_net_0;
+wire          AMBA_SLAVE_0_PENABLE_net_1;
+wire          AMBA_SLAVE_0_PWRITE_net_1;
+wire   [31:0] AMBA_SLAVE_0_PWDATA_net_1;
 wire          FIC_0_CLK_net_1;
 wire          FIC_0_LOCK_net_1;
 wire          MSS_READY_net_1;
@@ -102,7 +127,6 @@ wire   [31:0] SDIF0_PRDATA_const_net_0;
 wire   [31:0] SDIF1_PRDATA_const_net_0;
 wire   [31:0] SDIF2_PRDATA_const_net_0;
 wire   [31:0] SDIF3_PRDATA_const_net_0;
-wire   [31:0] PRDATAS1_const_net_0;
 wire   [31:0] PRDATAS2_const_net_0;
 wire   [31:0] PRDATAS3_const_net_0;
 wire   [31:0] PRDATAS4_const_net_0;
@@ -131,7 +155,6 @@ assign SDIF0_PRDATA_const_net_0       = 32'h00000000;
 assign SDIF1_PRDATA_const_net_0       = 32'h00000000;
 assign SDIF2_PRDATA_const_net_0       = 32'h00000000;
 assign SDIF3_PRDATA_const_net_0       = 32'h00000000;
-assign PRDATAS1_const_net_0           = 32'h00000000;
 assign PRDATAS2_const_net_0           = 32'h00000000;
 assign PRDATAS3_const_net_0           = 32'h00000000;
 assign PRDATAS4_const_net_0           = 32'h00000000;
@@ -151,26 +174,36 @@ assign FIC_2_APB_M_PRDATA_const_net_0 = 32'h00000000;
 //--------------------------------------------------------------------
 // Top level output port assignments
 //--------------------------------------------------------------------
-assign POWER_ON_RESET_N_net_1     = POWER_ON_RESET_N_net_0;
-assign POWER_ON_RESET_N           = POWER_ON_RESET_N_net_1;
-assign INIT_DONE_net_1            = INIT_DONE_net_0;
-assign INIT_DONE                  = INIT_DONE_net_1;
-assign AMBA_SLAVE_0_PADDR_net_0   = AMBA_SLAVE_0_PADDR;
-assign AMBA_SLAVE_0_PADDRS[31:0]  = AMBA_SLAVE_0_PADDR_net_0;
-assign AMBA_SLAVE_0_PSELx_net_0   = AMBA_SLAVE_0_PSELx;
-assign AMBA_SLAVE_0_PSELS0        = AMBA_SLAVE_0_PSELx_net_0;
-assign AMBA_SLAVE_0_PENABLE_net_0 = AMBA_SLAVE_0_PENABLE;
-assign AMBA_SLAVE_0_PENABLES      = AMBA_SLAVE_0_PENABLE_net_0;
-assign AMBA_SLAVE_0_PWRITE_net_0  = AMBA_SLAVE_0_PWRITE;
-assign AMBA_SLAVE_0_PWRITES       = AMBA_SLAVE_0_PWRITE_net_0;
-assign AMBA_SLAVE_0_PWDATA_net_0  = AMBA_SLAVE_0_PWDATA;
-assign AMBA_SLAVE_0_PWDATAS[31:0] = AMBA_SLAVE_0_PWDATA_net_0;
-assign FIC_0_CLK_net_1            = FIC_0_CLK_net_0;
-assign FIC_0_CLK                  = FIC_0_CLK_net_1;
-assign FIC_0_LOCK_net_1           = FIC_0_LOCK_net_0;
-assign FIC_0_LOCK                 = FIC_0_LOCK_net_1;
-assign MSS_READY_net_1            = MSS_READY_net_0;
-assign MSS_READY                  = MSS_READY_net_1;
+assign POWER_ON_RESET_N_net_1       = POWER_ON_RESET_N_net_0;
+assign POWER_ON_RESET_N             = POWER_ON_RESET_N_net_1;
+assign INIT_DONE_net_1              = INIT_DONE_net_0;
+assign INIT_DONE                    = INIT_DONE_net_1;
+assign AMBA_SLAVE_0_PADDR_net_0     = AMBA_SLAVE_0_PADDR;
+assign AMBA_SLAVE_0_PADDRS[31:0]    = AMBA_SLAVE_0_PADDR_net_0;
+assign AMBA_SLAVE_0_PSELx_net_0     = AMBA_SLAVE_0_PSELx;
+assign AMBA_SLAVE_0_PSELS0          = AMBA_SLAVE_0_PSELx_net_0;
+assign AMBA_SLAVE_0_PENABLE_net_0   = AMBA_SLAVE_0_PENABLE;
+assign AMBA_SLAVE_0_PENABLES        = AMBA_SLAVE_0_PENABLE_net_0;
+assign AMBA_SLAVE_0_PWRITE_net_0    = AMBA_SLAVE_0_PWRITE;
+assign AMBA_SLAVE_0_PWRITES         = AMBA_SLAVE_0_PWRITE_net_0;
+assign AMBA_SLAVE_0_PWDATA_net_0    = AMBA_SLAVE_0_PWDATA;
+assign AMBA_SLAVE_0_PWDATAS[31:0]   = AMBA_SLAVE_0_PWDATA_net_0;
+assign AMBA_SLAVE_0_PADDR_net_1     = AMBA_SLAVE_0_PADDR;
+assign AMBA_SLAVE_0_1_PADDRS[31:0]  = AMBA_SLAVE_0_PADDR_net_1;
+assign AMBA_SLAVE_0_1_PSELx_net_0   = AMBA_SLAVE_0_1_PSELx;
+assign AMBA_SLAVE_0_1_PSELS1        = AMBA_SLAVE_0_1_PSELx_net_0;
+assign AMBA_SLAVE_0_PENABLE_net_1   = AMBA_SLAVE_0_PENABLE;
+assign AMBA_SLAVE_0_1_PENABLES      = AMBA_SLAVE_0_PENABLE_net_1;
+assign AMBA_SLAVE_0_PWRITE_net_1    = AMBA_SLAVE_0_PWRITE;
+assign AMBA_SLAVE_0_1_PWRITES       = AMBA_SLAVE_0_PWRITE_net_1;
+assign AMBA_SLAVE_0_PWDATA_net_1    = AMBA_SLAVE_0_PWDATA;
+assign AMBA_SLAVE_0_1_PWDATAS[31:0] = AMBA_SLAVE_0_PWDATA_net_1;
+assign FIC_0_CLK_net_1              = FIC_0_CLK_net_0;
+assign FIC_0_CLK                    = FIC_0_CLK_net_1;
+assign FIC_0_LOCK_net_1             = FIC_0_LOCK_net_0;
+assign FIC_0_LOCK                   = FIC_0_LOCK_net_1;
+assign MSS_READY_net_1              = MSS_READY_net_0;
+assign MSS_READY                    = MSS_READY_net_1;
 //--------------------------------------------------------------------
 // Component instances
 //--------------------------------------------------------------------
@@ -187,7 +220,7 @@ EvalSandbox_MSS_CCC_0_FCCC CCC_0(
 CoreAPB3 #( 
         .APB_DWIDTH      ( 32 ),
         .APBSLOT0ENABLE  ( 1 ),
-        .APBSLOT1ENABLE  ( 0 ),
+        .APBSLOT1ENABLE  ( 1 ),
         .APBSLOT2ENABLE  ( 0 ),
         .APBSLOT3ENABLE  ( 0 ),
         .APBSLOT4ENABLE  ( 0 ),
@@ -234,9 +267,9 @@ CoreAPB3_0(
         .PRDATAS0   ( AMBA_SLAVE_0_PRDATAS0 ),
         .PREADYS0   ( AMBA_SLAVE_0_PREADYS0 ),
         .PSLVERRS0  ( AMBA_SLAVE_0_PSLVERRS0 ),
-        .PRDATAS1   ( PRDATAS1_const_net_0 ), // tied to 32'h00000000 from definition
-        .PREADYS1   ( VCC_net ), // tied to 1'b1 from definition
-        .PSLVERRS1  ( GND_net ), // tied to 1'b0 from definition
+        .PRDATAS1   ( AMBA_SLAVE_0_1_PRDATAS1 ),
+        .PREADYS1   ( AMBA_SLAVE_0_1_PREADYS1 ),
+        .PSLVERRS1  ( AMBA_SLAVE_0_1_PSLVERRS1 ),
         .PRDATAS2   ( PRDATAS2_const_net_0 ), // tied to 32'h00000000 from definition
         .PREADYS2   ( VCC_net ), // tied to 1'b1 from definition
         .PSLVERRS2  ( GND_net ), // tied to 1'b0 from definition
@@ -292,7 +325,7 @@ CoreAPB3_0(
         .PENABLES   ( AMBA_SLAVE_0_PENABLE ),
         .PWDATAS    ( AMBA_SLAVE_0_PWDATA ),
         .PSELS0     ( AMBA_SLAVE_0_PSELx ),
-        .PSELS1     (  ),
+        .PSELS1     ( AMBA_SLAVE_0_1_PSELx ),
         .PSELS2     (  ),
         .PSELS3     (  ),
         .PSELS4     (  ),

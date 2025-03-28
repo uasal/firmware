@@ -6,7 +6,21 @@
     <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
     <StatusMessage>Warning</StatusMessage>
     <message>Floating Driver</message>
-    <detail>Floating output pin FCCC_C0_0:GL1</detail>
-    <crossprobe>liberoaction://cross_probe/smartdesign/EvalBoardSandbox/pins/FCCC_C0_0:GL1</crossprobe>
+    <detail>Floating output bus pin DMMainPorts_1:RamBusDataOut1[31:0]</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/EvalBoardSandbox/pins/DMMainPorts_1:RamBusDataOut1</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin DMMainPorts_1:RamBusAck1</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/EvalBoardSandbox/pins/DMMainPorts_1:RamBusAck1</crossprobe>
+  </drc>
+  <drc>
+    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Unconnected Bus Interface</message>
+    <detail>Unconnected bus interface pin EvalSandbox_MSS_0:AMBA_SLAVE_0_1</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/EvalBoardSandbox/pins/EvalSandbox_MSS_0:AMBA_SLAVE_0_1</crossprobe>
   </drc>
 </drcreport>

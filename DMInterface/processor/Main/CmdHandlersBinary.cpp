@@ -41,6 +41,7 @@ using namespace std;
 
 #include "cgraph/CGraphDMHardwareInterface.hpp"
 extern CGraphDMHardwareInterface* DM;
+extern CGraphDMRamInterface* dRAM;
 
 #include "MainBuildNum"
 
@@ -48,15 +49,7 @@ extern CGraphDMHardwareInterface* DM;
 #include "MirrorMap.hpp"
 //#include "drivers/mss_pdma/mss_pdma.h"
 
-
-#define DriverBoards 6
-#define DacPerBoard  4
-#define ChanPerDac   40
-#define NumSpiPorts  6
-#define NO_OFFSET            0x00u
-
 DACspi  SpiContainer;
-//extern UART_instance_t my_uart;
 
 CGraphDMMappings DMMappings;
 
@@ -445,8 +438,7 @@ int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const
 	{
 		//ok, first we're looking for a packet with the start pixel and some pix's in it:
 		const CGraphDMPixelPayloadHeader PixelHeader = *reinterpret_cast<const CGraphDMPixelPayloadHeader*>(Params);
-                unsigned long StartPixel = PixelHeader.StartPixel;  // Used to be const
-                StartPixel += 7;
+                const unsigned long StartPixel = PixelHeader.StartPixel;  // Used to be const
                 TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &StartPixel, sizeof(uint16_t));  // Reply with start pixel no matter what
 		if (StartPixel > DMMaxActuators) 
 		{
@@ -469,8 +461,6 @@ int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const
 				{
 					//pull a pix out of the packet:
 					const uint16_t DacVal = *reinterpret_cast<const uint16_t*>(Params+sizeof(CGraphDMPixelPayloadHeader)+((i - StartPixel)*sizeof(uint16_t)));
-                                        // Only goes through once and then goes off the rails.
-
 					//What D/A ram does this pix belong to?
 					if ( (DMMappings.Mappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings.Mappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings.Mappings[i].ControllerBoardIndex >= DMMaxControllerBoards) )
 					{
@@ -481,11 +471,19 @@ int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const
 					//Yay, we got here, things are actaully correct and we have something to do!
 					else
 					{
-                                          TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &DMMappings.Mappings[i].DacChannel, sizeof(uint8_t));
+                                          uint8_t board = DMMappings.Mappings[i].ControllerBoardIndex; // 3;
+                                          uint8_t dac = DMMappings.Mappings[i].DacIndex; // 4;
+                                          uint8_t channel = DMMappings.Mappings[i].DacChannel; // 5;
+
+                                          //TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &i, sizeof(size_t));
+                                          TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &board, sizeof(uint8_t));
+                                          TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &dac, sizeof(uint8_t));
+                                          TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &channel, sizeof(uint8_t));
+
                                           // Writing to DM->DacSetpoints is causing the porblems.
-                                          //DM->DacSetpoints[DMMappings.Mappings[i].ControllerBoardIndex][DMMappings.Mappings[i].DacIndex][DMMappings.Mappings[i].DacChannel] = ((uint32_t)DacVal) << 8; //<<8 cause we really want 24b values when we dither
-                                          DM->DacSetpoints[i][i][i] = ((uint32_t)DacVal) << 8; //<<8 cause we really want 24b values when we dither
-						printf("\nBinaryDMShortPixelsCommand: Set actuator %lu to %lu", (unsigned long)i, (unsigned long)DacVal);
+                                          dRAM->DacSetpoints[board][dac][3] = ((uint32_t)DacVal);// << 8; // cause we really want 24b values when we dither
+                                          //DM->DacSetpoints[i][i][i] = ((uint32_t)DacVal); //<<8 cause we really want 24b values when we dither
+                                          printf("\nBinaryDMShortPixelsCommand: Set actuator %lu to %lu", (unsigned long)i, (unsigned long)DacVal);
 					}			
 				}
 				
@@ -495,7 +493,6 @@ int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const
 			else // ParamsLen >= sizeof(CGraphDMPixelPayloadHeader)
 			{
 				printf("\nBinaryDMMappingCommand: Short packet: %u (exptected >%u bytes): ", ParamsLen, (sizeof(CGraphDMPixelPayloadHeader)));
-                                StartPixel += 5;  // add 5 to start pixel to knwo we are here instead
 				TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &StartPixel, sizeof(uint16_t));
 			}
 		}

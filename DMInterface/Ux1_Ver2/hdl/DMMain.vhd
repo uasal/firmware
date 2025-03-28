@@ -38,7 +38,7 @@ entity DMMainPorts is
     nCsE : out std_logic_vector(3 downto 0);
     nCsF : out std_logic_vector(3 downto 0);
 		
-    --uC Ram Bus 
+    --uC Ram Bus 0
     RamBusAddress : in std_logic_vector(13 downto 0); -- Address vector is ADDRESS_BUS_BITS bits
     RamBusDataIn : in std_logic_vector(31 downto 0);
     RamBusDataOut : out std_logic_vector(31 downto 0);
@@ -46,6 +46,15 @@ entity DMMainPorts is
     RamBusWrnRd : in std_logic;
     RamBusLatch : in std_logic;
     RamBusAck : out std_logic;
+
+    --uC Ram Bus 1
+    RamBusAddress1 : in std_logic_vector(13 downto 0); -- Address vector is ADDRESS_BUS_BITS bits
+    RamBusDataIn1 : in std_logic_vector(31 downto 0);
+    RamBusDataOut1 : out std_logic_vector(31 downto 0);
+    RamBusnCs1 : in std_logic;
+    RamBusWrnRd1 : in std_logic;
+    RamBusLatch1 : in std_logic;
+    RamBusAck1 : out std_logic;
 	
     --RS-422
     Tx0 : out std_logic;
@@ -426,6 +435,16 @@ architecture DMMain of DMMainPorts is
   signal RamDataIn       : std_logic_vector(31 downto 0);		
   signal RamBusAck_i     : std_logic;
 
+  -- Ram Bus1 (which is the Amba Bus to/from the processor. Internally.)
+  --~ constant ADDRESS_BUS_BITS : natural := 14;  Don't need to repeat this
+  --~ signal RamBusLatch_i   : std_logic;		
+  signal RamBusCE1_i      : std_logic;		
+  signal RamBusWrnRd1_i   : std_logic;		
+  signal RamAddress1 : std_logic_vector((ADDRESS_BUS_BITS - 1) downto 0);		
+  signal RamDataOut1      : std_logic_vector(31 downto 0);		
+  signal RamDataIn1       : std_logic_vector(31 downto 0);		
+  signal RamBusAck1_i     : std_logic;
+
   -- Register space		
   signal RegisterSpaceDataToWrite : std_logic_vector(31 downto 0);
   signal RegisterSpaceWriteReq : std_logic;
@@ -634,7 +653,7 @@ begin
   );
 
   --- Register Spaces ---
-  --- This is the ram bus that reads and writes to memory spaces
+  --- This is the ram bus 0 that reads and writes to DM memory spaces
   --- inside the M3 Core.  The DMHardware is at 0x50000000UL which
   --- writes to the AMBA bus.  This bus will then write/read the peripherals
   IBufCE : IBufP2Ports port map(clk => MasterClk, I => RamBusnCs, O => RamBusCE_i);
@@ -662,33 +681,63 @@ begin
     RamBusDataOut(i) <= RamDataOut(i);
   end generate;
 
+  -- Ram bus 1 that reads and write to the dRAM memory spaces
+  -- dRAM is at 0x50001000 which is the second AMBA bus.
+  IBufCE1 : IBufP2Ports port map(clk => MasterClk, I => RamBusnCs1, O => RamBusCE1_i);
+  IBufWrnRd1 : IBufP2Ports port map(clk => MasterClk, I => RamBusWrnRd1, O => RamBusWrnRd1_i);
   
-	DacSetpointWriteAddress <= (conv_integer(RamAddress) - 1024)/4;  --
+  GenRamAddrBus1: for i in 0 to (ADDRESS_BUS_BITS - 1) generate
+  begin
+    IBUF_RamAddr1_i : IBufP1Ports
+      port map (
+        clk => MasterClk,
+        I => RamBusAddress1(i),
+        O => RamAddress1(i)--,
+      ); 
+  end generate;
+		
+  GenRamDataBus1: for i in 0 to 31 generate
+  begin
+    IBUF_RamData1_i : IBufP1Ports
+      port map (
+        clk => MasterClk,
+        I => RamBusDataIn1(i),
+        O => RamDataIn1(i)--,
+      );
+			
+    RamBusDataOut1(i) <= RamDataOut1(i);
+  end generate;
+
+  
+  --~ DacSetpointWriteAddress <= (conv_integer(RamAddress) - 1024)/4;  --
                                                                          --keep
                                                                          --this
                                                                          --in
                                                                          --mind
                                                                          --when debugging
-	DacSetpointToWriteToRam <= RamDataIn(DMSetpointMSB downto 0);
-	DacSetpointWriteReq <= '1' when ( (RamBusCE_i = '1') and (RamBusWrnRd_i = '1') and (RamAddress >= std_logic_vector(to_unsigned(1024, ADDRESS_BUS_BITS))) ) else '0';
+  DACSetpointWriteAddress <= (conv_integer(RamAddress1)); -- not offset
+                                                          -- by 1024
+  DacSetpointToWriteToRam <= RamDataIn1(DMSetpointMSB downto 0);
+  DacSetpointWriteReq <= '1' when ( (RamBusCE1_i = '1') and (RamBusWrnRd1_i = '1') and (RamAddress1 >= std_logic_vector(to_unsigned(4096, ADDRESS_BUS_BITS))) ) else '0';
   
-    DmDacRam : DmDacRamFlatPorts
-	port map (
-		clk => MasterClk,
-		rst => MasterReset,
-		--~ ReadAddressController => DacSetpointReadAddressController,
-		--~ ReadAddressDac => DacSetpointReadAddressDac,
-		--~ ReadAddressChannel => DacSetpointReadAddressChannel,
-		ReadAddress => DacSetpointReadAddress,
-		WriteAddress => DacSetpointWriteAddress,
-		DacSetpointIn => DacSetpointToWriteToRam,
-		DacSetpointOut => DacSetpointFromRead,
-		WriteReq => DacSetpointWriteReq--,
-	);
+  DmDacRam : DmDacRamFlatPorts
+    port map (
+      clk => MasterClk,
+      rst => MasterReset,
+      --~ ReadAddressController => DacSetpointReadAddressController,
+      --~ ReadAddressDac => DacSetpointReadAddressDac,
+      --~ ReadAddressChannel => DacSetpointReadAddressChannel,
+      ReadAddress => DacSetpointReadAddress,
+      WriteAddress => DacSetpointWriteAddress,
+      DacSetpointIn => DacSetpointToWriteToRam,
+      DacSetpointOut => DacSetpointFromRead,
+      WriteReq => DacSetpointWriteReq--,
+    );
 	
 	-- n = (z * numy * numx) + (y * numx) + x
-	DacSetpointReadAddress <= (DacSetpointReadAddressController * DMMDacsPerControllerBoard * DMActuatorsPerDac) + (DacSetpointReadAddressDac * DMActuatorsPerDac) + DacSetpointReadAddressChannel;
+  DacSetpointReadAddress <= (DacSetpointReadAddressController * DMMDacsPerControllerBoard * DMActuatorsPerDac) + (DacSetpointReadAddressDac * DMActuatorsPerDac) + DacSetpointReadAddressChannel;
 
+  -- Register space is still on the original rambus
   RegisterSpaceDataToWrite <= RamDataIn;
   RegisterSpaceWriteReq <= '1' when ( (RamBusCE_i = '1') and (RamBusWrnRd_i = '1') and (RamAddress < std_logic_vector(to_unsigned(1024, ADDRESS_BUS_BITS))) ) else '0';
   RamDataOut <= RegisterSpaceDataFromRead;
@@ -1325,6 +1374,7 @@ begin
 
 				--copy from ram to register (this works on a single clock cause we set the ram up for aysnc read)
 				DacSetpoints(DacSetpointReadAddressController, DacSetpointReadAddressDac) <= DacSetpointFromRead;
+                                --WriteDacs <= '0';
 
 				--Just move the addresses for the ram ahead round-robin each clock
 				if (DacSetpointReadAddressDac < (DMMDacsPerControllerBoard - 1)) then 
@@ -1351,6 +1401,7 @@ begin
 			
 				WriteDacs <= '1';
 				DacASetpointToWrite <= DacSetpoints(0,0);
+                                --DacASetpointToWrite <= x"5A5A5A";  -- works
 				DacBSetpointToWrite <= DacSetpoints(1,0);
 				DacCSetpointToWrite <= DacSetpoints(2,0);
 				DacDSetpointToWrite <= DacSetpoints(3,0);
@@ -1525,11 +1576,13 @@ begin
                                 end if;
 				
                                 DacWriteNextState <= Idle;
+                                --WriteDacs <= '0';
 					
 			when others => -- ought never to get here...reset everything!
 							
 				DacWriteNextState <= Idle;
 				DacWriteCurrentState <= Idle;
+                                --WriteDacs <= '0';
 				
 		end case;
 

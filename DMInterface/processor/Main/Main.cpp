@@ -26,6 +26,7 @@
 
 #include "cgraph/CGraphDMHardwareInterface.hpp"
 extern CGraphDMHardwareInterface* DM;  // Contains a bunch of variables
+extern CGraphDMRamInterface* dRAM;     // Contains the mirror data RAM
 
 #include "format/formatf.h"
 

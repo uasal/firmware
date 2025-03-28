@@ -3152,6 +3152,11 @@
 <row>
  <cell>AMBA_SLAVE_0</cell>
  <cell>MIRROREDSLAVE</cell>
+ <cell>-</cell>
+</row>
+<row>
+ <cell>AMBA_SLAVE_0_1</cell>
+ <cell>MIRROREDSLAVE</cell>
  <cell>Slave bus interface pin on  FIC0_Master_Subsystem</cell>
 </row>
 <row>
@@ -3205,7 +3210,7 @@
 <row>
  <cell>Connect Generic User Slave Peripheral</cell>
  <cell>AMBA_SLAVE_0 is a slave on FIC0_Master_Subsystem subsystem.
-Connect your peripheral to AMBA_SLAVE_0 bus interface pin in the top design.</cell>
+Connect your peripheral to AMBA_SLAVE_0_1 bus interface pin in the top design.</cell>
 </row>
 <separator/>
 </table>
