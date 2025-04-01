@@ -1,5 +1,5 @@
 # Microsemi Corp.
-# Date: 2025-Mar-27 14:09:28
+# Date: 2025-Apr-01 11:27:28
 # This file was generated based on the following SDC source files:
 #   /home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/constraint/Filterwheel_derived_constraints.sdc
 #   /home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/constraint/user.sdc
@@ -17,9 +17,12 @@ create_generated_clock -name {uart2clk} -divide_by 2 -source [ get_pins { FCCC_C
 create_generated_clock -name {uart2txclk} -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP/GL0 } ] [ get_pins { Main_0/Uart2TxBitClockDiv/div_i/Q } ]
 create_generated_clock -name {uart3clk} -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP/GL0 } ] [ get_pins { Main_0/Uart3BitClockDiv/clko_i/Q } ]
 create_generated_clock -name {uart3txclk} -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP/GL0 } ] [ get_pins { Main_0/Uart3TxBitClockDiv/div_i/Q } ]
-set_clock_to_output -min 0 -clock { MasterClk } { MosiMonAdc0 }
-set_clock_to_output -min 0 -clock { MasterClk } { SckMonAdc0 }
-set_clock_to_output -min 0 -clock { MasterClk } { nCsMonAdc0 }
+set_clock_to_output -min 0 -clock { MasterClk } [ get_ports { MosiMonAdc0 } ]
+set_clock_to_output -max 19 -clock { MasterClk } [ get_ports { MosiMonAdc0 } ]
+set_clock_to_output -min 0 -clock { MasterClk } [ get_ports { SckMonAdc0 } ]
+set_clock_to_output -max 19 -clock { MasterClk } [ get_ports { SckMonAdc0 } ]
+set_clock_to_output -min 0 -clock { MasterClk } [ get_ports { nCsMonAdc0 } ]
+set_clock_to_output -max 19 -clock { MasterClk } [ get_ports { nCsMonAdc0 } ]
 set_false_path -through [ get_nets { Filterwheel_sb_0/CORERESETP_0/ddr_settled Filterwheel_sb_0/CORERESETP_0/release_sdif*_core } ]
 set_false_path -from [ get_cells { Filterwheel_sb_0/CORERESETP_0/MSS_HPMS_READY_int } ] -to [ get_cells { Filterwheel_sb_0/CORERESETP_0/sm0_areset_n_rcosc Filterwheel_sb_0/CORERESETP_0/sm0_areset_n_rcosc_q1 } ]
 set_false_path -from [ get_cells { Filterwheel_sb_0/CORERESETP_0/MSS_HPMS_READY_int } ] -to [ get_cells { Filterwheel_sb_0/CORERESETP_0/sdif*_areset_n_rcosc* } ]
