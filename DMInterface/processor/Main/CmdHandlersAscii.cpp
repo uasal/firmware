@@ -47,7 +47,8 @@ using namespace std;
 #include "cgraph/CGraphPacket.hpp"
 
 #include "cgraph/CGraphDMHardwareInterface.hpp"
-extern CGraphDMHardwareInterface* DM;	
+extern CGraphDMHardwareInterface* DM;
+extern CGraphDMRamInterface* dRAM;
 
 //#include "../MonitorAdc.hpp"
 //extern CGraphDMMonitorAdc MonitorAdc;

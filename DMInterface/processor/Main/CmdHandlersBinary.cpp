@@ -111,36 +111,6 @@ int8_t BinaryDMDacCommand(const uint32_t Name, char const* Params, const size_t 
   return(ParamsLen);
 }
 
-//int8_t BinaryDMVectorCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument) {
-//
-//  uint16_t     ptrInc=0;
-//
-//
-//  UART_polled_tx_string(&my_uart,(const uint8_t*)"In new Vector Cmd ");
-//  if ( (NULL != Params) && (ParamsLen >= (1 * sizeof(uint16_t))) )  {
-//    
-//    const uint16_t* DMSetPoints = reinterpret_cast<const uint16_t*>(Params);
-//    UART_polled_tx_string(&my_uart,(const uint8_t*)"Have Params ");
-//
-//    // Now lets just brute force the SPI to write out 960 values
-//    for (int board=0; board < 6; board++) { 
-//     for (int dac=0; dac < 24; dac ++) {
-//        for (int chan; chan < 40; chan++) {
-//          SpiContainer.sendSingleDacSpi(5,              // channel A
-//                                        22,             // Dac 2
-//                                        10,             // Dac chan 10
-//                                        DMSetPoints[0]);// value from memory
-//          ptrInc++;
-//        }
-//      }
-//    }
-//  } else {
-//    UART_polled_tx_string(&my_uart,(const uint8_t*)"Not enough params ");
-//  }
-//  UART_polled_tx_string(&my_uart,(const uint8_t*)"end of vector ");
-//  return(ParamsLen);    
-//}
-
 int8_t BinaryDMUartCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
   //~ volatile uint32_t status;
@@ -163,93 +133,6 @@ int8_t BinaryDMUartCommand(const uint32_t Name, char const* Params, const size_t
 
 int8_t BinaryDMVectorCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-  volatile uint32_t status = 0;
-  uint32_t          esram_addr;
-  //~ uint16_t          echodata[160];  // max number of elements
-  unsigned int               ii;
-  //~ unsigned int xferDone=0;
-  
-
-  // echodata needed more than 1 element since the PDMA_start increments the desitination
-  // I think that may have been the problem
-  
-  // Check to see we're getting here
-  //  UART_polled_tx_string(&my_uart,(const uint8_t*)"In Vector Cmd ");
-  esram_addr = 0x20000000;
-  // This will normally be a vector of all 952 mirror set points
-  // if ( (NULL != Params) && (ParamsLen >= (952 * sizeof(uint16_t))) )  
-  // But let's start with 18 data points and then expand
-  // This gives us 3 data points per spi
-  // Try just one parameter and see if that works.  We may be getting
-  // a boundry problem from one data location tot another
-  if ( (NULL != Params) && (ParamsLen >= (30 * sizeof(uint16_t))) )  {
-    
-    //~ const uint16_t* DMSetPoints = reinterpret_cast<const uint16_t*>(Params);
-    //    UART_polled_tx_string(&my_uart,(const uint8_t*)"Have Params ");
-    //~ size_t numElements = sizeof(Params)/sizeof(uint16_t);
-    
-
-    // Write to the memory locations
-    for (ii=0; ii <ParamsLen/2; ii++) {
-//      PDMA_start(PDMA_CHANNEL_0,
-//                 (uint32_t)(DMSetPoints+ii),
-//                 esram_addr+2*ii,
-//                 1);
-      do {
-//        status = PDMA_status(PDMA_CHANNEL_0);
-      } while (0 == status);
-    }
-
-
-// Use the PDMA to write to the fabric SPI port  
-// Now can we start all of the SPI channels from memory and write simultaneously?
-
-      // Start with 1 transfer to make sure this engine goes
-      // Then write 5 to see if we can get all of them out.
-    // Probably don't want to increment the destination address
-    // Can we dynaically set the PDMA configuration?  Why not?
-    // Just use one SPI port
-    for (ii=0; ii < ParamsLen/2; ii++) {
-      
-//      MSS_GPIO_set_output(MSS_GPIO_1, 0); // begin a SPI transaction clear rst to low
-//      PDMA_start(PDMA_CHANNEL_1,
-//                 esram_addr+2*ii,
-//                 0, //SPIMASTERPORTS_0,
-//                 1);              // 160 transfers of 16 bytes
-    
-//    while(!xferDone) {
-//        xferDone = (MSS_GPIO_get_inputs() & MSS_GPIO_2_MASK);
-//      }
-//      MSS_GPIO_set_output(MSS_GPIO_1, 1); // SPI transaction done, set rst high
-    }
-    
-//    PDMA_start(PDMA_CHANNEL_2,
-//               0x20000006,        // Next spi address will be 160*2bytes = 320bytes = 0x140bytes
-//               SPIMASTERPORTS_1,
-//               160);              // 160 transfers of 16 bytes
-//    PDMA_start(PDMA_CHANNEL_3,
-//               0x2000000C,
-//               SPIMASTERPORTS_2,
-//               160);              // 160 transfers of 16 bytes
-//    PDMA_start(PDMA_CHANNEL_4,
-//               0x20000012,
-//               SPIMASTERPORTS_3,
-//               160);              // 160 transfers of 16 bytes
-//    PDMA_start(PDMA_CHANNEL_5,
-//               0x20000018,
-//               SPIMASTERPORTS_4,
-//               160);              // 160 transfers of 16 bytes
-//    PDMA_start(PDMA_CHANNEL_6,
-//               0x2000101E,
-//               SPIMASTERPORTS_5,
-//               160);              // 160 transfers of 16 bytes
-             
-  }
-  else {
-    printf("\nBinaryDMDacsCommand: Short packet: %u (exptected %u bytes): ", ParamsLen, (3 * sizeof(uint32_t)));
-  }
-
-    //  UART_polled_tx_string(&my_uart,(const uint8_t*)"end of vector ");
   return(ParamsLen);
 }
 
@@ -476,13 +359,16 @@ int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const
                                           uint8_t channel = DMMappings.Mappings[i].DacChannel; // 5;
 
                                           //TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &i, sizeof(size_t));
-                                          TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &board, sizeof(uint8_t));
-                                          TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &dac, sizeof(uint8_t));
-                                          TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &channel, sizeof(uint8_t));
+                                          //TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &board, sizeof(uint8_t));
+                                          //TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &dac, sizeof(uint8_t));
+                                          formatf("%p", (void*)&dRAM->DacSetpointsA[board][dac][channel]);
+                                          //TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &channel, sizeof(uint8_t));
+                                          //TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, dRAM, sizeof(uint32_t));
 
-                                          // Writing to DM->DacSetpoints is causing the porblems.
-                                          dRAM->DacSetpoints[board][dac][3] = ((uint32_t)DacVal);// << 8; // cause we really want 24b values when we dither
-                                          //DM->DacSetpoints[i][i][i] = ((uint32_t)DacVal); //<<8 cause we really want 24b values when we dither
+                                          
+                                          
+                                          dRAM->DacSetpointsA[board][dac][channel] = ((CGraphDMSetpoint)DacVal);// << 8; // cause we really want 24b values when we dither
+                                          //dRAM->DacSetpoints[i][i][i] = ((uint32_t)DacVal); //<<8 cause we really want 24b values when we dither
                                           printf("\nBinaryDMShortPixelsCommand: Set actuator %lu to %lu", (unsigned long)i, (unsigned long)DacVal);
 					}			
 				}

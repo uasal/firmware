@@ -1,20 +1,19 @@
 # Microsemi Corp.
-# Date: 2025-Mar-24 13:54:49
+# Date: 2025-Apr-01 14:15:48
 # This file was generated based on the following SDC source files:
-#   C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS/CCC_0/EvalSandbox_MSS_CCC_0_FCCC.sdc
+#   C:/Users/SKaye/repos10/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS/CCC_0/EvalSandbox_MSS_CCC_0_FCCC.sdc
 #   C:/Microchip/Libero_SoC_v2023.2/Designer/data/aPA4M/cores/constraints/coreresetp.sdc
-#   C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS_MSS/EvalSandbox_MSS_MSS.sdc
-#   C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS/FABOSC_0/EvalSandbox_MSS_FABOSC_0_OSC.sdc
-#   C:/Users/SKaye/repos9/firmware/DMInterface/Ux1_Ver2/component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.sdc
+#   C:/Users/SKaye/repos10/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS_MSS/EvalSandbox_MSS_MSS.sdc
+#   C:/Users/SKaye/repos10/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS/FABOSC_0/EvalSandbox_MSS_FABOSC_0_OSC.sdc
+#   C:/Users/SKaye/repos10/firmware/DMInterface/Ux1_Ver2/component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.sdc
 #   C:/Microchip/Libero_SoC_v2023.2/Designer/data/aPA4M/cores/constraints/sysreset.sdc
 # *** Any modifications to this file will be lost if derived constraints is re-run. ***
 #
 
 create_clock -ignore_errors -name {EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT} -period 20 [ get_pins { EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT } ]
-create_clock -name VCXO_In -period 19.6078 [ get_ports { CLK0_PAD } ]
-create_generated_clock -name uC_Internal -multiply_by 3 -divide_by 3 -source [ get_pins { EvalSandbox_MSS_0/CCC_0/CCC_INST/CLK0 } ] -phase 0 [ get_pins { EvalSandbox_MSS_0/CCC_0/CCC_INST/GL0 } ]
-create_generated_clock -name MasterClk -multiply_by 4 -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/CLK0_PAD } ] -phase 0 [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/GL0 } ]
-create_generated_clock -name OldFpgaClk -multiply_by 4 -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/CLK0_PAD } ] -phase 0 [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/GL1 } ]
+create_clock -name {CLK0_PAD} -period 19.6078 [ get_ports { CLK0_PAD } ]
+create_generated_clock -name {EvalSandbox_MSS_0/CCC_0/GL0} -multiply_by 3 -divide_by 3 -source [ get_pins { EvalSandbox_MSS_0/CCC_0/CCC_INST/CLK0 } ] -phase 0 [ get_pins { EvalSandbox_MSS_0/CCC_0/CCC_INST/GL0 } ]
+create_generated_clock -name {FCCC_C0_0/FCCC_C0_0/GL0} -multiply_by 4 -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/CLK0_PAD } ] -phase 0 [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/GL0 } ]
 set_false_path -ignore_errors -through [ get_nets { EvalSandbox_MSS_0/CORERESETP_0/ddr_settled EvalSandbox_MSS_0/CORERESETP_0/count_ddr_enable EvalSandbox_MSS_0/CORERESETP_0/release_sdif*_core EvalSandbox_MSS_0/CORERESETP_0/count_sdif*_enable } ]
 set_false_path -ignore_errors -from [ get_cells { EvalSandbox_MSS_0/CORERESETP_0/MSS_HPMS_READY_int } ] -to [ get_cells { EvalSandbox_MSS_0/CORERESETP_0/sm0_areset_n_rcosc EvalSandbox_MSS_0/CORERESETP_0/sm0_areset_n_rcosc_q1 } ]
 set_false_path -ignore_errors -from [ get_cells { EvalSandbox_MSS_0/CORERESETP_0/MSS_HPMS_READY_int EvalSandbox_MSS_0/CORERESETP_0/SDIF*_PERST_N_re } ] -to [ get_cells { EvalSandbox_MSS_0/CORERESETP_0/sdif*_areset_n_rcosc* } ]

@@ -1,14 +1,13 @@
 # Microsemi Corp.
-# Date: 2025-Mar-28 10:29:51
+# Date: 2025-Apr-01 14:16:26
 # This file was generated based on the following SDC source files:
 #   C:/Users/SKaye/repos10/firmware/DMInterface/Ux1_Ver2/constraint/EvalBoardSandbox_derived_constraints.sdc
 #   C:/Users/SKaye/repos10/firmware/DMInterface/Ux1_Ver2/constraint/user.sdc
 #
 
-create_clock -name {VCXO_In} -period 19.6078 [ get_ports { CLK0_PAD } ]
-create_generated_clock -name {uC_Internal} -multiply_by 3 -divide_by 3 -source [ get_pins { EvalSandbox_MSS_0/CCC_0/CCC_INST/INST_CCC_IP/CLK0 } ] -phase 0 [ get_pins { EvalSandbox_MSS_0/CCC_0/CCC_INST/INST_CCC_IP/GL0 } ]
-create_generated_clock -name {MasterClk} -multiply_by 4 -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP/CLK0_PAD } ] -phase 0 [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP/GL0 } ]
-create_generated_clock -name {OldFpgaClk} -multiply_by 4 -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP/CLK0_PAD } ] -phase 0 [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP/GL1 } ]
+create_clock -name {CLK0_PAD} -period 19.6078 [ get_ports { CLK0_PAD } ]
+create_generated_clock -name {EvalSandbox_MSS_0/CCC_0/GL0} -multiply_by 3 -divide_by 3 -source [ get_pins { EvalSandbox_MSS_0/CCC_0/CCC_INST/INST_CCC_IP/CLK0 } ] -phase 0 [ get_pins { EvalSandbox_MSS_0/CCC_0/CCC_INST/INST_CCC_IP/GL0 } ]
+create_generated_clock -name {FCCC_C0_0/FCCC_C0_0/GL0} -multiply_by 4 -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP/CLK0_PAD } ] -phase 0 [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP/GL0 } ]
 create_generated_clock -name {uart0clk} -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP/GL0 } ] [ get_pins { DMMainPorts_1/Uart0BitClockDiv/clko_i/Q } ]
 create_generated_clock -name {uart0txclk} -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP/GL0 } ] [ get_pins { DMMainPorts_1/Uart0TxBitClockDiv/div_i/Q } ]
 create_generated_clock -name {uart1clk} -divide_by 2 -source [ get_pins { FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP/GL0 } ] [ get_pins { DMMainPorts_1/Uart1BitClockDiv/clko_i/Q } ]

@@ -1,15 +1,14 @@
-# Written by Synplify Pro version map202209actsp2, Build 145R. Synopsys Run ID: sid1743182930 
+# Written by Synplify Pro version map202209actsp2, Build 145R. Synopsys Run ID: sid1743542159 
 # Top Level Design Parameters 
 
 # Clocks 
-create_clock -period 19.608 -waveform {0.000 9.804} -name {VCXO_In} [get_ports {CLK0_PAD}] 
+create_clock -period 19.608 -waveform {0.000 9.804} -name {CLK0_PAD} [get_ports {CLK0_PAD}] 
 
 # Virtual Clocks 
 
 # Generated Clocks 
-create_generated_clock -name {MasterClk} -multiply_by {4} -divide_by {2} -source [get_pins {FCCC_C0_0/FCCC_C0_0/CCC_INST/CLK0_PAD}]  [get_pins {FCCC_C0_0/FCCC_C0_0/CCC_INST/GL0}] 
-create_generated_clock -name {uC_Internal} -multiply_by {3} -divide_by {3} -source [get_pins {EvalSandbox_MSS_0/CCC_0/CCC_INST/CLK0}]  [get_pins {EvalSandbox_MSS_0/CCC_0/CCC_INST/GL0}] 
-create_generated_clock -name {OldFpgaClk} -multiply_by {4} -divide_by {2} -source [get_pins {FCCC_C0_0/FCCC_C0_0/CCC_INST/CLK0_PAD}]  [get_pins {FCCC_C0_0/FCCC_C0_0/CCC_INST/GL1}] 
+create_generated_clock -name {FCCC_C0_0/FCCC_C0_0/GL0} -multiply_by {4} -divide_by {2} -source [get_pins {FCCC_C0_0/FCCC_C0_0/CCC_INST/CLK0_PAD}]  [get_pins {FCCC_C0_0/FCCC_C0_0/CCC_INST/GL0}] 
+create_generated_clock -name {EvalSandbox_MSS_0/CCC_0/GL0} -multiply_by {3} -divide_by {3} -source [get_pins {EvalSandbox_MSS_0/CCC_0/CCC_INST/CLK0}]  [get_pins {EvalSandbox_MSS_0/CCC_0/CCC_INST/GL0}] 
 
 # Paths Between Clocks 
 

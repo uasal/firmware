@@ -35,9 +35,10 @@ entity DmDacRamFlatPorts is
 		
     -- Bus:
     ReadAddress : in integer range (DMMaxActuators - 1) downto 0;
-	WriteAddress : in integer range (DMMaxActuators - 1) downto 0;
+    WriteAddress : in integer range (DMMaxActuators - 1) downto 0;
     DacSetpointIn : in std_logic_vector(DMSetpointMSB downto 0);
     DacSetpointOut : out std_logic_vector(DMSetpointMSB downto 0);
+    --WriteAck : out std_logic;
     WriteReq : in std_logic--;
   );
 end DmDacRamFlatPorts;
@@ -46,6 +47,7 @@ end DmDacRamFlatPorts;
 architecture DmDacRamFlat of DmDacRamFlatPorts is
 
 	shared variable DacSetpoints : DMDacSetpointRamFlat;
+        signal LastWriteReq : std_logic;
 
   begin
   
@@ -55,21 +57,35 @@ architecture DmDacRamFlat of DmDacRamFlatPorts is
   begin
     if (rst = '1') then
       
-		DacSetpointOut <= x"000000"; --for synchronous read			
+		DacSetpointOut <= x"000000"; --for synchronous read
+                LastWriteReq <= '0';
       
     else
       if ( (clk'event) and (clk = '1') ) then
 
-		DacSetpointOut <= DacSetpoints(ReadAddress); --for synchronous read
+        DacSetpointOut <= DacSetpoints(ReadAddress); --for synchronous read
 		
-		if (WriteReq = '1') then
-		
-			DacSetpoints(WriteAddress) := DacSetpointIn;
-		
-		end if;
-		
-	  end if;
-	  
+        if (WriteReq = '1') then
+          --WriteReq Rising Edge
+          if (LastWriteReq = '0') then
+            LastWriteReq <= '1';
+            --WriteAck <= '0';
+            DacSetpoints(WriteAddress) := DacSetpointIn;
+          else
+            --WriteAck <= '1';
+          end if;
+        end if;
+
+        if (WriteReq = '0') then
+          --WriteReq Falling Edge
+          if (LastWriteReq = '1') then
+            LastWriteReq <= '0';
+          else
+            --WriteAck <= '0';
+          end if;
+        end if;
+        
+      end if;  
     end if;
   end process;
 

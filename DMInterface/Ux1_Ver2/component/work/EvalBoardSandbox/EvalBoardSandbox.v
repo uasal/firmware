@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Fri Mar 28 10:28:05 2025
+// Created by SmartDesign Tue Apr  1 14:13:56 2025
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -109,7 +109,9 @@ inout        Ux1SelJmp;
 wire          CLK0_PAD;
 wire          DEVRST_N;
 wire          DMMainPorts_1_RamBusAck;
+wire          DMMainPorts_1_RamBusAck1;
 wire   [31:0] DMMainPorts_1_RamBusDataOut;
+wire   [31:0] DMMainPorts_1_RamBusDataOut1;
 wire   [13:0] EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PADDRS13to0;
 wire          EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PENABLES;
 wire          EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PSELS1;
@@ -195,13 +197,11 @@ wire   [31:0] AMBA_SLAVE_0_1_PADDRS_net_0;
 //--------------------------------------------------------------------
 wire          VCC_net;
 wire          GND_net;
-wire   [31:0] AMBA_SLAVE_0_1_PRDATAS1_const_net_0;
 //--------------------------------------------------------------------
 // Constant assignments
 //--------------------------------------------------------------------
-assign VCC_net                             = 1'b1;
-assign GND_net                             = 1'b0;
-assign AMBA_SLAVE_0_1_PRDATAS1_const_net_0 = 32'h00000000;
+assign VCC_net = 1'b1;
+assign GND_net = 1'b0;
 //--------------------------------------------------------------------
 // Top level output port assignments
 //--------------------------------------------------------------------
@@ -283,13 +283,9 @@ DMMainPorts DMMainPorts_1(
         .MisoD          ( MisoD ),
         .MisoE          ( MisoE ),
         .MisoF          ( MisoF ),
-        .RamBusAddress  ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDRS13to0 ),
-        .RamBusDataIn   ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PWDATAS ),
         .RamBusnCs      ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PSELS0 ),
         .RamBusWrnRd    ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PWRITES ),
         .RamBusLatch    ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PENABLES ),
-        .RamBusAddress1 ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PADDRS13to0 ),
-        .RamBusDataIn1  ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PWDATAS ),
         .RamBusnCs1     ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PSELS1 ),
         .RamBusWrnRd1   ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PWRITES ),
         .RamBusLatch1   ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PENABLES ),
@@ -298,6 +294,10 @@ DMMainPorts DMMainPorts_1(
         .Rx2            ( Rx2 ),
         .Rx3            ( VCC_net ),
         .PPS            ( PPS ),
+        .RamBusAddress  ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDRS13to0 ),
+        .RamBusDataIn   ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PWDATAS ),
+        .RamBusAddress1 ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PADDRS13to0 ),
+        .RamBusDataIn1  ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PWDATAS ),
         // Outputs
         .MosiA          ( TP3_net_0 ),
         .MosiB          ( MosiB_net_0 ),
@@ -311,16 +311,8 @@ DMMainPorts DMMainPorts_1(
         .SckD           ( SckD_net_0 ),
         .SckE           ( SckE_net_0 ),
         .SckF           ( SckF_net_0 ),
-        .nCsA           ( nCsA_net_0 ),
-        .nCsB           ( nCsB_net_0 ),
-        .nCsC           ( nCsC_net_0 ),
-        .nCsD           ( nCsD_net_0 ),
-        .nCsE           ( nCsE_net_0 ),
-        .nCsF           ( nCsF_net_0 ),
-        .RamBusDataOut  ( DMMainPorts_1_RamBusDataOut ),
         .RamBusAck      ( DMMainPorts_1_RamBusAck ),
-        .RamBusDataOut1 (  ),
-        .RamBusAck1     (  ),
+        .RamBusAck1     ( DMMainPorts_1_RamBusAck1 ),
         .Tx0            ( Tx0_net_0 ),
         .Oe0            ( Oe0_net_0 ),
         .Tx1            ( Tx1_net_0 ),
@@ -329,6 +321,14 @@ DMMainPorts DMMainPorts_1(
         .Oe2            ( Oe2_net_0 ),
         .Tx3            (  ),
         .Oe3            (  ),
+        .nCsA           ( nCsA_net_0 ),
+        .nCsB           ( nCsB_net_0 ),
+        .nCsC           ( nCsC_net_0 ),
+        .nCsD           ( nCsD_net_0 ),
+        .nCsE           ( nCsE_net_0 ),
+        .nCsF           ( nCsF_net_0 ),
+        .RamBusDataOut  ( DMMainPorts_1_RamBusDataOut ),
+        .RamBusDataOut1 ( DMMainPorts_1_RamBusDataOut1 ),
         // Inouts
         .Ux1SelJmp      ( Ux1SelJmp ) 
         );
@@ -337,30 +337,30 @@ DMMainPorts DMMainPorts_1(
 EvalSandbox_MSS EvalSandbox_MSS_0(
         // Inputs
         .FAB_RESET_N              ( VCC_net ),
-        .AMBA_SLAVE_0_PRDATAS0    ( DMMainPorts_1_RamBusDataOut ),
         .AMBA_SLAVE_0_PREADYS0    ( DMMainPorts_1_RamBusAck ),
         .AMBA_SLAVE_0_PSLVERRS0   ( GND_net ),
-        .AMBA_SLAVE_0_1_PRDATAS1  ( AMBA_SLAVE_0_1_PRDATAS1_const_net_0 ), // tied to 32'h00000000 from definition
-        .AMBA_SLAVE_0_1_PREADYS1  ( VCC_net ), // tied to 1'b1 from definition
-        .AMBA_SLAVE_0_1_PSLVERRS1 ( GND_net ), // tied to 1'b0 from definition
+        .AMBA_SLAVE_0_1_PREADYS1  ( DMMainPorts_1_RamBusAck1 ),
+        .AMBA_SLAVE_0_1_PSLVERRS1 ( GND_net ),
         .DEVRST_N                 ( DEVRST_N ),
         .CLK0                     ( FCCC_C0_0_GL0 ),
+        .AMBA_SLAVE_0_PRDATAS0    ( DMMainPorts_1_RamBusDataOut ),
+        .AMBA_SLAVE_0_1_PRDATAS1  ( DMMainPorts_1_RamBusDataOut1 ),
         // Outputs
         .POWER_ON_RESET_N         (  ),
         .INIT_DONE                (  ),
-        .AMBA_SLAVE_0_PADDRS      ( AMBA_SLAVE_0_PADDRS_net_0 ),
         .AMBA_SLAVE_0_PSELS0      ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PSELS0 ),
         .AMBA_SLAVE_0_PENABLES    ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PENABLES ),
         .AMBA_SLAVE_0_PWRITES     ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PWRITES ),
-        .AMBA_SLAVE_0_PWDATAS     ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PWDATAS ),
-        .AMBA_SLAVE_0_1_PADDRS    ( AMBA_SLAVE_0_1_PADDRS_net_0 ),
         .AMBA_SLAVE_0_1_PSELS1    ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PSELS1 ),
         .AMBA_SLAVE_0_1_PENABLES  ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PENABLES ),
         .AMBA_SLAVE_0_1_PWRITES   ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PWRITES ),
-        .AMBA_SLAVE_0_1_PWDATAS   ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PWDATAS ),
         .FIC_0_CLK                (  ),
         .FIC_0_LOCK               (  ),
-        .MSS_READY                (  ) 
+        .MSS_READY                (  ),
+        .AMBA_SLAVE_0_PADDRS      ( AMBA_SLAVE_0_PADDRS_net_0 ),
+        .AMBA_SLAVE_0_PWDATAS     ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PWDATAS ),
+        .AMBA_SLAVE_0_1_PADDRS    ( AMBA_SLAVE_0_1_PADDRS_net_0 ),
+        .AMBA_SLAVE_0_1_PWDATAS   ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PWDATAS ) 
         );
 
 //--------FCCC_C0

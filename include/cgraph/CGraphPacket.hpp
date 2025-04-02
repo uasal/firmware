@@ -205,6 +205,9 @@ struct CGraphFSMTelemetryPayload
 static const uint16_t DMMaxControllerBoards = 6;
 static const uint16_t DMMDacsPerControllerBoard = 4;
 static const uint16_t DMActuatorsPerDac = 40;
+//static const uint16_t DMMaxControllerBoards = 4;
+//static const uint16_t DMMDacsPerControllerBoard = 4;
+//static const uint16_t DMActuatorsPerDac = 4;
 static const uint16_t DMMaxActuators = DMActuatorsPerDac * DMMDacsPerControllerBoard * DMMaxControllerBoards;
 
 static const uint16_t CGraphPayloadTypeDMDac = 0x3002U;

@@ -559,6 +559,7 @@ architecture DMMain of DMMainPorts is
 	signal DacSetpointReadAddressChannel : integer range (DMActuatorsPerDac - 1) downto 0;
 	signal DacSetpointReadAddress : integer range (DMMaxActuators - 1) downto 0;
 	signal DacSetpointWriteAddress : integer range (DMMaxActuators - 1) downto 0;
+        signal DacSetpointWriteAck : std_logic;
 	
 	signal DacSetpointToWriteToRam : std_logic_vector(DMSetpointMSB downto 0);
 	signal DacASetpointToWrite : std_logic_vector(DMSetpointMSB downto 0);
@@ -715,11 +716,22 @@ begin
                                                                          --in
                                                                          --mind
                                                                          --when debugging
-  DACSetpointWriteAddress <= (conv_integer(RamAddress1)); -- not offset
-                                                          -- by 1024
+  DacSetpointWriteAddress <= (conv_integer(RamAddress1) - 4096)/4; -- not offset
+                                                          -- by 1024. actually
+                                                          -- offset by 0x1000
+                                                          -- and then we need
+                                                          -- to divide by 4 to
+                                                          -- get the mirror
+                                                          -- number which is
+                                                          -- how the flat ram
+                                                          -- is indexed
+                                                         
   DacSetpointToWriteToRam <= RamDataIn1(DMSetpointMSB downto 0);
   DacSetpointWriteReq <= '1' when ( (RamBusCE1_i = '1') and (RamBusWrnRd1_i = '1') and (RamAddress1 >= std_logic_vector(to_unsigned(4096, ADDRESS_BUS_BITS))) ) else '0';
-  
+  --RamBusAck1_i <= DacSetpointWriteAck;
+  --RamBusAck1 <= RamBusAck1_i;
+  RamBusAck1 <= '1';
+
   DmDacRam : DmDacRamFlatPorts
     port map (
       clk => MasterClk,
@@ -731,6 +743,7 @@ begin
       WriteAddress => DacSetpointWriteAddress,
       DacSetpointIn => DacSetpointToWriteToRam,
       DacSetpointOut => DacSetpointFromRead,
+      --WriteAck => DacSetpointWriteAck,
       WriteReq => DacSetpointWriteReq--,
     );
 	
@@ -1351,6 +1364,10 @@ begin
       -- Do we have anything for the Master Reset?
       DacWriteNextState <= Idle;
       DacWriteCurrentState <= Idle;
+      -- also initialize these counting variables (won't upset state machine if
+      -- not initialized, but good practice
+      DacSetpointReadAddressController <= 0; 
+      DacSetpointReadAddressDac <= 0;
     else
       if ( (MasterClk'event) and (MasterClk = '1') ) then
 
@@ -1374,6 +1391,9 @@ begin
 
 				--copy from ram to register (this works on a single clock cause we set the ram up for aysnc read)
 				DacSetpoints(DacSetpointReadAddressController, DacSetpointReadAddressDac) <= DacSetpointFromRead;
+                                --DacSetpoints(DacSetpointReadAddressController, DacSetpointReadAddressDac) <= x"5A5A5A";
+-- testing assignment of data to DacSetpoints which is of type
+-- DMDacSetpointsRegisters in file include/CGraphDmTypes.vhd
                                 --WriteDacs <= '0';
 
 				--Just move the addresses for the ram ahead round-robin each clock

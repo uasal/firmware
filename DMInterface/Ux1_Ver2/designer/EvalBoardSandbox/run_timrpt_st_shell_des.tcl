@@ -13,5 +13,5 @@ set_def {VCCI_2.5_VOLTR} {COM}
 set_def {VCCI_3.3_VOLTR} {COM}
 set_def USE_CONSTRAINTS_FLOW 1
 set_name EvalBoardSandbox
-set_workdir {/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/designer/EvalBoardSandbox}
+set_workdir {C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\designer\EvalBoardSandbox}
 set_design_state post_layout
