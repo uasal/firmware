@@ -8,9 +8,9 @@
 	.syntax unified 
 	
 	.extern hard_fault_handler_c 
-	.extern bus_fault_handler_c 
-	.extern usage_fault_handler_c 
-	.extern memmang_fault_handler_c 
+#	.extern bus_fault_handler_c 
+#	.extern usage_fault_handler_c 
+#	.extern memmang_fault_handler_c 
 	
 	.global HardFault_Handler 
 	.type   HardFault_Handler, %function
@@ -39,13 +39,13 @@
 	MRSNE R0, PSP 
 	B usage_fault_handler_c 
 	
-	.global MemMangFault_Handler 
-	.type   MemMangFault_Handler, %function
-	MemMangFault_Handler: 
-	TST LR, #4 
-	ITE EQ 
-	MRSEQ R0, MSP 
-	MRSNE R0, PSP 
-	B memmang_fault_handler_c 
+#	.global MemMangFault_Handler 
+#	.type   MemMangFault_Handler, %function
+#	MemMangFault_Handler: 
+#	TST LR, #4 
+#	ITE EQ 
+#	MRSEQ R0, MSP 
+#	MRSNE R0, PSP 
+#	B memmang_fault_handler_c 
 		
 #EOF

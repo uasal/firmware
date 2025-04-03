@@ -3,7 +3,7 @@
 #OS: Windows 10 or later
 #Hostname: ASTR-ETS-001
 
-# Tue Apr  1 14:15:54 2025
+# Thu Apr  3 15:35:04 2025
 
 #Implementation: synthesis
 
@@ -69,7 +69,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memor
 
 
 Process completed successfully.
-# Tue Apr  1 14:15:54 2025
+# Thu Apr  3 15:35:05 2025
 
 ###########################################################]
 ###########################################################[
@@ -130,7 +130,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Tue Apr  1 14:15:54 2025
+# Thu Apr  3 15:35:06 2025
 
 ###########################################################]
 ###########################################################[
@@ -170,19 +170,17 @@ Process completed successfully.
 @I::"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\component\work\FCCC_C0\FCCC_C0.v" (library work)
 @I::"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\component\work\EvalBoardSandbox\EvalBoardSandbox.v" (library work)
 Verilog syntax check successful!
-
-Compiler output is up to date.  No re-compile necessary
-
+File C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\component\work\EvalBoardSandbox\EvalBoardSandbox.v changed - recompiling
 @N: CG775 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":31:7:31:14|Component CoreAPB3 not found in library "work" or "__hyper__lib__", but found in library COREAPB3_LIB
 @N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":376:7:376:9|Synthesizing module VCC in library work.
 Running optimization stage 1 on VCC .......
 Finished optimization stage 1 on VCC (CPU Time 0h:00m:00s, Memory Used current: 94MB peak: 94MB)
 @N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":372:7:372:9|Synthesizing module GND in library work.
 Running optimization stage 1 on GND .......
-Finished optimization stage 1 on GND (CPU Time 0h:00m:00s, Memory Used current: 94MB peak: 95MB)
+Finished optimization stage 1 on GND (CPU Time 0h:00m:00s, Memory Used current: 94MB peak: 94MB)
 @N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":362:7:362:12|Synthesizing module CLKINT in library work.
 Running optimization stage 1 on CLKINT .......
-Finished optimization stage 1 on CLKINT (CPU Time 0h:00m:00s, Memory Used current: 94MB peak: 95MB)
+Finished optimization stage 1 on CLKINT (CPU Time 0h:00m:00s, Memory Used current: 94MB peak: 94MB)
 @N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":729:7:729:9|Synthesizing module CCC in library work.
 Running optimization stage 1 on CCC .......
 Finished optimization stage 1 on CCC (CPU Time 0h:00m:00s, Memory Used current: 94MB peak: 95MB)
@@ -380,32 +378,32 @@ Finished optimization stage 1 on FCCC_C0_FCCC_C0_0_FCCC (CPU Time 0h:00m:00s, Me
 Running optimization stage 1 on FCCC_C0 .......
 Finished optimization stage 1 on FCCC_C0 (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 98MB)
 @N: CG364 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\component\work\EvalBoardSandbox\EvalBoardSandbox.v":9:7:9:22|Synthesizing module EvalBoardSandbox in library work.
-@N: CG794 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\component\work\EvalBoardSandbox\EvalBoardSandbox.v":277:12:277:24|Using module DMMainPorts from library work
+@N: CG794 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\component\work\EvalBoardSandbox\EvalBoardSandbox.v":287:12:287:24|Using module DMMainPorts from library work
 Running optimization stage 1 on EvalBoardSandbox .......
-Finished optimization stage 1 on EvalBoardSandbox (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 99MB)
+Finished optimization stage 1 on EvalBoardSandbox (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 98MB)
 Running optimization stage 2 on EvalBoardSandbox .......
-Finished optimization stage 2 on EvalBoardSandbox (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 99MB)
+Finished optimization stage 2 on EvalBoardSandbox (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 98MB)
 Running optimization stage 2 on FCCC_C0 .......
-Finished optimization stage 2 on FCCC_C0 (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 99MB)
+Finished optimization stage 2 on FCCC_C0 (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 98MB)
 Running optimization stage 2 on FCCC_C0_FCCC_C0_0_FCCC .......
-Finished optimization stage 2 on FCCC_C0_FCCC_C0_0_FCCC (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 99MB)
+Finished optimization stage 2 on FCCC_C0_FCCC_C0_0_FCCC (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 98MB)
 Running optimization stage 2 on INBUF .......
-Finished optimization stage 2 on INBUF (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 99MB)
+Finished optimization stage 2 on INBUF (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 98MB)
 Running optimization stage 2 on EvalSandbox_MSS .......
-Finished optimization stage 2 on EvalSandbox_MSS (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 99MB)
+Finished optimization stage 2 on EvalSandbox_MSS (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 98MB)
 Running optimization stage 2 on SYSRESET .......
-Finished optimization stage 2 on SYSRESET (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 99MB)
+Finished optimization stage 2 on SYSRESET (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 98MB)
 Running optimization stage 2 on EvalSandbox_MSS_FABOSC_0_OSC .......
 @N: CL159 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":14:7:14:9|Input XTL is unused.
-Finished optimization stage 2 on EvalSandbox_MSS_FABOSC_0_OSC (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 99MB)
+Finished optimization stage 2 on EvalSandbox_MSS_FABOSC_0_OSC (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 98MB)
 Running optimization stage 2 on RCOSC_25_50MHZ .......
-Finished optimization stage 2 on RCOSC_25_50MHZ (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 99MB)
+Finished optimization stage 2 on RCOSC_25_50MHZ (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 98MB)
 Running optimization stage 2 on RCOSC_25_50MHZ_FAB .......
-Finished optimization stage 2 on RCOSC_25_50MHZ_FAB (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 99MB)
+Finished optimization stage 2 on RCOSC_25_50MHZ_FAB (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 98MB)
 Running optimization stage 2 on EvalSandbox_MSS_MSS .......
-Finished optimization stage 2 on EvalSandbox_MSS_MSS (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 99MB)
+Finished optimization stage 2 on EvalSandbox_MSS_MSS (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 98MB)
 Running optimization stage 2 on MSS_010 .......
-Finished optimization stage 2 on MSS_010 (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 99MB)
+Finished optimization stage 2 on MSS_010 (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 98MB)
 Running optimization stage 2 on CoreResetP_Z2_layer0 .......
 @W: CL177 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Sharing sequential element sdif0_spll_lock_q2 and merging sdif3_spll_lock_q2. Add a syn_preserve attribute to the element to prevent sharing.
 @W: CL177 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":963:4:963:9|Sharing sequential element sdif1_spll_lock_q2 and merging sdif3_spll_lock_q2. Add a syn_preserve attribute to the element to prevent sharing.
@@ -549,11 +547,11 @@ For a summary of runtime per design unit, please see file:
 
 
 
-At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 92MB peak: 93MB)
+At c_ver Exit (Real Time elapsed 0h:00m:19s; CPU Time elapsed 0h:00m:19s; Memory used current: 100MB peak: 101MB)
 
 
 Process completed successfully.
-# Tue Apr  1 14:15:54 2025
+# Thu Apr  3 15:35:25 2025
 
 ###########################################################]
 ###########################################################[
@@ -598,12 +596,12 @@ File C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\RegisterSpace.vhd 
 VHDL syntax check successful!
 @N: CD231 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vhd2008\std1164.vhd":889:16:889:17|Using onehot encoding for type mvl9plus. For example, enumeration 'U' is mapped to "1000000000".
 @N: CD630 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":11:7:11:17|Synthesizing work.dmmainports.dmmain.
-@N: CD231 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":616:26:616:27|Using onehot encoding for type dacprotowritestates. For example, enumeration idle is mapped to "1000000".
-@W: CD326 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1097:2:1097:10|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
-@W: CD326 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1169:2:1169:10|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
-@W: CD326 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1244:2:1244:10|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
-@W: CD326 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1323:2:1323:10|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
-@N: CD604 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1601:3:1601:16|OTHERS clause is not synthesized.
+@N: CD231 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":618:26:618:27|Using onehot encoding for type dacprotowritestates. For example, enumeration idle is mapped to "10000000".
+@W: CD326 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1099:2:1099:10|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
+@W: CD326 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1171:2:1171:10|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
+@W: CD326 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1246:2:1246:10|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
+@W: CD326 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1325:2:1325:10|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
+@N: CD604 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1595:18:1595:31|OTHERS clause is not synthesized.
 @W: CD638 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":444:9:444:19|Signal ramdataout1 is undriven. Either assign the signal a value or remove the signal declaration.
 @W: CD638 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":446:9:446:20|Signal rambusack1_i is undriven. Either assign the signal a value or remove the signal declaration.
 @W: CD638 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":478:9:478:26|Signal uart0rxfiforeadack is undriven. Either assign the signal a value or remove the signal declaration.
@@ -614,8 +612,10 @@ VHDL syntax check successful!
 @W: CD638 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":531:9:531:18|Signal uartrx2dbg is undriven. Either assign the signal a value or remove the signal declaration.
 @W: CD638 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":538:9:538:26|Signal uart3rxfiforeadack is undriven. Either assign the signal a value or remove the signal declaration.
 @W: CD638 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":551:9:551:18|Signal uartrx3dbg is undriven. Either assign the signal a value or remove the signal declaration.
-@W: CD638 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":562:15:562:33|Signal dacsetpointwriteack is undriven. Either assign the signal a value or remove the signal declaration.
-@W: CD638 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":575:8:575:15|Signal nldacs_i is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":559:15:559:48|Signal dacsetpointreadedaddresscontroller is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":560:8:560:34|Signal dacsetpointreadedaddressdac is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":564:15:564:33|Signal dacsetpointwriteack is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":577:8:577:15|Signal nldacs_i is undriven. Either assign the signal a value or remove the signal declaration.
 @N: CD630 :"C:\Users\SKaye\repos10\firmware\include\fpga\UartTxFifoExtClk.vhd":33:7:33:22|Synthesizing work.uarttxfifoextclk.implementation.
 @N: CD233 :"C:\Users\SKaye\repos10\firmware\include\fpga\UartTxFifoExtClk.vhd":122:15:122:16|Using sequential encoding for type states.
 @N: CD604 :"C:\Users\SKaye\repos10\firmware\include\fpga\UartTxFifoExtClk.vhd":274:5:274:18|OTHERS clause is not synthesized.
@@ -626,40 +626,40 @@ Finished optimization stage 1 on IBufP2Ports (CPU Time 0h:00m:00s, Memory Used c
 @N: CD630 :"C:\Users\SKaye\repos10\firmware\include\fpga\UartTx.vhd":30:7:30:12|Synthesizing work.uarttx.behaviour.
 Post processing for work.uarttx.behaviour
 Running optimization stage 1 on UartTx .......
-Finished optimization stage 1 on UartTx (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Finished optimization stage 1 on UartTx (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 99MB)
 @N: CD630 :"C:\Users\SKaye\repos10\firmware\include\fpga\gated_fifo.vhd":11:7:11:16|Synthesizing work.gated_fifo.rtl.
 @N: CD630 :"C:\Users\SKaye\repos10\firmware\include\fpga\fifo_gen.vhd":11:7:11:10|Synthesizing work.fifo.rtl.
 Post processing for work.fifo.rtl
 Running optimization stage 1 on fifo .......
 @N: CL134 :"C:\Users\SKaye\repos10\firmware\include\fpga\fifo_gen.vhd":46:17:46:19|Found RAM ram, depth=1024, width=8
 @A: CL282 :"C:\Users\SKaye\repos10\firmware\include\fpga\fifo_gen.vhd":68:2:68:3|Feedback mux created for signal count_o[9:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-Finished optimization stage 1 on fifo (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Finished optimization stage 1 on fifo (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 99MB)
 Post processing for work.gated_fifo.rtl
 Running optimization stage 1 on gated_fifo .......
-Finished optimization stage 1 on gated_fifo (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Finished optimization stage 1 on gated_fifo (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 99MB)
 Post processing for work.uarttxfifoextclk.implementation
 Running optimization stage 1 on UartTxFifoExtClk .......
-Finished optimization stage 1 on UartTxFifoExtClk (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Finished optimization stage 1 on UartTxFifoExtClk (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 99MB)
 @N: CD630 :"C:\Users\SKaye\repos10\firmware\include\fpga\UartRxFifoExtClk.vhd":34:7:34:22|Synthesizing work.uartrxfifoextclk.implementation.
 @N: CD630 :"C:\Users\SKaye\repos10\firmware\include\fpga\UartRxExtClk.vhd":34:7:34:18|Synthesizing work.uartrxextclk.implementation.
 @N: CD630 :"C:\Users\SKaye\repos10\firmware\include\fpga\UartRxRaw.vhd":32:7:32:15|Synthesizing work.uartrxraw.behaviour.
 Post processing for work.uartrxraw.behaviour
 Running optimization stage 1 on UartRxRaw .......
-Finished optimization stage 1 on UartRxRaw (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Finished optimization stage 1 on UartRxRaw (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 99MB)
 Post processing for work.uartrxextclk.implementation
 Running optimization stage 1 on UartRxExtClk .......
-Finished optimization stage 1 on UartRxExtClk (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Finished optimization stage 1 on UartRxExtClk (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 99MB)
 Post processing for work.uartrxfifoextclk.implementation
 Running optimization stage 1 on UartRxFifoExtClk .......
-Finished optimization stage 1 on UartRxFifoExtClk (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Finished optimization stage 1 on UartRxFifoExtClk (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 99MB)
 @N: CD630 :"C:\Users\SKaye\repos10\firmware\include\fpga\IBufP3.vhd":30:7:30:17|Synthesizing work.ibufp3ports.ibufp3.
 Post processing for work.ibufp3ports.ibufp3
 Running optimization stage 1 on IBufP3Ports .......
-Finished optimization stage 1 on IBufP3Ports (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Finished optimization stage 1 on IBufP3Ports (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 99MB)
 @N: CD630 :"C:\Users\SKaye\repos10\firmware\include\fpga\ClockDivider2X.vhd":30:7:30:23|Synthesizing work.clockdividerports.clockdivider.
 Post processing for work.clockdividerports.clockdivider
 Running optimization stage 1 on ClockDividerPorts .......
-Finished optimization stage 1 on ClockDividerPorts (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 100MB)
+Finished optimization stage 1 on ClockDividerPorts (CPU Time 0h:00m:00s, Memory Used current: 99MB peak: 99MB)
 @N: CD630 :"C:\Users\SKaye\repos10\firmware\include\fpga\VariableClockDivider2X.vhd":30:7:30:31|Synthesizing work.variableclockdividerports.variableclockdivider.
 Post processing for work.variableclockdividerports.variableclockdivider
 Running optimization stage 1 on VariableClockDividerPorts .......
@@ -709,68 +709,67 @@ Running optimization stage 1 on RegisterSpacePorts .......
 @A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\RegisterSpace.vhd":288:4:288:5|Feedback mux created for signal HVDis2_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 @A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\RegisterSpace.vhd":288:4:288:5|Feedback mux created for signal ReadAck. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 @A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\RegisterSpace.vhd":288:4:288:5|Feedback mux created for signal WriteAck. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-Finished optimization stage 1 on RegisterSpacePorts (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 107MB)
+Finished optimization stage 1 on RegisterSpacePorts (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 106MB)
 @N: CD630 :"C:\Users\SKaye\repos10\firmware\include\fpga\CGraphDmDacRamFlat.vhd":31:7:31:23|Synthesizing work.dmdacramflatports.dmdacramflat.
 Post processing for work.dmdacramflatports.dmdacramflat
 Running optimization stage 1 on DmDacRamFlatPorts .......
 @N: CL134 :"C:\Users\SKaye\repos10\firmware\include\fpga\CGraphDmDacRamFlat.vhd":49:17:49:28|Found RAM dacsetpoints, depth=960, width=24
-Finished optimization stage 1 on DmDacRamFlatPorts (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 107MB)
+Finished optimization stage 1 on DmDacRamFlatPorts (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 106MB)
 @N: CD630 :"C:\Users\SKaye\repos10\firmware\include\fpga\IBufP1.vhd":30:7:30:17|Synthesizing work.ibufp1ports.ibufp1.
 Post processing for work.ibufp1ports.ibufp1
 Running optimization stage 1 on IBufP1Ports .......
-Finished optimization stage 1 on IBufP1Ports (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 107MB)
+Finished optimization stage 1 on IBufP1Ports (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 106MB)
 @N: CD630 :"C:\Users\SKaye\repos10\firmware\include\fpga\OneShot.vhd":30:7:30:18|Synthesizing work.oneshotports.oneshot.
 Post processing for work.oneshotports.oneshot
 Running optimization stage 1 on OneShotPorts .......
-Finished optimization stage 1 on OneShotPorts (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 107MB)
+Finished optimization stage 1 on OneShotPorts (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 106MB)
 Post processing for work.dmmainports.dmmain
 Running optimization stage 1 on DMMainPorts .......
-@W: CL168 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":702:4:702:18|Removing instance GenRamDataBus1.31.IBUF_RamData1_i because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
-@W: CL168 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":702:4:702:18|Removing instance GenRamDataBus1.30.IBUF_RamData1_i because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
-@W: CL168 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":702:4:702:18|Removing instance GenRamDataBus1.29.IBUF_RamData1_i because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
-@W: CL168 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":702:4:702:18|Removing instance GenRamDataBus1.28.IBUF_RamData1_i because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
-@W: CL168 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":702:4:702:18|Removing instance GenRamDataBus1.27.IBUF_RamData1_i because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
-@W: CL168 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":702:4:702:18|Removing instance GenRamDataBus1.26.IBUF_RamData1_i because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
-@W: CL168 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":702:4:702:18|Removing instance GenRamDataBus1.25.IBUF_RamData1_i because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
-@W: CL168 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":702:4:702:18|Removing instance GenRamDataBus1.24.IBUF_RamData1_i because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal WriteDacs. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpointReadAddressChannel[5:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_5_3[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_5_2[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_5_1[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_5_0[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_4_3[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_4_2[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_4_1[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_4_0[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_3_3[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_3_2[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_3_1[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_3_0[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_2_3[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_2_2[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_2_1[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_2_0[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_1_3[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_1_2[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_1_1[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_1_0[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_0_3[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_0_2[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_0_1[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacSetpoints_0_0[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacFSetpointToWrite[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacESetpointToWrite[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacDSetpointToWrite[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacCSetpointToWrite[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacBSetpointToWrite[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal DacASetpointToWrite[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal nCsDacsF_i[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal nCsDacsE_i[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal nCsDacsD_i[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal nCsDacsC_i[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal nCsDacsB_i[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1362:4:1362:5|Feedback mux created for signal nCsDacsA_i[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@W: CL168 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":704:4:704:18|Removing instance GenRamDataBus1.31.IBUF_RamData1_i because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
+@W: CL168 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":704:4:704:18|Removing instance GenRamDataBus1.30.IBUF_RamData1_i because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
+@W: CL168 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":704:4:704:18|Removing instance GenRamDataBus1.29.IBUF_RamData1_i because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
+@W: CL168 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":704:4:704:18|Removing instance GenRamDataBus1.28.IBUF_RamData1_i because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
+@W: CL168 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":704:4:704:18|Removing instance GenRamDataBus1.27.IBUF_RamData1_i because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
+@W: CL168 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":704:4:704:18|Removing instance GenRamDataBus1.26.IBUF_RamData1_i because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
+@W: CL168 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":704:4:704:18|Removing instance GenRamDataBus1.25.IBUF_RamData1_i because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
+@W: CL168 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":704:4:704:18|Removing instance GenRamDataBus1.24.IBUF_RamData1_i because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpointReadAddressChannel[5:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_5_3[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_5_2[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_5_1[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_5_0[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_4_3[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_4_2[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_4_1[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_4_0[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_3_3[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_3_2[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_3_1[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_3_0[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_2_3[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_2_2[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_2_1[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_2_0[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_1_3[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_1_2[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_1_1[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_1_0[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_0_3[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_0_2[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_0_1[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacSetpoints_0_0[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacFSetpointToWrite[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacESetpointToWrite[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacDSetpointToWrite[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacCSetpointToWrite[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacBSetpointToWrite[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal DacASetpointToWrite[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal nCsDacsF_i[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal nCsDacsE_i[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal nCsDacsD_i[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal nCsDacsC_i[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal nCsDacsB_i[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":1364:4:1364:5|Feedback mux created for signal nCsDacsA_i[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 Finished optimization stage 1 on DMMainPorts (CPU Time 0h:00m:00s, Memory Used current: 107MB peak: 108MB)
 Running optimization stage 2 on OneShotPorts_work_dmmainports_dmmain_0layer1 .......
 Finished optimization stage 2 on OneShotPorts_work_dmmainports_dmmain_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 108MB)
@@ -818,7 +817,7 @@ Running optimization stage 2 on DMMainPorts .......
 @N: CL159 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":56:4:56:15|Input RamBusLatch1 is unused.
 @N: CL159 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":72:4:72:6|Input PPS is unused.
 @W: CL158 :"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd":74:4:74:12|Inout Ux1SelJmp is unused
-Finished optimization stage 2 on DMMainPorts (CPU Time 0h:00m:00s, Memory Used current: 105MB peak: 108MB)
+Finished optimization stage 2 on DMMainPorts (CPU Time 0h:00m:00s, Memory Used current: 105MB peak: 110MB)
 
 For a summary of runtime per design unit, please see file:
 ==========================================================
@@ -826,11 +825,11 @@ For a summary of runtime per design unit, please see file:
 
 
 
-At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 93MB peak: 94MB)
+At c_vhdl Exit (Real Time elapsed 0h:00m:21s; CPU Time elapsed 0h:00m:21s; Memory used current: 105MB peak: 110MB)
 
 
 Process completed successfully.
-# Tue Apr  1 14:15:55 2025
+# Thu Apr  3 15:35:48 2025
 
 ###########################################################]
 ###########################################################[
@@ -850,16 +849,21 @@ Implementation : synthesis
 Synopsys Synopsys Netlist Linker, Version comp202209synp2, Build 179R, Built Jun 27 2023 09:29:56, @
 
 @N|Running in 64-bit mode
+File C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\synthesis\synwork\layer0.srs changed - recompiling
+File C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\synthesis\synwork\layer1.srs changed - recompiling
 
-Linker output is up to date. No re-linking necessary
+=======================================================================================
+For a summary of linker messages for components that did not bind, please see log file:
+@L: C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\synthesis\synwork\EvalBoardSandbox_comp.linkerlog
+=======================================================================================
 
 
-At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 94MB peak: 94MB)
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 98MB peak: 98MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Tue Apr  1 14:15:55 2025
+# Thu Apr  3 15:35:48 2025
 
 ###########################################################]
 
@@ -869,23 +873,44 @@ For a summary of runtime and memory usage for all design units, please see file:
 
 @END
 
-At c_hdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 25MB peak: 26MB)
+At c_hdl Exit (Real Time elapsed 0h:00m:43s; CPU Time elapsed 0h:00m:43s; Memory used current: 25MB peak: 26MB)
+
+Process took 0h:00m:44s realtime, 0h:00m:43s cputime
+
+Process completed successfully.
+# Thu Apr  3 15:35:49 2025
+
+###########################################################]
+###########################################################[
+
+Copyright (C) 1994-2022 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: T-2022.09M-SP2-1
+Install: C:\Microchip\Libero_SoC_v2023.2\SynplifyPro
+OS: Windows 10 or later
+Hostname: ASTR-ETS-001
+
+Implementation : synthesis
+Synopsys Synopsys Netlist Linker, Version comp202209synp2, Build 179R, Built Jun 27 2023 09:29:56, @
+
+@N|Running in 64-bit mode
+File C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\synthesis\synwork\EvalBoardSandbox_comp.srs changed - recompiling
+
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 100MB peak: 100MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Tue Apr  1 14:15:55 2025
+# Thu Apr  3 15:35:50 2025
 
 ###########################################################]
-
-@A: multi_srs_gen output is up to date. No run necessary.
-To force a re-synthesis, select [Resynthesize All] in menu [Run].
-Click link to view previous log file.
-Multi-srs Generator Report
-@R:"C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\synthesis\synlog\EvalBoardSandbox_multi_srs_gen.srr"
 Premap Report
 
-# Tue Apr  1 14:15:55 2025
+# Thu Apr  3 15:35:51 2025
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -918,10 +943,10 @@ See clock summary report "C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\s
 Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 142MB peak: 142MB)
 
 
-Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 142MB peak: 143MB)
+Mapper Initialization Complete (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 142MB peak: 143MB)
 
 
-Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 142MB peak: 143MB)
+Start loading timing files (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 142MB peak: 143MB)
 
 
 Finished loading timing files (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 143MB peak: 145MB)
@@ -968,10 +993,10 @@ NConnInternalConnection caching is on
 @W: FX1172 :"c:\users\skaye\repos10\firmware\include\fpga\uarttxfifoextclk.vhd":205:2:205:3|User-specified initial value defined for instance DMMainPorts_1.RS433_Tx3.CurrentState[1:0] is being ignored due to limitations in architecture. 
 @W: FX1172 :"c:\users\skaye\repos10\firmware\include\fpga\uarttxfifoextclk.vhd":205:2:205:3|User-specified initial value defined for instance DMMainPorts_1.RS433_Tx3.NextState[1:0] is being ignored due to limitations in architecture. 
 
-Starting HSTDM IP insertion (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 184MB peak: 184MB)
+Starting HSTDM IP insertion (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 184MB peak: 184MB)
 
 
-Finished HSTDM IP insertion (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 184MB peak: 185MB)
+Finished HSTDM IP insertion (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 184MB peak: 185MB)
 
 @N: MO111 :"c:\users\skaye\repos10\firmware\dminterface\ux1_ver2\component\work\evalsandbox_mss\fabosc_0\evalsandbox_mss_fabosc_0_osc.v":17:7:17:20|Tristate driver RCOSC_1MHZ_CCC (in view: work.EvalSandbox_MSS_FABOSC_0_OSC(verilog)) on net RCOSC_1MHZ_CCC (in view: work.EvalSandbox_MSS_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"c:\users\skaye\repos10\firmware\dminterface\ux1_ver2\component\work\evalsandbox_mss\fabosc_0\evalsandbox_mss_fabosc_0_osc.v":18:7:18:20|Tristate driver RCOSC_1MHZ_O2F (in view: work.EvalSandbox_MSS_FABOSC_0_OSC(verilog)) on net RCOSC_1MHZ_O2F (in view: work.EvalSandbox_MSS_FABOSC_0_OSC(verilog)) has its enable tied to GND.
@@ -999,17 +1024,17 @@ Finished HSTDM IP insertion (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:0
 @W: MO129 :"c:\users\skaye\repos10\firmware\include\fpga\ibufp2.vhd":47:2:47:3|Sequential instance DMMainPorts_1.RS433_Rx3.Uart.ClkSyncRxd.Temp1 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"c:\users\skaye\repos10\firmware\include\fpga\ibufp2.vhd":47:2:47:3|Sequential instance DMMainPorts_1.RS433_Rx3.Uart.ClkSyncRxd.O is reduced to a combinational gate by constant propagation.
 
-Started DisTri Cleanup (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 185MB peak: 185MB)
+Started DisTri Cleanup (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 185MB peak: 185MB)
 
 
-Finished DisTri Cleanup (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 185MB peak: 185MB)
+Finished DisTri Cleanup (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 185MB peak: 185MB)
 
 @N: BN115 :"c:\users\skaye\repos10\firmware\include\fpga\uarttxfifoextclk.vhd":192:1:192:7|Removing instance IBufCts (in view: work.UartTxFifoExtClk_10_3(implementation)) because it does not drive other instances.
 @N: BN115 :"c:\users\skaye\repos10\firmware\include\fpga\uarttxfifoextclk.vhd":192:1:192:7|Removing instance IBufCts (in view: work.UartTxFifoExtClk_10_2(implementation)) because it does not drive other instances.
 @N: BN115 :"c:\users\skaye\repos10\firmware\include\fpga\uarttxfifoextclk.vhd":192:1:192:7|Removing instance IBufCts (in view: work.UartTxFifoExtClk_10_1(implementation)) because it does not drive other instances.
 @N: BN115 :"c:\users\skaye\repos10\firmware\include\fpga\uartrxextclk.vhd":79:1:79:10|Removing instance ClkSyncRxd (in view: work.UartRxExtClk_3(implementation)) because it does not drive other instances.
 @N: BN115 :"c:\users\skaye\repos10\firmware\include\fpga\uarttxfifoextclk.vhd":192:1:192:7|Removing instance IBufCts (in view: work.UartTxFifoExtClk_10_0(implementation)) because it does not drive other instances.
-@N: BN115 :"c:\users\skaye\repos10\firmware\dminterface\ux1_ver2\hdl\dmmain.vhd":1300:2:1300:9|Removing instance IBufRxd3 (in view: work.DMMainPorts(dmmain)) because it does not drive other instances.
+@N: BN115 :"c:\users\skaye\repos10\firmware\dminterface\ux1_ver2\hdl\dmmain.vhd":1302:2:1302:9|Removing instance IBufRxd3 (in view: work.DMMainPorts(dmmain)) because it does not drive other instances.
 @N: BN362 :"c:\users\skaye\repos10\firmware\dminterface\ux1_ver2\component\actel\directcore\coreresetp\7.1.100\rtl\vlog\core\coreresetp.v":1089:4:1089:9|Removing sequential instance DDR_READY_int (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: BN362 :"c:\users\skaye\repos10\firmware\dminterface\ux1_ver2\component\actel\directcore\coreresetp\7.1.100\rtl\vlog\core\coreresetp.v":1089:4:1089:9|Removing sequential instance SDIF_READY_int (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: BN362 :"c:\users\skaye\repos10\firmware\dminterface\ux1_ver2\component\actel\directcore\coreresetp\7.1.100\rtl\vlog\core\coreresetp.v":1089:4:1089:9|Removing sequential instance SDIF_RELEASED_int (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
@@ -1059,7 +1084,7 @@ Finished DisTri Cleanup (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:0
 @N: BN362 :"c:\users\skaye\repos10\firmware\dminterface\ux1_ver2\hdl\registerspace.vhd":288:4:288:5|Removing sequential instance Uart3TxFifoData[7:0] (in view: work.RegisterSpacePorts_14(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
 @N: FX1184 |Applying syn_allowed_resources blockrams=21,dsps=22 on top level netlist EvalBoardSandbox 
 
-Finished netlist restructuring (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 187MB peak: 187MB)
+Finished netlist restructuring (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 187MB peak: 187MB)
 
 @W: MT688 :"c:/users/skaye/repos10/firmware/dminterface/ux1_ver2/designer/evalboardsandbox/synthesis.fdc":10:0:10:0|No path from master pin (-source) to source of clock EvalSandbox_MSS_0/CCC_0/GL0 due to black box EvalSandbox_MSS_0.CCC_0.CCC_INST 
 @W: MT688 :"c:/users/skaye/repos10/firmware/dminterface/ux1_ver2/designer/evalboardsandbox/synthesis.fdc":11:0:11:0|No path from master pin (-source) to source of clock FCCC_C0_0/FCCC_C0_0/GL0 due to black box FCCC_C0_0.FCCC_C0_0.CCC_INST 
@@ -1072,7 +1097,7 @@ Clock Summary
 Level     Clock                                                  Frequency     Period        Type                          Group                Load 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 0 -       CLK0_PAD                                               51.0 MHz      19.608        declared                      default_clkgroup     0    
-1 .         FCCC_C0_0/FCCC_C0_0/GL0                              102.0 MHz     9.804         generated (from CLK0_PAD)     default_clkgroup     2009 
+1 .         FCCC_C0_0/FCCC_C0_0/GL0                              102.0 MHz     9.804         generated (from CLK0_PAD)     default_clkgroup     2010 
 2 ..          EvalSandbox_MSS_0/CCC_0/GL0                        102.0 MHz     9.804         generated (from CLK0_PAD)     default_clkgroup     36   
 2 ..          uart0clk                                           51.0 MHz      19.608        generated (from CLK0_PAD)     default_clkgroup     32   
 2 ..          uart1clk                                           51.0 MHz      19.608        generated (from CLK0_PAD)     default_clkgroup     32   
@@ -1095,7 +1120,7 @@ Clock Load Summary
 Clock                                                  Load      Pin                                                                    Seq Example                                                         Seq Example       Comb Example                                                         
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 CLK0_PAD                                               0         CLK0_PAD(port)                                                         -                                                                   -                 FCCC_C0_0.FCCC_C0_0.CLK0_PAD_INST.I(IBUF)                            
-FCCC_C0_0/FCCC_C0_0/GL0                                2009      FCCC_C0_0.FCCC_C0_0.CCC_INST.GL0(CCC)                                  DMMainPorts_1.nCsDacsA_i[3:0].C                                     -                 FCCC_C0_0.FCCC_C0_0.GL0_INST.I(BUFG)                                 
+FCCC_C0_0/FCCC_C0_0/GL0                                2010      FCCC_C0_0.FCCC_C0_0.CCC_INST.GL0(CCC)                                  DMMainPorts_1.DacSetpoints_0_0[23:0].C                              -                 FCCC_C0_0.FCCC_C0_0.GL0_INST.I(BUFG)                                 
 EvalSandbox_MSS_0/CCC_0/GL0                            36        EvalSandbox_MSS_0.CCC_0.CCC_INST.GL0(CCC)                              EvalSandbox_MSS_0.EvalSandbox_MSS_MSS_0.MSS_ADLIB_INST.CLK_BASE     -                 EvalSandbox_MSS_0.CCC_0.GL0_INST.I(BUFG)                             
 uart0clk                                               32        DMMainPorts_1.Uart0BitClockDiv.clko_i.Q[0](dffr)                       DMMainPorts_1.RS422_Rx0.Uart.Uart.RReg[7:0].C                       -                 -                                                                    
 uart1clk                                               32        DMMainPorts_1.Uart1BitClockDiv.clko_i.Q[0](dffr)                       DMMainPorts_1.RS422_Rx1.Uart.Uart.RReg[7:0].C                       -                 -                                                                    
@@ -1113,7 +1138,7 @@ EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT     15        EvalSandbox_MSS
 Finished Pre Mapping Phase.
 @N: BN225 |Writing default property annotation file C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\synthesis\EvalBoardSandbox.sap.
 
-Starting constraint checker (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 186MB peak: 188MB)
+Starting constraint checker (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 186MB peak: 188MB)
 
 Encoding state machine sm0_state[6:0] (in view: work.CoreResetP_Z2_layer0(verilog))
 original code -> new code
@@ -1125,23 +1150,23 @@ original code -> new code
    101 -> 0100000
    110 -> 1000000
 
-Finished constraint checker preprocessing (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 189MB peak: 189MB)
+Finished constraint checker preprocessing (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 189MB peak: 189MB)
 
 @W: MF511 |Found issues with constraints. Please check constraint checker report "C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\synthesis\EvalBoardSandbox_cck.rpt" .
 
-Finished constraint checker (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:02s; Memory used current: 191MB peak: 191MB)
+Finished constraint checker (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 191MB peak: 191MB)
 
 Pre-mapping successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 100MB peak: 191MB)
+At Mapper Exit (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 100MB peak: 191MB)
 
-Process took 0h:00m:03s realtime, 0h:00m:03s cputime
-# Tue Apr  1 14:15:59 2025
+Process took 0h:00m:05s realtime, 0h:00m:05s cputime
+# Thu Apr  3 15:35:56 2025
 
 ###########################################################]
 Map & Optimize Report
 
-# Tue Apr  1 14:15:59 2025
+# Thu Apr  3 15:35:57 2025
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -1171,10 +1196,10 @@ Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s
 Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 127MB peak: 138MB)
 
 
-Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 129MB peak: 138MB)
+Start loading timing files (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 129MB peak: 138MB)
 
 
-Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 131MB peak: 138MB)
+Finished loading timing files (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 131MB peak: 138MB)
 
 
 
@@ -1233,7 +1258,7 @@ Starting Optimization and Mapping (Real Time elapsed 0h:00m:01s; CPU Time elapse
 @W: BN132 :"c:\users\skaye\repos10\firmware\include\fpga\ibufp1.vhd":44:2:44:3|Removing sequential instance DMMainPorts_1.GenRamDataBus.23.IBUF_RamData_i.O because it is equivalent to instance DMMainPorts_1.GenRamDataBus1.23.IBUF_RamData1_i.O. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"c:\users\skaye\repos10\firmware\include\fpga\ibufp2.vhd":47:2:47:3|Removing sequential instance DMMainPorts_1.IBufWrnRd1.Temp1 because it is equivalent to instance DMMainPorts_1.IBufWrnRd.Temp1. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"c:\users\skaye\repos10\firmware\include\fpga\ibufp2.vhd":47:2:47:3|Removing sequential instance DMMainPorts_1.IBufWrnRd1.O because it is equivalent to instance DMMainPorts_1.IBufWrnRd.O. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\users\skaye\repos10\firmware\dminterface\ux1_ver2\hdl\dmmain.vhd":1362:4:1362:5|Removing sequential instance DMMainPorts_1.DacSetpointReadAddressDac_rep[1:0] because it is equivalent to instance DMMainPorts_1.DacSetpointReadAddressDac[1:0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"c:\users\skaye\repos10\firmware\dminterface\ux1_ver2\hdl\dmmain.vhd":1364:4:1364:5|Removing sequential instance DMMainPorts_1.DacSetpointReadAddressDac_rep[1:0] because it is equivalent to instance DMMainPorts_1.DacSetpointReadAddressDac[1:0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @N: BN362 :"c:\users\skaye\repos10\firmware\dminterface\ux1_ver2\hdl\registerspace.vhd":288:4:288:5|Removing sequential instance PPSCountReset (in view: work.RegisterSpacePorts_14(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
 @N: BN362 :"c:\users\skaye\repos10\firmware\dminterface\ux1_ver2\hdl\registerspace.vhd":288:4:288:5|Removing sequential instance WriteClkDac (in view: work.RegisterSpacePorts_14(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
 @N: BN362 :"c:\users\skaye\repos10\firmware\include\fpga\spimaster.vhd":89:2:89:3|Removing sequential instance DataFromMiso_1[23] (in view: work.SpiMasterPorts_work_dmmainports_dmmain_0layer1_0(spimaster)) of type view:PrimLib.dffrs(prim) because it does not drive other instances.
@@ -1249,11 +1274,11 @@ Starting Optimization and Mapping (Real Time elapsed 0h:00m:01s; CPU Time elapse
 @N: BN362 :"c:\users\skaye\repos10\firmware\include\fpga\spimaster.vhd":89:2:89:3|Removing sequential instance DataFromMiso_1[23] (in view: work.SpiMasterPorts_work_dmmainports_dmmain_0layer1_5(spimaster)) of type view:PrimLib.dffrs(prim) because it does not drive other instances.
 @N: BN362 :"c:\users\skaye\repos10\firmware\include\fpga\spimaster.vhd":89:2:89:3|Removing sequential instance DataFromMiso_1[22:0] (in view: work.SpiMasterPorts_work_dmmainports_dmmain_0layer1_5(spimaster)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
 
-Finished RTL optimizations (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 185MB peak: 185MB)
+Finished RTL optimizations (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 185MB peak: 185MB)
 
 @N: FX403 :"c:\users\skaye\repos10\firmware\include\fpga\cgraphdmdacramflat.vhd":49:17:49:28|Property "block_ram" or "no_rw_check" found for RAM DmDacRam.dacsetpoints[23:0] with specified coding style. Inferring block RAM.
 @W: FX107 :"c:\users\skaye\repos10\firmware\include\fpga\cgraphdmdacramflat.vhd":49:17:49:28|RAM DmDacRam.dacsetpoints[23:0] (in view: work.DMMainPorts(dmmain)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
-@N: MO231 :"c:\users\skaye\repos10\firmware\dminterface\ux1_ver2\hdl\dmmain.vhd":1362:4:1362:5|Found counter in view:work.DMMainPorts(dmmain) instance DacSetpointReadAddressChannel[5:0] 
+@N: MO231 :"c:\users\skaye\repos10\firmware\dminterface\ux1_ver2\hdl\dmmain.vhd":1364:4:1364:5|Found counter in view:work.DMMainPorts(dmmain) instance DacSetpointReadAddressChannel[5:0] 
 @N: MO231 :"c:\users\skaye\repos10\firmware\include\fpga\variableclockdivider2x.vhd":57:2:57:3|Found counter in view:work.DMMainPorts(dmmain) instance Uart0BitClockDiv.ClkDiv[7:0] 
 @N: MO231 :"c:\users\skaye\repos10\firmware\include\fpga\variableclockdivider2x.vhd":57:2:57:3|Found counter in view:work.DMMainPorts(dmmain) instance Uart1BitClockDiv.ClkDiv[7:0] 
 @N: MO231 :"c:\users\skaye\repos10\firmware\include\fpga\variableclockdivider2x.vhd":57:2:57:3|Found counter in view:work.DMMainPorts(dmmain) instance Uart2BitClockDiv.ClkDiv[7:0] 
@@ -1296,13 +1321,8 @@ Finished RTL optimizations (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00
 @N: MO231 :"c:\users\skaye\repos10\firmware\include\fpga\fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_5(rtl) instance raddr_r[9:0] 
 @N: MO230 :"c:\users\skaye\repos10\firmware\include\fpga\fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_6(rtl) instance fifo_i.counter_r[10:0]  
 
-Starting factoring (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 188MB peak: 188MB)
+Starting factoring (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 188MB peak: 188MB)
 
-@W: BN132 :"c:\users\skaye\repos10\firmware\include\fpga\spidac.vhd":134:2:134:3|Removing instance DMMainPorts_1.DMDacsF_i.LastWriteDac because it is equivalent to instance DMMainPorts_1.DMDacsE_i.LastWriteDac. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\users\skaye\repos10\firmware\include\fpga\spidac.vhd":134:2:134:3|Removing instance DMMainPorts_1.DMDacsE_i.LastWriteDac because it is equivalent to instance DMMainPorts_1.DMDacsD_i.LastWriteDac. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\users\skaye\repos10\firmware\include\fpga\spidac.vhd":134:2:134:3|Removing instance DMMainPorts_1.DMDacsD_i.LastWriteDac because it is equivalent to instance DMMainPorts_1.DMDacsC_i.LastWriteDac. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\users\skaye\repos10\firmware\include\fpga\spidac.vhd":134:2:134:3|Removing instance DMMainPorts_1.DMDacsC_i.LastWriteDac because it is equivalent to instance DMMainPorts_1.DMDacsB_i.LastWriteDac. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\users\skaye\repos10\firmware\include\fpga\spidac.vhd":134:2:134:3|Removing instance DMMainPorts_1.DMDacsB_i.LastWriteDac because it is equivalent to instance DMMainPorts_1.DMDacsA_i.LastWriteDac. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @N: BN362 :"c:\users\skaye\repos10\firmware\include\fpga\ibufp2.vhd":47:2:47:3|Removing sequential instance IBufMisoDacA.O (in view: work.DMMainPorts(dmmain)) because it does not drive other instances.
 @N: BN362 :"c:\users\skaye\repos10\firmware\include\fpga\ibufp2.vhd":47:2:47:3|Removing sequential instance IBufMisoDacB.O (in view: work.DMMainPorts(dmmain)) because it does not drive other instances.
 @N: BN362 :"c:\users\skaye\repos10\firmware\include\fpga\ibufp2.vhd":47:2:47:3|Removing sequential instance IBufMisoDacC.O (in view: work.DMMainPorts(dmmain)) because it does not drive other instances.
@@ -1322,7 +1342,7 @@ Starting factoring (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; M
 @N: BN362 :"c:\users\skaye\repos10\firmware\include\fpga\ibufp2.vhd":47:2:47:3|Removing sequential instance IBufMisoDacF.Temp1 (in view: work.DMMainPorts(dmmain)) because it does not drive other instances.
 @A: BN291 :"c:\users\skaye\repos10\firmware\include\fpga\ibufp2.vhd":47:2:47:3|Boundary register IBufMisoDacF.Temp1 (in view: work.DMMainPorts(dmmain)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
 
-Finished factoring (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 205MB peak: 205MB)
+Finished factoring (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 205MB peak: 205MB)
 
 
 Available hyper_sources - for debug and ip models
@@ -1330,81 +1350,81 @@ Available hyper_sources - for debug and ip models
 
 NConnInternalConnection caching is on
 
-Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 206MB peak: 214MB)
+Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 206MB peak: 213MB)
 
 
-Starting Early Timing Optimization (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 208MB peak: 214MB)
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 207MB peak: 213MB)
 
 
-Finished Early Timing Optimization (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:03s; Memory used current: 208MB peak: 214MB)
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 208MB peak: 213MB)
 
 
-Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 208MB peak: 214MB)
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 208MB peak: 213MB)
 
 
-Finished preparing to map (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 208MB peak: 214MB)
+Finished preparing to map (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 208MB peak: 213MB)
 
 
-Finished technology mapping (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 245MB peak: 245MB)
+Finished technology mapping (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 245MB peak: 245MB)
 
 Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
-   1		0h:00m:05s		     0.51ns		2069 /      1788
-   2		0h:00m:05s		     0.51ns		2048 /      1788
-@N: FP130 |Promoting Net DMMainPorts_1.shot_i_arst on CLKINT  I_316 
-@N: FP130 |Promoting Net DMMainPorts_1.Uart2FifoReset_i_arst on CLKINT  I_317 
-@N: FP130 |Promoting Net DMMainPorts_1.Uart1FifoReset_i_arst on CLKINT  I_318 
-@N: FP130 |Promoting Net DMMainPorts_1.Uart0FifoReset_i_arst on CLKINT  I_319 
-@N: FP130 |Promoting Net DMMainPorts_1.Uart3FifoReset_i_arst on CLKINT  I_320 
-@N: FP130 |Promoting Net DMMainPorts_1.DMDacsF_i.SpiRst_arst on CLKINT  I_321 
-@N: FP130 |Promoting Net DMMainPorts_1.DMDacsE_i.SpiRst_arst on CLKINT  I_322 
-@N: FP130 |Promoting Net DMMainPorts_1.DMDacsD_i.SpiRst_arst on CLKINT  I_323 
-@N: FP130 |Promoting Net DMMainPorts_1.DMDacsC_i.SpiRst_arst on CLKINT  I_324 
-@N: FP130 |Promoting Net DMMainPorts_1.DMDacsB_i.SpiRst_arst on CLKINT  I_325 
-@N: FP130 |Promoting Net DMMainPorts_1.DMDacsA_i.SpiRst_arst on CLKINT  I_326 
-@N: FP130 |Promoting Net DMMainPorts_1.UartClk2 on CLKINT  I_327 
-@N: FP130 |Promoting Net DMMainPorts_1.UartClk0 on CLKINT  I_328 
-@N: FP130 |Promoting Net DMMainPorts_1.UartClk1 on CLKINT  I_329 
-@N: FP130 |Promoting Net DMMainPorts_1.UartClk3 on CLKINT  I_330 
-@N: FP130 |Promoting Net DMMainPorts_1.UartTxClk0 on CLKINT  I_331 
-@N: FP130 |Promoting Net DMMainPorts_1.UartTxClk2 on CLKINT  I_332 
-@N: FP130 |Promoting Net DMMainPorts_1.UartTxClk1 on CLKINT  I_333 
-@N: FP130 |Promoting Net DMMainPorts_1.UartTxClk3 on CLKINT  I_334 
+   1		0h:00m:08s		     0.51ns		2082 /      1794
+   2		0h:00m:08s		     0.51ns		2061 /      1794
+@N: FP130 |Promoting Net DMMainPorts_1.shot_i_arst on CLKINT  I_269 
+@N: FP130 |Promoting Net DMMainPorts_1.Uart2FifoReset_i_arst on CLKINT  I_270 
+@N: FP130 |Promoting Net DMMainPorts_1.Uart1FifoReset_i_arst on CLKINT  I_271 
+@N: FP130 |Promoting Net DMMainPorts_1.Uart0FifoReset_i_arst on CLKINT  I_272 
+@N: FP130 |Promoting Net DMMainPorts_1.Uart3FifoReset_i_arst on CLKINT  I_273 
+@N: FP130 |Promoting Net DMMainPorts_1.DMDacsF_i.SpiRst_arst on CLKINT  I_274 
+@N: FP130 |Promoting Net DMMainPorts_1.DMDacsE_i.SpiRst_arst on CLKINT  I_275 
+@N: FP130 |Promoting Net DMMainPorts_1.DMDacsD_i.SpiRst_arst on CLKINT  I_276 
+@N: FP130 |Promoting Net DMMainPorts_1.DMDacsC_i.SpiRst_arst on CLKINT  I_277 
+@N: FP130 |Promoting Net DMMainPorts_1.DMDacsB_i.SpiRst_arst on CLKINT  I_278 
+@N: FP130 |Promoting Net DMMainPorts_1.DMDacsA_i.SpiRst_arst on CLKINT  I_279 
+@N: FP130 |Promoting Net DMMainPorts_1.UartClk2 on CLKINT  I_280 
+@N: FP130 |Promoting Net DMMainPorts_1.UartClk0 on CLKINT  I_281 
+@N: FP130 |Promoting Net DMMainPorts_1.UartClk1 on CLKINT  I_282 
+@N: FP130 |Promoting Net DMMainPorts_1.UartClk3 on CLKINT  I_283 
+@N: FP130 |Promoting Net DMMainPorts_1.UartTxClk0 on CLKINT  I_284 
+@N: FP130 |Promoting Net DMMainPorts_1.UartTxClk2 on CLKINT  I_285 
+@N: FP130 |Promoting Net DMMainPorts_1.UartTxClk1 on CLKINT  I_286 
+@N: FP130 |Promoting Net DMMainPorts_1.UartTxClk3 on CLKINT  I_287 
 
 Added 0 Buffers
 Added 0 Cells via replication
 	Added 0 Sequential Cells via replication
 	Added 0 Combinational Cells via replication
 
-Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 251MB peak: 251MB)
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:09s; Memory used current: 250MB peak: 250MB)
 
 
-Finished restoring hierarchy (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 251MB peak: 251MB)
+Finished restoring hierarchy (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 250MB peak: 251MB)
 
 
-Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 251MB peak: 252MB)
+Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 251MB peak: 251MB)
 
 
-Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:06s; Memory used current: 251MB peak: 252MB)
+Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 251MB peak: 251MB)
 
 
-Start Writing Netlists (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 203MB peak: 252MB)
+Start Writing Netlists (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 202MB peak: 251MB)
 
 Writing Analyst data base C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\synthesis\synwork\EvalBoardSandbox_m.srm
 
-Finished Writing Netlist Databases (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 242MB peak: 252MB)
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:12s; Memory used current: 239MB peak: 251MB)
 
 Writing Verilog Simulation files
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
 @N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 
 
-Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 243MB peak: 252MB)
+Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:13s; Memory used current: 240MB peak: 251MB)
 
 
-Finished Writing Netlists (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 243MB peak: 252MB)
+Finished Writing Netlists (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:14s; Memory used current: 240MB peak: 251MB)
 
 
-Start final timing analysis (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 239MB peak: 252MB)
+Start final timing analysis (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:14s; Memory used current: 236MB peak: 251MB)
 
 @W: MT246 :"c:\users\skaye\repos10\firmware\dminterface\ux1_ver2\component\work\fccc_c0\fccc_c0_0\fccc_c0_fccc_c0_0_fccc.v":23:36:23:43|Blackbox CCC is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results)
 @N: MT615 |Found clock CLK0_PAD with period 19.61ns 
@@ -1413,7 +1433,7 @@ Start final timing analysis (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:0
 
 
 ##### START OF TIMING REPORT #####[
-# Timing report written on Tue Apr  1 14:16:09 2025
+# Timing report written on Thu Apr  3 15:36:12 2025
 #
 
 
@@ -1440,7 +1460,7 @@ Starting Clock                  Frequency     Frequency     Period        Period
 ------------------------------------------------------------------------------------------------------------------------------------------------
 CLK0_PAD                        51.0 MHz      NA            19.608        NA            NA        declared                      default_clkgroup
 EvalSandbox_MSS_0/CCC_0/GL0     102.0 MHz     124.3 MHz     9.804         8.045         1.759     generated (from CLK0_PAD)     default_clkgroup
-FCCC_C0_0/FCCC_C0_0/GL0         102.0 MHz     156.3 MHz     9.804         6.399         3.552     generated (from CLK0_PAD)     default_clkgroup
+FCCC_C0_0/FCCC_C0_0/GL0         102.0 MHz     155.7 MHz     9.804         6.424         3.380     generated (from CLK0_PAD)     default_clkgroup
 System                          100.0 MHz     178.8 MHz     10.000        5.592         4.408     system                        system_clkgroup 
 ================================================================================================================================================
 Estimated period and frequency reported as NA means no slack depends directly on the clock waveform
@@ -1468,7 +1488,7 @@ Starting                     Ending                       |  constraint  slack  
 System                       System                       |  10.000      4.408  |  No paths    -      |  No paths    -      |  No paths    -    
 System                       FCCC_C0_0/FCCC_C0_0/GL0      |  9.804       8.964  |  No paths    -      |  No paths    -      |  No paths    -    
 FCCC_C0_0/FCCC_C0_0/GL0      System                       |  9.804       3.552  |  No paths    -      |  9.804       7.554  |  No paths    -    
-FCCC_C0_0/FCCC_C0_0/GL0      FCCC_C0_0/FCCC_C0_0/GL0      |  9.804       3.552  |  No paths    -      |  No paths    -      |  No paths    -    
+FCCC_C0_0/FCCC_C0_0/GL0      FCCC_C0_0/FCCC_C0_0/GL0      |  9.804       3.380  |  No paths    -      |  No paths    -      |  No paths    -    
 FCCC_C0_0/FCCC_C0_0/GL0      EvalSandbox_MSS_0/CCC_0/GL0  |  9.804       6.388  |  No paths    -      |  No paths    -      |  No paths    -    
 EvalSandbox_MSS_0/CCC_0/GL0  FCCC_C0_0/FCCC_C0_0/GL0      |  9.804       3.405  |  No paths    -      |  No paths    -      |  No paths    -    
 EvalSandbox_MSS_0/CCC_0/GL0  EvalSandbox_MSS_0/CCC_0/GL0  |  9.804       1.759  |  No paths    -      |  No paths    -      |  No paths    -    
@@ -1580,41 +1600,41 @@ Detailed Report for Clock: FCCC_C0_0/FCCC_C0_0/GL0
 Starting Points with Worst Slack
 ********************************
 
-                                                           Starting                                                                             Arrival          
-Instance                                                   Reference                   Type     Pin     Net                                     Time        Slack
-                                                           Clock                                                                                                 
------------------------------------------------------------------------------------------------------------------------------------------------------------------
-DMMainPorts_1.BootupReset.shot_i                           FCCC_C0_0/FCCC_C0_0/GL0     SLE      Q       shot_i                                  0.108       3.552
-DMMainPorts_1.RegisterSpace.Uart0FifoReset                 FCCC_C0_0/FCCC_C0_0/GL0     SLE      Q       Uart0FifoReset                          0.108       4.122
-DMMainPorts_1.RegisterSpace.Uart1FifoReset                 FCCC_C0_0/FCCC_C0_0/GL0     SLE      Q       Uart1FifoReset                          0.108       4.122
-DMMainPorts_1.RegisterSpace.Uart2FifoReset                 FCCC_C0_0/FCCC_C0_0/GL0     SLE      Q       Uart2FifoReset                          0.108       4.122
-DMMainPorts_1.RegisterSpace.Uart3FifoReset                 FCCC_C0_0/FCCC_C0_0/GL0     SLE      Q       Uart3FifoReset                          0.108       4.124
-DMMainPorts_1.GenRamAddrBus1\.0\.IBUF_RamAddr1_i.O[7]      FCCC_C0_0/FCCC_C0_0/GL0     SLE      Q       RamAddress[7]                           0.087       4.135
-DMMainPorts_1.DacSetpointReadAddressController[0]          FCCC_C0_0/FCCC_C0_0/GL0     SLE      Q       DacSetpointReadAddressController[0]     0.108       4.154
-DMMainPorts_1.GenRamAddrBus1\.0\.IBUF_RamAddr1_i.O[5]      FCCC_C0_0/FCCC_C0_0/GL0     SLE      Q       Address[5]                              0.108       4.248
-DMMainPorts_1.GenRamAddrBus1\.0\.IBUF_RamAddr1_i.O[10]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      Q       RamAddress[10]                          0.108       4.429
-DMMainPorts_1.DacSetpointReadAddressController[2]          FCCC_C0_0/FCCC_C0_0/GL0     SLE      Q       DacSetpointReadAddressController[2]     0.108       4.458
-=================================================================================================================================================================
+                                                           Starting                                                                 Arrival          
+Instance                                                   Reference                   Type     Pin     Net                         Time        Slack
+                                                           Clock                                                                                     
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+DMMainPorts_1.DacWriteCurrentState[2]                      FCCC_C0_0/FCCC_C0_0/GL0     SLE      Q       DacWriteCurrentState[2]     0.108       3.380
+DMMainPorts_1.DacWriteCurrentState[1]                      FCCC_C0_0/FCCC_C0_0/GL0     SLE      Q       DacWriteCurrentState[1]     0.108       3.457
+DMMainPorts_1.BootupReset.shot_i                           FCCC_C0_0/FCCC_C0_0/GL0     SLE      Q       shot_i                      0.108       3.552
+DMMainPorts_1.GenRamAddrBus1\.0\.IBUF_RamAddr1_i.O[12]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      Q       RamAddress[12]              0.087       3.634
+DMMainPorts_1.GenRamAddrBus1\.0\.IBUF_RamAddr1_i.O[13]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      Q       RamAddress[13]              0.087       3.734
+DMMainPorts_1.GenRamAddrBus1\.0\.IBUF_RamAddr1_i.O[5]      FCCC_C0_0/FCCC_C0_0/GL0     SLE      Q       Address[5]                  0.087       3.983
+DMMainPorts_1.GenRamAddrBus1\.0\.IBUF_RamAddr1_i.O[2]      FCCC_C0_0/FCCC_C0_0/GL0     SLE      Q       RamAddress[2]               0.087       4.035
+DMMainPorts_1.GenRamAddrBus1\.0\.IBUF_RamAddr1_i.O[4]      FCCC_C0_0/FCCC_C0_0/GL0     SLE      Q       Address[4]                  0.087       4.053
+DMMainPorts_1.GenRamAddrBus1\.0\.IBUF_RamAddr1_i.O[10]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      Q       RamAddress[10]              0.087       4.065
+DMMainPorts_1.GenRamAddrBus1\.0\.IBUF_RamAddr1_i.O[3]      FCCC_C0_0/FCCC_C0_0/GL0     SLE      Q       Address[3]                  0.087       4.092
+=====================================================================================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                                                 Starting                                                                 Required          
-Instance                                         Reference                   Type     Pin     Net                         Time         Slack
-                                                 Clock                                                                                      
---------------------------------------------------------------------------------------------------------------------------------------------
-DMMainPorts_1.RS422_Tx2.UartTxUart.BitCnt[0]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      ALn     Uart2FifoReset_i_arst_i     9.804        3.552
-DMMainPorts_1.RS422_Tx1.UartTxUart.BitCnt[0]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      ALn     Uart1FifoReset_i_arst_i     9.804        3.552
-DMMainPorts_1.RS422_Tx0.UartTxUart.BitCnt[0]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      ALn     Uart0FifoReset_i_arst_i     9.804        3.552
-DMMainPorts_1.RS422_Tx2.UartTxUart.BitCnt[1]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      ALn     Uart2FifoReset_i_arst_i     9.804        3.552
-DMMainPorts_1.RS422_Tx1.UartTxUart.BitCnt[1]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      ALn     Uart1FifoReset_i_arst_i     9.804        3.552
-DMMainPorts_1.RS422_Tx0.UartTxUart.BitCnt[1]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      ALn     Uart0FifoReset_i_arst_i     9.804        3.552
-DMMainPorts_1.RS422_Tx1.UartTxUart.BitCnt[2]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      ALn     Uart1FifoReset_i_arst_i     9.804        3.552
-DMMainPorts_1.RS422_Tx2.UartTxUart.BitCnt[2]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      ALn     Uart2FifoReset_i_arst_i     9.804        3.552
-DMMainPorts_1.RS422_Tx0.UartTxUart.BitCnt[2]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      ALn     Uart0FifoReset_i_arst_i     9.804        3.552
-DMMainPorts_1.RS422_Tx2.UartTxUart.BitCnt[3]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      ALn     Uart2FifoReset_i_arst_i     9.804        3.552
-============================================================================================================================================
+                                         Starting                                                             Required          
+Instance                                 Reference                   Type     Pin     Net                     Time         Slack
+                                         Clock                                                                                  
+--------------------------------------------------------------------------------------------------------------------------------
+DMMainPorts_1.DacASetpointToWrite[0]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      EN      un1_MasterReset_inv     9.466        3.380
+DMMainPorts_1.DacASetpointToWrite[1]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      EN      un1_MasterReset_inv     9.466        3.380
+DMMainPorts_1.DacASetpointToWrite[2]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      EN      un1_MasterReset_inv     9.466        3.380
+DMMainPorts_1.DacASetpointToWrite[3]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      EN      un1_MasterReset_inv     9.466        3.380
+DMMainPorts_1.DacASetpointToWrite[4]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      EN      un1_MasterReset_inv     9.466        3.380
+DMMainPorts_1.DacASetpointToWrite[5]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      EN      un1_MasterReset_inv     9.466        3.380
+DMMainPorts_1.DacASetpointToWrite[6]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      EN      un1_MasterReset_inv     9.466        3.380
+DMMainPorts_1.DacASetpointToWrite[7]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      EN      un1_MasterReset_inv     9.466        3.380
+DMMainPorts_1.DacASetpointToWrite[8]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      EN      un1_MasterReset_inv     9.466        3.380
+DMMainPorts_1.DacASetpointToWrite[9]     FCCC_C0_0/FCCC_C0_0/GL0     SLE      EN      un1_MasterReset_inv     9.466        3.380
+================================================================================================================================
 
 
 
@@ -1624,38 +1644,34 @@ Worst Path Information
 
 Path information for path number 1: 
       Requested Period:                      9.804
-    - Setup time:                            0.000
+    - Setup time:                            0.338
     + Clock delay at ending point:           0.000 (ideal)
-    + Estimated clock delay at ending point: 0.000
-    = Required time:                         9.804
+    = Required time:                         9.466
 
-    - Propagation time:                      6.252
+    - Propagation time:                      6.087
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 3.552
+    = Slack (non-critical) :                 3.380
 
-    Number of logic level(s):                3
-    Starting point:                          DMMainPorts_1.BootupReset.shot_i / Q
-    Ending point:                            DMMainPorts_1.RS422_Tx0.UartTxUart.BitCnt[0] / ALn
+    Number of logic level(s):                2
+    Starting point:                          DMMainPorts_1.DacWriteCurrentState[2] / Q
+    Ending point:                            DMMainPorts_1.DacASetpointToWrite[0] / EN
     The start point is clocked by            FCCC_C0_0/FCCC_C0_0/GL0 [rising] (rise=0.000 fall=4.902 period=9.804) on pin CLK
-    The end   point is clocked by            System [rising] on pin CLK
+    The end   point is clocked by            FCCC_C0_0/FCCC_C0_0/GL0 [rising] (rise=0.000 fall=4.902 period=9.804) on pin CLK
 
-Instance / Net                                                      Pin      Pin               Arrival     No. of    
-Name                                                     Type       Name     Dir     Delay     Time        Fan Out(s)
----------------------------------------------------------------------------------------------------------------------
-DMMainPorts_1.BootupReset.shot_i                         SLE        Q        Out     0.108     0.108 f     -         
-shot_i                                                   Net        -        -       1.144     -           16        
-DMMainPorts_1.RegisterSpace.Uart0FifoReset_RNIQCKC       CFG2       A        In      -         1.252 f     -         
-DMMainPorts_1.RegisterSpace.Uart0FifoReset_RNIQCKC       CFG2       Y        Out     0.087     1.339 f     -         
-N_123_i                                                  Net        -        -       1.830     -           2         
-DMMainPorts_1.RegisterSpace.Uart0FifoReset_RNIQCKC_0     CLKINT     A        In      -         3.169 f     -         
-DMMainPorts_1.RegisterSpace.Uart0FifoReset_RNIQCKC_0     CLKINT     Y        Out     0.375     3.545 f     -         
-Uart0FifoReset_i_arst                                    Net        -        -       1.450     -           1         
-DMMainPorts_1.RegisterSpace.Uart0FifoReset_RNIQCKC_2     CFG1       A        In      -         4.995 f     -         
-DMMainPorts_1.RegisterSpace.Uart0FifoReset_RNIQCKC_2     CFG1       Y        Out     0.100     5.095 r     -         
-Uart0FifoReset_i_arst_i                                  Net        -        -       1.157     -           113       
-DMMainPorts_1.RS422_Tx0.UartTxUart.BitCnt[0]             SLE        ALn      In      -         6.252 r     -         
-=====================================================================================================================
-Total path delay (propagation time + setup) of 6.252 is 0.671(10.7%) logic and 5.581(89.3%) route.
+Instance / Net                                           Pin      Pin               Arrival     No. of    
+Name                                            Type     Name     Dir     Delay     Time        Fan Out(s)
+----------------------------------------------------------------------------------------------------------
+DMMainPorts_1.DacWriteCurrentState[2]           SLE      Q        Out     0.108     0.108 f     -         
+DacWriteCurrentState[2]                         Net      -        -       2.231     -           152       
+DMMainPorts_1.un1_DacWriteCurrentState_10_1     CFG2     B        In      -         2.340 f     -         
+DMMainPorts_1.un1_DacWriteCurrentState_10_1     CFG2     Y        Out     0.164     2.504 f     -         
+un1_DacWriteCurrentState_7_1                    Net      -        -       1.017     -           9         
+DMMainPorts_1.un1_MasterReset_inv               CFG4     B        In      -         3.521 f     -         
+DMMainPorts_1.un1_MasterReset_inv               CFG4     Y        Out     0.164     3.685 f     -         
+un1_MasterReset_inv                             Net      -        -       2.401     -           168       
+DMMainPorts_1.DacASetpointToWrite[0]            SLE      EN       In      -         6.087 f     -         
+==========================================================================================================
+Total path delay (propagation time + setup) of 6.424 is 0.774(12.1%) logic and 5.650(87.9%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -1675,15 +1691,15 @@ Instance                                        Reference     Type     Pin     N
                                                 Clock                                                         
 --------------------------------------------------------------------------------------------------------------
 DMMainPorts_1.RS422_Rx1.Uart.Uart.bitpos[0]     System        SLE      Q       bitpos[0]     0.108       4.408
-DMMainPorts_1.RS422_Rx2.Uart.Uart.bitpos[0]     System        SLE      Q       bitpos[0]     0.108       4.413
-DMMainPorts_1.RS422_Rx0.Uart.Uart.bitpos[0]     System        SLE      Q       bitpos[0]     0.108       4.413
+DMMainPorts_1.RS422_Rx2.Uart.Uart.bitpos[0]     System        SLE      Q       bitpos[0]     0.108       4.408
+DMMainPorts_1.RS422_Rx0.Uart.Uart.bitpos[0]     System        SLE      Q       bitpos[0]     0.108       4.408
+DMMainPorts_1.RS422_Rx0.Uart.Uart.bitpos[1]     System        SLE      Q       bitpos[1]     0.108       4.519
 DMMainPorts_1.RS422_Rx1.Uart.Uart.bitpos[1]     System        SLE      Q       bitpos[1]     0.108       4.519
-DMMainPorts_1.RS422_Rx0.Uart.Uart.bitpos[1]     System        SLE      Q       bitpos[1]     0.108       4.524
-DMMainPorts_1.RS422_Rx2.Uart.Uart.bitpos[1]     System        SLE      Q       bitpos[1]     0.108       4.524
+DMMainPorts_1.RS422_Rx2.Uart.Uart.bitpos[1]     System        SLE      Q       bitpos[1]     0.108       4.519
 DMMainPorts_1.RS422_Rx1.Uart.Uart.bitpos[2]     System        SLE      Q       bitpos[2]     0.108       4.602
-DMMainPorts_1.RS422_Rx2.Uart.Uart.bitpos[2]     System        SLE      Q       bitpos[2]     0.108       4.606
-DMMainPorts_1.RS422_Rx0.Uart.Uart.bitpos[2]     System        SLE      Q       bitpos[2]     0.108       4.606
-DMMainPorts_1.RS422_Rx1.Uart.Uart.bitpos[3]     System        SLE      Q       bitpos[3]     0.108       4.938
+DMMainPorts_1.RS422_Rx2.Uart.Uart.bitpos[2]     System        SLE      Q       bitpos[2]     0.108       4.602
+DMMainPorts_1.RS422_Rx0.Uart.Uart.bitpos[2]     System        SLE      Q       bitpos[2]     0.108       4.602
+DMMainPorts_1.RS422_Rx0.Uart.Uart.bitpos[3]     System        SLE      Q       bitpos[3]     0.108       4.938
 ==============================================================================================================
 
 
@@ -1695,15 +1711,15 @@ Instance                                        Reference     Type     Pin     N
                                                 Clock                                                             
 ------------------------------------------------------------------------------------------------------------------
 DMMainPorts_1.RS422_Rx1.Uart.Uart.bitpos[0]     System        SLE      D       bitpos_10[0]     9.745        4.408
-DMMainPorts_1.RS422_Rx1.Uart.Uart.bitpos[1]     System        SLE      D       bitpos_10[1]     9.745        4.413
+DMMainPorts_1.RS422_Rx0.Uart.Uart.bitpos[0]     System        SLE      D       bitpos_10[0]     9.745        4.408
+DMMainPorts_1.RS422_Rx2.Uart.Uart.bitpos[0]     System        SLE      D       bitpos_10[0]     9.745        4.408
 DMMainPorts_1.RS422_Rx0.Uart.Uart.bitpos[1]     System        SLE      D       bitpos_10[1]     9.745        4.413
+DMMainPorts_1.RS422_Rx1.Uart.Uart.bitpos[1]     System        SLE      D       bitpos_10[1]     9.745        4.413
 DMMainPorts_1.RS422_Rx2.Uart.Uart.bitpos[1]     System        SLE      D       bitpos_10[1]     9.745        4.413
 DMMainPorts_1.RS422_Rx0.Uart.Uart.bitpos[3]     System        SLE      D       bitpos_10[3]     9.745        4.452
 DMMainPorts_1.RS422_Rx2.Uart.Uart.bitpos[3]     System        SLE      D       bitpos_10[3]     9.745        4.452
 DMMainPorts_1.RS422_Rx1.Uart.Uart.bitpos[3]     System        SLE      D       bitpos_10[3]     9.745        4.452
-DMMainPorts_1.RS422_Rx2.Uart.Uart.RReg[0]       System        SLE      EN      RReg_1           9.662        4.491
-DMMainPorts_1.RS422_Rx0.Uart.Uart.RReg[0]       System        SLE      EN      RReg_1           9.662        4.491
-DMMainPorts_1.RS422_Rx0.Uart.Uart.RReg[1]       System        SLE      EN      RReg_2           9.662        4.491
+DMMainPorts_1.RS422_Rx1.Uart.Uart.RReg[0]       System        SLE      EN      RReg_1           9.662        4.573
 ==================================================================================================================
 
 
@@ -1768,10 +1784,10 @@ Timing exceptions that could not be applied
 @W: MT447 :"c:/users/skaye/repos10/firmware/dminterface/ux1_ver2/designer/evalboardsandbox/synthesis.fdc":25:0:25:0|Timing constraint (through [get_pins { EvalSandbox_MSS_0.SYSRESET_POR.POWER_ON_RESET_N }]) (false path) was not applied to the design because none of the '-through' objects specified by the constraint exist in the design 
 None
 
-Finished final timing analysis (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 241MB peak: 252MB)
+Finished final timing analysis (Real Time elapsed 0h:00m:15s; CPU Time elapsed 0h:00m:15s; Memory used current: 238MB peak: 251MB)
 
 
-Finished timing report (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 241MB peak: 252MB)
+Finished timing report (Real Time elapsed 0h:00m:15s; CPU Time elapsed 0h:00m:15s; Memory used current: 238MB peak: 251MB)
 
 ---------------------------------------
 Resource Usage Report for EvalBoardSandbox 
@@ -1782,26 +1798,26 @@ CCC             2 uses
 CLKINT          21 uses
 MSS_010         1 use
 CFG1           70 uses
-CFG2           458 uses
-CFG3           268 uses
-CFG4           809 uses
+CFG2           475 uses
+CFG3           304 uses
+CFG4           769 uses
 
 Carry cells:
-ARI1            477 uses - used for arithmetic functions
+ARI1            473 uses - used for arithmetic functions
 ARI1            69 uses - used for Wide-Mux implementation
-Total ARI1      546 uses
+Total ARI1      542 uses
 
 
 Sequential Cells: 
-SLE            1870 uses
+SLE            1876 uses
 
 DSP Blocks:    1 of 22 (4%)
  MACC:         1 MultAdd
 
-I/O ports: 59
-I/O primitives: 50
+I/O ports: 61
+I/O primitives: 52
 INBUF          4 uses
-OUTBUF         46 uses
+OUTBUF         48 uses
 
 
 Global Clock Buffers: 21
@@ -1809,7 +1825,7 @@ Global Clock Buffers: 21
 RAM/ROM usage summary
 Total Block RAMs (RAM1K18) : 9 of 21 (42%)
 
-Total LUTs:    2151
+Total LUTs:    2160
 
 Extra resources required for RAM and MACC interface logic during P&R:
 
@@ -1817,14 +1833,14 @@ RAM64x18 Interface Logic : SLEs = 0; LUTs = 0;
 RAM1K18  Interface Logic : SLEs = 324; LUTs = 324;
 MACC     Interface Logic : SLEs = 36; LUTs = 36;
 
-Total number of SLEs after P&R:  1870 + 0 + 324 + 36 = 2230;
-Total number of LUTs after P&R:  2151 + 0 + 324 + 36 = 2511;
+Total number of SLEs after P&R:  1876 + 0 + 324 + 36 = 2236;
+Total number of LUTs after P&R:  2160 + 0 + 324 + 36 = 2520;
 
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:09s; Memory used current: 80MB peak: 252MB)
+At Mapper Exit (Real Time elapsed 0h:00m:16s; CPU Time elapsed 0h:00m:15s; Memory used current: 79MB peak: 251MB)
 
-Process took 0h:00m:10s realtime, 0h:00m:10s cputime
-# Tue Apr  1 14:16:10 2025
+Process took 0h:00m:16s realtime, 0h:00m:16s cputime
+# Thu Apr  3 15:36:14 2025
 
 ###########################################################]

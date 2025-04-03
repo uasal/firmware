@@ -47,7 +47,6 @@ end DmDacRamFlatPorts;
 architecture DmDacRamFlat of DmDacRamFlatPorts is
 
 	shared variable DacSetpoints : DMDacSetpointRamFlat;
-        signal LastWriteReq : std_logic;
 
   begin
   
@@ -58,7 +57,6 @@ architecture DmDacRamFlat of DmDacRamFlatPorts is
     if (rst = '1') then
       
 		DacSetpointOut <= x"000000"; --for synchronous read
-                LastWriteReq <= '0';
       
     else
       if ( (clk'event) and (clk = '1') ) then
@@ -66,25 +64,8 @@ architecture DmDacRamFlat of DmDacRamFlatPorts is
         DacSetpointOut <= DacSetpoints(ReadAddress); --for synchronous read
 		
         if (WriteReq = '1') then
-          --WriteReq Rising Edge
-          if (LastWriteReq = '0') then
-            LastWriteReq <= '1';
-            --WriteAck <= '0';
             DacSetpoints(WriteAddress) := DacSetpointIn;
-          else
-            --WriteAck <= '1';
-          end if;
         end if;
-
-        if (WriteReq = '0') then
-          --WriteReq Falling Edge
-          if (LastWriteReq = '1') then
-            LastWriteReq <= '0';
-          else
-            --WriteAck <= '0';
-          end if;
-        end if;
-        
       end if;  
     end if;
   end process;

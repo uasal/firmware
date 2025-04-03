@@ -11,6 +11,7 @@ use work.CGraphDMTypes.all;
 entity DMMainPorts is
   port (
     clk : in  std_logic;
+    StateOut : out std_logic_vector(4 downto 0);
 	
     --D/A's
     MosiA : out std_logic;
@@ -556,6 +557,8 @@ architecture DMMain of DMMainPorts is
 	
 	signal DacSetpointReadAddressController : integer range (DMMaxControllerBoards - 1) downto 0;
 	signal DacSetpointReadAddressDac : integer range (DMMDacsPerControllerBoard - 1) downto 0;
+        signal DacSetpointReadedAddressController : integer range (DMMaxControllerBoards - 1) downto 0;
+	signal DacSetpointReadedAddressDac : integer range (DMMDacsPerControllerBoard - 1) downto 0;
 	signal DacSetpointReadAddressChannel : integer range (DMActuatorsPerDac - 1) downto 0;
 	signal DacSetpointReadAddress : integer range (DMMaxActuators - 1) downto 0;
 	signal DacSetpointWriteAddress : integer range (DMMaxActuators - 1) downto 0;
@@ -613,7 +616,7 @@ architecture DMMain of DMMainPorts is
 	signal DacESetpointWritten : std_logic;
 	signal DacFSetpointWritten : std_logic;
 	
-	type DacProtoWriteStates is ( Idle, ReadChannel, WriteCs0, WriteCs1, WriteCs2, WriteCs3, NextChannel);
+	type DacProtoWriteStates is ( Idle, ReadChannel, LatchChannel, WriteCs0, WriteCs1, WriteCs2, WriteCs3, NextChannel);
 	signal DacWriteNextState : DacProtoWriteStates;
 	signal DacWriteCurrentState : DacProtoWriteStates;
   
@@ -628,6 +631,9 @@ begin
   --- Globals ---
   MasterClk <= clk;
   UartClk <= clk;
+
+  StateOut <= std_logic_vector(to_unsigned(DacWriteCurrentState,5));
+
 
   SerialNumber <= x"DEADBEEF"; -- this is the DM serial number
   BuildNumber <=  x"000FADED"; -- this is the DM serial number
@@ -1349,7 +1355,7 @@ begin
   --Mux master reset (boot) and user reset (datamapper)
   Uart3FifoReset_i <= MasterReset or Uart3FifoReset;
 
-  
+
   ----------------------------- Power Supplies ----------------------------------
   --- Is this also part of the FSM?
 --  PowerSync <= '1';
@@ -1368,6 +1374,8 @@ begin
       -- not initialized, but good practice
       DacSetpointReadAddressController <= 0; 
       DacSetpointReadAddressDac <= 0;
+      --DacSetpointReadAddressChannel <= 0; 
+      WriteDacs <= '0';
     else
       if ( (MasterClk'event) and (MasterClk = '1') ) then
 
@@ -1376,233 +1384,223 @@ begin
 
 		case DacWriteCurrentState is
 
-			when Idle =>
+                  when Idle =>
+                    DacSetpointReadAddressController <= 0; 
+                    DacSetpointReadAddressDac <= 0; 
+                    --DacSetpointReadAddressChannel <= 0; 
+                    WriteDacs <= '0';
+                    DacWriteNextState <= ReadChannel;
 			
-				DacSetpointReadAddressController <= 0; 
-				DacSetpointReadAddressDac <= 0; 
-				--DacSetpointReadAddressChannel <= 0; 
+                  when ReadChannel =>
+                    --copy from ram to register (this works on a single clock cause we set the ram up for aysnc read)
+                    --DacSetpoints(DacSetpointReadedAddressController, DacSetpointReadedAddressDac) <= DacSetpointFromRead;
+                    DacWriteNextState <= LatchChannel;
+                    WriteDacs <= '0';
 
-				WriteDacs <= '0';
+                    --Just move the addresses for the ram ahead round-robin each clock
+                    if (DacSetpointReadAddressDac < (DMMDacsPerControllerBoard - 1)) then 	
+                      DacSetpointReadAddressDac <= DacSetpointReadAddressDac + 1;
+                    else	
+                      DacSetpointReadAddressDac <= 0;		
+                      if (DacSetpointReadAddressController < (DMMaxControllerBoards - 1)) then 
+                        DacSetpointReadAddressController <= DacSetpointReadAddressController + 1; 
+                      --else 
+                      --  DacWriteNextState <= WriteCs0;
+                      end if;				
+                    end if;
+
+                  when LatchChannel =>
+                    --copy from ram to register (this works on a single clock cause we set the ram up for aysnc read)
+                    DacSetpoints(DacSetpointReadAddressController, DacSetpointReadAddressDac) <= DacSetpointFromRead;
+                    WriteDacs <= '0';
+                    --DacWriteNextState <= ReadChannel;
+                    --Just move the addresses for the ram ahead round-robin each clock
+                    if (DacSetpointReadAddressDac = (DMMDacsPerControllerBoard-1) and
+                        DacSetpointReadAddressController = (DMMaxControllerBoards-1)) then 	
+                           DacWriteNextState <= WriteCs0;
+                         else
+                           DacWriteNextState <= ReadChannel;
+                    end if;     
+
+                  when WriteCs0 =>
+
+                    if ( (DacASetpointWritten = '0') and (DacBSetpointWritten = '0') and (DacCSetpointWritten = '0') and (DacDSetpointWritten = '0') and (DacESetpointWritten = '0') and (DacFSetpointWritten = '0') ) then
+                      WriteDacs <= '1';
+                    end if;
+                    DacASetpointToWrite <= DacSetpoints(0,0);
+                    DacBSetpointToWrite <= DacSetpoints(1,0);
+                    DacCSetpointToWrite <= DacSetpoints(2,0);
+                    DacDSetpointToWrite <= DacSetpoints(3,0);
+                    DacESetpointToWrite <= DacSetpoints(4,0);
+                    DacFSetpointToWrite <= DacSetpoints(5,0);
 				
-				DacWriteNextState <= ReadChannel;
+                    nCsDacsA_i(0) <= nCsDacs0_i;
+                    nCsDacsA_i(1) <= nCsNotEnabled;
+                    nCsDacsA_i(2) <= nCsNotEnabled;
+                    nCsDacsA_i(3) <= nCsNotEnabled;
+                    nCsDacsB_i(0) <= nCsDacs1_i;
+                    nCsDacsB_i(1) <= nCsNotEnabled;
+                    nCsDacsB_i(2) <= nCsNotEnabled;
+                    nCsDacsB_i(3) <= nCsNotEnabled;
+                    nCsDacsC_i(0) <= nCsDacs2_i;
+                    nCsDacsC_i(1) <= nCsNotEnabled;
+                    nCsDacsC_i(2) <= nCsNotEnabled;
+                    nCsDacsC_i(3) <= nCsNotEnabled;
+                    nCsDacsD_i(0) <= nCsDacs3_i;
+                    nCsDacsD_i(1) <= nCsNotEnabled;
+                    nCsDacsD_i(2) <= nCsNotEnabled;
+                    nCsDacsD_i(3) <= nCsNotEnabled;
+                    nCsDacsE_i(0) <= nCsDacs4_i;
+                    nCsDacsE_i(1) <= nCsNotEnabled;
+                    nCsDacsE_i(2) <= nCsNotEnabled;
+                    nCsDacsE_i(3) <= nCsNotEnabled;
+                    nCsDacsF_i(0) <= nCsDacs5_i;
+                    nCsDacsF_i(1) <= nCsNotEnabled;
+                    nCsDacsF_i(2) <= nCsNotEnabled;
+                    nCsDacsF_i(3) <= nCsNotEnabled;
+
+                    if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
+                      WriteDacs <= '0';
+                      DacWriteNextState <= WriteCs1;	
+                    end if;
 				
+                  when WriteCs1 =>
 			
-			when ReadChannel =>
-
-				--copy from ram to register (this works on a single clock cause we set the ram up for aysnc read)
-				DacSetpoints(DacSetpointReadAddressController, DacSetpointReadAddressDac) <= DacSetpointFromRead;
-                                --DacSetpoints(DacSetpointReadAddressController, DacSetpointReadAddressDac) <= x"5A5A5A";
--- testing assignment of data to DacSetpoints which is of type
--- DMDacSetpointsRegisters in file include/CGraphDmTypes.vhd
-                                --WriteDacs <= '0';
-
-				--Just move the addresses for the ram ahead round-robin each clock
-				if (DacSetpointReadAddressDac < (DMMDacsPerControllerBoard - 1)) then 
+                    WriteDacs <= '1';
+                    DacASetpointToWrite <= DacSetpoints(0,1);
+                    DacBSetpointToWrite <= DacSetpoints(1,1);
+                    DacCSetpointToWrite <= DacSetpoints(2,1);
+                    DacDSetpointToWrite <= DacSetpoints(3,1);
+                    DacESetpointToWrite <= DacSetpoints(4,1);
+                    DacFSetpointToWrite <= DacSetpoints(5,1);
 				
-					DacSetpointReadAddressDac <= DacSetpointReadAddressDac + 1; 
+                    nCsDacsA_i(0) <= nCsNotEnabled;
+                    nCsDacsA_i(1) <= nCsDacs0_i;
+                    nCsDacsA_i(2) <= nCsNotEnabled;
+                    nCsDacsA_i(3) <= nCsNotEnabled;
+                    nCsDacsB_i(0) <= nCsNotEnabled;
+                    nCsDacsB_i(1) <= nCsDacs1_i;
+                    nCsDacsB_i(2) <= nCsNotEnabled;
+                    nCsDacsB_i(3) <= nCsNotEnabled;
+                    nCsDacsC_i(0) <= nCsNotEnabled;
+                    nCsDacsC_i(1) <= nCsDacs2_i;
+                    nCsDacsC_i(2) <= nCsNotEnabled;
+                    nCsDacsC_i(3) <= nCsNotEnabled;
+                    nCsDacsD_i(0) <= nCsNotEnabled;
+                    nCsDacsD_i(1) <= nCsDacs3_i;
+                    nCsDacsD_i(2) <= nCsNotEnabled;
+                    nCsDacsD_i(3) <= nCsNotEnabled;
+                    nCsDacsE_i(0) <= nCsNotEnabled;
+                    nCsDacsE_i(1) <= nCsDacs4_i;
+                    nCsDacsE_i(2) <= nCsNotEnabled;
+                    nCsDacsE_i(3) <= nCsNotEnabled;
+                    nCsDacsF_i(0) <= nCsNotEnabled;
+                    nCsDacsF_i(1) <= nCsDacs5_i;
+                    nCsDacsF_i(2) <= nCsNotEnabled;
+                    nCsDacsF_i(3) <= nCsNotEnabled;
+
+                    if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
+                      WriteDacs <= '0';
+                      DacWriteNextState <= WriteCs2;
+                    end if;
+
+                  when WriteCs2 =>
+                    
+                    WriteDacs <= '1';
+                    DacASetpointToWrite <= DacSetpoints(0,2);
+                    DacBSetpointToWrite <= DacSetpoints(1,2);
+                    DacCSetpointToWrite <= DacSetpoints(2,2);
+                    DacDSetpointToWrite <= DacSetpoints(3,2);
+                    DacESetpointToWrite <= DacSetpoints(4,2);
+                    DacFSetpointToWrite <= DacSetpoints(5,2);
+				
+                    nCsDacsA_i(0) <= nCsNotEnabled;
+                    nCsDacsA_i(1) <= nCsNotEnabled;
+                    nCsDacsA_i(2) <= nCsDacs0_i;
+                    nCsDacsA_i(3) <= nCsNotEnabled;
+                    nCsDacsB_i(0) <= nCsNotEnabled;
+                    nCsDacsB_i(1) <= nCsNotEnabled;
+                    nCsDacsB_i(2) <= nCsDacs1_i;
+                    nCsDacsB_i(3) <= nCsNotEnabled;
+                    nCsDacsC_i(0) <= nCsNotEnabled;
+                    nCsDacsC_i(1) <= nCsNotEnabled;
+                    nCsDacsC_i(2) <= nCsDacs2_i;
+                    nCsDacsC_i(3) <= nCsNotEnabled;
+                    nCsDacsD_i(0) <= nCsNotEnabled;
+                    nCsDacsD_i(1) <= nCsNotEnabled;
+                    nCsDacsD_i(2) <= nCsDacs3_i;
+                    nCsDacsD_i(3) <= nCsNotEnabled;
+                    nCsDacsE_i(0) <= nCsNotEnabled;
+                    nCsDacsE_i(1) <= nCsNotEnabled;
+                    nCsDacsE_i(2) <= nCsDacs4_i;
+                    nCsDacsE_i(3) <= nCsNotEnabled;
+                    nCsDacsF_i(0) <= nCsNotEnabled;
+                    nCsDacsF_i(1) <= nCsNotEnabled;
+                    nCsDacsF_i(2) <= nCsDacs5_i;
+                    nCsDacsF_i(3) <= nCsNotEnabled;
+				
+                    if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
+                      WriteDacs <= '0';
+                      DacWriteNextState <= WriteCs3;
+                    end if;
+
+                  when WriteCs3 =>
+			
+                    WriteDacs <= '1';
+                    DacASetpointToWrite <= DacSetpoints(0,3);
+                    DacBSetpointToWrite <= DacSetpoints(1,3);
+                    DacCSetpointToWrite <= DacSetpoints(2,3);
+                    DacDSetpointToWrite <= DacSetpoints(3,3);
+                    DacESetpointToWrite <= DacSetpoints(4,3);
+                    DacFSetpointToWrite <= DacSetpoints(5,3);
+				
+                    nCsDacsA_i(0) <= nCsNotEnabled;
+                    nCsDacsA_i(1) <= nCsNotEnabled;
+                    nCsDacsA_i(2) <= nCsNotEnabled;
+                    nCsDacsA_i(3) <= nCsDacs0_i;
+                    nCsDacsB_i(0) <= nCsNotEnabled;
+                    nCsDacsB_i(1) <= nCsNotEnabled;
+                    nCsDacsB_i(2) <= nCsNotEnabled;
+                    nCsDacsB_i(3) <= nCsDacs1_i;
+                    nCsDacsC_i(0) <= nCsNotEnabled;
+                    nCsDacsC_i(1) <= nCsNotEnabled;
+                    nCsDacsC_i(2) <= nCsNotEnabled;
+                    nCsDacsC_i(3) <= nCsDacs2_i;
+                    nCsDacsD_i(0) <= nCsNotEnabled;
+                    nCsDacsD_i(1) <= nCsNotEnabled;
+                    nCsDacsD_i(2) <= nCsNotEnabled;
+                    nCsDacsD_i(3) <= nCsDacs3_i;
+                    nCsDacsE_i(0) <= nCsNotEnabled;
+                    nCsDacsE_i(1) <= nCsNotEnabled;
+                    nCsDacsE_i(2) <= nCsNotEnabled;
+                    nCsDacsE_i(3) <= nCsDacs4_i;
+                    nCsDacsF_i(0) <= nCsNotEnabled;
+                    nCsDacsF_i(1) <= nCsNotEnabled;
+                    nCsDacsF_i(2) <= nCsNotEnabled;
+                    nCsDacsF_i(3) <= nCsDacs5_i;
+				
+                    if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
+                      WriteDacs <= '0';
+                      DacWriteNextState <= NextChannel;
+                    end if;
+
+
+                  when NextChannel =>
+			
+                    if (DacSetpointReadAddressChannel < (DMActuatorsPerDac - 1)) then 
+                      DacSetpointReadAddressChannel <= DacSetpointReadAddressChannel + 1;
+                    else
+                      DacSetpointReadAddressChannel <= 0;
+                    end if;
+				
+                    DacWriteNextState <= Idle;
+                    --WriteDacs <= '0';
 					
-				else 
-				
-					DacSetpointReadAddressDac <= 0; 
-					
-					if (DacSetpointReadAddressController < (DMMaxControllerBoards - 1)) then 
-					
-						DacSetpointReadAddressController <= DacSetpointReadAddressController + 1; 
-						
-					else 
-					
-						DacWriteNextState <= WriteCs0;
-						
-					end if;				
-					
-				end if;
-
-			when WriteCs0 =>
-			
-				WriteDacs <= '1';
-				DacASetpointToWrite <= DacSetpoints(0,0);
-                                --DacASetpointToWrite <= x"5A5A5A";  -- works
-				DacBSetpointToWrite <= DacSetpoints(1,0);
-				DacCSetpointToWrite <= DacSetpoints(2,0);
-				DacDSetpointToWrite <= DacSetpoints(3,0);
-				DacESetpointToWrite <= DacSetpoints(4,0);
-				DacFSetpointToWrite <= DacSetpoints(5,0);
-				
-				nCsDacsA_i(0) <= nCsDacs0_i;
-				nCsDacsA_i(1) <= nCsNotEnabled;
-				nCsDacsA_i(2) <= nCsNotEnabled;
-				nCsDacsA_i(3) <= nCsNotEnabled;
-				nCsDacsB_i(0) <= nCsDacs1_i;
-				nCsDacsB_i(1) <= nCsNotEnabled;
-				nCsDacsB_i(2) <= nCsNotEnabled;
-				nCsDacsB_i(3) <= nCsNotEnabled;
-				nCsDacsC_i(0) <= nCsDacs2_i;
-				nCsDacsC_i(1) <= nCsNotEnabled;
-				nCsDacsC_i(2) <= nCsNotEnabled;
-				nCsDacsC_i(3) <= nCsNotEnabled;
-				nCsDacsD_i(0) <= nCsDacs3_i;
-				nCsDacsD_i(1) <= nCsNotEnabled;
-				nCsDacsD_i(2) <= nCsNotEnabled;
-				nCsDacsD_i(3) <= nCsNotEnabled;
-				nCsDacsE_i(0) <= nCsDacs4_i;
-				nCsDacsE_i(1) <= nCsNotEnabled;
-				nCsDacsE_i(2) <= nCsNotEnabled;
-				nCsDacsE_i(3) <= nCsNotEnabled;
-				nCsDacsF_i(0) <= nCsDacs5_i;
-				nCsDacsF_i(1) <= nCsNotEnabled;
-				nCsDacsF_i(2) <= nCsNotEnabled;
-				nCsDacsF_i(3) <= nCsNotEnabled;
-
-				if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
-				
-					WriteDacs <= '0';
-					DacWriteNextState <= WriteCs1;
-				
-				end if;
-				
-			when WriteCs1 =>
-			
-				WriteDacs <= '1';
-				DacASetpointToWrite <= DacSetpoints(0,1);
-				DacBSetpointToWrite <= DacSetpoints(1,1);
-				DacCSetpointToWrite <= DacSetpoints(2,1);
-				DacDSetpointToWrite <= DacSetpoints(3,1);
-				DacESetpointToWrite <= DacSetpoints(4,1);
-				DacFSetpointToWrite <= DacSetpoints(5,1);
-				
-				nCsDacsA_i(0) <= nCsNotEnabled;
-				nCsDacsA_i(1) <= nCsDacs0_i;
-				nCsDacsA_i(2) <= nCsNotEnabled;
-				nCsDacsA_i(3) <= nCsNotEnabled;
-				nCsDacsB_i(0) <= nCsNotEnabled;
-				nCsDacsB_i(1) <= nCsDacs1_i;
-				nCsDacsB_i(2) <= nCsNotEnabled;
-				nCsDacsB_i(3) <= nCsNotEnabled;
-				nCsDacsC_i(0) <= nCsNotEnabled;
-				nCsDacsC_i(1) <= nCsDacs2_i;
-				nCsDacsC_i(2) <= nCsNotEnabled;
-				nCsDacsC_i(3) <= nCsNotEnabled;
-				nCsDacsD_i(0) <= nCsNotEnabled;
-				nCsDacsD_i(1) <= nCsDacs3_i;
-				nCsDacsD_i(2) <= nCsNotEnabled;
-				nCsDacsD_i(3) <= nCsNotEnabled;
-				nCsDacsE_i(0) <= nCsNotEnabled;
-				nCsDacsE_i(1) <= nCsDacs4_i;
-				nCsDacsE_i(2) <= nCsNotEnabled;
-				nCsDacsE_i(3) <= nCsNotEnabled;
-				nCsDacsF_i(0) <= nCsNotEnabled;
-				nCsDacsF_i(1) <= nCsDacs5_i;
-				nCsDacsF_i(2) <= nCsNotEnabled;
-				nCsDacsF_i(3) <= nCsNotEnabled;
-
-				if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
-				
-					WriteDacs <= '0';
-					DacWriteNextState <= WriteCs2;
-				
-				end if;
-
-			when WriteCs2 =>
-			
-				WriteDacs <= '1';
-				DacASetpointToWrite <= DacSetpoints(0,2);
-				DacBSetpointToWrite <= DacSetpoints(1,2);
-				DacCSetpointToWrite <= DacSetpoints(2,2);
-				DacDSetpointToWrite <= DacSetpoints(3,2);
-				DacESetpointToWrite <= DacSetpoints(4,2);
-				DacFSetpointToWrite <= DacSetpoints(5,2);
-				
-				nCsDacsA_i(0) <= nCsNotEnabled;
-				nCsDacsA_i(1) <= nCsNotEnabled;
-				nCsDacsA_i(2) <= nCsDacs0_i;
-				nCsDacsA_i(3) <= nCsNotEnabled;
-				nCsDacsB_i(0) <= nCsNotEnabled;
-				nCsDacsB_i(1) <= nCsNotEnabled;
-				nCsDacsB_i(2) <= nCsDacs1_i;
-				nCsDacsB_i(3) <= nCsNotEnabled;
-				nCsDacsC_i(0) <= nCsNotEnabled;
-				nCsDacsC_i(1) <= nCsNotEnabled;
-				nCsDacsC_i(2) <= nCsDacs2_i;
-				nCsDacsC_i(3) <= nCsNotEnabled;
-				nCsDacsD_i(0) <= nCsNotEnabled;
-				nCsDacsD_i(1) <= nCsNotEnabled;
-				nCsDacsD_i(2) <= nCsDacs3_i;
-				nCsDacsD_i(3) <= nCsNotEnabled;
-				nCsDacsE_i(0) <= nCsNotEnabled;
-				nCsDacsE_i(1) <= nCsNotEnabled;
-				nCsDacsE_i(2) <= nCsDacs4_i;
-				nCsDacsE_i(3) <= nCsNotEnabled;
-				nCsDacsF_i(0) <= nCsNotEnabled;
-				nCsDacsF_i(1) <= nCsNotEnabled;
-				nCsDacsF_i(2) <= nCsDacs5_i;
-				nCsDacsF_i(3) <= nCsNotEnabled;
-				
-				if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
-				
-					WriteDacs <= '0';
-					DacWriteNextState <= WriteCs3;
-				
-				end if;
-
-			when WriteCs3 =>
-			
-				WriteDacs <= '1';
-				DacASetpointToWrite <= DacSetpoints(0,3);
-				DacBSetpointToWrite <= DacSetpoints(1,3);
-				DacCSetpointToWrite <= DacSetpoints(2,3);
-				DacDSetpointToWrite <= DacSetpoints(3,3);
-				DacESetpointToWrite <= DacSetpoints(4,3);
-				DacFSetpointToWrite <= DacSetpoints(5,3);
-				
-				nCsDacsA_i(0) <= nCsNotEnabled;
-				nCsDacsA_i(1) <= nCsNotEnabled;
-				nCsDacsA_i(2) <= nCsNotEnabled;
-				nCsDacsA_i(3) <= nCsDacs0_i;
-				nCsDacsB_i(0) <= nCsNotEnabled;
-				nCsDacsB_i(1) <= nCsNotEnabled;
-				nCsDacsB_i(2) <= nCsNotEnabled;
-				nCsDacsB_i(3) <= nCsDacs1_i;
-				nCsDacsC_i(0) <= nCsNotEnabled;
-				nCsDacsC_i(1) <= nCsNotEnabled;
-				nCsDacsC_i(2) <= nCsNotEnabled;
-				nCsDacsC_i(3) <= nCsDacs2_i;
-				nCsDacsD_i(0) <= nCsNotEnabled;
-				nCsDacsD_i(1) <= nCsNotEnabled;
-				nCsDacsD_i(2) <= nCsNotEnabled;
-				nCsDacsD_i(3) <= nCsDacs3_i;
-				nCsDacsE_i(0) <= nCsNotEnabled;
-				nCsDacsE_i(1) <= nCsNotEnabled;
-				nCsDacsE_i(2) <= nCsNotEnabled;
-				nCsDacsE_i(3) <= nCsDacs4_i;
-				nCsDacsF_i(0) <= nCsNotEnabled;
-				nCsDacsF_i(1) <= nCsNotEnabled;
-				nCsDacsF_i(2) <= nCsNotEnabled;
-				nCsDacsF_i(3) <= nCsDacs5_i;
-				
-				if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
-				
-					WriteDacs <= '0';
-					DacWriteNextState <= NextChannel;
-				
-				end if;
-
-
-			when NextChannel =>
-			
-				if (DacSetpointReadAddressChannel < (DMActuatorsPerDac - 1)) then 
-                                  DacSetpointReadAddressChannel <= DacSetpointReadAddressChannel + 1;
-                                else
-                                  DacSetpointReadAddressChannel <= 0;
-                                end if;
-				
-                                DacWriteNextState <= Idle;
-                                --WriteDacs <= '0';
-					
-			when others => -- ought never to get here...reset everything!
+                  when others => -- ought never to get here...reset everything!
 							
-				DacWriteNextState <= Idle;
-				DacWriteCurrentState <= Idle;
-                                --WriteDacs <= '0';
+                    DacWriteNextState <= Idle;
+                    DacWriteCurrentState <= Idle;
+                    WriteDacs <= '0';
 				
 		end case;
 

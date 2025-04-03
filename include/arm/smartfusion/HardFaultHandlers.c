@@ -9,7 +9,7 @@
 #include <stdint.h>
 #include "format/formatf.h"
 
-void Process();
+//void Process();
 
 #ifdef __cplusplus
 extern "C" {
@@ -57,7 +57,7 @@ extern "C" {
 		
 		//~ while (1); //we really don't wanna lock up in flight!
 		//debug
-		while(1) { Process(); }
+		//while(1) { Process(); }
 		
 		//Just attempt to reboot and recover...
 		void (*boot)() = 0;
@@ -77,7 +77,7 @@ extern "C" {
 		formatf ("PC [R15] = %x\n", stacked_pc);
 		formatf ("LR [R14] = %x\n", stacked_lr);
 		
-		while(1) { Process(); }
+		//while(1) { Process(); }
 		
 		//Flight: just attempt to reboot and recover...
 		void (*boot)() = 0;
@@ -97,7 +97,7 @@ extern "C" {
 		formatf ("PC [R15] = %x\n", stacked_pc);
 		formatf ("LR [R14] = %x\n", stacked_lr);
 		
-		while(1) { Process(); }
+		//while(1) { Process(); }
 		
 		//Flight: just attempt to reboot and recover...
 		void (*boot)() = 0;

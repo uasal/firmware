@@ -133,59 +133,50 @@ begin
 	
 		if (rst = '1') then 
 		
-			SpiRst <= '1';			
-			LastWriteDac <= '0';
-			LastSpiXferComplete <= '0';
-			TransferComplete <= '0';
-			DacReadback <= (others => '0');
+                  SpiRst <= '1';			
+                  LastWriteDac <= '0';
+                  LastSpiXferComplete <= '0';
+                  TransferComplete <= '0';
+                  DacReadback <= (others => '0');
 			
 		else
 			
-			if ( (clk'event) and (clk = '1') ) then
-			
-				--Follow Drdy
-				if (WriteDac /= LastWriteDac) then
-				
-					LastWriteDac <= WriteDac;
-					
-					TransferComplete <= '0';
-					
-					--Here we go...
-					if (WriteDac = '1') then
-					
-						--Initiate reading the data.
-						SpiRst <= '0';
-																	
-					end if;
-					
-				else
-				
-				if (WriteDac = '0') then TransferComplete <= '0'; end if;
+                  if ( (clk'event) and (clk = '1') ) then
 
-					--Wait for Spi xfer to complete, then grab the sample and we're done
-					if (SpiXferComplete /= LastSpiXferComplete) then
+                    if (WriteDac = '0') then
+                      SpiRst <= '1';
+                      TransferComplete <= '0';
+                    else
+                      --Follow Drdy
+                      if (WriteDac /= LastWriteDac) then
+                        LastWriteDac <= WriteDac;
+                        TransferComplete <= '0';
 					
-						LastSpiXferComplete <= SpiXferComplete;
-
-						if (SpiXferComplete = '1') then
-						
-							--Grab read back
-							DacReadback <= DacReadback_i;
-												
-							--turn off spi master bus
-							SpiRst <= '1';
-							TransferComplete <= '1';
-							
-						end if;
-						
-					end if;		
+                        --Here we go...
+                        if (WriteDac = '1') then
+                          --Initiate reading the data.
+                          SpiRst <= '0';
+                        end if;
 					
-				end if;
+                      else
 				
-			end if;		
-			
-		end if;	
+                        if (WriteDac = '0') then TransferComplete <= '0'; end if;
+                                        --Wait for Spi xfer to complete, then grab the sample and we're done
+                        if (SpiXferComplete /= LastSpiXferComplete) then
+                          LastSpiXferComplete <= SpiXferComplete;
+                          if (SpiXferComplete = '1') then
+                            --Grab read back
+                            DacReadback <= DacReadback_i;
+                            --turn off spi master bus
+                            SpiRst <= '1';
+                            TransferComplete <= '1';			
+                          end if;						
+                        end if;		
+                      end if;	
+                    end if;		
+                  end if;
+                end if;	
 		
-	end process;
+end process;
 	
 end SpiDac;

@@ -157,13 +157,15 @@ struct CGraphDMHardwareInterface
 
 } __attribute__((__packed__));
 
+// We'll go in and take out the nesting tomorrow (4/3/2025)
+// Then we'll see where this stands
 struct CGraphDMSetpoint {
   uint32_t DacSetpoint;
 } __attribute__((__packed__));
 
 struct CGraphDMRamInterface
 {
-  CGraphDMSetpoint DacSetpointsA[DMMaxControllerBoards][DMMDacsPerControllerBoard][DMActuatorsPerDac];
+  uint32_t DacSetpointsA[DMMaxControllerBoards][DMMDacsPerControllerBoard][DMActuatorsPerDac];
 } __attribute__((__packed__));
 
 class CGraphDMProtoHardwareMmapper
