@@ -1401,8 +1401,8 @@ begin
                     if (DacSetpointReadAddressDac < (DMMDacsPerControllerBoard - 1)) then 	
                       DacSetpointReadAddressDac <= DacSetpointReadAddressDac + 1;
                     else	
-                      DacSetpointReadAddressDac <= 0;		
                       if (DacSetpointReadAddressController < (DMMaxControllerBoards - 1)) then 
+                        DacSetpointReadAddressDac <= 0;		
                         DacSetpointReadAddressController <= DacSetpointReadAddressController + 1; 
                       --else 
                       --  DacWriteNextState <= WriteCs0;
