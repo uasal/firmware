@@ -5,7 +5,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-use IEEE.std_logic_unsigned.all;
+--~ use IEEE.std_logic_unsigned.all;
 use work.CGraphDMTypes.all;
 
 entity DMMainPorts is
@@ -71,6 +71,8 @@ entity DMMainPorts is
     Oe3 : out std_logic;
     Rx3 : in std_logic;
     PPS : in std_logic;
+	
+	Testpoints : out std_logic_vector(5 downto 0);
 		
     Ux1SelJmp : inout std_logic--;
   );
@@ -632,9 +634,6 @@ begin
   MasterClk <= clk;
   UartClk <= clk;
 
-  StateOut <= std_logic_vector(to_unsigned(DacWriteCurrentState,5));
-
-
   SerialNumber <= x"DEADBEEF"; -- this is the DM serial number
   BuildNumber <=  x"000FADED"; -- this is the DM serial number
 
@@ -716,13 +715,13 @@ begin
   end generate;
 
   
-  --~ DacSetpointWriteAddress <= (conv_integer(RamAddress) - 1024)/4;  --
+  --~ DacSetpointWriteAddress <= (to_integer(unsigned(RamAddress) - 1024)/4;  --
                                                                          --keep
                                                                          --this
                                                                          --in
                                                                          --mind
                                                                          --when debugging
-  DacSetpointWriteAddress <= (conv_integer(RamAddress1) - 4096)/4; -- not offset
+  DacSetpointWriteAddress <= (to_integer(unsigned(RamAddress1)) - 4096)/4; -- not offset
                                                           -- by 1024. actually
                                                           -- offset by 0x1000
                                                           -- and then we need
@@ -1360,6 +1359,8 @@ begin
   --- Is this also part of the FSM?
 --  PowerSync <= '1';
 
+  Testpoints(5 downto 3) <= std_logic_vector(to_unsigned(DacSetpointReadAddressController, 3));
+  Testpoints(2 downto 0) <= std_logic_vector(to_unsigned(DacSetpointReadAddressDac, 3)); 
 
   ----------------------------- Clocked Logic / Main Loop ----------------------------------
   process(MasterReset, MasterClk)
@@ -1385,6 +1386,7 @@ begin
 		case DacWriteCurrentState is
 
                   when Idle =>
+				  StateOut <= "00000";
                     DacSetpointReadAddressController <= 0; 
                     DacSetpointReadAddressDac <= 0; 
                     --DacSetpointReadAddressChannel <= 0; 
@@ -1392,6 +1394,7 @@ begin
                     DacWriteNextState <= ReadChannel;
 			
                   when ReadChannel =>
+				  StateOut <= "00001";
                     --copy from ram to register (this works on a single clock cause we set the ram up for aysnc read)
                     --DacSetpoints(DacSetpointReadedAddressController, DacSetpointReadedAddressDac) <= DacSetpointFromRead;
                     DacWriteNextState <= LatchChannel;
@@ -1410,6 +1413,7 @@ begin
                     end if;
 
                   when LatchChannel =>
+				  StateOut <= "00010";
                     --copy from ram to register (this works on a single clock cause we set the ram up for aysnc read)
                     DacSetpoints(DacSetpointReadAddressController, DacSetpointReadAddressDac) <= DacSetpointFromRead;
                     WriteDacs <= '0';
@@ -1423,7 +1427,7 @@ begin
                     end if;     
 
                   when WriteCs0 =>
-
+				  StateOut <= "00011";
                     if ( (DacASetpointWritten = '0') and (DacBSetpointWritten = '0') and (DacCSetpointWritten = '0') and (DacDSetpointWritten = '0') and (DacESetpointWritten = '0') and (DacFSetpointWritten = '0') ) then
                       WriteDacs <= '1';
                     end if;
@@ -1465,6 +1469,7 @@ begin
                     end if;
 				
                   when WriteCs1 =>
+				  StateOut <= "00100";
 			
                     WriteDacs <= '1';
                     DacASetpointToWrite <= DacSetpoints(0,1);
@@ -1505,7 +1510,7 @@ begin
                     end if;
 
                   when WriteCs2 =>
-                    
+                    StateOut <= "00101";
                     WriteDacs <= '1';
                     DacASetpointToWrite <= DacSetpoints(0,2);
                     DacBSetpointToWrite <= DacSetpoints(1,2);
@@ -1545,7 +1550,7 @@ begin
                     end if;
 
                   when WriteCs3 =>
-			
+			      StateOut <= "00110";
                     WriteDacs <= '1';
                     DacASetpointToWrite <= DacSetpoints(0,3);
                     DacBSetpointToWrite <= DacSetpoints(1,3);
@@ -1586,7 +1591,7 @@ begin
 
 
                   when NextChannel =>
-			
+			      StateOut <= "00111";
                     if (DacSetpointReadAddressChannel < (DMActuatorsPerDac - 1)) then 
                       DacSetpointReadAddressChannel <= DacSetpointReadAddressChannel + 1;
                     else
@@ -1597,7 +1602,7 @@ begin
                     --WriteDacs <= '0';
 					
                   when others => -- ought never to get here...reset everything!
-							
+					StateOut <= "11111";		
                     DacWriteNextState <= Idle;
                     DacWriteCurrentState <= Idle;
                     WriteDacs <= '0';

@@ -3,10 +3,17 @@
 <drcreport>
   <header>EvalBoardSandbox</header>
   <drc>
-    <status>C:\Microchip\Libero_SoC_v2023.2\Designer/data/drcreport\warn.png</status>
+    <status>/home/summer/microchip/Libero_SoC_v2023.2/Libero/data/drcreport/warn.png</status>
     <StatusMessage>Warning</StatusMessage>
     <message>Floating Driver</message>
     <detail>Floating output bus pin DMMainPorts_1:StateOut[4:0]</detail>
     <crossprobe>liberoaction://cross_probe/smartdesign/EvalBoardSandbox/pins/DMMainPorts_1:StateOut</crossprobe>
+  </drc>
+  <drc>
+    <status>/home/summer/microchip/Libero_SoC_v2023.2/Libero/data/drcreport/warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output bus pin DMMainPorts_1:Testpoints[5:0]</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/EvalBoardSandbox/pins/DMMainPorts_1:Testpoints</crossprobe>
   </drc>
 </drcreport>

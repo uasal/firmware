@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Thu Apr  3 15:51:20 2025
+// Created by SmartDesign Fri Apr  4 10:31:03 2025
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -156,12 +156,9 @@ wire          SckD_net_0;
 wire          SckE_net_0;
 wire          SckF_net_0;
 wire   [0:0]  TP1_net_0;
-wire   [0:0]  TP2_net_0;
 wire   [1:1]  TP2_0;
 wire   [2:2]  TP3_0;
-wire   [1:1]  TP4_net_0;
 wire          TP4_0;
-wire   [2:2]  TP5_net_0;
 wire          Tx0_net_0;
 wire          Tx1_net_0;
 wire          Tx2_net_0;
@@ -184,20 +181,23 @@ wire          SckC_net_1;
 wire          SckD_net_1;
 wire          SckE_net_1;
 wire          SckF_net_1;
+wire          TP1_net_1;
+wire          TP2_0_net_0;
+wire          TP3_0_net_0;
+wire          TP4_0_net_1;
+wire          MosiA_net_2;
 wire   [3:0]  nCsA_net_1;
 wire   [3:0]  nCsB_net_1;
 wire   [3:0]  nCsC_net_1;
 wire   [3:0]  nCsD_net_1;
 wire   [3:0]  nCsE_net_1;
 wire   [3:0]  nCsF_net_1;
-wire          TP1_net_1;
-wire          TP2_0_net_0;
-wire          TP3_0_net_0;
-wire          TP4_0_net_1;
-wire          MosiA_net_2;
 wire   [3:3]  StateOut_slice_0;
 wire   [4:4]  StateOut_slice_1;
-wire   [3:3]  nCsA_slice_0;
+wire   [0:0]  nCsA_slice_0;
+wire   [1:1]  nCsA_slice_1;
+wire   [2:2]  nCsA_slice_2;
+wire   [3:3]  nCsA_slice_3;
 wire   [4:0]  StateOut_net_0;
 wire   [31:0] AMBA_SLAVE_0_PADDRS_net_0;
 wire   [31:0] AMBA_SLAVE_0_1_PADDRS_net_0;
@@ -250,6 +250,16 @@ assign SckE_net_1  = SckE_net_0;
 assign SckE        = SckE_net_1;
 assign SckF_net_1  = SckF_net_0;
 assign SckF        = SckF_net_1;
+assign TP1_net_1   = TP1_net_0[0];
+assign TP1         = TP1_net_1;
+assign TP2_0_net_0 = TP2_0[1];
+assign TP2         = TP2_0_net_0;
+assign TP3_0_net_0 = TP3_0[2];
+assign TP3         = TP3_0_net_0;
+assign TP4_0_net_1 = TP4_0;
+assign TP4         = TP4_0_net_1;
+assign MosiA_net_2 = MosiA_net_0;
+assign TP5         = MosiA_net_2;
 assign nCsA_net_1  = nCsA_net_0;
 assign nCsA[3:0]   = nCsA_net_1;
 assign nCsB_net_1  = nCsB_net_0;
@@ -262,30 +272,20 @@ assign nCsE_net_1  = nCsE_net_0;
 assign nCsE[3:0]   = nCsE_net_1;
 assign nCsF_net_1  = nCsF_net_0;
 assign nCsF[3:0]   = nCsF_net_1;
-assign TP1_net_1   = TP1_net_0[0];
-assign TP1         = TP1_net_1;
-assign TP2_0_net_0 = TP2_0[1];
-assign TP2         = TP2_0_net_0;
-assign TP3_0_net_0 = TP3_0[2];
-assign TP3         = TP3_0_net_0;
-assign TP4_0_net_1 = TP4_0;
-assign TP4         = TP4_0_net_1;
-assign MosiA_net_2 = MosiA_net_0;
-assign TP5         = MosiA_net_2;
 //--------------------------------------------------------------------
 // Slices assignments
 //--------------------------------------------------------------------
 assign EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PADDRS13to0 = AMBA_SLAVE_0_1_PADDRS_net_0[13:0];
 assign EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDRS13to0   = AMBA_SLAVE_0_PADDRS_net_0[13:0];
 assign TP1_net_0[0]                                 = StateOut_net_0[0:0];
-assign TP2_net_0[0]                                 = nCsA_net_0[0:0];
 assign TP2_0[1]                                     = StateOut_net_0[1:1];
 assign TP3_0[2]                                     = StateOut_net_0[2:2];
-assign TP4_net_0[1]                                 = nCsA_net_0[1:1];
-assign TP5_net_0[2]                                 = nCsA_net_0[2:2];
 assign StateOut_slice_0[3]                          = StateOut_net_0[3:3];
 assign StateOut_slice_1[4]                          = StateOut_net_0[4:4];
-assign nCsA_slice_0[3]                              = nCsA_net_0[3:3];
+assign nCsA_slice_0[0]                              = nCsA_net_0[0:0];
+assign nCsA_slice_1[1]                              = nCsA_net_0[1:1];
+assign nCsA_slice_2[2]                              = nCsA_net_0[2:2];
+assign nCsA_slice_3[3]                              = nCsA_net_0[3:3];
 //--------------------------------------------------------------------
 // Component instances
 //--------------------------------------------------------------------
@@ -346,6 +346,7 @@ DMMainPorts DMMainPorts_1(
         .Oe2            ( Oe2_net_0 ),
         .Tx3            (  ),
         .Oe3            (  ),
+        .Testpoints     (  ),
         // Inouts
         .Ux1SelJmp      ( Ux1SelJmp ) 
         );
