@@ -58,6 +58,10 @@ entity SpiDacPorts is
 		Mosi : out  std_logic;
 		Miso : in  std_logic;
 		
+		--Debug
+		SpiRstOut : out std_logic;
+		SpiXferCompleteOut : out std_logic;
+
 		--Control signals
 		DacWriteOut : in std_logic_vector(BIT_WIDTH - 1 downto 0);
 		WriteDac : in std_logic;
@@ -124,6 +128,9 @@ begin
 	);
 	
 	nCs <= SpiRst; --these concepts are synchronous in this design
+	
+	SpiRstOut <= SpiRst;
+	SpiXferCompleteOut <= SpiXferComplete;
 		
 	--~ TransferComplete <= SpiRst; --these concepts are synchronous in this design
 		
@@ -143,38 +150,49 @@ begin
 			
                   if ( (clk'event) and (clk = '1') ) then
 
-                    if (WriteDac = '0') then
-                      SpiRst <= '1';
-                      TransferComplete <= '0';
-                    else
-                      --Follow Drdy
+                    --~ if (WriteDac = '0') then
+                      
+					  --~ SpiRst <= '1';
+                      --~ TransferComplete <= '0';
+                    
+					--~ else
+                    
+					--Follow Drdy
                       if (WriteDac /= LastWriteDac) then
-                        LastWriteDac <= WriteDac;
-                        TransferComplete <= '0';
-					
+                       
+					   LastWriteDac <= WriteDac;
+                    
                         --Here we go...
                         if (WriteDac = '1') then
                           --Initiate reading the data.
                           SpiRst <= '0';
+						else
+						  TransferComplete <= '0';
                         end if;
 					
                       else
 				
                         if (WriteDac = '0') then TransferComplete <= '0'; end if;
-                                        --Wait for Spi xfer to complete, then grab the sample and we're done
+                     
+						--Wait for Spi xfer to complete, then grab the sample and we're done
                         if (SpiXferComplete /= LastSpiXferComplete) then
-                          LastSpiXferComplete <= SpiXferComplete;
-                          if (SpiXferComplete = '1') then
-                            --Grab read back
-                            DacReadback <= DacReadback_i;
-                            --turn off spi master bus
-                            SpiRst <= '1';
-                            TransferComplete <= '1';			
-                          end if;						
+                        
+							LastSpiXferComplete <= SpiXferComplete;
+                          
+							if (SpiXferComplete = '1') then
+
+								--Grab read back
+								DacReadback <= DacReadback_i;
+								
+								--turn off spi master bus
+								SpiRst <= '1';
+								TransferComplete <= '1';			
+							
+							end if;						
                         end if;		
                       end if;	
                     end if;		
-                  end if;
+                  --~ end if;
                 end if;	
 		
 end process;

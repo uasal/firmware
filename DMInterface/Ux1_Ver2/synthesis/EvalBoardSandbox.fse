@@ -1,18 +1,37 @@
 
-fsm_encoding {111089410895} onehot
+fsm_encoding {271432414321} onehot
 
-fsm_state_encoding {111089410895} 000 {0000001}
+fsm_state_encoding {271432414321} idle {000000000001}
 
-fsm_state_encoding {111089410895} 001 {0000010}
+fsm_state_encoding {271432414321} readchannel {000000000010}
 
-fsm_state_encoding {111089410895} 010 {0000100}
+fsm_state_encoding {271432414321} latchchannel {000000000100}
 
-fsm_state_encoding {111089410895} 011 {0001000}
+fsm_state_encoding {271432414321} prewritecs0 {000000001000}
 
-fsm_state_encoding {111089410895} 100 {0010000}
+fsm_state_encoding {271432414321} writecs0 {000000010000}
 
-fsm_state_encoding {111089410895} 101 {0100000}
+fsm_state_encoding {271432414321} prewritecs1 {000000100000}
 
-fsm_state_encoding {111089410895} 110 {1000000}
+fsm_state_encoding {271432414321} writecs1 {000001000000}
 
-fsm_registers {111089410895} {sm0_state[6]}  {sm0_state[5]}  {sm0_state[4]}  {sm0_state[3]}  {sm0_state[2]}  {sm0_state[1]}  {sm0_state[0]} 
+fsm_state_encoding {271432414321} prewritecs2 {000010000000}
+
+fsm_state_encoding {271432414321} writecs2 {000100000000}
+
+fsm_state_encoding {271432414321} prewritecs3 {001000000000}
+
+fsm_state_encoding {271432414321} writecs3 {010000000000}
+
+fsm_state_encoding {271432414321} nextchannel {100000000000}
+
+fsm_registers {271432414321} {DacWriteNextState[0]}  {DacWriteNextState[1]}  {DacWriteNextState[2]}  {DacWriteNextState[3]}  {DacWriteNextState[4]}  {DacWriteNextState[5]}  {DacWriteNextState[6]}  {DacWriteNextState[7]}  {DacWriteNextState[8]}  {DacWriteNextState[9]}  {DacWriteNextState[10]}  {DacWriteNextState[11]} 
+s2 {000100000000}
+
+fsm_state_encoding {271432414321} prewritecs3 {001000000000}
+
+fsm_state_encoding {271432414321} writecs3 {010000000000}
+
+fsm_state_encoding {271432414321} nextchannel {100000000000}
+
+fsm_registers {271432414321} {DacWriteNextState[0]}  {DacWriteNextState[1]}  {DacWriteNextState[2]}  {DacWriteNextState[3]}  {DacWriteNextState[4]}  {DacWriteNextState[5]}  {DacWriteNextState[6]}  {DacWriteNextState[7]}  {DacWriteNextState[8]}  {DacWriteNextState[9]}  {DacWriteNextState[10]}  {DacWriteNextState[11]} 

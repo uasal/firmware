@@ -1,6 +1,6 @@
 <project name="EvalBoardSandbox" version="1.2">
     <ProjectDirectory>
-        C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\designer\EvalBoardSandbox\EvalBoardSandbox_fp
+        /home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/designer/EvalBoardSandbox/EvalBoardSandbox_fp
     </ProjectDirectory>
     <View>
         ChainView
@@ -9,7 +9,7 @@
         M2S010
     </LiberoTargetDevice>
     <LogFile>
-        C:\Users\SKaye\repos10\firmware\DMInterface\Ux1_Ver2\designer\EvalBoardSandbox\EvalBoardSandbox_fp\EvalBoardSandbox.log
+        /home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/designer/EvalBoardSandbox/EvalBoardSandbox_fp/EvalBoardSandbox.log
     </LogFile>
     <SerializationOption>
         Skip
@@ -17,7 +17,7 @@
     <ProgrammingInterface>
         JTAGMode
     </ProgrammingInterface>
-    <programmer status="enable" type="FlashPro6" revision="UndefRev" connection="usb2.0">
+    <programmer status="enable" type="FlashPro6" revision="UndefRev" connection="UndefConn">
         <name>
             5A047401
         </name>

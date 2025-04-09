@@ -138,48 +138,78 @@ set_io SckF            \
     -fixed yes         \
     -DIRECTION OUTPUT
 
+set_io nLDacs            \
+    -pinname K16        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+set_io nRstDacs            \
+    -pinname J13        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+set_io nClrDacs            \
+    -pinname J12        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+set_io PowerHVnEn            \
+    -pinname J16        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
 
 set_io TP1             \
-    -pinname K1        \
+    -pinname L1        \
     -fixed yes         \
     -iostd LVCMOS25    \
     -DIRECTION OUTPUT
 
 
 set_io TP2             \
-    -pinname J5        \
+    -pinname K1        \
     -fixed yes         \
     -iostd LVCMOS25    \
     -DIRECTION OUTPUT
 
 
 set_io TP3             \
-    -pinname J3        \
+    -pinname J5        \
     -fixed yes         \
     -iostd LVCMOS25    \
     -DIRECTION OUTPUT
 
 
 set_io TP4             \
-    -pinname J2        \
+    -pinname J3        \
     -fixed yes         \
     -iostd LVCMOS25    \
     -DIRECTION OUTPUT
 
 
 set_io TP5             \
-    -pinname H1        \
+    -pinname J2        \
     -fixed yes         \
     -iostd LVCMOS25    \
     -DIRECTION OUTPUT
 
 
 set_io TP6             \
-    -pinname H5        \
+    -pinname J1        \
     -fixed yes         \
     -iostd LVCMOS25    \
     -DIRECTION OUTPUT
 
+set_io TP7             \
+    -pinname H1        \
+    -fixed yes         \
+    -iostd LVCMOS25    \
+    -DIRECTION OUTPUT
+
+set_io TP8             \
+    -pinname H5        \
+    -fixed yes         \
+    -iostd LVCMOS25    \
+    -DIRECTION OUTPUT
 
 set_io Tx0             \
     -pinname H13       \
