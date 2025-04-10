@@ -628,11 +628,11 @@ architecture DMMain of DMMainPorts is
   signal SpiRstOutA : std_logic;
   signal SpiXferCompleteOutA : std_logic;
 	
-	type DacProtoWriteStates is ( Idle, ReadChannel, LatchChannel, PreWriteCs0, WriteCs0, PreWriteCs1, WriteCs1, PreWriteCs2, WriteCs2, PreWriteCs3, WriteCs3, NextChannel);
+	type DacProtoWriteStates is ( Idle, ConfigOffset0, WriteConfigOffset0, ConfigOffset1, WriteConfigOffset1, ABSelectReg, WriteABSelectReg, GainReg, WriteGainReg, OffsetReg, WriteOffsetReg, ReadChannel, LatchChannel, PreWriteCs0, WriteCs0, PreWriteCs1, WriteCs1, PreWriteCs2, WriteCs2, PreWriteCs3, WriteCs3, NextChannel);
 	signal DacWriteNextState : DacProtoWriteStates;
 	--signal DacWriteCurrentState : DacProtoWriteStates;
   
-  signal StateOut : std_logic_vector(3 downto 0);
+  signal StateOut : std_logic_vector(4 downto 0);
 
   -- And a few constants
   constant nCsEnabled : std_logic := '0';
@@ -1413,15 +1413,15 @@ begin
 
   Testpoints(7) <= WriteDacs;
   Testpoints(6) <= MosiDacA_i;
-  Testpoints(5) <= SckDacA_i;
-  Testpoints(4) <= nCsDacs0_i;
+  Testpoints(5) <= nCsDacsA_i(0);
+  --Testpoints(4) <= nCsDacs0_i;
   --~ Testpoints(3) <= SpiXferCompleteOutA;
   --~ Testpoints(2) <= SpiRstOutA;
   --~ Testpoints(1) <= DacASetpointWritten;
   --~ Testpoints(0) <= MasterClk;
   
   --~ Testpoints(5 downto 4) <= std_logic_vector(to_unsigned(DacSetpointReadAddressController, 3))(2 downto 1);
-  Testpoints(3 downto 0) <= StateOut;
+  Testpoints(4 downto 0) <= StateOut(4 downto 0);
   --~ Testpoints(5 downto 3) <= std_logic_vector(to_unsigned(DacSetpointReadAddressController, 3));
   --~ Testpoints(2 downto 0) <= std_logic_vector(to_unsigned(DacSetpointReadAddressDac, 3)); 
 
@@ -1432,7 +1432,7 @@ begin
     if (MasterReset = '1') then	
       --This is where we have to actually set all of our registers, since the M2S devices don't support initialization as though they are from the 1980's...
       -- Do we have anything for the Master Reset?
-      DacWriteNextState <= Idle;
+      DacWriteNextState <= ConfigOffset0;
       --DacWriteCurrentState <= Idle;
       -- also initialize these counting variables (won't upset state machine if
       -- not initialized, but good practice
@@ -1452,11 +1452,244 @@ begin
 
           -- Need a configure state machine that is onle executed at start up
           -- Or maybe every time there is a MasterReset
-          --when Start =>
-          --  StateOut <= 10000";
+          when ConfigOffset0 =>
+            StateOut <= "10000";
+            WriteDacs <= '0';
+            DacASetpointToWrite <= x"020000";
+            DacBSetpointToWrite <= x"020000";
+            DacCSetpointToWrite <= x"020000";
+            DacDSetpointToWrite <= x"020000";
+            DacESetpointToWrite <= x"020000";
+            DacFSetpointToWrite <= x"020000";
+            if ( (DacASetpointWritten = '0') and (DacBSetpointWritten = '0') and (DacCSetpointWritten = '0') and (DacDSetpointWritten = '0') and (DacESetpointWritten = '0') and (DacFSetpointWritten = '0') ) then
+              DacWriteNextState <= WriteConfigOffset0;
+            end if;
+
+          when WriteConfigOffset0 =>
+            StateOut <= "10001";
+            WriteDacs <= '1';
+            -- confgiuration is the same for all dacs
+            -- I think I can write the same to all the dacs on all the boards
+            nCsDacsA_i(0) <= nCsDacs0_i;
+            nCsDacsA_i(1) <= nCsDacs0_i;
+            nCsDacsA_i(2) <= nCsDacs0_i;
+            nCsDacsA_i(3) <= nCsDacs0_i;
+            nCsDacsB_i(0) <= nCsDacs1_i;
+            nCsDacsB_i(1) <= nCsDacs1_i;
+            nCsDacsB_i(2) <= nCsDacs1_i;
+            nCsDacsB_i(3) <= nCsDacs1_i;
+            nCsDacsC_i(0) <= nCsDacs2_i;
+            nCsDacsC_i(1) <= nCsDacs2_i;
+            nCsDacsC_i(2) <= nCsDacs2_i;
+            nCsDacsC_i(3) <= nCsDacs2_i;
+            nCsDacsD_i(0) <= nCsDacs3_i;
+            nCsDacsD_i(1) <= nCsDacs3_i;
+            nCsDacsD_i(2) <= nCsDacs3_i;
+            nCsDacsD_i(3) <= nCsDacs3_i;
+            nCsDacsE_i(0) <= nCsDacs4_i;
+            nCsDacsE_i(1) <= nCsDacs4_i;
+            nCsDacsE_i(2) <= nCsDacs4_i;
+            nCsDacsE_i(3) <= nCsDacs4_i;
+            nCsDacsF_i(0) <= nCsDacs5_i;
+            nCsDacsF_i(1) <= nCsDacs5_i;
+            nCsDacsF_i(2) <= nCsDacs5_i;
+            nCsDacsF_i(3) <= nCsDacs5_i;
+            
+            if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
+              DacWriteNextState <= ConfigOffset1;
+            end if;
+
+          when ConfigOffset1 =>
+            StateOut <= "10010";
+            WriteDacs <= '0';
+            DacASetpointToWrite <= x"030000";
+            DacBSetpointToWrite <= x"030000";
+            DacCSetpointToWrite <= x"030000";
+            DacDSetpointToWrite <= x"030000";
+            DacESetpointToWrite <= x"030000";
+            DacFSetpointToWrite <= x"030000";
+            if ( (DacASetpointWritten = '0') and (DacBSetpointWritten = '0') and (DacCSetpointWritten = '0') and (DacDSetpointWritten = '0') and (DacESetpointWritten = '0') and (DacFSetpointWritten = '0') ) then
+              DacWriteNextState <= WriteConfigOffset1;
+            end if;
+
+          when WriteConfigOffset1 =>
+            StateOut <= "10011";
+            WriteDacs <= '1';
+            -- confgiuration is the same for all dacs
+            -- I think I can write the same to all the dacs on all the boards
+            nCsDacsA_i(0) <= nCsDacs0_i;
+            nCsDacsA_i(1) <= nCsDacs0_i;
+            nCsDacsA_i(2) <= nCsDacs0_i;
+            nCsDacsA_i(3) <= nCsDacs0_i;
+            nCsDacsB_i(0) <= nCsDacs1_i;
+            nCsDacsB_i(1) <= nCsDacs1_i;
+            nCsDacsB_i(2) <= nCsDacs1_i;
+            nCsDacsB_i(3) <= nCsDacs1_i;
+            nCsDacsC_i(0) <= nCsDacs2_i;
+            nCsDacsC_i(1) <= nCsDacs2_i;
+            nCsDacsC_i(2) <= nCsDacs2_i;
+            nCsDacsC_i(3) <= nCsDacs2_i;
+            nCsDacsD_i(0) <= nCsDacs3_i;
+            nCsDacsD_i(1) <= nCsDacs3_i;
+            nCsDacsD_i(2) <= nCsDacs3_i;
+            nCsDacsD_i(3) <= nCsDacs3_i;
+            nCsDacsE_i(0) <= nCsDacs4_i;
+            nCsDacsE_i(1) <= nCsDacs4_i;
+            nCsDacsE_i(2) <= nCsDacs4_i;
+            nCsDacsE_i(3) <= nCsDacs4_i;
+            nCsDacsF_i(0) <= nCsDacs5_i;
+            nCsDacsF_i(1) <= nCsDacs5_i;
+            nCsDacsF_i(2) <= nCsDacs5_i;
+            nCsDacsF_i(3) <= nCsDacs5_i;
+            
+            if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
+              DacWriteNextState <= ABSelectReg;
+            end if;
+
+          when ABSelectReg =>
+            StateOut <= "10100";
+            WriteDacs <= '0';
+            DacASetpointToWrite <= x"0B0000";
+            DacBSetpointToWrite <= x"0B0000";
+            DacCSetpointToWrite <= x"0B0000";
+            DacDSetpointToWrite <= x"0B0000";
+            DacESetpointToWrite <= x"0B0000";
+            DacFSetpointToWrite <= x"0B0000";
+            if ( (DacASetpointWritten = '0') and (DacBSetpointWritten = '0') and (DacCSetpointWritten = '0') and (DacDSetpointWritten = '0') and (DacESetpointWritten = '0') and (DacFSetpointWritten = '0') ) then
+              DacWriteNextState <= WriteABSelectReg;
+            end if;
+
+          when WriteABSelectReg =>
+            StateOut <= "10101";
+            WriteDacs <= '1';
+            -- confgiuration is the same for all dacs
+            -- I think I can write the same to all the dacs on all the boards
+            nCsDacsA_i(0) <= nCsDacs0_i;
+            nCsDacsA_i(1) <= nCsDacs0_i;
+            nCsDacsA_i(2) <= nCsDacs0_i;
+            nCsDacsA_i(3) <= nCsDacs0_i;
+            nCsDacsB_i(0) <= nCsDacs1_i;
+            nCsDacsB_i(1) <= nCsDacs1_i;
+            nCsDacsB_i(2) <= nCsDacs1_i;
+            nCsDacsB_i(3) <= nCsDacs1_i;
+            nCsDacsC_i(0) <= nCsDacs2_i;
+            nCsDacsC_i(1) <= nCsDacs2_i;
+            nCsDacsC_i(2) <= nCsDacs2_i;
+            nCsDacsC_i(3) <= nCsDacs2_i;
+            nCsDacsD_i(0) <= nCsDacs3_i;
+            nCsDacsD_i(1) <= nCsDacs3_i;
+            nCsDacsD_i(2) <= nCsDacs3_i;
+            nCsDacsD_i(3) <= nCsDacs3_i;
+            nCsDacsE_i(0) <= nCsDacs4_i;
+            nCsDacsE_i(1) <= nCsDacs4_i;
+            nCsDacsE_i(2) <= nCsDacs4_i;
+            nCsDacsE_i(3) <= nCsDacs4_i;
+            nCsDacsF_i(0) <= nCsDacs5_i;
+            nCsDacsF_i(1) <= nCsDacs5_i;
+            nCsDacsF_i(2) <= nCsDacs5_i;
+            nCsDacsF_i(3) <= nCsDacs5_i;
+            
+            if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
+              DacWriteNextState <= GainReg;
+            end if;
+
+          when GainReg =>
+            StateOut <= "10110";
+            WriteDacs <= '0';
+            DacASetpointToWrite <= x"818000";
+            DacBSetpointToWrite <= x"818000";
+            DacCSetpointToWrite <= x"818000";
+            DacDSetpointToWrite <= x"818000";
+            DacESetpointToWrite <= x"818000";
+            DacFSetpointToWrite <= x"818000";
+            if ( (DacASetpointWritten = '0') and (DacBSetpointWritten = '0') and (DacCSetpointWritten = '0') and (DacDSetpointWritten = '0') and (DacESetpointWritten = '0') and (DacFSetpointWritten = '0') ) then
+              DacWriteNextState <= WriteGainReg;
+            end if;
+
+          when WriteGainReg =>
+            StateOut <= "10111";
+            WriteDacs <= '1';
+            -- confgiuration is the same for all dacs
+            -- I think I can write the same to all the dacs on all the boards
+            nCsDacsA_i(0) <= nCsDacs0_i;
+            nCsDacsA_i(1) <= nCsDacs0_i;
+            nCsDacsA_i(2) <= nCsDacs0_i;
+            nCsDacsA_i(3) <= nCsDacs0_i;
+            nCsDacsB_i(0) <= nCsDacs1_i;
+            nCsDacsB_i(1) <= nCsDacs1_i;
+            nCsDacsB_i(2) <= nCsDacs1_i;
+            nCsDacsB_i(3) <= nCsDacs1_i;
+            nCsDacsC_i(0) <= nCsDacs2_i;
+            nCsDacsC_i(1) <= nCsDacs2_i;
+            nCsDacsC_i(2) <= nCsDacs2_i;
+            nCsDacsC_i(3) <= nCsDacs2_i;
+            nCsDacsD_i(0) <= nCsDacs3_i;
+            nCsDacsD_i(1) <= nCsDacs3_i;
+            nCsDacsD_i(2) <= nCsDacs3_i;
+            nCsDacsD_i(3) <= nCsDacs3_i;
+            nCsDacsE_i(0) <= nCsDacs4_i;
+            nCsDacsE_i(1) <= nCsDacs4_i;
+            nCsDacsE_i(2) <= nCsDacs4_i;
+            nCsDacsE_i(3) <= nCsDacs4_i;
+            nCsDacsF_i(0) <= nCsDacs5_i;
+            nCsDacsF_i(1) <= nCsDacs5_i;
+            nCsDacsF_i(2) <= nCsDacs5_i;
+            nCsDacsF_i(3) <= nCsDacs5_i;
+            
+            if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
+              DacWriteNextState <= OffsetReg;
+            end if;
+
+          when OffsetReg =>
+            StateOut <= "11000";
+            WriteDacs <= '0';
+            DacASetpointToWrite <= x"41ff00";
+            DacBSetpointToWrite <= x"41ff00";
+            DacCSetpointToWrite <= x"41ff00";
+            DacDSetpointToWrite <= x"41ff00";
+            DacESetpointToWrite <= x"41ff00";
+            DacFSetpointToWrite <= x"41ff00";
+            if ( (DacASetpointWritten = '0') and (DacBSetpointWritten = '0') and (DacCSetpointWritten = '0') and (DacDSetpointWritten = '0') and (DacESetpointWritten = '0') and (DacFSetpointWritten = '0') ) then
+              DacWriteNextState <= WriteOffsetReg;
+            end if;
+
+          when WriteOffsetReg =>
+            StateOut <= "11001";
+            WriteDacs <= '1';
+            -- confgiuration is the same for all dacs
+            -- I think I can write the same to all the dacs on all the boards
+            nCsDacsA_i(0) <= nCsDacs0_i;
+            nCsDacsA_i(1) <= nCsDacs0_i;
+            nCsDacsA_i(2) <= nCsDacs0_i;
+            nCsDacsA_i(3) <= nCsDacs0_i;
+            nCsDacsB_i(0) <= nCsDacs1_i;
+            nCsDacsB_i(1) <= nCsDacs1_i;
+            nCsDacsB_i(2) <= nCsDacs1_i;
+            nCsDacsB_i(3) <= nCsDacs1_i;
+            nCsDacsC_i(0) <= nCsDacs2_i;
+            nCsDacsC_i(1) <= nCsDacs2_i;
+            nCsDacsC_i(2) <= nCsDacs2_i;
+            nCsDacsC_i(3) <= nCsDacs2_i;
+            nCsDacsD_i(0) <= nCsDacs3_i;
+            nCsDacsD_i(1) <= nCsDacs3_i;
+            nCsDacsD_i(2) <= nCsDacs3_i;
+            nCsDacsD_i(3) <= nCsDacs3_i;
+            nCsDacsE_i(0) <= nCsDacs4_i;
+            nCsDacsE_i(1) <= nCsDacs4_i;
+            nCsDacsE_i(2) <= nCsDacs4_i;
+            nCsDacsE_i(3) <= nCsDacs4_i;
+            nCsDacsF_i(0) <= nCsDacs5_i;
+            nCsDacsF_i(1) <= nCsDacs5_i;
+            nCsDacsF_i(2) <= nCsDacs5_i;
+            nCsDacsF_i(3) <= nCsDacs5_i;
+            
+            if ( (DacASetpointWritten = '1') and (DacBSetpointWritten = '1') and (DacCSetpointWritten = '1') and (DacDSetpointWritten = '1') and (DacESetpointWritten = '1') and (DacFSetpointWritten = '1') ) then
+              DacWriteNextState <= Idle;
+            end if;
+          
 
           when Idle =>
-            StateOut <= "0001";
+            StateOut <= "00001";
             
             --Just reset everything (except the channel 0-39, that free-runs forever)
             DacSetpointReadAddressController <= 0; 
@@ -1467,7 +1700,7 @@ begin
             DacWriteNextState <= ReadChannel;
 
           when ReadChannel =>
-            StateOut <= "0010";
+            StateOut <= "00010";
             WriteDacs <= '0';
             DacWriteNextState <= LatchChannel;
             
@@ -1487,7 +1720,7 @@ begin
 
 
           when LatchChannel =>
-            StateOut <= "0011";
+            StateOut <= "00011";
             
             --When we get here:
             --Readed Addr's should match what was actually read out of the ram on this clock.
@@ -1509,7 +1742,7 @@ begin
             end if;
             
           when PreWriteCs0 =>
-            StateOut <= "0100";
+            StateOut <= "00100";
             
             WriteDacs <= '0';
             
@@ -1525,7 +1758,7 @@ begin
             end if;
 
           when WriteCs0 =>
-            StateOut <= "0101";
+            StateOut <= "00101";
             
             WriteDacs <= '1';					
             
@@ -1559,7 +1792,7 @@ begin
             end if;
 
           when PreWriteCs1 =>
-            StateOut <= "0110";
+            StateOut <= "00110";
                                 
             WriteDacs <= '0';
 
@@ -1576,7 +1809,7 @@ begin
 
             
           when WriteCs1 =>
-            StateOut <= "0111";
+            StateOut <= "00111";
             
             WriteDacs <= '1';					
 
@@ -1610,7 +1843,7 @@ begin
             end if;
 
           when PreWriteCs2 =>
-            StateOut <= "1000";                    
+            StateOut <= "01000";                    
               
             WriteDacs <= '0';
             
@@ -1627,7 +1860,7 @@ begin
 
 
           when WriteCs2 =>
-            StateOut <= "1001";
+            StateOut <= "01001";
               
             WriteDacs <= '1';				
 
@@ -1661,7 +1894,7 @@ begin
             end if;
 
           when PreWriteCs3 =>
-            StateOut <= "1010";
+            StateOut <= "01010";
                               
             WriteDacs <= '0';
             
@@ -1678,7 +1911,7 @@ begin
 
 
           when WriteCs3 =>
-            StateOut <= "1011";
+            StateOut <= "01011";
             
             WriteDacs <= '1';
                     
@@ -1712,7 +1945,7 @@ begin
             end if;
 
           when NextChannel =>
-            StateOut <= "1100";
+            StateOut <= "01100";
             
             if (DacSetpointReadAddressChannel < (DMActuatorsPerDac - 1)) then 
               DacSetpointReadAddressChannel <= DacSetpointReadAddressChannel + 1;
@@ -1723,7 +1956,7 @@ begin
             DacWriteNextState <= Idle;
 
           when others => -- ought never to get here...reset everything!
-            StateOut <= "1111";		
+            StateOut <= "01111";		
             DacWriteNextState <= Idle;
             --DacWriteCurrentState <= Idle;
             WriteDacs <= '0';

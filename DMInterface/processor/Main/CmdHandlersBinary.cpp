@@ -191,11 +191,11 @@ int8_t BinaryDMDacConfigCommand(const uint32_t Name, char const* Params, const s
 
   for (dacNum = 0; dacNum <24; dacNum++) {
     board = floor(dacNum/4);
-    SpiContainer.configDacs(board, dacNum, 0x020000);
-    SpiContainer.configDacs(board, dacNum, 0x030000);
-    SpiContainer.configDacs(board, dacNum, 0x0B0000);
-    SpiContainer.configDacs(board, dacNum, 0x818000);
-    SpiContainer.configDacs(board, dacNum, 0x41ff00);
+    SpiContainer.configDacs(board, dacNum, 0x020000); // offset register 0
+    SpiContainer.configDacs(board, dacNum, 0x030000); // offset register 1
+    SpiContainer.configDacs(board, dacNum, 0x0B0000); // Block write nA/B select registers
+    SpiContainer.configDacs(board, dacNum, 0x818000); // Write to gain (M) register
+    SpiContainer.configDacs(board, dacNum, 0x41ff00); // Write to offset (C) register
   }
   // Let's do this by dac on each board board
 //  for (dacNum = 0; dacNum < 4; dacNum++) {
