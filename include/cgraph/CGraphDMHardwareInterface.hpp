@@ -146,8 +146,8 @@ struct CGraphDMHardwareInterface
   uint16_t SpiExtBusAddrIn;
   uint16_t SpiExtBusDataOut;
   uint16_t SpiExtBusDataIn;
-  uint32_t reserved[217]; //if we counted correctly there's 48 4-byte registers preceeding this padding...
-  uint32_t DacSetpoints[DMMaxControllerBoards][DMMDacsPerControllerBoard][DMActuatorsPerDac];
+  //uint32_t reserved[217]; //if we counted correctly there's 48 4-byte registers preceeding this padding...
+  //uint32_t DacSetpoints[DMMaxControllerBoards][DMMDacsPerControllerBoard][DMActuatorsPerDac];
   
   static const uint32_t DacFullScale;
   static const double DacDriverFullScaleOutputVoltage; //150 Volts, don't get your fingers near this thing!
@@ -159,13 +159,13 @@ struct CGraphDMHardwareInterface
 
 // We'll go in and take out the nesting tomorrow (4/3/2025)
 // Then we'll see where this stands
-struct CGraphDMSetpoint {
-  uint32_t DacSetpoint;
-} __attribute__((__packed__));
+//struct CGraphDMSetpoint {
+//  uint32_t DacSetpoint;
+//} __attribute__((__packed__));
 
 struct CGraphDMRamInterface
 {
-  uint32_t DacSetpointsA[DMMaxControllerBoards][DMMDacsPerControllerBoard][DMActuatorsPerDac];
+  uint32_t DacSetpoints[DMMaxControllerBoards][DMMDacsPerControllerBoard][DMActuatorsPerDac];
 } __attribute__((__packed__));
 
 class CGraphDMProtoHardwareMmapper

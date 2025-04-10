@@ -526,7 +526,7 @@ int8_t DMShortPixelsCommand(char const* Name, char const* Params, const size_t P
 			//Yay, we got here, things are actaully correct and we have something to do!
 			else
 			{
-				DM->DacSetpoints[DMMappings.Mappings[i].ControllerBoardIndex][DMMappings.Mappings[i].DacIndex][DMMappings.Mappings[i].DacChannel] = ((uint32_t)Pixel) << 8; //<<8 cause we really want 24b values when we dither
+				dRAM->DacSetpoints[DMMappings.Mappings[i].ControllerBoardIndex][DMMappings.Mappings[i].DacIndex][DMMappings.Mappings[i].DacChannel] = ((uint32_t)Pixel) << 8; //<<8 cause we really want 24b values when we dither
 				printf("\nDMShortPixelsCommand: Set actuator %lu to %lu", (unsigned long)i, (unsigned long)Pixel);
 			}			
 
@@ -576,7 +576,7 @@ int8_t DMDitherCommand(char const* Name, char const* Params, const size_t Params
 			//Yay, we got here, things are actaully correct and we have something to do!
 			else
 			{
-				DM->DacSetpoints[DMMappings.Mappings[i].ControllerBoardIndex][DMMappings.Mappings[i].DacIndex][DMMappings.Mappings[i].DacChannel] |= (uint8_t)Pixel; //<<8 cause we really want 24b values when we dither
+				dRAM->DacSetpoints[DMMappings.Mappings[i].ControllerBoardIndex][DMMappings.Mappings[i].DacIndex][DMMappings.Mappings[i].DacChannel] |= (uint8_t)Pixel; //<<8 cause we really want 24b values when we dither
 				printf("\nDMDitherCommand: Set actuator %lu to %lu", (unsigned long)i, (unsigned long)Pixel);
 			}			
 
@@ -626,7 +626,7 @@ int8_t DMLongPixelsCommand(char const* Name, char const* Params, const size_t Pa
 			//Yay, we got here, things are actaully correct and we have something to do!
 			else
 			{
-				DM->DacSetpoints[DMMappings.Mappings[i].ControllerBoardIndex][DMMappings.Mappings[i].DacIndex][DMMappings.Mappings[i].DacChannel] =  (uint32_t)Pixel & 0x00FFFFFF; //<<8 cause we really want 24b values when we dither
+				dRAM->DacSetpoints[DMMappings.Mappings[i].ControllerBoardIndex][DMMappings.Mappings[i].DacIndex][DMMappings.Mappings[i].DacChannel] =  (uint32_t)Pixel & 0x00FFFFFF; //<<8 cause we really want 24b values when we dither
 				printf("\nDMLongPixelsCommand: Set actuator %lu to %lu", (unsigned long)i, (unsigned long)Pixel);
 			}			
 

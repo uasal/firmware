@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Wed Apr  9 15:37:18 2025
+// Created by SmartDesign Thu Apr 10 14:11:18 2025
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -204,12 +204,6 @@ wire          SckC_net_1;
 wire          SckD_net_1;
 wire          SckE_net_1;
 wire          SckF_net_1;
-wire   [3:0]  nCsA_net_1;
-wire   [3:0]  nCsB_net_1;
-wire   [3:0]  nCsC_net_1;
-wire   [3:0]  nCsD_net_1;
-wire   [3:0]  nCsE_net_1;
-wire   [3:0]  nCsF_net_1;
 wire          TP1_net_1;
 wire          TP2_net_1;
 wire          TP3_net_1;
@@ -222,6 +216,12 @@ wire          nLDacs_net_1;
 wire          nRstDacs_net_1;
 wire          nClrDacs_net_1;
 wire          PowerHVnEn_net_1;
+wire   [3:0]  nCsA_net_1;
+wire   [3:0]  nCsB_net_1;
+wire   [3:0]  nCsC_net_1;
+wire   [3:0]  nCsD_net_1;
+wire   [3:0]  nCsE_net_1;
+wire   [3:0]  nCsF_net_1;
 wire   [0:0]  nCsA_slice_0;
 wire   [1:1]  nCsA_slice_1;
 wire   [2:2]  nCsA_slice_2;
@@ -278,18 +278,6 @@ assign SckE_net_1       = SckE_net_0;
 assign SckE             = SckE_net_1;
 assign SckF_net_1       = SckF_net_0;
 assign SckF             = SckF_net_1;
-assign nCsA_net_1       = nCsA_net_0;
-assign nCsA[3:0]        = nCsA_net_1;
-assign nCsB_net_1       = nCsB_net_0;
-assign nCsB[3:0]        = nCsB_net_1;
-assign nCsC_net_1       = nCsC_net_0;
-assign nCsC[3:0]        = nCsC_net_1;
-assign nCsD_net_1       = nCsD_net_0;
-assign nCsD[3:0]        = nCsD_net_1;
-assign nCsE_net_1       = nCsE_net_0;
-assign nCsE[3:0]        = nCsE_net_1;
-assign nCsF_net_1       = nCsF_net_0;
-assign nCsF[3:0]        = nCsF_net_1;
 assign TP1_net_1        = TP1_net_0[0];
 assign TP1              = TP1_net_1;
 assign TP2_net_1        = TP2_net_0[1];
@@ -314,6 +302,18 @@ assign nClrDacs_net_1   = nClrDacs_net_0;
 assign nClrDacs         = nClrDacs_net_1;
 assign PowerHVnEn_net_1 = PowerHVnEn_net_0;
 assign PowerHVnEn       = PowerHVnEn_net_1;
+assign nCsA_net_1       = nCsA_net_0;
+assign nCsA[3:0]        = nCsA_net_1;
+assign nCsB_net_1       = nCsB_net_0;
+assign nCsB[3:0]        = nCsB_net_1;
+assign nCsC_net_1       = nCsC_net_0;
+assign nCsC[3:0]        = nCsC_net_1;
+assign nCsD_net_1       = nCsD_net_0;
+assign nCsD[3:0]        = nCsD_net_1;
+assign nCsE_net_1       = nCsE_net_0;
+assign nCsE[3:0]        = nCsE_net_1;
+assign nCsF_net_1       = nCsF_net_0;
+assign nCsF[3:0]        = nCsF_net_1;
 //--------------------------------------------------------------------
 // Slices assignments
 //--------------------------------------------------------------------
@@ -344,13 +344,9 @@ DMMainPorts DMMainPorts_1(
         .MisoD          ( MisoD ),
         .MisoE          ( MisoE ),
         .MisoF          ( MisoF ),
-        .RamBusAddress  ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDRS13to0 ),
-        .RamBusDataIn   ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PWDATAS ),
         .RamBusnCs      ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PSELS0 ),
         .RamBusWrnRd    ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PWRITES ),
         .RamBusLatch    ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PENABLES ),
-        .RamBusAddress1 ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PADDRS13to0 ),
-        .RamBusDataIn1  ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PWDATAS ),
         .RamBusnCs1     ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PSELS1 ),
         .RamBusWrnRd1   ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PWRITES ),
         .RamBusLatch1   ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PENABLES ),
@@ -359,6 +355,10 @@ DMMainPorts DMMainPorts_1(
         .Rx2            ( Rx2 ),
         .Rx3            ( VCC_net ),
         .PPS            ( PPS ),
+        .RamBusAddress  ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PADDRS13to0 ),
+        .RamBusDataIn   ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PWDATAS ),
+        .RamBusAddress1 ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PADDRS13to0 ),
+        .RamBusDataIn1  ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PWDATAS ),
         // Outputs
         .MosiA          ( MosiA_net_0 ),
         .MosiB          ( MosiB_net_0 ),
@@ -372,19 +372,11 @@ DMMainPorts DMMainPorts_1(
         .SckD           ( SckD_net_0 ),
         .SckE           ( SckE_net_0 ),
         .SckF           ( SckF_net_0 ),
-        .nCsA           ( nCsA_net_0 ),
-        .nCsB           ( nCsB_net_0 ),
-        .nCsC           ( nCsC_net_0 ),
-        .nCsD           ( nCsD_net_0 ),
-        .nCsE           ( nCsE_net_0 ),
-        .nCsF           ( nCsF_net_0 ),
         .nLDacs         ( nLDacs_net_0 ),
         .nRstDacs       ( nRstDacs_net_0 ),
         .nClrDacs       ( nClrDacs_net_0 ),
         .PowerHVnEn     ( PowerHVnEn_net_0 ),
-        .RamBusDataOut  ( DMMainPorts_1_RamBusDataOut ),
         .RamBusAck      ( DMMainPorts_1_RamBusAck ),
-        .RamBusDataOut1 ( DMMainPorts_1_RamBusDataOut1 ),
         .RamBusAck1     ( DMMainPorts_1_RamBusAck1 ),
         .Tx0            ( Tx0_net_0 ),
         .Oe0            ( Oe0_net_0 ),
@@ -394,6 +386,14 @@ DMMainPorts DMMainPorts_1(
         .Oe2            ( Oe2_net_0 ),
         .Tx3            (  ),
         .Oe3            (  ),
+        .nCsA           ( nCsA_net_0 ),
+        .nCsB           ( nCsB_net_0 ),
+        .nCsC           ( nCsC_net_0 ),
+        .nCsD           ( nCsD_net_0 ),
+        .nCsE           ( nCsE_net_0 ),
+        .nCsF           ( nCsF_net_0 ),
+        .RamBusDataOut  ( DMMainPorts_1_RamBusDataOut ),
+        .RamBusDataOut1 ( DMMainPorts_1_RamBusDataOut1 ),
         .Testpoints     ( Testpoints_net_0 ),
         // Inouts
         .Ux1SelJmp      ( Ux1SelJmp ) 

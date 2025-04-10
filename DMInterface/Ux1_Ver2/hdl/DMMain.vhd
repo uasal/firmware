@@ -630,7 +630,7 @@ architecture DMMain of DMMainPorts is
 	
 	type DacProtoWriteStates is ( Idle, ReadChannel, LatchChannel, PreWriteCs0, WriteCs0, PreWriteCs1, WriteCs1, PreWriteCs2, WriteCs2, PreWriteCs3, WriteCs3, NextChannel);
 	signal DacWriteNextState : DacProtoWriteStates;
-	signal DacWriteCurrentState : DacProtoWriteStates;
+	--signal DacWriteCurrentState : DacProtoWriteStates;
   
   signal StateOut : std_logic_vector(3 downto 0);
 
@@ -1412,7 +1412,7 @@ begin
   --~ Testpoints(0) <= StateOut(0);
 
   Testpoints(7) <= WriteDacs;
-  Testpoints(6) <= DacASetpointWritten;
+  Testpoints(6) <= MosiDacA_i;
   Testpoints(5) <= SckDacA_i;
   Testpoints(4) <= nCsDacs0_i;
   --~ Testpoints(3) <= SpiXferCompleteOutA;
@@ -1433,7 +1433,7 @@ begin
       --This is where we have to actually set all of our registers, since the M2S devices don't support initialization as though they are from the 1980's...
       -- Do we have anything for the Master Reset?
       DacWriteNextState <= Idle;
-      DacWriteCurrentState <= Idle;
+      --DacWriteCurrentState <= Idle;
       -- also initialize these counting variables (won't upset state machine if
       -- not initialized, but good practice
       DacSetpointReadAddressController <= 0; 
@@ -1446,9 +1446,14 @@ begin
       if ( (MasterClk'event) and (MasterClk = '1') ) then
 
         --Change state when requested
-        DacWriteCurrentState <= DacWriteNextState;
+        --DacWriteCurrentState <= DacWriteNextState;
 
         case DacWriteNextState is
+
+          -- Need a configure state machine that is onle executed at start up
+          -- Or maybe every time there is a MasterReset
+          --when Start =>
+          --  StateOut <= 10000";
 
           when Idle =>
             StateOut <= "0001";
@@ -1720,7 +1725,7 @@ begin
           when others => -- ought never to get here...reset everything!
             StateOut <= "1111";		
             DacWriteNextState <= Idle;
-            DacWriteCurrentState <= Idle;
+            --DacWriteCurrentState <= Idle;
             WriteDacs <= '0';
             
         end case;
