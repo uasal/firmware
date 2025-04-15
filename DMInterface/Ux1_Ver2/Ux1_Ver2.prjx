@@ -1409,12 +1409,12 @@ SIZE="1697"
 ENDFILE
 VALUE "<project>\component\work\EvalBoardSandbox\EvalBoardSandbox.cxf,actgen_cxf"
 STATE="utd"
-TIME="1744324541"
+TIME="1744328382"
 SIZE="9450"
 ENDFILE
 VALUE "<project>\component\work\EvalBoardSandbox\EvalBoardSandbox.v,hdl"
 STATE="utd"
-TIME="1744324540"
+TIME="1744328380"
 SIZE="15305"
 PARENT="<project>\component\work\EvalBoardSandbox\EvalBoardSandbox.cxf"
 IS_READONLY="TRUE"
@@ -1632,7 +1632,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\constraint\EvalBoardSandbox_derived_constraints.sdc,sdc"
 STATE="utd"
-TIME="1744324548"
+TIME="1744328426"
 SIZE="3270"
 ENDFILE
 VALUE "<project>\constraint\io\user.pdc,io_pdc"
@@ -1653,8 +1653,8 @@ SIZE="1538"
 ENDFILE
 VALUE "<project>\hdl\DMMain.vhd,hdl"
 STATE="utd"
-TIME="1744324504"
-SIZE="73109"
+TIME="1744328364"
+SIZE="73310"
 ENDFILE
 VALUE "<project>\hdl\RegisterSpace.vhd,hdl"
 STATE="utd"
@@ -1784,6 +1784,11 @@ VALUE "<project>\synthesis\EvalBoardSandbox_vm.sdc,syn_sdc"
 STATE="utd"
 TIME="1744319563"
 SIZE="4420"
+ENDFILE
+VALUE "<project>\synthesis\synwork\layer1.so,so"
+STATE="utd"
+TIME="1744324636"
+SIZE="159"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}\include\fpga\ads1258.vhd,hdl"
 LINKFILEROOT "./include/fpga"
@@ -2603,8 +2608,6 @@ ENDLIST
 LIST ProjectState5.1
 LIST Impl1
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -2629,8 +2632,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl2
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -2650,8 +2651,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl3
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -2671,8 +2670,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl4
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -2692,8 +2689,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl5
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -2713,8 +2708,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl6
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -2734,8 +2727,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl7
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -2755,8 +2746,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl8
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -2776,8 +2765,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl9
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -2797,8 +2784,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl10
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -2818,8 +2803,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl11
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -2839,8 +2822,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl12
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -2860,8 +2841,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl13
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -3722,8 +3701,8 @@ NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
 LOCATION="C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\bin\synplify_pro.exe"
-PARAM=""
-BATCH=0
+PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
+BATCH=1
 LICENSE=""
 IS32BIT="1"
 EndProfile
@@ -4146,8 +4125,6 @@ ENDLIST
 LIST "EvalBoardSandbox::work"
 LIST Impl1
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -4172,8 +4149,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl2
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -4193,8 +4168,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl3
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -4214,8 +4187,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl4
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -4235,8 +4206,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl5
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -4256,8 +4225,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl6
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -4277,8 +4244,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl7
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -4298,8 +4263,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl8
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -4319,8 +4282,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl9
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -4340,8 +4301,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl10
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -4361,8 +4320,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl11
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -4382,8 +4339,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl12
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -4403,8 +4358,6 @@ ENDUsed_File_List
 ENDLIST
 LIST Impl13
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\EvalBoardSandbox.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -4964,8 +4917,12 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
+Reports;Reports;0
+ReportsCurrentItem;Run Programming Action:EvalBoardSandbox_PROGRAM.log
+SmartDesign;EvalBoardSandbox;0
+Constraint Manager;Constraint Manager;0
 StartPage;StartPage;0
-ACTIVEVIEW;StartPage
+ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","${CGRAPH_FIRMWARE}\include\fpga\ads1258.vhd","FALSE","FALSE"
@@ -5060,6 +5017,14 @@ ENDLIST
 LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_ram128x8_pa4::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\fifo_256x8_g4.v","FALSE","FALSE"
 ENDLIST
 LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v","FALSE","FALSE"
+ENDLIST
+LIST "DESIGN_FIRMWARE::work","component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf","TRUE","FALSE"
+SUBBLOCK "SmartFusion2_CMSIS::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_PDMA_Driver::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
 ENDLIST
 LIST "DmDacRamFlatPorts::work","${CGRAPH_FIRMWARE}\include\fpga\CGraphDmDacRamFlat.vhd","FALSE","FALSE"
 ENDLIST
@@ -5256,6 +5221,18 @@ ENDLIST
 LIST "RCOSC_25_50MHZ_FAB::work","component\Actel\SgCore\OSC\2.0.101\osc_comps.v","FALSE","FALSE"
 ENDLIST
 LIST "RtcCounterPorts::work","${CGRAPH_FIRMWARE}\include\fpga\RtcCounter.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_CMSIS::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_PDMA_Driver::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
 ENDLIST
 LIST "SpiDacQuadPorts::work","${CGRAPH_FIRMWARE}\include\fpga\SpiDacQuad.vhd","FALSE","FALSE"
 SUBBLOCK "SpiMasterQuadPorts::work","${CGRAPH_FIRMWARE}\include\fpga\SpiMasterQuad.vhd","FALSE","FALSE"
