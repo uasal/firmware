@@ -1,0 +1,27 @@
+
+fsm_encoding {2692549251} sequential
+
+fsm_state_encoding {2692549251} idle {00}
+
+fsm_state_encoding {2692549251} readchannel {01}
+
+fsm_state_encoding {2692549251} latchchannel {10}
+
+fsm_registers {2692549251} {DacWriteNextState[1]}  {DacWriteNextState[0]} 
+89410895} 100 {0010000}
+
+fsm_state_encoding {131089410895} 101 {0100000}
+
+fsm_state_encoding {131089410895} 110 {1000000}
+
+fsm_registers {131089410895} {sm0_state[6]}  {sm0_state[5]}  {sm0_state[4]}  {sm0_state[3]}  {sm0_state[2]}  {sm0_state[1]}  {sm0_state[0]} 
+
+fsm_encoding {2692549251} sequential
+
+fsm_state_encoding {2692549251} idle {00}
+
+fsm_state_encoding {2692549251} readchannel {01}
+
+fsm_state_encoding {2692549251} latchchannel {10}
+
+fsm_registers {2692549251} {DacWriteNextState[1]}  {DacWriteNextState[0]} 

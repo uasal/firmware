@@ -1,0 +1,1810 @@
+KEY LIBERO "2023.2"
+KEY CAPTURE "2023.2.0.10"
+KEY DEFAULT_IMPORT_LOC "D:\Microsemiprj\RTAX_mult_test\RTAX2000S\multipliers\hdl"
+KEY DEFAULT_OPEN_LOC ""
+KEY ProjectID "0"
+KEY HDLTechnology "VERILOG"
+KEY VERILOGMODE "SYSTEMVERILOG"
+KEY VHDLMODE "VHDL2008"
+KEY SYSTEMVERILOGMFCU "FALSE"
+KEY UseConstraintFlowTechnology "TRUE"
+KEY VendorTechnology_Family "SmartFusion2"
+KEY VendorTechnology_Die "PA4M2500_N"
+KEY VendorTechnology_Package "vf256"
+KEY VendorTechnology_Speed "-1"
+KEY VendorTechnology_DieVoltage "1.2"
+KEY VendorTechnology_PART_RANGE "IND"
+KEY VendorTechnology_DSW_VCCA_VOLTAGE_RAMP_RATE "100_MS"
+KEY VendorTechnology_IO_DEFT_STD "LVCMOS33"
+KEY VendorTechnology_OPCONR ""
+KEY VendorTechnology_PLL_SUPPLY "PLL_SUPPLY_25"
+KEY VendorTechnology_RAD_EXPOSURE ""
+KEY VendorTechnology_RESERVEMIGRATIONPINS "1"
+KEY VendorTechnology_RESTRICTPROBEPINS "0"
+KEY VendorTechnology_RESTRICTSPIPINS "0"
+KEY VendorTechnology_SYSTEM_CONTROLLER_SUSPEND_MODE "0"
+KEY VendorTechnology_TARGETDEVICESFORMIGRATION "PA4M2500_N"
+KEY VendorTechnology_TEMPR "IND"
+KEY VendorTechnology_UNUSED_MSS_IO_RESISTOR_PULL "None"
+KEY VendorTechnology_VCCI_1.2_VOLTR "COM"
+KEY VendorTechnology_VCCI_1.5_VOLTR "COM"
+KEY VendorTechnology_VCCI_1.8_VOLTR "COM"
+KEY VendorTechnology_VCCI_2.5_VOLTR "COM"
+KEY VendorTechnology_VCCI_3.3_VOLTR "COM"
+KEY VendorTechnology_VOLTR "IND"
+KEY ProjectLocation "C:\Users\SKaye\repos7\firmware\DMInterface\Ux2_Ver2"
+KEY ProjectDescription "Firmware for the Ux2 FPGA on the DMCI.  This will control the ADCs on the DM driver boards as well as the ADCs which monitor the voltages on the DMCI board."
+KEY UseRootLocationForLinkedFiles "FALSE"
+KEY RootLocationENVForLinkedFiles ""
+KEY RootLocationForLinkedFiles ""
+KEY GlobalIncludePaths ""
+KEY Pa4PeripheralNewSeq "GOOD"
+KEY MemoryMapDrcSeverity "FALSE"
+KEY LossOfDataDRCSeverity "TRUE"
+KEY IdWidthMismatchDRCSeverity "TRUE"
+KEY SimulationType "VERILOG"
+KEY Vendor "Actel"
+KEY ActiveRoot "Ux2FPGA::work"
+LIST REVISIONS
+VALUE="Impl1",NUM=1
+CURREV=1
+ENDLIST
+LIST LIBRARIES
+COREAPB3_LIB
+COREAHBLITE_LIB
+ENDLIST
+LIST LIBRARY_COREAPB3_LIB
+ALIAS=COREAPB3_LIB
+COMPILE_OPTION=COMPILE
+CUSTOMPATH=false
+ENDLIST
+LIST LIBRARY_COREAHBLITE_LIB
+ALIAS=..\component\Actel\DirectCore\CoreAHBLite\5.2.100\mti\user_vlog\COREAHBLITE_LIB
+COMPILE_OPTION=COMPILE
+CUSTOMPATH=false
+ENDLIST
+LIST GlobalIncludeFileList
+ENDLIST
+LIST FileManager
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\CoreAPB3.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744394706"
+SIZE="2736"
+PARENT="<project>\component\work\Ux2FPGA_sb\Ux2FPGA_sb.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\coreparameters.v,tb_hdl"
+STATE="utd"
+TIME="1744394706"
+SIZE="1284"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+IS_INCLUDED="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\mti\scripts\wave_user.do,do"
+STATE="utd"
+TIME="1695145017"
+SIZE="912"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_ahbtoapb.v,tb_hdl"
+STATE="utd"
+TIME="1695145017"
+SIZE="4636"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apb.v,tb_hdl"
+STATE="utd"
+TIME="1695145017"
+SIZE="9073"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apbslave.v,tb_hdl"
+STATE="utd"
+TIME="1695145017"
+SIZE="25129"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apbslaveext.v,tb_hdl"
+STATE="utd"
+TIME="1695145017"
+SIZE="36275"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_main.v,tb_hdl"
+STATE="utd"
+TIME="1695145017"
+SIZE="122456"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v,hdl"
+STATE="utd"
+TIME="1695145017"
+SIZE="29701"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_iaddr_reg.v,hdl"
+STATE="utd"
+TIME="1695145017"
+SIZE="4465"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_muxptob3.v,hdl"
+STATE="utd"
+TIME="1695145017"
+SIZE="5708"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\test\user\testbench.v,tb_hdl"
+STATE="utd"
+TIME="1695145017"
+SIZE="23651"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\CoreAPB3.cxf"
+MODULE_UNDER_TEST="testbench"
+SIMULATION_TIME="-all"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreResetP\7.1.100\CoreResetP.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744394706"
+SIZE="584"
+PARENT="<project>\component\work\Ux2FPGA_sb\Ux2FPGA_sb.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v,hdl"
+STATE="utd"
+TIME="1695073415"
+SIZE="65628"
+PARENT="<project>\component\Actel\DirectCore\CoreResetP\7.1.100\CoreResetP.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp_pcie_hotreset.v,hdl"
+STATE="utd"
+TIME="1695073415"
+SIZE="8822"
+PARENT="<project>\component\Actel\DirectCore\CoreResetP\7.1.100\CoreResetP.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreUARTapb\5.7.100\CoreUARTapb.cxf,actgen_cxf"
+STATE="utd"
+TIME="1708962861"
+SIZE="779"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SgCore\FCCC\2.0.201\FCCC.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744395331"
+SIZE="241"
+PARENT="<project>\component\work\FCCC_C0\FCCC_C0.cxf"
+PARENT="<project>\component\work\Ux2FPGA_sb\Ux2FPGA_sb.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SgCore\IO\1.0.101\IO.cxf,actgen_cxf"
+STATE="utd"
+TIME="1709681753"
+SIZE="239"
+PARENT="<project>\component\work\IO_INPUTS\IO_INPUTS.cxf"
+PARENT="<project>\component\work\IO_OUTPUTS\IO_OUTPUTS.cxf"
+PARENT="<project>\component\work\IO_TXBuf\IO_TXBuf.cxf"
+PARENT="<project>\component\work\IO_nCsXO\IO_nCsXO.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SgCore\OSC\2.0.101\OSC.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744394707"
+SIZE="684"
+PARENT="<project>\component\work\Ux2FPGA_sb\Ux2FPGA_sb.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SgCore\OSC\2.0.101\osc_comps.v,hdl"
+STATE="utd"
+TIME="1695073416"
+SIZE="924"
+PARENT="<project>\component\Actel\SgCore\OSC\2.0.101\OSC.cxf"
+BEGIN_USE_CONSTRAINT
+TOOL_CONSTRAINT_TYPE="ideSYNTHESIS"
+TOOL_CONSTRAINT_USE="SYNPLIFY7_EXT"
+END_USE_CONSTRAINT
+USE_FOR_ANY_TOOL="FALSE"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\SgCore\OSC\2.0.101\osc_comps_pre.v,hdl"
+STATE="utd"
+TIME="1695073416"
+SIZE="726"
+PARENT="<project>\component\Actel\SgCore\OSC\2.0.101\OSC.cxf"
+BEGIN_USE_CONSTRAINT
+TOOL_CONSTRAINT_TYPE="ideSYNTHESIS"
+TOOL_CONSTRAINT_USE="PRECISION_EXT"
+END_USE_CONSTRAINT
+USE_FOR_ANY_TOOL="FALSE"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusion2MSS\MSS\1.1.500\MSS.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744394704"
+SIZE="526"
+PARENT="<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusion2MSS\MSS_CCC\1.0.100\MSS_CCC.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744394702"
+SIZE="253"
+PARENT="<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusion2MSS\MSS_CC\1.0.100\MSS_CC.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744394702"
+SIZE="252"
+PARENT="<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusion2MSS\MSS_CFGM\1.1.100\MSS_CFGM.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744394702"
+SIZE="254"
+PARENT="<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusion2MSS\MSS_CM3\1.0.200\MSS_CM3.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744394702"
+SIZE="253"
+PARENT="<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusion2MSS\MSS_DDRB\1.0.200\MSS_DDRB.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744394702"
+SIZE="254"
+PARENT="<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusion2MSS\MSS_EDAC\1.0.101\MSS_EDAC.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744394702"
+SIZE="254"
+PARENT="<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusion2MSS\MSS_ENVM\1.0.101\MSS_ENVM.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744394702"
+SIZE="254"
+PARENT="<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusion2MSS\MSS_FIC32\1.0.100\MSS_FIC32.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744394702"
+SIZE="255"
+PARENT="<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusion2MSS\MSS_INTR\1.0.200\MSS_INTR.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744394702"
+SIZE="254"
+PARENT="<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusion2MSS\MSS_RESET\1.0.100\MSS_RESET.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744394702"
+SIZE="255"
+PARENT="<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusion2MSS\MSS_SECURITY\1.0.100\MSS_SECURITY.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744394702"
+SIZE="258"
+PARENT="<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusion2MSS\MSS_SWITCH\1.0.101\MSS_SWITCH.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744394702"
+SIZE="256"
+PARENT="<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0.cxf,actgen_cxf"
+STATE="utd"
+TIME="1708962862"
+SIZE="6016"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0.v,hdl"
+STATE="utd"
+TIME="1708962861"
+SIZE="5296"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\coreparameters.v,tb_hdl"
+STATE="utd"
+TIME="1708962861"
+SIZE="605"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+IS_READONLY="TRUE"
+IS_INCLUDED="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf,actgen_cxf"
+STATE="utd"
+TIME="1708962861"
+SIZE="4210"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0.cxf"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\mti\scripts\bfmtovec_compile.do,do"
+STATE="utd"
+TIME="1708962861"
+SIZE="1011"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\mti\scripts\wave_vlog_amba.do,do"
+STATE="utd"
+TIME="1708962861"
+SIZE="2034"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbl.v,tb_hdl"
+STATE="utd"
+TIME="1708962861"
+SIZE="8122"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahblapb.v,tb_hdl"
+STATE="utd"
+TIME="1708962861"
+SIZE="11276"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbslave.v,tb_hdl"
+STATE="utd"
+TIME="1708962861"
+SIZE="2525"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbslaveext.v,tb_hdl"
+STATE="utd"
+TIME="1708962861"
+SIZE="48878"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbtoapb.v,tb_hdl"
+STATE="utd"
+TIME="1708962861"
+SIZE="4667"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apb.v,tb_hdl"
+STATE="utd"
+TIME="1708962861"
+SIZE="9168"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apbslave.v,tb_hdl"
+STATE="utd"
+TIME="1708962861"
+SIZE="25223"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apbslaveext.v,tb_hdl"
+STATE="utd"
+TIME="1708962861"
+SIZE="36337"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apbtoapb.v,tb_hdl"
+STATE="utd"
+TIME="1708962861"
+SIZE="4730"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_main.v,tb_hdl"
+STATE="utd"
+TIME="1708962861"
+SIZE="122549"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Clock_gen.v,hdl"
+STATE="utd"
+TIME="1708962861"
+SIZE="6428"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v,hdl"
+STATE="utd"
+TIME="1708962861"
+SIZE="10118"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v,hdl"
+STATE="utd"
+TIME="1708962861"
+SIZE="7089"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\fifo_256x8_g4.v,hdl"
+STATE="utd"
+TIME="1708962861"
+SIZE="6391"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v,hdl"
+STATE="utd"
+TIME="1708962861"
+SIZE="10512"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v,hdl"
+STATE="utd"
+TIME="1708962861"
+SIZE="5587"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\test\user\testbench.v,tb_hdl"
+STATE="utd"
+TIME="1708962861"
+SIZE="8990"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+MODULE_UNDER_TEST="testbench"
+SIMULATION_TIME="-all"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf,actgen_cxf"
+STATE="utd"
+TIME="1708971727"
+SIZE="1874"
+ENDFILE
+VALUE "<project>\component\work\FCCC_C0\FCCC_C0.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744395331"
+SIZE="10230"
+ENDFILE
+VALUE "<project>\component\work\FCCC_C0\FCCC_C0.v,hdl"
+STATE="utd"
+TIME="1744395331"
+SIZE="6342"
+PARENT="<project>\component\work\FCCC_C0\FCCC_C0.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\FCCC_C0\FCCC_C0_0\FCCC_C0_FCCC_C0_0_FCCC.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744395331"
+SIZE="706"
+PARENT="<project>\component\work\FCCC_C0\FCCC_C0.cxf"
+ENDFILE
+VALUE "<project>\component\work\FCCC_C0\FCCC_C0_0\FCCC_C0_FCCC_C0_0_FCCC.v,hdl"
+STATE="utd"
+TIME="1744395331"
+SIZE="1874"
+PARENT="<project>\component\work\FCCC_C0\FCCC_C0_0\FCCC_C0_FCCC_C0_0_FCCC.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\IO_INPUTS\IO_INPUTS.cxf,actgen_cxf"
+STATE="utd"
+TIME="1708971086"
+SIZE="2368"
+ENDFILE
+VALUE "<project>\component\work\IO_INPUTS\IO_INPUTS.v,hdl"
+STATE="utd"
+TIME="1708971086"
+SIZE="3050"
+PARENT="<project>\component\work\IO_INPUTS\IO_INPUTS.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\IO_INPUTS\IO_INPUTS_0\IO_INPUTS_IO_INPUTS_0_IO.cxf,actgen_cxf"
+STATE="utd"
+TIME="1708971086"
+SIZE="471"
+PARENT="<project>\component\work\IO_INPUTS\IO_INPUTS.cxf"
+ENDFILE
+VALUE "<project>\component\work\IO_INPUTS\IO_INPUTS_0\IO_INPUTS_IO_INPUTS_0_IO.v,hdl"
+STATE="utd"
+TIME="1708971086"
+SIZE="482"
+PARENT="<project>\component\work\IO_INPUTS\IO_INPUTS_0\IO_INPUTS_IO_INPUTS_0_IO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\IO_nCsXO\IO_nCsXO.cxf,actgen_cxf"
+STATE="utd"
+TIME="1709070309"
+SIZE="2361"
+ENDFILE
+VALUE "<project>\component\work\IO_nCsXO\IO_nCsXO.v,hdl"
+STATE="utd"
+TIME="1709070309"
+SIZE="2612"
+PARENT="<project>\component\work\IO_nCsXO\IO_nCsXO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\IO_nCsXO\IO_nCsXO_0\IO_nCsXO_IO_nCsXO_0_IO.cxf,actgen_cxf"
+STATE="utd"
+TIME="1709070309"
+SIZE="467"
+PARENT="<project>\component\work\IO_nCsXO\IO_nCsXO.cxf"
+ENDFILE
+VALUE "<project>\component\work\IO_nCsXO\IO_nCsXO_0\IO_nCsXO_IO_nCsXO_0_IO.v,hdl"
+STATE="utd"
+TIME="1709070309"
+SIZE="264"
+PARENT="<project>\component\work\IO_nCsXO\IO_nCsXO_0\IO_nCsXO_IO_nCsXO_0_IO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\IO_OUTPUTS\IO_OUTPUTS.cxf,actgen_cxf"
+STATE="utd"
+TIME="1708971344"
+SIZE="2373"
+ENDFILE
+VALUE "<project>\component\work\IO_OUTPUTS\IO_OUTPUTS.v,hdl"
+STATE="utd"
+TIME="1708971344"
+SIZE="3033"
+PARENT="<project>\component\work\IO_OUTPUTS\IO_OUTPUTS.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\IO_OUTPUTS\IO_OUTPUTS_0\IO_OUTPUTS_IO_OUTPUTS_0_IO.cxf,actgen_cxf"
+STATE="utd"
+TIME="1708971344"
+SIZE="475"
+PARENT="<project>\component\work\IO_OUTPUTS\IO_OUTPUTS.cxf"
+ENDFILE
+VALUE "<project>\component\work\IO_OUTPUTS\IO_OUTPUTS_0\IO_OUTPUTS_IO_OUTPUTS_0_IO.v,hdl"
+STATE="utd"
+TIME="1708971344"
+SIZE="824"
+PARENT="<project>\component\work\IO_OUTPUTS\IO_OUTPUTS_0\IO_OUTPUTS_IO_OUTPUTS_0_IO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\IO_TXBuf\IO_TXBuf.cxf,actgen_cxf"
+STATE="utd"
+TIME="1709681753"
+SIZE="2540"
+ENDFILE
+VALUE "<project>\component\work\IO_TXBuf\IO_TXBuf.v,hdl"
+STATE="utd"
+TIME="1709681753"
+SIZE="2680"
+PARENT="<project>\component\work\IO_TXBuf\IO_TXBuf.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\IO_TXBuf\IO_TXBuf_0\IO_TXBuf_IO_TXBuf_0_IO.cxf,actgen_cxf"
+STATE="utd"
+TIME="1709681753"
+SIZE="467"
+PARENT="<project>\component\work\IO_TXBuf\IO_TXBuf.cxf"
+ENDFILE
+VALUE "<project>\component\work\IO_TXBuf\IO_TXBuf_0\IO_TXBuf_IO_TXBuf_0_IO.v,hdl"
+STATE="utd"
+TIME="1709681753"
+SIZE="313"
+PARENT="<project>\component\work\IO_TXBuf\IO_TXBuf_0\IO_TXBuf_IO_TXBuf_0_IO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\Ux2FPGA\Ux2FPGA.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744415718"
+SIZE="5912"
+ENDFILE
+VALUE "<project>\component\work\Ux2FPGA\Ux2FPGA.v,hdl"
+STATE="utd"
+TIME="1744415659"
+SIZE="8507"
+PARENT="<project>\component\work\Ux2FPGA\Ux2FPGA.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\Ux2FPGA_sb\CCC_0\Ux2FPGA_sb_CCC_0_FCCC.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744394706"
+SIZE="699"
+PARENT="<project>\component\work\Ux2FPGA_sb\Ux2FPGA_sb.cxf"
+ENDFILE
+VALUE "<project>\component\work\Ux2FPGA_sb\CCC_0\Ux2FPGA_sb_CCC_0_FCCC.v,hdl"
+STATE="utd"
+TIME="1744394706"
+SIZE="1695"
+PARENT="<project>\component\work\Ux2FPGA_sb\CCC_0\Ux2FPGA_sb_CCC_0_FCCC.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\Ux2FPGA_sb\FABOSC_0\Ux2FPGA_sb_FABOSC_0_OSC.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744394707"
+SIZE="469"
+PARENT="<project>\component\work\Ux2FPGA_sb\Ux2FPGA_sb.cxf"
+ENDFILE
+VALUE "<project>\component\work\Ux2FPGA_sb\FABOSC_0\Ux2FPGA_sb_FABOSC_0_OSC.v,hdl"
+STATE="utd"
+TIME="1744394707"
+SIZE="830"
+PARENT="<project>\component\work\Ux2FPGA_sb\FABOSC_0\Ux2FPGA_sb_FABOSC_0_OSC.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\Ux2FPGA_sb\Ux2FPGA_sb.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744394708"
+SIZE="8384"
+ENDFILE
+VALUE "<project>\component\work\Ux2FPGA_sb\Ux2FPGA_sb.v,hdl"
+STATE="utd"
+TIME="1744394707"
+SIZE="22259"
+PARENT="<project>\component\work\Ux2FPGA_sb\Ux2FPGA_sb.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.cxf,actgen_cxf"
+STATE="utd"
+TIME="1744394704"
+SIZE="14576"
+ENDFILE
+VALUE "<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.v,hdl"
+STATE="utd"
+TIME="1744394704"
+SIZE="46565"
+PARENT="<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS_pre.v,hdl"
+STATE="utd"
+TIME="1744394704"
+SIZE="58495"
+PARENT="<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.cxf"
+BEGIN_USE_CONSTRAINT
+TOOL_CONSTRAINT_TYPE="ideSYNTHESIS"
+TOOL_CONSTRAINT_USE="PRECISION_EXT"
+END_USE_CONSTRAINT
+USE_FOR_ANY_TOOL="FALSE"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS_syn.v,hdl"
+STATE="utd"
+TIME="1744394704"
+SIZE="51343"
+PARENT="<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.cxf"
+BEGIN_USE_CONSTRAINT
+TOOL_CONSTRAINT_TYPE="ideSYNTHESIS"
+TOOL_CONSTRAINT_USE="SYNPLIFY7_EXT"
+END_USE_CONSTRAINT
+USE_FOR_ANY_TOOL="FALSE"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\constraint\io\user.pdc,io_pdc"
+STATE="utd"
+TIME="1744408915"
+SIZE="3646"
+IS_TARGET="TRUE"
+ENDFILE
+VALUE "<project>\constraint\user.sdc,sdc"
+STATE="utd"
+TIME="1744397782"
+SIZE="367"
+ENDFILE
+VALUE "<project>\constraint\Ux2FPGA_derived_constraints.sdc,sdc"
+STATE="utd"
+TIME="1744415668"
+SIZE="3281"
+ENDFILE
+VALUE "<project>\hdl\BuildNumber.vhd,hdl"
+STATE="utd"
+TIME="1744241969"
+SIZE="1538"
+ENDFILE
+VALUE "<project>\hdl\DMMain2.vhd,hdl"
+STATE="utd"
+TIME="1744407950"
+SIZE="44518"
+ENDFILE
+VALUE "<project>\hdl\RegisterSpace2.vhd,hdl"
+STATE="utd"
+TIME="1744415328"
+SIZE="22922"
+ENDFILE
+VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
+STATE="utd"
+TIME="1695145017"
+SIZE="1229"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\CoreAPB3.cxf"
+ENDFILE
+VALUE "<project>\simulation\CM3_compile_bfm.tcl,sim"
+STATE="utd"
+TIME="1744394704"
+SIZE="504"
+PARENT="<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.cxf"
+ENDFILE
+VALUE "<project>\simulation\coreapb3_usertb_master.bfm,sim"
+STATE="utd"
+TIME="1695145017"
+SIZE="8016"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\CoreAPB3.cxf"
+ENDFILE
+VALUE "<project>\simulation\coreuart_usertb_apb_master.bfm,sim"
+STATE="utd"
+TIME="1708962861"
+SIZE="2906"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+ENDFILE
+VALUE "<project>\simulation\coreuart_usertb_include.bfm,sim"
+STATE="utd"
+TIME="1708962861"
+SIZE="13597"
+PARENT="<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb.cxf"
+ENDFILE
+VALUE "<project>\simulation\peripheral_init.bfm,sim"
+STATE="utd"
+TIME="1694212107"
+SIZE="8450"
+PARENT="<project>\component\Actel\SmartFusion2MSS\MSS\1.1.500\MSS.cxf"
+ENDFILE
+VALUE "<project>\simulation\subsystem.bfm,sim"
+STATE="utd"
+TIME="1744415659"
+SIZE="793"
+PARENT="<project>\component\work\Ux2FPGA\Ux2FPGA.cxf"
+PARENT="<project>\component\work\Ux2FPGA_sb\Ux2FPGA_sb.cxf"
+ENDFILE
+VALUE "<project>\simulation\test.bfm,sim"
+STATE="utd"
+TIME="1744394704"
+SIZE="734"
+PARENT="<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.cxf"
+ENDFILE
+VALUE "<project>\simulation\user.bfm,sim"
+STATE="utd"
+TIME="1708962791"
+SIZE="555"
+PARENT="<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.cxf"
+ENDFILE
+VALUE "<project>\synthesis\synwork\layer1.so,so"
+STATE="utd"
+TIME="1744398083"
+SIZE="159"
+ENDFILE
+VALUE "<project>\synthesis\Ux2FPGA.so,so"
+STATE="utd"
+TIME="1744415706"
+SIZE="240"
+ENDFILE
+VALUE "<project>\synthesis\Ux2FPGA.vm,syn_vm"
+STATE="ood"
+TIME="1744415705"
+SIZE="275378"
+ENDFILE
+VALUE "<project>\synthesis\Ux2FPGA_syn.prj,prj"
+STATE="utd"
+TIME="1744415707"
+SIZE="5978"
+ENDFILE
+VALUE "<project>\synthesis\Ux2FPGA_vm.sdc,syn_sdc"
+STATE="utd"
+TIME="1744415705"
+SIZE="3451"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\ads1258.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="6173"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\ads1258accumulator.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="14879"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\CGraphDmDacRam.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="3187"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\CGraphDmDacRamFlat.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="2268"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\CGraphDmTypes.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="2943"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\ClockDivider.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="2089"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\fifo_gen.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="3505"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\fifo_gen_tb.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="2593"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\FourWireStepperMotor.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="3294"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\FourWireStepperMotorDriver.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="5196"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\gated_fifo.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="3895"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\gated_fifo_fram.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="3806"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\IBufP1.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="1410"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\IBufP2.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="1583"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\IBufP3.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="1669"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\IOBufP1.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="1584"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\IOBufP2.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="1691"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\IOBufP3.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="1854"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\Ltc2378AccumQuad.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="19939"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\Ltc2378AccumTrio.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="18318"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\ltc244x.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="5537"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\ltc244xaccumulator.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="10148"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\ltc244xaccumulator_types.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="4507"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\ltc244x_autoscan.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="5404"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\ltc244x_types.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="4498"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\OneShot.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="2371"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\PhaseComparator.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="3977"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\PPSCount.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="3392"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\RtcCounter.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="5105"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\SpiDac.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="5881"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\SpiDacQuad.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="7374"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\SpiDacTrio.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="6599"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\SpiDevice.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="5658"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\SpiDeviceDual.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="6402"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\SpiExtBus.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="5618"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\SpiExtBusAddrTx.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="4775"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\SpiMaster.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="5186"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\SpiMasterDual.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="6133"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\SpiMasterQuad.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="7872"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\SpiMasterTrio.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="7002"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\UartRx.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="2464"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\UartRxExtClk.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="2827"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\UartRxFifoExtClk.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="4427"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\UartRxFifoParity.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="5152"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\UartRxParity.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="3450"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\UartRxRaw.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="6334"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\UartTx.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="3319"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\UartTxFifo.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="7832"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\UartTxFifoExtClk.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="7581"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\UartTxFifoParity.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="8046"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\UartTxParity.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="2972"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\VariableClockDivider.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="2537"
+ENDFILE
+VALUE "C:\Users\SKaye\repos7\firmware\include\fpga\VariableOneShot.vhd,hdl"
+LINKFILEROOT "C:/Users/SKaye/repos7/firmware/include/fpga"
+STATE="utd"
+TIME="1744241979"
+SIZE="2247"
+ENDFILE
+ENDLIST
+LIST UsedFile
+ENDLIST
+LIST NewModulesInfo
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb::work"
+FILE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v,hdl"
+LIST Other_Association
+VALUE "<project>\simulation\coreuart_usertb_apb_master.bfm,sim"
+VALUE "<project>\simulation\coreuart_usertb_include.bfm,sim"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbl.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahblapb.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbslave.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbslaveext.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbtoapb.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apb.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apbslave.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apbslaveext.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apbtoapb.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_main.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\coreparameters.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\test\user\testbench.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\mti\scripts\bfmtovec_compile.do,do"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\mti\scripts\wave_vlog_amba.do,do"
+ENDLIST
+LIST AssociatedStimulus
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbl.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahblapb.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbslave.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbslaveext.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbtoapb.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apb.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apbslave.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apbslaveext.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apbtoapb.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_main.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\coreparameters.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\test\user\testbench.v,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+LIST "Ux2FPGA::work"
+FILE "<project>\component\work\Ux2FPGA\Ux2FPGA.v,hdl"
+LIST Other_Association
+VALUE "<project>\simulation\subsystem.bfm,sim"
+ENDLIST
+LIST SynthesisConstraints
+VALUE "<project>\constraint\Ux2FPGA_derived_constraints.sdc,sdc"
+VALUE "<project>\constraint\user.sdc,sdc"
+ENDLIST
+LIST TimingConstraints
+VALUE "<project>\constraint\Ux2FPGA_derived_constraints.sdc,sdc"
+VALUE "<project>\constraint\user.sdc,sdc"
+ENDLIST
+LIST PNRConstraints
+VALUE "<project>\constraint\Ux2FPGA_derived_constraints.sdc,sdc"
+VALUE "<project>\constraint\io\user.pdc,io_pdc"
+VALUE "<project>\constraint\user.sdc,sdc"
+ENDLIST
+ENDLIST
+LIST "Ux2FPGA_sb::work"
+FILE "<project>\component\work\Ux2FPGA_sb\Ux2FPGA_sb.v,hdl"
+LIST Other_Association
+VALUE "<project>\simulation\subsystem.bfm,sim"
+VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
+VALUE "<project>\simulation\coreapb3_usertb_master.bfm,sim"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\coreparameters.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_main.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_ahbtoapb.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apb.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apbslaveext.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apbslave.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\test\user\testbench.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\mti\scripts\wave_user.do,do"
+ENDLIST
+LIST AssociatedStimulus
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\coreparameters.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_main.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_ahbtoapb.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apb.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apbslaveext.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apbslave.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\test\user\testbench.v,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+LIST "Ux2FPGA_sb_MSS::work"
+FILE "<project>\component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.v,hdl"
+LIST Other_Association
+VALUE "<project>\simulation\CM3_compile_bfm.tcl,sim"
+VALUE "<project>\simulation\user.bfm,sim"
+VALUE "<project>\simulation\test.bfm,sim"
+VALUE "<project>\simulation\peripheral_init.bfm,sim"
+ENDLIST
+ENDLIST
+ENDLIST
+LIST AssociatedStimulus
+LIST Ux2FPGA_sb
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\coreparameters.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_main.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_ahbtoapb.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apb.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apbslaveext.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apbslave.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\test\user\testbench.v,tb_hdl"
+ENDLIST
+LIST CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbl.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahblapb.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbslave.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbslaveext.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbtoapb.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apb.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apbslave.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apbslaveext.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apbtoapb.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_main.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\coreparameters.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\test\user\testbench.v,tb_hdl"
+ENDLIST
+ENDLIST
+LIST Other_Association
+LIST Ux2FPGA
+VALUE "<project>\simulation\subsystem.bfm,sim"
+ENDLIST
+LIST Ux2FPGA_sb
+VALUE "<project>\simulation\subsystem.bfm,sim"
+VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
+VALUE "<project>\simulation\coreapb3_usertb_master.bfm,sim"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\coreparameters.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_main.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_ahbtoapb.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apb.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apbslaveext.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apbslave.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\test\user\testbench.v,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\mti\scripts\wave_user.do,do"
+ENDLIST
+LIST Ux2FPGA_sb_MSS
+VALUE "<project>\simulation\CM3_compile_bfm.tcl,sim"
+VALUE "<project>\simulation\user.bfm,sim"
+VALUE "<project>\simulation\test.bfm,sim"
+VALUE "<project>\simulation\peripheral_init.bfm,sim"
+ENDLIST
+LIST CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb
+VALUE "<project>\simulation\coreuart_usertb_apb_master.bfm,sim"
+VALUE "<project>\simulation\coreuart_usertb_include.bfm,sim"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbl.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahblapb.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbslave.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbslaveext.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbtoapb.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apb.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apbslave.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apbslaveext.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apbtoapb.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_main.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\coreparameters.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\test\user\testbench.v,tb_hdl"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\mti\scripts\bfmtovec_compile.do,do"
+VALUE "<project>\component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\mti\scripts\wave_vlog_amba.do,do"
+ENDLIST
+ENDLIST
+LIST SimulationOptions
+UseAutomaticDoFile=true
+IncludeWaveDo=false
+Type=max
+RunTime=1000ns
+Resolution=1fs
+VsimOpt=
+EntityName=testbench
+TopInstanceName=<top>_0
+DoFileName=
+DoFileName2=wave.do
+DoFileParams=
+DisplayDUTWave=false
+LogAllSignals=false
+DisablePulseFiltering=false
+DumpVCD=false
+VCDFileName=power.vcd
+VHDL2008=false
+Verilog2001=false
+SystemVerilog=false
+TimeUnit=1
+TimeUnitBase=ns
+Precision=100
+PrecisionBase=ps
+ENDLIST
+LIST ModelSimLibPath
+UseCustomPath=FALSE
+LibraryPath=
+ENDLIST
+LIST GlobalFlowOptions
+GenerateHDLAfterSynthesis=FALSE
+GenerateHDLAfterPhySynthesis=FALSE
+RunDRCAfterSynthesis=FALSE
+AutoCheckConstraints=TRUE
+UpdateModelSimIni=TRUE
+NoIOMode=FALSE
+PeriInitStandalone=FALSE
+OnDemandBuildDH=TRUE
+EnableViewDraw=FALSE
+UpdateViewDrawIni=TRUE
+GenerateHDLFromSchematic=TRUE
+VmNetlistFlowOn=TRUE
+EnableDesignSeparationOn=FALSE
+EnableSETMitigationOn=FALSE
+DisplayFanoutLimit=10
+AbortFlowOnPDCErrorsOn=TRUE
+AbortFlowOnSDCErrorsOn=FALSE
+AbortFlowOn3.3V_IO_ON=FALSE
+InstantiateInSmartDesign=TRUE
+FlashProInputFile=pdb
+SmartGenCompileReport=T
+ENDLIST
+LIST PhySynthesisOptions
+ENDLIST
+LIST Profiles
+NAME="SoftConsole"
+FUNCTION="SoftwareIDE"
+TOOL="SoftConsole"
+LOCATION="eclipse.exe"
+PARAM=""
+BATCH=0
+LICENSE=""
+IS32BIT="1"
+EndProfile
+NAME="Synplify Pro ME"
+FUNCTION="Synthesis"
+TOOL="Synplify Pro ME"
+LOCATION="C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\bin\synplify_pro.exe"
+PARAM=""
+BATCH=0
+LICENSE=""
+IS32BIT="1"
+EndProfile
+NAME="ModelSim ME Pro"
+FUNCTION="Simulation"
+TOOL="ModelSim Pro Edition"
+LOCATION="C:\Microchip\Libero_SoC_v2023.2\ModelSimPro\win32acoem\modelsim.exe"
+PARAM=""
+BATCH=0
+LICENSE=""
+IS32BIT="1"
+EndProfile
+NAME="Identify Debugger"
+FUNCTION="IdentifyDebugger"
+TOOL="Identify Debugger"
+LOCATION="C:\Microchip\Libero_SoC_v2023.2\Identify\bin\identify_debugger.exe"
+PARAM=""
+BATCH=0
+LICENSE=""
+IS32BIT="1"
+EndProfile
+ENDLIST
+LIST ProjectState5.1
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb::work"
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+LIST "Ux2FPGA_sb::work"
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+LIST ExcludePackageForSimulation
+ENDLIST
+LIST ExcludePackageForSynthesis
+ENDLIST
+LIST IncludeModuleForSimulation
+ENDLIST
+LIST CDBOrder
+ENDLIST
+LIST UserCustomizedFileList
+ENDLIST
+LIST OpenedFileList
+ORIENTATION;HORIZONTAL
+StartPage;StartPage;0
+ACTIVEVIEW;StartPage
+ENDLIST
+LIST ModuleSubBlockList
+LIST "ads1258::work","C:\Users\SKaye\repos7\firmware\include\fpga\ads1258.vhd","FALSE","FALSE"
+ENDLIST
+LIST "ads1258accumulator_pkg::work","C:\Users\SKaye\repos7\firmware\include\fpga\ads1258accumulator.vhd","FALSE","FALSE"
+ENDLIST
+LIST "ads1258accumulatorPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\ads1258accumulator.vhd","FALSE","FALSE"
+SUBBLOCK "ramb16_s36_s36::work","","FALSE","FALSE"
+ENDLIST
+LIST "ads1258Ports::work","C:\Users\SKaye\repos7\firmware\include\fpga\ads1258.vhd","FALSE","FALSE"
+SUBBLOCK "SpiMasterPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMaster.vhd","FALSE","FALSE"
+ENDLIST
+LIST "BuildNumberPorts::work","hdl\BuildNumber.vhd","FALSE","FALSE"
+ENDLIST
+LIST "CGraphDMTypes::work","C:\Users\SKaye\repos7\firmware\include\fpga\CGraphDmTypes.vhd","FALSE","FALSE"
+ENDLIST
+LIST "coreresetp_pcie_hotreset::work","component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp_pcie_hotreset.v","FALSE","FALSE"
+ENDLIST
+LIST "CoreUARTapb_C0::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0.v","TRUE","FALSE"
+SUBBLOCK "CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v","FALSE","FALSE"
+ENDLIST
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_Clock_gen::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Clock_gen.v","FALSE","FALSE"
+ENDLIST
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v","FALSE","FALSE"
+SUBBLOCK "CoreUARTapb_C0_CoreUARTapb_C0_0_COREUART::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v","FALSE","FALSE"
+ENDLIST
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_fifo_256x8::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\fifo_256x8_g4.v","FALSE","FALSE"
+SUBBLOCK "CoreUARTapb_C0_CoreUARTapb_C0_0_fifo_ctrl_128::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\fifo_256x8_g4.v","FALSE","FALSE"
+ENDLIST
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_fifo_ctrl_128::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\fifo_256x8_g4.v","FALSE","FALSE"
+SUBBLOCK "CoreUARTapb_C0_CoreUARTapb_C0_0_ram128x8_pa4::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\fifo_256x8_g4.v","FALSE","FALSE"
+ENDLIST
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_ram128x8_pa4::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\fifo_256x8_g4.v","FALSE","FALSE"
+ENDLIST
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v","FALSE","FALSE"
+ENDLIST
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v","FALSE","FALSE"
+ENDLIST
+LIST "DmDacRamFlatPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\CGraphDmDacRamFlat.vhd","FALSE","FALSE"
+ENDLIST
+LIST "DmDacRamPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\CGraphDmDacRam.vhd","FALSE","FALSE"
+ENDLIST
+LIST "DMMainPorts::work","hdl\DMMain2.vhd","FALSE","FALSE"
+SUBBLOCK "IBufP1Ports::work","C:\Users\SKaye\repos7\firmware\include\fpga\IBufP1.vhd","FALSE","FALSE"
+SUBBLOCK "IBufP2Ports::work","C:\Users\SKaye\repos7\firmware\include\fpga\IBufP2.vhd","FALSE","FALSE"
+SUBBLOCK "IBufP3Ports::work","C:\Users\SKaye\repos7\firmware\include\fpga\IBufP3.vhd","FALSE","FALSE"
+SUBBLOCK "UartRxFifoExtClk::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartRxFifoExtClk.vhd","FALSE","FALSE"
+SUBBLOCK "UartTxFifoExtClk::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartTxFifoExtClk.vhd","FALSE","FALSE"
+SUBBLOCK "VariableClockDividerPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\VariableClockDivider.vhd","FALSE","FALSE"
+SUBBLOCK "ClockDividerPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\ClockDivider.vhd","FALSE","FALSE"
+SUBBLOCK "OneShotPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\OneShot.vhd","FALSE","FALSE"
+SUBBLOCK "RegisterSpacePorts::work","hdl\RegisterSpace2.vhd","FALSE","FALSE"
+SUBBLOCK "SpiDacPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiDac.vhd","FALSE","FALSE"
+ENDLIST
+LIST "ClockDividerPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\ClockDivider.vhd","FALSE","FALSE"
+ENDLIST
+LIST "CoreResetP::work","component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v","FALSE","FALSE"
+SUBBLOCK "coreresetp_pcie_hotreset::work","component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp_pcie_hotreset.v","FALSE","FALSE"
+ENDLIST
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_COREUART::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUART.v","FALSE","FALSE"
+SUBBLOCK "CoreUARTapb_C0_CoreUARTapb_C0_0_Clock_gen::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Clock_gen.v","FALSE","FALSE"
+SUBBLOCK "CoreUARTapb_C0_CoreUARTapb_C0_0_Rx_async::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Rx_async.v","FALSE","FALSE"
+SUBBLOCK "CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v","FALSE","FALSE"
+SUBBLOCK "CoreUARTapb_C0_CoreUARTapb_C0_0_fifo_256x8::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\fifo_256x8_g4.v","FALSE","FALSE"
+ENDLIST
+LIST "fifo::work","C:\Users\SKaye\repos7\firmware\include\fpga\fifo_gen.vhd","FALSE","FALSE"
+ENDLIST
+LIST "gated_fifo::work","C:\Users\SKaye\repos7\firmware\include\fpga\gated_fifo.vhd","FALSE","FALSE"
+SUBBLOCK "fifo::work","C:\Users\SKaye\repos7\firmware\include\fpga\fifo_gen.vhd","FALSE","FALSE"
+ENDLIST
+LIST "MSS_025::work","component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS_syn.v","FALSE","FALSE"
+ENDLIST
+LIST "OneShotPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\OneShot.vhd","FALSE","FALSE"
+ENDLIST
+LIST "RegisterSpacePorts::work","hdl\RegisterSpace2.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiDacPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiDac.vhd","FALSE","FALSE"
+SUBBLOCK "SpiMasterPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMaster.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiMasterDualPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMasterDual.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiMasterPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMaster.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiMasterQuadPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMasterQuad.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiMasterTrioPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMasterTrio.vhd","FALSE","FALSE"
+ENDLIST
+LIST "VariableClockDividerPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\VariableClockDivider.vhd","FALSE","FALSE"
+ENDLIST
+LIST "ClockDividerPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\ClockDivider.vhd","FALSE","FALSE"
+ENDLIST
+LIST "fifo::work","C:\Users\SKaye\repos7\firmware\include\fpga\fifo_gen.vhd","FALSE","FALSE"
+ENDLIST
+LIST "OneShotPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\OneShot.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiMasterPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMaster.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiMasterQuadPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMasterQuad.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiMasterTrioPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMasterTrio.vhd","FALSE","FALSE"
+ENDLIST
+LIST "ClockDividerPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\ClockDivider.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiMasterPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMaster.vhd","FALSE","FALSE"
+ENDLIST
+LIST "ClockDividerPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\ClockDivider.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiMasterPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMaster.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiMasterPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMaster.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiMasterPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMaster.vhd","FALSE","FALSE"
+ENDLIST
+LIST "FCCC_C0::work","component\work\FCCC_C0\FCCC_C0.v","TRUE","FALSE"
+SUBBLOCK "FCCC_C0_FCCC_C0_0_FCCC::work","component\work\FCCC_C0\FCCC_C0_0\FCCC_C0_FCCC_C0_0_FCCC.v","FALSE","FALSE"
+ENDLIST
+LIST "FCCC_C0_FCCC_C0_0_FCCC::work","component\work\FCCC_C0\FCCC_C0_0\FCCC_C0_FCCC_C0_0_FCCC.v","FALSE","FALSE"
+ENDLIST
+LIST "fifo_fram::work","","FALSE","FALSE"
+ENDLIST
+LIST "fifo_gen_tb::work","C:\Users\SKaye\repos7\firmware\include\fpga\fifo_gen_tb.vhd","FALSE","FALSE"
+SUBBLOCK "fifo::work","C:\Users\SKaye\repos7\firmware\include\fpga\fifo_gen.vhd","FALSE","FALSE"
+ENDLIST
+LIST "FourWireStepperMotorDriverPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\FourWireStepperMotorDriver.vhd","FALSE","FALSE"
+SUBBLOCK "FourWireStepperMotorPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\FourWireStepperMotor.vhd","FALSE","FALSE"
+SUBBLOCK "OneShotPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\OneShot.vhd","FALSE","FALSE"
+ENDLIST
+LIST "FourWireStepperMotorPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\FourWireStepperMotor.vhd","FALSE","FALSE"
+ENDLIST
+LIST "gated_fifo_fram::work","C:\Users\SKaye\repos7\firmware\include\fpga\gated_fifo_fram.vhd","FALSE","FALSE"
+SUBBLOCK "fifo_fram::work","","FALSE","FALSE"
+ENDLIST
+LIST "IBufP1Ports::work","C:\Users\SKaye\repos7\firmware\include\fpga\IBufP1.vhd","FALSE","FALSE"
+ENDLIST
+LIST "IBufP2Ports::work","C:\Users\SKaye\repos7\firmware\include\fpga\IBufP2.vhd","FALSE","FALSE"
+ENDLIST
+LIST "IBufP3Ports::work","C:\Users\SKaye\repos7\firmware\include\fpga\IBufP3.vhd","FALSE","FALSE"
+ENDLIST
+LIST "IO_INPUTS::work","component\work\IO_INPUTS\IO_INPUTS.v","TRUE","FALSE"
+SUBBLOCK "IO_INPUTS_IO_INPUTS_0_IO::work","component\work\IO_INPUTS\IO_INPUTS_0\IO_INPUTS_IO_INPUTS_0_IO.v","FALSE","FALSE"
+ENDLIST
+LIST "IO_INPUTS_IO_INPUTS_0_IO::work","component\work\IO_INPUTS\IO_INPUTS_0\IO_INPUTS_IO_INPUTS_0_IO.v","FALSE","FALSE"
+ENDLIST
+LIST "IO_nCsXO::work","component\work\IO_nCsXO\IO_nCsXO.v","TRUE","FALSE"
+SUBBLOCK "IO_nCsXO_IO_nCsXO_0_IO::work","component\work\IO_nCsXO\IO_nCsXO_0\IO_nCsXO_IO_nCsXO_0_IO.v","FALSE","FALSE"
+ENDLIST
+LIST "IO_nCsXO_IO_nCsXO_0_IO::work","component\work\IO_nCsXO\IO_nCsXO_0\IO_nCsXO_IO_nCsXO_0_IO.v","FALSE","FALSE"
+ENDLIST
+LIST "IO_OUTPUTS::work","component\work\IO_OUTPUTS\IO_OUTPUTS.v","TRUE","FALSE"
+SUBBLOCK "IO_OUTPUTS_IO_OUTPUTS_0_IO::work","component\work\IO_OUTPUTS\IO_OUTPUTS_0\IO_OUTPUTS_IO_OUTPUTS_0_IO.v","FALSE","FALSE"
+ENDLIST
+LIST "IO_OUTPUTS_IO_OUTPUTS_0_IO::work","component\work\IO_OUTPUTS\IO_OUTPUTS_0\IO_OUTPUTS_IO_OUTPUTS_0_IO.v","FALSE","FALSE"
+ENDLIST
+LIST "IO_TXBuf::work","component\work\IO_TXBuf\IO_TXBuf.v","TRUE","FALSE"
+SUBBLOCK "IO_TXBuf_IO_TXBuf_0_IO::work","component\work\IO_TXBuf\IO_TXBuf_0\IO_TXBuf_IO_TXBuf_0_IO.v","FALSE","FALSE"
+ENDLIST
+LIST "IO_TXBuf_IO_TXBuf_0_IO::work","component\work\IO_TXBuf\IO_TXBuf_0\IO_TXBuf_IO_TXBuf_0_IO.v","FALSE","FALSE"
+ENDLIST
+LIST "iobuf::work","","FALSE","FALSE"
+ENDLIST
+LIST "IOBufP2Ports::work","C:\Users\SKaye\repos7\firmware\include\fpga\IOBufP1.vhd","FALSE","FALSE"
+ENDLIST
+LIST "IOBufP3Ports::work","C:\Users\SKaye\repos7\firmware\include\fpga\IOBufP3.vhd","FALSE","FALSE"
+SUBBLOCK "iobuf::work","","FALSE","FALSE"
+ENDLIST
+LIST "Ltc2378AccumQuadPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\Ltc2378AccumQuad.vhd","FALSE","FALSE"
+SUBBLOCK "SpiMasterQuadPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMasterQuad.vhd","FALSE","FALSE"
+SUBBLOCK "VariableClockDividerPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\VariableClockDivider.vhd","FALSE","FALSE"
+SUBBLOCK "OneShotPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\OneShot.vhd","FALSE","FALSE"
+ENDLIST
+LIST "Ltc2378AccumTrioPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\Ltc2378AccumTrio.vhd","FALSE","FALSE"
+SUBBLOCK "SpiMasterTrioPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMasterTrio.vhd","FALSE","FALSE"
+SUBBLOCK "VariableClockDividerPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\VariableClockDivider.vhd","FALSE","FALSE"
+SUBBLOCK "OneShotPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\OneShot.vhd","FALSE","FALSE"
+ENDLIST
+LIST "ltc244x_types::work","C:\Users\SKaye\repos7\firmware\include\fpga\ltc244x_types.vhd","FALSE","FALSE"
+ENDLIST
+LIST "ltc244xaccumulator_types::work","C:\Users\SKaye\repos7\firmware\include\fpga\ltc244xaccumulator_types.vhd","FALSE","FALSE"
+ENDLIST
+LIST "ltc244xaccumulatorPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\ltc244xaccumulator.vhd","FALSE","FALSE"
+SUBBLOCK "ltc244xAutoscanPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\ltc244x_autoscan.vhd","FALSE","FALSE"
+ENDLIST
+LIST "ltc244xAutoscanPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\ltc244x_autoscan.vhd","FALSE","FALSE"
+SUBBLOCK "SpiMasterPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMaster.vhd","FALSE","FALSE"
+ENDLIST
+LIST "ltc244xPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\ltc244x.vhd","FALSE","FALSE"
+SUBBLOCK "SpiMasterPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMaster.vhd","FALSE","FALSE"
+ENDLIST
+LIST "OneShotPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\OneShot.vhd","FALSE","FALSE"
+ENDLIST
+LIST "PhaseComparatorPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\PhaseComparator.vhd","FALSE","FALSE"
+SUBBLOCK "IBufP3Ports::work","C:\Users\SKaye\repos7\firmware\include\fpga\IBufP3.vhd","FALSE","FALSE"
+ENDLIST
+LIST "PPSCountPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\PPSCount.vhd","FALSE","FALSE"
+ENDLIST
+LIST "ramb16_s36_s36::work","","FALSE","FALSE"
+ENDLIST
+LIST "RCOSC_1MHZ::work","component\Actel\SgCore\OSC\2.0.101\osc_comps.v","FALSE","FALSE"
+ENDLIST
+LIST "RCOSC_1MHZ_FAB::work","component\Actel\SgCore\OSC\2.0.101\osc_comps.v","FALSE","FALSE"
+ENDLIST
+LIST "RCOSC_25_50MHZ::work","component\Actel\SgCore\OSC\2.0.101\osc_comps.v","FALSE","FALSE"
+ENDLIST
+LIST "RCOSC_25_50MHZ_FAB::work","component\Actel\SgCore\OSC\2.0.101\osc_comps.v","FALSE","FALSE"
+ENDLIST
+LIST "RtcCounterPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\RtcCounter.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiDacQuadPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiDacQuad.vhd","FALSE","FALSE"
+SUBBLOCK "SpiMasterQuadPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMasterQuad.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiDacTrioPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiDacTrio.vhd","FALSE","FALSE"
+SUBBLOCK "SpiMasterTrioPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMasterTrio.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiDeviceDualPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiDeviceDual.vhd","FALSE","FALSE"
+SUBBLOCK "SpiMasterDualPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMasterDual.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiDevicePorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiDevice.vhd","FALSE","FALSE"
+SUBBLOCK "SpiMasterPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMaster.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiExtBusAddrTxPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiExtBusAddrTx.vhd","FALSE","FALSE"
+SUBBLOCK "UartTx::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartTx.vhd","FALSE","FALSE"
+SUBBLOCK "ClockDividerPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\ClockDivider.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiExtBusPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiExtBus.vhd","FALSE","FALSE"
+SUBBLOCK "SpiMasterPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\SpiMaster.vhd","FALSE","FALSE"
+ENDLIST
+LIST "UartRx::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartRx.vhd","FALSE","FALSE"
+SUBBLOCK "IBufP2Ports::work","C:\Users\SKaye\repos7\firmware\include\fpga\IBufP2.vhd","FALSE","FALSE"
+SUBBLOCK "UartRxRaw::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartRxRaw.vhd","FALSE","FALSE"
+SUBBLOCK "ClockDividerPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\ClockDivider.vhd","FALSE","FALSE"
+ENDLIST
+LIST "UartRxExtClk::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartRxExtClk.vhd","FALSE","FALSE"
+SUBBLOCK "IBufP2Ports::work","C:\Users\SKaye\repos7\firmware\include\fpga\IBufP2.vhd","FALSE","FALSE"
+SUBBLOCK "UartRxRaw::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartRxRaw.vhd","FALSE","FALSE"
+ENDLIST
+LIST "UartRxFifoExtClk::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartRxFifoExtClk.vhd","FALSE","FALSE"
+SUBBLOCK "IBufP2Ports::work","C:\Users\SKaye\repos7\firmware\include\fpga\IBufP2.vhd","FALSE","FALSE"
+SUBBLOCK "UartRxExtClk::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartRxExtClk.vhd","FALSE","FALSE"
+SUBBLOCK "gated_fifo::work","C:\Users\SKaye\repos7\firmware\include\fpga\gated_fifo.vhd","FALSE","FALSE"
+ENDLIST
+LIST "UartRxFifoParity::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartRxFifoParity.vhd","FALSE","FALSE"
+SUBBLOCK "IBufP2Ports::work","C:\Users\SKaye\repos7\firmware\include\fpga\IBufP2.vhd","FALSE","FALSE"
+SUBBLOCK "UartRxParity::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartRxParity.vhd","FALSE","FALSE"
+SUBBLOCK "gated_fifo::work","C:\Users\SKaye\repos7\firmware\include\fpga\gated_fifo.vhd","FALSE","FALSE"
+SUBBLOCK "ClockDividerPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\ClockDivider.vhd","FALSE","FALSE"
+ENDLIST
+LIST "UartRxParity::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartRxParity.vhd","FALSE","FALSE"
+ENDLIST
+LIST "UartRxRaw::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartRxRaw.vhd","FALSE","FALSE"
+ENDLIST
+LIST "UartTx::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartTx.vhd","FALSE","FALSE"
+ENDLIST
+LIST "UartTxFifo::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartTxFifo.vhd","FALSE","FALSE"
+SUBBLOCK "IBufP2Ports::work","C:\Users\SKaye\repos7\firmware\include\fpga\IBufP2.vhd","FALSE","FALSE"
+SUBBLOCK "UartTx::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartTx.vhd","FALSE","FALSE"
+SUBBLOCK "gated_fifo::work","C:\Users\SKaye\repos7\firmware\include\fpga\gated_fifo.vhd","FALSE","FALSE"
+SUBBLOCK "ClockDividerPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\ClockDivider.vhd","FALSE","FALSE"
+ENDLIST
+LIST "UartTxFifoExtClk::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartTxFifoExtClk.vhd","FALSE","FALSE"
+SUBBLOCK "IBufP2Ports::work","C:\Users\SKaye\repos7\firmware\include\fpga\IBufP2.vhd","FALSE","FALSE"
+SUBBLOCK "UartTx::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartTx.vhd","FALSE","FALSE"
+SUBBLOCK "gated_fifo::work","C:\Users\SKaye\repos7\firmware\include\fpga\gated_fifo.vhd","FALSE","FALSE"
+ENDLIST
+LIST "UartTxFifoParity::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartTxFifoParity.vhd","FALSE","FALSE"
+SUBBLOCK "IBufP2Ports::work","C:\Users\SKaye\repos7\firmware\include\fpga\IBufP2.vhd","FALSE","FALSE"
+SUBBLOCK "UartTxParity::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartTxParity.vhd","FALSE","FALSE"
+SUBBLOCK "gated_fifo::work","C:\Users\SKaye\repos7\firmware\include\fpga\gated_fifo.vhd","FALSE","FALSE"
+SUBBLOCK "ClockDividerPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\ClockDivider.vhd","FALSE","FALSE"
+ENDLIST
+LIST "UartTxParity::work","C:\Users\SKaye\repos7\firmware\include\fpga\UartTxParity.vhd","FALSE","FALSE"
+ENDLIST
+LIST "Ux2FPGA::work","component\work\Ux2FPGA\Ux2FPGA.v","TRUE","FALSE"
+SUBBLOCK "DMMainPorts::work","hdl\DMMain2.vhd","FALSE","FALSE"
+SUBBLOCK "FCCC_C0::work","component\work\FCCC_C0\FCCC_C0.v","TRUE","FALSE"
+SUBBLOCK "Ux2FPGA_sb::work","component\work\Ux2FPGA_sb\Ux2FPGA_sb.v","TRUE","FALSE"
+ENDLIST
+LIST "Ux2FPGA_sb::work","component\work\Ux2FPGA_sb\Ux2FPGA_sb.v","TRUE","FALSE"
+SUBBLOCK "Ux2FPGA_sb_CCC_0_FCCC::work","component\work\Ux2FPGA_sb\CCC_0\Ux2FPGA_sb_CCC_0_FCCC.v","FALSE","FALSE"
+SUBBLOCK "Ux2FPGA_sb_FABOSC_0_OSC::work","component\work\Ux2FPGA_sb\FABOSC_0\Ux2FPGA_sb_FABOSC_0_OSC.v","FALSE","FALSE"
+SUBBLOCK "Ux2FPGA_sb_MSS::work","component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.v","TRUE","FALSE"
+SUBBLOCK "CoreResetP::work","component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v","FALSE","FALSE"
+SUBBLOCK "CoreAPB3::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v","FALSE","FALSE"
+ENDLIST
+LIST "Ux2FPGA_sb_CCC_0_FCCC::work","component\work\Ux2FPGA_sb\CCC_0\Ux2FPGA_sb_CCC_0_FCCC.v","FALSE","FALSE"
+ENDLIST
+LIST "Ux2FPGA_sb_FABOSC_0_OSC::work","component\work\Ux2FPGA_sb\FABOSC_0\Ux2FPGA_sb_FABOSC_0_OSC.v","FALSE","FALSE"
+SUBBLOCK "RCOSC_25_50MHZ_FAB::work","component\Actel\SgCore\OSC\2.0.101\osc_comps.v","FALSE","FALSE"
+SUBBLOCK "RCOSC_25_50MHZ::work","component\Actel\SgCore\OSC\2.0.101\osc_comps.v","FALSE","FALSE"
+ENDLIST
+LIST "Ux2FPGA_sb_MSS::work","component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS.v","TRUE","FALSE"
+SUBBLOCK "MSS_025::work","component\work\Ux2FPGA_sb_MSS\Ux2FPGA_sb_MSS_syn.v","FALSE","FALSE"
+ENDLIST
+LIST "VariableClockDividerPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\VariableClockDivider.vhd","FALSE","FALSE"
+ENDLIST
+LIST "VariableOneShotPorts::work","C:\Users\SKaye\repos7\firmware\include\fpga\VariableOneShot.vhd","FALSE","FALSE"
+ENDLIST
+LIST "XTLOSC::work","component\Actel\SgCore\OSC\2.0.101\osc_comps.v","FALSE","FALSE"
+ENDLIST
+LIST "XTLOSC_FAB::work","component\Actel\SgCore\OSC\2.0.101\osc_comps.v","FALSE","FALSE"
+ENDLIST
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_BFM_AHBL::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbl.v","FALSE","TRUE"
+SUBBLOCK "CoreUARTapb_C0_CoreUARTapb_C0_0_BFM_MAIN::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_main.v","FALSE","TRUE"
+ENDLIST
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_BFM_AHBLAPB::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahblapb.v","FALSE","TRUE"
+SUBBLOCK "CoreUARTapb_C0_CoreUARTapb_C0_0_BFMA1l1OII::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbtoapb.v","FALSE","TRUE"
+SUBBLOCK "CoreUARTapb_C0_CoreUARTapb_C0_0_BFM_MAIN::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_main.v","FALSE","TRUE"
+ENDLIST
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_BFM_AHBSLAVE::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbslave.v","FALSE","TRUE"
+SUBBLOCK "CoreUARTapb_C0_CoreUARTapb_C0_0_BFM_AHBSLAVEEXT::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbslaveext.v","FALSE","TRUE"
+ENDLIST
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_BFM_APB2APB::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apbtoapb.v","FALSE","TRUE"
+ENDLIST
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_BFM_APBSLAVE::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apbslave.v","FALSE","TRUE"
+SUBBLOCK "CoreUARTapb_C0_CoreUARTapb_C0_0_BFM_APBSLAVEEXT::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apbslaveext.v","FALSE","TRUE"
+ENDLIST
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_BFM_APBSLAVEEXT::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apbslaveext.v","FALSE","TRUE"
+ENDLIST
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_BFMA1l1OII::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbtoapb.v","FALSE","TRUE"
+ENDLIST
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_BFM_AHBSLAVEEXT::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbslaveext.v","FALSE","TRUE"
+ENDLIST
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_BFM_APB::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apb.v","FALSE","TRUE"
+SUBBLOCK "CoreUARTapb_C0_CoreUARTapb_C0_0_BFMA1l1OII::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbtoapb.v","FALSE","TRUE"
+SUBBLOCK "CoreUARTapb_C0_CoreUARTapb_C0_0_BFM_MAIN::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_main.v","FALSE","TRUE"
+ENDLIST
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_BFM_MAIN::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_main.v","FALSE","TRUE"
+ENDLIST
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_BFMA1l1OII::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_ahbtoapb.v","FALSE","TRUE"
+ENDLIST
+LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_BFM_MAIN::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_main.v","FALSE","TRUE"
+ENDLIST
+LIST "testbench::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\test\user\testbench.v","FALSE","TRUE"
+SUBBLOCK "CoreUARTapb_C0_CoreUARTapb_C0_0_CoreUARTapb::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\CoreUARTapb.v","FALSE","FALSE"
+SUBBLOCK "CoreUARTapb_C0_CoreUARTapb_C0_0_BFM_APB::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\amba_bfm\bfm_apb.v","FALSE","TRUE"
+ENDLIST
+LIST "coreapb3_iaddr_reg::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_iaddr_reg.v","FALSE","FALSE"
+ENDLIST
+LIST "COREAPB3_MUXPTOB3::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_muxptob3.v","FALSE","FALSE"
+ENDLIST
+LIST "CoreAPB3::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v","FALSE","FALSE"
+SUBBLOCK "COREAPB3_MUXPTOB3::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_muxptob3.v","FALSE","FALSE"
+SUBBLOCK "coreapb3_iaddr_reg::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_iaddr_reg.v","FALSE","FALSE"
+ENDLIST
+LIST "BFM_APB::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apb.v","FALSE","TRUE"
+SUBBLOCK "BFMA1l1OII::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_ahbtoapb.v","FALSE","TRUE"
+SUBBLOCK "BFM_MAIN::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_main.v","FALSE","TRUE"
+ENDLIST
+LIST "BFM_APBSLAVE::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apbslave.v","FALSE","TRUE"
+SUBBLOCK "BFM_APBSLAVEEXT::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apbslaveext.v","FALSE","TRUE"
+ENDLIST
+LIST "BFM_APBSLAVEEXT::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apbslaveext.v","FALSE","TRUE"
+ENDLIST
+LIST "BFM_MAIN::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_main.v","FALSE","TRUE"
+ENDLIST
+LIST "BFMA1l1OII::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_ahbtoapb.v","FALSE","TRUE"
+ENDLIST
+LIST "testbench::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\test\user\testbench.v","FALSE","TRUE"
+SUBBLOCK "BFM_APB::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apb.v","FALSE","TRUE"
+SUBBLOCK "BFM_APBSLAVE::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apbslave.v","FALSE","TRUE"
+SUBBLOCK "CoreAPB3::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v","FALSE","FALSE"
+ENDLIST
+ENDLIST
+LIST ActiveTestBenchList
+ENDLIST
+LIST IOTabList
+VALUE "constraint\io\user.pdc"
+ENDLIST
+LIST FPTabList
+ENDLIST
+LIST TimingTabList
+VALUE "constraint\Ux2FPGA_derived_constraints.sdc"
+VALUE "constraint\user.sdc"
+ENDLIST
+LIST FDCTabList
+ENDLIST

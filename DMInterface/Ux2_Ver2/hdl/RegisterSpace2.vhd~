@@ -1,0 +1,488 @@
+--------------------------------------------------------------------------------
+-- UA Extra-Solar Camera DM Controller Project FPGA Firmware
+--
+-- Register Space Definitions & Interface
+--
+--------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.all;
+use IEEE.std_logic_unsigned.all;
+use work.CGraphDMTypes.all;
+
+entity RegisterSpacePorts is
+  generic(
+    ADDRESS_BITS : natural := 32--; 
+   --~ FIFO_BITS : natural := 9--;
+  );
+  port (
+    clk : in std_logic;
+    rst : in std_logic;
+		
+    -- Bus:
+    Address : in std_logic_vector(ADDRESS_BITS - 1 downto 0); -- vhdl can't figure out that ADDRESS_BITS is a constant because it's in a generic map...
+    DataIn : in std_logic_vector(31 downto 0);
+    DataOut : out std_logic_vector(31 downto 0);
+    ReadReq : in  std_logic;
+    WriteReq : in std_logic;
+    ReadAck : out std_logic;
+    WriteAck : out std_logic;
+		
+    --Data to access:			
+
+    --Infrastructure
+    SerialNumber : in std_logic_vector(31 downto 0);
+    BuildNumber : in std_logic_vector(31 downto 0);
+    
+    --Faults and Control (need to look over schematic)
+    -- Leave space for these
+    --PowernEnHV : out std_logic;	
+    --PowernEn : out std_logic;
+    Uart3OE : out std_logic;				
+    Ux2SelJmp : out std_logic;
+    
+    -- DM Readback A/Ds
+--    ReadAdcSample : out std_logic;
+--    AdcSampleToReadA : in std_logic_vector(47 downto 0);
+--    AdcSampleToReadB : in std_logic_vector(47 downto 0);
+--    AdcSampleToReadC : in std_logic_vector(47 downto 0);
+--    AdcSampleToReadD : in std_logic_vector(47 downto 0);
+--    AdcSampleNumAccums : in std_logic_vector(15 downto 0);	
+
+    --Monitor A/D:
+--    MonitorAdcChannelReadIndex : out std_logic_vector(4 downto 0);
+--    ReadMonitorAdcSample : out std_logic;
+--    --~ MonitorAdcSampleToRead : in ads1258accumulator;
+--    MonitorAdcSampleToRead : in std_logic_vector(63 downto 0);
+--    MonitorAdcReset : out std_logic;
+--    MonitorAdcSpiDataIn : out std_logic_vector(7 downto 0);
+--    MonitorAdcSpiDataOut0 : in std_logic_vector(7 downto 0);
+--    MonitorAdcSpiDataOut1 : in std_logic_vector(7 downto 0);
+--    MonitorAdcSpiXferStart : out std_logic;
+--    MonitorAdcSpiXferDone : in std_logic;
+--    MonitorAdcnDrdy0  : in std_logic;
+--    MonitorAdcnDrdy1  : in std_logic;
+--    MonitorAdcSpiFrameEnable : out std_logic;
+
+    --RS-422
+    Uart3FifoReset : out std_logic;
+    ReadUart3 : out std_logic;
+    Uart3RxFifoFull : in std_logic;
+    Uart3RxFifoEmpty : in std_logic;
+    Uart3RxFifoData : in std_logic_vector(7 downto 0);
+    Uart3RxFifoCount : in std_logic_vector(9 downto 0);
+    WriteUart3 : out std_logic;
+    Uart3TxFifoFull : in std_logic;
+    Uart3TxFifoEmpty : in std_logic;
+    Uart3TxFifoData : out std_logic_vector(7 downto 0);
+    Uart3TxFifoCount : in std_logic_vector(9 downto 0);
+    Uart3ClkDivider : out std_logic_vector(7 downto 0);
+
+    --Timing
+    IdealTicksPerSecond : in std_logic_vector(31 downto 0);
+    ActualTicksLastSecond : in std_logic_vector(31 downto 0);
+    PPSCountReset : out std_logic;
+    PPSDetected : in std_logic;
+    ClockTicksThisSecond : in std_logic_vector(31 downto 0);				
+
+    ClkAdcWrite : out std_logic_vector(15 downto 0);
+    WriteClkAdc : out std_logic;
+    ClkAdcReadback : in std_logic_vector(15 downto 0)--;
+
+    );
+end RegisterSpacePorts;
+
+
+architecture RegisterSpace of RegisterSpacePorts is
+
+  constant MAX_ADDRESS_BITS : natural := ADDRESS_BITS;
+  signal Address_i : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0);
+
+  -- Here is the adress space
+  constant DeviceSerialNumberAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(0, MAX_ADDRESS_BITS));
+  constant FpgaFirmwareBuildNumberAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(4, MAX_ADDRESS_BITS));
+  
+  -- Timing info addresses
+  constant UnixSecondsAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(8, MAX_ADDRESS_BITS)); --we have guard addresses on all fifos because accidental reading still removes a char from the fifo.
+  constant IdealTicksPerSecondAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(12, MAX_ADDRESS_BITS));
+  constant ActualTicksLastSecondAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(16, MAX_ADDRESS_BITS));
+  constant ClockTicksThisSecondAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(20, MAX_ADDRESS_BITS));
+  -- This may be just for the FSM
+  constant ClockSteeringDacSetpointAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(24, MAX_ADDRESS_BITS)); 
+
+  -- Need to understand this one
+  constant ControlRegisterAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(28, MAX_ADDRESS_BITS)); --we have guard addresses on all fifos because accidental reading still removes a char from the fifo.
+
+  -- Some housekeeping ADC addresses
+  constant AdcAAccumulatorAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(32, MAX_ADDRESS_BITS)); --8bytes!
+  constant AdcBAccumulatorAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(40, MAX_ADDRESS_BITS)); --8bytes!!
+  constant AdcCAccumulatorAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(48, MAX_ADDRESS_BITS)); --8bytes!!
+  constant AdcDAccumulatorAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(56, MAX_ADDRESS_BITS)); --8bytes!!
+  constant AdcEAccumulatorAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(64, MAX_ADDRESS_BITS)); --8bytes!!
+  constant AdcFAccumulatorAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(72, MAX_ADDRESS_BITS)); --8bytes!!
+
+  -- Not sure how to use these yet, but part of the ADC monitor
+  constant MonitorAdcSample : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(80, MAX_ADDRESS_BITS));
+  constant MonitorAdcReadChannel : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(84, MAX_ADDRESS_BITS));
+  constant MonitorAdcSpiXferAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(88, MAX_ADDRESS_BITS));
+  constant MonitorAdcSpiFrameEnableAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(92, MAX_ADDRESS_BITS));
+
+  constant ControlRegister : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(96, MAX_ADDRESS_BITS));
+  constant StatusRegister  : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(100, MAX_ADDRESS_BITS));  
+
+  -- Now for the UART (RS4-22, 485) addresses
+  -- Don't know if we need all 4, but leave them in for now
+  -- Maybe use 3 so we have two boards in each???
+  constant UartClockDividersAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(104, MAX_ADDRESS_BITS));
+-- 8bytes?  This looks like 32 bit in include/cgraph/CGraphCommon.hpp
+
+  constant Uart3FifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(108, MAX_ADDRESS_BITS));
+  constant Uart3FifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(112, MAX_ADDRESS_BITS));
+  constant Uart3FifoReadDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(116, MAX_ADDRESS_BITS));
+  
+  --Control Signals
+	
+  signal LastReadReq :  std_logic := '0';		
+  signal LastWriteReq :  std_logic := '0';		
+
+  signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 16.0)) - 1.0), 8));	--38.4k
+  signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));	--230k
+	
+  signal Uart2ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8));	--"real fast"
+  signal Uart3ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8));	--"real fast"
+	
+  signal MonitorAdcChannelReadIndex_i : std_logic_vector(4 downto 0);	
+  signal MonitorAdcSpiFrameEnable_i : std_logic := '0';	
+	
+  -- we have a large amount of DacSetpoints to set to x"000000"
+--  signal DacASetpoint_i :  std_logic_vector(31 downto 0) := x"00000000";		
+--  signal DacBSetpoint_i :  std_logic_vector(31 downto 0) := x"00000000";		
+--  signal DacCSetpoint_i :  std_logic_vector(31 downto 0) := x"00000000";	
+--  signal DacDSetpoint_i :  std_logic_vector(31 downto 0) := x"00000000";	
+	
+  signal PowernEn_i :  std_logic := '0';								
+  --signal LedR_i :  std_logic := '0';
+  --signal LedG_i :  std_logic := '0';
+  --signal LedB_i :  std_logic := '0';
+  signal Uart3OE_i :  std_logic := '0';								
+  signal Ux2SelJmp_i :  std_logic := '0';
+
+  signal PowernEnHV_i :  std_logic := '0';
+  signal nHVEn1_i :  std_logic := '0';
+  signal HVDis2_i :  std_logic := '0';
+--  signal DacSelectMaxti_i :  std_logic := '0';								
+--  signal GlobalFaultInhibit_i :  std_logic := '0';
+--  signal nFaultsClr_i :  std_logic := '0';
+	
+--  signal ExtAddr_i : std_logic_vector(7 downto 0);
+
+  --~ variable DacSetpoints : DMDacSetpointRam;
+  --~ shared variable DacSetpoints_i : DMDacSetpointRam;
+
+begin
+  
+  Address_i <= Address(13 downto 0);
+
+  Uart3ClkDivider <= Uart3ClkDivider_i;
+
+--  MonitorAdcChannelReadIndex <= MonitorAdcChannelReadIndex_i;
+--  MonitorAdcSpiFrameEnable <= MonitorAdcSpiFrameEnable_i;
+
+--  PowernEn <= PowernEn_i;
+
+  Uart3OE <= Uart3OE_i;								
+  Ux2SelJmp <= Ux2SelJmp_i;	
+--  PowernEnHV <= PowernEnHV_i;
+
+--  nHVEn1 <= nHVEn1_i;
+--  HVDis2 <= HVDis2_i;
+--  DacSelectMaxti <= DacSelectMaxti_i;
+--  GlobalFaultInhibit <= GlobalFaultInhibit_i;
+--  nFaultsClr <= nFaultsClr_i;
+
+--  ExtAddrOut <= ExtAddr_i;
+
+	-- DacSetpoints <= DacSetpoints_i;
+
+  process (clk, rst)
+  begin
+    if (rst = '1') then
+      LastReadReq <= '0';			
+      LastWriteReq <= '0';
+
+--      Uart0ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 16.0)) - 1.0), 8));
+--      Uart1ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));
+--      Uart2ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
+      Uart3ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 16.0)) - 1.0), 8));
+
+--      MonitorAdcChannelReadIndex_i <= "00000";
+      
+    else
+      if ( (clk'event) and (clk = '1') ) then
+	  
+		--~ --Mux ram outputs
+		--~ for i in 0 to (DMMaxControllerBoards - 1) loop
+			--~ for j in 0 to (DMMDacsPerControllerBoard - 1) loop
+				--~ DacSetpoints(i,j) <= DacSetpoints_i(i,j,to_integer(unsigned(DacChannelReadIndex))); 
+			--~ end loop;
+		--~ end loop;
+
+        if (ReadReq = '1') then
+          --ReadReq Rising Edge
+          if (LastReadReq = '0') then			
+            LastReadReq <= '1';			
+            ReadAck <= '0';				
+            --~ DataOut <= Address_i(7 downto 0);			
+            case Address_i is						
+              --Serial Number
+              when DeviceSerialNumberAddr =>
+                DataOut <= SerialNumber;
+              --Build Number
+              when FpgaFirmwareBuildNumberAddr =>
+                DataOut <= BuildNumber;
+										
+              --Monitor A/D
+              -- Maybe this is not the way, but a state engine in DMMain2 that
+              -- contiuously accumulates adc data
+--              when MonitorAdcReadChannel =>
+--                DataOut(4 downto 0) <= MonitorAdcChannelReadIndex_i;
+--                DataOut(7 downto 5) <= "000";
+--                DataOut(31 downto 8) <= x"000000";
+--      								
+--              when MonitorAdcSpiXferAddr =>
+--                DataOut(7 downto 0) <= MonitorAdcSpiDataOut0;
+--                DataOut(15 downto 8) <= MonitorAdcSpiDataOut1;
+--                --~ DataOut(31 downto 8) <= x"000000";
+--                DataOut(31 downto 16) <= x"0000";
+--      					
+--              when MonitorAdcSpiFrameEnableAddr =>
+--                DataOut(0) <= MonitorAdcSpiFrameEnable_i;
+--                DataOut(1) <= MonitorAdcSpiXferDone;
+--                DataOut(2) <= MonitorAdcnDrdy0;
+--                DataOut(3) <= MonitorAdcnDrdy1;
+--                DataOut(7 downto 4) <= "0000";
+--                DataOut(31 downto 8) <= x"000000";
+					
+              --RS-422
+              when Uart3FifoAddr =>
+                ReadUart3 <= '1';
+                DataOut <= x"BAADC0DE";
+              when Uart3FifoReadDataAddr =>
+                DataOut(7 downto 0) <= Uart3RxFifoData; --note fifo hasn't had time to do the read yet, this will actually be the previous byte
+                DataOut(31 downto 8) <= x"000000";
+              when Uart3FifoStatusAddr =>
+                DataOut(0) <= Uart3RxFifoEmpty;
+                DataOut(1) <= Uart3RxFifoFull;
+                DataOut(2) <= Uart3TxFifoEmpty;
+                DataOut(3) <= Uart3TxFifoFull;
+                DataOut(4) <= '0';
+                DataOut(5) <= '0';
+                DataOut(6) <= '0';
+                DataOut(7) <= '0';
+                DataOut(17 downto 8) <= Uart3RxFifoCount;
+                DataOut(27 downto 18) <= Uart3RxFifoCount;
+                DataOut(31 downto 28) <= "0000";
+								
+              --Uart Clock dividers
+              when UartClockDividersAddr =>
+                DataOut(7 downto 0) <= Uart0ClkDivider_i;
+                DataOut(15 downto 8) <= Uart1ClkDivider_i;
+                DataOut(23 downto 16) <= Uart2ClkDivider_i;
+                DataOut(31 downto 24) <= Uart3ClkDivider_i;
+                
+              --Timing
+				
+              --IdealTicksPerSecond
+              when IdealTicksPerSecondAddr =>
+                DataOut <= IdealTicksPerSecond;
+										
+              --ActualTicksLastSecond
+              when ActualTicksLastSecondAddr =>
+                DataOut <= ActualTicksLastSecond;
+								
+              --ClockTicksThisSecond
+              when ClockTicksThisSecondAddr =>
+                DataOut <= ClockTicksThisSecond;
+										
+              --ClockSteeringDacSetpointAddr
+              when ClockSteeringDacSetpointAddr =>
+                DataOut(15 downto 0) <= ClkAdcReadback;
+                DataOut(31 downto 16) <= x"0000";
+								
+              --ControlRegisterAddr
+              when ControlRegisterAddr =>
+--                DataOut(0) <= FaultNegV;
+--                DataOut(1) <= Fault1V;
+--                DataOut(2) <= Fault2VA;
+--                DataOut(3) <= Fault2VD;								
+--                DataOut(4) <= Fault3VA;
+--                DataOut(5) <= Fault3VD;
+--                DataOut(6) <= Fault5V;
+--                DataOut(7) <= FaultHV;
+                
+--                DataOut(8) <= nHVFaultA;
+--                DataOut(9) <= nHVFaultB;
+--                DataOut(10) <= nHVFaultC;
+--                DataOut(11) <= nHVFaultD;								
+--                DataOut(12) <= PowerCycd;
+--                DataOut(13) <= LedR_i;
+--                DataOut(14) <= LedG_i;
+--                DataOut(15) <= LedB_i;
+								
+--                DataOut(16) <= Uart0OE_i;
+--                DataOut(17) <= Uart1OE_i;
+--                DataOut(18) <= Uart2OE_i;
+                DataOut(19) <= Uart3OE_i;								
+                DataOut(20) <= Ux2SelJmp_i;
+                DataOut(21) <= '0';
+                DataOut(22) <= PPSDetected;
+                DataOut(23) <= '0';
+								
+                DataOut(24) <= PowernEnHV_i;
+                DataOut(25) <= nHVEn1_i;
+                DataOut(26) <= HVDis2_i;
+--                DataOut(27) <= DacSelectMaxti_i;
+--                DataOut(28) <= GlobalFaultInhibit_i;
+--                DataOut(29) <= nFaultsClr_i;
+                DataOut(30) <= '0';
+                DataOut(31) <= '0';
+                --~ DataOut(31 downto 23) <= "000000000";
+										
+              when others =>
+                --~ DataOut <= x"BAADC0DE";
+            end case;
+									
+          else
+            ReadAck <= '1';
+          end if;				
+        end if;
+        
+        if (ReadReq = '0') then
+          --ReadReq falling edge				
+          if (LastReadReq = '1') then --wait a clock before doing anything or else the uC never actaully gets the data...
+            LastReadReq <= '0';
+          else --ok, actually "finish" the read:
+            ReadAck <= '0';					
+            --If timing is good, this doesn't do anything. If the fpga is lagging the processor reads will all be 82's. Yeah, we tested that in practice; don't enable this lol.
+            --DataOut <= x"9182"; 
+--            ReadAdcSample <= '0';		
+            ReadUart3 <= '0';		
+          end if;
+        end if;
+
+        if (WriteReq = '1') then
+          --WriteReq Rising Edge
+          if (LastWriteReq = '0') then
+            LastWriteReq <= '1';
+            WriteAck <= '0';
+            case Address_i is
+              --D/A's
+
+              --Monitor A/D
+--              when MonitorAdcSample =>
+--                MonitorAdcReset <= '1';
+--              when MonitorAdcReadChannel =>
+--                ReadMonitorAdcSample <= '1';
+--                MonitorAdcChannelReadIndex_i <= DataIn(4 downto 0);
+--              when MonitorAdcSpiXferAddr =>
+--                MonitorAdcSpiXferStart <= '1';
+--                MonitorAdcSpiDataIn <= DataIn(7 downto 0);
+--              when MonitorAdcSpiFrameEnableAddr =>
+--                MonitorAdcSpiFrameEnable_i <= DataIn(0);
+							
+              --RS-422
+              when Uart3FifoAddr =>
+                WriteUart3 <= '1';
+                Uart3TxFifoData <= DataIn(7 downto 0);
+              when Uart3FifoStatusAddr =>
+                Uart3FifoReset <= '1';
+								
+              --Uart Clock dividers
+              when UartClockDividersAddr =>
+                Uart0ClkDivider_i <= DataIn(7 downto 0);
+                Uart1ClkDivider_i <= DataIn(15 downto 8);
+                Uart2ClkDivider_i <= DataIn(23 downto 16);
+                Uart3ClkDivider_i <= DataIn(31 downto 24);
+
+              --Timing
+              when ClockSteeringDacSetpointAddr =>
+                PPSCountReset <= '1';
+                WriteClkAdc <= '1';						
+                ClkAdcWrite <= DataIn(15 downto 0);
+													
+              --ControlRegisterAddr
+              when ControlRegisterAddr =>
+                --~ PosLedsEnA_i <= DataIn(0);
+                --~ PosLedsEnB_i <= DataIn(1);
+		--~ MotorEnable_i <= DataIn(2);
+		--~ ResetSteps_i <= DataIn(3);
+		--~ PosLedsEnA_i <= DataIn(4);
+		--~ PosLedsEnB_i <= DataIn(5);
+		--~ MotorEnable_i <= DataIn(6);
+		--~ ResetSteps_i <= DataIn(7);
+
+                --~ nFaultClr1V <= DataIn(8);
+		--~ nFaultClr3V <= DataIn(9);
+		--~ nFaultClr5V <= DataIn(10);
+                PowernEn_i <= DataIn(11);
+                --~ nPowerCycClr <= DataIn(12);
+                --~ LedR_i <= DataIn(13);
+                --~ LedG_i <= DataIn(14);
+                --~ LedB_i <= DataIn(15);
+
+--                Uart0OE_i <= DataIn(16);
+--                Uart1OE_i <= DataIn(17);
+--                Uart2OE_i <= DataIn(18);
+                Uart3OE_i <= DataIn(19);
+                Ux2SelJmp_i <= DataIn(20);
+                --~ Ux2SelJmp_i <= DataIn(21);
+                PPSCountReset <= DataIn(22);	
+                --~ <= DataIn(23);
+
+                PowernEnHV_i <= DataIn(24);
+                nHVEn1_i <= DataIn(25);
+                HVDis2_i <= DataIn(26);
+--                DacSelectMaxti_i <= DataIn(27);
+--                GlobalFaultInhibit_i <= DataIn(28);
+--                nFaultsClr_i <= DataIn(29);
+                --~ <= DataIn(30);
+                --~ <= DataIn(31);
+				
+              when others => 
+            end case;
+						
+          else
+            WriteAck <= '1';					
+          end if;
+        end if;
+				
+        if (WriteReq = '0') then
+          --WriteReq falling edge				
+          if (LastWriteReq = '1') then
+            LastWriteReq <= '0';
+          else
+            WriteAck <= '0';
+            
+--            ReadMonitorAdcSample <= '0';
+--            MonitorAdcReset <= '0';
+--            MonitorAdcSpiXferStart <= '0';
+
+            PPSCountReset <= '0';						
+
+            WriteClkAdc <= '0';		
+
+            WriteUart3 <= '0';		
+            Uart3FifoReset <= '0';						
+
+--            nPowerCycClr <= '0';												
+            --~ ??nFaultsClr_i <= DataIn(29);
+--            SetExtAddr <= '0';
+          end if;
+        end if;
+      end if;
+    end if;
+  end process;
+
+end RegisterSpace;
+

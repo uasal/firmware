@@ -1,0 +1,131 @@
+#--  Synopsys, Inc.
+#--  Version T-2022.09M-SP2-1
+#--  Project file C:\Users\SKaye\repos7\firmware\DMInterface\Ux2_Ver2\synthesis\Ux2FPGA_syn.prj
+#--  Written on Fri Apr 11 16:55:07 2025
+
+
+#project files
+add_file -vhdl -lib work "C:/Users/SKaye/repos7/firmware/include/fpga/IBufP1.vhd"
+add_file -vhdl -lib work "C:/Users/SKaye/repos7/firmware/include/fpga/IBufP2.vhd"
+add_file -vhdl -lib work "C:/Users/SKaye/repos7/firmware/include/fpga/IBufP3.vhd"
+add_file -vhdl -lib work "C:/Users/SKaye/repos7/firmware/include/fpga/UartRxRaw.vhd"
+add_file -vhdl -lib work "C:/Users/SKaye/repos7/firmware/include/fpga/UartRxExtClk.vhd"
+add_file -vhdl -lib work "C:/Users/SKaye/repos7/firmware/include/fpga/fifo_gen.vhd"
+add_file -vhdl -lib work "C:/Users/SKaye/repos7/firmware/include/fpga/gated_fifo.vhd"
+add_file -vhdl -lib work "C:/Users/SKaye/repos7/firmware/include/fpga/UartRxFifoExtClk.vhd"
+add_file -vhdl -lib work "C:/Users/SKaye/repos7/firmware/include/fpga/UartTx.vhd"
+add_file -vhdl -lib work "C:/Users/SKaye/repos7/firmware/include/fpga/UartTxFifoExtClk.vhd"
+add_file -vhdl -lib work "C:/Users/SKaye/repos7/firmware/include/fpga/VariableClockDivider.vhd"
+add_file -vhdl -lib work "C:/Users/SKaye/repos7/firmware/include/fpga/ClockDivider.vhd"
+add_file -vhdl -lib work "C:/Users/SKaye/repos7/firmware/include/fpga/OneShot.vhd"
+add_file -vhdl -lib work "C:/Users/SKaye/repos7/firmware/include/fpga/CGraphDmTypes.vhd"
+add_file -vhdl -lib work "C:/Users/SKaye/repos7/firmware/DMInterface/Ux2_Ver2/hdl/RegisterSpace2.vhd"
+add_file -vhdl -lib work "C:/Users/SKaye/repos7/firmware/include/fpga/SpiMaster.vhd"
+add_file -vhdl -lib work "C:/Users/SKaye/repos7/firmware/include/fpga/SpiDac.vhd"
+add_file -vhdl -lib work "C:/Users/SKaye/repos7/firmware/DMInterface/Ux2_Ver2/hdl/DMMain2.vhd"
+add_file -verilog "C:/Users/SKaye/repos7/firmware/DMInterface/Ux2_Ver2/component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.v"
+add_file -verilog "C:/Users/SKaye/repos7/firmware/DMInterface/Ux2_Ver2/component/work/FCCC_C0/FCCC_C0.v"
+add_file -verilog "C:/Users/SKaye/repos7/firmware/DMInterface/Ux2_Ver2/component/work/Ux2FPGA_sb/CCC_0/Ux2FPGA_sb_CCC_0_FCCC.v"
+add_file -verilog "C:/Users/SKaye/repos7/firmware/DMInterface/Ux2_Ver2/component/Actel/SgCore/OSC/2.0.101/osc_comps.v"
+add_file -verilog "C:/Users/SKaye/repos7/firmware/DMInterface/Ux2_Ver2/component/work/Ux2FPGA_sb/FABOSC_0/Ux2FPGA_sb_FABOSC_0_OSC.v"
+add_file -verilog "C:/Users/SKaye/repos7/firmware/DMInterface/Ux2_Ver2/component/work/Ux2FPGA_sb_MSS/Ux2FPGA_sb_MSS_syn.v"
+add_file -verilog "C:/Users/SKaye/repos7/firmware/DMInterface/Ux2_Ver2/component/work/Ux2FPGA_sb_MSS/Ux2FPGA_sb_MSS.v"
+add_file -verilog "C:/Users/SKaye/repos7/firmware/DMInterface/Ux2_Ver2/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp_pcie_hotreset.v"
+add_file -verilog "C:/Users/SKaye/repos7/firmware/DMInterface/Ux2_Ver2/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v"
+add_file -verilog -lib COREAPB3_LIB "C:/Users/SKaye/repos7/firmware/DMInterface/Ux2_Ver2/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3_muxptob3.v"
+add_file -verilog -lib COREAPB3_LIB "C:/Users/SKaye/repos7/firmware/DMInterface/Ux2_Ver2/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3_iaddr_reg.v"
+add_file -verilog -lib COREAPB3_LIB "C:/Users/SKaye/repos7/firmware/DMInterface/Ux2_Ver2/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3.v"
+add_file -verilog "C:/Users/SKaye/repos7/firmware/DMInterface/Ux2_Ver2/component/work/Ux2FPGA_sb/Ux2FPGA_sb.v"
+add_file -verilog "C:/Users/SKaye/repos7/firmware/DMInterface/Ux2_Ver2/component/work/Ux2FPGA/Ux2FPGA.v"
+add_file -fpga_constraint "C:/Users/SKaye/repos7/firmware/DMInterface/Ux2_Ver2/designer/Ux2FPGA/synthesis.fdc"
+
+
+#implementation: "synthesis"
+impl -add synthesis -type fpga
+
+#
+#implementation attributes
+
+set_option -vlog_std sysv
+
+#device options
+set_option -technology SmartFusion2
+set_option -part M2S025
+set_option -package VF400
+set_option -speed_grade -1
+set_option -part_companion ""
+
+#compilation/mapping options
+set_option -use_fsm_explorer 0
+set_option -top_module "Ux2FPGA"
+
+# hdl_compiler_options
+set_option -distributed_compile 0
+set_option -scm2hydra 0
+set_option -hdl_strict_syntax 0
+
+# mapper_without_write_options
+set_option -frequency 100.000
+set_option -resolve_multiple_driver 1
+set_option -srs_instrumentation 1
+
+# mapper_options
+set_option -write_verilog 0
+set_option -write_structural_verilog 0
+set_option -write_vhdl 0
+
+# actel_options
+set_option -rw_check_on_ram 0
+
+# Microchip G4
+set_option -run_prop_extract 1
+set_option -maxfan 10000
+set_option -clock_globalthreshold 2
+set_option -async_globalthreshold 12
+set_option -globalthreshold 5000
+set_option -low_power_ram_decomp 0
+set_option -seqshift_to_uram 0
+set_option -disable_io_insertion 0
+set_option -opcond COMTC
+set_option -retiming 0
+set_option -report_path 4000
+set_option -update_models_cp 0
+set_option -preserve_registers 0
+set_option -disable_ramindex 0
+set_option -rep_clkint_driver 1
+set_option -microsemi_enhanced_flow 1
+set_option -ternary_adder_decomp 66
+set_option -async_clkint_removal 1
+
+# Microchip SmartFusion2
+set_option -report_preserve_cdc 1
+set_option -min_cdc_sync_flops 2
+set_option -unsafe_cdc_netlist_property 0
+set_option -pack_uram_addr_reg 1
+
+# NFilter
+set_option -no_sequential_opt 0
+
+# flow_options
+set_option -use_unified_compile 0
+set_option -use_module_idb 1
+
+# sequential_optimization_options
+set_option -symbolic_fsm_compiler 1
+
+# Compiler Options
+set_option -compiler_compatible 0
+set_option -resource_sharing 1
+
+# Compiler Options
+set_option -auto_infer_blackbox 0
+
+# Compiler Options
+set_option -vhdl2008 1
+
+#automatic place and route (vendor) options
+set_option -write_apr_constraint 1
+
+#set result format/file last
+project -result_file "./Ux2FPGA.vm"
+impl -active "synthesis"

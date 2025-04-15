@@ -1,0 +1,551 @@
+<html>
+    <head>
+        <style>
+      body { font-family:arial; font-size:10pt; text-align:left; }
+      h1, h2 {
+          padding-top: 30px;
+      }
+      h3 {
+          padding-top: 20px;
+      }
+      h4, h5, h6 {
+          padding-top: 10px;
+          font-size:12pt;
+      }
+      table {
+          font-family:arial; font-size:10pt; text-align:left;
+          border-color:#B0B0B0;
+          border-style:solid;
+          border-width:1px;
+          border-collapse:collapse;
+      }
+      table th, table td {
+          font-family:arial; font-size:10pt; text-align:left;
+          border-color:#B0B0B0;
+          border-style:solid;
+          border-width:1px;
+          padding: 4px;
+      }
+     </style>
+    </head>
+    <body>
+        <h1 align="center">Global Net Report</h1>
+        <p>Microchip Technology Inc. - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)</p>
+        <p>Date: Fri Apr 11 16:55:37 2025
+</p>
+        <h2>Global Nets Information</h2>
+        <table cellpadding="4">
+            <tr>
+                <th/>
+                <th> From </th>
+                <th> GB Location </th>
+                <th> Net Name </th>
+                <th> Fanout </th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>GB[12] </td>
+                <td>(306, 72)</td>
+                <td>FCCC_C0_0/FCCC_C0_0/GL0_INST/U0_YWn_GEast</td>
+                <td>241</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>GB[3] </td>
+                <td>(293, 72)</td>
+                <td>DMMainPorts_0/RegisterSpace/Uart3FifoReset_RNIRNUQ_0/U0_YWn_GEast</td>
+                <td>113</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>GB[7] </td>
+                <td>(297, 72)</td>
+                <td>DMMainPorts_0/Uart3BitClockDiv/clko_i_RNI79L5/U0_YWn_GEast</td>
+                <td>31</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>GB[2] </td>
+                <td>(292, 72)</td>
+                <td>DMMainPorts_0/BootupReset/shot_i_rep_RNI151D/U0_YWn_GEast</td>
+                <td>24</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>GB[5] </td>
+                <td>(295, 72)</td>
+                <td>DMMainPorts_0/Uart3TxBitClockDiv/div_i_RNID38D/U0_YWn_GEast</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>GB[6] </td>
+                <td>(296, 72)</td>
+                <td>Ux2FPGA_sb_0/CCC_0/GL0_INST/U0_YWn_GEast</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>GB[11] </td>
+                <td>(305, 72)</td>
+                <td>FCCC_C0_0/FCCC_C0_0/GL1_INST/U0_YWn</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <p/>
+        <h2>I/O to GB Connections</h2>
+        <p>(none)</p>
+        <h2>Fabric to GB Connections</h2>
+        <table cellpadding="4">
+            <tr>
+                <th/>
+                <th> From </th>
+                <th> From Location </th>
+                <th> To </th>
+                <th> Net Name </th>
+                <th> Net Type </th>
+                <th> Fanout </th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>DMMainPorts_0/RegisterSpace/Uart3FifoReset_RNIRNUQ:Y</td>
+                <td>(587, 96)</td>
+                <td>GB[3] </td>
+                <td>DMMainPorts_0/RegisterSpace/N_60_i</td>
+                <td>ROUTED</td>
+                <td>11</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>DMMainPorts_0/Uart3BitClockDiv/clko_i:Q</td>
+                <td>(598, 100)</td>
+                <td>GB[7] </td>
+                <td>DMMainPorts_0/Uart3BitClockDiv/clko_i_Z</td>
+                <td>ROUTED</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>DMMainPorts_0/BootupReset/shot_i_rep:Q</td>
+                <td>(589, 103)</td>
+                <td>GB[2] </td>
+                <td>DMMainPorts_0/BootupReset/shot_i_rep_Z</td>
+                <td>ROUTED</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>DMMainPorts_0/Uart3TxBitClockDiv/div_i:Q</td>
+                <td>(569, 100)</td>
+                <td>GB[5] </td>
+                <td>DMMainPorts_0/Uart3TxBitClockDiv/div_i_Z</td>
+                <td>ROUTED</td>
+                <td>2</td>
+            </tr>
+        </table>
+        <p/>
+        <h2>CCC to GB Connections</h2>
+        <table cellpadding="4">
+            <tr>
+                <th/>
+                <th> From </th>
+                <th> From Location </th>
+                <th>Pin Swapped for Back Annotation Only</th>
+                <th> To </th>
+                <th> Net Name </th>
+                <th> Net Type </th>
+                <th> Fanout </th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP:GL0</td>
+                <td>CCC-NE1 (618, 134)</td>
+                <td>None</td>
+                <td>GB[12] </td>
+                <td>FCCC_C0_0/FCCC_C0_0/GL0_net</td>
+                <td>HARDWIRED</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Ux2FPGA_sb_0/CCC_0/CCC_INST/INST_CCC_IP:GL0</td>
+                <td>CCC-NW1 (18, 134)</td>
+                <td>GL0 =&gt; GL2</td>
+                <td>GB[6] </td>
+                <td>Ux2FPGA_sb_0/CCC_0/GL0_net</td>
+                <td>HARDWIRED</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP:GL1</td>
+                <td>CCC-NE1 (618, 134)</td>
+                <td>GL1 =&gt; GL3</td>
+                <td>GB[11] </td>
+                <td>FCCC_C0_0/FCCC_C0_0/GL1_net</td>
+                <td>HARDWIRED</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <p/>
+        <h2>CCC Input Connections</h2>
+        <table cellpadding="4">
+            <tr>
+                <th/>
+                <th> Port Name </th>
+                <th> Pin Number </th>
+                <th> I/O Function </th>
+                <th> From </th>
+                <th> From Location </th>
+                <th> To (Pin Swapped for Back Annotation Only) </th>
+                <th> CCC Location </th>
+                <th> Net Name </th>
+                <th> Net Type </th>
+                <th> Fanout </th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>CLK0_PAD</td>
+                <td>H16</td>
+                <td>MSIO11NB2/I2C_1_SCL/GPIO_1_A/CCC_NE1_CLKI0</td>
+                <td>FCCC_C0_0/FCCC_C0_0/CLK0_PAD_INST/U_IOPAD:Y</td>
+                <td>(627, 28)</td>
+                <td>FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP:CLK0_PAD</td>
+                <td>CCC-NE1 (618, 134)</td>
+                <td>FCCC_C0_0/FCCC_C0_0/CLK0_PAD_net</td>
+                <td>HARDWIRED</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP:GL1</td>
+                <td>(618, 134)</td>
+                <td>Ux2FPGA_sb_0/CCC_0/CCC_INST/INST_CCC_IP:CLK0</td>
+                <td>CCC-NW1 (18, 134)</td>
+                <td>FCCC_C0_0/FCCC_C0_0/GL1_net</td>
+                <td>ROUTED</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <p/>
+        <h2>Local Nets to RGB Connections</h2>
+        <p>(none)</p>
+        <h2>Global Nets to RGB Connections</h2>
+        <table cellpadding="4">
+            <tr>
+                <th/>
+                <th> From </th>
+                <th> From Location </th>
+                <th> Net Name </th>
+                <th> Fanout </th>
+                <th/>
+                <th> RGB Location </th>
+                <th> RGB Fanout </th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>GB[12] </td>
+                <td>(306, 72)</td>
+                <td>FCCC_C0_0/FCCC_C0_0/GL0_INST/U0_YWn_GEast</td>
+                <td>241</td>
+                <td>1</td>
+                <td>(446, 84)</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>2</td>
+                <td>(446, 87)</td>
+                <td>19</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>3</td>
+                <td>(446, 90)</td>
+                <td>35</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>4</td>
+                <td>(446, 93)</td>
+                <td>47</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>5</td>
+                <td>(446, 96)</td>
+                <td>40</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>6</td>
+                <td>(446, 99)</td>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>7</td>
+                <td>(446, 102)</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>8</td>
+                <td>(446, 126)</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>9</td>
+                <td>(446, 129)</td>
+                <td>48</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>10</td>
+                <td>(446, 132)</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>GB[3] </td>
+                <td>(293, 72)</td>
+                <td>DMMainPorts_0/RegisterSpace/Uart3FifoReset_RNIRNUQ_0/U0_YWn_GEast</td>
+                <td>113</td>
+                <td>1</td>
+                <td>(447, 90)</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>2</td>
+                <td>(447, 93)</td>
+                <td>21</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>3</td>
+                <td>(447, 99)</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>4</td>
+                <td>(447, 102)</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>5</td>
+                <td>(447, 123)</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>6</td>
+                <td>(447, 126)</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>7</td>
+                <td>(447, 129)</td>
+                <td>39</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>8</td>
+                <td>(448, 96)</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>GB[7] </td>
+                <td>(297, 72)</td>
+                <td>DMMainPorts_0/Uart3BitClockDiv/clko_i_RNI79L5/U0_YWn_GEast</td>
+                <td>31</td>
+                <td>1</td>
+                <td>(447, 84)</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>2</td>
+                <td>(448, 102)</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>3</td>
+                <td>(449, 93)</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>4</td>
+                <td>(449, 99)</td>
+                <td>11</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>5</td>
+                <td>(450, 96)</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>GB[2] </td>
+                <td>(292, 72)</td>
+                <td>DMMainPorts_0/BootupReset/shot_i_rep_RNI151D/U0_YWn_GEast</td>
+                <td>24</td>
+                <td>1</td>
+                <td>(448, 93)</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>2</td>
+                <td>(448, 99)</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>3</td>
+                <td>(449, 96)</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>GB[5] </td>
+                <td>(295, 72)</td>
+                <td>DMMainPorts_0/Uart3TxBitClockDiv/div_i_RNID38D/U0_YWn_GEast</td>
+                <td>9</td>
+                <td>1</td>
+                <td>(446, 123)</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td/>
+                <td>2</td>
+                <td>(447, 96)</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>GB[6] </td>
+                <td>(296, 72)</td>
+                <td>Ux2FPGA_sb_0/CCC_0/GL0_INST/U0_YWn_GEast</td>
+                <td>1</td>
+                <td/>
+                <td>(446, 144)</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>GB[11] </td>
+                <td>(305, 72)</td>
+                <td>FCCC_C0_0/FCCC_C0_0/GL1_INST/U0_YWn</td>
+                <td>1</td>
+                <td/>
+                <td>(146, 132)</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <p/>
+    </body>
+</html>

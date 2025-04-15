@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<?xml-stylesheet href="rptstyle.xsl" type="text/xsl" ?>
+<doc>
+<title>Global Net Report</title>
+<text>Microchip Technology Inc. - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)</text>
+<text>Date: Fri Apr 11 16:55:37 2025
+</text>
+<section>
+<name>Global Nets Information</name>
+<table>
+<header>
+ <cell/>
+ <cell> From </cell>
+ <cell> GB Location </cell>
+ <cell> Net Name </cell>
+ <cell> Fanout </cell>
+</header>
+<row>
+ <cell>1</cell>
+ <cell>GB[12] </cell>
+ <cell>(306, 72)</cell>
+ <cell>FCCC_C0_0/FCCC_C0_0/GL0_INST/U0_YWn_GEast</cell>
+ <cell>241</cell>
+</row>
+<row>
+ <cell>2</cell>
+ <cell>GB[3] </cell>
+ <cell>(293, 72)</cell>
+ <cell>DMMainPorts_0/RegisterSpace/Uart3FifoReset_RNIRNUQ_0/U0_YWn_GEast</cell>
+ <cell>113</cell>
+</row>
+<row>
+ <cell>3</cell>
+ <cell>GB[7] </cell>
+ <cell>(297, 72)</cell>
+ <cell>DMMainPorts_0/Uart3BitClockDiv/clko_i_RNI79L5/U0_YWn_GEast</cell>
+ <cell>31</cell>
+</row>
+<row>
+ <cell>4</cell>
+ <cell>GB[2] </cell>
+ <cell>(292, 72)</cell>
+ <cell>DMMainPorts_0/BootupReset/shot_i_rep_RNI151D/U0_YWn_GEast</cell>
+ <cell>24</cell>
+</row>
+<row>
+ <cell>5</cell>
+ <cell>GB[5] </cell>
+ <cell>(295, 72)</cell>
+ <cell>DMMainPorts_0/Uart3TxBitClockDiv/div_i_RNID38D/U0_YWn_GEast</cell>
+ <cell>9</cell>
+</row>
+<row>
+ <cell>6</cell>
+ <cell>GB[6] </cell>
+ <cell>(296, 72)</cell>
+ <cell>Ux2FPGA_sb_0/CCC_0/GL0_INST/U0_YWn_GEast</cell>
+ <cell>1</cell>
+</row>
+<row>
+ <cell>7</cell>
+ <cell>GB[11] </cell>
+ <cell>(305, 72)</cell>
+ <cell>FCCC_C0_0/FCCC_C0_0/GL1_INST/U0_YWn</cell>
+ <cell>1</cell>
+</row>
+</table>
+<text></text>
+</section>
+<section>
+<name>I/O to GB Connections</name>
+<text>(none)</text>
+</section>
+<section>
+<name>Fabric to GB Connections</name>
+<table>
+<header>
+ <cell/>
+ <cell> From </cell>
+ <cell> From Location </cell>
+ <cell> To </cell>
+ <cell> Net Name </cell>
+ <cell> Net Type </cell>
+ <cell> Fanout </cell>
+</header>
+<row>
+ <cell>1</cell>
+ <cell>DMMainPorts_0/RegisterSpace/Uart3FifoReset_RNIRNUQ:Y</cell>
+ <cell>(587, 96)</cell>
+ <cell>GB[3] </cell>
+ <cell>DMMainPorts_0/RegisterSpace/N_60_i</cell>
+ <cell>ROUTED</cell>
+ <cell>11</cell>
+</row>
+<row>
+ <cell>2</cell>
+ <cell>DMMainPorts_0/Uart3BitClockDiv/clko_i:Q</cell>
+ <cell>(598, 100)</cell>
+ <cell>GB[7] </cell>
+ <cell>DMMainPorts_0/Uart3BitClockDiv/clko_i_Z</cell>
+ <cell>ROUTED</cell>
+ <cell>2</cell>
+</row>
+<row>
+ <cell>3</cell>
+ <cell>DMMainPorts_0/BootupReset/shot_i_rep:Q</cell>
+ <cell>(589, 103)</cell>
+ <cell>GB[2] </cell>
+ <cell>DMMainPorts_0/BootupReset/shot_i_rep_Z</cell>
+ <cell>ROUTED</cell>
+ <cell>1</cell>
+</row>
+<row>
+ <cell>4</cell>
+ <cell>DMMainPorts_0/Uart3TxBitClockDiv/div_i:Q</cell>
+ <cell>(569, 100)</cell>
+ <cell>GB[5] </cell>
+ <cell>DMMainPorts_0/Uart3TxBitClockDiv/div_i_Z</cell>
+ <cell>ROUTED</cell>
+ <cell>2</cell>
+</row>
+</table>
+<text></text>
+</section>
+<section>
+<name>CCC to GB Connections</name>
+<table>
+<header>
+ <cell/>
+ <cell> From </cell>
+ <cell> From Location </cell>
+ <cell>Pin Swapped for Back Annotation Only</cell>
+ <cell> To </cell>
+ <cell> Net Name </cell>
+ <cell> Net Type </cell>
+ <cell> Fanout </cell>
+</header>
+<row>
+ <cell>1</cell>
+ <cell>FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP:GL0</cell>
+ <cell>CCC-NE1 (618, 134)</cell>
+ <cell>None</cell>
+ <cell>GB[12] </cell>
+ <cell>FCCC_C0_0/FCCC_C0_0/GL0_net</cell>
+ <cell>HARDWIRED</cell>
+ <cell>1</cell>
+</row>
+<row>
+ <cell>2</cell>
+ <cell>Ux2FPGA_sb_0/CCC_0/CCC_INST/INST_CCC_IP:GL0</cell>
+ <cell>CCC-NW1 (18, 134)</cell>
+ <cell>GL0 =&gt; GL2</cell>
+ <cell>GB[6] </cell>
+ <cell>Ux2FPGA_sb_0/CCC_0/GL0_net</cell>
+ <cell>HARDWIRED</cell>
+ <cell>1</cell>
+</row>
+<row>
+ <cell>3</cell>
+ <cell>FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP:GL1</cell>
+ <cell>CCC-NE1 (618, 134)</cell>
+ <cell>GL1 =&gt; GL3</cell>
+ <cell>GB[11] </cell>
+ <cell>FCCC_C0_0/FCCC_C0_0/GL1_net</cell>
+ <cell>HARDWIRED</cell>
+ <cell>1</cell>
+</row>
+</table>
+<text></text>
+</section>
+<section>
+<name>CCC Input Connections</name>
+<table>
+<header>
+ <cell/>
+ <cell> Port Name </cell>
+ <cell> Pin Number </cell>
+ <cell> I/O Function </cell>
+ <cell> From </cell>
+ <cell> From Location </cell>
+ <cell> To (Pin Swapped for Back Annotation Only) </cell>
+ <cell> CCC Location </cell>
+ <cell> Net Name </cell>
+ <cell> Net Type </cell>
+ <cell> Fanout </cell>
+</header>
+<row>
+ <cell>1</cell>
+ <cell>CLK0_PAD</cell>
+ <cell>H16</cell>
+ <cell>MSIO11NB2/I2C_1_SCL/GPIO_1_A/CCC_NE1_CLKI0</cell>
+ <cell>FCCC_C0_0/FCCC_C0_0/CLK0_PAD_INST/U_IOPAD:Y</cell>
+ <cell>(627, 28)</cell>
+ <cell>FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP:CLK0_PAD</cell>
+ <cell>CCC-NE1 (618, 134)</cell>
+ <cell>FCCC_C0_0/FCCC_C0_0/CLK0_PAD_net</cell>
+ <cell>HARDWIRED</cell>
+ <cell>2</cell>
+</row>
+<row>
+ <cell>2</cell>
+ <cell>-</cell>
+ <cell>-</cell>
+ <cell>-</cell>
+ <cell>FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP:GL1</cell>
+ <cell>(618, 134)</cell>
+ <cell>Ux2FPGA_sb_0/CCC_0/CCC_INST/INST_CCC_IP:CLK0</cell>
+ <cell>CCC-NW1 (18, 134)</cell>
+ <cell>FCCC_C0_0/FCCC_C0_0/GL1_net</cell>
+ <cell>ROUTED</cell>
+ <cell>1</cell>
+</row>
+</table>
+<text></text>
+</section>
+<section>
+<name>Local Nets to RGB Connections</name>
+<text>(none)</text>
+</section>
+<section>
+<name>Global Nets to RGB Connections</name>
+<table>
+<header>
+ <cell/>
+ <cell> From </cell>
+ <cell> From Location </cell>
+ <cell> Net Name </cell>
+ <cell> Fanout </cell>
+ <cell> </cell>
+ <cell> RGB Location </cell>
+ <cell> RGB Fanout </cell>
+</header>
+<row>
+ <cell>1</cell>
+ <cell>GB[12] </cell>
+ <cell>(306, 72)</cell>
+ <cell>FCCC_C0_0/FCCC_C0_0/GL0_INST/U0_YWn_GEast</cell>
+ <cell>241</cell>
+ <cell>1</cell>
+ <cell>(446, 84)</cell>
+ <cell>2</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>2</cell>
+ <cell>(446, 87)</cell>
+ <cell>19</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>3</cell>
+ <cell>(446, 90)</cell>
+ <cell>35</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>4</cell>
+ <cell>(446, 93)</cell>
+ <cell>47</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>5</cell>
+ <cell>(446, 96)</cell>
+ <cell>40</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>6</cell>
+ <cell>(446, 99)</cell>
+ <cell>33</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>7</cell>
+ <cell>(446, 102)</cell>
+ <cell>12</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>8</cell>
+ <cell>(446, 126)</cell>
+ <cell>1</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>9</cell>
+ <cell>(446, 129)</cell>
+ <cell>48</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>10</cell>
+ <cell>(446, 132)</cell>
+ <cell>4</cell>
+</row>
+<row>
+ <cell>2</cell>
+ <cell>GB[3] </cell>
+ <cell>(293, 72)</cell>
+ <cell>DMMainPorts_0/RegisterSpace/Uart3FifoReset_RNIRNUQ_0/U0_YWn_GEast</cell>
+ <cell>113</cell>
+ <cell>1</cell>
+ <cell>(447, 90)</cell>
+ <cell>12</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>2</cell>
+ <cell>(447, 93)</cell>
+ <cell>21</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>3</cell>
+ <cell>(447, 99)</cell>
+ <cell>8</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>4</cell>
+ <cell>(447, 102)</cell>
+ <cell>4</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>5</cell>
+ <cell>(447, 123)</cell>
+ <cell>6</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>6</cell>
+ <cell>(447, 126)</cell>
+ <cell>1</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>7</cell>
+ <cell>(447, 129)</cell>
+ <cell>39</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>8</cell>
+ <cell>(448, 96)</cell>
+ <cell>22</cell>
+</row>
+<row>
+ <cell>3</cell>
+ <cell>GB[7] </cell>
+ <cell>(297, 72)</cell>
+ <cell>DMMainPorts_0/Uart3BitClockDiv/clko_i_RNI79L5/U0_YWn_GEast</cell>
+ <cell>31</cell>
+ <cell>1</cell>
+ <cell>(447, 84)</cell>
+ <cell>2</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>2</cell>
+ <cell>(448, 102)</cell>
+ <cell>4</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>3</cell>
+ <cell>(449, 93)</cell>
+ <cell>5</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>4</cell>
+ <cell>(449, 99)</cell>
+ <cell>11</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>5</cell>
+ <cell>(450, 96)</cell>
+ <cell>9</cell>
+</row>
+<row>
+ <cell>4</cell>
+ <cell>GB[2] </cell>
+ <cell>(292, 72)</cell>
+ <cell>DMMainPorts_0/BootupReset/shot_i_rep_RNI151D/U0_YWn_GEast</cell>
+ <cell>24</cell>
+ <cell>1</cell>
+ <cell>(448, 93)</cell>
+ <cell>1</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>2</cell>
+ <cell>(448, 99)</cell>
+ <cell>22</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>3</cell>
+ <cell>(449, 96)</cell>
+ <cell>1</cell>
+</row>
+<row>
+ <cell>5</cell>
+ <cell>GB[5] </cell>
+ <cell>(295, 72)</cell>
+ <cell>DMMainPorts_0/Uart3TxBitClockDiv/div_i_RNID38D/U0_YWn_GEast</cell>
+ <cell>9</cell>
+ <cell>1</cell>
+ <cell>(446, 123)</cell>
+ <cell>6</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>2</cell>
+ <cell>(447, 96)</cell>
+ <cell>3</cell>
+</row>
+<row>
+ <cell>6</cell>
+ <cell>GB[6] </cell>
+ <cell>(296, 72)</cell>
+ <cell>Ux2FPGA_sb_0/CCC_0/GL0_INST/U0_YWn_GEast</cell>
+ <cell>1</cell>
+ <cell> </cell>
+ <cell>(446, 144)</cell>
+ <cell>1</cell>
+</row>
+<row>
+ <cell>7</cell>
+ <cell>GB[11] </cell>
+ <cell>(305, 72)</cell>
+ <cell>FCCC_C0_0/FCCC_C0_0/GL1_INST/U0_YWn</cell>
+ <cell>1</cell>
+ <cell> </cell>
+ <cell>(146, 132)</cell>
+ <cell>1</cell>
+</row>
+</table>
+<text></text>
+</section>
+</doc>
