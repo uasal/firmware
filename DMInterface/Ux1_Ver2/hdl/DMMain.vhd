@@ -168,7 +168,9 @@ architecture DMMain of DMMainPorts is
   component SpiDacPorts is
     generic (
       CLOCK_DIVIDER : natural := 1000;
-      BIT_WIDTH : natural := 16--;
+      BIT_WIDTH : natural := 16;
+   		CPOL : std_logic := '0'; --'standard' spi knob - inverts clock polarity (0 seems to be the standard, 1 less common)
+  		CPHA : std_logic := '0'--; --'standard' spi knob - inverts clock phase (0 seems to be the standard, 1 less common)
     );
     port (
       --Globals
@@ -1242,7 +1244,9 @@ begin
   DMDacsA_i : SpiDacPorts
   generic map (
     CLOCK_DIVIDER => 8, --how much do you want to knock down the global clock to get to the spi clock rate?
-    BIT_WIDTH => 24--; --how many bytes per transaction?
+    BIT_WIDTH => 24, --how many bytes per transaction?
+    CPOL => '0',
+		CPHA => '1'--,
   )
   port map (
     clk => MasterClk,
@@ -1265,7 +1269,9 @@ begin
   DMDacsB_i : SpiDacPorts
   generic map (
     CLOCK_DIVIDER => 8, --how much do you want to knock down the global clock to get to the spi clock rate?
-    BIT_WIDTH => 24--; --how many bytes per transaction?
+    BIT_WIDTH => 24, --how many bytes per transaction?
+    CPOL => '0',
+		CPHA => '1'--,
   )
   port map (
     clk => MasterClk,
@@ -1288,7 +1294,9 @@ begin
   DMDacsC_i : SpiDacPorts
   generic map (
     CLOCK_DIVIDER => 8, --how much do you want to knock down the global clock to get to the spi clock rate?
-    BIT_WIDTH => 24--; --how many bytes per transaction?
+    BIT_WIDTH => 24, --how many bytes per transaction?
+    CPOL => '0',
+		CPHA => '1'--,
   )
   port map (
     clk => MasterClk,
@@ -1311,7 +1319,9 @@ begin
   DMDacsD_i : SpiDacPorts
   generic map (
     CLOCK_DIVIDER => 8, --how much do you want to knock down the global clock to get to the spi clock rate?
-    BIT_WIDTH => 24--; --how many bytes per transaction?
+    BIT_WIDTH => 24, --how many bytes per transaction?
+    CPOL => '0',
+		CPHA => '1'--,
   )
   port map (
     clk => MasterClk,
@@ -1334,7 +1344,9 @@ begin
   DMDacsE_i : SpiDacPorts
   generic map (
     CLOCK_DIVIDER => 8, --how much do you want to knock down the global clock to get to the spi clock rate?
-    BIT_WIDTH => 24--; --how many bytes per transaction?
+    BIT_WIDTH => 24, --how many bytes per transaction?
+    CPOL => '0',
+		CPHA => '1'--,
   )
   port map (
     clk => MasterClk,
@@ -1357,7 +1369,9 @@ begin
   DMDacsF_i : SpiDacPorts
   generic map (
     CLOCK_DIVIDER => 8, --how much do you want to knock down the global clock to get to the spi clock rate?
-    BIT_WIDTH => 24--; --how many bytes per transaction?
+    BIT_WIDTH => 24, --how many bytes per transaction?
+    CPOL => '0',
+		CPHA => '1'--,
   )
   port map (
     clk => MasterClk,

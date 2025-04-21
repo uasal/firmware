@@ -44,7 +44,9 @@ use IEEE.NUMERIC_STD.all;
 entity SpiDacPorts is
 	generic (
 		MASTER_CLOCK_FREQHZ : natural := 100000000;
-		BIT_WIDTH : natural := 16--;
+		BIT_WIDTH : natural := 16;
+		CPOL : std_logic := '0'; --'standard' spi knob - inverts clock polarity (0 seems to be the standard, 1 less common)
+		CPHA : std_logic := '0'--; --'standard' spi knob - inverts clock phase (0 seems to be the standard, 1 less common)
 	);
 	port (
 	
@@ -84,7 +86,8 @@ architecture SpiDac of SpiDacPorts is
 	generic (
 		CLOCK_DIVIDER : integer := 4;
 		BYTE_WIDTH : natural := 1;
-		CPOL : std_logic := '0'--;	
+		CPOL : std_logic := '0'; --'standard' spi knob - inverts clock polarity (0 seems to be the standard, 1 less common)
+		CPHA : std_logic := '0'--; --'standard' spi knob - inverts clock phase (0 seems to be the standard, 1 less common)
 	);
 	port
 	(
@@ -113,7 +116,8 @@ begin
 	generic map (
 		CLOCK_DIVIDER => MASTER_CLOCK_FREQHZ / 100000, --100kHz
 		BYTE_WIDTH => BIT_WIDTH / 8,
-		CPOL => '0'--, --'inverted' SCK polarity?
+		CPOL => CPOL,
+		CPHA => CPHA--,
 	)
 	port map
 	(
