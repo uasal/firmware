@@ -56,11 +56,11 @@ const BinaryCmd BinaryCmds[] =
                 "BinaryDMDacConfigCommand",
                 BinaryDMDacConfigCommand
     ),
-//        BinaryCmd (
-//                CGraphPayloadTypeDMVector,
-//                "BinaryDMVectorCommand",
-//                BinaryDMVectorCommand
-//    ),
+        BinaryCmd (
+                CGraphPayloadTypeDMStartSM,
+                "BinaryDMStartSMCommand",
+                BinaryDMStartSMCommand
+    ),
 //        BinaryCmd (
 //                CGraphPayloadTypeDMUart,
 //                "BinaryDMUartCommand",

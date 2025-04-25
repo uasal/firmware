@@ -1,6 +1,6 @@
 set_device \
     -fam SmartFusion2 \
-    -die PA4M1000_N \
+    -die PA4M2500_N \
     -pkg vf256
 set_input_cfg \
 	-path {C:/Users/SKaye/repos7/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS_MSS/ENVM.cfg}

@@ -19,7 +19,7 @@ entity RegisterSpacePorts is
   port (
     clk : in std_logic;
     rst : in std_logic;
-		
+    StartMachine : out std_logic;
     -- Bus:
     Address : in std_logic_vector(ADDRESS_BITS - 1 downto 0); -- vhdl can't figure out that ADDRESS_BITS is a constant because it's in a generic map...
     DataIn : in std_logic_vector(31 downto 0);
@@ -203,6 +203,8 @@ architecture RegisterSpace of RegisterSpacePorts is
     constant Uart3FifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(136, MAX_ADDRESS_BITS));
   constant Uart3FifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(140, MAX_ADDRESS_BITS));
   constant Uart3FifoReadDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(144, MAX_ADDRESS_BITS));
+
+  constant MachineAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(148, MAX_ADDRESS_BITS));
   
   --! 13 bits of address space (8192b) required for this!
   --~ constant DacSetpointsAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(1024, MAX_ADDRESS_BITS));
@@ -243,6 +245,8 @@ architecture RegisterSpace of RegisterSpacePorts is
   signal PowernEnHV_i :  std_logic := '0';
   signal nHVEn1_i :  std_logic := '0';
   signal HVDis2_i :  std_logic := '0';
+
+  signal StartMachine_i : std_logic := '0';
 --  signal DacSelectMaxti_i :  std_logic := '0';								
 --  signal GlobalFaultInhibit_i :  std_logic := '0';
 --  signal nFaultsClr_i :  std_logic := '0';
@@ -261,6 +265,7 @@ begin
   Uart2ClkDivider <= Uart2ClkDivider_i;
   Uart3ClkDivider <= Uart3ClkDivider_i;
 
+  StartMachine <= StartMachine_i;
 --  MonitorAdcChannelReadIndex <= MonitorAdcChannelReadIndex_i;
 --  MonitorAdcSpiFrameEnable <= MonitorAdcSpiFrameEnable_i;
 
@@ -288,6 +293,7 @@ begin
     if (rst = '1') then
       LastReadReq <= '0';			
       LastWriteReq <= '0';
+      StartMachine_i <= '0';
 
       Uart0ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 16.0)) - 1.0), 8));
       Uart1ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));
@@ -534,6 +540,10 @@ begin
 --                MonitorAdcSpiDataIn <= DataIn(7 downto 0);
 --              when MonitorAdcSpiFrameEnableAddr =>
 --                MonitorAdcSpiFrameEnable_i <= DataIn(0);
+
+              -- Machine Address
+              when MachineAddr =>
+                StartMachine_i <= '1';
 							
               --RS-422
               when Uart0FifoAddr =>

@@ -1,6 +1,6 @@
 set_component EvalSandbox_MSS_CCC_0_FCCC
 # Microsemi Corp.
-# Date: 2025-Mar-28 09:18:57
+# Date: 2025-Apr-22 16:12:09
 #
 
 create_clock -period 9.80392 [ get_pins { CCC_INST/CLK0 } ]

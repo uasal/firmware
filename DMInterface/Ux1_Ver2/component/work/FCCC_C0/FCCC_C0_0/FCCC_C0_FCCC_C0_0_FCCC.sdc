@@ -1,6 +1,6 @@
 set_component FCCC_C0_FCCC_C0_0_FCCC
 # Microsemi Corp.
-# Date: 2025-Mar-10 17:08:17
+# Date: 2025-Apr-17 14:29:55
 #
 
 create_clock -period 19.6078 [ get_pins { CCC_INST/CLK0_PAD } ]

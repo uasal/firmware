@@ -11,7 +11,8 @@ use work.CGraphDMTypes.all;
 entity DMMainPorts is
   port (
     clk : in  std_logic;
-	
+    --domachine : in std_logic;
+    
     --D/A's
     MosiA : out std_logic;
     MosiB : out std_logic;
@@ -269,6 +270,7 @@ architecture DMMain of DMMainPorts is
   port (
     clk : in std_logic;
     rst : in std_logic;
+    StartMachine : out std_logic;
 		
     -- Bus:
     Address : in std_logic_vector(ADDRESS_BITS - 1 downto 0); -- vhdl can't figure out that ADDRESS_BITS is a constant because it's in a generic map...
@@ -436,6 +438,8 @@ architecture DMMain of DMMainPorts is
   signal MasterReset     : std_logic;
   signal SerialNumber    : std_logic_vector(31 downto 0);
   signal BuildNumber     : std_logic_vector(31 downto 0);
+
+  signal domachine_i     : std_logic;
 
   -- Ram Bus (which is the Amba Bus to/from the processor. Internally.)
   constant ADDRESS_BUS_BITS : natural := 14;
@@ -786,6 +790,7 @@ begin
   port map (
     clk => MasterClk,
     rst => MasterReset,
+    StartMachine => domachine_i,
 
     Address  => RamAddress,
     DataIn   => RegisterSpaceDataToWrite,
@@ -1457,7 +1462,7 @@ begin
       DacSetpointReadedAddressDac <= 0; 
       WriteDacs <= '0';
     else
-      if ( (MasterClk'event) and (MasterClk = '1') ) then
+      if ( (MasterClk'event) and (MasterClk = '1') and (domachine_i = '1')) then
 
         --Change state when requested
         --DacWriteCurrentState <= DacWriteNextState;
@@ -1977,8 +1982,9 @@ begin
             
         end case;
 
-      end if;
-      
+      end if; -- (If MasterClk'event and MasterClk = '1' and domachine_i = '1')
+      -- In here we can add another event with HV switch = '1' to turn on the HV
+      -- when we get it all in one FPGA
     end if;	
 
   end process;

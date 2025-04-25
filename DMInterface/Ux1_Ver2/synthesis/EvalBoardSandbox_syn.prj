@@ -1,7 +1,7 @@
 #--  Synopsys, Inc.
 #--  Version T-2022.09M-SP2-1
 #--  Project file C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\synthesis\EvalBoardSandbox_syn.prj
-#--  Written on Thu Apr 10 16:41:39 2025
+#--  Written on Fri Apr 25 15:36:30 2025
 
 
 #project files
@@ -37,6 +37,8 @@ add_file -verilog -lib COREAPB3_LIB "C:/Users/SKaye/repos7/firmware/DMInterface/
 add_file -verilog "C:/Users/SKaye/repos7/firmware/DMInterface/Ux1_Ver2/component/work/EvalSandbox_MSS/EvalSandbox_MSS.v"
 add_file -verilog "C:/Users/SKaye/repos7/firmware/DMInterface/Ux1_Ver2/component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.v"
 add_file -verilog "C:/Users/SKaye/repos7/firmware/DMInterface/Ux1_Ver2/component/work/FCCC_C0/FCCC_C0.v"
+add_file -verilog "C:/Users/SKaye/repos7/firmware/DMInterface/Ux1_Ver2/component/work/IO_C2/IO_C2_0/IO_C2_IO_C2_0_IO.v"
+add_file -verilog "C:/Users/SKaye/repos7/firmware/DMInterface/Ux1_Ver2/component/work/IO_C2/IO_C2.v"
 add_file -verilog "C:/Users/SKaye/repos7/firmware/DMInterface/Ux1_Ver2/component/work/EvalBoardSandbox/EvalBoardSandbox.v"
 add_file -fpga_constraint "C:/Users/SKaye/repos7/firmware/DMInterface/Ux1_Ver2/designer/EvalBoardSandbox/synthesis.fdc"
 
@@ -52,7 +54,7 @@ set_option -include_path {C:/Users/SKaye/repos7/firmware/include/fpga}
 
 #device options
 set_option -technology SmartFusion2
-set_option -part M2S010
+set_option -part M2S025
 set_option -package VF400
 set_option -speed_grade STD
 set_option -part_companion ""

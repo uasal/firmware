@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Thu Apr 10 16:39:40 2025
+// Created by SmartDesign Fri Apr 25 15:34:53 2025
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -48,6 +48,7 @@ module EvalBoardSandbox(
     Tx0,
     Tx1,
     Tx2,
+    TxUsb,
     nClrDacs,
     nCsA,
     nCsB,
@@ -106,6 +107,7 @@ output       TP8;
 output       Tx0;
 output       Tx1;
 output       Tx2;
+output [0:0] TxUsb;
 output       nClrDacs;
 output [3:0] nCsA;
 output [3:0] nCsB;
@@ -185,6 +187,7 @@ wire   [7:7]  TP8_net_0;
 wire          Tx0_net_0;
 wire          Tx1_net_0;
 wire          Tx2_net_0;
+wire   [0:0]  TxUsb_net_0;
 wire          Ux1SelJmp;
 wire          Tx0_net_1;
 wire          Oe0_net_1;
@@ -222,6 +225,7 @@ wire   [3:0]  nCsC_net_1;
 wire   [3:0]  nCsD_net_1;
 wire   [3:0]  nCsE_net_1;
 wire   [3:0]  nCsF_net_1;
+wire   [0:0]  TxUsb_net_1;
 wire   [0:0]  nCsA_slice_0;
 wire   [1:1]  nCsA_slice_1;
 wire   [2:2]  nCsA_slice_2;
@@ -237,8 +241,8 @@ wire          GND_net;
 //--------------------------------------------------------------------
 // Constant assignments
 //--------------------------------------------------------------------
-assign VCC_net = 1'b1;
-assign GND_net = 1'b0;
+assign VCC_net    = 1'b1;
+assign GND_net    = 1'b0;
 //--------------------------------------------------------------------
 // Top level output port assignments
 //--------------------------------------------------------------------
@@ -314,6 +318,8 @@ assign nCsE_net_1       = nCsE_net_0;
 assign nCsE[3:0]        = nCsE_net_1;
 assign nCsF_net_1       = nCsF_net_0;
 assign nCsF[3:0]        = nCsF_net_1;
+assign TxUsb_net_1[0]   = TxUsb_net_0[0];
+assign TxUsb[0:0]       = TxUsb_net_1[0];
 //--------------------------------------------------------------------
 // Slices assignments
 //--------------------------------------------------------------------
@@ -423,6 +429,7 @@ EvalSandbox_MSS EvalSandbox_MSS_0(
         .FIC_0_CLK                (  ),
         .FIC_0_LOCK               (  ),
         .MSS_READY                (  ),
+        .GPIO_0_M2F               (  ),
         .AMBA_SLAVE_0_PADDRS      ( AMBA_SLAVE_0_PADDRS_net_0 ),
         .AMBA_SLAVE_0_PWDATAS     ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PWDATAS ),
         .AMBA_SLAVE_0_1_PADDRS    ( AMBA_SLAVE_0_1_PADDRS_net_0 ),
@@ -437,6 +444,15 @@ FCCC_C0 FCCC_C0_0(
         .GL0      ( FCCC_C0_0_GL0 ),
         .GL1      (  ),
         .LOCK     (  ) 
+        );
+
+//--------IO_C2
+IO_C2 IO_C2_0(
+        // Inputs
+        .D       ( GND_net ),
+        .E       ( GND_net ),
+        // Outputs
+        .PAD_TRI ( TxUsb_net_0 ) 
         );
 
 

@@ -1,4 +1,4 @@
-set_device -family {SmartFusion2} -die {M2S010} -speed {STD}
+set_device -family {SmartFusion2} -die {M2S025} -speed {STD}
 read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\CGraphDmTypes.vhd}
 read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\CGraphDmDacRamFlat.vhd}
 read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\IBufP1.vhd}
@@ -29,6 +29,8 @@ read_verilog -mode system_verilog -lib COREAPB3_LIB {C:\Users\SKaye\repos7\firmw
 read_verilog -mode system_verilog {C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\EvalSandbox_MSS\EvalSandbox_MSS.v}
 read_verilog -mode system_verilog {C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\FCCC_C0\FCCC_C0_0\FCCC_C0_FCCC_C0_0_FCCC.v}
 read_verilog -mode system_verilog {C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\FCCC_C0\FCCC_C0.v}
+read_verilog -mode system_verilog {C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\IO_C2\IO_C2_0\IO_C2_IO_C2_0_IO.v}
+read_verilog -mode system_verilog {C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\IO_C2\IO_C2.v}
 read_verilog -mode system_verilog {C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\EvalBoardSandbox\EvalBoardSandbox.v}
 set_top_level {EvalBoardSandbox}
 map_netlist

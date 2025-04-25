@@ -79,30 +79,19 @@ int8_t BinaryDMDacCommand(const uint32_t Name, char const* Params, const size_t 
   return(ParamsLen);
 }
 
-//int8_t BinaryDMUartCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
-//{
-//  //~ volatile uint32_t status;
-//  //~ uint32_t          esram_addr;
-//  //~ uint16_t          echodata[160];  // max number of elements
-//  //~ int               ii,xferDone=0;
-//  
-//
-//  // This is to test the Uart and see if the UART us indeed setting the limit on amount of data
-//  // Check to see we're getting here
-//  //  UART_polled_tx_string(&my_uart,(const uint8_t*)"In BUart Cmd ");
-//  // Not really necessary, but we'll keep this test in to stay close to the original
-//  if ( (NULL != Params) && (ParamsLen >= (30 * sizeof(uint16_t))) )  {
-//    //    UART_polled_tx_string(&my_uart,(const uint8_t*)"Sending back params ");
-//    //    UART_polled_tx_string(&my_uart,(const uint8_t*)Params);  // Send the string right back
-//    //    UART_polled_tx_string(&my_uart,(const uint8_t*)DMSetPoints[1]);  // Send the string right back
-//  }
-//  return(ParamsLen);
-//}
+int8_t BinaryDMStartSMCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
 
-//int8_t BinaryDMVectorCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
-//{
-//  return(ParamsLen);
-//}
+  if (DM) { 
+    //    Version.SerialNum = DM->DeviceSerialNumber; 
+    DM->StartMachine = 1; 
+  }
+  TxBinaryPacket(Argument, CGraphPayloadTypeDMDac, 0, &Params, sizeof(Params));
+  return(ParamsLen);
+}
+  
+      
+
 
 int8_t BinaryDMAdcsCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {

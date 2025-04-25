@@ -1,15 +1,15 @@
 <project name="EvalBoardSandbox" version="1.2">
     <ProjectDirectory>
-        /home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/designer/EvalBoardSandbox/EvalBoardSandbox_fp
+        C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\designer\EvalBoardSandbox\EvalBoardSandbox_fp
     </ProjectDirectory>
     <View>
         ChainView
     </View>
     <LiberoTargetDevice>
-        M2S010
+        M2S025
     </LiberoTargetDevice>
     <LogFile>
-        /home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/designer/EvalBoardSandbox/EvalBoardSandbox_fp/EvalBoardSandbox.log
+        C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\designer\EvalBoardSandbox\EvalBoardSandbox_fp\EvalBoardSandbox.log
     </LogFile>
     <SerializationOption>
         Skip
@@ -17,7 +17,7 @@
     <ProgrammingInterface>
         JTAGMode
     </ProgrammingInterface>
-    <programmer status="enable" type="FlashPro6" revision="UndefRev" connection="UndefConn">
+    <programmer status="enable" type="FlashPro6" revision="UndefRev" connection="usb2.0">
         <name>
             5A047401
         </name>
@@ -84,10 +84,10 @@
         </Hardware>
         <Device type="ACTEL">
             <Name>
-                M2S010
+                M2S025
             </Name>
             <Custom>
-                M2S010
+                M2S025
             </Custom>
             <SpiFlashFile>
                 

@@ -105,7 +105,7 @@ struct CGraphDMHardwareInterface
   AdcAccumulator MonitorAdcDAccumulator; //ro; 80 Monitor A/D samples for channel specififed in MonitorAdcReadChannel
 
   CGraphDMHardwareControlRegister ControlRegister; //rw; 88 see definition above
-  CGraphDMHardwareStatusRegister StatusRegister; // 40 ro; see definition above
+  CGraphDMHardwareStatusRegister StatusRegister;   //ro; 92 see definition above
   //  int32_t PPSRtcPhaseComparator; //44 ro;
   //int32_t PPSAdcPhaseComparator; //48 ro;
   //AdcAccumulator MonitorAdc0Accumulator; //ro; 52 Monitor A/D samples for channel specififed in MonitorAdcReadChannel
@@ -124,7 +124,7 @@ struct CGraphDMHardwareInterface
   //uint32_t DMController4MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
   //AdcAccumulator DMController5MonitorAdcAccumulator; //ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
   //uint32_t DMController5MonitorAdcReadChannel; //rw; which channel to read for MonitorA/D
-  CGraphBaudDividers BaudDividers;  // 32 or 64 bits?
+  CGraphBaudDividers BaudDividers;  // ; 96 32 bits
   uint32_t UartFifo0; //rw; 100 send or read bytes from uart(s)
   UartStatusRegister UartStatusRegister0; //ro; 104 what state are the uart(s) in?
   uint32_t UartFifo0ReadData; // 108
@@ -137,6 +137,8 @@ struct CGraphDMHardwareInterface
   uint32_t UartFifo3; //rw; 136 send or read bytes from uart(s)
   UartStatusRegister UartStatusRegister3; //ro; 140 what state are the uart(s) in?
   uint32_t UartFifo3ReadData; // 144
+
+  uint32_t StartMachine; // 148
   
   uint8_t BaudDivider0; //rw; clock divider for the first serial port
   uint8_t BaudDivider1;
@@ -156,12 +158,6 @@ struct CGraphDMHardwareInterface
     //~ void formatf() const { ::formatf("CGraphDMHardwareInterface: Sample: %+10.0lf ", (double)Sample); ::formatf("(0x%.8lX", (uint32_t)(all >> 32));  ::formatf("%.8lX)", (uint32_t)(all)); ::formatf(", NumAccums: %lu ", (uint32_t)NumAccums); ::formatf("(0x%lX)", (uint32_t)NumAccums); }
 
 } __attribute__((__packed__));
-
-// We'll go in and take out the nesting tomorrow (4/3/2025)
-// Then we'll see where this stands
-//struct CGraphDMSetpoint {
-//  uint32_t DacSetpoint;
-//} __attribute__((__packed__));
 
 struct CGraphDMRamInterface
 {

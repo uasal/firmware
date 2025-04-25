@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Mon Mar 10 17:08:17 2025
+// Created by SmartDesign Thu Apr 17 14:29:55 2025
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -11,7 +11,7 @@
 /*
 # Exporting Component Description of FCCC_C0 to TCL
 # Family: SmartFusion2
-# Part Number: M2S010-VF256I
+# Part Number: M2S025-VF256I
 # Create and Configure the core component FCCC_C0
 create_and_configure_core -core_vlnv {Actel:SgCore:FCCC:2.0.201} -component_name {FCCC_C0} -params {\
 "ADVANCED_TAB_CHANGED:false"  \

@@ -1,4 +1,4 @@
-set_device -family {SmartFusion2} -die {M2S010} -speed {STD}
+set_device -family {SmartFusion2} -die {M2S025} -speed {STD}
 read_adl {C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\designer\EvalBoardSandbox\EvalBoardSandbox.adl}
 read_afl {C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\designer\EvalBoardSandbox\EvalBoardSandbox.afl}
 map_netlist

@@ -1,6 +1,6 @@
 set_device \
     -family  SmartFusion2 \
-    -die     PA4M1000_N \
+    -die     PA4M2500_N \
     -package vf256 \
     -speed   STD \
     -tempr   {IND} \

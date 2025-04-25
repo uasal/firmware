@@ -8,7 +8,7 @@ set_defvar -name {PA4_GB_MAX_RCLKINT_INSERTION} -value {16}
 set_defvar -name {PA4_GB_MIN_GB_FANOUT_TO_USE_RCLKINT} -value {300}
 set_defvar -name {PA4_GB_MAX_FANOUT_DATA_MOVE} -value {5000}
 set_defvar -name {PA4_GB_HIGH_FANOUT_THRESHOLD} -value {5000}
-set_defvar -name {PA4_GB_COUNT} -value {8}
+set_defvar -name {PA4_GB_COUNT} -value {16}
 set_defvar -name {RESTRICTPROBEPINS} -value {0}
 set_defvar -name {RESTRICTSPIPINS} -value {0}
 set_defvar -name {PDC_IMPORT_HARDERROR} -value {1}
@@ -27,7 +27,7 @@ set_compile_info \
 set_compile_info \
     -category {"Device Selection"} \
     -name {"Device"} \
-    -value {"M2S010"}
+    -value {"M2S025"}
 set_compile_info \
     -category {"Device Selection"} \
     -name {"Package"} \
@@ -100,6 +100,6 @@ compile \
     -desdir {C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\designer\EvalBoardSandbox} \
     -design EvalBoardSandbox \
     -fam SmartFusion2 \
-    -die PA4M1000_N \
+    -die PA4M2500_N \
     -pkg vf256 \
     -merge_pdc 0

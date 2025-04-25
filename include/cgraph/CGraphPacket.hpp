@@ -212,9 +212,11 @@ static const uint16_t DMMaxActuators = DMActuatorsPerDac * DMMDacsPerControllerB
 
 static const uint16_t CGraphPayloadTypeDMDac = 0x3002U;
 static const uint16_t CGraphPayloadTypeDMTelemetry = 0x3004U;
+static const uint16_t CGraphPayloadTypeDMStartSM = 0x3005U;
 static const uint16_t CGraphPayloadTypeDMHVSwitch = 0x3007U;
-static const uint16_t CGraphPayloadTypeDMDacConfig = 0x3009U;
+
 static const uint16_t CGraphPayloadTypeDMVector = 0x3008U;
+static const uint16_t CGraphPayloadTypeDMDacConfig = 0x3009U;
 static const uint16_t CGraphPayloadTypeDMUart = 0x300AU;
 static const uint16_t CGraphPayloadTypeDMMappings = 0x300BU; //Payload: CGraphDMPixelPayloadHeader followed by one or more CGraphDMMappingPayload structs (num defined by packet payload length filed)
 static const uint16_t CGraphPayloadTypeDMShortPixels = 0x300CU; //Payload: CGraphDMPixelPayloadHeader followed by one or more 16b pixel values (num defined by packet payload length filed)

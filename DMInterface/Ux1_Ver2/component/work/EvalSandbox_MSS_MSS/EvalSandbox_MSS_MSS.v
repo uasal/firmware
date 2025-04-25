@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Fri Mar 28 09:18:55 2025
+// Created by SmartDesign Tue Apr 22 16:12:07 2025
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -30,6 +30,7 @@ module EvalSandbox_MSS_MSS(
     FIC_2_APB_M_PSEL,
     FIC_2_APB_M_PWDATA,
     FIC_2_APB_M_PWRITE,
+    GPIO_0_M2F,
     MSS_RESET_N_M2F
 );
 
@@ -60,6 +61,7 @@ output        FIC_2_APB_M_PRESET_N;
 output        FIC_2_APB_M_PSEL;
 output [31:0] FIC_2_APB_M_PWDATA;
 output        FIC_2_APB_M_PWRITE;
+output        GPIO_0_M2F;
 output        MSS_RESET_N_M2F;
 //--------------------------------------------------------------------
 // Nets
@@ -82,11 +84,13 @@ wire          FIC_2_APB_MASTER_0_PSELx;
 wire          FIC_2_APB_M_PSLVERR;
 wire   [31:0] FIC_2_APB_MASTER_0_PWDATA;
 wire          FIC_2_APB_MASTER_0_PWRITE;
+wire          GPIO_0_M2F_net_0;
 wire          MCCC_CLK_BASE;
 wire          MCCC_CLK_BASE_PLL_LOCK;
 wire          MSS_RESET_N_F2M;
 wire          MSS_RESET_N_M2F_net_0;
 wire          MSS_RESET_N_M2F_net_1;
+wire          GPIO_0_M2F_net_1;
 wire          FIC_0_APB_MASTER_PSELx_net_0;
 wire          FIC_0_APB_MASTER_PWRITE_net_0;
 wire          FIC_0_APB_MASTER_PENABLE_net_0;
@@ -178,6 +182,8 @@ assign MDDR_FABRIC_PWDATA_const_net_0  = 16'hFFFF;
 //--------------------------------------------------------------------
 assign MSS_RESET_N_M2F_net_1            = MSS_RESET_N_M2F_net_0;
 assign MSS_RESET_N_M2F                  = MSS_RESET_N_M2F_net_1;
+assign GPIO_0_M2F_net_1                 = GPIO_0_M2F_net_0;
+assign GPIO_0_M2F                       = GPIO_0_M2F_net_1;
 assign FIC_0_APB_MASTER_PSELx_net_0     = FIC_0_APB_MASTER_PSELx;
 assign FIC_0_APB_M_PSEL                 = FIC_0_APB_MASTER_PSELx_net_0;
 assign FIC_0_APB_MASTER_PWRITE_net_0    = FIC_0_APB_MASTER_PWRITE;
@@ -205,11 +211,11 @@ assign FIC_2_APB_M_PWDATA[31:0]         = FIC_2_APB_MASTER_0_PWDATA_net_0;
 //--------------------------------------------------------------------
 // Component instances
 //--------------------------------------------------------------------
-//--------MSS_010
-MSS_010 #( 
+//--------MSS_025
+MSS_025 #( 
         .ACT_UBITS         ( 56'hFFFFFFFFFFFFFF ),
         .DDR_CLK_FREQ      ( 102.0 ),
-        .INIT              ( 1438'h00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000F00000000F000000000000000000000000000000007FFFFFFFB000001007C33C000000006090C0208003FFFFE400F00000000010000000000F01C000001FE5FE4010842108421000001FE34001FF80000004000000000200B1007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF ),
+        .INIT              ( 1438'h00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000E00000000F000000000000000000000000000000007FFFFFFFB000001007C33C000000006090C0208003FFFFE400F000000000100000000F0F01C000001825FE4010842108421000001FE34001FF80000004000000000200B1007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF ),
         .MEMORYFILE        ( "ENVM_init.mem" ),
         .RTC_MAIN_XTL_FREQ ( 0.0 ),
         .RTC_MAIN_XTL_MODE ( "" ) )
@@ -382,6 +388,8 @@ MSS_ADLIB_INST(
         .I2C0_SDA_USBC_DATA0_MGPIO30B_IN         ( GND_net ),
         .I2C1_SCL_USBA_DATA4_MGPIO1A_IN          ( GND_net ),
         .I2C1_SDA_USBA_DATA3_MGPIO0A_IN          ( GND_net ),
+        .MGPIO25A_IN                             ( GND_net ),
+        .MGPIO26A_IN                             ( GND_net ),
         .MMUART0_CTS_USBC_DATA7_MGPIO19B_IN      ( GND_net ),
         .MMUART0_DCD_MGPIO22B_IN                 ( GND_net ),
         .MMUART0_DSR_MGPIO20B_IN                 ( GND_net ),
@@ -391,6 +399,12 @@ MSS_ADLIB_INST(
         .MMUART0_RXD_USBC_STP_MGPIO28B_IN        ( GND_net ),
         .MMUART0_SCK_USBC_NXT_MGPIO29B_IN        ( GND_net ),
         .MMUART0_TXD_USBC_DIR_MGPIO27B_IN        ( GND_net ),
+        .MMUART1_CTS_MGPIO13B_IN                 ( GND_net ),
+        .MMUART1_DCD_MGPIO16B_IN                 ( GND_net ),
+        .MMUART1_DSR_MGPIO14B_IN                 ( GND_net ),
+        .MMUART1_DTR_MGPIO12B_IN                 ( GND_net ),
+        .MMUART1_RI_MGPIO15B_IN                  ( GND_net ),
+        .MMUART1_RTS_MGPIO11B_IN                 ( GND_net ),
         .MMUART1_RXD_USBC_DATA3_MGPIO26B_IN      ( GND_net ),
         .MMUART1_SCK_USBC_DATA4_MGPIO25B_IN      ( GND_net ),
         .MMUART1_TXD_USBC_DATA2_MGPIO24B_IN      ( GND_net ),
@@ -416,6 +430,10 @@ MSS_ADLIB_INST(
         .SPI0_SS1_USBA_DATA5_MGPIO8A_IN          ( GND_net ),
         .SPI0_SS2_USBA_DATA6_MGPIO9A_IN          ( GND_net ),
         .SPI0_SS3_USBA_DATA7_MGPIO10A_IN         ( GND_net ),
+        .SPI0_SS4_MGPIO19A_IN                    ( GND_net ),
+        .SPI0_SS5_MGPIO20A_IN                    ( GND_net ),
+        .SPI0_SS6_MGPIO21A_IN                    ( GND_net ),
+        .SPI0_SS7_MGPIO22A_IN                    ( GND_net ),
         .SPI1_SCK_IN                             ( GND_net ),
         .SPI1_SDI_MGPIO11A_IN                    ( GND_net ),
         .SPI1_SDO_MGPIO12A_IN                    ( GND_net ),
@@ -478,7 +496,7 @@ MSS_ADLIB_INST(
         .I2C1_SCL_MGPIO1A_H2F_A                  (  ),
         .I2C1_SCL_MGPIO1A_H2F_B                  (  ),
         .I2C1_SDA_MGPIO0A_H2F_A                  (  ),
-        .I2C1_SDA_MGPIO0A_H2F_B                  (  ),
+        .I2C1_SDA_MGPIO0A_H2F_B                  ( GPIO_0_M2F_net_0 ),
         .MDCF                                    (  ),
         .MDOENF                                  (  ),
         .MDOF                                    (  ),
@@ -603,6 +621,8 @@ MSS_ADLIB_INST(
         .I2C0_SDA_USBC_DATA0_MGPIO30B_OUT        (  ),
         .I2C1_SCL_USBA_DATA4_MGPIO1A_OUT         (  ),
         .I2C1_SDA_USBA_DATA3_MGPIO0A_OUT         (  ),
+        .MGPIO25A_OUT                            (  ),
+        .MGPIO26A_OUT                            (  ),
         .MMUART0_CTS_USBC_DATA7_MGPIO19B_OUT     (  ),
         .MMUART0_DCD_MGPIO22B_OUT                (  ),
         .MMUART0_DSR_MGPIO20B_OUT                (  ),
@@ -612,6 +632,12 @@ MSS_ADLIB_INST(
         .MMUART0_RXD_USBC_STP_MGPIO28B_OUT       (  ),
         .MMUART0_SCK_USBC_NXT_MGPIO29B_OUT       (  ),
         .MMUART0_TXD_USBC_DIR_MGPIO27B_OUT       (  ),
+        .MMUART1_CTS_MGPIO13B_OUT                (  ),
+        .MMUART1_DCD_MGPIO16B_OUT                (  ),
+        .MMUART1_DSR_MGPIO14B_OUT                (  ),
+        .MMUART1_DTR_MGPIO12B_OUT                (  ),
+        .MMUART1_RI_MGPIO15B_OUT                 (  ),
+        .MMUART1_RTS_MGPIO11B_OUT                (  ),
         .MMUART1_RXD_USBC_DATA3_MGPIO26B_OUT     (  ),
         .MMUART1_SCK_USBC_DATA4_MGPIO25B_OUT     (  ),
         .MMUART1_TXD_USBC_DATA2_MGPIO24B_OUT     (  ),
@@ -637,6 +663,10 @@ MSS_ADLIB_INST(
         .SPI0_SS1_USBA_DATA5_MGPIO8A_OUT         (  ),
         .SPI0_SS2_USBA_DATA6_MGPIO9A_OUT         (  ),
         .SPI0_SS3_USBA_DATA7_MGPIO10A_OUT        (  ),
+        .SPI0_SS4_MGPIO19A_OUT                   (  ),
+        .SPI0_SS5_MGPIO20A_OUT                   (  ),
+        .SPI0_SS6_MGPIO21A_OUT                   (  ),
+        .SPI0_SS7_MGPIO22A_OUT                   (  ),
         .SPI1_SCK_OUT                            (  ),
         .SPI1_SDI_MGPIO11A_OUT                   (  ),
         .SPI1_SDO_MGPIO12A_OUT                   (  ),
@@ -659,6 +689,8 @@ MSS_ADLIB_INST(
         .I2C0_SDA_USBC_DATA0_MGPIO30B_OE         (  ),
         .I2C1_SCL_USBA_DATA4_MGPIO1A_OE          (  ),
         .I2C1_SDA_USBA_DATA3_MGPIO0A_OE          (  ),
+        .MGPIO25A_OE                             (  ),
+        .MGPIO26A_OE                             (  ),
         .MMUART0_CTS_USBC_DATA7_MGPIO19B_OE      (  ),
         .MMUART0_DCD_MGPIO22B_OE                 (  ),
         .MMUART0_DSR_MGPIO20B_OE                 (  ),
@@ -668,6 +700,12 @@ MSS_ADLIB_INST(
         .MMUART0_RXD_USBC_STP_MGPIO28B_OE        (  ),
         .MMUART0_SCK_USBC_NXT_MGPIO29B_OE        (  ),
         .MMUART0_TXD_USBC_DIR_MGPIO27B_OE        (  ),
+        .MMUART1_CTS_MGPIO13B_OE                 (  ),
+        .MMUART1_DCD_MGPIO16B_OE                 (  ),
+        .MMUART1_DSR_MGPIO14B_OE                 (  ),
+        .MMUART1_DTR_MGPIO12B_OE                 (  ),
+        .MMUART1_RI_MGPIO15B_OE                  (  ),
+        .MMUART1_RTS_MGPIO11B_OE                 (  ),
         .MMUART1_RXD_USBC_DATA3_MGPIO26B_OE      (  ),
         .MMUART1_SCK_USBC_DATA4_MGPIO25B_OE      (  ),
         .MMUART1_TXD_USBC_DATA2_MGPIO24B_OE      (  ),
@@ -693,6 +731,10 @@ MSS_ADLIB_INST(
         .SPI0_SS1_USBA_DATA5_MGPIO8A_OE          (  ),
         .SPI0_SS2_USBA_DATA6_MGPIO9A_OE          (  ),
         .SPI0_SS3_USBA_DATA7_MGPIO10A_OE         (  ),
+        .SPI0_SS4_MGPIO19A_OE                    (  ),
+        .SPI0_SS5_MGPIO20A_OE                    (  ),
+        .SPI0_SS6_MGPIO21A_OE                    (  ),
+        .SPI0_SS7_MGPIO22A_OE                    (  ),
         .SPI1_SCK_OE                             (  ),
         .SPI1_SDI_MGPIO11A_OE                    (  ),
         .SPI1_SDO_MGPIO12A_OE                    (  ),
