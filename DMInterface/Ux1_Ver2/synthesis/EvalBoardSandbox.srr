@@ -3,7 +3,7 @@
 #OS: Windows 10 or later
 #Hostname: ASTR-ETS-001
 
-# Tue Apr 29 10:42:02 2025
+# Tue Apr 29 15:28:39 2025
 
 #Implementation: synthesis
 
@@ -69,7 +69,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memor
 
 
 Process completed successfully.
-# Tue Apr 29 10:42:03 2025
+# Tue Apr 29 15:28:39 2025
 
 ###########################################################]
 ###########################################################[
@@ -132,7 +132,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Tue Apr 29 10:42:03 2025
+# Tue Apr 29 15:28:40 2025
 
 ###########################################################]
 ###########################################################[
@@ -174,11 +174,6 @@ Process completed successfully.
 @I::"C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\IO_C2\IO_C2.v" (library work)
 @I::"C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\EvalBoardSandbox\EvalBoardSandbox.v" (library work)
 Verilog syntax check successful!
-File C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\EvalSandbox_MSS\CCC_0\EvalSandbox_MSS_CCC_0_FCCC.v changed - recompiling
-File C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v changed - recompiling
-File C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS_syn.v changed - recompiling
-File C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS.v changed - recompiling
-File C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\EvalSandbox_MSS\EvalSandbox_MSS.v changed - recompiling
 File C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\EvalBoardSandbox\EvalBoardSandbox.v changed - recompiling
 @N: CG775 :"C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":31:7:31:14|Component CoreAPB3 not found in library "work" or "__hyper__lib__", but found in library COREAPB3_LIB
 @N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":376:7:376:9|Synthesizing module VCC in library work.
@@ -575,7 +570,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:23s; CPU Time elapsed 0h:00m:23s; Memory
 
 
 Process completed successfully.
-# Tue Apr 29 10:42:27 2025
+# Tue Apr 29 15:29:04 2025
 
 ###########################################################]
 ###########################################################[
@@ -880,11 +875,11 @@ For a summary of runtime per design unit, please see file:
 
 
 
-At c_vhdl Exit (Real Time elapsed 0h:00m:22s; CPU Time elapsed 0h:00m:22s; Memory used current: 108MB peak: 109MB)
+At c_vhdl Exit (Real Time elapsed 0h:00m:23s; CPU Time elapsed 0h:00m:23s; Memory used current: 108MB peak: 109MB)
 
 
 Process completed successfully.
-# Tue Apr 29 10:42:50 2025
+# Tue Apr 29 15:29:27 2025
 
 ###########################################################]
 ###########################################################[
@@ -918,7 +913,7 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Tue Apr 29 10:42:51 2025
+# Tue Apr 29 15:29:28 2025
 
 ###########################################################]
 
@@ -928,12 +923,12 @@ For a summary of runtime and memory usage for all design units, please see file:
 
 @END
 
-At c_hdl Exit (Real Time elapsed 0h:00m:49s; CPU Time elapsed 0h:00m:47s; Memory used current: 25MB peak: 26MB)
+At c_hdl Exit (Real Time elapsed 0h:00m:49s; CPU Time elapsed 0h:00m:48s; Memory used current: 25MB peak: 25MB)
 
-Process took 0h:00m:49s realtime, 0h:00m:47s cputime
+Process took 0h:00m:49s realtime, 0h:00m:48s cputime
 
 Process completed successfully.
-# Tue Apr 29 10:42:51 2025
+# Tue Apr 29 15:29:28 2025
 
 ###########################################################]
 ###########################################################[
@@ -960,12 +955,12 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Tue Apr 29 10:42:53 2025
+# Tue Apr 29 15:29:30 2025
 
 ###########################################################]
 Premap Report
 
-# Tue Apr 29 10:42:54 2025
+# Tue Apr 29 15:29:30 2025
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -995,7 +990,7 @@ See clock summary report "C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\sy
 @N: MF248 |Running in 64-bit mode.
 @N: MF667 |Clock conversion disabled. (Command "set_option -fix_gated_and_generated_clocks 0" in the project file.)
 
-Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 143MB peak: 143MB)
+Design Input Complete (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 143MB peak: 143MB)
 
 
 Mapper Initialization Complete (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 143MB peak: 143MB)
@@ -1080,7 +1075,7 @@ Finished HSTDM IP insertion (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:0
 @W: MO129 :"c:\users\skaye\repos7\firmware\include\fpga\ibufp2.vhd":47:2:47:3|Sequential instance DMMainPorts_1.RS433_Rx3.Uart.ClkSyncRxd.Temp1 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"c:\users\skaye\repos7\firmware\include\fpga\ibufp2.vhd":47:2:47:3|Sequential instance DMMainPorts_1.RS433_Rx3.Uart.ClkSyncRxd.O is reduced to a combinational gate by constant propagation.
 
-Started DisTri Cleanup (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 185MB peak: 186MB)
+Started DisTri Cleanup (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:02s; Memory used current: 185MB peak: 186MB)
 
 
 Finished DisTri Cleanup (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 185MB peak: 186MB)
@@ -1194,7 +1189,7 @@ EvalSandbox_MSS_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT     15        EvalSandbox_MSS
 Finished Pre Mapping Phase.
 @N: BN225 |Writing default property annotation file C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\synthesis\EvalBoardSandbox.sap.
 
-Starting constraint checker (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 187MB peak: 188MB)
+Starting constraint checker (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 187MB peak: 189MB)
 
 Encoding state machine sm0_state[6:0] (in view: work.CoreResetP_Z2_layer0(verilog))
 original code -> new code
@@ -1241,12 +1236,12 @@ Pre-mapping successful!
 At Mapper Exit (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 101MB peak: 193MB)
 
 Process took 0h:00m:06s realtime, 0h:00m:05s cputime
-# Tue Apr 29 10:43:00 2025
+# Tue Apr 29 15:29:37 2025
 
 ###########################################################]
 Map & Optimize Report
 
-# Tue Apr 29 10:43:01 2025
+# Tue Apr 29 15:29:37 2025
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -1283,7 +1278,7 @@ Finished loading timing files (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h
 
 
 
-Starting Optimization and Mapping (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 177MB peak: 177MB)
+Starting Optimization and Mapping (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:02s; Memory used current: 177MB peak: 177MB)
 
 @N: MO111 :"c:\users\skaye\repos7\firmware\dminterface\ux1_ver2\component\work\evalsandbox_mss\fabosc_0\evalsandbox_mss_fabosc_0_osc.v":20:7:20:16|Tristate driver XTLOSC_O2F (in view: work.EvalSandbox_MSS_FABOSC_0_OSC(verilog)) on net XTLOSC_O2F (in view: work.EvalSandbox_MSS_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"c:\users\skaye\repos7\firmware\dminterface\ux1_ver2\component\work\evalsandbox_mss\fabosc_0\evalsandbox_mss_fabosc_0_osc.v":19:7:19:16|Tristate driver XTLOSC_CCC (in view: work.EvalSandbox_MSS_FABOSC_0_OSC(verilog)) on net XTLOSC_CCC (in view: work.EvalSandbox_MSS_FABOSC_0_OSC(verilog)) has its enable tied to GND.
@@ -1459,27 +1454,27 @@ Available hyper_sources - for debug and ip models
 
 NConnInternalConnection caching is on
 
-Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 209MB peak: 224MB)
+Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 209MB peak: 224MB)
 
 
 Starting Early Timing Optimization (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 210MB peak: 224MB)
 
 
-Finished Early Timing Optimization (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 210MB peak: 224MB)
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:07s; Memory used current: 210MB peak: 224MB)
 
 
-Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:08s; Memory used current: 210MB peak: 224MB)
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 210MB peak: 224MB)
 
 
-Finished preparing to map (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:09s; Memory used current: 211MB peak: 224MB)
+Finished preparing to map (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 211MB peak: 224MB)
 
 
-Finished technology mapping (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 252MB peak: 252MB)
+Finished technology mapping (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 252MB peak: 252MB)
 
 Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
-   1		0h:00m:11s		     0.42ns		2380 /      1807
-   2		0h:00m:11s		     0.42ns		2366 /      1807
+   1		0h:00m:10s		     0.42ns		2380 /      1807
+   2		0h:00m:10s		     0.42ns		2366 /      1807
 @N: FP130 |Promoting Net DMMainPorts_1.shot_i_arst on CLKINT  I_389 
 @N: FP130 |Promoting Net DMMainPorts_1.Uart2FifoReset_i_arst on CLKINT  I_390 
 @N: FP130 |Promoting Net DMMainPorts_1.Uart1FifoReset_i_arst on CLKINT  I_391 
@@ -1505,35 +1500,35 @@ Added 0 Cells via replication
 	Added 0 Sequential Cells via replication
 	Added 0 Combinational Cells via replication
 
-Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:13s; CPU Time elapsed 0h:00m:12s; Memory used current: 257MB peak: 257MB)
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 257MB peak: 257MB)
 
 
-Finished restoring hierarchy (Real Time elapsed 0h:00m:13s; CPU Time elapsed 0h:00m:13s; Memory used current: 258MB peak: 258MB)
+Finished restoring hierarchy (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:12s; Memory used current: 258MB peak: 258MB)
 
 
-Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:13s; CPU Time elapsed 0h:00m:13s; Memory used current: 258MB peak: 258MB)
+Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:12s; Memory used current: 258MB peak: 259MB)
 
 
-Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:13s; Memory used current: 258MB peak: 259MB)
+Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:13s; CPU Time elapsed 0h:00m:12s; Memory used current: 258MB peak: 259MB)
 
 
-Start Writing Netlists (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:14s; Memory used current: 212MB peak: 259MB)
+Start Writing Netlists (Real Time elapsed 0h:00m:13s; CPU Time elapsed 0h:00m:13s; Memory used current: 212MB peak: 259MB)
 
 Writing Analyst data base C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\synthesis\synwork\EvalBoardSandbox_m.srm
 
-Finished Writing Netlist Databases (Real Time elapsed 0h:00m:15s; CPU Time elapsed 0h:00m:15s; Memory used current: 250MB peak: 259MB)
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:14s; Memory used current: 250MB peak: 259MB)
 
 Writing Verilog Simulation files
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
 @N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 
 
-Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:16s; Memory used current: 251MB peak: 259MB)
+Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:15s; CPU Time elapsed 0h:00m:15s; Memory used current: 251MB peak: 259MB)
 
 
-Finished Writing Netlists (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:17s; Memory used current: 251MB peak: 259MB)
+Finished Writing Netlists (Real Time elapsed 0h:00m:16s; CPU Time elapsed 0h:00m:15s; Memory used current: 251MB peak: 259MB)
 
 
-Start final timing analysis (Real Time elapsed 0h:00m:18s; CPU Time elapsed 0h:00m:17s; Memory used current: 245MB peak: 259MB)
+Start final timing analysis (Real Time elapsed 0h:00m:16s; CPU Time elapsed 0h:00m:16s; Memory used current: 245MB peak: 259MB)
 
 @W: MT246 :"c:\users\skaye\repos7\firmware\dminterface\ux1_ver2\component\work\fccc_c0\fccc_c0_0\fccc_c0_fccc_c0_0_fccc.v":23:36:23:43|Blackbox CCC is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results)
 @N: MT615 |Found clock CLK0_PAD with period 19.61ns 
@@ -1542,7 +1537,7 @@ Start final timing analysis (Real Time elapsed 0h:00m:18s; CPU Time elapsed 0h:0
 
 
 ##### START OF TIMING REPORT #####[
-# Timing report written on Tue Apr 29 10:43:20 2025
+# Timing report written on Tue Apr 29 15:29:54 2025
 #
 
 
@@ -1897,10 +1892,10 @@ Timing exceptions that could not be applied
 @W: MT447 :"c:/users/skaye/repos7/firmware/dminterface/ux1_ver2/designer/evalboardsandbox/synthesis.fdc":25:0:25:0|Timing constraint (through [get_pins { EvalSandbox_MSS_0.SYSRESET_POR.POWER_ON_RESET_N }]) (false path) was not applied to the design because none of the '-through' objects specified by the constraint exist in the design 
 None
 
-Finished final timing analysis (Real Time elapsed 0h:00m:18s; CPU Time elapsed 0h:00m:18s; Memory used current: 247MB peak: 259MB)
+Finished final timing analysis (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:16s; Memory used current: 247MB peak: 259MB)
 
 
-Finished timing report (Real Time elapsed 0h:00m:19s; CPU Time elapsed 0h:00m:18s; Memory used current: 247MB peak: 259MB)
+Finished timing report (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:17s; Memory used current: 247MB peak: 259MB)
 
 ---------------------------------------
 Resource Usage Report for EvalBoardSandbox 
@@ -1952,9 +1947,9 @@ Total number of LUTs after P&R:  2469 + 0 + 324 + 36 = 2829;
 
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:19s; CPU Time elapsed 0h:00m:18s; Memory used current: 81MB peak: 259MB)
+At Mapper Exit (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:17s; Memory used current: 82MB peak: 259MB)
 
-Process took 0h:00m:20s realtime, 0h:00m:19s cputime
-# Tue Apr 29 10:43:21 2025
+Process took 0h:00m:18s realtime, 0h:00m:17s cputime
+# Tue Apr 29 15:29:56 2025
 
 ###########################################################]
