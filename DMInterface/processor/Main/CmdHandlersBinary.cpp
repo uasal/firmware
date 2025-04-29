@@ -86,7 +86,7 @@ int8_t BinaryDMStartSMCommand(const uint32_t Name, char const* Params, const siz
     //    Version.SerialNum = DM->DeviceSerialNumber; 
     DM->StartMachine = 1; 
   }
-  TxBinaryPacket(Argument, CGraphPayloadTypeDMDac, 0, &Params, sizeof(Params));
+  TxBinaryPacket(Argument, CGraphPayloadTypeDMStartSM, 0, &Params, sizeof(Params));
   return(ParamsLen);
 }
   
@@ -201,8 +201,13 @@ int8_t BinaryDMDacConfigCommand(const uint32_t Name, char const* Params, const s
 
 int8_t BinaryDMMappingCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
+  uint16_t readback = 5;
+  
+  //TxBinaryPacket(Argument, CGraphPayloadTypeDMMappings, 0, &readback, sizeof(uint16_t)); 
 	if ( (nullptr != Params) && (ParamsLen > sizeof(CGraphDMPixelPayloadHeader)) )
 	{
+          //readback = 42;
+          //TxBinaryPacket(Argument, CGraphPayloadTypeDMMappings, 0, &readback, sizeof(uint16_t));
 		//Find a start index followed by some mappings
 		const CGraphDMPixelPayloadHeader PixelHeader = *reinterpret_cast<const CGraphDMPixelPayloadHeader*>(Params);
 		const unsigned long StartPixel = PixelHeader.StartPixel;
@@ -214,6 +219,10 @@ int8_t BinaryDMMappingCommand(const uint32_t Name, char const* Params, const siz
 		else
 		{
 			unsigned long NumPixels = (ParamsLen - sizeof(CGraphDMPixelPayloadHeader)) / sizeof(CGraphDMMappingPayload);
+                        // check startpixel and num pixels
+                        TxBinaryPacket(Argument, CGraphPayloadTypeDMMappings, 0, &StartPixel, sizeof(uint16_t));
+                        TxBinaryPacket(Argument, CGraphPayloadTypeDMMappings, 0, &NumPixels, sizeof(uint16_t));
+                        //
 			if ((NumPixels + StartPixel) > DMMaxActuators) { NumPixels = DMMaxActuators - StartPixel; }
 			
 			printf("\nBinaryDMMappingCommand: StartPixel: %lu, NumPixels: %lu\n", StartPixel, NumPixels);
@@ -239,9 +248,17 @@ int8_t BinaryDMMappingCommand(const uint32_t Name, char const* Params, const siz
 						}
 						else
 						{
+                                                  readback = Mapping.ControllerBoardIndex;
+                                                  TxBinaryPacket(Argument, CGraphPayloadTypeDMMappings, 0, &readback, sizeof(uint8_t));
+                                                  readback = Mapping.DacIndex;
+                                                  TxBinaryPacket(Argument, CGraphPayloadTypeDMMappings, 0, &readback, sizeof(uint8_t));
+                                                  readback = Mapping.DacChannel;
+                                                  TxBinaryPacket(Argument, CGraphPayloadTypeDMMappings, 0, &readback, sizeof(uint8_t));
 							//Yay! Finally valid data!
+                                                  
 							DMMappings.Mappings[i] = Mapping;
 							printf("\nBinaryDMMappingCommand: Set mapping %lu to ", (unsigned long)i);
+                                                        TxBinaryPacket(Argument, CGraphPayloadTypeDMMappings, 0, &DMMappings.Mappings[i], sizeof(DMMappings.Mappings[i]));
 							Mapping.formatf();
 							printf("\n\n");
 						}
@@ -316,7 +333,9 @@ int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const
                                           uint8_t channel = DMMappings.Mappings[i].DacChannel;
                                           uint32_t spiBits = 0; // initialize to 0
 
-                                          formatf("%p", (void*)&dRAM->DacSetpoints[board][dac][channel]);
+                                          formatf("%p", board);
+                                          formatf("%p", dac);
+                                          formatf("%p", channel);
                                           // Get Dac address for the SPI
                                           //addrByte = DACaddr[channel]; // the top 8 bits of the SPI stream determine the dac channel written
                                           spiBits = DacVal + (DACaddr[channel] << 16); // shift the address and add to the DacVal

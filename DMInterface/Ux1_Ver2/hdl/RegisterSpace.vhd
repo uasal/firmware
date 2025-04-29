@@ -141,7 +141,7 @@ architecture RegisterSpace of RegisterSpacePorts is
   constant MAX_ADDRESS_BITS : natural := ADDRESS_BITS;
   signal Address_i : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0);
 
-  -- Here is the adress space
+  -- Here is the address space
   constant DeviceSerialNumberAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(0, MAX_ADDRESS_BITS));
   constant FpgaFirmwareBuildNumberAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(4, MAX_ADDRESS_BITS));
   

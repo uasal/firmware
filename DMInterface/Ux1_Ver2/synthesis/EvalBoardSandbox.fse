@@ -1,49 +1,49 @@
 
-fsm_encoding {271453414531} onehot
+fsm_encoding {271451414511} onehot
 
-fsm_state_encoding {271453414531} idle {0000000000000000000001}
+fsm_state_encoding {271451414511} idle {0000000000000000000001}
 
-fsm_state_encoding {271453414531} configoffset0 {0000000000000000000010}
+fsm_state_encoding {271451414511} configoffset0 {0000000000000000000010}
 
-fsm_state_encoding {271453414531} writeconfigoffset0 {0000000000000000000100}
+fsm_state_encoding {271451414511} writeconfigoffset0 {0000000000000000000100}
 
-fsm_state_encoding {271453414531} configoffset1 {0000000000000000001000}
+fsm_state_encoding {271451414511} configoffset1 {0000000000000000001000}
 
-fsm_state_encoding {271453414531} writeconfigoffset1 {0000000000000000010000}
+fsm_state_encoding {271451414511} writeconfigoffset1 {0000000000000000010000}
 
-fsm_state_encoding {271453414531} abselectreg {0000000000000000100000}
+fsm_state_encoding {271451414511} abselectreg {0000000000000000100000}
 
-fsm_state_encoding {271453414531} writeabselectreg {0000000000000001000000}
+fsm_state_encoding {271451414511} writeabselectreg {0000000000000001000000}
 
-fsm_state_encoding {271453414531} gainreg {0000000000000010000000}
+fsm_state_encoding {271451414511} gainreg {0000000000000010000000}
 
-fsm_state_encoding {271453414531} writegainreg {0000000000000100000000}
+fsm_state_encoding {271451414511} writegainreg {0000000000000100000000}
 
-fsm_state_encoding {271453414531} offsetreg {0000000000001000000000}
+fsm_state_encoding {271451414511} offsetreg {0000000000001000000000}
 
-fsm_state_encoding {271453414531} writeoffsetreg {0000000000010000000000}
+fsm_state_encoding {271451414511} writeoffsetreg {0000000000010000000000}
 
-fsm_state_encoding {271453414531} readchannel {0000000000100000000000}
+fsm_state_encoding {271451414511} readchannel {0000000000100000000000}
 
-fsm_state_encoding {271453414531} latchchannel {0000000001000000000000}
+fsm_state_encoding {271451414511} latchchannel {0000000001000000000000}
 
-fsm_state_encoding {271453414531} prewritecs0 {0000000010000000000000}
+fsm_state_encoding {271451414511} prewritecs0 {0000000010000000000000}
 
-fsm_state_encoding {271453414531} writecs0 {0000000100000000000000}
+fsm_state_encoding {271451414511} writecs0 {0000000100000000000000}
 
-fsm_state_encoding {271453414531} prewritecs1 {0000001000000000000000}
+fsm_state_encoding {271451414511} prewritecs1 {0000001000000000000000}
 
-fsm_state_encoding {271453414531} writecs1 {0000010000000000000000}
+fsm_state_encoding {271451414511} writecs1 {0000010000000000000000}
 
-fsm_state_encoding {271453414531} prewritecs2 {0000100000000000000000}
+fsm_state_encoding {271451414511} prewritecs2 {0000100000000000000000}
 
-fsm_state_encoding {271453414531} writecs2 {0001000000000000000000}
+fsm_state_encoding {271451414511} writecs2 {0001000000000000000000}
 
-fsm_state_encoding {271453414531} prewritecs3 {0010000000000000000000}
+fsm_state_encoding {271451414511} prewritecs3 {0010000000000000000000}
 
-fsm_state_encoding {271453414531} writecs3 {0100000000000000000000}
+fsm_state_encoding {271451414511} writecs3 {0100000000000000000000}
 
-fsm_state_encoding {271453414531} nextchannel {1000000000000000000000}
+fsm_state_encoding {271451414511} nextchannel {1000000000000000000000}
 
-fsm_registers {271453414531} {DacWriteNextState[0]}  {DacWriteNextState[1]}  {DacWriteNextState[2]}  {DacWriteNextState[3]}  {DacWriteNextState[4]}  {DacWriteNextState[5]}  {DacWriteNextState[6]}  {DacWriteNextState[7]}  {DacWriteNextState[8]}  {DacWriteNextState[9]}  {DacWriteNextState[10]}  {DacWriteNextState[11]}  {DacWriteNextState[12]}  {DacWriteNextState[13]}  {DacWriteNextState[14]}  {DacWriteNextState[15]}  {DacWriteNextState[16]}  {DacWriteNextState[17]}  {DacWriteNextState[18]}  {DacWriteNextState[19]}  {DacWriteNextState[20]}  {DacWriteNextState[21]} 
+fsm_registers {271451414511} {DacWriteNextState[0]}  {DacWriteNextState[1]}  {DacWriteNextState[2]}  {DacWriteNextState[3]}  {DacWriteNextState[4]}  {DacWriteNextState[5]}  {DacWriteNextState[6]}  {DacWriteNextState[7]}  {DacWriteNextState[8]}  {DacWriteNextState[9]}  {DacWriteNextState[10]}  {DacWriteNextState[11]}  {DacWriteNextState[12]}  {DacWriteNextState[13]}  {DacWriteNextState[14]}  {DacWriteNextState[15]}  {DacWriteNextState[16]}  {DacWriteNextState[17]}  {DacWriteNextState[18]}  {DacWriteNextState[19]}  {DacWriteNextState[20]}  {DacWriteNextState[21]} 
 acWriteNextState[0]}  {DacWriteNextState[1]}  {DacWriteNextState[2]}  {DacWriteNextState[3]}  {DacWriteNextState[4]}  {DacWriteNextState[5]}  {DacWriteNextState[6]}  {DacWriteNextState[7]}  {DacWriteNextState[8]}  {DacWriteNextState[9]}  {DacWriteNextState[10]}  {DacWriteNextState[11]}  {DacWriteNextState[12]}  {DacWriteNextState[13]}  {DacWriteNextState[14]}  {DacWriteNextState[15]}  {DacWriteNextState[16]}  {DacWriteNextState[17]}  {DacWriteNextState[18]}  {DacWriteNextState[19]}  {DacWriteNextState[20]}  {DacWriteNextState[21]} 
