@@ -233,6 +233,7 @@ int main(int argc, char *argv[])
 //
 //    MSS_GPIO_set_output(MSS_GPIO_0, 1); // set output to 1 to let the state machine go
 
+  formatf("\nOffset of StartMachine: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphDMHardwareInterface, StartMachine), 148UL);
     // Now do forever loop to get communication data
     while(1) {
 //      bool Bored = true;

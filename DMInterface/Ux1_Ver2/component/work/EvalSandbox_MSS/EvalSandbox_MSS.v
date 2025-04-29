@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Tue Apr 22 16:12:10 2025
+// Created by SmartDesign Tue Apr 29 10:41:10 2025
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -30,7 +30,6 @@ module EvalSandbox_MSS(
     AMBA_SLAVE_0_PWRITES,
     FIC_0_CLK,
     FIC_0_LOCK,
-    GPIO_0_M2F,
     INIT_DONE,
     MSS_READY,
     POWER_ON_RESET_N
@@ -63,7 +62,6 @@ output [31:0] AMBA_SLAVE_0_PWDATAS;
 output        AMBA_SLAVE_0_PWRITES;
 output        FIC_0_CLK;
 output        FIC_0_LOCK;
-output        GPIO_0_M2F;
 output        INIT_DONE;
 output        MSS_READY;
 output        POWER_ON_RESET_N;
@@ -99,7 +97,6 @@ wire          FAB_RESET_N;
 wire          FABOSC_0_RCOSC_25_50MHZ_O2F;
 wire          FIC_0_CLK_net_0;
 wire          FIC_0_LOCK_net_0;
-wire          GPIO_0_M2F_net_0;
 wire          INIT_DONE_net_0;
 wire          MSS_READY_net_0;
 wire          POWER_ON_RESET_N_net_0;
@@ -118,7 +115,6 @@ wire   [31:0] AMBA_SLAVE_0_PWDATA_net_1;
 wire          FIC_0_CLK_net_1;
 wire          FIC_0_LOCK_net_1;
 wire          MSS_READY_net_1;
-wire          GPIO_0_M2F_net_1;
 //--------------------------------------------------------------------
 // TiedOff Nets
 //--------------------------------------------------------------------
@@ -208,8 +204,6 @@ assign FIC_0_LOCK_net_1             = FIC_0_LOCK_net_0;
 assign FIC_0_LOCK                   = FIC_0_LOCK_net_1;
 assign MSS_READY_net_1              = MSS_READY_net_0;
 assign MSS_READY                    = MSS_READY_net_1;
-assign GPIO_0_M2F_net_1             = GPIO_0_M2F_net_0;
-assign GPIO_0_M2F                   = GPIO_0_M2F_net_1;
 //--------------------------------------------------------------------
 // Component instances
 //--------------------------------------------------------------------
@@ -458,7 +452,6 @@ EvalSandbox_MSS_MSS EvalSandbox_MSS_MSS_0(
         .FIC_2_APB_M_PRDATA     ( FIC_2_APB_M_PRDATA_const_net_0 ), // tied to 32'h00000000 from definition
         // Outputs
         .MSS_RESET_N_M2F        ( EvalSandbox_MSS_MSS_TMP_0_MSS_RESET_N_M2F ),
-        .GPIO_0_M2F             ( GPIO_0_M2F_net_0 ),
         .FIC_0_APB_M_PSEL       ( EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PSELx ),
         .FIC_0_APB_M_PWRITE     ( EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PWRITE ),
         .FIC_0_APB_M_PENABLE    ( EvalSandbox_MSS_MSS_TMP_0_FIC_0_APB_MASTER_PENABLE ),

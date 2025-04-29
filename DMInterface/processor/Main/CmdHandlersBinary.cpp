@@ -75,7 +75,7 @@ int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_
 int8_t BinaryDMDacCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
         
-  TxBinaryPacket(Argument, CGraphPayloadTypeDMDac, 0, (void*)dRAM->DacSetpoints[0][0][0], 4*sizeof(uint32_t));
+  //  TxBinaryPacket(Argument, CGraphPayloadTypeDMDac, 0, (void*)dRAM->DacSetpoints[0][0][0], 4*sizeof(uint32_t));
   return(ParamsLen);
 }
 
@@ -333,9 +333,9 @@ int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const
                                           uint8_t channel = DMMappings.Mappings[i].DacChannel;
                                           uint32_t spiBits = 0; // initialize to 0
 
-                                          formatf("%p", board);
-                                          formatf("%p", dac);
-                                          formatf("%p", channel);
+                                          //formatf("%p", board);
+                                          //formatf("%p", dac);
+                                          //formatf("%p", channel);
                                           // Get Dac address for the SPI
                                           //addrByte = DACaddr[channel]; // the top 8 bits of the SPI stream determine the dac channel written
                                           spiBits = DacVal + (DACaddr[channel] << 16); // shift the address and add to the DacVal

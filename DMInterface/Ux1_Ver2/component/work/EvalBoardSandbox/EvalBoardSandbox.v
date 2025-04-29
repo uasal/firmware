@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Tue Apr 29 08:48:00 2025
+// Created by SmartDesign Tue Apr 29 10:41:32 2025
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -409,31 +409,30 @@ DMMainPorts DMMainPorts_1(
 EvalSandbox_MSS EvalSandbox_MSS_0(
         // Inputs
         .FAB_RESET_N              ( VCC_net ),
+        .AMBA_SLAVE_0_PRDATAS0    ( DMMainPorts_1_RamBusDataOut ),
         .AMBA_SLAVE_0_PREADYS0    ( DMMainPorts_1_RamBusAck ),
         .AMBA_SLAVE_0_PSLVERRS0   ( GND_net ),
+        .AMBA_SLAVE_0_1_PRDATAS1  ( DMMainPorts_1_RamBusDataOut1 ),
         .AMBA_SLAVE_0_1_PREADYS1  ( DMMainPorts_1_RamBusAck1 ),
         .AMBA_SLAVE_0_1_PSLVERRS1 ( GND_net ),
         .DEVRST_N                 ( DEVRST_N ),
         .CLK0                     ( FCCC_C0_0_GL0 ),
-        .AMBA_SLAVE_0_PRDATAS0    ( DMMainPorts_1_RamBusDataOut ),
-        .AMBA_SLAVE_0_1_PRDATAS1  ( DMMainPorts_1_RamBusDataOut1 ),
         // Outputs
         .POWER_ON_RESET_N         (  ),
         .INIT_DONE                (  ),
+        .AMBA_SLAVE_0_PADDRS      ( AMBA_SLAVE_0_PADDRS_net_0 ),
         .AMBA_SLAVE_0_PSELS0      ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PSELS0 ),
         .AMBA_SLAVE_0_PENABLES    ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PENABLES ),
         .AMBA_SLAVE_0_PWRITES     ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PWRITES ),
+        .AMBA_SLAVE_0_PWDATAS     ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PWDATAS ),
+        .AMBA_SLAVE_0_1_PADDRS    ( AMBA_SLAVE_0_1_PADDRS_net_0 ),
         .AMBA_SLAVE_0_1_PSELS1    ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PSELS1 ),
         .AMBA_SLAVE_0_1_PENABLES  ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PENABLES ),
         .AMBA_SLAVE_0_1_PWRITES   ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PWRITES ),
+        .AMBA_SLAVE_0_1_PWDATAS   ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PWDATAS ),
         .FIC_0_CLK                (  ),
         .FIC_0_LOCK               (  ),
-        .MSS_READY                (  ),
-        .GPIO_0_M2F               (  ),
-        .AMBA_SLAVE_0_PADDRS      ( AMBA_SLAVE_0_PADDRS_net_0 ),
-        .AMBA_SLAVE_0_PWDATAS     ( EvalSandbox_MSS_0_AMBA_SLAVE_0_PWDATAS ),
-        .AMBA_SLAVE_0_1_PADDRS    ( AMBA_SLAVE_0_1_PADDRS_net_0 ),
-        .AMBA_SLAVE_0_1_PWDATAS   ( EvalSandbox_MSS_0_AMBA_SLAVE_0_1_PWDATAS ) 
+        .MSS_READY                (  ) 
         );
 
 //--------FCCC_C0

@@ -138,16 +138,16 @@ struct CGraphDMHardwareInterface
   UartStatusRegister UartStatusRegister3; //ro; 140 what state are the uart(s) in?
   uint32_t UartFifo3ReadData; // 144
 
-  uint32_t StartMachine; // 148
+  uint8_t StartMachine; // 148
   
-  uint8_t BaudDivider0; //rw; clock divider for the first serial port
-  uint8_t BaudDivider1;
-  uint8_t BaudDivider2;
-  uint8_t BaudDivider3;
-  uint16_t SpiExtBusAddrOut;
-  uint16_t SpiExtBusAddrIn;
-  uint16_t SpiExtBusDataOut;
-  uint16_t SpiExtBusDataIn;
+//  uint8_t BaudDivider0; //rw; clock divider for the first serial port
+//  uint8_t BaudDivider1;
+//  uint8_t BaudDivider2;
+//  uint8_t BaudDivider3;
+//  uint16_t SpiExtBusAddrOut;
+//  uint16_t SpiExtBusAddrIn;
+//  uint16_t SpiExtBusDataOut;
+//  uint16_t SpiExtBusDataIn;
   //uint32_t reserved[217]; //if we counted correctly there's 48 4-byte registers preceeding this padding...
   //uint32_t DacSetpoints[DMMaxControllerBoards][DMMDacsPerControllerBoard][DMActuatorsPerDac];
   

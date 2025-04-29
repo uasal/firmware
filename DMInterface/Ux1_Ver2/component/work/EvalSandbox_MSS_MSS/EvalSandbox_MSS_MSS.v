@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Tue Apr 22 16:12:07 2025
+// Created by SmartDesign Tue Apr 29 10:41:04 2025
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -30,7 +30,6 @@ module EvalSandbox_MSS_MSS(
     FIC_2_APB_M_PSEL,
     FIC_2_APB_M_PWDATA,
     FIC_2_APB_M_PWRITE,
-    GPIO_0_M2F,
     MSS_RESET_N_M2F
 );
 
@@ -61,7 +60,6 @@ output        FIC_2_APB_M_PRESET_N;
 output        FIC_2_APB_M_PSEL;
 output [31:0] FIC_2_APB_M_PWDATA;
 output        FIC_2_APB_M_PWRITE;
-output        GPIO_0_M2F;
 output        MSS_RESET_N_M2F;
 //--------------------------------------------------------------------
 // Nets
@@ -84,13 +82,11 @@ wire          FIC_2_APB_MASTER_0_PSELx;
 wire          FIC_2_APB_M_PSLVERR;
 wire   [31:0] FIC_2_APB_MASTER_0_PWDATA;
 wire          FIC_2_APB_MASTER_0_PWRITE;
-wire          GPIO_0_M2F_net_0;
 wire          MCCC_CLK_BASE;
 wire          MCCC_CLK_BASE_PLL_LOCK;
 wire          MSS_RESET_N_F2M;
 wire          MSS_RESET_N_M2F_net_0;
 wire          MSS_RESET_N_M2F_net_1;
-wire          GPIO_0_M2F_net_1;
 wire          FIC_0_APB_MASTER_PSELx_net_0;
 wire          FIC_0_APB_MASTER_PWRITE_net_0;
 wire          FIC_0_APB_MASTER_PENABLE_net_0;
@@ -182,8 +178,6 @@ assign MDDR_FABRIC_PWDATA_const_net_0  = 16'hFFFF;
 //--------------------------------------------------------------------
 assign MSS_RESET_N_M2F_net_1            = MSS_RESET_N_M2F_net_0;
 assign MSS_RESET_N_M2F                  = MSS_RESET_N_M2F_net_1;
-assign GPIO_0_M2F_net_1                 = GPIO_0_M2F_net_0;
-assign GPIO_0_M2F                       = GPIO_0_M2F_net_1;
 assign FIC_0_APB_MASTER_PSELx_net_0     = FIC_0_APB_MASTER_PSELx;
 assign FIC_0_APB_M_PSEL                 = FIC_0_APB_MASTER_PSELx_net_0;
 assign FIC_0_APB_MASTER_PWRITE_net_0    = FIC_0_APB_MASTER_PWRITE;
@@ -215,7 +209,7 @@ assign FIC_2_APB_M_PWDATA[31:0]         = FIC_2_APB_MASTER_0_PWDATA_net_0;
 MSS_025 #( 
         .ACT_UBITS         ( 56'hFFFFFFFFFFFFFF ),
         .DDR_CLK_FREQ      ( 102.0 ),
-        .INIT              ( 1438'h00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000E00000000F000000000000000000000000000000007FFFFFFFB000001007C33C000000006090C0208003FFFFE400F000000000100000000F0F01C000001825FE4010842108421000001FE34001FF80000004000000000200B1007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF ),
+        .INIT              ( 1438'h00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000F00000000F000000000000000000000000000000007FFFFFFFB000001007C33C000000006090C0208003FFFFE400F00000000010000000000F01C000001FE5FE4010842108421000001FE34001FF80000004000000000200B1007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF ),
         .MEMORYFILE        ( "ENVM_init.mem" ),
         .RTC_MAIN_XTL_FREQ ( 0.0 ),
         .RTC_MAIN_XTL_MODE ( "" ) )
@@ -496,7 +490,7 @@ MSS_ADLIB_INST(
         .I2C1_SCL_MGPIO1A_H2F_A                  (  ),
         .I2C1_SCL_MGPIO1A_H2F_B                  (  ),
         .I2C1_SDA_MGPIO0A_H2F_A                  (  ),
-        .I2C1_SDA_MGPIO0A_H2F_B                  ( GPIO_0_M2F_net_0 ),
+        .I2C1_SDA_MGPIO0A_H2F_B                  (  ),
         .MDCF                                    (  ),
         .MDOENF                                  (  ),
         .MDOF                                    (  ),

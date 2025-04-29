@@ -1,6 +1,6 @@
 Configuration Report for MSS, SERDES(s), Fabric DDR and Fabric CCC(s)
 Microchip Technology Inc. - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)
-Date: Tue Apr 29 08:59:19 2025
+Date: Tue Apr 29 10:47:58 2025
 
 FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP
 +-------------------+--------------------+---------------+-------+
@@ -503,11 +503,11 @@ EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST/INST_MSS_025_IP
 | SOFTRESET               | HPDMA_SOFTRESET             | INIT[367:367]   | 1'h0         | INIT[35]  | 1             |
 | SOFTRESET               | FIC32_0_SOFTRESET           | INIT[368:368]   | 1'h0         | INIT[36]  | 1             |
 | SOFTRESET               | FIC32_1_SOFTRESET           | INIT[369:369]   | 1'h1         | INIT[37]  | 1             |
-| SOFTRESET               | MSS_GPIO_SOFTRESET          | INIT[370:370]   | 1'h0         | INIT[38]  | 1             |
-| SOFTRESET               | MSS_GPOUT_7_0_SOFT_RESET    | INIT[371:371]   | 1'h0         | INIT[39]  | 1             |
-| SOFTRESET               | MSS_GPOUT_15_8_SOFT_RESET   | INIT[372:372]   | 1'h0         | INIT[40]  | 1             |
-| SOFTRESET               | MSS_GPOUT_23_16_SOFT_RESET  | INIT[373:373]   | 1'h0         | INIT[41]  | 1             |
-| SOFTRESET               | MSS_GPOUT_31_24_SOFT_RESET  | INIT[374:374]   | 1'h0         | INIT[42]  | 1             |
+| SOFTRESET               | MSS_GPIO_SOFTRESET          | INIT[370:370]   | 1'h1         | INIT[38]  | 1             |
+| SOFTRESET               | MSS_GPOUT_7_0_SOFT_RESET    | INIT[371:371]   | 1'h1         | INIT[39]  | 1             |
+| SOFTRESET               | MSS_GPOUT_15_8_SOFT_RESET   | INIT[372:372]   | 1'h1         | INIT[40]  | 1             |
+| SOFTRESET               | MSS_GPOUT_23_16_SOFT_RESET  | INIT[373:373]   | 1'h1         | INIT[41]  | 1             |
+| SOFTRESET               | MSS_GPOUT_31_24_SOFT_RESET  | INIT[374:374]   | 1'h1         | INIT[42]  | 1             |
 | SOFTRESET               | MDDR_CTLR_SOFTRESET         | INIT[375:375]   | 1'h1         | INIT[43]  | 1             |
 | SOFTRESET               | MDDR_FIC64_SOFTRESET        | INIT[376:376]   | 1'h1         | INIT[44]  | 1             |
 | M3_CONFIG               | STCALIB250                  | INIT[402:377]   | 26'h2000000  | INIT[45]  | 1             |
@@ -522,10 +522,10 @@ EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST/INST_MSS_025_IP
 | LOOPBACK_CTRL           | MSS_SPILOOPBACK             | INIT[417:417]   | 1'h0         | INIT[47]  | 1             |
 | LOOPBACK_CTRL           | MSS_I2CLOOPBACK             | INIT[418:418]   | 1'h0         | INIT[47]  | 1             |
 | LOOPBACK_CTRL           | MSS_GPIOLOOPBACK            | INIT[419:419]   | 1'h0         | INIT[47]  | 1             |
-| GPIO_SYSRESET_SEL       | MSS_GPIO_7_0_SYSRESET_SEL   | INIT[420:420]   | 1'h1         | INIT[48]  | 1             |
-| GPIO_SYSRESET_SEL       | MSS_GPIO_15_8_SYSRESET_SEL  | INIT[421:421]   | 1'h1         | INIT[48]  | 1             |
-| GPIO_SYSRESET_SEL       | MSS_GPIO_23_16_SYSRESET_SEL | INIT[422:422]   | 1'h1         | INIT[48]  | 1             |
-| GPIO_SYSRESET_SEL       | MSS_GPIO_31_24_SYSRESET_SEL | INIT[423:423]   | 1'h1         | INIT[48]  | 1             |
+| GPIO_SYSRESET_SEL       | MSS_GPIO_7_0_SYSRESET_SEL   | INIT[420:420]   | 1'h0         | INIT[48]  | 1             |
+| GPIO_SYSRESET_SEL       | MSS_GPIO_15_8_SYSRESET_SEL  | INIT[421:421]   | 1'h0         | INIT[48]  | 1             |
+| GPIO_SYSRESET_SEL       | MSS_GPIO_23_16_SYSRESET_SEL | INIT[422:422]   | 1'h0         | INIT[48]  | 1             |
+| GPIO_SYSRESET_SEL       | MSS_GPIO_31_24_SYSRESET_SEL | INIT[423:423]   | 1'h0         | INIT[48]  | 1             |
 | GPIN_SRC_SEL            | MSS_GPINSOURCE              | INIT[455:424]   | 32'h00000000 | INIT[49]  | 1             |
 | MDDR_CONFIG             | MDDR_CONFIG_LOCAL           | INIT[456:456]   | 1'h1         | INIT[50]  | 1             |
 | MDDR_CONFIG             | SDR_MODE                    | INIT[457:457]   | 1'h0         | INIT[50]  | 1             |
@@ -620,7 +620,7 @@ EvalSandbox_MSS_0/EvalSandbox_MSS_MSS_0/MSS_ADLIB_INST/INST_MSS_025_IP
 | USERCONFIG3             | CONFIG_REG3                 | INIT[826:795]   | 32'h00000000 | N/A       | N/A           |
 | FAB_PROT_SIZE           | SW_PROTREGIONSIZE           | INIT[831:827]   | 5'b11110     | N/A       | N/A           |
 | FAB_PROT_BASE           | SW_PROTREGIONBASE           | INIT[863:832]   | 32'h00000000 | N/A       | N/A           |
-| MSS_GPIO_DEF            | MSS_GPIO_7_0_DEF            | INIT[864:864]   | 1'h0         | N/A       | N/A           |
+| MSS_GPIO_DEF            | MSS_GPIO_7_0_DEF            | INIT[864:864]   | 1'h1         | N/A       | N/A           |
 | MSS_GPIO_DEF            | MSS_GPIO_15_8_DEF           | INIT[865:865]   | 1'h1         | N/A       | N/A           |
 | MSS_GPIO_DEF            | MSS_GPIO_23_16_DEF          | INIT[866:866]   | 1'h1         | N/A       | N/A           |
 | MSS_GPIO_DEF            | MSS_GPIO_31_24_DEF          | INIT[867:867]   | 1'h1         | N/A       | N/A           |
