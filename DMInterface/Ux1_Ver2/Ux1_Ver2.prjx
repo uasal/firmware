@@ -1410,12 +1410,12 @@ SIZE="1697"
 ENDFILE
 VALUE "<project>\component\work\EvalBoardSandbox\EvalBoardSandbox.cxf,actgen_cxf"
 STATE="utd"
-TIME="1745965870"
+TIME="1746659715"
 SIZE="9737"
 ENDFILE
 VALUE "<project>\component\work\EvalBoardSandbox\EvalBoardSandbox.v,hdl"
 STATE="utd"
-TIME="1745965694"
+TIME="1746648693"
 SIZE="15669"
 PARENT="<project>\component\work\EvalBoardSandbox\EvalBoardSandbox.cxf"
 IS_READONLY="TRUE"
@@ -1658,7 +1658,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\constraint\EvalBoardSandbox_derived_constraints.sdc,sdc"
 STATE="utd"
-TIME="1745965710"
+TIME="1746648700"
 SIZE="3270"
 ENDFILE
 VALUE "<project>\constraint\io\user.pdc,io_pdc"
@@ -1679,13 +1679,13 @@ SIZE="1538"
 ENDFILE
 VALUE "<project>\hdl\DMMain.vhd,hdl"
 STATE="utd"
-TIME="1745624179"
-SIZE="74104"
+TIME="1746648683"
+SIZE="74506"
 ENDFILE
 VALUE "<project>\hdl\RegisterSpace.vhd,hdl"
 STATE="utd"
-TIME="1745941556"
-SIZE="29566"
+TIME="1746648473"
+SIZE="29797"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
 STATE="utd"
@@ -1768,7 +1768,7 @@ SIZE="6665"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1745965463"
+TIME="1746648693"
 SIZE="865"
 PARENT="<project>\component\work\EvalBoardSandbox\EvalBoardSandbox.cxf"
 PARENT="<project>\component\work\EvalSandbox_MSS\EvalSandbox_MSS.cxf"
@@ -1793,23 +1793,28 @@ PARENT="<project>\component\Actel\DirectCore\CORESPI\5.2.104\CORESPI.cxf"
 ENDFILE
 VALUE "<project>\synthesis\EvalBoardSandbox.so,so"
 STATE="utd"
-TIME="1745959247"
+TIME="1746648750"
 SIZE="258"
 ENDFILE
 VALUE "<project>\synthesis\EvalBoardSandbox.vm,syn_vm"
 STATE="ood"
-TIME="1745959245"
-SIZE="1254100"
+TIME="1746648749"
+SIZE="1417205"
 ENDFILE
 VALUE "<project>\synthesis\EvalBoardSandbox_syn.prj,prj"
 STATE="utd"
-TIME="1745965484"
-SIZE="6047"
+TIME="1746648751"
+SIZE="6475"
 ENDFILE
 VALUE "<project>\synthesis\EvalBoardSandbox_vm.sdc,syn_sdc"
 STATE="utd"
-TIME="1745959246"
+TIME="1746648749"
 SIZE="4420"
+ENDFILE
+VALUE "<project>\synthesis\synwork\layer1.so,so"
+STATE="utd"
+TIME="1746648577"
+SIZE="159"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}\include\fpga\ads1258.vhd,hdl"
 LINKFILEROOT "./include/fpga"
@@ -1831,7 +1836,7 @@ SIZE="3187"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}\include\fpga\CGraphDmDacRamFlat.vhd,hdl"
 STATE="utd"
-TIME="1744241979"
+TIME="1746469922"
 SIZE="2268"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}\include\fpga\CGraphDmTypes.vhd,hdl"
@@ -2065,7 +2070,7 @@ ENDFILE
 VALUE "${CGRAPH_FIRMWARE}\include\fpga\UartRxFifoExtClk.vhd,hdl"
 LINKFILEROOT "./include/fpga"
 STATE="utd"
-TIME="1744241979"
+TIME="1746642792"
 SIZE="4427"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}\include\fpga\UartRxFifoParity.vhd,hdl"
@@ -2101,7 +2106,7 @@ ENDFILE
 VALUE "${CGRAPH_FIRMWARE}\include\fpga\UartTxFifoExtClk.vhd,hdl"
 LINKFILEROOT "./include/fpga"
 STATE="utd"
-TIME="1744241979"
+TIME="1746642792"
 SIZE="7581"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}\include\fpga\UartTxFifoParity.vhd,hdl"
@@ -3722,8 +3727,8 @@ NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
 LOCATION="C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\bin\synplify_pro.exe"
-PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
-BATCH=1
+PARAM=""
+BATCH=0
 LICENSE=""
 IS32BIT="1"
 EndProfile
@@ -4938,12 +4943,8 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
-Reports;Reports;0
-ReportsCurrentItem;Run Programming Action:EvalBoardSandbox_PROGRAM.log
-Constraint Manager;Constraint Manager;0
-SmartDesign;EvalBoardSandbox;0
 StartPage;StartPage;0
-ACTIVEVIEW;Reports
+ACTIVEVIEW;StartPage
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","${CGRAPH_FIRMWARE}\include\fpga\ads1258.vhd","FALSE","FALSE"
@@ -5039,14 +5040,6 @@ LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_ram128x8_pa4::work","component\work\CoreUA
 ENDLIST
 LIST "CoreUARTapb_C0_CoreUARTapb_C0_0_Tx_async::work","component\work\CoreUARTapb_C0\CoreUARTapb_C0_0\rtl\vlog\core_obfuscated\Tx_async.v","FALSE","FALSE"
 ENDLIST
-LIST "DESIGN_FIRMWARE::work","component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf","TRUE","FALSE"
-SUBBLOCK "SmartFusion2_CMSIS::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_PDMA_Driver::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
-ENDLIST
 LIST "DmDacRamFlatPorts::work","${CGRAPH_FIRMWARE}\include\fpga\CGraphDmDacRamFlat.vhd","FALSE","FALSE"
 ENDLIST
 LIST "DmDacRamPorts::work","${CGRAPH_FIRMWARE}\include\fpga\CGraphDmDacRam.vhd","FALSE","FALSE"
@@ -5056,13 +5049,13 @@ SUBBLOCK "DmDacRamFlatPorts::work","${CGRAPH_FIRMWARE}\include\fpga\CGraphDmDacR
 SUBBLOCK "IBufP1Ports::work","${CGRAPH_FIRMWARE}\include\fpga\IBufP1.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP2Ports::work","${CGRAPH_FIRMWARE}\include\fpga\IBufP2.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP3Ports::work","${CGRAPH_FIRMWARE}\include\fpga\IBufP3.vhd","FALSE","FALSE"
-SUBBLOCK "UartRxFifoExtClk::work","${CGRAPH_FIRMWARE}\include\fpga\UartRxFifoExtClk.vhd","FALSE","FALSE"
-SUBBLOCK "UartTxFifoExtClk::work","${CGRAPH_FIRMWARE}\include\fpga\UartTxFifoExtClk.vhd","FALSE","FALSE"
 SUBBLOCK "VariableClockDividerPorts::work","${CGRAPH_FIRMWARE}\include\fpga\VariableClockDivider2X.vhd","FALSE","FALSE"
 SUBBLOCK "ClockDividerPorts::work","${CGRAPH_FIRMWARE}\include\fpga\ClockDivider2X.vhd","FALSE","FALSE"
 SUBBLOCK "OneShotPorts::work","${CGRAPH_FIRMWARE}\include\fpga\OneShot.vhd","FALSE","FALSE"
 SUBBLOCK "RegisterSpacePorts::work","hdl\RegisterSpace.vhd","FALSE","FALSE"
 SUBBLOCK "SpiDacPorts::work","${CGRAPH_FIRMWARE}\include\fpga\SpiDac.vhd","FALSE","FALSE"
+SUBBLOCK "UartRxFifoExtClk::work","${CGRAPH_FIRMWARE}\include\fpga\UartRxFifoExtClk.vhd","FALSE","FALSE"
+SUBBLOCK "UartTxFifoExtClk::work","${CGRAPH_FIRMWARE}\include\fpga\UartTxFifoExtClk.vhd","FALSE","FALSE"
 ENDLIST
 LIST "ClockDividerPorts::work","${CGRAPH_FIRMWARE}\include\fpga\ClockDivider2X.vhd","FALSE","FALSE"
 ENDLIST
@@ -5107,11 +5100,24 @@ LIST "SpiMasterQuadPorts::work","${CGRAPH_FIRMWARE}\include\fpga\SpiMasterQuad.v
 ENDLIST
 LIST "SpiMasterTrioPorts::work","${CGRAPH_FIRMWARE}\include\fpga\SpiMasterTrio.vhd","FALSE","FALSE"
 ENDLIST
+LIST "UartRxFifoExtClk::work","${CGRAPH_FIRMWARE}\include\fpga\UartRxFifoExtClk.vhd","FALSE","FALSE"
+SUBBLOCK "IBufP2Ports::work","${CGRAPH_FIRMWARE}\include\fpga\IBufP2.vhd","FALSE","FALSE"
+SUBBLOCK "UartRxExtClk::work","${CGRAPH_FIRMWARE}\include\fpga\UartRxExtClk.vhd","FALSE","FALSE"
+SUBBLOCK "gated_fifo::work","${CGRAPH_FIRMWARE}\include\fpga\gated_fifo.vhd","FALSE","FALSE"
+ENDLIST
+LIST "UartTxFifoExtClk::work","${CGRAPH_FIRMWARE}\include\fpga\UartTxFifoExtClk.vhd","FALSE","FALSE"
+SUBBLOCK "IBufP2Ports::work","${CGRAPH_FIRMWARE}\include\fpga\IBufP2.vhd","FALSE","FALSE"
+SUBBLOCK "UartTx::work","${CGRAPH_FIRMWARE}\include\fpga\UartTx.vhd","FALSE","FALSE"
+SUBBLOCK "gated_fifo::work","${CGRAPH_FIRMWARE}\include\fpga\gated_fifo.vhd","FALSE","FALSE"
+ENDLIST
 LIST "VariableClockDividerPorts::work","${CGRAPH_FIRMWARE}\include\fpga\VariableClockDivider2X.vhd","FALSE","FALSE"
 ENDLIST
 LIST "ClockDividerPorts::work","${CGRAPH_FIRMWARE}\include\fpga\ClockDivider2X.vhd","FALSE","FALSE"
 ENDLIST
 LIST "fifo::work","${CGRAPH_FIRMWARE}\include\fpga\fifo_gen.vhd","FALSE","FALSE"
+ENDLIST
+LIST "gated_fifo::work","${CGRAPH_FIRMWARE}\include\fpga\gated_fifo.vhd","FALSE","FALSE"
+SUBBLOCK "fifo::work","${CGRAPH_FIRMWARE}\include\fpga\fifo_gen.vhd","FALSE","FALSE"
 ENDLIST
 LIST "OneShotPorts::work","${CGRAPH_FIRMWARE}\include\fpga\OneShot.vhd","FALSE","FALSE"
 ENDLIST
@@ -5122,6 +5128,8 @@ ENDLIST
 LIST "SpiMasterTrioPorts::work","${CGRAPH_FIRMWARE}\include\fpga\SpiMasterTrio.vhd","FALSE","FALSE"
 ENDLIST
 LIST "ClockDividerPorts::work","${CGRAPH_FIRMWARE}\include\fpga\ClockDivider2X.vhd","FALSE","FALSE"
+ENDLIST
+LIST "fifo::work","${CGRAPH_FIRMWARE}\include\fpga\fifo_gen.vhd","FALSE","FALSE"
 ENDLIST
 LIST "SpiMasterPorts::work","${CGRAPH_FIRMWARE}\include\fpga\SpiMaster.vhd","FALSE","FALSE"
 ENDLIST
@@ -5249,18 +5257,6 @@ LIST "RCOSC_25_50MHZ_FAB::work","component\Actel\SgCore\OSC\2.0.101\osc_comps.v"
 ENDLIST
 LIST "RtcCounterPorts::work","${CGRAPH_FIRMWARE}\include\fpga\RtcCounter.vhd","FALSE","FALSE"
 ENDLIST
-LIST "SmartFusion2_CMSIS::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_PDMA_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
-ENDLIST
 LIST "SpiDacQuadPorts::work","${CGRAPH_FIRMWARE}\include\fpga\SpiDacQuad.vhd","FALSE","FALSE"
 SUBBLOCK "SpiMasterQuadPorts::work","${CGRAPH_FIRMWARE}\include\fpga\SpiMasterQuad.vhd","FALSE","FALSE"
 ENDLIST
@@ -5294,11 +5290,6 @@ LIST "UartRxExtClk::work","${CGRAPH_FIRMWARE}\include\fpga\UartRxExtClk.vhd","FA
 SUBBLOCK "IBufP2Ports::work","${CGRAPH_FIRMWARE}\include\fpga\IBufP2.vhd","FALSE","FALSE"
 SUBBLOCK "UartRxRaw::work","${CGRAPH_FIRMWARE}\include\fpga\UartRxRaw.vhd","FALSE","FALSE"
 ENDLIST
-LIST "UartRxFifoExtClk::work","${CGRAPH_FIRMWARE}\include\fpga\UartRxFifoExtClk.vhd","FALSE","FALSE"
-SUBBLOCK "IBufP2Ports::work","${CGRAPH_FIRMWARE}\include\fpga\IBufP2.vhd","FALSE","FALSE"
-SUBBLOCK "UartRxExtClk::work","${CGRAPH_FIRMWARE}\include\fpga\UartRxExtClk.vhd","FALSE","FALSE"
-SUBBLOCK "gated_fifo::work","${CGRAPH_FIRMWARE}\include\fpga\gated_fifo.vhd","FALSE","FALSE"
-ENDLIST
 LIST "UartRxFifoParity::work","${CGRAPH_FIRMWARE}\include\fpga\UartRxFifoParity.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP2Ports::work","${CGRAPH_FIRMWARE}\include\fpga\IBufP2.vhd","FALSE","FALSE"
 SUBBLOCK "UartRxParity::work","${CGRAPH_FIRMWARE}\include\fpga\UartRxParity.vhd","FALSE","FALSE"
@@ -5316,11 +5307,6 @@ SUBBLOCK "IBufP2Ports::work","${CGRAPH_FIRMWARE}\include\fpga\IBufP2.vhd","FALSE
 SUBBLOCK "UartTx::work","${CGRAPH_FIRMWARE}\include\fpga\UartTx.vhd","FALSE","FALSE"
 SUBBLOCK "gated_fifo::work","${CGRAPH_FIRMWARE}\include\fpga\gated_fifo.vhd","FALSE","FALSE"
 SUBBLOCK "ClockDividerPorts::work","${CGRAPH_FIRMWARE}\include\fpga\ClockDivider2X.vhd","FALSE","FALSE"
-ENDLIST
-LIST "UartTxFifoExtClk::work","${CGRAPH_FIRMWARE}\include\fpga\UartTxFifoExtClk.vhd","FALSE","FALSE"
-SUBBLOCK "IBufP2Ports::work","${CGRAPH_FIRMWARE}\include\fpga\IBufP2.vhd","FALSE","FALSE"
-SUBBLOCK "UartTx::work","${CGRAPH_FIRMWARE}\include\fpga\UartTx.vhd","FALSE","FALSE"
-SUBBLOCK "gated_fifo::work","${CGRAPH_FIRMWARE}\include\fpga\gated_fifo.vhd","FALSE","FALSE"
 ENDLIST
 LIST "UartTxFifoParity::work","${CGRAPH_FIRMWARE}\include\fpga\UartTxFifoParity.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP2Ports::work","${CGRAPH_FIRMWARE}\include\fpga\IBufP2.vhd","FALSE","FALSE"

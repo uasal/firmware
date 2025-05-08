@@ -13,8 +13,8 @@ use work.CGraphDMTypes.all;
 
 entity RegisterSpacePorts is
   generic(
-    ADDRESS_BITS : natural := 32--; 
-   --~ FIFO_BITS : natural := 9--;
+    ADDRESS_BITS : natural := 32; 
+    FIFO_BITS : natural := 9--;
   );
   port (
     clk : in std_logic;
@@ -74,12 +74,12 @@ entity RegisterSpacePorts is
     Uart0RxFifoFull : in std_logic;
     Uart0RxFifoEmpty : in std_logic;
     Uart0RxFifoData : in std_logic_vector(7 downto 0);
-    Uart0RxFifoCount : in std_logic_vector(9 downto 0);
+    Uart0RxFifoCount : in std_logic_vector(FIFO_BITS - 1 downto 0);
     WriteUart0 : out std_logic;
     Uart0TxFifoFull : in std_logic;
     Uart0TxFifoEmpty : in std_logic;
     Uart0TxFifoData : out std_logic_vector(7 downto 0);
-    Uart0TxFifoCount : in std_logic_vector(9 downto 0);
+    Uart0TxFifoCount : in std_logic_vector(FIFO_BITS - 1 downto 0);
     Uart0ClkDivider : out std_logic_vector(7 downto 0);
     
     Uart1FifoReset : out std_logic;
@@ -87,12 +87,12 @@ entity RegisterSpacePorts is
     Uart1RxFifoFull : in std_logic;
     Uart1RxFifoEmpty : in std_logic;
     Uart1RxFifoData : in std_logic_vector(7 downto 0);
-    Uart1RxFifoCount : in std_logic_vector(9 downto 0);
+    Uart1RxFifoCount : in std_logic_vector(FIFO_BITS - 1 downto 0);
     WriteUart1 : out std_logic;
     Uart1TxFifoFull : in std_logic;
     Uart1TxFifoEmpty : in std_logic;
     Uart1TxFifoData : out std_logic_vector(7 downto 0);
-    Uart1TxFifoCount : in std_logic_vector(9 downto 0);
+    Uart1TxFifoCount : in std_logic_vector(FIFO_BITS - 1 downto 0);
     Uart1ClkDivider : out std_logic_vector(7 downto 0);
 		
     Uart2FifoReset : out std_logic;
@@ -100,12 +100,12 @@ entity RegisterSpacePorts is
     Uart2RxFifoFull : in std_logic;
     Uart2RxFifoEmpty : in std_logic;
     Uart2RxFifoData : in std_logic_vector(7 downto 0);
-    Uart2RxFifoCount : in std_logic_vector(9 downto 0);
+    Uart2RxFifoCount : in std_logic_vector(FIFO_BITS - 1 downto 0);
     WriteUart2 : out std_logic;
     Uart2TxFifoFull : in std_logic;
     Uart2TxFifoEmpty : in std_logic;
     Uart2TxFifoData : out std_logic_vector(7 downto 0);
-    Uart2TxFifoCount : in std_logic_vector(9 downto 0);
+    Uart2TxFifoCount : in std_logic_vector(FIFO_BITS - 1 downto 0);
     Uart2ClkDivider : out std_logic_vector(7 downto 0);
 		
     Uart3FifoReset : out std_logic;
@@ -113,12 +113,12 @@ entity RegisterSpacePorts is
     Uart3RxFifoFull : in std_logic;
     Uart3RxFifoEmpty : in std_logic;
     Uart3RxFifoData : in std_logic_vector(7 downto 0);
-    Uart3RxFifoCount : in std_logic_vector(9 downto 0);
+    Uart3RxFifoCount : in std_logic_vector(FIFO_BITS - 1 downto 0);
     WriteUart3 : out std_logic;
     Uart3TxFifoFull : in std_logic;
     Uart3TxFifoEmpty : in std_logic;
     Uart3TxFifoData : out std_logic_vector(7 downto 0);
-    Uart3TxFifoCount : in std_logic_vector(9 downto 0);
+    Uart3TxFifoCount : in std_logic_vector(FIFO_BITS - 1 downto 0);
     Uart3ClkDivider : out std_logic_vector(7 downto 0);
 
     --Timing
@@ -212,13 +212,14 @@ architecture RegisterSpace of RegisterSpacePorts is
   	--Control Signals
 	
   signal LastReadReq :  std_logic := '0';		
-  signal LastWriteReq :  std_logic := '0';		
+  signal LastWriteReq :  std_logic := '0';
 
-  signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 16.0)) - 1.0), 8));	--38.4k
-  signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));	--230k
-	
-  signal Uart2ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8));	--"real fast"
-  signal Uart3ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8));	--"real fast"
+  -- Standard baud rates: 38400, 57600, 115200, 230400, 460800, 921600
+
+  signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400)  * 16.0)) - 1.0), 8));	--38.4k
+  signal Uart1ClkDivider_i :std_logic_vector(7 downto 0)  := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));	--230k
+  signal Uart2ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(921600) * 16.0)) - 1.0), 8));	--921k
+  signal Uart3ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8)); --Ux2
 
 	
 	
@@ -295,9 +296,9 @@ begin
       LastWriteReq <= '0';
       StartMachine_i <= '0';
 
-      Uart0ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 16.0)) - 1.0), 8));
+      Uart0ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400)  * 16.0)) - 1.0), 8));
       Uart1ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));
-      Uart2ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
+      Uart2ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(921600) * 16.0)) - 1.0), 8));	--"real fast"
       Uart3ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
 
 --      MonitorAdcChannelReadIndex_i <= "00000";
@@ -366,8 +367,8 @@ begin
                 DataOut(5) <= '0';
                 DataOut(6) <= '0';
                 DataOut(7) <= '0';
-                DataOut(17 downto 8) <= Uart0RxFifoCount;
-                DataOut(27 downto 18) <= Uart0RxFifoCount;
+                DataOut(14 downto 8) <= "0000000";
+                DataOut(27 downto 15) <= Uart0RxFifoCount;
                 DataOut(31 downto 28) <= "0000";
 
               when Uart1FifoAddr =>
@@ -385,8 +386,8 @@ begin
                 DataOut(5) <= '0';
                 DataOut(6) <= '0';
                 DataOut(7) <= '0';
-                DataOut(17 downto 8) <= Uart1RxFifoCount;
-                DataOut(27 downto 18) <= Uart1RxFifoCount;
+                DataOut(14 downto 8) <= "0000000";
+                DataOut(27 downto 15) <= Uart1RxFifoCount;
                 DataOut(31 downto 28) <= "0000";
                 
               when Uart2FifoAddr =>
@@ -404,8 +405,8 @@ begin
                 DataOut(5) <= '0';
                 DataOut(6) <= '0';
                 DataOut(7) <= '0';
-                DataOut(17 downto 8) <= Uart2RxFifoCount;
-                DataOut(27 downto 18) <= Uart2RxFifoCount;
+                DataOut(14 downto 8) <= "0000000";
+                DataOut(27 downto 15) <= Uart2RxFifoCount;
                 DataOut(31 downto 28) <= "0000";
                 
               when Uart3FifoAddr =>
@@ -423,8 +424,8 @@ begin
                 DataOut(5) <= '0';
                 DataOut(6) <= '0';
                 DataOut(7) <= '0';
-                DataOut(17 downto 8) <= Uart3RxFifoCount;
-                DataOut(27 downto 18) <= Uart3RxFifoCount;
+                DataOut(14 downto 8) <= "0000000";
+                DataOut(27 downto 15) <= Uart3RxFifoCount;
                 DataOut(31 downto 28) <= "0000";
 								
               --Uart Clock dividers

@@ -264,8 +264,8 @@ architecture DMMain of DMMainPorts is
   -- The Register Space component
   component RegisterSpacePorts is
   generic(
-    ADDRESS_BITS : natural := 10--; 
-   --~ FIFO_BITS : natural := 9--;
+    ADDRESS_BITS : natural := 10; 
+    FIFO_BITS : natural := 13--;
   );
   port (
     clk : in std_logic;
@@ -326,12 +326,12 @@ architecture DMMain of DMMainPorts is
     Uart0RxFifoFull : in std_logic;
     Uart0RxFifoEmpty : in std_logic;
     Uart0RxFifoData : in std_logic_vector(7 downto 0);
-    Uart0RxFifoCount : in std_logic_vector(9 downto 0);
+    Uart0RxFifoCount : in std_logic_vector(FIFO_BITS - 1 downto 0);
     WriteUart0 : out std_logic;
     Uart0TxFifoFull : in std_logic;
     Uart0TxFifoEmpty : in std_logic;
     Uart0TxFifoData : out std_logic_vector(7 downto 0);
-    Uart0TxFifoCount : in std_logic_vector(9 downto 0);
+    Uart0TxFifoCount : in std_logic_vector(FIFO_BITS - 1 downto 0);
     Uart0ClkDivider : out std_logic_vector(7 downto 0);
     
     Uart1FifoReset : out std_logic;
@@ -339,12 +339,12 @@ architecture DMMain of DMMainPorts is
     Uart1RxFifoFull : in std_logic;
     Uart1RxFifoEmpty : in std_logic;
     Uart1RxFifoData : in std_logic_vector(7 downto 0);
-    Uart1RxFifoCount : in std_logic_vector(9 downto 0);
+    Uart1RxFifoCount : in std_logic_vector(FIFO_BITS - 1 downto 0);
     WriteUart1 : out std_logic;
     Uart1TxFifoFull : in std_logic;
     Uart1TxFifoEmpty : in std_logic;
     Uart1TxFifoData : out std_logic_vector(7 downto 0);
-    Uart1TxFifoCount : in std_logic_vector(9 downto 0);
+    Uart1TxFifoCount : in std_logic_vector(FIFO_BITS - 1 downto 0);
     Uart1ClkDivider : out std_logic_vector(7 downto 0);
 		
     Uart2FifoReset : out std_logic;
@@ -352,12 +352,12 @@ architecture DMMain of DMMainPorts is
     Uart2RxFifoFull : in std_logic;
     Uart2RxFifoEmpty : in std_logic;
     Uart2RxFifoData : in std_logic_vector(7 downto 0);
-    Uart2RxFifoCount : in std_logic_vector(9 downto 0);
+    Uart2RxFifoCount : in std_logic_vector(FIFO_BITS - 1 downto 0);
     WriteUart2 : out std_logic;
     Uart2TxFifoFull : in std_logic;
     Uart2TxFifoEmpty : in std_logic;
     Uart2TxFifoData : out std_logic_vector(7 downto 0);
-    Uart2TxFifoCount : in std_logic_vector(9 downto 0);
+    Uart2TxFifoCount : in std_logic_vector(FIFO_BITS - 1 downto 0);
     Uart2ClkDivider : out std_logic_vector(7 downto 0);
 		
     Uart3FifoReset : out std_logic;
@@ -365,12 +365,12 @@ architecture DMMain of DMMainPorts is
     Uart3RxFifoFull : in std_logic;
     Uart3RxFifoEmpty : in std_logic;
     Uart3RxFifoData : in std_logic_vector(7 downto 0);
-    Uart3RxFifoCount : in std_logic_vector(9 downto 0);
+    Uart3RxFifoCount : in std_logic_vector(FIFO_BITS - 1 downto 0);
     WriteUart3 : out std_logic;
     Uart3TxFifoFull : in std_logic;
     Uart3TxFifoEmpty : in std_logic;
     Uart3TxFifoData : out std_logic_vector(7 downto 0);
-    Uart3TxFifoCount : in std_logic_vector(9 downto 0);
+    Uart3TxFifoCount : in std_logic_vector(FIFO_BITS - 1 downto 0);
     Uart3ClkDivider : out std_logic_vector(7 downto 0);
 
     --Timing
@@ -486,6 +486,7 @@ architecture DMMain of DMMainPorts is
 --  signal MonitorAdcSpiFrameEnable   : std_logic;
 
   --RS-422
+  constant UART_FIFO_BITS : natural := 13;
   signal Uart0FifoReset     : std_logic;
   signal Uart0FifoReset_i   : std_logic;
   signal ReadUart0          : std_logic;
@@ -493,12 +494,12 @@ architecture DMMain of DMMainPorts is
   signal Uart0RxFifoEmpty   : std_logic;
   signal Uart0RxFifoReadAck : std_logic;
   signal Uart0RxFifoData    : std_logic_vector(7 downto 0);
-  signal Uart0RxFifoCount   : std_logic_vector(9 downto 0);
+  signal Uart0RxFifoCount   : std_logic_vector(UART_FIFO_BITS - 1 downto 0);
   signal WriteUart0         : std_logic;
   signal Uart0TxFifoFull    : std_logic;
   signal Uart0TxFifoEmpty   : std_logic;
   signal Uart0TxFifoData    : std_logic_vector(7 downto 0);
-  signal Uart0TxFifoCount   : std_logic_vector(9 downto 0);
+  signal Uart0TxFifoCount   : std_logic_vector(UART_FIFO_BITS - 1 downto 0);
   signal Uart0ClkDivider    : std_logic_vector(7 downto 0);
   signal UartClk0           : std_logic;
   signal UartTxClk0         : std_logic;
@@ -513,12 +514,12 @@ architecture DMMain of DMMainPorts is
   signal Uart1RxFifoEmpty   : std_logic;
   signal Uart1RxFifoReadAck : std_logic;
   signal Uart1RxFifoData    : std_logic_vector(7 downto 0);
-  signal Uart1RxFifoCount   : std_logic_vector(9 downto 0);
+  signal Uart1RxFifoCount   : std_logic_vector(UART_FIFO_BITS - 1 downto 0);
   signal WriteUart1         : std_logic;
   signal Uart1TxFifoFull    : std_logic;
   signal Uart1TxFifoEmpty   : std_logic;
   signal Uart1TxFifoData    : std_logic_vector(7 downto 0);
-  signal Uart1TxFifoCount   : std_logic_vector(9 downto 0);
+  signal Uart1TxFifoCount   : std_logic_vector(UART_FIFO_BITS - 1 downto 0);
   signal Uart1ClkDivider    : std_logic_vector(7 downto 0);
   signal UartClk1           : std_logic;
   signal UartTxClk1         : std_logic;
@@ -533,12 +534,12 @@ architecture DMMain of DMMainPorts is
   signal Uart2RxFifoEmpty   : std_logic;
   signal Uart2RxFifoReadAck : std_logic;
   signal Uart2RxFifoData    : std_logic_vector(7 downto 0);
-  signal Uart2RxFifoCount   : std_logic_vector(9 downto 0);
+  signal Uart2RxFifoCount   : std_logic_vector(UART_FIFO_BITS - 1 downto 0);
   signal WriteUart2         : std_logic;
   signal Uart2TxFifoFull    : std_logic;
   signal Uart2TxFifoEmpty   : std_logic;
   signal Uart2TxFifoData    : std_logic_vector(7 downto 0);
-  signal Uart2TxFifoCount   : std_logic_vector(9 downto 0);
+  signal Uart2TxFifoCount   : std_logic_vector(UART_FIFO_BITS - 1 downto 0);
   signal Uart2ClkDivider    : std_logic_vector(7 downto 0);
   signal UartClk2           : std_logic;
   signal UartTxClk2         : std_logic;
@@ -553,12 +554,12 @@ architecture DMMain of DMMainPorts is
   signal Uart3RxFifoEmpty   : std_logic;
   signal Uart3RxFifoReadAck : std_logic;
   signal Uart3RxFifoData    : std_logic_vector(7 downto 0);
-  signal Uart3RxFifoCount   : std_logic_vector(9 downto 0);
+  signal Uart3RxFifoCount   : std_logic_vector(UART_FIFO_BITS - 1 downto 0);
   signal WriteUart3         : std_logic;
   signal Uart3TxFifoFull    : std_logic;
   signal Uart3TxFifoEmpty   : std_logic;
   signal Uart3TxFifoData    : std_logic_vector(7 downto 0);
-  signal Uart3TxFifoCount   : std_logic_vector(9 downto 0);
+  signal Uart3TxFifoCount   : std_logic_vector(UART_FIFO_BITS - 1 downto 0);
   signal Uart3ClkDivider    : std_logic_vector(7 downto 0);
   signal UartClk3           : std_logic;
   signal UartTxClk3         : std_logic;
@@ -785,7 +786,8 @@ begin
   --- Mapping the register space.  These come from RegisterSpace.vhd
   RegisterSpace : RegisterSpacePorts
   generic map (
-    ADDRESS_BITS => ADDRESS_BUS_BITS--,
+    ADDRESS_BITS => ADDRESS_BUS_BITS,
+    FIFO_BITS => UART_FIFO_BITS--;
   )
   port map (
     clk => MasterClk,
@@ -939,7 +941,7 @@ begin
 	
   RS422_Rx0 : UartRxFifoExtClk
   generic map (
-    FIFO_BITS => 10--,
+    FIFO_BITS => UART_FIFO_BITS--,
   )
   port map (
     clk => MasterClk,
@@ -959,7 +961,7 @@ begin
 	
   RS422_Tx0 : UartTxFifoExtClk
   generic map (
-    FIFO_BITS => 10--,
+    FIFO_BITS => UART_FIFO_BITS--,
   )
   port map (
     clk => MasterClk,
@@ -1012,7 +1014,7 @@ begin
 	
   RS422_Rx1 : UartRxFifoExtClk
   generic map (
-    FIFO_BITS => 10--,
+    FIFO_BITS => UART_FIFO_BITS--,
   )
   port map (
     clk => MasterClk,
@@ -1031,7 +1033,7 @@ begin
 
   RS422_Tx1 : UartTxFifoExtClk
   generic map (
-    FIFO_BITS => 10--,
+    FIFO_BITS => UART_FIFO_BITS--,
   )
   port map (
     clk => MasterClk,
@@ -1087,7 +1089,7 @@ begin
 	
   RS422_Rx2 : UartRxFifoExtClk
   generic map (
-    FIFO_BITS => 10--,
+    FIFO_BITS => UART_FIFO_BITS--,
   )
   port map (
     clk => MasterClk,
@@ -1106,7 +1108,7 @@ begin
 	
   RS422_Tx2 : UartTxFifoExtClk
   generic map (
-    FIFO_BITS => 10--,
+    FIFO_BITS => UART_FIFO_BITS--,
   )
   port map (
     clk => MasterClk,
@@ -1166,7 +1168,7 @@ begin
 	
   RS433_Rx3 : UartRxFifoExtClk
   generic map (
-    FIFO_BITS => 10--,
+    FIFO_BITS => UART_FIFO_BITS--,
   )
   port map (
     clk => MasterClk,
@@ -1185,7 +1187,7 @@ begin
 	
   RS433_Tx3 : UartTxFifoExtClk
   generic map (
-    FIFO_BITS => 10--,
+    FIFO_BITS => UART_FIFO_BITS--,
   )
   port map (
     clk => MasterClk,
@@ -1432,7 +1434,7 @@ begin
 
   Testpoints(7) <= WriteDacs;
   Testpoints(6) <= MosiDacA_i;
-  Testpoints(5) <= nCsDacsA_i(0);
+  Testpoints(5) <= SckDacA_i;
   --Testpoints(4) <= nCsDacs0_i;
   --~ Testpoints(3) <= SpiXferCompleteOutA;
   --~ Testpoints(2) <= SpiRstOutA;
@@ -1750,10 +1752,10 @@ begin
             WriteDacs <= '0';
 
             --Done with all the reads yet?
-            if (DacSetpointReadAddressDac < (DMMDacsPerControllerBoard - 1)) then 	
+            if (DacSetpointReadedAddressDac < (DMMDacsPerControllerBoard - 1)) then 	
               DacWriteNextState <= ReadChannel;
             else
-              if (DacSetpointReadAddressController < (DMMaxControllerBoards - 1)) then
+              if (DacSetpointReadedAddressController < (DMMaxControllerBoards - 1)) then
                 DacWriteNextState <= ReadChannel;
               else 
                 DacWriteNextState <= PreWriteCs0;

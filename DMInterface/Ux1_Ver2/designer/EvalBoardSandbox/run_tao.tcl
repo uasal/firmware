@@ -4,6 +4,12 @@ read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\CGraphDmD
 read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\IBufP1.vhd}
 read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\IBufP2.vhd}
 read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\IBufP3.vhd}
+read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\VariableClockDivider2X.vhd}
+read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\ClockDivider2X.vhd}
+read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\OneShot.vhd}
+read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\hdl\RegisterSpace.vhd}
+read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\SpiMaster.vhd}
+read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\SpiDac.vhd}
 read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\UartRxRaw.vhd}
 read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\UartRxExtClk.vhd}
 read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\fifo_gen.vhd}
@@ -11,12 +17,6 @@ read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\gated_fif
 read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\UartRxFifoExtClk.vhd}
 read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\UartTx.vhd}
 read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\UartTxFifoExtClk.vhd}
-read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\VariableClockDivider2X.vhd}
-read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\ClockDivider2X.vhd}
-read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\OneShot.vhd}
-read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\hdl\RegisterSpace.vhd}
-read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\SpiMaster.vhd}
-read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\include\fpga\SpiDac.vhd}
 read_vhdl -mode vhdl_2008 {C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd}
 read_verilog -mode system_verilog {C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\EvalSandbox_MSS\CCC_0\EvalSandbox_MSS_CCC_0_FCCC.v}
 read_verilog -mode system_verilog {C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v}
