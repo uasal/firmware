@@ -74,6 +74,48 @@ struct UartBinaryUartCallbacks : public BinaryUartCallbacks
 
 } PacketCallbacks;
 
+uint64_t PacketTxTimestamp = 0;
+
+void ShowPacketRoundtrip()
+{
+	timespec tNow;
+	//~ int err = clock_gettime(CLOCK_MONOTONIC, &tNow);
+	int err = clock_gettime(CLOCK_REALTIME, &tNow);
+	//~ int err = clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &tNow);
+	if (0 != err) { perror("ShowPacketRoundtrip::clock_gettime()\n"); }
+	uint64_t PacketRxTimestamp = ((uint64_t)tNow.tv_sec * 1000000000ULL) + (uint64_t)tNow.tv_nsec;
+	uint64_t PacketRoundtripTime = PacketRxTimestamp - PacketTxTimestamp;
+	printf("\nShowPacketRoundtrip: PacketTxTimestamp: %llu, PacketRxTimestamp: %llu, PacketRoundtripTime: %llu (%lf)\n", (unsigned long long)PacketTxTimestamp, (unsigned long long)PacketRxTimestamp, (unsigned long long)PacketRoundtripTime, (double)PacketRoundtripTime / (double)1000000000ULL);
+}	
+
+struct TimedBinaryUart : public BinaryUart
+{
+	TimedBinaryUart(struct IUart& pinout, struct IPacket& packet, const BinaryCmd* cmds, const size_t numcmds, struct BinaryUartCallbacks& callbacks, const bool verbose = true, const uint64_t serialnum = InvalidSerialNumber)
+		:
+		BinaryUart(pinout, packet, cmds, numcmds, callbacks, verbose, serialnum)
+		{ }
+		
+	virtual void TxBinaryPacket(const uint16_t PayloadType, const uint32_t SerialNumber, const void* PayloadData, const size_t PayloadLen) const
+	{
+		timespec tNow;
+		//~ int err = clock_gettime(CLOCK_MONOTONIC, &tNow);
+		int err = clock_gettime(CLOCK_REALTIME, &tNow);
+		//~ int err = clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &tNow);
+		if (0 != err) { perror("TimedBinaryUart::clock_gettime()\n"); }
+		PacketTxTimestamp = ((uint64_t)tNow.tv_sec * 1000000000ULL) + (uint64_t)tNow.tv_nsec;
+		
+		BinaryUart::TxBinaryPacket(PayloadType, SerialNumber, PayloadData, PayloadLen);
+		
+		//~err = clock_gettime(CLOCK_MONOTONIC, &tNow);
+		err = clock_gettime(CLOCK_REALTIME, &tNow);
+		//~err = clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &tNow);
+		if (0 != err) { perror("TimedBinaryUart::clock_gettime()\n"); }
+		uint64_t PacketPostTxTimestamp = ((uint64_t)tNow.tv_sec * 1000000000ULL) + (uint64_t)tNow.tv_nsec;
+		uint64_t PacketTxTime = PacketPostTxTimestamp - PacketTxTimestamp;
+		printf("\nTxBinaryPacket: PacketTxTimestamp: %llu, PacketPostTxTimestamp: %llu, PacketTxTime: %llu (%lf)\n", (unsigned long long)PacketTxTimestamp, (unsigned long long)PacketPostTxTimestamp, (unsigned long long)PacketTxTime, (double)PacketTxTime / (double)1000000000ULL);
+	};	
+};
+
 CGraphPacket SocketProtocol;
 
 #ifdef WIN32
@@ -82,7 +124,8 @@ win32_pinout_uart LocalPortPinout;
 linux_pinout_uart LocalPortPinout;
 #endif
 
-BinaryUart UartParser(LocalPortPinout, SocketProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
+//~ BinaryUart UartParser(LocalPortPinout, SocketProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
+TimedBinaryUart UartParser(LocalPortPinout, SocketProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 
 bool Process()
 {
@@ -122,6 +165,8 @@ int main(int argc, char *argv[])
         formatf("UASALBinaryCmdr: can't open port (%s:%d), exiting.\n", PortName, BaudRate);
         exit(-1);
     }
+
+	printf("\n\nUASALBinaryCmdr: Opened port %s @ %lu.", PortName, (unsigned long)BaudRate);    
 	
 	printf("\n\nUASALBinaryCmdr: Start User Interface...");    
 	

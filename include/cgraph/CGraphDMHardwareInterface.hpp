@@ -159,10 +159,14 @@ struct CGraphDMHardwareInterface
 
 } __attribute__((__packed__));
 
+extern CGraphDMHardwareInterface* DM;
+
 struct CGraphDMRamInterface
 {
   uint32_t DacSetpoints[DMMaxControllerBoards][DMMDacsPerControllerBoard][DMActuatorsPerDac];
 } __attribute__((__packed__));
+
+extern CGraphDMRamInterface* dRAM;
 
 class CGraphDMProtoHardwareMmapper
 {

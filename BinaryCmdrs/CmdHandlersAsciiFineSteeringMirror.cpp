@@ -42,10 +42,14 @@
 
 #include <sys/types.h>
 #include <sys/stat.h>
-//~ #include <sys/ioctl.h>
+#ifndef WIN32
+#include <sys/ioctl.h>
+#endif
 #include <fcntl.h>
 #include <unistd.h>
+//~ #ifndef WIN32
 //~ #include <sys/mman.h>
+//~ #endif
 #include <errno.h>
 #include <unordered_map>
 using namespace std;

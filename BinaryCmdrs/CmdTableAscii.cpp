@@ -154,6 +154,12 @@ const Cmd AsciiCmds[] =
 		"\"DMLongPixels\": StartPixel, Pix0, Pix1, ... PixN: Send pixel values (32bit)",
 		DMLongPixelsCommand
     ),
+
+	Cmd (
+		"DMALLPIXELS",
+		"\"DMAllPixels\": Write an entire block of pixels",
+		DMAllPixelsCommand
+    ),
 	
 	//FilterWheel Commands
 	
