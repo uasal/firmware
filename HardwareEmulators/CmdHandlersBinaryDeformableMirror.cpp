@@ -40,7 +40,8 @@ using namespace std;
 #include "uart/BinaryUart.hpp"
 
 #include "cgraph/CGraphDMHardwareInterface.hpp"
-extern CGraphDMHardwareInterface* DM;;
+extern CGraphDMHardwareInterface* DM;
+extern CGraphDMRamInterface* dRAM;
 
 #include "CmdTableBinary.hpp"
 
@@ -233,6 +234,8 @@ int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const
 					//pull a pix out of the packet:
 					const uint16_t DacVal = *reinterpret_cast<const uint16_t*>(Params+sizeof(CGraphDMPixelPayloadHeader)+((i - StartPixel)*sizeof(uint16_t)));
 					
+					printf("\nBinaryDMShortPixelsCommand: DacVal: %u", DacVal);
+					
 					//What D/A ram does this pix belong to?
 					if ( (DMMappings.Mappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings.Mappings[i].ControllerBoardIndex >= DMMaxControllerBoards) || (DMMappings.Mappings[i].ControllerBoardIndex >= DMMaxControllerBoards) )
 					{
@@ -243,8 +246,15 @@ int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const
 					//Yay, we got here, things are actaully correct and we have something to do!
 					else
 					{
-						DM->DacSetpoints[DMMappings.Mappings[i].ControllerBoardIndex][DMMappings.Mappings[i].DacIndex][DMMappings.Mappings[i].DacChannel] = ((uint32_t)DacVal) << 8; //<<8 cause we really want 24b values when we dither
-						printf("\nBinaryDMShortPixelsCommand: Set actuator %lu to %lu", (unsigned long)i, (unsigned long)DacVal);
+						printf("\nBinaryDMShortPixelsCommand: Setting actuator %lu to %lu", (unsigned long)i, (unsigned long)DacVal);
+						fflush(stdout);
+						printf("\nBinaryDMShortPixelsCommand: DMMappings.Mappings[i].ControllerBoardIndex: %lu", (unsigned long)DMMappings.Mappings[i].ControllerBoardIndex);
+						fflush(stdout);
+						printf("\nBinaryDMShortPixelsCommand: DMMappings.Mappings[i].DacIndex: %lu", (unsigned long)DMMappings.Mappings[i].DacIndex);
+						fflush(stdout);
+						printf("\nBinaryDMShortPixelsCommand: DMMappings.Mappings[i].DacChannel: %lu", (unsigned long)DMMappings.Mappings[i].DacChannel);
+						fflush(stdout);
+						dRAM->DacSetpoints[DMMappings.Mappings[i].ControllerBoardIndex][DMMappings.Mappings[i].DacIndex][DMMappings.Mappings[i].DacChannel] = ((uint32_t)DacVal) << 8; //<<8 cause we really want 24b values when we dither
 					}			
 				}
 				
@@ -268,7 +278,7 @@ int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const
 		for (size_t j = 0; j < DMMaxActuators; j++)
 		{
 			uint16_t* Pixel = reinterpret_cast<uint16_t*>(Buffer+sizeof(CGraphDMPixelPayloadHeader)+(j*sizeof(uint16_t)));
-			*Pixel = (reinterpret_cast<uint32_t*>(DM->DacSetpoints)[j] >> 8);
+			*Pixel = (reinterpret_cast<uint32_t*>(dRAM->DacSetpoints)[j] >> 8);
 		}
 		TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, Buffer, sizeof(CGraphDMPixelPayloadHeader) + (sizeof(uint16_t) * DMMaxControllerBoards * DMMDacsPerControllerBoard * DMActuatorsPerDac));
 	}
@@ -321,7 +331,7 @@ int8_t BinaryDMDitherCommand(const uint32_t Name, char const* Params, const size
 					//Yay, we got here, things are actaully correct and we have something to do!
 					else
 					{
-						DM->DacSetpoints[DMMappings.Mappings[i].ControllerBoardIndex][DMMappings.Mappings[i].DacIndex][DMMappings.Mappings[i].DacChannel] |= (uint32_t)DacVal; //note value is OR'ed in, high bytes never get altered by this command...
+						dRAM->DacSetpoints[DMMappings.Mappings[i].ControllerBoardIndex][DMMappings.Mappings[i].DacIndex][DMMappings.Mappings[i].DacChannel] |= (uint32_t)DacVal; //note value is OR'ed in, high bytes never get altered by this command...
 						printf("\nBinaryDMDitherCommand: Set actuator %lu to %lu", (unsigned long)i, (unsigned long)DacVal);
 					}			
 				}
@@ -346,7 +356,7 @@ int8_t BinaryDMDitherCommand(const uint32_t Name, char const* Params, const size
 		for (size_t j = 0; j < DMMaxActuators; j++)
 		{
 			uint8_t* Pixel = reinterpret_cast<uint8_t*>(Buffer+sizeof(CGraphDMPixelPayloadHeader)+(j*sizeof(uint8_t)));
-			*Pixel = (reinterpret_cast<uint32_t*>(DM->DacSetpoints)[j] & 0x000000FFUL);
+			*Pixel = (reinterpret_cast<uint32_t*>(dRAM->DacSetpoints)[j] & 0x000000FFUL);
 		}
 		TxBinaryPacket(Argument, CGraphPayloadTypeDMDither, 0, Buffer, sizeof(CGraphDMPixelPayloadHeader) + (sizeof(uint8_t) * DMMaxControllerBoards * DMMDacsPerControllerBoard * DMActuatorsPerDac));
 	}
@@ -397,7 +407,7 @@ int8_t BinaryDMLongPixelsCommand(const uint32_t Name, char const* Params, const 
 					//Yay, we got here, things are actaully correct and we have something to do!
 					else
 					{
-						DM->DacSetpoints[DMMappings.Mappings[i].ControllerBoardIndex][DMMappings.Mappings[i].DacIndex][DMMappings.Mappings[i].DacChannel] = DacVal & 0x00FFFFFF; //mask off the byte we picked up from the last pixel since there's no concept of a "uint24_t"
+						dRAM->DacSetpoints[DMMappings.Mappings[i].ControllerBoardIndex][DMMappings.Mappings[i].DacIndex][DMMappings.Mappings[i].DacChannel] = DacVal & 0x00FFFFFF; //mask off the byte we picked up from the last pixel since there's no concept of a "uint24_t"
 						printf("\nBinaryDMLongPixelsCommand: Set actuator %lu to %lu", (unsigned long)i, (unsigned long)DacVal);
 					}			
 				}
@@ -422,9 +432,9 @@ int8_t BinaryDMLongPixelsCommand(const uint32_t Name, char const* Params, const 
 		for (size_t j = 0; j < DMMaxActuators; j++)
 		{
 			uint8_t* Pixel = reinterpret_cast<uint8_t*>(Buffer+sizeof(CGraphDMPixelPayloadHeader)+(j*3*sizeof(uint8_t)));
-			Pixel[0] = (uint8_t)(reinterpret_cast<uint32_t*>(DM->DacSetpoints)[j] & 0x000000FFUL);
-			Pixel[1] = (uint8_t)((reinterpret_cast<uint32_t*>(DM->DacSetpoints)[j] & 0x0000FF00UL) >> 8);
-			Pixel[2] = (uint8_t)((reinterpret_cast<uint32_t*>(DM->DacSetpoints)[j] & 0x00FF0000UL) >> 16);
+			Pixel[0] = (uint8_t)(reinterpret_cast<uint32_t*>(dRAM->DacSetpoints)[j] & 0x000000FFUL);
+			Pixel[1] = (uint8_t)((reinterpret_cast<uint32_t*>(dRAM->DacSetpoints)[j] & 0x0000FF00UL) >> 8);
+			Pixel[2] = (uint8_t)((reinterpret_cast<uint32_t*>(dRAM->DacSetpoints)[j] & 0x00FF0000UL) >> 16);
 		}
 		TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, Buffer, sizeof(CGraphDMPixelPayloadHeader) + (sizeof(uint8_t) * 3 * DMMaxControllerBoards * DMMDacsPerControllerBoard * DMActuatorsPerDac));
 	}

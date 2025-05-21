@@ -49,6 +49,7 @@ int8_t DMMappingCommand(char const* Name, char const* Params, const size_t Param
 int8_t DMShortPixelsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t DMDitherCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t DMLongPixelsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t DMAllPixelsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 
 //FW Cmds
 int8_t FWHardwareControlStatusCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);

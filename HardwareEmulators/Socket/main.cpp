@@ -12,6 +12,9 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <pthread.h> //Must use "-lpthread linker cmd
+#include <sys/time.h>
+#include <sys/syscall.h>
 
 #include <iostream>
 using namespace std;
@@ -76,9 +79,20 @@ linux_pinout_server_socket LocalPortPinout;
 
 BinaryUart UartParser(LocalPortPinout, BinaryProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 
+#include "cgraph/CGraphFSMHardwareInterface.hpp"
+CGraphFSMHardwareInterface iFSM;
+CGraphFSMHardwareInterface* FSM = &iFSM;
+
 #include "cgraph/CGraphDMHardwareInterface.hpp"
 CGraphDMHardwareInterface iDM;
 CGraphDMHardwareInterface* DM = &iDM;
+CGraphDMRamInterface idRAM;
+CGraphDMRamInterface* dRAM = &idRAM;
+
+#include "cgraph/CGraphFWHardwareInterface.hpp"
+CGraphFWHardwareInterface iFW;
+CGraphFWHardwareInterface* FW = &iFW;
+
 
 bool Process()
 {
@@ -123,12 +137,40 @@ int main(int argc, char *argv[])
         formatf("\nUASALHardwareEmulator: can't open socket (%s:%u): %d, exiting.\n", PortName, nHostPort, err);
     }
 	
+	printf("\n\nUASALHardwareEmulator: Opened port %s @ %lu.", PortName, (unsigned long)nHostPort);    
+
 	printf("\n\nUASALHardwareEmulator: Start User Interface...");    
 	
 	StartUserInterface();
 	
 	UartParser.Debug(true);
 	//~ UartParser.Debug(false);
+	
+	pid_t tid = syscall(SYS_gettid);
+	printf("\nUASALHardwareEmulator: launched! ID: %d", tid);
+	//since nice only applies to default SCHED_OTHER processes: let's hot things up a bit and turn on the realtime scheduler:
+	//~ int sched_pri = (sched_get_priority_max(SCHED_FIFO) - sched_get_priority_min(SCHED_FIFO)) / 4;
+	//~ printf("Setting SCHED_FIFO and priority to %d\n", sched_pri);
+	//~ struct sched_param param;
+	//~ param.sched_priority = sched_pri;
+	//~ sched_setscheduler(0, SCHED_FIFO, &param);
+	//~ int sched_pri = (sched_get_priority_max(SCHED_RR) - sched_get_priority_min(SCHED_RR)) / 4;
+	//~ int sched_pri = ((sched_get_priority_max(SCHED_RR) - sched_get_priority_min(SCHED_RR)) / 2) - 1;
+	int sched_pri = ((sched_get_priority_max(SCHED_RR) - sched_get_priority_min(SCHED_RR)) / 2);
+	printf("\nSetting SCHED_RR and priority to %d\n", sched_pri);
+	struct sched_param param;
+	param.sched_priority = sched_pri;
+	err = sched_setscheduler(0, SCHED_RR, &param);
+	if (err < 0)
+	{
+		perror("\nUASALHardwareEmulator: sched_setscheduler() error: ");
+	}
+		
+	err = nice(-18); //(keep the nice value set to a unique # so we can still find this thread in htop even though we are really using setscheduler() to set the priority)
+	if (err < 0)
+	{
+		perror("\nUASALHardwareEmulator: nice() error: ");
+	}
 	
 	while(true)
 	{

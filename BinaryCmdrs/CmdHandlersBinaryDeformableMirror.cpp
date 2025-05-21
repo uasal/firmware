@@ -43,6 +43,8 @@ using namespace std;
 
 #include "CmdTableBinary.hpp"
 
+void ShowPacketRoundtrip();
+
 // These are what's returned from the Control Interface
 int8_t BinaryDMDacCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
@@ -55,6 +57,8 @@ int8_t BinaryDMDacCommand(const uint32_t Name, char const* Params, const size_t 
 	{
 		printf("\nBinaryDacCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(uint32_t)));
 	}
+
+	ShowPacketRoundtrip();
     return(ParamsLen);
 }
 
@@ -84,6 +88,7 @@ int8_t BinaryDMTelemetryCommand(const uint32_t Name, char const* Params, const s
 	//~ {
 		//~ printf("\nBinaryTelemetryCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(CGraphDMTelemetryADCPayload)));
 	//~ }
+	ShowPacketRoundtrip();
     return(ParamsLen);
 }
 
@@ -98,6 +103,7 @@ int8_t BinaryDMHVSwitchCommand(const uint32_t Name, char const* Params, const si
 	{
 		printf("\nBinaryHVSwitchCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(uint32_t)));
 	}
+	ShowPacketRoundtrip();
     return(ParamsLen);
 }
 
@@ -113,6 +119,7 @@ int8_t BinaryDMDacConfigCommand(const uint32_t Name, char const* Params, const s
           printf("\nI am not sending anything back right now.  Work in progress...");
 		printf("\nBinaryDacConfigCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(uint32_t)));
 	}
+	ShowPacketRoundtrip();
     return(ParamsLen);
 }
 
@@ -145,6 +152,7 @@ int8_t BinaryDMMappingCommand(const uint32_t Name, char const* Params, const siz
 		printf("\nBinaryDMMappingCommand: Empty packet returned!\n\n");
 	}
 	
+	ShowPacketRoundtrip();
     return(ParamsLen);
 }
 
@@ -176,6 +184,7 @@ int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const
 		printf("\nBinaryDMShortPixelsCommand: Empty packet returned!\n\n");
 	}
 	
+	ShowPacketRoundtrip();
     return(ParamsLen);
 }
 
@@ -207,7 +216,8 @@ int8_t BinaryDMDitherCommand(const uint32_t Name, char const* Params, const size
 		printf("\nBinaryDMDitherCommand: Empty packet returned!\n\n");
 	}
 	
-    return(ParamsLen);
+    ShowPacketRoundtrip();
+	return(ParamsLen);
 }
 
 int8_t BinaryDMLongPixelsCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
@@ -238,7 +248,8 @@ int8_t BinaryDMLongPixelsCommand(const uint32_t Name, char const* Params, const 
 		printf("\nBinaryDMLongPixelsCommand: Empty packet returned!\n\n");
 	}
 	
-    return(ParamsLen);
+    ShowPacketRoundtrip();
+	return(ParamsLen);
 }
 
 

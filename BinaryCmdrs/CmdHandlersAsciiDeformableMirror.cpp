@@ -275,3 +275,26 @@ int8_t DMLongPixelsCommand(char const* Name, char const* Params, const size_t Pa
 
 }
 
+int8_t DMAllPixelsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	CGraphDMPixelPayloadHeader PixelIndex(0);
+	
+	//Make a really big buffer (cause we're on a desktop computer) for later when we support testing large mappings!
+	uint8_t Buffer[(DMMaxActuators * sizeof(uint16_t)) + sizeof(CGraphDMPixelPayloadHeader)];
+	memcpy(Buffer, &PixelIndex, sizeof(CGraphDMPixelPayloadHeader));
+
+	//Now we start building an array of pixels...icky parsing lol
+	size_t i = 0;
+	for (i = 0; i < DMMaxActuators; i++)
+	{
+		uint16_t Pixel = i;
+		uint16_t* PixBuf = reinterpret_cast<uint16_t*>(&(Buffer[(i * sizeof(uint16_t)) + sizeof(CGraphDMPixelPayloadHeader)]));
+		*PixBuf = Pixel;
+	}
+
+	printf("\n\nDMAllPixelsCommand: Writing %lu pixels starting at %lu...\n", (unsigned long)DMMaxActuators, 0UL);		
+	TxBinaryPacket(&UartParser, CGraphPayloadTypeDMShortPixels, 0, Buffer, (i * sizeof(uint16_t)) + sizeof(CGraphDMPixelPayloadHeader));		
+		
+    return(ParamsLen);
+
+}

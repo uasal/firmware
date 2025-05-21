@@ -41,7 +41,9 @@
 //~ #include <netinet/in.h>
 #include <pthread.h>
 #include <sched.h>
-//~ #include <sys/mman.h>
+#ifndef WIN32
+#include <sys/mman.h>
+#endif
 #include <errno.h>
 #include <dirent.h>
 

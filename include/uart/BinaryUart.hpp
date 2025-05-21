@@ -382,7 +382,7 @@ struct BinaryUart : IUartParser
      * @param PayloadData A pointer to the data to be transmitted as the packet payload.
      * @param PayloadLen The length of the payload data in bytes.
      */
-	void TxBinaryPacket(const uint16_t PayloadType, const uint32_t SerialNumber, const void* PayloadData, const size_t PayloadLen) const
+	virtual void TxBinaryPacket(const uint16_t PayloadType, const uint32_t SerialNumber, const void* PayloadData, const size_t PayloadLen) const
 	{
 		uint8_t TxBuffer[TxBufferLenBytes]; ///< Temporary buffer to hold the constructed packet
 		size_t PktLen = Packet.MakePacket(TxBuffer, TxBufferLenBytes, PayloadData, PayloadType, PayloadLen); ///< Build packet
@@ -408,8 +408,12 @@ struct BinaryUart : IUartParser
 };
 
 //Slightly ugly hack cause our CmdSystem is C, not C++, but whatever...
+
 __inline__ void TxBinaryPacket(const void* TxPktContext, const uint16_t PayloadTypeToken, const uint32_t SerialNumber, const void* PayloadData, const size_t PayloadLen)
 {
 	if (NULL != TxPktContext) { reinterpret_cast<const BinaryUart*>(TxPktContext)->TxBinaryPacket(PayloadTypeToken, SerialNumber, PayloadData, PayloadLen); }
 	else { ::formatf("\n\nTxBinaryPacket: NULL PacketContext! (Should be BinaryUart*) Please recompile this binary...\n\r"); }
 };
+
+void TxBinaryPacket(const void* TxPktContext, const uint16_t PayloadTypeToken, const uint32_t SerialNumber, const void* PayloadData, const size_t PayloadLen);
+

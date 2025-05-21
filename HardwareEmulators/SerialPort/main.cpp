@@ -76,6 +76,20 @@ linux_pinout_uart LocalPortPinout;
 
 BinaryUart UartParser(LocalPortPinout, BinaryProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 
+#include "cgraph/CGraphFSMHardwareInterface.hpp"
+CGraphFSMHardwareInterface iFSM;
+CGraphFSMHardwareInterface* FSM = &iFSM;
+
+#include "cgraph/CGraphDMHardwareInterface.hpp"
+CGraphDMHardwareInterface iDM;
+CGraphDMHardwareInterface* DM = &iDM;
+CGraphDMRamInterface idRAM;
+CGraphDMRamInterface* dRAM = &idRAM;
+
+#include "cgraph/CGraphFWHardwareInterface.hpp"
+CGraphFWHardwareInterface iFW;
+CGraphFWHardwareInterface* FW = &iFW;
+
 bool Process()
 {
     return(ProcessUserInterface());
@@ -115,7 +129,9 @@ int main(int argc, char *argv[])
         exit(-1);
     }
 	
-	printf("\n\nPearlHardwareEmulatorSerial: Start User Interface...");    
+	printf("\n\nUASALHardwareEmulator: Opened port %s @ %lu.", PortName, (unsigned long)BaudRate);    
+	
+	printf("\n\nUASALHardwareEmulator: Start User Interface...");    
 	
 	StartUserInterface();
 	
