@@ -191,10 +191,10 @@ bool Process()
 	
         //if (FpgaUartParser3.Process()) { Bored = false; }    
     if (FpgaUartParser2.Process()) { Bored = false; }
-    if (FpgaUartParser1.Process()) { Bored = false; }
+    //if (FpgaUartParser1.Process()) { Bored = false; }
     if (FpgaUartParser0.Process()) { Bored = false; }
 	//if (DbgUartUsb.Process()) { Bored = false; }    
-        //if (DbgUart485_0.Process()) { Bored = false; }
+    //if (DbgUart485_0.Process()) { Bored = false; }
 //    uint32_t dval = 0x23456789;
 //    uint32_t* DummyData;
 //    DummyData = &dval;
@@ -208,7 +208,7 @@ void ProcessAllUarts()
 {
         //FpgaUartParser3.Process();
 	FpgaUartParser2.Process();
-	FpgaUartParser1.Process();
+	//FpgaUartParser1.Process();
 	//DbgUartUsb.Process();
 	//DbgUart485_0.Process();
 }
@@ -233,7 +233,7 @@ int main(int argc, char *argv[])
 //
 //    MSS_GPIO_set_output(MSS_GPIO_0, 1); // set output to 1 to let the state machine go
 
-  formatf("\nOffset of StartMachine: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphDMHardwareInterface, StartMachine), 148UL);
+//  formatf("\nOffset of StartMachine: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphDMHardwareInterface, StartMachine), 148UL);
     // Now do forever loop to get communication data
     while(1) {
 //      bool Bored = true;

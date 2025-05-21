@@ -138,8 +138,8 @@ struct CGraphDMHardwareInterface
   UartStatusRegister UartStatusRegister3; //ro; 140 what state are the uart(s) in?
   uint32_t UartFifo3ReadData; // 144
 
-  uint8_t StartMachine; // 148
-  
+  uint32_t StartMachine; // 148
+  uint32_t GetTimer; // 152
 //  uint8_t BaudDivider0; //rw; clock divider for the first serial port
 //  uint8_t BaudDivider1;
 //  uint8_t BaudDivider2;

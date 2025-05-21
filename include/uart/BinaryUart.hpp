@@ -23,6 +23,9 @@
 #include "uart/IPacket.hpp"
 #include "uart/IUartParser.hpp"
 
+#include "cgraph/CGraphDMHardwareInterface.hpp"
+extern CGraphDMHardwareInterface* DM;  // Contains a bunch of variables
+
 /**
  * @struct BinaryUartCallbacks
  *
@@ -104,7 +107,7 @@ struct BinaryUart : IUartParser
         NumCmds(numcmds),
 		Callbacks(callbacks),
 		debug(debugDefault),
-		//~ debug(true),
+		//debug(true),
 		InPacket(InPacketInit),
 		PacketStart(PacketStartInit),
 		PacketLen(PacketLenInit),
@@ -139,7 +142,7 @@ struct BinaryUart : IUartParser
 		InPacket = InPacketInit;
         memset(RxBuffer, EmptyBufferChar, RxBufferLenBytes);
 
-		if (debug) { ::formatf("\n\nBinary Uart: Init(PktH %u, PktF %u).\n", Packet.HeaderLen(), Packet.FooterLen()); }
+		if (debug) { ::formatf("\n\nBinary Uart: Init(PktH %u, PktF %u).\n\r", Packet.HeaderLen(), Packet.FooterLen()); }
 
         return(0);
     }
@@ -154,6 +157,7 @@ struct BinaryUart : IUartParser
      */
     bool Process() override
     {
+
 	    //New char?
         if ( !(Pinout.dataready()) ) { return(false); }
 
@@ -164,11 +168,13 @@ struct BinaryUart : IUartParser
 			//~ printf(".%.2x", c);
 		//~ }
 
-		ProcessByte(c);
-		CheckPacketStart();
-		CheckPacketEnd();
+        ProcessByte(c);
+        if (!InPacket) {
+          CheckPacketStart();
+        }
+        CheckPacketEnd();  // this returns if a packet was processed
 
-		return(true); //We just want to know if there's chars in the buffer to put threads to sleep or not...
+        return(true); //We just want to know if there's chars in the buffer to put threads to sleep or not...
 	}
 
     /**
@@ -186,7 +192,7 @@ struct BinaryUart : IUartParser
 		}
 		else
 		{
-			if (debug) { ::formatf("\n\nBinaryUart: Buffer(%p) overflow; this packet will not fit (%zub), flushing buffer.\n", RxBuffer, RxCount); }
+			if (debug) { ::formatf("\n\nBinaryUart: Buffer(%p) overflow; this packet will not fit (%zub), flushing buffer.\n\r", RxBuffer, RxCount); }
 
 			Callbacks.BufferOverflow(RxBuffer, RxCount);
 
@@ -207,7 +213,7 @@ struct BinaryUart : IUartParser
 		{
 			if (Packet.FindPacketStart(RxBuffer, RxCount, PacketStart)) //This is wasteful, we really only need to look at the 4 newest bytes every time...
 			{
-				if (debug) { ::formatf("\n\nBinaryUart: Packet start detected! Buffering.\n"); }
+				if (debug) { ::formatf("\n\nBinaryUart: Packet start detected! Buffering.\n\r"); }
 
 				InPacket = true;
 			}
@@ -234,11 +240,11 @@ struct BinaryUart : IUartParser
 		// Look for the packet footer within the buffer, exit if no valid footer found yet
 		// This is wasteful, we really only need to look at the 4 newest bytes every time...
 		if (!Packet.FindPacketEnd(RxBuffer, RxCount, PacketEnd)) {
-			if (debug) { ::formatf("\n\nBinaryUart: Still waiting for packet end...\n"); }
+			if (debug) { ::formatf("\n\nBinaryUart: Still waiting for packet end...\n\r"); }
 			return false;
 		}
 
-		if (debug) { ::formatf("\n\nBinaryUart: Packet end detected; Looking for matching packet handlers.\n"); }
+		if (debug) { ::formatf("\n\nBinaryUart: Packet end detected; Looking for matching packet handlers.\n\r"); }
 
 		const size_t payloadLen = Packet.PayloadLen(RxBuffer, RxCount, PacketStart);
 
@@ -248,7 +254,7 @@ struct BinaryUart : IUartParser
 			// If the payload length exceeds buffer capacity or expected maximum packet size, treat it as a corrupted packet
 			if ( (payloadLen > RxBufferLenBytes) || (payloadLen > Packet.MaxPayloadLength())  )
 			{
-				if (debug) { ::formatf("\n\nBinaryUart: Short packet (%lu bytes) with unrealistic payload len; ignoring corrupted packet (should have been header() + payload(%lu) + footer().\n", RxCount, Packet.PayloadLen(RxBuffer, RxCount, PacketStart)); }
+				if (debug) { ::formatf("\n\nBinaryUart: Short packet (%lu bytes) with unrealistic payload len; ignoring corrupted packet (should have been header() + payload(%lu) + footer().\n\r", RxCount, Packet.PayloadLen(RxBuffer, RxCount, PacketStart)); }
 				Callbacks.InvalidPacket(reinterpret_cast<uint8_t*>(RxBuffer), RxCount);
 				Init(SerialNum);
 				return false;
@@ -256,7 +262,7 @@ struct BinaryUart : IUartParser
 			else
 			// Not enough data yet, assume the footer might still be in the incoming data
 			{
-				if (debug) { ::formatf("\n\nBinaryUart: Short packet (%lu bytes); we'll assume the packet footer was part of the payload data and keep searching for the packet end (should have been header() + payload(%lu) + footer().\n", RxCount, Packet.PayloadLen(RxBuffer, RxCount, PacketStart)); }
+				if (debug) { ::formatf("\n\nBinaryUart: Short packet (%lu bytes); we'll assume the packet footer was part of the payload data and keep searching for the packet end (should have been header() + payload(%lu) + footer().\n\r", RxCount, Packet.PayloadLen(RxBuffer, RxCount, PacketStart)); }
 				return false;
 			}
 		}
@@ -318,7 +324,7 @@ struct BinaryUart : IUartParser
 			else
 			// If serial number does not match, packet is unhandled
 			{
-				if (debug) { ::formatf("\n\nBinaryUart: Packet received, but SerialNumber comparison failed (expected: 0x%.8lX; got: 0x%.8lX).\n", SerialNum, Packet.SerialNum(RxBuffer, PacketStart, PacketEnd)); }
+				if (debug) { ::formatf("\n\nBinaryUart: Packet received, but SerialNumber comparison failed (expected: 0x%.8lX; got: 0x%.8lX).\n\r", SerialNum, Packet.SerialNum(RxBuffer, PacketStart, PacketEnd)); }
 
 				Callbacks.UnHandledPacket(reinterpret_cast<IPacket*>(&RxBuffer[PacketStart]), PacketEnd - PacketStart);
 			}
@@ -329,7 +335,7 @@ struct BinaryUart : IUartParser
 		else
 		// If packet is invalid, trigger the invalid packet callback
 		{
-			if (debug) { ::formatf("\n\nBinaryUart: Packet received, but invalid.\n"); }
+			if (debug) { ::formatf("\n\nBinaryUart: Packet received, but invalid.\n\r"); }
 
 			Callbacks.InvalidPacket(reinterpret_cast<uint8_t*>(RxBuffer), RxCount);
 		}
@@ -405,5 +411,5 @@ struct BinaryUart : IUartParser
 __inline__ void TxBinaryPacket(const void* TxPktContext, const uint16_t PayloadTypeToken, const uint32_t SerialNumber, const void* PayloadData, const size_t PayloadLen)
 {
 	if (NULL != TxPktContext) { reinterpret_cast<const BinaryUart*>(TxPktContext)->TxBinaryPacket(PayloadTypeToken, SerialNumber, PayloadData, PayloadLen); }
-	else { ::formatf("\n\nTxBinaryPacket: NULL PacketContext! (Should be BinaryUart*) Please recompile this binary...\n"); }
+	else { ::formatf("\n\nTxBinaryPacket: NULL PacketContext! (Should be BinaryUart*) Please recompile this binary...\n\r"); }
 };

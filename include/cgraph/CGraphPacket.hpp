@@ -65,10 +65,17 @@ public:
 		return(false);
 	}
 
-	virtual bool FindPacketEnd(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const override
+//	virtual bool FindPacketEnd(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const override
+//	{
+//		for (size_t i = 0; i <= (BufferLen - sizeof(uint32_t)); i++) { if (CGraphMagikPacketEndToken == *((const uint32_t*)&(Buffer[i]))) { Offset = i; return(true); } }
+//		return(false);
+//	}
+
+        virtual bool FindPacketEnd(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const override
 	{
-		for (size_t i = 0; i <= (BufferLen - sizeof(uint32_t)); i++) { if (CGraphMagikPacketEndToken == *((const uint32_t*)&(Buffer[i]))) { Offset = i; return(true); } }
-		return(false);
+          size_t ii = (BufferLen - sizeof(uint32_t));
+          if (CGraphMagikPacketEndToken == *((const uint32_t*)&(Buffer[ii]))) { Offset = ii; return(true); }
+          return(false);
 	}
 	
 	virtual size_t HeaderLen() const override { return(sizeof(CGraphPacketHeader)); }

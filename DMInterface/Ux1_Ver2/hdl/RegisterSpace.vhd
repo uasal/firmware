@@ -205,6 +205,7 @@ architecture RegisterSpace of RegisterSpacePorts is
   constant Uart3FifoReadDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(144, MAX_ADDRESS_BITS));
 
   constant MachineAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(148, MAX_ADDRESS_BITS));
+  constant TimerAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(152, MAX_ADDRESS_BITS));
   
   --! 13 bits of address space (8192b) required for this!
   --~ constant DacSetpointsAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(1024, MAX_ADDRESS_BITS));
@@ -248,6 +249,7 @@ architecture RegisterSpace of RegisterSpacePorts is
   signal HVDis2_i :  std_logic := '0';
 
   signal StartMachine_i : std_logic := '0';
+  signal timer : integer;
 --  signal DacSelectMaxti_i :  std_logic := '0';								
 --  signal GlobalFaultInhibit_i :  std_logic := '0';
 --  signal nFaultsClr_i :  std_logic := '0';
@@ -295,6 +297,7 @@ begin
       LastReadReq <= '0';			
       LastWriteReq <= '0';
       StartMachine_i <= '0';
+      timer <= 35;
 
       Uart0ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400)  * 16.0)) - 1.0), 8));
       Uart1ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));
@@ -305,7 +308,7 @@ begin
       
     else
       if ( (clk'event) and (clk = '1') ) then
-	  
+        timer <= timer + 1;
 		--~ --Mux ram outputs
 		--~ for i in 0 to (DMMaxControllerBoards - 1) loop
 			--~ for j in 0 to (DMMDacsPerControllerBoard - 1) loop
@@ -326,6 +329,9 @@ begin
               --Build Number
               when FpgaFirmwareBuildNumberAddr =>
                 DataOut <= BuildNumber;
+              -- Timer
+              when TimerAddr =>
+                DataOut <= std_logic_vector(to_unsigned(timer,32));
               --D/A's
 													
               --FSM Readback A/D's

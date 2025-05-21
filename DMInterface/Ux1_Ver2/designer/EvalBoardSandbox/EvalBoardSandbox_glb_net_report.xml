@@ -3,7 +3,7 @@
 <doc>
 <title>Global Net Report</title>
 <text>Microchip Technology Inc. - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)</text>
-<text>Date: Wed May  7 16:16:54 2025
+<text>Date: Tue May 20 10:11:42 2025
 </text>
 <section>
 <name>Global Nets Information</name>
@@ -20,14 +20,14 @@
  <cell>GB[15] </cell>
  <cell>(309, 72)</cell>
  <cell>FCCC_C0_0/FCCC_C0_0/GL0_INST/U0_YWn</cell>
- <cell>1883</cell>
+ <cell>1915</cell>
 </row>
 <row>
  <cell>2</cell>
  <cell>GB[10] </cell>
  <cell>(304, 72)</cell>
  <cell>DMMainPorts_1/BootupReset/shot_i_rep_RNI2SUF/U0_YWn</cell>
- <cell>158</cell>
+ <cell>190</cell>
 </row>
 <row>
  <cell>3</cell>
@@ -47,7 +47,7 @@
  <cell>5</cell>
  <cell>GB[12] </cell>
  <cell>(306, 72)</cell>
- <cell>DMMainPorts_1/RegisterSpace/Uart2FifoReset_RNISUSM_0/U0_YWn_GEast</cell>
+ <cell>DMMainPorts_1/RegisterSpace/Uart2FifoReset_RNISUSM_0/U0_YWn</cell>
  <cell>131</cell>
 </row>
 <row>
@@ -75,14 +75,14 @@
  <cell>9</cell>
  <cell>GB[8] </cell>
  <cell>(302, 72)</cell>
- <cell>DMMainPorts_1/Uart1BitClockDiv/clko_i_RNI6TMC/U0_YWn</cell>
+ <cell>DMMainPorts_1/Uart1BitClockDiv/clko_i_RNI6TMC/U0_YWn_GEast</cell>
  <cell>32</cell>
 </row>
 <row>
  <cell>10</cell>
  <cell>GB[14] </cell>
  <cell>(308, 72)</cell>
- <cell>DMMainPorts_1/Uart2BitClockDiv/clko_i_RNI7FG1/U0_YWn_GEast</cell>
+ <cell>DMMainPorts_1/Uart2BitClockDiv/clko_i_RNI7FG1/U0_YWn</cell>
  <cell>32</cell>
 </row>
 <row>
@@ -103,14 +103,14 @@
  <cell>13</cell>
  <cell>GB[9] </cell>
  <cell>(303, 72)</cell>
- <cell>DMMainPorts_1/Uart2TxBitClockDiv/div_i_RNID994/U0_YWn_GEast</cell>
+ <cell>DMMainPorts_1/Uart2TxBitClockDiv/div_i_RNID994/U0_YWn</cell>
  <cell>9</cell>
 </row>
 <row>
  <cell>14</cell>
  <cell>GB[13] </cell>
  <cell>(307, 72)</cell>
- <cell>DMMainPorts_1/Uart0TxBitClockDiv/div_i_RNIB3I7/U0_YWn</cell>
+ <cell>DMMainPorts_1/Uart0TxBitClockDiv/div_i_RNIB3I7/U0_YWn_GEast</cell>
  <cell>9</cell>
 </row>
 <row>
@@ -149,7 +149,7 @@
 <row>
  <cell>1</cell>
  <cell>DMMainPorts_1/BootupReset/shot_i_rep:Q</cell>
- <cell>(486, 82)</cell>
+ <cell>(372, 85)</cell>
  <cell>GB[10] </cell>
  <cell>DMMainPorts_1/BootupReset/shot_i_rep_Z</cell>
  <cell>ROUTED</cell>
@@ -158,43 +158,43 @@
 <row>
  <cell>2</cell>
  <cell>DMMainPorts_1/RegisterSpace/Uart0FifoReset_RNIQCKC:Y</cell>
- <cell>(471, 81)</cell>
+ <cell>(390, 87)</cell>
  <cell>GB[2] </cell>
- <cell>DMMainPorts_1/RegisterSpace/N_133_i</cell>
+ <cell>DMMainPorts_1/RegisterSpace/N_4052_i</cell>
  <cell>ROUTED</cell>
  <cell>14</cell>
 </row>
 <row>
  <cell>3</cell>
  <cell>DMMainPorts_1/RegisterSpace/Uart1FifoReset_RNIRLOH:Y</cell>
- <cell>(470, 81)</cell>
+ <cell>(367, 87)</cell>
  <cell>GB[7] </cell>
- <cell>DMMainPorts_1/RegisterSpace/N_132_i</cell>
+ <cell>DMMainPorts_1/RegisterSpace/N_4051_i</cell>
  <cell>ROUTED</cell>
  <cell>14</cell>
 </row>
 <row>
  <cell>4</cell>
  <cell>DMMainPorts_1/RegisterSpace/Uart2FifoReset_RNISUSM:Y</cell>
- <cell>(469, 81)</cell>
+ <cell>(365, 87)</cell>
  <cell>GB[12] </cell>
- <cell>DMMainPorts_1/RegisterSpace/N_131_i</cell>
+ <cell>DMMainPorts_1/RegisterSpace/N_4050_i</cell>
  <cell>ROUTED</cell>
  <cell>14</cell>
 </row>
 <row>
  <cell>5</cell>
  <cell>DMMainPorts_1/RegisterSpace/Uart3FifoReset_RNIT71C:Y</cell>
- <cell>(463, 81)</cell>
+ <cell>(375, 87)</cell>
  <cell>GB[0] </cell>
- <cell>DMMainPorts_1/RegisterSpace/N_130_i</cell>
+ <cell>DMMainPorts_1/RegisterSpace/N_4049_i</cell>
  <cell>ROUTED</cell>
  <cell>14</cell>
 </row>
 <row>
  <cell>6</cell>
  <cell>DMMainPorts_1/DMDacsA_i/SpiRst_rep:Q</cell>
- <cell>(501, 31)</cell>
+ <cell>(483, 34)</cell>
  <cell>GB[1] </cell>
  <cell>DMMainPorts_1/DMDacsA_i/SpiRst_rep_Z</cell>
  <cell>ROUTED</cell>
@@ -203,7 +203,7 @@
 <row>
  <cell>7</cell>
  <cell>DMMainPorts_1/Uart0BitClockDiv/clko_i:Q</cell>
- <cell>(407, 82)</cell>
+ <cell>(604, 94)</cell>
  <cell>GB[4] </cell>
  <cell>DMMainPorts_1/Uart0BitClockDiv/clko_i_2</cell>
  <cell>ROUTED</cell>
@@ -212,7 +212,7 @@
 <row>
  <cell>8</cell>
  <cell>DMMainPorts_1/Uart1BitClockDiv/clko_i:Q</cell>
- <cell>(609, 94)</cell>
+ <cell>(560, 85)</cell>
  <cell>GB[8] </cell>
  <cell>DMMainPorts_1/Uart1BitClockDiv/clko_i_0</cell>
  <cell>ROUTED</cell>
@@ -221,7 +221,7 @@
 <row>
  <cell>9</cell>
  <cell>DMMainPorts_1/Uart2BitClockDiv/clko_i:Q</cell>
- <cell>(516, 88)</cell>
+ <cell>(517, 94)</cell>
  <cell>GB[14] </cell>
  <cell>DMMainPorts_1/Uart2BitClockDiv/clko_i_1</cell>
  <cell>ROUTED</cell>
@@ -230,7 +230,7 @@
 <row>
  <cell>10</cell>
  <cell>DMMainPorts_1/Uart3BitClockDiv/clko_i:Q</cell>
- <cell>(573, 100)</cell>
+ <cell>(598, 91)</cell>
  <cell>GB[11] </cell>
  <cell>DMMainPorts_1/Uart3BitClockDiv/clko_i_Z</cell>
  <cell>ROUTED</cell>
@@ -239,7 +239,7 @@
 <row>
  <cell>11</cell>
  <cell>DMMainPorts_1/Uart1TxBitClockDiv/div_i:Q</cell>
- <cell>(217, 88)</cell>
+ <cell>(492, 61)</cell>
  <cell>GB[5] </cell>
  <cell>DMMainPorts_1/Uart1TxBitClockDiv/div_i_0</cell>
  <cell>ROUTED</cell>
@@ -248,7 +248,7 @@
 <row>
  <cell>12</cell>
  <cell>DMMainPorts_1/Uart2TxBitClockDiv/div_i:Q</cell>
- <cell>(377, 70)</cell>
+ <cell>(372, 100)</cell>
  <cell>GB[9] </cell>
  <cell>DMMainPorts_1/Uart2TxBitClockDiv/div_i_1</cell>
  <cell>ROUTED</cell>
@@ -257,7 +257,7 @@
 <row>
  <cell>13</cell>
  <cell>DMMainPorts_1/Uart0TxBitClockDiv/div_i:Q</cell>
- <cell>(315, 97)</cell>
+ <cell>(184, 127)</cell>
  <cell>GB[13] </cell>
  <cell>DMMainPorts_1/Uart0TxBitClockDiv/div_i_2</cell>
  <cell>ROUTED</cell>
@@ -266,7 +266,7 @@
 <row>
  <cell>14</cell>
  <cell>DMMainPorts_1/Uart3TxBitClockDiv/div_i:Q</cell>
- <cell>(535, 127)</cell>
+ <cell>(415, 130)</cell>
  <cell>GB[6] </cell>
  <cell>DMMainPorts_1/Uart3TxBitClockDiv/div_i_Z</cell>
  <cell>ROUTED</cell>
@@ -378,7 +378,7 @@
  <cell>GB[15] </cell>
  <cell>(309, 72)</cell>
  <cell>FCCC_C0_0/FCCC_C0_0/GL0_INST/U0_YWn</cell>
- <cell>1883</cell>
+ <cell>1915</cell>
  <cell>1</cell>
  <cell>(146, 9)</cell>
  <cell>12</cell>
@@ -390,7 +390,7 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
- <cell>(146, 24)</cell>
+ <cell>(146, 90)</cell>
  <cell>1</cell>
 </row>
 <row>
@@ -400,8 +400,8 @@
  <cell></cell>
  <cell></cell>
  <cell>3</cell>
- <cell>(146, 27)</cell>
- <cell>16</cell>
+ <cell>(146, 93)</cell>
+ <cell>26</cell>
 </row>
 <row>
  <cell> </cell>
@@ -410,17 +410,7 @@
  <cell></cell>
  <cell></cell>
  <cell>4</cell>
- <cell>(146, 30)</cell>
- <cell>4</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>5</cell>
- <cell>(146, 45)</cell>
+ <cell>(146, 96)</cell>
  <cell>1</cell>
 </row>
 <row>
@@ -429,7 +419,27 @@
  <cell></cell>
  <cell></cell>
  <cell></cell>
+ <cell>5</cell>
+ <cell>(146, 99)</cell>
+ <cell>20</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
  <cell>6</cell>
+ <cell>(146, 102)</cell>
+ <cell>4</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>7</cell>
  <cell>(146, 132)</cell>
  <cell>15</cell>
 </row>
@@ -439,19 +449,9 @@
  <cell></cell>
  <cell></cell>
  <cell></cell>
- <cell>7</cell>
- <cell>(147, 18)</cell>
- <cell>34</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
  <cell>8</cell>
- <cell>(147, 87)</cell>
- <cell>3</cell>
+ <cell>(147, 15)</cell>
+ <cell>48</cell>
 </row>
 <row>
  <cell> </cell>
@@ -460,8 +460,8 @@
  <cell></cell>
  <cell></cell>
  <cell>9</cell>
- <cell>(147, 90)</cell>
- <cell>1</cell>
+ <cell>(147, 24)</cell>
+ <cell>3</cell>
 </row>
 <row>
  <cell> </cell>
@@ -470,37 +470,17 @@
  <cell></cell>
  <cell></cell>
  <cell>10</cell>
- <cell>(147, 129)</cell>
- <cell>33</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>11</cell>
  <cell>(148, 12)</cell>
- <cell>36</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>12</cell>
- <cell>(148, 15)</cell>
- <cell>23</cell>
+ <cell>17</cell>
 </row>
 <row>
  <cell>2</cell>
  <cell>GB[10] </cell>
  <cell>(304, 72)</cell>
  <cell>DMMainPorts_1/BootupReset/shot_i_rep_RNI2SUF/U0_YWn</cell>
- <cell>158</cell>
+ <cell>190</cell>
  <cell> </cell>
- <cell>(149, 87)</cell>
+ <cell>(147, 126)</cell>
  <cell>5</cell>
 </row>
 <row>
@@ -509,99 +489,9 @@
  <cell>(292, 72)</cell>
  <cell>DMMainPorts_1/RegisterSpace/Uart0FifoReset_RNIQCKC_0/U0_YWn</cell>
  <cell>131</cell>
- <cell>1</cell>
- <cell>(146, 33)</cell>
- <cell>5</cell>
-</row>
-<row>
  <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>2</cell>
- <cell>(146, 117)</cell>
- <cell>1</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>3</cell>
- <cell>(146, 123)</cell>
- <cell>3</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>4</cell>
- <cell>(146, 126)</cell>
- <cell>2</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>5</cell>
- <cell>(147, 27)</cell>
- <cell>15</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
+ <cell>(146, 129)</cell>
  <cell>6</cell>
- <cell>(147, 30)</cell>
- <cell>4</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>7</cell>
- <cell>(148, 18)</cell>
- <cell>8</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>8</cell>
- <cell>(149, 12)</cell>
- <cell>7</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>9</cell>
- <cell>(149, 15)</cell>
- <cell>1</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>10</cell>
- <cell>(149, 129)</cell>
- <cell>26</cell>
 </row>
 <row>
  <cell>4</cell>
@@ -611,7 +501,7 @@
  <cell>131</cell>
  <cell>1</cell>
  <cell>(146, 12)</cell>
- <cell>19</cell>
+ <cell>13</cell>
 </row>
 <row>
  <cell> </cell>
@@ -621,7 +511,7 @@
  <cell></cell>
  <cell>2</cell>
  <cell>(146, 15)</cell>
- <cell>14</cell>
+ <cell>44</cell>
 </row>
 <row>
  <cell> </cell>
@@ -630,68 +520,18 @@
  <cell></cell>
  <cell></cell>
  <cell>3</cell>
- <cell>(146, 18)</cell>
- <cell>22</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>4</cell>
- <cell>(146, 63)</cell>
- <cell>5</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>5</cell>
- <cell>(146, 87)</cell>
+ <cell>(146, 24)</cell>
  <cell>2</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>6</cell>
- <cell>(146, 90)</cell>
- <cell>15</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>7</cell>
- <cell>(146, 129)</cell>
- <cell>12</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>8</cell>
- <cell>(146, 135)</cell>
- <cell>1</cell>
 </row>
 <row>
  <cell>5</cell>
  <cell>GB[12] </cell>
  <cell>(306, 72)</cell>
- <cell>DMMainPorts_1/RegisterSpace/Uart2FifoReset_RNISUSM_0/U0_YWn_GEast</cell>
+ <cell>DMMainPorts_1/RegisterSpace/Uart2FifoReset_RNISUSM_0/U0_YWn</cell>
  <cell>131</cell>
  <cell>1</cell>
- <cell>(447, 60)</cell>
- <cell>12</cell>
+ <cell>(147, 90)</cell>
+ <cell>1</cell>
 </row>
 <row>
  <cell> </cell>
@@ -700,57 +540,7 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
- <cell>(447, 78)</cell>
- <cell>13</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>3</cell>
- <cell>(447, 120)</cell>
- <cell>4</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>4</cell>
- <cell>(448, 6)</cell>
- <cell>7</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>5</cell>
- <cell>(448, 12)</cell>
- <cell>33</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>6</cell>
- <cell>(448, 15)</cell>
- <cell>2</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>7</cell>
- <cell>(448, 45)</cell>
+ <cell>(147, 99)</cell>
  <cell>18</cell>
 </row>
 <row>
@@ -759,9 +549,9 @@
  <cell></cell>
  <cell></cell>
  <cell></cell>
- <cell>8</cell>
- <cell>(449, 69)</cell>
  <cell>3</cell>
+ <cell>(148, 93)</cell>
+ <cell>16</cell>
 </row>
 <row>
  <cell> </cell>
@@ -769,9 +559,9 @@
  <cell></cell>
  <cell></cell>
  <cell></cell>
- <cell>9</cell>
- <cell>(449, 111)</cell>
- <cell>2</cell>
+ <cell>4</cell>
+ <cell>(148, 96)</cell>
+ <cell>5</cell>
 </row>
 <row>
  <cell> </cell>
@@ -779,9 +569,9 @@
  <cell></cell>
  <cell></cell>
  <cell></cell>
- <cell>10</cell>
- <cell>(451, 87)</cell>
- <cell>25</cell>
+ <cell>5</cell>
+ <cell>(148, 102)</cell>
+ <cell>5</cell>
 </row>
 <row>
  <cell> </cell>
@@ -789,18 +579,8 @@
  <cell></cell>
  <cell></cell>
  <cell></cell>
- <cell>11</cell>
- <cell>(451, 90)</cell>
- <cell>10</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>12</cell>
- <cell>(451, 96)</cell>
+ <cell>6</cell>
+ <cell>(149, 126)</cell>
  <cell>2</cell>
 </row>
 <row>
@@ -810,8 +590,8 @@
  <cell>DMMainPorts_1/RegisterSpace/Uart3FifoReset_RNIT71C_0/U0_YWn_GEast</cell>
  <cell>104</cell>
  <cell>1</cell>
- <cell>(446, 99)</cell>
- <cell>18</cell>
+ <cell>(446, 93)</cell>
+ <cell>6</cell>
 </row>
 <row>
  <cell> </cell>
@@ -820,8 +600,8 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
- <cell>(446, 102)</cell>
- <cell>27</cell>
+ <cell>(446, 96)</cell>
+ <cell>9</cell>
 </row>
 <row>
  <cell> </cell>
@@ -830,8 +610,8 @@
  <cell></cell>
  <cell></cell>
  <cell>3</cell>
- <cell>(446, 105)</cell>
- <cell>11</cell>
+ <cell>(446, 99)</cell>
+ <cell>19</cell>
 </row>
 <row>
  <cell> </cell>
@@ -840,8 +620,8 @@
  <cell></cell>
  <cell></cell>
  <cell>4</cell>
- <cell>(446, 111)</cell>
- <cell>1</cell>
+ <cell>(446, 102)</cell>
+ <cell>31</cell>
 </row>
 <row>
  <cell> </cell>
@@ -850,28 +630,8 @@
  <cell></cell>
  <cell></cell>
  <cell>5</cell>
- <cell>(446, 117)</cell>
- <cell>6</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>6</cell>
- <cell>(446, 123)</cell>
- <cell>6</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>7</cell>
  <cell>(446, 126)</cell>
- <cell>3</cell>
+ <cell>9</cell>
 </row>
 <row>
  <cell> </cell>
@@ -879,9 +639,9 @@
  <cell></cell>
  <cell></cell>
  <cell></cell>
- <cell>8</cell>
+ <cell>6</cell>
  <cell>(446, 129)</cell>
- <cell>32</cell>
+ <cell>30</cell>
 </row>
 <row>
  <cell>7</cell>
@@ -891,7 +651,7 @@
  <cell>41</cell>
  <cell>1</cell>
  <cell>(446, 42)</cell>
- <cell>10</cell>
+ <cell>17</cell>
 </row>
 <row>
  <cell> </cell>
@@ -901,27 +661,7 @@
  <cell></cell>
  <cell>2</cell>
  <cell>(446, 45)</cell>
- <cell>20</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>3</cell>
- <cell>(446, 51)</cell>
- <cell>7</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>4</cell>
- <cell>(446, 54)</cell>
- <cell>4</cell>
+ <cell>24</cell>
 </row>
 <row>
  <cell>8</cell>
@@ -930,8 +670,8 @@
  <cell>DMMainPorts_1/Uart0BitClockDiv/clko_i_RNI5BT7/U0_YWn</cell>
  <cell>32</cell>
  <cell>1</cell>
- <cell>(147, 117)</cell>
- <cell>1</cell>
+ <cell>(147, 129)</cell>
+ <cell>6</cell>
 </row>
 <row>
  <cell> </cell>
@@ -940,28 +680,18 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
- <cell>(147, 123)</cell>
- <cell>3</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>3</cell>
- <cell>(147, 126)</cell>
- <cell>2</cell>
+ <cell>(148, 126)</cell>
+ <cell>5</cell>
 </row>
 <row>
  <cell>9</cell>
  <cell>GB[8] </cell>
  <cell>(302, 72)</cell>
- <cell>DMMainPorts_1/Uart1BitClockDiv/clko_i_RNI6TMC/U0_YWn</cell>
+ <cell>DMMainPorts_1/Uart1BitClockDiv/clko_i_RNI6TMC/U0_YWn_GEast</cell>
  <cell>32</cell>
  <cell>1</cell>
- <cell>(147, 135)</cell>
- <cell>1</cell>
+ <cell>(448, 15)</cell>
+ <cell>4</cell>
 </row>
 <row>
  <cell> </cell>
@@ -970,8 +700,8 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
- <cell>(148, 87)</cell>
- <cell>9</cell>
+ <cell>(448, 18)</cell>
+ <cell>3</cell>
 </row>
 <row>
  <cell> </cell>
@@ -980,8 +710,8 @@
  <cell></cell>
  <cell></cell>
  <cell>3</cell>
- <cell>(148, 90)</cell>
- <cell>15</cell>
+ <cell>(448, 24)</cell>
+ <cell>1</cell>
 </row>
 <row>
  <cell> </cell>
@@ -990,67 +720,27 @@
  <cell></cell>
  <cell></cell>
  <cell>4</cell>
- <cell>(148, 129)</cell>
+ <cell>(448, 57)</cell>
+ <cell>14</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
  <cell>5</cell>
+ <cell>(448, 60)</cell>
+ <cell>10</cell>
 </row>
 <row>
  <cell>10</cell>
  <cell>GB[14] </cell>
  <cell>(308, 72)</cell>
- <cell>DMMainPorts_1/Uart2BitClockDiv/clko_i_RNI7FG1/U0_YWn_GEast</cell>
+ <cell>DMMainPorts_1/Uart2BitClockDiv/clko_i_RNI7FG1/U0_YWn</cell>
  <cell>32</cell>
- <cell>1</cell>
- <cell>(446, 69)</cell>
- <cell>7</cell>
-</row>
-<row>
  <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>2</cell>
- <cell>(446, 87)</cell>
- <cell>6</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>3</cell>
- <cell>(446, 90)</cell>
- <cell>9</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>4</cell>
- <cell>(446, 96)</cell>
- <cell>4</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>5</cell>
- <cell>(446, 120)</cell>
- <cell>4</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>6</cell>
- <cell>(447, 111)</cell>
+ <cell>(146, 126)</cell>
  <cell>2</cell>
 </row>
 <row>
@@ -1060,8 +750,8 @@
  <cell>DMMainPorts_1/Uart3BitClockDiv/clko_i_RNI81A6/U0_YWn_GEast</cell>
  <cell>30</cell>
  <cell>1</cell>
- <cell>(448, 105)</cell>
- <cell>11</cell>
+ <cell>(448, 126)</cell>
+ <cell>9</cell>
 </row>
 <row>
  <cell> </cell>
@@ -1070,8 +760,8 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
- <cell>(448, 111)</cell>
- <cell>1</cell>
+ <cell>(451, 129)</cell>
+ <cell>20</cell>
 </row>
 <row>
  <cell> </cell>
@@ -1080,28 +770,8 @@
  <cell></cell>
  <cell></cell>
  <cell>3</cell>
- <cell>(448, 117)</cell>
- <cell>6</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>4</cell>
- <cell>(450, 126)</cell>
- <cell>8</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>5</cell>
- <cell>(450, 129)</cell>
- <cell>4</cell>
+ <cell>(452, 99)</cell>
+ <cell>1</cell>
 </row>
 <row>
  <cell>12</cell>
@@ -1109,39 +779,19 @@
  <cell>(295, 72)</cell>
  <cell>DMMainPorts_1/Uart1TxBitClockDiv/div_i_RNICMT5/U0_YWn</cell>
  <cell>9</cell>
- <cell>1</cell>
+ <cell> </cell>
  <cell>(147, 12)</cell>
- <cell>3</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>2</cell>
- <cell>(147, 15)</cell>
- <cell>1</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>3</cell>
- <cell>(147, 63)</cell>
- <cell>5</cell>
+ <cell>9</cell>
 </row>
 <row>
  <cell>13</cell>
  <cell>GB[9] </cell>
  <cell>(303, 72)</cell>
- <cell>DMMainPorts_1/Uart2TxBitClockDiv/div_i_RNID994/U0_YWn_GEast</cell>
+ <cell>DMMainPorts_1/Uart2TxBitClockDiv/div_i_RNID994/U0_YWn</cell>
  <cell>9</cell>
  <cell>1</cell>
- <cell>(447, 6)</cell>
- <cell>3</cell>
+ <cell>(147, 93)</cell>
+ <cell>1</cell>
 </row>
 <row>
  <cell> </cell>
@@ -1150,17 +800,7 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
- <cell>(447, 12)</cell>
- <cell>6</cell>
-</row>
-<row>
- <cell>14</cell>
- <cell>GB[13] </cell>
- <cell>(307, 72)</cell>
- <cell>DMMainPorts_1/Uart0TxBitClockDiv/div_i_RNIB3I7/U0_YWn</cell>
- <cell>9</cell>
- <cell>1</cell>
- <cell>(147, 33)</cell>
+ <cell>(147, 96)</cell>
  <cell>5</cell>
 </row>
 <row>
@@ -1169,19 +809,19 @@
  <cell></cell>
  <cell></cell>
  <cell></cell>
- <cell>2</cell>
- <cell>(150, 12)</cell>
+ <cell>3</cell>
+ <cell>(147, 102)</cell>
  <cell>3</cell>
 </row>
 <row>
+ <cell>14</cell>
+ <cell>GB[13] </cell>
+ <cell>(307, 72)</cell>
+ <cell>DMMainPorts_1/Uart0TxBitClockDiv/div_i_RNIB3I7/U0_YWn_GEast</cell>
+ <cell>9</cell>
  <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>3</cell>
- <cell>(150, 15)</cell>
- <cell>1</cell>
+ <cell>(449, 12)</cell>
+ <cell>9</cell>
 </row>
 <row>
  <cell>15</cell>
@@ -1190,7 +830,7 @@
  <cell>DMMainPorts_1/Uart3TxBitClockDiv/div_i_RNIESK2/U0_YWn_GEast</cell>
  <cell>8</cell>
  <cell> </cell>
- <cell>(447, 123)</cell>
+ <cell>(447, 93)</cell>
  <cell>8</cell>
 </row>
 <row>
@@ -1219,39 +859,39 @@
 </header>
 <row>
  <cell>1</cell>
- <cell>DMMainPorts_1/DMDacsB_i/Spi/un1_rst_1_i_i_a2:Y</cell>
- <cell>DMMainPorts_1/un1_rst_1_i_i_a2</cell>
- <cell>DMMainPorts_1/N_4974_i_rs:CLK</cell>
+ <cell>DMMainPorts_1/DMDacsA_i/N_947_i:Y</cell>
+ <cell>DMMainPorts_1/N_947_i</cell>
+ <cell>DMMainPorts_1/DMDacsB_i/Spi/un1_rst_3_rs:CLK</cell>
 </row>
 <row>
  <cell>2</cell>
- <cell>DMMainPorts_1/DMDacsA_i/Spi/un1_rst_1:Y</cell>
- <cell>DMMainPorts_1/DMDacsA_i/Spi/un1_rst_1_Z</cell>
- <cell>DMMainPorts_1/DMDacsA_i/Spi/un1_rst_3_rs:CLK</cell>
-</row>
-<row>
- <cell>3</cell>
- <cell>DMMainPorts_1/DMDacsC_i/Spi/un1_rst_1:Y</cell>
- <cell>DMMainPorts_1/DMDacsC_i/Spi/un1_rst_1_Z</cell>
+ <cell>DMMainPorts_1/DMDacsC_i/Spi/N_4290_i:Y</cell>
+ <cell>DMMainPorts_1/DMDacsC_i/Spi/N_4290_i_Z</cell>
  <cell>DMMainPorts_1/DMDacsC_i/Spi/un1_rst_3_rs:CLK</cell>
 </row>
 <row>
- <cell>4</cell>
- <cell>DMMainPorts_1/DMDacsF_i/Spi/N_418_i:Y</cell>
- <cell>DMMainPorts_1/DMDacsF_i/Spi/N_418_i_Z</cell>
- <cell>DMMainPorts_1/DMDacsF_i/Spi/un1_rst_3_rs:CLK</cell>
+ <cell>3</cell>
+ <cell>DMMainPorts_1/DMDacsA_i/Spi/N_933_i:Y</cell>
+ <cell>DMMainPorts_1/DMDacsA_i/Spi/N_933_i_Z</cell>
+ <cell>DMMainPorts_1/DMDacsA_i/Spi/un1_rst_3_rs:CLK</cell>
 </row>
 <row>
- <cell>5</cell>
- <cell>DMMainPorts_1/DMDacsD_i/Spi/un1_rst_1:Y</cell>
- <cell>DMMainPorts_1/DMDacsD_i/Spi/un1_rst_1_Z</cell>
+ <cell>4</cell>
+ <cell>DMMainPorts_1/DMDacsA_i/N_914_i:Y</cell>
+ <cell>DMMainPorts_1/N_914_i</cell>
  <cell>DMMainPorts_1/DMDacsD_i/Spi/un1_rst_3_rs:CLK</cell>
 </row>
 <row>
+ <cell>5</cell>
+ <cell>DMMainPorts_1/DMDacsF_i/Spi/N_936_i:Y</cell>
+ <cell>DMMainPorts_1/DMDacsF_i/Spi/N_936_i_Z</cell>
+ <cell>DMMainPorts_1/DMDacsF_i/Spi/un1_rst_3_rs:CLK</cell>
+</row>
+<row>
  <cell>6</cell>
- <cell>DMMainPorts_1/DMDacsE_i/Spi/un1_rst_1_i_i_a2:Y</cell>
- <cell>DMMainPorts_1/un1_rst_1_i_i_a2_0</cell>
- <cell>DMMainPorts_1/N_4614_i_rs:CLK</cell>
+ <cell>DMMainPorts_1/DMDacsE_i/Spi/N_65_i:Y</cell>
+ <cell>DMMainPorts_1/DMDacsE_i/Spi/N_65_i_Z</cell>
+ <cell>DMMainPorts_1/DMDacsE_i/Spi/un1_rst_3_rs:CLK</cell>
 </row>
 </table>
 </section>

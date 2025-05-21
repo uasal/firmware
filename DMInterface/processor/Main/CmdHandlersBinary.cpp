@@ -74,19 +74,23 @@ int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_
 
 int8_t BinaryDMDacCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
+  uint32_t timeval=0;
+
+  timeval = DM->GetTimer;
         
-  //  TxBinaryPacket(Argument, CGraphPayloadTypeDMDac, 0, (void*)dRAM->DacSetpoints[0][0][0], 4*sizeof(uint32_t));
+  TxBinaryPacket(Argument, CGraphPayloadTypeDMDac, 0, &timeval, sizeof(uint32_t));
   return(ParamsLen);
 }
 
 int8_t BinaryDMStartSMCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
+  uint16_t started=1;
 
   if (DM) { 
     //    Version.SerialNum = DM->DeviceSerialNumber; 
     DM->StartMachine = 1; 
   }
-  TxBinaryPacket(Argument, CGraphPayloadTypeDMStartSM, 0, &Params, sizeof(Params));
+  TxBinaryPacket(Argument, CGraphPayloadTypeDMStartSM, 0, &started, sizeof(uint16_t));
   return(ParamsLen);
 }
   
@@ -287,8 +291,8 @@ int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const
 {
 	if (nullptr == DM)
 	{
-          //printf("\nBinaryDMShortPixelsCommand: DM pointer is NULL! Firmware corrupted!\n");	
-		return(ParamsLen);
+          printf("\nBinaryDMShortPixelsCommand: DM pointer is NULL! Firmware corrupted!\n");	
+          return(ParamsLen);
 	}
 		
 	if ( (nullptr != Params) && (ParamsLen >= sizeof(CGraphDMPixelPayloadHeader)) )
@@ -296,9 +300,9 @@ int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const
           //ok, first we're looking for a packet with the start pixel and some pix's in it:
           const CGraphDMPixelPayloadHeader PixelHeader = *reinterpret_cast<const CGraphDMPixelPayloadHeader*>(Params);
           const unsigned long StartPixel = PixelHeader.StartPixel;
+
           if (StartPixel > DMMaxActuators) {
             //Complain and bail out, something is horribly wrong:
-                  
             printf("\nBinaryDMShortPixelsCommand: Invalid StartPixel: %lu!\n", (unsigned long)StartPixel);
             TxBinaryPacket(Argument, CGraphPayloadTypeDMShortPixels, 0, &StartPixel, sizeof(uint16_t));
           }
@@ -306,9 +310,8 @@ int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const
             //Now do we have some actual pix to set?
             if (ParamsLen >= sizeof(CGraphDMPixelPayloadHeader)) {
               unsigned long NumPixels = (ParamsLen - sizeof(CGraphDMPixelPayloadHeader)) / sizeof(uint16_t);
-              if ((NumPixels + StartPixel) > DMMaxActuators) { NumPixels = DMMaxActuators - StartPixel; } //do let's try not to blow our array...	
-              printf("\nBinaryDMShortPixelsCommand: StartPixel: %lu, NumPixels: %lu\n", StartPixel, NumPixels);
-				
+              if ((NumPixels + StartPixel) > DMMaxActuators) { NumPixels = DMMaxActuators - StartPixel; } //do let's try not to blow our array...
+
               for (size_t i = StartPixel; i < (StartPixel + NumPixels); i++) {
                 //pull a pix out of the packet:
                 const uint16_t DacVal = *reinterpret_cast<const uint16_t*>(Params+sizeof(CGraphDMPixelPayloadHeader)+((i - StartPixel)*sizeof(uint16_t)));
@@ -320,21 +323,13 @@ int8_t BinaryDMShortPixelsCommand(const uint32_t Name, char const* Params, const
                 }
                 //Yay, we got here, things are actaully correct and we have something to do!
                 else {
-                  //uint8_t board = DMMappings.Mappings[i].ControllerBoardIndex;
-                  //uint8_t dac = DMMappings.Mappings[i].DacIndex;
-                  //uint8_t channel = DMMappings.Mappings[i].DacChannel;
                   uint32_t spiBits = 0; // initialize to 0
 
-                  //formatf("%p", board);
-                  //formatf("%p", dac);
-                  //formatf("%p", channel);
                   // Get Dac address for the SPI
-                  //addrByte = DACaddr[channel]; // the top 8 bits of the SPI stream determine the dac channel written
                   spiBits = DacVal + (DACaddr[DMMappings.Mappings[i].DacChannel] << 16); // shift the address and add to the DacVal
 
                   // Send off to memory
                   dRAM->DacSetpoints[DMMappings.Mappings[i].ControllerBoardIndex][DMMappings.Mappings[i].DacIndex][DMMappings.Mappings[i].DacChannel] = (spiBits);
-                  printf("\nBinaryDMShortPixelsCommand: Set actuator %lu to %lu", (unsigned long)i, (unsigned long)DacVal);
                 }			
               }
               //Ok, tell them how many we wrote (i.e. 952, or maybe 16 or something if we shorten the packets)(note there are no errors if the mappings aren't set right now it will silently fail every time)
