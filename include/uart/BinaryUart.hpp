@@ -282,6 +282,10 @@ struct BinaryUart : IUartParser
 				bool CmdFound = false;
 
 				// Search for a matching command in the packet
+                                // Inefficient to go through whole list of commands
+                                // Idea: last nibble or byte (depending on number of commands) corresponds to position of command
+                                // and can be used as index to Cmds[i].Response(...)
+                                // This only happens once for each full packet, so might not be much time savings
 				for (size_t i = 0; i < NumCmds; i++)
 				{
 					// Check if command in buffer matches the defined command name
@@ -291,7 +295,10 @@ struct BinaryUart : IUartParser
 						const char* Params = reinterpret_cast<char*>(&(RxBuffer[PacketStart + Packet.PayloadOffset()]));
 
 						// Execute the command's response function
-						Cmds[i].Response(Cmds[i].Name, Params, Packet.PayloadLen(RxBuffer, RxCount, PacketStart), (void*)this);
+                                                // We already figured out the payload length, so we don't need to call Packet.PayloadLen
+                                                // to get it again.  Comment out and use simpler Cmds[i].Respons(...) below
+						//Cmds[i].Response(Cmds[i].Name, Params, Packet.PayloadLen(RxBuffer, RxCount, PacketStart), (void*)this);
+                                                Cmds[i].Response(Cmds[i].Name, Params, payloadLen, (void*)this);
 						CmdFound = true;
 
 						Processed = true;

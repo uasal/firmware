@@ -36,16 +36,16 @@
 #ifdef Ux1
 const BinaryCmd BinaryCmds[] = 
 {
+  	BinaryCmd (
+		CGraphPayloadTypeDMShortPixels,
+		"BinaryDMShortPixelsCommand",
+		BinaryDMShortPixelsCommand
+    ),
 	BinaryCmd (
 		CGraphPayloadTypeVersion,
 		"BinaryVersionCommand",
 		BinaryVersionCommand
     ),
-	BinaryCmd (
-		CGraphPayloadTypeDMDac,
-		"BinaryDMDacCommand",
-		BinaryDMDacCommand
-    ),	
 	BinaryCmd (
 		CGraphPayloadTypeDMTelemetry,
 		"BinaryDMTelemetryCommand",
@@ -61,35 +61,31 @@ const BinaryCmd BinaryCmds[] =
                 "BinaryDMStartSMCommand",
                 BinaryDMStartSMCommand
     ),
-//        BinaryCmd (
-//                CGraphPayloadTypeDMUart,
-//                "BinaryDMUartCommand",
-//                BinaryDMUartCommand
-//    ),
-	
 	BinaryCmd (
 		CGraphPayloadTypeDMMappings,
 		"BinaryDMMappingCommand",
 		BinaryDMMappingCommand
     ),
-
-	BinaryCmd (
-		CGraphPayloadTypeDMShortPixels,
-		"BinaryDMShortPixelsCommand",
-		BinaryDMShortPixelsCommand
-    ),
-
 	BinaryCmd (
 		CGraphPayloadTypeDMDither,
 		"BinaryDMDitherCommand",
 		BinaryDMDitherCommand
     ),
-
-	BinaryCmd (
-		CGraphPayloadTypeDMLongPixels,
-		"BinaryDMLongPixelsCommand",
-		BinaryDMLongPixelsCommand
-    ),
+//	BinaryCmd (
+//		CGraphPayloadTypeDMDac,
+//		"BinaryDMDacCommand",
+//		BinaryDMDacCommand
+//    ),	
+//        BinaryCmd (
+//                CGraphPayloadTypeDMUart,
+//                "BinaryDMUartCommand",
+//                BinaryDMUartCommand
+//    ),
+//	BinaryCmd (
+//		CGraphPayloadTypeDMLongPixels,
+//		"BinaryDMLongPixelsCommand",
+//		BinaryDMLongPixelsCommand
+//    ),
 
 };
 #endif

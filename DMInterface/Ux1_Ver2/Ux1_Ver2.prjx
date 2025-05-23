@@ -4943,8 +4943,12 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
+Reports;Reports;0
+ReportsCurrentItem;Run Programming Action:EvalBoardSandbox_PROGRAM.log
+Constraint Manager;Constraint Manager;0
+SmartDesign;EvalBoardSandbox;0
 StartPage;StartPage;0
-ACTIVEVIEW;StartPage
+ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","${CGRAPH_FIRMWARE}\include\fpga\ads1258.vhd","FALSE","FALSE"
