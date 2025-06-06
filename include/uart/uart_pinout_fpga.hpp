@@ -66,7 +66,7 @@ public:
 		volatile uint32_t c = 0;
 		c = *ReadRequestRegister; //Initiate the read from the fifo (this sends back 0xBAADC0DE if you care to check)
 		c = *ReadDataRegister;
-		if (monitor) { formatf("%c%.2x", MonitorPrefaceChar, c); }
+		//if (monitor) { formatf("%c%.2x", MonitorPrefaceChar, c); }
 		return((char)(c));
 	}
 
