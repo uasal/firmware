@@ -204,7 +204,7 @@ extern "C"
  */
 int main(int argc, char *argv[])
 {
-  bool Bored = true;
+  //bool Bored = true;
     // Now do forever loop to get communication data
   // If we just do this in the forever loop, is it faster?
     while(1) {
@@ -216,8 +216,7 @@ int main(int argc, char *argv[])
       //give up our timeslice so as not to bog the system:
       if (Bored) {
         delayus(0);
-      }
-//      Process();
+      }      
     }
     return(0);
 }

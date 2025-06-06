@@ -65,6 +65,8 @@ struct BinaryUart : IUartParser
 	static const size_t PacketStartInit = 0;
 	static const size_t PacketLenInit = 0;
         static const size_t PayloadLenInit = 0;
+        static const size_t HeaderLenInit = 0;
+        static const size_t FooterLenInit = 0;
 	static const bool InPacketInit = false; 			///< Default in-packet status.
 	static const bool debugDefault = false;
 	static const char EmptyBufferChar = '\0'; 			///< Character to fill empty buffer space.
@@ -86,6 +88,8 @@ struct BinaryUart : IUartParser
   size_t PacketStart;
   size_t PacketLen;
   size_t PayloadLen;
+  size_t HeaderLen;
+  size_t FooterLen;
   uint64_t SerialNum;									///< Serial number for validating received packets.
 
     /**
@@ -114,6 +118,8 @@ struct BinaryUart : IUartParser
 		PacketStart(PacketStartInit),
 		PacketLen(PacketLenInit),
                 PayloadLen(PayloadLenInit),
+                HeaderLen(HeaderLenInit),
+                FooterLen(FooterLenInit),
 		//~ Argument(argument),
 		SerialNum(serialnum)
 
@@ -143,6 +149,8 @@ struct BinaryUart : IUartParser
 		PacketStart = PacketStartInit;
 		PacketLen = PacketLenInit;
                 PayloadLen = PayloadLenInit;
+                HeaderLen = HeaderLenInit;
+                FooterLen = FooterLenInit;
 		InPacket = InPacketInit;
         memset(RxBuffer, EmptyBufferChar, RxBufferLenBytes);
 
@@ -158,6 +166,8 @@ struct BinaryUart : IUartParser
 		PacketStart = PacketStartInit;
 		PacketLen = PacketLenInit;
                 PayloadLen = PayloadLenInit;
+                HeaderLen = HeaderLenInit;
+                FooterLen = FooterLenInit;
 		InPacket = InPacketInit;
                 //memset(RxBuffer, EmptyBufferChar, RxBufferLenBytes);
 
@@ -192,22 +202,27 @@ struct BinaryUart : IUartParser
 		//~ if (debug) {
 			//~ printf(".%.2x", c);
 		//~ }
-        
+        //        start = DM->GetTimer;
+
         ProcessByte(c);
         
         if (!InPacket) {
           gotStart = CheckPacketStart();
-          if (gotStart)
-              PayloadLen = Packet.PayloadLen(RxBuffer, RxCount, PacketStart);
+          if (gotStart) {
+            PayloadLen = Packet.PayloadLen(RxBuffer, RxCount, PacketStart);
+            HeaderLen = Packet.HeaderLen();
+            FooterLen = Packet.FooterLen();
+          }
+          
         }
         else {
-          //start = DM->GetTimer;
-          if (!(RxCount < Packet.HeaderLen() + Packet.FooterLen() + PayloadLen)) {
+          
+          if (!(RxCount < HeaderLen + FooterLen + PayloadLen)) {
             CheckPacketEnd();  // this returns if a packet was processed
+            //end = DM->GetTimer;
+            //length = end - start;
+            //TxBinaryPacket(CGraphPayloadTypeDMTelemetry, 0, &length, sizeof(uint32_t));
           }
-          //end = DM->GetTimer;
-          //length = end - start;
-          //TxBinaryPacket(CGraphPayloadTypeDMTelemetry, 0, &length, sizeof(uint32_t));
         }
         //end = DM->GetTimer;
         //length = end - start;
@@ -226,8 +241,10 @@ struct BinaryUart : IUartParser
 		//Put the current character into the buffer
 		if (RxCount < RxBufferLenBytes)
 		{
-			RxCount++;
-			RxBuffer[RxCount - 1] = c;
+                  //RxCount++;
+                  //RxBuffer[RxCount - 1] = c;
+                        RxBuffer[RxCount] = c;
+                        RxCount++;
 		}
 		else
 		{
@@ -271,6 +288,9 @@ struct BinaryUart : IUartParser
      */
 	bool CheckPacketEnd()
 	{
+          uint32_t start=0;
+          uint32_t end=0;
+          uint32_t length=0;
 		PacketEnd = 0;
 		bool Processed = false;
 
@@ -284,6 +304,7 @@ struct BinaryUart : IUartParser
 		}
 
 		//const size_t payloadLen = Packet.PayloadLen(RxBuffer, RxCount, PacketStart);
+                  
 
 		// Validate packet
 		if (Packet.IsValid(RxBuffer, RxCount, PacketStart, PacketEnd))
@@ -306,7 +327,8 @@ struct BinaryUart : IUartParser
                       if (Packet.DoesPayloadTypeMatch(RxBuffer, RxCount, PacketStart, PacketEnd, Cmds[ii].Name))
                         {
                           //strip the part of the line with the arguments to this command (chars following command) for compatibility with the  parsing code, the "params" officially start with the s/n
-                          const char* Params = reinterpret_cast<char*>(&(RxBuffer[PacketStart + Packet.PayloadOffset()]));
+                          //const char* Params = reinterpret_cast<char*>(&(RxBuffer[PacketStart + Packet.PayloadOffset()]));
+                          const char* Params = reinterpret_cast<char*>(&(RxBuffer[PacketStart + HeaderLen]));
                           // Execute the command's response function
                           // We already figured out the payload length, so we don't need to call Packet.PayloadLen
                           // to get it again.  Comment out and use simpler Cmds[i].Respons(...) below
