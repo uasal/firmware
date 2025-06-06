@@ -3,7 +3,7 @@
 #OS: Windows 10 or later
 #Hostname: ASTR-ETS-001
 
-# Tue May 20 10:05:59 2025
+# Fri Jun  6 09:29:44 2025
 
 #Implementation: synthesis
 
@@ -64,12 +64,13 @@ Synopsys VHDL Compiler, Version comp202209synp2, Build 179R, Built Jun 27 2023 0
 @N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\hdl\DMMain.vhd'.
 VHDL syntax check successful!
 @N: CD231 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\vhd2008\std1164.vhd":889:16:889:17|Using onehot encoding for type mvl9plus. For example, enumeration 'U' is mapped to "1000000000".
+File C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\hdl\RegisterSpace.vhd changed - recompiling
 
 At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 94MB peak: 94MB)
 
 
 Process completed successfully.
-# Tue May 20 10:06:00 2025
+# Fri Jun  6 09:29:45 2025
 
 ###########################################################]
 ###########################################################[
@@ -132,7 +133,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Tue May 20 10:06:01 2025
+# Fri Jun  6 09:29:46 2025
 
 ###########################################################]
 ###########################################################[
@@ -174,6 +175,7 @@ Process completed successfully.
 @I::"C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\IO_C2\IO_C2.v" (library work)
 @I::"C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\EvalBoardSandbox\EvalBoardSandbox.v" (library work)
 Verilog syntax check successful!
+File C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\synthesis\synwork\_verilog_hintfile changed - recompiling
 File C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\EvalBoardSandbox\EvalBoardSandbox.v changed - recompiling
 @N: CG775 :"C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":31:7:31:14|Component CoreAPB3 not found in library "work" or "__hyper__lib__", but found in library COREAPB3_LIB
 @N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":376:7:376:9|Synthesizing module VCC in library work.
@@ -273,7 +275,7 @@ Finished optimization stage 1 on COREAPB3_MUXPTOB3 (CPU Time 0h:00m:00s, Memory 
    Generated name = CoreAPB3_Z1_layer0
 @W: CG360 :"C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":244:12:244:20|Removing wire IA_PRDATA, as there is no assignment to it.
 Running optimization stage 1 on CoreAPB3_Z1_layer0 .......
-Finished optimization stage 1 on CoreAPB3_Z1_layer0 (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 97MB)
+Finished optimization stage 1 on CoreAPB3_Z1_layer0 (CPU Time 0h:00m:00s, Memory Used current: 97MB peak: 98MB)
 @N: CG364 :"C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\Actel\DirectCore\CoreResetP\7.1.100\rtl\vlog\core\coreresetp.v":23:7:23:16|Synthesizing module CoreResetP in library work.
 
 	FAMILY=32'b00000000000000000000000000010011
@@ -351,13 +353,13 @@ Running optimization stage 1 on MSS_025 .......
 Finished optimization stage 1 on MSS_025 (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 98MB)
 @N: CG364 :"C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\EvalSandbox_MSS_MSS\EvalSandbox_MSS_MSS.v":9:7:9:25|Synthesizing module EvalSandbox_MSS_MSS in library work.
 Running optimization stage 1 on EvalSandbox_MSS_MSS .......
-Finished optimization stage 1 on EvalSandbox_MSS_MSS (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 98MB)
+Finished optimization stage 1 on EvalSandbox_MSS_MSS (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 99MB)
 @N: CG364 :"C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":51:7:51:24|Synthesizing module RCOSC_25_50MHZ_FAB in library work.
 Running optimization stage 1 on RCOSC_25_50MHZ_FAB .......
-Finished optimization stage 1 on RCOSC_25_50MHZ_FAB (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 98MB)
+Finished optimization stage 1 on RCOSC_25_50MHZ_FAB (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 99MB)
 @N: CG364 :"C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\Actel\SgCore\OSC\2.0.101\osc_comps.v":11:7:11:20|Synthesizing module RCOSC_25_50MHZ in library work.
 Running optimization stage 1 on RCOSC_25_50MHZ .......
-Finished optimization stage 1 on RCOSC_25_50MHZ (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 98MB)
+Finished optimization stage 1 on RCOSC_25_50MHZ (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 99MB)
 @N: CG364 :"C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":5:7:5:34|Synthesizing module EvalSandbox_MSS_FABOSC_0_OSC in library work.
 Running optimization stage 1 on EvalSandbox_MSS_FABOSC_0_OSC .......
 @W: CL318 :"C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":15:7:15:24|*Output RCOSC_25_50MHZ_CCC has undriven bits; assigning undriven bits to 'Z'.  Simulation mismatch possible. Assign all bits of the output.
@@ -365,10 +367,10 @@ Running optimization stage 1 on EvalSandbox_MSS_FABOSC_0_OSC .......
 @W: CL318 :"C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":18:7:18:20|*Output RCOSC_1MHZ_O2F has undriven bits; assigning undriven bits to 'Z'.  Simulation mismatch possible. Assign all bits of the output.
 @W: CL318 :"C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":19:7:19:16|*Output XTLOSC_CCC has undriven bits; assigning undriven bits to 'Z'.  Simulation mismatch possible. Assign all bits of the output.
 @W: CL318 :"C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\EvalSandbox_MSS\FABOSC_0\EvalSandbox_MSS_FABOSC_0_OSC.v":20:7:20:16|*Output XTLOSC_O2F has undriven bits; assigning undriven bits to 'Z'.  Simulation mismatch possible. Assign all bits of the output.
-Finished optimization stage 1 on EvalSandbox_MSS_FABOSC_0_OSC (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 98MB)
+Finished optimization stage 1 on EvalSandbox_MSS_FABOSC_0_OSC (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 99MB)
 @N: CG364 :"C:\Microchip\Libero_SoC_v2023.2\SynplifyPro\lib\generic\smartfusion2.v":720:7:720:14|Synthesizing module SYSRESET in library work.
 Running optimization stage 1 on SYSRESET .......
-Finished optimization stage 1 on SYSRESET (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 98MB)
+Finished optimization stage 1 on SYSRESET (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 99MB)
 @N: CG364 :"C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\component\work\EvalSandbox_MSS\EvalSandbox_MSS.v":9:7:9:21|Synthesizing module EvalSandbox_MSS in library work.
 Running optimization stage 1 on EvalSandbox_MSS .......
 Finished optimization stage 1 on EvalSandbox_MSS (CPU Time 0h:00m:00s, Memory Used current: 98MB peak: 99MB)
@@ -566,11 +568,11 @@ For a summary of runtime per design unit, please see file:
 
 
 
-At c_ver Exit (Real Time elapsed 0h:00m:21s; CPU Time elapsed 0h:00m:21s; Memory used current: 100MB peak: 101MB)
+At c_ver Exit (Real Time elapsed 0h:00m:22s; CPU Time elapsed 0h:00m:22s; Memory used current: 100MB peak: 101MB)
 
 
 Process completed successfully.
-# Tue May 20 10:06:23 2025
+# Fri Jun  6 09:30:08 2025
 
 ###########################################################]
 ###########################################################[
@@ -879,7 +881,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:21s; CPU Time elapsed 0h:00m:21s; Memor
 
 
 Process completed successfully.
-# Tue May 20 10:06:45 2025
+# Fri Jun  6 09:30:30 2025
 
 ###########################################################]
 ###########################################################[
@@ -913,7 +915,7 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Tue May 20 10:06:46 2025
+# Fri Jun  6 09:30:31 2025
 
 ###########################################################]
 
@@ -923,12 +925,12 @@ For a summary of runtime and memory usage for all design units, please see file:
 
 @END
 
-At c_hdl Exit (Real Time elapsed 0h:00m:46s; CPU Time elapsed 0h:00m:44s; Memory used current: 25MB peak: 25MB)
+At c_hdl Exit (Real Time elapsed 0h:00m:47s; CPU Time elapsed 0h:00m:45s; Memory used current: 25MB peak: 25MB)
 
-Process took 0h:00m:46s realtime, 0h:00m:44s cputime
+Process took 0h:00m:47s realtime, 0h:00m:45s cputime
 
 Process completed successfully.
-# Tue May 20 10:06:46 2025
+# Fri Jun  6 09:30:31 2025
 
 ###########################################################]
 ###########################################################[
@@ -955,12 +957,12 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Tue May 20 10:06:48 2025
+# Fri Jun  6 09:30:33 2025
 
 ###########################################################]
 Premap Report
 
-# Tue May 20 10:06:49 2025
+# Fri Jun  6 09:30:34 2025
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -1078,7 +1080,7 @@ Finished HSTDM IP insertion (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:0
 Started DisTri Cleanup (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 186MB peak: 186MB)
 
 
-Finished DisTri Cleanup (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:02s; Memory used current: 186MB peak: 186MB)
+Finished DisTri Cleanup (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 186MB peak: 186MB)
 
 @N: BN115 :"c:\users\skaye\repos7\firmware\include\fpga\uarttxfifoextclk.vhd":192:1:192:7|Removing instance IBufCts (in view: work.UartTxFifoExtClk_13_3(implementation)) because it does not drive other instances.
 @N: BN115 :"c:\users\skaye\repos7\firmware\include\fpga\uarttxfifoextclk.vhd":192:1:192:7|Removing instance IBufCts (in view: work.UartTxFifoExtClk_13_2(implementation)) because it does not drive other instances.
@@ -1229,19 +1231,19 @@ Finished constraint checker preprocessing (Real Time elapsed 0h:00m:04s; CPU Tim
 
 @W: MF511 |Found issues with constraints. Please check constraint checker report "C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\synthesis\EvalBoardSandbox_cck.rpt" .
 
-Finished constraint checker (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 194MB peak: 194MB)
+Finished constraint checker (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:04s; Memory used current: 194MB peak: 194MB)
 
 Pre-mapping successful!
 
 At Mapper Exit (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 101MB peak: 194MB)
 
 Process took 0h:00m:05s realtime, 0h:00m:05s cputime
-# Tue May 20 10:06:55 2025
+# Fri Jun  6 09:30:40 2025
 
 ###########################################################]
 Map & Optimize Report
 
-# Tue May 20 10:06:55 2025
+# Fri Jun  6 09:30:40 2025
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -1523,10 +1525,10 @@ Writing Verilog Simulation files
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
 @N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 
 
-Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:19s; CPU Time elapsed 0h:00m:18s; Memory used current: 257MB peak: 267MB)
+Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:18s; CPU Time elapsed 0h:00m:18s; Memory used current: 257MB peak: 267MB)
 
 
-Finished Writing Netlists (Real Time elapsed 0h:00m:19s; CPU Time elapsed 0h:00m:19s; Memory used current: 257MB peak: 267MB)
+Finished Writing Netlists (Real Time elapsed 0h:00m:19s; CPU Time elapsed 0h:00m:18s; Memory used current: 257MB peak: 267MB)
 
 
 Start final timing analysis (Real Time elapsed 0h:00m:19s; CPU Time elapsed 0h:00m:19s; Memory used current: 252MB peak: 267MB)
@@ -1538,7 +1540,7 @@ Start final timing analysis (Real Time elapsed 0h:00m:19s; CPU Time elapsed 0h:0
 
 
 ##### START OF TIMING REPORT #####[
-# Timing report written on Tue May 20 10:07:15 2025
+# Timing report written on Fri Jun  6 09:31:00 2025
 #
 
 
@@ -1901,7 +1903,7 @@ Timing exceptions that could not be applied
 @W: MT447 :"c:/users/skaye/repos7/firmware/dminterface/ux1_ver2/designer/evalboardsandbox/synthesis.fdc":25:0:25:0|Timing constraint (through [get_pins { EvalSandbox_MSS_0.SYSRESET_POR.POWER_ON_RESET_N }]) (false path) was not applied to the design because none of the '-through' objects specified by the constraint exist in the design 
 None
 
-Finished final timing analysis (Real Time elapsed 0h:00m:20s; CPU Time elapsed 0h:00m:20s; Memory used current: 253MB peak: 267MB)
+Finished final timing analysis (Real Time elapsed 0h:00m:20s; CPU Time elapsed 0h:00m:19s; Memory used current: 253MB peak: 267MB)
 
 
 Finished timing report (Real Time elapsed 0h:00m:20s; CPU Time elapsed 0h:00m:20s; Memory used current: 253MB peak: 267MB)
@@ -1956,9 +1958,9 @@ Total number of LUTs after P&R:  2432 + 0 + 1080 + 36 = 3548;
 
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:21s; CPU Time elapsed 0h:00m:20s; Memory used current: 88MB peak: 267MB)
+At Mapper Exit (Real Time elapsed 0h:00m:20s; CPU Time elapsed 0h:00m:20s; Memory used current: 87MB peak: 267MB)
 
-Process took 0h:00m:21s realtime, 0h:00m:21s cputime
-# Tue May 20 10:07:17 2025
+Process took 0h:00m:21s realtime, 0h:00m:20s cputime
+# Fri Jun  6 09:31:02 2025
 
 ###########################################################]

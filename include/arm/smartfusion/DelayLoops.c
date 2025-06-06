@@ -19,9 +19,9 @@ extern "C" {
 
 	void delayus(const unsigned long microseconds)
 	{
-		unsigned long loops = ( (fclk_for_delay_loops * (unsigned long long)microseconds) / 1000000ULL ) + 1;
-
-		ArmDelayLoop(loops);
+          unsigned long loops = ( (fclk_for_delay_loops * (unsigned long long)microseconds) / 1000000ULL ) + 1;
+          
+          ArmDelayLoop(loops);
 	}
 
 	void delayms(const unsigned long milliseconds)

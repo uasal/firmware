@@ -64,6 +64,7 @@ struct BinaryUart : IUartParser
 	static const uint16_t RxCountInit = 0; 				///< Initial count for received bytes.
 	static const size_t PacketStartInit = 0;
 	static const size_t PacketLenInit = 0;
+        static const size_t PayloadLenInit = 0;
 	static const bool InPacketInit = false; 			///< Default in-packet status.
 	static const bool debugDefault = false;
 	static const char EmptyBufferChar = '\0'; 			///< Character to fill empty buffer space.
@@ -75,16 +76,17 @@ struct BinaryUart : IUartParser
     uint8_t RxBuffer[RxBufferLenBytes]; 				///< Buffer to store received characters.
     uint16_t RxCount;									///< Number of bytes currently in RxBuffer.
 
-	//~ IUart& Pinout;										///< UART interface for data input.
-	IPacket& Packet;									///< Packet structure for defining headers, footers, etc.
-    const BinaryCmd* Cmds;								///< Array of commands
-    size_t NumCmds;
-	BinaryUartCallbacks& Callbacks;
-    bool debug;
-    bool InPacket;										///< Whether a packet is currently being processed.
-	size_t PacketStart;
-    size_t PacketLen;
-	uint64_t SerialNum;									///< Serial number for validating received packets.
+  //~ IUart& Pinout;										///< UART interface for data input.
+  IPacket& Packet;									///< Packet structure for defining headers, footers, etc.
+  const BinaryCmd* Cmds;								///< Array of commands
+  size_t NumCmds;
+  BinaryUartCallbacks& Callbacks;
+  bool debug;
+  bool InPacket;										///< Whether a packet is currently being processed.
+  size_t PacketStart;
+  size_t PacketLen;
+  size_t PayloadLen;
+  uint64_t SerialNum;									///< Serial number for validating received packets.
 
     /**
      * @brief Constructs a BinaryUart object and initializes with given parameters.
@@ -111,6 +113,7 @@ struct BinaryUart : IUartParser
 		InPacket(InPacketInit),
 		PacketStart(PacketStartInit),
 		PacketLen(PacketLenInit),
+                PayloadLen(PayloadLenInit),
 		//~ Argument(argument),
 		SerialNum(serialnum)
 
@@ -139,6 +142,7 @@ struct BinaryUart : IUartParser
         RxCount = RxCountInit;
 		PacketStart = PacketStartInit;
 		PacketLen = PacketLenInit;
+                PayloadLen = PayloadLenInit;
 		InPacket = InPacketInit;
         memset(RxBuffer, EmptyBufferChar, RxBufferLenBytes);
 
@@ -153,6 +157,7 @@ struct BinaryUart : IUartParser
         RxCount = RxCountInit;
 		PacketStart = PacketStartInit;
 		PacketLen = PacketLenInit;
+                PayloadLen = PayloadLenInit;
 		InPacket = InPacketInit;
                 //memset(RxBuffer, EmptyBufferChar, RxBufferLenBytes);
 
@@ -174,6 +179,7 @@ struct BinaryUart : IUartParser
       uint32_t start=0;
       uint32_t end=0;
       uint32_t length=0;
+      bool     gotStart = false;
 
 	    //New char?
         if ( !(Pinout.dataready()) ) { return(false); }
@@ -190,17 +196,18 @@ struct BinaryUart : IUartParser
         ProcessByte(c);
         
         if (!InPacket) {
-          CheckPacketStart();
+          gotStart = CheckPacketStart();
+          if (gotStart)
+              PayloadLen = Packet.PayloadLen(RxBuffer, RxCount, PacketStart);
         }
         else {
-          start = DM->GetTimer;
-          const size_t payloadLen = Packet.PayloadLen(RxBuffer, RxCount, PacketStart);
-          if (!(RxCount < Packet.HeaderLen() + Packet.FooterLen() + payloadLen)) {
+          //start = DM->GetTimer;
+          if (!(RxCount < Packet.HeaderLen() + Packet.FooterLen() + PayloadLen)) {
             CheckPacketEnd();  // this returns if a packet was processed
           }
-          end = DM->GetTimer;
-          length = end - start;
-          TxBinaryPacket(CGraphPayloadTypeDMTelemetry, 0, &length, sizeof(uint32_t));
+          //end = DM->GetTimer;
+          //length = end - start;
+          //TxBinaryPacket(CGraphPayloadTypeDMTelemetry, 0, &length, sizeof(uint32_t));
         }
         //end = DM->GetTimer;
         //length = end - start;
@@ -238,7 +245,7 @@ struct BinaryUart : IUartParser
 	 * If a packet is detected, InPacket is set to true.
 	 *
      */
-	void CheckPacketStart()
+	bool CheckPacketStart()
 	{
 		//Packet Start?
 		if ( (!InPacket) && (RxCount >= Packet.HeaderLen()) )
@@ -247,8 +254,11 @@ struct BinaryUart : IUartParser
 			{
                           //	if (debug) { ::formatf("\n\nBinaryUart: Packet start detected! Buffering.\n\r"); }
                           InPacket = true;
+                          return(true);
 			}
+                        return(false);
 		}
+                return(false);
 	}
 
     /**
@@ -273,7 +283,7 @@ struct BinaryUart : IUartParser
                   return false;
 		}
 
-		const size_t payloadLen = Packet.PayloadLen(RxBuffer, RxCount, PacketStart);
+		//const size_t payloadLen = Packet.PayloadLen(RxBuffer, RxCount, PacketStart);
 
 		// Validate packet
 		if (Packet.IsValid(RxBuffer, RxCount, PacketStart, PacketEnd))
@@ -301,7 +311,7 @@ struct BinaryUart : IUartParser
                           // We already figured out the payload length, so we don't need to call Packet.PayloadLen
                           // to get it again.  Comment out and use simpler Cmds[i].Respons(...) below
                           //Cmds[i].Response(Cmds[i].Name, Params, Packet.PayloadLen(RxBuffer, RxCount, PacketStart), (void*)this);
-                          Cmds[ii].Response(Cmds[ii].Name, Params, payloadLen, (void*)this);
+                          Cmds[ii].Response(Cmds[ii].Name, Params, PayloadLen, (void*)this);
                           CmdFound = true;
                           Processed = true;
                         }

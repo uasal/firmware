@@ -2,7 +2,7 @@
 // Written by Synplify Pro 
 // Product Version "T-2022.09M-SP2-1"
 // Program "Synplify Pro", Mapper "map202209actsp2, Build 145R"
-// Tue May 20 10:07:13 2025
+// Fri Jun  6 09:30:58 2025
 //
 // Source file index table:
 // Object locations will have the form <file>:<line>
@@ -4978,7 +4978,7 @@ defparam Uart3FifoReset_RNIT71C_2.INIT=2'h1;
 // @42:296
   SLE \Uart0ClkDivider_i[7]  (
 	.Q(Uart0ClkDivider[7]),
-	.ADn(GND),
+	.ADn(VCC),
 	.ALn(shot_i_arst_i),
 	.CLK(FCCC_C0_0_GL0),
 	.D(RamDataIn[7]),
@@ -5002,7 +5002,7 @@ defparam Uart3FifoReset_RNIT71C_2.INIT=2'h1;
 // @42:296
   SLE \Uart0ClkDivider_i[5]  (
 	.Q(Uart0ClkDivider[5]),
-	.ADn(GND),
+	.ADn(VCC),
 	.ALn(shot_i_arst_i),
 	.CLK(FCCC_C0_0_GL0),
 	.D(RamDataIn[5]),
@@ -5050,7 +5050,7 @@ defparam Uart3FifoReset_RNIT71C_2.INIT=2'h1;
 // @42:296
   SLE \Uart0ClkDivider_i[1]  (
 	.Q(Uart0ClkDivider[1]),
-	.ADn(VCC),
+	.ADn(GND),
 	.ALn(shot_i_arst_i),
 	.CLK(FCCC_C0_0_GL0),
 	.D(RamDataIn[1]),
@@ -5062,7 +5062,7 @@ defparam Uart3FifoReset_RNIT71C_2.INIT=2'h1;
 // @42:296
   SLE \Uart0ClkDivider_i[0]  (
 	.Q(Uart0ClkDivider[0]),
-	.ADn(GND),
+	.ADn(VCC),
 	.ALn(shot_i_arst_i),
 	.CLK(FCCC_C0_0_GL0),
 	.D(RamDataIn[0]),

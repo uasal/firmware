@@ -148,9 +148,9 @@ extern "C"
 	//This code is to make "syscalls.c" replace vendor's "newlib_stubs.c" and make printf() and friends connect to a real serial port in our actual hardware! Only useful if we can compile our own code from makefile and replace vendor's "softconsole" version...
 	int stdio_hook_putc(int c) 
 	{ 
-		FPGAUartPinout0.putcqq(c); 
-		//FPGAUartPinoutUsb.putcqq(c);
-		return(c);
+          FPGAUartPinout0.putcqq(c); 
+          //FPGAUartPinoutUsb.putcqq(c);
+          return(c);
 	}
 
     void wooinit(void) __attribute__((constructor));
@@ -168,85 +168,56 @@ extern "C"
     }
 };
 
-bool Process()
-{
-    bool Bored = true;
-	
-    //	MonitorAdc.Process();
-	
-	//Enable this if we need to debug ascii and binary on the same uart (note: madness ensues!)
-	//~ {
-		//~ if (FPGAUartPinoutUsb.dataready())
-		//~ {
-			//~ Bored = false;
-			
-			//~ char c = FPGAUartPinoutUsb.getcqq();
-			
-			//~ UsbUartAscii.remoteputcqq(c);
-			//~ UsbUartBinary.remoteputcqq(c);
-		//~ }
-		//~ if (UsbUartAscii.remotedataready()) { FPGAUartPinoutUsb.putcqq(UsbUartAscii.remotegetcqq()); }
-		//~ if (UsbUartBinary.remotedataready()) { FPGAUartPinoutUsb.putcqq(UsbUartBinary.remotegetcqq()); }
-	//~ }
-	
-        //if (FpgaUartParser3.Process()) { Bored = false; }    
-    if (FpgaUartParser2.Process()) { Bored = false; }
-    //if (FpgaUartParser1.Process()) { Bored = false; }
-    if (FpgaUartParser0.Process()) { Bored = false; }
-	//if (DbgUartUsb.Process()) { Bored = false; }    
-    //if (DbgUart485_0.Process()) { Bored = false; }
-//    uint32_t dval = 0x23456789;
-//    uint32_t* DummyData;
-//    DummyData = &dval;
-//    FpgaUartParser0.TxBinaryPacket(CGraphPayloadTypeDMDac, 0, DummyData, sizeof(uint32_t));
-//    FPGAUartPinout0.putcqq('h'); 
-
-    return(Bored);
-}
-
-void ProcessAllUarts()
-{
-        //FpgaUartParser3.Process();
-	FpgaUartParser2.Process();
-	//FpgaUartParser1.Process();
-	//DbgUartUsb.Process();
-	//DbgUart485_0.Process();
-}
+//bool Process()
+//{
+//    bool Bored = true;
+//	
+//    //	MonitorAdc.Process();
+//	
+//	//Enable this if we need to debug ascii and binary on the same uart (note: madness ensues!)
+//	//~ {
+//		//~ if (FPGAUartPinoutUsb.dataready())
+//		//~ {
+//			//~ Bored = false;
+//			
+//			//~ char c = FPGAUartPinoutUsb.getcqq();
+//			
+//			//~ UsbUartAscii.remoteputcqq(c);
+//			//~ UsbUartBinary.remoteputcqq(c);
+//		//~ }
+//		//~ if (UsbUartAscii.remotedataready()) { FPGAUartPinoutUsb.putcqq(UsbUartAscii.remotegetcqq()); }
+//		//~ if (UsbUartBinary.remotedataready()) { FPGAUartPinoutUsb.putcqq(UsbUartBinary.remotegetcqq()); }
+//	//~ }
+//
+//    if (FpgaUartParser2.Process()) { Bored = false; }
+//    // Need this 1 us loop to keep things working
+//    if (Bored) {
+//      delayus(0);
+//    }
+//    // if (FpgaUartParser0.Process()) { Bored = false; }
+//
+//    return(Bored);
+//}
 
 /*==============================================================================
  * main function.
  */
 int main(int argc, char *argv[])
 {
-  /*--------------------------------------------------------------------------*
-     * Initiailize the GPIO                                                     *
-     *--------------------------------------------------------------------------*/
-//    MSS_GPIO_init();  // Need to call this before anything else for the GPIO
-//
-//    // connected to DMMain.vhd domachine to pause the state machine until the RAM can be
-//    // initialized to all zeros for all channels
-//    MSS_GPIO_config(MSS_GPIO_0, MSS_GPIO_OUTPUT_MODE);
-//    MSS_GPIO_set_output(MSS_GPIO_0, 0); // set output to 0 to hold the state machine until ram initialized
-//
-//    // Now initialize the ram
-//    // Initialization code
-//
-//    MSS_GPIO_set_output(MSS_GPIO_0, 1); // set output to 1 to let the state machine go
-
-//  formatf("\nOffset of StartMachine: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphDMHardwareInterface, StartMachine), 148UL);
+  bool Bored = true;
     // Now do forever loop to get communication data
+  // If we just do this in the forever loop, is it faster?
     while(1) {
-//      bool Bored = true;
-//
-//      if (FpgaUartParser1.Process()) {
-//        Bored = false;
-//      }
-//
-//      //give up our timeslice so as not to bog the system:
-//      if (Bored) {
-//        delayus(100);
-//      }
-      Process();
+      bool Bored = true;
+
+      if (FpgaUartParser2.Process()) {
+        Bored = false;
+      }
+      //give up our timeslice so as not to bog the system:
+      if (Bored) {
+        delayus(0);
+      }
+//      Process();
     }
     return(0);
 }

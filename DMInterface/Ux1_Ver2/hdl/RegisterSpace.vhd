@@ -217,7 +217,7 @@ architecture RegisterSpace of RegisterSpacePorts is
 
   -- Standard baud rates: 38400, 57600, 115200, 230400, 460800, 921600
 
-  signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400)  * 16.0)) - 1.0), 8));	--38.4k
+  signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(921600)  * 16.0)) - 1.0), 8));	--38.4k
   signal Uart1ClkDivider_i :std_logic_vector(7 downto 0)  := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));	--230k
   signal Uart2ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(921600) * 16.0)) - 1.0), 8));	--921k
   signal Uart3ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8)); --Ux2
@@ -299,7 +299,7 @@ begin
       StartMachine_i <= '0';
       timer <= 35;
 
-      Uart0ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400)  * 16.0)) - 1.0), 8));
+      Uart0ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(921600)  * 16.0)) - 1.0), 8));
       Uart1ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));
       Uart2ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(921600) * 16.0)) - 1.0), 8));	--"real fast"
       Uart3ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
