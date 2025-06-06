@@ -72,26 +72,26 @@ int8_t BinaryVersionCommand(const uint32_t Name, char const* Params, const size_
   return(ParamsLen);
 }
 
-int8_t BinaryDMDacCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
-{
-  uint32_t timeval=0;
-
-  timeval = DM->GetTimer;
-        
-  TxBinaryPacket(Argument, CGraphPayloadTypeDMDac, 0, &timeval, sizeof(uint32_t));
-  return(ParamsLen);
-}
+//int8_t BinaryDMDacCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
+//{
+//  uint32_t timeval=0;
+//
+//  timeval = DM->GetTimer;
+//        
+//  TxBinaryPacket(Argument, CGraphPayloadTypeDMDac, 0, &timeval, sizeof(uint32_t));
+//  return(ParamsLen);
+//}
 
 int8_t BinaryDMStartSMCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-  uint16_t started=1;
+  uint32_t started=1;
 
   if (DM) {
-    TxBinaryPacket(Argument, CGraphPayloadTypeDMStartSM, 0, &started, sizeof(uint16_t));
+    //TxBinaryPacket(Argument, CGraphPayloadTypeDMStartSM, 0, &started, sizeof(uint32_t));
     //    Version.SerialNum = DM->DeviceSerialNumber; 
     DM->StartMachine = 1; // There is something funny here
   }
-  TxBinaryPacket(Argument, CGraphPayloadTypeDMStartSM, 0, &started, sizeof(uint16_t));
+  TxBinaryPacket(Argument, CGraphPayloadTypeDMStartSM, 0, &started, sizeof(uint32_t));
   return(ParamsLen);
 }
   

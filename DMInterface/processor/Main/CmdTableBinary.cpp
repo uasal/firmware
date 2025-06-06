@@ -36,38 +36,38 @@
 #ifdef Ux1
 const BinaryCmd BinaryCmds[] = 
 {
+  	BinaryCmd ( 
+                CGraphPayloadTypeVersion, // 0x1001
+		"BinaryVersionCommand",
+		BinaryVersionCommand
+    ),
   	BinaryCmd (
-		CGraphPayloadTypeDMShortPixels,
+                CGraphPayloadTypeDMShortPixels, // 0x3001
 		"BinaryDMShortPixelsCommand",
 		BinaryDMShortPixelsCommand
     ),
 	BinaryCmd (
-		CGraphPayloadTypeVersion,
-		"BinaryVersionCommand",
-		BinaryVersionCommand
-    ),
-	BinaryCmd (
-		CGraphPayloadTypeDMTelemetry,
+                CGraphPayloadTypeDMTelemetry, // 0x3002
 		"BinaryDMTelemetryCommand",
 		BinaryDMTelemetryCommand
     ),
         BinaryCmd (
-                CGraphPayloadTypeDMDacConfig,
+                CGraphPayloadTypeDMDacConfig, // 0x3003
                 "BinaryDMDacConfigCommand",
                 BinaryDMDacConfigCommand
     ),
         BinaryCmd (
-                CGraphPayloadTypeDMStartSM,
+                CGraphPayloadTypeDMStartSM, // 0x3004
                 "BinaryDMStartSMCommand",
                 BinaryDMStartSMCommand
     ),
 	BinaryCmd (
-		CGraphPayloadTypeDMMappings,
+                CGraphPayloadTypeDMMappings, // 0x3005
 		"BinaryDMMappingCommand",
 		BinaryDMMappingCommand
     ),
 	BinaryCmd (
-		CGraphPayloadTypeDMDither,
+                CGraphPayloadTypeDMDither,  // 0x3006
 		"BinaryDMDitherCommand",
 		BinaryDMDitherCommand
     ),

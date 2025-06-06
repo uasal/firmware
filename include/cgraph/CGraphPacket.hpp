@@ -59,19 +59,19 @@ public:
 	CGraphPacket() { }
 	virtual ~CGraphPacket() { }
 	
-//	virtual bool FindPacketStart(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const override
-//	{
-//		for (size_t i = 0; i < (BufferLen - sizeof(uint32_t)); i++) { if (CGraphMagikPacketStartToken == *((const uint32_t*)&(Buffer[i]))) { Offset = i; return(true); } }
-//		return(false);
-//	}
+	virtual bool FindPacketStart(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const override
+	{
+		for (size_t i = 0; i < (BufferLen - sizeof(uint32_t)); i++) { if (CGraphMagikPacketStartToken == *((const uint32_t*)&(Buffer[i]))) { Offset = i; return(true); } }
+		return(false);
+	}
 
         // The start of the packet must be checked every ingested byte  
-        virtual bool FindPacketStart(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const override
-	{
-          size_t ii = (BufferLen - sizeof(uint32_t));
-          if (CGraphMagikPacketStartToken == *((const uint32_t*)&(Buffer[ii]))) { Offset = ii; return(true); }
-          return(false);
-	}
+//        virtual bool FindPacketStart(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const override
+//	{
+//          size_t ii = (BufferLen - sizeof(uint32_t));
+//          if (CGraphMagikPacketStartToken == *((const uint32_t*)&(Buffer[ii]))) { Offset = ii; return(true); }
+//          return(false);
+//	}
 
 //	virtual bool FindPacketEnd(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const override
 //	{
@@ -88,7 +88,7 @@ public:
 	}
 	
 	virtual size_t HeaderLen() const override { return(sizeof(CGraphPacketHeader)); }
-	virtual size_t FooterLen() const override { return(sizeof(CGraphPacketHeader)); }
+	virtual size_t FooterLen() const override { return(sizeof(CGraphPacketFooter)); }
 	virtual size_t PayloadOffset() const override { return(sizeof(CGraphPacketHeader)); }
 	virtual size_t MaxPayloadLength() const override { return(0xFFFFU); }
 	virtual bool IsBroadcastSerialNum(const uint8_t* Buffer, const size_t PacketStartPos, const size_t PacketEndPos) const override { return(false); }
@@ -189,15 +189,16 @@ struct CGraphHardFaultPayload
 
 static const uint16_t CGraphPayloadTypeFSMDacs = 0x2002U;
 static const uint16_t CGraphPayloadTypeFSMDacsDeprecated = 0x0002U; //Payload: 3 uint32's
-static const uint16_t CGraphPayloadTypeFSMDacsFloatingPoint = 0x2003U;
-static const uint16_t CGraphPayloadTypeFSMDacsFloatingPointDeprecated = 0x0003U; //Payload: 3 double-precision floats
-static const uint16_t CGraphPayloadTypeFSMAdcs = 0x2004U;
-static const uint16_t CGraphPayloadTypeFSMAdcsDeprecated = 0x0004U; //Payload: 3 AdcAcumulators
-static const uint16_t CGraphPayloadTypeFSMAdcsFloatingPoint = 0x2005U; 
-static const uint16_t CGraphPayloadTypeFSMAdcsFloatingPointDeprecated = 0x0005U; //Payload: 3 double-precision floats
-
+static const uint16_t CGraphPayloadTypeFSMAdcs = 0x2003U;
+static const uint16_t CGraphPayloadTypeFSMAdcsFloatingPoint = 0x2004U; 
+static const uint16_t CGraphPayloadTypeFSMDacsFloatingPoint = 0x2005U;
 static const uint16_t CGraphPayloadTypeFSMTelemetry = 0x2006U;
-static const uint16_t CGraphPayloadTypeFSMStatusDeprecated = 0x0006U;
+
+//static const uint16_t CGraphPayloadTypeFSMDacsFloatingPointDeprecated = 0x0003U; //Payload: 3 double-precision floats
+//static const uint16_t CGraphPayloadTypeFSMAdcsDeprecated = 0x0004U; //Payload: 3 AdcAcumulators
+//static const uint16_t CGraphPayloadTypeFSMAdcsFloatingPointDeprecated = 0x0005U; //Payload: 3 double-precision floats
+//static const uint16_t CGraphPayloadTypeFSMStatusDeprecated = 0x0006U;
+
 struct CGraphFSMTelemetryPayload
 {
 	double P1V2;
@@ -223,18 +224,19 @@ static const uint16_t DMMDacsPerControllerBoard = 4;
 static const uint16_t DMActuatorsPerDac = 40;
 static const uint16_t DMMaxActuators = DMActuatorsPerDac * DMMDacsPerControllerBoard * DMMaxControllerBoards;
 
-static const uint16_t CGraphPayloadTypeDMDac = 0x3002U;
-static const uint16_t CGraphPayloadTypeDMTelemetry = 0x3004U;
-static const uint16_t CGraphPayloadTypeDMStartSM = 0x3005U;
-static const uint16_t CGraphPayloadTypeDMHVSwitch = 0x3007U;
 
-static const uint16_t CGraphPayloadTypeDMVector = 0x3008U;
-static const uint16_t CGraphPayloadTypeDMDacConfig = 0x3009U;
-static const uint16_t CGraphPayloadTypeDMUart = 0x300AU;
-static const uint16_t CGraphPayloadTypeDMMappings = 0x300BU; //Payload: CGraphDMPixelPayloadHeader followed by one or more CGraphDMMappingPayload structs (num defined by packet payload length filed)
-static const uint16_t CGraphPayloadTypeDMShortPixels = 0x300CU; //Payload: CGraphDMPixelPayloadHeader followed by one or more 16b pixel values (num defined by packet payload length filed)
-static const uint16_t CGraphPayloadTypeDMDither = 0x300DU; //Payload: CGraphDMPixelPayloadHeader followed by one or more 8b dither values (num defined by packet payload length filed)[we reserve the right to be really tricky and bitpack multiple pixels per byte since dither will always be <8b / pix]
-static const uint16_t CGraphPayloadTypeDMLongPixels = 0x300EU; //Payload: CGraphDMPixelPayloadHeader followed by one or more 24b pixel values (num defined by packet payload length filed)- this is gonna cause some funky math & casts when parsing packet to ram...
+static const uint16_t CGraphPayloadTypeDMShortPixels = 0x3001U; //Payload: CGraphDMPixelPayloadHeader followed by one or more 16b pixel values (num defined by packet payload length filed)
+static const uint16_t CGraphPayloadTypeDMTelemetry = 0x3002U;
+static const uint16_t CGraphPayloadTypeDMDacConfig = 0x3003U;
+static const uint16_t CGraphPayloadTypeDMStartSM = 0x3004U;
+static const uint16_t CGraphPayloadTypeDMMappings = 0x3005U; //Payload: CGraphDMPixelPayloadHeader followed by one or more CGraphDMMappingPayload structs (num defined by packet payload length filed)
+static const uint16_t CGraphPayloadTypeDMDither = 0x3006U; //Payload: CGraphDMPixelPayloadHeader followed by one or more 8b dither values (num defined by packet payload length filed)[we reserve the right to be really tricky and bitpack multiple pixels per byte since dither will always be <8b / pix]
+
+//static const uint16_t CGraphPayloadTypeDMHVSwitch = 0x3007U;
+//static const uint16_t CGraphPayloadTypeDMVector = 0x3008U;
+//static const uint16_t CGraphPayloadTypeDMDac = 0x3002U;
+//static const uint16_t CGraphPayloadTypeDMUart = 0x300AU;
+//static const uint16_t CGraphPayloadTypeDMLongPixels = 0x300EU; //Payload: CGraphDMPixelPayloadHeader followed by one or more 24b pixel values (num defined by packet payload length filed)- this is gonna cause some funky math & casts when parsing packet to ram...
 
 struct CGraphDMTelemetryPayload
 {
