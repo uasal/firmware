@@ -150,6 +150,8 @@ struct CGraphDMHardwareInterface
 //  uint16_t SpiExtBusDataIn;
   //uint32_t reserved[217]; //if we counted correctly there's 48 4-byte registers preceeding this padding...
   //uint32_t DacSetpoints[DMMaxControllerBoards][DMMDacsPerControllerBoard][DMActuatorsPerDac];
+  uint32_t DacSetpointMappingIndex; //set this first to what mapping we want to change (can readback for debugging)(0...959)
+  uint32_t DacSetpointMappings; //then write to this to update mapping at that index (can readback for debugging)
   
   static const uint32_t DacFullScale;
   static const double DacDriverFullScaleOutputVoltage; //150 Volts, don't get your fingers near this thing!
