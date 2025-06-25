@@ -130,8 +130,9 @@ entity RegisterSpacePorts is
 
     ClkDacWrite : out std_logic_vector(15 downto 0);
     WriteClkDac : out std_logic;
-    ClkDacReadback : in std_logic_vector(15 downto 0)--;
-
+    ClkDacReadback : in std_logic_vector(15 downto 0);
+    
+    DacSetpointMappings	: out DacSetpointMappings_t--;
     );
 end RegisterSpacePorts;
 
@@ -207,6 +208,9 @@ architecture RegisterSpace of RegisterSpacePorts is
   constant MachineAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(148, MAX_ADDRESS_BITS));
   constant TimerAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(152, MAX_ADDRESS_BITS));
   
+  constant DacSetpointMappingIndexAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(156, MAX_ADDRESS_BITS));
+  constant DacSetpointMappingAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(160, MAX_ADDRESS_BITS));
+  
   --! 13 bits of address space (8192b) required for this!
   --~ constant DacSetpointsAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(1024, MAX_ADDRESS_BITS));
 
@@ -258,6 +262,8 @@ architecture RegisterSpace of RegisterSpacePorts is
 
   --~ variable DacSetpoints : DMDacSetpointRam;
   --~ shared variable DacSetpoints_i : DMDacSetpointRam;
+  
+  signal DacSetpointMappingIndex : integer range (DMMaxActuators - 1) downto 0;
 
 begin
   
@@ -303,6 +309,10 @@ begin
       Uart1ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));
       Uart2ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(921600) * 16.0)) - 1.0), 8));	--"real fast"
       Uart3ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
+      
+      DacSetpointMappingIndex <= 0;
+      
+      --~ DacSetpointMappings<= (others => (others => '0'));
 
 --      MonitorAdcChannelReadIndex_i <= "00000";
       
@@ -502,6 +512,12 @@ begin
                 DataOut(30) <= '0';
                 DataOut(31) <= '0';
                 --~ DataOut(31 downto 23) <= "000000000";
+                
+              when DacSetpointMappingIndexAddr =>
+                DataOut <= std_logic_vector(to_unsigned(DacSetpointMappingIndex, 32));
+                
+              when DacSetpointMappingAddr =>
+                DataOut <= std_logic_vector(to_unsigned(DacSetpointMappings(DacSetpointMappingIndex), 32));
 										
               when others =>
                 --~ DataOut <= x"BAADC0DE";
@@ -627,6 +643,13 @@ begin
 --                nFaultsClr_i <= DataIn(29);
                 --~ <= DataIn(30);
                 --~ <= DataIn(31);
+
+              when DacSetpointMappingIndexAddr =>
+                DacSetpointMappingIndex <= conv_integer(DataIn);
+
+              when DacSetpointMappingAddr =>
+                DacSetpointMappings(DacSetpointMappingIndex) <= conv_integer(DataIn);
+
 				
               when others => 
             end case;

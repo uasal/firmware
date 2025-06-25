@@ -1,5 +1,5 @@
 probe \
-    -desdir {C:\Users\SKaye\repos7\firmware\DMInterface\Ux1_Ver2\designer\EvalBoardSandbox} \
+    -desdir {/home/summer/projects/CGraph/firmware/DMInterface/Ux1_Ver2/designer/EvalBoardSandbox} \
     -design EvalBoardSandbox \
     -fam SmartFusion2 \
     -die PA4M2500_N \

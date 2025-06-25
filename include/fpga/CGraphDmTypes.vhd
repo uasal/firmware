@@ -43,6 +43,8 @@ package CGraphDMTypes is
 
 	type DMProtoDacSetpointRegisters is array(0 to DMMaxControllerBoards - 1) of std_logic_vector(DMSetpointMSB downto 0);
 	
+	type DacSetpointMappings_t is array (0 to DMMaxActuators - 1) of integer range (DMMaxActuators - 1) downto 0;
+
 	--~ entity ram_singleport_noreg is
 	--~ port (
 		--~ d : in std_logic_vector(7 downto 0);

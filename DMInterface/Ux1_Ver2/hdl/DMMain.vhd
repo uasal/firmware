@@ -382,7 +382,9 @@ architecture DMMain of DMMainPorts is
 
     ClkDacWrite : out std_logic_vector(15 downto 0);
     WriteClkDac : out std_logic;
-    ClkDacReadback : in std_logic_vector(15 downto 0)--;
+    ClkDacReadback : in std_logic_vector(15 downto 0);
+    
+    DacSetpointMappings	: out DacSetpointMappings_t--;
 	
 	--~ DacSetpoints : out DMDacSetpointRam--;	
 	--~ DacChannelReadIndex : in std_logic_vector(5 downto 0);
@@ -578,7 +580,9 @@ architecture DMMain of DMMainPorts is
 	signal DacSetpointReadAddressChannel : integer range (DMActuatorsPerDac - 1) downto 0;
 	signal DacSetpointReadAddress : integer range (DMMaxActuators - 1) downto 0;
 	signal DacSetpointWriteAddress : integer range (DMMaxActuators - 1) downto 0;
-        signal DacSetpointWriteAck : std_logic;
+  signal DacSetpointWriteAck : std_logic;
+        
+	shared variable DacSetpointMappings	: DacSetpointMappings_t;
 	
 	signal DacSetpointToWriteToRam : std_logic_vector(DMSetpointMSB downto 0);
 	signal DacASetpointToWrite : std_logic_vector(DMSetpointMSB downto 0);
@@ -772,7 +776,7 @@ begin
     );
 	
 	-- n = (z * numy * numx) + (y * numx) + x
-  DacSetpointReadAddress <= (DacSetpointReadAddressController * DMMDacsPerControllerBoard * DMActuatorsPerDac) + (DacSetpointReadAddressDac * DMActuatorsPerDac) + DacSetpointReadAddressChannel;
+  DacSetpointReadAddress <= DacSetpointMappings((DacSetpointReadAddressController * DMMDacsPerControllerBoard * DMActuatorsPerDac) + (DacSetpointReadAddressDac * DMActuatorsPerDac) + DacSetpointReadAddressChannel);
 
   -- Register space is still on the original rambus
   RegisterSpaceDataToWrite <= RamDataIn;
