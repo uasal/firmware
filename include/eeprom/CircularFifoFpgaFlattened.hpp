@@ -4,12 +4,13 @@
 class CircularFifoFlattened
 {
 public:
-    CircularFifoFlattened(volatile uint8_t const* data, volatile uint32_t const* readoffset, volatile uint32_t const* writeoffset, const size_t len) 
+    CircularFifoFlattened(volatile uint8_t const* data, volatile uint32_t const* readoffset, volatile uint32_t const* writeoffset, const size_t len, volatile uint32_t const* popregister) 
 		: 
 			Data(data), 
 			ReadOffset(readoffset),
 			WriteOffset(Writeoffset),
-			Len(len)
+			Len(len),
+			PopRegister(popregister)
 		{}
 		
     virtual ~CircularFifoFlattened() {}
@@ -36,10 +37,9 @@ public:
 		if (offset >= d) { return(0); }
 		
 		//Ok, enough error checking, let's do something useful...
-		if (w > r) { return(Data[r + offset]); }
-		else { return(); }
-
-		return(0);
+		size_t pos = r + offset;
+		if (pos >= Len) { pos -= Len; }		
+		return(Data[pos]);
 	}
 
 private:
@@ -47,9 +47,10 @@ private:
 	volatile uint32_t const* ReadOffset;
 	volatile uint32_t const* WriteOffset;
 	const size_t Len;
+	volatile uint32_t const* PopRegister;
 };
 
-size_t CircularFifoFlattened::depth() const
+size_t CircularFifoFlattened::Depth() const
 {
 	if ( (nullptr == WriteOffset) || (nullptr == ReadOffset) ) { return(0); }
 	
@@ -61,6 +62,12 @@ size_t CircularFifoFlattened::depth() const
 	long d = w - r;
 	if (d < 0) { d += Len; }
 	return((size_t)d);
+}
+
+void CircularFifoFlattened::Pop(const size_t LastReadAddrToPop)
+{
+	if ( (nullptr == PopRegister)
+	*PopRegister = LastReadAddrToPop;
 }
 
 //EOF

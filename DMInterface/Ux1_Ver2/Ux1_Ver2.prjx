@@ -1728,7 +1728,7 @@ SIZE="1697"
 ENDFILE
 VALUE "<project>/component/work/EvalBoardSandbox/EvalBoardSandbox.cxf,actgen_cxf"
 STATE="utd"
-TIME="1745854769"
+TIME="1750886534"
 SIZE="9737"
 ENDFILE
 VALUE "<project>/component/work/EvalBoardSandbox/EvalBoardSandbox.v,hdl"
@@ -2116,8 +2116,8 @@ SIZE="252"
 ENDFILE
 VALUE "<project>/synthesis/EvalBoardSandbox.vm,syn_vm"
 STATE="utd"
-TIME="1749594089"
-SIZE="1292329"
+TIME="1750887418"
+SIZE="1382017"
 ENDFILE
 VALUE "<project>/synthesis/EvalBoardSandbox_syn.prj,prj"
 STATE="utd"
@@ -2943,6 +2943,9 @@ VALUE "<project>/synthesis/EvalBoardSandbox.vm,syn_vm"
 VALUE "<project>/synthesis/EvalBoardSandbox.v,syn_hdl"
 ENDUsed_File_List
 ENDLIST
+ENDLIST
+LIST synthesis_implementations
+VALUE "synthesis"
 ENDLIST
 ENDLIST
 LIST "EvalSandbox_MSS::work"
@@ -3826,8 +3829,8 @@ NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
 LOCATION="/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/bin/synplify_pro"
-PARAM=""
-BATCH=0
+PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
+BATCH=1
 LICENSE=""
 IS32BIT="1"
 EndProfile
@@ -5145,8 +5148,10 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
+Reports;Reports;0
+ReportsCurrentItem;Place and Route:EvalBoardSandbox_layout_log.log
 StartPage;StartPage;0
-ACTIVEVIEW;StartPage
+ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","${CGRAPH_FIRMWARE}/include/fpga/ads1258.vhd","FALSE","FALSE"

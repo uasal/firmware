@@ -77,6 +77,7 @@ struct BinaryUart : IUartParser
     size_t PacketEndPos = 0; 								///< Position of the detected packet end.
 
     //~ IUart& Pinout;										///< UART interface for data input.
+	CircularFifoFlattened& Data;
     IPacket& Packet;									///< Packet structure for defining headers, footers, etc.
     const BinaryCmd* Cmds;								///< Array of commands
     size_t NumCmds;
@@ -89,7 +90,7 @@ struct BinaryUart : IUartParser
     size_t HeaderLen;
     size_t FooterLen;
     uint64_t SerialNum;									///< Serial number for validating received packets.
-	uint32_t LastUartDataLen;
+	uint32_t LastDataLen;
 	uint32_t PacketSearchedPos;
 	
     /**
@@ -103,9 +104,10 @@ struct BinaryUart : IUartParser
      * @param verbose   Enable or disable verbose debug mode.
      * @param serialnum Optional initial serial number, defaulting to InvalidSerialNumber.
      */
-    BinaryUart(volatile uint8_t const* UartData, volatile uint32_t const* UartDataLen, struct IPacket& packet, const BinaryCmd* cmds, const size_t numcmds, struct BinaryUartCallbacks& callbacks, const bool verbose = true, const uint64_t serialnum = InvalidSerialNumber)
+    BinaryUart(CircularFifoFlattened& data, struct IPacket& packet, const BinaryCmd* cmds, const size_t numcmds, struct BinaryUartCallbacks& callbacks, const bool verbose = true, const uint64_t serialnum = InvalidSerialNumber)
         :
         //~ Pinout(pinout),
+		Data(data),
         Packet(packet),
         Cmds(cmds),
         NumCmds(numcmds),
@@ -120,7 +122,7 @@ struct BinaryUart : IUartParser
         FooterLen(FooterLenInit),
         //~ Argument(argument),
         SerialNum(serialnum),
-		LastUartDataLen(0),
+		LastDataLen(0),
 		PacketSearchedPos(0),
 		
     {
@@ -152,7 +154,7 @@ struct BinaryUart : IUartParser
         HeaderLen = HeaderLenInit;
         FooterLen = FooterLenInit;
         InPacket = InPacketInit;
-		LastUartDataLen = 0;
+		LastDataLen = 0;
 		PacketSearchedPos = 0;
         memset(RxBuffer, EmptyBufferChar, RxBufferLenBytes);
 
@@ -174,7 +176,7 @@ struct BinaryUart : IUartParser
         HeaderLen = HeaderLenInit;
         FooterLen = FooterLenInit;
         InPacket = InPacketInit;
-		LastUartDataLen = 0;
+		LastDataLen = 0;
 		PacketSearchedPos = 0;
         
         //memset(RxBuffer, EmptyBufferChar, RxBufferLenBytes);
@@ -194,235 +196,135 @@ struct BinaryUart : IUartParser
      */
     bool Process() override
     {
-        //Of note: the UartDataLen should only grow as we process, since there is no other consumer removing bytes from the buffer, and we're not going to remove any until it overflows or we find the end of a packet.
+		bool Processed = false;
+
+        //Of note: the DataLen should only grow as we process, since there is no other consumer removing bytes from the buffer, and we're not going to remove any until it overflows or we find the end of a packet.
 		
         //New char?
-		if (LastUartDataLen == UartDataLen) { return(false); }
-		int32_t NewDataLen = UartDataLen - LastUartDataLen;
+		size_t DataLen = Data.Depth();
+		if (LastDataLen == DataLen) { return(false); }
+		int32_t NewDataLen = DataLen - LastDataLen;
 		if (NewDataLen < 0) { NewDataLen = 0; }
-		LastUartDataLen = UartDataLen;
-		if (0 == LastUartDataLen) { return(false); }
-		
-		//~ //Packet Start?
-		//~ if (!InPacket)
-        //~ {
-			//~ //Need at least a header's worth of data...
-            //~ if (LastUartDataLen >= Packet.HeaderLen())
-			//~ {
-				//~ //Where do we start searching for the header?
-				//~ int32_t HeaderSearchStartPos = LastUartDataLen - NewDataLen;
-				//~ HeaderSearchStartPos -= Packet.HeaderLen();
-				//~ if (HeaderSearchStartPos < 0) { HeaderSearchStartPos = 0; }
+		LastDataLen = DataLen;
+		if (0 == LastDataLen) { return(false); }
 				
-				//~ //We only ever check the very end of the buffer for the packet start, since we've already checked anything previous as new data came in
-				//~ if (Packet.FindPacketStartPos((UartData + HeaderSearchStartPos), LastUartDataLen, PacketStartPos))
-				//~ {
-					//~ //	if (debug) { ::formatf("\n\nBinaryUart: Packet start detected! Buffering.\n\r"); }
-					//~ InPacket = true;
-				//~ }
-			//~ }
-        //~ }
-		
 		//Packet End?? We have nothing to do until we have the end of a packet!
 		//Need at least a Footer's worth of data...
-		if (LastUartDataLen >= Packet.FooterLen())
+		if (LastDataLen >= Packet.FooterLen())
 		{
 			//Where do we start searching for the Footer?
-			int32_t FooterSearchStartPos = LastUartDataLen - NewDataLen;
+			int32_t FooterSearchStartPos = LastDataLen - NewDataLen;
 			FooterSearchStartPos -= Packet.FooterLen(); //If we just got the final byte(s) of the footer, we need to look behind in the buffer from the start of the new data to actually find the footer!
 			if (FooterSearchStartPos < 0) { FooterSearchStartPos = 0; } //But that could underrun the buffer so we truncate...
 			
 			//Did we get it??
-			if (Packet.FindPacketEndPos(UartData, FooterSearchStartPos, LastUartDataLen, PacketEndPos))
+			if (Packet.FindPacketEndPos(UartData, FooterSearchStartPos, LastDataLen, PacketEndPos))
 			{
 				//Oh, things just got interesting!
 				
 				//	if (debug) { ::formatf("\n\nBinaryUart: Packet end detected! Searching for start...\n\r"); }
 				//~ InPacket = true;
 				
-				if (Packet.FindPacketStartPos(UartData, LastUartDataLen, PacketStartPos))
+				if (Packet.FindPacketStartPos(UartData, LastDataLen, PacketStartPos))
 				{
 					//Oh, now things just got really really interesting!!
+					PayloadLen = Packet.PayloadLen(RxBuffer, RxCount, PacketStartPos);
+					HeaderLen = Packet.HeaderLen();
+					FooterLen = Packet.FooterLen();
+					
+					// Validate packet
+					if (Packet.IsValid(RxBuffer, RxCount, PacketStartPos, PacketEndPos))
+					{
+						// Confirm that the serial number matches or is a broadcast
+						if ( (SerialNum == InvalidSerialNumber) || (Packet.IsBroadcastSerialNum(RxBuffer, PacketStartPos, PacketEndPos)) || (SerialNum == Packet.SerialNum(RxBuffer, PacketStartPos, PacketEndPos)) )
+						{
+							// Just look at each command, and exectute it if the input line matches.
+							bool CmdFound = false;
+
+							// Search for a matching command in the packet
+							// Inefficient to go through whole list of commands
+							// Idea: last nibble or byte (depending on number of commands) corresponds to position of command
+							// and can be used as index to Cmds[i].Response(...)
+							// This only happens once for each full packet, so might not be much time savings
+							//for (size_t i = 0; i < NumCmds; i++)
+							//{
+							size_t ii = Packet.PayloadType(RxBuffer, RxCount, PacketStartPos) & 0x0F;
+							// Check if command in buffer matches the defined command name
+							if (Packet.DoesPayloadTypeMatch(RxBuffer, RxCount, PacketStartPos, PacketEndPos, Cmds[ii].Name))
+							{
+								//strip the part of the line with the arguments to this command (chars following command) for compatibility with the  parsing code, the "params" officially start with the s/n
+								//const char* Params = reinterpret_cast<char*>(&(RxBuffer[PacketStartPos + Packet.PayloadOffset()]));
+								const char* Params = reinterpret_cast<char*>(&(RxBuffer[PacketStartPos + HeaderLen]));
+								// Execute the command's response function
+								// We already figured out the payload length, so we don't need to call Packet.PayloadLen
+								// to get it again.  Comment out and use simpler Cmds[i].Respons(...) below
+								//Cmds[i].Response(Cmds[i].Name, Params, Packet.PayloadLen(RxBuffer, RxCount, PacketStartPos), (void*)this);
+								Cmds[ii].Response(Cmds[ii].Name, Params, PayloadLen, (void*)this);
+								CmdFound = true;
+								Processed = true;
+							}
+							//}
+
+							// If no command was found, trigger the unhandled packet callback
+							if (!CmdFound)
+							{
+								//~ if (debug) { ::formatf("\n\nBinaryUart: Unmatched command 0x%.8lX!\n", PacketHeader->PayloadTypeToken); }
+								if (debug)
+								{
+									::formatf("\n\nBinaryUart: Unmatched command 0x%.8lX! NumCmds: %lu\n", Packet.PayloadType(RxBuffer, PacketStartPos, PacketEndPos), (unsigned long)NumCmds);
+								}
+
+								Callbacks.UnHandledPacket(reinterpret_cast<IPacket*>(&RxBuffer[PacketStartPos]), PacketEndPos - PacketStartPos);
+							}
+							else
+							{
+								if (debug)
+								{
+									//~ ::formatf("\n\nBinaryUart: Got Packet! \n");
+									//~ PacketHeader->formatf();
+									//~ ::formatf(" <");
+									//~ for (size_t k = PacketStartPos; k < PacketEndPos; k++)
+									//~ {
+									//~ ::formatf(":%0.2X", RxBuffer[k]);
+									//~ }
+									//~ ::formatf(">\n\n\n");
+								}
+							}
+						}
+						else
+							// If serial number does not match, packet is unhandled
+						{
+							if (debug)
+							{
+								::formatf("\n\nBinaryUart: Packet received, but SerialNumber comparison failed (expected: 0x%.8lX; got: 0x%.8lX).\n\r", SerialNum, Packet.SerialNum(RxBuffer, PacketStartPos, PacketEndPos));
+							}
+
+							Callbacks.UnHandledPacket(reinterpret_cast<IPacket*>(&RxBuffer[PacketStartPos]), PacketEndPos - PacketStartPos);
+						}
+
+						// Notify that every packet is processed, even if unmatched
+						Callbacks.EveryPacket(reinterpret_cast<IPacket*>(&RxBuffer[PacketStartPos]), PacketEndPos - PacketStartPos);
+						
+						//Ok, now we have to figure out how to remove the packet from the buffer...
+						Data.Pop(PacketEndPos);
+				        //~ InitFast(SerialNum);
+					}
+					else
+					// If packet is invalid, trigger the invalid packet callback
+					{
+						if (debug)
+						{
+							::formatf("\n\nBinaryUart: Packet received, but invalid.\n\r");
+						}
+
+						Callbacks.InvalidPacket(reinterpret_cast<uint8_t*>(RxBuffer), RxCount);
+					}
+
 				}
 			}
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-        
-		//Packet End?
-		if (InPacket)
-        {
-            if (!(RxCount < HeaderLen + FooterLen + PayloadLen))
-            {
-                CheckPacketEndPos();  // this returns if a packet was processed
-        
-
-            if (gotEnd)
-            {
-                PayloadLen = Packet.PayloadLen(RxBuffer, RxCount, PacketStartPos);
-                HeaderLen = Packet.HeaderLen();
-                FooterLen = Packet.FooterLen();
-            }
-        				//end = DM->GetTimer;
-                //length = end - start;
-                //TxBinaryPacket(CGraphPayloadTypeDMTelemetry, 0, &length, sizeof(uint32_t));
-            }
-        }
-        //end = DM->GetTimer;
-        //length = end - start;
-        //TxBinaryPacket(CGraphPayloadTypeDMTelemetry, 0, &length, sizeof(uint32_t));
-
         return(true); //We just want to know if there's chars in the buffer to put threads to sleep or not...
-    }
-
-    /**
-     * @brief Checks if a complete packet (with both header and footer) is present in the buffer.
-     *
-     * If a packet end is detected, verifies its validity and processes it. Handles incomplete
-     * or corrupted packets, and clears the buffer appropriately after processing.
-     *
-     * @return bool Returns true if a packet was successfully processed, false otherwise.
-     */
-    bool CheckPacketEndPos()
-    {
-        uint32_t start=0;
-        uint32_t end=0;
-        uint32_t length=0;
-        PacketEndPos = 0;
-        bool Processed = false;
-
-        // Look for the packet footer within the buffer, exit if no valid footer found yet
-        // This is wasteful, we really only need to look at the 4 newest bytes every time...
-        if (!Packet.FindPacketEndPos(RxBuffer, RxCount, PacketEndPos))
-        {
-            //if (debug) { ::formatf("\n\nBinaryUart: Still waiting for packet end...\n\r"); }
-            //Callbacks.InvalidPacket(reinterpret_cast<uint8_t*>(RxBuffer), RxCount);
-            //Init(SerialNum);
-            return false;
-        }
-
-        //const size_t payloadLen = Packet.PayloadLen(RxBuffer, RxCount, PacketStartPos);
-
-
-        // Validate packet
-        if (Packet.IsValid(RxBuffer, RxCount, PacketStartPos, PacketEndPos))
-        {
-            // Confirm that the serial number matches or is a broadcast
-            if ( (SerialNum == InvalidSerialNumber) || (Packet.IsBroadcastSerialNum(RxBuffer, PacketStartPos, PacketEndPos)) || (SerialNum == Packet.SerialNum(RxBuffer, PacketStartPos, PacketEndPos)) )
-            {
-                // Just look at each command, and exectute it if the input line matches.
-                bool CmdFound = false;
-
-                // Search for a matching command in the packet
-                // Inefficient to go through whole list of commands
-                // Idea: last nibble or byte (depending on number of commands) corresponds to position of command
-                // and can be used as index to Cmds[i].Response(...)
-                // This only happens once for each full packet, so might not be much time savings
-                //for (size_t i = 0; i < NumCmds; i++)
-                //{
-                size_t ii = Packet.PayloadType(RxBuffer, RxCount, PacketStartPos) & 0x0F;
-                // Check if command in buffer matches the defined command name
-                if (Packet.DoesPayloadTypeMatch(RxBuffer, RxCount, PacketStartPos, PacketEndPos, Cmds[ii].Name))
-                {
-                    //strip the part of the line with the arguments to this command (chars following command) for compatibility with the  parsing code, the "params" officially start with the s/n
-                    //const char* Params = reinterpret_cast<char*>(&(RxBuffer[PacketStartPos + Packet.PayloadOffset()]));
-                    const char* Params = reinterpret_cast<char*>(&(RxBuffer[PacketStartPos + HeaderLen]));
-                    // Execute the command's response function
-                    // We already figured out the payload length, so we don't need to call Packet.PayloadLen
-                    // to get it again.  Comment out and use simpler Cmds[i].Respons(...) below
-                    //Cmds[i].Response(Cmds[i].Name, Params, Packet.PayloadLen(RxBuffer, RxCount, PacketStartPos), (void*)this);
-                    Cmds[ii].Response(Cmds[ii].Name, Params, PayloadLen, (void*)this);
-                    CmdFound = true;
-                    Processed = true;
-                }
-                //}
-
-                // If no command was found, trigger the unhandled packet callback
-                if (!CmdFound)
-                {
-                    //~ if (debug) { ::formatf("\n\nBinaryUart: Unmatched command 0x%.8lX!\n", PacketHeader->PayloadTypeToken); }
-                    if (debug)
-                    {
-                        ::formatf("\n\nBinaryUart: Unmatched command 0x%.8lX! NumCmds: %lu\n", Packet.PayloadType(RxBuffer, PacketStartPos, PacketEndPos), (unsigned long)NumCmds);
-                    }
-
-                    Callbacks.UnHandledPacket(reinterpret_cast<IPacket*>(&RxBuffer[PacketStartPos]), PacketEndPos - PacketStartPos);
-                }
-                else
-                {
-                    if (debug)
-                    {
-                        //~ ::formatf("\n\nBinaryUart: Got Packet! \n");
-                        //~ PacketHeader->formatf();
-                        //~ ::formatf(" <");
-                        //~ for (size_t k = PacketStartPos; k < PacketEndPos; k++)
-                        //~ {
-                        //~ ::formatf(":%0.2X", RxBuffer[k]);
-                        //~ }
-                        //~ ::formatf(">\n\n\n");
-                    }
-                }
-            }
-            else
-                // If serial number does not match, packet is unhandled
-            {
-                if (debug)
-                {
-                    ::formatf("\n\nBinaryUart: Packet received, but SerialNumber comparison failed (expected: 0x%.8lX; got: 0x%.8lX).\n\r", SerialNum, Packet.SerialNum(RxBuffer, PacketStartPos, PacketEndPos));
-                }
-
-                Callbacks.UnHandledPacket(reinterpret_cast<IPacket*>(&RxBuffer[PacketStartPos]), PacketEndPos - PacketStartPos);
-            }
-
-            // Notify that every packet is processed, even if unmatched
-            Callbacks.EveryPacket(reinterpret_cast<IPacket*>(&RxBuffer[PacketStartPos]), PacketEndPos - PacketStartPos);
-        }
-        else
-            // If packet is invalid, trigger the invalid packet callback
-        {
-            if (debug)
-            {
-                ::formatf("\n\nBinaryUart: Packet received, but invalid.\n\r");
-            }
-
-            Callbacks.InvalidPacket(reinterpret_cast<uint8_t*>(RxBuffer), RxCount);
-        }
-
-        // Reset InPacket flag after processing, ready for new packet
-        InPacket = false;
-
-        // Clear processed bytes from the buffer, preserving any unprocessed data
-        //if (RxCount > (PacketEndPos + 4) )
-        //{
-        //	size_t pos = 0;
-        //	size_t clr = 0;
-        //	// Shift unprocessed data to the start
-        //	for (; pos < (RxCount - (PacketEndPos + 4)); pos++)
-        //	{
-        //		RxBuffer[pos] = RxBuffer[(PacketEndPos + 4) + pos];
-        //	}
-        //	// Clear remaining buffer space
-        //	for (clr = pos; clr < RxCount; clr++)
-        //	{
-        //		RxBuffer[clr] = 0;
-        //	}
-        //	// Update RxCount to new length
-        //	RxCount = pos;
-        //}
-        //else
-        //// Reset if no unprocessed data remains
-        //{
-        InitFast(SerialNum);
-        //}
-
-        // Return whether a packet was processed
-        return(Processed);
     }
 
     /**
