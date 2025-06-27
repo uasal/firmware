@@ -47,19 +47,19 @@ private:
 template<size_t Size>
 void CircularFifoFpgaEmulator<uint8_t, Size>::flush()
 {
-	_tail = 0);
-	_head = 0);
+	_tail = 0;
+	_head = 0;
 }
 
 template<size_t Size>
 bool CircularFifoFpgaEmulator<uint8_t, Size>::push(const uint8_t& item)
 {
-    const auto current_tail = _tail.load(std::memory_order_relaxed);
+    const auto current_tail = _tail;
     const auto next_tail = increment(current_tail);
-    if(next_tail != _head.load(std::memory_order_acquire))
+    if(next_tail != _head)
     {
         _array[current_tail] = item;
-        _tail = next_tail, std::memory_order_release);
+        _tail = next_tail;
 		
 		//~ size_t t = _tail.load(std::memory_order_seq_cst);
 		//~ size_t h = _head.load(std::memory_order_seq_cst);
@@ -81,12 +81,12 @@ bool CircularFifoFpgaEmulator<uint8_t, Size>::pop(uint8_t& item)
 	//~ size_t h = _head.load(std::memory_order_seq_cst);
 	//~ printf("pop(%p): t:%zu, h:%zu, l:%zu.\n", this, t, h, t-h);
 
-    const auto current_head = _head.load(std::memory_order_relaxed);
-    if(current_head == _tail.load(std::memory_order_acquire))
+    const auto current_head = _head;
+    if(current_head == _tail)
         return false; // empty queue
 
     item = _array[current_head];
-    _head = increment(current_head), std::memory_order_release);
+    _head = increment(current_head);
     return true;
 }
 
@@ -94,7 +94,7 @@ template<size_t Size>
 bool CircularFifoFpgaEmulator<uint8_t, Size>::wasEmpty() const
 {
     // snapshot with acceptance of that this comparison operation is not atomic
-    return (_head.load() == _tail.load());
+    return (_head == _tail);
 }
 
 
@@ -102,7 +102,7 @@ bool CircularFifoFpgaEmulator<uint8_t, Size>::wasEmpty() const
 template<size_t Size>
 bool CircularFifoFpgaEmulator<uint8_t, Size>::wasFull() const
 {
-    const auto next_tail = increment(_tail.load()); // aquire, we dont know who call
+    const auto next_tail = increment(_tail); // aquire, we dont know who call
     return (next_tail == _head);
 }
 
@@ -110,6 +110,12 @@ template<size_t Size>
 size_t CircularFifoFpgaEmulator<uint8_t, Size>::increment(size_t idx) const
 {
     return (idx + 1) % Capacity;
+}
+
+template<size_t Size>
+size_t CircularFifoFpgaEmulator<uint8_t, Size>::increment(size_t idx, size_t inc_len) const
+{
+    return (idx + inc_len) % Capacity;
 }
 
 template<size_t Size>
@@ -128,5 +134,11 @@ size_t CircularFifoFpgaEmulator<uint8_t, Size>::depth() const
 template<size_t Size>
 void PopMany(const size_t PopToPos)
 {
-	
+	_head = PopToPos;
+}
+
+template<size_t Size>
+void PushMany(uint8_t const* PushData, const size_t PushLen)
+{
+	for(size_t i = 0; i < PushLen; i++) { push(PushData[i]); )
 }
