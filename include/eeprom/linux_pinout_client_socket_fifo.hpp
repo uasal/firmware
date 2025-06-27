@@ -49,7 +49,7 @@
 
 #include "format/formatf.h"
 
-#include "CircularFifo.hpp"
+#include "CircularFifoFpgaEmulator.hpp"
 
 #define HOST_NAME_SIZE      255
 

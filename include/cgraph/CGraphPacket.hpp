@@ -59,7 +59,7 @@ public:
 	CGraphPacket() { }
 	virtual ~CGraphPacket() { }
 	
-	virtual bool FindPacketStart(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const override
+	virtual bool FindPacketStartPos(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const override
 	{
 		for (size_t i = 0; i < (BufferLen - sizeof(uint32_t)); i++) { if (CGraphMagikPacketStartToken == *((const uint32_t*)&(Buffer[i]))) { Offset = i; return(true); } }
 		return(false);
@@ -80,7 +80,7 @@ public:
 //	}
 
   // The end of the packet must be checked every ingested byte
-        virtual bool FindPacketEnd(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const override
+	virtual bool FindPacketEndPos(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const override
 	{
           size_t ii = (BufferLen - sizeof(uint32_t));
           if (CGraphMagikPacketEndToken == *((const uint32_t*)&(Buffer[ii]))) { Offset = ii; return(true); }

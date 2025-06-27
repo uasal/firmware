@@ -39,13 +39,18 @@ public:
     bool wasFull() const;
     bool isLockFree() const;
 	size_t depth() const;
-
-private:
-    size_t increment(size_t idx) const;
+	size_t len() const;
 
     std::atomic <size_t>  _tail;  // tail(input) index
     Element    _array[Capacity];
     std::atomic<size_t>   _head; // head(output) index
+
+private:
+    size_t increment(size_t idx) const;
+
+    //~ std::atomic <size_t>  _tail;  // tail(input) index
+    //~ Element    _array[Capacity];
+    //~ std::atomic<size_t>   _head; // head(output) index
 };
 
 template<typename Element, size_t Size>
@@ -135,5 +140,8 @@ size_t CircularFifo<Element, Size>::depth() const
 	if (d < 0) { d += Capacity; }
 	return((size_t)d);
 }
+
+template<typename Element, size_t Size>
+size_t CircularFifo<Element, Size>::len() const { return(Capacity); }
 
 #endif /* CIRCULARFIFO_AQUIRE_RELEASE_H_ */

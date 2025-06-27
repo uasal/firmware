@@ -21,11 +21,15 @@ using namespace std;
 
 #include <pthread.h>
 
-#include "uart/BinaryUart.hpp"
-
 #include "cgraph/CGraphPacket.hpp"
 
-#include "uart/linux_pinout_server_socket.hpp"
+//~ #include "uart/linux_pinout_server_socket.hpp"
+
+#include "eeprom/CircularFifoFlattened.hpp"
+#include "eeprom/linux_pinout_server_socket_fifo.hpp"
+
+//~ #include "uart/BinaryUart.hpp"
+#include "uart/BinaryUartRingBuffer.hpp"
 
 #include "uart/AsciiCmdUserInterfaceLinux.h"
 
@@ -75,8 +79,11 @@ struct SocketBinaryUartCallbacks : public BinaryUartCallbacks
 
 CGraphPacket BinaryProtocol;
 
-linux_pinout_server_socket LocalPortPinout;
+//~ linux_pinout_server_socket LocalPortPinout;
+//~ BinaryUart UartParser(LocalPortPinout, BinaryProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 
+linux_pinout_server_socket_fifo LocalPortPinout;
+CircularFifoFlattened FifoFlattener(&LocalPortPinout.RxData._array, &LocalPortPinout.RxData._head, &LocalPortPinout.RxData._tail, LocalPortPinout.RxData.len(), &LocalPortPinout.RxData.ManyToPop);
 BinaryUart UartParser(LocalPortPinout, BinaryProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 
 #include "cgraph/CGraphFSMHardwareInterface.hpp"
@@ -177,15 +184,16 @@ int main(int argc, char *argv[])
 		bool Bored = true;
 		
 		//Handle stdio (local) user interface:
-        if (Process())
-        {
-            Bored = false;
-        }
+        if (Process()) { Bored = false; }
 		
-		if (UartParser.Process())
-		{
-            Bored = false;
-        }
+		linux_pinout_server_socket_fifo LocalPortPinout;
+		CircularFifoFlattened FifoFlattener(&LocalPortPinout.RxData._array, &LocalPortPinout.RxData._head, &LocalPortPinout.RxData._tail, LocalPortPinout.RxData.len(), &LocalPortPinout.RxData.ManyToPop);
+		BinaryUart UartParser(LocalPortPinout, BinaryProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
+
+		
+		if (LocalPortPinout.Process())  { Bored = false; }
+		if (FifoFlattener.Process())  { Bored = false; }
+		if (UartParser.Process())  { Bored = false; }
 		
 		//We probably didn't connect when we initialized, so just keep trying until we get a client...
 		if (false == LocalPortPinout.connected())

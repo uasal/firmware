@@ -23,7 +23,7 @@ class CircularFifoFpgaEmulator
 public:
     enum { Capacity = Size+1 };
 
-    CircularFifoFpgaEmulator() : _tail(0), _head(0) {}
+    CircularFifoFpgaEmulator() : _tail(0), _head(0), ManyToPop(0) {}
     virtual ~CircularFifoFpgaEmulator() {}
 
 	void flush();
@@ -34,25 +34,32 @@ public:
     bool wasEmpty() const;
     bool wasFull() const;
  	size_t depth() const;
-	void PopMany(const size_t PopToPos);
+	size_t len() const;
+	void PushMany(uint8_t const* PushData, const size_t PushLen);
+	//~ void PopMany(const size_t PopToPos);
 
+	void Process();
+	
 	uint32_t  _tail;  // tail(input) index
     uint32_t _head; // head(output) index
+	uint8_t    _array[Capacity];
+	
+	uint32_t ManyToPop; // head(output) index
 	
 private:
-    size_t increment(size_t idx) const;
-	uint8_t    _array[Capacity];
+    size_t increment(size_t idx, size_t inc_len = 1) const;
 };
 
 template<size_t Size>
-void CircularFifoFpgaEmulator<uint8_t, Size>::flush()
+void CircularFifoFpgaEmulator<Size>::flush()
 {
 	_tail = 0;
 	_head = 0;
+	ManyToPop = 0;
 }
 
 template<size_t Size>
-bool CircularFifoFpgaEmulator<uint8_t, Size>::push(const uint8_t& item)
+bool CircularFifoFpgaEmulator<Size>::push(const uint8_t& item)
 {
     const auto current_tail = _tail;
     const auto next_tail = increment(current_tail);
@@ -75,7 +82,7 @@ bool CircularFifoFpgaEmulator<uint8_t, Size>::push(const uint8_t& item)
 // Pop by Consumer can only update the head (load with relaxed, store with release)
 //     the tail must be accessed with at least aquire
 template<size_t Size>
-bool CircularFifoFpgaEmulator<uint8_t, Size>::pop(uint8_t& item)
+bool CircularFifoFpgaEmulator<Size>::pop(uint8_t& item)
 {
 	//~ size_t t = _tail.load(std::memory_order_seq_cst);
 	//~ size_t h = _head.load(std::memory_order_seq_cst);
@@ -91,7 +98,7 @@ bool CircularFifoFpgaEmulator<uint8_t, Size>::pop(uint8_t& item)
 }
 
 template<size_t Size>
-bool CircularFifoFpgaEmulator<uint8_t, Size>::wasEmpty() const
+bool CircularFifoFpgaEmulator<Size>::wasEmpty() const
 {
     // snapshot with acceptance of that this comparison operation is not atomic
     return (_head == _tail);
@@ -100,26 +107,26 @@ bool CircularFifoFpgaEmulator<uint8_t, Size>::wasEmpty() const
 
 // snapshot with acceptance that this comparison is not atomic
 template<size_t Size>
-bool CircularFifoFpgaEmulator<uint8_t, Size>::wasFull() const
+bool CircularFifoFpgaEmulator<Size>::wasFull() const
 {
     const auto next_tail = increment(_tail); // aquire, we dont know who call
     return (next_tail == _head);
 }
 
-template<size_t Size>
-size_t CircularFifoFpgaEmulator<uint8_t, Size>::increment(size_t idx) const
-{
-    return (idx + 1) % Capacity;
-}
+//~ template<size_t Size>
+//~ size_t CircularFifoFpgaEmulator<Size>::increment(size_t idx) const
+//~ {
+    //~ return (idx + 1) % Capacity;
+//~ }
 
 template<size_t Size>
-size_t CircularFifoFpgaEmulator<uint8_t, Size>::increment(size_t idx, size_t inc_len) const
+size_t CircularFifoFpgaEmulator<Size>::increment(size_t idx, size_t inc_len) const
 {
     return (idx + inc_len) % Capacity;
 }
 
 template<size_t Size>
-size_t CircularFifoFpgaEmulator<uint8_t, Size>::depth() const
+size_t CircularFifoFpgaEmulator<Size>::depth() const
 {
 	size_t t,h;
 	h = _head;
@@ -131,14 +138,27 @@ size_t CircularFifoFpgaEmulator<uint8_t, Size>::depth() const
 	return((size_t)d);
 }
 
+//~ template<size_t Size>
+//~ void PopMany(const size_t PopToPos)
+//~ {
+	//~ _head = PopToPos;
+//~ }
+
 template<size_t Size>
-void PopMany(const size_t PopToPos)
+void CircularFifoFpgaEmulator<Size>::PushMany(uint8_t const* PushData, const size_t PushLen)
 {
-	_head = PopToPos;
+	for(size_t i = 0; i < PushLen; i++) { push(PushData[i]); }
 }
 
 template<size_t Size>
-void PushMany(uint8_t const* PushData, const size_t PushLen)
+size_t CircularFifoFpgaEmulator<Size>::len() const { return(Capacity); }
+
+template<size_t Size>
+void CircularFifoFpgaEmulator<Size>::Process()
 {
-	for(size_t i = 0; i < PushLen; i++) { push(PushData[i]); )
+	if (0 != ManyToPop)
+	{
+		for (size_t i = 0; ((i < ManyToPop) && (i < Capacity)); i++) { pop(); }
+		ManyToPop = 0;
+	}
 }

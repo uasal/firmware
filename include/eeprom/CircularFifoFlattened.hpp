@@ -4,11 +4,12 @@
 class CircularFifoFlattened
 {
 public:
-    CircularFifoFlattened(volatile uint8_t const* data, volatile uint32_t const* readoffset, volatile uint32_t const* writeoffset, const size_t len, volatile uint32_t const* popregister) 
+    //~ CircularFifoFlattened(volatile uint8_t const* data, volatile uint32_t const* readoffset, volatile uint32_t const* writeoffset, const size_t len, volatile uint32_t const* popregister) 
+	CircularFifoFlattened(volatile uint8_t const* data, volatile uint32_t const* readoffset, volatile uint32_t const* writeoffset, const size_t len, volatile uint32_t* popregister) 
 		: 
 			Data(data), 
 			ReadOffset(readoffset),
-			WriteOffset(Writeoffset),
+			WriteOffset(writeoffset),
 			Len(len),
 			PopRegister(popregister)
 		{}
@@ -18,6 +19,7 @@ public:
 	bool Empty() const;
     bool Full() const;
     size_t Depth() const;
+	void Pop(const size_t LastReadAddrToPop);
 	
 	//Accepts an offset from 0 to depth and returns the byte at that point in the buffer
 	uint8_t operator[](const size_t offset) const
@@ -42,12 +44,13 @@ public:
 		return(Data[pos]);
 	}
 
-private:
     volatile uint8_t const* Data;
 	volatile uint32_t const* ReadOffset;
 	volatile uint32_t const* WriteOffset;
 	const size_t Len;
-	volatile uint32_t const* PopRegister;
+	volatile uint32_t* PopRegister;
+
+private:
 };
 
 size_t CircularFifoFlattened::Depth() const
@@ -66,7 +69,9 @@ size_t CircularFifoFlattened::Depth() const
 
 void CircularFifoFlattened::Pop(const size_t LastReadAddrToPop)
 {
-	if ( (nullptr == PopRegister)
+	if (nullptr == PopRegister) { return; }
+	//~ size_t popmany = LastReadAddrToPop;
+	//~ if (popmany >= len) { popmany = len;}
 	*PopRegister = LastReadAddrToPop;
 }
 

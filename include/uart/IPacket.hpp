@@ -34,8 +34,8 @@ public:
 	IPacket() { }
 	virtual ~IPacket() { }
 	
-	virtual bool FindPacketStart(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const = 0;
-	virtual bool FindPacketEnd(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const = 0;
+	virtual bool FindPacketStartPos(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const = 0;
+	virtual bool FindPacketEndPos(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const = 0;
 	virtual size_t HeaderLen() const = 0;
 	virtual size_t FooterLen() const = 0;
 	virtual size_t PayloadOffset() const = 0;

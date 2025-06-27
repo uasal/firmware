@@ -48,7 +48,7 @@
 
 #include "format/formatf.h"
 
-#include "CircularFifo.hpp"
+#include "CircularFifoFpgaEmulator.hpp"
 
 #define HOST_NAME_SIZE      255
 
@@ -59,7 +59,7 @@ public:
 	linux_pinout_server_socket_fifo() : hSocket(-1), hServer(-1), nAddressSize(sizeof(struct sockaddr_in)), nHostAddress(-1), Silent(false) { }
 	~linux_pinout_server_socket_fifo() { deinit(); }
 	
-	CircularFifo<uint8_t, 16384> RxData;
+	CircularFifoFpgaEmulator<16384> RxData;
 
 	int init(const uint32_t HostPort, const char* HostName)
 	{
@@ -152,7 +152,7 @@ public:
 		//Try to connect; it probably won't work cause there's no client ready. The calling thread will need to poll SocketConnect elsewhere...
 		SocketConnect();
 		
-		return(IUart::IUartOK);
+		return(0);
 	}
 	
 	int SocketConnect()
@@ -176,7 +176,7 @@ public:
 		}
 		else { formatf("\nlinux_pinout_server_socket_fifo: Got a connection.\n"); }
 		
-		return(IUart::IUartOK);
+		return(0);
 	}
 
 	void deinit()
@@ -303,7 +303,7 @@ public:
   		return(true);
 	}
 
-	void puts(const uint8_t const* s, const size_t len)
+	void puts(uint8_t const* s, const size_t len)
 	{
 		if (-1 != hSocket)
 		{
@@ -324,7 +324,7 @@ public:
 		}
 		else
 		{
-			if (!Silent) { printf("linux_pinout_server_socket_fifo::putcqq('%c'): write on uninitialized socket (not an err if no clients connected); please open socket!\n", c); }
+			if (!Silent) { printf("linux_pinout_server_socket_fifo::putcqq('%s'): write on uninitialized socket (not an err if no clients connected); please open socket!\n", s); }
 			SocketConnect();
 		}
 	}
