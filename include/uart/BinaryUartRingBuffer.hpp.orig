@@ -231,25 +231,25 @@ struct BinaryUart// : IUartParser
 
             //Did we get it??
             PacketEndPos = LastDataLen;
-            if (Packet.FindPacketEndPos(Data, FooterSearchStartPos, PacketEndPos))
+            if (Packet.FindPacketEndPos((const uint8_t*)(Data.Data), Data.Depth(), FooterSearchStartPos, PacketEndPos))
             {
                 //Oh, things just got interesting!
 
                 //	if (debug) { ::formatf("\n\nBinaryUart: Packet end detected! Searching for start...\n\r"); }
                 //~ InPacket = true;
 
-                if (Packet.FindPacketStartPos(Data, 0, PacketStartPos))
+                if (Packet.FindPacketStartPos((const uint8_t*)(Data.Data), Data.Depth(), 0, PacketStartPos))
                 {
                     //Oh, now things just got really really interesting!!
-                    PayloadLen = Packet.PayloadLen(Data, PacketStartPos);
+                    PayloadLen = Packet.PayloadLen((const uint8_t*)(Data.Data), Data.Depth(), PacketStartPos);
                     HeaderLen = Packet.HeaderLen();
                     FooterLen = Packet.FooterLen();
 
                     // Validate packet
-                    if (Packet.IsValid(Data, PacketStartPos, PacketEndPos))
-                    {
-                        // Confirm that the serial number matches or is a broadcast
-                        if ( (SerialNum == InvalidSerialNumber) || (Packet.IsBroadcastSerialNum(Data, PacketStartPos, PacketEndPos)) || (SerialNum == Packet.SerialNum(Data, PacketStartPos, PacketEndPos)) )
+                    if (Packet.IsValid((const uint8_t*)(Data.Data), Data.Depth(), PacketStartPos, PacketEndPos))
+                {
+                    // Confirm that the serial number matches or is a broadcast
+                    if ( (SerialNum == InvalidSerialNumber) || (Packet.IsBroadcastSerialNum(Data.Data, PacketStartPos, PacketEndPos)) || (SerialNum == Packet.SerialNum(Data.Data, PacketStartPos, PacketEndPos)) )
                         {
                             // Just look at each command, and exectute it if the input line matches.
                             bool CmdFound = false;
@@ -259,26 +259,24 @@ struct BinaryUart// : IUartParser
                             // Idea: last nibble or byte (depending on number of commands) corresponds to position of command
                             // and can be used as index to Cmds[i].Response(...)
                             // This only happens once for each full packet, so might not be much time savings
-                            for (size_t i = 0; i < NumCmds; i++)
+                            //for (size_t i = 0; i < NumCmds; i++)
+                            //{
+                            size_t ii = Packet.PayloadType(Data.Data, LastDataLen, PacketStartPos) & 0x0F;
+                            // Check if command in buffer matches the defined command name
+                            if (Packet.DoesPayloadTypeMatch(Data.Data, LastDataLen, PacketStartPos, PacketEndPos, Cmds[ii].Name))
                             {
-								// Check if command in buffer matches the defined command name
-								if (Packet.DoesPayloadTypeMatch(Data, PacketStartPos, PacketEndPos, Cmds[i].Name))
-								{
-									//strip the part of the line with the arguments to this command (chars following command) for compatibility with the  parsing code, the "params" officially start with the s/n
-									
-									//**warning, if packet wraps the end of the ring buffer, and the cmd handler dereferences it, this is gonna overrun the buffer and crash**
-									//(but we're supposed to just be passing the address of the data in the buffer back to the fpga to copy it to the d/a's, not playing with the data)
-									int warning_fix_copy_to_safe_buffer = 37;
-									const char* Params = (char*)(&(Data[PacketStartPos + HeaderLen]));
-									
-									// Execute the command's response function
-									// We already figured out the payload length, so we don't need to call Packet.PayloadLen
-									// to get it again.  Comment out and use simpler Cmds[i].Respons(...) below
-									Cmds[i].Response(Cmds[i].Name, Params, Packet.PayloadLen(Data, PacketStartPos), (void*)this);
-									CmdFound = true;
-									Processed = true;
-								}
+                                //strip the part of the line with the arguments to this command (chars following command) for compatibility with the  parsing code, the "params" officially start with the s/n
+                                //const char* Params = reinterpret_cast<char*>(&(Data.Data[PacketStartPos + Packet.PayloadOffset()]));
+                                const char* Params = reinterpret_cast<char*>(&(Data.Data[PacketStartPos + HeaderLen]));
+                                // Execute the command's response function
+                                // We already figured out the payload length, so we don't need to call Packet.PayloadLen
+                                // to get it again.  Comment out and use simpler Cmds[i].Respons(...) below
+                                //Cmds[i].Response(Cmds[i].Name, Params, Packet.PayloadLen(Data.Data, LastDataLen, PacketStartPos), (void*)this);
+                                Cmds[ii].Response(Cmds[ii].Name, Params, PayloadLen, (void*)this);
+                                CmdFound = true;
+                                Processed = true;
                             }
+                            //}
 
                             // If no command was found, trigger the unhandled packet callback
                             if (!CmdFound)
@@ -286,10 +284,10 @@ struct BinaryUart// : IUartParser
                                 //~ if (debug) { ::formatf("\n\nBinaryUart: Unmatched command 0x%.8lX!\n", PacketHeader->PayloadTypeToken); }
                                 if (debug)
                                 {
-                                    ::formatf("\n\nBinaryUart: Unmatched command 0x%.8lX! NumCmds: %lu\n", Packet.PayloadType(Data, PacketStartPos, PacketEndPos), (unsigned long)NumCmds);
+                                    ::formatf("\n\nBinaryUart: Unmatched command 0x%.8lX! NumCmds: %lu\n", Packet.PayloadType(Data.Data, PacketStartPos, PacketEndPos), (unsigned long)NumCmds);
                                 }
 
-                                Callbacks.UnHandledPacket(reinterpret_cast<IPacket*>(&(const uint8_t*)(Data.Data)[PacketStartPos]), PacketEndPos - PacketStartPos);
+                                Callbacks.UnHandledPacket(reinterpret_cast<IPacket*>(&Data.Data[PacketStartPos]), PacketEndPos - PacketStartPos);
                             }
                             else
                             {
@@ -314,11 +312,11 @@ struct BinaryUart// : IUartParser
                                 ::formatf("\n\nBinaryUart: Packet received, but SerialNumber comparison failed (expected: 0x%.8lX; got: 0x%.8lX).\n\r", SerialNum, Packet.SerialNum(Data.Data, PacketStartPos, PacketEndPos));
                             }
 
-                            Callbacks.UnHandledPacket(reinterpret_cast<IPacket*>(&(const uint8_t*)(Data.Data)[PacketStartPos]), PacketEndPos - PacketStartPos);
+                            Callbacks.UnHandledPacket(reinterpret_cast<IPacket*>(&Data.Data[PacketStartPos]), PacketEndPos - PacketStartPos);
                         }
 
                         // Notify that every packet is processed, even if unmatched
-                        Callbacks.EveryPacket(reinterpret_cast<IPacket*>(&(const uint8_t*)(Data.Data)[PacketStartPos]), PacketEndPos - PacketStartPos);
+                        Callbacks.EveryPacket(reinterpret_cast<IPacket*>(&Data.Data[PacketStartPos]), PacketEndPos - PacketStartPos);
 
                         //Ok, now we have to figure out how to remove the packet from the buffer...
                         Data.Pop(PacketEndPos);
@@ -332,59 +330,62 @@ struct BinaryUart// : IUartParser
                             ::formatf("\n\nBinaryUart: Packet received, but invalid.\n\r");
                         }
 
-                        Callbacks.InvalidPacket((uint8_t*)(Data.Data), LastDataLen);
+                        Callbacks.InvalidPacket(reinterpret_cast<uint8_t*>(Data.Data), LastDataLen);
                     }
 
                 }
             }
         }
-	
-		return(true); //We just want to know if there's chars in the buffer to put threads to sleep or not...
-	}
+    }
+}
+}
 
-	/**
-	 * @brief Transmit a binary packet over UART.
-	 *
-	 * Constructs a binary packet using the specified payload type, serial number,
-	 * and payload data, and transmits it byte-by-byte over UART.
-	 *
-	 * @param PayloadType The type identifier for the packet. This distinguishes different commands in the packet.
-	 * @param SerialNumber The unique serial number for this packet.
-	 * @param PayloadData A pointer to the data to be transmitted as the packet payload.
-	 * @param PayloadLen The length of the payload data in bytes.
-	 */
-	virtual void TxBinaryPacket(const uint16_t PayloadType, const uint32_t SerialNumber, const void* PayloadData, const size_t PayloadLen) const
-	{
-		uint8_t TxBuffer[TxBufferLenBytes]; ///< Temporary buffer to hold the constructed packet
-		size_t PktLen = Packet.MakePacket(TxBuffer, TxBufferLenBytes, PayloadData, PayloadType, PayloadLen); ///< Build packet
+return(true); //We just want to know if there's chars in the buffer to put threads to sleep or not...
+}
 
-		// Transmit each byte of the packet through the UART pinout
-		for (size_t i = 0; i < PktLen; i++)
-		{
-			Pinout.putcqq(TxBuffer[i]);
-		}
+/**
+ * @brief Transmit a binary packet over UART.
+ *
+ * Constructs a binary packet using the specified payload type, serial number,
+ * and payload data, and transmits it byte-by-byte over UART.
+ *
+ * @param PayloadType The type identifier for the packet. This distinguishes different commands in the packet.
+ * @param SerialNumber The unique serial number for this packet.
+ * @param PayloadData A pointer to the data to be transmitted as the packet payload.
+ * @param PayloadLen The length of the payload data in bytes.
+ */
+virtual void TxBinaryPacket(const uint16_t PayloadType, const uint32_t SerialNumber, const void* PayloadData, const size_t PayloadLen) const
+{
+    uint8_t TxBuffer[TxBufferLenBytes]; ///< Temporary buffer to hold the constructed packet
+    size_t PktLen = Packet.MakePacket(TxBuffer, TxBufferLenBytes, PayloadData, PayloadType, PayloadLen); ///< Build packet
 
-		// Debug output: log the packet type, length, and contents in hex format
-		if (debug)
-		{
-			::formatf("\n\nBinary Uart: Sending packet(%u, %u): ", PayloadType, PayloadLen);
-			for(size_t i = 0; i < PktLen; i++)
-			{
-				printf("%.2X:", TxBuffer[i]);
-			}
-			printf("\n\n");
-		}
-	}
+    // Transmit each byte of the packet through the UART pinout
+    for (size_t i = 0; i < PktLen; i++)
+    {
+        Pinout.putcqq(TxBuffer[i]);
+    }
 
-	void formatf() const
-	{
-		::formatf("\n\nBinaryUart(%u, %c, %u): :", LastDataLen, InPacket?'Y':'N', PacketStartPos);
-		for(size_t i = 0; i < LastDataLen; i++)
-		{
-			printf("%.2X:", Data.Data[i]);
-		}
-		printf("\n\n");
-	}
+    // Debug output: log the packet type, length, and contents in hex format
+    if (debug)
+    {
+        ::formatf("\n\nBinary Uart: Sending packet(%u, %u): ", PayloadType, PayloadLen);
+        for(size_t i = 0; i < PktLen; i++)
+        {
+            printf("%.2X:", TxBuffer[i]);
+        }
+        printf("\n\n");
+    }
+}
+
+void formatf() const
+{
+    ::formatf("\n\nBinaryUart(%u, %c, %u): :", LastDataLen, InPacket?'Y':'N', PacketStartPos);
+    for(size_t i = 0; i < LastDataLen; i++)
+    {
+        printf("%.2X:", Data.Data[i]);
+    }
+    printf("\n\n");
+}
 };
 
 //Slightly ugly hack cause our CmdSystem is C, not C++, but whatever...

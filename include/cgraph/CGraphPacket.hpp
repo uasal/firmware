@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "IArray.hpp"
 #include "uart/IPacket.hpp"
 
 #include "uart/Crc32Bzip2.h"
@@ -79,7 +80,7 @@ public:
 //		return(false);
 //	}
 
-  // The end of the packet must be checked every ingested byte
+	// The end of the packet must be checked every ingested byte
 	virtual bool FindPacketEndPos(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const override
 	{
           size_t ii = (BufferLen - sizeof(uint32_t));
@@ -87,6 +88,18 @@ public:
           return(false);
 	}
 	
+	virtual bool FindPacketStartPos(const uint8_t* Buffer, const size_t BufferLen, const size_t SearchStartPos, size_t& Offset) const override
+	{
+		for (size_t i = SearchStartPos; i < (BufferLen - sizeof(uint32_t)); i++) { if (CGraphMagikPacketStartToken == *((const uint32_t*)&(Buffer[i]))) { Offset = i; return(true); } }
+		return(false);
+	}
+
+	virtual bool FindPacketEndPos(const uint8_t* Buffer, const size_t BufferLen, const size_t SearchStartPos,  size_t& Offset) const override
+	{
+		for (size_t i = SearchStartPos; i <= (BufferLen - sizeof(uint32_t)); i++) { if (CGraphMagikPacketEndToken == *((const uint32_t*)&(Buffer[i]))) { Offset = i; return(true); } }
+		return(false);
+	}
+
 	virtual size_t HeaderLen() const override { return(sizeof(CGraphPacketHeader)); }
 	virtual size_t FooterLen() const override { return(sizeof(CGraphPacketFooter)); }
 	virtual size_t PayloadOffset() const override { return(sizeof(CGraphPacketHeader)); }
@@ -144,6 +157,72 @@ public:
 		Footer->CRC32BZIP2 = CRC;
 		Footer->PacketEndToken = CGraphMagikPacketEndToken;
 		return(sizeof(CGraphPacketHeader) + PayloadLen + sizeof(CGraphPacketFooter));
+	}
+
+	virtual bool FindPacketStartPos(const IArray& Buffer, const size_t SearchStartPos, size_t& Offset) const override
+	{
+		for (size_t i = SearchStartPos; i < (Buffer.Depth() - sizeof(uint32_t)); i++) { if (CGraphMagikPacketStartToken == Buffer.asU32(i)) { Offset = i; return(true); } }
+		return(false);
+	}
+
+	virtual bool FindPacketEndPos(const IArray& Buffer, const size_t SearchStartPos,  size_t& Offset) const override
+	{
+		for (size_t i = SearchStartPos; i < (Buffer.Depth() - sizeof(uint32_t)); i++) { if (CGraphMagikPacketEndToken == Buffer.asU32(i)) { Offset = i; return(true); } }
+		return(false);
+	}
+
+	virtual size_t PayloadLen(const IArray& Buffer, const size_t PacketStartPos) const override
+	{
+		if ((PacketStartPos + sizeof(CGraphPacketHeader)) > Buffer.Depth()) { return(0); }
+		//~ const CGraphPacketHeader* Packet = reinterpret_cast<const CGraphPacketHeader*>(&(Buffer[PacketStartPos]));
+		//~ return(Packet->PayloadLen);
+		return(Buffer.asU32(PacketStartPos + offsetof(CGraphPacketHeader, PayloadLen)));
+	}
+	
+	virtual bool IsValid(const IArray& Buffer, const size_t PacketStartPos, const size_t PacketEndPos) const override
+	{
+		uint32_t packetstarttoken = Buffer.asU32(PacketStartPos + offsetof(CGraphPacketHeader, PacketStartToken));
+		uint16_t payloadtype = Buffer.asU16(PacketStartPos + offsetof(CGraphPacketHeader, PayloadType));
+		uint16_t payloadlen = Buffer.asU16(PacketStartPos + offsetof(CGraphPacketHeader, PayloadLen));
+
+		if ((PacketStartPos + sizeof(CGraphPacketHeader) + sizeof(CGraphPacketFooter)) > Buffer.Depth()) { return(false); }
+		//~ const CGraphPacketHeader* Header = reinterpret_cast<const CGraphPacketHeader*>(&(Buffer[PacketStartPos]));
+		if ((PacketStartPos + sizeof(CGraphPacketHeader) + payloadlen + sizeof(CGraphPacketFooter)) > Buffer.Depth()) { return(false); }
+		if (CGraphMagikPacketStartToken != packetstarttoken) { return(false); }
+		
+		uint32_t crc = Buffer.asU32(PacketStartPos + sizeof(CGraphPacketHeader) + payloadlen + offsetof(CGraphPacketFooter, CRC32BZIP2));
+		uint16_t packetendtoken = Buffer.asU16(PacketStartPos + sizeof(CGraphPacketHeader) + payloadlen + offsetof(CGraphPacketFooter, PacketEndToken));
+		
+		//~ const CGraphPacketFooter* Footer = reinterpret_cast<const CGraphPacketFooter*>(&(Buffer[PacketStartPos + sizeof(CGraphPacketHeader) + Header->PayloadLen]));
+		if (CGraphMagikPacketEndToken != packetendtoken) { return(false); }
+		int warning_crc_fail;
+		uint32_t CRC = 0;
+		//~ uint32_t CRC = CRC32BZIP2(Buffer[PacketStartPos], sizeof(CGraphPacketHeader) + payloadlen);
+		if (CRC != crc) { return(false); }		
+		return(true);
+	}
+
+	virtual bool IsBroadcastSerialNum(const IArray& Buffer, const size_t PacketStartPos, const size_t PacketEndPos) const override { return(false); }
+	virtual uint64_t SerialNum(const IArray& Buffer, const size_t PacketStartPos, const size_t PacketEndPos) const override { return(false); }
+	
+	virtual uint64_t PayloadType(const IArray& Buffer, const size_t PacketStartPos, const size_t PacketEndPos) const override
+	{
+		if ((PacketStartPos + sizeof(CGraphPacketHeader)) > Buffer.Depth()) { return(0); }
+		//~ const CGraphPacketHeader* Packet = reinterpret_cast<const CGraphPacketHeader*>(&(Buffer[PacketStartPos]));
+		//~ return(Packet->PayloadType);
+		uint16_t payloadtype = Buffer.asU16(PacketStartPos + offsetof(CGraphPacketHeader, PayloadType));
+		return(payloadtype);
+	}
+	
+	virtual bool DoesPayloadTypeMatch(const IArray& Buffer, const size_t PacketStartPos, const size_t PacketEndPos, const uint32_t CmdType) const override
+	{
+		//~ if ( ((PacketStartPos + sizeof(CGraphPacketHeader)) > BufferCount) || (NULL == CmdType) ) { return(false); }
+		if ( ((PacketStartPos + sizeof(CGraphPacketHeader)) > Buffer.Depth()) ) { return(false); }
+		//~ const CGraphPacketHeader* Packet = reinterpret_cast<const CGraphPacketHeader*>(&(Buffer[PacketStartPos]));
+		//~ ::printf("\nCGraphPacketHeader: DoesPayloadTypeMatch: Cmd: 0x%X, PayloadType: %u\n\n", CmdType, Packet->PayloadType);
+		uint16_t payloadtype = Buffer.asU16(PacketStartPos + offsetof(CGraphPacketHeader, PayloadType));
+		if (CmdType == payloadtype) { return(true); }
+		return(false);
 	}
 };
 

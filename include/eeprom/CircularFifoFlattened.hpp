@@ -1,7 +1,10 @@
 #pragma once
 
 #include <cstddef>
-class CircularFifoFlattened
+
+#include "IArray.hpp"
+
+class CircularFifoFlattened : public IArray
 {
 public:
     //~ CircularFifoFlattened(volatile uint8_t const* data, volatile uint32_t const* readoffset, volatile uint32_t const* writeoffset, const size_t len, volatile uint32_t const* popregister) 
@@ -18,11 +21,11 @@ public:
 
 	bool Empty() const;
     bool Full() const;
-    size_t Depth() const;
+    size_t Depth() const override;
 	void Pop(const size_t LastReadAddrToPop);
 	
 	//Accepts an offset from 0 to depth and returns the byte at that point in the buffer
-	uint8_t operator[](const size_t offset) const
+	uint8_t operator[](const size_t offset) const override
 	{
 		if ( (nullptr == WriteOffset) || (nullptr == ReadOffset) ) { return(0); }
 
