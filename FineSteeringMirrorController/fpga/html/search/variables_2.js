@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['baudrate_0',['baudrate',['../classUartRxFifoParity.html#a3dbb09c145cedf8af254668ddfb32c77',1,'UartRxFifoParity.BAUDRATE'],['../classUartRx.html#a3dbb09c145cedf8af254668ddfb32c77',1,'UartRx.BAUDRATE'],['../classUartTxFifoParity.html#a3dbb09c145cedf8af254668ddfb32c77',1,'UartTxFifoParity.BAUDRATE'],['../classUartTxFifo.html#a3dbb09c145cedf8af254668ddfb32c77',1,'UartTxFifo.BAUDRATE']]],
+  ['bit_5fwidth_1',['bit_width',['../classSpiDacPorts.html#afc83a897634c14f3c3231f10cdeccd10',1,'SpiDacPorts.BIT_WIDTH'],['../classSpiDevicePorts.html#ad5733819008f337e99074297b00ff092',1,'SpiDevicePorts.BIT_WIDTH'],['../classSpiDeviceDualPorts.html#ad5733819008f337e99074297b00ff092',1,'SpiDeviceDualPorts.BIT_WIDTH']]],
+  ['bitclock_2',['bitclock',['../classUartTxFifo_1_1implementation.html#abc75b9d455bee6e20f7fc143689bdd1f',1,'UartTxFifo.implementation.BitClock'],['../classUartTxFifoExtClk_1_1implementation.html#abc75b9d455bee6e20f7fc143689bdd1f',1,'UartTxFifoExtClk.implementation.BitClock'],['../classUartTxFifoParity_1_1implementation.html#abc75b9d455bee6e20f7fc143689bdd1f',1,'UartTxFifoParity.implementation.BitClock']]],
+  ['bitclockout_3',['bitclockout',['../classUartTxFifo.html#a77ab896b42984e6a76a8dc58a29f8375',1,'UartTxFifo.BitClockOut'],['../classUartTxFifoExtClk.html#a77ab896b42984e6a76a8dc58a29f8375',1,'UartTxFifoExtClk.BitClockOut'],['../classUartTxFifoParity.html#a77ab896b42984e6a76a8dc58a29f8375',1,'UartTxFifoParity.BitClockOut']]],
+  ['bitcnt_4',['bitcnt',['../classUartTx_1_1Behaviour.html#ae85bd668f568f48df1fbd46900c5c004',1,'UartTx.Behaviour.BitCnt'],['../classUartTxParity_1_1Behaviour.html#a2bada06b77388bd6d585446d0fae5edf',1,'UartTxParity.Behaviour.BitCnt']]],
+  ['bitcountout_5',['bitcountout',['../classUartTx.html#a0423e921ac8e6334159e616afc718e76',1,'UartTx.BitCountOut'],['../classUartTxFifoExtClk.html#a0423e921ac8e6334159e616afc718e76',1,'UartTxFifoExtClk.BitCountOut']]],
+  ['boardmasterclockfreq_6',['BoardMasterClockFreq',['../classMain_1_1architecture__Main.html#aa2c30a528b55e3d6f1f98122d3f3db54',1,'Main::architecture_Main']]],
+  ['boarduartclockfreq_7',['BoardUartClockFreq',['../classMain_1_1architecture__Main.html#aa82b1927909083aeb690b0d21c215ddd',1,'Main::architecture_Main']]],
+  ['brownout_7e2_8',['Brownout~2',['../classads1258.html#a41c5c59567f2b0b8053ca0a9bb0d33f4',1,'ads1258']]],
+  ['brownout_7e8_9',['Brownout~8',['../classads1258accumulator__pkg.html#ad16adda8ffa600fa60cda2879985b030',1,'ads1258accumulator_pkg']]],
+  ['buildnum_10',['BuildNum',['../classBuildNumberPorts_1_1BuildNumber.html#aa47db15dd277f05ccb474fd30e46f443',1,'BuildNumberPorts::BuildNumber']]],
+  ['buildnumber_11',['buildnumber',['../classBuildNumberPorts.html#a443f8553846ed3e704c162447eae156a',1,'BuildNumberPorts.BuildNumber'],['../classMain_1_1architecture__Main.html#addb9cb7f6022d7a12e2297bf0eb54203',1,'Main.architecture_Main.BuildNumber'],['../classRegisterSpacePorts.html#a6a72e5730d30547697ca3bec0dcf1168',1,'RegisterSpacePorts.BuildNumber']]],
+  ['buildnumberports_12',['BuildNumberPorts',['../classMain_1_1architecture__Main.html#a67c74a3db0bd4faf026aaa5509e0ae6e',1,'Main::architecture_Main']]],
+  ['buildtime_13',['BuildTime',['../classBuildNumberPorts_1_1BuildNumber.html#a377556e8773e8507e445839022945128',1,'BuildNumberPorts::BuildNumber']]],
+  ['busy_14',['busy',['../classUartTx.html#a4d860705081b50dbae7aecb4c15240fa',1,'UartTx.Busy'],['../classUartTxParity.html#a4d860705081b50dbae7aecb4c15240fa',1,'UartTxParity.Busy']]],
+  ['busy_5fi_15',['Busy_i',['../classUartTx_1_1Behaviour.html#ab4e28a46781917e9a820a8958c14bbad',1,'UartTx::Behaviour']]],
+  ['byte_5fwidth_16',['byte_width',['../classSpiMasterPorts.html#ab8ff57af1ccdcbcd9c538aa3d276a2a9',1,'SpiMasterPorts.BYTE_WIDTH'],['../classSpiMasterDualPorts.html#ab8ff57af1ccdcbcd9c538aa3d276a2a9',1,'SpiMasterDualPorts.BYTE_WIDTH'],['../classSpiMasterQuadPorts.html#ab8ff57af1ccdcbcd9c538aa3d276a2a9',1,'SpiMasterQuadPorts.BYTE_WIDTH'],['../classSpiMasterTrioPorts.html#ab8ff57af1ccdcbcd9c538aa3d276a2a9',1,'SpiMasterTrioPorts.BYTE_WIDTH']]]
+];

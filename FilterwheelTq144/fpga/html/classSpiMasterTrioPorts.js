@@ -1,0 +1,28 @@
+var classSpiMasterTrioPorts =
+[
+    [ "SpiMasterTrioPorts.SpiMasterTrio", "classSpiMasterTrioPorts_1_1SpiMasterTrio.html", "classSpiMasterTrioPorts_1_1SpiMasterTrio" ],
+    [ "BYTE_WIDTH", "classSpiMasterTrioPorts.html#ab8ff57af1ccdcbcd9c538aa3d276a2a9", null ],
+    [ "clk", "classSpiMasterTrioPorts.html#a50da91b765765ac486df1b41692e962f", null ],
+    [ "CLOCK_DIVIDER", "classSpiMasterTrioPorts.html#a0c6fe64603b6c60c6f87c70ff2ef0586", null ],
+    [ "CPHA", "classSpiMasterTrioPorts.html#ab7c242421272412fbff892efe31f1fe2", null ],
+    [ "CPOL", "classSpiMasterTrioPorts.html#a8db6bfecddf6930f5703b8be6031ef64", null ],
+    [ "DataFromMisoA", "classSpiMasterTrioPorts.html#a47dbfcf57950840b78e393a0edafa590", null ],
+    [ "DataFromMisoB", "classSpiMasterTrioPorts.html#ad4eb4a624c47b0c231e8f7cc7cf7b452", null ],
+    [ "DataFromMisoC", "classSpiMasterTrioPorts.html#aff9a2dd68330c676e3329bd32dbef8ff", null ],
+    [ "DataToMosiA", "classSpiMasterTrioPorts.html#a87b4547d8281df9cbc4fb3e7f9754431", null ],
+    [ "DataToMosiB", "classSpiMasterTrioPorts.html#abc283f45349c45ac39898b612385c8ae", null ],
+    [ "DataToMosiC", "classSpiMasterTrioPorts.html#a4f59a0bc20f9002233d662f15fcd7445", null ],
+    [ "IEEE", "classSpiMasterTrioPorts.html#ae4f03c286607f3181e16b9aa12d0c6d4", null ],
+    [ "MisoA", "classSpiMasterTrioPorts.html#abf137664dd4ef8c0013c908a876f9624", null ],
+    [ "MisoB", "classSpiMasterTrioPorts.html#a930d1f4a2e747a0acab590ffffccb4b8", null ],
+    [ "MisoC", "classSpiMasterTrioPorts.html#aa4d9db30b119d1d1a125a4071ebba597", null ],
+    [ "MosiA", "classSpiMasterTrioPorts.html#a4ce7af1830e5c42d8c14f6f64d09b73a", null ],
+    [ "MosiB", "classSpiMasterTrioPorts.html#a0cb0d82b93a514529e8fe015095c10f3", null ],
+    [ "MosiC", "classSpiMasterTrioPorts.html#a0dab64414058cfb072958100082d0452", null ],
+    [ "NUMERIC_STD", "classSpiMasterTrioPorts.html#ae00f3f04545af57582ff10609eee23e2", null ],
+    [ "rst", "classSpiMasterTrioPorts.html#ae106f17a2b73445119c8eb039d3e102e", null ],
+    [ "Sck", "classSpiMasterTrioPorts.html#a2c4c12ecf6eb4315f8c3e5ec0d20b4f5", null ],
+    [ "STD_LOGIC_1164", "classSpiMasterTrioPorts.html#aa4b2b25246a821511120e3149b003563", null ],
+    [ "STD_LOGIC_UNSIGNED", "classSpiMasterTrioPorts.html#a241c3e72dd8024cc8ae831b1b2aed7db", null ],
+    [ "XferComplete", "classSpiMasterTrioPorts.html#a4e5b911ada797dbf2555df752b56c302", null ]
+];

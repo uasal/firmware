@@ -1,0 +1,26 @@
+var classSpiDeviceDualPorts =
+[
+    [ "SpiDeviceDualPorts.SpiDeviceDual", "classSpiDeviceDualPorts_1_1SpiDeviceDual.html", "classSpiDeviceDualPorts_1_1SpiDeviceDual" ],
+    [ "BIT_WIDTH", "classSpiDeviceDualPorts.html#ad5733819008f337e99074297b00ff092", null ],
+    [ "clk", "classSpiDeviceDualPorts.html#a50da91b765765ac486df1b41692e962f", null ],
+    [ "CLOCK_DIVIDER", "classSpiDeviceDualPorts.html#a4bf4b44d4634a3bc4259cd655d29b4a8", null ],
+    [ "CPHA", "classSpiDeviceDualPorts.html#ab7c242421272412fbff892efe31f1fe2", null ],
+    [ "CPOL", "classSpiDeviceDualPorts.html#a8db6bfecddf6930f5703b8be6031ef64", null ],
+    [ "IEEE", "classSpiDeviceDualPorts.html#ae4f03c286607f3181e16b9aa12d0c6d4", null ],
+    [ "MisoA", "classSpiDeviceDualPorts.html#abf137664dd4ef8c0013c908a876f9624", null ],
+    [ "MisoB", "classSpiDeviceDualPorts.html#a930d1f4a2e747a0acab590ffffccb4b8", null ],
+    [ "MosiA", "classSpiDeviceDualPorts.html#a4ce7af1830e5c42d8c14f6f64d09b73a", null ],
+    [ "MosiB", "classSpiDeviceDualPorts.html#a0cb0d82b93a514529e8fe015095c10f3", null ],
+    [ "nCs", "classSpiDeviceDualPorts.html#a580121aab6f65c2ae2eb244045ef3c20", null ],
+    [ "NUMERIC_STD", "classSpiDeviceDualPorts.html#ae00f3f04545af57582ff10609eee23e2", null ],
+    [ "ReadbackA", "classSpiDeviceDualPorts.html#ac26bfbb0812a6582c09bfea95f8d92fb", null ],
+    [ "ReadbackB", "classSpiDeviceDualPorts.html#a24091987f170cc07288cbf481bd71593", null ],
+    [ "rst", "classSpiDeviceDualPorts.html#ae106f17a2b73445119c8eb039d3e102e", null ],
+    [ "Sck", "classSpiDeviceDualPorts.html#a2c4c12ecf6eb4315f8c3e5ec0d20b4f5", null ],
+    [ "STD_LOGIC_1164", "classSpiDeviceDualPorts.html#aa4b2b25246a821511120e3149b003563", null ],
+    [ "STD_LOGIC_UNSIGNED", "classSpiDeviceDualPorts.html#a241c3e72dd8024cc8ae831b1b2aed7db", null ],
+    [ "Transfer", "classSpiDeviceDualPorts.html#ad2241de8628fd5eba1e2e2df030b5280", null ],
+    [ "TransferComplete", "classSpiDeviceDualPorts.html#a6b364d7e206e6a77c8d6130333f1664d", null ],
+    [ "WriteOutA", "classSpiDeviceDualPorts.html#abf672e09d3b91ef652358c2ca2815a64", null ],
+    [ "WriteOutB", "classSpiDeviceDualPorts.html#ac684d0660a66be867d58d752176f66e0", null ]
+];
