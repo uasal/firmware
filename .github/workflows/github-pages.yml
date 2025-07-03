@@ -30,37 +30,46 @@ jobs:
             
             - name: Install Dependencies
               run: |
-                pip install sphinx sphinx-rtd-them ghp-import
-                DEBIAN_FRONTEND=noninteractive apt install -y doxygen graphviz
+                sudo apt-get install doxygen graphviz -y
 
-            - name: Build Sphinx Docs
+            - name: Build Doxygen Docs
               run: |
                 mkdir -p doxygen
                 mkdir -p doxygen/Filterwheel/processor
                 cd Filterwheel/processor/dox
                 doxygen
-                cd ../../../
+                cd $GITHUB_WORKSPACE
                 mkdir -p doxygen/FilterwheelTq144/fpga  
                 cd FilterwheelTq144/fpga/dox
                 doxygen 
-                cd ../../../
+                cd $GITHUB_WORKSPACE
                 mkdir -p doxygen/FineSteeringMirrorController/processor
                 cd FineSteeringMirrorController/processor/Main/dox
                 doxygen 
-                cd ../../../
+                cd $GITHUB_WORKSPACE
                 mkdir -p doxygen/FineSteeringMirrorController/fpga
                 cd FineSteeringMirrorController/fpga/dox
                 doxygen
-                cd ../../../
+                cd $GITHUB_WORKSPACE
                 cd dox
                 doxygen
 
+            - name: Prep for gh-pages
+              run: |
+                cd $GITHUB_WORKSPACE
+                mkdir -p gh-pages
+                mv doxygen/html/* gh-pages
+                mv doxygen/FineSteeringMirrorController gh-pages
+                mv doxygen/FilterwheelTq144 gh-pages
+                mv doxygen/Filterwheel gh-pages
+                cd $GITHUB_WORKSPACE
+
             - name: Deploy GitHub Pages
               uses: peaceiris/actions-gh-pages@v4
-              if: github.ref == 'refs/heads/main'
+              if: github.ref == 'refs/heads/sfrinaldi/ci-github-pages'
               with:
                 github_token: ${{ secrets.GITHUB_TOKEN}}
-                publish_dir: doxygen
+                publish_dir: gh-pages/
 
             - name: Upload Pages
               uses: actions/upload-artifact@v4
@@ -68,5 +77,5 @@ jobs:
               with:
                 name: firmware-pages
                 path: |
-                    doxygen/*
+                    gh-pages/*
             
