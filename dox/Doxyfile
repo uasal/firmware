@@ -23,10 +23,10 @@ INPUT = homepage.dox
 RECURSIVE = NO
 
 # Output dir
-OUTPUT_DIRECTORY = ../doxygen/homepage
+OUTPUT_DIRECTORY = ../doxygen/
 
 # Any overarching high-level documentation files can be included here (not the case atm)
 FILE_PATTERNS = *.dox
 
 # Link documentation of each folder
-HTML_EXTRA_FILES = ../../Filterwheel/processor/html/index.html ../../FilterwheelTq144/fpga/html/index.html ../../FineSteeringMirrorController/processor/html/index.html ../../FineSteeringMirrorController/fpga/html/index.html
+HTML_EXTRA_FILES = Filterwheel/processor/html/index.html FilterwheelTq144/fpga/html/index.html FineSteeringMirrorController/processor/html/index.html FineSteeringMirrorController/fpga/html/index.html
