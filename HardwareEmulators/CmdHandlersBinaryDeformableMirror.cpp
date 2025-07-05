@@ -48,7 +48,8 @@ extern CGraphDMRamInterface* dRAM;
 CGraphDMMappings DMMappings;
 
 // These are what's returned from the Control Interface
-int8_t BinaryDMDacCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
+
+/*int8_t BinaryDMDacCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	//~ if ( (nullptr != Params) && (ParamsLen >= 4*(sizeof(uint32_t))) )
 	//~ {
@@ -62,7 +63,7 @@ int8_t BinaryDMDacCommand(const uint32_t Name, char const* Params, const size_t 
 		
 	TxBinaryPacket(Argument, CGraphPayloadTypeDMDac, 0, Params, ParamsLen);
     return(ParamsLen);
-}
+}*/
 
 int8_t BinaryDMTelemetryCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
@@ -102,7 +103,7 @@ int8_t BinaryDMTelemetryCommand(const uint32_t Name, char const* Params, const s
 	return(ParamsLen);
 }
 
-int8_t BinaryDMHVSwitchCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
+/*int8_t BinaryDMHVSwitchCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	//~ if ( (nullptr != Params) && (ParamsLen >= (sizeof(uint32_t))) )
 	//~ {
@@ -115,7 +116,7 @@ int8_t BinaryDMHVSwitchCommand(const uint32_t Name, char const* Params, const si
 	//~ }
 	TxBinaryPacket(Argument, CGraphPayloadTypeDMHVSwitch, 0, Params, ParamsLen);
     return(ParamsLen);
-}
+}*/
 
 int8_t BinaryDMDacConfigCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {

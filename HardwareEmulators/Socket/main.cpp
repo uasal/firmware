@@ -1,4 +1,3 @@
-#include <stdint.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -27,6 +26,9 @@ using namespace std;
 
 #include "eeprom/CircularFifoFlattened.hpp"
 #include "eeprom/linux_pinout_server_socket_fifo.hpp"
+
+
+#include "uart/IUart.h"
 
 //~ #include "uart/BinaryUart.hpp"
 #include "uart/BinaryUartRingBuffer.hpp"
@@ -79,12 +81,12 @@ struct SocketBinaryUartCallbacks : public BinaryUartCallbacks
 
 CGraphPacket BinaryProtocol;
 
-//~ linux_pinout_server_socket LocalPortPinout;
+//~ linux_pinout_server_socket LocalPortPinout;@
 //~ BinaryUart UartParser(LocalPortPinout, BinaryProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 
 linux_pinout_server_socket_fifo LocalPortPinout;
-CircularFifoFlattened FifoFlattener(&LocalPortPinout.RxData._array, &LocalPortPinout.RxData._head, &LocalPortPinout.RxData._tail, LocalPortPinout.RxData.len(), &LocalPortPinout.RxData.ManyToPop);
-BinaryUart UartParser(LocalPortPinout, BinaryProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
+CircularFifoFlattened FifoFlattener(LocalPortPinout.RxData._array, &LocalPortPinout.RxData._head, &LocalPortPinout.RxData._tail, LocalPortPinout.RxData.len(), &LocalPortPinout.RxData.ManyToPop);
+BinaryUart UartParser(FifoFlattener, BinaryProtocol, LocalPortPinout, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 
 #include "cgraph/CGraphFSMHardwareInterface.hpp"
 CGraphFSMHardwareInterface iFSM;
@@ -186,13 +188,13 @@ int main(int argc, char *argv[])
 		//Handle stdio (local) user interface:
         if (Process()) { Bored = false; }
 		
-		linux_pinout_server_socket_fifo LocalPortPinout;
-		CircularFifoFlattened FifoFlattener(&LocalPortPinout.RxData._array, &LocalPortPinout.RxData._head, &LocalPortPinout.RxData._tail, LocalPortPinout.RxData.len(), &LocalPortPinout.RxData.ManyToPop);
-		BinaryUart UartParser(LocalPortPinout, BinaryProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
+		//~ linux_pinout_server_socket_fifo LocalPortPinout;
+		//~ CircularFifoFlattened FifoFlattener(LocalPortPinout.RxData._array, &LocalPortPinout.RxData._head, &LocalPortPinout.RxData._tail, LocalPortPinout.RxData.len(), &LocalPortPinout.RxData.ManyToPop);
+		//~ BinaryUart UartParser(LocalPortPinout, BinaryProtocol, BinaryCmds, NumBinaryCmds, PacketCallbacks, false);
 
 		
 		if (LocalPortPinout.Process())  { Bored = false; }
-		if (FifoFlattener.Process())  { Bored = false; }
+		if (LocalPortPinout.RxData.Process())  { Bored = false; }
 		if (UartParser.Process())  { Bored = false; }
 		
 		//We probably didn't connect when we initialized, so just keep trying until we get a client...

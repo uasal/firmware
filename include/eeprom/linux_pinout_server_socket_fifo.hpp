@@ -47,12 +47,13 @@
 #endif
 
 #include "format/formatf.h"
+#include "IBlockDevice.hpp"
 
 #include "CircularFifoFpgaEmulator.hpp"
 
 #define HOST_NAME_SIZE      255
 
-class linux_pinout_server_socket_fifo
+class linux_pinout_server_socket_fifo : public IBlockDevice
 {
 public:
 
@@ -303,7 +304,7 @@ public:
   		return(true);
 	}
 
-	void puts(uint8_t const* s, const size_t len)
+	void puts(uint8_t const* s, const size_t len) override
 	{
 		if (-1 != hSocket)
 		{

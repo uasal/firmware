@@ -23,7 +23,7 @@ class CircularFifoFpgaEmulator
 public:
     enum { Capacity = Size+1 };
 
-    CircularFifoFpgaEmulator() : _tail(0), _head(0), ManyToPop(0) {}
+    CircularFifoFpgaEmulator() : _tail(0), _head(0), ManyToPop(0) { ::formatf("\n\nCircularFifoFpgaEmulator: ManyToPop @ 0x%p.\n\r", &ManyToPop); }
     virtual ~CircularFifoFpgaEmulator() {}
 
 	void flush();
@@ -38,13 +38,12 @@ public:
 	void PushMany(uint8_t const* PushData, const size_t PushLen);
 	//~ void PopMany(const size_t PopToPos);
 
-	void Process();
+	bool Process();
 	
-	uint32_t  _tail;  // tail(input) index
-    uint32_t _head; // head(output) index
-	uint8_t    _array[Capacity];
-	
-	uint32_t ManyToPop; // head(output) index
+	volatile uint32_t  _tail;  // tail(input) index
+    volatile uint32_t _head; // head(output) index
+	volatile uint8_t    _array[Capacity];
+	volatile uint32_t ManyToPop; // head(output) index
 	
 private:
     size_t increment(size_t idx, size_t inc_len = 1) const;
@@ -154,11 +153,17 @@ template<size_t Size>
 size_t CircularFifoFpgaEmulator<Size>::len() const { return(Capacity); }
 
 template<size_t Size>
-void CircularFifoFpgaEmulator<Size>::Process()
+bool CircularFifoFpgaEmulator<Size>::Process()
 {
+	uint8_t ignored = 0;
+	
 	if (0 != ManyToPop)
 	{
-		for (size_t i = 0; ((i < ManyToPop) && (i < Capacity)); i++) { pop(); }
+		::formatf("\n\nCircularFifoFpgaEmulator: Process(%u).\n\r", ManyToPop);
+
+		for (size_t i = 0; ((i < ManyToPop) && (i < Capacity)); i++) { pop(ignored); ::formatf("."); }
 		ManyToPop = 0;
+		return(true);
 	}
+	return(false);
 }

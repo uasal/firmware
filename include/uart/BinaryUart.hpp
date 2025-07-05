@@ -267,7 +267,7 @@ struct BinaryUart : IUartParser
 		//Packet Start?
 		if ( (!InPacket) && (RxCount >= Packet.HeaderLen()) )
 		{
-			if (Packet.FindPacketStart(RxBuffer, RxCount, PacketStart)) //This is wasteful, we really only need to look at the 4 newest bytes every time...
+			if (Packet.FindPacketStartPos(RxBuffer, RxCount, PacketStart)) //This is wasteful, we really only need to look at the 4 newest bytes every time...
 			{
                           //	if (debug) { ::formatf("\n\nBinaryUart: Packet start detected! Buffering.\n\r"); }
                           InPacket = true;
@@ -296,7 +296,7 @@ struct BinaryUart : IUartParser
 
 		// Look for the packet footer within the buffer, exit if no valid footer found yet
 		// This is wasteful, we really only need to look at the 4 newest bytes every time...
-		if (!Packet.FindPacketEnd(RxBuffer, RxCount, PacketEnd)) {
+		if (!Packet.FindPacketEndPos(RxBuffer, RxCount, PacketEnd)) {
                   //if (debug) { ::formatf("\n\nBinaryUart: Still waiting for packet end...\n\r"); }
                   //Callbacks.InvalidPacket(reinterpret_cast<uint8_t*>(RxBuffer), RxCount);
                   //Init(SerialNum);
@@ -449,12 +449,5 @@ struct BinaryUart : IUartParser
 };
 
 //Slightly ugly hack cause our CmdSystem is C, not C++, but whatever...
-
-__inline__ void TxBinaryPacket(const void* TxPktContext, const uint16_t PayloadTypeToken, const uint32_t SerialNumber, const void* PayloadData, const size_t PayloadLen)
-{
-	if (NULL != TxPktContext) { reinterpret_cast<const BinaryUart*>(TxPktContext)->TxBinaryPacket(PayloadTypeToken, SerialNumber, PayloadData, PayloadLen); }
-	else { ::formatf("\n\nTxBinaryPacket: NULL PacketContext! (Should be BinaryUart*) Please recompile this binary...\n\r"); }
-};
-
 void TxBinaryPacket(const void* TxPktContext, const uint16_t PayloadTypeToken, const uint32_t SerialNumber, const void* PayloadData, const size_t PayloadLen);
 

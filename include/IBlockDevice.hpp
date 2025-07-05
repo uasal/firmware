@@ -28,16 +28,11 @@
 #include <stdint.h>
 #include <stdio.h>
 
-class IArray
+class IBlockDevice
 {
 public:
-	IArray() { }
-	virtual ~IArray() { }	
+	IBlockDevice() { }
+	virtual ~IBlockDevice() { }	
 	
-	virtual uint8_t operator[](const size_t offset) const = 0;
-	virtual uint8_t peek(const size_t offset) const = 0;
-	virtual uint16_t asU16(const size_t offset) const = 0;
-	virtual uint32_t asU32(const size_t offset) const = 0;
-	virtual size_t Depth() const = 0;
-	virtual size_t CopyToFlatBuffer(const size_t StartOffset, size_t& NumToCopy, uint8_t* const Buffer, const size_t BufferMaxLen) const = 0;
+	virtual void puts(uint8_t const* s, const size_t len) = 0;
 };

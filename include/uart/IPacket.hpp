@@ -42,6 +42,7 @@ public:
 	virtual bool FindPacketEndPos(const uint8_t* Buffer, const size_t BufferLen, const size_t SearchStartPos,  size_t& Offset) const = 0;
 	virtual size_t HeaderLen() const = 0;
 	virtual size_t FooterLen() const = 0;
+	virtual size_t EndTokenLen() const = 0;
 	virtual size_t PayloadOffset() const = 0;
 	virtual size_t MaxPayloadLength() const = 0;
 	virtual size_t PayloadLen(const uint8_t* Buffer, const size_t BufferCount, const size_t PacketStartPos) const = 0;
@@ -53,6 +54,7 @@ public:
 	virtual size_t MakePacket(uint8_t* Buffer, const size_t BufferCount, const void* Payload, const uint16_t PayloadType, const size_t PayloadLen) const = 0;
 	
 	virtual bool FindPacketStartPos(const IArray& Buffer, const size_t SearchStartPos, size_t& Offset) const = 0;
+	virtual bool ReverseFindPacketStartPos(const IArray& Buffer, const size_t SearchEndPos, size_t& Offset) const = 0; //Look backwards from this location for first occurence of start byte(s)
 	virtual bool FindPacketEndPos(const IArray& Buffer, const size_t SearchStartPos,  size_t& Offset) const = 0;
 	virtual size_t PayloadLen(const IArray& Buffer, const size_t PacketStartPos) const = 0;
 	virtual bool IsValid(const IArray& Buffer, const size_t PacketStartPos, const size_t PacketEndPos) const = 0;
