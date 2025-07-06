@@ -1,0 +1,73 @@
+name: Deploy Doxygen Docs to GitHub Pages
+
+on:
+    push:
+        branches:
+            - master
+    pull_request:
+        types: [opened,reopened,edited,synchronize]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout Repo
+              uses: actions/checkout@v4
+
+            - name: Setup Python
+              uses: actions/setup-python@v5
+              with:
+                python-version: '3.x'
+            
+            - name: Install Dependencies
+              run: |
+                sudo apt-get install doxygen graphviz -y
+
+            - name: Build Doxygen Docs
+              run: |
+                mkdir -p doxygen
+                mkdir -p doxygen/Filterwheel/processor
+                cd Filterwheel/processor/dox
+                doxygen
+                cd $GITHUB_WORKSPACE
+                mkdir -p doxygen/FilterwheelTq144/fpga  
+                cd FilterwheelTq144/fpga/dox
+                doxygen 
+                cd $GITHUB_WORKSPACE
+                mkdir -p doxygen/FineSteeringMirrorController/processor
+                cd FineSteeringMirrorController/processor/Main/dox
+                doxygen 
+                cd $GITHUB_WORKSPACE
+                mkdir -p doxygen/FineSteeringMirrorController/fpga
+                cd FineSteeringMirrorController/fpga/dox
+                doxygen
+                cd $GITHUB_WORKSPACE
+                cd dox
+                doxygen
+
+            - name: Prep for gh-pages
+              run: |
+                cd $GITHUB_WORKSPACE
+                mkdir -p gh-pages
+                mv doxygen/html/* gh-pages
+                mv doxygen/FineSteeringMirrorController gh-pages
+                mv doxygen/FilterwheelTq144 gh-pages
+                mv doxygen/Filterwheel gh-pages
+                cd $GITHUB_WORKSPACE
+
+            - name: Deploy GitHub Pages
+              uses: peaceiris/actions-gh-pages@v4
+              if: github.ref == 'refs/heads/master'
+              with:
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+                publish_dir: gh-pages/
+
+            - name: Upload Pages
+              uses: actions/upload-artifact@v4
+              if: always()
+              with:
+                name: firmware-pages
+                path: |
+                    gh-pages/*
+            
