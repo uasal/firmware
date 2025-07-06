@@ -56,6 +56,7 @@ var hierarchy =
     [ "fixedqueue_mt< T, queue_size >", "classfixedqueue__mt.html", null ],
     [ "floatbe_t", "unionfloatbe__t.html", null ],
     [ "IArray", "classIArray.html", null ],
+    [ "IBlockDevice", "classIBlockDevice.html", null ],
     [ "IPacket", "classIPacket.html", [
       [ "CGraphPacket", "classCGraphPacket.html", null ]
     ] ],

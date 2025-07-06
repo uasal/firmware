@@ -4,6 +4,8 @@ var classIArray =
     [ "~IArray", "classIArray.html#a33b3fcae2bf321b02f257d8ca11edbe1", null ],
     [ "asU16", "classIArray.html#a0712fc16e217f0de1b33d97fc21026aa", null ],
     [ "asU32", "classIArray.html#aaa8b4386c0a49a5f1447d949e4f3c380", null ],
+    [ "CopyToFlatBuffer", "classIArray.html#a3d805f4634fcf5b48700bda5eb1e50eb", null ],
     [ "Depth", "classIArray.html#adaa8246ec4ac3f276d887bda6cb45b52", null ],
-    [ "operator[]", "classIArray.html#a0cdd1d20f87bd0aa4c3ff6be4fee064f", null ]
+    [ "operator[]", "classIArray.html#a0cdd1d20f87bd0aa4c3ff6be4fee064f", null ],
+    [ "peek", "classIArray.html#a4430da5cceb0e25d3829e1ed601c0b09", null ]
 ];

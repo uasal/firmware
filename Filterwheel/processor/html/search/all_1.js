@@ -14,7 +14,7 @@ var searchData=
   ['adctimestamp_11',['AdcTimestamp',['../unionAdcTimestamp.html',1,'']]],
   ['adcvref_12',['adcvref',['../structads1258.html#ae1f8f8c6095e67e4215d26f311bacdf0',1,'ads1258::AdcVRef'],['../structlt244x.html#af2f696ce98a698a0e97397c4c8593192',1,'lt244x::AdcVRef'],['../structlt244x__accum.html#af80ea2f93dba475939c026ae14c23997',1,'lt244x_accum::AdcVRef']]],
   ['add_13',['add',['../classfixedlist.html#a92c2a4d691f071858aaaa58d94642bf2',1,'fixedlist::Add()'],['../classfixedlistlite.html#a79edae3f76bd7f8da12374b202b326e5',1,'fixedlistlite::Add()']]],
-  ['address_14',['address',['../unionads1258details_1_1ads1258cmdheader.html#a51f4b20adf0f298de30c9c897a07c2a3',1,'ads1258details::ads1258cmdheader::address'],['../classlinux__pinout__server__socket.html#af069212dfe258858306bb87147212735',1,'linux_pinout_server_socket::Address'],['../ads1258_8h.html#af3f726014b044194def151079f1f2d89',1,'address:&#160;ads1258.h']]],
+  ['address_14',['address',['../classlinux__pinout__server__socket.html#af069212dfe258858306bb87147212735',1,'linux_pinout_server_socket::Address'],['../unionads1258details_1_1ads1258cmdheader.html#a51f4b20adf0f298de30c9c897a07c2a3',1,'ads1258details::ads1258cmdheader::address'],['../ads1258_8h.html#af3f726014b044194def151079f1f2d89',1,'address:&#160;ads1258.h']]],
   ['addscanchannel_15',['AddScanChannel',['../structads1258.html#a3a864d37e9319682f8f98c6262e0d666',1,'ads1258']]],
   ['addunique_16',['AddUnique',['../classfixedlist.html#af09b6cbf74933b8c9dd82d683406ae44',1,'fixedlist']]],
   ['ads1258_17',['ads1258',['../structads1258.html#a9de2101fd2dc461394f0458a1cce11ae',1,'ads1258::ads1258()'],['../structads1258.html',1,'ads1258&lt; spipinout &gt;']]],

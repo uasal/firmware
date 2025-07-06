@@ -1,5 +1,26 @@
 var NAVTREEINDEX9 =
 {
+"unionlt244xdetails_1_1channel.html#abe406ae2f0974b765837033f824f3ae9":[1,0,1,0,1],
+"unionlt244xdetails_1_1channel.html#ad18d3f1fd9a1cd07f078d1842d06b52a":[0,0,1,0,2],
+"unionlt244xdetails_1_1channel.html#ad18d3f1fd9a1cd07f078d1842d06b52a":[1,0,1,0,2],
+"unionlt244xdetails_1_1channel.html#ae4033c793a461aacfb58b1c012fb686f":[0,0,1,0,5],
+"unionlt244xdetails_1_1channel.html#ae4033c793a461aacfb58b1c012fb686f":[1,0,1,0,5],
+"unionlt244xdetails_1_1channel.html#aff03fba875added4328c8af58d9eccff":[0,0,1,0,7],
+"unionlt244xdetails_1_1channel.html#aff03fba875added4328c8af58d9eccff":[1,0,1,0,7],
+"unionlt244xdetails_1_1configregister.html":[0,0,1,1],
+"unionlt244xdetails_1_1configregister.html":[1,0,1,1],
+"unionlt244xdetails_1_1configregister.html#a212823ea247cbfd5c2dc125cc293de90":[0,0,1,1,6],
+"unionlt244xdetails_1_1configregister.html#a212823ea247cbfd5c2dc125cc293de90":[1,0,1,1,6],
+"unionlt244xdetails_1_1configregister.html#a306c7f47ea65d9ab4b369d7065d65c34":[1,0,1,1,8],
+"unionlt244xdetails_1_1configregister.html#a306c7f47ea65d9ab4b369d7065d65c34":[0,0,1,1,8],
+"unionlt244xdetails_1_1configregister.html#a41562de9280bb5fda287f14ca0392a0b":[1,0,1,1,5],
+"unionlt244xdetails_1_1configregister.html#a41562de9280bb5fda287f14ca0392a0b":[0,0,1,1,5],
+"unionlt244xdetails_1_1configregister.html#a44e87adc35c4e6c33b78ccfcf378552b":[0,0,1,1,14],
+"unionlt244xdetails_1_1configregister.html#a44e87adc35c4e6c33b78ccfcf378552b":[1,0,1,1,14],
+"unionlt244xdetails_1_1configregister.html#a4b891717979eefc911448253f55a76ff":[0,0,1,1,12],
+"unionlt244xdetails_1_1configregister.html#a4b891717979eefc911448253f55a76ff":[1,0,1,1,12],
+"unionlt244xdetails_1_1configregister.html#a578dd87fb50e6b7ec89f4f4495ccaccd":[1,0,1,1,4],
+"unionlt244xdetails_1_1configregister.html#a578dd87fb50e6b7ec89f4f4495ccaccd":[0,0,1,1,4],
 "unionlt244xdetails_1_1configregister.html#a67353c4c9b16cdd70ada4e916d7dd2a8":[1,0,1,1,2],
 "unionlt244xdetails_1_1configregister.html#a67353c4c9b16cdd70ada4e916d7dd2a8":[0,0,1,1,2],
 "unionlt244xdetails_1_1configregister.html#a6a2b3c84bbb4209118b3635ef3071b7b":[1,0,1,1,9],
@@ -46,6 +67,6 @@ var NAVTREEINDEX9 =
 "unionlt244xdetails_1_1lt244x__sample.html#add335e8bf1cd98182ec8297961e18d80":[0,0,1,2,10],
 "unionlt244xdetails_1_1lt244x__sample.html#affacd3bb4f3e634f9f4cab3286b9a34f":[1,0,1,2,9],
 "unionlt244xdetails_1_1lt244x__sample.html#affacd3bb4f3e634f9f4cab3286b9a34f":[0,0,1,2,9],
-"win32__pinout__uart_8hpp.html":[2,0,0,2,26],
-"win32__pinout__uart_8hpp_source.html":[2,0,0,2,26]
+"win32__pinout__uart_8hpp.html":[2,0,0,2,27],
+"win32__pinout__uart_8hpp_source.html":[2,0,0,2,27]
 };

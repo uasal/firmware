@@ -62,6 +62,7 @@ var annotated_dup =
     [ "fixedqueue_mt", "classfixedqueue__mt.html", "classfixedqueue__mt" ],
     [ "floatbe_t", "unionfloatbe__t.html", "unionfloatbe__t" ],
     [ "IArray", "classIArray.html", "classIArray" ],
+    [ "IBlockDevice", "classIBlockDevice.html", "classIBlockDevice" ],
     [ "IPacket", "classIPacket.html", "classIPacket" ],
     [ "IProtocol", "classIProtocol.html", "classIProtocol" ],
     [ "IUart", "classIUart.html", "classIUart" ],

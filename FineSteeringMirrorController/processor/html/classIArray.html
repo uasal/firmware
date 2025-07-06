@@ -109,12 +109,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a33b3fcae2bf321b02f257d8ca11edbe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cdd1d20f87bd0aa4c3ff6be4fee064f" id="r_a0cdd1d20f87bd0aa4c3ff6be4fee064f"><td class="memItemLeft" align="right" valign="top">virtual uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIArray.html#a0cdd1d20f87bd0aa4c3ff6be4fee064f">operator[]</a> (const size_t offset) const =0</td></tr>
 <tr class="separator:a0cdd1d20f87bd0aa4c3ff6be4fee064f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4430da5cceb0e25d3829e1ed601c0b09" id="r_a4430da5cceb0e25d3829e1ed601c0b09"><td class="memItemLeft" align="right" valign="top">virtual uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIArray.html#a4430da5cceb0e25d3829e1ed601c0b09">peek</a> (const size_t offset) const =0</td></tr>
+<tr class="separator:a4430da5cceb0e25d3829e1ed601c0b09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0712fc16e217f0de1b33d97fc21026aa" id="r_a0712fc16e217f0de1b33d97fc21026aa"><td class="memItemLeft" align="right" valign="top">virtual uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIArray.html#a0712fc16e217f0de1b33d97fc21026aa">asU16</a> (const size_t offset) const =0</td></tr>
 <tr class="separator:a0712fc16e217f0de1b33d97fc21026aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa8b4386c0a49a5f1447d949e4f3c380" id="r_aaa8b4386c0a49a5f1447d949e4f3c380"><td class="memItemLeft" align="right" valign="top">virtual uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIArray.html#aaa8b4386c0a49a5f1447d949e4f3c380">asU32</a> (const size_t offset) const =0</td></tr>
 <tr class="separator:aaa8b4386c0a49a5f1447d949e4f3c380"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adaa8246ec4ac3f276d887bda6cb45b52" id="r_adaa8246ec4ac3f276d887bda6cb45b52"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIArray.html#adaa8246ec4ac3f276d887bda6cb45b52">Depth</a> () const =0</td></tr>
 <tr class="separator:adaa8246ec4ac3f276d887bda6cb45b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d805f4634fcf5b48700bda5eb1e50eb" id="r_a3d805f4634fcf5b48700bda5eb1e50eb"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIArray.html#a3d805f4634fcf5b48700bda5eb1e50eb">CopyToFlatBuffer</a> (const size_t StartOffset, size_t &amp;NumToCopy, uint8_t *const <a class="el" href="CmdHandlersAscii_8cpp.html#a40c0e0193a4ed265043847344773fbcb">Buffer</a>, const size_t BufferMaxLen) const =0</td></tr>
+<tr class="separator:a3d805f4634fcf5b48700bda5eb1e50eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Copyright (c) by Franks Development, LLC. </p>
@@ -228,6 +232,54 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a3d805f4634fcf5b48700bda5eb1e50eb" name="a3d805f4634fcf5b48700bda5eb1e50eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d805f4634fcf5b48700bda5eb1e50eb">&#9670;&#160;</a></span>CopyToFlatBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual size_t IArray::CopyToFlatBuffer </td>
+          <td>(</td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>StartOffset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t &amp;&#160;</td>
+          <td class="paramname"><em>NumToCopy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *const&#160;</td>
+          <td class="paramname"><em>Buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>BufferMaxLen</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="adaa8246ec4ac3f276d887bda6cb45b52" name="adaa8246ec4ac3f276d887bda6cb45b52"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adaa8246ec4ac3f276d887bda6cb45b52">&#9670;&#160;</a></span>Depth()</h2>
 
@@ -279,6 +331,32 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a4430da5cceb0e25d3829e1ed601c0b09" name="a4430da5cceb0e25d3829e1ed601c0b09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4430da5cceb0e25d3829e1ed601c0b09">&#9670;&#160;</a></span>peek()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual uint8_t IArray::peek </td>
+          <td>(</td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>offset</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="IArray_8hpp_source.html">IArray.hpp</a></li>
 </ul>
@@ -288,7 +366,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classIArray.html">IArray</a></li>
-    <li class="footer">Generated on Sun Jul 6 2025 14:16:49 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sun Jul 6 2025 15:25:38 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

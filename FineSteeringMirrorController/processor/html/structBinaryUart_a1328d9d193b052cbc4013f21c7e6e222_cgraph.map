@@ -1,49 +1,49 @@
 <map id="BinaryUart::Process" name="BinaryUart::Process">
-<area shape="rect" id="Node000001" title="Processes incoming data and checks for new packets." alt="" coords="5,787,156,812"/>
-<area shape="rect" id="Node000002" href="$structBinaryUart.html#a710ecfd14e702d8cf732707d6184c2c2" title="Checks if a complete packet (with both header and footer) is present in the buffer." alt="" coords="207,432,414,458"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,785,292,468,296,471,93,788"/>
-<area shape="rect" id="Node000013" href="$structBinaryUart.html#ad350385f839762fcb3aad27a69e9809e" title="Checks if a packet is present in the buffer." alt="" coords="204,812,417,838"/>
-<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="157,805,191,809,190,815,156,811"/>
-<area shape="rect" id="Node000014" href="$classIPacket.html#a2f0acb1e8c31c1449ac6c32dcf1f4757" title=" " alt="" coords="735,762,881,787"/>
-<area shape="poly" id="edge18_Node000001_Node000014" title=" " alt="" coords="156,795,721,775,721,780,156,800"/>
-<area shape="rect" id="Node000015" href="$classIUart.html#a639d6c3b3a8d73c2133c0fa24b53726c" title=" " alt="" coords="247,862,375,887"/>
-<area shape="poly" id="edge15_Node000001_Node000015" title=" " alt="" coords="110,810,205,848,234,856,233,861,203,853,108,815"/>
-<area shape="rect" id="Node000016" href="$classIPacket.html#a3eda6e6dc43f5356d4eae88692e9787b" title=" " alt="" coords="738,432,878,458"/>
-<area shape="poly" id="edge16_Node000001_Node000016" title=" " alt="" coords="133,785,204,769,312,758,452,748,523,741,588,731,643,716,684,695,710,672,732,644,766,582,788,520,800,471,805,472,793,522,771,584,737,647,714,675,687,699,645,720,589,736,523,746,452,754,312,763,204,774,134,790"/>
-<area shape="rect" id="Node000017" href="$classIUart.html#aef9c35f7c2ded43d57f2d532bb97da84" title=" " alt="" coords="257,911,364,936"/>
-<area shape="poly" id="edge17_Node000001_Node000017" title=" " alt="" coords="96,811,141,854,172,878,205,897,244,911,243,916,203,902,169,882,138,858,92,815"/>
-<area shape="rect" id="Node000018" href="$classIPacket.html#ae1f269523fdd7b923e6600c46d93a94f" title=" " alt="" coords="235,960,386,986"/>
-<area shape="poly" id="edge19_Node000001_Node000018" title=" " alt="" coords="91,811,133,877,166,915,205,947,223,956,221,960,203,951,162,919,129,880,86,814"/>
+<area shape="rect" id="Node000001" title="Processes incoming data and checks for new packets." alt="" coords="5,668,156,694"/>
+<area shape="rect" id="Node000002" href="$structBinaryUart.html#a710ecfd14e702d8cf732707d6184c2c2" title="Checks if a complete packet (with both header and footer) is present in the buffer." alt="" coords="207,498,414,523"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,666,279,530,283,534,101,670"/>
+<area shape="rect" id="Node000014" href="$structBinaryUart.html#ad350385f839762fcb3aad27a69e9809e" title="Checks if a packet is present in the buffer." alt="" coords="204,811,417,836"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="104,692,279,801,276,806,101,696"/>
+<area shape="rect" id="Node000016" href="$classIPacket.html#a2f0acb1e8c31c1449ac6c32dcf1f4757" title=" " alt="" coords="735,204,881,230"/>
+<area shape="poly" id="edge18_Node000001_Node000016" title=" " alt="" coords="86,667,128,587,163,529,207,465,260,399,320,337,389,282,426,259,464,240,529,219,597,208,662,204,721,206,721,211,662,210,597,213,530,224,466,245,428,264,392,287,324,341,264,403,211,468,167,532,132,590,90,669"/>
+<area shape="rect" id="Node000017" href="$classIPacket.html#a3eda6e6dc43f5356d4eae88692e9787b" title=" " alt="" coords="738,583,878,608"/>
+<area shape="poly" id="edge17_Node000001_Node000017" title=" " alt="" coords="90,693,105,725,130,767,164,810,205,846,248,867,306,886,373,903,446,915,518,922,585,923,642,915,665,907,684,898,716,870,741,836,761,799,777,759,796,682,803,622,808,622,801,683,782,761,766,801,746,839,720,874,687,902,667,912,643,920,585,928,518,928,445,921,372,908,304,891,246,872,203,850,160,814,126,770,101,727,85,695"/>
+<area shape="rect" id="Node000018" href="$classIPacket.html#ae1f269523fdd7b923e6600c46d93a94f" title=" " alt="" coords="235,963,386,988"/>
+<area shape="poly" id="edge19_Node000001_Node000018" title=" " alt="" coords="87,694,97,741,119,808,154,880,178,913,206,942,227,955,224,960,202,946,174,916,150,882,114,810,92,742,82,695"/>
 <area shape="rect" id="Node000019" href="$structBinaryUart.html#a16b484e326a172e0c3b37ba6e8eed8a5" title="Adds a byte to the Rx buffer and handles buffer overflow." alt="" coords="221,100,401,126"/>
-<area shape="poly" id="edge20_Node000001_Node000019" title=" " alt="" coords="84,786,201,419,298,138,303,140,207,421,89,787"/>
-<area shape="rect" id="Node000003" href="$classIPacket.html#a6db60bf5beb402e644ccc323e0fb4b03" title=" " alt="" coords="480,532,671,572"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="337,456,395,485,466,516,491,525,489,530,464,521,393,490,335,460"/>
-<area shape="rect" id="Node000004" href="$structBinaryUartCallbacks.html#a508d662c0d5228df5049e092aed51770" title=" " alt="" coords="498,596,653,636"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="324,456,381,516,422,551,467,581,487,591,484,596,464,586,418,555,377,520,321,460"/>
-<area shape="rect" id="Node000005" href="$structBinaryUart.html#a1b97f089ceb8177a9d9c4bd3f947da75" title=" " alt="" coords="733,103,883,128"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="311,432,323,376,350,295,370,251,395,209,426,170,464,139,495,122,528,109,599,95,668,93,730,99,729,104,668,99,599,101,530,114,497,126,467,143,430,174,400,212,375,253,355,297,328,377,317,433"/>
-<area shape="rect" id="Node000006" href="$structBinaryUart.html#ade55f8dfcbac25aaf7e2c714d2f5650d" title=" " alt="" coords="502,318,649,343"/>
-<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="329,430,387,392,464,353,491,344,493,349,466,358,390,397,331,434"/>
-<area shape="rect" id="Node000007" href="$structBinaryUartCallbacks.html#a61b30efec2c972e1b05aff498997e173" title=" " alt="" coords="498,368,653,408"/>
-<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="370,430,484,405,485,410,371,435"/>
-<area shape="rect" id="Node000008" href="$classIPacket.html#aac324d1be13b345811c62808e3046a0b" title=" " alt="" coords="465,432,685,458"/>
-<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="414,442,452,442,452,448,414,448"/>
-<area shape="rect" id="Node000009" href="$classIPacket.html#ae508735aa416afc0e8cb2a10f96006e8" title=" " alt="" coords="516,482,635,507"/>
-<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="380,455,503,478,502,484,379,460"/>
-<area shape="rect" id="Node000010" href="$classIPacket.html#ace74729172ff26454c90e09d5e48784e" title=" " alt="" coords="497,660,654,686"/>
-<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="320,457,339,495,371,546,414,600,439,625,467,646,485,655,483,660,464,650,436,629,410,604,367,549,335,497,315,459"/>
-<area shape="rect" id="Node000011" href="$classIPacket.html#a54069372377ca86ac8ae677ae2c1544b" title=" " alt="" coords="503,203,647,228"/>
-<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="315,431,335,393,367,340,410,285,436,260,464,239,489,227,491,231,467,243,439,264,414,289,371,343,339,395,320,433"/>
-<area shape="rect" id="Node000012" href="$structBinaryUartCallbacks.html#a2ef2d961f39fd01758fb0f21f5850bda" title=" " alt="" coords="498,253,653,293"/>
-<area shape="poly" id="edge12_Node000002_Node000012" title=" " alt="" coords="321,430,377,370,418,334,464,303,484,293,486,298,467,307,422,338,381,373,324,434"/>
-<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="770,105,762,95,766,85,782,79,808,76,841,80,853,90,850,94,839,85,808,82,783,84,770,89,767,94,774,101"/>
-<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="417,815,685,790,721,786,721,791,686,796,418,821"/>
-<area shape="poly" id="edge22_Node000019_Node000005" title=" " alt="" coords="327,98,385,59,424,39,465,24,526,9,576,3,626,7,686,24,716,37,743,54,787,91,783,95,740,59,713,42,684,29,625,13,576,8,527,14,466,29,426,44,388,63,330,102"/>
+<area shape="poly" id="edge20_Node000001_Node000019" title=" " alt="" coords="80,668,85,593,102,472,118,403,139,332,166,262,202,197,235,159,273,131,276,135,239,163,206,200,171,264,144,334,123,404,107,473,90,594,85,669"/>
+<area shape="rect" id="Node000003" href="$classIPacket.html#a6db60bf5beb402e644ccc323e0fb4b03" title=" " alt="" coords="480,682,671,722"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="323,522,378,590,420,631,467,667,481,674,478,679,464,671,416,636,374,594,319,525"/>
+<area shape="rect" id="Node000004" href="$structBinaryUartCallbacks.html#a508d662c0d5228df5049e092aed51770" title=" " alt="" coords="498,746,653,786"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="320,522,338,563,369,620,413,681,438,708,467,732,486,744,484,748,464,737,435,712,408,684,365,623,333,566,315,524"/>
+<area shape="rect" id="Node000005" href="$classIPacket.html#ac7c686a76164a3f61268ae04baadae51" title=" " alt="" coords="479,255,671,280"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="315,496,333,456,364,399,408,340,434,313,464,290,474,284,476,288,467,294,438,317,412,343,369,402,338,458,319,499"/>
+<area shape="rect" id="Node000006" href="$structBinaryUart.html#a1b97f089ceb8177a9d9c4bd3f947da75" title=" " alt="" coords="733,103,883,128"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="310,497,318,432,327,384,341,332,361,278,387,226,421,178,464,139,495,120,529,107,565,98,601,93,673,92,735,98,735,104,672,97,602,98,566,103,531,112,498,125,467,143,425,182,392,229,366,281,346,334,332,386,323,432,315,498"/>
+<area shape="rect" id="Node000007" href="$structBinaryUart.html#ade55f8dfcbac25aaf7e2c714d2f5650d" title=" " alt="" coords="502,468,649,494"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="414,496,488,488,488,493,414,502"/>
+<area shape="rect" id="Node000008" href="$structBinaryUartCallbacks.html#a61b30efec2c972e1b05aff498997e173" title=" " alt="" coords="498,518,653,558"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="414,519,484,526,484,531,414,524"/>
+<area shape="rect" id="Node000009" href="$classIPacket.html#aac324d1be13b345811c62808e3046a0b" title=" " alt="" coords="465,583,685,608"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="342,521,399,544,466,568,500,577,499,582,465,573,397,549,340,526"/>
+<area shape="rect" id="Node000010" href="$classIPacket.html#ae508735aa416afc0e8cb2a10f96006e8" title=" " alt="" coords="516,632,635,658"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="328,521,386,568,425,595,466,617,503,630,502,635,464,622,422,599,382,573,324,525"/>
+<area shape="rect" id="Node000011" href="$classIPacket.html#ace74729172ff26454c90e09d5e48784e" title=" " alt="" coords="497,304,654,330"/>
+<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="318,496,339,464,372,421,414,376,464,339,482,330,484,335,467,343,418,380,376,424,343,467,322,499"/>
+<area shape="rect" id="Node000012" href="$classIPacket.html#a54069372377ca86ac8ae677ae2c1544b" title=" " alt="" coords="503,354,647,379"/>
+<area shape="poly" id="edge12_Node000002_Node000012" title=" " alt="" coords="323,496,381,444,421,414,464,389,489,380,491,385,466,394,424,419,384,448,326,499"/>
+<area shape="rect" id="Node000013" href="$structBinaryUartCallbacks.html#a2ef2d961f39fd01758fb0f21f5850bda" title=" " alt="" coords="498,404,653,444"/>
+<area shape="poly" id="edge13_Node000002_Node000013" title=" " alt="" coords="345,495,464,453,490,445,491,450,466,458,347,500"/>
+<area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="770,105,762,95,766,85,782,79,808,76,841,80,853,90,850,94,839,85,808,82,783,84,770,89,767,94,774,101"/>
+<area shape="rect" id="Node000015" href="$classIPacket.html#abdbd5f85a036c3b51c16ec938c18823d" title=" " alt="" coords="476,862,675,887"/>
+<area shape="poly" id="edge15_Node000014_Node000015" title=" " alt="" coords="378,834,495,857,494,862,377,839"/>
+<area shape="poly" id="edge16_Node000014_Node000016" title=" " alt="" coords="418,828,495,829,573,826,640,816,666,807,683,797,799,242,804,243,688,800,668,812,641,821,573,831,495,834,418,833"/>
+<area shape="poly" id="edge22_Node000019_Node000006" title=" " alt="" coords="327,98,385,59,424,39,465,24,526,9,576,3,626,7,686,24,716,37,743,54,787,91,783,95,740,59,713,42,684,29,625,13,576,8,527,14,466,29,426,44,388,63,330,102"/>
 <area shape="rect" id="Node000020" href="$structBinaryUartCallbacks.html#addd4c0dc575fa60d305d2a37df619003" title=" " alt="" coords="498,38,653,78"/>
 <area shape="poly" id="edge21_Node000019_Node000020" title=" " alt="" coords="372,98,484,75,485,80,373,103"/>
 <area shape="rect" id="Node000021" href="$structBinaryUart.html#ae962b6889e62ef1f53895991f728fc6e" title="Initializes the BinaryUart." alt="" coords="515,154,636,179"/>
 <area shape="poly" id="edge23_Node000019_Node000021" title=" " alt="" coords="375,123,502,149,501,154,374,129"/>
-<area shape="poly" id="edge25_Node000021_Node000005" title=" " alt="" coords="634,151,735,129,737,134,635,156"/>
-<area shape="poly" id="edge26_Node000021_Node000014" title=" " alt="" coords="637,165,664,173,687,189,714,222,728,254,735,286,735,318,730,387,730,425,736,469,772,628,802,748,797,749,767,629,731,470,725,426,725,386,730,318,729,286,723,256,709,225,684,192,662,177,636,170"/>
-<area shape="poly" id="edge24_Node000021_Node000016" title=" " alt="" coords="637,167,663,175,687,188,713,213,736,242,770,306,792,369,805,418,799,420,787,370,765,309,731,245,709,217,684,193,661,180,635,172"/>
+<area shape="poly" id="edge25_Node000021_Node000006" title=" " alt="" coords="634,151,735,129,737,134,635,156"/>
+<area shape="poly" id="edge26_Node000021_Node000016" title=" " alt="" coords="635,177,737,199,735,204,634,182"/>
+<area shape="poly" id="edge24_Node000021_Node000017" title=" " alt="" coords="605,177,647,203,669,220,687,241,715,283,738,328,773,421,795,506,806,569,801,570,790,507,768,423,733,330,710,285,683,244,665,224,644,207,603,182"/>
 </map>

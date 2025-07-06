@@ -1,7 +1,7 @@
 var structBinaryUart =
 [
     [ "BinaryUart", "structBinaryUart.html#a8258918913fd0bec31fc50328ff4a90e", null ],
-    [ "BinaryUart", "structBinaryUart.html#a20a9cf20e1a28a417f13146cf1dbf828", null ],
+    [ "BinaryUart", "structBinaryUart.html#addfbf98b5a11f4a162a7e04409500560", null ],
     [ "CheckPacketEnd", "structBinaryUart.html#a710ecfd14e702d8cf732707d6184c2c2", null ],
     [ "CheckPacketStart", "structBinaryUart.html#ad350385f839762fcb3aad27a69e9809e", null ],
     [ "Debug", "structBinaryUart.html#a6aaa3db8e8941233f4e7613320adc8c8", null ],
@@ -45,6 +45,7 @@ var structBinaryUart =
     [ "PacketStartPosInit", "structBinaryUart.html#ae1b99e6b6146be03c3f4cc0c61990e02", null ],
     [ "PayloadLen", "structBinaryUart.html#a37290fc3fb04df9a69942ac1d08fe82c", null ],
     [ "PayloadLenInit", "structBinaryUart.html#acb48d8a0a77066c82f8804898b2b5991", null ],
+    [ "Pinout", "structBinaryUart.html#a6ca70ce047cc0c6797acc5cc72f9425f", null ],
     [ "RxBuffer", "structBinaryUart.html#a23374ba3a10149e41d7e384db6c56d92", null ],
     [ "RxBufferLenBytes", "structBinaryUart.html#ae34ed1f9ad53abc2a482c0d8e3bbc5c9", null ],
     [ "RxCount", "structBinaryUart.html#aaa8f09c9917dfe497019750410b85034", null ],

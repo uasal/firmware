@@ -11,6 +11,7 @@ var dir_d44c64559bbebec7f509842c48db8b23 =
     [ "fixedqueue.hpp", "fixedqueue_8hpp.html", "fixedqueue_8hpp" ],
     [ "fixedqueue_mt.hpp", "fixedqueue__mt_8hpp.html", "fixedqueue__mt_8hpp" ],
     [ "IArray.hpp", "IArray_8hpp.html", "IArray_8hpp" ],
+    [ "IBlockDevice.hpp", "IBlockDevice_8hpp.html", "IBlockDevice_8hpp" ],
     [ "stdintle.cpp", "stdintle_8cpp.html", "stdintle_8cpp" ],
     [ "stdintle.h", "stdintle_8h.html", "stdintle_8h" ]
 ];

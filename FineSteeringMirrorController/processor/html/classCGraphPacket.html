@@ -136,6 +136,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a429c22fdb47bb3662b3fc2a1a89e24e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7df26cf0c2ec14c65ded153cc90aaba3" id="r_a7df26cf0c2ec14c65ded153cc90aaba3"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGraphPacket.html#a7df26cf0c2ec14c65ded153cc90aaba3">FooterLen</a> () const override</td></tr>
 <tr class="separator:a7df26cf0c2ec14c65ded153cc90aaba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa5dea6599c252459f4391ee7e31b7a1" id="r_aaa5dea6599c252459f4391ee7e31b7a1"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGraphPacket.html#aaa5dea6599c252459f4391ee7e31b7a1">EndTokenLen</a> () const override</td></tr>
+<tr class="separator:aaa5dea6599c252459f4391ee7e31b7a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82704dc5628289f612e0740dc2ad3b97" id="r_a82704dc5628289f612e0740dc2ad3b97"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGraphPacket.html#a82704dc5628289f612e0740dc2ad3b97">PayloadOffset</a> () const override</td></tr>
 <tr class="separator:a82704dc5628289f612e0740dc2ad3b97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab22778db1edaf1d68d60a1eb84bf33d7" id="r_ab22778db1edaf1d68d60a1eb84bf33d7"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGraphPacket.html#ab22778db1edaf1d68d60a1eb84bf33d7">MaxPayloadLength</a> () const override</td></tr>
@@ -156,6 +158,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1cc4c17fb847626f753f1287726a6c11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa71dcf6fe8b4be1cc12f58dcd38662a5" id="r_aa71dcf6fe8b4be1cc12f58dcd38662a5"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGraphPacket.html#aa71dcf6fe8b4be1cc12f58dcd38662a5">FindPacketStartPos</a> (const <a class="el" href="classIArray.html">IArray</a> &amp;<a class="el" href="CmdHandlersAscii_8cpp.html#a40c0e0193a4ed265043847344773fbcb">Buffer</a>, const size_t SearchStartPos, size_t &amp;Offset) const override</td></tr>
 <tr class="separator:aa71dcf6fe8b4be1cc12f58dcd38662a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6eaa55b41600f4cefe7e4a2701c69bb" id="r_ab6eaa55b41600f4cefe7e4a2701c69bb"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGraphPacket.html#ab6eaa55b41600f4cefe7e4a2701c69bb">ReverseFindPacketStartPos</a> (const <a class="el" href="classIArray.html">IArray</a> &amp;<a class="el" href="CmdHandlersAscii_8cpp.html#a40c0e0193a4ed265043847344773fbcb">Buffer</a>, const size_t SearchEndPos, size_t &amp;Offset) const override</td></tr>
+<tr class="separator:ab6eaa55b41600f4cefe7e4a2701c69bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ae60c9ee3615d329105146b9f8f4e97" id="r_a8ae60c9ee3615d329105146b9f8f4e97"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGraphPacket.html#a8ae60c9ee3615d329105146b9f8f4e97">FindPacketEndPos</a> (const <a class="el" href="classIArray.html">IArray</a> &amp;<a class="el" href="CmdHandlersAscii_8cpp.html#a40c0e0193a4ed265043847344773fbcb">Buffer</a>, const size_t SearchStartPos, size_t &amp;Offset) const override</td></tr>
 <tr class="separator:a8ae60c9ee3615d329105146b9f8f4e97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa24ccddfb49112a3b1d6def7c09e9a4a" id="r_aa24ccddfb49112a3b1d6def7c09e9a4a"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGraphPacket.html#aa24ccddfb49112a3b1d6def7c09e9a4a">PayloadLen</a> (const <a class="el" href="classIArray.html">IArray</a> &amp;<a class="el" href="CmdHandlersAscii_8cpp.html#a40c0e0193a4ed265043847344773fbcb">Buffer</a>, const size_t PacketStartPos) const override</td></tr>
@@ -178,7 +182,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00057">57</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00066">66</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab11b17d609c4ac02fd548f40e086b8ee" name="ab11b17d609c4ac02fd548f40e086b8ee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab11b17d609c4ac02fd548f40e086b8ee">&#9670;&#160;</a></span>CGraphPacket()</h2>
@@ -203,7 +207,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00060">60</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00069">69</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
 </div>
 </div>
@@ -230,7 +234,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00061">61</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00070">70</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
 </div>
 </div>
@@ -283,7 +287,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#a349fb3451cce68b72bcc32baa7a41693">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00217">217</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00381">381</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00001">PayloadType</a>.</p>
 
@@ -343,9 +347,40 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#a6db60bf5beb402e644ccc323e0fb4b03">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00124">124</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00186">186</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00028">CGraphPacketHeader::PayloadType</a>.</p>
+
+</div>
+</div>
+<a id="aaa5dea6599c252459f4391ee7e31b7a1" name="aaa5dea6599c252459f4391ee7e31b7a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa5dea6599c252459f4391ee7e31b7a1">&#9670;&#160;</a></span>EndTokenLen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual size_t CGraphPacket::EndTokenLen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classIPacket.html#a34df321aa405fc8b75b43d89b955004f">IPacket</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00145">145</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="CGraphPacket_8hpp_source.html#l00057">CGraphPacketFooter::PacketEndToken</a>.</p>
 
 </div>
 </div>
@@ -391,9 +426,9 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#af6e4ab3990bcad2921f889131f24d64f">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00168">168</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00279">279</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00043">CGraphMagikPacketEndToken</a>.</p>
+<p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00052">CGraphMagikPacketEndToken</a>.</p>
 
 </div>
 </div>
@@ -445,9 +480,9 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#a5cfb8b284dd0722a4c387bb4d3ebeb58">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00097">97</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00124">124</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00043">CGraphMagikPacketEndToken</a>.</p>
+<p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00052">CGraphMagikPacketEndToken</a>.</p>
 
 </div>
 </div>
@@ -493,9 +528,9 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#ac7c686a76164a3f61268ae04baadae51">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00084">84</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00100">100</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00043">CGraphMagikPacketEndToken</a>.</p>
+<p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00052">CGraphMagikPacketEndToken</a>.</p>
 
 </div>
 </div>
@@ -541,7 +576,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#a159e4ae03874b9ce6890f8b111b025bc">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00162">162</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00251">251</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00023">CGraphMagikPacketStartToken</a>.</p>
 
@@ -595,7 +630,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#a104f4f3cc1efcb063f4187d73ad4ae0e">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00091">91</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00111">111</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00023">CGraphMagikPacketStartToken</a>.</p>
 
@@ -643,7 +678,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#abdbd5f85a036c3b51c16ec938c18823d">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00063">63</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00072">72</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00023">CGraphMagikPacketStartToken</a>.</p>
 
@@ -674,7 +709,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#a3eda6e6dc43f5356d4eae88692e9787b">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00104">104</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00141">141</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
 </div>
 </div>
@@ -703,7 +738,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#a2f0acb1e8c31c1449ac6c32dcf1f4757">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00103">103</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00137">137</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
 </div>
 </div>
@@ -749,7 +784,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#a56c7f5a444fa41bdad4045472eb435a0">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00205">205</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00360">360</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
 </div>
 </div>
@@ -795,7 +830,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#aac324d1be13b345811c62808e3046a0b">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00107">107</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00157">157</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
 </div>
 </div>
@@ -841,9 +876,19 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#af652e0083ccfe86161835b2efad50080">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00182">182</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00308">308</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00043">CGraphMagikPacketEndToken</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00023">CGraphMagikPacketStartToken</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00000">CRC32BZIP2</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00001">PacketEndToken</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00000">PacketStartToken</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00002">PayloadLen</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00001">PayloadType</a>.</p>
+<p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00052">CGraphMagikPacketEndToken</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00023">CGraphMagikPacketStartToken</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00000">CRC32BZIP2</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00018">formatf()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00001">PacketEndToken</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00000">PacketStartToken</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00002">PayloadLen</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00001">PayloadType</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classCGraphPacket_a21838ecf3bbc854bcfc81073ad10b85c_cgraph.png" border="0" usemap="#aclassCGraphPacket_a21838ecf3bbc854bcfc81073ad10b85c_cgraph" alt=""/></div>
+<map name="aclassCGraphPacket_a21838ecf3bbc854bcfc81073ad10b85c_cgraph" id="aclassCGraphPacket_a21838ecf3bbc854bcfc81073ad10b85c_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,168,31"/>
+<area shape="rect" href="CGraphPacket_8hpp.html#a9f573dbd37f866eb7c33792daf23f413" title=" " alt="" coords="216,5,287,31"/>
+<area shape="poly" title=" " alt="" coords="168,15,202,15,202,21,168,21"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -895,9 +940,9 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#ae508735aa416afc0e8cb2a10f96006e8">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00134">134</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00202">202</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00043">CGraphMagikPacketEndToken</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00023">CGraphMagikPacketStartToken</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00000">CRC32BZIP2</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00047">CGraphPacketFooter::CRC32BZIP2</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00048">CGraphPacketFooter::PacketEndToken</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00027">CGraphPacketHeader::PacketStartToken</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00029">CGraphPacketHeader::PayloadLen</a>.</p>
+<p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00052">CGraphMagikPacketEndToken</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00023">CGraphMagikPacketStartToken</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00000">CRC32BZIP2</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00056">CGraphPacketFooter::CRC32BZIP2</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00057">CGraphPacketFooter::PacketEndToken</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00027">CGraphPacketHeader::PacketStartToken</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00029">CGraphPacketHeader::PayloadLen</a>.</p>
 
 </div>
 </div>
@@ -955,9 +1000,9 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#aa50e563805822827057ebb7f7e99e6c2">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00147">147</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00230">230</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00043">CGraphMagikPacketEndToken</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00000">CRC32BZIP2</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00047">CGraphPacketFooter::CRC32BZIP2</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00048">CGraphPacketFooter::PacketEndToken</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00002">PayloadLen</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00029">CGraphPacketHeader::PayloadLen</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00001">PayloadType</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00028">CGraphPacketHeader::PayloadType</a>.</p>
+<p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00052">CGraphMagikPacketEndToken</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00000">CRC32BZIP2</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00056">CGraphPacketFooter::CRC32BZIP2</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00057">CGraphPacketFooter::PacketEndToken</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00002">PayloadLen</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00029">CGraphPacketHeader::PayloadLen</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00001">PayloadType</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00028">CGraphPacketHeader::PayloadType</a>.</p>
 
 </div>
 </div>
@@ -986,7 +1031,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#a377f161e1c076def5da17e4a6a8189ad">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00106">106</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00153">153</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
 </div>
 </div>
@@ -1026,7 +1071,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#ad202634318db598aa8ffda2e5d19b71f">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00174">174</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00294">294</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00002">PayloadLen</a>.</p>
 
@@ -1074,7 +1119,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#ae1f269523fdd7b923e6600c46d93a94f">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00110">110</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00166">166</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00029">CGraphPacketHeader::PayloadLen</a>.</p>
 
@@ -1105,7 +1150,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#a5c900c086d4bc48d3940c4ef82fd000c">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00105">105</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00149">149</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
 </div>
 </div>
@@ -1151,7 +1196,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#a96ace76eb5657bad9594b79b7b9b233e">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00208">208</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00369">369</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00001">PayloadType</a>.</p>
 
@@ -1199,9 +1244,57 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#ace74729172ff26454c90e09d5e48784e">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00117">117</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00176">176</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00028">CGraphPacketHeader::PayloadType</a>.</p>
+
+</div>
+</div>
+<a id="ab6eaa55b41600f4cefe7e4a2701c69bb" name="ab6eaa55b41600f4cefe7e4a2701c69bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6eaa55b41600f4cefe7e4a2701c69bb">&#9670;&#160;</a></span>ReverseFindPacketStartPos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool CGraphPacket::ReverseFindPacketStartPos </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classIArray.html">IArray</a> &amp;&#160;</td>
+          <td class="paramname"><em>Buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>SearchEndPos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t &amp;&#160;</td>
+          <td class="paramname"><em>Offset</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classIPacket.html#ae5ec2ec95d04f13049e107741eea6f46">IPacket</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00264">264</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">Buffer</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00023">CGraphMagikPacketStartToken</a>.</p>
 
 </div>
 </div>
@@ -1247,7 +1340,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#ad10c09a8efe82cea19087fa88b31fddf">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00206">206</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00364">364</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
 </div>
 </div>
@@ -1293,7 +1386,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIPacket.html#a54069372377ca86ac8ae677ae2c1544b">IPacket</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00108">108</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CGraphPacket_8hpp_source.html#l00161">161</a> of file <a class="el" href="CGraphPacket_8hpp_source.html">CGraphPacket.hpp</a>.</p>
 
 </div>
 </div>
@@ -1306,7 +1399,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classCGraphPacket.html">CGraphPacket</a></li>
-    <li class="footer">Generated on Sun Jul 6 2025 14:16:49 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sun Jul 6 2025 15:25:38 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

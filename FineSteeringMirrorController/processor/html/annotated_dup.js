@@ -64,6 +64,7 @@ var annotated_dup =
     [ "floatbe_t", "unionfloatbe__t.html", "unionfloatbe__t" ],
     [ "FPGABinaryUartCallbacks", "structFPGABinaryUartCallbacks.html", "structFPGABinaryUartCallbacks" ],
     [ "IArray", "classIArray.html", "classIArray" ],
+    [ "IBlockDevice", "classIBlockDevice.html", "classIBlockDevice" ],
     [ "IPacket", "classIPacket.html", "classIPacket" ],
     [ "IProtocol", "classIProtocol.html", "classIProtocol" ],
     [ "IUart", "classIUart.html", "classIUart" ],
