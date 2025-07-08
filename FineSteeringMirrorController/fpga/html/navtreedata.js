@@ -47,14 +47,14 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "BuildNumber_8vhd.html",
-"classIOBufP2Ports.html#a241c3e72dd8024cc8ae831b1b2aed7db",
-"classMain.html#ae8df744efc7f25f447aa65d1e936084e",
-"classMain_1_1architecture__Main.html#ae71dffef42d56be897a13f2e251b903a",
-"classRegisterSpacePorts_1_1RegisterSpace.html#ab57b43c1872e13c90c633db50645aec7",
-"classSpiExtBusAddrTxPorts_1_1SpiExtBusAddrTx.html#a6973781c62803bfc5fecd94724348cb6",
-"classUartRxFifoParity.html#ae106f17a2b73445119c8eb039d3e102e",
-"classVariableOneShotPorts_1_1VariableOneShot.html#a4456575c390593e79a42138fb3b52517",
-"classltc244xPorts_1_1ltc244x__i.html#aea05eba3d1b6dd1132679b0320691b5a"
+"classIBufP3Ports_1_1IBufP3.html#a8ee64d1327298358d5f75867875249ca",
+"classMain.html#ae4f03c286607f3181e16b9aa12d0c6d4",
+"classMain_1_1architecture__Main.html#ae698750a4b13ac0ea0ec188983e8c618",
+"classRegisterSpacePorts_1_1RegisterSpace.html#aafebcea3a4f4d8212ef658afe23e8529",
+"classSpiExtBusAddrTxPorts_1_1SpiExtBusAddrTx.html#a40230d1eabbeb02dc89dc66911451995",
+"classUartRxFifoExtClkPeek_1_1implementation.html#a10169ec4e299c50202863dbea4f21ca1",
+"classUartTx_1_1Behaviour.html#a7ae98d3504e8a7468523ebc169de7912",
+"classgated__fifo__fram_1_1rtl.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

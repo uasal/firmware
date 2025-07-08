@@ -1,6 +1,6 @@
 var classltc244xAutoscanPorts_1_1ltc244x__i =
 [
-    [ "PROCESS_21", "classltc244xAutoscanPorts_1_1ltc244x__i.html#a87908c08ae6375f3fae692445d2270c3", null ],
+    [ "PROCESS_22", "classltc244xAutoscanPorts_1_1ltc244x__i.html#a87b87a5ad6fb781c74bbc3d7c8ee072c", null ],
     [ "Config_i", "classltc244xAutoscanPorts_1_1ltc244x__i.html#a1ff4d63564e8ff355fb59adc1b65ee6d", null ],
     [ "DataFromMiso", "classltc244xAutoscanPorts_1_1ltc244x__i.html#a972f76f20c0c2ae7e594a00412673c2a", null ],
     [ "DataReady", "classltc244xAutoscanPorts_1_1ltc244x__i.html#a5a86ed64ed54d7a2e8965cfd6b8dcf48", null ],

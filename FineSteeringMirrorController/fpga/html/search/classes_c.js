@@ -4,5 +4,5 @@ var searchData=
   ['registerspaceports_1',['RegisterSpacePorts',['../classRegisterSpacePorts.html',1,'']]],
   ['rtccounter_2',['RtcCounter',['../classRtcCounterPorts_1_1RtcCounter.html',1,'RtcCounterPorts']]],
   ['rtccounterports_3',['RtcCounterPorts',['../classRtcCounterPorts.html',1,'']]],
-  ['rtl_4',['rtl',['../classfifo_1_1rtl.html',1,'fifo.rtl'],['../classfifo__gen__tb_1_1rtl.html',1,'fifo_gen_tb.rtl'],['../classgated__fifo_1_1rtl.html',1,'gated_fifo.rtl'],['../classgated__fifo__fram_1_1rtl.html',1,'gated_fifo_fram.rtl']]]
+  ['rtl_4',['rtl',['../classfifo_1_1rtl.html',1,'fifo.rtl'],['../classfifo__gen__tb_1_1rtl.html',1,'fifo_gen_tb.rtl'],['../classfifo__peek_1_1rtl.html',1,'fifo_peek.rtl'],['../classgated__fifo_1_1rtl.html',1,'gated_fifo.rtl'],['../classgated__fifo__fram_1_1rtl.html',1,'gated_fifo_fram.rtl'],['../classgated__fifo__peek_1_1rtl.html',1,'gated_fifo_peek.rtl']]]
 ];

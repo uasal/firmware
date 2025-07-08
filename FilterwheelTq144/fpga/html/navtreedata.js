@@ -47,15 +47,15 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "BuildNumber_8vhd.html",
-"classIOBufP2Ports.html#a241c3e72dd8024cc8ae831b1b2aed7db",
-"classMain_1_1architecture__Main.html#a03d59a9d06b32feab36c4f7626b4200e",
-"classMain_1_1architecture__Main.html#ab7fde0908679229898f91bde610eb6c3",
-"classRegisterSpacePorts.html#aa461b3d2aaee28e50fc95d8e334ef1fe",
-"classSpiDacQuadPorts.html",
-"classSpiMasterPorts.html#ab7c242421272412fbff892efe31f1fe2",
-"classUartTxFifo.html#ad97fe157b37adc6ff1a28add94519dc4",
-"classfifo.html#a0a6af6eef40212dbaf130d57ce711256",
-"functions_vars.html"
+"classIBufP3Ports_1_1IBufP3.html#a8ee64d1327298358d5f75867875249ca",
+"classMain_1_1architecture__Main.html#a00bfb2c1ae9f416f349edd3c847b92f7",
+"classMain_1_1architecture__Main.html#ab74ad37dfa93cc5531ec9ad583a2cf23",
+"classRegisterSpacePorts.html#aa067b60cbc45aa9a9f71f46b52d39c4d",
+"classSpiDacPorts_1_1SpiDac.html#ad60196fb461e8a9b57fe678f31b93b1e",
+"classSpiMasterPorts.html#a8db6bfecddf6930f5703b8be6031ef64",
+"classUartRxRaw_1_1Behaviour.html#aaaf5f4096d1daee39bb239c1f6d50bb2",
+"classads1258accumulatorPorts.html#a50da91b765765ac486df1b41692e962f",
+"classltc244xPorts.html#a2284f78ba167ff8b5627287bc2d4bffa"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
