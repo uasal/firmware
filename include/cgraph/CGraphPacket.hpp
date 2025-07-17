@@ -305,7 +305,7 @@ public:
 		return(Buffer.asU16(PacketStartPos + offsetof(CGraphPacketHeader, PayloadLen)));
     }
 
-    virtual bool IsValid(const IArray& Buffer, const size_t PacketStartPos, const size_t PacketEndPos) const override
+    virtual bool IsValid(const IArray& Buffer, const size_t PacketStartPos, const size_t PacketEndPos, FpgaRingBufferCrcer& FpgaCrc) const override
     {
         uint32_t packetstarttoken = Buffer.asU32(PacketStartPos + offsetof(CGraphPacketHeader, PacketStartToken));
         //~ uint16_t payloadtype = Buffer.asU16(PacketStartPos + offsetof(CGraphPacketHeader, PayloadType));
@@ -341,16 +341,28 @@ public:
             return(false);
         }
         
-		const size_t TwiceMaxPacketLen = 16384;
-		uint8_t CRCBuf[TwiceMaxPacketLen];
-		size_t crclen =  sizeof(CGraphPacketHeader) + payloadlen;
-		Buffer.CopyToFlatBuffer(PacketStartPos, crclen, CRCBuf, TwiceMaxPacketLen);
+		//Move fpga data to flat buffer to do crc:
+		//~ const size_t TwiceMaxPacketLen = 16384;
+		//~ uint8_t CRCBuf[TwiceMaxPacketLen];
+		//~ size_t crclen =  sizeof(CGraphPacketHeader) + payloadlen;
+		//~ Buffer.CopyToFlatBuffer(PacketStartPos, crclen, CRCBuf, TwiceMaxPacketLen);
+		//~ uint32_t CRC = CRC32BZIP2(CRCBuf, sizeof(CGraphPacketHeader) + payloadlen);
 		
-        //~ uint32_t CRC = 0;
-        //~ uint32_t CRC = CRC32BZIP2(Buffer[PacketStartPos], sizeof(CGraphPacketHeader) + payloadlen);
-		uint32_t CRC = CRC32BZIP2(CRCBuf, sizeof(CGraphPacketHeader) + payloadlen);
-        ::formatf("\n\nCGraphPacket::IsValid(): Calc'd CRC: 0x%lx.\n\r", (unsigned long)CRC);
-		if (CRC != crc)
+		//Naw, let's let the fpga do the crc instead!
+		int32_t CrcEndPos = PacketEndPos - sizeof(CGraphPacketFooter);
+		if (CrcEndPos < 0) { }
+		*FpgaCrc.CrcStartAddr = PacketStartPos;
+		*FpgaCrc.CrcEndAddr = CrcEndPos;
+		
+		size_t crctimeout = 0;
+		for (crctimeout = 0; crctimeout < (3 * sizeof(CGraphPacketHeader) + payloadlen + sizeof(CGraphPacketFooter)); crctimeout++)
+		{
+			if ( (FpgaCrc.CrcCurrentAddr->CurrentAddr == CrcEndPos) || (FpgaCrc.CrcCurrentAddr->CrcComplete == 1) ) { break; }
+		}
+		
+        ::formatf("\n\nCGraphPacket::IsValid(): Calc'd CRC: 0x%lx (CrcCurrentAddr: 0x%lx).\n\r", (unsigned long)*FpgaCrc.CrcResult, FpgaCrc.CrcCurrentAddr->all);
+		
+		if (*FpgaCrc.CrcResult != crc)
         {
             return(false);
         }

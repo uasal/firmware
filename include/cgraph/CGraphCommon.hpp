@@ -111,4 +111,42 @@ union CGraphMonitorAdcCommandStatusRegister
 
 } __attribute__((__packed__));
 
+union CGraphCrcCurrentAddr
+{
+    uint32_t all;
+    struct 
+    {
+        uint32_t CurrentAddr : 31;
+		uint32_t CrcComplete : 1;
+        
+    } __attribute__((__packed__));
+
+    CGraphCrcCurrentAddr() { all = 0; }
+	
+	void formatf() const //note: using this function causes some major fuckery with the volatile qulifier in many places...
+	{ 
+		::formatf("CGraphCrcCurrentAddr: All: %.4X ", all); 
+		::formatf(", CurrentAddr: %u ", (unsigned)CurrentAddr);
+		::formatf(", CrcComplete: %c ", CrcComplete?'Y':'N');
+	}
+
+} __attribute__((__packed__));
+
+struct FpgaRingBufferCrcer
+{
+	FpgaRingBufferCrcer(volatile uint32_t* const crcstartaddr, volatile uint32_t* const crcendaddr, volatile CGraphCrcCurrentAddr* const crccurentaddr, volatile uint32_t* const crcresult) :
+		CrcStartAddr(crcstartaddr),
+		CrcEndAddr(crcendaddr),
+		CrcCurrentAddr(crccurentaddr),
+		CrcResult(crcresult)
+	{ }
+	
+	public:
+		
+		volatile uint32_t* const CrcStartAddr;
+		volatile uint32_t* const CrcEndAddr;
+		volatile CGraphCrcCurrentAddr* const CrcCurrentAddr;
+		volatile uint32_t* const CrcResult;
+};
+
 //EOF

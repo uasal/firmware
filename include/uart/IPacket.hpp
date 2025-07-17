@@ -28,6 +28,8 @@
 #include <stdint.h>
 #include <stdio.h>
 
+#include "cgraph/CGraphCommon.hpp"
+
 #include "IArray.hpp"
 
 class IPacket
@@ -57,7 +59,7 @@ public:
 	virtual bool ReverseFindPacketStartPos(const IArray& Buffer, const size_t SearchEndPos, size_t& Offset) const = 0; //Look backwards from this location for first occurence of start byte(s)
 	virtual bool FindPacketEndPos(const IArray& Buffer, const size_t SearchStartPos,  size_t& Offset) const = 0;
 	virtual size_t PayloadLen(const IArray& Buffer, const size_t PacketStartPos) const = 0;
-	virtual bool IsValid(const IArray& Buffer, const size_t PacketStartPos, const size_t PacketEndPos) const = 0;
+	virtual bool IsValid(const IArray& Buffer, const size_t PacketStartPos, const size_t PacketEndPos, FpgaRingBufferCrcer& FpgaCrc) const = 0;
 	virtual bool IsBroadcastSerialNum(const IArray& Buffer, const size_t PacketStartPos, const size_t PacketEndPos) const = 0;
 	virtual uint64_t SerialNum(const IArray& Buffer, const size_t PacketStartPos, const size_t PacketEndPos) const = 0;
 	virtual uint64_t PayloadType(const IArray& Buffer, const size_t PacketStartPos, const size_t PacketEndPos) const = 0;

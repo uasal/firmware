@@ -87,8 +87,9 @@ BinaryUart FpgaUartParser1(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBin
 //~ (ascii instead) BinaryUart FpgaUartParser0(FPGAUartPinout1, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, BinaryPacketCallbacks, false);
 //~ (ascii instead) BinaryUart FpgaUartParserUsb(FPGAUartPinoutUsb, FPGAUartProtocol, BinaryCmds, NumBinaryCmds, BinaryPacketCallbacks, false);
 
+FpgaRingBufferCrcer FpgaCrc0(&(FSM->Uart0CrcStartAddr), &(FSM->Uart0CrcEndAddr), &(FSM->Uart0CrcCurrentAddr), &(FSM->Uart0Crc));
 CircularFifoFlattenedFpga FifoFlattener(&(FSM->Uart0RxFifoPeekPeekAddr), (uint8_t*)&(FSM->Uart0RxFifoPeekPeekData), &(FSM->Uart0RxFifoPeekReadAddr), &(FSM->Uart0RxFifoPeekWriteAddr), 1024, &(FSM->Uart0RxFifoPeekMultiPopAddr));
-BinaryUartRingBuffer FpgaUartParser0(FifoFlattener, FPGAUartProtocol, FPGAUartPinout0, BinaryCmds, NumBinaryCmds, BinaryPacketCallbacks, false);
+BinaryUartRingBuffer FpgaUartParser0(FifoFlattener, FpgaCrc0, FPGAUartProtocol, FPGAUartPinout0, BinaryCmds, NumBinaryCmds, BinaryPacketCallbacks, false);
 
 #include "uart/TerminalUart.hpp"
 char prompt[] = "\n\nESC-FSM> ";

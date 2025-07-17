@@ -55,6 +55,7 @@ struct BinaryUartRingBuffer// : IUartParser
 
     //~ IUart& Pinout;										///< UART interface for data input.
     IArray& Data;
+	FpgaRingBufferCrcer& Crcer;
     IPacket& Packet;									///< Packet structure for defining headers, footers, etc.
 	IBlockDevice& Pinout;
     const BinaryCmd* Cmds;								///< Array of commands
@@ -82,10 +83,11 @@ struct BinaryUartRingBuffer// : IUartParser
      * @param verbose   Enable or disable verbose debug mode.
      * @param serialnum Optional initial serial number, defaulting to InvalidSerialNumber.
      */
-    BinaryUartRingBuffer(IArray& data, struct IPacket& packet, struct IBlockDevice& pinout, const BinaryCmd* cmds, const size_t numcmds, struct BinaryUartCallbacks& callbacks, const bool verbose = true, const uint64_t serialnum = InvalidSerialNumber)
+    BinaryUartRingBuffer(IArray& data, FpgaRingBufferCrcer& crcer, IPacket& packet, struct IBlockDevice& pinout, const BinaryCmd* cmds, const size_t numcmds, struct BinaryUartCallbacks& callbacks, const bool verbose = true, const uint64_t serialnum = InvalidSerialNumber)
         :
         //~ Pinout(pinout),
         Data(data),
+		Crcer(crcer),
         Packet(packet),
 		Pinout(pinout),
         Cmds(cmds),
@@ -243,7 +245,7 @@ struct BinaryUartRingBuffer// : IUartParser
 						//~ if (debug) { ::formatf("\n\nBinaryUartRingBufferRingBuffer: PayloadLen(%u).\n\r", PayloadLen); }
 						
 						// Validate packet
-						if (Packet.IsValid(Data, PacketStartPos, PacketEndPos))
+						if (Packet.IsValid(Data, PacketStartPos, PacketEndPos, Crcer))
 						{
 							// Confirm that the serial number matches or is a broadcast
 							//~ if ( (SerialNum == InvalidSerialNumber) || (Packet.IsBroadcastSerialNum(Data, PacketStartPos, PacketEndPos)) || (SerialNum == Packet.SerialNum(Data, PacketStartPos, PacketEndPos)) )

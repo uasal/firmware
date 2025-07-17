@@ -115,6 +115,10 @@ struct CGraphFSMHardwareInterface
 	uint32_t Uart0RxFifoPeekPeekAddr; //172
 	uint32_t Uart0RxFifoPeekPeekData; //176
 	uint32_t Uart0RxFifoPeekMultiPopAddr; //180
+	uint32_t Uart0CrcStartAddr; //184
+	uint32_t Uart0CrcEndAddr; //188
+	CGraphCrcCurrentAddr Uart0CrcCurrentAddr; //192
+	uint32_t Uart0Crc; //180
 
 	static const uint32_t DacFullScale; //2^20 - 1
     static const double DacDriverFullScaleOutputVoltage; //150 Volts, don't get your fingers near this thing!
