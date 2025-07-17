@@ -308,7 +308,7 @@ public:
     virtual bool IsValid(const IArray& Buffer, const size_t PacketStartPos, const size_t PacketEndPos) const override
     {
         uint32_t packetstarttoken = Buffer.asU32(PacketStartPos + offsetof(CGraphPacketHeader, PacketStartToken));
-        uint16_t payloadtype = Buffer.asU16(PacketStartPos + offsetof(CGraphPacketHeader, PayloadType));
+        //~ uint16_t payloadtype = Buffer.asU16(PacketStartPos + offsetof(CGraphPacketHeader, PayloadType));
         uint16_t payloadlen = Buffer.asU16(PacketStartPos + offsetof(CGraphPacketHeader, PayloadLen));
 
 		::formatf("\n\nCGraphPacket::IsValid(): PacketStartToken: Buffer.asU32(%u) = 0x%lx.\n\r", PacketStartPos + offsetof(CGraphPacketHeader, PacketStartToken), (unsigned long)(Buffer.asU32(PacketStartPos + offsetof(CGraphPacketHeader, PacketStartToken)))); 

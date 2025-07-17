@@ -23,32 +23,7 @@
 #include "uart/IPacket.hpp"
 #include "uart/IUartParser.hpp"
 
-#include "cgraph/CGraphDMHardwareInterface.hpp"
-extern CGraphDMHardwareInterface* DM;  // Contains a bunch of variables
-
-/**
- * @struct BinaryUartCallbacks
- *
- * Handlers for specific packet events.
- *
- **/
-struct BinaryUartCallbacks
-{
-	BinaryUartCallbacks() { }
-	virtual ~BinaryUartCallbacks() { }
-
-	//Malformed/corrupted packet handler:
-	virtual void InvalidPacket(const uint8_t* Buffer, const size_t& BufferLen) { }
-
-	//Packet with no matching command handler:
-	virtual void UnHandledPacket(const IPacket* Packet, const size_t& PacketLen) { }
-
-	//In case we need to look at every packet that goes by...
-	virtual void EveryPacket(const IPacket* Packet, const size_t& PacketLen) { }
-
-	//Seems like someone, sometime might wanna handle this...
-	virtual void BufferOverflow(const uint8_t* Buffer, const size_t& BufferLen) { }
-};
+#include "BinaryUart.h"
 
 /**
  * @struct BinaryUart
@@ -142,7 +117,7 @@ struct BinaryUart : IUartParser
      * @param serialnum Serial number to initialize, used for packet validation.
      * @return int status code, 0 for success.
      */
-    int Init(uint64_t serialnum)
+    int Init(uint64_t serialnum = 0)
     {
 		SerialNum = serialnum;
         RxCount = RxCountInit;
@@ -159,7 +134,7 @@ struct BinaryUart : IUartParser
         return(0);
     }
 
-  int InitFast(uint64_t serialnum)
+  int InitFast(uint64_t serialnum = 0)
     {
 		SerialNum = serialnum;
         RxCount = RxCountInit;
@@ -186,9 +161,9 @@ struct BinaryUart : IUartParser
      */
     bool Process() override
     {
-      uint32_t start=0;
-      uint32_t end=0;
-      uint32_t length=0;
+      //~ uint32_t start=0;
+      //~ uint32_t end=0;
+      //~ uint32_t length=0;
       bool     gotStart = false;
 
 	    //New char?
@@ -288,9 +263,9 @@ struct BinaryUart : IUartParser
      */
 	bool CheckPacketEnd()
 	{
-          uint32_t start=0;
-          uint32_t end=0;
-          uint32_t length=0;
+          //~ uint32_t start=0;
+          //~ uint32_t end=0;
+          //~ uint32_t length=0;
 		PacketEnd = 0;
 		bool Processed = false;
 
@@ -423,10 +398,10 @@ struct BinaryUart : IUartParser
      * @param PayloadData A pointer to the data to be transmitted as the packet payload.
      * @param PayloadLen The length of the payload data in bytes.
      */
-	virtual void TxBinaryPacket(const uint16_t PayloadType, const uint32_t SerialNumber, const void* PayloadData, const size_t PayloadLen) const
+	virtual void TxBinaryPacket(const uint16_t PayloadType, const uint32_t SerialNumber, const void* PayloadData, const size_t PayloadLength) const
 	{
 		uint8_t TxBuffer[TxBufferLenBytes]; ///< Temporary buffer to hold the constructed packet
-		size_t PktLen = Packet.MakePacket(TxBuffer, TxBufferLenBytes, PayloadData, PayloadType, PayloadLen); ///< Build packet
+		size_t PktLen = Packet.MakePacket(TxBuffer, TxBufferLenBytes, PayloadData, PayloadType, PayloadLength); ///< Build packet
 
 		// Transmit each byte of the packet through the UART pinout
 		for (size_t i = 0; i < PktLen; i++) { Pinout.putcqq(TxBuffer[i]); }
@@ -434,7 +409,7 @@ struct BinaryUart : IUartParser
 		// Debug output: log the packet type, length, and contents in hex format
 		if (debug)
 		{
-			::formatf("\n\nBinary Uart: Sending packet(%u, %u): ", PayloadType, PayloadLen);
+			::formatf("\n\nBinary Uart: Sending packet(%u, %u): ", PayloadType, PayloadLength);
 			for(size_t i = 0; i < PktLen; i++) { printf("%.2X:", TxBuffer[i]); }
 			printf("\n\n");
 		}
@@ -447,7 +422,4 @@ struct BinaryUart : IUartParser
 		printf("\n\n");
 	}
 };
-
-//Slightly ugly hack cause our CmdSystem is C, not C++, but whatever...
-void TxBinaryPacket(const void* TxPktContext, const uint16_t PayloadTypeToken, const uint32_t SerialNumber, const void* PayloadData, const size_t PayloadLen);
 

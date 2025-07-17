@@ -25,42 +25,17 @@
 
 #include "eeprom/CircularFifoFlattened.hpp"
 
-#include "cgraph/CGraphDMHardwareInterface.hpp"
-extern CGraphDMHardwareInterface* DM;  // Contains a bunch of variables
+#include "BinaryUart.h"
 
 /**
- * @struct BinaryUartCallbacks
+ * @struct BinaryUartRingBuffer
  *
- * Handlers for specific packet events.
- *
- **/
-struct BinaryUartCallbacks
-{
-    BinaryUartCallbacks() { }
-    virtual ~BinaryUartCallbacks() { }
-
-    //Malformed/corrupted packet handler:
-    virtual void InvalidPacket(const uint8_t* Buffer, const size_t& BufferLen) { }
-
-    //Packet with no matching command handler:
-    virtual void UnHandledPacket(const IPacket* Packet, const size_t& PacketLen) { }
-
-    //In case we need to look at every packet that goes by...
-    virtual void EveryPacket(const IPacket* Packet, const size_t& PacketLen) { }
-
-    //Seems like someone, sometime might wanna handle this...
-    virtual void BufferOverflow(const uint8_t* Buffer, const size_t& BufferLen) { }
-};
-
-/**
- * @struct BinaryUart
- *
- * BinaryUart manages a UART interface for binary packet communication.
+ * BinaryUartRingBuffer manages a UART interface for binary packet communication.
  * It provides buffering for received bytes, detects packet boundaries, and processes
  * commands within received packets.
  *
  **/
-struct BinaryUart// : IUartParser
+struct BinaryUartRingBuffer// : IUartParser
 {
     // Constants for initial values
     static const uint16_t LastDataLenInit = 0; 				///< Initial count for received bytes.
@@ -79,7 +54,7 @@ struct BinaryUart// : IUartParser
     size_t PacketEndPos = 0; 								///< Position of the detected packet end.
 
     //~ IUart& Pinout;										///< UART interface for data input.
-    CircularFifoFlattened& Data;
+    IArray& Data;
     IPacket& Packet;									///< Packet structure for defining headers, footers, etc.
 	IBlockDevice& Pinout;
     const BinaryCmd* Cmds;								///< Array of commands
@@ -97,7 +72,7 @@ struct BinaryUart// : IUartParser
     uint32_t PacketSearchedPos;
 
     /**
-     * @brief Constructs a BinaryUart object and initializes with given parameters.
+     * @brief Constructs a BinaryUartRingBuffer object and initializes with given parameters.
      *
      * @param pinout    UART interface to use for receiving data.
      * @param packet    Packet structure defining header, footer, and payload format.
@@ -107,7 +82,7 @@ struct BinaryUart// : IUartParser
      * @param verbose   Enable or disable verbose debug mode.
      * @param serialnum Optional initial serial number, defaulting to InvalidSerialNumber.
      */
-    BinaryUart(CircularFifoFlattened& data, struct IPacket& packet, struct IBlockDevice& pinout, const BinaryCmd* cmds, const size_t numcmds, struct BinaryUartCallbacks& callbacks, const bool verbose = true, const uint64_t serialnum = InvalidSerialNumber)
+    BinaryUartRingBuffer(IArray& data, struct IPacket& packet, struct IBlockDevice& pinout, const BinaryCmd* cmds, const size_t numcmds, struct BinaryUartCallbacks& callbacks, const bool verbose = true, const uint64_t serialnum = InvalidSerialNumber)
         :
         //~ Pinout(pinout),
         Data(data),
@@ -139,16 +114,16 @@ struct BinaryUart// : IUartParser
     }
 
     /**
-     * @brief Initializes the BinaryUart
+     * @brief Initializes the BinaryUartRingBuffer
      *
-     * Initializes the BinaryUart with the specified serial number and
+     * Initializes the BinaryUartRingBuffer with the specified serial number and
      * resets the Rx buffer and other internal states. Called upon construction
      * and after buffer overflows or other packet error states.
      *
      * @param serialnum Serial number to initialize, used for packet validation.
      * @return int status code, 0 for success.
      */
-    int Init(uint64_t serialnum)
+    int Init(uint64_t serialnum = 0)
     {
         SerialNum = serialnum;
         //~ LastDataLen = LastDataLenInit;
@@ -170,7 +145,7 @@ struct BinaryUart// : IUartParser
         return(0);
     }
 
-    int InitFast(uint64_t serialnum)
+    int InitFast(uint64_t serialnum = 0)
     {
         SerialNum = serialnum;
         //~ LastDataLen = LastDataLenInit;
@@ -200,7 +175,7 @@ struct BinaryUart// : IUartParser
      */
     bool Process()// override
     {
-        bool Processed = false;
+        //~ bool Processed = false;
 
         //Of note: the DataLen should only grow as we process, since there is no other consumer removing bytes from the buffer, and we're not going to remove any until it overflows or we find the end of a packet.
 
@@ -221,7 +196,7 @@ struct BinaryUart// : IUartParser
             return(false);
         }
 		
-        if (debug) { ::formatf("\n\nBinaryUartRingBuffer: GotData(%u).\n\r", LastDataLen); }
+        if (debug) { ::formatf("\n\nBinaryUartRingBufferRingBuffer: GotData(%u).\n\r", LastDataLen); }
 
         //Packet End?? We have nothing to do until we have the end of a packet!
         //Need at least a Footer's worth of data...
@@ -235,7 +210,7 @@ struct BinaryUart// : IUartParser
                 FooterSearchStartPos = 0;    //But that could underrun the buffer so we truncate...
             }
 
-			//~ if (debug) { ::formatf("\n\nBinaryUartRingBuffer: Searching for Packet End @ %u.\n\r", FooterSearchStartPos); }
+			//~ if (debug) { ::formatf("\n\nBinaryUartRingBufferRingBuffer: Searching for Packet End @ %u.\n\r", FooterSearchStartPos); }
 			
             //Did we get it??
             PacketEndPos = LastDataLen;
@@ -243,9 +218,9 @@ struct BinaryUart// : IUartParser
             {
                 //Oh, things just got interesting!
 
-				if (debug) { ::formatf("\n\nBinaryUartRingBuffer: FoundPacketEnd(%u).\n\r", PacketEndPos); }
+				if (debug) { ::formatf("\n\nBinaryUartRingBufferRingBuffer: FoundPacketEnd(%u).\n\r", PacketEndPos); }
 
-                //	if (debug) { ::formatf("\n\nBinaryUart: Packet end detected! Searching for start...\n\r"); }
+                //	if (debug) { ::formatf("\n\nBinaryUartRingBuffer: Packet end detected! Searching for start...\n\r"); }
                 //~ InPacket = true;
 				
 				size_t PacketStartSearchEndPos = PacketEndPos;
@@ -258,14 +233,14 @@ struct BinaryUart// : IUartParser
 					
 					if (PacketStartFound)
 					{
-						if (debug) { ::formatf("\n\nBinaryUartRingBuffer: FoundPacketStart(%u).\n\r", PacketStartPos); }
+						if (debug) { ::formatf("\n\nBinaryUartRingBufferRingBuffer: FoundPacketStart(%u).\n\r", PacketStartPos); }
 						
 						//Oh, now things just got really really interesting!!
 						PayloadLen = Packet.PayloadLen(Data, PacketStartPos);
 						HeaderLen = Packet.HeaderLen();
 						FooterLen = Packet.FooterLen();
 
-						//~ if (debug) { ::formatf("\n\nBinaryUartRingBuffer: PayloadLen(%u).\n\r", PayloadLen); }
+						//~ if (debug) { ::formatf("\n\nBinaryUartRingBufferRingBuffer: PayloadLen(%u).\n\r", PayloadLen); }
 						
 						// Validate packet
 						if (Packet.IsValid(Data, PacketStartPos, PacketEndPos))
@@ -302,30 +277,30 @@ struct BinaryUart// : IUartParser
 										// to get it again.  Comment out and use simpler Cmds[i].Respons(...) below
 										Cmds[i].Response(Cmds[i].Name, (char*)Params, PayloadLen, (void*)this);
 										CmdFound = true;
-										Processed = true;
+										//~ Processed = true;
 									}
 								}
 
 								// If no command was found, trigger the unhandled packet callback
 								if (!CmdFound)
 								{
-									//~ if (debug) { ::formatf("\n\nBinaryUart: Unmatched command 0x%.8lX!\n", PacketHeader->PayloadTypeToken); }
+									//~ if (debug) { ::formatf("\n\nBinaryUartRingBuffer: Unmatched command 0x%.8lX!\n", PacketHeader->PayloadTypeToken); }
 									if (debug)
 									{
-										::formatf("\n\nBinaryUart: Unmatched command 0x%.8lX! NumCmds: %lu\n", Packet.PayloadType(Data, PacketStartPos, PacketEndPos), (unsigned long)NumCmds);
+										::formatf("\n\nBinaryUartRingBuffer: Unmatched command 0x%.8lX! NumCmds: %lu\n", Packet.PayloadType(Data, PacketStartPos, PacketEndPos), (unsigned long)NumCmds);
 									}
 
 									const size_t TwiceMaxPacketLen = 16384;
-									uint8_t Packet[TwiceMaxPacketLen];					
-									size_t PacketLen =  PacketEndPos - PacketStartPos;
-									Data.CopyToFlatBuffer(PacketStartPos, PacketLen, Packet, TwiceMaxPacketLen);									
-									Callbacks.UnHandledPacket((IPacket*)(Packet), PacketEndPos - PacketStartPos);
+									uint8_t Pkt[TwiceMaxPacketLen];					
+									size_t PktLen =  PacketEndPos - PacketStartPos;
+									Data.CopyToFlatBuffer(PacketStartPos, PktLen, Pkt, TwiceMaxPacketLen);									
+									Callbacks.UnHandledPacket((IPacket*)(Pkt), PacketEndPos - PacketStartPos);
 								}
 								else
 								{
 									if (debug)
 									{
-										//~ ::formatf("\n\nBinaryUart: Got Packet! \n");
+										//~ ::formatf("\n\nBinaryUartRingBuffer: Got Packet! \n");
 										//~ PacketHeader->formatf();
 										//~ ::formatf(" <");
 										//~ for (size_t k = PacketStartPos; k < PacketEndPos; k++)
@@ -341,22 +316,23 @@ struct BinaryUart// : IUartParser
 							//~ {
 								//~ if (debug)
 								//~ {
-									//~ ::formatf("\n\nBinaryUart: Packet received, but SerialNumber comparison failed (expected: 0x%.8lX; got: 0x%.8lX).\n\r", SerialNum, Packet.SerialNum(Data.Data.asU32(), PacketStartPos, PacketEndPos));
+									//~ ::formatf("\n\nBinaryUartRingBuffer: Packet received, but SerialNumber comparison failed (expected: 0x%.8lX; got: 0x%.8lX).\n\r", SerialNum, Packet.SerialNum(Data.Data.asU32(), PacketStartPos, PacketEndPos));
 								//~ }
 
 								//~ Callbacks.UnHandledPacket((IPacket*)(&(const uint8_t*)(Data.Data)[PacketStartPos]), PacketEndPos - PacketStartPos);
 							//~ }
 
-							// Notify that every packet is processed, even if unmatched
-							const size_t TwiceMaxPacketLen = 16384;
-							uint8_t PacketBuf[TwiceMaxPacketLen];					
-							size_t PacketLen =  PacketEndPos - PacketStartPos;
-							Data.CopyToFlatBuffer(PacketStartPos, PacketLen, PacketBuf, TwiceMaxPacketLen);									
-							Callbacks.EveryPacket((IPacket*)(PacketBuf), PacketEndPos - PacketStartPos);
+							//This is hugely wasteful in the real-time case...
+							//~ // Notify that every packet is processed, even if unmatched
+							//~ const size_t TwiceMaxPacketLen = 16384;
+							//~ uint8_t PacketBuf[TwiceMaxPacketLen];					
+							//~ size_t PktLen =  PacketEndPos - PacketStartPos;
+							//~ Data.CopyToFlatBuffer(PacketStartPos, PktLen, PacketBuf, TwiceMaxPacketLen);									
+							//~ Callbacks.EveryPacket((IPacket*)(PacketBuf), PacketEndPos - PacketStartPos);
 							
 							PacketStartSearchEndPos = 0;
 
-							if (debug) { ::formatf("\n\nBinaryUartRingBuffer: PopMany(%u).\n\r", PacketEndPos + Packet.EndTokenLen()); }
+							if (debug) { ::formatf("\n\nBinaryUartRingBufferRingBuffer: PopMany(%u).\n\r", PacketEndPos + Packet.EndTokenLen()); }
 					
 							//Ok, now we have to figure out how to remove the packet from the buffer...
 							Data.PopMany(PacketEndPos + Packet.EndTokenLen());
@@ -374,10 +350,15 @@ struct BinaryUart// : IUartParser
 						// If packet is invalid, trigger the invalid packet callback
 						if (debug)
 						{
-							::formatf("\n\nBinaryUart: Packet start & end found, but packet is invalid.\n\r");
+							::formatf("\n\nBinaryUartRingBuffer: Packet start & end found, but packet is invalid.\n\r");
 						}
 
-						Callbacks.InvalidPacket((uint8_t*)(Data.Data), LastDataLen);
+						// Notify that every packet is processed, even if unmatched
+						const size_t TwiceMaxPacketLen = 16384;
+						uint8_t PacketBuf[TwiceMaxPacketLen];					
+						size_t PktLen =  PacketEndPos - PacketStartPos;
+						Data.CopyToFlatBuffer(PacketStartPos, PktLen, PacketBuf, TwiceMaxPacketLen);									
+						Callbacks.InvalidPacket((const uint8_t*)(PacketBuf), PacketEndPos - PacketStartPos);
 					}
                 }
             }
@@ -397,10 +378,10 @@ struct BinaryUart// : IUartParser
 	 * @param PayloadData A pointer to the data to be transmitted as the packet payload.
 	 * @param PayloadLen The length of the payload data in bytes.
 	 */
-	virtual void TxBinaryPacket(const uint16_t PayloadType, const uint32_t SerialNumber, const void* PayloadData, const size_t PayloadLen) const
+	virtual void TxBinaryPacket(const uint16_t PayloadType, const uint32_t SerialNumber, const void* PayloadData, const size_t PayloadLength) const
 	{
 		uint8_t TxBuffer[TxBufferLenBytes]; ///< Temporary buffer to hold the constructed packet
-		size_t PktLen = Packet.MakePacket(TxBuffer, TxBufferLenBytes, PayloadData, PayloadType, PayloadLen); ///< Build packet
+		size_t PktLen = Packet.MakePacket(TxBuffer, TxBufferLenBytes, PayloadData, PayloadType, PayloadLength); ///< Build packet
 
 		// Transmit each byte of the packet through the UART pinout
 		//for (size_t i = 0; i < PktLen; i++)
@@ -412,7 +393,7 @@ struct BinaryUart// : IUartParser
 		// Debug output: log the packet type, length, and contents in hex format
 		if (debug)
 		{
-			::formatf("\n\nBinary Uart: Sending packet(%u, %u): ", PayloadType, PayloadLen);
+			::formatf("\n\nBinary Uart: Sending packet(%u, %u): ", PayloadType, PayloadLength);
 			for(size_t i = 0; i < PktLen; i++)
 			{
 				printf("%.2X:", TxBuffer[i]);
@@ -423,15 +404,11 @@ struct BinaryUart// : IUartParser
 
 	void formatf() const
 	{
-		::formatf("\n\nBinaryUart(%u, %c, %u): :", LastDataLen, InPacket?'Y':'N', PacketStartPos);
+		::formatf("\n\nBinaryUartRingBuffer(%u, %c, %u): :", LastDataLen, InPacket?'Y':'N', PacketStartPos);
 		for(size_t i = 0; i < LastDataLen; i++)
 		{
-			printf("%.2X:", Data.Data[i]);
+			printf("%.2X:", Data[i]);
 		}
 		printf("\n\n");
 	}
 };
-
-//Slightly ugly hack cause our CmdSystem is C, not C++, but whatever...
-void TxBinaryPacket(const void* TxPktContext, const uint16_t PayloadTypeToken, const uint32_t SerialNumber, const void* PayloadData, const size_t PayloadLen);
-

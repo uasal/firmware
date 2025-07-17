@@ -1,0 +1,198 @@
+<html><body><samp><pre>
+<!@TC:1752515571>
+
+Copyright (C) 1994-2022 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: T-2022.09M-SP2-1
+Install: /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro
+OS: Linux Mint 22.1
+Hostname: homework
+max virtual memory: unlimited (bytes)
+max user processes: 126513
+max stack size: 8388608 (bytes)
+
+
+Implementation : synthesis
+
+# Written on Mon Jul 14 10:52:51 2025
+
+##### DESIGN INFO #######################################################
+
+Top View:                "FineSteeringMirror"
+Constraint File(s):      "/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Liberopeekfifos/designer/FineSteeringMirror/synthesis.fdc"
+
+
+
+
+##### SUMMARY ############################################################
+
+Found 0 issues in 0 out of 1 constraints
+
+
+##### DETAILS ############################################################
+
+
+
+<a name=clockRelationships88></a>Clock Relationships</a>
+*******************
+
+Starting                                                                                  Ending                                                                                    |     rise to rise     |     fall to fall     |     rise to fall     |     fall to rise                     
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+System                                                                                    System                                                                                    |     10.000           |     No paths         |     No paths         |     No paths                         
+System                                                                                    FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             |     10.000           |     No paths         |     No paths         |     No paths                         
+FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             System                                                                                    |     10.000           |     No paths         |     No paths         |     No paths                         
+FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             |     10.000           |     No paths         |     No paths         |     No paths                         
+FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock              |     Diff grp         |     No paths         |     No paths         |     No paths                         
+FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     |     Diff grp         |     No paths         |     No paths         |     No paths                         
+FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock              |     Diff grp         |     No paths         |     No paths         |     No paths                         
+FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     |     Diff grp         |     No paths         |     No paths         |     No paths                         
+FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock              |     Diff grp         |     No paths         |     No paths         |     No paths                         
+FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     |     Diff grp         |     No paths         |     No paths         |     No paths                         
+FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock              |     Diff grp         |     No paths         |     No paths         |     No paths                         
+FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     |     Diff grp         |     No paths         |     No paths         |     No paths                         
+FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                   |     Diff grp         |     No paths         |     No paths         |     No paths                         
+ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock              FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             |     Diff grp         |     No paths         |     No paths         |     No paths                         
+ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock              ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock              |     10.000           |     No paths         |     No paths         |     No paths                         
+VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             |     Diff grp         |     No paths         |     No paths         |     No paths                         
+VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     |     10.000           |     No paths         |     No paths         |     No paths                         
+ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock              FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             |     Diff grp         |     No paths         |     No paths         |     No paths                         
+ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock              ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock              |     10.000           |     No paths         |     No paths         |     No paths                         
+VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             |     Diff grp         |     No paths         |     No paths         |     No paths                         
+VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     |     10.000           |     No paths         |     No paths         |     No paths                         
+ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock              FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             |     Diff grp         |     No paths         |     No paths         |     No paths                         
+ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock              ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock              |     10.000           |     No paths         |     No paths         |     No paths                         
+VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             |     Diff grp         |     No paths         |     No paths         |     No paths                         
+VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     |     10.000           |     No paths         |     No paths         |     No paths                         
+ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock              FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             |     Diff grp         |     No paths         |     No paths         |     No paths                         
+ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock              ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock              |     10.000           |     No paths         |     No paths         |     No paths                         
+VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     |     10.000           |     No paths         |     No paths         |     No paths                         
+FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                   FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             |     Diff grp         |     No paths         |     No paths         |     No paths                         
+FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                   FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                   |     10.000           |     No paths         |     No paths         |     No paths                         
+FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                   FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock                 |     Diff grp         |     No paths         |     No paths         |     No paths                         
+FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock                 FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                   |     Diff grp         |     No paths         |     No paths         |     No paths                         
+FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock                 FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock                 |     10.000           |     No paths         |     No paths         |     No paths                         
+===============================================================================================================================================================================================================================================================================================
+ Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
+       'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
+
+
+<a name=UnconstrainedStartEndPointsCCK89></a>Unconstrained Start/End Points</a>
+******************************
+
+p:ChopAdc
+p:ChopRef
+p:DEVRST_N
+p:Fault1V
+p:Fault2VA
+p:Fault2VD
+p:Fault3VA
+p:Fault3VD
+p:Fault5V
+p:Fault43V
+p:FaultHV
+p:FaultNegV
+p:GlobalFaultInhibit
+p:HVEn1
+p:HVEn2
+p:MisoAdcA
+p:MisoAdcB
+p:MisoAdcC
+p:MisoAdcD
+p:MisoMonAdc0
+p:MisoMonAdc1
+p:MosiDacAMax
+p:MosiDacATi
+p:MosiDacBMax
+p:MosiDacBTi
+p:MosiDacCMax
+p:MosiDacCTi
+p:MosiDacDMax
+p:MosiDacDTi
+p:MosiMonAdcs
+p:MosiXO
+p:Oe0
+p:Oe1
+p:Oe2
+p:Oe3
+p:PPS
+p:PowerCycd
+p:PowerEnMax
+p:PowerEnTi
+p:PowerSync
+p:PowernEn
+p:PowernEnHV
+p:Rx0
+p:Rx1
+p:Rx2
+p:Rx3
+p:SckAdcs
+p:SckDacsMax
+p:SckDacsTi
+p:SckMonAdcs
+p:SckXO
+p:TP1
+p:TP2
+p:TP3
+p:TP4
+p:TP5
+p:TP6
+p:TP7
+p:TP8
+p:TrigAdcs
+p:TrigMonAdcs
+p:Tx0
+p:Tx1
+p:Tx2
+p:Tx3
+p:Ux1SelJmp (bidir end point)
+p:Ux1SelJmp (bidir start point)
+p:XO1
+p:nCsAdcs
+p:nCsDacsMax
+p:nCsDacsTi
+p:nCsMonAdcs
+p:nCsXO
+p:nDrdyAdcA
+p:nDrdyAdcB
+p:nDrdyAdcC
+p:nDrdyAdcD
+p:nDrdyMonAdc0
+p:nDrdyMonAdc1
+p:nFaultsClr
+p:nHVFaultA
+p:nHVFaultB
+p:nHVFaultC
+p:nHVFaultD
+p:nLDacsMax
+p:nPowerCycClr
+
+
+<a name=InapplicableconstraintsCCK90></a>Inapplicable constraints</a>
+************************
+
+(none)
+
+
+<a name=ApplicableConstraintsWithIssuesCCK91></a>Applicable constraints with issues</a>
+**********************************
+
+(none)
+
+
+<a name=ConstraintsWithMatchingWildcardExpressionsCCK92></a>Constraints with matching wildcard expressions</a>
+**********************************************
+
+(none)
+
+
+<a name=LibraryReportCCK93></a>Library Report</a>
+**************
+
+
+# End of Constraint Checker Report
+
+</pre></samp></body></html>

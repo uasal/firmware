@@ -39,9 +39,9 @@ public:
 		
 		long d = w - r;
 		if (d < 0) { d += Len; }
-		if (d > Len) { d = Len; }
+		if (d > (long)Len) { d = Len; }
 		
-		if (offset >= d) { return(0); }
+		if (offset >= (size_t)d) { return(0); }
 		
 		//Ok, enough error checking, let's do something useful...
 		size_t pos = r + offset;
@@ -62,9 +62,9 @@ public:
 		
 		long d = w - r;
 		if (d < 0) { d += Len; }
-		if (d > Len) { d = Len; }
+		if (d > (long)Len) { d = Len; }
 		
-		if (offset >= d) { return(0); }
+		if (offset >= (size_t)d) { return(0); }
 		
 		//Ok, enough error checking, let's do something useful...
 		size_t pos = r + offset;

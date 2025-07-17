@@ -105,12 +105,18 @@ struct CGraphFSMHardwareInterface
 	UartStatusRegister UartStatusRegisterLab; //ro; what state are the uart(s) in?
 	uint32_t UartFifoLabReadData;
 
-	uint32_t ExtSpiAddrOut; //
-	uint32_t ExtSpiAddrIn; //
-	uint32_t ExtSpiXfer; //
-	uint32_t ExtSpiReadback; //
+	//~ uint32_t ExtSpiAddrOut; //
+	//~ uint32_t ExtSpiAddrIn; //
+	//~ uint32_t ExtSpiXfer; //
+	//~ uint32_t ExtSpiReadback; //
 	
-    static const uint32_t DacFullScale; //2^20 - 1
+	uint32_t Uart0RxFifoPeekReadAddr; //164
+	uint32_t Uart0RxFifoPeekWriteAddr; //168
+	uint32_t Uart0RxFifoPeekPeekAddr; //172
+	uint32_t Uart0RxFifoPeekPeekData; //176
+	uint32_t Uart0RxFifoPeekMultiPopAddr; //180
+
+	static const uint32_t DacFullScale; //2^20 - 1
     static const double DacDriverFullScaleOutputVoltage; //150 Volts, don't get your fingers near this thing!
     static const double PZTDriverFullScaleOutputTravel; //Meters; note our granularity is this / DacFullScale which is approx 10pm
 

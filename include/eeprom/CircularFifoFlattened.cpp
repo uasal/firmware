@@ -41,7 +41,7 @@ size_t CircularFifoFlattened::CopyToFlatBuffer(const size_t StartOffset, size_t&
 	
 	long d = w - r;
 	if (d < 0) { d += Len; }
-	if (d > Len) { d = Len; }
+	if (d > (long)Len) { d = Len; }
 
 	size_t i = 0;
 	for (i = 0; i < NumToCopy; i++)

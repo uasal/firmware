@@ -24,6 +24,8 @@
 
 #include "Delay.h"
 
+#include "IBlockDevice.hpp"
+
 #include "uart/IUart.h"
 
 #include "uart/UartStatusRegister.hpp"
@@ -88,8 +90,6 @@ public:
 	
 	void Monitor(const bool m) { monitor = m; }
 	bool Monitor() const { return(monitor); }
-	
-	
 };
 
 //EOF

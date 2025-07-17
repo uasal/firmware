@@ -28,7 +28,9 @@
 #include <stdint.h>
 #include <stdio.h>
 
-class IUart
+#include "IBlockDevice.hpp"
+
+class IUart : public IBlockDevice
 {
 public:
 	IUart() { }
@@ -56,7 +58,7 @@ public:
 	virtual void purgeinput() = 0;
 	virtual bool isopen() const = 0;
 	
-	void puts(const char* s, const size_t len)
+	virtual void puts(uint8_t const* s, const size_t len) override
 	{
 		for (size_t i = 0; i < len; i++)
 		{

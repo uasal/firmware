@@ -1,0 +1,7 @@
+# Microsemi Corp.
+# Date: 2025-Feb-18 19:14:59
+# This file was generated based on the following SDC source files:
+#   /home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/constraint/user.sdc
+#
+
+create_clock -name {CLK0_PAD} -period 19.608

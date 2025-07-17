@@ -34,7 +34,7 @@ use IEEE.NUMERIC_STD.all;
 entity UartRxFifoExtClkPeek is
 	generic 
 	(
-		FIFO_BITS : natural := 10--;
+		DEPTH_BITS : natural := 10--;
 	);
 	port 
 	(
@@ -59,13 +59,13 @@ entity UartRxFifoExtClkPeek is
 		--Fifo status:
 		FifoFull	: out std_logic;
 		FifoEmpty	: out std_logic;
-		FifoCount	: out std_logic_vector(FIFO_BITS - 1 downto 0);		
+		FifoCount	: out std_logic_vector(DEPTH_BITS - 1 downto 0);		
 		
 		--Fifo peeking:
 		FifoReadAddr : out unsigned(DEPTH_BITS - 1 downto 0);
 		FifoWriteAddr : out unsigned(DEPTH_BITS - 1 downto 0);
 		FifoPeekAddr : in unsigned(DEPTH_BITS - 1 downto 0);
-		FifoPeekData : out std_logic_vector(WIDTH_BITS - 1 downto 0);
+		FifoPeekData : out std_logic_vector(7 downto 0);
 		FifoMultiPopAddr : in unsigned(DEPTH_BITS - 1 downto 0);
 		FifoMultiPopStrobe : in std_logic--;		
 	);
@@ -171,7 +171,7 @@ begin
 	generic map
 	(
 		WIDTH_BITS => 8,
-		DEPTH_BITS => FIFO_BITS--,
+		DEPTH_BITS => DEPTH_BITS--,
 	)
 	port map
 	(
