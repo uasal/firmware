@@ -13,9 +13,9 @@ var searchData=
   ['norts_10',['NoRTS',['../TerminalUart_8hpp.html#aee5d46034e5de46f4f4e9cb9fd2bb233',1,'TerminalUart.hpp']]],
   ['nortscts_11',['NoRTSCTS',['../classIUart.html#a5596bc1c37a997ad63f6fd7273f0f582',1,'IUart']]],
   ['numaccums_12',['numaccums',['../lt244x__accum_8h.html#a05aab2d266937c20c1f5800d7350d418',1,'NumAccums:&#160;lt244x_accum.h'],['../CGraphCommon_8hpp.html#a05aab2d266937c20c1f5800d7350d418',1,'NumAccums:&#160;CGraphCommon.hpp'],['../unionAdcAccumulator.html#a9bf5957199f8fe2d672cc4ce59b4a7f2',1,'AdcAccumulator::NumAccums'],['../unionLtc244xAccumulator.html#a7350fd7deb3d5d07db379f14e56aeb2d',1,'Ltc244xAccumulator::NumAccums']]],
-  ['numasciicmds_13',['numasciicmds',['../AsciiCmdUserInterfaceLinux_8h.html#ad4b053f9f9c27e806f53ab6c99f55bc3',1,'NumAsciiCmds:&#160;AsciiCmdUserInterfaceLinux.h'],['../AsciiCmdUserInterfaceLinux_8cpp.html#ad4b053f9f9c27e806f53ab6c99f55bc3',1,'NumAsciiCmds:&#160;AsciiCmdUserInterfaceLinux.cpp']]],
+  ['numasciicmds_13',['numasciicmds',['../AsciiCmdUserInterfaceLinux_8cpp.html#ad4b053f9f9c27e806f53ab6c99f55bc3',1,'NumAsciiCmds:&#160;AsciiCmdUserInterfaceLinux.cpp'],['../AsciiCmdUserInterfaceLinux_8h.html#ad4b053f9f9c27e806f53ab6c99f55bc3',1,'NumAsciiCmds:&#160;AsciiCmdUserInterfaceLinux.h']]],
   ['numasciiuartparsers_14',['NumAsciiUartParsers',['../UartParserTable_8hpp.html#a37f4ee3070c72cfe33b946f87a36662f',1,'UartParserTable.hpp']]],
   ['numbinaryuartparsers_15',['NumBinaryUartParsers',['../UartParserTable_8hpp.html#aa0b6e48aaf7a924cb4f71c490ac95a69',1,'UartParserTable.hpp']]],
-  ['numcmds_16',['numcmds',['../structTerminalUart.html#ac5eb9443297e0c664879baaaac82de4f',1,'TerminalUart::NumCmds'],['../structBinaryUart.html#a05d557949d44aeb4bbccc7ba81ed1c5d',1,'BinaryUart::NumCmds']]],
+  ['numcmds_16',['numcmds',['../structTerminalUart.html#ac5eb9443297e0c664879baaaac82de4f',1,'TerminalUart::NumCmds'],['../structBinaryUartRingBuffer.html#afdffc43260b447fb5123b922bfd9b2e7',1,'BinaryUartRingBuffer::NumCmds'],['../structBinaryUart.html#a05d557949d44aeb4bbccc7ba81ed1c5d',1,'BinaryUart::NumCmds']]],
   ['numuartparsers_17',['NumUartParsers',['../UartParserTable_8hpp.html#a45d1e83748e1299fdb86ec67cd127bc8',1,'UartParserTable.hpp']]]
 ];

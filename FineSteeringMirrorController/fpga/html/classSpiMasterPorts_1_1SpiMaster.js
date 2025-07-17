@@ -1,6 +1,6 @@
 var classSpiMasterPorts_1_1SpiMaster =
 [
-    [ "PROCESS_35", "classSpiMasterPorts_1_1SpiMaster.html#a37efce93f1107d2ff59eb8eb95f85760", null ],
+    [ "PROCESS_37", "classSpiMasterPorts_1_1SpiMaster.html#aa6a48dc1313252cfa60a7644e3c5dfa5", null ],
     [ "ClkDiv", "classSpiMasterPorts_1_1SpiMaster.html#a37436844059c7d73da7c03008811a87f", null ],
     [ "DataToMosi_i", "classSpiMasterPorts_1_1SpiMaster.html#a7747600c20a14494437b564d470464b9", null ],
     [ "DataToMosiLatched", "classSpiMasterPorts_1_1SpiMaster.html#a602eff84bcaf4011e96c0f134d30fa81", null ],

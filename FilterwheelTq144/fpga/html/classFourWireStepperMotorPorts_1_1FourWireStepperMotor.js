@@ -1,6 +1,6 @@
 var classFourWireStepperMotorPorts_1_1FourWireStepperMotor =
 [
-    [ "PROCESS_8", "classFourWireStepperMotorPorts_1_1FourWireStepperMotor.html#ae54b8f82983d88ae82a6aac89256506c", null ],
+    [ "PROCESS_10", "classFourWireStepperMotorPorts_1_1FourWireStepperMotor.html#a550ab01497a443b2f09ade383ea6900b", null ],
     [ "LastStep", "classFourWireStepperMotorPorts_1_1FourWireStepperMotor.html#a758c7efb955afba45136146578e83de8", null ],
     [ "MotorAMinus_i", "classFourWireStepperMotorPorts_1_1FourWireStepperMotor.html#ae75ced0513c5cc90d23b1645dfa37948", null ],
     [ "MotorAPlus_i", "classFourWireStepperMotorPorts_1_1FourWireStepperMotor.html#a39b4119f011e0580f3faf6576d501501", null ],

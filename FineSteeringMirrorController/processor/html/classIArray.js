@@ -7,5 +7,6 @@ var classIArray =
     [ "CopyToFlatBuffer", "classIArray.html#a3d805f4634fcf5b48700bda5eb1e50eb", null ],
     [ "Depth", "classIArray.html#adaa8246ec4ac3f276d887bda6cb45b52", null ],
     [ "operator[]", "classIArray.html#a0cdd1d20f87bd0aa4c3ff6be4fee064f", null ],
-    [ "peek", "classIArray.html#a4430da5cceb0e25d3829e1ed601c0b09", null ]
+    [ "peek", "classIArray.html#a4430da5cceb0e25d3829e1ed601c0b09", null ],
+    [ "PopMany", "classIArray.html#a84a9cfca818456199456925f349feb03", null ]
 ];

@@ -8,7 +8,7 @@ var classIUart =
     [ "isopen", "classIUart.html#a96ed701e6b9592230b9f02e93acc807f", null ],
     [ "purgeinput", "classIUart.html#a995f4af4eca6913eaebe4313c5add900", null ],
     [ "putcqq", "classIUart.html#a1c1fcaf4781bb826f1130e02e26db652", null ],
-    [ "puts", "classIUart.html#a612c973b802bec7cebb5bd8017c891da", null ],
+    [ "puts", "classIUart.html#a4ee951ad181647eb0c373fa2204d0681", null ],
     [ "IUartOK", "classIUart.html#a9b07f9f0939ad012fe6cf88945419f6e", null ],
     [ "NoParity", "classIUart.html#a9405c72ad2eb119d094adf84745a0354", null ],
     [ "NoRTSCTS", "classIUart.html#a5596bc1c37a997ad63f6fd7273f0f582", null ],

@@ -1,7 +1,7 @@
 var unionCGraphFSMHardwareControlRegister =
 [
     [ "CGraphFSMHardwareControlRegister", "unionCGraphFSMHardwareControlRegister.html#a4b496a8247aed172ac28f28d436d0a6c", null ],
-    [ "__attribute__", "unionCGraphFSMHardwareControlRegister.html#a359f3fd5073dc1f8152db38dbcf22de0", null ],
+    [ "__attribute__", "unionCGraphFSMHardwareControlRegister.html#a96b601bc926b2e9ccb8a28124f68adf1", null ],
     [ "AdcDownsampleRatio", "unionCGraphFSMHardwareControlRegister.html#a2daa4d34bb9a0631051436422db9a896", null ],
     [ "all", "unionCGraphFSMHardwareControlRegister.html#a7cdfb6d45facf20c34b261fda910692f", null ],
     [ "ChopperNonInverted", "unionCGraphFSMHardwareControlRegister.html#ae9fc8aa6f6b344c75389cf9064329bdb", null ],

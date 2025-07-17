@@ -1,7 +1,7 @@
 var searchData=
 [
   ['_7eads1258_0',['~ads1258',['../structads1258.html#a2234f8daf999e9b541506d311e00eccd',1,'ads1258']]],
-  ['_7ebinaryuartcallbacks_1',['~binaryuartcallbacks',['../structBinaryUartCallbacks.html#a1d1803a16b1b2e3e715043f64b781600',1,'BinaryUartCallbacks::~BinaryUartCallbacks()'],['../structBinaryUartCallbacks.html#a1d1803a16b1b2e3e715043f64b781600',1,'BinaryUartCallbacks::~BinaryUartCallbacks()']]],
+  ['_7ebinaryuartcallbacks_1',['~BinaryUartCallbacks',['../structBinaryUartCallbacks.html#a1d1803a16b1b2e3e715043f64b781600',1,'BinaryUartCallbacks']]],
   ['_7ecgraphfsmmonitoradc_2',['~CGraphFSMMonitorAdc',['../structCGraphFSMMonitorAdc.html#a5e0bd5f2501b431ad13e68fd620ebc4f',1,'CGraphFSMMonitorAdc']]],
   ['_7ecgraphpacket_3',['~CGraphPacket',['../classCGraphPacket.html#ac4bb585dd9f9ed603dc599ce683406b5',1,'CGraphPacket']]],
   ['_7eezthread_4',['~EzThread',['../classEzThread.html#a97129140f31f9e68c296b05c899234a5',1,'EzThread']]],

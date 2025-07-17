@@ -1,22 +1,28 @@
 <map id="uart_pinout_fpga.hpp" name="uart_pinout_fpga.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="149,5,309,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="322,152,393,177"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="262,28,299,48,333,77,349,107,357,137,352,139,344,109,329,80,296,52,260,33"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="33,79,103,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="204,33,108,75,106,71,202,28"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="5,152,72,177"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="156,33,75,53,42,66,22,80,16,94,16,109,27,139,22,141,11,109,11,92,18,77,39,61,73,48,155,28"/>
-<area shape="rect" id="Node000005" href="$Delay_8h.html" title=" " alt="" coords="249,79,319,104"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="240,29,269,66,265,69,236,33"/>
-<area shape="rect" id="Node000006" href="$IUart_8h.html" title=" " alt="" coords="128,79,224,104"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="223,33,195,69,191,66,218,29"/>
-<area shape="rect" id="Node000008" href="$UartStatusRegister_8hpp.html" title=" " alt="" coords="395,79,597,104"/>
-<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="273,28,440,72,439,78,271,33"/>
-<area shape="poly" id="edge7_Node000006_Node000002" title=" " alt="" coords="206,102,316,144,314,149,204,107"/>
-<area shape="poly" id="edge8_Node000006_Node000004" title=" " alt="" coords="155,106,74,148,72,143,153,102"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="139,152,213,177"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="179,104,179,138,173,138,173,104"/>
-<area shape="poly" id="edge10_Node000008_Node000002" title=" " alt="" coords="475,106,393,148,391,143,473,102"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="431,152,561,177"/>
-<area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="499,104,499,138,493,138,493,104"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="417,5,577,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="235,225,306,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="469,33,430,51,383,77,336,112,297,154,283,183,276,212,270,211,278,181,292,150,333,108,380,73,427,46,467,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="646,79,717,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="528,28,639,71,637,76,526,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="524,225,591,251"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="517,29,541,49,560,78,569,113,572,150,566,212,560,211,567,150,564,114,555,80,537,53,514,33"/>
+<area shape="rect" id="Node000005" href="$Delay_8h.html" title=" " alt="" coords="741,79,811,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="543,28,728,75,727,80,541,33"/>
+<area shape="rect" id="Node000006" href="$IBlockDevice_8hpp.html" title=" " alt="" coords="334,152,469,177"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="485,33,462,54,440,80,423,110,411,140,407,138,418,108,435,77,458,50,481,29"/>
+<area shape="rect" id="Node000008" href="$IUart_8h.html" title=" " alt="" coords="449,79,545,104"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="500,31,500,65,495,65,495,31"/>
+<area shape="rect" id="Node000009" href="$UartStatusRegister_8hpp.html" title=" " alt="" coords="5,79,208,104"/>
+<area shape="poly" id="edge14_Node000001_Node000009" title=" " alt="" coords="435,33,184,79,183,74,434,28"/>
+<area shape="poly" id="edge7_Node000006_Node000002" title=" " alt="" coords="382,180,305,221,303,216,379,175"/>
+<area shape="poly" id="edge8_Node000006_Node000004" title=" " alt="" coords="427,175,520,217,518,222,425,180"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="395,225,469,251"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="409,177,424,212,419,214,404,179"/>
+<area shape="poly" id="edge11_Node000008_Node000002" title=" " alt="" coords="450,102,387,120,354,135,324,154,299,183,282,214,278,211,295,180,321,150,351,130,385,115,449,97"/>
+<area shape="poly" id="edge12_Node000008_Node000004" title=" " alt="" coords="506,103,528,151,551,211,546,213,523,153,501,105"/>
+<area shape="poly" id="edge13_Node000008_Node000006" title=" " alt="" coords="483,106,430,146,427,141,480,102"/>
+<area shape="poly" id="edge10_Node000008_Node000007" title=" " alt="" coords="500,104,496,138,484,178,471,199,456,217,452,214,467,196,479,176,490,137,494,104"/>
+<area shape="poly" id="edge15_Node000009_Node000002" title=" " alt="" coords="122,102,249,214,246,218,118,106"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="27,152,157,177"/>
+<area shape="poly" id="edge16_Node000009_Node000010" title=" " alt="" coords="107,105,100,139,95,138,102,104"/>
 </map>

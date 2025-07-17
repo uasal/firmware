@@ -1,17 +1,21 @@
 <map id="BinaryUart::Process" name="BinaryUart::Process">
-<area shape="rect" id="Node000001" title="Processes incoming data and checks for new packets." alt="" coords="5,668,156,694"/>
+<area shape="rect" id="Node000001" title="Processes incoming data and checks for new packets." alt="" coords="5,887,156,912"/>
 <area shape="rect" id="Node000002" href="$structBinaryUart.html#a710ecfd14e702d8cf732707d6184c2c2" title="Checks if a complete packet (with both header and footer) is present in the buffer." alt="" coords="207,498,414,523"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,666,279,530,283,534,101,670"/>
-<area shape="rect" id="Node000014" href="$structBinaryUart.html#ad350385f839762fcb3aad27a69e9809e" title="Checks if a packet is present in the buffer." alt="" coords="204,811,417,836"/>
-<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="104,692,279,801,276,806,101,696"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,885,293,534,297,537,92,888"/>
+<area shape="rect" id="Node000014" href="$structBinaryUart.html#ad350385f839762fcb3aad27a69e9809e" title="Checks if a packet is present in the buffer." alt="" coords="204,862,417,887"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="156,889,190,885,191,890,157,894"/>
 <area shape="rect" id="Node000016" href="$classIPacket.html#a2f0acb1e8c31c1449ac6c32dcf1f4757" title=" " alt="" coords="735,204,881,230"/>
-<area shape="poly" id="edge18_Node000001_Node000016" title=" " alt="" coords="86,667,128,587,163,529,207,465,260,399,320,337,389,282,426,259,464,240,529,219,597,208,662,204,721,206,721,211,662,210,597,213,530,224,466,245,428,264,392,287,324,341,264,403,211,468,167,532,132,590,90,669"/>
-<area shape="rect" id="Node000017" href="$classIPacket.html#a3eda6e6dc43f5356d4eae88692e9787b" title=" " alt="" coords="738,583,878,608"/>
-<area shape="poly" id="edge17_Node000001_Node000017" title=" " alt="" coords="90,693,105,725,130,767,164,810,205,846,248,867,306,886,373,903,446,915,518,922,585,923,642,915,665,907,684,898,716,870,741,836,761,799,777,759,796,682,803,622,808,622,801,683,782,761,766,801,746,839,720,874,687,902,667,912,643,920,585,928,518,928,445,921,372,908,304,891,246,872,203,850,160,814,126,770,101,727,85,695"/>
-<area shape="rect" id="Node000018" href="$classIPacket.html#ae1f269523fdd7b923e6600c46d93a94f" title=" " alt="" coords="235,963,386,988"/>
-<area shape="poly" id="edge19_Node000001_Node000018" title=" " alt="" coords="87,694,97,741,119,808,154,880,178,913,206,942,227,955,224,960,202,946,174,916,150,882,114,810,92,742,82,695"/>
-<area shape="rect" id="Node000019" href="$structBinaryUart.html#a16b484e326a172e0c3b37ba6e8eed8a5" title="Adds a byte to the Rx buffer and handles buffer overflow." alt="" coords="221,100,401,126"/>
-<area shape="poly" id="edge20_Node000001_Node000019" title=" " alt="" coords="80,668,85,593,102,472,118,403,139,332,166,262,202,197,235,159,273,131,276,135,239,163,206,200,171,264,144,334,123,404,107,473,90,594,85,669"/>
+<area shape="poly" id="edge20_Node000001_Node000016" title=" " alt="" coords="81,887,90,821,110,718,126,660,147,599,172,540,202,484,257,398,310,335,339,309,374,286,464,240,529,219,597,208,662,204,721,206,721,211,662,210,597,213,530,224,466,245,376,290,342,314,313,339,262,401,206,486,176,542,152,601,131,661,116,720,95,822,86,887"/>
+<area shape="rect" id="Node000017" href="$classIUart.html#a639d6c3b3a8d73c2133c0fa24b53726c" title=" " alt="" coords="247,963,375,988"/>
+<area shape="poly" id="edge17_Node000001_Node000017" title=" " alt="" coords="117,910,205,941,254,957,252,962,203,946,115,915"/>
+<area shape="rect" id="Node000018" href="$classIPacket.html#a3eda6e6dc43f5356d4eae88692e9787b" title=" " alt="" coords="738,583,878,608"/>
+<area shape="poly" id="edge18_Node000001_Node000018" title=" " alt="" coords="157,907,287,921,443,930,518,930,587,925,643,915,684,898,716,870,741,836,761,799,777,759,796,682,803,622,808,622,801,683,782,761,766,801,746,839,720,874,687,902,645,920,587,931,518,935,442,935,287,926,156,912"/>
+<area shape="rect" id="Node000019" href="$classIUart.html#aef9c35f7c2ded43d57f2d532bb97da84" title=" " alt="" coords="257,1012,364,1038"/>
+<area shape="poly" id="edge19_Node000001_Node000019" title=" " alt="" coords="95,911,141,954,171,978,205,999,245,1013,243,1018,203,1004,168,983,137,958,92,915"/>
+<area shape="rect" id="Node000020" href="$classIPacket.html#ae1f269523fdd7b923e6600c46d93a94f" title=" " alt="" coords="235,1062,386,1087"/>
+<area shape="poly" id="edge21_Node000001_Node000020" title=" " alt="" coords="91,911,133,978,166,1016,205,1048,223,1057,221,1062,203,1053,162,1020,128,981,86,914"/>
+<area shape="rect" id="Node000021" href="$structBinaryUart.html#a16b484e326a172e0c3b37ba6e8eed8a5" title="Adds a byte to the Rx buffer and handles buffer overflow." alt="" coords="221,100,401,126"/>
+<area shape="poly" id="edge22_Node000001_Node000021" title=" " alt="" coords="80,887,92,761,116,557,133,448,153,346,176,259,202,197,216,177,234,159,272,131,275,135,238,163,220,180,206,200,181,261,158,347,138,449,121,558,97,761,86,887"/>
 <area shape="rect" id="Node000003" href="$classIPacket.html#a6db60bf5beb402e644ccc323e0fb4b03" title=" " alt="" coords="480,682,671,722"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="323,522,378,590,420,631,467,667,481,674,478,679,464,671,416,636,374,594,319,525"/>
 <area shape="rect" id="Node000004" href="$structBinaryUartCallbacks.html#a508d662c0d5228df5049e092aed51770" title=" " alt="" coords="498,746,653,786"/>
@@ -20,7 +24,7 @@
 <area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="315,496,333,456,364,399,408,340,434,313,464,290,474,284,476,288,467,294,438,317,412,343,369,402,338,458,319,499"/>
 <area shape="rect" id="Node000006" href="$structBinaryUart.html#a1b97f089ceb8177a9d9c4bd3f947da75" title=" " alt="" coords="733,103,883,128"/>
 <area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="310,497,318,432,327,384,341,332,361,278,387,226,421,178,464,139,495,120,529,107,565,98,601,93,673,92,735,98,735,104,672,97,602,98,566,103,531,112,498,125,467,143,425,182,392,229,366,281,346,334,332,386,323,432,315,498"/>
-<area shape="rect" id="Node000007" href="$structBinaryUart.html#ade55f8dfcbac25aaf7e2c714d2f5650d" title=" " alt="" coords="502,468,649,494"/>
+<area shape="rect" id="Node000007" href="$structBinaryUart.html#a54a6187390028315b7ba5a84c2cc09bb" title=" " alt="" coords="502,468,649,494"/>
 <area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="414,496,488,488,488,493,414,502"/>
 <area shape="rect" id="Node000008" href="$structBinaryUartCallbacks.html#a61b30efec2c972e1b05aff498997e173" title=" " alt="" coords="498,518,653,558"/>
 <area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="414,519,484,526,484,531,414,524"/>
@@ -36,14 +40,14 @@
 <area shape="poly" id="edge13_Node000002_Node000013" title=" " alt="" coords="345,495,464,453,490,445,491,450,466,458,347,500"/>
 <area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="770,105,762,95,766,85,782,79,808,76,841,80,853,90,850,94,839,85,808,82,783,84,770,89,767,94,774,101"/>
 <area shape="rect" id="Node000015" href="$classIPacket.html#abdbd5f85a036c3b51c16ec938c18823d" title=" " alt="" coords="476,862,675,887"/>
-<area shape="poly" id="edge15_Node000014_Node000015" title=" " alt="" coords="378,834,495,857,494,862,377,839"/>
-<area shape="poly" id="edge16_Node000014_Node000016" title=" " alt="" coords="418,828,495,829,573,826,640,816,666,807,683,797,799,242,804,243,688,800,668,812,641,821,573,831,495,834,418,833"/>
-<area shape="poly" id="edge22_Node000019_Node000006" title=" " alt="" coords="327,98,385,59,424,39,465,24,526,9,576,3,626,7,686,24,716,37,743,54,787,91,783,95,740,59,713,42,684,29,625,13,576,8,527,14,466,29,426,44,388,63,330,102"/>
-<area shape="rect" id="Node000020" href="$structBinaryUartCallbacks.html#addd4c0dc575fa60d305d2a37df619003" title=" " alt="" coords="498,38,653,78"/>
-<area shape="poly" id="edge21_Node000019_Node000020" title=" " alt="" coords="372,98,484,75,485,80,373,103"/>
-<area shape="rect" id="Node000021" href="$structBinaryUart.html#ae962b6889e62ef1f53895991f728fc6e" title="Initializes the BinaryUart." alt="" coords="515,154,636,179"/>
-<area shape="poly" id="edge23_Node000019_Node000021" title=" " alt="" coords="375,123,502,149,501,154,374,129"/>
-<area shape="poly" id="edge25_Node000021_Node000006" title=" " alt="" coords="634,151,735,129,737,134,635,156"/>
-<area shape="poly" id="edge26_Node000021_Node000016" title=" " alt="" coords="635,177,737,199,735,204,634,182"/>
-<area shape="poly" id="edge24_Node000021_Node000017" title=" " alt="" coords="605,177,647,203,669,220,687,241,715,283,738,328,773,421,795,506,806,569,801,570,790,507,768,423,733,330,710,285,683,244,665,224,644,207,603,182"/>
+<area shape="poly" id="edge15_Node000014_Node000015" title=" " alt="" coords="417,872,462,872,462,877,417,877"/>
+<area shape="poly" id="edge16_Node000014_Node000016" title=" " alt="" coords="384,859,570,824,648,808,683,797,799,242,804,243,687,800,649,813,571,830,385,864"/>
+<area shape="poly" id="edge24_Node000021_Node000006" title=" " alt="" coords="327,98,385,59,424,39,465,24,526,9,576,3,626,7,686,24,716,37,743,54,787,91,783,95,740,59,713,42,684,29,625,13,576,8,527,14,466,29,426,44,388,63,330,102"/>
+<area shape="rect" id="Node000022" href="$structBinaryUartCallbacks.html#addd4c0dc575fa60d305d2a37df619003" title=" " alt="" coords="498,38,653,78"/>
+<area shape="poly" id="edge23_Node000021_Node000022" title=" " alt="" coords="372,98,484,75,485,80,373,103"/>
+<area shape="rect" id="Node000023" href="$structBinaryUart.html#abb67d795a67cbd9293dc1d699d9c47bf" title="Initializes the BinaryUart." alt="" coords="515,154,636,179"/>
+<area shape="poly" id="edge25_Node000021_Node000023" title=" " alt="" coords="375,123,502,149,501,154,374,129"/>
+<area shape="poly" id="edge27_Node000023_Node000006" title=" " alt="" coords="634,151,735,129,737,134,635,156"/>
+<area shape="poly" id="edge28_Node000023_Node000016" title=" " alt="" coords="635,177,737,199,735,204,634,182"/>
+<area shape="poly" id="edge26_Node000023_Node000018" title=" " alt="" coords="605,177,647,203,669,220,687,241,715,283,738,328,773,421,795,506,806,569,801,570,790,507,768,423,733,330,710,285,683,244,665,224,644,207,603,182"/>
 </map>

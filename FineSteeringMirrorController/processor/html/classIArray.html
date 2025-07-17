@@ -119,6 +119,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:adaa8246ec4ac3f276d887bda6cb45b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d805f4634fcf5b48700bda5eb1e50eb" id="r_a3d805f4634fcf5b48700bda5eb1e50eb"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIArray.html#a3d805f4634fcf5b48700bda5eb1e50eb">CopyToFlatBuffer</a> (const size_t StartOffset, size_t &amp;NumToCopy, uint8_t *const <a class="el" href="CmdHandlersAscii_8cpp.html#a40c0e0193a4ed265043847344773fbcb">Buffer</a>, const size_t BufferMaxLen) const =0</td></tr>
 <tr class="separator:a3d805f4634fcf5b48700bda5eb1e50eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84a9cfca818456199456925f349feb03" id="r_a84a9cfca818456199456925f349feb03"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIArray.html#a84a9cfca818456199456925f349feb03">PopMany</a> (const size_t LastReadAddrToPop)=0</td></tr>
+<tr class="separator:a84a9cfca818456199456925f349feb03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Copyright (c) by Franks Development, LLC. </p>
@@ -278,6 +280,18 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00178">BinaryUartRingBuffer::Process()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classIArray_a3d805f4634fcf5b48700bda5eb1e50eb_icgraph.png" border="0" usemap="#aclassIArray_a3d805f4634fcf5b48700bda5eb1e50eb_icgraph" alt=""/></div>
+<map name="aclassIArray_a3d805f4634fcf5b48700bda5eb1e50eb_icgraph" id="aclassIArray_a3d805f4634fcf5b48700bda5eb1e50eb_icgraph">
+<area shape="rect" title=" " alt="" coords="213,13,392,38"/>
+<area shape="rect" href="structBinaryUartRingBuffer.html#a09efe6a5785ee86ced2471f020960fc7" title="Processes incoming data and checks for new packets." alt="" coords="5,5,165,45"/>
+<area shape="poly" title=" " alt="" coords="199,28,165,28,165,23,199,23"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="adaa8246ec4ac3f276d887bda6cb45b52" name="adaa8246ec4ac3f276d887bda6cb45b52"></a>
@@ -302,6 +316,18 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00178">BinaryUartRingBuffer::Process()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classIArray_adaa8246ec4ac3f276d887bda6cb45b52_icgraph.png" border="0" usemap="#aclassIArray_adaa8246ec4ac3f276d887bda6cb45b52_icgraph" alt=""/></div>
+<map name="aclassIArray_adaa8246ec4ac3f276d887bda6cb45b52_icgraph" id="aclassIArray_adaa8246ec4ac3f276d887bda6cb45b52_icgraph">
+<area shape="rect" title=" " alt="" coords="213,13,320,38"/>
+<area shape="rect" href="structBinaryUartRingBuffer.html#a09efe6a5785ee86ced2471f020960fc7" title="Processes incoming data and checks for new packets." alt="" coords="5,5,165,45"/>
+<area shape="poly" title=" " alt="" coords="199,28,165,28,165,23,199,23"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -357,6 +383,44 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a84a9cfca818456199456925f349feb03" name="a84a9cfca818456199456925f349feb03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84a9cfca818456199456925f349feb03">&#9670;&#160;</a></span>PopMany()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IArray::PopMany </td>
+          <td>(</td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>LastReadAddrToPop</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00178">BinaryUartRingBuffer::Process()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classIArray_a84a9cfca818456199456925f349feb03_icgraph.png" border="0" usemap="#aclassIArray_a84a9cfca818456199456925f349feb03_icgraph" alt=""/></div>
+<map name="aclassIArray_a84a9cfca818456199456925f349feb03_icgraph" id="aclassIArray_a84a9cfca818456199456925f349feb03_icgraph">
+<area shape="rect" title=" " alt="" coords="213,13,341,38"/>
+<area shape="rect" href="structBinaryUartRingBuffer.html#a09efe6a5785ee86ced2471f020960fc7" title="Processes incoming data and checks for new packets." alt="" coords="5,5,165,45"/>
+<area shape="poly" title=" " alt="" coords="200,28,166,28,166,23,200,23"/>
+</map>
+</div>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="IArray_8hpp_source.html">IArray.hpp</a></li>
 </ul>
@@ -366,7 +430,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classIArray.html">IArray</a></li>
-    <li class="footer">Generated on Tue Jul 8 2025 19:35:17 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Jul 17 2025 22:34:22 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

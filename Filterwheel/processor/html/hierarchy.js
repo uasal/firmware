@@ -8,7 +8,9 @@ var hierarchy =
     [ "ads1258details::ads1258status", "unionads1258details_1_1ads1258status.html", null ],
     [ "BinaryCmd", "structBinaryCmd.html", null ],
     [ "BinaryUartCallbacks", "structBinaryUartCallbacks.html", null ],
+    [ "BinaryUartRingBuffer", "structBinaryUartRingBuffer.html", null ],
     [ "CGraphBaudDividers", "unionCGraphBaudDividers.html", null ],
+    [ "CGraphCrcCurrentAddr", "unionCGraphCrcCurrentAddr.html", null ],
     [ "CGraphDMHardwareControlRegister", "unionCGraphDMHardwareControlRegister.html", null ],
     [ "CGraphDMHardwareInterface", "structCGraphDMHardwareInterface.html", null ],
     [ "CGraphDMHardwareStatusRegister", "unionCGraphDMHardwareStatusRegister.html", null ],
@@ -51,25 +53,27 @@ var hierarchy =
     [ "fixedqueue< char, txbufferlenbytes >", "classfixedqueue.html", null ],
     [ "fixedqueue_mt< T, queue_size >", "classfixedqueue__mt.html", null ],
     [ "floatbe_t", "unionfloatbe__t.html", null ],
+    [ "FpgaRingBufferCrcer", "structFpgaRingBufferCrcer.html", null ],
     [ "IArray", "classIArray.html", null ],
-    [ "IBlockDevice", "classIBlockDevice.html", null ],
+    [ "IBlockDevice", "classIBlockDevice.html", [
+      [ "IUart", "classIUart.html", [
+        [ "linux_pinout_circular_buffer< BufferT, BufferLen >", "classlinux__pinout__circular__buffer.html", null ],
+        [ "linux_pinout_circular_buffer< BufferT, BufferLen >", "classlinux__pinout__circular__buffer.html", null ],
+        [ "linux_pinout_circular_uart< BufferT, RxBufferLen, TxBufferLen >", "classlinux__pinout__circular__uart.html", null ],
+        [ "linux_pinout_client_socket", "classlinux__pinout__client__socket.html", null ],
+        [ "linux_pinout_file", "classlinux__pinout__file.html", null ],
+        [ "linux_pinout_named_pipe", "classlinux__pinout__named__pipe.html", null ],
+        [ "linux_pinout_server_socket", "classlinux__pinout__server__socket.html", null ],
+        [ "linux_pinout_stdio", "classlinux__pinout__stdio.html", null ],
+        [ "linux_pinout_uart", "classlinux__pinout__uart.html", null ],
+        [ "uart_pinout_fpga", "classuart__pinout__fpga.html", null ],
+        [ "win32_pinout_uart", "classwin32__pinout__uart.html", null ]
+      ] ]
+    ] ],
     [ "IPacket", "classIPacket.html", [
       [ "CGraphPacket", "classCGraphPacket.html", null ]
     ] ],
     [ "IProtocol", "classIProtocol.html", null ],
-    [ "IUart", "classIUart.html", [
-      [ "linux_pinout_circular_buffer< BufferT, BufferLen >", "classlinux__pinout__circular__buffer.html", null ],
-      [ "linux_pinout_circular_buffer< BufferT, BufferLen >", "classlinux__pinout__circular__buffer.html", null ],
-      [ "linux_pinout_circular_uart< BufferT, RxBufferLen, TxBufferLen >", "classlinux__pinout__circular__uart.html", null ],
-      [ "linux_pinout_client_socket", "classlinux__pinout__client__socket.html", null ],
-      [ "linux_pinout_file", "classlinux__pinout__file.html", null ],
-      [ "linux_pinout_named_pipe", "classlinux__pinout__named__pipe.html", null ],
-      [ "linux_pinout_server_socket", "classlinux__pinout__server__socket.html", null ],
-      [ "linux_pinout_stdio", "classlinux__pinout__stdio.html", null ],
-      [ "linux_pinout_uart", "classlinux__pinout__uart.html", null ],
-      [ "uart_pinout_fpga", "classuart__pinout__fpga.html", null ],
-      [ "win32_pinout_uart", "classwin32__pinout__uart.html", null ]
-    ] ],
     [ "IUartParser", "classIUartParser.html", [
       [ "BinaryUart", "structBinaryUart.html", null ],
       [ "TerminalUart< txbufferlenbytes, rxbufferlenbytes >", "structTerminalUart.html", null ]

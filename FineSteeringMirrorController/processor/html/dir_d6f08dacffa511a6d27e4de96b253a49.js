@@ -3,6 +3,7 @@ var dir_d6f08dacffa511a6d27e4de96b253a49 =
     [ "AsciiCmdUserInterfaceLinux.cpp", "AsciiCmdUserInterfaceLinux_8cpp.html", "AsciiCmdUserInterfaceLinux_8cpp" ],
     [ "AsciiCmdUserInterfaceLinux.h", "AsciiCmdUserInterfaceLinux_8h.html", "AsciiCmdUserInterfaceLinux_8h" ],
     [ "BinaryUart.cpp", "BinaryUart_8cpp.html", "BinaryUart_8cpp" ],
+    [ "BinaryUart.h", "BinaryUart_8h.html", "BinaryUart_8h" ],
     [ "BinaryUart.hpp", "BinaryUart_8hpp.html", "BinaryUart_8hpp" ],
     [ "BinaryUartRingBuffer.cpp", "BinaryUartRingBuffer_8cpp.html", "BinaryUartRingBuffer_8cpp" ],
     [ "BinaryUartRingBuffer.hpp", "BinaryUartRingBuffer_8hpp.html", "BinaryUartRingBuffer_8hpp" ],

@@ -15,7 +15,7 @@ var classCGraphPacket =
     [ "HeaderLen", "classCGraphPacket.html#a429c22fdb47bb3662b3fc2a1a89e24e0", null ],
     [ "IsBroadcastSerialNum", "classCGraphPacket.html#a2b033a2eeb23833eb311461cb337f53b", null ],
     [ "IsBroadcastSerialNum", "classCGraphPacket.html#aff0821fceaa5120bd98e77399a28649c", null ],
-    [ "IsValid", "classCGraphPacket.html#a21838ecf3bbc854bcfc81073ad10b85c", null ],
+    [ "IsValid", "classCGraphPacket.html#a43a4b0608c625f86c464d4644358d155", null ],
     [ "IsValid", "classCGraphPacket.html#a24e2d807e628fe9fb8c9af8eb48c8765", null ],
     [ "MakePacket", "classCGraphPacket.html#a1cc4c17fb847626f753f1287726a6c11", null ],
     [ "MaxPayloadLength", "classCGraphPacket.html#ab22778db1edaf1d68d60a1eb84bf33d7", null ],

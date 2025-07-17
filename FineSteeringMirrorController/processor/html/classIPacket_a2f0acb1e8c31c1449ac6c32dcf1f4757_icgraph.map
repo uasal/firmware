@@ -1,25 +1,27 @@
 <map id="IPacket::HeaderLen" name="IPacket::HeaderLen">
-<area shape="rect" id="Node000001" title=" " alt="" coords="968,81,1115,107"/>
-<area shape="rect" id="Node000002" href="$structBinaryUart.html#ad350385f839762fcb3aad27a69e9809e" title="Checks if a packet is present in the buffer." alt="" coords="707,5,920,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="993,79,919,53,858,33,859,28,921,47,995,74"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="948,107,1095,132"/>
+<area shape="rect" id="Node000002" href="$structBinaryUart.html#ad350385f839762fcb3aad27a69e9809e" title="Checks if a packet is present in the buffer." alt="" coords="479,5,692,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="991,101,949,75,899,53,847,39,794,29,692,20,693,15,795,24,849,34,901,47,951,70,994,96"/>
 <area shape="rect" id="Node000003" href="$structBinaryUart.html#a1328d9d193b052cbc4013f21c7e6e222" title="Processes incoming data and checks for new packets." alt="" coords="280,56,431,81"/>
-<area shape="poly" id="edge12_Node000001_Node000003" title=" " alt="" coords="954,93,431,74,431,69,954,88"/>
-<area shape="rect" id="Node000007" href="$structBinaryUart.html#ae962b6889e62ef1f53895991f728fc6e" title="Initializes the BinaryUart." alt="" coords="753,107,874,132"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="954,106,875,115,874,110,954,101"/>
-<area shape="rect" id="Node000011" href="$structBinaryUart.html#a310824c0d5b53d2d2968d65f02b5d4ff" title="Processes incoming data and checks for new packets." alt="" coords="738,156,889,181"/>
-<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="1001,115,921,146,875,158,874,153,919,141,999,110"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="693,30,479,53,431,59,430,54,478,47,693,25"/>
+<area shape="poly" id="edge13_Node000001_Node000003" title=" " alt="" coords="955,106,900,97,771,84,642,76,431,71,431,66,642,71,771,78,900,91,956,101"/>
+<area shape="rect" id="Node000007" href="$structBinaryUart.html#abb67d795a67cbd9293dc1d699d9c47bf" title="Initializes the BinaryUart." alt="" coords="759,107,881,132"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="934,122,881,122,881,117,934,117"/>
+<area shape="rect" id="Node000010" href="$structBinaryUartRingBuffer.html#a9d3ed2b44ec21d65c57d829c5e680a90" title="Initializes the BinaryUartRingBuffer." alt="" coords="740,157,900,197"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="964,138,891,159,890,154,962,133"/>
+<area shape="rect" id="Node000012" href="$structBinaryUartRingBuffer.html#a09efe6a5785ee86ced2471f020960fc7" title="Processes incoming data and checks for new packets." alt="" coords="740,221,900,261"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="997,143,953,177,901,211,877,223,875,218,899,206,950,173,993,139"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="514,36,414,59,413,53,513,31"/>
 <area shape="rect" id="Node000004" href="$Main_8cpp.html#aa76a7473bb1fc37989ff21d3ff8a3a9e" title=" " alt="" coords="134,31,206,56"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="266,59,206,51,206,46,267,54"/>
 <area shape="rect" id="Node000006" href="$Main_8cpp.html#a81a71161305149975fb868e23800dc15" title=" " alt="" coords="108,80,232,105"/>
 <area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="267,83,233,87,232,82,266,78"/>
 <area shape="rect" id="Node000005" href="$Main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,60,56"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="120,46,60,46,60,41,120,41"/>
-<area shape="rect" id="Node000008" href="$structBinaryUart.html#addfbf98b5a11f4a162a7e04409500560" title="Constructs a BinaryUart object and initializes with given parameters." alt="" coords="483,107,654,132"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="739,122,654,122,654,117,739,117"/>
-<area shape="rect" id="Node000009" href="$structBinaryUart.html#a8258918913fd0bec31fc50328ff4a90e" title="Constructs a BinaryUart object and initializes with given parameters." alt="" coords="483,156,654,181"/>
-<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="740,137,633,159,632,153,738,132"/>
-<area shape="rect" id="Node000010" href="$structBinaryUart.html#a16b484e326a172e0c3b37ba6e8eed8a5" title="Adds a byte to the Rx buffer and handles buffer overflow." alt="" coords="479,205,659,231"/>
-<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="740,133,708,146,694,157,685,169,675,182,660,195,632,208,630,203,657,190,672,179,680,166,690,153,705,141,738,128"/>
-<area shape="poly" id="edge10_Node000010_Node000003" title=" " alt="" coords="493,203,477,195,441,168,408,137,364,83,368,80,412,134,444,164,480,190,495,198"/>
+<area shape="rect" id="Node000008" href="$structBinaryUart.html#a8258918913fd0bec31fc50328ff4a90e" title="Constructs a BinaryUart object and initializes with given parameters." alt="" coords="500,107,671,132"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="745,122,671,122,671,117,745,117"/>
+<area shape="rect" id="Node000009" href="$structBinaryUart.html#a16b484e326a172e0c3b37ba6e8eed8a5" title="Adds a byte to the Rx buffer and handles buffer overflow." alt="" coords="495,156,675,181"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="746,137,647,159,646,153,745,132"/>
+<area shape="poly" id="edge9_Node000009_Node000003" title=" " alt="" coords="503,155,478,146,418,115,372,84,375,79,421,110,480,141,505,150"/>
+<area shape="rect" id="Node000011" href="$structBinaryUartRingBuffer.html#a3bda8a8d526e606677deea72c94e7cda" title="Constructs a BinaryUartRingBuffer object and initializes with given parameters." alt="" coords="501,206,669,246"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="727,199,670,211,669,206,725,194"/>
 </map>

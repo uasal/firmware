@@ -120,6 +120,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:adaa8246ec4ac3f276d887bda6cb45b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d805f4634fcf5b48700bda5eb1e50eb" id="r_a3d805f4634fcf5b48700bda5eb1e50eb"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIArray.html#a3d805f4634fcf5b48700bda5eb1e50eb">CopyToFlatBuffer</a> (const size_t StartOffset, size_t &amp;NumToCopy, uint8_t *const Buffer, const size_t BufferMaxLen) const =0</td></tr>
 <tr class="separator:a3d805f4634fcf5b48700bda5eb1e50eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84a9cfca818456199456925f349feb03" id="r_a84a9cfca818456199456925f349feb03"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIArray.html#a84a9cfca818456199456925f349feb03">PopMany</a> (const size_t LastReadAddrToPop)=0</td></tr>
+<tr class="separator:a84a9cfca818456199456925f349feb03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Copyright (c) by Franks Development, LLC. </p>
@@ -205,7 +207,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="CGraphPacket_8hpp_source.html#l00381">CGraphPacket::DoesPayloadTypeMatch()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00308">CGraphPacket::IsValid()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00294">CGraphPacket::PayloadLen()</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00369">CGraphPacket::PayloadType()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="CGraphPacket_8hpp_source.html#l00393">CGraphPacket::DoesPayloadTypeMatch()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00308">CGraphPacket::IsValid()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00294">CGraphPacket::PayloadLen()</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00381">CGraphPacket::PayloadType()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -214,7 +216,7 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title=" " alt="" coords="257,95,367,121"/>
 <area shape="rect" href="classCGraphPacket.html#ab8e32ef48f558c47d06c483501db8544" title=" " alt="" coords="5,5,209,45"/>
 <area shape="poly" title=" " alt="" coords="275,91,208,60,176,48,178,43,210,55,277,87"/>
-<area shape="rect" href="classCGraphPacket.html#a21838ecf3bbc854bcfc81073ad10b85c" title=" " alt="" coords="26,70,189,95"/>
+<area shape="rect" href="classCGraphPacket.html#a43a4b0608c625f86c464d4644358d155" title=" " alt="" coords="26,70,189,95"/>
 <area shape="poly" title=" " alt="" coords="243,102,188,95,189,90,244,97"/>
 <area shape="rect" href="classCGraphPacket.html#aa24ccddfb49112a3b1d6def7c09e9a4a" title=" " alt="" coords="10,119,205,145"/>
 <area shape="poly" title=" " alt="" coords="244,119,205,123,204,118,243,113"/>
@@ -260,7 +262,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="276,101,204,60,174,48,176,43,206,55,278,96"/>
 <area shape="rect" href="classCGraphPacket.html#aa71dcf6fe8b4be1cc12f58dcd38662a5" title=" " alt="" coords="11,69,200,109"/>
 <area shape="poly" title=" " alt="" coords="239,111,200,106,201,100,240,106"/>
-<area shape="rect" href="classCGraphPacket.html#a21838ecf3bbc854bcfc81073ad10b85c" title=" " alt="" coords="24,134,187,159"/>
+<area shape="rect" href="classCGraphPacket.html#a43a4b0608c625f86c464d4644358d155" title=" " alt="" coords="24,134,187,159"/>
 <area shape="poly" title=" " alt="" coords="240,131,187,138,186,133,239,125"/>
 <area shape="rect" href="classCGraphPacket.html#ab6eaa55b41600f4cefe7e4a2701c69bb" title=" " alt="" coords="5,184,205,224"/>
 <area shape="poly" title=" " alt="" coords="274,140,206,173,172,186,170,181,204,168,271,135"/>
@@ -315,15 +317,15 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="CGraphPacket_8hpp_source.html#l00308">CGraphPacket::IsValid()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00178">BinaryUartRingBuffer::Process()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classIArray_a3d805f4634fcf5b48700bda5eb1e50eb_icgraph.png" border="0" usemap="#aclassIArray_a3d805f4634fcf5b48700bda5eb1e50eb_icgraph" alt=""/></div>
 <map name="aclassIArray_a3d805f4634fcf5b48700bda5eb1e50eb_icgraph" id="aclassIArray_a3d805f4634fcf5b48700bda5eb1e50eb_icgraph">
-<area shape="rect" title=" " alt="" coords="216,5,395,31"/>
-<area shape="rect" href="classCGraphPacket.html#a21838ecf3bbc854bcfc81073ad10b85c" title=" " alt="" coords="5,5,168,31"/>
-<area shape="poly" title=" " alt="" coords="202,21,168,21,168,15,202,15"/>
+<area shape="rect" title=" " alt="" coords="213,13,392,38"/>
+<area shape="rect" href="structBinaryUartRingBuffer.html#a09efe6a5785ee86ced2471f020960fc7" title="Processes incoming data and checks for new packets." alt="" coords="5,5,165,45"/>
+<area shape="poly" title=" " alt="" coords="199,28,165,28,165,23,199,23"/>
 </map>
 </div>
 
@@ -352,25 +354,27 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="CGraphPacket_8hpp_source.html#l00381">CGraphPacket::DoesPayloadTypeMatch()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00279">CGraphPacket::FindPacketEndPos()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00251">CGraphPacket::FindPacketStartPos()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00308">CGraphPacket::IsValid()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00294">CGraphPacket::PayloadLen()</a>, and <a class="el" href="CGraphPacket_8hpp_source.html#l00369">CGraphPacket::PayloadType()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="CGraphPacket_8hpp_source.html#l00393">CGraphPacket::DoesPayloadTypeMatch()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00279">CGraphPacket::FindPacketEndPos()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00251">CGraphPacket::FindPacketStartPos()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00308">CGraphPacket::IsValid()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00294">CGraphPacket::PayloadLen()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00381">CGraphPacket::PayloadType()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00178">BinaryUartRingBuffer::Process()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classIArray_adaa8246ec4ac3f276d887bda6cb45b52_icgraph.png" border="0" usemap="#aclassIArray_adaa8246ec4ac3f276d887bda6cb45b52_icgraph" alt=""/></div>
 <map name="aclassIArray_adaa8246ec4ac3f276d887bda6cb45b52_icgraph" id="aclassIArray_adaa8246ec4ac3f276d887bda6cb45b52_icgraph">
-<area shape="rect" title=" " alt="" coords="257,170,364,195"/>
+<area shape="rect" title=" " alt="" coords="257,198,364,223"/>
 <area shape="rect" href="classCGraphPacket.html#ab8e32ef48f558c47d06c483501db8544" title=" " alt="" coords="5,5,209,45"/>
-<area shape="poly" title=" " alt="" coords="294,160,259,109,235,82,208,60,186,48,189,43,211,55,239,78,263,106,298,157"/>
+<area shape="poly" title=" " alt="" coords="297,187,263,123,238,89,208,59,188,48,191,43,211,55,242,85,268,120,302,184"/>
 <area shape="rect" href="classCGraphPacket.html#a8ae60c9ee3615d329105146b9f8f4e97" title=" " alt="" coords="13,69,202,109"/>
-<area shape="poly" title=" " alt="" coords="279,165,208,124,178,112,180,107,210,119,282,160"/>
+<area shape="poly" title=" " alt="" coords="287,190,252,156,208,124,183,112,186,107,211,119,255,152,291,186"/>
 <area shape="rect" href="classCGraphPacket.html#aa71dcf6fe8b4be1cc12f58dcd38662a5" title=" " alt="" coords="13,133,202,173"/>
-<area shape="poly" title=" " alt="" coords="243,176,202,170,203,164,244,170"/>
-<area shape="rect" href="classCGraphPacket.html#a21838ecf3bbc854bcfc81073ad10b85c" title=" " alt="" coords="26,198,189,223"/>
-<area shape="poly" title=" " alt="" coords="244,194,189,202,189,197,243,189"/>
+<area shape="poly" title=" " alt="" coords="251,197,178,176,179,171,253,192"/>
+<area shape="rect" href="classCGraphPacket.html#a43a4b0608c625f86c464d4644358d155" title=" " alt="" coords="26,198,189,223"/>
+<area shape="poly" title=" " alt="" coords="244,213,189,213,189,208,244,208"/>
 <area shape="rect" href="classCGraphPacket.html#aa24ccddfb49112a3b1d6def7c09e9a4a" title=" " alt="" coords="10,247,205,273"/>
-<area shape="poly" title=" " alt="" coords="278,205,210,237,170,250,168,245,208,232,275,200"/>
+<area shape="poly" title=" " alt="" coords="245,229,161,250,160,245,244,224"/>
 <area shape="rect" href="classCGraphPacket.html#adf463b28618e83edd624708591be50c6" title=" " alt="" coords="7,297,208,322"/>
-<area shape="poly" title=" " alt="" coords="294,208,259,248,236,269,211,286,181,299,179,294,208,282,233,265,255,245,290,205"/>
+<area shape="poly" title=" " alt="" coords="287,235,252,262,210,286,176,299,174,294,208,282,249,257,284,230"/>
+<area shape="rect" href="structBinaryUartRingBuffer.html#a09efe6a5785ee86ced2471f020960fc7" title="Processes incoming data and checks for new packets." alt="" coords="27,347,187,387"/>
+<area shape="poly" title=" " alt="" coords="298,237,262,286,238,313,211,336,186,349,184,344,208,331,235,309,258,283,293,234"/>
 </map>
 </div>
 
@@ -428,6 +432,44 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a84a9cfca818456199456925f349feb03" name="a84a9cfca818456199456925f349feb03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84a9cfca818456199456925f349feb03">&#9670;&#160;</a></span>PopMany()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IArray::PopMany </td>
+          <td>(</td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>LastReadAddrToPop</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00178">BinaryUartRingBuffer::Process()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classIArray_a84a9cfca818456199456925f349feb03_icgraph.png" border="0" usemap="#aclassIArray_a84a9cfca818456199456925f349feb03_icgraph" alt=""/></div>
+<map name="aclassIArray_a84a9cfca818456199456925f349feb03_icgraph" id="aclassIArray_a84a9cfca818456199456925f349feb03_icgraph">
+<area shape="rect" title=" " alt="" coords="213,13,341,38"/>
+<area shape="rect" href="structBinaryUartRingBuffer.html#a09efe6a5785ee86ced2471f020960fc7" title="Processes incoming data and checks for new packets." alt="" coords="5,5,165,45"/>
+<area shape="poly" title=" " alt="" coords="200,28,166,28,166,23,200,23"/>
+</map>
+</div>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="IArray_8hpp_source.html">IArray.hpp</a></li>
 </ul>
@@ -437,7 +479,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classIArray.html">IArray</a></li>
-    <li class="footer">Generated on Tue Jul 8 2025 19:35:07 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Jul 17 2025 22:34:11 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

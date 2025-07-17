@@ -15,7 +15,7 @@ var classIPacket =
     [ "HeaderLen", "classIPacket.html#a2f0acb1e8c31c1449ac6c32dcf1f4757", null ],
     [ "IsBroadcastSerialNum", "classIPacket.html#a56c7f5a444fa41bdad4045472eb435a0", null ],
     [ "IsBroadcastSerialNum", "classIPacket.html#aac324d1be13b345811c62808e3046a0b", null ],
-    [ "IsValid", "classIPacket.html#af652e0083ccfe86161835b2efad50080", null ],
+    [ "IsValid", "classIPacket.html#a412104214be691f88199f0f0d1f3515e", null ],
     [ "IsValid", "classIPacket.html#ae508735aa416afc0e8cb2a10f96006e8", null ],
     [ "MakePacket", "classIPacket.html#aa50e563805822827057ebb7f7e99e6c2", null ],
     [ "MaxPayloadLength", "classIPacket.html#a377f161e1c076def5da17e4a6a8189ad", null ],

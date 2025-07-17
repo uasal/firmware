@@ -2,8 +2,8 @@ var searchData=
 [
   ['lastc_0',['LastC',['../structTerminalUart.html#a2fe4c0e9936eb29fb5a6c0904dfd183c',1,'TerminalUart']]],
   ['lastchannelandsamplingfreq_1',['LastChannelAndSamplingFreq',['../structlt244x.html#a7c6a75a4b49ed6e91f75ea2c5d79c370',1,'lt244x']]],
-  ['lastdatalen_2',['LastDataLen',['../structBinaryUart.html#a0f12f9b5a50cd3514e7b992d5888a8c8',1,'BinaryUart']]],
-  ['lastdataleninit_3',['LastDataLenInit',['../structBinaryUart.html#a953812f657d7264e85ef87b3ee68fcc7',1,'BinaryUart']]],
+  ['lastdatalen_2',['LastDataLen',['../structBinaryUartRingBuffer.html#ac7f34730c00a67e09e9b23ef9b4ca79c',1,'BinaryUartRingBuffer']]],
+  ['lastdataleninit_3',['LastDataLenInit',['../structBinaryUartRingBuffer.html#a9b5cbe52636190c0c918dc3d67f9b9fa',1,'BinaryUartRingBuffer']]],
   ['lastsamples_4',['lastsamples',['../structads1258.html#a8728de28361b09af6ca286d51729fccd',1,'ads1258']]],
   ['ledb_5',['ledb',['../unionCGraphFWHardwareControlRegister.html#a775787e96893def91600da9e9be86174',1,'CGraphFWHardwareControlRegister::LedB'],['../CGraphFWHardwareInterface_8hpp.html#a613e7f953022a19aeeb178b074c0137b',1,'LedB:&#160;CGraphFWHardwareInterface.hpp']]],
   ['ledg_6',['ledg',['../unionCGraphFWHardwareControlRegister.html#a106d423cd2c1102a0ddc2047410045f7',1,'CGraphFWHardwareControlRegister::LedG'],['../CGraphFWHardwareInterface_8hpp.html#adacac334291a8d490b906339a30ba94b',1,'LedG:&#160;CGraphFWHardwareInterface.hpp']]],

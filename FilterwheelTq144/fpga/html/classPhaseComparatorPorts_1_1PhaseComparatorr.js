@@ -1,6 +1,6 @@
 var classPhaseComparatorPorts_1_1PhaseComparatorr =
 [
-    [ "PROCESS_25", "classPhaseComparatorPorts_1_1PhaseComparatorr.html#a0f7339e7178ba86a9bcbf6f7b3f9b0bc", null ],
+    [ "PROCESS_27", "classPhaseComparatorPorts_1_1PhaseComparatorr.html#ab134c78e13f3bbfc0fdea41dce2cca82", null ],
     [ "Delta_i", "classPhaseComparatorPorts_1_1PhaseComparatorr.html#aad6721198655740c22a6766f7971c09e", null ],
     [ "DeltaLatched", "classPhaseComparatorPorts_1_1PhaseComparatorr.html#a11582ccbd9c774afe1ad77d599c75ce0", null ],
     [ "DeltaSaturated", "classPhaseComparatorPorts_1_1PhaseComparatorr.html#a701f0515a46e7e04449b3b93a541d1e6", null ],

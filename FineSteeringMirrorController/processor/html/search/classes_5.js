@@ -6,5 +6,6 @@ var searchData=
   ['fixedqueue_3c_20char_2c_20txbufferlenbytes_20_3e_3',['fixedqueue&lt; char, txbufferlenbytes &gt;',['../classfixedqueue.html',1,'']]],
   ['fixedqueue_5fmt_4',['fixedqueue_mt',['../classfixedqueue__mt.html',1,'']]],
   ['floatbe_5ft_5',['floatbe_t',['../unionfloatbe__t.html',1,'']]],
-  ['fpgabinaryuartcallbacks_6',['FPGABinaryUartCallbacks',['../structFPGABinaryUartCallbacks.html',1,'']]]
+  ['fpgabinaryuartcallbacks_6',['FPGABinaryUartCallbacks',['../structFPGABinaryUartCallbacks.html',1,'']]],
+  ['fpgaringbuffercrcer_7',['FpgaRingBufferCrcer',['../structFpgaRingBufferCrcer.html',1,'']]]
 ];

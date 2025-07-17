@@ -95,15 +95,17 @@ $(document).ready(function(){initNavTree('functions_l.html',''); initResizable()
 <h3><a id="index_l" name="index_l"></a>- l -</h3><ul>
 <li>LastC&#160;:&#160;<a class="el" href="structTerminalUart.html#a2fe4c0e9936eb29fb5a6c0904dfd183c">TerminalUart&lt; txbufferlenbytes, rxbufferlenbytes &gt;</a></li>
 <li>LastChannelAndSamplingFreq&#160;:&#160;<a class="el" href="structlt244x.html#a7c6a75a4b49ed6e91f75ea2c5d79c370">lt244x&lt; pinout, spi, SpiClkDiv &gt;</a></li>
-<li>LastDataLen&#160;:&#160;<a class="el" href="structBinaryUart.html#a0f12f9b5a50cd3514e7b992d5888a8c8">BinaryUart</a></li>
-<li>LastDataLenInit&#160;:&#160;<a class="el" href="structBinaryUart.html#a953812f657d7264e85ef87b3ee68fcc7">BinaryUart</a></li>
+<li>LastDataLen&#160;:&#160;<a class="el" href="structBinaryUartRingBuffer.html#ac7f34730c00a67e09e9b23ef9b4ca79c">BinaryUartRingBuffer</a></li>
+<li>LastDataLenInit&#160;:&#160;<a class="el" href="structBinaryUartRingBuffer.html#a9b5cbe52636190c0c918dc3d67f9b9fa">BinaryUartRingBuffer</a></li>
 <li>lastsamples&#160;:&#160;<a class="el" href="structads1258.html#a8728de28361b09af6ca286d51729fccd">ads1258&lt; spipinout &gt;</a></li>
 <li>le()&#160;:&#160;<a class="el" href="uniondoublebe__t.html#a5c9369f633712b539ccb0966814ae054">doublebe_t</a>, <a class="el" href="unionfloatbe__t.html#a82ecf8830445450873aa2c1545708ff4">floatbe_t</a>, <a class="el" href="structuint16be__t.html#a5dde1d5498dbd2bc8a73cd13d36d0b58">uint16be_t</a>, <a class="el" href="structuint32be__t.html#aa9b84997739748b152794ea565cef8d3">uint32be_t</a></li>
 <li>LedB&#160;:&#160;<a class="el" href="unionCGraphFWHardwareControlRegister.html#a775787e96893def91600da9e9be86174">CGraphFWHardwareControlRegister</a></li>
 <li>LedG&#160;:&#160;<a class="el" href="unionCGraphFWHardwareControlRegister.html#a106d423cd2c1102a0ddc2047410045f7">CGraphFWHardwareControlRegister</a></li>
 <li>LedR&#160;:&#160;<a class="el" href="unionCGraphFWHardwareControlRegister.html#a7242e1e78b4015895b912304252513d8">CGraphFWHardwareControlRegister</a></li>
-<li>Len()&#160;:&#160;<a class="el" href="classfixedlist.html#acfc26116f13376049cfa5a89121924c0">fixedlist&lt; T, list_size &gt;</a>, <a class="el" href="classfixedlistlite.html#a27f7606347d7fefa85636020c324150a">fixedlistlite&lt; T, list_size &gt;</a></li>
-<li>len&#160;:&#160;<a class="el" href="classfixedlistlite.html#a5ab785cb084e12a462fef2e911449048">fixedlistlite&lt; T, list_size &gt;</a>, <a class="el" href="classfixedqueue.html#a07805afdaa5b68023e41ed5fc4565dc0">fixedqueue&lt; T, queue_size &gt;</a>, <a class="el" href="classfixedqueue__mt.html#aa4d41426bc4e96d849c6e5899781200d">fixedqueue_mt&lt; T, queue_size &gt;</a></li>
+<li>Len()&#160;:&#160;<a class="el" href="classfixedlist.html#acfc26116f13376049cfa5a89121924c0">fixedlist&lt; T, list_size &gt;</a></li>
+<li>len&#160;:&#160;<a class="el" href="classfixedlistlite.html#a5ab785cb084e12a462fef2e911449048">fixedlistlite&lt; T, list_size &gt;</a></li>
+<li>Len()&#160;:&#160;<a class="el" href="classfixedlistlite.html#a27f7606347d7fefa85636020c324150a">fixedlistlite&lt; T, list_size &gt;</a></li>
+<li>len()&#160;:&#160;<a class="el" href="classfixedqueue.html#a07805afdaa5b68023e41ed5fc4565dc0">fixedqueue&lt; T, queue_size &gt;</a>, <a class="el" href="classfixedqueue__mt.html#aa4d41426bc4e96d849c6e5899781200d">fixedqueue_mt&lt; T, queue_size &gt;</a></li>
 <li>linux_pinout_circular_buffer()&#160;:&#160;<a class="el" href="classlinux__pinout__circular__buffer.html#ae889931a76846a70ed152204d6b4c4b1">linux_pinout_circular_buffer&lt; BufferT, BufferLen &gt;</a></li>
 <li>linux_pinout_circular_uart()&#160;:&#160;<a class="el" href="classlinux__pinout__circular__uart.html#ab4fdc3de404f3cf15c0933a32c285009">linux_pinout_circular_uart&lt; BufferT, RxBufferLen, TxBufferLen &gt;</a></li>
 <li>linux_pinout_client_socket()&#160;:&#160;<a class="el" href="classlinux__pinout__client__socket.html#a51983a5bff29d3f44831a959b3ddb69b">linux_pinout_client_socket</a></li>
@@ -124,7 +126,7 @@ $(document).ready(function(){initNavTree('functions_l.html',''); initResizable()
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Jul 8 2025 19:35:07 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Jul 17 2025 22:34:11 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
