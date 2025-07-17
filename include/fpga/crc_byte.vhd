@@ -22,15 +22,15 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity crc is
+entity crc_byte is
     port (
         crcIn: in std_logic_vector(31 downto 0);
         data: in std_logic_vector(7 downto 0);
         crcOut: out std_logic_vector(31 downto 0)
     );
-end entity crc;
+end entity crc_byte;
 
-architecture Behavioral of crc is
+architecture Behavioral of crc_byte is
 begin
     crcOut(0) <= crcIn(24) xor crcIn(30) xor data(0) xor data(6);
     crcOut(1) <= crcIn(24) xor crcIn(25) xor crcIn(30) xor crcIn(31) xor data(0) xor data(1) xor data(6) xor data(7);

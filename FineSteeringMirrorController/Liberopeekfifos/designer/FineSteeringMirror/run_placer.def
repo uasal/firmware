@@ -1,6 +1,6 @@
 G5PLACER_32_64_BIT_EXT=64
 DESIGN=FineSteeringMirror
-DESDIR=/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/designer/FineSteeringMirror
+DESDIR=/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Liberopeekfifos/designer/FineSteeringMirror
 FAM=SmartFusion2
 DIE=PA4M1000_N
 PACKAGE=tq144
@@ -30,7 +30,7 @@ NETLIST_TYPE=EDIF
 MINDELAYG4_REPAIR=1
 MINDELAYG5_REPAIR=1
 LAYOUT_STATE=NOT_VALID
-PDC_FILE=/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/constraint/io/user.pdc,,
+PDC_FILE=/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Liberopeekfifos/constraint/io/user.pdc,,
 USE_CONSTRAINT_FLOW=1
 TARGET_DEVICES_FOR_MIGRATION='PA4M1000_N '
 RESTRICTPROBEPINS=0

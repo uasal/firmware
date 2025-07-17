@@ -3,11 +3,11 @@ set_device \
     -die PA4M1000_N \
     -pkg tq144
 set_input_cfg \
-	-path {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb_MSS/ENVM.cfg}
+	-path {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Liberopeekfifos/component/work/FineSteeringMirror_sb_MSS/ENVM.cfg}
 set_output_efc \
-    -path {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/designer/FineSteeringMirror/FineSteeringMirror.efc}
+    -path {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Liberopeekfifos/designer/FineSteeringMirror/FineSteeringMirror.efc}
 set_proj_dir \
-    -path {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero}
+    -path {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Liberopeekfifos}
 set_is_relative_path \
     -value {TRUE}
 set_root_path_dir \

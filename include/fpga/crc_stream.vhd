@@ -55,7 +55,7 @@ entity CrcStream is
 
 architecture implementation of CrcStream is
 
-	component crc is
+	component crc_byte is
 		port (
 			crcIn: in std_logic_vector(31 downto 0);
 			data: in std_logic_vector(7 downto 0);
@@ -68,7 +68,7 @@ architecture implementation of CrcStream is
 	
 begin
 
-	crcer : crc
+	crcer : crc_byte
 	port map
 	(
 		crcIn => CrcIn,
@@ -92,6 +92,8 @@ begin
 				CrcIn <= CrcOut;
 			
 			end if;	
+			
+		end if;	
 		
 	end process;
 	

@@ -1,6 +1,6 @@
 DESIGN=FineSteeringMirror
-DESDIR=/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/designer/FineSteeringMirror
-TARGET_DIR=/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/designer/FineSteeringMirror
+DESDIR=/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Liberopeekfifos/designer/FineSteeringMirror
+TARGET_DIR=/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Liberopeekfifos/designer/FineSteeringMirror
 FAM=SmartFusion2
 DIE=PA4M1000_N
 PACKAGE=tq144

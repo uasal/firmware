@@ -37,7 +37,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.all;
 
-entity CrcStream is
+entity CrcFifo is
 	generic (
 			DEPTH_BITS : natural := 10--;
 	);
@@ -49,16 +49,15 @@ entity CrcStream is
 		
 		FifoStartAddr : in unsigned(DEPTH_BITS - 1 downto 0);
 		FifoEndAddr : in unsigned(DEPTH_BITS - 1 downto 0);
-		FifoCurrentAddr : out unsigned(DEPTH_BITS - 1 downto 0);
 		FifoPeekAddr : out unsigned(DEPTH_BITS - 1 downto 0);
 		FifoPeekData : in std_logic_vector(7 downto 0);
 		
 		Crc : out std_logic_vector(31 downto 0);
 		CrcComplete : out std_logic--;
 		
-	); end CrcStream;
+	); end CrcFifo;
 
-architecture implementation of CrcStream is
+architecture implementation of CrcFifo is
 
 	component CrcStream is
 	port (
@@ -72,23 +71,23 @@ architecture implementation of CrcStream is
 	
 	); end component;
 
-	signal CrcIn : std_logic_vector(31 downto 0);
+	--~ signal CrcIn : std_logic_vector(31 downto 0);
 	signal CrcOut : std_logic_vector(31 downto 0);
 	
-	signal FifoPeekAddr : std_logic_vector(DEPTH_BITS - 1 downto 0);
+	signal FifoPeekAddr_i : std_logic_vector(DEPTH_BITS - 1 downto 0);
 	
 begin
 
 	crcer : CrcStream
 	port map
 	(
-		clk => CrcByteClk,
+		clk => clk,
 		rst => rst,
 		data => FifoPeekData,
-		crcOut => CrcOut--,
+		crc => CrcOut--,
 	);
 	
-	FifoCurrentAddr <= FifoPeekAddr;
+	FifoPeekAddr <= FifoPeekAddr_i;
 			
 	process (clk, rst)
 	begin
@@ -96,16 +95,16 @@ begin
 		if (rst = '1') then 
 		
 			CrcComplete <= '0';
-			FifoPeekAddr <= FifoStartAddr;
+			FifoPeekAddr_i <= FifoStartAddr;
 					
 		else
 			
 			if ( (clk'event) and (clk = '1') ) then
 
-				if (FifoPeekAddr /= FifoEndAddr) then
+				if (FifoPeekAddr_i /= std_logic_vector(FifoEndAddr)) then
 				
 					CrcComplete <= '0';
-					FifoPeekAddr <= FifoPeekAddr + std_logic_vector(to_unsigned(1, DEPTH_BITS));
+					FifoPeekAddr_i <= FifoPeekAddr_i + std_logic_vector(to_unsigned(1, DEPTH_BITS));
 					
 				else
 	
@@ -115,6 +114,8 @@ begin
 				end if;
 			
 			end if;	
+			
+		end if;	
 		
 	end process;
 	

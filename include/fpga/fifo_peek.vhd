@@ -117,7 +117,7 @@ begin
 			else
 				if ( (multipop_e_i = '1') and (lastmultipop_e_i = '0') ) then --edge strrobe
 					raddr_r <= raddr_i;
-					counter_r <= counter_r - (raddr_i - raddr_r); --yeah.... this is prolly gonna mess shit up. but keeping a counter is a crap way to do a fifo anyway and this whole core needs replacing...like how does an integer that only has a set number of bits wrap in subtraction anyway?? but this is not a critical infrastructure, so let's ignore it for now
+					counter_r <= counter_r - (to_integer(raddr_i) - to_integer(raddr_r)); --yeah.... this is prolly gonna mess shit up. but keeping a counter is a crap way to do a fifo anyway and this whole core needs replacing...like how does an integer that only has a set number of bits wrap in subtraction anyway?? but this is not a critical infrastructure, so let's ignore it for now
 				end if;
 			end if;
 

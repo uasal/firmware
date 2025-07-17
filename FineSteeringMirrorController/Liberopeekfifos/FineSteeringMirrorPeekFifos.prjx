@@ -95,13 +95,13 @@ SIZE="1186"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpgapeekfifos/Main.vhd,hdl"
 STATE="utd"
-TIME="1752512531"
-SIZE="75385"
+TIME="1752753689"
+SIZE="77657"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpgapeekfifos/RegisterSpace.vhd,hdl"
 STATE="utd"
-TIME="1752068179"
-SIZE="35057"
+TIME="1752710318"
+SIZE="37473"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/ads1258.vhd,hdl"
 STATE="utd"
@@ -118,6 +118,21 @@ STATE="utd"
 TIME="1726443224"
 SIZE="2006"
 ENDFILE
+VALUE "${CGRAPH_FIRMWARE}/include/fpga/crc_byte.vhd,hdl"
+STATE="utd"
+TIME="1752753880"
+SIZE="5117"
+ENDFILE
+VALUE "${CGRAPH_FIRMWARE}/include/fpga/crc_fifo.vhd,hdl"
+STATE="utd"
+TIME="1752754085"
+SIZE="3003"
+ENDFILE
+VALUE "${CGRAPH_FIRMWARE}/include/fpga/crc_stream.vhd,hdl"
+STATE="utd"
+TIME="1752753909"
+SIZE="2515"
+ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/fifo_gen.vhd,hdl"
 STATE="utd"
 TIME="1716482055"
@@ -130,8 +145,8 @@ SIZE="2462"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/fifo_peek.vhd,hdl"
 STATE="utd"
-TIME="1751982062"
-SIZE="4757"
+TIME="1752754278"
+SIZE="4781"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/FourWireStepperMotor.vhd,hdl"
 STATE="utd"
@@ -290,8 +305,8 @@ SIZE="4251"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/UartRxFifoExtClkPeek.vhd,hdl"
 STATE="utd"
-TIME="1752512136"
-SIZE="5099"
+TIME="1752753477"
+SIZE="5104"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/UartRxFifoParity.vhd,hdl"
 STATE="utd"
@@ -376,8 +391,8 @@ SIZE="2462"
 ENDFILE
 VALUE "<project>/../../include/fpga/fifo_peek.vhd,hdl"
 STATE="utd"
-TIME="1751982062"
-SIZE="4757"
+TIME="1752754278"
+SIZE="4781"
 ENDFILE
 VALUE "<project>/../../include/fpga/FourWireStepperMotor.vhd,hdl"
 STATE="utd"
@@ -542,8 +557,8 @@ SIZE="4251"
 ENDFILE
 VALUE "<project>/../../include/fpga/UartRxFifoExtClkPeek.vhd,hdl"
 STATE="utd"
-TIME="1752512136"
-SIZE="5099"
+TIME="1752753477"
+SIZE="5104"
 ENDFILE
 VALUE "<project>/../../include/fpga/UartRxFifoParity.vhd,hdl"
 STATE="utd"
@@ -1177,23 +1192,28 @@ SIZE="252"
 ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror.so,so"
 STATE="utd"
-TIME="1752514392"
+TIME="1752515580"
 SIZE="287"
 ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror.vm,syn_vm"
 STATE="utd"
-TIME="1752515580"
-SIZE="958969"
+TIME="1752754308"
+SIZE="1007424"
 ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror_syn.prj,prj"
 STATE="utd"
-TIME="1752514392"
+TIME="1752515581"
 SIZE="7341"
 ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror_vm.sdc,syn_sdc"
 STATE="utd"
-TIME="1752514391"
+TIME="1752515580"
 SIZE="3949"
+ENDFILE
+VALUE "<project>/synthesis/synwork/layer1.so,so"
+STATE="utd"
+TIME="1752753918"
+SIZE="154"
 ENDFILE
 ENDLIST
 LIST UsedFile
@@ -1789,12 +1809,11 @@ ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 Reports;Reports;0
-ReportsCurrentItem;synthesis:synplify.log
+ReportsCurrentItem;Generate Bitstream:FineSteeringMirror_generateBitstream.log
 Constraint Manager;Constraint Manager;0
 SmartDesign;FineSteeringMirror;0
-HDL;/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClkPeek.vhd;0
 StartPage;StartPage;0
-ACTIVEVIEW;/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClkPeek.vhd
+ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","${CGRAPH_FIRMWARE}/include/fpga/ads1258.vhd","FALSE","FALSE"
@@ -1819,6 +1838,21 @@ ENDLIST
 LIST "CORESYSSERVICES_C0::work","component/work/CORESYSSERVICES_C0/CORESYSSERVICES_C0.v","TRUE","FALSE"
 SUBBLOCK "CORESYSSERVICES_C0_CORESYSSERVICES_C0_0_CORESYSSERVICES::CORESYSSERVICES_LIB","component/work/CORESYSSERVICES_C0/CORESYSSERVICES_C0_0/rtl/vlog/core/CoreSysServices.v","FALSE","FALSE"
 ENDLIST
+LIST "crc_byte::work","${CGRAPH_FIRMWARE}/include/fpga/crc_byte.vhd","FALSE","FALSE"
+ENDLIST
+LIST "CrcFifo::work","${CGRAPH_FIRMWARE}/include/fpga/crc_fifo.vhd","FALSE","FALSE"
+SUBBLOCK "CrcStream::work","${CGRAPH_FIRMWARE}/include/fpga/crc_stream.vhd","FALSE","FALSE"
+ENDLIST
+LIST "CrcStream::work","${CGRAPH_FIRMWARE}/include/fpga/crc_stream.vhd","FALSE","FALSE"
+SUBBLOCK "crc_byte::work","${CGRAPH_FIRMWARE}/include/fpga/crc_byte.vhd","FALSE","FALSE"
+ENDLIST
+LIST "DESIGN_FIRMWARE::work","component/work/DESIGN_FIRMWARE/DESIGN_FIRMWARE.cxf","TRUE","FALSE"
+SUBBLOCK "SmartFusion2_CMSIS::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
+ENDLIST
 LIST "ClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 ENDLIST
 LIST "CoreResetP::work","component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v","FALSE","FALSE"
@@ -1826,8 +1860,13 @@ SUBBLOCK "coreresetp_pcie_hotreset::work","component/Actel/DirectCore/CoreResetP
 ENDLIST
 LIST "fifo::work","${CGRAPH_FIRMWARE}/include/fpga/fifo_gen.vhd","FALSE","FALSE"
 ENDLIST
+LIST "fifo_peek::work","${CGRAPH_FIRMWARE}/include/fpga/fifo_peek.vhd","FALSE","FALSE"
+ENDLIST
 LIST "gated_fifo::work","${CGRAPH_FIRMWARE}/include/fpga/gated_fifo.vhd","FALSE","FALSE"
 SUBBLOCK "fifo::work","${CGRAPH_FIRMWARE}/include/fpga/fifo_gen.vhd","FALSE","FALSE"
+ENDLIST
+LIST "gated_fifo_peek::work","${CGRAPH_FIRMWARE}/include/fpga/gated_fifo_peek.vhd","FALSE","FALSE"
+SUBBLOCK "fifo_peek::work","${CGRAPH_FIRMWARE}/include/fpga/fifo_peek.vhd","FALSE","FALSE"
 ENDLIST
 LIST "MSS_010::work","component/work/FineSteeringMirror_sb_MSS/FineSteeringMirror_sb_MSS_syn.v","FALSE","FALSE"
 ENDLIST
@@ -1882,8 +1921,6 @@ ENDLIST
 LIST "fifo_gen_tb::work","${CGRAPH_FIRMWARE}/include/fpga/fifo_gen_tb.vhd","FALSE","FALSE"
 SUBBLOCK "fifo::work","${CGRAPH_FIRMWARE}/include/fpga/fifo_gen.vhd","FALSE","FALSE"
 ENDLIST
-LIST "fifo_peek::work","${CGRAPH_FIRMWARE}/include/fpga/fifo_peek.vhd","FALSE","FALSE"
-ENDLIST
 LIST "FineSteeringMirror::work","component/work/FineSteeringMirror/FineSteeringMirror.v","TRUE","FALSE"
 SUBBLOCK "FCCC_C0::work","component/work/FCCC_C0/FCCC_C0.v","TRUE","FALSE"
 SUBBLOCK "FineSteeringMirror_sb::work","component/work/FineSteeringMirror_sb/FineSteeringMirror_sb.v","TRUE","FALSE"
@@ -1911,13 +1948,8 @@ SUBBLOCK "OneShotPorts::work","${CGRAPH_FIRMWARE}/include/fpga/OneShot.vhd","FAL
 ENDLIST
 LIST "FourWireStepperMotorPorts::work","${CGRAPH_FIRMWARE}/include/fpga/FourWireStepperMotor.vhd","FALSE","FALSE"
 ENDLIST
-LIST "gated_fifo::work","","FALSE","FALSE"
-ENDLIST
 LIST "gated_fifo_fram::work","${CGRAPH_FIRMWARE}/include/fpga/gated_fifo_fram.vhd","FALSE","FALSE"
 SUBBLOCK "fifo_fram::work","","FALSE","FALSE"
-ENDLIST
-LIST "gated_fifo_peek::work","${CGRAPH_FIRMWARE}/include/fpga/gated_fifo_peek.vhd","FALSE","FALSE"
-SUBBLOCK "fifo_peek::work","${CGRAPH_FIRMWARE}/include/fpga/fifo_peek.vhd","FALSE","FALSE"
 ENDLIST
 LIST "IBufP1Ports::work","${CGRAPH_FIRMWARE}/include/fpga/IBufP1.vhd","FALSE","FALSE"
 ENDLIST
@@ -1952,6 +1984,7 @@ SUBBLOCK "SpiMasterPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiMaster.vhd",
 ENDLIST
 LIST "Main::work","${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpgapeekfifos/Main.vhd","FALSE","FALSE"
 SUBBLOCK "BuildNumberPorts::work","${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpgapeekfifos/BuildNumber.vhd","FALSE","FALSE"
+SUBBLOCK "CrcFifo::work","${CGRAPH_FIRMWARE}/include/fpga/crc_fifo.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP1Ports::work","${CGRAPH_FIRMWARE}/include/fpga/IBufP1.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP2Ports::work","${CGRAPH_FIRMWARE}/include/fpga/IBufP2.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP3Ports::work","${CGRAPH_FIRMWARE}/include/fpga/IBufP3.vhd","FALSE","FALSE"
@@ -1959,6 +1992,7 @@ SUBBLOCK "Ltc2378AccumQuadPorts::work","${CGRAPH_FIRMWARE}/include/fpga/Ltc2378A
 SUBBLOCK "PPSCountPorts::work","${CGRAPH_FIRMWARE}/include/fpga/PPSCount.vhd","FALSE","FALSE"
 SUBBLOCK "RegisterSpacePorts::work","${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpga/RegisterSpace.vhd","FALSE","FALSE"
 SUBBLOCK "UartRxFifoExtClk::work","${CGRAPH_FIRMWARE}/include/fpga/UartRxFifoExtClk.vhd","FALSE","FALSE"
+SUBBLOCK "UartRxFifoExtClkPeek::work","${CGRAPH_FIRMWARE}/include/fpga/UartRxFifoExtClkPeek.vhd","FALSE","FALSE"
 SUBBLOCK "UartTxFifoExtClk::work","${CGRAPH_FIRMWARE}/include/fpga/UartTxFifoExtClk.vhd","FALSE","FALSE"
 SUBBLOCK "VariableClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/VariableClockDivider.vhd","FALSE","FALSE"
 SUBBLOCK "ClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/ClockDivider.vhd","FALSE","FALSE"
@@ -1989,6 +2023,16 @@ LIST "RegisterSpacePorts::work","${CGRAPH_FIRMWARE}/FineSteeringMirrorController
 ENDLIST
 LIST "RtcCounterPorts::work","${CGRAPH_FIRMWARE}/include/fpga/RtcCounter.vhd","FALSE","FALSE"
 ENDLIST
+LIST "SmartFusion2_CMSIS::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
+ENDLIST
 LIST "SpiExtBusAddrTxPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiExtBusAddrTx.vhd","FALSE","FALSE"
 SUBBLOCK "UartTx::work","${CGRAPH_FIRMWARE}/include/fpga/UartTx.vhd","FALSE","FALSE"
 SUBBLOCK "ClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/ClockDivider.vhd","FALSE","FALSE"
@@ -2013,7 +2057,7 @@ ENDLIST
 LIST "UartRxFifoExtClkPeek::work","${CGRAPH_FIRMWARE}/include/fpga/UartRxFifoExtClkPeek.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP2Ports::work","${CGRAPH_FIRMWARE}/include/fpga/IBufP2.vhd","FALSE","FALSE"
 SUBBLOCK "UartRxExtClk::work","${CGRAPH_FIRMWARE}/include/fpga/UartRxExtClk.vhd","FALSE","FALSE"
-SUBBLOCK "gated_fifo::work","","FALSE","FALSE"
+SUBBLOCK "gated_fifo_peek::work","${CGRAPH_FIRMWARE}/include/fpga/gated_fifo_peek.vhd","FALSE","FALSE"
 ENDLIST
 LIST "UartRxFifoParity::work","${CGRAPH_FIRMWARE}/include/fpga/UartRxFifoParity.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP2Ports::work","${CGRAPH_FIRMWARE}/include/fpga/IBufP2.vhd","FALSE","FALSE"

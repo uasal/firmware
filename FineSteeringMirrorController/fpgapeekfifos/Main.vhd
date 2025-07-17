@@ -1002,7 +1002,7 @@ architecture architecture_Main of Main is
 								
 						); end component;
 						
-						component CrcStream is
+						component CrcFifo is
 						generic (
 								DEPTH_BITS : natural := 10--;
 						);
@@ -1014,7 +1014,6 @@ architecture architecture_Main of Main is
 							
 							FifoStartAddr : in unsigned(DEPTH_BITS - 1 downto 0);
 							FifoEndAddr : in unsigned(DEPTH_BITS - 1 downto 0);
-							FifoCurrentAddr : out unsigned(DEPTH_BITS - 1 downto 0);
 							FifoPeekAddr : out unsigned(DEPTH_BITS - 1 downto 0);
 							FifoPeekData : in std_logic_vector(7 downto 0);
 							
@@ -1467,7 +1466,7 @@ begin
 		Uart0RxFifoPeekMultiPopStrobe => Uart0RxFifoPeekMultiPopStrobe,
 		Uart0CrcStartAddr => Uart0CrcStartAddr,
 		Uart0CrcEndAddr => Uart0CrcEndAddr,
-		Uart0CrcCurrentAddr => Uart0CrcCurrentAddr,
+		Uart0CrcCurrentAddr => Uart0RxFifoPeekPeekAddrCrcer,
 		Uart0DoCrc => Uart0DoCrc,
 		Uart0CrcDone => Uart0CrcDone,
 		Uart0Crc => Uart0Crc,
@@ -1916,18 +1915,17 @@ begin
 		FifoMultiPopStrobe => Uart0RxFifoPeekMultiPopStrobe--,
 	);
 	
-	RS422_Rx0_Crcer : CrcStream
+	RS422_Rx0_Crcer : CrcFifo
 	generic map
 	(
 		DEPTH_BITS => 10--,
-	);
+	)
 	port map
 	(
 		clk => MasterClk,
 		rst => Uart0DoCrc,
 		FifoStartAddr => Uart0CrcStartAddr,
 		FifoEndAddr => Uart0CrcEndAddr,
-		FifoCurrentAddr => Uart0CrcCurrentAddr,
 		FifoPeekData => Uart0RxFifoPeekPeekData,
 		FifoPeekAddr => Uart0RxFifoPeekPeekAddrCrcer,
 		Crc => Uart0Crc,

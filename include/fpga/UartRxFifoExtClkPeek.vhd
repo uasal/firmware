@@ -167,7 +167,7 @@ begin
 	);
 	
 	--Fifo holds bytes after we get them
-	UartFifo : gated_fifo
+	UartFifo : gated_fifo_peek
 	generic map
 	(
 		WIDTH_BITS => 8,

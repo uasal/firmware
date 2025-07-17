@@ -83,7 +83,7 @@ set_compile_info \
 set_compile_info \
     -category {"Source Files"} \
     -name {"Source"} \
-    -value {"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/synthesis/FineSteeringMirror.vm"}
+    -value {"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Liberopeekfifos/synthesis/FineSteeringMirror.vm"}
 set_compile_info \
     -category {"Options"} \
     -name {"Enable Single Event Transient mitigation"} \
@@ -97,7 +97,7 @@ set_compile_info \
     -name {"Limit the number of high fanout nets to display to"} \
     -value {"10"}
 compile \
-    -desdir {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/designer/FineSteeringMirror} \
+    -desdir {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Liberopeekfifos/designer/FineSteeringMirror} \
     -design FineSteeringMirror \
     -fam SmartFusion2 \
     -die PA4M1000_N \
