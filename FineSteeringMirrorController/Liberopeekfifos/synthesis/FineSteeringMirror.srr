@@ -3,7 +3,7 @@
 #OS: Linux 
 #Hostname: homework
 
-# Thu Jul 17 05:11:30 2025
+# Sun Jul 20 11:11:39 2025
 
 #Implementation: synthesis
 
@@ -84,13 +84,12 @@ Synopsys VHDL Compiler, Version comp202209synp2, Build 179R, Built Jun 27 2023 0
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpgapeekfifos/Main.vhd'.
 VHDL syntax check successful!
 @N: CD231 :"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/std1164.vhd":889:16:889:17|Using onehot encoding for type mvl9plus. For example, enumeration 'U' is mapped to "1000000000".
-File /home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd changed - recompiling
 
 At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 140MB)
 
 
 Process completed successfully.
-# Thu Jul 17 05:11:31 2025
+# Sun Jul 20 11:11:39 2025
 
 ###########################################################]
 ###########################################################[
@@ -156,7 +155,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Thu Jul 17 05:11:31 2025
+# Sun Jul 20 11:11:39 2025
 
 ###########################################################]
 ###########################################################[
@@ -580,7 +579,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Thu Jul 17 05:11:31 2025
+# Sun Jul 20 11:11:39 2025
 
 ###########################################################]
 ###########################################################[
@@ -1125,7 +1124,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memor
 
 
 Process completed successfully.
-# Thu Jul 17 05:11:33 2025
+# Sun Jul 20 11:11:41 2025
 
 ###########################################################]
 ###########################################################[
@@ -1161,7 +1160,7 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Thu Jul 17 05:11:33 2025
+# Sun Jul 20 11:11:41 2025
 
 ###########################################################]
 
@@ -1171,12 +1170,12 @@ For a summary of runtime and memory usage for all design units, please see file:
 
 @END
 
-At c_hdl Exit (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 45MB peak: 45MB)
+At c_hdl Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 45MB peak: 45MB)
 
-Process took 0h:00m:03s realtime, 0h:00m:03s cputime
+Process took 0h:00m:02s realtime, 0h:00m:02s cputime
 
 Process completed successfully.
-# Thu Jul 17 05:11:33 2025
+# Sun Jul 20 11:11:41 2025
 
 ###########################################################]
 ###########################################################[
@@ -1206,12 +1205,12 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Thu Jul 17 05:11:35 2025
+# Sun Jul 20 11:11:43 2025
 
 ###########################################################]
 Premap Report
 
-# Thu Jul 17 05:11:35 2025
+# Sun Jul 20 11:11:43 2025
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -1538,12 +1537,12 @@ Pre-mapping successful!
 At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 289MB peak: 289MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Thu Jul 17 05:11:36 2025
+# Sun Jul 20 11:11:44 2025
 
 ###########################################################]
 Map & Optimize Report
 
-# Thu Jul 17 05:11:37 2025
+# Sun Jul 20 11:11:44 2025
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -1668,21 +1667,21 @@ Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:03s; CP
 Starting Early Timing Optimization (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 322MB peak: 322MB)
 
 
-Finished Early Timing Optimization (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 322MB peak: 322MB)
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 322MB peak: 322MB)
 
 
-Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:07s; Memory used current: 322MB peak: 322MB)
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 322MB peak: 322MB)
 
 
-Finished preparing to map (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 322MB peak: 322MB)
+Finished preparing to map (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 322MB peak: 322MB)
 
 
 Finished technology mapping (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 344MB peak: 344MB)
 
 Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
-   1		0h:00m:08s		     0.44ns		1944 /      1871
-   2		0h:00m:08s		     0.44ns		1882 /      1871
+   1		0h:00m:09s		     0.44ns		1944 /      1871
+   2		0h:00m:09s		     0.44ns		1882 /      1871
    3		0h:00m:09s		     0.52ns		1882 /      1871
 @N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_217 
 @N: FP130 |Promoting Net Main_0.SpiRst_arst on CLKINT  I_218 
@@ -1708,10 +1707,10 @@ Added 0 Cells via replication
 	Added 0 Sequential Cells via replication
 	Added 0 Combinational Cells via replication
 
-Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 345MB peak: 345MB)
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 345MB peak: 345MB)
 
 
-Finished restoring hierarchy (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 346MB peak: 346MB)
+Finished restoring hierarchy (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 346MB peak: 346MB)
 
 @N: MT611 :|Automatically generated clock FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock is not used and is being removed
 
@@ -1725,7 +1724,7 @@ Start Writing Netlists (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10
 
 Writing Analyst data base /home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Liberopeekfifos/synthesis/synwork/FineSteeringMirror_m.srm
 
-Finished Writing Netlist Databases (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 346MB peak: 346MB)
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 346MB peak: 346MB)
 
 Writing Verilog Simulation files
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
@@ -1742,10 +1741,10 @@ Writing Verilog Simulation files
 @W: BW156 :|Option "-name" of set_clock_groups cannot be forward-annotated; there is no equivalent option in your place-and-route tool.
 @W: BW150 :|Clock FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock in set_clock_groups command cannot be found and will not be forward annotated
 
-Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:12s; Memory used current: 346MB peak: 346MB)
+Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:12s; Memory used current: 346MB peak: 346MB)
 
 
-Finished Writing Netlists (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:12s; Memory used current: 346MB peak: 346MB)
+Finished Writing Netlists (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:12s; Memory used current: 346MB peak: 346MB)
 
 
 Start final timing analysis (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:12s; Memory used current: 346MB peak: 346MB)
@@ -1764,7 +1763,7 @@ Start final timing analysis (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:0
 
 
 ##### START OF TIMING REPORT #####[
-# Timing report written on Thu Jul 17 05:11:49 2025
+# Timing report written on Sun Jul 20 11:11:57 2025
 #
 
 
@@ -2901,6 +2900,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:12s; Memory used current: 346MB peak: 346MB)
 
 Process took 0h:00m:12s realtime, 0h:00m:12s cputime
-# Thu Jul 17 05:11:49 2025
+# Sun Jul 20 11:11:57 2025
 
 ###########################################################]
