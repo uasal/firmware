@@ -25,13 +25,16 @@ var CGraphPacket_8hpp =
       [ "FILTERWHEEL_EIGHT", "CGraphPacket_8hpp.html#aa4fc6a4c12a79c1292b2c01b4b218fc3aab0b1bae1bddab67f8dee7a53dc81430", null ]
     ] ],
     [ "__attribute__", "CGraphPacket_8hpp.html#a49678b01e64719360b60b588febeea62", null ],
+    [ "CGraphDMMappingPayload", "CGraphPacket_8hpp.html#a5ebc321d575f6bef9a0e4d24727ceeec", null ],
+    [ "CGraphDMMappingPayload", "CGraphPacket_8hpp.html#a9cfd458fa9f8ad69189f6cb42657b4e9", null ],
     [ "CGraphPacketFooter", "CGraphPacket_8hpp.html#a74484d4dda83dc5d0357021243551e87", null ],
     [ "CGraphPacketHeader", "CGraphPacket_8hpp.html#a303872f9ec2ea39f681f83a572cce743", null ],
     [ "CGraphPacketHeader", "CGraphPacket_8hpp.html#a2cb815641db2f790c96709e9466a8ee5", null ],
     [ "formatf", "CGraphPacket_8hpp.html#a9f573dbd37f866eb7c33792daf23f413", null ],
     [ "PayloadData", "CGraphPacket_8hpp.html#ac4f50e6b5803337d8cedd8ffdad3d2aa", null ],
     [ "PayloadDataNonConst", "CGraphPacket_8hpp.html#af0c70c2e59375706a20d58f41f55560e", null ],
-    [ "__attribute__", "CGraphPacket_8hpp.html#a344a33fc8d99e9c38ac6728dd51cf573", null ],
+    [ "__attribute__", "CGraphPacket_8hpp.html#ac9147f1c2ff4b758dce98b191ee5eb69", null ],
+    [ "all", "CGraphPacket_8hpp.html#a7a41c6ef718cad373b525faf8cb8fa7b", null ],
     [ "CGraphMagikPacketEndToken", "CGraphPacket_8hpp.html#a062d17f50dbc323f903b9972272758cf", null ],
     [ "CGraphMagikPacketStartToken", "CGraphPacket_8hpp.html#ab76a8079c6313c9a8909b4d40cc8866c", null ],
     [ "CGraphPayloadTypeBaudClock", "CGraphPacket_8hpp.html#a249cae06b22611d5519be6036ce007dc", null ],
@@ -62,7 +65,10 @@ var CGraphPacket_8hpp =
     [ "CGraphPayloadTypeHardFault", "CGraphPacket_8hpp.html#a3a7834c57fbb99eebf3d0f2462162bf2", null ],
     [ "CGraphPayloadTypeVersion", "CGraphPacket_8hpp.html#aef431d0e80acb8fccac2aca323682767", null ],
     [ "CGraphPayloadTypeVersionDeprecated", "CGraphPacket_8hpp.html#a22a26895954bea7770783d2dfc935cc6", null ],
+    [ "ControllerBoardIndex", "CGraphPacket_8hpp.html#a6bea0e51bad62108676febdd106a08e8", null ],
     [ "CRC32BZIP2", "CGraphPacket_8hpp.html#aa5ad9224dd6f0f6563579b5937b2068b", null ],
+    [ "DacChannel", "CGraphPacket_8hpp.html#a8f3229083b83f9be6a4a6ce77e7850cf", null ],
+    [ "DacIndex", "CGraphPacket_8hpp.html#af667746551566f0316dda6b017ad56af", null ],
     [ "DMActuatorsPerDac", "CGraphPacket_8hpp.html#a76337e37bfb2252e3f69c6bd244636e3", null ],
     [ "DMMaxActuators", "CGraphPacket_8hpp.html#a4aaaa50e2c32b19b8b7a4cf509f8c356", null ],
     [ "DMMaxControllerBoards", "CGraphPacket_8hpp.html#a1125ab930b911582927643d9f27bb531", null ],
@@ -70,5 +76,6 @@ var CGraphPacket_8hpp =
     [ "PacketEndToken", "CGraphPacket_8hpp.html#a8871f1a7530b7434b084cfadfa07d25c", null ],
     [ "PacketStartToken", "CGraphPacket_8hpp.html#a688b5493d4c1e8cacef34cad8c768a1e", null ],
     [ "PayloadLen", "CGraphPacket_8hpp.html#af11405db7da0b07c17c2f8f6a352f116", null ],
-    [ "PayloadType", "CGraphPacket_8hpp.html#ad6c751e98dcdac3f5ee6f7dd7c0ea65d", null ]
+    [ "PayloadType", "CGraphPacket_8hpp.html#ad6c751e98dcdac3f5ee6f7dd7c0ea65d", null ],
+    [ "reserved", "CGraphPacket_8hpp.html#acb7bc06bed6f6408d719334fc41698c7", null ]
 ];

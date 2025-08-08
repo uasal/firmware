@@ -41,7 +41,7 @@ var lt244x_8h =
     [ "DoubleSpeedAndOneCycleLatency", "lt244x_8h.html#a1b4fc04bab9bb415c057deec451d2e12", null ],
     [ "Enable", "lt244x_8h.html#affeaaeb5fc4bbc782c09b47bef36490f", null ],
     [ "OverrangeIfSameAsMsb", "lt244x_8h.html#aca0d09c61d3c5de0323a5cba8fa892b2", null ],
-    [ "reserved", "lt244x_8h.html#afea634b42a4b00cbff69501573736ced", null ],
+    [ "reserved", "lt244x_8h.html#acb7bc06bed6f6408d719334fc41698c7", null ],
     [ "sample", "lt244x_8h.html#a26adade2cc728132b49d34103346b631", null ],
     [ "SingleEnded", "lt244x_8h.html#a75ca4175bd56a232c0624a3af06ba789", null ],
     [ "StillConverting", "lt244x_8h.html#af682027f84d6d458dcf6b4574cef745f", null ]
