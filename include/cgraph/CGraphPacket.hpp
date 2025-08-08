@@ -538,10 +538,16 @@ struct CGraphDMPixelPayloadHeader
 //May send multiple copies per packet; array of 1...N of the following:
 struct CGraphDMMappingPayload
 {
-    uint8_t ControllerBoardIndex; // 0 ... DMMaxControllerBoards - 1
-    uint8_t DacIndex; // 0 ... DMMDacsPerControllerBoard - 1
-    uint8_t DacChannel; // 0 ... DMActuatorsPerDac - 1
-
+    uint32_t all;
+    struct 
+    {
+		uint8_t ControllerBoardIndex; // 0 ... DMMaxControllerBoards - 1
+		uint8_t DacIndex; // 0 ... DMMDacsPerControllerBoard - 1
+		uint8_t DacChannel; // 0 ... DMActuatorsPerDac - 1
+		uint8_t reserved; 
+		
+	} __attribute__((__packed__));
+	
     CGraphDMMappingPayload() : ControllerBoardIndex(0), DacIndex(0), DacChannel(0) { }
     CGraphDMMappingPayload(unsigned long bi, unsigned long di, unsigned long dc) : ControllerBoardIndex(bi), DacIndex(di), DacChannel(dc) { }
 
@@ -549,7 +555,7 @@ struct CGraphDMMappingPayload
     {
         ::printf("CGraphDMMappingPayload: ControllerBoardIndex: %lu, DacIndex: %lu, DacChannel: %lu", (unsigned long)ControllerBoardIndex, (unsigned long)DacIndex, (unsigned long)DacChannel);
     }
-};
+} __attribute__((__packed__));
 
 //May send multiple copies per packet; array of 1...N of the following:
 struct CGraphDMMappings

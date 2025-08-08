@@ -1100,8 +1100,8 @@ USE_FOR_ANY_TOOL="FALSE"
 ENDFILE
 VALUE "<project>/constraint/io/user.pdc,io_pdc"
 STATE="utd"
-TIME="1739917616"
-SIZE="11435"
+TIME="1724789274"
+SIZE="11217"
 ENDFILE
 VALUE "<project>/constraint/io/user_numerical.pdc,io_pdc"
 STATE="utd"
@@ -1192,7 +1192,7 @@ SIZE="252"
 ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror.so,so"
 STATE="utd"
-TIME="1753034053"
+TIME="1753035117"
 SIZE="287"
 ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror.vm,syn_vm"
@@ -1202,12 +1202,12 @@ SIZE="1007424"
 ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror_syn.prj,prj"
 STATE="utd"
-TIME="1753034054"
-SIZE="7341"
+TIME="1753035117"
+SIZE="7909"
 ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror_vm.sdc,syn_sdc"
 STATE="utd"
-TIME="1753034053"
+TIME="1753035116"
 SIZE="3949"
 ENDFILE
 ENDLIST
@@ -1579,8 +1579,8 @@ NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
 LOCATION="/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/bin/synplify_pro"
-PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
-BATCH=1
+PARAM=""
+BATCH=0
 LICENSE=""
 IS32BIT="1"
 EndProfile
@@ -1803,10 +1803,8 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
-Reports;Reports;0
-ReportsCurrentItem;Generate Bitstream:FineSteeringMirror_generateBitstream.log
 StartPage;StartPage;0
-ACTIVEVIEW;Reports
+ACTIVEVIEW;StartPage
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","${CGRAPH_FIRMWARE}/include/fpga/ads1258.vhd","FALSE","FALSE"
