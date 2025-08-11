@@ -1,0 +1,713 @@
+# Microchip I/O Physical Design Constraints file
+
+# User I/O Constraints file 
+
+# Version: 2023.2 2023.2.0.10
+
+# Family: SmartFusion2 , Die: M2S025 , Package: 256 VF
+
+# Date generated: Thu Feb  8 14:13:10 2024 
+
+
+# 
+# User Locked I/O Bank Settings
+# 
+
+
+# 
+# Unlocked I/O Bank Settings
+# The I/O Bank Settings can be locked by directly editing this file
+# or by making changes in the I/O Attribute Editor
+# 
+
+#DDRIO
+set_iobank Bank0      \
+    -vcci 2.50        \
+    -fixed no         \
+    -updateiostd yes
+
+set_iobank Bank1      \
+    -vcci 3.30        \
+    -fixed no         \
+    -updateiostd yes
+
+set_iobank Bank2      \
+    -vcci 3.30        \
+    -fixed no         \
+    -updateiostd yes
+
+#jtag
+set_iobank Bank3      \
+    -vcci 3.30        \
+    -fixed no         \
+    -updateiostd yes
+
+set_iobank Bank4      \
+    -vcci 3.30        \
+    -fixed no         \
+    -updateiostd yes
+
+#misod
+set_iobank Bank5      \
+    -vcci 2.50        \
+    -fixed no         \
+    -updateiostd yes
+
+#misod
+set_iobank Bank6      \
+    -vcci 2.50        \
+    -fixed no         \
+    -updateiostd yes
+
+set_iobank Bank7      \
+    -vcci 3.30        \
+    -fixed no         \
+    -updateiostd yes
+
+
+# 
+# User Locked I/O settings
+# 
+
+# Clock
+
+	set_io XO1	\
+		-iostd LVCMOS33	\
+		-pinname 44	\
+		-fixed yes	\
+		-DIRECTION INPUT
+
+# (P72-79 are Jtag)
+
+
+
+# 2.5V signals:
+
+
+
+	# RS-422/485
+
+	set_io Oe0   \
+		-iostd LVCMOS25   \
+		-pinname 122      \
+		-fixed yes        \
+		-out_drive 4		\
+		-DIRECTION OUTPUT
+
+	set_io Oe1   \
+		-iostd LVCMOS25   \
+		-pinname 118      \
+		-fixed yes        \
+		-out_drive 4		\
+		-DIRECTION OUTPUT
+
+	set_io Oe2   \
+		-iostd LVCMOS25   \
+		-pinname 117      \
+		-fixed yes        \
+		-out_drive 4		\
+		-DIRECTION OUTPUT
+
+	set_io Oe3   \
+		-iostd LVCMOS25   \
+		-pinname 116      \
+		-fixed yes        \
+		-out_drive 4		\
+		-DIRECTION OUTPUT
+
+	set_io Tx0   \
+		-iostd LVCMOS25    \
+		-pinname 128	    \
+		-fixed yes		\
+		-DIRECTION OUTPUT	\
+
+	set_io Tx1   \
+		-iostd LVCMOS25    \
+		-pinname 125	    \
+		-fixed yes		\
+		-DIRECTION OUTPUT	\
+
+	set_io Tx2   \
+		-iostd LVCMOS25    \
+		-pinname 124	    \
+		-fixed yes		\
+		-DIRECTION OUTPUT	\
+
+	set_io Tx3   \
+		-iostd LVCMOS25    \
+		-pinname 123	    \
+		-fixed yes		\
+		-DIRECTION OUTPUT	\
+
+	set_io Rx0	\
+		-iostd LVCMOS25 \
+		 -pinname 115	\
+		 -fixed yes		\
+		-SCHMITT_TRIGGER On	\
+		-RES_PULL UP	\
+		 -DIRECTION INPUT
+
+	set_io Rx1	\
+		-iostd LVCMOS25 \
+		 -pinname 112	\
+		 -fixed yes		\
+		-SCHMITT_TRIGGER On	\
+		-RES_PULL UP	\
+		 -DIRECTION INPUT
+
+	set_io Rx2	\
+		-iostd LVCMOS25 \
+		 -pinname 111	\
+		 -fixed yes		\
+		-SCHMITT_TRIGGER On	\
+		-RES_PULL UP	\
+		 -DIRECTION INPUT
+
+	set_io Rx3	\
+		-iostd LVCMOS25 \
+		 -pinname 110	\
+		 -fixed yes		\
+		-SCHMITT_TRIGGER On	\
+		-RES_PULL UP	\
+		 -DIRECTION INPUT
+
+
+
+
+	# Clock Tuning
+
+	set_io MosiXO	\
+		-iostd LVCMOS25	\
+		-pinname 36	\
+		-fixed yes	\
+		-DIRECTION INPUT
+
+	set_io SckXO	\
+		-iostd LVCMOS25	\
+		-pinname 37	\
+		-fixed yes	\
+		-DIRECTION INPUT
+
+	set_io nCsXO	\
+		-iostd LVCMOS25	\
+		-pinname 38	\
+		-fixed yes	\
+		-DIRECTION INPUT
+
+
+
+	# Debug Port
+
+	set_io TP1	\
+		-iostd LVCMOS25	\
+		-pinname 33	\
+		-fixed yes	\
+		-DIRECTION OUTPUT
+
+	set_io TP2	\
+		-iostd LVCMOS25	\
+		-pinname 32	\
+		-fixed yes	\
+		-DIRECTION OUTPUT
+
+	set_io TP3	\
+		-iostd LVCMOS25	\
+		-pinname 30	\
+		-fixed yes	\
+		-DIRECTION OUTPUT
+
+	set_io TP4	\
+		-iostd LVCMOS25	\
+		-pinname 29	\
+		-fixed yes	\
+		-DIRECTION OUTPUT
+
+	set_io TP5	\
+		-iostd LVCMOS25	\
+		-pinname 28	\
+		-fixed yes	\
+		-DIRECTION OUTPUT
+
+	set_io TP6	\
+		-iostd LVCMOS25	\
+		-pinname 27	\
+		-fixed yes	\
+		-DIRECTION OUTPUT
+
+	set_io TP7	\
+		-iostd LVCMOS25	\
+		-pinname 24	\
+		-fixed yes	\
+		-DIRECTION OUTPUT
+
+		# (also FpgaDone for flight/debug)
+	set_io TP8	\
+		-iostd LVCMOS25	\
+		-pinname 23	\
+		-fixed yes	\
+		-DIRECTION OUTPUT
+
+
+	#Ancillary
+
+	set_io PPS	\
+		-iostd LVCMOS25	\
+		-pinname 129	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On	\
+		-RES_PULL UP	\
+		-DIRECTION INPUT
+
+	set_io Ux1SelJmp	\
+		-iostd LVCMOS25	\
+		-pinname 137	\
+		-fixed yes	\
+		-DIRECTION INPUT
+
+
+
+	#HV and Neg power
+
+	set_io nHVFaultD	\
+		-iostd LVCMOS25	\
+		-pinname 144	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On \
+		-RES_PULL UP \
+		-DIRECTION INPUT
+
+	set_io nHVFaultC	\
+		-iostd LVCMOS25	\
+		-pinname 143	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On	\
+		-RES_PULL UP	\
+		-DIRECTION INPUT
+
+	set_io nHVFaultB	\
+		-iostd LVCMOS25	\
+		-pinname 142	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On	\
+		-RES_PULL UP	\
+		-DIRECTION INPUT
+
+	set_io nHVFaultA	\
+		-iostd LVCMOS25	\
+		-pinname 141	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On	\
+		-RES_PULL UP	\
+		-DIRECTION INPUT
+
+	set_io PowernEnHV	\
+		-iostd LVCMOS25	\
+		-pinname 136	\
+		-fixed yes	\
+		-out_drive 4	\
+		-slew MEDIUM	\
+		-DIRECTION OUTPUT
+
+	set_io nPowerCycClr	\
+		-iostd LVCMOS25	\
+		-pinname 130	\
+		-fixed yes	\
+		-out_drive 4	\
+		-slew MEDIUM	\
+		-DIRECTION OUTPUT
+
+	set_io FaultHV	\
+		-iostd LVCMOS25	\
+		-pinname 135	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On	\
+		-RES_PULL UP	\
+		-DIRECTION INPUT
+
+	set_io FaultNegV	\
+		-iostd LVCMOS25	\
+		-pinname 134	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On	\
+		-DIRECTION INPUT
+
+	set_io PowerCycd	\
+		-iostd LVCMOS25	\
+		-pinname 131	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On	\
+		-RES_PULL UP	\
+		-DIRECTION INPUT
+
+
+
+
+# 3.3V
+
+
+
+
+	# Strain A/D's
+
+	set_io ChopRef	\
+		-iostd LVCMOS33	\
+		-pinname 57	\
+		-fixed yes	\
+		-DIRECTION OUTPUT
+
+	set_io ChopAdc	\
+		-iostd LVCMOS33	\
+		-pinname 58	\
+		-fixed yes \
+		-RES_PULL UP	\
+		-DIRECTION OUTPUT
+
+	set_io SckAdcs	\
+		-iostd LVCMOS33	\
+		-pinname 61	\
+		-fixed yes	\
+		-DIRECTION OUTPUT
+
+	set_io nCsAdcs	\
+		-iostd LVCMOS33	\
+		-pinname 63	\
+		-fixed yes	\
+		-DIRECTION OUTPUT
+		
+	set_io TrigAdcs	\
+		-iostd LVCMOS33	\
+		-pinname 67	\
+		-fixed yes	\
+		-out_drive 4	\
+		-DIRECTION OUTPUT
+
+	set_io MisoAdcA	\
+		-iostd LVCMOS33	\
+		-pinname 60	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER	On\
+		-DIRECTION INPUT	
+		
+	set_io MisoAdcB	\
+		-iostd LVCMOS33	\
+		-pinname 66	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER	On\
+		-DIRECTION INPUT	
+
+	set_io MisoAdcC	\
+		-iostd LVCMOS33	\
+		-pinname 82	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER	On\
+		-DIRECTION INPUT	
+
+	set_io MisoAdcD	\
+		-iostd LVCMOS33	\
+		-pinname 85	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On	\
+		-RES_PULL UP	\
+		-DIRECTION INPUT
+
+	set_io nDrdyAdcA	\
+		-iostd LVCMOS33	\
+		-pinname 64	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On	\
+		-DIRECTION INPUT
+
+	set_io nDrdyAdcB	\
+		-iostd LVCMOS33	\
+		-pinname 81	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On	\
+		-DIRECTION INPUT
+
+	set_io nDrdyAdcC	\
+		-iostd LVCMOS33	\
+		-pinname 83	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On	\
+		-DIRECTION INPUT
+
+	set_io nDrdyAdcD	\
+		-iostd LVCMOS33	\
+		-pinname 87	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On	\
+		-DIRECTION INPUT
+
+	
+
+
+
+
+	# D/A's
+
+	
+	set_io PowerEnTi	\
+		-iostd LVCMOS33	\
+		-pinname 4	\
+		-fixed yes	\
+		-out_drive 4	\
+		-DIRECTION OUTPUT
+
+	set_io SckDacsTi	\
+		-iostd LVCMOS33	\
+		-pinname 15	\
+		-fixed yes	\
+		-DIRECTION OUTPUT 
+
+	set_io nCsDacsTi	\
+		-iostd LVCMOS33	\
+		-pinname 10	\
+		-fixed yes	\
+		-out_drive 4	\
+		-DIRECTION OUTPUT	
+
+	set_io MosiDacATi	\
+		-iostd LVCMOS33	\
+		-pinname 7	\
+		-fixed yes	\
+		-out_drive 20	\
+		-DIRECTION OUTPUT
+
+	set_io MosiDacBTi	\
+		-iostd LVCMOS33	\
+		-pinname 13 \
+		-fixed yes	\
+		-out_drive 4	\
+		-DIRECTION OUTPUT	
+
+	set_io MosiDacCTi	\
+		-iostd LVCMOS33	\
+		-pinname 14	\
+		-fixed yes	\
+		-out_drive 4	\
+		-DIRECTION OUTPUT
+
+	set_io MosiDacDTi	\
+		-iostd LVCMOS33	\
+		-pinname 19	\
+		-fixed yes	\
+			-out_drive 4	\
+		-DIRECTION OUTPUT
+
+
+
+	set_io PowerEnMax	\
+		-iostd LVCMOS33	\
+		-pinname 3	\
+		-fixed yes	\
+		-out_drive 4	\
+		-DIRECTION OUTPUT
+		#-slew MEDIUM	\
+
+	set_io SckDacsMax	\
+		-iostd LVCMOS33	\
+		-pinname 9	\
+		-fixed yes	\
+		   -out_drive 4	\
+		-DIRECTION OUTPUT
+
+	set_io nCsDacsMax	\
+		-iostd LVCMOS33	\
+		-pinname 20	\
+		-fixed yes	\
+		-DIRECTION OUTPUT	\
+
+	set_io nLDacsMax	\
+		-iostd LVCMOS33	\
+		-pinname 16	\
+		-fixed yes	\
+		-DIRECTION OUTPUT
+
+	set_io MosiDacAMax	\
+		-iostd LVCMOS33	\
+		-pinname 1	\
+		-fixed yes	\
+			-out_drive 4	\
+		-DIRECTION OUTPUT
+
+	set_io MosiDacBMax	\
+		-iostd LVCMOS33	\
+		-pinname 2	\
+		-fixed yes	\
+		-out_drive 4	\
+		-DIRECTION OUTPUT
+
+	set_io MosiDacCMax	\
+		-iostd LVCMOS33	\
+		-pinname 8	\
+		-fixed yes	\
+		-DIRECTION OUTPUT	\
+
+	set_io MosiDacDMax	\
+		-iostd LVCMOS33	\
+		-pinname 21	\
+		-fixed yes	\
+		-out_drive 4	\
+		-DIRECTION OUTPUT
+
+
+
+	#Monitor A/D's
+
+	set_io SckMonAdcs	\
+		-iostd LVCMOS33	\
+		-pinname 46	\
+		-fixed yes	\
+		-out_drive 20		\
+		-DIRECTION OUTPUT
+
+	set_io nCsMonAdcs	\
+		-iostd LVCMOS33	\
+		-pinname 53	\
+		-fixed yes	\
+		-out_drive 20	\
+		-DIRECTION OUTPUT
+
+	set_io MosiMonAdcs	\
+		-iostd LVCMOS33	\
+		-pinname 56	\
+		-fixed yes	\
+		   -out_drive 20 	\
+		-DIRECTION OUTPUT
+
+	set_io TrigMonAdcs	\
+		-iostd LVCMOS33	\
+		-pinname 48	\
+		-fixed yes	\
+		-DIRECTION OUTPUT
+
+	set_io MisoMonAdc0	\
+		-iostd LVCMOS33	\
+		-pinname 49	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER	On\
+		-RES_PULL UP	\
+		-DIRECTION INPUT
+
+	set_io MisoMonAdc1	\
+		-iostd LVCMOS33	\
+		-pinname 55	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On \
+		-RES_PULL UP \
+		-DIRECTION INPUT	
+	
+	set_io nDrdyMonAdc0	\
+		-iostd LVCMOS33	\
+		-pinname 52	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On	\
+		-DIRECTION INPUT	
+
+	set_io nDrdyMonAdc1	\
+		-iostd LVCMOS33	\
+		-pinname 47	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER ON	\
+		-DIRECTION INPUT	
+
+
+
+
+
+
+	# Power & Faults
+
+	set_io PowernEn	\
+		-iostd LVCMOS33	\
+		-pinname 100	\
+		-fixed yes	\
+		-out_drive 4	\
+		-DIRECTION OUTPUT
+
+	set_io PowerSync	\
+		-iostd LVCMOS33	\
+		-pinname 101	\
+		-fixed yes	\
+		-out_drive 4	\
+		-DIRECTION OUTPUT
+
+	set_io HVEn1	\
+		-iostd LVCMOS33	\
+		-pinname 22	\
+		-fixed yes	\
+		-DIRECTION OUTPUT
+
+	set_io HVEn2	\
+		-iostd LVCMOS33	\
+		-pinname 43	\
+		-fixed yes	\
+		-DIRECTION OUTPUT
+
+	set_io 	GlobalFaultInhibit	\
+		-iostd LVCMOS33	\
+		-pinname 102	\
+		-fixed yes	\
+		-DIRECTION OUTPUT
+
+	set_io nFaultsClr	\
+		-iostd LVCMOS33	\
+		-pinname 103	\
+		-fixed yes	\
+		-out_drive 4	\
+		-DIRECTION OUTPUT
+	
+	set_io Fault1V	\
+		-iostd LVCMOS33	\
+		-pinname 94	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On	\
+		-DIRECTION INPUT	
+
+	set_io Fault2VA	\
+		-iostd LVCMOS33	\
+		-pinname 89	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On	\
+		-DIRECTION INPUT
+
+	set_io Fault2VD	\
+		-iostd LVCMOS33	\
+		-pinname 92	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On	\
+		-DIRECTION INPUT
+
+	set_io Fault3VA	\
+		-iostd LVCMOS33	\
+		-pinname 90	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On\
+		-RES_PULL UP	\
+		-DIRECTION INPUT	
+
+	set_io Fault3VD	\
+		-iostd LVCMOS33	\
+		-pinname 91	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On \
+		-RES_PULL UP \
+		-DIRECTION INPUT
+
+	set_io Fault43V \
+		-iostd LVCMOS33	\
+		-pinname 88	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On	\
+		-RES_PULL UP	\
+		-DIRECTION INPUT
+
+	set_io Fault5V \
+		-iostd LVCMOS33	\
+		-pinname 93	\
+		-fixed yes	\
+		-SCHMITT_TRIGGER On	\
+		-RES_PULL UP	\
+		-DIRECTION INPUT
+
+#EOF
