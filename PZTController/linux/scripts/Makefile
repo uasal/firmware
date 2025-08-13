@@ -12,4 +12,5 @@ all:
 	#ssh torizon@192.168.1.223 "sudo -S nmcli con reload" #gives weird error
 	#ssh torizon@192.168.1.223 "chmod -R 700 /home/torizon/.ssh"
 	#ssh torizon@192.168.1.223 "chown -R root:root /etc"
-	ssh torizon@192.168.1.223 "sudo -S systemctl daemon-reload"#
+	#ssh torizon@192.168.1.223 "sudo -S systemctl daemon-reload"#
+	
