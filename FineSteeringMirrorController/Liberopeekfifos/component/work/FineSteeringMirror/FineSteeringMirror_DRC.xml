@@ -16,4 +16,18 @@
     <detail>Floating output pin Main_0:PowerEnMax</detail>
     <crossprobe>liberoaction://cross_probe/smartdesign/FineSteeringMirror/pins/Main_0:PowerEnMax</crossprobe>
   </drc>
+  <drc>
+    <status>/home/summer/microchip/Libero_SoC_v2023.2/Libero/data/drcreport/warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:ChopRef</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/FineSteeringMirror/pins/Main_0:ChopRef</crossprobe>
+  </drc>
+  <drc>
+    <status>/home/summer/microchip/Libero_SoC_v2023.2/Libero/data/drcreport/warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:ChopAdcs</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/FineSteeringMirror/pins/Main_0:ChopAdcs</crossprobe>
+  </drc>
 </drcreport>

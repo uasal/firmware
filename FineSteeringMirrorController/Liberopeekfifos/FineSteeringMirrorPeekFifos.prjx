@@ -95,8 +95,8 @@ SIZE="82204"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpgapeekfifos/RegisterSpace.vhd,hdl"
 STATE="utd"
-TIME="1755197342"
-SIZE="39771"
+TIME="1755202561"
+SIZE="39835"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/ads1258.vhd,hdl"
 STATE="utd"
@@ -120,8 +120,8 @@ SIZE="5117"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/crc_fifo.vhd,hdl"
 STATE="utd"
-TIME="1752754085"
-SIZE="3003"
+TIME="1755202195"
+SIZE="3031"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/crc_stream.vhd,hdl"
 STATE="utd"
@@ -626,8 +626,8 @@ ENDFILE
 VALUE "<project>/../fpgapeekfifos/RegisterSpace.vhd,hdl"
 LINKFILEROOT "<project>/../fpgapeekfifos"
 STATE="utd"
-TIME="1755197342"
-SIZE="39771"
+TIME="1755202561"
+SIZE="39835"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
@@ -1015,15 +1015,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/FineSteeringMirror/FineSteeringMirror.cxf,actgen_cxf"
 STATE="utd"
-TIME="1755199717"
-SIZE="15051"
-ENDFILE
-VALUE "<project>/component/work/FineSteeringMirror/FineSteeringMirror.v,hdl"
-STATE="utd"
-TIME="1755199715"
-SIZE="17467"
-PARENT="<project>/component/work/FineSteeringMirror/FineSteeringMirror.cxf"
-IS_READONLY="TRUE"
+TIME="1755286116"
+SIZE="10485"
 ENDFILE
 VALUE "<project>/component/work/FineSteeringMirror_sb/CCC_0/FineSteeringMirror_sb_CCC_0_FCCC.cxf,actgen_cxf"
 STATE="utd"
@@ -1095,8 +1088,8 @@ USE_FOR_ANY_TOOL="FALSE"
 ENDFILE
 VALUE "<project>/constraint/io/user.pdc,io_pdc"
 STATE="utd"
-TIME="1755199759"
-SIZE="11761"
+TIME="1755205302"
+SIZE="12529"
 ENDFILE
 VALUE "<project>/constraint/io/user_numerical.pdc,io_pdc"
 STATE="utd"
@@ -1192,8 +1185,8 @@ SIZE="287"
 ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror.vm,syn_vm"
 STATE="ood"
-TIME="1755201193"
-SIZE="986747"
+TIME="1755202600"
+SIZE="1202200"
 ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror_syn.prj,prj"
 STATE="utd"
@@ -1215,7 +1208,7 @@ LIST UsedFile
 ENDLIST
 LIST NewModulesInfo
 LIST "FineSteeringMirror::work"
-FILE "<project>/component/work/FineSteeringMirror/FineSteeringMirror.v,hdl"
+FILE "<project>/component/work/FineSteeringMirror/FineSteeringMirror.cxf,actgen_cxf"
 LIST SynthesisConstraints
 VALUE "<project>/constraint/user.sdc,sdc"
 ENDLIST
@@ -1679,8 +1672,10 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
-StartPage;StartPage;0
-ACTIVEVIEW;StartPage
+Reports;Reports;0
+ReportsCurrentItem;Place and Route:FineSteeringMirror_layout_log.log
+SmartDesign;FineSteeringMirror;0
+ACTIVEVIEW;FineSteeringMirror
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","${CGRAPH_FIRMWARE}/include/fpga/ads1258.vhd","FALSE","FALSE"
@@ -1713,6 +1708,13 @@ ENDLIST
 LIST "CrcStream::work","${CGRAPH_FIRMWARE}/include/fpga/crc_stream.vhd","FALSE","FALSE"
 SUBBLOCK "crc_byte::work","${CGRAPH_FIRMWARE}/include/fpga/crc_byte.vhd","FALSE","FALSE"
 ENDLIST
+LIST "DESIGN_FIRMWARE::work","component/work/DESIGN_FIRMWARE/DESIGN_FIRMWARE.cxf","TRUE","FALSE"
+SUBBLOCK "SmartFusion2_CMSIS::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
+ENDLIST
 LIST "ClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 ENDLIST
 LIST "CoreResetP::work","component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v","FALSE","FALSE"
@@ -1731,6 +1733,8 @@ ENDLIST
 LIST "MSS_010::work","component/work/FineSteeringMirror_sb_MSS/FineSteeringMirror_sb_MSS_syn.v","FALSE","FALSE"
 ENDLIST
 LIST "OneShotPorts::work","${CGRAPH_FIRMWARE}/include/fpga/OneShot.vhd","FALSE","FALSE"
+ENDLIST
+LIST "RegisterSpacePorts::work","${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpgapeekfifos/RegisterSpace.vhd","FALSE","FALSE"
 ENDLIST
 LIST "SpiDacPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiDac.vhd","FALSE","FALSE"
 SUBBLOCK "SpiMasterPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiMaster.vhd","FALSE","FALSE"
@@ -1783,7 +1787,7 @@ ENDLIST
 LIST "fifo_gen_tb::work","${CGRAPH_FIRMWARE}/include/fpga/fifo_gen_tb.vhd","FALSE","FALSE"
 SUBBLOCK "fifo::work","${CGRAPH_FIRMWARE}/include/fpga/fifo_gen.vhd","FALSE","FALSE"
 ENDLIST
-LIST "FineSteeringMirror::work","component/work/FineSteeringMirror/FineSteeringMirror.v","TRUE","FALSE"
+LIST "FineSteeringMirror::work","component/work/FineSteeringMirror/FineSteeringMirror.cxf","TRUE","FALSE"
 SUBBLOCK "FCCC_C0::work","component/work/FCCC_C0/FCCC_C0.v","TRUE","FALSE"
 SUBBLOCK "FineSteeringMirror_sb::work","component/work/FineSteeringMirror_sb/FineSteeringMirror_sb.v","TRUE","FALSE"
 SUBBLOCK "Main::work","${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpgapeekfifos/Main.vhd","FALSE","FALSE"
@@ -1852,13 +1856,13 @@ SUBBLOCK "IBufP2Ports::work","${CGRAPH_FIRMWARE}/include/fpga/IBufP2.vhd","FALSE
 SUBBLOCK "IBufP3Ports::work","${CGRAPH_FIRMWARE}/include/fpga/IBufP3.vhd","FALSE","FALSE"
 SUBBLOCK "Ltc2378AccumQuadPorts::work","${CGRAPH_FIRMWARE}/include/fpga/Ltc2378AccumQuad.vhd","FALSE","FALSE"
 SUBBLOCK "PPSCountPorts::work","${CGRAPH_FIRMWARE}/include/fpga/PPSCount.vhd","FALSE","FALSE"
-SUBBLOCK "RegisterSpacePorts::work","","FALSE","FALSE"
 SUBBLOCK "UartRxFifoExtClk::work","${CGRAPH_FIRMWARE}/include/fpga/UartRxFifoExtClk.vhd","FALSE","FALSE"
 SUBBLOCK "UartRxFifoExtClkPeek::work","${CGRAPH_FIRMWARE}/include/fpga/UartRxFifoExtClkPeek.vhd","FALSE","FALSE"
 SUBBLOCK "UartTxFifoExtClk::work","${CGRAPH_FIRMWARE}/include/fpga/UartTxFifoExtClk.vhd","FALSE","FALSE"
 SUBBLOCK "VariableClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/VariableClockDivider.vhd","FALSE","FALSE"
 SUBBLOCK "ClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 SUBBLOCK "OneShotPorts::work","${CGRAPH_FIRMWARE}/include/fpga/OneShot.vhd","FALSE","FALSE"
+SUBBLOCK "RegisterSpacePorts::work","${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpgapeekfifos/RegisterSpace.vhd","FALSE","FALSE"
 SUBBLOCK "SpiDacPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiDac.vhd","FALSE","FALSE"
 SUBBLOCK "SpiDacQuadPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiDacQuad.vhd","FALSE","FALSE"
 SUBBLOCK "SpiDeviceDualPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiDeviceDual.vhd","FALSE","FALSE"
@@ -1882,9 +1886,17 @@ LIST "RCOSC_25_50MHZ::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.v","FA
 ENDLIST
 LIST "RCOSC_25_50MHZ_FAB::work","component/Actel/SgCore/OSC/2.0.101/osc_comps.v","FALSE","FALSE"
 ENDLIST
-LIST "RegisterSpacePorts::work","","FALSE","FALSE"
-ENDLIST
 LIST "RtcCounterPorts::work","${CGRAPH_FIRMWARE}/include/fpga/RtcCounter.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_CMSIS::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
 ENDLIST
 LIST "SpiExtBusAddrTxPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiExtBusAddrTx.vhd","FALSE","FALSE"
 SUBBLOCK "UartTx::work","${CGRAPH_FIRMWARE}/include/fpga/UartTx.vhd","FALSE","FALSE"

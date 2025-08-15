@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Thu Aug 14 12:28:35 2025
+// Created by SmartDesign Fri Aug 15 12:28:38 2025
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -18,10 +18,6 @@ module FineSteeringMirror(
     Fault5V,
     FaultHV,
     FaultNegV,
-    MisoAdcA,
-    MisoAdcB,
-    MisoAdcC,
-    MisoAdcD,
     MisoMonAdc0,
     MisoMonAdc1,
     PPS,
@@ -32,19 +28,9 @@ module FineSteeringMirror(
     Rx3,
     TxUsb,
     XO1,
-    nDrdyAdcA,
-    nDrdyAdcB,
-    nDrdyAdcC,
-    nDrdyAdcD,
     nDrdyMonAdc0,
     nDrdyMonAdc1,
-    nHVFaultA,
-    nHVFaultB,
-    nHVFaultC,
-    nHVFaultD,
     // Outputs
-    ChopAdc,
-    ChopRef,
     GlobalFaultInhibit,
     HVEn1,
     HVEn2,
@@ -81,20 +67,7 @@ module FineSteeringMirror(
     nFaultsClr,
     nPowerCycClr,
     // Inouts
-    MosiDacAMax,
-    MosiDacATi,
-    MosiDacBMax,
-    MosiDacBTi,
-    MosiDacCMax,
-    MosiDacCTi,
-    MosiDacDMax,
-    MosiDacDTi,
-    SckDacsMax,
-    SckDacsTi,
-    Ux1SelJmp,
-    nCsDacsMax,
-    nCsDacsTi,
-    nLDacsMax
+    Ux1SelJmp
 );
 
 //--------------------------------------------------------------------
@@ -110,10 +83,6 @@ input  Fault43V;
 input  Fault5V;
 input  FaultHV;
 input  FaultNegV;
-input  MisoAdcA;
-input  MisoAdcB;
-input  MisoAdcC;
-input  MisoAdcD;
 input  MisoMonAdc0;
 input  MisoMonAdc1;
 input  PPS;
@@ -124,21 +93,11 @@ input  Rx2;
 input  Rx3;
 input  TxUsb;
 input  XO1;
-input  nDrdyAdcA;
-input  nDrdyAdcB;
-input  nDrdyAdcC;
-input  nDrdyAdcD;
 input  nDrdyMonAdc0;
 input  nDrdyMonAdc1;
-input  nHVFaultA;
-input  nHVFaultB;
-input  nHVFaultC;
-input  nHVFaultD;
 //--------------------------------------------------------------------
 // Output
 //--------------------------------------------------------------------
-output ChopAdc;
-output ChopRef;
 output GlobalFaultInhibit;
 output HVEn1;
 output HVEn2;
@@ -177,25 +136,12 @@ output nPowerCycClr;
 //--------------------------------------------------------------------
 // Inout
 //--------------------------------------------------------------------
-inout  MosiDacAMax;
-inout  MosiDacATi;
-inout  MosiDacBMax;
-inout  MosiDacBTi;
-inout  MosiDacCMax;
-inout  MosiDacCTi;
-inout  MosiDacDMax;
-inout  MosiDacDTi;
-inout  SckDacsMax;
-inout  SckDacsTi;
 inout  Ux1SelJmp;
-inout  nCsDacsMax;
-inout  nCsDacsTi;
-inout  nLDacsMax;
 //--------------------------------------------------------------------
 // Nets
 //--------------------------------------------------------------------
-wire          ChopAdc_net_0;
-wire          ChopRef_net_0;
+wire          ChopAdc;
+wire          ChopRef;
 wire          DEVRST_N;
 wire          Fault1V;
 wire          Fault2VA;
@@ -218,10 +164,6 @@ wire          HVEn1_net_0;
 wire          HVEn2_net_0;
 wire          Main_0_RamBusAck;
 wire   [31:0] Main_0_RamBusDataOut;
-wire          MisoAdcA;
-wire          MisoAdcB;
-wire          MisoAdcC;
-wire          MisoAdcD;
 wire          MisoMonAdc0;
 wire          MisoMonAdc1;
 wire          MosiDacAMax;
@@ -239,17 +181,9 @@ wire          nCsDacsMax;
 wire          nCsDacsTi;
 wire          nCsMonAdcs_net_0;
 wire          nCsXO_net_0;
-wire          nDrdyAdcA;
-wire          nDrdyAdcB;
-wire          nDrdyAdcC;
-wire          nDrdyAdcD;
 wire          nDrdyMonAdc0;
 wire          nDrdyMonAdc1;
 wire          nFaultsClr_net_0;
-wire          nHVFaultA;
-wire          nHVFaultB;
-wire          nHVFaultC;
-wire          nHVFaultD;
 wire          nLDacsMax;
 wire          nPowerCycClr_net_0;
 wire          Oe0_net_0;
@@ -300,8 +234,6 @@ wire          nPowerCycClr_net_1;
 wire          PowerSync_net_1;
 wire          PowernEn_net_1;
 wire          PowernEnHV_net_1;
-wire          ChopRef_net_1;
-wire          ChopAdc_net_1;
 wire          TrigAdcs_net_1;
 wire          SckAdcs_net_1;
 wire          nCsAdcs_net_1;
@@ -362,10 +294,6 @@ assign PowernEn_net_1           = PowernEn_net_0;
 assign PowernEn                 = PowernEn_net_1;
 assign PowernEnHV_net_1         = PowernEnHV_net_0;
 assign PowernEnHV               = PowernEnHV_net_1;
-assign ChopRef_net_1            = ChopRef_net_0;
-assign ChopRef                  = ChopRef_net_1;
-assign ChopAdc_net_1            = ChopAdc_net_0;
-assign ChopAdc                  = ChopAdc_net_1;
 assign TrigAdcs_net_1           = TrigAdcs_net_0;
 assign TrigAdcs                 = TrigAdcs_net_1;
 assign SckAdcs_net_1            = SckAdcs_net_0;
@@ -459,18 +387,18 @@ FineSteeringMirror_sb FineSteeringMirror_sb_0(
 Main Main_0(
         // Inputs
         .clk                ( FCCC_C0_0_GL1 ),
-        .nHVFaultA          ( nHVFaultA ),
-        .nHVFaultB          ( nHVFaultB ),
-        .nHVFaultC          ( nHVFaultC ),
-        .nHVFaultD          ( nHVFaultD ),
-        .MisoAdcA           ( MisoAdcA ),
-        .MisoAdcB           ( MisoAdcB ),
-        .MisoAdcC           ( MisoAdcC ),
-        .MisoAdcD           ( MisoAdcD ),
-        .nDrdyAdcA          ( nDrdyAdcA ),
-        .nDrdyAdcB          ( nDrdyAdcB ),
-        .nDrdyAdcC          ( nDrdyAdcC ),
-        .nDrdyAdcD          ( nDrdyAdcD ),
+        .nHVFaultA          ( VCC_net ),
+        .nHVFaultB          ( VCC_net ),
+        .nHVFaultC          ( VCC_net ),
+        .nHVFaultD          ( VCC_net ),
+        .MisoAdcA           ( VCC_net ),
+        .MisoAdcB           ( VCC_net ),
+        .MisoAdcC           ( VCC_net ),
+        .MisoAdcD           ( VCC_net ),
+        .nDrdyAdcA          ( VCC_net ),
+        .nDrdyAdcB          ( VCC_net ),
+        .nDrdyAdcC          ( VCC_net ),
+        .nDrdyAdcD          ( VCC_net ),
         .RamBusnCs          ( FineSteeringMirror_sb_0_AMBA_SLAVE_0_PSELS0 ),
         .RamBusWrnRd        ( FineSteeringMirror_sb_0_AMBA_SLAVE_0_PWRITES ),
         .RamBusLatch        ( FineSteeringMirror_sb_0_AMBA_SLAVE_0_PENABLES ),
@@ -505,8 +433,8 @@ Main Main_0(
         .HVEn1              ( HVEn1_net_0 ),
         .HVEn2              ( HVEn2_net_0 ),
         .PowernEnHV         ( PowernEnHV_net_0 ),
-        .ChopRef            ( ChopRef_net_0 ),
-        .ChopAdcs           ( ChopAdc_net_0 ),
+        .ChopRef            ( ChopRef ),
+        .ChopAdcs           ( ChopAdc ),
         .TrigAdcs           ( TrigAdcs_net_0 ),
         .SckAdcs            ( SckAdcs_net_0 ),
         .nCsAdcs            ( nCsAdcs_net_0 ),
