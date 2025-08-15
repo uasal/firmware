@@ -89,6 +89,8 @@ port (
 	Oe3 : out std_logic;
 	Rx3 : in std_logic;
 	PPS : in std_logic;
+	TxUsb : in std_logic;
+	RxUsb : out std_logic;
 	
 	--MonitorA/D
 	
@@ -743,6 +745,19 @@ architecture architecture_Main of Main is
 							Uart3TxFifoCount : in std_logic_vector(9 downto 0);
 							Uart3ClkDivider : out std_logic_vector(7 downto 0);
 							
+							UartLabFifoReset : out std_logic;
+							ReadUartLab : out std_logic;
+							UartLabRxFifoFull : in std_logic;
+							UartLabRxFifoEmpty : in std_logic;
+							UartLabRxFifoData : in std_logic_vector(7 downto 0);
+							UartLabRxFifoCount : in std_logic_vector(9 downto 0);
+							WriteUartLab : out std_logic;
+							UartLabTxFifoFull : in std_logic;
+							UartLabTxFifoEmpty : in std_logic;
+							UartLabTxFifoData : out std_logic_vector(7 downto 0);
+							UartLabTxFifoCount : in std_logic_vector(9 downto 0);
+							UartLabClkDivider : out std_logic_vector(7 downto 0);
+							
 							--Timing
 							IdealTicksPerSecond : in std_logic_vector(31 downto 0);
 							ActualTicksLastSecond : in std_logic_vector(31 downto 0);
@@ -1244,6 +1259,26 @@ architecture architecture_Main of Main is
 			signal Txd3_i : std_logic;
 			signal Rxd3_i : std_logic;
 			signal UartRx3Dbg : std_logic;		
+			
+			signal UartLabFifoReset : std_logic;
+			signal UartLabFifoReset_i : std_logic;
+			signal ReadUartLab : std_logic;
+			signal UartLabRxFifoFull : std_logic;
+			signal UartLabRxFifoEmpty : std_logic;
+			signal UartLabRxFifoReadAck : std_logic;
+			signal UartLabRxFifoData : std_logic_vector(7 downto 0);
+			signal UartLabRxFifoCount : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
+			signal WriteUartLab : std_logic;
+			signal UartLabTxFifoFull : std_logic;
+			signal UartLabTxFifoEmpty : std_logic;
+			signal UartLabTxFifoData : std_logic_vector(7 downto 0);
+			signal UartLabTxFifoCount : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
+			signal UartLabClkDivider : std_logic_vector(7 downto 0);
+			signal UartClkLab : std_logic;			
+			signal UartTxClkLab : std_logic;			
+			signal RxUsb_i : std_logic;
+			signal TxUsb_i : std_logic;
+			signal UartRxLabDbg : std_logic;		
 
 			signal TxdUartBitCount : std_logic_vector(3 downto 0); --debug
 			
@@ -1510,6 +1545,20 @@ begin
 		Uart3TxFifoData => Uart3TxFifoData,
 		Uart3TxFifoCount => Uart3TxFifoCount,
 		Uart3ClkDivider => Uart3ClkDivider,
+		
+		
+		UartLabFifoReset => UartLabFifoReset,
+		ReadUartLab => ReadUartLab,
+		UartLabRxFifoFull => UartLabRxFifoFull,
+		UartLabRxFifoEmpty => UartLabRxFifoEmpty,
+		UartLabRxFifoData => UartLabRxFifoData,
+		UartLabRxFifoCount => UartLabRxFifoCount,
+		WriteUartLab => WriteUartLab,
+		UartLabTxFifoFull => UartLabTxFifoFull,
+		UartLabTxFifoEmpty => UartLabTxFifoEmpty,
+		UartLabTxFifoData => UartLabTxFifoData,
+		UartLabTxFifoCount => UartLabTxFifoCount,
+		UartLabClkDivider => UartLabClkDivider,
 				
 		--Timing
 		IdealTicksPerSecond => std_logic_vector(to_unsigned(BoardMasterClockFreq, 32)),
@@ -2287,14 +2336,120 @@ begin
 	--Mux master reset (boot) and user reset (datamapper)
 	Uart3FifoReset_i <= MasterReset or Uart3FifoReset;
 
-	--DEBUG
-	--~ TP8 <= TxdLab_i;
 	
-	--~ LedR <= not(TxdLab_i);
-	--~ TP1 <= TxdLab_i;
+	
+	UartLabBitClockDiv : ClockDividerPorts
+	generic map
+	(
+		CLOCK_DIVIDER => natural((real(102000000) / ( real(115200) * 16.0)) - 1.0),
+		DIVOUT_RST_STATE => '0'--;
+	)
+	port map
+	(
+		--~ clk => MasterClk,
+		clk => UartClk,
+		rst => MasterReset,
+		div => UartClkLab
+	);
+	UartLabTxBitClockDiv : ClockDividerPorts
+	generic map
+	(
+		CLOCK_DIVIDER => 16,
+		DIVOUT_RST_STATE => '0'--;
+	)
+	port map
+	(
+		clk => UartClkLab,
+		rst => MasterReset,
+		div => UartTxClkLab
+	);
+	
+	--~ Ux1SelJmp <= UartClkLab;
+	
+	IBufTxUsb : IBufP3Ports port map(clk => UartClk, I => TxUsb, O => TxUsb_i); --if you want to change the pin for this chip select, it's here
+	
+	--~ Ux1SelJmp <= TxUsb;
+	
+	RS4LabLab_RxLab : UartRxFifoExtClk
+	generic map
+	(
+		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
+		DEPTH_BITS => 10--,
+		--~ BAUD_DIVIDER_BITS => 8--,
+		--~ BAUDRATE => 1Lab500000--,
+		--~ BAUDRATE => 8000000--,
+		--~ BAUDRATE => BoardMasterClockFreq / 16--, --9.Lab16MHz
+		--~ BAUDRATE => BoardMasterClockFreq / 819Lab--,
+		--~ BAUDRATE => 115Lab00--,
+	)
+	port map
+	(
+		clk => MasterClk,
+		uclk => UartClkLab,
+		rst => UartLabFifoReset_i,
+		--~ BaudDivider => UartLabClkDivider,
+		Rxd => TxUsb_i,
+		Dbg1 => open,
+		RxComplete => open,
+		ReadFifo => ReadUartLab,
+		FifoFull => UartLabRxFifoFull,
+		FifoEmpty => UartLabRxFifoEmpty,
+		FifoReadData => UartLabRxFifoData,
+		FifoCount => UartLabRxFifoCount,
+		FifoReadAck => open--,		
+	);
+	
+	RS4LabLab_TxLab : UartTxFifoExtClk
+	--~ RS4LabLab_TxLab : UartTxFifo
+	generic map
+	(
+		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
+		--~ DEPTH_BITS => 10,
+		DEPTH_BITS => 10--,
+		--~ BAUD_DIVIDER_BITS => 8--,
+		--~ BAUDRATE => 1Lab500000--,
+		--~ BAUDRATE => 8000000--,
+		--~ BAUDRATE => BoardMasterClockFreq / 16--, --9.Lab16MHz
+		--~ BAUDRATE => BoardMasterClockFreq / 819Lab--,
+		--~ BAUDRATE => 115Lab00--,
+	)
+	port map
+	(
+		clk => MasterClk,
+		--~ uclk => MasterClk,
+		uclk => UartTxClkLab,
+		rst => UartLabFifoReset_i,
+		--~ BaudDivider => UartLabClkDivider,
+		BitClockOut => open,
+		--~ BitClockOut => Ux1SelJmp,		
+		WriteStrobe => WriteUartLab,
+		WriteData => UartLabTxFifoData,
+		FifoFull => UartLabTxFifoFull,
+		FifoEmpty => UartLabTxFifoEmpty,
+		FifoCount => UartLabTxFifoCount,
+		TxInProgress => open,
+		--~ TxInProgress => SckMonitorAdcTPLab,		
+		Cts => '0',
+		Txd => RxUsb_i--,
+		--~ Txd => open--,
+	);
+	RxUsb <= RxUsb_i;
 	
 	--Debug monitors
-	--~ TxdLab <= Txd0_i;
+	--~ RxUsb <= Txd0_i;
+	--~ Txd1 <= Rxd0_i;
+	
+	--Mux master reset (boot) and user reset (datamapper)
+	UartLabFifoReset_i <= MasterReset or UartLabFifoReset;
+
+	--DEBUG
+	--~ TP8 <= RxUsb_i;
+	
+	--~ LedR <= not(RxUsb_i);
+	--~ TP1 <= RxUsb_i;
+	
+	--Debug monitors
+	--~ RxUsb <= Txd0_i;
 	--~ Txd1 <= Rxd0_i;
 	
 	--~ TP1 <= RxdUsb_i;

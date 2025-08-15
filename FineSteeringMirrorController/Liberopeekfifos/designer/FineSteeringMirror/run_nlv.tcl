@@ -15,6 +15,9 @@ addfile -view RTL -lib COREAPB3_LIB -type VLOG -mode system_verilog -name {/home
 addfile -view RTL -lib COREAPB3_LIB -type VLOG -mode system_verilog -name {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Liberopeekfifos/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3.v}
 addfile -view RTL -lib work -type VLOG -mode system_verilog -name {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Liberopeekfifos/component/work/FineSteeringMirror_sb/FineSteeringMirror_sb.v}
 addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpgapeekfifos/BuildNumber.vhd}
+addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/include/fpga/crc_byte.vhd}
+addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/include/fpga/crc_stream.vhd}
+addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd}
 addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd}
 addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd}
 addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd}
@@ -23,12 +26,14 @@ addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/proje
 addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd}
 addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd}
 addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd}
-addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd}
 addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd}
 addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/include/fpga/UartRxExtClk.vhd}
 addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd}
 addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd}
 addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClk.vhd}
+addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd}
+addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo_peek.vhd}
+addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClkPeek.vhd}
 addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd}
 addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd}
 addfile -view RTL -lib work -type VHDL -mode vhdl_2008 -name {/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd}

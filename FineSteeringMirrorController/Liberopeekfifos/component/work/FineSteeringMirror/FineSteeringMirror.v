@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Tue Feb 18 13:57:05 2025
+// Created by SmartDesign Thu Aug 14 12:28:35 2025
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -30,6 +30,7 @@ module FineSteeringMirror(
     Rx1,
     Rx2,
     Rx3,
+    TxUsb,
     XO1,
     nDrdyAdcA,
     nDrdyAdcB,
@@ -53,11 +54,10 @@ module FineSteeringMirror(
     Oe1,
     Oe2,
     Oe3,
-    PowerEnMax,
-    PowerEnTi,
     PowerSync,
     PowernEn,
     PowernEnHV,
+    RxUsb,
     SckAdcs,
     SckMonAdcs,
     SckXO,
@@ -122,6 +122,7 @@ input  Rx0;
 input  Rx1;
 input  Rx2;
 input  Rx3;
+input  TxUsb;
 input  XO1;
 input  nDrdyAdcA;
 input  nDrdyAdcB;
@@ -147,11 +148,10 @@ output Oe0;
 output Oe1;
 output Oe2;
 output Oe3;
-output PowerEnMax;
-output PowerEnTi;
 output PowerSync;
 output PowernEn;
 output PowernEnHV;
+output RxUsb;
 output SckAdcs;
 output SckMonAdcs;
 output SckXO;
@@ -257,8 +257,7 @@ wire          Oe1_net_0;
 wire          Oe2_net_0;
 wire          Oe3_net_0;
 wire          PowerCycd;
-wire          PowerEnMax_net_0;
-wire          PowerEnTi_net_0;
+wire          PowerEnMax;
 wire          PowernEn_net_0;
 wire          PowernEnHV_net_0;
 wire          PowerSync_net_0;
@@ -267,6 +266,7 @@ wire          Rx0;
 wire          Rx1;
 wire          Rx2;
 wire          Rx3;
+wire          RxUsb_net_0;
 wire          SckAdcs_net_0;
 wire          SckDacsMax;
 wire          SckDacsTi;
@@ -286,6 +286,7 @@ wire          Tx0_net_0;
 wire          Tx1_net_0;
 wire          Tx2_net_0;
 wire          Tx3_net_0;
+wire          TxUsb;
 wire          Ux1SelJmp;
 wire          XO1;
 wire          Oe0_net_1;
@@ -303,8 +304,6 @@ wire          ChopRef_net_1;
 wire          ChopAdc_net_1;
 wire          TrigAdcs_net_1;
 wire          SckAdcs_net_1;
-wire          PowerEnTi_net_1;
-wire          PowerEnMax_net_1;
 wire          nCsAdcs_net_1;
 wire          nCsMonAdcs_net_1;
 wire          SckMonAdcs_net_1;
@@ -326,6 +325,7 @@ wire          TP5_net_1;
 wire          TP6_net_1;
 wire          TP7_net_1;
 wire          TP8_net_1;
+wire          RxUsb_net_1;
 wire   [31:0] AMBA_SLAVE_0_PADDRS_net_0;
 //--------------------------------------------------------------------
 // TiedOff Nets
@@ -370,10 +370,6 @@ assign TrigAdcs_net_1           = TrigAdcs_net_0;
 assign TrigAdcs                 = TrigAdcs_net_1;
 assign SckAdcs_net_1            = SckAdcs_net_0;
 assign SckAdcs                  = SckAdcs_net_1;
-assign PowerEnTi_net_1          = PowerEnTi_net_0;
-assign PowerEnTi                = PowerEnTi_net_1;
-assign PowerEnMax_net_1         = PowerEnMax_net_0;
-assign PowerEnMax               = PowerEnMax_net_1;
 assign nCsAdcs_net_1            = nCsAdcs_net_0;
 assign nCsAdcs                  = nCsAdcs_net_1;
 assign nCsMonAdcs_net_1         = nCsMonAdcs_net_0;
@@ -416,6 +412,8 @@ assign TP7_net_1                = TP7_net_0;
 assign TP7                      = TP7_net_1;
 assign TP8_net_1                = TP8_net_0;
 assign TP8                      = TP8_net_1;
+assign RxUsb_net_1              = RxUsb_net_0;
+assign RxUsb                    = RxUsb_net_1;
 //--------------------------------------------------------------------
 // Slices assignments
 //--------------------------------------------------------------------
@@ -473,8 +471,6 @@ Main Main_0(
         .nDrdyAdcB          ( nDrdyAdcB ),
         .nDrdyAdcC          ( nDrdyAdcC ),
         .nDrdyAdcD          ( nDrdyAdcD ),
-        .RamBusAddress      ( FineSteeringMirror_sb_0_AMBA_SLAVE_0_PADDRS9to0 ),
-        .RamBusDataIn       ( FineSteeringMirror_sb_0_AMBA_SLAVE_0_PWDATAS ),
         .RamBusnCs          ( FineSteeringMirror_sb_0_AMBA_SLAVE_0_PSELS0 ),
         .RamBusWrnRd        ( FineSteeringMirror_sb_0_AMBA_SLAVE_0_PWRITES ),
         .RamBusLatch        ( FineSteeringMirror_sb_0_AMBA_SLAVE_0_PENABLES ),
@@ -483,6 +479,7 @@ Main Main_0(
         .Rx2                ( Rx2 ),
         .Rx3                ( Rx3 ),
         .PPS                ( PPS ),
+        .TxUsb              ( TxUsb ),
         .MisoMonAdc0        ( MisoMonAdc0 ),
         .nDrdyMonAdc0       ( nDrdyMonAdc0 ),
         .MisoMonAdc1        ( MisoMonAdc1 ),
@@ -497,12 +494,14 @@ Main Main_0(
         .Fault43V           ( Fault43V ),
         .Fault5V            ( Fault5V ),
         .FaultHV            ( FaultHV ),
+        .RamBusAddress      ( FineSteeringMirror_sb_0_AMBA_SLAVE_0_PADDRS9to0 ),
+        .RamBusDataIn       ( FineSteeringMirror_sb_0_AMBA_SLAVE_0_PWDATAS ),
         // Outputs
         .nCsXO              ( nCsXO_net_0 ),
         .SckXO              ( SckXO_net_0 ),
         .MosiXO             ( MosiXO_net_0 ),
-        .PowerEnTi          ( PowerEnTi_net_0 ),
-        .PowerEnMax         ( PowerEnMax_net_0 ),
+        .PowerEnTi          (  ),
+        .PowerEnMax         ( PowerEnMax ),
         .HVEn1              ( HVEn1_net_0 ),
         .HVEn2              ( HVEn2_net_0 ),
         .PowernEnHV         ( PowernEnHV_net_0 ),
@@ -511,7 +510,6 @@ Main Main_0(
         .TrigAdcs           ( TrigAdcs_net_0 ),
         .SckAdcs            ( SckAdcs_net_0 ),
         .nCsAdcs            ( nCsAdcs_net_0 ),
-        .RamBusDataOut      ( Main_0_RamBusDataOut ),
         .RamBusAck          ( Main_0_RamBusAck ),
         .Tx0                ( Tx0_net_0 ),
         .Oe0                ( Oe0_net_0 ),
@@ -521,6 +519,7 @@ Main Main_0(
         .Oe2                ( Oe2_net_0 ),
         .Tx3                ( Tx3_net_0 ),
         .Oe3                ( Oe3_net_0 ),
+        .RxUsb              ( RxUsb_net_0 ),
         .nCsMonAdcs         ( nCsMonAdcs_net_0 ),
         .SckMonAdcs         ( SckMonAdcs_net_0 ),
         .MosiMonAdcs        ( MosiMonAdcs_net_0 ),
@@ -538,6 +537,7 @@ Main Main_0(
         .TP6                ( TP6_net_0 ),
         .TP7                ( TP7_net_0 ),
         .TP8                ( TP8_net_0 ),
+        .RamBusDataOut      ( Main_0_RamBusDataOut ),
         // Inouts
         .MosiTiDacA         ( MosiDacATi ),
         .MosiTiDacB         ( MosiDacBTi ),

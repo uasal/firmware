@@ -87,7 +87,7 @@ begin
 		crc => CrcOut--,
 	);
 	
-	FifoPeekAddr <= FifoPeekAddr_i;
+	FifoPeekAddr <= unsigned(FifoPeekAddr_i);
 			
 	process (clk, rst)
 	begin
@@ -95,7 +95,7 @@ begin
 		if (rst = '1') then 
 		
 			CrcComplete <= '0';
-			FifoPeekAddr_i <= FifoStartAddr;
+			FifoPeekAddr_i <= std_logic_vector(FifoStartAddr);
 					
 		else
 			

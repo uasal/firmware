@@ -3,10 +3,17 @@
 <drcreport>
   <header>FineSteeringMirror</header>
   <drc>
-    <status>/home/summer/microchip/Libero_SoC_v2023.2/Libero/data/drcreport/error.png</status>
-    <StatusMessage>Error</StatusMessage>
-    <message>Undriven Pin</message>
-    <detail>Unconnected input pin Main_0:DInExt</detail>
-    <crossprobe>liberoaction://cross_probe/smartdesign/FineSteeringMirror/pins/Main_0:DInExt</crossprobe>
+    <status>/home/summer/microchip/Libero_SoC_v2023.2/Libero/data/drcreport/warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:PowerEnTi</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/FineSteeringMirror/pins/Main_0:PowerEnTi</crossprobe>
+  </drc>
+  <drc>
+    <status>/home/summer/microchip/Libero_SoC_v2023.2/Libero/data/drcreport/warn.png</status>
+    <StatusMessage>Warning</StatusMessage>
+    <message>Floating Driver</message>
+    <detail>Floating output pin Main_0:PowerEnMax</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/FineSteeringMirror/pins/Main_0:PowerEnMax</crossprobe>
   </drc>
 </drcreport>
