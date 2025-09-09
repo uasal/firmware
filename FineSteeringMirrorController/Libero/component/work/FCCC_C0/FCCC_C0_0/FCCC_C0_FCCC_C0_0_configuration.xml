@@ -8,7 +8,7 @@
 </header>
 <row>
  <cell>Date:</cell>
- <cell>Thu Jul 18 09:27:49 2024</cell>
+ <cell>Mon Sep  8 17:19:56 2025</cell>
 </row>
 <separator/>
 <row>
@@ -74,7 +74,7 @@
 </header>
 <row>
  <cell>Reference clock frequency</cell>
- <cell>51 MHz</cell>
+ <cell>34 MHz</cell>
 </row>
 <row>
  <cell>Reference clock source</cell>
@@ -95,7 +95,7 @@
 </row>
 <row>
  <cell>CCC reference clock divider</cell>
- <cell>2</cell>
+ <cell>1</cell>
 </row>
 <separator/>
 <row>
@@ -108,7 +108,7 @@
 </row>
 <row>
  <cell>CCC feedback divider</cell>
- <cell>4</cell>
+ <cell>3</cell>
 </row>
 <row>
  <cell>External feedback divider</cell>
@@ -171,7 +171,7 @@
 <row>
  <cell>FCCC_RFDIV_CR</cell>
  <cell>0x02</cell>
- <cell>0x01</cell>
+ <cell>0x00</cell>
  <cell>RFDIV configuration register</cell>
 </row>
 <row>
@@ -183,7 +183,7 @@
 <row>
  <cell>FCCC_FBDIV_CR0</cell>
  <cell>0x04</cell>
- <cell>0x03</cell>
+ <cell>0x02</cell>
  <cell>FBDIV configuration register 0</cell>
 </row>
 <row>
@@ -357,7 +357,7 @@
 <row>
  <cell>FCCC_PLL_CR10</cell>
  <cell>0x21</cell>
- <cell>0x07</cell>
+ <cell>0x08</cell>
  <cell>PLL loop filter range configuration register</cell>
 </row>
 <row>

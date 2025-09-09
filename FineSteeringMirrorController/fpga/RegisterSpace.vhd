@@ -303,10 +303,14 @@ begin
 			LastReadReq <= '0';			
 			LastWriteReq <= '0';		
 
-			Uart0ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 16.0)) - 1.0), 8));
-			Uart1ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));
-			Uart2ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
-			Uart3ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
+			--~ Uart0ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 16.0)) - 1.0), 8));
+			--~ Uart1ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));
+			--~ Uart2ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
+			--~ Uart3ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
+			Uart0ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(115200) * 16.0)) - 1.0), 8));
+			Uart1ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(115200) * 16.0)) - 1.0), 8));
+			Uart2ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(115200) * 16.0)) - 1.0), 8));
+			Uart3ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(115200) * 16.0)) - 1.0), 8));
 			
 			MonitorAdcChannelReadIndex_i <= "00000";	
 			
@@ -315,6 +319,12 @@ begin
 			DacBSetpoint_i <= x"000000";		
 			DacCSetpoint_i <= x"000000";	
 			DacDSetpoint_i <= x"000000";	
+			
+			Uart0OE_i <= '1';
+			Uart1OE_i <= '1';
+			Uart2OE_i <= '1';
+			Uart3OE_i <= '1';								
+			
 					
 		else
 			

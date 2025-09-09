@@ -3,7 +3,7 @@
 <doc>
 <title>Configuration Report for MSS, SERDES(s), Fabric DDR and Fabric CCC(s)</title>
 <text>Microchip Technology Inc. - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)</text>
-<text>Date: Tue Feb 18 19:16:02 2025
+<text>Date: Mon Sep  8 17:22:26 2025
 </text>
 <section><name>FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP</name></section>
 <table>
@@ -17,13 +17,13 @@
  <cell>FCCC_RFDIV_CR</cell>
  <cell>RFDIV[7:0]</cell>
  <cell>INIT[7:0]</cell>
- <cell>8&apos;h1</cell>
+ <cell>8&apos;h0</cell>
 </row>
 <row>
  <cell>FCCC_FBDIV_CR0</cell>
  <cell>FBDIV[7:0]</cell>
  <cell>INIT[15:8]</cell>
- <cell>8&apos;h3</cell>
+ <cell>8&apos;h2</cell>
 </row>
 <row>
  <cell>FCCC_FBDIV_CR1</cell>
@@ -257,7 +257,7 @@
  <cell>FCCC_PLL_CR10</cell>
  <cell>RANGE</cell>
  <cell>INIT[178:175]</cell>
- <cell>4&apos;h7</cell>
+ <cell>4&apos;h8</cell>
 </row>
 <row>
  <cell>FCCC_GPMUX0_CR</cell>

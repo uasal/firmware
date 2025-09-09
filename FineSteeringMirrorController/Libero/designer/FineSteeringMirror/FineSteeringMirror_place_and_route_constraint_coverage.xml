@@ -3,7 +3,7 @@
 <doc>
 <text>SmartTime Version 2023.2.0.10</text>
 <text>Microsemi Corporation - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)
-Date: Tue Feb 18 19:15:07 2025 </text>
+Date: Mon Sep  8 17:21:20 2025 </text>
 <table>
 <header>
 </header>
@@ -51,14 +51,14 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Setup</cell>
  <cell>            0</cell>
- <cell>         3763</cell>
- <cell>         3763</cell>
+ <cell>         3755</cell>
+ <cell>         3755</cell>
 </row>
 <row>
  <cell>Recovery</cell>
  <cell>            0</cell>
- <cell>         1167</cell>
- <cell>         1167</cell>
+ <cell>         1259</cell>
+ <cell>         1259</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
@@ -69,21 +69,21 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>         4988</cell>
- <cell>         4988</cell>
+ <cell>         5072</cell>
+ <cell>         5072</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
  <cell>            0</cell>
- <cell>         3763</cell>
- <cell>         3763</cell>
+ <cell>         3755</cell>
+ <cell>         3755</cell>
 </row>
 <row>
  <cell>Removal</cell>
  <cell>            0</cell>
- <cell>         1167</cell>
- <cell>         1167</cell>
+ <cell>         1259</cell>
+ <cell>         1259</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
@@ -94,8 +94,8 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>         4988</cell>
- <cell>         4988</cell>
+ <cell>         5072</cell>
+ <cell>         5072</cell>
 </row>
 </table>
 <section>
@@ -174,14 +174,14 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Setup</cell>
  <cell>            0</cell>
- <cell>         3498</cell>
- <cell>         3498</cell>
+ <cell>         3490</cell>
+ <cell>         3490</cell>
 </row>
 <row>
  <cell>Recovery</cell>
  <cell>            0</cell>
- <cell>         1087</cell>
- <cell>         1087</cell>
+ <cell>         1115</cell>
+ <cell>         1115</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
@@ -192,21 +192,21 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>         4624</cell>
- <cell>         4624</cell>
+ <cell>         4644</cell>
+ <cell>         4644</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
  <cell>            0</cell>
- <cell>         3498</cell>
- <cell>         3498</cell>
+ <cell>         3490</cell>
+ <cell>         3490</cell>
 </row>
 <row>
  <cell>Removal</cell>
  <cell>            0</cell>
- <cell>         1087</cell>
- <cell>         1087</cell>
+ <cell>         1115</cell>
+ <cell>         1115</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
@@ -217,8 +217,8 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>         4624</cell>
- <cell>         4624</cell>
+ <cell>         4644</cell>
+ <cell>         4644</cell>
 </row>
 </table>
 <section>
@@ -495,6 +495,22 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <text> - Recovery unconstrained for the following pins:</text>
 <text>   </text>
 <list>
+ <item>Main_0/ClkDac_i/DacReadback[0]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[10]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[11]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[12]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[13]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[14]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[15]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[1]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[2]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[3]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[4]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[5]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[6]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[7]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[8]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[9]:ALn</item>
  <item>Main_0/ClkDac_i/LastSpiXferComplete:ALn</item>
  <item>Main_0/ClkDac_i/LastWriteDac:ALn</item>
  <item>Main_0/ClkDac_i/Spi/ClkDiv[0]:ALn</item>
@@ -579,22 +595,6 @@ Date: Tue Feb 18 19:15:07 2025 </text>
  <item>Main_0/FSMDacs_i/DacWriteOutB_i[12]:ALn</item>
  <item>Main_0/FSMDacs_i/DacWriteOutB_i[13]:ALn</item>
  <item>Main_0/FSMDacs_i/DacWriteOutB_i[14]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[15]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[16]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[17]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[18]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[19]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[1]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[20]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[21]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[22]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[23]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[2]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[3]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[4]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[5]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[6]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[7]:ALn</item>
 </list>
 <text></text>
 <text> - Hold unconstrained for the following pins:</text>
@@ -705,6 +705,22 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <text> - Removal unconstrained for the following pins:</text>
 <text>   </text>
 <list>
+ <item>Main_0/ClkDac_i/DacReadback[0]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[10]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[11]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[12]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[13]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[14]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[15]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[1]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[2]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[3]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[4]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[5]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[6]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[7]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[8]:ALn</item>
+ <item>Main_0/ClkDac_i/DacReadback[9]:ALn</item>
  <item>Main_0/ClkDac_i/LastSpiXferComplete:ALn</item>
  <item>Main_0/ClkDac_i/LastWriteDac:ALn</item>
  <item>Main_0/ClkDac_i/Spi/ClkDiv[0]:ALn</item>
@@ -789,22 +805,6 @@ Date: Tue Feb 18 19:15:07 2025 </text>
  <item>Main_0/FSMDacs_i/DacWriteOutB_i[12]:ALn</item>
  <item>Main_0/FSMDacs_i/DacWriteOutB_i[13]:ALn</item>
  <item>Main_0/FSMDacs_i/DacWriteOutB_i[14]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[15]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[16]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[17]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[18]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[19]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[1]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[20]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[21]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[22]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[23]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[2]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[3]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[4]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[5]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[6]:ALn</item>
- <item>Main_0/FSMDacs_i/DacWriteOutB_i[7]:ALn</item>
 </list>
 <text></text>
 </section>
@@ -998,8 +998,8 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Recovery</cell>
  <cell>            0</cell>
- <cell>           13</cell>
- <cell>           13</cell>
+ <cell>           29</cell>
+ <cell>           29</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
@@ -1010,8 +1010,8 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>           61</cell>
- <cell>           61</cell>
+ <cell>           77</cell>
+ <cell>           77</cell>
 </row>
 <separator/>
 <row>
@@ -1023,8 +1023,8 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Removal</cell>
  <cell>            0</cell>
- <cell>           13</cell>
- <cell>           13</cell>
+ <cell>           29</cell>
+ <cell>           29</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
@@ -1035,8 +1035,8 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>           61</cell>
- <cell>           61</cell>
+ <cell>           77</cell>
+ <cell>           77</cell>
 </row>
 </table>
 <section>
@@ -1101,6 +1101,22 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <text> - Recovery unconstrained for the following pins:</text>
 <text>   </text>
 <list>
+ <item>Main_0/RS422_Rx0/Uart/Uart/DataO[0]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/DataO[1]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/DataO[2]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/DataO[3]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/DataO[4]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/DataO[5]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/DataO[6]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/DataO[7]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/RReg[0]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/RReg[1]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/RReg[2]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/RReg[3]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/RReg[4]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/RReg[5]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/RReg[6]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/RReg[7]:ALn</item>
  <item>Main_0/RS422_Rx0/Uart/Uart/RxAv:ALn</item>
  <item>Main_0/RS422_Rx0/Uart/Uart/bitpos[0]:ALn</item>
  <item>Main_0/RS422_Rx0/Uart/Uart/bitpos[1]:ALn</item>
@@ -1172,6 +1188,22 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <text> - Removal unconstrained for the following pins:</text>
 <text>   </text>
 <list>
+ <item>Main_0/RS422_Rx0/Uart/Uart/DataO[0]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/DataO[1]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/DataO[2]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/DataO[3]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/DataO[4]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/DataO[5]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/DataO[6]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/DataO[7]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/RReg[0]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/RReg[1]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/RReg[2]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/RReg[3]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/RReg[4]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/RReg[5]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/RReg[6]:ALn</item>
+ <item>Main_0/RS422_Rx0/Uart/Uart/RReg[7]:ALn</item>
  <item>Main_0/RS422_Rx0/Uart/Uart/RxAv:ALn</item>
  <item>Main_0/RS422_Rx0/Uart/Uart/bitpos[0]:ALn</item>
  <item>Main_0/RS422_Rx0/Uart/Uart/bitpos[1]:ALn</item>
@@ -1344,8 +1376,8 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Recovery</cell>
  <cell>            0</cell>
- <cell>           13</cell>
- <cell>           13</cell>
+ <cell>           29</cell>
+ <cell>           29</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
@@ -1356,8 +1388,8 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>           61</cell>
- <cell>           61</cell>
+ <cell>           77</cell>
+ <cell>           77</cell>
 </row>
 <separator/>
 <row>
@@ -1369,8 +1401,8 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Removal</cell>
  <cell>            0</cell>
- <cell>           13</cell>
- <cell>           13</cell>
+ <cell>           29</cell>
+ <cell>           29</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
@@ -1381,8 +1413,8 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>           61</cell>
- <cell>           61</cell>
+ <cell>           77</cell>
+ <cell>           77</cell>
 </row>
 </table>
 <section>
@@ -1447,6 +1479,22 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <text> - Recovery unconstrained for the following pins:</text>
 <text>   </text>
 <list>
+ <item>Main_0/RS422_Rx1/Uart/Uart/DataO[0]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/DataO[1]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/DataO[2]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/DataO[3]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/DataO[4]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/DataO[5]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/DataO[6]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/DataO[7]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/RReg[0]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/RReg[1]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/RReg[2]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/RReg[3]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/RReg[4]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/RReg[5]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/RReg[6]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/RReg[7]:ALn</item>
  <item>Main_0/RS422_Rx1/Uart/Uart/RxAv:ALn</item>
  <item>Main_0/RS422_Rx1/Uart/Uart/bitpos[0]:ALn</item>
  <item>Main_0/RS422_Rx1/Uart/Uart/bitpos[1]:ALn</item>
@@ -1518,6 +1566,22 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <text> - Removal unconstrained for the following pins:</text>
 <text>   </text>
 <list>
+ <item>Main_0/RS422_Rx1/Uart/Uart/DataO[0]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/DataO[1]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/DataO[2]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/DataO[3]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/DataO[4]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/DataO[5]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/DataO[6]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/DataO[7]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/RReg[0]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/RReg[1]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/RReg[2]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/RReg[3]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/RReg[4]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/RReg[5]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/RReg[6]:ALn</item>
+ <item>Main_0/RS422_Rx1/Uart/Uart/RReg[7]:ALn</item>
  <item>Main_0/RS422_Rx1/Uart/Uart/RxAv:ALn</item>
  <item>Main_0/RS422_Rx1/Uart/Uart/bitpos[0]:ALn</item>
  <item>Main_0/RS422_Rx1/Uart/Uart/bitpos[1]:ALn</item>
@@ -1690,8 +1754,8 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Recovery</cell>
  <cell>            0</cell>
- <cell>           13</cell>
- <cell>           13</cell>
+ <cell>           29</cell>
+ <cell>           29</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
@@ -1702,8 +1766,8 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>           61</cell>
- <cell>           61</cell>
+ <cell>           77</cell>
+ <cell>           77</cell>
 </row>
 <separator/>
 <row>
@@ -1715,8 +1779,8 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Removal</cell>
  <cell>            0</cell>
- <cell>           13</cell>
- <cell>           13</cell>
+ <cell>           29</cell>
+ <cell>           29</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
@@ -1727,8 +1791,8 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>           61</cell>
- <cell>           61</cell>
+ <cell>           77</cell>
+ <cell>           77</cell>
 </row>
 </table>
 <section>
@@ -1793,6 +1857,22 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <text> - Recovery unconstrained for the following pins:</text>
 <text>   </text>
 <list>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[0]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[1]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[2]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[3]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[4]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[5]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[6]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[7]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[0]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[1]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[2]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[3]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[4]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[5]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[6]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[7]:ALn</item>
  <item>Main_0/RS422_Rx2/Uart/Uart/RxAv:ALn</item>
  <item>Main_0/RS422_Rx2/Uart/Uart/bitpos[0]:ALn</item>
  <item>Main_0/RS422_Rx2/Uart/Uart/bitpos[1]:ALn</item>
@@ -1864,6 +1944,22 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <text> - Removal unconstrained for the following pins:</text>
 <text>   </text>
 <list>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[0]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[1]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[2]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[3]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[4]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[5]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[6]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/DataO[7]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[0]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[1]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[2]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[3]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[4]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[5]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[6]:ALn</item>
+ <item>Main_0/RS422_Rx2/Uart/Uart/RReg[7]:ALn</item>
  <item>Main_0/RS422_Rx2/Uart/Uart/RxAv:ALn</item>
  <item>Main_0/RS422_Rx2/Uart/Uart/bitpos[0]:ALn</item>
  <item>Main_0/RS422_Rx2/Uart/Uart/bitpos[1]:ALn</item>
@@ -2036,8 +2132,8 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Recovery</cell>
  <cell>            0</cell>
- <cell>           13</cell>
- <cell>           13</cell>
+ <cell>           29</cell>
+ <cell>           29</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
@@ -2048,8 +2144,8 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>           61</cell>
- <cell>           61</cell>
+ <cell>           77</cell>
+ <cell>           77</cell>
 </row>
 <separator/>
 <row>
@@ -2061,8 +2157,8 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Removal</cell>
  <cell>            0</cell>
- <cell>           13</cell>
- <cell>           13</cell>
+ <cell>           29</cell>
+ <cell>           29</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
@@ -2073,8 +2169,8 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>           61</cell>
- <cell>           61</cell>
+ <cell>           77</cell>
+ <cell>           77</cell>
 </row>
 </table>
 <section>
@@ -2139,6 +2235,22 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <text> - Recovery unconstrained for the following pins:</text>
 <text>   </text>
 <list>
+ <item>Main_0/RS433_Rx3/Uart/Uart/DataO[0]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/DataO[1]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/DataO[2]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/DataO[3]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/DataO[4]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/DataO[5]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/DataO[6]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/DataO[7]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/RReg[0]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/RReg[1]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/RReg[2]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/RReg[3]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/RReg[4]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/RReg[5]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/RReg[6]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/RReg[7]:ALn</item>
  <item>Main_0/RS433_Rx3/Uart/Uart/RxAv:ALn</item>
  <item>Main_0/RS433_Rx3/Uart/Uart/bitpos[0]:ALn</item>
  <item>Main_0/RS433_Rx3/Uart/Uart/bitpos[1]:ALn</item>
@@ -2210,6 +2322,22 @@ Date: Tue Feb 18 19:15:07 2025 </text>
 <text> - Removal unconstrained for the following pins:</text>
 <text>   </text>
 <list>
+ <item>Main_0/RS433_Rx3/Uart/Uart/DataO[0]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/DataO[1]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/DataO[2]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/DataO[3]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/DataO[4]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/DataO[5]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/DataO[6]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/DataO[7]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/RReg[0]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/RReg[1]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/RReg[2]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/RReg[3]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/RReg[4]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/RReg[5]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/RReg[6]:ALn</item>
+ <item>Main_0/RS433_Rx3/Uart/Uart/RReg[7]:ALn</item>
  <item>Main_0/RS433_Rx3/Uart/Uart/RxAv:ALn</item>
  <item>Main_0/RS433_Rx3/Uart/Uart/bitpos[0]:ALn</item>
  <item>Main_0/RS433_Rx3/Uart/Uart/bitpos[1]:ALn</item>

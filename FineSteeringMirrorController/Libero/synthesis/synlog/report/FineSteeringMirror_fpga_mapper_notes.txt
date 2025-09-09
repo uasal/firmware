@@ -50,24 +50,24 @@
 @N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_6(rtl) instance fifo_i.counter_r[10:0]  
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_6(rtl) instance fifo_i.waddr_r[9:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_6(rtl) instance fifo_i.raddr_r[9:0] 
-@N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_214 
-@N: FP130 |Promoting Net Main_0.SpiRst_arst on CLKINT  I_215 
-@N: FP130 |Promoting Net Main_0.ltc2378.shot_i_arst_0 on CLKINT  I_216 
-@N: FP130 |Promoting Net Main_0.Uart1FifoReset_i_arst on CLKINT  I_217 
-@N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_arst on CLKINT  I_218 
-@N: FP130 |Promoting Net Main_0.Uart3FifoReset_i_arst on CLKINT  I_219 
-@N: FP130 |Promoting Net Main_0.Uart2FifoReset_i_arst on CLKINT  I_220 
-@N: FP130 |Promoting Net Main_0.ClkDac_i.SpiRst_arst on CLKINT  I_221 
-@N: FP130 |Promoting Net Main_0.ads1258.SpiRst_arst on CLKINT  I_222 
-@N: FP130 |Promoting Net Main_0.PPSCountReset_arst on CLKINT  I_223 
-@N: FP130 |Promoting Net Main_0.UartClk2 on CLKINT  I_224 
-@N: FP130 |Promoting Net Main_0.UartClk3 on CLKINT  I_225 
-@N: FP130 |Promoting Net Main_0.UartClk0 on CLKINT  I_226 
-@N: FP130 |Promoting Net Main_0.UartClk1 on CLKINT  I_227 
-@N: FP130 |Promoting Net Main_0.UartTxClk2 on CLKINT  I_228 
-@N: FP130 |Promoting Net Main_0.UartTxClk3 on CLKINT  I_229 
-@N: FP130 |Promoting Net Main_0.UartTxClk0 on CLKINT  I_230 
-@N: FP130 |Promoting Net Main_0.UartTxClk1 on CLKINT  I_231 
+@N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_180 
+@N: FP130 |Promoting Net Main_0.SpiRst_arst on CLKINT  I_181 
+@N: FP130 |Promoting Net Main_0.Uart3FifoReset_i_arst on CLKINT  I_182 
+@N: FP130 |Promoting Net Main_0.Uart1FifoReset_i_arst on CLKINT  I_183 
+@N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_arst on CLKINT  I_184 
+@N: FP130 |Promoting Net Main_0.Uart2FifoReset_i_arst on CLKINT  I_185 
+@N: FP130 |Promoting Net Main_0.ltc2378.shot_i_arst_0 on CLKINT  I_186 
+@N: FP130 |Promoting Net Main_0.ClkDac_i.SpiRst_arst on CLKINT  I_187 
+@N: FP130 |Promoting Net Main_0.ads1258.SpiRst_arst on CLKINT  I_188 
+@N: FP130 |Promoting Net Main_0.PPSCountReset_arst on CLKINT  I_189 
+@N: FP130 |Promoting Net Main_0.UartClk2 on CLKINT  I_190 
+@N: FP130 |Promoting Net Main_0.UartClk3 on CLKINT  I_191 
+@N: FP130 |Promoting Net Main_0.UartClk0 on CLKINT  I_192 
+@N: FP130 |Promoting Net Main_0.UartClk1 on CLKINT  I_193 
+@N: FP130 |Promoting Net Main_0.UartTxClk2 on CLKINT  I_194 
+@N: FP130 |Promoting Net Main_0.UartTxClk3 on CLKINT  I_195 
+@N: FP130 |Promoting Net Main_0.UartTxClk0 on CLKINT  I_196 
+@N: FP130 |Promoting Net Main_0.UartTxClk1 on CLKINT  I_197 
 @N: MT611 :|Automatically generated clock FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock is not used and is being removed
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
 @N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 

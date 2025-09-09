@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Thu Jul 18 09:27:50 2024
+// Created by SmartDesign Mon Sep  8 17:19:57 2025
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -94,7 +94,7 @@ create_and_configure_core -core_vlnv {Actel:SgCore:FCCC:2.0.201} -component_name
 "GPD3_SYNC_STYLE:G3STYLE_AND_NO_LOCK_RSTSYNC"  \
 "GPD_EXPOSE_RESETS:false"  \
 "GPD_SYNC_STYLE:G3STYLE_AND_LOCK_RSTSYNC"  \
-"INIT:0000007FB8000044D74000318C6307C1F18C61C00404040400301"  \
+"INIT:0000007FC0000044D74000318C6307C1F18C61C00404040400200"  \
 "IO_HARDWIRED_0_IS_DIFF:false"  \
 "IO_HARDWIRED_1_IS_DIFF:false"  \
 "IO_HARDWIRED_2_IS_DIFF:false"  \
@@ -114,7 +114,7 @@ create_and_configure_core -core_vlnv {Actel:SgCore:FCCC:2.0.201} -component_name
 "PLL_EXPOSE_RESETS:false"  \
 "PLL_EXT_FB_GL:EXT_FB_GL0"  \
 "PLL_FB_SRC:CCC_INTERNAL"  \
-"PLL_IN_FREQ:51"  \
+"PLL_IN_FREQ:34"  \
 "PLL_IN_SRC:IO_HARDWIRED_0"  \
 "PLL_IS_USED:true"  \
 "PLL_LOCK_IND:1024"  \

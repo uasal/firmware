@@ -1,13 +1,13 @@
 Configuration Report for MSS, SERDES(s), Fabric DDR and Fabric CCC(s)
 Microchip Technology Inc. - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)
-Date: Tue Feb 18 19:16:02 2025
+Date: Mon Sep  8 17:22:26 2025
 
 FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP
 +-------------------+--------------------+---------------+-------+
 | Register          | Field              | INIT          | Value |
 +-------------------+--------------------+---------------+-------+
-| FCCC_RFDIV_CR     | RFDIV[7:0]         | INIT[7:0]     | 8'h1  |
-| FCCC_FBDIV_CR0    | FBDIV[7:0]         | INIT[15:8]    | 8'h3  |
+| FCCC_RFDIV_CR     | RFDIV[7:0]         | INIT[7:0]     | 8'h0  |
+| FCCC_FBDIV_CR0    | FBDIV[7:0]         | INIT[15:8]    | 8'h2  |
 | FCCC_FBDIV_CR1    | FBDIV[13:8]        | INIT[21:16]   | 6'h0  |
 | FCCC_GPD0_CR      | GPDIV[7:0]         | INIT[29:22]   | 8'h1  |
 | FCCC_GPD1_CR      | GPDIV[7:0]         | INIT[37:30]   | 8'h1  |
@@ -46,7 +46,7 @@ FCCC_C0_0/FCCC_C0_0/CCC_INST/INST_CCC_IP
 | FCCC_PLL_CR2      | SSMF[4:0]          | INIT[160:156] | 5'h0  |
 | FCCC_PLL_CR8      | DIVR[5:0]          | INIT[166:161] | 6'h0  |
 | FCCC_PLL_CR9      | DIVF[5:0]          | INIT[174:167] | 8'h0  |
-| FCCC_PLL_CR10     | RANGE              | INIT[178:175] | 4'h7  |
+| FCCC_PLL_CR10     | RANGE              | INIT[178:175] | 4'h8  |
 | FCCC_GPMUX0_CR    | NOPIPE_SYNCRST0    | INIT[179:179] | 1'h1  |
 | FCCC_GPMUX1_CR    | NOPIPE_SYNCRST1    | INIT[180:180] | 1'h1  |
 | FCCC_GPMUX2_CR    | NOPIPE_SYNCRST2    | INIT[181:181] | 1'h1  |

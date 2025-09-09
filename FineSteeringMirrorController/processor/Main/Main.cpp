@@ -231,6 +231,11 @@ int main(int argc, char *argv[])
     while(true)
     {
 		Process();
+		
+		FPGAUartPinout0.putcqq('.');
+		FPGAUartPinout0.putcqq('*');
+		FPGAUartPinout0.putcqq('#');
+		FPGAUartPinout0.putcqq('$');
     }
 
     return(0);
