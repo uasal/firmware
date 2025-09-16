@@ -24,7 +24,7 @@
 extern void ProcessAllUarts();
 
 #include "cgraph/CGraphFSMHardwareInterface.hpp"
-extern CGraphFSMHardwareInterface* FSM;	
+extern CGraphFSMHardwareInterface* volatile FSM;	
 
 //Note: if any offsets are not 4-byte aligned, the M3 processor WILL crash:
 const size_t MonitorAdcFpgaAdcSampleAddr = 104;

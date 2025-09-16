@@ -210,7 +210,6 @@ CFLAGS += -Wpointer-arith -Wswitch -Wno-psabi
 CFLAGS += -Wredundant-decls -Wreturn-type -Wshadow -Wunused
 CFLAGS += -Wa,-adhlns=$(subst $(suffix $<),.lst,$<)
 CFLAGS += $(patsubst %,-I%,$(EXTRAINCDIRS))
-CFLAGS += -munaligned-access
 
 # flags only for C
 CONLYFLAGS +=  -Wimplicit -Wnested-externs
@@ -223,11 +222,12 @@ CFLAGS += -Wcast-qual
 #$(HOME) CONLYFLAGS += -Wstrict-prototypes
 #$(HOME) CONLYFLAGS += -Wmissing-declarations
 endif
+CFLAGS += -fno-use-cxa-atexit 
+CFLAGS += -mno-unaligned-access
 
 # flags only for C++ (arm-elf-g++)
 CPPFLAGS += -fno-rtti -fno-exceptions $(CPPSTANDARD)
 #__dso_handle symbol, __cxa_atexit and __cxa_finalize:
-CFLAGS += -fno-use-cxa-atexit 
 
 # Assembler flags.
 #  -Wa,...:   tell GCC to pass this to the assembler.
@@ -257,9 +257,10 @@ MATH_LIB = -lm
 #    -Map:      create map file
 #    --cref:    add cross reference to  map file
 #LDFLAGS = -nostartfiles
-LDFLAGS += -Wl,-Map=$(TARGET).map,--cref,--gc-sections
+LDFLAGS += -Wl,-Map=$(TARGET).map,--cref
+#~ LDFLAGS += -Wl,--gc-sections
 #Nano.specs makes a lot smaller binary - does it break anything??
-LDFLAGS += --specs=nano.specs
+#~ LDFLAGS += --specs=nano.specs
 LDFLAGS += -lc
 LDFLAGS += $(NEWLIBLPC) $(MATH_LIB)
 LDFLAGS += -lc -lgcc

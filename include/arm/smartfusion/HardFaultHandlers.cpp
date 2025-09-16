@@ -29,8 +29,8 @@ extern "C" {
 	} while (0)
   	
 	void hard_fault_handler_c(ContextStateFrame* CSFrm)
-	{
-		formatf ("\n\n\n!HardFault!\n");
+	{		
+		//~ formatf ("\n\n\n!HardFault!\n");
 
 		// If and only if a debugger is attached, execute a breakpoint
 		// instruction so we can take a look at what triggered the fault
@@ -58,13 +58,13 @@ extern "C" {
 		//~ formatf ("\n");
 		//~ MMFSR->formatf();
 		//~ formatf ("\n");
-		CFSR->formatf();
-		formatf ("\n");
-		HFSR->formatf();
-		formatf ("\n");
 		BFAR->formatf();
 		formatf ("\n");
 		MMFAR->formatf();
+		formatf ("\n");
+		HFSR->formatf();
+		formatf ("\n");
+		CFSR->formatf();
 		formatf ("\n");
 		
 		//We're gonna wanna figure out how to send this out all uarts...should be a binary crash packet of some sort on the binary uarts...
@@ -74,9 +74,9 @@ extern "C" {
 			//~ if (NULL != BinaryUartParsers[i]) { BinaryUartParsers[i]->TxBinaryPacket(CGraphPayloadTypeHardFault, 0, &Fault, sizeof(CGraphHardFaultPayload)); }
 		//~ }
 
-		//~ while (1); //we really don't wanna lock up in flight!
-		//~ while(1) { ProcessAllUarts(); }
-		for (size_t i = 0; i < 4096; i++) { ProcessAllUarts(); }		
+		//~ //while (1); //we really don't wanna lock up in flight!
+		//~ //while(1) { ProcessAllUarts(); }
+		//~ for (size_t i = 0; i < 4096; i++) { ProcessAllUarts(); }		
 		
 		// Flight: just attempt to reboot and recover...
 		// see: https://developer.arm.com/documentation/dui0552/a/Cihehdge for the proper way to reboot

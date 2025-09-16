@@ -47,7 +47,7 @@ using namespace std;
 #include "cgraph/CGraphPacket.hpp"
 
 #include "cgraph/CGraphFSMHardwareInterface.hpp"
-extern CGraphFSMHardwareInterface* FSM;	
+extern CGraphFSMHardwareInterface* volatile FSM;	
 
 #include "../MonitorAdc.hpp"
 extern CGraphFSMMonitorAdc MonitorAdc;
@@ -60,9 +60,9 @@ extern uart_pinout_fpga FPGAUartPinout2;
 extern uart_pinout_fpga FPGAUartPinout3;
 extern uart_pinout_fpga FPGAUartPinoutUsb;
 
-extern BinaryUart FpgaUartParser3;
-extern BinaryUart FpgaUartParser2;
-extern BinaryUart FpgaUartParser1;
+//~ extern BinaryUart FpgaUartParser3;
+//~ extern BinaryUart FpgaUartParser2;
+//~ extern BinaryUart FpgaUartParser1;
 //~ extern BinaryUart FpgaUartParser0; //using this one for ascii rn...
 
 char Buffer[4096];
@@ -71,11 +71,11 @@ int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsL
 {
 	if (NULL != FSM)
 	{
-		printf("\n\nVersion: Serial Number: %.8lX, Global Revision: %s; build number: %u on: %s; fpga build: %lu.\n", FSM->DeviceSerialNumber, GITVERSION, BuildNum, BuildTimeStr, FSM->FpgaFirmwareBuildNumber);
+		formatf("\n\nVersion: Serial Number: %.8lX, Global Revision: %s; build number: %u on: %s; fpga build: %lu.\n", FSM->DeviceSerialNumber, GITVERSION, BuildNum, BuildTimeStr, FSM->FpgaFirmwareBuildNumber);
 	}
 	else
 	{
-		printf("\n\nVersion: Global Revision: %s; build number: %u on: %s.\n", GITVERSION, BuildNum, BuildTimeStr);
+		formatf("\n\nVersion: Global Revision: %s; build number: %u on: %s.\n", GITVERSION, BuildNum, BuildTimeStr);
 	}
 	
     return(strlen(Params));
@@ -90,25 +90,25 @@ int8_t ReadFpgaCommand(char const* Name, char const* Params, const size_t Params
 	int8_t numfound = sscanf(Params, "%zX", &addr);
     if (numfound < 1)
     {
-		printf("\nReadFpgaCommand: ");
+		formatf("\nReadFpgaCommand: ");
 		//~ for (addr = 0; addr <= 64; addr++)
 		for (addr = 0; addr <= 128; addr++)
 		{
 			FpgaRdBuf = *(((uint8_t*)FSM)+addr);
-			printf("\n0x%.2zX: 0x%.2X ", addr, FpgaRdBuf);
-			printf("[%u]", FpgaRdBuf);
-			//~ printf(" ('%c')", FpgaRdBuf);
+			formatf("\n0x%.2zX: 0x%.2X ", addr, FpgaRdBuf);
+			formatf("[%u]", FpgaRdBuf);
+			//~ formatf(" ('%c')", FpgaRdBuf);
 		}	
-		printf("\n\n");
+		formatf("\n\n");
     }
 	else
 	{
 		FpgaRdBuf = *(((uint8_t*)FSM)+addr);
-		printf("\nReadFpgaCommand: ");
-		//~ printf("\n%zu: 0x%.2X ", addr, FpgaRdBuf);
-		printf("\n0x%.2zX: 0x%.2X ", addr, FpgaRdBuf);
-		printf("[%u]", FpgaRdBuf);
-		printf(" ('%c')\n\n", FpgaRdBuf);
+		formatf("\nReadFpgaCommand: ");
+		//~ formatf("\n%zu: 0x%.2X ", addr, FpgaRdBuf);
+		formatf("\n0x%.2zX: 0x%.2X ", addr, FpgaRdBuf);
+		formatf("[%u]", FpgaRdBuf);
+		formatf(" ('%c')\n\n", FpgaRdBuf);
 	}
 	
 	return(ParamsLen);
@@ -122,15 +122,15 @@ int8_t WriteFpgaCommand(char const* Name, char const* Params, const size_t Param
     int8_t numfound = sscanf(Params, "%zX %lu", &addr, &val);
     if (numfound < 2)
     {
-		printf("\nWriteFpgaCommand: need 2 numeric parameters (address and value), got \"%s\" (%d params).\n", Params, numfound);
+		formatf("\nWriteFpgaCommand: need 2 numeric parameters (address and value), got \"%s\" (%d params).\n", Params, numfound);
         return(-1);
     }
 
 	//Write data to fpga:
 	*(((uint8_t*)FSM)+addr) = (uint8_t)val;
 
-	printf("\nWriteFpgaCommand: Wrote %lu to ", val);
-	printf("0x%.4zX.\n", addr);
+	formatf("\nWriteFpgaCommand: Wrote %lu to ", val);
+	formatf("0x%.4zX.\n", addr);
 	
 	return(ParamsLen);
 }
@@ -138,21 +138,22 @@ int8_t WriteFpgaCommand(char const* Name, char const* Params, const size_t Param
 
 int8_t FSMDacsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-    unsigned long A = 0, B = 0, C = 0;	
+    unsigned long A = 0, B = 0, C = 0, D = 0;	
 	if (NULL == FSM)
 	{
-		printf("\n\nFSMDacs: Fpga interface is not initialized! Please call InitFpga first!.");
+		formatf("\n\nFSMDacs: Fpga interface is not initialized! Please call InitFpga first!.");
 		return(ParamsLen);
 	}
 	
 	//Convert parameters
-    int8_t numfound = sscanf(Params, "%lx,%lx,%lx", &A, &B, &C);
-    if (numfound >= 3)
+    int8_t numfound = sscanf(Params, "%lx,%lx,%lx,%lx", &A, &B, &C, &D);
+    if (numfound >= 4)
     {
 		FSM->DacASetpoint = A;
 		FSM->DacBSetpoint = B;
 		FSM->DacCSetpoint = C;
-		printf("\n\nFSMDacs: set to: %lx, %lx, %lx.\n", A, B, C);
+		FSM->DacDSetpoint = D;
+		formatf("\n\nFSMDacs: set to: %lx, %lx, %lx, %lx.\n", A, B, C, D);
 		return(ParamsLen);
     }
 	if (numfound >= 1)
@@ -162,14 +163,16 @@ int8_t FSMDacsCommand(char const* Name, char const* Params, const size_t ParamsL
 		//~ FSM->DacBSetpoint = 0x006FFFFFUL; //Sometimes this is 100V
 		//~ FSM->DacBSetpoint = 0x00CFFFFFUL; //Aaaaaand, sometimes this is 100V
 		FSM->DacCSetpoint = A;
-		printf("\n\nFSMDacs: set to: %lx, %lx, %lx.\n", A, A, A);
+		FSM->DacDSetpoint = A;
+		formatf("\n\nFSMDacs: set to: %lx, %lx, %lx, %lx.\n", A, A, A, A);
 		return(ParamsLen);
     }
 
 	A = FSM->DacASetpoint;
 	B = FSM->DacBSetpoint;
 	C = FSM->DacCSetpoint;
-	printf("\n\nFSMDacs: current value: %lx, %lx, %lx.\n", A, B, C);
+	D = FSM->DacDSetpoint;
+	formatf("\n\nFSMDacs: current value: %lx, %lx, %lx, %lx.\n", A, B, C, D);
 	
 	//Show current A/D values:
 	{
@@ -184,39 +187,41 @@ int8_t FSMDacsCommand(char const* Name, char const* Params, const size_t ParamsL
 		Cv = (8.192 * ((Ca.Samples - 0) / Ca.NumAccums)) / 16777216.0;
 		
 			
-		//~ printf("\n\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 16777216.0, (4.096 * (B.Samples / B.NumAccums)) / 16777216.0, (4.096 * (C.Samples / C.NumAccums)) / 16777216.0);
-		printf("\nFSMDacs: Sensor A/D's: 0x%016llx, 0x%016llx, 0x%016llx; %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", Aa.all, Ba.all, Ca.all, Aa.Samples, Aa.NumAccums, Ba.Samples, Ba.NumAccums, Ca.Samples, Ca.NumAccums, Av, Bv, Cv);
+		//~ formatf("\n\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 16777216.0, (4.096 * (B.Samples / B.NumAccums)) / 16777216.0, (4.096 * (C.Samples / C.NumAccums)) / 16777216.0);
+		formatf("\nFSMDacs: Sensor A/D's: 0x%016llx, 0x%016llx, 0x%016llx; %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", Aa.all, Ba.all, Ca.all, Aa.Samples, Aa.NumAccums, Ba.Samples, Ba.NumAccums, Ca.Samples, Ca.NumAccums, Av, Bv, Cv);
 	}
 	
-	//~ printf("\n\nFSMdaca: D/A registers at: %u, %u, %u.\n", offsetof(CGraphFSMHardwareInterface, DacASetpoint), offsetof(CGraphFSMHardwareInterface, DacBSetpoint), offsetof(CGraphFSMHardwareInterface, DacCSetpoint));
+	//~ formatf("\n\nFSMdaca: D/A registers at: %u, %u, %u.\n", offsetof(CGraphFSMHardwareInterface, DacASetpoint), offsetof(CGraphFSMHardwareInterface, DacBSetpoint), offsetof(CGraphFSMHardwareInterface, DacCSetpoint));
 	
     return(ParamsLen);
 }
 
 int8_t VoltageCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	double VA = 0.0, VB = 0.0, VC = 0.0;	
-	unsigned long A = 0, B = 0, C = 0;	
+	double VA = 0.0, VB = 0.0, VC = 0.0, VD = 0.0;	
+	unsigned long A = 0, B = 0, C = 0, D = 0;	
 	
 	if (NULL == FSM)
 	{
-		printf("\n\nVoltage: Fpga interface is not initialized! Please call InitFpga first!.");
+		formatf("\n\nVoltage: Fpga interface is not initialized! Please call InitFpga first!.");
 		return(ParamsLen);
 	}
 	
 	//Convert parameters
-    int8_t numfound = sscanf(Params, "%lf,%lf,%lf", &VA, &VB, &VC);
+    int8_t numfound = sscanf(Params, "%lf,%lf,%lf,%lf", &VA, &VB, &VC, &VD);
 	
 	A = (VA * (double)(0x00FFFFFFUL) * 60.0) / 4.096;
 	B = (VB * (double)(0x00FFFFFFUL) * 60.0) / 4.096;
 	C = (VC * (double)(0x00FFFFFFUL) * 60.0) / 4.096;
+	D = (VD * (double)(0x00FFFFFFUL) * 60.0) / 4.096;
 	
-    if (numfound >= 3)
+    if (numfound >= 4)
     {
 		FSM->DacASetpoint = A;
 		FSM->DacBSetpoint = B;
 		FSM->DacCSetpoint = C;
-		printf("\n\nVoltage: set to: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C);
+		FSM->DacDSetpoint = D;
+		formatf("\n\nVoltage: set to: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C, VD, D);
 		return(ParamsLen);
     }
 	if (numfound >= 1)
@@ -226,19 +231,22 @@ int8_t VoltageCommand(char const* Name, char const* Params, const size_t ParamsL
 		//~ FSM->DacBSetpoint = 0x006FFFFFUL; //Sometimes this is 100V
 		//~ FSM->DacBSetpoint = 0x00CFFFFFUL; //Aaaaaand, sometimes this is 100V
 		FSM->DacCSetpoint = A;
-		printf("\n\nVoltage: set to: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C);
+		FSM->DacDSetpoint = A;
+		formatf("\n\nVoltage: set to: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C, VD, D);
 		return(ParamsLen);
     }
 
 	A = FSM->DacASetpoint;
 	B = FSM->DacBSetpoint;
 	C = FSM->DacCSetpoint;
+	D = FSM->DacDSetpoint;
 	
 	VA = 4.096 * (double)(A) / ((double)(0x00FFFFFFUL) * 60.0);
-	VB = 4.096 * (double)(A) / ((double)(0x00FFFFFFUL) * 60.0);
-	VC = 4.096 * (double)(A) / ((double)(0x00FFFFFFUL) * 60.0);
+	VB = 4.096 * (double)(B) / ((double)(0x00FFFFFFUL) * 60.0);
+	VC = 4.096 * (double)(C) / ((double)(0x00FFFFFFUL) * 60.0);
+	VD = 4.096 * (double)(D) / ((double)(0x00FFFFFFUL) * 60.0);
 	
-	printf("\n\nVoltage: current values: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C);
+	formatf("\n\nVoltage: current values: %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx), %3.1lf (%lx).\n", VA, A, VB, B, VC, C, VD, D);
 	
 	return(ParamsLen);	
 }
@@ -250,7 +258,7 @@ int8_t FSMAdcsCommand(char const* Name, char const* Params, const size_t ParamsL
 
 	if (NULL == FSM)
 	{
-		printf("\n\nFSMAdcs: Fpga interface is not initialized! Please call InitFpga first!.");
+		formatf("\n\nFSMAdcs: Fpga interface is not initialized! Please call InitFpga first!.");
 		return(ParamsLen);
 	}
 	
@@ -271,8 +279,8 @@ int8_t FSMAdcsCommand(char const* Name, char const* Params, const size_t ParamsL
 			Cv = (8.192 * ((C.Samples - 0) / C.NumAccums)) / 16777216.0;
 			
 				
-			//~ printf("\n\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 16777216.0, (4.096 * (B.Samples / B.NumAccums)) / 16777216.0, (4.096 * (C.Samples / C.NumAccums)) / 16777216.0);
-			printf("\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, Av, Bv, Cv);
+			//~ formatf("\n\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 16777216.0, (4.096 * (B.Samples / B.NumAccums)) / 16777216.0, (4.096 * (C.Samples / C.NumAccums)) / 16777216.0);
+			formatf("\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, Av, Bv, Cv);
 		}
 		
 		//~ //Quit on any keypress
@@ -292,7 +300,7 @@ int8_t FSMAdcsCommand(char const* Name, char const* Params, const size_t ParamsL
 			//~ if (0 != key) 
 			//~ { 
 				//~ fflush(stdin);
-				//~ printf("\n\nFSMAdcs: Keypress(%d); exiting.\n", key);
+				//~ formatf("\n\nFSMAdcs: Keypress(%d); exiting.\n", key);
 				//~ break; 
 			//~ }			
 		//~ }
@@ -329,7 +337,7 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 			//~ Bv = (4.096 * ((B.Samples - 0) / B.NumAccums)) / 8388608.0;
 			//~ Cv = (4.096 * ((C.Samples - 0) / C.NumAccums)) / 8388608.0;
 			
-			//~ printf("\n\nBIST: current A/D values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf; %u, %u, %u.\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, Av, Bv, Cv, offsetof(CGraphFSMHardwareInterface, AdcAAccumulator), offsetof(CGraphFSMHardwareInterface, AdcBAccumulator), offsetof(CGraphFSMHardwareInterface, AdcCAccumulator));
+			//~ formatf("\n\nBIST: current A/D values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf; %u, %u, %u.\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, Av, Bv, Cv, offsetof(CGraphFSMHardwareInterface, AdcAAccumulator), offsetof(CGraphFSMHardwareInterface, AdcBAccumulator), offsetof(CGraphFSMHardwareInterface, AdcCAccumulator));
 		//~ }
 		
 		//~ //Update the D/A's every so often
@@ -339,7 +347,7 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 			//~ //FSM->DacBSetpoint = daca;
 			//~ FSM->DacBSetpoint = 0x00CFFFFFUL;
 			//~ FSM->DacCSetpoint = daca;
-			//~ printf("\n\nBIST: D/A's set to: %lx.\n", daca);	
+			//~ formatf("\n\nBIST: D/A's set to: %lx.\n", daca);	
 
 			//~ switch(daca)
 			//~ {
@@ -377,7 +385,7 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 			//~ if (0 != key) 
 			{ 
 				fflush(stdin);
-				printf("\n\nBIST: Keypress(%d); exiting.\n", key);
+				formatf("\n\nBIST: Keypress(%d); exiting.\n", key);
 				break; 
 			}			
 		}
@@ -394,6 +402,7 @@ int8_t CirclesCommand(char const* Name, char const* Params, const size_t ParamsL
 	unsigned long daca = 0;
 	unsigned long dacb = 0;
 	unsigned long dacc = 0;
+	unsigned long dacd = 0;
 	int key = 0;
 	
 	double radius = 1.0;
@@ -404,7 +413,7 @@ int8_t CirclesCommand(char const* Name, char const* Params, const size_t ParamsL
 	if (delayinms < 0.001) { delayinms = 0.001; }
 	if (delayinms > 10000) { delayinms = 10000; }
 	
-	printf("\n\nCircles: RunCircle(%lf, %lfms)...\n", radius, delayinms);	
+	formatf("\n\nCircles: RunCircle(%lf, %lfms)...\n", radius, delayinms);	
 	    	
 	while(true)
 	{
@@ -418,13 +427,15 @@ int8_t CirclesCommand(char const* Name, char const* Params, const size_t ParamsL
 			//~ FSM->DacBSetpoint = 0x006FFFFFUL;
 			//~ FSM->DacBSetpoint = 0x00CFFFFFUL;
 			FSM->DacCSetpoint = dacc;
-			//~ printf("\n\nBIST: D/A's set to: %lx, %lx, %lx.\n", daca, 0x006FFFFFUL, dacc);	
+			FSM->DacDSetpoint = dacd;
+			//~ formatf("\n\nBIST: D/A's set to: %lx, %lx, %lx.\n", daca, 0x006FFFFFUL, dacc);	
 
 			unsigned long rba = FSM->DacASetpoint;
 			unsigned long rbb = FSM->DacBSetpoint;
 			unsigned long rbc = FSM->DacCSetpoint;
-			printf("\n%lu, %lu, %lu", rba, rbb, rbc);
-			
+			unsigned long rbd = FSM->DacDSetpoint;
+			formatf("\n%lu, %lu, %lu, %lu", rba, rbb, rbc, rbd);
+			fflush(stdin);		
 			
 			//~ double ang = (double)(cycle % 360);
 			double ang = (double)(cycle % 60) * 6.0;
@@ -434,31 +445,35 @@ int8_t CirclesCommand(char const* Name, char const* Params, const size_t ParamsL
 			double radc = ((ang + 240) / 360.0) * 6.28;
 			//~ double carta = ((sin(rad) + 1.0) / 2.0) * radius;
 			//~ double cartc = ((cos(rad) + 1.0) / 2.0) * radius;
-			//~ printf("\n\nBIST: Deg:%f, Rad:%f, Sin:%f, Cos:%f.\n", ang, rad, carta, cartb);	
+			//~ formatf("\n\nBIST: Deg:%f, Rad:%f, Sin:%f, Cos:%f.\n", ang, rad, carta, cartb);	
 			double carta = ((sin(rada) + 1.0) / 2.0) * radius;
 			double cartb = ((sin(radb) + 1.0) / 2.0) * radius;
 			double cartc = ((sin(radc) + 1.0) / 2.0) * radius;
 			
-			daca = (unsigned long)(carta * 0x00CFFFFFUL);
-			dacb = (unsigned long)(cartb * 0x00CFFFFFUL);
-			dacc = (unsigned long)(cartc * 0x00CFFFFFUL);
-			//~ daca = (unsigned long)(carta * 0x003FFFFFUL);
-			//~ dacc = (unsigned long)(cartb * 0x003FFFFFUL);
+			//~ daca = (unsigned long)(carta * 0x00CFFFFFUL);
+			//~ dacb = (unsigned long)(cartb * 0x00CFFFFFUL);
+			//~ dacc = (unsigned long)(cartc * 0x00CFFFFFUL);
+			//~ dacd = (unsigned long)(cartc * 0x00CFFFFFUL);
+			daca = (unsigned long)(carta * 0x0000FFFFUL);
+			dacb = (unsigned long)(cartb * 0x0000FFFFUL);
+			dacc = (unsigned long)(cartc * 0x0000FFFFUL);
+			dacd = (unsigned long)(cartc * 0x0000FFFFUL);
 			
-			//~ printf("\n%lu, %lu, %lu", daca, dacb, dacc);
+			//~ formatf("\n%lu, %lu, %lu", daca, dacb, dacc);
 		}
 		
 		//Quit on any keypress
 		{
 			//~ if (0 != key) 
+			if (cycle > 1000)
 			{ 
 				fflush(stdin);
-				printf("\n\nCircles: Keypress(%d); exiting.\n", key);
+				formatf("\n\nCircles: Keypress(%d); exiting.\n", key);
 				break; 
 			}			
 		}
 
-		//~ DelayMs(delayinms);
+		delayus(delayinms * 1000);
 	}
 	
 	return(ParamsLen);
@@ -466,11 +481,11 @@ int8_t CirclesCommand(char const* Name, char const* Params, const size_t ParamsL
 
 int8_t GoXYCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-    unsigned long A = 0, B = 0, C = 0;
+    unsigned long A = 0, B = 0, C = 0, D = 0;
 	
 	if (NULL == FSM)
 	{
-		printf("\n\nGoXY: Fpga interface is not initialized! Please call InitFpga first!.");
+		formatf("\n\nGoXY: Fpga interface is not initialized! Please call InitFpga first!.");
 		return(ParamsLen);
 	}
 	
@@ -487,16 +502,19 @@ int8_t GoXYCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	C = (unsigned long)(Y * 0x00CFFFFFUL);
 	
 	FSM->DacASetpoint = A;
-	FSM->DacBSetpoint = 0x006FFFFFUL;
+	//~ FSM->DacBSetpoint = 0x006FFFFFUL;
 	FSM->DacBSetpoint = 0x00CFFFFFUL;
 	FSM->DacCSetpoint = C;
-	printf("\n\nGoXY: set to: %lx, %lx, %lx.\n", A, 0x00CFFFFFUL, C);
+	//~ FSM->DacDSetpoint = 0x006FFFFFUL;
+	FSM->DacDSetpoint = 0x00CFFFFFUL;
+	formatf("\n\nGoXY: set to: %lx, %lx, %lx, %lx.\n", A, 0x00CFFFFFUL, C, 0x00CFFFFFUL);
 
 
 	A = FSM->DacASetpoint;
 	B = FSM->DacBSetpoint;
 	C = FSM->DacCSetpoint;
-	printf("\n\nGoXY: current value: %lx, %lx, %lx (%lfV x %lfV).\n", A, B, C, X * 100.0, Y * 100.0);
+	D = FSM->DacDSetpoint;
+	formatf("\n\nGoXY: current value: %lx, %lx, %lx, %lx (%lfV x %lfV).\n", A, B, C, D, X * 100.0, Y * 100.0);
 	
 	//Show current A/D values:
 	{
@@ -511,11 +529,11 @@ int8_t GoXYCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		Cv = (8.192 * ((Ca.Samples - 0) / Ca.NumAccums)) / 16777216.0;
 		
 			
-		//~ printf("\n\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 16777216.0, (4.096 * (B.Samples / B.NumAccums)) / 16777216.0, (4.096 * (C.Samples / C.NumAccums)) / 16777216.0);
-		printf("\nGoXY: Sensor A/D's: 0x%016llx, 0x%016llx, 0x%016llx; %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", Aa.all, Ba.all, Ca.all, Aa.Samples, Aa.NumAccums, Ba.Samples, Ba.NumAccums, Ca.Samples, Ca.NumAccums, Av, Bv, Cv);
+		//~ formatf("\n\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 16777216.0, (4.096 * (B.Samples / B.NumAccums)) / 16777216.0, (4.096 * (C.Samples / C.NumAccums)) / 16777216.0);
+		formatf("\nGoXY: Sensor A/D's: 0x%016llx, 0x%016llx, 0x%016llx; %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", Aa.all, Ba.all, Ca.all, Aa.Samples, Aa.NumAccums, Ba.Samples, Ba.NumAccums, Ca.Samples, Ca.NumAccums, Av, Bv, Cv);
 	}
 	
-	//~ printf("\n\nFSMdaca: D/A registers at: %u, %u, %u.\n", offsetof(CGraphFSMHardwareInterface, DacASetpoint), offsetof(CGraphFSMHardwareInterface, DacBSetpoint), offsetof(CGraphFSMHardwareInterface, DacCSetpoint));
+	//~ formatf("\n\nFSMdaca: D/A registers at: %u, %u, %u.\n", offsetof(CGraphFSMHardwareInterface, DacASetpoint), offsetof(CGraphFSMHardwareInterface, DacBSetpoint), offsetof(CGraphFSMHardwareInterface, DacCSetpoint));
 	
     return(ParamsLen);
 }
@@ -534,7 +552,7 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
     //~ int8_t numfound = sscanf(Params, "%zX %lu", &addr, &val);
     //~ if (numfound < 2)
     //~ {
-		//~ printf("\nUartCommand: need 2 numeric parameters (address and value), got \"%s\" (%d params).\n", Params, numfound);
+		//~ formatf("\nUartCommand: need 2 numeric parameters (address and value), got \"%s\" (%d params).\n", Params, numfound);
         //~ return(-1);
     //~ }
 	//~ char* cmd = 0;
@@ -542,12 +560,12 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	//~ int8_t numfound = sscanf(Params, "%s %s", cmd, params);
 	//~ if (numfound < 2)
     //~ {
-		//~ printf("\nUartCommand: need 2 numeric parameters (address and value), got \"%s\" (%d params).\n", Params, numfound);
+		//~ formatf("\nUartCommand: need 2 numeric parameters (address and value), got \"%s\" (%d params).\n", Params, numfound);
         //~ return(-1);
     //~ }
 	
-	//~ printf("\nUartCommand: FSM@0x%p, USR@%u, UF@%u, MAA@%u, ACF@%u, ACF is %u, ", (void*)FSM, offsetof(CGraphFSMHardwareInterface, UartStatusRegister), offsetof(CGraphFSMHardwareInterface, UartFifo), offsetof(CGraphFSMHardwareInterface, MonitorAdcAccumulator), offsetof(CGraphFSMHardwareInterface, AdcCFifo), sizeof(AdcFifo));
-	printf("\nUartCommand: %u, %u. ", offsetof(CGraphFSMHardwareInterface, UartFifo2), offsetof(CGraphFSMHardwareInterface, UartStatusRegister2));
+	//~ formatf("\nUartCommand: FSM@0x%p, USR@%u, UF@%u, MAA@%u, ACF@%u, ACF is %u, ", (void*)FSM, offsetof(CGraphFSMHardwareInterface, UartStatusRegister), offsetof(CGraphFSMHardwareInterface, UartFifo), offsetof(CGraphFSMHardwareInterface, MonitorAdcAccumulator), offsetof(CGraphFSMHardwareInterface, AdcCFifo), sizeof(AdcFifo));
+	formatf("\nUartCommand: %u, %u. ", offsetof(CGraphFSMHardwareInterface, UartFifo2), offsetof(CGraphFSMHardwareInterface, UartStatusRegister2));
 	
 	if (0 == strncmp(&(Params[1]), "loop", 4))
 	{
@@ -562,7 +580,7 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 				//~ if (0 != key) 
 				{ 
 					fflush(stdin);
-					printf("\n\nCircles: Keypress(%d); exiting.\n", key);
+					formatf("\n\nCircles: Keypress(%d); exiting.\n", key);
 					break; 
 				}			
 			}
@@ -570,9 +588,9 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	}
 	
 	//~ CGraphFSMUartStatusRegister UartStatus = FSM->UartStatusRegister2;
-	//~ UartStatus.printf();	
+	//~ UartStatus.formatf();	
 	
-	//~ printf("; about to write to uart... ");	
+	//~ formatf("; about to write to uart... ");	
 	//~ FSM->UartFifo = 'H';
 	//~ nanosleep(&sleeptime, NULL);
 	//~ FSM->UartFifo = 'e';
@@ -587,8 +605,8 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	//~ nanosleep(&sleeptime, NULL);
 	
 	//~ UartStatus = FSM->UartStatusRegister; 
-	//~ printf("; uart written; ");	
-	//~ UartStatus.printf();	
+	//~ formatf("; uart written; ");	
+	//~ UartStatus.formatf();	
 	
 	//~ CGraphFSMUartStatusRegister UartStatus2;
 	
@@ -598,9 +616,9 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		//~ if (0 == UartStatus.Uart2TxFifoEmpty) { break; }
 	//~ }
 	
-	//~ printf("\nUartCommand: about to read...");
-	//~ UartStatus.printf();	
-	//~ printf("; reading from uart... ");
+	//~ formatf("\nUartCommand: about to read...");
+	//~ UartStatus.formatf();	
+	//~ formatf("; reading from uart... ");
 	
 	//~ for (size_t i = 0; i < 1024; i++)
 	//~ {
@@ -612,7 +630,7 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	//~ for(size_t i = 0; i < 4096; i++)
 	//~ {
 		//~ if (0 != UartStatus.Uart2RxFifoEmpty) { break; }
-		//~ printf(":%.2X", FSM->UartFifo);
+		//~ formatf(":%.2X", FSM->UartFifo);
 		//~ UartStatus = FSM->UartStatusRegister; 		
 	//~ }
 	
@@ -621,10 +639,10 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		//~ FSM->UartStatusRegister.all = 1;
 	//~ }
 	
-	//~ printf(":%.4X", FSM->UartFifo2);
+	//~ formatf(":%.4X", FSM->UartFifo2);
 	
-	//~ printf("\n");
-	//~ UartStatus.printf();	
+	//~ formatf("\n");
+	//~ UartStatus.formatf();	
 	
 	CGraphVersionPayload Version;
     Version.SerialNum = 0;
@@ -635,15 +653,15 @@ int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		Version.SerialNum = FSM->DeviceSerialNumber; 
 		Version.FPGAFirmwareBuildNum = FSM->FpgaFirmwareBuildNumber; 
 	}
-    printf("\nUartCommand: Sending response (%u bytes): ", sizeof(CGraphVersionPayload));
+    formatf("\nUartCommand: Sending response (%u bytes): ", sizeof(CGraphVersionPayload));
     Version.formatf();
-    printf("\n");
+    formatf("\n");
 	//~ TxBinaryPacket(&FpgaUartParser0, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
-	TxBinaryPacket(&FpgaUartParser1, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
-    TxBinaryPacket(&FpgaUartParser2, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
-    TxBinaryPacket(&FpgaUartParser3, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
+	//~ TxBinaryPacket(&FpgaUartParser1, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
+    //~ TxBinaryPacket(&FpgaUartParser2, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
+    //~ TxBinaryPacket(&FpgaUartParser3, CGraphPayloadTypeVersion, 0, &Version, sizeof(CGraphVersionPayload));
     
-	printf("\nUartCommand: complete.\n");
+	formatf("\nUartCommand: complete.\n");
 
 	return(ParamsLen);
 }
@@ -654,7 +672,7 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 	
 	if (NULL == FSM)
 	{
-		printf("\n\nBaudDividers: Fpga interface is not initialized! Please call InitFpga first!.");
+		formatf("\n\nBaudDividers: Fpga interface is not initialized! Please call InitFpga first!.");
 		return(ParamsLen);
 	}
 	
@@ -666,7 +684,7 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 		FSM->BaudDividers.Divider1 = B;
 		FSM->BaudDividers.Divider2 = C;
 		FSM->BaudDividers.Divider3 = D;
-		printf("\n\nBaudDividers: setting to: %lu, %lu, %lu, %lu.\n", A, B, C, D);
+		formatf("\n\nBaudDividers: setting to: %lu, %lu, %lu, %lu.\n", A, B, C, D);
     }
 	else
 	{
@@ -676,7 +694,7 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 			FSM->BaudDividers.Divider1 = A;
 			FSM->BaudDividers.Divider2 = A;
 			FSM->BaudDividers.Divider3 = A;
-			printf("\n\nBaudDividers: setting to: %lu, %lu, %lu, %lu.\n", A, A, A, A);
+			formatf("\n\nBaudDividers: setting to: %lu, %lu, %lu, %lu.\n", A, A, A, A);
 		}
 	}
 	
@@ -684,9 +702,9 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 	B = FSM->BaudDividers.Divider1;
 	C = FSM->BaudDividers.Divider2;
 	D = FSM->BaudDividers.Divider3;
-	printf("\n\nBaudDividers: current values: %lu, %lu, %lu, %lu.\n", A, B, C, D);
+	formatf("\n\nBaudDividers: current values: %lu, %lu, %lu, %lu.\n", A, B, C, D);
 	
-	//~ printf("\nBaudDividers: (331 = 9600, 83 = 38400, 55 = 57600, 27 = 115200, 13 = 230400, 7 = 460800, 3 = 921600)\n");
+	//~ formatf("\nBaudDividers: (331 = 9600, 83 = 38400, 55 = 57600, 27 = 115200, 13 = 230400, 7 = 460800, 3 = 921600)\n");
 	
 	double BaudClock = 102000000.0;
 	//~ unsigned int ActualDividerA = (A + 1) * 2;
@@ -702,22 +720,22 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 	double BaudRateC = (BaudClock / ActualDividerC) / 16;
 	double BaudRateD = (BaudClock / ActualDividerD) / 16;
 	
-	printf("\nBaudDividers: Port0 final division ratio: %u (/16); Actual baudrate: %.5lf", ActualDividerA, BaudRateA);
-	printf("\nBaudDividers: Port1 final division ratio: %u (/16); Actual baudrate: %.5lf", ActualDividerB, BaudRateB);
-	printf("\nBaudDividers: Port2 final division ratio: %u (/16); Actual baudrate: %.5lf\n", ActualDividerC, BaudRateC);
-	printf("\nBaudDividers: Port3 final division ratio: %u (/16); Actual baudrate: %.5lf\n", ActualDividerD, BaudRateD);
+	formatf("\nBaudDividers: Port0 final division ratio: %u (/16); Actual baudrate: %.5lf", ActualDividerA, BaudRateA);
+	formatf("\nBaudDividers: Port1 final division ratio: %u (/16); Actual baudrate: %.5lf", ActualDividerB, BaudRateB);
+	formatf("\nBaudDividers: Port2 final division ratio: %u (/16); Actual baudrate: %.5lf\n", ActualDividerC, BaudRateC);
+	formatf("\nBaudDividers: Port3 final division ratio: %u (/16); Actual baudrate: %.5lf\n", ActualDividerD, BaudRateD);
 	
 	return(ParamsLen);
 }
 
 int8_t PrintBuffersCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	printf("\nShowBuffersCommand: FpgaUartParser: ");
+	formatf("\nShowBuffersCommand: FpgaUartParser: ");
 	//~ FpgaUartParser0.formatf();
-	FpgaUartParser1.formatf();
-	FpgaUartParser2.formatf();
-	FpgaUartParser3.formatf();
-	printf("\n\n");
+	//~ FpgaUartParser1.formatf();
+	//~ FpgaUartParser2.formatf();
+	//~ FpgaUartParser3.formatf();
+	formatf("\n\n");
 	return(ParamsLen);
 }
 
@@ -762,6 +780,52 @@ int8_t MonitorSerialCommand(char const* Name, char const* Params, const size_t P
 }
 
 
+int8_t ControlRegisterCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	if (NULL == FSM)
+	{
+		formatf("\nControlRegisterCommand: Fpga interface is not initialized!");
+		return(ParamsLen);
+	}
+
+	formatf("\nControlRegisterCommand: Current values: ");
+	FSM->ControlRegister.formatf();
+	
+    return(strlen(Params));
+}
+
+int8_t DacSelectCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	CGraphFSMHardwareControlRegister cr;
+	
+	if (NULL == FSM)
+	{
+		formatf("\nDacSelect: Fpga interface is not initialized!");
+		return(ParamsLen);
+	}
+
+	char onoff;
+    bool OnOff = false;
+
+	//Convert parameters
+    int8_t numfound = sscanf(Params, "%c", &onoff);
+    if (numfound >= 1)
+    {
+		if ( ('Y' == onoff) || ('y' == onoff) || ('T' == onoff) || ('t' == onoff) || ('1' == onoff) ) { OnOff = true; }
+		
+		cr = FSM->ControlRegister;
+		
+		cr.DacSelectMaxti = OnOff;
+		
+		FSM->ControlRegister = cr;
+		
+		formatf("\n\nDacSelect: %c.\n", OnOff?'1':'0');
+	}
+	
+	//~ formatf("\nDacSelect: Current value: %lu.\n", (uint8_t)(FSM->ControlRegister.DacSelectMaxti));
+	
+    return(strlen(Params));
+}
 
 //EOF
 

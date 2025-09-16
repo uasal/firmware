@@ -7,7 +7,7 @@ GLOBAL THRESHOLD - 5000
 
 NET NAME                                               CLOCK LOADS     ASYNC RST LOADS     DATA LOADS     TOTAL FANOUT     GLOBAL BUFFER PRESENT
 ------------------------------------------------------------------------------------------------------------------------------------------------
-FCCC_C0_0_GL1                                          1818            0                   0              1818             YES                  
+FCCC_C0_0_GL1                                          1823            0                   0              1823             YES                  
 Main_0.UartClk1                                        31              0                   0              31               YES                  
 Main_0.UartClk0                                        31              0                   0              31               YES                  
 Main_0.UartClk3                                        31              0                   0              31               YES                  
@@ -16,7 +16,7 @@ Main_0.UartTxClk0                                      9               0        
 Main_0.UartTxClk1                                      9               0                   0              9                YES                  
 Main_0.UartTxClk2                                      9               0                   0              9                YES                  
 Main_0.UartTxClk3                                      9               0                   0              9                YES                  
-Main_0.BootupReset.shot_i_arst                         0               344                 0              344              YES                  
+Main_0.BootupReset.shot_i_arst                         0               350                 0              350              YES                  
 Main_0.SpiRst_arst                                     0               203                 0              203              YES                  
 Main_0.Uart0FifoReset_i_arst                           0               113                 0              113              YES                  
 Main_0.Uart3FifoReset_i_arst                           0               113                 0              113              YES                  

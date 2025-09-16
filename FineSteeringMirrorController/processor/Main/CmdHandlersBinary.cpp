@@ -33,7 +33,7 @@ using namespace std;
 #include "cgraph/CGraphPacket.hpp"
 
 #include "cgraph/CGraphFSMHardwareInterface.hpp"
-extern CGraphFSMHardwareInterface* FSM;	
+extern CGraphFSMHardwareInterface* volatile FSM;	
 
 #include "../MonitorAdc.hpp"
 extern CGraphFSMMonitorAdc MonitorAdc;

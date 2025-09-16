@@ -108,11 +108,11 @@ const Cmd AsciiCmds[] =
         ScanMonitorAdcCommand
     ),
 	
-	Cmd(
-        "S",
-        ScanMonitorAdcHelp,
-        ScanMonitorAdcCommand
-    ),
+	//~ Cmd(
+        //~ "S",
+        //~ ScanMonitorAdcHelp,
+        //~ ScanMonitorAdcCommand
+    //~ ),
 	
 	Cmd(
         TestMonitorAdcCmdString,
@@ -120,11 +120,11 @@ const Cmd AsciiCmds[] =
         TestMonitorAdcCommand
     ),
 	
-	Cmd(
-        "T",
-        TestMonitorAdcHelp,
-        TestMonitorAdcCommand
-    ),
+	//~ Cmd(
+        //~ "T",
+        //~ TestMonitorAdcHelp,
+        //~ TestMonitorAdcCommand
+    //~ ),
 	
 	Cmd(
         CalibrateMonitorAdcCmdString,
@@ -141,12 +141,6 @@ const Cmd AsciiCmds[] =
 	Cmd(
         "CIRCLES",
         "\"Circles <radius:0...1.0,ratems:0...10k>\": Runs a self-test, moves actuator in a circle.",
-        CirclesCommand
-    ),
-	
-	Cmd(
-        "C",
-        "\"C(ircles).",
         CirclesCommand
     ),
 	
@@ -184,6 +178,24 @@ const Cmd AsciiCmds[] =
         "MONITORSERIAL",
         "\"MonitorSerial <0 | 1 | 2> <Y | N>\": Show/hide incoming serial bytes.",
         MonitorSerialCommand
+    ),
+	
+	Cmd(
+        "CONTROLREGISTER",
+        "\"ControlRegister <params>\": Set/Query control signals.",
+        ControlRegisterCommand
+    ),
+	
+	Cmd(
+        "CR",
+        "\"(CR)ControlRegister <params>\": Set/Query control signals.",
+        ControlRegisterCommand
+    ),
+	
+	Cmd(
+        "SELECTDAC",
+        "\"SelectDac <0/1>\": Which D/A to use for output.",
+        DacSelectCommand
     ),
 };
 

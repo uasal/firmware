@@ -14,7 +14,7 @@ read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/FineSteeringMir
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd}
-read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd}
+read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd}

@@ -314,6 +314,7 @@ begin
 			
 			MonitorAdcChannelReadIndex_i <= "00000";	
 			
+			DacSelectMaxti_i <= '1';	
 			WriteDacs_i <= '0';		
 			DacASetpoint_i <= x"000000";		
 			DacBSetpoint_i <= x"000000";		
@@ -775,7 +776,8 @@ begin
 								--~ WriteDacs_i <= '1';
 							
 								--The $$$ question: does our processor hit the low addr last or the high one???
-								if ('1' = DacTransferComplete) then WriteDacs_i <= '1'; end if;
+								--~ if ('1' = DacTransferComplete) then WriteDacs_i <= '1'; end if;
+								WriteDacs_i <= '1';
 								
 								
 							--~ --FSM Readback A/D's

@@ -1320,10 +1320,14 @@ begin
 		PowernEn => PowernEn,
 		PowerCycd => PowerCycd,
 		nPowerCycClr => nPowerCycClr,
-		Uart0OE => OE0,
-		Uart1OE => OE1,
-		Uart2OE => OE2,
-		Uart3OE => OE3,
+		--~ Uart0OE => OE0,
+		--~ Uart1OE => OE1,
+		--~ Uart2OE => OE2,
+		--~ Uart3OE => OE3,
+		Uart0OE => open,
+		Uart1OE => open,
+		Uart2OE => open,
+		Uart3OE => open,
 		--~ Ux1SelJmp => Ux1SelJmp,
 		Ux1SelJmp => open,
 				
@@ -1520,6 +1524,15 @@ begin
 	--~ TP4_i <= WriteAck;
 	--~ TP4_i <= RamBusData_in(0);
 	
+	TP1 <= nCsDacA_i;
+	TP2 <= SckDacs_i;
+	TP3 <= MosiDacA_i;
+	TP4 <= nLDacs_i;
+	TP5 <= WriteDacs;
+	TP6 <= DacSelectMaxti;
+	TP7 <= DacASetpoint(0);
+	TP8 <= WriteDacs;	
+	
 	----------------------------- A/D's ----------------------------------
 	
 		IBufSarAdcnDrdyA : IBufP2Ports port map(clk => MasterClk, I => nDrdyAdcA, O => nDrdyAdcA_i);
@@ -1705,10 +1718,10 @@ begin
 	
 	----------------------------- RS-422 ----------------------------------
 	
-	--~ Oe0 <= '1';
-	--~ Oe1 <= '1';
-	--~ Oe2 <= '1';
-	--~ Oe3 <= '1';
+	Oe0 <= '1';
+	Oe1 <= '1';
+	Oe2 <= '1';
+	Oe3 <= '1';
 	
 	--This is just to excercise the thing so it stays in the design...
 	--~ Ux1SelJmp <= '1' when ( (Rxd1 = '1') and (Rxd2 = '0') ) else '0' when ( (Rxd1 = '0') and (Rxd2 = '1') ) else 'Z';
@@ -2191,6 +2204,23 @@ begin
 	--~ TP7 <= UartUsbRxFifoCount(0);
 	--~ TP8 <= UartUsbRxFifoCount(1);
 	
+	--~ TP1 <= Uart0TxFifoEmpty;
+	--~ TP2 <= Uart1TxFifoEmpty;
+	--~ TP3 <= Uart2TxFifoEmpty;
+	--~ TP4 <= Uart3TxFifoEmpty;
+	--~ TP5 <= WriteUart0;
+	--~ TP6 <= WriteUart1;
+	--~ TP7 <= WriteUart2;
+	--~ TP8 <= WriteUart3;
+
+	--~ TP1 <= Uart0TxFifoData(0);
+	--~ TP2 <= Uart0TxFifoData(1);
+	--~ TP3 <= Uart0TxFifoData(2);
+	--~ TP4 <= Uart0TxFifoData(3);
+	--~ TP5 <= Uart0TxFifoData(4);
+	--~ TP6 <= Uart0TxFifoData(5);
+	--~ TP7 <= Uart0TxFifoData(6);
+	--~ TP8 <= Uart0TxFifoData(7);	
 	
 	----------------------------- Timing ----------------------------------
 	
@@ -2295,14 +2325,24 @@ begin
 		
 	--  Discrete I/O Connections
 	
-		TP1 <= RamBusnCs;
-		TP2 <= RamBusWrnRd;
-		TP3 <= RamBusDataIn(0);
-		TP4 <= RamBusDataIn(1);
-		TP5 <= RamBusDataIn(2);
-		TP6 <= PowerCycd;
-		TP7 <= RamBusDataIn(3);
-		TP8 <= Fault3VA or Fault1V or PowerCycd or Fault5V;
+		--~ TP1 <= RamBusnCs;
+		--~ TP2 <= RamBusWrnRd;
+		--~ TP3 <= RamBusDataIn(0);
+		--~ TP4 <= RamBusDataIn(1);
+		--~ TP5 <= RamBusDataIn(2);
+		--~ TP6 <= PowerCycd;
+		--~ TP7 <= RamBusDataIn(3);
+		--~ TP8 <= Fault3VA or Fault1V or PowerCycd or Fault5V;
+			
+		--~ TP1 <= ClkDacWrite(0);
+		--~ TP2 <= ClkDacWrite(1);
+		--~ TP3 <= ClkDacWrite(2);
+		--~ TP4 <= ClkDacWrite(3);
+		--~ TP5 <= ClkDacWrite(4);
+		--~ TP6 <= ClkDacWrite(5);
+		--~ TP7 <= ClkDacWrite(6);
+		--~ TP8 <= ClkDacWrite(7);	
+		
 			
 	----------------------------- Clocked Logic / Main Loop ----------------------------------
 	

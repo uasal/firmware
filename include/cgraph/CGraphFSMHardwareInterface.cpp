@@ -8,7 +8,7 @@
 
 #include "CGraphFSMHardwareInterface.hpp"
 
-CGraphFSMHardwareInterface* FSM = (CGraphFSMHardwareInterface*)0x50000000UL;
+CGraphFSMHardwareInterface* volatile FSM = (CGraphFSMHardwareInterface*)0x50000000UL;
 //CGraphFSMHardwareInterface* FSM = (CGraphFSMHardwareInterface*)0x30000000UL;
 
 //EOF
