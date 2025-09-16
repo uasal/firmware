@@ -22,7 +22,6 @@ var hierarchy =
     [ "CGraphDMTelemetryPayload", "structCGraphDMTelemetryPayload.html", null ],
     [ "CGraphFSMHardwareControlRegister", "unionCGraphFSMHardwareControlRegister.html", null ],
     [ "CGraphFSMHardwareInterface", "structCGraphFSMHardwareInterface.html", null ],
-    [ "CGraphFSMHardwareStatusRegister", "unionCGraphFSMHardwareStatusRegister.html", null ],
     [ "CGraphFSMTelemetryPayload", "structCGraphFSMTelemetryPayload.html", null ],
     [ "CGraphFWHardwareControlRegister", "unionCGraphFWHardwareControlRegister.html", null ],
     [ "CGraphFWHardwareInterface", "structCGraphFWHardwareInterface.html", null ],

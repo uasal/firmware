@@ -3,6 +3,8 @@ var CmdTableAscii_8hpp =
     [ "BaudDividersCommand", "CmdTableAscii_8hpp.html#ab4ea1029a4c33b59ac01f1c4d81d9e59", null ],
     [ "BISTCommand", "CmdTableAscii_8hpp.html#a9dc13c583b0bab5e9c4d4c07209fe3f1", null ],
     [ "CirclesCommand", "CmdTableAscii_8hpp.html#ab71c91ad1088ec58bda2255a744a7cdf", null ],
+    [ "ControlRegisterCommand", "CmdTableAscii_8hpp.html#abd92310843dce0a842a7ebb9b071ec6f", null ],
+    [ "DacSelectCommand", "CmdTableAscii_8hpp.html#a126e0fe6bd25a762ab8028341bcfb8df", null ],
     [ "FSMAdcsCommand", "CmdTableAscii_8hpp.html#af7db44973e7235b9f30ea336417e4ce2", null ],
     [ "FSMDacsCommand", "CmdTableAscii_8hpp.html#a77c200b677689749486d1e48e6b22c67", null ],
     [ "GoXYCommand", "CmdTableAscii_8hpp.html#ac1bb7ac494243ea97b43a3a90f6d91a6", null ],

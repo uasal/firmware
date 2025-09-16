@@ -5,7 +5,7 @@ var searchData=
   ['_7ecgraphfsmmonitoradc_2',['~CGraphFSMMonitorAdc',['../structCGraphFSMMonitorAdc.html#a5e0bd5f2501b431ad13e68fd620ebc4f',1,'CGraphFSMMonitorAdc']]],
   ['_7ecgraphpacket_3',['~CGraphPacket',['../classCGraphPacket.html#ac4bb585dd9f9ed603dc599ce683406b5',1,'CGraphPacket']]],
   ['_7eezthread_4',['~EzThread',['../classEzThread.html#a97129140f31f9e68c296b05c899234a5',1,'EzThread']]],
-  ['_7efpgabinaryuartcallbacks_5',['~fpgabinaryuartcallbacks',['../structFPGABinaryUartCallbacks.html#ae9a6d056ff27062f7a2c3c6f4c091583',1,'FPGABinaryUartCallbacks::~FPGABinaryUartCallbacks()'],['../structFPGABinaryUartCallbacks.html#ae9a6d056ff27062f7a2c3c6f4c091583',1,'FPGABinaryUartCallbacks::~FPGABinaryUartCallbacks()']]],
+  ['_7efpgabinaryuartcallbacks_5',['~FPGABinaryUartCallbacks',['../structFPGABinaryUartCallbacks.html#ae9a6d056ff27062f7a2c3c6f4c091583',1,'FPGABinaryUartCallbacks']]],
   ['_7eiarray_6',['~IArray',['../classIArray.html#a33b3fcae2bf321b02f257d8ca11edbe1',1,'IArray']]],
   ['_7eiblockdevice_7',['~IBlockDevice',['../classIBlockDevice.html#a95ebfa48e80debad0007c0c7b45e0bd6',1,'IBlockDevice']]],
   ['_7eipacket_8',['~IPacket',['../classIPacket.html#a3dc7833a83c26d50ef75f43f60f17f20',1,'IPacket']]],

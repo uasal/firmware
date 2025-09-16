@@ -8,7 +8,6 @@ var hierarchy =
     [ "ads1258details::ads1258status", "unionads1258details_1_1ads1258status.html", null ],
     [ "BinaryCmd", "structBinaryCmd.html", null ],
     [ "BinaryUartCallbacks", "structBinaryUartCallbacks.html", [
-      [ "FPGABinaryUartCallbacks", "structFPGABinaryUartCallbacks.html", null ],
       [ "FPGABinaryUartCallbacks", "structFPGABinaryUartCallbacks.html", null ]
     ] ],
     [ "BinaryUartRingBuffer", "structBinaryUartRingBuffer.html", null ],
@@ -25,7 +24,6 @@ var hierarchy =
     [ "CGraphDMTelemetryPayload", "structCGraphDMTelemetryPayload.html", null ],
     [ "CGraphFSMHardwareControlRegister", "unionCGraphFSMHardwareControlRegister.html", null ],
     [ "CGraphFSMHardwareInterface", "structCGraphFSMHardwareInterface.html", null ],
-    [ "CGraphFSMHardwareStatusRegister", "unionCGraphFSMHardwareStatusRegister.html", null ],
     [ "CGraphFSMMonitorAdc", "structCGraphFSMMonitorAdc.html", null ],
     [ "CGraphFSMTelemetryPayload", "structCGraphFSMTelemetryPayload.html", null ],
     [ "CGraphFWHardwareControlRegister", "unionCGraphFWHardwareControlRegister.html", null ],

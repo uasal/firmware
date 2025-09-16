@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['waitfastestsampletimeoutus_0',['WaitFastestSampleTimeoutuS',['../structlt244x.html#aadb96f39fbfcb983438b744bff2966ae',1,'lt244x']]],
-  ['waitslowestsampletimeoutus_1',['WaitSlowestSampleTimeoutuS',['../structlt244x.html#a9ea2fe65e286648b12bcbd7c80a7fbc9',1,'lt244x']]],
-  ['writedataregister_2',['WriteDataRegister',['../classuart__pinout__fpga.html#a69fe78399bc475166e7c6a5e6c4cfecf',1,'uart_pinout_fpga']]]
+  ['zero_0',['zero',['../unionads1258details_1_1ads1258sample.html#ad346128c89639a41fa8783e601acbe0d',1,'ads1258details::ads1258sample::zero'],['../ads1258_8h.html#a09777e6a5ad91ffd82a9975efe33de2e',1,'zero:&#160;ads1258.h']]]
 ];

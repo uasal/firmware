@@ -35,7 +35,6 @@ var annotated_dup =
     [ "CGraphDMTelemetryPayload", "structCGraphDMTelemetryPayload.html", "structCGraphDMTelemetryPayload" ],
     [ "CGraphFSMHardwareControlRegister", "unionCGraphFSMHardwareControlRegister.html", "unionCGraphFSMHardwareControlRegister" ],
     [ "CGraphFSMHardwareInterface", "structCGraphFSMHardwareInterface.html", "structCGraphFSMHardwareInterface" ],
-    [ "CGraphFSMHardwareStatusRegister", "unionCGraphFSMHardwareStatusRegister.html", "unionCGraphFSMHardwareStatusRegister" ],
     [ "CGraphFSMTelemetryPayload", "structCGraphFSMTelemetryPayload.html", "structCGraphFSMTelemetryPayload" ],
     [ "CGraphFWHardwareControlRegister", "unionCGraphFWHardwareControlRegister.html", "unionCGraphFWHardwareControlRegister" ],
     [ "CGraphFWHardwareInterface", "structCGraphFWHardwareInterface.html", "structCGraphFWHardwareInterface" ],

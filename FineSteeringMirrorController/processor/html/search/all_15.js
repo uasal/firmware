@@ -1,14 +1,16 @@
 var searchData=
 [
-  ['v1fault_0',['v1fault',['../unionCGraphDMHardwareStatusRegister.html#a876573fa0adc890f0086f2df9e7ba1a4',1,'CGraphDMHardwareStatusRegister::V1Fault'],['../CGraphDMHardwareInterface_8hpp.html#a1efa0c48e19dbac386ea0f32ad562183',1,'V1Fault:&#160;CGraphDMHardwareInterface.hpp']]],
-  ['v3auxfault_1',['v3auxfault',['../unionCGraphDMHardwareStatusRegister.html#a397caea2b3c7960229b37f65cc593bd6',1,'CGraphDMHardwareStatusRegister::V3AuxFault'],['../CGraphDMHardwareInterface_8hpp.html#aa975cf3e57a022ada3818303f294abff',1,'V3AuxFault:&#160;CGraphDMHardwareInterface.hpp']]],
-  ['v3dmfault_2',['v3dmfault',['../unionCGraphDMHardwareStatusRegister.html#a7cc023a911f08c6d8156f64ed9a2fb3f',1,'CGraphDMHardwareStatusRegister::V3DmFault'],['../CGraphDMHardwareInterface_8hpp.html#a6df0c5fbe2de48cabfa6e2fc14d1bdd1',1,'V3DmFault:&#160;CGraphDMHardwareInterface.hpp']]],
-  ['v3fpgafault_3',['v3fpgafault',['../CGraphDMHardwareInterface_8hpp.html#a716005f69b136d832847d25847a796f3',1,'V3FpgaFault:&#160;CGraphDMHardwareInterface.hpp'],['../unionCGraphDMHardwareStatusRegister.html#a9fdcab0d7769ce255cb8472f1124aa95',1,'CGraphDMHardwareStatusRegister::V3FpgaFault']]],
-  ['v5fault_4',['v5fault',['../unionCGraphDMHardwareStatusRegister.html#a2db28aea2cbe88f2d565a4e32cfe7d3d',1,'CGraphDMHardwareStatusRegister::V5Fault'],['../CGraphDMHardwareInterface_8hpp.html#a54aadb54cd0386ba7cac3df9551ae4a7',1,'V5Fault:&#160;CGraphDMHardwareInterface.hpp']]],
-  ['v6fault_5',['v6fault',['../unionCGraphDMHardwareStatusRegister.html#a9a984c4f8d0a151b7feb8a2aaa58aacb',1,'CGraphDMHardwareStatusRegister::V6Fault'],['../CGraphDMHardwareInterface_8hpp.html#ac68532e4c6ddb8f0969a323565981421',1,'V6Fault:&#160;CGraphDMHardwareInterface.hpp']]],
-  ['v9fault_6',['v9fault',['../unionCGraphDMHardwareStatusRegister.html#ace006bdd48bab56a2553381298a91081',1,'CGraphDMHardwareStatusRegister::V9Fault'],['../CGraphDMHardwareInterface_8hpp.html#a860c971c1097b9178d0b092f9cfb4253',1,'V9Fault:&#160;CGraphDMHardwareInterface.hpp']]],
-  ['verbose_7',['Verbose',['../structTerminalUart.html#ad6ff3cd11020959c46e146121e25dd46',1,'TerminalUart']]],
-  ['versioncommand_8',['versioncommand',['../CmdHandlersAscii_8cpp.html#a1a94f07a60b50cf4b49f08169de95e99',1,'VersionCommand(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument):&#160;CmdHandlersAscii.cpp'],['../CmdTableAscii_8hpp.html#a1a94f07a60b50cf4b49f08169de95e99',1,'VersionCommand(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument):&#160;CmdHandlersAscii.cpp']]],
-  ['vnegfault_9',['vnegfault',['../unionCGraphDMHardwareStatusRegister.html#aedd904367595d9a134c8c9a8b86bd864',1,'CGraphDMHardwareStatusRegister::VNegFault'],['../CGraphDMHardwareInterface_8hpp.html#a2d62d9dc0531cb1f1e9e749f969ad6df',1,'VNegFault:&#160;CGraphDMHardwareInterface.hpp']]],
-  ['voltagecommand_10',['voltagecommand',['../CmdHandlersAscii_8cpp.html#aaa7cdcc6c030145d8c976116ad252534',1,'VoltageCommand(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument):&#160;CmdHandlersAscii.cpp'],['../CmdTableAscii_8hpp.html#aaa7cdcc6c030145d8c976116ad252534',1,'VoltageCommand(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument):&#160;CmdHandlersAscii.cpp']]]
+  ['wait50_0',['Wait50',['../AsciiCmdUserInterfaceLinux_8cpp.html#ad7c191ddec91ddb0f058ff037940df58',1,'AsciiCmdUserInterfaceLinux.cpp']]],
+  ['waitbusytimeout_1',['waitbusytimeout',['../structPinoutMonitorAdc.html#a755960fb3976cda168359d90d46a50c9',1,'PinoutMonitorAdc']]],
+  ['waitfastestsampletimeoutus_2',['WaitFastestSampleTimeoutuS',['../structlt244x.html#aadb96f39fbfcb983438b744bff2966ae',1,'lt244x']]],
+  ['waitslowestsampletimeoutus_3',['WaitSlowestSampleTimeoutuS',['../structlt244x.html#a9ea2fe65e286648b12bcbd7c80a7fbc9',1,'lt244x']]],
+  ['wasempty_4',['wasEmpty',['../classfixedqueue__mt.html#a284b17ede06c38bace3edff93ce81c70',1,'fixedqueue_mt']]],
+  ['wasfull_5',['wasFull',['../classfixedqueue__mt.html#a68121062b7eddbd4a3548f9c5253bd10',1,'fixedqueue_mt']]],
+  ['win32_5fpinout_5fuart_6',['win32_pinout_uart',['../classwin32__pinout__uart.html#ae4edf7418ceeac04b34c8a22a8fcb179',1,'win32_pinout_uart::win32_pinout_uart()'],['../classwin32__pinout__uart.html',1,'win32_pinout_uart']]],
+  ['win32_5fpinout_5fuart_2ehpp_7',['win32_pinout_uart.hpp',['../win32__pinout__uart_8hpp.html',1,'']]],
+  ['wooinit_8',['wooinit',['../Main_8cpp.html#a35dcaf829cd08c92136289cbcbb2d8eb',1,'Main.cpp']]],
+  ['write_9',['write',['../structDac8830.html#a336d4f11ecfe1eaf4d212339f13e59e0',1,'Dac8830::Write()'],['../classCGraphDMProtoHardwareMmapper.html#a075e6e080f99e1933aad3138fd72f423',1,'CGraphDMProtoHardwareMmapper::write()'],['../classCGraphPZTProtoHardwareMmapper.html#a8418a816b194846a610e7372714d319f',1,'CGraphPZTProtoHardwareMmapper::write()']]],
+  ['writedataregister_10',['WriteDataRegister',['../classuart__pinout__fpga.html#a69fe78399bc475166e7c6a5e6c4cfecf',1,'uart_pinout_fpga']]],
+  ['writefpgacommand_11',['writefpgacommand',['../CmdHandlersAscii_8cpp.html#aa93eeb184cc83dad7e46ed119f24afde',1,'WriteFpgaCommand(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument):&#160;CmdHandlersAscii.cpp'],['../CmdTableAscii_8hpp.html#aa93eeb184cc83dad7e46ed119f24afde',1,'WriteFpgaCommand(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument):&#160;CmdHandlersAscii.cpp']]],
+  ['writeregister_12',['WriteRegister',['../structads1258.html#a18b0bfed153f94e3b4a02b144e3fbfb1',1,'ads1258']]]
 ];

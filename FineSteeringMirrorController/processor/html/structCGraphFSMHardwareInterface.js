@@ -43,12 +43,9 @@ var structCGraphFSMHardwareInterface =
     [ "UartFifo2ReadData", "structCGraphFSMHardwareInterface.html#af01b3bdb4568e7544636960458e11bfd", null ],
     [ "UartFifo3", "structCGraphFSMHardwareInterface.html#a8847d551c1d84b583ca091c3043a34b4", null ],
     [ "UartFifo3ReadData", "structCGraphFSMHardwareInterface.html#a52ce3656da03542f920b9dae1405e791", null ],
-    [ "UartFifoLab", "structCGraphFSMHardwareInterface.html#acb763804a1dc96875cb29d9dfd2e2657", null ],
-    [ "UartFifoLabReadData", "structCGraphFSMHardwareInterface.html#a260e86f710a8c20b3f7dc632c94dca82", null ],
     [ "UartStatusRegister0", "structCGraphFSMHardwareInterface.html#af366beb3b6cff9ec2dbee047cd56bbb2", null ],
     [ "UartStatusRegister1", "structCGraphFSMHardwareInterface.html#a655d71dce213ba193d2dc69cf6ba379f", null ],
     [ "UartStatusRegister2", "structCGraphFSMHardwareInterface.html#a39b7fc9662fdd9132f5c3e2fdfa408a4", null ],
     [ "UartStatusRegister3", "structCGraphFSMHardwareInterface.html#a6102642fac2506f26b8db30f44b0f6c8", null ],
-    [ "UartStatusRegisterLab", "structCGraphFSMHardwareInterface.html#ae8dcb024feef65d63a132e3df83132ad", null ],
     [ "UnixSeconds", "structCGraphFSMHardwareInterface.html#aea132c96c3efad5e6c05ada1ecf6ac72", null ]
 ];
