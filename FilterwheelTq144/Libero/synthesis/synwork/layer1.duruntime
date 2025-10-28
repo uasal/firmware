@@ -9,11 +9,23 @@ Runtime Summary:
 			Hardware Generation Phase, Initial Cleanup Phase, Optimization Phase: Negligible CPU time
 		*Library: work, Entity: IBufP1Ports, Architecture: ibufp1
 			Hardware Generation Phase, Initial Cleanup Phase, Optimization Phase: Negligible CPU time
-		*Library: work, Entity: RegisterSpacePorts_10, Architecture: registerspace
+		*Library: work, Entity: RegisterSpacePorts_10_10, Architecture: registerspace
 			Hardware Generation Phase, Initial Cleanup Phase, Optimization Phase: Negligible CPU time
 		*Library: work, Entity: SpiMasterPorts_work_main_architecture_main_1layer1, Architecture: spimaster
 			Hardware Generation Phase, Initial Cleanup Phase, Optimization Phase: Negligible CPU time
 		*Library: work, Entity: SpiDevicePorts_work_main_architecture_main_0layer1, Architecture: spidevice
+			Hardware Generation Phase, Initial Cleanup Phase, Optimization Phase: Negligible CPU time
+		*Library: work, Entity: fifo_peek_8_10, Architecture: rtl
+			Hardware Generation Phase, Initial Cleanup Phase, Optimization Phase: Negligible CPU time
+		*Library: work, Entity: gated_fifo_peek_8_10, Architecture: rtl
+			Hardware Generation Phase, Initial Cleanup Phase, Optimization Phase: Negligible CPU time
+		*Library: work, Entity: UartRxFifoExtClkPeek_10, Architecture: implementation
+			Hardware Generation Phase, Optimization Phase: Negligible CPU time
+		*Library: work, Entity: crc_byte, Architecture: behavioral
+			Hardware Generation Phase, Initial Cleanup Phase, Optimization Phase: Negligible CPU time
+		*Library: work, Entity: CrcStream, Architecture: implementation
+			Hardware Generation Phase, Initial Cleanup Phase, Optimization Phase: Negligible CPU time
+		*Library: work, Entity: CrcFifo_10, Architecture: implementation
 			Hardware Generation Phase, Initial Cleanup Phase, Optimization Phase: Negligible CPU time
 		*Library: work, Entity: VariableClockDividerPorts_work_main_architecture_main_0layer1, Architecture: variableclockdivider
 			Hardware Generation Phase, Initial Cleanup Phase, Optimization Phase: Negligible CPU time
@@ -45,7 +57,7 @@ Runtime Summary:
 			Hardware Generation Phase, Initial Cleanup Phase, Optimization Phase: Negligible CPU time
 		*Library: work, Entity: SpiMasterPorts_work_main_architecture_main_0layer1, Architecture: spimaster
 			Hardware Generation Phase, Initial Cleanup Phase, Optimization Phase: Negligible CPU time
-		*Library: work, Entity: SpiDacPorts_102000000_16, Architecture: spidac
+		*Library: work, Entity: SpiDacPorts_work_main_architecture_main_0layer1, Architecture: spidac
 			Hardware Generation Phase, Initial Cleanup Phase, Optimization Phase: Negligible CPU time
 		*Library: work, Entity: OneShotPorts_work_main_architecture_main_1layer1, Architecture: oneshot
 			Hardware Generation Phase, Initial Cleanup Phase, Optimization Phase: Negligible CPU time

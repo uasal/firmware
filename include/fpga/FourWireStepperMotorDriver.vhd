@@ -153,6 +153,11 @@ begin
 			MotorStopped <= '1';
 			InTransit <= '0';
 			
+			MotorAPlus_i <= '0';
+			MotorAMinus_i <= '0';
+			MotorBPlus_i <= '0';
+			MotorBMinus_i <= '0';
+			
 		else
 		
 			if ( (clk'event) and (clk = '1') ) then

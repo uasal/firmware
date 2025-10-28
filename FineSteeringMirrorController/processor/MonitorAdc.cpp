@@ -13,6 +13,8 @@
 
 #include "Delay.h"
 
+#include "Uarts.hpp"
+
 #include "MonitorAdc.hpp"
 
 CGraphFSMMonitorAdc MonitorAdc;
@@ -52,6 +54,123 @@ MonitorAdcCalibratedInput TemperatureCalibrate(1.0, 0.0); //not actually connect
 //~ MonitorAdcCalibratedInput TemperatureCalibrate(1.0, 0.0); //not actually connected on prototype pcb
 //~ //\Debug
 
+
+void CGraphFSMMonitorAdc::Init()
+{
+	for (uint8_t i = 0; i < 10; i++)
+	{
+		uint8_t AdcInit = Adc.Init(GpioDirections);
+		if (Adc.InitOK == AdcInit)
+		{
+			AdcFound = true;
+			break;
+		}
+		else
+		{
+			formatf("\nMonitorAdc: Error initializing Adc: %u [0x%.2X].\n", AdcInit, AdcInit);
+		}
+	}
+	if (AdcFound)
+	{
+		Adc.ClearScanChannels();
+		Adc.AddScanChannel(P1V2Channel);
+		Adc.AddScanChannel(P2V2Channel);
+		Adc.AddScanChannel(P28VChannel);
+		Adc.AddScanChannel(P2V5Channel);
+		Adc.AddScanChannel(P6VChannel);
+		Adc.AddScanChannel(P5VChannel);
+		Adc.AddScanChannel(P3V3DChannel);
+		Adc.AddScanChannel(P4V3Channel);
+		Adc.AddScanChannel(P2I2Channel);
+		Adc.AddScanChannel(P4I3Channel);
+		Adc.AddScanChannel(P6IChannel);
+		Adc.AddScanChannel(Aux0Channel);
+		Adc.AddScanChannel(Aux1Channel);
+		Adc.AddScanChannel(Aux2Channel);
+		Adc.AddScanChannel(AmbientLightChannel);
+		Adc.AddScanChannel(TemperatureChannel);
+		Adc.CommitScanChannels();
+		Adc.StartChannelScan();
+		//Take start pin high to initiate auto-scan
+		{
+			Adc.WriteRegister(ads1258details::register_gpiod, StartPinMask);
+			//~ if (Monitor)
+			{
+				formatf("\nMonitorAdc: Starting A/D auto-scan; wrote 0x%.2X to gpio's, readback: 0x%.2X\n", StartPinMask, Adc.ReadRegister(ads1258details::register_gpiod));
+				fflush(stdout);
+			}
+		}
+	}
+	else
+	{
+		formatf("\nMonitorAdc: No Adc found!\n");
+	}
+};
+	
+void CGraphFSMMonitorAdc::Process()
+{
+	if (AdcFound)
+	{
+		//~ we don't have anything connected to gpios but might in the future, and dm does if this code gets cut&pasted: GpioInputs = Adc.ReadRegister(ads1258details::register_gpiod);
+		
+		ads1258details::ads1258sample sample;
+		
+		for(size_t CurrentChan = 0; CurrentChan < ads1258details::ads1258numchannels; CurrentChan++)
+		{
+			ProcessAllUarts();
+			
+			Adc.AutoScan();
+		
+			if (Adc.IsScanChannel(CurrentChan))
+			{
+				ProcessAllUarts();
+			
+				Adc.GetLastSample(CurrentChan, sample);
+				
+				ProcessAllUarts();
+								
+				if ( (sample.status.isbrownout) || (sample.status.isclipped) )
+				{ 
+					if (Monitor) { ::formatf("\nMonitorAdc: ch %u bad status: 0x%.2X\n", sample.status.channel, sample.status.all); }
+				}					
+				else
+				{
+					if (sample.status.isnew)
+					{
+						if (Monitor) { ::formatf("\nMonitorAdc: ch %u reads: %lf Volts [%lu lsb's]\n", sample.status.channel, Adc.CountsToVolts(sample.sample), sample.sample); }
+
+						switch(sample.status.channel)
+						{
+							case P1V2Channel : { P1V2 = (sample.sample); break; } 
+							case P2V2Channel : { P2V2 = (sample.sample); break; } 
+							case P28VChannel : { P28V = (sample.sample); break; } 
+							case P2V5Channel : { P2V5 = (sample.sample); break; } 
+							case P6VChannel : { P6V = (sample.sample); break; } 
+							case P5VChannel : { P5V = (sample.sample); break; } 
+							case P3V3DChannel : { P3V3D = (sample.sample); break; } 
+							case P4V3Channel : { P4V3 = (sample.sample); break; } 
+							case P2I2Channel : { P2I2 = (sample.sample); break; } 
+							case P4I3Channel : { P4I3 = (sample.sample); break; } 
+							case P6IChannel : { P6I = (sample.sample); break; } 
+							case Aux0Channel : { Aux0 = (sample.sample); break; } 
+							case Aux1Channel : { Aux1 = (sample.sample); break; } 
+							case Aux2Channel : { Aux2 = (sample.sample); break; } 
+							case AmbientLightChannel : { AmbientLight = (sample.sample); break; } 
+							case TemperatureChannel : { Temperature = (sample.sample); break; } 
+							
+							default: { break; } //do nothing; we can scan all 16 channels and discard the unused ones.
+						}
+					}
+					else
+					{
+						if (Monitor) { ::formatf("\nMonitorAdc: ch %u no new sample this scan.\n", sample.status.channel); }
+					}						
+				}
+			}
+		}
+	}
+};
+	
 const char ScanMonitorAdcCmdString[] = "SCANMONITORADC";
 const char ScanMonitorAdcHelp[] = "\"ScanMonitorAdc\"; Show current input voltages...";
 int8_t ScanMonitorAdcCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)

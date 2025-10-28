@@ -13,8 +13,8 @@ use IEEE.NUMERIC_STD.all;
 
 entity RegisterSpacePorts is
 	generic (
-		ADDRESS_BITS : natural := 10--;
-		--~ FIFO_BITS : natural := 9--;
+		ADDRESS_BITS : natural := 10;
+		UART_FIFO_DEPTH_BITS : natural := 9--;
 	);
 	port (
 	
@@ -162,6 +162,19 @@ entity RegisterSpacePorts is
 		Uart0TxFifoData : out std_logic_vector(7 downto 0);
 		Uart0TxFifoCount : in std_logic_vector(9 downto 0);
 		Uart0ClkDivider : out std_logic_vector(7 downto 0);
+		
+		Uart0RxFifoPeekReadAddr : in unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+		Uart0RxFifoPeekWriteAddr : in unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+		Uart0RxFifoPeekPeekAddr : out unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+		Uart0RxFifoPeekPeekData : in std_logic_vector(7 downto 0);
+		Uart0RxFifoPeekMultiPopAddr : out unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+		Uart0RxFifoPeekMultiPopStrobe : out std_logic;		
+		Uart0CrcStartAddr : out unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+		Uart0CrcEndAddr : out unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+		Uart0CrcCurrentAddr : in unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+		Uart0DoCrc : out std_logic;
+		Uart0CrcDone : in std_logic;
+		Uart0Crc : in std_logic_vector(31 downto 0);
 		
 		Uart1FifoReset : out std_logic;
 		ReadUart1 : out std_logic;
@@ -342,21 +355,30 @@ architecture RegisterSpace of RegisterSpacePorts is
 	constant PosDet7BOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(324, MAX_ADDRESS_BITS));
 	constant PosDet7BOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(328, MAX_ADDRESS_BITS));
 	
+	constant Uart0RxFifoPeekReadAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(332, MAX_ADDRESS_BITS));
+	constant Uart0RxFifoPeekWriteAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(336, MAX_ADDRESS_BITS));
+	constant Uart0RxFifoPeekPeekAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(340, MAX_ADDRESS_BITS));
+	constant Uart0RxFifoPeekPeekDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(344, MAX_ADDRESS_BITS));
+	constant Uart0RxFifoPeekMultiPopAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(348, MAX_ADDRESS_BITS));
+	constant Uart0CrcStartAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(352, MAX_ADDRESS_BITS));
+	constant Uart0CrcEndAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(356, MAX_ADDRESS_BITS));
+	constant Uart0CrcCurrentAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(360, MAX_ADDRESS_BITS));
+	constant Uart0CrcAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(364, MAX_ADDRESS_BITS));
+
 	--Control Signals
 	
 	signal LastReadReq :  std_logic := '0';		
 	signal LastWriteReq :  std_logic := '0';		
 
-	--signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 32.0)) - 1.0), 8));	--38.4k
-	--signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 32.0)) - 1.0), 8));	--230k
-	--signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(38400) * 32.0)) - 1.0), 8));	--38.4k
-	--signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(230400) * 32.0)) - 1.0), 8));	--230k
-	signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 16.0)) - 1.0), 8));	--38.4k
-	signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));	--230k
-	--signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(38400) * 16.0)) - 1.0), 8));	--38.4k
-	--signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(230400) * 16.0)) - 1.0), 8));	--230k
-	signal Uart2ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8));	--"real fast"
-	signal Uart3ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8));	--"real fast"
+	signal Uart0ClkDivider_i : std_logic_vector(7 downto 0);
+	signal Uart1ClkDivider_i : std_logic_vector(7 downto 0);
+	signal Uart2ClkDivider_i : std_logic_vector(7 downto 0);
+	signal Uart3ClkDivider_i : std_logic_vector(7 downto 0);
+	
+	signal Uart0RxFifoPeekPeekAddr_i : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
+	signal Uart0RxFifoPeekMultiPopAddr_i : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);	
+	signal Uart0CrcStartAddr_i : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);	
+	signal Uart0CrcEndAddr_i : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);	
 	
 	signal MonitorAdcChannelReadIndex_i : std_logic_vector(4 downto 0);	
 	signal MonitorAdcSpiFrameEnable_i : std_logic := '0';	
@@ -400,6 +422,9 @@ begin
 	MonitorAdcChannelReadIndex <= MonitorAdcChannelReadIndex_i;
 	MonitorAdcSpiFrameEnable <= MonitorAdcSpiFrameEnable_i;
 	
+	Uart0CrcStartAddr <= unsigned(Uart0CrcStartAddr_i);
+	Uart0CrcEndAddr <= unsigned(Uart0CrcEndAddr_i);
+	
 	--~ Fault1V <= Fault1V_i;
 	--~ Fault3V <= Fault3V_i;
 	--~ Fault5V <= Fault5V_i;
@@ -424,10 +449,14 @@ begin
 			LastReadReq <= '0';			
 			LastWriteReq <= '0';		
 
-			Uart0ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 16.0)) - 1.0), 8));
-			Uart1ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));
-			Uart2ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
-			Uart3ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
+			--~ Uart0ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 16.0)) - 1.0), 8));
+			--~ Uart1ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));
+			--~ Uart2ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
+			--~ Uart3ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
+			Uart0ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(115200) * 16.0)) - 1.0), 8));
+			Uart1ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(115200) * 16.0)) - 1.0), 8));
+			Uart2ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(115200) * 16.0)) - 1.0), 8));
+			Uart3ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(115200) * 16.0)) - 1.0), 8));
 			
 			MonitorAdcChannelReadIndex_i <= "00000";	
 			
@@ -828,6 +857,58 @@ begin
 							when PosDet7BOnStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet7BOnStep); DataOut(31 downto 16) <= x"0000";
 							when PosDet7BOffStepAddr => DataOut(15 downto 0) <= std_logic_vector(PosDet7BOffStep); DataOut(31 downto 16) <= x"0000";
 				
+														
+														
+														
+							--Uart0 Peek Fifo	
+							when Uart0RxFifoPeekReadAddrAddr =>
+							
+								DataOut(UART_FIFO_DEPTH_BITS - 1 downto 0) <= std_logic_vector(Uart0RxFifoPeekReadAddr);
+								DataOut(31 downto UART_FIFO_DEPTH_BITS) <= (others => '0');
+								
+							when Uart0RxFifoPeekWriteAddrAddr =>
+
+								DataOut(UART_FIFO_DEPTH_BITS - 1 downto 0) <= std_logic_vector(Uart0RxFifoPeekWriteAddr);
+								DataOut(31 downto UART_FIFO_DEPTH_BITS) <= (others => '0');
+
+							when Uart0RxFifoPeekPeekAddrAddr =>
+							
+								DataOut(UART_FIFO_DEPTH_BITS - 1 downto 0) <= Uart0RxFifoPeekPeekAddr_i;
+								DataOut(31 downto UART_FIFO_DEPTH_BITS) <= (others => '0');
+
+							when Uart0RxFifoPeekPeekDataAddr =>
+							
+								DataOut(7 downto 0) <= Uart0RxFifoPeekPeekData;
+								DataOut(31 downto 8) <= (others => '0');
+
+							when Uart0RxFifoPeekMultiPopAddrAddr =>
+						
+								DataOut(UART_FIFO_DEPTH_BITS - 1 downto 0) <= Uart0RxFifoPeekMultiPopAddr_i;
+								DataOut(31 downto UART_FIFO_DEPTH_BITS) <= (others => '0');
+
+							when Uart0CrcStartAddrAddr =>
+						
+								DataOut(UART_FIFO_DEPTH_BITS - 1 downto 0) <= Uart0CrcStartAddr_i;
+								DataOut(31 downto UART_FIFO_DEPTH_BITS) <= (others => '0');
+
+							when Uart0CrcEndAddrAddr =>
+						
+								DataOut(UART_FIFO_DEPTH_BITS - 1 downto 0) <= Uart0CrcEndAddr_i;
+								DataOut(31 downto UART_FIFO_DEPTH_BITS) <= (others => '0');
+
+							when Uart0CrcCurrentAddrAddr =>
+						
+								DataOut(UART_FIFO_DEPTH_BITS - 1 downto 0) <= std_logic_vector(Uart0CrcCurrentAddr);
+								DataOut(30 downto UART_FIFO_DEPTH_BITS) <= (others => '0');
+								DataOut(31) <= Uart0CrcDone;
+
+							when Uart0CrcAddr =>
+						
+								DataOut <= Uart0Crc;
+
+								
+								
+								
 							when others =>
 
 								DataOut <= x"BAADC0DE";
@@ -1013,6 +1094,34 @@ begin
 								if (ResetSteps_i = '1') then MotorSeekStep_i <= x"0000"; end if;
 								
 								
+															
+							
+							
+							
+							--Uart0 Peek Fifo
+								
+							when Uart0RxFifoPeekPeekAddrAddr =>
+							
+								Uart0RxFifoPeekPeekAddr_i <= DataIn(UART_FIFO_DEPTH_BITS - 1 downto 0);
+																
+							when Uart0RxFifoPeekMultiPopAddrAddr =>
+							
+								Uart0RxFifoPeekMultiPopAddr_i <= DataIn(UART_FIFO_DEPTH_BITS - 1 downto 0);
+								Uart0RxFifoPeekMultiPopStrobe <= '1';
+								
+							when Uart0CrcStartAddrAddr =>
+						
+								Uart0CrcStartAddr_i <= DataIn(UART_FIFO_DEPTH_BITS - 1 downto 0);
+								
+							when Uart0CrcEndAddrAddr =>
+						
+								Uart0CrcEndAddr_i <= DataIn(UART_FIFO_DEPTH_BITS - 1 downto 0);
+								Uart0DoCrc <= '1';
+
+							
+
+							
+								
 							when others => 
 
 
@@ -1060,7 +1169,10 @@ begin
 						nFaultClr1V <= '0';			
 						nFaultClr3V <= '0';			
 						nFaultClr5V <= '0';			
-						nPowerCycClr <= '0';												
+						nPowerCycClr <= '0';		
+
+						Uart0RxFifoPeekMultiPopStrobe <= '0';
+						Uart0DoCrc <= '0';
 					
 					end if;
 					

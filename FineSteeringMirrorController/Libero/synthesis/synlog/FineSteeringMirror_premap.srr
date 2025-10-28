@@ -1,4 +1,4 @@
-# Mon Sep 15 14:42:26 2025
+# Thu Oct 23 14:16:06 2025
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -107,7 +107,7 @@ NConnInternalConnection caching is on
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|User-specified initial value defined for instance Main_0.RS433_Rx3.UartFifo.fifo_i.raddr_r[9:0] is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|User-specified initial value defined for instance Main_0.RS433_Rx3.UartFifo.fifo_i.empty_r is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|User-specified initial value defined for instance Main_0.RS433_Rx3.UartFifo.fifo_i.full_r is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":123:2:123:3|User-specified initial value defined for instance Main_0.RS433_Rx3.UartFifo.fifo_i.data_r[7:0] is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":124:2:124:3|User-specified initial value defined for instance Main_0.RS433_Rx3.UartFifo.fifo_i.data_r[7:0] is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":86:2:86:3|User-specified initial value defined for instance Main_0.RS433_Rx3.UartFifo.we_i is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":86:2:86:3|User-specified initial value defined for instance Main_0.RS433_Rx3.UartFifo.re_i is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":86:2:86:3|User-specified initial value defined for instance Main_0.RS433_Rx3.UartFifo.Last_wone_i is being ignored due to limitations in architecture. 
@@ -180,10 +180,10 @@ Finished DisTri Cleanup (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:0
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1235:4:1235:9|Removing sequential instance sdif1_state[3:0] (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.statemachine(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1300:4:1300:9|Removing sequential instance sdif2_state[3:0] (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.statemachine(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1365:4:1365:9|Removing sequential instance sdif3_state[3:0] (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.statemachine(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Removing sequential instance count_o[9:0] (in view: work.fifo_8_10_1_0(rtl)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Removing sequential instance count_o[9:0] (in view: work.fifo_8_10_1_2(rtl)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Removing sequential instance count_o[9:0] (in view: work.fifo_8_10_1_4(rtl)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Removing sequential instance count_o[9:0] (in view: work.fifo_8_10_1_6(rtl)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Removing sequential instance count_o[9:0] (in view: work.fifo_8_10_1_0(rtl)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Removing sequential instance count_o[9:0] (in view: work.fifo_8_10_1_2(rtl)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Removing sequential instance count_o[9:0] (in view: work.fifo_8_10_1_4(rtl)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Removing sequential instance count_o[9:0] (in view: work.fifo_8_10_1_6(rtl)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":797:4:797:9|Removing sequential instance sdif0_areset_n_clk_base (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":811:4:811:9|Removing sequential instance sdif1_areset_n_clk_base (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":825:4:825:9|Removing sequential instance sdif2_areset_n_clk_base (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
@@ -193,10 +193,10 @@ Finished DisTri Cleanup (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:0
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":811:4:811:9|Removing sequential instance sdif1_areset_n_q1 (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":825:4:825:9|Removing sequential instance sdif2_areset_n_q1 (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":839:4:839:9|Removing sequential instance sdif3_areset_n_q1 (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":123:2:123:3|Removing sequential instance r_ack (in view: work.fifo_8_10_0(rtl)) of type view:PrimLib.dff(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":123:2:123:3|Removing sequential instance r_ack (in view: work.fifo_8_10_1_1(rtl)) of type view:PrimLib.dff(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":123:2:123:3|Removing sequential instance r_ack (in view: work.fifo_8_10_1_3(rtl)) of type view:PrimLib.dff(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":123:2:123:3|Removing sequential instance r_ack (in view: work.fifo_8_10_1_5(rtl)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":124:2:124:3|Removing sequential instance r_ack (in view: work.fifo_8_10_0(rtl)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":124:2:124:3|Removing sequential instance r_ack (in view: work.fifo_8_10_1_1(rtl)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":124:2:124:3|Removing sequential instance r_ack (in view: work.fifo_8_10_1_3(rtl)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":124:2:124:3|Removing sequential instance r_ack (in view: work.fifo_8_10_1_5(rtl)) of type view:PrimLib.dff(prim) because it does not drive other instances.
 @N: FX1184 |Applying syn_allowed_resources blockrams=21 on top level netlist FineSteeringMirror 
 
 Finished netlist restructuring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 288MB peak: 288MB)
@@ -310,6 +310,6 @@ Pre-mapping successful!
 At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 288MB peak: 288MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Mon Sep 15 14:42:27 2025
+# Thu Oct 23 14:16:07 2025
 
 ###########################################################]

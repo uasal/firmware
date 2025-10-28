@@ -1,7 +1,7 @@
 //
 ///           University of Arizona
 ///           Steward Observatory
-///           UASAL - UA Space Astrophysics Labratory
+///           UASAL - UA Space Astrophysics Usbratory
 ///           CAAO - Center for Astronomical Adaptive Optics
 ///           MagAOX
 //
@@ -238,6 +238,16 @@ struct CGraphFWHardwareInterface
 	CGraphFWPositionStepRegister PosDet5B; //ro; the step at which this signal toggled
 	CGraphFWPositionStepRegister PosDet6B; //ro; the step at which this signal toggled
 	CGraphFWPositionStepRegister PosDet7B; //ro; the step at which this signal toggled
+	
+	uint32_t Uart0RxFifoPeekReadAddr;
+	uint32_t Uart0RxFifoPeekWriteAddr;
+	uint32_t Uart0RxFifoPeekPeekAddr;
+	uint32_t Uart0RxFifoPeekPeekData;
+	uint32_t Uart0RxFifoPeekMultiPopAddr;
+	uint32_t Uart0CrcStartAddr;
+	uint32_t Uart0CrcEndAddr;
+	CGraphCrcCurrentAddr Uart0CrcCurrentAddr;
+	uint32_t Uart0Crc;
 	
 } __attribute__((__packed__));
 

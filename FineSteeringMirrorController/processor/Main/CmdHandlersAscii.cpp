@@ -435,7 +435,7 @@ int8_t CirclesCommand(char const* Name, char const* Params, const size_t ParamsL
 			unsigned long rbc = FSM->DacCSetpoint;
 			unsigned long rbd = FSM->DacDSetpoint;
 			formatf("\n%lu, %lu, %lu, %lu", rba, rbb, rbc, rbd);
-			fflush(stdin);		
+			//~ fflush(stdin);		
 			
 			//~ double ang = (double)(cycle % 360);
 			double ang = (double)(cycle % 60) * 6.0;
@@ -467,7 +467,7 @@ int8_t CirclesCommand(char const* Name, char const* Params, const size_t ParamsL
 			//~ if (0 != key) 
 			if (cycle > 1000)
 			{ 
-				fflush(stdin);
+				//~ fflush(stdin);
 				formatf("\n\nCircles: Keypress(%d); exiting.\n", key);
 				break; 
 			}			

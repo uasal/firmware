@@ -3,7 +3,7 @@
 <doc>
 <text>SmartTime Version 2023.2.0.10</text>
 <text>Microsemi Corporation - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)
-Date: Thu Mar 27 14:09:37 2025 </text>
+Date: Tue Oct 28 14:54:20 2025 </text>
 <table>
 <header>
 </header>
@@ -50,40 +50,40 @@ Date: Thu Mar 27 14:09:37 2025 </text>
 </header>
 <row>
  <cell>Setup</cell>
- <cell>         5332</cell>
+ <cell>         5126</cell>
  <cell>          155</cell>
- <cell>         5487</cell>
+ <cell>         5281</cell>
 </row>
 <row>
  <cell>Recovery</cell>
- <cell>         1040</cell>
+ <cell>         1067</cell>
  <cell>           74</cell>
- <cell>         1114</cell>
+ <cell>         1141</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
- <cell>           14</cell>
- <cell>           49</cell>
+ <cell>           17</cell>
+ <cell>           46</cell>
  <cell>           63</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
- <cell>         6386</cell>
- <cell>          278</cell>
- <cell>         6664</cell>
+ <cell>         6210</cell>
+ <cell>          275</cell>
+ <cell>         6485</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
- <cell>         5332</cell>
+ <cell>         5126</cell>
  <cell>          155</cell>
- <cell>         5487</cell>
+ <cell>         5281</cell>
 </row>
 <row>
  <cell>Removal</cell>
- <cell>         1040</cell>
+ <cell>         1067</cell>
  <cell>           74</cell>
- <cell>         1114</cell>
+ <cell>         1141</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
@@ -93,9 +93,9 @@ Date: Thu Mar 27 14:09:37 2025 </text>
 </row>
 <row>
  <cell>Total Hold</cell>
- <cell>         6389</cell>
+ <cell>         6210</cell>
  <cell>          275</cell>
- <cell>         6664</cell>
+ <cell>         6485</cell>
 </row>
 </table>
 <section>
@@ -173,52 +173,52 @@ Date: Thu Mar 27 14:09:37 2025 </text>
 </header>
 <row>
  <cell>Setup</cell>
- <cell>         5036</cell>
+ <cell>         4830</cell>
  <cell>           39</cell>
- <cell>         5075</cell>
+ <cell>         4869</cell>
 </row>
 <row>
  <cell>Recovery</cell>
- <cell>          852</cell>
+ <cell>          879</cell>
  <cell>            0</cell>
- <cell>          852</cell>
+ <cell>          879</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
- <cell>            6</cell>
- <cell>           26</cell>
- <cell>           32</cell>
+ <cell>            9</cell>
+ <cell>           15</cell>
+ <cell>           24</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
- <cell>         5894</cell>
- <cell>           65</cell>
- <cell>         5959</cell>
+ <cell>         5718</cell>
+ <cell>           54</cell>
+ <cell>         5772</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
- <cell>         5036</cell>
+ <cell>         4830</cell>
  <cell>           39</cell>
- <cell>         5075</cell>
+ <cell>         4869</cell>
 </row>
 <row>
  <cell>Removal</cell>
- <cell>          852</cell>
+ <cell>          879</cell>
  <cell>            0</cell>
- <cell>          852</cell>
+ <cell>          879</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
  <cell>            9</cell>
- <cell>           23</cell>
- <cell>           32</cell>
+ <cell>           15</cell>
+ <cell>           24</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
- <cell>         5897</cell>
- <cell>           62</cell>
- <cell>         5959</cell>
+ <cell>         5718</cell>
+ <cell>           54</cell>
+ <cell>         5772</cell>
 </row>
 </table>
 <section>
@@ -268,27 +268,16 @@ Date: Thu Mar 27 14:09:37 2025 </text>
 <text> - Max output delay constraint missing on ports:</text>
 <text>   </text>
 <list>
- <item>MosiMonAdc0</item>
  <item>MosiXO</item>
- <item>MotorDriveAMinus</item>
- <item>MotorDriveAMinusPrime</item>
- <item>MotorDriveAPlus</item>
- <item>MotorDriveAPlusPrime</item>
- <item>MotorDriveBMinus</item>
- <item>MotorDriveBMinusPrime</item>
- <item>MotorDriveBPlus</item>
- <item>MotorDriveBPlusPrime</item>
  <item>Oe0</item>
  <item>Oe1</item>
  <item>Oe2</item>
  <item>Oe3</item>
  <item>PosLEDEnA</item>
  <item>PosLEDEnB</item>
- <item>SckMonAdc0</item>
  <item>SckXO</item>
  <item>TP8</item>
  <item>Ux1SelJmp</item>
- <item>nCsMonAdc0</item>
  <item>nCsXO</item>
  <item>nFaultClr1V</item>
  <item>nFaultClr3V</item>
@@ -300,14 +289,6 @@ Date: Thu Mar 27 14:09:37 2025 </text>
 <text>   </text>
 <list>
  <item>MosiXO</item>
- <item>MotorDriveAMinus</item>
- <item>MotorDriveAMinusPrime</item>
- <item>MotorDriveAPlus</item>
- <item>MotorDriveAPlusPrime</item>
- <item>MotorDriveBMinus</item>
- <item>MotorDriveBMinusPrime</item>
- <item>MotorDriveBPlus</item>
- <item>MotorDriveBPlusPrime</item>
  <item>Oe0</item>
  <item>Oe1</item>
  <item>Oe2</item>
@@ -1837,14 +1818,14 @@ Date: Thu Mar 27 14:09:37 2025 </text>
 <row>
  <cell>Output Setup</cell>
  <cell>            1</cell>
- <cell>           12</cell>
- <cell>           13</cell>
+ <cell>           20</cell>
+ <cell>           21</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
  <cell>            1</cell>
- <cell>           12</cell>
- <cell>           13</cell>
+ <cell>           20</cell>
+ <cell>           21</cell>
 </row>
 <separator/>
 <row>
@@ -1862,14 +1843,14 @@ Date: Thu Mar 27 14:09:37 2025 </text>
 <row>
  <cell>Output Hold</cell>
  <cell>            1</cell>
- <cell>           12</cell>
- <cell>           13</cell>
+ <cell>           20</cell>
+ <cell>           21</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
  <cell>            1</cell>
- <cell>           12</cell>
- <cell>           13</cell>
+ <cell>           20</cell>
+ <cell>           21</cell>
 </row>
 </table>
 <section>

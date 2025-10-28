@@ -19,14 +19,14 @@ extern "C" {
 	
 	void hard_fault_handler_c (unsigned int * hardfault_args)
 	{
-		unsigned int stacked_r0;
-		unsigned int stacked_r1;
-		unsigned int stacked_r2;
-		unsigned int stacked_r3;
-		unsigned int stacked_r12;
-		unsigned int stacked_lr;
-		unsigned int stacked_pc;
-		unsigned int stacked_psr;
+		unsigned int stacked_r0 __attribute__((__used__));
+		unsigned int stacked_r1 __attribute__((__used__));
+		unsigned int stacked_r2 __attribute__((__used__));
+		unsigned int stacked_r3 __attribute__((__used__));
+		unsigned int stacked_r12 __attribute__((__used__));
+		unsigned int stacked_lr __attribute__((__used__));
+		unsigned int stacked_pc __attribute__((__used__));
+		unsigned int stacked_psr __attribute__((__used__));
 		
 	    //~ formatf ("\n\n!MajorCrashSegFaultHandler()!\n");
 		

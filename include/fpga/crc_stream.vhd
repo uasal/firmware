@@ -84,6 +84,7 @@ begin
 		if (rst = '1') then 
 		
 			CrcIn <= x"FFFFFFFF";
+			CrcOut <= x"FFFFFFFF";
 					
 		else
 			

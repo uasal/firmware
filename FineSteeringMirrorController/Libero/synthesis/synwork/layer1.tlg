@@ -37,8 +37,6 @@ Finished optimization stage 1 on SpiDacPorts (CPU Time 0h:00m:00s, Memory Used c
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":30:7:30:19|Synthesizing work.ppscountports.ppscount.
 Post processing for work.ppscountports.ppscount
 Running optimization stage 1 on PPSCountPorts .......
-@A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":54:65:54:65|Feedback mux created for signal PPSAccum_i[31:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":54:65:54:65|Feedback mux created for signal LastPPS. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 Finished optimization stage 1 on PPSCountPorts (CPU Time 0h:00m:00s, Memory Used current: 143MB peak: 143MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":30:7:30:17|Synthesizing work.ibufp2ports.ibufp2.
 Post processing for work.ibufp2ports.ibufp2
@@ -56,7 +54,6 @@ Finished optimization stage 1 on UartTx (CPU Time 0h:00m:00s, Memory Used curren
 Post processing for work.fifo.rtl
 Running optimization stage 1 on fifo .......
 @N: CL134 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Found RAM ram, depth=1024, width=8
-@A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Feedback mux created for signal count_o[9:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 Finished optimization stage 1 on fifo (CPU Time 0h:00m:00s, Memory Used current: 144MB peak: 144MB)
 Post processing for work.gated_fifo.rtl
 Running optimization stage 1 on gated_fifo .......
@@ -195,19 +192,19 @@ Running optimization stage 1 on RegisterSpacePorts .......
 @A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|Feedback mux created for signal GlobalFaultInhibit_i. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 @A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|Feedback mux created for signal ReadAck. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 @A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|Feedback mux created for signal WriteAck. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-Finished optimization stage 1 on RegisterSpacePorts (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
+Finished optimization stage 1 on RegisterSpacePorts (CPU Time 0h:00m:00s, Memory Used current: 154MB peak: 154MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd":30:7:30:17|Synthesizing work.ibufp1ports.ibufp1.
 Post processing for work.ibufp1ports.ibufp1
 Running optimization stage 1 on IBufP1Ports .......
-Finished optimization stage 1 on IBufP1Ports (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
+Finished optimization stage 1 on IBufP1Ports (CPU Time 0h:00m:00s, Memory Used current: 154MB peak: 154MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":30:7:30:18|Synthesizing work.oneshotports.oneshot.
 Post processing for work.oneshotports.oneshot
 Running optimization stage 1 on OneShotPorts .......
-Finished optimization stage 1 on OneShotPorts (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
+Finished optimization stage 1 on OneShotPorts (CPU Time 0h:00m:00s, Memory Used current: 154MB peak: 154MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/BuildNumber.vhd":14:7:14:22|Synthesizing work.buildnumberports.buildnumber.
 Post processing for work.buildnumberports.buildnumber
 Running optimization stage 1 on BuildNumberPorts .......
-Finished optimization stage 1 on BuildNumberPorts (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
+Finished optimization stage 1 on BuildNumberPorts (CPU Time 0h:00m:00s, Memory Used current: 154MB peak: 154MB)
 Post processing for work.main.architecture_main
 Running optimization stage 1 on Main .......
 @W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1276:1:1276:13|Bit 0 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
@@ -274,13 +271,13 @@ Running optimization stage 1 on Main .......
 @W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1276:1:1276:13|Bit 61 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 @W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1276:1:1276:13|Bit 62 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 @W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1276:1:1276:13|Bit 63 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-Finished optimization stage 1 on Main (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
+Finished optimization stage 1 on Main (CPU Time 0h:00m:00s, Memory Used current: 154MB peak: 154MB)
 Running optimization stage 2 on BuildNumberPorts .......
-Finished optimization stage 2 on BuildNumberPorts (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
+Finished optimization stage 2 on BuildNumberPorts (CPU Time 0h:00m:00s, Memory Used current: 154MB peak: 154MB)
 Running optimization stage 2 on OneShotPorts_work_main_architecture_main_0layer1 .......
-Finished optimization stage 2 on OneShotPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
+Finished optimization stage 2 on OneShotPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 154MB peak: 154MB)
 Running optimization stage 2 on IBufP1Ports .......
-Finished optimization stage 2 on IBufP1Ports (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
+Finished optimization stage 2 on IBufP1Ports (CPU Time 0h:00m:00s, Memory Used current: 154MB peak: 154MB)
 Running optimization stage 2 on RegisterSpacePorts_10 .......
 @N: CL159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":78:2:78:20|Input DacTransferComplete is unused.
 @N: CL159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":92:2:92:23|Input MonitorAdcSampleToRead is unused.

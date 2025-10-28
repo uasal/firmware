@@ -11,16 +11,21 @@ read_verilog -mode system_verilog -lib COREAPB3_LIB {/home/summer/projects/CGrap
 read_verilog -mode system_verilog -lib COREAPB3_LIB {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3.v}
 read_verilog -mode system_verilog {/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/Filterwheel_sb/Filterwheel_sb.v}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/BuildNumber.vhd}
+read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/crc_byte.vhd}
+read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/crc_stream.vhd}
+read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd}
-read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/UartRxExtClk.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClk.vhd}
+read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd}
+read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo_peek.vhd}
+read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClkPeek.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd}
@@ -28,6 +33,7 @@ read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/Cl
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotor.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd}
+read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/SpiDevice.vhd}

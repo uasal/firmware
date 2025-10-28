@@ -90,13 +90,13 @@ SIZE="1186"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpga/Main.vhd,hdl"
 STATE="utd"
-TIME="1757540757"
-SIZE="73243"
+TIME="1757965388"
+SIZE="73441"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpga/RegisterSpace.vhd,hdl"
 STATE="utd"
-TIME="1757367783"
-SIZE="32951"
+TIME="1757969214"
+SIZE="33012"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/ads1258.vhd,hdl"
 STATE="utd"
@@ -115,8 +115,8 @@ SIZE="2006"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/fifo_gen.vhd,hdl"
 STATE="utd"
-TIME="1716482055"
-SIZE="3373"
+TIME="1761240193"
+SIZE="3390"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/fifo_gen_tb.vhd,hdl"
 STATE="utd"
@@ -125,13 +125,13 @@ SIZE="2462"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/FourWireStepperMotor.vhd,hdl"
 STATE="utd"
-TIME="1726443238"
-SIZE="3163"
+TIME="1761240083"
+SIZE="3265"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/FourWireStepperMotorDriver.vhd,hdl"
 STATE="utd"
-TIME="1726443442"
-SIZE="5004"
+TIME="1761240052"
+SIZE="5106"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/gated_fifo.vhd,hdl"
 STATE="utd"
@@ -210,8 +210,8 @@ SIZE="3831"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/PPSCount.vhd,hdl"
 STATE="utd"
-TIME="1726443320"
-SIZE="3260"
+TIME="1761240146"
+SIZE="3305"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/RtcCounter.vhd,hdl"
 STATE="utd"
@@ -346,8 +346,8 @@ SIZE="2067"
 ENDFILE
 VALUE "<project>/../../include/fpga/fifo_gen.vhd,hdl"
 STATE="utd"
-TIME="1716482055"
-SIZE="3373"
+TIME="1761240193"
+SIZE="3390"
 ENDFILE
 VALUE "<project>/../../include/fpga/fifo_gen_tb.vhd,hdl"
 STATE="utd"
@@ -356,13 +356,13 @@ SIZE="2462"
 ENDFILE
 VALUE "<project>/../../include/fpga/FourWireStepperMotor.vhd,hdl"
 STATE="utd"
-TIME="1726443238"
-SIZE="3163"
+TIME="1761240083"
+SIZE="3265"
 ENDFILE
 VALUE "<project>/../../include/fpga/FourWireStepperMotorDriver.vhd,hdl"
 STATE="utd"
-TIME="1726443442"
-SIZE="5004"
+TIME="1761240052"
+SIZE="5106"
 ENDFILE
 VALUE "<project>/../../include/fpga/gated_fifo.vhd,hdl"
 STATE="utd"
@@ -447,8 +447,8 @@ SIZE="3831"
 ENDFILE
 VALUE "<project>/../../include/fpga/PPSCount.vhd,hdl"
 STATE="utd"
-TIME="1726443320"
-SIZE="3260"
+TIME="1761240146"
+SIZE="3305"
 ENDFILE
 VALUE "<project>/../../include/fpga/RtcCounter.vhd,hdl"
 STATE="utd"
@@ -575,14 +575,14 @@ ENDFILE
 VALUE "<project>/../fpga/Main.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
 STATE="utd"
-TIME="1757540757"
-SIZE="73243"
+TIME="1757965388"
+SIZE="73441"
 ENDFILE
 VALUE "<project>/../fpga/RegisterSpace.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
 STATE="utd"
-TIME="1757367783"
-SIZE="32951"
+TIME="1757969214"
+SIZE="33012"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
@@ -1142,22 +1142,22 @@ SIZE="252"
 ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror.so,so"
 STATE="utd"
-TIME="1746723605"
+TIME="1757972562"
 SIZE="278"
 ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror.vm,syn_vm"
 STATE="utd"
-TIME="1757461005"
-SIZE="1052803"
+TIME="1757972562"
+SIZE="1038146"
 ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror_syn.prj,prj"
 STATE="utd"
-TIME="1746746566"
-SIZE="7179"
+TIME="1757972563"
+SIZE="7181"
 ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror_vm.sdc,syn_sdc"
 STATE="utd"
-TIME="1746746566"
+TIME="1757972562"
 SIZE="3949"
 ENDFILE
 ENDLIST
@@ -1754,9 +1754,10 @@ ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 Reports;Reports;0
-ReportsCurrentItem;Run Programming Action:FineSteeringMirror_PROGRAM.log
+ReportsCurrentItem;Export Bitstream:FineSteeringMirror_exportBitstream.log
 Constraint Manager;Constraint Manager;0
 SmartDesign;FineSteeringMirror;0
+StartPage;StartPage;0
 ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
@@ -1781,13 +1782,6 @@ SUBBLOCK "CoreSF2Reset::work","component/Actel/DirectCore/CoreSF2Reset/3.0.100/r
 ENDLIST
 LIST "CORESYSSERVICES_C0::work","component/work/CORESYSSERVICES_C0/CORESYSSERVICES_C0.v","TRUE","FALSE"
 SUBBLOCK "CORESYSSERVICES_C0_CORESYSSERVICES_C0_0_CORESYSSERVICES::CORESYSSERVICES_LIB","component/work/CORESYSSERVICES_C0/CORESYSSERVICES_C0_0/rtl/vlog/core/CoreSysServices.v","FALSE","FALSE"
-ENDLIST
-LIST "DESIGN_FIRMWARE::work","component/work/DESIGN_FIRMWARE/DESIGN_FIRMWARE.cxf","TRUE","FALSE"
-SUBBLOCK "SmartFusion2_CMSIS::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
-SUBBLOCK "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
 ENDLIST
 LIST "ClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 ENDLIST
@@ -1951,16 +1945,6 @@ ENDLIST
 LIST "RegisterSpacePorts::work","${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpga/RegisterSpace.vhd","FALSE","FALSE"
 ENDLIST
 LIST "RtcCounterPorts::work","${CGRAPH_FIRMWARE}/include/fpga/RtcCounter.vhd","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_CMSIS::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
-ENDLIST
-LIST "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
 ENDLIST
 LIST "SpiExtBusAddrTxPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiExtBusAddrTx.vhd","FALSE","FALSE"
 SUBBLOCK "UartTx::work","${CGRAPH_FIRMWARE}/include/fpga/UartTx.vhd","FALSE","FALSE"

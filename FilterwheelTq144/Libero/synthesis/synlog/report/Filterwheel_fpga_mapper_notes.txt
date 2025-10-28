@@ -6,102 +6,98 @@
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/Filterwheel_sb/FABOSC_0/Filterwheel_sb_FABOSC_0_OSC.v":18:7:18:20|Tristate driver RCOSC_1MHZ_O2F (in view: work.Filterwheel_sb_FABOSC_0_OSC(verilog)) on net RCOSC_1MHZ_O2F (in view: work.Filterwheel_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/Filterwheel_sb/FABOSC_0/Filterwheel_sb_FABOSC_0_OSC.v":17:7:17:20|Tristate driver RCOSC_1MHZ_CCC (in view: work.Filterwheel_sb_FABOSC_0_OSC(verilog)) on net RCOSC_1MHZ_CCC (in view: work.Filterwheel_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/Filterwheel_sb/FABOSC_0/Filterwheel_sb_FABOSC_0_OSC.v":15:7:15:24|Tristate driver RCOSC_25_50MHZ_CCC (in view: work.Filterwheel_sb_FABOSC_0_OSC(verilog)) on net RCOSC_25_50MHZ_CCC (in view: work.Filterwheel_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":422:2:422:3|Removing sequential instance ReadMonitorAdcSample (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":54:65:54:65|Found counter in view:work.Main(architecture_main) instance PPSAccumulator.PPSAccum_i[31:0] 
+@N: BN362 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":447:2:447:3|Removing sequential instance ReadMonitorAdcSample (in view: work.RegisterSpacePorts_10_10(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart0BitClockDiv.ClkDiv[6:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart1BitClockDiv.ClkDiv[6:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart2BitClockDiv.ClkDiv[6:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart3BitClockDiv.ClkDiv[6:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found counter in view:work.Main(architecture_main) instance StepperMotor.StepOneShot.ClkDiv[19:0] 
 @N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd":149:2:149:3|Found up-down counter in view:work.Main(architecture_main) instance StepperMotor.CurrentStep_i[15:0]  
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found counter in view:work.Main(architecture_main) instance ShootThruIxnaeOneShotBMinus.ClkDiv[16:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found counter in view:work.Main(architecture_main) instance ShootThruIxnaeOneShotBPlus.ClkDiv[16:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found counter in view:work.Main(architecture_main) instance ShootThruIxnaeOneShotAMinus.ClkDiv[16:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found counter in view:work.Main(architecture_main) instance ShootThruIxnaeOneShotAPlus.ClkDiv[16:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Found counter in view:work.Main(architecture_main) instance UartGpsRxBitClockDiv.ClkDiv[8:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Found counter in view:work.Main(architecture_main) instance UartUsbRxBitClockDiv.ClkDiv[4:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found counter in view:work.Main(architecture_main) instance StepperMotor.StepOneShot.ClkDiv[19:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found counter in view:work.Main(architecture_main) instance BootupReset.ClkDiv[9:0] 
-@N: MF179 :"/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd":160:8:160:32|Found 16 by 16 bit equality operator ('==') StepperMotor.un1_seekstep (in view: work.Main(architecture_main))
+@N: MF179 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":104:4:104:5|Found 10 by 10 bit equality operator ('==') RS422_Rx0_Crcer.CrcComplete_3 (in view: work.Main(architecture_main))
+@N: MF179 :"/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd":165:8:165:32|Found 16 by 16 bit equality operator ('==') StepperMotor.un1_seekstep (in view: work.Main(architecture_main))
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd":89:2:89:3|Found counter in view:work.SpiMasterPorts_work_main_architecture_main_1layer1(spimaster) instance ClkDiv[6:0] 
-@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
-@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.fifo_8_10_0(rtl) instance counter_r[10:0]  
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_0(rtl) instance waddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_0(rtl) instance raddr_r[9:0] 
+@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":58:17:58:19|Property "block_ram" or "no_rw_check" found for RAM ram_1[7:0] with specified coding style. Inferring block RAM.
+@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":58:17:58:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
+@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":58:17:58:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
+@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":58:17:58:19|Property "block_ram" or "no_rw_check" found for RAM ram_1[7:0] with specified coding style. Inferring block RAM.
+@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":58:17:58:19|Property "block_ram" or "no_rw_check" found for RAM ram_1[7:0] with specified coding style. Inferring block RAM.
+@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":58:17:58:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":85:2:85:3|Found counter in view:work.fifo_peek_8_10(rtl) instance raddr_r[9:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":85:2:85:3|Found counter in view:work.fifo_peek_8_10(rtl) instance waddr_r[9:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM fifo_i.ram[7:0] with specified coding style. Inferring block RAM.
-@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_0(rtl) instance fifo_i.counter_r[10:0]  
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_0(rtl) instance fifo_i.waddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_0(rtl) instance fifo_i.raddr_r[9:0] 
+@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_0(rtl) instance fifo_i.counter_r[10:0]  
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_0(rtl) instance fifo_i.waddr_r[9:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_0(rtl) instance fifo_i.raddr_r[9:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
-@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.fifo_8_10_1_1(rtl) instance counter_r[10:0]  
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_1(rtl) instance waddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_1(rtl) instance raddr_r[9:0] 
+@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.fifo_8_10_1_0(rtl) instance counter_r[10:0]  
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_0(rtl) instance waddr_r[9:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_0(rtl) instance raddr_r[9:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM fifo_i.ram[7:0] with specified coding style. Inferring block RAM.
-@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_2(rtl) instance fifo_i.counter_r[10:0]  
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_2(rtl) instance fifo_i.waddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_2(rtl) instance fifo_i.raddr_r[9:0] 
+@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_1(rtl) instance fifo_i.counter_r[10:0]  
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_1(rtl) instance fifo_i.waddr_r[9:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_1(rtl) instance fifo_i.raddr_r[9:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
-@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.fifo_8_10_1_3(rtl) instance counter_r[10:0]  
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_3(rtl) instance waddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_3(rtl) instance raddr_r[9:0] 
+@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.fifo_8_10_1_2(rtl) instance counter_r[10:0]  
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_2(rtl) instance waddr_r[9:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_2(rtl) instance raddr_r[9:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM fifo_i.ram[7:0] with specified coding style. Inferring block RAM.
-@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_4(rtl) instance fifo_i.counter_r[10:0]  
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_4(rtl) instance fifo_i.waddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_4(rtl) instance fifo_i.raddr_r[9:0] 
+@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_3(rtl) instance fifo_i.counter_r[10:0]  
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_3(rtl) instance fifo_i.waddr_r[9:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_3(rtl) instance fifo_i.raddr_r[9:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
-@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.fifo_8_10_1_5(rtl) instance counter_r[10:0]  
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_5(rtl) instance waddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_5(rtl) instance raddr_r[9:0] 
+@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.fifo_8_10_1_4(rtl) instance counter_r[10:0]  
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_4(rtl) instance waddr_r[9:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_4(rtl) instance raddr_r[9:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM fifo_i.ram[7:0] with specified coding style. Inferring block RAM.
-@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_6(rtl) instance fifo_i.counter_r[10:0]  
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_6(rtl) instance fifo_i.waddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_6(rtl) instance fifo_i.raddr_r[9:0] 
+@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_5(rtl) instance fifo_i.counter_r[10:0]  
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_5(rtl) instance fifo_i.waddr_r[9:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_5(rtl) instance fifo_i.raddr_r[9:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Found counter in view:work.ClockDividerPorts_work_main_architecture_main_1layer1(clockdivider) instance ClkDiv[4:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
-@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.fifo_8_10_1_7(rtl) instance counter_r[10:0]  
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_7(rtl) instance waddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_7(rtl) instance raddr_r[9:0] 
+@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.fifo_8_10_1_6(rtl) instance counter_r[10:0]  
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_6(rtl) instance waddr_r[9:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_6(rtl) instance raddr_r[9:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM fifo_i.ram[7:0] with specified coding style. Inferring block RAM.
-@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_8(rtl) instance fifo_i.counter_r[10:0]  
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_8(rtl) instance fifo_i.waddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_8(rtl) instance fifo_i.raddr_r[9:0] 
+@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_7(rtl) instance fifo_i.counter_r[10:0]  
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_7(rtl) instance fifo_i.waddr_r[9:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_7(rtl) instance fifo_i.raddr_r[9:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Found counter in view:work.ClockDividerPorts_work_main_architecture_main_2layer1(clockdivider) instance ClkDiv[8:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
-@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.fifo_8_10_1_9(rtl) instance counter_r[10:0]  
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_9(rtl) instance waddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_9(rtl) instance raddr_r[9:0] 
+@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.fifo_8_10_1_8(rtl) instance counter_r[10:0]  
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_8(rtl) instance waddr_r[9:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_8(rtl) instance raddr_r[9:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM fifo_i.ram[7:0] with specified coding style. Inferring block RAM.
-@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_10(rtl) instance fifo_i.counter_r[10:0]  
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_10(rtl) instance fifo_i.waddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_10(rtl) instance fifo_i.raddr_r[9:0] 
-@N: MF322 |Retiming summary: 16 registers retimed to 64 
-@N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_439 
-@N: FP130 |Promoting Net Main_0.UartUsbFifoReset_i_arst on CLKINT  I_440 
-@N: FP130 |Promoting Net Main_0.Uart3FifoReset_i_arst on CLKINT  I_441 
-@N: FP130 |Promoting Net Main_0.UartGpsFifoReset_i_arst on CLKINT  I_442 
-@N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_arst on CLKINT  I_443 
-@N: FP130 |Promoting Net Main_0.Uart2FifoReset_i_arst on CLKINT  I_444 
-@N: FP130 |Promoting Net Main_0.Uart1FifoReset_i_arst on CLKINT  I_445 
-@N: FP130 |Promoting Net Main_0.ClkDac_i.SpiRst_arst on CLKINT  I_446 
-@N: FP130 |Promoting Net Main_0.PPSCountReset_arst on CLKINT  I_447 
-@N: FP130 |Promoting Net Main_0.UartClkGps on CLKINT  I_448 
-@N: FP130 |Promoting Net Main_0.UartClk3 on CLKINT  I_449 
-@N: FP130 |Promoting Net Main_0.UartClk1 on CLKINT  I_450 
-@N: FP130 |Promoting Net Main_0.UartClkUsb on CLKINT  I_451 
-@N: FP130 |Promoting Net Main_0.UartClk2 on CLKINT  I_452 
-@N: FP130 |Promoting Net Main_0.UartClk0 on CLKINT  I_453 
-@N: FP130 |Promoting Net Main_0.ads1258.SpiRst_arst on CLKINT  I_454 
-@N: FP130 |Promoting Net Main_0.ResetSteps_i_arst on CLKINT  I_455 
-@N: FP130 |Promoting Net Main_0.StepperMotor.MotorStopped on CLKINT  I_456 
-@N: FP130 |Promoting Net Filterwheel_sb_0.CORERESETP_0.sm0_areset_n_clk_base on CLKINT  I_457 
-@N: FP130 |Promoting Net Main_0.MotorBPlus_arst on CLKINT  I_458 
-@N: FP130 |Promoting Net Main_0.MotorAPlus_arst on CLKINT  I_459 
-@N: FP130 |Promoting Net Main_0.MotorAMinus_arst on CLKINT  I_460 
-@N: FP130 |Promoting Net Main_0.MotorBMinus_arst on CLKINT  I_461 
-@N: FP130 |Promoting Net Filterwheel_sb_0.CORERESETP_0.sm0_areset_n_arst on CLKINT  I_462 
-@N: FP130 |Promoting Net Main_0.UartTxClkUsb on CLKINT  I_463 
-@N: FP130 |Promoting Net Main_0.UartTxClkGps on CLKINT  I_464 
-@N: FP130 |Promoting Net Main_0.UartTxClk2 on CLKINT  I_465 
-@N: FP130 |Promoting Net Main_0.UartTxClk3 on CLKINT  I_466 
-@N: FP130 |Promoting Net Main_0.UartTxClk0 on CLKINT  I_467 
-@N: FP130 |Promoting Net Main_0.UartTxClk1 on CLKINT  I_468 
+@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_9(rtl) instance fifo_i.counter_r[10:0]  
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_9(rtl) instance fifo_i.waddr_r[9:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_9(rtl) instance fifo_i.raddr_r[9:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":54:65:54:65|Found counter in view:work.PPSCountPorts_work_main_architecture_main_0layer1(ppscount) instance PPSAccum_i[31:0] 
+@N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_603 
+@N: FP130 |Promoting Net Main_0.UartGpsFifoReset_i_i on CLKINT  I_604 
+@N: FP130 |Promoting Net Main_0.UartUsbFifoReset_i_i on CLKINT  I_605 
+@N: FP130 |Promoting Net Main_0.Uart2FifoReset_i_i on CLKINT  I_606 
+@N: FP130 |Promoting Net Main_0.Uart1FifoReset_i_i on CLKINT  I_607 
+@N: FP130 |Promoting Net Main_0.Uart3FifoReset_i_i on CLKINT  I_608 
+@N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_arst on CLKINT  I_609 
+@N: FP130 |Promoting Net Main_0.PPSCountReset_arst on CLKINT  I_610 
+@N: FP130 |Promoting Net Main_0.ClkDac_i.SpiRst_arst on CLKINT  I_611 
+@N: FP130 |Promoting Net Main_0.UartClkGps on CLKINT  I_612 
+@N: FP130 |Promoting Net Main_0.UartClk3 on CLKINT  I_613 
+@N: FP130 |Promoting Net Main_0.UartClkUsb on CLKINT  I_614 
+@N: FP130 |Promoting Net Main_0.UartClk1 on CLKINT  I_615 
+@N: FP130 |Promoting Net Main_0.UartClk2 on CLKINT  I_616 
+@N: FP130 |Promoting Net Main_0.UartClk0 on CLKINT  I_617 
+@N: FP130 |Promoting Net Main_0.ads1258.SpiRst_arst on CLKINT  I_618 
+@N: FP130 |Promoting Net Main_0.StepperMotor.MotorStopped on CLKINT  I_619 
+@N: FP130 |Promoting Net Filterwheel_sb_0.CORERESETP_0.sm0_areset_n_clk_base on CLKINT  I_620 
+@N: FP130 |Promoting Net Main_0.ResetSteps_i_arst on CLKINT  I_621 
+@N: FP130 |Promoting Net Filterwheel_sb_0.CORERESETP_0.sm0_areset_n_arst on CLKINT  I_622 
+@N: FP130 |Promoting Net Main_0.UartTxClkUsb on CLKINT  I_623 
+@N: FP130 |Promoting Net Main_0.UartTxClkGps on CLKINT  I_624 
+@N: FP130 |Promoting Net Main_0.UartTxClk2 on CLKINT  I_625 
+@N: FP130 |Promoting Net Main_0.UartTxClk3 on CLKINT  I_626 
+@N: FP130 |Promoting Net Main_0.UartTxClk0 on CLKINT  I_627 
+@N: FP130 |Promoting Net Main_0.UartTxClk1 on CLKINT  I_628 
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
 @N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 
 @N: MT615 |Found clock VCXO with period 19.61ns 

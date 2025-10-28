@@ -66,10 +66,11 @@ begin
 		
 			--Reset cycle count
 			PPSAccumCycles <= 0;
-			
 			PPSDetected <= '0';
+			LastPPS <= '0';
 			
 			--Reset latch
+			PPSAccum_i <= x"00000000";
 			PPSAccum <= x"00000000";
 			
 			--Invalidate next accum cycle, so we don't get a good looking count that's missing some small part of the second and throws off filters...

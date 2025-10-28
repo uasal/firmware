@@ -412,6 +412,64 @@ architecture architecture_Main of Main is
 						);
 						end component;
 						
+												component UartRxFifoExtClkPeek is
+						generic 
+						(
+							DEPTH_BITS : natural := 10--;
+						);
+						port 
+						(
+							--Outside world:
+							clk : in std_logic;
+							uclk : in std_logic;
+							rst : in std_logic;
+							--External (async) uart data input pin
+							Rxd : in std_logic; 
+							Dbg1 : out std_logic; 
+							RxComplete : out std_logic;
+							--Read from fifo:
+							ReadFifo	: in std_logic;
+							FifoReadAck : out std_logic;
+							FifoReadData : out std_logic_vector(7 downto 0);
+							--Fifo status:
+							FifoFull	: out std_logic;
+							FifoEmpty	: out std_logic;
+							FifoCount	: out std_logic_vector(DEPTH_BITS - 1 downto 0);
+							FifoReadAddr : out unsigned(DEPTH_BITS - 1 downto 0);
+							FifoWriteAddr : out unsigned(DEPTH_BITS - 1 downto 0);
+							FifoPeekAddr : in unsigned(DEPTH_BITS - 1 downto 0);
+							FifoPeekData : out std_logic_vector(7 downto 0);
+							FifoMultiPopAddr : in unsigned(DEPTH_BITS - 1 downto 0);
+							FifoMultiPopStrobe : in std_logic--;		
+						);
+						end component;
+						
+						component UartRxMultiFifoPeek is
+						generic 
+						(
+							DEPTH_BITS : natural := 10;
+							BAUD_DIVIDER_BITS : natural := 8--;
+						);
+						port 
+						(
+							--Outside world:
+							clk : in std_logic;
+							uclk : in std_logic;
+							rst : in std_logic;
+							BaudDivider : in std_logic_vector(BAUD_DIVIDER_BITS - 1 downto 0); --sets baud rate
+							--External (async) uart data input pin
+							Rxd : in std_logic; 
+							--Read from fifo:
+							ReadFifo	: in std_logic;
+							FifoReadAck : out std_logic;
+							FifoReadData : out std_logic_vector(7 downto 0);
+							--Fifo status:
+							FifoFull	: out std_logic;
+							FifoEmpty	: out std_logic;
+							FifoCount	: out std_logic_vector(DEPTH_BITS - 1 downto 0)--;		
+						);
+						end component;
+
 						component UartTx is
 						port 
 						(
@@ -536,7 +594,8 @@ architecture architecture_Main of Main is
 
 						component RegisterSpacePorts is
 						generic (
-							ADDRESS_BITS : natural := 10--;
+							ADDRESS_BITS : natural := 10;
+							UART_FIFO_DEPTH_BITS : natural := 9--;
 						);
 						port (
 											
@@ -683,6 +742,20 @@ architecture architecture_Main of Main is
 							Uart0TxFifoData : out std_logic_vector(7 downto 0);
 							Uart0TxFifoCount : in std_logic_vector(9 downto 0);
 							Uart0ClkDivider : out std_logic_vector(7 downto 0);
+
+							Uart0RxFifoPeekReadAddr : in unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+							Uart0RxFifoPeekWriteAddr : in unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+							Uart0RxFifoPeekPeekAddr : out unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+							Uart0RxFifoPeekPeekData : in std_logic_vector(7 downto 0);
+							Uart0RxFifoPeekMultiPopAddr : out unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+							Uart0RxFifoPeekMultiPopStrobe : out std_logic;		
+							Uart0CrcStartAddr : out unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+							Uart0CrcEndAddr : out unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+							Uart0CrcCurrentAddr : in unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+							Uart0DoCrc : out std_logic;
+							Uart0CrcDone : in std_logic;
+							Uart0Crc : in std_logic_vector(31 downto 0);
+
 							
 							Uart1FifoReset : out std_logic;
 							ReadUart1 : out std_logic;
@@ -898,6 +971,27 @@ architecture architecture_Main of Main is
 						);
 						end component;
 
+						component CrcFifo is
+						generic (
+								DEPTH_BITS : natural := 10--;
+						);
+						port (
+						
+							--Globals
+							clk : in std_logic;
+							rst : in std_logic;
+							
+							FifoStartAddr : in unsigned(DEPTH_BITS - 1 downto 0);
+							FifoEndAddr : in unsigned(DEPTH_BITS - 1 downto 0);
+							FifoPeekAddr : out unsigned(DEPTH_BITS - 1 downto 0);
+							FifoPeekData : in std_logic_vector(7 downto 0);
+							
+							Crc : out std_logic_vector(31 downto 0);
+							CrcComplete : out std_logic--;
+							
+						); end component;
+
+
 						
 --Constants & Setup
 	
@@ -919,6 +1013,8 @@ architecture architecture_Main of Main is
 		--~ constant UartClockFreqDivider : natural := 8;
 		--~ constant UartClockPeriod : real := 68.1; --really should be exactly 1 / conv_real(UartBaseClockFreq), but it's just used by DCM clock library, and conv_real doesn't exist.
 		--~ constant UartClockFreq : natural := BaseClockFreq * UartClockFreqMultiplier / UartClockFreqDivider; -- 14.6802MHz (14.7456 ideal; 0.44% dev)
+
+		constant UART_FIFO_DEPTH_BITS : natural := 10;
 
 		--FPGA internal
 		
@@ -995,7 +1091,21 @@ architecture architecture_Main of Main is
 			signal UartTxClk0 : std_logic;			
 			signal Txd0_i : std_logic;
 			signal Rxd0_i : std_logic;
-			signal UartRx0Dbg : std_logic;						
+			signal UartRx0Dbg : std_logic;			
+
+			signal Uart0RxFifoPeekReadAddr : unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+			signal Uart0RxFifoPeekWriteAddr : unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+			signal Uart0RxFifoPeekPeekAddr_i : unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+			signal Uart0RxFifoPeekPeekAddrRegisterSpace : unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+			signal Uart0CrcCurrentAddr : unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+			signal Uart0RxFifoPeekPeekData : std_logic_vector(7 downto 0);
+			signal Uart0RxFifoPeekMultiPopAddr : unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+			signal Uart0RxFifoPeekMultiPopStrobe : std_logic;
+			signal Uart0CrcStartAddr : unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+			signal Uart0CrcEndAddr : unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+			signal Uart0DoCrc : std_logic;
+			signal Uart0CrcDone : std_logic;
+			signal Uart0Crc : std_logic_vector(31 downto 0);			
 			
 			signal Uart1FifoReset : std_logic;
 			signal Uart1FifoReset_i : std_logic;
@@ -1138,7 +1248,7 @@ architecture architecture_Main of Main is
 		signal LastPosSenseA : std_logic_vector(3 downto 0) := "0000";
 		signal LastPosSenseB : std_logic_vector(3 downto 0) := "0000";				
 				
-		signal PosLedsEnA : std_logic := '0';
+		--~ signal PosLedsEnA : std_logic := '0';
 		
 		signal PosDetHomeAOnStep : signed(15 downto 0) := x"0000";
 		signal PosDetHomeAOffStep : signed(15 downto 0) := x"0000";
@@ -1149,7 +1259,7 @@ architecture architecture_Main of Main is
 		signal PosDetA2OnStep : signed(15 downto 0) := x"0000";
 		signal PosDetA2OffStep : signed(15 downto 0) := x"0000";
 		
-		signal PosLedsEnB : std_logic := '0';
+		--~ signal PosLedsEnB : std_logic := '0';
 		
 		signal PosDetHomeBOnStep : signed(15 downto 0) := x"0000";
 		signal PosDetHomeBOffStep : signed(15 downto 0) := x"0000";
@@ -1315,7 +1425,8 @@ begin
 	RegisterSpace : RegisterSpacePorts
 	generic map 
 	(
-		ADDRESS_BITS => 10--,
+		ADDRESS_BITS => 10,
+		UART_FIFO_DEPTH_BITS => UART_FIFO_DEPTH_BITS--,
 	)
 	port map
 	(
@@ -1466,6 +1577,19 @@ begin
 		Uart0TxFifoData => Uart0TxFifoData,
 		Uart0TxFifoCount => Uart0TxFifoCount,
 		Uart0ClkDivider => Uart0ClkDivider,
+		
+		Uart0RxFifoPeekReadAddr => Uart0RxFifoPeekReadAddr,
+		Uart0RxFifoPeekWriteAddr => Uart0RxFifoPeekWriteAddr,
+		Uart0RxFifoPeekPeekAddr => Uart0RxFifoPeekPeekAddrRegisterSpace,
+		Uart0RxFifoPeekPeekData => Uart0RxFifoPeekPeekData,
+		Uart0RxFifoPeekMultiPopAddr => Uart0RxFifoPeekMultiPopAddr,
+		Uart0RxFifoPeekMultiPopStrobe => Uart0RxFifoPeekMultiPopStrobe,
+		Uart0CrcStartAddr => Uart0CrcStartAddr,
+		Uart0CrcEndAddr => Uart0CrcEndAddr,
+		Uart0CrcCurrentAddr => Uart0CrcCurrentAddr,
+		Uart0DoCrc => Uart0DoCrc,
+		Uart0CrcDone => Uart0CrcDone,
+		Uart0Crc => Uart0Crc,
 		
 		Uart1FifoReset => Uart1FifoReset,
 		ReadUart1 => ReadUart1,
@@ -1708,11 +1832,11 @@ begin
 		
 	IBufRxd0 : IBufP3Ports port map(clk => UartClk, I => Rxd0, O => Rxd0_i); --if you want to change the pin for this chip select, it's here
 	
-	RS422_Rx0 : UartRxFifoExtClk
+	RS422_Rx0 : UartRxFifoExtClkPeek
 	generic map
 	(
 		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
-		FIFO_BITS => 10--,
+		DEPTH_BITS => 10--,
 		--~ BAUD_DIVIDER_BITS => 8--,
 		--~ BAUDRATE => BoardMasterClockFreq--,
 		--~ BAUDRATE => 8000000--,
@@ -1738,9 +1862,36 @@ begin
 		FifoEmpty => Uart0RxFifoEmpty,
 		FifoReadData => Uart0RxFifoData,
 		FifoCount => Uart0RxFifoCount,
-		FifoReadAck => open--,		
+		FifoReadAck => open,
+		FifoReadAddr => Uart0RxFifoPeekReadAddr,
+		FifoWriteAddr => Uart0RxFifoPeekWriteAddr,
+		FifoPeekAddr => Uart0RxFifoPeekPeekAddr_i,
+		FifoPeekData => Uart0RxFifoPeekPeekData,
+		FifoMultiPopAddr => Uart0RxFifoPeekMultiPopAddr,
+		FifoMultiPopStrobe => Uart0RxFifoPeekMultiPopStrobe--,
 	);
 	
+	RS422_Rx0_Crcer : CrcFifo
+	generic map
+	(
+		DEPTH_BITS => 10--,
+	)
+	port map
+	(
+		clk => MasterClk,
+		rst => Uart0DoCrc,
+		FifoStartAddr => Uart0CrcStartAddr,
+		FifoEndAddr => Uart0CrcEndAddr,
+		FifoPeekData => Uart0RxFifoPeekPeekData,
+		FifoPeekAddr => Uart0CrcCurrentAddr,
+		Crc => Uart0Crc,
+		CrcComplete => Uart0CrcDone--,
+	);
+	-- !!May want to add Uart0CrcCurrentAddr functionality for debug...
+	
+	--This gonna get funky: if we're doing a crc, the crc core has acess to the fifo, otherwise the processor gets acess to the fifo...
+	Uart0RxFifoPeekPeekAddr_i <= Uart0CrcCurrentAddr when (Uart0CrcDone = '0') else Uart0RxFifoPeekPeekAddrRegisterSpace;
+				
 	RS422_Tx0 : UartTxFifoExtClk
 	generic map
 	(

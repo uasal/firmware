@@ -74,6 +74,11 @@ begin
 			LastStep <= '0';
 			State <= "00";
 			
+			MotorAPlus_i <= '0';
+			MotorAMinus_i <= '0';
+			MotorBPlus_i <= '0';
+			MotorBMinus_i <= '0';
+			
 		else
 		
 			if ( (clk'event) and (clk = '1') ) then
