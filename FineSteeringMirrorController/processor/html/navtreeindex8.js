@@ -1,5 +1,8 @@
 var NAVTREEINDEX8 =
 {
+"structCGraphPacketHeader.html#ade8f5918c9c4e5c04212f1a24a35c150":[1,0,35,7],
+"structCGraphPacketHeader.html#ae6021c64734a8394c79338262dc5c3df":[1,0,35,0],
+"structCGraphVersionPayload.html":[1,0,41],
 "structCGraphVersionPayload.html#a19befd003f6fd1aeaea0ae39414ffca3":[1,0,41,2],
 "structCGraphVersionPayload.html#a83628e3c34caad80888c6fdda3d3d189":[1,0,41,3],
 "structCGraphVersionPayload.html#a9757179c759ea383869aca78c2066202":[1,0,41,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX8 =
 "unionAdcFifo.html#ad1cce7e464ee1101e3ebbc94785cefc9":[1,0,3,4],
 "unionAdcTimestamp.html":[1,0,4],
 "unionAdcTimestamp.html#a68e634112f2f109083aa892178adf63d":[1,0,4,3],
-"unionAdcTimestamp.html#a90d7e48086274f1b34ea930a548fcacb":[1,0,4,1],
-"unionAdcTimestamp.html#aaed3a779fe94b599aad0d1f51ecbca8d":[1,0,4,2],
-"unionAdcTimestamp.html#ae78230e6ac0688a4ff9ecdfa505dc4b3":[1,0,4,0],
-"unionCGraphBaudDividers.html":[1,0,10]
+"unionAdcTimestamp.html#a90d7e48086274f1b34ea930a548fcacb":[1,0,4,1]
 };

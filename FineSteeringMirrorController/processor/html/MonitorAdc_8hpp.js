@@ -21,7 +21,6 @@ var MonitorAdc_8hpp =
     [ "P6VChannel", "MonitorAdc_8hpp.html#a3cabc9ba4ce240404adf44273bd0962f", null ],
     [ "TemperatureChannel", "MonitorAdc_8hpp.html#a36c6596db61d31c07d9d61296b177ae5", null ],
     [ "CalibrateMonitorAdcCommand", "MonitorAdc_8hpp.html#a099574b759dc2fb77e782178ca9b595c", null ],
-    [ "ProcessAllUarts", "MonitorAdc_8hpp.html#a81a71161305149975fb868e23800dc15", null ],
     [ "ScanMonitorAdcCommand", "MonitorAdc_8hpp.html#ac86f4098ef8bed6dd00703357186bbef", null ],
     [ "TestMonitorAdcCommand", "MonitorAdc_8hpp.html#a0d379e9f53e1a3da9f310f1633ea43cf", null ],
     [ "AmbientLightCalibrate", "MonitorAdc_8hpp.html#a7b3a442772c498f1468b53158adb69a5", null ],

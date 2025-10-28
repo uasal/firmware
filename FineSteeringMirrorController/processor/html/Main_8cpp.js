@@ -1,25 +1,11 @@
 var Main_8cpp =
 [
     [ "AtExit", "Main_8cpp.html#a391508c6dd7daea5e0b12530fdebf96c", null ],
-    [ "DbgUart485_0", "Main_8cpp.html#a028ca0ef2312d747850ce704a564bb5d", null ],
     [ "main", "Main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97", null ],
     [ "mwOutFunc", "Main_8cpp.html#a5d514abba3239190d63abfb9866a3544", null ],
     [ "Process", "Main_8cpp.html#aa76a7473bb1fc37989ff21d3ff8a3a9e", null ],
-    [ "ProcessAllUarts", "Main_8cpp.html#a81a71161305149975fb868e23800dc15", null ],
-    [ "stdio_hook_putc", "Main_8cpp.html#ae38351e5c1109c5ce8e709b8b7d71ba4", null ],
-    [ "TerminalUartPrompt", "Main_8cpp.html#a65d24f0f371d00994b3614182f7f3fb5", null ],
     [ "wooinit", "Main_8cpp.html#a35dcaf829cd08c92136289cbcbb2d8eb", null ],
     [ "fclk_for_delay_loops", "Main_8cpp.html#a30ca60aa34f0df5014deb466b9ef45e1", null ],
-    [ "FPGAUartProtocol", "Main_8cpp.html#ab25f5995aacab173a577b8743c1bd7e4", null ],
-    [ "FSM", "Main_8cpp.html#ae400e0202d61025014be176b62b2f971", null ],
-    [ "MonitorAdc", "Main_8cpp.html#a1eaf6780af9b2e7b8e94501100d30d19", null ],
-    [ "prompt", "Main_8cpp.html#a270ce7358ae76b859c204a0a6cdd3467", null ],
-    [ "UartFifo0", "Main_8cpp.html#acba5fb51644e1d903588f9b16a72bc57", null ],
-    [ "UartFifo0ReadData", "Main_8cpp.html#a6ebb5c1e1dd1a2d039f7b3e556b1c1f2", null ],
-    [ "UartFifo1", "Main_8cpp.html#a22035505f6c55d7ba5e932e2fae0a45e", null ],
-    [ "UartFifo1ReadData", "Main_8cpp.html#a9a62a148e37e21797bf76ce1712402fb", null ],
-    [ "UartFifo2", "Main_8cpp.html#a7dedbe2620baa0224df5a08349537915", null ],
-    [ "UartFifo2ReadData", "Main_8cpp.html#a0fdb81f1af3eaebb57cda648ac1ed114", null ],
-    [ "UartFifo3", "Main_8cpp.html#af4393c43f78c13e8cc631cbef32799ce", null ],
-    [ "UartFifo3ReadData", "Main_8cpp.html#a61dfb271c1b95d703bb1b397b2e71fdd", null ]
+    [ "FSM", "Main_8cpp.html#a323a4653305b6f1c3991540ac415fb68", null ],
+    [ "MonitorAdc", "Main_8cpp.html#a1eaf6780af9b2e7b8e94501100d30d19", null ]
 ];

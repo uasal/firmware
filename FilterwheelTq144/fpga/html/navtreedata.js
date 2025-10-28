@@ -49,13 +49,13 @@ var NAVTREEINDEX =
 "BuildNumber_8vhd.html",
 "classFourWireStepperMotorPorts_1_1FourWireStepperMotor.html#ac280002e042187c80b9015aec85874e4",
 "classMain.html#aba9920258c751f0f3c2c0556add60821",
-"classMain_1_1architecture__Main.html#a996de9bf23422ec6a2cc99b621566136",
-"classRegisterSpacePorts.html#a7958ce0a53dbffc5e6f1930226dc3aa7",
-"classRtcCounterPorts_1_1RtcCounter.html#a3312584227967cff6529ead62324abad",
-"classSpiMasterDualPorts.html#a4e5b911ada797dbf2555df752b56c302",
-"classUartRxFifoParity_1_1implementation.html#a12392aacbd71f634bd26077cb3cc703a",
-"classads1258Ports.html#a2176c0b53daca7e55c23946f5161a718",
-"classgated__fifo__peek_1_1rtl.html#a4ec5c33f63fb542f9289d30ab81e19ad"
+"classMain_1_1architecture__Main.html#a9686157e66043b81c5b07e895d0706d5",
+"classRegisterSpacePorts.html#a501a17ac950ad9fd767f553395f27957",
+"classRegisterSpacePorts_1_1RegisterSpace.html#ad1f5575bd3173e4f4e20bf61afd12665",
+"classSpiExtBusAddrTxPorts_1_1SpiExtBusAddrTx.html#a40230d1eabbeb02dc89dc66911451995",
+"classUartRxFifoExtClkPeek_1_1implementation.html#a10169ec4e299c50202863dbea4f21ca1",
+"classUartTx_1_1Behaviour.html#a9f49de6f5eed5b4488cba6c9cdd1c215",
+"classgated__fifo__fram.html#a9c9f6e247f3c3c54f68074fd84374742"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
