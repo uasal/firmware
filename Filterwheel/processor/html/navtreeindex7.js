@@ -1,5 +1,7 @@
 var NAVTREEINDEX7 =
 {
+"structCmd.html#a0175eebbe92261ae15e24aeda851bdfe":[1,0,41,0],
+"structCmd.html#a471022e0e867c60aeb563607324044e2":[1,0,41,4],
 "structCmd.html#a49c4405118293c247e137ba5b8766fdc":[1,0,41,3],
 "structCmd.html#a7666ce99ad8efac6285d703cc575d757":[1,0,41,2],
 "structCmd.html#ac5dd6521b17f844b57fc2d70206d783a":[1,0,41,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX7 =
 "unionCGraphDMHardwareStatusRegister.html#ad56c3e99f53c87b696abf78d5f7bc4a2":[1,0,14,3],
 "unionCGraphDMHardwareStatusRegister.html#addff2f967457309564eb3bea673e422c":[1,0,14,4],
 "unionCGraphDMHardwareStatusRegister.html#aedd904367595d9a134c8c9a8b86bd864":[1,0,14,12],
-"unionCGraphDMHardwareStatusRegister.html#aef71e1b7bf7b51660185ebe36ff7d6e7":[1,0,14,1],
-"unionCGraphFSMHardwareControlRegister.html":[1,0,21],
-"unionCGraphFSMHardwareControlRegister.html#a026ce6bc59d56cce0db64e89836ed5d0":[1,0,21,6]
+"unionCGraphDMHardwareStatusRegister.html#aef71e1b7bf7b51660185ebe36ff7d6e7":[1,0,14,1]
 };

@@ -1,6 +1,7 @@
 var structBinaryUartRingBuffer =
 [
     [ "BinaryUartRingBuffer", "structBinaryUartRingBuffer.html#a3bda8a8d526e606677deea72c94e7cda", null ],
+    [ "Debug", "structBinaryUartRingBuffer.html#ac5679f8202266d3d1202494137aa7416", null ],
     [ "Debug", "structBinaryUartRingBuffer.html#a1b04af6bce3c868920063681e3266b62", null ],
     [ "formatf", "structBinaryUartRingBuffer.html#a48fc25a5fa1d18865677d1d76afdce0c", null ],
     [ "Init", "structBinaryUartRingBuffer.html#a9d3ed2b44ec21d65c57d829c5e680a90", null ],

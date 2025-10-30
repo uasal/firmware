@@ -65,10 +65,10 @@ var NAVTREEINDEX =
 "classIPacket.html#a3dc7833a83c26d50ef75f43f60f17f20",
 "classlinux__pinout__uart.html#a8e8a9dd5ea5bba02d3fb38d68e14d9cf",
 "lt244x__accum_8h.html#a4940b320070a73995e23786e57d66331",
-"structCGraphDMMappingPayload.html",
-"structCmd.html#a49c4405118293c247e137ba5b8766fdc",
-"unionCGraphFSMHardwareControlRegister.html#a0322277b72a330ef60e6b319ac69beb1",
-"unionads1258details_1_1config0register.html#aafc4f59a246850c482c405ebf951c3e1"
+"structCGraphDMHardwareInterface.html#af67939c609649ebf355687659a6e9bdd",
+"structCmd.html#a0175eebbe92261ae15e24aeda851bdfe",
+"unionCGraphFSMHardwareControlRegister.html",
+"unionads1258details_1_1config0register.html#a858ddc7ee2fbcf92eee7c0e03ded04b2"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

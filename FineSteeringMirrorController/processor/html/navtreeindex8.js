@@ -1,5 +1,7 @@
 var NAVTREEINDEX8 =
 {
+"structCGraphPacketHeader.html#a7abef20f790c1615bdea50675a285d84":[1,0,35,6],
+"structCGraphPacketHeader.html#a7cb9a795a10ea07746a97886ca2eadea":[1,0,35,1],
 "structCGraphPacketHeader.html#ade8f5918c9c4e5c04212f1a24a35c150":[1,0,35,7],
 "structCGraphPacketHeader.html#ae6021c64734a8394c79338262dc5c3df":[1,0,35,0],
 "structCGraphVersionPayload.html":[1,0,41],
@@ -247,7 +249,5 @@ var NAVTREEINDEX8 =
 "unionAdcFifo.html#ab2be36f2672b7d93b585f0cbf3f9229f":[1,0,3,0],
 "unionAdcFifo.html#abdc4fe0c8e1c73d4d872e9c52c14e709":[1,0,3,2],
 "unionAdcFifo.html#ad1cce7e464ee1101e3ebbc94785cefc9":[1,0,3,4],
-"unionAdcTimestamp.html":[1,0,4],
-"unionAdcTimestamp.html#a68e634112f2f109083aa892178adf63d":[1,0,4,3],
-"unionAdcTimestamp.html#a90d7e48086274f1b34ea930a548fcacb":[1,0,4,1]
+"unionAdcTimestamp.html":[1,0,4]
 };

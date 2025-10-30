@@ -3,6 +3,7 @@ var structBinaryUart =
     [ "BinaryUart", "structBinaryUart.html#a8258918913fd0bec31fc50328ff4a90e", null ],
     [ "CheckPacketEnd", "structBinaryUart.html#a710ecfd14e702d8cf732707d6184c2c2", null ],
     [ "CheckPacketStart", "structBinaryUart.html#ad350385f839762fcb3aad27a69e9809e", null ],
+    [ "Debug", "structBinaryUart.html#abe0afac94a2ef885499bc92cf3ad1773", null ],
     [ "Debug", "structBinaryUart.html#a6aaa3db8e8941233f4e7613320adc8c8", null ],
     [ "formatf", "structBinaryUart.html#a1b97f089ceb8177a9d9c4bd3f947da75", null ],
     [ "Init", "structBinaryUart.html#abb67d795a67cbd9293dc1d699d9c47bf", null ],
