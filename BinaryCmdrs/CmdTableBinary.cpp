@@ -97,11 +97,11 @@ const BinaryCmd BinaryCmds[] =
 	
 	//DeformableMirror Commands
 	
-	BinaryCmd (
-		CGraphPayloadTypeDMDac,
-		"BinaryDMDacCommand",
-		BinaryDMDacCommand
-    ),
+	//~ BinaryCmd (
+		//~ CGraphPayloadTypeDMDac,
+		//~ "BinaryDMDacCommand",
+		//~ BinaryDMDacCommand
+    //~ ),
 	
 	BinaryCmd (
 		CGraphPayloadTypeDMTelemetry,
@@ -109,11 +109,11 @@ const BinaryCmd BinaryCmds[] =
 		BinaryDMTelemetryCommand
     ),
 
-	BinaryCmd (
-		CGraphPayloadTypeDMHVSwitch,
-		"BinaryDMHVSwitchCommand",
-		BinaryDMHVSwitchCommand
-    ),
+	//~ BinaryCmd (
+		//~ CGraphPayloadTypeDMHVSwitch,
+		//~ "BinaryDMHVSwitchCommand",
+		//~ BinaryDMHVSwitchCommand
+    //~ ),
 	
 	BinaryCmd (
 		CGraphPayloadTypeDMDacConfig,

@@ -142,6 +142,27 @@ int8_t HelpCommand(char const* Name, char const* Params, const size_t ParamsLen,
     return(ParamsLen);
 }
 
+int8_t DebugCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{	
+	char debug;
+    bool Debug = true;
+
+	//~ //Convert parameters
+    //~ int8_t numfound = sscanf(Params, "[,\t ]%c", &debug);
+    //~ if (numfound >= 1)
+    //~ {
+		//~ if ( ('Y' == debug) || ('y' == debug) || ('T' == debug) || ('t' == debug) || ('1' == debug) ) { Debug = true; }
+		
+		printf("\n\nDebugCommand: Setting debug to : %c.\n", Debug?'Y':'N');
+		
+		UartParser.Debug(Debug);
+	//~ }
+
+	printf("\n\nDebugCommand: Debug is currently : %c.\n", UartParser.Debug()?'Y':'N');
+	
+    return(ParamsLen);
+}
+
 int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	printf("\n\nVersion: This PearlBinaryCmdr App: Global Revision: %s; build number: %u on: %s.\n", GITVERSION, BuildNum, BuildTimeStr);

@@ -1,6 +1,6 @@
 #OPTIONS:"|-mixedhdl|-modhint|/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesis/synwork/_verilog_hintfile|-top|Filterwheel|-layerid|0|-orig_srs|/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesis/synwork/Filterwheel_comp.srs|-prodtype|synplify_pro|-infer_seqShift|-primux|-dspmac|-pqdpadd|-fixsmult|-sdff_counter|-divnmod|-nram|-actel|-I|/home/summer/projects/CGraph/firmware/include|-I|/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesis/|-I|/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib|-sysv|-devicelib|/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/generic/smartfusion2.v|-encrypt|-pro|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|COREAPB3_LIB|-lib|COREAPB3_LIB|-lib|COREAPB3_LIB|-lib|work|-lib|work"
 #CUR:"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/linux_a_64/c_ver":1691490548
-#CUR:"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesis/synwork/_verilog_hintfile":1761688396
+#CUR:"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesis/synwork/_verilog_hintfile":1761787904
 #CUR:"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/generic/smartfusion2.v":1691490541
 #CUR:"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vlog/hypermods.v":1691490543
 #CUR:"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vlog/umr_capim.v":1691490543
@@ -40,13 +40,13 @@
 #CUR:"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":1761240146
 #CUR:"/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd":1741892574
 #CUR:"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":1761240193
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":1752754278
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":1761787894
 #CUR:"/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd":1741892437
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd":1726443416
-#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":1726443224
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":1726443420
+#CUR:"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider2X.vhd":1726443228
 #CUR:"/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotor.vhd":1761240083
 #CUR:"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":1726443312
-#CUR:"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":1761688373
+#CUR:"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":1761776339
 #CUR:"/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd":1726443358
 #CUR:"/home/summer/projects/CGraph/firmware/include/fpga/crc_stream.vhd":1761243101
 #CUR:"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":1755202195
@@ -59,7 +59,7 @@
 #CUR:"/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd":1761240052
 #CUR:"/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd":1745263634
 #CUR:"/home/summer/projects/CGraph/firmware/include/fpga/SpiDevice.vhd":1726443340
-#CUR:"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1761672497
+#CUR:"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":1761785159
 0			"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/FCCC_C0/FCCC_C0_0/FCCC_C0_FCCC_C0_0_FCCC.v" verilog
 1			"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/FCCC_C0/FCCC_C0.v" verilog
 2			"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/Filterwheel_sb/CCC_0/Filterwheel_sb_CCC_0_FCCC.v" verilog
@@ -92,8 +92,8 @@
 29			"/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClkPeek.vhd" vhdl
 30			"/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd" vhdl
 31			"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd" vhdl
-32			"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd" vhdl
-33			"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd" vhdl
+32			"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd" vhdl
+33			"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider2X.vhd" vhdl
 34			"/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotor.vhd" vhdl
 35			"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd" vhdl
 36			"/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd" vhdl

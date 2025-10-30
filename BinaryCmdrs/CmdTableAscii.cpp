@@ -53,6 +53,12 @@ const Cmd AsciiCmds[] =
         HelpCommand
     ),
 	
+    Cmd (
+        "DEBUG",
+        "Debug <Y/N/T/F/1/0>: Show deeper packet info, rx'd chars, etc.",
+        DebugCommand
+    ),
+
 	//General Commands
 
 	Cmd(

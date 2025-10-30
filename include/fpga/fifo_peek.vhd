@@ -137,8 +137,15 @@ begin
 
 	dpram_porta: process(clk, do_write)
 	begin
-		if rising_edge(clk) and do_write = '1' then
-			RAM(to_integer(waddr_r)) := data_i;
+		if rising_edge(clk) then
+		
+			if do_write = '1' then
+				RAM(to_integer(waddr_r)) := data_i;
+			end if;
+
+			--~ peek_data_o <= peekaddr_i(WIDTH_BITS - 1 downto 0);
+			peek_data_o <= RAM(to_integer(peekaddr_i));
+			
 		end if;
 	end process dpram_porta;
 
@@ -149,7 +156,7 @@ begin
 				data_r <= RAM(to_integer(raddr_r));
 				r_ack <= '1';
 			else
-				peek_data_o <= RAM(to_integer(peekaddr_i));
+				--~ peek_data_o <= RAM(to_integer(peekaddr_i));
 				r_ack <= '0';
 			end if;
 		end if;

@@ -879,6 +879,7 @@ begin
 							when Uart0RxFifoPeekPeekDataAddr =>
 							
 								DataOut(7 downto 0) <= Uart0RxFifoPeekPeekData;
+								--~ DataOut(7 downto 0) <= Uart0RxFifoPeekPeekAddr_i(7 downto 0);
 								DataOut(31 downto 8) <= (others => '0');
 
 							when Uart0RxFifoPeekMultiPopAddrAddr =>

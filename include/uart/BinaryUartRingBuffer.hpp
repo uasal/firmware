@@ -115,6 +115,8 @@ struct BinaryUartRingBuffer// : IUartParser
         debug = dbg;
     }
 
+	bool Debug() { return(debug); }
+
     /**
      * @brief Initializes the BinaryUartRingBuffer
      *
@@ -409,8 +411,8 @@ struct BinaryUartRingBuffer// : IUartParser
 		::formatf("\n\nBinaryUartRingBuffer(%u, %c, %u): :", LastDataLen, InPacket?'Y':'N', PacketStartPos);
 		for(size_t i = 0; i < LastDataLen; i++)
 		{
-			printf("%.2X:", Data[i]);
+			::formatf("%2X:", Data[i]);
 		}
-		printf("\n\n");
+		::formatf("\n\n");
 	}
 };

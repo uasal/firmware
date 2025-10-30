@@ -1,7 +1,7 @@
 #--  Synopsys, Inc.
 #--  Version T-2022.09M-SP2-1
 #--  Project file /home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesis/Filterwheel_syn.prj
-#--  Written on Tue Oct 28 14:53:58 2025
+#--  Written on Wed Oct 29 18:32:16 2025
 
 
 #project files
@@ -36,8 +36,8 @@ add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/gat
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClkPeek.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd"
-add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider.vhd"
-add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider2X.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotor.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd"

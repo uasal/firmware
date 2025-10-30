@@ -1879,7 +1879,7 @@ begin
 	port map
 	(
 		clk => MasterClk,
-		rst => Uart0DoCrc,
+		rst => not(Uart0DoCrc),
 		FifoStartAddr => Uart0CrcStartAddr,
 		FifoEndAddr => Uart0CrcEndAddr,
 		FifoPeekData => Uart0RxFifoPeekPeekData,
@@ -1890,8 +1890,10 @@ begin
 	-- !!May want to add Uart0CrcCurrentAddr functionality for debug...
 	
 	--This gonna get funky: if we're doing a crc, the crc core has acess to the fifo, otherwise the processor gets acess to the fifo...
-	Uart0RxFifoPeekPeekAddr_i <= Uart0CrcCurrentAddr when (Uart0CrcDone = '0') else Uart0RxFifoPeekPeekAddrRegisterSpace;
-				
+	Uart0RxFifoPeekPeekAddr_i <= Uart0RxFifoPeekPeekAddrRegisterSpace;
+	--~ Uart0RxFifoPeekPeekAddr_i <= Uart0CrcCurrentAddr when ( (Uart0CrcDone = '0') and (Uart0DoCrc = '1') ) else Uart0RxFifoPeekPeekAddrRegisterSpace;
+
+	
 	RS422_Tx0 : UartTxFifoExtClk
 	generic map
 	(

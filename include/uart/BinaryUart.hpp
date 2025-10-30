@@ -107,6 +107,8 @@ struct BinaryUart : IUartParser
         debug = dbg;
     }
 
+    bool Debug() { return(debug); }
+
     /**
      * @brief Initializes the BinaryUart
      *
@@ -174,9 +176,9 @@ struct BinaryUart : IUartParser
         uint8_t c = Pinout.getcqq(); // is taking no time
         
 
-		//~ if (debug) {
-			//~ printf(".%.2x", c);
-		//~ }
+		if (debug) {
+			printf(".%.2x", c);
+		}
         //        start = DM->GetTimer;
 
         ProcessByte(c);
@@ -418,8 +420,8 @@ struct BinaryUart : IUartParser
 	void formatf() const
 	{
 		::formatf("\n\nBinaryUart(%u, %c, %u): :", RxCount, InPacket?'Y':'N', PacketStart);
-		for(size_t i = 0; i < RxCount; i++) { printf("%.2X:", RxBuffer[i]); }
-		printf("\n\n");
+		for(size_t i = 0; i < RxCount; i++) { ::formatf("%2X:", RxBuffer[i]); }
+		::formatf("\n\n");
 	}
 };
 

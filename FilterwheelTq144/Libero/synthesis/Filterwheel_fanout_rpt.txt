@@ -7,14 +7,14 @@ GLOBAL THRESHOLD - 5000
 
 NET NAME                                                CLOCK LOADS     ASYNC RST LOADS     DATA LOADS     TOTAL FANOUT     GLOBAL BUFFER PRESENT
 -------------------------------------------------------------------------------------------------------------------------------------------------
-FCCC_C0_0_GL0                                           2126            0                   1              2127             YES                  
+FCCC_C0_0_GL0                                           2132            0                   1              2133             YES                  
 Filterwheel_sb_0.GL0_INST                               32              0                   0              32               YES                  
-Main_0.UartClk0                                         31              0                   0              31               YES                  
-Main_0.UartClk1                                         31              0                   0              31               YES                  
-Main_0.UartClk2                                         31              0                   0              31               YES                  
-Main_0.UartClk3                                         31              0                   0              31               YES                  
-Main_0.UartClkUsb                                       31              0                   0              31               YES                  
-Main_0.UartClkGps                                       31              0                   0              31               YES                  
+Main_0.UartClk0                                         32              0                   0              32               YES                  
+Main_0.UartClk1                                         32              0                   0              32               YES                  
+Main_0.UartClk2                                         32              0                   0              32               YES                  
+Main_0.UartClk3                                         32              0                   0              32               YES                  
+Main_0.UartClkUsb                                       32              0                   0              32               YES                  
+Main_0.UartClkGps                                       32              0                   0              32               YES                  
 Filterwheel_sb_0.FABOSC_0_RCOSC_25_50MHZ_O2F            15              0                   0              15               YES                  
 Main_0.UartTxClk0                                       9               0                   0              9                YES                  
 Main_0.UartTxClk1                                       9               0                   0              9                YES                  
@@ -22,7 +22,7 @@ Main_0.UartTxClk2                                       9               0       
 Main_0.UartTxClk3                                       9               0                   0              9                YES                  
 Main_0.UartTxClkUsb                                     9               0                   0              9                YES                  
 Main_0.UartTxClkGps                                     9               0                   0              9                YES                  
-Main_0.BootupReset.shot_i_arst                          0               152                 0              152              YES                  
+Main_0.BootupReset.shot_i_arst                          0               164                 0              164              YES                  
 Main_0.Uart2FifoReset_i_i                               0               123                 0              123              YES                  
 Main_0.UartUsbFifoReset_i_i                             0               123                 0              123              YES                  
 Main_0.Uart3FifoReset_i_i                               0               123                 0              123              YES                  

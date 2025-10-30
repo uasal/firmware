@@ -62,48 +62,52 @@ extern BinaryUart UartParser;
 
 int8_t DMDacCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-  unsigned long A = 0, B = 0, C = 0, D = 0;
-	uint32_t DacSetpoints[4];
+  //~ unsigned long A = 0, B = 0, C = 0, D = 0;
+	//~ uint32_t DacSetpoints[4];
 	
-	//Convert parameters
-        int8_t numfound = sscanf(Params, "%lx,%lx,%lx,%lx", &A, &B, &C, &D);
-    if (numfound >= 4)
-    {
-		DacSetpoints[0] = A;
-		DacSetpoints[1] = B;
-		DacSetpoints[2] = C;
-                DacSetpoints[3] = D;
-		TxBinaryPacket(&UartParser, CGraphPayloadTypeDMDac, 0, DacSetpoints, 4 * sizeof(uint32_t));
+	//~ //Convert parameters
+        //~ int8_t numfound = sscanf(Params, "%lx,%lx,%lx,%lx", &A, &B, &C, &D);
+    //~ if (numfound >= 4)
+    //~ {
+		//~ DacSetpoints[0] = A;
+		//~ DacSetpoints[1] = B;
+		//~ DacSetpoints[2] = C;
+                //~ DacSetpoints[3] = D;
+		//~ TxBinaryPacket(&UartParser, CGraphPayloadTypeDMDac, 0, DacSetpoints, 4 * sizeof(uint32_t));
 		
-		printf("\n\nDMDacs: set to: %x, %x, %x, %x.\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2], DacSetpoints[3]);
-		return(ParamsLen);
-    }
+		//~ printf("\n\nDMDacs: set to: %x, %x, %x, %x.\n", DacSetpoints[0], DacSetpoints[1], DacSetpoints[2], DacSetpoints[3]);
+		//~ return(ParamsLen);
+    //~ }
 	
 	//No params? Just query it...
-	printf("\n\nDMDacs: Querying...\n");
-	TxBinaryPacket(&UartParser, CGraphPayloadTypeDMDac, 0, NULL, 0);
+	//~ printf("\n\nDMDacs: Querying...\n");
+	//~ TxBinaryPacket(&UartParser, CGraphPayloadTypeDMDac, 0, NULL, 0);
+	
+	printf("\n\nDMDacs: Deprecated.\n");
     return(ParamsLen);
 }
 
 int8_t DMHVSwitchCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-    unsigned long A = 0, B = 0;
-    uint32_t HVSwitchParams[2];
+    //~ unsigned long A = 0, B = 0;
+    //~ uint32_t HVSwitchParams[2];
 	
-    size_t numfound = 0;
-    if (numfound >= 2)
-    {
-		HVSwitchParams[0] = A;
-		HVSwitchParams[1] = B;
-		TxBinaryPacket(&UartParser, CGraphPayloadTypeDMHVSwitch, 0, HVSwitchParams, 2 * sizeof(uint32_t));
+    //~ size_t numfound = 0;
+    //~ if (numfound >= 2)
+    //~ {
+		//~ HVSwitchParams[0] = A;
+		//~ HVSwitchParams[1] = B;
+		//~ TxBinaryPacket(&UartParser, CGraphPayloadTypeDMHVSwitch, 0, HVSwitchParams, 2 * sizeof(uint32_t));
 		
-		printf("\n\nHVSwitchCommand: set to: %x, %x.\n", HVSwitchParams[0], HVSwitchParams[1]);
-		return(ParamsLen);
-    }
+		//~ printf("\n\nHVSwitchCommand: set to: %x, %x.\n", HVSwitchParams[0], HVSwitchParams[1]);
+		//~ return(ParamsLen);
+    //~ }
 
     //No params? Just query it...
-    printf("\n\nHVSwitchCommand: Querying...\n");
-    TxBinaryPacket(&UartParser, CGraphPayloadTypeDMHVSwitch, 0, NULL, 0);
+    //~ printf("\n\nHVSwitchCommand: Querying...\n");
+    //~ TxBinaryPacket(&UartParser, CGraphPayloadTypeDMHVSwitch, 0, NULL, 0);
+
+	printf("\n\nHVSwitchCommand: Deprecated.\n");
     return(ParamsLen);
 }
 
