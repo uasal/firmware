@@ -41,4 +41,5 @@ public:
 	virtual size_t Depth() const = 0;
 	virtual size_t CopyToFlatBuffer(const size_t StartOffset, size_t& NumToCopy, uint8_t* const Buffer, const size_t BufferMaxLen) const = 0;
 	virtual void PopMany(const size_t LastReadAddrToPop) = 0;
+	virtual void formatf() const = 0;
 };

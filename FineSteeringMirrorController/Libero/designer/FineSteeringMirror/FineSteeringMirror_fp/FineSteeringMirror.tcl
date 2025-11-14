@@ -7,24 +7,9 @@ load_programming_data \
     -envm {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/designer/FineSteeringMirror/FineSteeringMirror.efc} \
     -spm {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/designer/FineSteeringMirror/FineSteeringMirror.spm} \
     -dca {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/designer/FineSteeringMirror/FineSteeringMirror.dca}
-export_single_stapl \
-    -name {M2S010} \
-    -file {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/designer/FineSteeringMirror/export/FineSteeringMirror.stp} \
-    -secured
-
 export_single_ppd \
     -name {M2S010} \
-    -file {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/designer/FineSteeringMirror/export/FineSteeringMirror.ppd}
-
-export_single_svf \
-    -name {M2S010} \
-    -file {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/designer/FineSteeringMirror/export/FineSteeringMirror} \
-    -secured
-
-export_single_dat \
-    -name {M2S010} \
-    -file {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/designer/FineSteeringMirror/export/FineSteeringMirror.dat} \
-    -secured
+    -file {/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/designer/FineSteeringMirror/FineSteeringMirror.ppd}
 
 save_project
 close_project

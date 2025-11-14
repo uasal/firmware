@@ -8,7 +8,7 @@
 
 #include "CGraphFWHardwareInterface.hpp"
 
-CGraphFWHardwareInterface* FW = (CGraphFWHardwareInterface*)0x50000000UL;
+CGraphFWHardwareInterface* volatile FW = (CGraphFWHardwareInterface*)0x50000000UL;
 //CGraphFWHardwareInterface* FW = (CGraphFWHardwareInterface*)0x30000000UL;
 
 //EOF

@@ -30,12 +30,10 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.all;
+library work;
+use work.CGraphTypes.all;
 
 entity UartRxFifoExtClkPeek is
-	generic 
-	(
-		DEPTH_BITS : natural := 10--;
-	);
 	port 
 	(
 		--Outside world:
@@ -47,6 +45,8 @@ entity UartRxFifoExtClkPeek is
 		Rxd : in std_logic; 
 		
 		Dbg1 : out std_logic; 
+		Dbg2 : out std_logic; 
+		Dbg3 : out std_logic; 
 		
 		--debug
 		RxComplete : out std_logic;
@@ -59,14 +59,14 @@ entity UartRxFifoExtClkPeek is
 		--Fifo status:
 		FifoFull	: out std_logic;
 		FifoEmpty	: out std_logic;
-		FifoCount	: out std_logic_vector(DEPTH_BITS - 1 downto 0);		
+		FifoCount	: out std_logic_vector(PeekRamDepth - 1 downto 0);		
 		
 		--Fifo peeking:
-		FifoReadAddr : out unsigned(DEPTH_BITS - 1 downto 0);
-		FifoWriteAddr : out unsigned(DEPTH_BITS - 1 downto 0);
-		FifoPeekAddr : in unsigned(DEPTH_BITS - 1 downto 0);
+		FifoReadAddr : out std_logic_vector(PeekRamDepth - 1 downto 0);
+		FifoWriteAddr : out std_logic_vector(PeekRamDepth - 1 downto 0);
+		FifoPeekAddr : in std_logic_vector(PeekRamDepth - 1 downto 0);
 		FifoPeekData : out std_logic_vector(7 downto 0);
-		FifoMultiPopAddr : in unsigned(DEPTH_BITS - 1 downto 0);
+		FifoMultiPopAddr : in std_logic_vector(PeekRamDepth - 1 downto 0);
 		FifoMultiPopStrobe : in std_logic--;		
 	);
 end UartRxFifoExtClkPeek;
@@ -82,30 +82,26 @@ architecture implementation of UartRxFifoExtClkPeek is
 		);
 		end component;
 
-		component gated_fifo_peek is
-		generic 
-		(
-			WIDTH_BITS : natural := 32;
-			DEPTH_BITS : natural := 9
-		);
-		port 
-		(
-			clk		: in std_logic;
-			rst		: in std_logic;
-			wone_i	: in std_logic;
-			data_i	: in std_logic_vector(WIDTH_BITS - 1 downto 0);
-			rone_i	: in std_logic;
-			full_o	: out std_logic;
-			empty_o	: out std_logic;
-			data_o	: out std_logic_vector(WIDTH_BITS - 1 downto 0);
-			count_o	: out std_logic_vector(DEPTH_BITS - 1 downto 0);
-			raddr_o : out unsigned(DEPTH_BITS - 1 downto 0);
-			waddr_o : out unsigned(DEPTH_BITS - 1 downto 0);
-			peekaddr_i : in unsigned(DEPTH_BITS - 1 downto 0);
-			peek_data_o	: out std_logic_vector(WIDTH_BITS - 1 downto 0);
-			raddr_i : in unsigned(DEPTH_BITS - 1 downto 0);
-			multipop_e_i	: in std_logic;
-			r_ack : out std_logic--;
+		component PeekRingBuffer is
+		port (
+			clk : in std_logic;
+			rst : in std_logic;
+				
+			-- Bus:
+			DataStartAddress : out std_logic_vector(PeekRamDepth - 1 downto 0);
+			DataEndAddress : out std_logic_vector(PeekRamDepth - 1 downto 0);
+			PeekAddress : in std_logic_vector(PeekRamDepth - 1 downto 0);
+			PopAddress : in std_logic_vector(PeekRamDepth - 1 downto 0);
+			ByteIn : in std_logic_vector(7 downto 0);
+			ByteOut : out std_logic_vector(7 downto 0);
+			WriteReq : in std_logic;
+			PopReq : in std_logic;
+			Dbg1 : out std_logic;
+			Dbg2 : out std_logic;
+			Dbg3 : out std_logic;
+			Empty : out std_logic;
+			Full : out std_logic;
+			Count : out std_logic_vector(PeekRamDepth - 1 downto 0)--;
 		);
 		end component;
 		
@@ -139,7 +135,7 @@ begin
 	--~ );
 	
 	--~ Dbg1 <= RxComplete_i;
-	Dbg1 <= WriteFifo_i;	
+	--~ Dbg1 <= WriteFifo_i;	
 	
 	ReadFifo_i <= ReadFifo;
 	
@@ -167,30 +163,25 @@ begin
 	);
 	
 	--Fifo holds bytes after we get them
-	UartFifo : gated_fifo_peek
-	generic map
-	(
-		WIDTH_BITS => 8,
-		DEPTH_BITS => DEPTH_BITS--,
-	)
+	UartFifo : PeekRingBuffer
 	port map
 	(
 		clk => clk,
 		rst => rst,
-		wone_i => WriteFifo_i,
-		data_i => RxData,
-		full_o => FifoFull,
-		empty_o => FifoEmpty,
-		count_o => FifoCount,
-		rone_i => ReadFifo_i,
-		r_ack => FifoReadAck,
-		data_o => FifoReadData,
-		raddr_o => FifoReadAddr,
-		waddr_o => FifoWriteAddr,
-		peekaddr_i => FifoPeekAddr,
-		peek_data_o => FifoPeekData,
-		raddr_i => FifoMultiPopAddr,
-		multipop_e_i => FifoMultiPopStrobe--,
+		DataStartAddress => FifoReadAddr,
+		DataEndAddress => FifoWriteAddr,
+		PeekAddress => FifoPeekAddr,
+		PopAddress => FifoMultiPopAddr,
+		ByteIn => RxData,
+		ByteOut => FifoPeekData,
+		WriteReq => WriteFifo_i,
+		PopReq => FifoMultiPopStrobe,
+		Dbg1 => Dbg1,
+		Dbg2 => Dbg2,
+		Dbg3 => Dbg3,
+		Empty => FifoEmpty,
+		Full => FifoFull,
+		Count => FifoCount--,
 	);
 	
 end implementation;

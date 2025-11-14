@@ -1,7 +1,7 @@
 @N|Running in 64-bit mode
 @N|Running in 64-bit mode
 @N|stack limit increased to max
-@N:"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":11:7:11:10|Top entity is set to Main.
+@N:"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":13:7:13:10|Top entity is set to Main.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/BuildNumber.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/crc_byte.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd'.
@@ -11,8 +11,7 @@
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd'.
 @N: CD895 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Setting attribute syn_ramstyle to "no_rw_check" on shared variable ram
-@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd'.
-@N: CD895 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":58:17:58:19|Setting attribute syn_ramstyle to "no_rw_check" on shared variable ram
+@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/CGraphTypes.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider2X.vhd'.
@@ -25,7 +24,9 @@
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/UartRxExtClk.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClk.vhd'.
-@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo_peek.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/PeekRam.vhd'.
+@N: CD895 :"/home/summer/projects/CGraph/firmware/include/fpga/PeekRam.vhd":48:17:48:19|Setting attribute syn_ramstyle to "no_rw_check" on shared variable ram
+@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/PeekRingBuffer.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClkPeek.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd'.
@@ -147,7 +148,7 @@
 @N: CL159 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3.v":152:13:152:22|Input PSLVERRS14 is unused.
 @N: CL159 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3.v":153:13:153:22|Input PSLVERRS15 is unused.
 @N|stack limit increased to max
-@N:"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":11:7:11:10|Top entity is set to Main.
+@N:"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":13:7:13:10|Top entity is set to Main.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/BuildNumber.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/crc_byte.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd'.
@@ -157,8 +158,7 @@
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd'.
 @N: CD895 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Setting attribute syn_ramstyle to "no_rw_check" on shared variable ram
-@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd'.
-@N: CD895 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":58:17:58:19|Setting attribute syn_ramstyle to "no_rw_check" on shared variable ram
+@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/CGraphTypes.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider2X.vhd'.
@@ -171,7 +171,9 @@
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/UartRxExtClk.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClk.vhd'.
-@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo_peek.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/PeekRam.vhd'.
+@N: CD895 :"/home/summer/projects/CGraph/firmware/include/fpga/PeekRam.vhd":48:17:48:19|Setting attribute syn_ramstyle to "no_rw_check" on shared variable ram
+@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/PeekRingBuffer.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClkPeek.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd'.
@@ -179,7 +181,7 @@
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/SpiDevice.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd'.
 @N: CD231 :"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/std1164.vhd":889:16:889:17|Using onehot encoding for type mvl9plus. For example, enumeration 'U' is mapped to "1000000000".
-@N: CD630 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":11:7:11:10|Synthesizing work.main.architecture_main.
+@N: CD630 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":13:7:13:10|Synthesizing work.main.architecture_main.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd":35:7:35:37|Synthesizing work.fourwiresteppermotordriverports.fourwiresteppermotordriver.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotor.vhd":35:7:35:31|Synthesizing work.fourwiresteppermotorports.fourwiresteppermotor.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":30:7:30:18|Synthesizing work.oneshotports.oneshot.
@@ -206,11 +208,10 @@
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":40:7:40:13|Synthesizing work.crcfifo.implementation.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_stream.vhd":40:7:40:15|Synthesizing work.crcstream.implementation.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_byte.vhd":25:7:25:14|Synthesizing work.crc_byte.behavioral.
-@N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClkPeek.vhd":34:7:34:26|Synthesizing work.uartrxfifoextclkpeek.implementation.
-@N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo_peek.vhd":11:7:11:21|Synthesizing work.gated_fifo_peek.rtl.
-@N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":11:7:11:15|Synthesizing work.fifo_peek.rtl.
-@N: CL134 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":58:17:58:19|Found RAM ram, depth=1024, width=8
-@N: CL134 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":58:17:58:19|Found RAM ram, depth=1024, width=8
+@N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClkPeek.vhd":36:7:36:26|Synthesizing work.uartrxfifoextclkpeek.implementation.
+@N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/PeekRingBuffer.vhd":31:7:31:20|Synthesizing work.peekringbuffer.peekringbufferimplemenatation.
+@N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/PeekRam.vhd":31:7:31:13|Synthesizing work.peekram.peekramimplementation.
+@N: CL134 :"/home/summer/projects/CGraph/firmware/include/fpga/PeekRam.vhd":48:17:48:19|Found RAM ram, depth=1024, width=8
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDevice.vhd":44:7:44:20|Synthesizing work.spideviceports.spidevice.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd":38:7:38:20|Synthesizing work.spimasterports.spimaster.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":14:7:14:24|Synthesizing work.registerspaceports.registerspace.
@@ -224,8 +225,10 @@
 @N: CL159 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":215:2:215:17|Input Uart3TxFifoCount is unused.
 @N: CL159 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":228:2:228:19|Input UartUsbTxFifoCount is unused.
 @N: CL159 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":241:2:241:19|Input UartGpsTxFifoCount is unused.
+@N: CL159 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClkPeek.vhd":55:2:55:9|Input ReadFifo is unused.
 @N: CL135 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd":48:2:48:3|Found sequential shift O with address depth of 3 words and data bit width of 1.
 @N: CL159 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxExtClk.vhd":37:2:37:4|Input clk is unused.
-@N: CL159 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":51:1:51:11|Input RamBusLatch is unused.
+@N: CL159 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":16:4:16:9|Input rst_in is unused.
+@N: CL159 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":54:1:54:11|Input RamBusLatch is unused.
 @N|Running in 64-bit mode
 

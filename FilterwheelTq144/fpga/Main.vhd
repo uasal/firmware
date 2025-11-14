@@ -5,12 +5,15 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+library work;
+use work.CGraphTypes.all;
 --~ use work.ads1258.all;
 --~ use work.ads1258accumulator_pkg.all;
 
 entity Main is
 port (
     clk : in  std_logic;
+    rst_in : in std_logic;
     rst_out : out std_logic;
 	
 	--ClkDac
@@ -412,11 +415,7 @@ architecture architecture_Main of Main is
 						);
 						end component;
 						
-												component UartRxFifoExtClkPeek is
-						generic 
-						(
-							DEPTH_BITS : natural := 10--;
-						);
+						component UartRxFifoExtClkPeek is
 						port 
 						(
 							--Outside world:
@@ -426,6 +425,8 @@ architecture architecture_Main of Main is
 							--External (async) uart data input pin
 							Rxd : in std_logic; 
 							Dbg1 : out std_logic; 
+							Dbg2 : out std_logic; 
+							Dbg3 : out std_logic; 
 							RxComplete : out std_logic;
 							--Read from fifo:
 							ReadFifo	: in std_logic;
@@ -434,12 +435,12 @@ architecture architecture_Main of Main is
 							--Fifo status:
 							FifoFull	: out std_logic;
 							FifoEmpty	: out std_logic;
-							FifoCount	: out std_logic_vector(DEPTH_BITS - 1 downto 0);
-							FifoReadAddr : out unsigned(DEPTH_BITS - 1 downto 0);
-							FifoWriteAddr : out unsigned(DEPTH_BITS - 1 downto 0);
-							FifoPeekAddr : in unsigned(DEPTH_BITS - 1 downto 0);
+							FifoCount	: out std_logic_vector(PeekRamDepth - 1 downto 0);
+							FifoReadAddr : out std_logic_vector(PeekRamDepth - 1 downto 0);
+							FifoWriteAddr : out std_logic_vector(PeekRamDepth - 1 downto 0);
+							FifoPeekAddr : in std_logic_vector(PeekRamDepth - 1 downto 0);
 							FifoPeekData : out std_logic_vector(7 downto 0);
-							FifoMultiPopAddr : in unsigned(DEPTH_BITS - 1 downto 0);
+							FifoMultiPopAddr : in std_logic_vector(PeekRamDepth - 1 downto 0);
 							FifoMultiPopStrobe : in std_logic--;		
 						);
 						end component;
@@ -743,15 +744,15 @@ architecture architecture_Main of Main is
 							Uart0TxFifoCount : in std_logic_vector(9 downto 0);
 							Uart0ClkDivider : out std_logic_vector(7 downto 0);
 
-							Uart0RxFifoPeekReadAddr : in unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
-							Uart0RxFifoPeekWriteAddr : in unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
-							Uart0RxFifoPeekPeekAddr : out unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+							Uart0RxFifoPeekReadAddr : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
+							Uart0RxFifoPeekWriteAddr : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
+							Uart0RxFifoPeekPeekAddr : out std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 							Uart0RxFifoPeekPeekData : in std_logic_vector(7 downto 0);
-							Uart0RxFifoPeekMultiPopAddr : out unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+							Uart0RxFifoPeekMultiPopAddr : out std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 							Uart0RxFifoPeekMultiPopStrobe : out std_logic;		
-							Uart0CrcStartAddr : out unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
-							Uart0CrcEndAddr : out unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
-							Uart0CrcCurrentAddr : in unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+							Uart0CrcStartAddr : out std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
+							Uart0CrcEndAddr : out std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
+							Uart0CrcCurrentAddr : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 							Uart0DoCrc : out std_logic;
 							Uart0CrcDone : in std_logic;
 							Uart0Crc : in std_logic_vector(31 downto 0);
@@ -981,11 +982,12 @@ architecture architecture_Main of Main is
 							clk : in std_logic;
 							rst : in std_logic;
 							
-							FifoStartAddr : in unsigned(DEPTH_BITS - 1 downto 0);
-							FifoEndAddr : in unsigned(DEPTH_BITS - 1 downto 0);
-							FifoPeekAddr : out unsigned(DEPTH_BITS - 1 downto 0);
+							FifoStartAddr : in std_logic_vector(DEPTH_BITS - 1 downto 0);
+							FifoEndAddr : in std_logic_vector(DEPTH_BITS - 1 downto 0);
+							FifoPeekAddr : out std_logic_vector(DEPTH_BITS - 1 downto 0);
 							FifoPeekData : in std_logic_vector(7 downto 0);
 							
+							StartCrc : in std_logic;
 							Crc : out std_logic_vector(31 downto 0);
 							CrcComplete : out std_logic--;
 							
@@ -1018,6 +1020,7 @@ architecture architecture_Main of Main is
 
 		--FPGA internal
 		
+			signal rst_pulse : std_logic; --One shot reset generator
 			signal MasterReset : std_logic; --Our power-on-reset signal for everything
 			signal SerialNumber : std_logic_vector(31 downto 0); --This is a xilinx proprietary toy that we use as the serial number, it's supposed to be unique on each board
 			signal BuildNumber : std_logic_vector(31 downto 0); --How many attempts got us to this particular version of the firmware?
@@ -1093,16 +1096,16 @@ architecture architecture_Main of Main is
 			signal Rxd0_i : std_logic;
 			signal UartRx0Dbg : std_logic;			
 
-			signal Uart0RxFifoPeekReadAddr : unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
-			signal Uart0RxFifoPeekWriteAddr : unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
-			signal Uart0RxFifoPeekPeekAddr_i : unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
-			signal Uart0RxFifoPeekPeekAddrRegisterSpace : unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
-			signal Uart0CrcCurrentAddr : unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+			signal Uart0RxFifoPeekReadAddr : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
+			signal Uart0RxFifoPeekWriteAddr : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
+			signal Uart0RxFifoPeekPeekAddr_i : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
+			signal Uart0RxFifoPeekPeekAddrRegisterSpace : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
+			signal Uart0CrcCurrentAddr : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 			signal Uart0RxFifoPeekPeekData : std_logic_vector(7 downto 0);
-			signal Uart0RxFifoPeekMultiPopAddr : unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+			signal Uart0RxFifoPeekMultiPopAddr : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 			signal Uart0RxFifoPeekMultiPopStrobe : std_logic;
-			signal Uart0CrcStartAddr : unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
-			signal Uart0CrcEndAddr : unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+			signal Uart0CrcStartAddr : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
+			signal Uart0CrcEndAddr : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 			signal Uart0DoCrc : std_logic;
 			signal Uart0CrcDone : std_logic;
 			signal Uart0Crc : std_logic_vector(31 downto 0);			
@@ -1362,9 +1365,13 @@ begin
 	port map 
 	(	
 		clk => MasterClk,
-		rst => '0',
+		--~ rst => not(rst_in),
+		rst => open,
 		shot => MasterReset
+		--~ shot => rst_pulse
 	);
+	
+	--~ MasterReset <= not(rst_in) or rst_pulse;
 	
 	rst_out <= MasterReset;
 	
@@ -1814,7 +1821,8 @@ begin
 		clki => UartClk,
 		rst => MasterReset,
 		rst_count => x"00",
-		terminal_count => Uart0ClkDivider,
+		--~ terminal_count => Uart0ClkDivider,
+		terminal_count => std_logic_vector(to_unsigned(natural((real(102000000) / ( real(115200) * 16.0)) - 1.0), 8)),
 		clko => UartClk0
 	);
 	Uart0TxBitClockDiv : ClockDividerPorts
@@ -1833,29 +1841,18 @@ begin
 	IBufRxd0 : IBufP3Ports port map(clk => UartClk, I => Rxd0, O => Rxd0_i); --if you want to change the pin for this chip select, it's here
 	
 	RS422_Rx0 : UartRxFifoExtClkPeek
-	generic map
-	(
-		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
-		DEPTH_BITS => 10--,
-		--~ BAUD_DIVIDER_BITS => 8--,
-		--~ BAUDRATE => BoardMasterClockFreq--,
-		--~ BAUDRATE => 8000000--,
-		--~ BAUDRATE => 4000000--,
-		--~ BAUDRATE => 2000000--,
-		--~ BAUDRATE => 1000000--,
-		--~ BAUDRATE => BoardMasterClockFreq / 16--, --9.216MHz
-		--~ BAUDRATE => BoardMasterClockFreq / 8192--,
-		--~ BAUDRATE => 115200--,
-	)
 	port map
 	(
 		clk => MasterClk,
 		uclk => UartClk0,
 		rst => Uart0FifoReset_i,
+		--~ rst => '0',
 		--~ BaudDivider => Uart0ClkDivider,
 		Rxd => Rxd0_i,
-		--~ Dbg1 => UartRx0Dbg,
-		Dbg1 => open,
+		Dbg1 => UartRx0Dbg,
+		Dbg2 => TP2,
+		Dbg3 => TP3,
+		--~ Dbg1 => open,
 		RxComplete => open,
 		ReadFifo => ReadUart0,
 		FifoFull => Uart0RxFifoFull,
@@ -1884,14 +1881,27 @@ begin
 		FifoEndAddr => Uart0CrcEndAddr,
 		FifoPeekData => Uart0RxFifoPeekPeekData,
 		FifoPeekAddr => Uart0CrcCurrentAddr,
+		StartCrc => Uart0DoCrc,
 		Crc => Uart0Crc,
 		CrcComplete => Uart0CrcDone--,
 	);
 	-- !!May want to add Uart0CrcCurrentAddr functionality for debug...
 	
 	--This gonna get funky: if we're doing a crc, the crc core has acess to the fifo, otherwise the processor gets acess to the fifo...
-	Uart0RxFifoPeekPeekAddr_i <= Uart0RxFifoPeekPeekAddrRegisterSpace;
+	--~ Uart0RxFifoPeekPeekAddr_i <= Uart0RxFifoPeekPeekAddrRegisterSpace;
 	--~ Uart0RxFifoPeekPeekAddr_i <= Uart0CrcCurrentAddr when ( (Uart0CrcDone = '0') and (Uart0DoCrc = '1') ) else Uart0RxFifoPeekPeekAddrRegisterSpace;
+	Uart0RxFifoPeekPeekAddr_i <= Uart0CrcCurrentAddr when (Uart0CrcDone = '0') else Uart0RxFifoPeekPeekAddrRegisterSpace;
+
+	--~ LedG <= not(UartRx0Dbg);
+	LedG <= Uart0CrcDone;
+	--~ LedR <= not(Uart0RxFifoEmpty);
+	LedR <= '0';
+	TP1 <= Uart0CrcDone;
+	TP4 <= Uart0CrcCurrentAddr(0);
+	TP5 <= Uart0DoCrc;
+	TP6 <= Uart0Crc(0);
+	TP7 <= Uart0CrcStartAddr(0);
+	TP8 <= Uart0CrcEndAddr(0);
 
 	
 	RS422_Tx0 : UartTxFifoExtClk
@@ -2721,23 +2731,23 @@ begin
 		--~ LedG <= not(PosSenseBit1A);
 		--~ LedB <= not(PosSenseBit2A);
 		
-		LedR <= not(PosSenseBit0A);
-		LedG <= not(PosSenseBit1A);
+		--~ LedR <= not(PosSenseBit0A);
+		--~ LedG <= not(PosSenseBit1A);
 		LedB <= not(PosSenseBit2A);
 		--~ LedR <= not(RxdUsb_i);
 		--~ LedG <= '0';
 		--~ LedB <= not(TxdUsb_i);
 		
-		TP1 <= not(PosSenseHomeA);
-		TP2 <= not(PosSenseBit0A); --msb
-		TP3 <= not(PosSenseBit1A);
-		TP4 <= not(PosSenseBit2A); --lsb
-		TP5 <= not(PosSenseHomeB);
-		TP6 <= not(PosSenseBit0B); --msb
+		--~ TP1 <= not(PosSenseHomeA);
+		--~ TP2 <= not(PosSenseBit0A); --msb
+		--~ TP3 <= not(PosSenseBit1A);
+		--~ TP4 <= not(PosSenseBit2A); --lsb
+		--~ TP5 <= not(PosSenseHomeB);
+		--~ TP6 <= not(PosSenseBit0B); --msb
 		--~ TP7 <= not(PosSenseBit1B);
 		--~ TP8 <= not(PosSenseBit2B); --lsb
-		TP7 <= TxdUsb;
-		TP8 <= RxdUsb_i;
+		--~ TP7 <= TxdUsb;
+		--~ TP8 <= RxdUsb_i;
 		
 		--~ TP1 <= RamBusnCs;
 		--~ TP2 <= RamBusWrnRd;

@@ -15,11 +15,11 @@ Runtime Summary:
 			Hardware Generation Phase, Initial Cleanup Phase, Optimization Phase: Negligible CPU time
 		*Library: work, Entity: SpiDevicePorts_work_main_architecture_main_0layer1, Architecture: spidevice
 			Hardware Generation Phase, Initial Cleanup Phase, Optimization Phase: Negligible CPU time
-		*Library: work, Entity: fifo_peek_8_10, Architecture: rtl
+		*Library: work, Entity: PeekRam, Architecture: peekramimplementation
 			Hardware Generation Phase, Initial Cleanup Phase, Optimization Phase: Negligible CPU time
-		*Library: work, Entity: gated_fifo_peek_8_10, Architecture: rtl
+		*Library: work, Entity: PeekRingBuffer, Architecture: peekringbufferimplemenatation
 			Hardware Generation Phase, Initial Cleanup Phase, Optimization Phase: Negligible CPU time
-		*Library: work, Entity: UartRxFifoExtClkPeek_10, Architecture: implementation
+		*Library: work, Entity: UartRxFifoExtClkPeek, Architecture: implementation
 			Hardware Generation Phase, Optimization Phase: Negligible CPU time
 		*Library: work, Entity: crc_byte, Architecture: behavioral
 			Hardware Generation Phase, Initial Cleanup Phase, Optimization Phase: Negligible CPU time

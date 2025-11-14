@@ -4,6 +4,8 @@
 
 #include "IArray.hpp"
 
+#include "format/formatf.h"
+
 class CircularFifoFlattenedFpga : public IArray
 {
 public:
@@ -87,6 +89,12 @@ public:
 		uint32_t val = 0;
 		val = peek(offset) | (peek(offset + 1) << 8) | (peek(offset + 2) << 16) | (peek(offset + 3) << 24);
 		return(val);		
+	}
+	
+	virtual void formatf() const override
+	{
+		::formatf("\n\nCircularFifoFlattenedFpga: DataOffset(0x%lx), Data(0x%lx), ReadOffset(0x%lx), WriteOffset(0x%lx), Len(%lu), PopRegister(0x%lx); ", (unsigned long)DataOffset, (unsigned long)Data, (unsigned long)ReadOffset, (unsigned long)WriteOffset, (unsigned long)Len, (unsigned long)PopRegister);
+		::formatf("*DataOffset(%lu), *Data(0x%x), *ReadOffset(%lu), *WriteOffset(%lu), Depth(%lu), *PopRegister(%lu).", *DataOffset, *Data, *ReadOffset, *WriteOffset, Depth(), *PopRegister);
 	}
 
     volatile uint32_t* const DataOffset;

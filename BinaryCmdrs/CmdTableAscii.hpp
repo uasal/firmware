@@ -30,6 +30,7 @@
 int8_t ExitCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t HelpCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t DebugCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t FloodCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 
 //General Cmds
 int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);

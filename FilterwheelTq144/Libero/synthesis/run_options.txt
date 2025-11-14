@@ -1,7 +1,7 @@
 #--  Synopsys, Inc.
 #--  Version T-2022.09M-SP2-1
 #--  Project file /home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesis/run_options.txt
-#--  Written on Wed Oct 29 18:31:44 2025
+#--  Written on Fri Nov 14 09:21:13 2025
 
 
 #project files
@@ -31,8 +31,9 @@ add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/Uar
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClk.vhd"
-add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd"
-add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo_peek.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/CGraphTypes.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/PeekRam.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/PeekRingBuffer.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClkPeek.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd"

@@ -67,7 +67,7 @@ begin
 	begin
 		if rst = '1' then
 			counter_r <= 0;
-			count_o <= 0;
+			count_o <= (others => '0');
 			raddr_r <= (others => '0');
 			waddr_r <= (others => '0');
 			full_r <= '0';

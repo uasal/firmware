@@ -122,6 +122,7 @@ union CGraphCrcCurrentAddr
     } __attribute__((__packed__));
 
     CGraphCrcCurrentAddr() { all = 0; }
+    CGraphCrcCurrentAddr(volatile CGraphCrcCurrentAddr& c) { all = c.all; }
 	
 	void formatf() const //note: using this function causes some major fuckery with the volatile qulifier in many places...
 	{ 
@@ -147,6 +148,16 @@ struct FpgaRingBufferCrcer
 		volatile uint32_t* const CrcEndAddr;
 		volatile CGraphCrcCurrentAddr* const CrcCurrentAddr;
 		volatile uint32_t* const CrcResult;
+	
+	void formatf() const //note: using this function causes some major fuckery with the volatile qulifier in many places...
+	{ 
+		::formatf("FpgaRingBufferCrcer: ");
+		::formatf("CrcStartAddr: 0x%8lX, ", (unsigned)CrcStartAddr);
+		::formatf("CrcEndAddr: 0x%8lX, ", (unsigned)CrcEndAddr);
+		::formatf("CrcCurrentAddr: 0x%8lX, ", (unsigned)CrcCurrentAddr);
+		::formatf("CrcResult: 0x%8lX.", (unsigned)CrcResult);		
+	}
+
 };
 
 //EOF

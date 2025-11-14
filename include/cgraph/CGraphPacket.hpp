@@ -355,9 +355,10 @@ public:
 		*FpgaCrc.CrcEndAddr = CrcEndPos;
 		
 		size_t crctimeout = 0;
+		const CGraphCrcCurrentAddr CrcStatus = *FpgaCrc.CrcCurrentAddr;
 		for (crctimeout = 0; crctimeout < (3 * sizeof(CGraphPacketHeader) + payloadlen + sizeof(CGraphPacketFooter)); crctimeout++)
 		{
-			if ( (FpgaCrc.CrcCurrentAddr->CurrentAddr == CrcEndPos) || (FpgaCrc.CrcCurrentAddr->CrcComplete == 1) ) { break; }
+			if ( (CrcStatus.CurrentAddr == CrcEndPos) || (CrcStatus.CrcComplete == 1) ) { break; }
 		}
 		
         ::formatf("\n\nCGraphPacket::IsValid(): Calc'd CRC: 0x%lx (CrcCurrentAddr: 0x%lx).\n\r", (unsigned long)*FpgaCrc.CrcResult, FpgaCrc.CrcCurrentAddr->all);

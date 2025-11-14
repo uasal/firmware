@@ -1,4 +1,4 @@
-# Wed Oct 29 18:31:49 2025
+# Fri Nov 14 09:21:20 2025
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -12,7 +12,7 @@ Install: /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro
 OS: Linux Mint 22.1
 Hostname: homework
 max virtual memory: unlimited (bytes)
-max user processes: 126491
+max user processes: 126487
 max stack size: 8388608 (bytes)
 
 
@@ -54,7 +54,8 @@ Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapse
 Available hyper_sources - for debug and ip models
 	None Found
 
-@N: BN362 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":447:2:447:3|Removing sequential instance ReadMonitorAdcSample (in view: work.RegisterSpacePorts_10_10(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":451:2:451:3|Removing sequential instance ReadUart0 (in view: work.RegisterSpacePorts_10_10(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd":451:2:451:3|Removing sequential instance ReadMonitorAdcSample (in view: work.RegisterSpacePorts_10_10(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
 
 Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 284MB peak: 284MB)
 
@@ -74,52 +75,46 @@ original code -> new code
 @N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd":149:2:149:3|Found up-down counter in view:work.Main(architecture_main) instance StepperMotor.CurrentStep_i[15:0]  
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found counter in view:work.Main(architecture_main) instance StepperMotor.StepOneShot.ClkDiv[19:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found counter in view:work.Main(architecture_main) instance BootupReset.ClkDiv[9:0] 
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[31] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[30] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[29] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[28] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[27] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[26] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[25] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[24] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[23] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[22] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[21] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[20] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[19] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[18] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[17] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[16] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[15] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[14] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[13] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[12] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[11] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[10] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[9] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[8] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[7] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[6] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[5] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[4] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[3] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[2] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[1] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":95:2:95:3|Register bit RS422_Rx0_Crcer.Crc[0] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
-@N: MF179 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":104:4:104:5|Found 10 by 10 bit equality operator ('==') RS422_Rx0_Crcer.CrcComplete_3 (in view: work.Main(architecture_main))
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[31] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[30] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[29] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[28] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[27] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[26] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[25] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[24] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[23] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[22] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[21] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[20] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[19] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[18] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[17] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[16] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[15] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[14] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[13] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[12] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[11] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[10] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[9] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[8] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[7] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[6] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[5] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[4] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[3] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[2] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[1] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO161 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":97:2:97:3|Register bit RS422_Rx0_Crcer.Crc[0] (in view view:work.Main(architecture_main)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
 @N: MF179 :"/home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd":165:8:165:32|Found 16 by 16 bit equality operator ('==') StepperMotor.un1_seekstep (in view: work.Main(architecture_main))
+@N: MF179 :"/home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd":116:9:116:37|Found 10 by 10 bit equality operator ('==') RS422_Rx0_Crcer.un1_fifoendaddr (in view: work.Main(architecture_main))
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd":89:2:89:3|Found counter in view:work.SpiMasterPorts_work_main_architecture_main_1layer1(spimaster) instance ClkDiv[6:0] 
-@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":58:17:58:19|Property "block_ram" or "no_rw_check" found for RAM ram_1[7:0] with specified coding style. Inferring block RAM.
-@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":58:17:58:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
-@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":58:17:58:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
-@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":58:17:58:19|Property "block_ram" or "no_rw_check" found for RAM ram_1[7:0] with specified coding style. Inferring block RAM.
-@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":58:17:58:19|Property "block_ram" or "no_rw_check" found for RAM ram_1[7:0] with specified coding style. Inferring block RAM.
-@W: FX107 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":58:17:58:19|RAM ram_1[7:0] (in view: work.fifo_peek_8_10(rtl)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
-@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":58:17:58:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
-@W: FX107 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":58:17:58:19|RAM ram[7:0] (in view: work.fifo_peek_8_10(rtl)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":140:2:140:3|Removing sequential instance peek_data_o[7:0] (in view: work.fifo_peek_8_10(rtl)) of type view:PrimLib.dff(prim) because it does not drive other instances.
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":85:2:85:3|Found counter in view:work.fifo_peek_8_10(rtl) instance raddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd":85:2:85:3|Found counter in view:work.fifo_peek_8_10(rtl) instance waddr_r[9:0] 
+@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/PeekRam.vhd":48:17:48:19|Property "block_ram" or "no_rw_check" found for RAM PeekRam_i.ram[7:0] with specified coding style. Inferring block RAM.
+@W: FX107 :"/home/summer/projects/CGraph/firmware/include/fpga/PeekRam.vhd":48:17:48:19|RAM PeekRam_i.ram[7:0] (in view: work.PeekRingBuffer(peekringbufferimplemenatation)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/PeekRingBuffer.vhd":111:4:111:5|Found counter in view:work.PeekRingBuffer(peekringbufferimplemenatation) instance WriteAddress[9:0] 
+@N: MF179 :|Found 10 by 10 bit equality operator ('==') un11_full (in view: work.PeekRingBuffer(peekringbufferimplemenatation))
+@N: MF179 :"/home/summer/projects/CGraph/firmware/include/fpga/PeekRingBuffer.vhd":100:20:100:52|Found 10 by 10 bit equality operator ('==') empty (in view: work.PeekRingBuffer(peekringbufferimplemenatation))
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM fifo_i.ram[7:0] with specified coding style. Inferring block RAM.
 @W: FX107 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|RAM fifo_i.ram[7:0] (in view: work.gated_fifo_8_10_0(rtl)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
 @N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_0(rtl) instance fifo_i.counter_r[10:0]  
@@ -179,87 +174,88 @@ original code -> new code
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_9(rtl) instance fifo_i.raddr_r[9:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":54:65:54:65|Found counter in view:work.PPSCountPorts_work_main_architecture_main_0layer1(ppscount) instance PPSAccum_i[31:0] 
 
-Starting factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 293MB peak: 293MB)
+Starting factoring (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 293MB peak: 293MB)
 
 
-Finished factoring (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 312MB peak: 312MB)
+Finished factoring (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 318MB peak: 318MB)
 
 NConnInternalConnection caching is on
 
-Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 353MB peak: 353MB)
+Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 359MB peak: 359MB)
 
 
-Starting Early Timing Optimization (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 353MB peak: 353MB)
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 359MB peak: 359MB)
 
 
-Finished Early Timing Optimization (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 353MB peak: 353MB)
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:11s; Memory used current: 359MB peak: 359MB)
 
 
-Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 353MB peak: 353MB)
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:12s; Memory used current: 359MB peak: 359MB)
 
 
-Finished preparing to map (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:12s; Memory used current: 353MB peak: 353MB)
+Finished preparing to map (Real Time elapsed 0h:00m:13s; CPU Time elapsed 0h:00m:13s; Memory used current: 359MB peak: 359MB)
 
 
-Finished technology mapping (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:14s; Memory used current: 376MB peak: 376MB)
+Finished technology mapping (Real Time elapsed 0h:00m:15s; CPU Time elapsed 0h:00m:15s; Memory used current: 391MB peak: 391MB)
 
 Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
-   1		0h:00m:14s		     0.08ns		3065 /      2272
-   2		0h:00m:14s		     0.09ns		3056 /      2272
-   3		0h:00m:15s		     0.32ns		3056 /      2272
-   4		0h:00m:16s		     0.32ns		3056 /      2272
-   5		0h:00m:18s		     0.32ns		3056 /      2272
-   6		0h:00m:20s		     0.32ns		3056 /      2272
-@N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_655 
-@N: FP130 |Promoting Net Main_0.UartGpsFifoReset_i_i on CLKINT  I_656 
-@N: FP130 |Promoting Net Main_0.UartUsbFifoReset_i_i on CLKINT  I_657 
-@N: FP130 |Promoting Net Main_0.Uart2FifoReset_i_i on CLKINT  I_658 
-@N: FP130 |Promoting Net Main_0.Uart1FifoReset_i_i on CLKINT  I_659 
-@N: FP130 |Promoting Net Main_0.Uart3FifoReset_i_i on CLKINT  I_660 
-@N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_arst on CLKINT  I_661 
-@N: FP130 |Promoting Net Main_0.PPSCountReset_arst on CLKINT  I_662 
-@N: FP130 |Promoting Net Main_0.ClkDac_i.SpiRst_arst on CLKINT  I_663 
-@N: FP130 |Promoting Net Main_0.UartClkGps on CLKINT  I_664 
-@N: FP130 |Promoting Net Main_0.UartClk3 on CLKINT  I_665 
-@N: FP130 |Promoting Net Main_0.UartClkUsb on CLKINT  I_666 
-@N: FP130 |Promoting Net Main_0.UartClk1 on CLKINT  I_667 
-@N: FP130 |Promoting Net Main_0.UartClk2 on CLKINT  I_668 
-@N: FP130 |Promoting Net Main_0.UartClk0 on CLKINT  I_669 
-@N: FP130 |Promoting Net Main_0.ads1258.SpiRst_arst on CLKINT  I_670 
-@N: FP130 |Promoting Net Main_0.StepperMotor.MotorStopped on CLKINT  I_671 
-@N: FP130 |Promoting Net Filterwheel_sb_0.CORERESETP_0.sm0_areset_n_clk_base on CLKINT  I_672 
-@N: FP130 |Promoting Net Main_0.ResetSteps_i_arst on CLKINT  I_673 
-@N: FP130 |Promoting Net Filterwheel_sb_0.CORERESETP_0.sm0_areset_n_arst on CLKINT  I_674 
-@N: FP130 |Promoting Net Main_0.UartTxClkUsb on CLKINT  I_675 
-@N: FP130 |Promoting Net Main_0.UartTxClkGps on CLKINT  I_676 
-@N: FP130 |Promoting Net Main_0.UartTxClk2 on CLKINT  I_677 
-@N: FP130 |Promoting Net Main_0.UartTxClk3 on CLKINT  I_678 
-@N: FP130 |Promoting Net Main_0.UartTxClk0 on CLKINT  I_679 
-@N: FP130 |Promoting Net Main_0.UartTxClk1 on CLKINT  I_680 
+   1		0h:00m:15s		    -1.02ns		3020 /      2238
+   2		0h:00m:15s		    -1.02ns		3009 /      2238
+   3		0h:00m:15s		    -0.35ns		3009 /      2238
+   4		0h:00m:15s		     0.28ns		3009 /      2238
+   5		0h:00m:16s		     0.28ns		3010 /      2238
+   6		0h:00m:17s		     0.28ns		3012 /      2238
+   7		0h:00m:17s		     0.28ns		3012 /      2238
+@N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_845 
+@N: FP130 |Promoting Net Main_0.UartGpsFifoReset_i_i on CLKINT  I_846 
+@N: FP130 |Promoting Net Main_0.UartUsbFifoReset_i_i on CLKINT  I_847 
+@N: FP130 |Promoting Net Main_0.Uart2FifoReset_i_i on CLKINT  I_848 
+@N: FP130 |Promoting Net Main_0.Uart1FifoReset_i_i on CLKINT  I_849 
+@N: FP130 |Promoting Net Main_0.Uart3FifoReset_i_i on CLKINT  I_850 
+@N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_arst on CLKINT  I_851 
+@N: FP130 |Promoting Net Main_0.PPSCountReset_arst on CLKINT  I_852 
+@N: FP130 |Promoting Net Main_0.ClkDac_i.SpiRst_arst on CLKINT  I_853 
+@N: FP130 |Promoting Net Main_0.UartClkGps on CLKINT  I_854 
+@N: FP130 |Promoting Net Main_0.UartClk3 on CLKINT  I_855 
+@N: FP130 |Promoting Net Main_0.UartClkUsb on CLKINT  I_856 
+@N: FP130 |Promoting Net Main_0.UartClk1 on CLKINT  I_857 
+@N: FP130 |Promoting Net Main_0.UartClk2 on CLKINT  I_858 
+@N: FP130 |Promoting Net Main_0.UartClk0 on CLKINT  I_859 
+@N: FP130 |Promoting Net Main_0.ads1258.SpiRst_arst on CLKINT  I_860 
+@N: FP130 |Promoting Net Main_0.StepperMotor.MotorStopped on CLKINT  I_861 
+@N: FP130 |Promoting Net Filterwheel_sb_0.CORERESETP_0.sm0_areset_n_clk_base on CLKINT  I_862 
+@N: FP130 |Promoting Net Main_0.ResetSteps_i_arst on CLKINT  I_863 
+@N: FP130 |Promoting Net Filterwheel_sb_0.CORERESETP_0.sm0_areset_n_arst on CLKINT  I_864 
+@N: FP130 |Promoting Net Main_0.UartTxClkUsb on CLKINT  I_865 
+@N: FP130 |Promoting Net Main_0.UartTxClkGps on CLKINT  I_866 
+@N: FP130 |Promoting Net Main_0.UartTxClk2 on CLKINT  I_867 
+@N: FP130 |Promoting Net Main_0.UartTxClk3 on CLKINT  I_868 
+@N: FP130 |Promoting Net Main_0.UartTxClk0 on CLKINT  I_869 
+@N: FP130 |Promoting Net Main_0.UartTxClk1 on CLKINT  I_870 
 
 Added 0 Buffers
 Added 0 Cells via replication
 	Added 0 Sequential Cells via replication
 	Added 0 Combinational Cells via replication
 
-Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:24s; CPU Time elapsed 0h:00m:24s; Memory used current: 394MB peak: 394MB)
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:19s; CPU Time elapsed 0h:00m:19s; Memory used current: 399MB peak: 399MB)
 
 
-Finished restoring hierarchy (Real Time elapsed 0h:00m:24s; CPU Time elapsed 0h:00m:24s; Memory used current: 395MB peak: 395MB)
+Finished restoring hierarchy (Real Time elapsed 0h:00m:20s; CPU Time elapsed 0h:00m:19s; Memory used current: 400MB peak: 400MB)
 
 
-Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:24s; CPU Time elapsed 0h:00m:24s; Memory used current: 395MB peak: 395MB)
+Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:20s; CPU Time elapsed 0h:00m:19s; Memory used current: 400MB peak: 400MB)
 
 
-Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:24s; CPU Time elapsed 0h:00m:24s; Memory used current: 395MB peak: 395MB)
+Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:20s; CPU Time elapsed 0h:00m:19s; Memory used current: 400MB peak: 400MB)
 
 
-Start Writing Netlists (Real Time elapsed 0h:00m:24s; CPU Time elapsed 0h:00m:24s; Memory used current: 395MB peak: 395MB)
+Start Writing Netlists (Real Time elapsed 0h:00m:20s; CPU Time elapsed 0h:00m:19s; Memory used current: 400MB peak: 400MB)
 
 Writing Analyst data base /home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesis/synwork/Filterwheel_m.srm
 
-Finished Writing Netlist Databases (Real Time elapsed 0h:00m:25s; CPU Time elapsed 0h:00m:25s; Memory used current: 395MB peak: 395MB)
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:21s; CPU Time elapsed 0h:00m:20s; Memory used current: 400MB peak: 400MB)
 
 Writing Verilog Simulation files
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
@@ -277,13 +273,13 @@ Writing Verilog Simulation files
 @W: BW156 :|Option "-name" of set_clock_groups cannot be forward-annotated; there is no equivalent option in your place-and-route tool.
 @W: BW156 :|Option "-name" of set_clock_groups cannot be forward-annotated; there is no equivalent option in your place-and-route tool.
 
-Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:26s; CPU Time elapsed 0h:00m:26s; Memory used current: 395MB peak: 395MB)
+Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:22s; CPU Time elapsed 0h:00m:22s; Memory used current: 400MB peak: 400MB)
 
 
-Finished Writing Netlists (Real Time elapsed 0h:00m:26s; CPU Time elapsed 0h:00m:26s; Memory used current: 395MB peak: 395MB)
+Finished Writing Netlists (Real Time elapsed 0h:00m:22s; CPU Time elapsed 0h:00m:22s; Memory used current: 400MB peak: 400MB)
 
 
-Start final timing analysis (Real Time elapsed 0h:00m:27s; CPU Time elapsed 0h:00m:27s; Memory used current: 395MB peak: 395MB)
+Start final timing analysis (Real Time elapsed 0h:00m:23s; CPU Time elapsed 0h:00m:22s; Memory used current: 400MB peak: 400MB)
 
 @W: MT246 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/Filterwheel_sb/CCC_0/Filterwheel_sb_CCC_0_FCCC.v":20:36:20:43|Blackbox CCC is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results)
 @N: MT615 |Found clock VCXO with period 19.61ns 
@@ -305,7 +301,7 @@ Start final timing analysis (Real Time elapsed 0h:00m:27s; CPU Time elapsed 0h:0
 
 
 ##### START OF TIMING REPORT #####[
-# Timing report written on Wed Oct 29 18:32:16 2025
+# Timing report written on Fri Nov 14 09:21:43 2025
 #
 
 
@@ -336,17 +332,17 @@ ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock    
 ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock              100.0 MHz     255.0 MHz     10.000        3.921         6.079      inferred                  Inferred_clkgroup_0_7 
 ClockDividerPorts_work_main_architecture_main_0layer1_4|div_i_inferred_clock              100.0 MHz     255.0 MHz     10.000        3.921         6.079      inferred                  Inferred_clkgroup_0_9 
 ClockDividerPorts_work_main_architecture_main_0layer1_5|div_i_inferred_clock              100.0 MHz     255.0 MHz     10.000        3.921         6.079      inferred                  Inferred_clkgroup_0_11
-ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock                100.0 MHz     186.4 MHz     10.000        5.364         4.636      inferred                  Inferred_clkgroup_0_4 
-ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock                100.0 MHz     183.2 MHz     10.000        5.459         4.541      inferred                  Inferred_clkgroup_0_2 
+ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock                100.0 MHz     183.2 MHz     10.000        5.459         4.541      inferred                  Inferred_clkgroup_0_4 
+ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock                100.0 MHz     180.7 MHz     10.000        5.534         4.466      inferred                  Inferred_clkgroup_0_2 
 Filterwheel_sb_0/CCC_0/GL0                                                                102.0 MHz     116.9 MHz     9.804         8.556         1.248      generated (from VCXO)     default_clkgroup      
 Filterwheel_sb_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT                                         50.0 MHz      816.1 MHz     20.000        1.225         18.775     declared                  default_clkgroup      
-MasterClk                                                                                 102.0 MHz     133.6 MHz     9.804         7.486         2.318      generated (from VCXO)     default_clkgroup      
+MasterClk                                                                                 102.0 MHz     132.2 MHz     9.804         7.564         2.239      generated (from VCXO)     default_clkgroup      
 VCXO                                                                                      51.0 MHz      NA            19.608        NA            NA         declared                  default_clkgroup      
-VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     100.0 MHz     183.2 MHz     10.000        5.459         4.541      inferred                  Inferred_clkgroup_0_6 
+VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     100.0 MHz     180.7 MHz     10.000        5.534         4.466      inferred                  Inferred_clkgroup_0_6 
 VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     100.0 MHz     183.2 MHz     10.000        5.459         4.541      inferred                  Inferred_clkgroup_0_8 
-VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     100.0 MHz     183.8 MHz     10.000        5.439         4.561      inferred                  Inferred_clkgroup_0_10
-VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     100.0 MHz     183.2 MHz     10.000        5.459         4.541      inferred                  Inferred_clkgroup_0_12
-System                                                                                    100.0 MHz     266.8 MHz     10.000        3.748         6.252      system                    system_clkgroup       
+VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     100.0 MHz     180.7 MHz     10.000        5.534         4.466      inferred                  Inferred_clkgroup_0_10
+VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     100.0 MHz     186.4 MHz     10.000        5.364         4.636      inferred                  Inferred_clkgroup_0_12
+System                                                                                    100.0 MHz     229.7 MHz     10.000        4.353         5.647      system                    system_clkgroup       
 =============================================================================================================================================================================================================
 Estimated period and frequency reported as NA means no slack depends directly on the clock waveform
 
@@ -361,11 +357,11 @@ Clocks                                                                          
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Starting                                                                               Ending                                                                                 |  constraint  slack   |  constraint  slack  |  constraint  slack  |  constraint  slack
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-System                                                                                 MasterClk                                                                              |  9.804       6.252   |  No paths    -      |  No paths    -      |  No paths    -    
+System                                                                                 MasterClk                                                                              |  9.804       5.647   |  No paths    -      |  No paths    -      |  No paths    -    
 Filterwheel_sb_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT                                      Filterwheel_sb_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT                                      |  20.000      18.775  |  No paths    -      |  No paths    -      |  No paths    -    
 Filterwheel_sb_0/FABOSC_0/I_RCOSC_25_50MHZ/CLKOUT                                      Filterwheel_sb_0/CCC_0/GL0                                                             |  0.392       False   |  No paths    -      |  No paths    -      |  No paths    -    
-MasterClk                                                                              System                                                                                 |  9.804       7.221   |  No paths    -      |  9.804       7.221  |  No paths    -    
-MasterClk                                                                              MasterClk                                                                              |  9.804       2.318   |  No paths    -      |  No paths    -      |  No paths    -    
+MasterClk                                                                              System                                                                                 |  9.804       7.194   |  No paths    -      |  9.804       7.194  |  No paths    -    
+MasterClk                                                                              MasterClk                                                                              |  9.804       2.239   |  No paths    -      |  No paths    -      |  No paths    -    
 MasterClk                                                                              Filterwheel_sb_0/CCC_0/GL0                                                             |  9.804       6.388   |  No paths    -      |  No paths    -      |  No paths    -    
 MasterClk                                                                              ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock           |  Diff grp    -       |  No paths    -      |  No paths    -      |  No paths    -    
 MasterClk                                                                              ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock             |  Diff grp    -       |  No paths    -      |  No paths    -      |  No paths    -    
@@ -385,15 +381,15 @@ Filterwheel_sb_0/CCC_0/GL0                                                      
 ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock           MasterClk                                                                              |  Diff grp    -       |  No paths    -      |  No paths    -      |  No paths    -    
 ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock           ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock           |  10.000      6.079   |  No paths    -      |  No paths    -      |  No paths    -    
 ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock             MasterClk                                                                              |  Diff grp    -       |  No paths    -      |  No paths    -      |  No paths    -    
-ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock             ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock             |  10.000      4.541   |  No paths    -      |  No paths    -      |  No paths    -    
+ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock             ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock             |  10.000      4.466   |  No paths    -      |  No paths    -      |  No paths    -    
 ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock           MasterClk                                                                              |  Diff grp    -       |  No paths    -      |  No paths    -      |  No paths    -    
 ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock           ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock           |  10.000      6.079   |  No paths    -      |  No paths    -      |  No paths    -    
 ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock             MasterClk                                                                              |  Diff grp    -       |  No paths    -      |  No paths    -      |  No paths    -    
-ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock             ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock             |  10.000      4.636   |  No paths    -      |  No paths    -      |  No paths    -    
+ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock             ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock             |  10.000      4.541   |  No paths    -      |  No paths    -      |  No paths    -    
 ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock           MasterClk                                                                              |  Diff grp    -       |  No paths    -      |  No paths    -      |  No paths    -    
 ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock           ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock           |  10.000      6.079   |  No paths    -      |  No paths    -      |  No paths    -    
 VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock  MasterClk                                                                              |  Diff grp    -       |  No paths    -      |  No paths    -      |  No paths    -    
-VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock  VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock  |  10.000      4.541   |  No paths    -      |  No paths    -      |  No paths    -    
+VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock  VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock  |  10.000      4.466   |  No paths    -      |  No paths    -      |  No paths    -    
 ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock           MasterClk                                                                              |  Diff grp    -       |  No paths    -      |  No paths    -      |  No paths    -    
 ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock           ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock           |  10.000      6.079   |  No paths    -      |  No paths    -      |  No paths    -    
 VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock  MasterClk                                                                              |  Diff grp    -       |  No paths    -      |  No paths    -      |  No paths    -    
@@ -401,11 +397,11 @@ VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_
 ClockDividerPorts_work_main_architecture_main_0layer1_4|div_i_inferred_clock           MasterClk                                                                              |  Diff grp    -       |  No paths    -      |  No paths    -      |  No paths    -    
 ClockDividerPorts_work_main_architecture_main_0layer1_4|div_i_inferred_clock           ClockDividerPorts_work_main_architecture_main_0layer1_4|div_i_inferred_clock           |  10.000      6.079   |  No paths    -      |  No paths    -      |  No paths    -    
 VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock  MasterClk                                                                              |  Diff grp    -       |  No paths    -      |  No paths    -      |  No paths    -    
-VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock  VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock  |  10.000      4.561   |  No paths    -      |  No paths    -      |  No paths    -    
+VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock  VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock  |  10.000      4.466   |  No paths    -      |  No paths    -      |  No paths    -    
 ClockDividerPorts_work_main_architecture_main_0layer1_5|div_i_inferred_clock           MasterClk                                                                              |  Diff grp    -       |  No paths    -      |  No paths    -      |  No paths    -    
 ClockDividerPorts_work_main_architecture_main_0layer1_5|div_i_inferred_clock           ClockDividerPorts_work_main_architecture_main_0layer1_5|div_i_inferred_clock           |  10.000      6.079   |  No paths    -      |  No paths    -      |  No paths    -    
 VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock  MasterClk                                                                              |  Diff grp    -       |  No paths    -      |  No paths    -      |  No paths    -    
-VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock  VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock  |  10.000      4.541   |  No paths    -      |  No paths    -      |  No paths    -    
+VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock  VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock  |  10.000      4.636   |  No paths    -      |  No paths    -      |  No paths    -    
 =====================================================================================================================================================================================================================================================================
  Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
        'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
@@ -948,108 +944,16 @@ Starting Points with Worst Slack
 Instance                                       Reference                                                                      Type     Pin     Net              Time        Slack
                                                Clock                                                                                                                             
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.RxdUsb_RxUsb.Uart.Uart.bitpos[0]        ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      Q       bitpos[0]        0.108       4.636
-Main_0.RxdUsb_RxUsb.Uart.Uart.bitpos[1]        ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      Q       bitpos[1]        0.108       4.752
-Main_0.RxdUsb_RxUsb.Uart.Uart.bitpos[2]        ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      Q       bitpos[2]        0.108       4.809
-Main_0.RxdUsb_RxUsb.Uart.Uart.bitpos[3]        ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      Q       bitpos[3]        0.108       4.933
-Main_0.RxdUsb_RxUsb.Uart.Uart.samplecnt[0]     ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.149
-Main_0.RxdUsb_RxUsb.Uart.Uart.samplecnt[1]     ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.267
-Main_0.RxdUsb_RxUsb.Uart.Uart.samplecnt[2]     ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.353
+Main_0.RxdUsb_RxUsb.Uart.Uart.bitpos[0]        ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      Q       bitpos[0]        0.108       4.541
+Main_0.RxdUsb_RxUsb.Uart.Uart.bitpos[1]        ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      Q       bitpos[1]        0.108       4.644
+Main_0.RxdUsb_RxUsb.Uart.Uart.bitpos[2]        ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      Q       bitpos[2]        0.108       4.726
+Main_0.RxdUsb_RxUsb.Uart.Uart.bitpos[3]        ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      Q       bitpos[3]        0.108       5.062
+Main_0.RxdUsb_RxUsb.Uart.Uart.samplecnt[0]     ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.235
+Main_0.RxdUsb_RxUsb.Uart.Uart.samplecnt[1]     ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.353
 Main_0.RxdUsb_RxUsb.Uart.ClkSyncRxd.O          ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      Q       Rxd_i            0.108       6.425
-Main_0.RxdUsb_RxUsb.Uart.Uart.samplecnt[3]     ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      Q       samplecnt[3]     0.087       6.478
+Main_0.RxdUsb_RxUsb.Uart.Uart.samplecnt[2]     ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.439
+Main_0.RxdUsb_RxUsb.Uart.Uart.samplecnt[3]     ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      Q       samplecnt[3]     0.087       6.564
 Main_0.UartUsbTxBitClockDiv.ClkDiv[0]          ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      Q       CO0_0            0.108       8.207
-=================================================================================================================================================================================
-
-
-Ending Points with Worst Slack
-******************************
-
-                                               Starting                                                                                                               Required          
-Instance                                       Reference                                                                      Type     Pin     Net                    Time         Slack
-                                               Clock                                                                                                                                    
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.RxdUsb_RxUsb.Uart.Uart.RReg[0]          ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      EN      RReg_1                 9.662        4.636
-Main_0.RxdUsb_RxUsb.Uart.Uart.RReg[2]          ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      EN      RReg_3                 9.662        4.636
-Main_0.RxdUsb_RxUsb.Uart.Uart.RReg[4]          ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      EN      RReg_5                 9.662        4.636
-Main_0.RxdUsb_RxUsb.Uart.Uart.RReg[6]          ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      EN      RReg_7                 9.662        4.636
-Main_0.RxdUsb_RxUsb.Uart.Uart.bitpos[0]        ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      D       bitpos_10[0]           9.745        5.207
-Main_0.RxdUsb_RxUsb.Uart.Uart.bitpos[1]        ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      D       bitpos_10[1]           9.745        5.275
-Main_0.RxdUsb_RxUsb.Uart.Uart.samplecnt[3]     ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      D       samplecnt_RNO_3[3]     9.745        5.384
-Main_0.RxdUsb_RxUsb.Uart.Uart.RReg[1]          ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      EN      RReg_2                 9.662        5.577
-Main_0.RxdUsb_RxUsb.Uart.Uart.RReg[3]          ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      EN      RReg_4                 9.662        5.577
-Main_0.RxdUsb_RxUsb.Uart.Uart.RReg[5]          ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      EN      RReg_6                 9.662        5.577
-========================================================================================================================================================================================
-
-
-
-Worst Path Information
-***********************
-
-
-Path information for path number 1: 
-      Requested Period:                      10.000
-    - Setup time:                            0.338
-    + Clock delay at ending point:           0.000 (ideal)
-    = Required time:                         9.662
-
-    - Propagation time:                      5.027
-    - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 4.636
-
-    Number of logic level(s):                4
-    Starting point:                          Main_0.RxdUsb_RxUsb.Uart.Uart.bitpos[0] / Q
-    Ending point:                            Main_0.RxdUsb_RxUsb.Uart.Uart.RReg[0] / EN
-    The start point is clocked by            ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock [rising] (rise=0.000 fall=5.000 period=10.000) on pin CLK
-    The end   point is clocked by            ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock [rising] (rise=0.000 fall=5.000 period=10.000) on pin CLK
-
-Instance / Net                                                 Pin      Pin               Arrival     No. of    
-Name                                                  Type     Name     Dir     Delay     Time        Fan Out(s)
-----------------------------------------------------------------------------------------------------------------
-Main_0.RxdUsb_RxUsb.Uart.Uart.bitpos[0]               SLE      Q        Out     0.108     0.108 f     -         
-bitpos[0]                                             Net      -        -       1.058     -           10        
-Main_0.RxdUsb_RxUsb.Uart.Uart.RxProc\.un3_enable      CFG4     D        In      -         1.166 f     -         
-Main_0.RxdUsb_RxUsb.Uart.Uart.RxProc\.un3_enable      CFG4     Y        Out     0.317     1.484 r     -         
-bitpos_1_sqmuxa                                       Net      -        -       0.855     -           5         
-Main_0.RxdUsb_RxUsb.Uart.Uart.RxProc\.un21_enable     CFG2     B        In      -         2.339 r     -         
-Main_0.RxdUsb_RxUsb.Uart.Uart.RxProc\.un21_enable     CFG2     Y        Out     0.165     2.503 r     -         
-un21_enable                                           Net      -        -       1.102     -           11        
-Main_0.RxdUsb_RxUsb.Uart.Uart.RReg_1_sqmuxa           CFG4     B        In      -         3.605 r     -         
-Main_0.RxdUsb_RxUsb.Uart.Uart.RReg_1_sqmuxa           CFG4     Y        Out     0.143     3.748 f     -         
-RReg_1_sqmuxa                                         Net      -        -       0.815     -           4         
-Main_0.RxdUsb_RxUsb.Uart.Uart.RReg_1_0                CFG4     C        In      -         4.563 f     -         
-Main_0.RxdUsb_RxUsb.Uart.Uart.RReg_1_0                CFG4     Y        Out     0.210     4.772 f     -         
-RReg_1                                                Net      -        -       0.254     -           1         
-Main_0.RxdUsb_RxUsb.Uart.Uart.RReg[0]                 SLE      EN       In      -         5.027 f     -         
-================================================================================================================
-Total path delay (propagation time + setup) of 5.364 is 1.281(23.9%) logic and 4.084(76.1%) route.
-Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
-
-
-
-
-====================================
-Detailed Report for Clock: ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock
-====================================
-
-
-
-Starting Points with Worst Slack
-********************************
-
-                                               Starting                                                                                                         Arrival          
-Instance                                       Reference                                                                      Type     Pin     Net              Time        Slack
-                                               Clock                                                                                                                             
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.RxdGps_RxGps.Uart.Uart.bitpos[0]        ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      Q       bitpos[0]        0.108       4.541
-Main_0.RxdGps_RxGps.Uart.Uart.bitpos[1]        ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      Q       bitpos[1]        0.108       4.644
-Main_0.RxdGps_RxGps.Uart.Uart.bitpos[2]        ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      Q       bitpos[2]        0.108       4.726
-Main_0.RxdGps_RxGps.Uart.Uart.bitpos[3]        ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      Q       bitpos[3]        0.108       5.062
-Main_0.RxdGps_RxGps.Uart.Uart.samplecnt[0]     ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.235
-Main_0.RxdGps_RxGps.Uart.Uart.samplecnt[1]     ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.353
-Main_0.RxdGps_RxGps.Uart.ClkSyncRxd.O          ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      Q       Rxd_i            0.108       6.425
-Main_0.RxdGps_RxGps.Uart.Uart.samplecnt[2]     ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.439
-Main_0.RxdGps_RxGps.Uart.Uart.samplecnt[3]     ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      Q       samplecnt[3]     0.087       6.564
-Main_0.UartGpsTxBitClockDiv.ClkDiv[0]          ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      Q       CO0              0.108       8.207
 =================================================================================================================================================================================
 
 
@@ -1060,16 +964,16 @@ Ending Points with Worst Slack
 Instance                                    Reference                                                                      Type     Pin     Net              Time         Slack
                                             Clock                                                                                                                              
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.RxdGps_RxGps.Uart.Uart.RReg[0]       ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      EN      RReg_1           9.662        4.541
-Main_0.RxdGps_RxGps.Uart.Uart.RReg[1]       ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      EN      RReg_2           9.662        4.541
-Main_0.RxdGps_RxGps.Uart.Uart.RReg[2]       ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      EN      RReg_3           9.662        4.541
-Main_0.RxdGps_RxGps.Uart.Uart.RReg[3]       ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      EN      RReg_4           9.662        4.541
-Main_0.RxdGps_RxGps.Uart.Uart.RReg[4]       ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      EN      RReg_5           9.662        4.541
-Main_0.RxdGps_RxGps.Uart.Uart.RReg[5]       ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      EN      RReg_6           9.662        4.541
-Main_0.RxdGps_RxGps.Uart.Uart.RReg[6]       ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      EN      RReg_7           9.662        4.619
-Main_0.RxdGps_RxGps.Uart.Uart.RReg[7]       ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      EN      RReg_8           9.662        4.619
-Main_0.RxdGps_RxGps.Uart.Uart.bitpos[1]     ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      D       bitpos_10[1]     9.745        4.845
-Main_0.RxdGps_RxGps.Uart.Uart.bitpos[2]     ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      D       SUM_4[2]         9.745        5.232
+Main_0.RxdUsb_RxUsb.Uart.Uart.RReg[0]       ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      EN      RReg_1           9.662        4.541
+Main_0.RxdUsb_RxUsb.Uart.Uart.RReg[1]       ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      EN      RReg_2           9.662        4.541
+Main_0.RxdUsb_RxUsb.Uart.Uart.RReg[2]       ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      EN      RReg_3           9.662        4.541
+Main_0.RxdUsb_RxUsb.Uart.Uart.RReg[3]       ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      EN      RReg_4           9.662        4.541
+Main_0.RxdUsb_RxUsb.Uart.Uart.RReg[4]       ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      EN      RReg_5           9.662        4.541
+Main_0.RxdUsb_RxUsb.Uart.Uart.RReg[5]       ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      EN      RReg_6           9.662        4.541
+Main_0.RxdUsb_RxUsb.Uart.Uart.RReg[6]       ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      EN      RReg_7           9.662        4.619
+Main_0.RxdUsb_RxUsb.Uart.Uart.RReg[7]       ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      EN      RReg_8           9.662        4.619
+Main_0.RxdUsb_RxUsb.Uart.Uart.bitpos[1]     ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      D       bitpos_10[1]     9.745        4.845
+Main_0.RxdUsb_RxUsb.Uart.Uart.bitpos[2]     ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock     SLE      D       SUM_3[2]         9.745        5.232
 ===============================================================================================================================================================================
 
 
@@ -1089,6 +993,98 @@ Path information for path number 1:
     = Slack (non-critical) :                 4.541
 
     Number of logic level(s):                4
+    Starting point:                          Main_0.RxdUsb_RxUsb.Uart.Uart.bitpos[0] / Q
+    Ending point:                            Main_0.RxdUsb_RxUsb.Uart.Uart.RReg[0] / EN
+    The start point is clocked by            ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock [rising] (rise=0.000 fall=5.000 period=10.000) on pin CLK
+    The end   point is clocked by            ClockDividerPorts_work_main_architecture_main_1layer1|div_i_inferred_clock [rising] (rise=0.000 fall=5.000 period=10.000) on pin CLK
+
+Instance / Net                                                 Pin      Pin               Arrival     No. of    
+Name                                                  Type     Name     Dir     Delay     Time        Fan Out(s)
+----------------------------------------------------------------------------------------------------------------
+Main_0.RxdUsb_RxUsb.Uart.Uart.bitpos[0]               SLE      Q        Out     0.108     0.108 f     -         
+bitpos[0]                                             Net      -        -       1.119     -           13        
+Main_0.RxdUsb_RxUsb.Uart.Uart.RxProc\.un3_enable      CFG4     D        In      -         1.227 f     -         
+Main_0.RxdUsb_RxUsb.Uart.Uart.RxProc\.un3_enable      CFG4     Y        Out     0.317     1.544 r     -         
+bitpos_1_sqmuxa                                       Net      -        -       0.855     -           5         
+Main_0.RxdUsb_RxUsb.Uart.Uart.RxProc\.un21_enable     CFG2     B        In      -         2.399 r     -         
+Main_0.RxdUsb_RxUsb.Uart.Uart.RxProc\.un21_enable     CFG2     Y        Out     0.165     2.564 r     -         
+un21_enable                                           Net      -        -       0.896     -           6         
+Main_0.RxdUsb_RxUsb.Uart.Uart.RReg_1_sqmuxa           CFG4     B        In      -         3.459 r     -         
+Main_0.RxdUsb_RxUsb.Uart.Uart.RReg_1_sqmuxa           CFG4     Y        Out     0.143     3.603 f     -         
+RReg_1_sqmuxa                                         Net      -        -       0.977     -           8         
+Main_0.RxdUsb_RxUsb.Uart.Uart.RReg_1_0                CFG4     D        In      -         4.579 f     -         
+Main_0.RxdUsb_RxUsb.Uart.Uart.RReg_1_0                CFG4     Y        Out     0.288     4.867 f     -         
+RReg_1                                                Net      -        -       0.254     -           1         
+Main_0.RxdUsb_RxUsb.Uart.Uart.RReg[0]                 SLE      EN       In      -         5.122 f     -         
+================================================================================================================
+Total path delay (propagation time + setup) of 5.459 is 1.359(24.9%) logic and 4.100(75.1%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+
+
+====================================
+Detailed Report for Clock: ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock
+====================================
+
+
+
+Starting Points with Worst Slack
+********************************
+
+                                               Starting                                                                                                         Arrival          
+Instance                                       Reference                                                                      Type     Pin     Net              Time        Slack
+                                               Clock                                                                                                                             
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Main_0.RxdGps_RxGps.Uart.Uart.bitpos[0]        ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      Q       bitpos[0]        0.108       4.466
+Main_0.RxdGps_RxGps.Uart.Uart.bitpos[1]        ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      Q       bitpos[1]        0.108       4.569
+Main_0.RxdGps_RxGps.Uart.Uart.bitpos[2]        ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      Q       bitpos[2]        0.108       4.651
+Main_0.RxdGps_RxGps.Uart.Uart.bitpos[3]        ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      Q       bitpos[3]        0.108       4.987
+Main_0.RxdGps_RxGps.Uart.Uart.samplecnt[0]     ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.214
+Main_0.RxdGps_RxGps.Uart.Uart.samplecnt[1]     ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.333
+Main_0.RxdGps_RxGps.Uart.Uart.samplecnt[2]     ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.378
+Main_0.RxdGps_RxGps.Uart.Uart.samplecnt[3]     ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      Q       samplecnt[3]     0.108       6.496
+Main_0.RxdGps_RxGps.Uart.ClkSyncRxd.O          ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      Q       Rxd_i            0.108       7.216
+Main_0.UartGpsTxBitClockDiv.ClkDiv[0]          ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      Q       CO0              0.108       8.207
+=================================================================================================================================================================================
+
+
+Ending Points with Worst Slack
+******************************
+
+                                            Starting                                                                                                         Required          
+Instance                                    Reference                                                                      Type     Pin     Net              Time         Slack
+                                            Clock                                                                                                                              
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Main_0.RxdGps_RxGps.Uart.Uart.RReg[0]       ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      EN      RReg_1           9.662        4.466
+Main_0.RxdGps_RxGps.Uart.Uart.RReg[1]       ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      EN      RReg_2           9.662        4.466
+Main_0.RxdGps_RxGps.Uart.Uart.RReg[2]       ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      EN      RReg_3           9.662        4.466
+Main_0.RxdGps_RxGps.Uart.Uart.RReg[3]       ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      EN      RReg_4           9.662        4.466
+Main_0.RxdGps_RxGps.Uart.Uart.RReg[4]       ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      EN      RReg_5           9.662        4.466
+Main_0.RxdGps_RxGps.Uart.Uart.RReg[5]       ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      EN      RReg_6           9.662        4.466
+Main_0.RxdGps_RxGps.Uart.Uart.RReg[6]       ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      EN      RReg_7           9.662        4.544
+Main_0.RxdGps_RxGps.Uart.Uart.RReg[7]       ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      EN      RReg_8           9.662        4.544
+Main_0.RxdGps_RxGps.Uart.Uart.bitpos[1]     ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      D       bitpos_10[1]     9.745        4.698
+Main_0.RxdGps_RxGps.Uart.Uart.bitpos[2]     ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock     SLE      D       SUM_4[2]         9.745        5.154
+===============================================================================================================================================================================
+
+
+
+Worst Path Information
+***********************
+
+
+Path information for path number 1: 
+      Requested Period:                      10.000
+    - Setup time:                            0.338
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         9.662
+
+    - Propagation time:                      5.197
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (non-critical) :                 4.466
+
+    Number of logic level(s):                4
     Starting point:                          Main_0.RxdGps_RxGps.Uart.Uart.bitpos[0] / Q
     Ending point:                            Main_0.RxdGps_RxGps.Uart.Uart.RReg[0] / EN
     The start point is clocked by            ClockDividerPorts_work_main_architecture_main_2layer1|div_i_inferred_clock [rising] (rise=0.000 fall=5.000 period=10.000) on pin CLK
@@ -1101,19 +1097,19 @@ Main_0.RxdGps_RxGps.Uart.Uart.bitpos[0]               SLE      Q        Out     
 bitpos[0]                                             Net      -        -       1.119     -           13        
 Main_0.RxdGps_RxGps.Uart.Uart.RxProc\.un3_enable      CFG4     D        In      -         1.227 f     -         
 Main_0.RxdGps_RxGps.Uart.Uart.RxProc\.un3_enable      CFG4     Y        Out     0.317     1.544 r     -         
-bitpos_1_sqmuxa                                       Net      -        -       0.855     -           5         
-Main_0.RxdGps_RxGps.Uart.Uart.RxProc\.un21_enable     CFG2     B        In      -         2.399 r     -         
-Main_0.RxdGps_RxGps.Uart.Uart.RxProc\.un21_enable     CFG2     Y        Out     0.165     2.564 r     -         
+bitpos_1_sqmuxa                                       Net      -        -       1.017     -           9         
+Main_0.RxdGps_RxGps.Uart.Uart.RxProc\.un21_enable     CFG2     A        In      -         2.561 r     -         
+Main_0.RxdGps_RxGps.Uart.Uart.RxProc\.un21_enable     CFG2     Y        Out     0.077     2.639 r     -         
 un21_enable                                           Net      -        -       0.896     -           6         
-Main_0.RxdGps_RxGps.Uart.Uart.RReg_1_sqmuxa           CFG4     B        In      -         3.459 r     -         
-Main_0.RxdGps_RxGps.Uart.Uart.RReg_1_sqmuxa           CFG4     Y        Out     0.143     3.603 f     -         
+Main_0.RxdGps_RxGps.Uart.Uart.RReg_1_sqmuxa           CFG4     B        In      -         3.534 r     -         
+Main_0.RxdGps_RxGps.Uart.Uart.RReg_1_sqmuxa           CFG4     Y        Out     0.143     3.678 f     -         
 RReg_1_sqmuxa                                         Net      -        -       0.977     -           8         
-Main_0.RxdGps_RxGps.Uart.Uart.RReg_1_0                CFG4     D        In      -         4.579 f     -         
-Main_0.RxdGps_RxGps.Uart.Uart.RReg_1_0                CFG4     Y        Out     0.288     4.867 f     -         
+Main_0.RxdGps_RxGps.Uart.Uart.RReg_1_0                CFG4     D        In      -         4.654 f     -         
+Main_0.RxdGps_RxGps.Uart.Uart.RReg_1_0                CFG4     Y        Out     0.288     4.942 f     -         
 RReg_1                                                Net      -        -       0.254     -           1         
-Main_0.RxdGps_RxGps.Uart.Uart.RReg[0]                 SLE      EN       In      -         5.122 f     -         
+Main_0.RxdGps_RxGps.Uart.Uart.RReg[0]                 SLE      EN       In      -         5.197 f     -         
 ================================================================================================================
-Total path delay (propagation time + setup) of 5.459 is 1.359(24.9%) logic and 4.100(75.1%) route.
+Total path delay (propagation time + setup) of 5.534 is 1.271(23.0%) logic and 4.263(77.0%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -1301,37 +1297,37 @@ Starting Points with Worst Slack
 Instance                                      Reference     Type     Pin     Net                    Time        Slack
                                               Clock                                                                  
 ---------------------------------------------------------------------------------------------------------------------
-Main_0.GenRamAddrBus\.3\.IBUF_RamAddr_i.O     MasterClk     SLE      Q       Address[3]             0.108       2.318
-Main_0.GenRamAddrBus\.6\.IBUF_RamAddr_i.O     MasterClk     SLE      Q       RamBusAddress_i[6]     0.087       2.356
-Main_0.GenRamAddrBus\.4\.IBUF_RamAddr_i.O     MasterClk     SLE      Q       RamBusAddress_i[4]     0.108       2.387
-Main_0.GenRamAddrBus\.8\.IBUF_RamAddr_i.O     MasterClk     SLE      Q       Address[8]             0.108       2.522
-Main_0.GenRamAddrBus\.2\.IBUF_RamAddr_i.O     MasterClk     SLE      Q       O                      0.108       2.522
-Main_0.GenRamAddrBus\.5\.IBUF_RamAddr_i.O     MasterClk     SLE      Q       RamBusAddress_i[5]     0.087       2.529
-Main_0.GenRamAddrBus\.9\.IBUF_RamAddr_i.O     MasterClk     SLE      Q       Address[9]             0.108       2.620
-Main_0.GenRamAddrBus\.7\.IBUF_RamAddr_i.O     MasterClk     SLE      Q       Address[7]             0.087       2.677
-Main_0.GenRamAddrBus\.0\.IBUF_RamAddr_i.O     MasterClk     SLE      Q       Address[0]             0.087       2.694
-Main_0.GenRamAddrBus\.1\.IBUF_RamAddr_i.O     MasterClk     SLE      Q       Address[1]             0.087       2.763
+Main_0.GenRamAddrBus\.6\.IBUF_RamAddr_i.O     MasterClk     SLE      Q       RamBusAddress_i[6]     0.087       2.239
+Main_0.GenRamAddrBus\.3\.IBUF_RamAddr_i.O     MasterClk     SLE      Q       Address[3]             0.108       2.277
+Main_0.GenRamAddrBus\.4\.IBUF_RamAddr_i.O     MasterClk     SLE      Q       RamBusAddress_i[4]     0.087       2.406
+Main_0.GenRamAddrBus\.5\.IBUF_RamAddr_i.O     MasterClk     SLE      Q       RamBusAddress_i[5]     0.087       2.500
+Main_0.GenRamAddrBus\.2\.IBUF_RamAddr_i.O     MasterClk     SLE      Q       O                      0.108       2.503
+Main_0.GenRamAddrBus\.7\.IBUF_RamAddr_i.O     MasterClk     SLE      Q       Address[7]             0.087       2.627
+Main_0.GenRamAddrBus\.1\.IBUF_RamAddr_i.O     MasterClk     SLE      Q       Address[1]             0.087       2.636
+Main_0.GenRamAddrBus\.8\.IBUF_RamAddr_i.O     MasterClk     SLE      Q       Address[8]             0.108       2.662
+Main_0.GenRamAddrBus\.9\.IBUF_RamAddr_i.O     MasterClk     SLE      Q       Address[9]             0.108       2.674
+Main_0.GenRamAddrBus\.0\.IBUF_RamAddr_i.O     MasterClk     SLE      Q       Address[0]             0.087       2.714
 =====================================================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                                     Starting                                                       Required          
-Instance                             Reference     Type     Pin     Net                             Time         Slack
-                                     Clock                                                                            
-----------------------------------------------------------------------------------------------------------------------
-Main_0.RegisterSpace.DataOut[2]      MasterClk     SLE      D       un1_serialnumber_0_iv_i[2]      9.549        2.318
-Main_0.RegisterSpace.DataOut[3]      MasterClk     SLE      D       un1_serialnumber_0_iv_i[3]      9.549        2.403
-Main_0.RegisterSpace.DataOut[7]      MasterClk     SLE      D       un1_serialnumber_1_iv_i[7]      9.549        2.412
-Main_0.RegisterSpace.DataOut[0]      MasterClk     SLE      D       un1_serialnumber_1_iv[0]        9.549        2.486
-Main_0.RegisterSpace.DataOut[15]     MasterClk     SLE      D       un1_serialnumber_1_iv_i[15]     9.549        2.526
-Main_0.RegisterSpace.DataOut[6]      MasterClk     SLE      D       un1_serialnumber_1_iv_i[6]      9.549        2.553
-Main_0.RegisterSpace.DataOut[12]     MasterClk     SLE      D       un1_serialnumber_0_iv[12]       9.549        2.600
-Main_0.RegisterSpace.DataOut[11]     MasterClk     SLE      D       un1_serialnumber_0_iv[11]       9.549        2.625
-Main_0.RegisterSpace.DataOut[13]     MasterClk     SLE      D       un1_serialnumber_1_iv[13]       9.549        2.627
-Main_0.RegisterSpace.DataOut[8]      MasterClk     SLE      D       un1_serialnumber_1_iv[8]        9.549        2.680
-======================================================================================================================
+                                           Starting                                                       Required          
+Instance                                   Reference     Type     Pin     Net                             Time         Slack
+                                           Clock                                                                            
+----------------------------------------------------------------------------------------------------------------------------
+Main_0.RegisterSpace.DataOut[15]           MasterClk     SLE      D       un1_serialnumber_1_iv_i[15]     9.549        2.239
+Main_0.RegisterSpace.DataOut[9]            MasterClk     SLE      D       un1_serialnumber_0_iv[9]        9.549        2.277
+Main_0.RegisterSpace.DataOut[11]           MasterClk     SLE      D       un1_serialnumber_0_iv[11]       9.549        2.303
+Main_0.RegisterSpace.PPSCountReset         MasterClk     SLE      D       PPSCountReset_6_iv_i            9.549        2.315
+Main_0.RegisterSpace.PPSCountReset_rep     MasterClk     SLE      D       PPSCountReset_6_iv_i            9.549        2.315
+Main_0.RegisterSpace.DataOut[10]           MasterClk     SLE      D       un1_serialnumber_1_iv[10]       9.549        2.330
+Main_0.RegisterSpace.DataOut[6]            MasterClk     SLE      D       un1_serialnumber_1_iv_i[6]      9.549        2.341
+Main_0.RegisterSpace.DataOut[3]            MasterClk     SLE      D       un1_serialnumber_0_iv_i[3]      9.549        2.342
+Main_0.RegisterSpace.DataOut[13]           MasterClk     SLE      D       un1_serialnumber_1_iv[13]       9.549        2.377
+Main_0.RegisterSpace.DataOut[14]           MasterClk     SLE      D       un1_serialnumber[14]            9.549        2.437
+============================================================================================================================
 
 
 
@@ -1345,45 +1341,45 @@ Path information for path number 1:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.549
 
-    - Propagation time:                      7.230
+    - Propagation time:                      7.309
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 2.318
+    = Slack (non-critical) :                 2.239
 
     Number of logic level(s):                7
-    Starting point:                          Main_0.GenRamAddrBus\.3\.IBUF_RamAddr_i.O / Q
-    Ending point:                            Main_0.RegisterSpace.DataOut[2] / D
+    Starting point:                          Main_0.GenRamAddrBus\.6\.IBUF_RamAddr_i.O / Q
+    Ending point:                            Main_0.RegisterSpace.DataOut[15] / D
     The start point is clocked by            MasterClk [rising] (rise=0.000 fall=4.902 period=9.804) on pin CLK
     The end   point is clocked by            MasterClk [rising] (rise=0.000 fall=4.902 period=9.804) on pin CLK
 
-Instance / Net                                                Pin      Pin               Arrival     No. of    
-Name                                                 Type     Name     Dir     Delay     Time        Fan Out(s)
----------------------------------------------------------------------------------------------------------------
-Main_0.GenRamAddrBus\.3\.IBUF_RamAddr_i.O            SLE      Q        Out     0.108     0.108 f     -         
-Address[3]                                           Net      -        -       1.766     -           74        
-Main_0.RegisterSpace.un12_readreq_1_i_0              CFG2     A        In      -         1.875 f     -         
-Main_0.RegisterSpace.un12_readreq_1_i_0              CFG2     Y        Out     0.100     1.975 r     -         
-N_19                                                 Net      -        -       1.153     -           17        
-Main_0.RegisterSpace.un146_readreq                   CFG4     D        In      -         3.127 r     -         
-Main_0.RegisterSpace.un146_readreq                   CFG4     Y        Out     0.326     3.454 f     -         
-un146_readreq                                        Net      -        -       1.144     -           16        
-Main_0.RegisterSpace.un1_serialnumber_0_iv_24[2]     CFG4     C        In      -         4.598 f     -         
-Main_0.RegisterSpace.un1_serialnumber_0_iv_24[2]     CFG4     Y        Out     0.210     4.807 f     -         
-un1_serialnumber_0_iv_24[2]                          Net      -        -       0.248     -           1         
-Main_0.RegisterSpace.un1_serialnumber_0_iv_66[2]     CFG4     D        In      -         5.056 f     -         
-Main_0.RegisterSpace.un1_serialnumber_0_iv_66[2]     CFG4     Y        Out     0.288     5.343 f     -         
-un1_serialnumber_0_iv_66[2]                          Net      -        -       0.248     -           1         
-Main_0.RegisterSpace.un1_serialnumber_0_iv_73[2]     CFG4     D        In      -         5.592 f     -         
-Main_0.RegisterSpace.un1_serialnumber_0_iv_73[2]     CFG4     Y        Out     0.288     5.880 f     -         
-un1_serialnumber_0_iv_73[2]                          Net      -        -       0.248     -           1         
-Main_0.RegisterSpace.un1_serialnumber_0_iv_76[2]     CFG4     D        In      -         6.128 f     -         
-Main_0.RegisterSpace.un1_serialnumber_0_iv_76[2]     CFG4     Y        Out     0.288     6.416 f     -         
-un1_serialnumber_0_iv_76[2]                          Net      -        -       0.248     -           1         
-Main_0.RegisterSpace.DataOut_RNO[2]                  CFG4     D        In      -         6.664 f     -         
-Main_0.RegisterSpace.DataOut_RNO[2]                  CFG4     Y        Out     0.317     6.982 r     -         
-un1_serialnumber_0_iv_i[2]                           Net      -        -       0.248     -           1         
-Main_0.RegisterSpace.DataOut[2]                      SLE      D        In      -         7.230 r     -         
-===============================================================================================================
-Total path delay (propagation time + setup) of 7.486 is 2.180(29.1%) logic and 5.306(70.9%) route.
+Instance / Net                                                    Pin      Pin               Arrival     No. of    
+Name                                                     Type     Name     Dir     Delay     Time        Fan Out(s)
+-------------------------------------------------------------------------------------------------------------------
+Main_0.GenRamAddrBus\.6\.IBUF_RamAddr_i.O                SLE      Q        Out     0.087     0.087 r     -         
+RamBusAddress_i[6]                                       Net      -        -       1.820     -           78        
+Main_0.RegisterSpace.MonitorAdcReset_0_sqmuxa_4_1_a2     CFG2     A        In      -         1.908 r     -         
+Main_0.RegisterSpace.MonitorAdcReset_0_sqmuxa_4_1_a2     CFG2     Y        Out     0.100     2.008 f     -         
+un4_readreq_4                                            Net      -        -       1.119     -           13        
+Main_0.RegisterSpace.un6_readreq                         CFG4     D        In      -         3.127 f     -         
+Main_0.RegisterSpace.un6_readreq                         CFG4     Y        Out     0.288     3.414 f     -         
+un6_readreq                                              Net      -        -       0.896     -           6         
+Main_0.RegisterSpace.un1_serialnumber_0_iv_0[1]          CFG4     D        In      -         4.310 f     -         
+Main_0.RegisterSpace.un1_serialnumber_0_iv_0[1]          CFG4     Y        Out     0.288     4.598 f     -         
+un1_serialnumber_0_iv_0[1]                               Net      -        -       0.745     -           3         
+Main_0.RegisterSpace.un1_serialnumber_1_iv_40[15]        CFG4     B        In      -         5.343 f     -         
+Main_0.RegisterSpace.un1_serialnumber_1_iv_40[15]        CFG4     Y        Out     0.164     5.507 f     -         
+un1_serialnumber_1_iv_40[15]                             Net      -        -       0.248     -           1         
+Main_0.RegisterSpace.un1_serialnumber_1_iv_69[15]        CFG4     D        In      -         5.756 f     -         
+Main_0.RegisterSpace.un1_serialnumber_1_iv_69[15]        CFG4     Y        Out     0.288     6.043 f     -         
+un1_serialnumber_1_iv_69[15]                             Net      -        -       0.248     -           1         
+Main_0.RegisterSpace.DataOut_RNO_0[15]                   CFG4     D        In      -         6.292 f     -         
+Main_0.RegisterSpace.DataOut_RNO_0[15]                   CFG4     Y        Out     0.317     6.609 r     -         
+DataOut_RNO_0[15]                                        Net      -        -       0.248     -           1         
+Main_0.RegisterSpace.DataOut_RNO[15]                     CFG4     C        In      -         6.858 r     -         
+Main_0.RegisterSpace.DataOut_RNO[15]                     CFG4     Y        Out     0.203     7.061 r     -         
+un1_serialnumber_1_iv_i[15]                              Net      -        -       0.248     -           1         
+Main_0.RegisterSpace.DataOut[15]                         SLE      D        In      -         7.309 r     -         
+===================================================================================================================
+Total path delay (propagation time + setup) of 7.564 is 1.991(26.3%) logic and 5.574(73.7%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -1402,15 +1398,15 @@ Starting Points with Worst Slack
 Instance                                    Reference                                                                                 Type     Pin     Net              Time        Slack
                                             Clock                                                                                                                                        
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.RS433_Rx3.Uart.Uart.bitpos[0]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[0]        0.108       4.541
-Main_0.RS433_Rx3.Uart.Uart.bitpos[1]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[1]        0.108       4.644
-Main_0.RS433_Rx3.Uart.Uart.bitpos[2]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[2]        0.108       4.726
-Main_0.RS433_Rx3.Uart.Uart.bitpos[3]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[3]        0.108       5.062
-Main_0.RS433_Rx3.Uart.Uart.samplecnt[0]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.235
-Main_0.RS433_Rx3.Uart.Uart.samplecnt[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.353
-Main_0.RS433_Rx3.Uart.ClkSyncRxd.O          VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       Rxd_i            0.108       6.425
-Main_0.RS433_Rx3.Uart.Uart.samplecnt[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.439
-Main_0.RS433_Rx3.Uart.Uart.samplecnt[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[3]     0.087       6.564
+Main_0.RS433_Rx3.Uart.Uart.bitpos[0]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[0]        0.108       4.466
+Main_0.RS433_Rx3.Uart.Uart.bitpos[1]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[1]        0.108       4.569
+Main_0.RS433_Rx3.Uart.Uart.bitpos[2]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[2]        0.108       4.651
+Main_0.RS433_Rx3.Uart.Uart.bitpos[3]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[3]        0.108       4.987
+Main_0.RS433_Rx3.Uart.Uart.samplecnt[0]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.214
+Main_0.RS433_Rx3.Uart.Uart.samplecnt[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.333
+Main_0.RS433_Rx3.Uart.Uart.samplecnt[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.378
+Main_0.RS433_Rx3.Uart.Uart.samplecnt[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[3]     0.108       6.496
+Main_0.RS433_Rx3.Uart.ClkSyncRxd.O          VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       Rxd_i            0.108       7.216
 Main_0.Uart3TxBitClockDiv.ClkDiv[0]         VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       CO0_1            0.108       8.207
 =========================================================================================================================================================================================
 
@@ -1422,16 +1418,16 @@ Ending Points with Worst Slack
 Instance                                 Reference                                                                                 Type     Pin     Net              Time         Slack
                                          Clock                                                                                                                                         
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.RS433_Rx3.Uart.Uart.RReg[0]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_1           9.662        4.541
-Main_0.RS433_Rx3.Uart.Uart.RReg[1]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_2           9.662        4.541
-Main_0.RS433_Rx3.Uart.Uart.RReg[2]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_3           9.662        4.541
-Main_0.RS433_Rx3.Uart.Uart.RReg[3]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_4           9.662        4.541
-Main_0.RS433_Rx3.Uart.Uart.RReg[4]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_5           9.662        4.541
-Main_0.RS433_Rx3.Uart.Uart.RReg[5]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_6           9.662        4.541
-Main_0.RS433_Rx3.Uart.Uart.RReg[6]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_7           9.662        4.619
-Main_0.RS433_Rx3.Uart.Uart.RReg[7]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_8           9.662        4.619
-Main_0.RS433_Rx3.Uart.Uart.bitpos[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      D       bitpos_10[1]     9.745        4.845
-Main_0.RS433_Rx3.Uart.Uart.bitpos[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      D       SUM_2[2]         9.745        5.232
+Main_0.RS433_Rx3.Uart.Uart.RReg[0]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_1           9.662        4.466
+Main_0.RS433_Rx3.Uart.Uart.RReg[1]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_2           9.662        4.466
+Main_0.RS433_Rx3.Uart.Uart.RReg[2]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_3           9.662        4.466
+Main_0.RS433_Rx3.Uart.Uart.RReg[3]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_4           9.662        4.466
+Main_0.RS433_Rx3.Uart.Uart.RReg[4]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_5           9.662        4.466
+Main_0.RS433_Rx3.Uart.Uart.RReg[5]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_6           9.662        4.466
+Main_0.RS433_Rx3.Uart.Uart.RReg[6]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_7           9.662        4.544
+Main_0.RS433_Rx3.Uart.Uart.RReg[7]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_8           9.662        4.544
+Main_0.RS433_Rx3.Uart.Uart.bitpos[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      D       bitpos_10[1]     9.745        4.698
+Main_0.RS433_Rx3.Uart.Uart.bitpos[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      D       SUM_2[2]         9.745        5.154
 =======================================================================================================================================================================================
 
 
@@ -1446,9 +1442,9 @@ Path information for path number 1:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.662
 
-    - Propagation time:                      5.122
+    - Propagation time:                      5.197
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 4.541
+    = Slack (non-critical) :                 4.466
 
     Number of logic level(s):                4
     Starting point:                          Main_0.RS433_Rx3.Uart.Uart.bitpos[0] / Q
@@ -1463,19 +1459,19 @@ Main_0.RS433_Rx3.Uart.Uart.bitpos[0]               SLE      Q        Out     0.1
 bitpos[0]                                          Net      -        -       1.119     -           13        
 Main_0.RS433_Rx3.Uart.Uart.RxProc\.un3_enable      CFG4     D        In      -         1.227 f     -         
 Main_0.RS433_Rx3.Uart.Uart.RxProc\.un3_enable      CFG4     Y        Out     0.317     1.544 r     -         
-bitpos_1_sqmuxa                                    Net      -        -       0.855     -           5         
-Main_0.RS433_Rx3.Uart.Uart.RxProc\.un21_enable     CFG2     B        In      -         2.399 r     -         
-Main_0.RS433_Rx3.Uart.Uart.RxProc\.un21_enable     CFG2     Y        Out     0.165     2.564 r     -         
+bitpos_1_sqmuxa                                    Net      -        -       1.017     -           9         
+Main_0.RS433_Rx3.Uart.Uart.RxProc\.un21_enable     CFG2     A        In      -         2.561 r     -         
+Main_0.RS433_Rx3.Uart.Uart.RxProc\.un21_enable     CFG2     Y        Out     0.077     2.639 r     -         
 un21_enable                                        Net      -        -       0.896     -           6         
-Main_0.RS433_Rx3.Uart.Uart.RReg_1_sqmuxa           CFG4     B        In      -         3.459 r     -         
-Main_0.RS433_Rx3.Uart.Uart.RReg_1_sqmuxa           CFG4     Y        Out     0.143     3.603 f     -         
+Main_0.RS433_Rx3.Uart.Uart.RReg_1_sqmuxa           CFG4     B        In      -         3.534 r     -         
+Main_0.RS433_Rx3.Uart.Uart.RReg_1_sqmuxa           CFG4     Y        Out     0.143     3.678 f     -         
 RReg_1_sqmuxa                                      Net      -        -       0.977     -           8         
-Main_0.RS433_Rx3.Uart.Uart.RReg_1_0                CFG4     D        In      -         4.579 f     -         
-Main_0.RS433_Rx3.Uart.Uart.RReg_1_0                CFG4     Y        Out     0.288     4.867 f     -         
+Main_0.RS433_Rx3.Uart.Uart.RReg_1_0                CFG4     D        In      -         4.654 f     -         
+Main_0.RS433_Rx3.Uart.Uart.RReg_1_0                CFG4     Y        Out     0.288     4.942 f     -         
 RReg_1                                             Net      -        -       0.254     -           1         
-Main_0.RS433_Rx3.Uart.Uart.RReg[0]                 SLE      EN       In      -         5.122 f     -         
+Main_0.RS433_Rx3.Uart.Uart.RReg[0]                 SLE      EN       In      -         5.197 f     -         
 =============================================================================================================
-Total path delay (propagation time + setup) of 5.459 is 1.359(24.9%) logic and 4.100(75.1%) route.
+Total path delay (propagation time + setup) of 5.534 is 1.271(23.0%) logic and 4.263(77.0%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -1586,14 +1582,14 @@ Starting Points with Worst Slack
 Instance                                    Reference                                                                                 Type     Pin     Net              Time        Slack
                                             Clock                                                                                                                                        
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.RS422_Rx1.Uart.Uart.bitpos[0]        VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       bitpos[0]        0.108       4.561
-Main_0.RS422_Rx1.Uart.Uart.bitpos[1]        VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       bitpos[1]        0.108       4.677
-Main_0.RS422_Rx1.Uart.Uart.bitpos[2]        VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       bitpos[2]        0.108       4.734
-Main_0.RS422_Rx1.Uart.Uart.bitpos[3]        VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       bitpos[3]        0.108       4.858
-Main_0.RS422_Rx1.Uart.Uart.samplecnt[0]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.189
-Main_0.RS422_Rx1.Uart.Uart.samplecnt[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.308
-Main_0.RS422_Rx1.Uart.Uart.samplecnt[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.353
-Main_0.RS422_Rx1.Uart.Uart.samplecnt[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       samplecnt[3]     0.087       6.478
+Main_0.RS422_Rx1.Uart.Uart.bitpos[0]        VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       bitpos[0]        0.108       4.466
+Main_0.RS422_Rx1.Uart.Uart.bitpos[1]        VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       bitpos[1]        0.108       4.569
+Main_0.RS422_Rx1.Uart.Uart.bitpos[2]        VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       bitpos[2]        0.108       4.651
+Main_0.RS422_Rx1.Uart.Uart.bitpos[3]        VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       bitpos[3]        0.108       4.987
+Main_0.RS422_Rx1.Uart.Uart.samplecnt[0]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.214
+Main_0.RS422_Rx1.Uart.Uart.samplecnt[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.333
+Main_0.RS422_Rx1.Uart.Uart.samplecnt[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.378
+Main_0.RS422_Rx1.Uart.Uart.samplecnt[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       samplecnt[3]     0.108       6.496
 Main_0.RS422_Rx1.Uart.ClkSyncRxd.O          VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       Rxd_i            0.108       7.216
 Main_0.Uart1TxBitClockDiv.ClkDiv[0]         VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       CO0_3            0.108       8.207
 =========================================================================================================================================================================================
@@ -1606,16 +1602,16 @@ Ending Points with Worst Slack
 Instance                                 Reference                                                                                 Type     Pin     Net              Time         Slack
                                          Clock                                                                                                                                         
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.RS422_Rx1.Uart.Uart.RReg[0]       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      EN      RReg_1           9.662        4.561
-Main_0.RS422_Rx1.Uart.Uart.RReg[2]       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      EN      RReg_3           9.662        4.561
-Main_0.RS422_Rx1.Uart.Uart.RReg[4]       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      EN      RReg_5           9.662        4.561
-Main_0.RS422_Rx1.Uart.Uart.RReg[6]       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      EN      RReg_7           9.662        4.561
-Main_0.RS422_Rx1.Uart.Uart.bitpos[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      D       bitpos_10[1]     9.745        5.200
-Main_0.RS422_Rx1.Uart.Uart.bitpos[0]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      D       bitpos_10[0]     9.745        5.239
-Main_0.RS422_Rx1.Uart.Uart.RReg[1]       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      EN      RReg_2           9.662        5.502
-Main_0.RS422_Rx1.Uart.Uart.RReg[3]       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      EN      RReg_4           9.662        5.502
-Main_0.RS422_Rx1.Uart.Uart.RReg[5]       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      EN      RReg_6           9.662        5.502
-Main_0.RS422_Rx1.Uart.Uart.bitpos[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      D       bitpos_10[3]     9.745        5.595
+Main_0.RS422_Rx1.Uart.Uart.RReg[0]       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      EN      RReg_1           9.662        4.466
+Main_0.RS422_Rx1.Uart.Uart.RReg[1]       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      EN      RReg_2           9.662        4.466
+Main_0.RS422_Rx1.Uart.Uart.RReg[2]       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      EN      RReg_3           9.662        4.466
+Main_0.RS422_Rx1.Uart.Uart.RReg[3]       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      EN      RReg_4           9.662        4.466
+Main_0.RS422_Rx1.Uart.Uart.RReg[4]       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      EN      RReg_5           9.662        4.466
+Main_0.RS422_Rx1.Uart.Uart.RReg[5]       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      EN      RReg_6           9.662        4.466
+Main_0.RS422_Rx1.Uart.Uart.RReg[6]       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      EN      RReg_7           9.662        4.544
+Main_0.RS422_Rx1.Uart.Uart.RReg[7]       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      EN      RReg_8           9.662        4.544
+Main_0.RS422_Rx1.Uart.Uart.bitpos[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      D       bitpos_10[1]     9.745        4.698
+Main_0.RS422_Rx1.Uart.Uart.bitpos[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      D       SUM_0[2]         9.745        5.154
 =======================================================================================================================================================================================
 
 
@@ -1630,9 +1626,9 @@ Path information for path number 1:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.662
 
-    - Propagation time:                      5.102
+    - Propagation time:                      5.197
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 4.561
+    = Slack (non-critical) :                 4.466
 
     Number of logic level(s):                4
     Starting point:                          Main_0.RS422_Rx1.Uart.Uart.bitpos[0] / Q
@@ -1644,22 +1640,22 @@ Instance / Net                                              Pin      Pin        
 Name                                               Type     Name     Dir     Delay     Time        Fan Out(s)
 -------------------------------------------------------------------------------------------------------------
 Main_0.RS422_Rx1.Uart.Uart.bitpos[0]               SLE      Q        Out     0.108     0.108 f     -         
-bitpos[0]                                          Net      -        -       1.058     -           10        
-Main_0.RS422_Rx1.Uart.Uart.RxProc\.un3_enable      CFG4     D        In      -         1.166 f     -         
-Main_0.RS422_Rx1.Uart.Uart.RxProc\.un3_enable      CFG4     Y        Out     0.317     1.484 r     -         
+bitpos[0]                                          Net      -        -       1.119     -           13        
+Main_0.RS422_Rx1.Uart.Uart.RxProc\.un3_enable      CFG4     D        In      -         1.227 f     -         
+Main_0.RS422_Rx1.Uart.Uart.RxProc\.un3_enable      CFG4     Y        Out     0.317     1.544 r     -         
 bitpos_1_sqmuxa                                    Net      -        -       1.017     -           9         
-Main_0.RS422_Rx1.Uart.Uart.RxProc\.un21_enable     CFG2     A        In      -         2.501 r     -         
-Main_0.RS422_Rx1.Uart.Uart.RxProc\.un21_enable     CFG2     Y        Out     0.077     2.578 r     -         
-un21_enable                                        Net      -        -       1.102     -           11        
-Main_0.RS422_Rx1.Uart.Uart.RReg_1_sqmuxa           CFG4     B        In      -         3.680 r     -         
-Main_0.RS422_Rx1.Uart.Uart.RReg_1_sqmuxa           CFG4     Y        Out     0.143     3.823 f     -         
-RReg_1_sqmuxa                                      Net      -        -       0.815     -           4         
-Main_0.RS422_Rx1.Uart.Uart.RReg_1_0                CFG4     C        In      -         4.638 f     -         
-Main_0.RS422_Rx1.Uart.Uart.RReg_1_0                CFG4     Y        Out     0.210     4.847 f     -         
+Main_0.RS422_Rx1.Uart.Uart.RxProc\.un21_enable     CFG2     A        In      -         2.561 r     -         
+Main_0.RS422_Rx1.Uart.Uart.RxProc\.un21_enable     CFG2     Y        Out     0.077     2.639 r     -         
+un21_enable                                        Net      -        -       0.896     -           6         
+Main_0.RS422_Rx1.Uart.Uart.RReg_1_sqmuxa           CFG4     B        In      -         3.534 r     -         
+Main_0.RS422_Rx1.Uart.Uart.RReg_1_sqmuxa           CFG4     Y        Out     0.143     3.678 f     -         
+RReg_1_sqmuxa                                      Net      -        -       0.977     -           8         
+Main_0.RS422_Rx1.Uart.Uart.RReg_1_0                CFG4     D        In      -         4.654 f     -         
+Main_0.RS422_Rx1.Uart.Uart.RReg_1_0                CFG4     Y        Out     0.288     4.942 f     -         
 RReg_1                                             Net      -        -       0.254     -           1         
-Main_0.RS422_Rx1.Uart.Uart.RReg[0]                 SLE      EN       In      -         5.102 f     -         
+Main_0.RS422_Rx1.Uart.Uart.RReg[0]                 SLE      EN       In      -         5.197 f     -         
 =============================================================================================================
-Total path delay (propagation time + setup) of 5.439 is 1.193(21.9%) logic and 4.246(78.1%) route.
+Total path delay (propagation time + setup) of 5.534 is 1.271(23.0%) logic and 4.263(77.0%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -1678,15 +1674,15 @@ Starting Points with Worst Slack
 Instance                                    Reference                                                                                 Type     Pin     Net              Time        Slack
                                             Clock                                                                                                                                        
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.RS422_Rx0.Uart.Uart.bitpos[0]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[0]        0.108       4.541
-Main_0.RS422_Rx0.Uart.Uart.bitpos[1]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[1]        0.108       4.644
-Main_0.RS422_Rx0.Uart.Uart.bitpos[2]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[2]        0.108       4.726
-Main_0.RS422_Rx0.Uart.Uart.bitpos[3]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[3]        0.108       5.062
-Main_0.RS422_Rx0.Uart.Uart.samplecnt[0]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.235
-Main_0.RS422_Rx0.Uart.Uart.samplecnt[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.353
+Main_0.RS422_Rx0.Uart.Uart.bitpos[0]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[0]        0.108       4.636
+Main_0.RS422_Rx0.Uart.Uart.bitpos[1]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[1]        0.108       4.752
+Main_0.RS422_Rx0.Uart.Uart.bitpos[2]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[2]        0.108       4.809
+Main_0.RS422_Rx0.Uart.Uart.bitpos[3]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[3]        0.108       4.933
+Main_0.RS422_Rx0.Uart.Uart.samplecnt[0]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.149
+Main_0.RS422_Rx0.Uart.Uart.samplecnt[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.267
+Main_0.RS422_Rx0.Uart.Uart.samplecnt[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.353
 Main_0.RS422_Rx0.Uart.ClkSyncRxd.O          VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       Rxd_i            0.108       6.425
-Main_0.RS422_Rx0.Uart.Uart.samplecnt[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.439
-Main_0.RS422_Rx0.Uart.Uart.samplecnt[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[3]     0.087       6.564
+Main_0.RS422_Rx0.Uart.Uart.samplecnt[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[3]     0.087       6.478
 Main_0.Uart0TxBitClockDiv.ClkDiv[0]         VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       CO0_4            0.108       8.207
 =========================================================================================================================================================================================
 
@@ -1694,21 +1690,21 @@ Main_0.Uart0TxBitClockDiv.ClkDiv[0]         VariableClockDividerPorts_work_main_
 Ending Points with Worst Slack
 ******************************
 
-                                         Starting                                                                                                                    Required          
-Instance                                 Reference                                                                                 Type     Pin     Net              Time         Slack
-                                         Clock                                                                                                                                         
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.RS422_Rx0.Uart.Uart.RReg[0]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_1           9.662        4.541
-Main_0.RS422_Rx0.Uart.Uart.RReg[1]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_2           9.662        4.541
-Main_0.RS422_Rx0.Uart.Uart.RReg[2]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_3           9.662        4.541
-Main_0.RS422_Rx0.Uart.Uart.RReg[3]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_4           9.662        4.541
-Main_0.RS422_Rx0.Uart.Uart.RReg[4]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_5           9.662        4.541
-Main_0.RS422_Rx0.Uart.Uart.RReg[5]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_6           9.662        4.541
-Main_0.RS422_Rx0.Uart.Uart.RReg[6]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_7           9.662        4.619
-Main_0.RS422_Rx0.Uart.Uart.RReg[7]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_8           9.662        4.619
-Main_0.RS422_Rx0.Uart.Uart.bitpos[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      D       bitpos_10[1]     9.745        4.845
-Main_0.RS422_Rx0.Uart.Uart.bitpos[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      D       SUM[2]           9.745        5.232
-=======================================================================================================================================================================================
+                                            Starting                                                                                                                        Required          
+Instance                                    Reference                                                                                 Type     Pin     Net                  Time         Slack
+                                            Clock                                                                                                                                             
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Main_0.RS422_Rx0.Uart.Uart.RReg[0]          VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_1               9.662        4.636
+Main_0.RS422_Rx0.Uart.Uart.RReg[2]          VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_3               9.662        4.636
+Main_0.RS422_Rx0.Uart.Uart.RReg[4]          VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_5               9.662        4.636
+Main_0.RS422_Rx0.Uart.Uart.RReg[6]          VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_7               9.662        4.636
+Main_0.RS422_Rx0.Uart.Uart.bitpos[0]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      D       bitpos_10[0]         9.745        5.207
+Main_0.RS422_Rx0.Uart.Uart.bitpos[1]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      D       bitpos_10[1]         9.745        5.275
+Main_0.RS422_Rx0.Uart.Uart.samplecnt[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      D       samplecnt_RNO[3]     9.745        5.384
+Main_0.RS422_Rx0.Uart.Uart.RReg[1]          VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_2               9.662        5.577
+Main_0.RS422_Rx0.Uart.Uart.RReg[3]          VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_4               9.662        5.577
+Main_0.RS422_Rx0.Uart.Uart.RReg[5]          VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_6               9.662        5.577
+==============================================================================================================================================================================================
 
 
 
@@ -1722,9 +1718,9 @@ Path information for path number 1:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.662
 
-    - Propagation time:                      5.122
+    - Propagation time:                      5.027
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 4.541
+    = Slack (non-critical) :                 4.636
 
     Number of logic level(s):                4
     Starting point:                          Main_0.RS422_Rx0.Uart.Uart.bitpos[0] / Q
@@ -1736,22 +1732,22 @@ Instance / Net                                              Pin      Pin        
 Name                                               Type     Name     Dir     Delay     Time        Fan Out(s)
 -------------------------------------------------------------------------------------------------------------
 Main_0.RS422_Rx0.Uart.Uart.bitpos[0]               SLE      Q        Out     0.108     0.108 f     -         
-bitpos[0]                                          Net      -        -       1.119     -           13        
-Main_0.RS422_Rx0.Uart.Uart.RxProc\.un3_enable      CFG4     D        In      -         1.227 f     -         
-Main_0.RS422_Rx0.Uart.Uart.RxProc\.un3_enable      CFG4     Y        Out     0.317     1.544 r     -         
+bitpos[0]                                          Net      -        -       1.058     -           10        
+Main_0.RS422_Rx0.Uart.Uart.RxProc\.un3_enable      CFG4     D        In      -         1.166 f     -         
+Main_0.RS422_Rx0.Uart.Uart.RxProc\.un3_enable      CFG4     Y        Out     0.317     1.484 r     -         
 bitpos_1_sqmuxa                                    Net      -        -       0.855     -           5         
-Main_0.RS422_Rx0.Uart.Uart.RxProc\.un21_enable     CFG2     B        In      -         2.399 r     -         
-Main_0.RS422_Rx0.Uart.Uart.RxProc\.un21_enable     CFG2     Y        Out     0.165     2.564 r     -         
-un21_enable                                        Net      -        -       0.896     -           6         
-Main_0.RS422_Rx0.Uart.Uart.RReg_1_sqmuxa           CFG4     B        In      -         3.459 r     -         
-Main_0.RS422_Rx0.Uart.Uart.RReg_1_sqmuxa           CFG4     Y        Out     0.143     3.603 f     -         
-RReg_1_sqmuxa                                      Net      -        -       0.977     -           8         
-Main_0.RS422_Rx0.Uart.Uart.RReg_1_0                CFG4     D        In      -         4.579 f     -         
-Main_0.RS422_Rx0.Uart.Uart.RReg_1_0                CFG4     Y        Out     0.288     4.867 f     -         
+Main_0.RS422_Rx0.Uart.Uart.RxProc\.un21_enable     CFG2     B        In      -         2.339 r     -         
+Main_0.RS422_Rx0.Uart.Uart.RxProc\.un21_enable     CFG2     Y        Out     0.165     2.503 r     -         
+un21_enable                                        Net      -        -       1.102     -           11        
+Main_0.RS422_Rx0.Uart.Uart.RReg_1_sqmuxa           CFG4     B        In      -         3.605 r     -         
+Main_0.RS422_Rx0.Uart.Uart.RReg_1_sqmuxa           CFG4     Y        Out     0.143     3.748 f     -         
+RReg_1_sqmuxa                                      Net      -        -       0.815     -           4         
+Main_0.RS422_Rx0.Uart.Uart.RReg_1_0                CFG4     C        In      -         4.563 f     -         
+Main_0.RS422_Rx0.Uart.Uart.RReg_1_0                CFG4     Y        Out     0.210     4.772 f     -         
 RReg_1                                             Net      -        -       0.254     -           1         
-Main_0.RS422_Rx0.Uart.Uart.RReg[0]                 SLE      EN       In      -         5.122 f     -         
+Main_0.RS422_Rx0.Uart.Uart.RReg[0]                 SLE      EN       In      -         5.027 f     -         
 =============================================================================================================
-Total path delay (propagation time + setup) of 5.459 is 1.359(24.9%) logic and 4.100(75.1%) route.
+Total path delay (propagation time + setup) of 5.364 is 1.281(23.9%) logic and 4.084(76.1%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -1770,16 +1766,16 @@ Starting Points with Worst Slack
 Instance                                Reference     Type     Pin     Net                Time        Slack
                                         Clock                                                              
 -----------------------------------------------------------------------------------------------------------
-Main_0.RS422_Rx0_Crcer.un1_rst_1_rs     System        SLE      Q       un1_rst_1_rs       0.087       6.252
-Main_0.RS422_Rx0_Crcer.un1_rst_6_rs     System        SLE      Q       un1_rst_6_rs       0.108       6.367
-Main_0.RS422_Rx0_Crcer.un1_rst_8_rs     System        SLE      Q       un1_rst_8_rs       0.108       6.440
-Main_0.RS422_Rx0_Crcer.un1_rst_7_rs     System        SLE      Q       un1_rst_7_rs       0.108       6.467
-Main_0.RS422_Rx0_Crcer.un1_rst_5_rs     System        SLE      Q       un1_rst_5_rs       0.087       6.511
-Main_0.RS422_Rx0_Crcer.un1_rst_9_rs     System        SLE      Q       un1_rst_9_rs       0.108       6.541
-Main_0.RS422_Rx0_Crcer.un1_rst_2_rs     System        SLE      Q       un1_rst_2_rs_1     0.087       6.556
-Main_0.RS422_Rx0_Crcer.un1_rst_3_rs     System        SLE      Q       un1_rst_3_rs_0     0.087       6.657
-Main_0.RS422_Rx0_Crcer.un1_rst_4_rs     System        SLE      Q       un1_rst_4_rs       0.087       6.693
-Main_0.RS422_Rx0_Crcer.un1_rst_rs       System        SLE      Q       un1_rst_rs         0.108       6.745
+Main_0.RS422_Rx0_Crcer.un1_rst_2_rs     System        SLE      Q       un1_rst_2_rs_1     0.087       5.647
+Main_0.RS422_Rx0_Crcer.un1_rst_9_rs     System        SLE      Q       un1_rst_9_rs       0.108       5.701
+Main_0.RS422_Rx0_Crcer.un1_rst_3_rs     System        SLE      Q       un1_rst_3_rs_0     0.087       5.707
+Main_0.RS422_Rx0_Crcer.un1_rst_5_rs     System        SLE      Q       un1_rst_5_rs       0.108       5.913
+Main_0.RS422_Rx0_Crcer.un1_rst_7_rs     System        SLE      Q       un1_rst_7_rs       0.087       5.970
+Main_0.RS422_Rx0_Crcer.un1_rst_4_rs     System        SLE      Q       un1_rst_4_rs       0.108       6.013
+Main_0.RS422_Rx0_Crcer.un1_rst_1_rs     System        SLE      Q       un1_rst_1_rs       0.108       6.059
+Main_0.RS422_Rx0_Crcer.un1_rst_8_rs     System        SLE      Q       un1_rst_8_rs       0.087       6.184
+Main_0.RS422_Rx0_Crcer.un1_rst_6_rs     System        SLE      Q       un1_rst_6_rs       0.087       6.305
+Main_0.RS422_Rx0_Crcer.un1_rst_rs       System        SLE      Q       un1_rst_rs         0.087       6.329
 ===========================================================================================================
 
 
@@ -1790,16 +1786,16 @@ Ending Points with Worst Slack
 Instance                                     Reference     Type     Pin     Net                            Time         Slack
                                              Clock                                                                           
 -----------------------------------------------------------------------------------------------------------------------------
-Main_0.RegisterSpace.DataOut[1]              System        SLE      D       un1_serialnumber_0_iv_i[1]     9.549        6.252
-Main_0.RS422_Rx0_Crcer.FifoPeekAddr_i[9]     System        SLE      D       FifoPeekAddr_i_3[9]            9.549        6.367
-Main_0.RS422_Rx0_Crcer.FifoPeekAddr_i[8]     System        SLE      D       FifoPeekAddr_i_3[8]            9.549        6.383
-Main_0.RS422_Rx0_Crcer.FifoPeekAddr_i[7]     System        SLE      D       FifoPeekAddr_i_3[7]            9.549        6.399
-Main_0.RS422_Rx0_Crcer.FifoPeekAddr_i[6]     System        SLE      D       FifoPeekAddr_i_3[6]            9.549        6.415
-Main_0.RS422_Rx0_Crcer.FifoPeekAddr_i[5]     System        SLE      D       FifoPeekAddr_i_3[5]            9.549        6.432
-Main_0.RS422_Rx0_Crcer.FifoPeekAddr_i[4]     System        SLE      D       FifoPeekAddr_i_3[4]            9.549        6.448
-Main_0.RS422_Rx0_Crcer.FifoPeekAddr_i[3]     System        SLE      D       FifoPeekAddr_i_3[3]            9.549        6.464
-Main_0.RS422_Rx0_Crcer.FifoPeekAddr_i[2]     System        SLE      D       FifoPeekAddr_i_3[2]            9.549        6.481
-Main_0.RS422_Rx0_Crcer.FifoPeekAddr_i[1]     System        SLE      D       FifoPeekAddr_i_3[1]            9.549        6.497
+Main_0.RegisterSpace.DataOut[7]              System        SLE      D       un1_serialnumber_1_iv_i[7]     9.549        5.647
+Main_0.RS422_Rx0_Crcer.FifoPeekAddr_i[9]     System        SLE      D       FifoPeekAddr_i_4[9]            9.549        5.701
+Main_0.RegisterSpace.DataOut[6]              System        SLE      D       un1_serialnumber_1_iv_i[6]     9.549        5.707
+Main_0.RS422_Rx0_Crcer.FifoPeekAddr_i[8]     System        SLE      D       FifoPeekAddr_i_4[8]            9.549        5.717
+Main_0.RS422_Rx0_Crcer.FifoPeekAddr_i[7]     System        SLE      D       FifoPeekAddr_i_4[7]            9.549        5.734
+Main_0.RS422_Rx0_Crcer.FifoPeekAddr_i[6]     System        SLE      D       FifoPeekAddr_i_4[6]            9.549        5.750
+Main_0.RS422_Rx0_Crcer.FifoPeekAddr_i[5]     System        SLE      D       FifoPeekAddr_i_4[5]            9.549        5.766
+Main_0.RS422_Rx0_Crcer.FifoPeekAddr_i[4]     System        SLE      D       FifoPeekAddr_i_4[4]            9.549        5.783
+Main_0.RS422_Rx0_Crcer.FifoPeekAddr_i[3]     System        SLE      D       FifoPeekAddr_i_4[3]            9.549        5.799
+Main_0.RS422_Rx0_Crcer.FifoPeekAddr_i[2]     System        SLE      D       FifoPeekAddr_i_4[2]            9.549        5.815
 =============================================================================================================================
 
 
@@ -1814,40 +1810,43 @@ Path information for path number 1:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.549
 
-    - Propagation time:                      3.296
+    - Propagation time:                      3.901
     - Clock delay at starting point:         0.000 (ideal)
     - Estimated clock delay at start point:  -0.000
-    = Slack (non-critical) :                 6.252
+    = Slack (non-critical) :                 5.647
 
-    Number of logic level(s):                5
-    Starting point:                          Main_0.RS422_Rx0_Crcer.un1_rst_1_rs / Q
-    Ending point:                            Main_0.RegisterSpace.DataOut[1] / D
+    Number of logic level(s):                6
+    Starting point:                          Main_0.RS422_Rx0_Crcer.un1_rst_2_rs / Q
+    Ending point:                            Main_0.RegisterSpace.DataOut[7] / D
     The start point is clocked by            System [rising] on pin CLK
     The end   point is clocked by            MasterClk [rising] (rise=0.000 fall=4.902 period=9.804) on pin CLK
 
-Instance / Net                                                  Pin      Pin               Arrival     No. of    
-Name                                                   Type     Name     Dir     Delay     Time        Fan Out(s)
------------------------------------------------------------------------------------------------------------------
-Main_0.RS422_Rx0_Crcer.un1_rst_1_rs                    SLE      Q        Out     0.087     0.087 r     -         
-un1_rst_1_rs                                           Net      -        -       0.248     -           1         
-Main_0.RS422_Rx0_Crcer.un1_rst_1_rs_RNITD5J            CFG3     C        In      -         0.336 r     -         
-Main_0.RS422_Rx0_Crcer.un1_rst_1_rs_RNITD5J            CFG3     Y        Out     0.203     0.539 r     -         
-Uart0CrcCurrentAddr[1]                                 Net      -        -       0.745     -           3         
-Main_0.RegisterSpace.un1_serialnumber_0_iv_20[1]       CFG4     D        In      -         1.284 r     -         
-Main_0.RegisterSpace.un1_serialnumber_0_iv_20[1]       CFG4     Y        Out     0.326     1.611 f     -         
-un1_serialnumber_0_iv_20[1]                            Net      -        -       0.248     -           1         
-Main_0.RegisterSpace.un1_serialnumber_0_iv_73_1[1]     CFG4     B        In      -         1.859 f     -         
-Main_0.RegisterSpace.un1_serialnumber_0_iv_73_1[1]     CFG4     Y        Out     0.148     2.008 r     -         
-un1_serialnumber_0_iv_73_1[1]                          Net      -        -       0.248     -           1         
-Main_0.RegisterSpace.un1_serialnumber_0_iv_73[1]       CFG4     C        In      -         2.256 r     -         
-Main_0.RegisterSpace.un1_serialnumber_0_iv_73[1]       CFG4     Y        Out     0.226     2.482 f     -         
-un1_serialnumber_0_iv_73[1]                            Net      -        -       0.248     -           1         
-Main_0.RegisterSpace.DataOut_RNO[1]                    CFG4     D        In      -         2.730 f     -         
-Main_0.RegisterSpace.DataOut_RNO[1]                    CFG4     Y        Out     0.317     3.048 r     -         
-un1_serialnumber_0_iv_i[1]                             Net      -        -       0.248     -           1         
-Main_0.RegisterSpace.DataOut[1]                        SLE      D        In      -         3.296 r     -         
-=================================================================================================================
-Total path delay (propagation time + setup) of 3.551 is 1.564(44.0%) logic and 1.988(56.0%) route.
+Instance / Net                                                Pin      Pin               Arrival     No. of    
+Name                                                 Type     Name     Dir     Delay     Time        Fan Out(s)
+---------------------------------------------------------------------------------------------------------------
+Main_0.RS422_Rx0_Crcer.un1_rst_2_rs                  SLE      Q        Out     0.087     0.087 r     -         
+un1_rst_2_rs_1                                       Net      -        -       0.248     -           1         
+Main_0.RS422_Rx0_Crcer.un1_rst_2_rs_RNI5REO          CFG3     C        In      -         0.336 r     -         
+Main_0.RS422_Rx0_Crcer.un1_rst_2_rs_RNI5REO          CFG3     Y        Out     0.203     0.539 r     -         
+Uart0CrcCurrentAddr[7]                               Net      -        -       0.815     -           4         
+Main_0.RegisterSpace.un1_serialnumber_1_iv_7[7]      CFG4     D        In      -         1.354 r     -         
+Main_0.RegisterSpace.un1_serialnumber_1_iv_7[7]      CFG4     Y        Out     0.326     1.680 f     -         
+un1_serialnumber_1_iv_7[7]                           Net      -        -       0.248     -           1         
+Main_0.RegisterSpace.un1_serialnumber_1_iv_56[7]     CFG4     C        In      -         1.928 f     -         
+Main_0.RegisterSpace.un1_serialnumber_1_iv_56[7]     CFG4     Y        Out     0.210     2.138 f     -         
+un1_serialnumber_1_iv_56[7]                          Net      -        -       0.248     -           1         
+Main_0.RegisterSpace.un1_serialnumber_1_iv_65[7]     CFG4     D        In      -         2.386 f     -         
+Main_0.RegisterSpace.un1_serialnumber_1_iv_65[7]     CFG4     Y        Out     0.288     2.674 f     -         
+un1_serialnumber_1_iv_65[7]                          Net      -        -       0.248     -           1         
+Main_0.RegisterSpace.DataOut_RNO_0[7]                CFG4     D        In      -         2.923 f     -         
+Main_0.RegisterSpace.DataOut_RNO_0[7]                CFG4     Y        Out     0.317     3.240 r     -         
+un1_serialnumber_1_iv_i_1[7]                         Net      -        -       0.248     -           1         
+Main_0.RegisterSpace.DataOut_RNO[7]                  CFG4     B        In      -         3.489 r     -         
+Main_0.RegisterSpace.DataOut_RNO[7]                  CFG4     Y        Out     0.165     3.653 r     -         
+un1_serialnumber_1_iv_i[7]                           Net      -        -       0.248     -           1         
+Main_0.RegisterSpace.DataOut[7]                      SLE      D        In      -         3.901 r     -         
+===============================================================================================================
+Total path delay (propagation time + setup) of 4.157 is 1.851(44.5%) logic and 2.305(55.5%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -1859,10 +1858,10 @@ Timing exceptions that could not be applied
 @W: MT447 :"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/designer/Filterwheel/synthesis.fdc":15:0:15:0|Timing constraint (through [get_pins { Filterwheel_sb_0.Filterwheel_sb_MSS_0.MSS_ADLIB_INST.CONFIG_PRESET_N }]) (false path) was not applied to the design because none of the paths specified by the constraint exist in the design 
 None
 
-Finished final timing analysis (Real Time elapsed 0h:00m:27s; CPU Time elapsed 0h:00m:27s; Memory used current: 395MB peak: 395MB)
+Finished final timing analysis (Real Time elapsed 0h:00m:23s; CPU Time elapsed 0h:00m:22s; Memory used current: 400MB peak: 400MB)
 
 
-Finished timing report (Real Time elapsed 0h:00m:27s; CPU Time elapsed 0h:00m:27s; Memory used current: 395MB peak: 395MB)
+Finished timing report (Real Time elapsed 0h:00m:23s; CPU Time elapsed 0h:00m:22s; Memory used current: 400MB peak: 400MB)
 
 ---------------------------------------
 Resource Usage Report for Filterwheel 
@@ -1875,19 +1874,19 @@ MSS_010         1 use
 RCOSC_25_50MHZ  1 use
 RCOSC_25_50MHZ_FAB  1 use
 SYSRESET        1 use
-CFG1           88 uses
-CFG2           447 uses
+CFG1           85 uses
+CFG2           421 uses
 CFG3           421 uses
-CFG4           1491 uses
+CFG4           1473 uses
 
 Carry cells:
-ARI1            715 uses - used for arithmetic functions
+ARI1            698 uses - used for arithmetic functions
 ARI1            45 uses - used for Wide-Mux implementation
-Total ARI1      760 uses
+Total ARI1      743 uses
 
 
 Sequential Cells: 
-SLE            2411 uses
+SLE            2368 uses
 
 DSP Blocks:    0 of 22 (0%)
 
@@ -1900,24 +1899,24 @@ OUTBUF         46 uses
 Global Clock Buffers: 29
 
 RAM/ROM usage summary
-Total Block RAMs (RAM1K18) : 13 of 21 (61%)
+Total Block RAMs (RAM1K18) : 12 of 21 (57%)
 
-Total LUTs:    3207
+Total LUTs:    3143
 
 Extra resources required for RAM and MACC interface logic during P&R:
 
 RAM64x18 Interface Logic : SLEs = 0; LUTs = 0;
-RAM1K18  Interface Logic : SLEs = 468; LUTs = 468;
+RAM1K18  Interface Logic : SLEs = 432; LUTs = 432;
 MACC     Interface Logic : SLEs = 0; LUTs = 0;
 
-Total number of SLEs after P&R:  2411 + 0 + 468 + 0 = 2879;
-Total number of LUTs after P&R:  3207 + 0 + 468 + 0 = 3675;
+Total number of SLEs after P&R:  2368 + 0 + 432 + 0 = 2800;
+Total number of LUTs after P&R:  3143 + 0 + 432 + 0 = 3575;
 
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:27s; CPU Time elapsed 0h:00m:27s; Memory used current: 395MB peak: 395MB)
+At Mapper Exit (Real Time elapsed 0h:00m:23s; CPU Time elapsed 0h:00m:22s; Memory used current: 400MB peak: 400MB)
 
-Process took 0h:00m:27s realtime, 0h:00m:27s cputime
-# Wed Oct 29 18:32:16 2025
+Process took 0h:00m:23s realtime, 0h:00m:22s cputime
+# Fri Nov 14 09:21:44 2025
 
 ###########################################################]

@@ -223,7 +223,8 @@ CFLAGS += -Wcast-qual
 #$(HOME) CONLYFLAGS += -Wmissing-declarations
 endif
 CFLAGS += -fno-use-cxa-atexit 
-CFLAGS += -mno-unaligned-access
+#~ CFLAGS += -mno-unaligned-access
+CFLAGS += -munaligned-access
 
 # flags only for C++ (arm-elf-g++)
 CPPFLAGS += -fno-rtti -fno-exceptions $(CPPSTANDARD)

@@ -23,8 +23,9 @@ read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/Ua
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClk.vhd}
-read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/fifo_peek.vhd}
-read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo_peek.vhd}
+read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/CGraphTypes.vhd}
+read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/PeekRam.vhd}
+read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/PeekRingBuffer.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClkPeek.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd}
 read_vhdl -mode vhdl_2008 {/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd}

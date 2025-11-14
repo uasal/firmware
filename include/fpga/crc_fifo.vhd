@@ -47,11 +47,12 @@ entity CrcFifo is
 		clk : in std_logic;
 		rst : in std_logic;
 		
-		FifoStartAddr : in unsigned(DEPTH_BITS - 1 downto 0);
-		FifoEndAddr : in unsigned(DEPTH_BITS - 1 downto 0);
-		FifoPeekAddr : out unsigned(DEPTH_BITS - 1 downto 0);
+		FifoStartAddr : in std_logic_vector(DEPTH_BITS - 1 downto 0);
+		FifoEndAddr : in std_logic_vector(DEPTH_BITS - 1 downto 0);
+		FifoPeekAddr : out std_logic_vector(DEPTH_BITS - 1 downto 0);
 		FifoPeekData : in std_logic_vector(7 downto 0);
 		
+		StartCrc : in std_logic;
 		Crc : out std_logic_vector(31 downto 0);
 		CrcComplete : out std_logic--;
 		
@@ -71,7 +72,8 @@ architecture implementation of CrcFifo is
 	
 	); end component;
 
-	--~ signal CrcIn : std_logic_vector(31 downto 0);
+	signal LastStartCrc : std_logic;
+	
 	signal CrcOut : std_logic_vector(31 downto 0);
 	
 	signal FifoPeekAddr_i : std_logic_vector(DEPTH_BITS - 1 downto 0);
@@ -87,30 +89,41 @@ begin
 		crc => CrcOut--,
 	);
 	
-	FifoPeekAddr <= unsigned(FifoPeekAddr_i);
+	FifoPeekAddr <= FifoPeekAddr_i;
 			
 	process (clk, rst)
 	begin
 	
 		if (rst = '1') then 
 		
-			CrcComplete <= '0';
-			FifoPeekAddr_i <= std_logic_vector(FifoStartAddr);
+			LastStartCrc <= '0';
+			CrcComplete <= '1';
+			FifoPeekAddr_i <= FifoStartAddr;
 					
 		else
 			
 			if ( (clk'event) and (clk = '1') ) then
-
-				if (FifoPeekAddr_i /= std_logic_vector(FifoEndAddr)) then
+			
+				LastStartCrc <= StartCrc;
+	  
+				if ( (LastStartCrc = '0') and (StartCrc = '1') ) then
 				
 					CrcComplete <= '0';
-					FifoPeekAddr_i <= FifoPeekAddr_i + std_logic_vector(to_unsigned(1, DEPTH_BITS));
-					
+					FifoPeekAddr_i <= FifoStartAddr;
+			
 				else
-	
-					Crc <= CrcOut;
-					CrcComplete <= '1';
 
+					if (FifoPeekAddr_i /= FifoEndAddr) then
+					
+						FifoPeekAddr_i <= FifoPeekAddr_i + std_logic_vector(to_unsigned(1, DEPTH_BITS));
+						
+					else
+		
+						Crc <= CrcOut;
+						CrcComplete <= '1';
+
+					end if;
+				
 				end if;
 			
 			end if;	

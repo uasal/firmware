@@ -251,6 +251,6 @@ struct CGraphFWHardwareInterface
 	
 } __attribute__((__packed__));
 
-extern CGraphFWHardwareInterface* FW;
+extern CGraphFWHardwareInterface* volatile FW;
 
 //EOF

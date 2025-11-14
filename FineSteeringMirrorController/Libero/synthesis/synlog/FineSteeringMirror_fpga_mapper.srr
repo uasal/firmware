@@ -1,4 +1,4 @@
-# Thu Oct 23 14:16:07 2025
+# Fri Nov  7 15:25:26 2025
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -12,7 +12,7 @@ Install: /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro
 OS: Linux Mint 22.1
 Hostname: homework
 max virtual memory: unlimited (bytes)
-max user processes: 126496
+max user processes: 126491
 max stack size: 8388608 (bytes)
 
 
@@ -124,22 +124,22 @@ Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:02s; CP
 Starting Early Timing Optimization (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 322MB peak: 322MB)
 
 
-Finished Early Timing Optimization (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 322MB peak: 322MB)
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 322MB peak: 322MB)
 
 
 Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 322MB peak: 322MB)
 
 
-Finished preparing to map (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 322MB peak: 322MB)
+Finished preparing to map (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 322MB peak: 322MB)
 
 
 Finished technology mapping (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 344MB peak: 344MB)
 
 Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
-   1		0h:00m:06s		     0.44ns		2019 /      1876
-   2		0h:00m:06s		     0.44ns		1949 /      1876
-   3		0h:00m:06s		     0.52ns		1949 /      1876
+   1		0h:00m:07s		     0.44ns		2019 /      1876
+   2		0h:00m:07s		     0.44ns		1949 /      1876
+   3		0h:00m:07s		     0.52ns		1949 /      1876
 @N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_158 
 @N: FP130 |Promoting Net Main_0.SpiRst_arst on CLKINT  I_159 
 @N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_i on CLKINT  I_160 
@@ -164,24 +164,24 @@ Added 0 Cells via replication
 	Added 0 Sequential Cells via replication
 	Added 0 Combinational Cells via replication
 
-Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 346MB peak: 346MB)
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 346MB peak: 346MB)
 
 
-Finished restoring hierarchy (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 347MB peak: 347MB)
+Finished restoring hierarchy (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 347MB peak: 347MB)
 
 @N: MT611 :|Automatically generated clock FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock is not used and is being removed
 
-Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 347MB peak: 347MB)
+Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 347MB peak: 347MB)
 
 
-Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 347MB peak: 347MB)
+Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 347MB peak: 347MB)
 
 
 Start Writing Netlists (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 347MB peak: 347MB)
 
 Writing Analyst data base /home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/synthesis/synwork/FineSteeringMirror_m.srm
 
-Finished Writing Netlist Databases (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 347MB peak: 347MB)
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 347MB peak: 347MB)
 
 Writing Verilog Simulation files
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
@@ -198,13 +198,13 @@ Writing Verilog Simulation files
 @W: BW156 :|Option "-name" of set_clock_groups cannot be forward-annotated; there is no equivalent option in your place-and-route tool.
 @W: BW150 :|Clock FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock in set_clock_groups command cannot be found and will not be forward annotated
 
-Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 347MB peak: 347MB)
+Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 347MB peak: 347MB)
 
 
-Finished Writing Netlists (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 347MB peak: 347MB)
+Finished Writing Netlists (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 347MB peak: 347MB)
 
 
-Start final timing analysis (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 347MB peak: 347MB)
+Start final timing analysis (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 347MB peak: 347MB)
 
 @W: MT246 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/CCC_0/FineSteeringMirror_sb_CCC_0_FCCC.v":20:36:20:43|Blackbox CCC is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results)
 @W: MT420 |Found inferred clock FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock with period 10.00ns. Please declare a user-defined clock on net FCCC_C0_0.FCCC_C0_0.GL1_net.
@@ -220,7 +220,7 @@ Start final timing analysis (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:0
 
 
 ##### START OF TIMING REPORT #####[
-# Timing report written on Thu Oct 23 14:16:17 2025
+# Timing report written on Fri Nov  7 15:25:37 2025
 #
 
 
@@ -1300,10 +1300,10 @@ Path delay compensated for clock skew. Clock skew is added to clock-to-out value
 
 Timing exceptions that could not be applied
 
-Finished final timing analysis (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 347MB peak: 347MB)
+Finished final timing analysis (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 347MB peak: 347MB)
 
 
-Finished timing report (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 347MB peak: 347MB)
+Finished timing report (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 347MB peak: 347MB)
 
 ---------------------------------------
 Resource Usage Report for FineSteeringMirror 
@@ -1357,6 +1357,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 347MB peak: 347MB)
 
 Process took 0h:00m:10s realtime, 0h:00m:10s cputime
-# Thu Oct 23 14:16:17 2025
+# Fri Nov  7 15:25:37 2025
 
 ###########################################################]

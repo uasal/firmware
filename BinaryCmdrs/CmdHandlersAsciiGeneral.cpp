@@ -52,6 +52,12 @@ using namespace std;
 
 #include "uart/AsciiCmdUserInterfaceLinux.h"
 
+#ifdef WIN32
+#include "uart/win32_pinout_uart.hpp"
+#else
+#include "uart/linux_pinout_uart.hpp"
+#endif
+
 //~ #include "../MonitorAdc.hpp"
 //~ extern CGraphFSMMonitorAdc MonitorAdc;
 
@@ -63,6 +69,12 @@ char Buffer[4096];
 
 #include "uart/BinaryUart.hpp"
 extern BinaryUart UartParser;
+
+#ifdef WIN32
+extern win32_pinout_uart LocalPortPinout;
+#else
+extern linux_pinout_uart LocalPortPinout;
+#endif
 
 int8_t ExitCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
@@ -170,4 +182,55 @@ int8_t VersionCommand(char const* Name, char const* Params, const size_t ParamsL
 	TxBinaryPacket(&UartParser, CGraphPayloadTypeVersion, 0, NULL, 0);
 	
 	return(strlen(Params));
+}
+
+int8_t FloodCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{	
+	printf("\n\nFloodCommand: Strap in...\n");
+	
+	size_t cycle = 0;
+	int key = 0;
+
+	while(true)
+	{
+		cycle++;
+		
+		//Do something...
+		{
+			printf("\n%.2X", (unsigned int)(cycle % 256));
+			LocalPortPinout.putcqq(cycle % 256);
+		}
+		
+		//Quit on any keypress
+		{
+			struct termios argin, argout;
+			tcgetattr(0,&argin);
+			argout = argin;
+			argout.c_lflag &= ~(ICANON);
+			argout.c_iflag &= ~(ICRNL);
+			argout.c_oflag &= ~(OPOST);
+			argout.c_cc[VMIN] = 1;
+			argout.c_cc[VTIME] = 0;
+			tcsetattr(0,TCSADRAIN,&argout);
+			//read(0, &key, 1);
+			ioctl(0, FIONREAD, &key);
+			tcsetattr(0,TCSADRAIN,&argin);
+			if (0 != key) 
+			{ 
+				fflush(stdin);
+				printf("\n\nFloodCommand: Keypress(%d); exiting.\n", key);
+				break; 
+			}			
+		}
+
+		struct timespec sleeptime;
+		memset((char *)&sleeptime,0,sizeof(sleeptime));
+		//~ sleeptime.tv_nsec = 100000000; //100ms
+		//~ sleeptime.tv_nsec = 10000000; //10ms
+		sleeptime.tv_nsec = 1000000; //1ms
+		//sleeptime.tv_sec = 1;
+		nanosleep(&sleeptime, NULL);
+	}
+	
+    return(ParamsLen);
 }

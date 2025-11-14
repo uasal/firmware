@@ -163,15 +163,15 @@ entity RegisterSpacePorts is
 		Uart0TxFifoCount : in std_logic_vector(9 downto 0);
 		Uart0ClkDivider : out std_logic_vector(7 downto 0);
 		
-		Uart0RxFifoPeekReadAddr : in unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
-		Uart0RxFifoPeekWriteAddr : in unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
-		Uart0RxFifoPeekPeekAddr : out unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+		Uart0RxFifoPeekReadAddr : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
+		Uart0RxFifoPeekWriteAddr : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
+		Uart0RxFifoPeekPeekAddr : out std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 		Uart0RxFifoPeekPeekData : in std_logic_vector(7 downto 0);
-		Uart0RxFifoPeekMultiPopAddr : out unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+		Uart0RxFifoPeekMultiPopAddr : out std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 		Uart0RxFifoPeekMultiPopStrobe : out std_logic;		
-		Uart0CrcStartAddr : out unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
-		Uart0CrcEndAddr : out unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
-		Uart0CrcCurrentAddr : in unsigned(UART_FIFO_DEPTH_BITS - 1 downto 0);
+		Uart0CrcStartAddr : out std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
+		Uart0CrcEndAddr : out std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
+		Uart0CrcCurrentAddr : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 		Uart0DoCrc : out std_logic;
 		Uart0CrcDone : in std_logic;
 		Uart0Crc : in std_logic_vector(31 downto 0);
@@ -355,15 +355,15 @@ architecture RegisterSpace of RegisterSpacePorts is
 	constant PosDet7BOnStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(324, MAX_ADDRESS_BITS));
 	constant PosDet7BOffStepAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(328, MAX_ADDRESS_BITS));
 	
-	constant Uart0RxFifoPeekReadAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(332, MAX_ADDRESS_BITS));
-	constant Uart0RxFifoPeekWriteAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(336, MAX_ADDRESS_BITS));
-	constant Uart0RxFifoPeekPeekAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(340, MAX_ADDRESS_BITS));
-	constant Uart0RxFifoPeekPeekDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(344, MAX_ADDRESS_BITS));
-	constant Uart0RxFifoPeekMultiPopAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(348, MAX_ADDRESS_BITS));
-	constant Uart0CrcStartAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(352, MAX_ADDRESS_BITS));
-	constant Uart0CrcEndAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(356, MAX_ADDRESS_BITS));
-	constant Uart0CrcCurrentAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(360, MAX_ADDRESS_BITS));
-	constant Uart0CrcAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(364, MAX_ADDRESS_BITS));
+	constant Uart0RxFifoPeekReadAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(332, MAX_ADDRESS_BITS)); --14c
+	constant Uart0RxFifoPeekWriteAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(336, MAX_ADDRESS_BITS)); --150
+	constant Uart0RxFifoPeekPeekAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(340, MAX_ADDRESS_BITS)); --154
+	constant Uart0RxFifoPeekPeekDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(344, MAX_ADDRESS_BITS)); --158
+	constant Uart0RxFifoPeekMultiPopAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(348, MAX_ADDRESS_BITS)); --15c
+	constant Uart0CrcStartAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(352, MAX_ADDRESS_BITS)); --160
+	constant Uart0CrcEndAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(356, MAX_ADDRESS_BITS)); --164
+	constant Uart0CrcCurrentAddrAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(360, MAX_ADDRESS_BITS)); --168
+	constant Uart0CrcAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(364, MAX_ADDRESS_BITS)); --16c
 
 	--Control Signals
 	
@@ -422,8 +422,10 @@ begin
 	MonitorAdcChannelReadIndex <= MonitorAdcChannelReadIndex_i;
 	MonitorAdcSpiFrameEnable <= MonitorAdcSpiFrameEnable_i;
 	
-	Uart0CrcStartAddr <= unsigned(Uart0CrcStartAddr_i);
-	Uart0CrcEndAddr <= unsigned(Uart0CrcEndAddr_i);
+	--~ Uart0CrcStartAddr <= unsigned(Uart0CrcStartAddr_i);
+	--~ Uart0CrcEndAddr <= unsigned(Uart0CrcEndAddr_i);
+	Uart0CrcStartAddr <= Uart0CrcStartAddr_i;
+	Uart0CrcEndAddr <= Uart0CrcEndAddr_i;
 	
 	--~ Fault1V <= Fault1V_i;
 	--~ Fault3V <= Fault3V_i;
@@ -440,6 +442,8 @@ begin
 	Ux1SelJmp <= Ux1SelJmp_i;
 	Ux2SelJmp <= Ux2SelJmp_i;
 	
+	Uart0RxFifoPeekPeekAddr <= Uart0RxFifoPeekPeekAddr_i;
+	Uart0RxFifoPeekMultiPopAddr <= Uart0RxFifoPeekMultiPopAddr_i;
 		
 	process (clk, rst)
 	begin

@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Wed Mar 26 16:47:09 2025
+// Created by SmartDesign Fri Nov  7 15:08:26 2025
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -435,6 +435,7 @@ Filterwheel_sb Filterwheel_sb_0(
 Main Main_0(
         // Inputs
         .clk                   ( FCCC_C0_0_GL0 ),
+        .rst_in                ( GND_net ),
         .PosSenseHomeA         ( PosSenseHomeA ),
         .PosSenseBit0A         ( PosSenseBit0A ),
         .PosSenseBit1A         ( PosSenseBit1A ),
@@ -443,6 +444,8 @@ Main Main_0(
         .PosSenseBit0B         ( PosSenseBit0B ),
         .PosSenseBit1B         ( PosSenseBit1B ),
         .PosSenseBit2B         ( PosSenseBit2B ),
+        .RamBusAddress         ( Filterwheel_sb_0_AMBA_SLAVE_0_PADDRS9to0 ),
+        .RamBusDataIn          ( Filterwheel_sb_0_AMBA_SLAVE_0_PWDATAS ),
         .RamBusnCs             ( Filterwheel_sb_0_AMBA_SLAVE_0_PSELS0 ),
         .RamBusWrnRd           ( Filterwheel_sb_0_AMBA_SLAVE_0_PWRITES ),
         .RamBusLatch           ( Filterwheel_sb_0_AMBA_SLAVE_0_PENABLES ),
@@ -459,8 +462,6 @@ Main Main_0(
         .Fault3V               ( Fault3V ),
         .Fault5V               ( Fault5V ),
         .PowerCycd             ( PowerCycd ),
-        .RamBusAddress         ( Filterwheel_sb_0_AMBA_SLAVE_0_PADDRS9to0 ),
-        .RamBusDataIn          ( Filterwheel_sb_0_AMBA_SLAVE_0_PWDATAS ),
         // Outputs
         .rst_out               (  ),
         .nCsXO                 ( nCsXO_net_0 ),
@@ -476,6 +477,7 @@ Main Main_0(
         .MotorDriveAMinusPrime ( MotorDriveAMinusPrime_net_0 ),
         .MotorDriveBPlusPrime  ( MotorDriveBPlusPrime_net_0 ),
         .MotorDriveBMinusPrime ( MotorDriveBMinusPrime_net_0 ),
+        .RamBusDataOut         ( Main_0_RamBusDataOut ),
         .RamBusAck             ( Main_0_RamBusAck ),
         .Txd0                  ( Txd0_net_0 ),
         .Oe0                   ( Oe0_net_0 ),
@@ -508,7 +510,6 @@ Main Main_0(
         .TP6                   ( TP6_net_0 ),
         .TP7                   ( TP7_net_0 ),
         .TP8                   ( TP8_net_0 ),
-        .RamBusDataOut         ( Main_0_RamBusDataOut ),
         // Inouts
         .Ux1SelJmp             ( Ux1SelJmp ) 
         );

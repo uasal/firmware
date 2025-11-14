@@ -200,7 +200,7 @@ struct BinaryUartRingBuffer// : IUartParser
             return(false);
         }
 		
-        if (debug) { ::formatf("\n\nBinaryUartRingBufferRingBuffer: GotData(%u).\n\r", LastDataLen); }
+        //~ if (debug) { ::formatf("\n\nBinaryUartRingBufferRingBuffer: GotData(%u).\n\r", LastDataLen); }
 
         //Packet End?? We have nothing to do until we have the end of a packet!
         //Need at least a Footer's worth of data...
@@ -357,12 +357,20 @@ struct BinaryUartRingBuffer// : IUartParser
 							::formatf("\n\nBinaryUartRingBuffer: Packet start & end found, but packet is invalid.\n\r");
 						}
 
-						// Notify that every packet is processed, even if unmatched
-						const size_t TwiceMaxPacketLen = 16384;
-						uint8_t PacketBuf[TwiceMaxPacketLen];					
-						size_t PktLen =  PacketEndPos - PacketStartPos;
-						Data.CopyToFlatBuffer(PacketStartPos, PktLen, PacketBuf, TwiceMaxPacketLen);									
-						Callbacks.InvalidPacket((const uint8_t*)(PacketBuf), PacketEndPos - PacketStartPos);
+						//~ // Notify that every packet is processed, even if unmatched
+						//~ const size_t TwiceMaxPacketLen = 16384;
+						//~ uint8_t PacketBuf[TwiceMaxPacketLen];					
+						//~ size_t PktLen =  PacketEndPos - PacketStartPos;
+						//~ Data.CopyToFlatBuffer(PacketStartPos, PktLen, PacketBuf, TwiceMaxPacketLen);									
+						//~ Callbacks.InvalidPacket((const uint8_t*)(PacketBuf), PacketEndPos - PacketStartPos);
+						
+						
+						if (debug) { ::formatf("\n\nBinaryUartRingBufferRingBuffer: PopMany(%u).\n\r", PacketEndPos + Packet.EndTokenLen()); }
+				
+						//Ok, now we have to figure out how to remove the packet from the buffer...
+						Data.PopMany(PacketEndPos + Packet.EndTokenLen());
+						//~ InitFast(SerialNum);
+
 					}
                 }
             }
@@ -408,6 +416,8 @@ struct BinaryUartRingBuffer// : IUartParser
 
 	void formatf() const
 	{
+		Data.formatf();
+		Crcer.formatf();
 		::formatf("\n\nBinaryUartRingBuffer(%u, %c, %u): :", LastDataLen, InPacket?'Y':'N', PacketStartPos);
 		for(size_t i = 0; i < LastDataLen; i++)
 		{

@@ -59,6 +59,12 @@ const Cmd AsciiCmds[] =
         DebugCommand
     ),
 
+    Cmd (
+        "FLOOD",
+        "Flood: Just don't.",
+        FloodCommand
+    ),
+
 	//General Commands
 
 	Cmd(
