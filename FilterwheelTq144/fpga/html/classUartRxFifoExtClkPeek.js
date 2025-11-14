@@ -1,20 +1,22 @@
 var classUartRxFifoExtClkPeek =
 [
     [ "UartRxFifoExtClkPeek.implementation", "classUartRxFifoExtClkPeek_1_1implementation.html", "classUartRxFifoExtClkPeek_1_1implementation" ],
+    [ "CGraphTypes", "classUartRxFifoExtClkPeek.html#a4b48ca96602b73620b1d972d47cf51bc", null ],
     [ "clk", "classUartRxFifoExtClkPeek.html#a50da91b765765ac486df1b41692e962f", null ],
     [ "Dbg1", "classUartRxFifoExtClkPeek.html#afd1ec96baa2c2ff610f79bb0affd6395", null ],
-    [ "DEPTH_BITS", "classUartRxFifoExtClkPeek.html#a8dfa6f2d305601d1cdb20a70ab7e5370", null ],
-    [ "FifoCount", "classUartRxFifoExtClkPeek.html#a2af46aec8da78f675fa69023dfa8496f", null ],
+    [ "Dbg2", "classUartRxFifoExtClkPeek.html#aa451f4ff6fac25c0a16622835618614f", null ],
+    [ "Dbg3", "classUartRxFifoExtClkPeek.html#afaa6abe3df89867a0bb541f8041dd6b3", null ],
+    [ "FifoCount", "classUartRxFifoExtClkPeek.html#a0db603cb3b3f7c131e21814b79dcf302", null ],
     [ "FifoEmpty", "classUartRxFifoExtClkPeek.html#a1be59dff9e26ebae9640d20ea74228de", null ],
     [ "FifoFull", "classUartRxFifoExtClkPeek.html#a45c993ae8c6f29e2fad435f5331188b8", null ],
-    [ "FifoMultiPopAddr", "classUartRxFifoExtClkPeek.html#a573b0916480017e9f7174e5c80e95067", null ],
+    [ "FifoMultiPopAddr", "classUartRxFifoExtClkPeek.html#a83df573466b5944de01f923b725000f8", null ],
     [ "FifoMultiPopStrobe", "classUartRxFifoExtClkPeek.html#a2e9358369edd6944432ea4d500d55c38", null ],
-    [ "FifoPeekAddr", "classUartRxFifoExtClkPeek.html#a71ad2a1e1717d13e164dc11c6be1f60e", null ],
+    [ "FifoPeekAddr", "classUartRxFifoExtClkPeek.html#a8710fd3fccbe21553e2e57f010d9cfe4", null ],
     [ "FifoPeekData", "classUartRxFifoExtClkPeek.html#ae45a8cb808498a84d08cbb7dbc0564a9", null ],
     [ "FifoReadAck", "classUartRxFifoExtClkPeek.html#a9eda2f87192e1be4a27d4b5799f849dc", null ],
-    [ "FifoReadAddr", "classUartRxFifoExtClkPeek.html#a03255beea196e5e0276420c286f52f9b", null ],
+    [ "FifoReadAddr", "classUartRxFifoExtClkPeek.html#a7f1c1df9fe5c0dc88f414332486458e8", null ],
     [ "FifoReadData", "classUartRxFifoExtClkPeek.html#a683b15caea3a10b322198237b7257112", null ],
-    [ "FifoWriteAddr", "classUartRxFifoExtClkPeek.html#aba42d118aab455d25a3adce6bc227fc5", null ],
+    [ "FifoWriteAddr", "classUartRxFifoExtClkPeek.html#a07ecc50100b00b3d1a80c3a58020a8c2", null ],
     [ "IEEE", "classUartRxFifoExtClkPeek.html#ae4f03c286607f3181e16b9aa12d0c6d4", null ],
     [ "NUMERIC_STD", "classUartRxFifoExtClkPeek.html#ae00f3f04545af57582ff10609eee23e2", null ],
     [ "ReadFifo", "classUartRxFifoExtClkPeek.html#a7457996d5c70b65766f93a6173d561d4", null ],
@@ -23,5 +25,6 @@ var classUartRxFifoExtClkPeek =
     [ "Rxd", "classUartRxFifoExtClkPeek.html#aa7cc00deb1e4ed71d2ab231d3463f9a7", null ],
     [ "STD_LOGIC_1164", "classUartRxFifoExtClkPeek.html#aa4b2b25246a821511120e3149b003563", null ],
     [ "STD_LOGIC_UNSIGNED", "classUartRxFifoExtClkPeek.html#a241c3e72dd8024cc8ae831b1b2aed7db", null ],
-    [ "uclk", "classUartRxFifoExtClkPeek.html#ad9bf1a9863005e8400f2f96516d444bd", null ]
+    [ "uclk", "classUartRxFifoExtClkPeek.html#ad9bf1a9863005e8400f2f96516d444bd", null ],
+    [ "work", "classUartRxFifoExtClkPeek.html#a9f49de6f5eed5b4488cba6c9cdd1c215", null ]
 ];

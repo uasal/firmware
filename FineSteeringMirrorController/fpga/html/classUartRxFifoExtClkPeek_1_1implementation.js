@@ -1,8 +1,8 @@
 var classUartRxFifoExtClkPeek_1_1implementation =
 [
     [ "clksyncwrite", "classUartRxFifoExtClkPeek_1_1implementation.html#abff5efd1fe62a10f64a18930731901be", null ],
-    [ "gated_fifo_peek", "classUartRxFifoExtClkPeek_1_1implementation.html#a21ef7322a0c00a7ff2952372387f4a4d", null ],
     [ "IBufP2Ports", "classUartRxFifoExtClkPeek_1_1implementation.html#ad60196fb461e8a9b57fe678f31b93b1e", null ],
+    [ "PeekRingBuffer", "classUartRxFifoExtClkPeek_1_1implementation.html#ae3eeef76051c7d9b6f6defdffec14c42", null ],
     [ "ReadFifo_i", "classUartRxFifoExtClkPeek_1_1implementation.html#a10169ec4e299c50202863dbea4f21ca1", null ],
     [ "RxComplete_i", "classUartRxFifoExtClkPeek_1_1implementation.html#ad4b09918bbdc93ce7c646c17642e2aa9", null ],
     [ "RxData", "classUartRxFifoExtClkPeek_1_1implementation.html#a23f02c7496ad0ccb0d7d3681155c4433", null ],

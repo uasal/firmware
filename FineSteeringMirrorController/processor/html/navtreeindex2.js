@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"CmdHandlersAscii_8cpp.html#ada693876ee7508348ff9dd5813bac2aa":[2,0,1,18],
 "CmdHandlersAscii_8cpp.html#aeac0b2b7e04597ff71a42ebded44d087":[2,0,1,8],
 "CmdHandlersAscii_8cpp.html#af7db44973e7235b9f30ea336417e4ce2":[2,0,1,5],
 "CmdHandlersAscii_8cpp_source.html":[2,0,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "Uarts_8hpp.html#a3066a8288aad2b63bc6b19780d5f60f0":[2,0,9,1],
 "Uarts_8hpp.html#a4ddd4ccfc7fbc06e747fd4a2ecc77660":[2,0,9,6],
 "Uarts_8hpp.html#a5723914e3b442c2f3c09e8937a80c502":[2,0,9,5],
-"Uarts_8hpp.html#a81a71161305149975fb868e23800dc15":[2,0,9,0],
-"Uarts_8hpp.html#a8bfeeb4ec2864cd21836aa9ef0183d0e":[2,0,9,2]
+"Uarts_8hpp.html#a81a71161305149975fb868e23800dc15":[2,0,9,0]
 };

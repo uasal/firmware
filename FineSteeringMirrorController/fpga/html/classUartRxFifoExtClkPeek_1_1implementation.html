@@ -113,7 +113,7 @@ Collaboration diagram for UartRxFifoExtClkPeek.implementation:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="Components" name="Components"></a>
 Components</h2></td></tr>
  <tr class="memitem:ad60196fb461e8a9b57fe678f31b93b1e" id="r_ad60196fb461e8a9b57fe678f31b93b1e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUartRxFifoExtClkPeek_1_1implementation.html#ad60196fb461e8a9b57fe678f31b93b1e">IBufP2Ports</a>&#160;</td><td class="memItemRight" valign="bottom">  <b></b>  <em><a class="el" href="classIBufP2Ports.html">&lt;Entity IBufP2Ports&gt; </a></em></td></tr>
-<tr class="memitem:a21ef7322a0c00a7ff2952372387f4a4d" id="r_a21ef7322a0c00a7ff2952372387f4a4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUartRxFifoExtClkPeek_1_1implementation.html#a21ef7322a0c00a7ff2952372387f4a4d">gated_fifo_peek</a>&#160;</td><td class="memItemRight" valign="bottom">  <b></b>  <em><a class="el" href="classgated__fifo__peek.html">&lt;Entity gated_fifo_peek&gt; </a></em></td></tr>
+<tr class="memitem:ae3eeef76051c7d9b6f6defdffec14c42" id="r_ae3eeef76051c7d9b6f6defdffec14c42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUartRxFifoExtClkPeek_1_1implementation.html#ae3eeef76051c7d9b6f6defdffec14c42">PeekRingBuffer</a>&#160;</td><td class="memItemRight" valign="bottom">  <b></b>  <em><a class="el" href="classPeekRingBuffer.html">&lt;Entity PeekRingBuffer&gt; </a></em></td></tr>
 <tr class="memitem:ab9eac508b43a45014888101a181992df" id="r_ab9eac508b43a45014888101a181992df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUartRxFifoExtClkPeek_1_1implementation.html#ab9eac508b43a45014888101a181992df">UartRxExtClk</a>&#160;</td><td class="memItemRight" valign="bottom">  <b></b>  <em><a class="el" href="classUartRxExtClk.html">&lt;Entity UartRxExtClk&gt; </a></em></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="Signals" name="Signals"></a>
@@ -127,7 +127,7 @@ Signals</h2></td></tr>
 Instantiations</h2></td></tr>
  <tr class="memitem:a169d0b4cc1e83e6cfd48bb4d8fb324fd" id="r_a169d0b4cc1e83e6cfd48bb4d8fb324fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUartRxFifoExtClkPeek_1_1implementation.html#a169d0b4cc1e83e6cfd48bb4d8fb324fd">uart</a>&#160;</td><td class="memItemRight" valign="bottom">  <b>UartRxExtClk</b>  <em><a class="el" href="classUartRxExtClk.html">&lt;Entity UartRxExtClk&gt;</a></em></td></tr>
 <tr class="memitem:abff5efd1fe62a10f64a18930731901be" id="r_abff5efd1fe62a10f64a18930731901be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUartRxFifoExtClkPeek_1_1implementation.html#abff5efd1fe62a10f64a18930731901be">clksyncwrite</a>&#160;</td><td class="memItemRight" valign="bottom">  <b>IBufP2Ports</b>  <em><a class="el" href="classIBufP2Ports.html">&lt;Entity IBufP2Ports&gt;</a></em></td></tr>
-<tr class="memitem:aed2968b7907a470914ee4992aac4869d" id="r_aed2968b7907a470914ee4992aac4869d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUartRxFifoExtClkPeek_1_1implementation.html#aed2968b7907a470914ee4992aac4869d">uartfifo</a>&#160;</td><td class="memItemRight" valign="bottom">  <b>gated_fifo_peek</b>  <em><a class="el" href="classgated__fifo__peek.html">&lt;Entity gated_fifo_peek&gt;</a></em></td></tr>
+<tr class="memitem:aed2968b7907a470914ee4992aac4869d" id="r_aed2968b7907a470914ee4992aac4869d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUartRxFifoExtClkPeek_1_1implementation.html#aed2968b7907a470914ee4992aac4869d">uartfifo</a>&#160;</td><td class="memItemRight" valign="bottom">  <b>PeekRingBuffer</b>  <em><a class="el" href="classPeekRingBuffer.html">&lt;Entity PeekRingBuffer&gt;</a></em></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -153,31 +153,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html#l00167">167</a> of file <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html">UartRxFifoExtClkPeek.vhd</a>.</p>
-
-</div>
-</div>
-<a id="a21ef7322a0c00a7ff2952372387f4a4d" name="a21ef7322a0c00a7ff2952372387f4a4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21ef7322a0c00a7ff2952372387f4a4d">&#9670;&#160;</a></span>gated_fifo_peek</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classUartRxFifoExtClkPeek_1_1implementation.html#a21ef7322a0c00a7ff2952372387f4a4d">gated_fifo_peek</a> <b><span class="vhdlchar"> </span></b> </td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">Component</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html#l00085">85</a> of file <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html">UartRxFifoExtClkPeek.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html#l00163">163</a> of file <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html">UartRxFifoExtClkPeek.vhd</a>.</p>
 
 </div>
 </div>
@@ -205,6 +181,30 @@ Instantiations</h2></td></tr>
 
 </div>
 </div>
+<a id="ae3eeef76051c7d9b6f6defdffec14c42" name="ae3eeef76051c7d9b6f6defdffec14c42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3eeef76051c7d9b6f6defdffec14c42">&#9670;&#160;</a></span>PeekRingBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classUartRxFifoExtClkPeek_1_1implementation.html#ae3eeef76051c7d9b6f6defdffec14c42">PeekRingBuffer</a> <b><span class="vhdlchar"> </span></b> </td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">Component</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html#l00085">85</a> of file <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html">UartRxFifoExtClkPeek.vhd</a>.</p>
+
+</div>
+</div>
 <a id="a10169ec4e299c50202863dbea4f21ca1" name="a10169ec4e299c50202863dbea4f21ca1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a10169ec4e299c50202863dbea4f21ca1">&#9670;&#160;</a></span>ReadFifo_i</h2>
 
@@ -225,7 +225,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html#l00127">127</a> of file <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html">UartRxFifoExtClkPeek.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html#l00123">123</a> of file <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html">UartRxFifoExtClkPeek.vhd</a>.</p>
 
 </div>
 </div>
@@ -249,7 +249,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html#l00125">125</a> of file <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html">UartRxFifoExtClkPeek.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html#l00121">121</a> of file <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html">UartRxFifoExtClkPeek.vhd</a>.</p>
 
 </div>
 </div>
@@ -273,7 +273,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html#l00126">126</a> of file <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html">UartRxFifoExtClkPeek.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html#l00122">122</a> of file <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html">UartRxFifoExtClkPeek.vhd</a>.</p>
 
 </div>
 </div>
@@ -297,7 +297,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html#l00156">156</a> of file <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html">UartRxFifoExtClkPeek.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html#l00152">152</a> of file <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html">UartRxFifoExtClkPeek.vhd</a>.</p>
 
 </div>
 </div>
@@ -311,7 +311,7 @@ Instantiations</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classUartRxFifoExtClkPeek_1_1implementation.html#aed2968b7907a470914ee4992aac4869d">uartfifo</a> <b><span class="vhdlchar">gated_fifo_peek</span><span class="vhdlchar"> </span></b> </td>
+          <td class="memname"><a class="el" href="classUartRxFifoExtClkPeek_1_1implementation.html#aed2968b7907a470914ee4992aac4869d">uartfifo</a> <b><span class="vhdlchar">PeekRingBuffer</span><span class="vhdlchar"> </span></b> </td>
         </tr>
       </table>
   </td>
@@ -321,7 +321,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html#l00194">194</a> of file <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html">UartRxFifoExtClkPeek.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html#l00185">185</a> of file <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html">UartRxFifoExtClkPeek.vhd</a>.</p>
 
 </div>
 </div>
@@ -345,7 +345,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html#l00112">112</a> of file <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html">UartRxFifoExtClkPeek.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html#l00108">108</a> of file <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html">UartRxFifoExtClkPeek.vhd</a>.</p>
 
 </div>
 </div>
@@ -369,7 +369,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html#l00128">128</a> of file <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html">UartRxFifoExtClkPeek.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html#l00124">124</a> of file <a class="el" href="UartRxFifoExtClkPeek_8vhd_source.html">UartRxFifoExtClkPeek.vhd</a>.</p>
 
 </div>
 </div>
@@ -382,7 +382,7 @@ Instantiations</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classUartRxFifoExtClkPeek.html">UartRxFifoExtClkPeek</a></li><li class="navelem"><a class="el" href="classUartRxFifoExtClkPeek_1_1implementation.html">implementation</a></li>
-    <li class="footer">Generated on Thu Oct 30 2025 01:48:22 for ESC FilterWheel Fpga Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 14 2025 16:40:48 for ESC FilterWheel Fpga Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

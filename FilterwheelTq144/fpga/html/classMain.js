@@ -1,6 +1,7 @@
 var classMain =
 [
     [ "Main.architecture_Main", "classMain_1_1architecture__Main.html", "classMain_1_1architecture__Main" ],
+    [ "CGraphTypes", "classMain.html#a4b48ca96602b73620b1d972d47cf51bc", null ],
     [ "clk", "classMain.html#a50da91b765765ac486df1b41692e962f", null ],
     [ "CtsUsb", "classMain.html#acdb92e3701b60f8ac50531b0236268fb", null ],
     [ "Fault1V", "classMain.html#a6dce31eb139c8da4b3323de079231bd0", null ],
@@ -54,6 +55,7 @@ var classMain =
     [ "RamBusLatch", "classMain.html#a7b89e79961b0043c2022ca1d90c7db53", null ],
     [ "RamBusnCs", "classMain.html#a48569d4b5eee076bc754f4182810dfb7", null ],
     [ "RamBusWrnRd", "classMain.html#ac3bffd04e6fb24f2e98f10aac444ce5d", null ],
+    [ "rst_in", "classMain.html#af9787c8449928c4eef3d048e10c5cdd9", null ],
     [ "rst_out", "classMain.html#a9d9a058ea1374b0dc5e1094646de98b0", null ],
     [ "Rxd0", "classMain.html#ac0c84ab78d883d608d2661d53db5252f", null ],
     [ "Rxd1", "classMain.html#ad81c7226edda95a4115100aa16644975", null ],
@@ -78,5 +80,6 @@ var classMain =
     [ "Txd3", "classMain.html#a4a2c2ab2c591e95272f5f2b96aa38abb", null ],
     [ "TxdGps", "classMain.html#a072914ab23522cf473d64066e0224f26", null ],
     [ "TxdUsb", "classMain.html#a7180499adfce8502910a1f4cab16c2b6", null ],
-    [ "Ux1SelJmp", "classMain.html#ad846f752ed4796ef5606ae79cc193340", null ]
+    [ "Ux1SelJmp", "classMain.html#ad846f752ed4796ef5606ae79cc193340", null ],
+    [ "work", "classMain.html#a9f49de6f5eed5b4488cba6c9cdd1c215", null ]
 ];

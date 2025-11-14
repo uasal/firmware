@@ -137,12 +137,6 @@ $(document).ready(function(){initNavTree('hierarchy.html',''); initResizable(); 
 <area shape="poly" title=" " alt="" coords="185,193,281,89,316,75,318,80,284,94,189,197"/>
 <area shape="poly" title=" " alt="" coords="717,176,742,191,771,219,797,252,837,323,864,388,878,434,873,435,859,390,832,325,793,255,767,223,738,195,715,180"/>
 <area shape="poly" title=" " alt="" coords="463,60,528,62,602,73,675,95,710,112,742,133,777,168,805,208,829,251,847,296,870,378,880,434,874,435,865,379,842,297,824,253,801,210,773,171,738,137,707,116,673,100,601,78,528,67,463,65"/>
-<area shape="rect" href="classfifo__peek.html" title=" " alt="" coords="124,605,207,631"/>
-<area shape="rect" href="classgated__fifo__peek.html" title=" " alt="" coords="320,605,447,631"/>
-<area shape="poly" title=" " alt="" coords="221,615,320,615,320,621,221,621"/>
-<area shape="rect" href="classUartRxFifoExtClkPeek.html" title=" " alt="" coords="553,563,719,588"/>
-<area shape="poly" title=" " alt="" coords="460,602,560,585,561,591,461,608"/>
-<area shape="poly" title=" " alt="" coords="718,556,739,548,776,527,811,502,864,458,867,462,815,506,779,531,741,552,720,561"/>
 <area shape="rect" href="classFourWireStepperMotorPorts.html" title=" " alt="" coords="283,405,484,431"/>
 <area shape="rect" href="classFourWireStepperMotorDriverPorts.html" title=" " alt="" coords="532,398,740,438"/>
 <area shape="poly" title=" " alt="" coords="498,415,532,415,532,421,498,421"/>
@@ -158,7 +152,9 @@ $(document).ready(function(){initNavTree('hierarchy.html',''); initResizable(); 
 <area shape="rect" href="classUartRxExtClk.html" title=" " alt="" coords="329,556,438,581"/>
 <area shape="poly" title=" " alt="" coords="228,433,236,440,248,453,255,467,261,493,267,518,273,530,284,541,305,554,329,561,328,566,303,559,281,545,269,533,262,520,256,494,250,468,244,456,233,444,225,438"/>
 <area shape="poly" title=" " alt="" coords="450,561,468,553,482,542,507,505,518,469,518,433,513,396,507,359,505,320,511,279,530,235,546,214,566,197,606,171,609,176,569,201,550,218,534,238,516,280,510,320,513,358,519,396,524,432,523,469,512,507,486,545,470,558,452,565"/>
+<area shape="rect" href="classUartRxFifoExtClkPeek.html" title=" " alt="" coords="553,563,719,588"/>
 <area shape="poly" title=" " alt="" coords="452,568,553,570,553,576,452,573"/>
+<area shape="poly" title=" " alt="" coords="718,556,739,548,776,527,811,502,864,458,867,462,815,506,779,531,741,552,720,561"/>
 <area shape="rect" href="classIBufP3Ports.html" title=" " alt="" coords="587,711,685,736"/>
 <area shape="poly" title=" " alt="" coords="697,714,719,707,738,696,768,669,793,638,833,569,859,505,873,459,878,461,864,507,838,572,797,641,772,673,742,700,721,712,699,719"/>
 <area shape="rect" href="classPhaseComparatorPorts.html" title=" " alt="" coords="795,711,965,736"/>
@@ -169,6 +165,10 @@ $(document).ready(function(){initNavTree('hierarchy.html',''); initResizable(); 
 <area shape="poly" title=" " alt="" coords="705,770,788,770,788,775,705,775"/>
 <area shape="rect" href="classLtc2378AccumTrioPorts.html" title=" " alt="" coords="793,809,967,835"/>
 <area shape="poly" title=" " alt="" coords="706,784,817,807,816,812,704,789"/>
+<area shape="rect" href="classPeekRam.html" title=" " alt="" coords="123,605,207,631"/>
+<area shape="rect" href="classPeekRingBuffer.html" title=" " alt="" coords="322,605,445,631"/>
+<area shape="poly" title=" " alt="" coords="221,615,322,615,322,621,221,621"/>
+<area shape="poly" title=" " alt="" coords="458,603,560,585,561,591,459,608"/>
 <area shape="rect" href="classPPSCountPorts.html" title=" " alt="" coords="577,299,695,324"/>
 <area shape="poly" title=" " alt="" coords="709,321,741,333,781,356,817,384,868,432,865,436,813,388,778,361,739,338,707,326"/>
 <area shape="rect" href="classRegisterSpacePorts.html" title=" " alt="" coords="562,348,710,373"/>
@@ -225,34 +225,41 @@ $(document).ready(function(){initNavTree('hierarchy.html',''); initResizable(); 
 <area shape="rect" href="classDmDacRamPorts.html" title=" " alt="" coords="5,5,139,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_4.png" border="0" usemap="#agated__fifo__fram" alt=""/>
+<tr><td><img src="inherit_graph_4.png" border="0" usemap="#afifo__peek" alt=""/>
+<map name="afifo__peek" id="afifo__peek">
+<area shape="rect" href="classfifo__peek.html" title=" " alt="" coords="5,5,88,31"/>
+<area shape="rect" href="classgated__fifo__peek.html" title=" " alt="" coords="136,5,263,31"/>
+<area shape="poly" title=" " alt="" coords="102,15,136,15,136,21,102,21"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_5.png" border="0" usemap="#agated__fifo__fram" alt=""/>
 <map name="agated__fifo__fram" id="agated__fifo__fram">
 <area shape="rect" href="classgated__fifo__fram.html" title=" " alt="" coords="5,5,131,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_5.png" border="0" usemap="#aIOBufP2Ports" alt=""/>
+<tr><td><img src="inherit_graph_6.png" border="0" usemap="#aIOBufP2Ports" alt=""/>
 <map name="aIOBufP2Ports" id="aIOBufP2Ports">
 <area shape="rect" href="classIOBufP2Ports.html" title=" " alt="" coords="5,5,112,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_6.png" border="0" usemap="#aIOBufP3Ports" alt=""/>
+<tr><td><img src="inherit_graph_7.png" border="0" usemap="#aIOBufP3Ports" alt=""/>
 <map name="aIOBufP3Ports" id="aIOBufP3Ports">
 <area shape="rect" href="classIOBufP3Ports.html" title=" " alt="" coords="5,5,112,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_7.png" border="0" usemap="#aRtcCounterPorts" alt=""/>
+<tr><td><img src="inherit_graph_8.png" border="0" usemap="#aRtcCounterPorts" alt=""/>
 <map name="aRtcCounterPorts" id="aRtcCounterPorts">
 <area shape="rect" href="classRtcCounterPorts.html" title=" " alt="" coords="5,5,132,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_8.png" border="0" usemap="#aSpiMasterDualPorts" alt=""/>
+<tr><td><img src="inherit_graph_9.png" border="0" usemap="#aSpiMasterDualPorts" alt=""/>
 <map name="aSpiMasterDualPorts" id="aSpiMasterDualPorts">
 <area shape="rect" href="classSpiMasterDualPorts.html" title=" " alt="" coords="5,5,156,31"/>
 <area shape="rect" href="classSpiDeviceDualPorts.html" title=" " alt="" coords="204,5,355,31"/>
 <area shape="poly" title=" " alt="" coords="169,15,204,15,204,21,169,21"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_9.png" border="0" usemap="#aVariableOneShotPorts" alt=""/>
+<tr><td><img src="inherit_graph_10.png" border="0" usemap="#aVariableOneShotPorts" alt=""/>
 <map name="aVariableOneShotPorts" id="aVariableOneShotPorts">
 <area shape="rect" href="classVariableOneShotPorts.html" title=" " alt="" coords="5,5,168,31"/>
 </map>
@@ -263,7 +270,7 @@ $(document).ready(function(){initNavTree('hierarchy.html',''); initResizable(); 
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Oct 30 2025 01:48:09 for ESC FilterWheel Fpga Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 14 2025 16:40:36 for ESC FilterWheel Fpga Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

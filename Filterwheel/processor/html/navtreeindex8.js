@@ -1,5 +1,9 @@
 var NAVTREEINDEX8 =
 {
+"unionCGraphDMHardwareStatusRegister.html#ad56c3e99f53c87b696abf78d5f7bc4a2":[1,0,14,3],
+"unionCGraphDMHardwareStatusRegister.html#addff2f967457309564eb3bea673e422c":[1,0,14,4],
+"unionCGraphDMHardwareStatusRegister.html#aedd904367595d9a134c8c9a8b86bd864":[1,0,14,12],
+"unionCGraphDMHardwareStatusRegister.html#aef71e1b7bf7b51660185ebe36ff7d6e7":[1,0,14,1],
 "unionCGraphFSMHardwareControlRegister.html":[1,0,21],
 "unionCGraphFSMHardwareControlRegister.html#a026ce6bc59d56cce0db64e89836ed5d0":[1,0,21,6],
 "unionCGraphFSMHardwareControlRegister.html#a0322277b72a330ef60e6b319ac69beb1":[1,0,21,28],
@@ -245,9 +249,5 @@ var NAVTREEINDEX8 =
 "unionads1258details_1_1config0register.html#a6ecf0e298b1be80244e7545e7ef55822":[0,0,0,3,6],
 "unionads1258details_1_1config0register.html#a6ecf0e298b1be80244e7545e7ef55822":[1,0,0,3,6],
 "unionads1258details_1_1config0register.html#a73a816de137847e9b90e255c4ca96e5f":[0,0,0,3,12],
-"unionads1258details_1_1config0register.html#a73a816de137847e9b90e255c4ca96e5f":[1,0,0,3,12],
-"unionads1258details_1_1config0register.html#a7c8844cbc0558b433bd2026da2cb4d63":[0,0,0,3,3],
-"unionads1258details_1_1config0register.html#a7c8844cbc0558b433bd2026da2cb4d63":[1,0,0,3,3],
-"unionads1258details_1_1config0register.html#a84e5a0803dd3d5be74bfcd2450d4567d":[0,0,0,3,1],
-"unionads1258details_1_1config0register.html#a84e5a0803dd3d5be74bfcd2450d4567d":[1,0,0,3,1]
+"unionads1258details_1_1config0register.html#a73a816de137847e9b90e255c4ca96e5f":[1,0,0,3,12]
 };

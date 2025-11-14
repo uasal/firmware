@@ -1,6 +1,6 @@
 var classSpiMasterQuadPorts_1_1SpiMasterQuad =
 [
-    [ "PROCESS_39", "classSpiMasterQuadPorts_1_1SpiMasterQuad.html#aa9b358a1110f0111f0294af04746a2db", null ],
+    [ "PROCESS_41", "classSpiMasterQuadPorts_1_1SpiMasterQuad.html#ae035b8d3958b2bb6b330aea8d508eff7", null ],
     [ "ClkDiv", "classSpiMasterQuadPorts_1_1SpiMasterQuad.html#a37436844059c7d73da7c03008811a87f", null ],
     [ "DataToMosiA_i", "classSpiMasterQuadPorts_1_1SpiMasterQuad.html#ae7eb9c46783190a34686290557f7c8ea", null ],
     [ "DataToMosiB_i", "classSpiMasterQuadPorts_1_1SpiMasterQuad.html#abf539c1a46911ba4a22a32d3d61d8d91", null ],

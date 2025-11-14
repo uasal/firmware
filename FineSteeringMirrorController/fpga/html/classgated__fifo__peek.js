@@ -12,14 +12,14 @@ var classgated__fifo__peek =
     [ "multipop_e_i", "classgated__fifo__peek.html#aa897c9766be0e8a8f2bd64d8eb48030e", null ],
     [ "numeric_std", "classgated__fifo__peek.html#a2edc34402b573437d5f25fa90ba4013e", null ],
     [ "peek_data_o", "classgated__fifo__peek.html#a52c0503c3d7af12d8fb61da51c4e7c04", null ],
-    [ "peekaddr_i", "classgated__fifo__peek.html#a5426425bed7f3d301da5f6c2e414b361", null ],
+    [ "peekaddr_i", "classgated__fifo__peek.html#adfb809a3d6c168e98af51012d858687a", null ],
     [ "r_ack", "classgated__fifo__peek.html#ad3a516a6354812c41508a132e31da0dd", null ],
-    [ "raddr_i", "classgated__fifo__peek.html#a91e746bcd8233a4b72b59e796f9c0016", null ],
-    [ "raddr_o", "classgated__fifo__peek.html#a5e98724fbc9127cda86db60b00cdbfeb", null ],
+    [ "raddr_i", "classgated__fifo__peek.html#a86a9f77a48706265a1630b35f251d37b", null ],
+    [ "raddr_o", "classgated__fifo__peek.html#ac3f24dfcb6ae63ff13f6cf3c0d90ff76", null ],
     [ "rone_i", "classgated__fifo__peek.html#a3a32da06730b2c9089683a162000c2d2", null ],
     [ "rst", "classgated__fifo__peek.html#ae106f17a2b73445119c8eb039d3e102e", null ],
     [ "std_logic_1164", "classgated__fifo__peek.html#acd03516902501cd1c7296a98e22c6fcb", null ],
-    [ "waddr_o", "classgated__fifo__peek.html#a3f99867aa1fe7dd383be73bf4859be19", null ],
+    [ "waddr_o", "classgated__fifo__peek.html#aa4af9991bc88367ea1d72217136e3d6e", null ],
     [ "WIDTH_BITS", "classgated__fifo__peek.html#af8959cb6855d5820822fbaf9866d9436", null ],
     [ "wone_i", "classgated__fifo__peek.html#ab194ee5047501759a404107f365c8078", null ]
 ];

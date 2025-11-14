@@ -24,7 +24,7 @@ var CGraphFWHardwareInterface_8hpp =
     [ "Fault3V", "CGraphFWHardwareInterface_8hpp.html#a5490ff4bce56ab630b26b7714e119143", null ],
     [ "Fault5V", "CGraphFWHardwareInterface_8hpp.html#a60d513d7dd94f4c53d393a965c3e8b24", null ],
     [ "FpgaFirmwareBuildNumber", "CGraphFWHardwareInterface_8hpp.html#a71913a0046a5b77a2336fa9e0285c166", null ],
-    [ "FW", "CGraphFWHardwareInterface_8hpp.html#a70b8824cc3c12e074900e5c8e49975fb", null ],
+    [ "FW", "CGraphFWHardwareInterface_8hpp.html#a96913d48763e3ba4a7ea1ed23664eb2c", null ],
     [ "IdealTicksPerSecond", "CGraphFWHardwareInterface_8hpp.html#a84e76d810b44fa1f03ad1ccabc9c3d01", null ],
     [ "LedB", "CGraphFWHardwareInterface_8hpp.html#a613e7f953022a19aeeb178b074c0137b", null ],
     [ "LedG", "CGraphFWHardwareInterface_8hpp.html#adacac334291a8d490b906339a30ba94b", null ],

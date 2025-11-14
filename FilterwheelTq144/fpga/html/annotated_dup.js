@@ -29,6 +29,8 @@ var annotated_dup =
     [ "ltc244xPorts", "classltc244xPorts.html", "classltc244xPorts" ],
     [ "Main", "classMain.html", "classMain" ],
     [ "OneShotPorts", "classOneShotPorts.html", "classOneShotPorts" ],
+    [ "PeekRam", "classPeekRam.html", "classPeekRam" ],
+    [ "PeekRingBuffer", "classPeekRingBuffer.html", "classPeekRingBuffer" ],
     [ "PhaseComparatorPorts", "classPhaseComparatorPorts.html", "classPhaseComparatorPorts" ],
     [ "PPSCountPorts", "classPPSCountPorts.html", "classPPSCountPorts" ],
     [ "RegisterSpacePorts", "classRegisterSpacePorts.html", "classRegisterSpacePorts" ],

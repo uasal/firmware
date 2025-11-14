@@ -102,11 +102,13 @@ Collaboration diagram for CrcFifo.implementation:</div>
 <div class="dyncontent">
 <div class="center"><img src="classCrcFifo_1_1implementation__coll__graph.png" border="0" usemap="#aCrcFifo_8implementation_coll__map" alt="Collaboration graph"/></div>
 <map name="aCrcFifo_8implementation_coll__map" id="aCrcFifo_8implementation_coll__map">
-<area shape="rect" title=" " alt="" coords="95,108,269,133"/>
-<area shape="rect" title=" " alt="" coords="5,5,159,45"/>
-<area shape="poly" title=" " alt="" coords="114,53,171,106,168,110,110,57"/>
-<area shape="rect" title=" " alt="" coords="183,5,383,45"/>
-<area shape="poly" title=" " alt="" coords="254,57,197,110,193,106,251,53"/>
+<area shape="rect" title=" " alt="" coords="355,63,529,88"/>
+<area shape="rect" title=" " alt="" coords="65,5,145,31"/>
+<area shape="poly" title=" " alt="" coords="159,24,331,53,372,60,371,65,330,58,158,29"/>
+<area shape="rect" title=" " alt="" coords="29,55,182,95"/>
+<area shape="poly" title=" " alt="" coords="196,73,354,73,354,78,196,78"/>
+<area shape="rect" title=" " alt="" coords="5,119,205,159"/>
+<area shape="poly" title=" " alt="" coords="219,115,374,85,375,91,220,120"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <b>Architecture &gt;&gt; </b><a class="el" href="classCrcFifo_1_1implementation.html">CrcFifo::implementation</a><br />
@@ -121,7 +123,8 @@ Components</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="Signals" name="Signals"></a>
 Signals</h2></td></tr>
- <tr class="memitem:a4dce1c0cfab41354d01ed416a8e20807" id="r_a4dce1c0cfab41354d01ed416a8e20807"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCrcFifo_1_1implementation.html#a4dce1c0cfab41354d01ed416a8e20807">CrcOut</a> &#160;</td><td class="memItemRight" valign="bottom"><b><span class="keywordtype">std_logic_vector</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">31</span> <span class="vhdlchar"> </span><span class="keywordflow">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b></td></tr>
+ <tr class="memitem:a0e7bacb567463dadb4ab8fa0474599f4" id="r_a0e7bacb567463dadb4ab8fa0474599f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCrcFifo_1_1implementation.html#a0e7bacb567463dadb4ab8fa0474599f4">LastStartCrc</a> &#160;</td><td class="memItemRight" valign="bottom"><b><span class="keywordtype">std_logic</span><span class="vhdlchar"> </span></b></td></tr>
+<tr class="memitem:a4dce1c0cfab41354d01ed416a8e20807" id="r_a4dce1c0cfab41354d01ed416a8e20807"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCrcFifo_1_1implementation.html#a4dce1c0cfab41354d01ed416a8e20807">CrcOut</a> &#160;</td><td class="memItemRight" valign="bottom"><b><span class="keywordtype">std_logic_vector</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">31</span> <span class="vhdlchar"> </span><span class="keywordflow">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b></td></tr>
 <tr class="memitem:acfc79f7aed22dc71c45cd87cf1258399" id="r_acfc79f7aed22dc71c45cd87cf1258399"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCrcFifo_1_1implementation.html#acfc79f7aed22dc71c45cd87cf1258399">FifoPeekAddr_i</a> &#160;</td><td class="memItemRight" valign="bottom"><b><span class="keywordtype">std_logic_vector</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><b><a class="el" href="classCrcFifo.html#a8dfa6f2d305601d1cdb20a70ab7e5370">DEPTH_BITS</a></b> <span class="vhdlchar">-</span><span class="vhdlchar"> </span> <span class="vhdldigit">1</span> <span class="vhdlchar"> </span><span class="keywordflow">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="Instantiations" name="Instantiations"></a>
@@ -130,7 +133,7 @@ Instantiations</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="crc__fifo_8vhd_source.html#l00060">60</a> of file <a class="el" href="crc__fifo_8vhd_source.html">crc_fifo.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="crc__fifo_8vhd_source.html#l00061">61</a> of file <a class="el" href="crc__fifo_8vhd_source.html">crc_fifo.vhd</a>.</p>
 </div><h2 class="groupheader">Member Function/Procedure/Process Documentation</h2>
 <a id="ae54b8f82983d88ae82a6aac89256506c" name="ae54b8f82983d88ae82a6aac89256506c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae54b8f82983d88ae82a6aac89256506c">&#9670;&#160;</a></span>PROCESS_8()</h2>
@@ -158,7 +161,7 @@ Instantiations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="crc__fifo_8vhd_source.html#l00092">92</a> of file <a class="el" href="crc__fifo_8vhd_source.html">crc_fifo.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="crc__fifo_8vhd_source.html#l00094">94</a> of file <a class="el" href="crc__fifo_8vhd_source.html">crc_fifo.vhd</a>.</p>
 
 </div>
 </div>
@@ -183,7 +186,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="crc__fifo_8vhd_source.html#l00088">88</a> of file <a class="el" href="crc__fifo_8vhd_source.html">crc_fifo.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="crc__fifo_8vhd_source.html#l00090">90</a> of file <a class="el" href="crc__fifo_8vhd_source.html">crc_fifo.vhd</a>.</p>
 
 </div>
 </div>
@@ -207,7 +210,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="crc__fifo_8vhd_source.html#l00075">75</a> of file <a class="el" href="crc__fifo_8vhd_source.html">crc_fifo.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="crc__fifo_8vhd_source.html#l00077">77</a> of file <a class="el" href="crc__fifo_8vhd_source.html">crc_fifo.vhd</a>.</p>
 
 </div>
 </div>
@@ -231,7 +234,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="crc__fifo_8vhd_source.html#l00062">62</a> of file <a class="el" href="crc__fifo_8vhd_source.html">crc_fifo.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="crc__fifo_8vhd_source.html#l00063">63</a> of file <a class="el" href="crc__fifo_8vhd_source.html">crc_fifo.vhd</a>.</p>
 
 </div>
 </div>
@@ -255,7 +258,31 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="crc__fifo_8vhd_source.html#l00077">77</a> of file <a class="el" href="crc__fifo_8vhd_source.html">crc_fifo.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="crc__fifo_8vhd_source.html#l00079">79</a> of file <a class="el" href="crc__fifo_8vhd_source.html">crc_fifo.vhd</a>.</p>
+
+</div>
+</div>
+<a id="a0e7bacb567463dadb4ab8fa0474599f4" name="a0e7bacb567463dadb4ab8fa0474599f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e7bacb567463dadb4ab8fa0474599f4">&#9670;&#160;</a></span>LastStartCrc</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCrcFifo_1_1implementation.html#a0e7bacb567463dadb4ab8fa0474599f4">LastStartCrc</a> <b><span class="keywordtype">std_logic</span><span class="vhdlchar"> </span></b> </td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">Signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="crc__fifo_8vhd_source.html#l00075">75</a> of file <a class="el" href="crc__fifo_8vhd_source.html">crc_fifo.vhd</a>.</p>
 
 </div>
 </div>
@@ -268,7 +295,7 @@ Instantiations</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classCrcFifo.html">CrcFifo</a></li><li class="navelem"><a class="el" href="classCrcFifo_1_1implementation.html">implementation</a></li>
-    <li class="footer">Generated on Thu Oct 30 2025 01:48:21 for ESC FilterWheel Fpga Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 14 2025 16:40:48 for ESC FilterWheel Fpga Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

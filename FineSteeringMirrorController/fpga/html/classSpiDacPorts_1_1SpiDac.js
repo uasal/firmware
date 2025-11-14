@@ -1,6 +1,6 @@
 var classSpiDacPorts_1_1SpiDac =
 [
-    [ "PROCESS_30", "classSpiDacPorts_1_1SpiDac.html#ac9cc3993ebbad5e83921c7bb9e26f047", null ],
+    [ "PROCESS_32", "classSpiDacPorts_1_1SpiDac.html#aba8119971a4e94e2291aeaac86e7d5b0", null ],
     [ "DacReadback_i", "classSpiDacPorts_1_1SpiDac.html#aa51e7ddfb144d171eed3a5009d6a6ee6", null ],
     [ "IBufP2Ports", "classSpiDacPorts_1_1SpiDac.html#ad60196fb461e8a9b57fe678f31b93b1e", null ],
     [ "LastSpiXferComplete", "classSpiDacPorts_1_1SpiDac.html#aea05eba3d1b6dd1132679b0320691b5a", null ],

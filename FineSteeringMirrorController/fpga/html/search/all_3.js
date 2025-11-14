@@ -19,5 +19,7 @@ var searchData=
   ['buildtime_16',['BuildTime',['../classBuildNumberPorts_1_1BuildNumber.html#a377556e8773e8507e445839022945128',1,'BuildNumberPorts::BuildNumber']]],
   ['busy_17',['busy',['../classUartTx.html#a4d860705081b50dbae7aecb4c15240fa',1,'UartTx.Busy'],['../classUartTxParity.html#a4d860705081b50dbae7aecb4c15240fa',1,'UartTxParity.Busy']]],
   ['busy_5fi_18',['Busy_i',['../classUartTx_1_1Behaviour.html#ab4e28a46781917e9a820a8958c14bbad',1,'UartTx::Behaviour']]],
-  ['byte_5fwidth_19',['byte_width',['../classSpiMasterPorts.html#ab8ff57af1ccdcbcd9c538aa3d276a2a9',1,'SpiMasterPorts.BYTE_WIDTH'],['../classSpiMasterDualPorts.html#ab8ff57af1ccdcbcd9c538aa3d276a2a9',1,'SpiMasterDualPorts.BYTE_WIDTH'],['../classSpiMasterQuadPorts.html#ab8ff57af1ccdcbcd9c538aa3d276a2a9',1,'SpiMasterQuadPorts.BYTE_WIDTH'],['../classSpiMasterTrioPorts.html#ab8ff57af1ccdcbcd9c538aa3d276a2a9',1,'SpiMasterTrioPorts.BYTE_WIDTH']]]
+  ['byte_5fwidth_19',['byte_width',['../classSpiMasterPorts.html#ab8ff57af1ccdcbcd9c538aa3d276a2a9',1,'SpiMasterPorts.BYTE_WIDTH'],['../classSpiMasterDualPorts.html#ab8ff57af1ccdcbcd9c538aa3d276a2a9',1,'SpiMasterDualPorts.BYTE_WIDTH'],['../classSpiMasterQuadPorts.html#ab8ff57af1ccdcbcd9c538aa3d276a2a9',1,'SpiMasterQuadPorts.BYTE_WIDTH'],['../classSpiMasterTrioPorts.html#ab8ff57af1ccdcbcd9c538aa3d276a2a9',1,'SpiMasterTrioPorts.BYTE_WIDTH']]],
+  ['bytein_20',['bytein',['../classPeekRam.html#a62f3af5cff1ba971976e853e4c0ca086',1,'PeekRam.ByteIn'],['../classPeekRingBuffer.html#a62f3af5cff1ba971976e853e4c0ca086',1,'PeekRingBuffer.ByteIn']]],
+  ['byteout_21',['byteout',['../classPeekRam.html#a08eca18cc3bcc2f71ce482f157922685',1,'PeekRam.ByteOut'],['../classPeekRingBuffer.html#a08eca18cc3bcc2f71ce482f157922685',1,'PeekRingBuffer.ByteOut']]]
 ];
