@@ -204,16 +204,16 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a02ec8a7b9d30c072a18d9468729d44ed" id="r_a02ec8a7b9d30c072a18d9468729d44ed"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBinaryUartRingBuffer.html#a02ec8a7b9d30c072a18d9468729d44ed">SerialNum</a></td></tr>
 <tr class="memdesc:a02ec8a7b9d30c072a18d9468729d44ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serial number for validating received packets.  <br /></td></tr>
 <tr class="separator:a02ec8a7b9d30c072a18d9468729d44ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7f34730c00a67e09e9b23ef9b4ca79c" id="r_ac7f34730c00a67e09e9b23ef9b4ca79c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBinaryUartRingBuffer.html#ac7f34730c00a67e09e9b23ef9b4ca79c">LastDataLen</a></td></tr>
-<tr class="separator:ac7f34730c00a67e09e9b23ef9b4ca79c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20672925c9a27118e19ad61e5c3b57dd" id="r_a20672925c9a27118e19ad61e5c3b57dd"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBinaryUartRingBuffer.html#a20672925c9a27118e19ad61e5c3b57dd">LastDataPos</a></td></tr>
+<tr class="separator:a20672925c9a27118e19ad61e5c3b57dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef23c733ac4722048a4164f220104deb" id="r_aef23c733ac4722048a4164f220104deb"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBinaryUartRingBuffer.html#aef23c733ac4722048a4164f220104deb">PacketSearchedPos</a></td></tr>
 <tr class="separator:aef23c733ac4722048a4164f220104deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a9b5cbe52636190c0c918dc3d67f9b9fa" id="r_a9b5cbe52636190c0c918dc3d67f9b9fa"><td class="memItemLeft" align="right" valign="top">static const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBinaryUartRingBuffer.html#a9b5cbe52636190c0c918dc3d67f9b9fa">LastDataLenInit</a> = 0</td></tr>
-<tr class="memdesc:a9b5cbe52636190c0c918dc3d67f9b9fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial count for received bytes.  <br /></td></tr>
-<tr class="separator:a9b5cbe52636190c0c918dc3d67f9b9fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31617f4128a5aad7028dfe308501943b" id="r_a31617f4128a5aad7028dfe308501943b"><td class="memItemLeft" align="right" valign="top">static const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBinaryUartRingBuffer.html#a31617f4128a5aad7028dfe308501943b">LastDataPosInit</a> = 0</td></tr>
+<tr class="memdesc:a31617f4128a5aad7028dfe308501943b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial count for received bytes.  <br /></td></tr>
+<tr class="separator:a31617f4128a5aad7028dfe308501943b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a687f7b853ccd6e5296c6c0e8825d8936" id="r_a687f7b853ccd6e5296c6c0e8825d8936"><td class="memItemLeft" align="right" valign="top">static const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBinaryUartRingBuffer.html#a687f7b853ccd6e5296c6c0e8825d8936">PacketStartPosInit</a> = 0</td></tr>
 <tr class="separator:a687f7b853ccd6e5296c6c0e8825d8936"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a221e844c07b5c2ac97a9c1c177e350d6" id="r_a221e844c07b5c2ac97a9c1c177e350d6"><td class="memItemLeft" align="right" valign="top">static const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBinaryUartRingBuffer.html#a221e844c07b5c2ac97a9c1c177e350d6">PacketLenInit</a> = 0</td></tr>
@@ -343,11 +343,11 @@ Here is the call graph for this function:</div>
 <area shape="rect" title="Constructs a BinaryUartRingBuffer object and initializes with given parameters." alt="" coords="5,79,173,119"/>
 <area shape="rect" href="structBinaryUartRingBuffer.html#a9d3ed2b44ec21d65c57d829c5e680a90" title="Initializes the BinaryUartRingBuffer." alt="" coords="221,79,381,119"/>
 <area shape="poly" title=" " alt="" coords="173,97,208,97,208,102,173,102"/>
-<area shape="rect" href="classIPacket.html#a3eda6e6dc43f5356d4eae88692e9787b" title=" " alt="" coords="439,5,579,31"/>
+<area shape="rect" href="classIPacket.html#aae378234fa6b67186eea047ed0bda774" title=" " alt="" coords="439,5,579,31"/>
 <area shape="poly" title=" " alt="" coords="344,77,428,41,452,33,454,38,430,46,346,82"/>
 <area shape="rect" href="structBinaryUartRingBuffer.html#a48fc25a5fa1d18865677d1d76afdce0c" title=" " alt="" coords="429,79,589,119"/>
 <area shape="poly" title=" " alt="" coords="381,97,415,97,415,102,381,102"/>
-<area shape="rect" href="classIPacket.html#a2f0acb1e8c31c1449ac6c32dcf1f4757" title=" " alt="" coords="436,144,583,169"/>
+<area shape="rect" href="classIPacket.html#ad2ae0d8eb688d7987e63f438b007713c" title=" " alt="" coords="436,144,583,169"/>
 <area shape="poly" title=" " alt="" coords="375,117,450,138,448,143,374,122"/>
 <area shape="poly" title=" " alt="" coords="471,80,468,70,475,61,488,55,509,53,533,56,547,63,544,68,532,61,509,58,490,60,478,65,474,71,476,78"/>
 <area shape="rect" href="structFpgaRingBufferCrcer.html#a2dfeca9b124ecfa266e31a3db6926bfe" title=" " alt="" coords="637,50,793,90"/>
@@ -443,11 +443,11 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00417">417</a> of file <a class="el" href="BinaryUartRingBuffer_8hpp_source.html">BinaryUartRingBuffer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00421">421</a> of file <a class="el" href="BinaryUartRingBuffer_8hpp_source.html">BinaryUartRingBuffer.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00058">Crcer</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00057">Data</a>, <a class="el" href="CGraphCommon_8hpp_source.html#l00152">FpgaRingBufferCrcer::formatf()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00417">formatf()</a>, <a class="el" href="classIArray.html#a68e709c92213082ae4ffcb7c68d5e754">IArray::formatf()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00065">InPacket</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00072">LastDataLen</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00066">PacketStartPos</a>.</p>
+<p class="reference">References <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00058">Crcer</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00057">Data</a>, <a class="el" href="CGraphCommon_8hpp_source.html#l00154">FpgaRingBufferCrcer::formatf()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00421">formatf()</a>, <a class="el" href="classIArray.html#a68e709c92213082ae4ffcb7c68d5e754">IArray::formatf()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00065">InPacket</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00072">LastDataPos</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00066">PacketStartPos</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00417">formatf()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00130">Init()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">Process()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00393">TxBinaryPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00421">formatf()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00130">Init()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">Process()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00397">TxBinaryPacket()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -518,7 +518,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00130">130</a> of file <a class="el" href="BinaryUartRingBuffer_8hpp_source.html">BinaryUartRingBuffer.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00064">debug</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00070">FooterLen</a>, <a class="el" href="classIPacket.html#a3eda6e6dc43f5356d4eae88692e9787b">IPacket::FooterLen()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00046">FooterLenInit</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00417">formatf()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00069">HeaderLen</a>, <a class="el" href="classIPacket.html#a2f0acb1e8c31c1449ac6c32dcf1f4757">IPacket::HeaderLen()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00045">HeaderLenInit</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00065">InPacket</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00047">InPacketInit</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00072">LastDataLen</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00059">Packet</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00067">PacketLen</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00043">PacketLenInit</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00073">PacketSearchedPos</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00066">PacketStartPos</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00042">PacketStartPosInit</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00068">PayloadLen</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00044">PayloadLenInit</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00071">SerialNum</a>.</p>
+<p class="reference">References <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00064">debug</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00070">FooterLen</a>, <a class="el" href="classIPacket.html#aae378234fa6b67186eea047ed0bda774">IPacket::FooterLen()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00046">FooterLenInit</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00421">formatf()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00069">HeaderLen</a>, <a class="el" href="classIPacket.html#ad2ae0d8eb688d7987e63f438b007713c">IPacket::HeaderLen()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00045">HeaderLenInit</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00065">InPacket</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00047">InPacketInit</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00072">LastDataPos</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00059">Packet</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00067">PacketLen</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00043">PacketLenInit</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00073">PacketSearchedPos</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00066">PacketStartPos</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00042">PacketStartPosInit</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00068">PayloadLen</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00044">PayloadLenInit</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00071">SerialNum</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00086">BinaryUartRingBuffer()</a>.</p>
 <div class="dynheader">
@@ -527,11 +527,11 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="structBinaryUartRingBuffer_a9d3ed2b44ec21d65c57d829c5e680a90_cgraph.png" border="0" usemap="#astructBinaryUartRingBuffer_a9d3ed2b44ec21d65c57d829c5e680a90_cgraph" alt=""/></div>
 <map name="astructBinaryUartRingBuffer_a9d3ed2b44ec21d65c57d829c5e680a90_cgraph" id="astructBinaryUartRingBuffer_a9d3ed2b44ec21d65c57d829c5e680a90_cgraph">
 <area shape="rect" title="Initializes the BinaryUartRingBuffer." alt="" coords="5,79,165,119"/>
-<area shape="rect" href="classIPacket.html#a3eda6e6dc43f5356d4eae88692e9787b" title=" " alt="" coords="223,5,363,31"/>
+<area shape="rect" href="classIPacket.html#aae378234fa6b67186eea047ed0bda774" title=" " alt="" coords="223,5,363,31"/>
 <area shape="poly" title=" " alt="" coords="128,77,212,41,236,33,238,38,214,46,130,82"/>
 <area shape="rect" href="structBinaryUartRingBuffer.html#a48fc25a5fa1d18865677d1d76afdce0c" title=" " alt="" coords="213,79,373,119"/>
 <area shape="poly" title=" " alt="" coords="165,97,199,97,199,102,165,102"/>
-<area shape="rect" href="classIPacket.html#a2f0acb1e8c31c1449ac6c32dcf1f4757" title=" " alt="" coords="220,144,367,169"/>
+<area shape="rect" href="classIPacket.html#ad2ae0d8eb688d7987e63f438b007713c" title=" " alt="" coords="220,144,367,169"/>
 <area shape="poly" title=" " alt="" coords="159,117,234,138,232,143,158,122"/>
 <area shape="poly" title=" " alt="" coords="255,80,252,70,259,61,272,55,293,53,317,56,331,63,328,68,316,61,293,58,274,60,262,65,258,71,260,78"/>
 <area shape="rect" href="structFpgaRingBufferCrcer.html#a2dfeca9b124ecfa266e31a3db6926bfe" title=" " alt="" coords="421,50,577,90"/>
@@ -580,7 +580,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00152">152</a> of file <a class="el" href="BinaryUartRingBuffer_8hpp_source.html">BinaryUartRingBuffer.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00070">FooterLen</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00046">FooterLenInit</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00069">HeaderLen</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00045">HeaderLenInit</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00065">InPacket</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00047">InPacketInit</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00072">LastDataLen</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00067">PacketLen</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00043">PacketLenInit</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00073">PacketSearchedPos</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00066">PacketStartPos</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00042">PacketStartPosInit</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00068">PayloadLen</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00044">PayloadLenInit</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00071">SerialNum</a>.</p>
+<p class="reference">References <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00070">FooterLen</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00046">FooterLenInit</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00069">HeaderLen</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00045">HeaderLenInit</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00065">InPacket</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00047">InPacketInit</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00072">LastDataPos</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00067">PacketLen</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00043">PacketLenInit</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00073">PacketSearchedPos</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00066">PacketStartPos</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00042">PacketStartPosInit</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00068">PayloadLen</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00044">PayloadLenInit</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00071">SerialNum</a>.</p>
 
 </div>
 </div>
@@ -613,47 +613,49 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">180</a> of file <a class="el" href="BinaryUartRingBuffer_8hpp_source.html">BinaryUartRingBuffer.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00063">Callbacks</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00061">Cmds</a>, <a class="el" href="classIArray.html#a3d805f4634fcf5b48700bda5eb1e50eb">IArray::CopyToFlatBuffer()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00058">Crcer</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00057">Data</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00064">debug</a>, <a class="el" href="classIArray.html#adaa8246ec4ac3f276d887bda6cb45b52">IArray::Depth()</a>, <a class="el" href="classIPacket.html#a6db60bf5beb402e644ccc323e0fb4b03">IPacket::DoesPayloadTypeMatch()</a>, <a class="el" href="classIPacket.html#a34df321aa405fc8b75b43d89b955004f">IPacket::EndTokenLen()</a>, <a class="el" href="classIPacket.html#ac7c686a76164a3f61268ae04baadae51">IPacket::FindPacketEndPos()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00070">FooterLen</a>, <a class="el" href="classIPacket.html#a3eda6e6dc43f5356d4eae88692e9787b">IPacket::FooterLen()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00417">formatf()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00069">HeaderLen</a>, <a class="el" href="classIPacket.html#a2f0acb1e8c31c1449ac6c32dcf1f4757">IPacket::HeaderLen()</a>, <a class="el" href="classIPacket.html#ae508735aa416afc0e8cb2a10f96006e8">IPacket::IsValid()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00072">LastDataLen</a>, <a class="el" href="CmdSystem_8hpp_source.html#l00054">BinaryCmd::Name</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00062">NumCmds</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00059">Packet</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00054">PacketEndPos</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00066">PacketStartPos</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00068">PayloadLen</a>, <a class="el" href="classIPacket.html#ae1f269523fdd7b923e6600c46d93a94f">IPacket::PayloadLen()</a>, <a class="el" href="classIPacket.html#ace74729172ff26454c90e09d5e48784e">IPacket::PayloadType()</a>, <a class="el" href="classIArray.html#a84a9cfca818456199456925f349feb03">IArray::PopMany()</a>, <a class="el" href="CmdSystem_8hpp_source.html#l00056">BinaryCmd::Response</a>, <a class="el" href="classIPacket.html#ae5ec2ec95d04f13049e107741eea6f46">IPacket::ReverseFindPacketStartPos()</a>, and <a class="el" href="BinaryUart_8h_source.html#l00028">BinaryUartCallbacks::UnHandledPacket()</a>.</p>
+<p class="reference">References <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00063">Callbacks</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00061">Cmds</a>, <a class="el" href="classIArray.html#a3d805f4634fcf5b48700bda5eb1e50eb">IArray::CopyToFlatBuffer()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00058">Crcer</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00057">Data</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00064">debug</a>, <a class="el" href="classIPacket.html#a6db60bf5beb402e644ccc323e0fb4b03">IPacket::DoesPayloadTypeMatch()</a>, <a class="el" href="classIPacket.html#a5020a3536b5d0a8c6773e37ecb67b58a">IPacket::EndTokenLen()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00070">FooterLen</a>, <a class="el" href="classIPacket.html#aae378234fa6b67186eea047ed0bda774">IPacket::FooterLen()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00421">formatf()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00069">HeaderLen</a>, <a class="el" href="classIPacket.html#ad2ae0d8eb688d7987e63f438b007713c">IPacket::HeaderLen()</a>, <a class="el" href="classIPacket.html#ae508735aa416afc0e8cb2a10f96006e8">IPacket::IsValid()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00072">LastDataPos</a>, <a class="el" href="classIArray.html#a58894d86576a9b339c17771f0ca0eecc">IArray::MaxDepth()</a>, <a class="el" href="CmdSystem_8hpp_source.html#l00054">BinaryCmd::Name</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00062">NumCmds</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00059">Packet</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00054">PacketEndPos</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00066">PacketStartPos</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00068">PayloadLen</a>, <a class="el" href="classIPacket.html#ae1f269523fdd7b923e6600c46d93a94f">IPacket::PayloadLen()</a>, <a class="el" href="classIPacket.html#ace74729172ff26454c90e09d5e48784e">IPacket::PayloadType()</a>, <a class="el" href="classIArray.html#a84a9cfca818456199456925f349feb03">IArray::PopMany()</a>, <a class="el" href="CmdSystem_8hpp_source.html#l00056">BinaryCmd::Response</a>, <a class="el" href="classIPacket.html#a5ed9c692bff18b992af1f458069e3b1c">IPacket::ReverseFindPacketEndPos()</a>, <a class="el" href="classIPacket.html#ae5ec2ec95d04f13049e107741eea6f46">IPacket::ReverseFindPacketStartPos()</a>, <a class="el" href="BinaryUart_8h_source.html#l00028">BinaryUartCallbacks::UnHandledPacket()</a>, and <a class="el" href="classIArray.html#a062c2527d9a5f63a2643721b37a50274">IArray::WritePos()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="structBinaryUartRingBuffer_a09efe6a5785ee86ced2471f020960fc7_cgraph.png" border="0" usemap="#astructBinaryUartRingBuffer_a09efe6a5785ee86ced2471f020960fc7_cgraph" alt=""/></div>
 <map name="astructBinaryUartRingBuffer_a09efe6a5785ee86ced2471f020960fc7_cgraph" id="astructBinaryUartRingBuffer_a09efe6a5785ee86ced2471f020960fc7_cgraph">
-<area shape="rect" title="Processes incoming data and checks for new packets." alt="" coords="5,371,165,411"/>
+<area shape="rect" title="Processes incoming data and checks for new packets." alt="" coords="5,399,165,439"/>
 <area shape="rect" href="classIArray.html#a3d805f4634fcf5b48700bda5eb1e50eb" title=" " alt="" coords="223,5,402,31"/>
-<area shape="poly" title=" " alt="" coords="85,371,92,307,111,218,128,169,149,122,177,78,211,40,216,36,220,40,215,44,181,81,154,125,133,171,117,219,97,308,90,371"/>
-<area shape="rect" href="classIArray.html#adaa8246ec4ac3f276d887bda6cb45b52" title=" " alt="" coords="259,55,366,80"/>
-<area shape="poly" title=" " alt="" coords="86,371,97,315,118,239,135,199,155,159,181,123,212,91,228,80,245,73,247,78,230,85,215,95,185,126,160,162,140,201,123,241,102,316,92,372"/>
-<area shape="rect" href="classIPacket.html#a6db60bf5beb402e644ccc323e0fb4b03" title=" " alt="" coords="217,105,408,145"/>
-<area shape="poly" title=" " alt="" coords="89,370,104,326,128,268,164,207,186,179,212,155,218,150,221,154,215,159,190,183,168,210,133,270,109,328,95,372"/>
-<area shape="rect" href="classIPacket.html#a34df321aa405fc8b75b43d89b955004f" title=" " alt="" coords="233,169,393,195"/>
-<area shape="poly" title=" " alt="" coords="92,370,109,334,135,289,169,243,212,204,221,198,224,203,215,208,173,246,139,292,114,336,97,372"/>
-<area shape="rect" href="classIPacket.html#ac7c686a76164a3f61268ae04baadae51" title=" " alt="" coords="217,219,409,244"/>
-<area shape="poly" title=" " alt="" coords="98,370,143,311,175,280,212,253,225,247,227,251,215,258,179,284,147,315,102,373"/>
-<area shape="rect" href="classIPacket.html#a3eda6e6dc43f5356d4eae88692e9787b" title=" " alt="" coords="243,268,383,293"/>
-<area shape="poly" title=" " alt="" coords="109,369,155,336,212,304,235,295,237,300,214,308,158,340,112,373"/>
-<area shape="rect" href="structBinaryUartRingBuffer.html#a48fc25a5fa1d18865677d1d76afdce0c" title=" " alt="" coords="233,342,393,382"/>
-<area shape="poly" title=" " alt="" coords="166,378,219,371,219,377,166,384"/>
-<area shape="rect" href="classIPacket.html#a2f0acb1e8c31c1449ac6c32dcf1f4757" title=" " alt="" coords="239,407,386,432"/>
-<area shape="poly" title=" " alt="" coords="166,399,226,406,225,411,166,404"/>
-<area shape="rect" href="classIPacket.html#ae508735aa416afc0e8cb2a10f96006e8" title=" " alt="" coords="253,456,372,481"/>
-<area shape="poly" title=" " alt="" coords="131,409,214,442,241,450,239,455,212,447,129,414"/>
-<area shape="rect" href="classIPacket.html#ae1f269523fdd7b923e6600c46d93a94f" title=" " alt="" coords="237,505,388,531"/>
-<area shape="poly" title=" " alt="" coords="108,410,154,451,183,473,215,492,230,498,228,503,212,496,180,478,151,456,104,413"/>
-<area shape="rect" href="classIPacket.html#ace74729172ff26454c90e09d5e48784e" title=" " alt="" coords="234,555,391,580"/>
-<area shape="poly" title=" " alt="" coords="100,410,144,475,177,511,215,541,226,547,223,552,212,546,173,515,140,479,96,413"/>
-<area shape="rect" href="classIArray.html#a84a9cfca818456199456925f349feb03" title=" " alt="" coords="249,604,377,629"/>
-<area shape="poly" title=" " alt="" coords="96,411,112,449,137,498,171,548,192,571,215,590,237,602,235,607,212,595,188,575,167,552,132,501,107,452,91,413"/>
-<area shape="rect" href="classIPacket.html#ae5ec2ec95d04f13049e107741eea6f46" title=" " alt="" coords="213,654,412,694"/>
-<area shape="poly" title=" " alt="" coords="94,411,107,458,131,519,167,584,189,614,215,640,221,644,217,649,212,644,185,617,162,587,126,522,102,459,89,412"/>
-<area shape="rect" href="structBinaryUartCallbacks.html#a2ef2d961f39fd01758fb0f21f5850bda" title=" " alt="" coords="235,718,390,758"/>
-<area shape="poly" title=" " alt="" coords="92,411,101,469,123,547,139,590,159,631,185,670,215,704,225,712,222,716,212,708,180,673,155,634,134,592,118,549,96,470,86,412"/>
-<area shape="poly" title=" " alt="" coords="271,342,268,332,275,323,290,317,313,315,339,318,353,325,351,330,337,323,313,321,291,323,278,327,273,333,276,341"/>
-<area shape="rect" href="structFpgaRingBufferCrcer.html#a2dfeca9b124ecfa266e31a3db6926bfe" title=" " alt="" coords="460,314,616,354"/>
-<area shape="poly" title=" " alt="" coords="393,349,446,343,447,348,393,355"/>
-<area shape="rect" href="classIArray.html#a68e709c92213082ae4ffcb7c68d5e754" title=" " alt="" coords="479,379,597,404"/>
-<area shape="poly" title=" " alt="" coords="393,370,466,379,466,385,393,375"/>
-<area shape="poly" title=" " alt="" coords="496,314,494,304,500,295,515,289,538,287,564,290,578,297,576,302,563,295,538,293,516,295,504,299,499,305,501,313"/>
+<area shape="poly" title=" " alt="" coords="84,399,90,331,108,234,124,182,146,131,175,83,211,41,219,35,222,40,215,45,179,86,151,133,129,184,114,236,95,331,90,399"/>
+<area shape="rect" href="classIPacket.html#a6db60bf5beb402e644ccc323e0fb4b03" title=" " alt="" coords="217,55,408,95"/>
+<area shape="poly" title=" " alt="" coords="86,399,96,342,118,263,134,221,155,179,181,140,211,105,217,101,220,105,215,109,185,143,160,182,139,223,123,265,102,343,92,400"/>
+<area shape="rect" href="classIPacket.html#a5020a3536b5d0a8c6773e37ecb67b58a" title=" " alt="" coords="233,120,393,145"/>
+<area shape="poly" title=" " alt="" coords="88,399,100,349,123,283,159,214,183,182,212,155,219,150,222,154,215,159,187,185,164,216,128,285,105,350,93,400"/>
+<area shape="rect" href="classIPacket.html#aae378234fa6b67186eea047ed0bda774" title=" " alt="" coords="243,169,383,195"/>
+<area shape="poly" title=" " alt="" coords="90,398,106,357,131,305,166,251,187,226,212,205,229,195,231,200,215,209,191,230,170,254,135,307,111,359,95,400"/>
+<area shape="rect" href="structBinaryUartRingBuffer.html#a48fc25a5fa1d18865677d1d76afdce0c" title=" " alt="" coords="233,243,393,283"/>
+<area shape="poly" title=" " alt="" coords="101,397,147,346,178,319,212,294,226,287,229,291,215,299,181,323,151,350,105,401"/>
+<area shape="rect" href="classIPacket.html#ad2ae0d8eb688d7987e63f438b007713c" title=" " alt="" coords="239,308,386,333"/>
+<area shape="poly" title=" " alt="" coords="115,397,160,370,212,344,237,335,239,340,214,348,162,374,118,401"/>
+<area shape="rect" href="classIPacket.html#ae508735aa416afc0e8cb2a10f96006e8" title=" " alt="" coords="253,357,372,383"/>
+<area shape="poly" title=" " alt="" coords="165,399,239,383,240,388,166,405"/>
+<area shape="rect" href="classIArray.html#a58894d86576a9b339c17771f0ca0eecc" title=" " alt="" coords="245,407,380,432"/>
+<area shape="poly" title=" " alt="" coords="166,417,231,417,231,422,166,422"/>
+<area shape="rect" href="classIPacket.html#ae1f269523fdd7b923e6600c46d93a94f" title=" " alt="" coords="237,456,388,481"/>
+<area shape="poly" title=" " alt="" coords="166,434,240,450,239,456,165,439"/>
+<area shape="rect" href="classIPacket.html#ace74729172ff26454c90e09d5e48784e" title=" " alt="" coords="234,505,391,531"/>
+<area shape="poly" title=" " alt="" coords="117,437,161,465,214,492,235,499,234,504,212,496,159,470,114,442"/>
+<area shape="rect" href="classIArray.html#a84a9cfca818456199456925f349feb03" title=" " alt="" coords="249,555,377,580"/>
+<area shape="poly" title=" " alt="" coords="103,438,149,490,180,518,215,541,236,551,234,556,212,546,177,522,146,494,99,441"/>
+<area shape="rect" href="classIPacket.html#a5ed9c692bff18b992af1f458069e3b1c" title=" " alt="" coords="213,605,412,645"/>
+<area shape="poly" title=" " alt="" coords="99,438,116,472,142,513,175,554,215,591,223,596,220,600,212,595,171,558,138,516,112,474,94,441"/>
+<area shape="rect" href="classIPacket.html#ae5ec2ec95d04f13049e107741eea6f46" title=" " alt="" coords="213,669,412,709"/>
+<area shape="poly" title=" " alt="" coords="94,439,109,483,133,541,168,602,190,630,215,655,221,659,218,664,212,659,186,634,164,605,128,544,104,485,89,440"/>
+<area shape="rect" href="structBinaryUartCallbacks.html#a2ef2d961f39fd01758fb0f21f5850bda" title=" " alt="" coords="235,733,390,773"/>
+<area shape="poly" title=" " alt="" coords="92,439,103,494,124,570,141,610,161,649,186,686,215,719,225,726,222,730,212,723,181,690,156,652,136,612,119,571,97,496,87,440"/>
+<area shape="rect" href="classIArray.html#a062c2527d9a5f63a2643721b37a50274" title=" " alt="" coords="249,797,376,823"/>
+<area shape="poly" title=" " alt="" coords="90,439,96,505,115,598,131,648,152,697,180,743,215,783,238,797,235,801,212,787,176,746,148,700,126,650,110,600,91,506,85,440"/>
+<area shape="poly" title=" " alt="" coords="271,244,268,234,275,224,290,219,313,217,339,220,353,227,351,232,337,225,313,222,291,224,278,229,273,235,276,242"/>
+<area shape="rect" href="structFpgaRingBufferCrcer.html#a2dfeca9b124ecfa266e31a3db6926bfe" title=" " alt="" coords="460,215,616,255"/>
+<area shape="poly" title=" " alt="" coords="393,251,446,244,447,249,393,256"/>
+<area shape="rect" href="classIArray.html#a68e709c92213082ae4ffcb7c68d5e754" title=" " alt="" coords="479,280,597,305"/>
+<area shape="poly" title=" " alt="" coords="393,271,466,281,466,286,393,276"/>
+<area shape="poly" title=" " alt="" coords="496,216,494,206,500,196,515,191,538,189,564,192,578,199,576,204,563,197,538,194,516,196,504,201,499,207,501,214"/>
 </map>
 </div>
 
@@ -719,9 +721,9 @@ Here is the call graph for this function:</div>
 <p>&lt; Temporary buffer to hold the constructed packet</p>
 <p>&lt; Build packet</p>
 
-<p class="definition">Definition at line <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00393">393</a> of file <a class="el" href="BinaryUartRingBuffer_8hpp_source.html">BinaryUartRingBuffer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00397">397</a> of file <a class="el" href="BinaryUartRingBuffer_8hpp_source.html">BinaryUartRingBuffer.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00064">debug</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00417">formatf()</a>, <a class="el" href="classIPacket.html#aa50e563805822827057ebb7f7e99e6c2">IPacket::MakePacket()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00059">Packet</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00008">PayloadData()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00001">PayloadType</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00060">Pinout</a>, <a class="el" href="classIBlockDevice.html#ad39b17f94bce369e286ce4f0585ad7bc">IBlockDevice::puts()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00051">TxBufferLenBytes</a>.</p>
+<p class="reference">References <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00064">debug</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00421">formatf()</a>, <a class="el" href="classIPacket.html#aa50e563805822827057ebb7f7e99e6c2">IPacket::MakePacket()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00059">Packet</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00008">PayloadData()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00001">PayloadType</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00060">Pinout</a>, <a class="el" href="classIBlockDevice.html#ad39b17f94bce369e286ce4f0585ad7bc">IBlockDevice::puts()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00051">TxBufferLenBytes</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -800,7 +802,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00058">58</a> of file <a class="el" href="BinaryUartRingBuffer_8hpp_source.html">BinaryUartRingBuffer.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00417">formatf()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00421">formatf()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">Process()</a>.</p>
 
 </div>
 </div>
@@ -818,7 +820,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00057">57</a> of file <a class="el" href="BinaryUartRingBuffer_8hpp_source.html">BinaryUartRingBuffer.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00417">formatf()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00421">formatf()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">Process()</a>.</p>
 
 </div>
 </div>
@@ -836,7 +838,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00064">64</a> of file <a class="el" href="BinaryUartRingBuffer_8hpp_source.html">BinaryUartRingBuffer.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00118">Debug()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00113">Debug()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00130">Init()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">Process()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00393">TxBinaryPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00118">Debug()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00113">Debug()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00130">Init()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">Process()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00397">TxBinaryPacket()</a>.</p>
 
 </div>
 </div>
@@ -994,7 +996,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00065">65</a> of file <a class="el" href="BinaryUartRingBuffer_8hpp_source.html">BinaryUartRingBuffer.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00417">formatf()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00130">Init()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00152">InitFast()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00421">formatf()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00130">Init()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00152">InitFast()</a>.</p>
 
 </div>
 </div>
@@ -1050,26 +1052,26 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="ac7f34730c00a67e09e9b23ef9b4ca79c" name="ac7f34730c00a67e09e9b23ef9b4ca79c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7f34730c00a67e09e9b23ef9b4ca79c">&#9670;&#160;</a></span>LastDataLen</h2>
+<a id="a20672925c9a27118e19ad61e5c3b57dd" name="a20672925c9a27118e19ad61e5c3b57dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20672925c9a27118e19ad61e5c3b57dd">&#9670;&#160;</a></span>LastDataPos</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t BinaryUartRingBuffer::LastDataLen</td>
+          <td class="memname">uint32_t BinaryUartRingBuffer::LastDataPos</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00072">72</a> of file <a class="el" href="BinaryUartRingBuffer_8hpp_source.html">BinaryUartRingBuffer.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00417">formatf()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00130">Init()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00152">InitFast()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00421">formatf()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00130">Init()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00152">InitFast()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">Process()</a>.</p>
 
 </div>
 </div>
-<a id="a9b5cbe52636190c0c918dc3d67f9b9fa" name="a9b5cbe52636190c0c918dc3d67f9b9fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b5cbe52636190c0c918dc3d67f9b9fa">&#9670;&#160;</a></span>LastDataLenInit</h2>
+<a id="a31617f4128a5aad7028dfe308501943b" name="a31617f4128a5aad7028dfe308501943b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31617f4128a5aad7028dfe308501943b">&#9670;&#160;</a></span>LastDataPosInit</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1078,7 +1080,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const uint16_t BinaryUartRingBuffer::LastDataLenInit = 0</td>
+          <td class="memname">const uint16_t BinaryUartRingBuffer::LastDataPosInit = 0</td>
         </tr>
       </table>
   </td>
@@ -1128,7 +1130,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00059">59</a> of file <a class="el" href="BinaryUartRingBuffer_8hpp_source.html">BinaryUartRingBuffer.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00130">Init()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">Process()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00393">TxBinaryPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00130">Init()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">Process()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00397">TxBinaryPacket()</a>.</p>
 
 </div>
 </div>
@@ -1228,7 +1230,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00066">66</a> of file <a class="el" href="BinaryUartRingBuffer_8hpp_source.html">BinaryUartRingBuffer.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00417">formatf()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00130">Init()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00152">InitFast()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00421">formatf()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00130">Init()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00152">InitFast()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">Process()</a>.</p>
 
 </div>
 </div>
@@ -1316,7 +1318,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00060">60</a> of file <a class="el" href="BinaryUartRingBuffer_8hpp_source.html">BinaryUartRingBuffer.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00393">TxBinaryPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00397">TxBinaryPacket()</a>.</p>
 
 </div>
 </div>
@@ -1362,7 +1364,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00051">51</a> of file <a class="el" href="BinaryUartRingBuffer_8hpp_source.html">BinaryUartRingBuffer.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00393">TxBinaryPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00397">TxBinaryPacket()</a>.</p>
 
 </div>
 </div>
@@ -1375,7 +1377,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structBinaryUartRingBuffer.html">BinaryUartRingBuffer</a></li>
-    <li class="footer">Generated on Fri Nov 14 2025 16:40:28 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Nov 19 2025 03:26:14 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

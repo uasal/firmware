@@ -1,37 +1,39 @@
 <map id="BinaryUartRingBuffer::Process" name="BinaryUartRingBuffer::Process">
-<area shape="rect" id="Node000001" title="Processes incoming data and checks for new packets." alt="" coords="5,371,165,411"/>
+<area shape="rect" id="Node000001" title="Processes incoming data and checks for new packets." alt="" coords="5,399,165,439"/>
 <area shape="rect" id="Node000002" href="$classIArray.html#a3d805f4634fcf5b48700bda5eb1e50eb" title=" " alt="" coords="223,5,402,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,371,92,307,111,218,128,169,149,122,177,78,211,40,216,36,220,40,215,44,181,81,154,125,133,171,117,219,97,308,90,371"/>
-<area shape="rect" id="Node000003" href="$classIArray.html#adaa8246ec4ac3f276d887bda6cb45b52" title=" " alt="" coords="259,55,366,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="86,371,97,315,118,239,135,199,155,159,181,123,212,91,228,80,245,73,247,78,230,85,215,95,185,126,160,162,140,201,123,241,102,316,92,372"/>
-<area shape="rect" id="Node000004" href="$classIPacket.html#a6db60bf5beb402e644ccc323e0fb4b03" title=" " alt="" coords="217,105,408,145"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="89,370,104,326,128,268,164,207,186,179,212,155,218,150,221,154,215,159,190,183,168,210,133,270,109,328,95,372"/>
-<area shape="rect" id="Node000005" href="$classIPacket.html#a34df321aa405fc8b75b43d89b955004f" title=" " alt="" coords="233,169,393,195"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="92,370,109,334,135,289,169,243,212,204,221,198,224,203,215,208,173,246,139,292,114,336,97,372"/>
-<area shape="rect" id="Node000006" href="$classIPacket.html#ac7c686a76164a3f61268ae04baadae51" title=" " alt="" coords="217,219,409,244"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="98,370,143,311,175,280,212,253,225,247,227,251,215,258,179,284,147,315,102,373"/>
-<area shape="rect" id="Node000007" href="$classIPacket.html#a3eda6e6dc43f5356d4eae88692e9787b" title=" " alt="" coords="243,268,383,293"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="109,369,155,336,212,304,235,295,237,300,214,308,158,340,112,373"/>
-<area shape="rect" id="Node000008" href="$structBinaryUartRingBuffer.html#a48fc25a5fa1d18865677d1d76afdce0c" title=" " alt="" coords="233,342,393,382"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="166,378,219,371,219,377,166,384"/>
-<area shape="rect" id="Node000011" href="$classIPacket.html#a2f0acb1e8c31c1449ac6c32dcf1f4757" title=" " alt="" coords="239,407,386,432"/>
-<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="166,399,226,406,225,411,166,404"/>
-<area shape="rect" id="Node000012" href="$classIPacket.html#ae508735aa416afc0e8cb2a10f96006e8" title=" " alt="" coords="253,456,372,481"/>
-<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="131,409,214,442,241,450,239,455,212,447,129,414"/>
-<area shape="rect" id="Node000013" href="$classIPacket.html#ae1f269523fdd7b923e6600c46d93a94f" title=" " alt="" coords="237,505,388,531"/>
-<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="108,410,154,451,183,473,215,492,230,498,228,503,212,496,180,478,151,456,104,413"/>
-<area shape="rect" id="Node000014" href="$classIPacket.html#ace74729172ff26454c90e09d5e48784e" title=" " alt="" coords="234,555,391,580"/>
-<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="100,410,144,475,177,511,215,541,226,547,223,552,212,546,173,515,140,479,96,413"/>
-<area shape="rect" id="Node000015" href="$classIArray.html#a84a9cfca818456199456925f349feb03" title=" " alt="" coords="249,604,377,629"/>
-<area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="96,411,112,449,137,498,171,548,192,571,215,590,237,602,235,607,212,595,188,575,167,552,132,501,107,452,91,413"/>
-<area shape="rect" id="Node000016" href="$classIPacket.html#ae5ec2ec95d04f13049e107741eea6f46" title=" " alt="" coords="213,654,412,694"/>
-<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="94,411,107,458,131,519,167,584,189,614,215,640,221,644,217,649,212,644,185,617,162,587,126,522,102,459,89,412"/>
-<area shape="rect" id="Node000017" href="$structBinaryUartCallbacks.html#a2ef2d961f39fd01758fb0f21f5850bda" title=" " alt="" coords="235,718,390,758"/>
-<area shape="poly" id="edge18_Node000001_Node000017" title=" " alt="" coords="92,411,101,469,123,547,139,590,159,631,185,670,215,704,225,712,222,716,212,708,180,673,155,634,134,592,118,549,96,470,86,412"/>
-<area shape="poly" id="edge10_Node000008_Node000008" title=" " alt="" coords="271,342,268,332,275,323,290,317,313,315,339,318,353,325,351,330,337,323,313,321,291,323,278,327,273,333,276,341"/>
-<area shape="rect" id="Node000009" href="$structFpgaRingBufferCrcer.html#a2dfeca9b124ecfa266e31a3db6926bfe" title=" " alt="" coords="460,314,616,354"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="393,349,446,343,447,348,393,355"/>
-<area shape="rect" id="Node000010" href="$classIArray.html#a68e709c92213082ae4ffcb7c68d5e754" title=" " alt="" coords="479,379,597,404"/>
-<area shape="poly" id="edge11_Node000008_Node000010" title=" " alt="" coords="393,370,466,379,466,385,393,375"/>
-<area shape="poly" id="edge9_Node000009_Node000009" title=" " alt="" coords="496,314,494,304,500,295,515,289,538,287,564,290,578,297,576,302,563,295,538,293,516,295,504,299,499,305,501,313"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,399,90,331,108,234,124,182,146,131,175,83,211,41,219,35,222,40,215,45,179,86,151,133,129,184,114,236,95,331,90,399"/>
+<area shape="rect" id="Node000003" href="$classIPacket.html#a6db60bf5beb402e644ccc323e0fb4b03" title=" " alt="" coords="217,55,408,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="86,399,96,342,118,263,134,221,155,179,181,140,211,105,217,101,220,105,215,109,185,143,160,182,139,223,123,265,102,343,92,400"/>
+<area shape="rect" id="Node000004" href="$classIPacket.html#a5020a3536b5d0a8c6773e37ecb67b58a" title=" " alt="" coords="233,120,393,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="88,399,100,349,123,283,159,214,183,182,212,155,219,150,222,154,215,159,187,185,164,216,128,285,105,350,93,400"/>
+<area shape="rect" id="Node000005" href="$classIPacket.html#aae378234fa6b67186eea047ed0bda774" title=" " alt="" coords="243,169,383,195"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="90,398,106,357,131,305,166,251,187,226,212,205,229,195,231,200,215,209,191,230,170,254,135,307,111,359,95,400"/>
+<area shape="rect" id="Node000006" href="$structBinaryUartRingBuffer.html#a48fc25a5fa1d18865677d1d76afdce0c" title=" " alt="" coords="233,243,393,283"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="101,397,147,346,178,319,212,294,226,287,229,291,215,299,181,323,151,350,105,401"/>
+<area shape="rect" id="Node000009" href="$classIPacket.html#ad2ae0d8eb688d7987e63f438b007713c" title=" " alt="" coords="239,308,386,333"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="115,397,160,370,212,344,237,335,239,340,214,348,162,374,118,401"/>
+<area shape="rect" id="Node000010" href="$classIPacket.html#ae508735aa416afc0e8cb2a10f96006e8" title=" " alt="" coords="253,357,372,383"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="165,399,239,383,240,388,166,405"/>
+<area shape="rect" id="Node000011" href="$classIArray.html#a58894d86576a9b339c17771f0ca0eecc" title=" " alt="" coords="245,407,380,432"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="166,417,231,417,231,422,166,422"/>
+<area shape="rect" id="Node000012" href="$classIPacket.html#ae1f269523fdd7b923e6600c46d93a94f" title=" " alt="" coords="237,456,388,481"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="166,434,240,450,239,456,165,439"/>
+<area shape="rect" id="Node000013" href="$classIPacket.html#ace74729172ff26454c90e09d5e48784e" title=" " alt="" coords="234,505,391,531"/>
+<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="117,437,161,465,214,492,235,499,234,504,212,496,159,470,114,442"/>
+<area shape="rect" id="Node000014" href="$classIArray.html#a84a9cfca818456199456925f349feb03" title=" " alt="" coords="249,555,377,580"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="103,438,149,490,180,518,215,541,236,551,234,556,212,546,177,522,146,494,99,441"/>
+<area shape="rect" id="Node000015" href="$classIPacket.html#a5ed9c692bff18b992af1f458069e3b1c" title=" " alt="" coords="213,605,412,645"/>
+<area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="99,438,116,472,142,513,175,554,215,591,223,596,220,600,212,595,171,558,138,516,112,474,94,441"/>
+<area shape="rect" id="Node000016" href="$classIPacket.html#ae5ec2ec95d04f13049e107741eea6f46" title=" " alt="" coords="213,669,412,709"/>
+<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="94,439,109,483,133,541,168,602,190,630,215,655,221,659,218,664,212,659,186,634,164,605,128,544,104,485,89,440"/>
+<area shape="rect" id="Node000017" href="$structBinaryUartCallbacks.html#a2ef2d961f39fd01758fb0f21f5850bda" title=" " alt="" coords="235,733,390,773"/>
+<area shape="poly" id="edge18_Node000001_Node000017" title=" " alt="" coords="92,439,103,494,124,570,141,610,161,649,186,686,215,719,225,726,222,730,212,723,181,690,156,652,136,612,119,571,97,496,87,440"/>
+<area shape="rect" id="Node000018" href="$classIArray.html#a062c2527d9a5f63a2643721b37a50274" title=" " alt="" coords="249,797,376,823"/>
+<area shape="poly" id="edge19_Node000001_Node000018" title=" " alt="" coords="90,439,96,505,115,598,131,648,152,697,180,743,215,783,238,797,235,801,212,787,176,746,148,700,126,650,110,600,91,506,85,440"/>
+<area shape="poly" id="edge8_Node000006_Node000006" title=" " alt="" coords="271,244,268,234,275,224,290,219,313,217,339,220,353,227,351,232,337,225,313,222,291,224,278,229,273,235,276,242"/>
+<area shape="rect" id="Node000007" href="$structFpgaRingBufferCrcer.html#a2dfeca9b124ecfa266e31a3db6926bfe" title=" " alt="" coords="460,215,616,255"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="393,251,446,244,447,249,393,256"/>
+<area shape="rect" id="Node000008" href="$classIArray.html#a68e709c92213082ae4ffcb7c68d5e754" title=" " alt="" coords="479,280,597,305"/>
+<area shape="poly" id="edge9_Node000006_Node000008" title=" " alt="" coords="393,271,466,281,466,286,393,276"/>
+<area shape="poly" id="edge7_Node000007_Node000007" title=" " alt="" coords="496,216,494,206,500,196,515,191,538,189,564,192,578,199,576,204,563,197,538,194,516,196,504,201,499,207,501,214"/>
 </map>

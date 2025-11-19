@@ -15,6 +15,7 @@ var CGraphCommon_8hpp =
     [ "CGraphCrcCurrentAddr", "CGraphCommon_8hpp.html#a7b3c30b3daac7e151764ae6881e50e5b", null ],
     [ "CGraphMonitorAdcCommandStatusRegister", "CGraphCommon_8hpp.html#ad39e468348181a5669fb2804b0fa9f55", null ],
     [ "formatf", "CGraphCommon_8hpp.html#a9f573dbd37f866eb7c33792daf23f413", null ],
+    [ "operator=", "CGraphCommon_8hpp.html#a13e1fd232858c560d96f2fe6c587bb88", null ],
     [ "__attribute__", "CGraphCommon_8hpp.html#a200021ef1c3b714cf666f2f984145dd2", null ],
     [ "all", "CGraphCommon_8hpp.html#a7a41c6ef718cad373b525faf8cb8fa7b", null ],
     [ "CrcComplete", "CGraphCommon_8hpp.html#ad9898d280d63c3762c1b33899b238c7b", null ],

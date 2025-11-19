@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['headerlen_0',['headerlen',['../structBinaryUartRingBuffer.html#a7c0dfab977850f87ecc04f047828cee1',1,'BinaryUartRingBuffer::HeaderLen'],['../structBinaryUart.html#a73097595008c1fa47bcc67912bfc5caa',1,'BinaryUart::HeaderLen'],['../classIPacket.html#a2f0acb1e8c31c1449ac6c32dcf1f4757',1,'IPacket::HeaderLen()'],['../classCGraphPacket.html#a429c22fdb47bb3662b3fc2a1a89e24e0',1,'CGraphPacket::HeaderLen()']]],
+  ['headerlen_0',['headerlen',['../structBinaryUartRingBuffer.html#a7c0dfab977850f87ecc04f047828cee1',1,'BinaryUartRingBuffer::HeaderLen'],['../structBinaryUart.html#a73097595008c1fa47bcc67912bfc5caa',1,'BinaryUart::HeaderLen'],['../classIPacket.html#ad2ae0d8eb688d7987e63f438b007713c',1,'IPacket::HeaderLen()'],['../classCGraphPacket.html#aee51261609544a94d5bee02ca36d3f5d',1,'CGraphPacket::HeaderLen()']]],
   ['headerleninit_1',['headerleninit',['../structBinaryUart.html#a989a786ac5849114d31333e8689e6ba5',1,'BinaryUart::HeaderLenInit'],['../structBinaryUartRingBuffer.html#af76e0cf2c48bff88e4aeb1dff806a2ba',1,'BinaryUartRingBuffer::HeaderLenInit']]],
   ['help_2',['help',['../structCmd.html#ac5dd6521b17f844b57fc2d70206d783a',1,'Cmd::Help'],['../structBinaryCmd.html#a16f29a225aebfc3c5d4c8d08dedcd241',1,'BinaryCmd::Help']]],
   ['helpcmds_3',['helpcmds',['../CmdSystem_8hpp.html#a9e7f55c4524cd66f572c4a746fba5830',1,'HelpCmds(const Cmd *Cmds, const size_t NumCmds):&#160;CmdSystem.cpp'],['../CmdSystem_8cpp.html#a9e7f55c4524cd66f572c4a746fba5830',1,'HelpCmds(const Cmd *Cmds, const size_t NumCmds):&#160;CmdSystem.cpp']]],

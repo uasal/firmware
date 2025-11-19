@@ -7,7 +7,10 @@ var classIArray =
     [ "CopyToFlatBuffer", "classIArray.html#a3d805f4634fcf5b48700bda5eb1e50eb", null ],
     [ "Depth", "classIArray.html#adaa8246ec4ac3f276d887bda6cb45b52", null ],
     [ "formatf", "classIArray.html#a68e709c92213082ae4ffcb7c68d5e754", null ],
-    [ "operator[]", "classIArray.html#a0cdd1d20f87bd0aa4c3ff6be4fee064f", null ],
-    [ "peek", "classIArray.html#a4430da5cceb0e25d3829e1ed601c0b09", null ],
-    [ "PopMany", "classIArray.html#a84a9cfca818456199456925f349feb03", null ]
+    [ "MaxDepth", "classIArray.html#a58894d86576a9b339c17771f0ca0eecc", null ],
+    [ "operator[]", "classIArray.html#adab5c942b28ff3fe596721e7348bac22", null ],
+    [ "peek", "classIArray.html#a5b786dde7438279a61688130ec2176e1", null ],
+    [ "PopMany", "classIArray.html#a84a9cfca818456199456925f349feb03", null ],
+    [ "ReadPos", "classIArray.html#a95d746884023cf525103686072766ff0", null ],
+    [ "WritePos", "classIArray.html#a062c2527d9a5f63a2643721b37a50274", null ]
 ];

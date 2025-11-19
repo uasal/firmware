@@ -1,5 +1,13 @@
 var NAVTREEINDEX8 =
 {
+"structCGraphPZTHardwareInterface.html#aff6e3efc05696992e5a15846358b6ef1":[1,0,37,24],
+"structCGraphPacketFooter.html":[1,0,34],
+"structCGraphPacketFooter.html#a1a12a0f86427a4140eaaee013ed041d7":[1,0,34,2],
+"structCGraphPacketFooter.html#a8708e957c5aaea407ca138a94b26e708":[1,0,34,1],
+"structCGraphPacketFooter.html#ad5332dfb4973bcfc4dd2501389c8232d":[1,0,34,0],
+"structCGraphPacketHeader.html":[1,0,35],
+"structCGraphPacketHeader.html#a1518de33389c99f128f29eabb0771bdb":[1,0,35,3],
+"structCGraphPacketHeader.html#a1755f0a8d9296c58f4c095f973fb9c16":[1,0,35,5],
 "structCGraphPacketHeader.html#a307362fe2918569a9f6cbf98e4336ad8":[1,0,35,4],
 "structCGraphPacketHeader.html#a53fc17820da22ef07d7b3764ab409e00":[1,0,35,2],
 "structCGraphPacketHeader.html#a7abef20f790c1615bdea50675a285d84":[1,0,35,6],
@@ -241,13 +249,5 @@ var NAVTREEINDEX8 =
 "unionAdcAccumulator.html":[1,0,2],
 "unionAdcAccumulator.html#a01037736a74f14828fb46ae30a8c5131":[1,0,2,5],
 "unionAdcAccumulator.html#a2d3f8fba51f21ac649c92594841d95ab":[1,0,2,0],
-"unionAdcAccumulator.html#a376de68ae02c103dbcec8fe96ceb44eb":[1,0,2,1],
-"unionAdcAccumulator.html#a69703f3cd1c657dc169caec7234f1941":[1,0,2,2],
-"unionAdcAccumulator.html#a91dfbb756d7da52ffc614ea5ba416cd5":[1,0,2,6],
-"unionAdcAccumulator.html#a9bf5957199f8fe2d672cc4ce59b4a7f2":[1,0,2,4],
-"unionAdcAccumulator.html#aab850de2e8e87c6af7fbddecd6a0409e":[1,0,2,3],
-"unionAdcFifo.html":[1,0,3],
-"unionAdcFifo.html#a74a90683108d18b2f96fc7ac278b7048":[1,0,3,1],
-"unionAdcFifo.html#a825547aff1eb52291c956ed89295c112":[1,0,3,3],
-"unionAdcFifo.html#ab2be36f2672b7d93b585f0cbf3f9229f":[1,0,3,0]
+"unionAdcAccumulator.html#a376de68ae02c103dbcec8fe96ceb44eb":[1,0,2,1]
 };
