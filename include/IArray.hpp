@@ -34,11 +34,15 @@ public:
 	IArray() { }
 	virtual ~IArray() { }	
 	
-	virtual uint8_t operator[](const size_t offset) const = 0;
-	virtual uint8_t peek(const size_t offset) const = 0;
+	//ideally, these functions will allow one to address items off either end of the buffer by wrapping around, to demystify complex operations on ring buffers
+	virtual uint8_t operator[](const long offset) const = 0;
+	virtual uint8_t peek(const long offset) const = 0;
 	virtual uint16_t asU16(const size_t offset) const = 0;
 	virtual uint32_t asU32(const size_t offset) const = 0;
 	virtual size_t Depth() const = 0;
+	virtual size_t MaxDepth() const = 0;
+	virtual size_t ReadPos() const = 0;
+	virtual size_t WritePos() const = 0;
 	virtual size_t CopyToFlatBuffer(const size_t StartOffset, size_t& NumToCopy, uint8_t* const Buffer, const size_t BufferMaxLen) const = 0;
 	virtual void PopMany(const size_t LastReadAddrToPop) = 0;
 	virtual void formatf() const = 0;

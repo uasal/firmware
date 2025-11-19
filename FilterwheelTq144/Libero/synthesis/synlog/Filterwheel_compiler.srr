@@ -7,10 +7,10 @@ Synopsys software or the associated documentation is strictly prohibited.
 Tool: Synplify Pro (R)
 Build: T-2022.09M-SP2-1
 Install: /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro
-OS: Linux Mint 22.1
-Hostname: homework
+OS: Linux Mint 22.2
+Hostname: homework2
 max virtual memory: unlimited (bytes)
-max user processes: 126487
+max user processes: 190838
 max stack size: 8388608 (bytes)
 
 
@@ -28,10 +28,10 @@ Synopsys software or the associated documentation is strictly prohibited.
 Tool: Synplify Pro (R)
 Build: T-2022.09M-SP2-1
 Install: /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro
-OS: Linux Mint 22.1
-Hostname: homework
+OS: Linux Mint 22.2
+Hostname: homework2
 max virtual memory: unlimited (bytes)
-max user processes: 126487
+max user processes: 190838
 max stack size: 8388608 (bytes)
 
 
@@ -74,12 +74,13 @@ Synopsys VHDL Compiler, Version comp202209synp2, Build 179R, Built Jun 27 2023 0
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd'.
 VHDL syntax check successful!
 @N: CD231 :"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/std1164.vhd":889:16:889:17|Using onehot encoding for type mvl9plus. For example, enumeration 'U' is mapped to "1000000000".
+File /home/summer/projects/CGraph/firmware/include/fpga/crc_stream.vhd changed - recompiling
 
 At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 140MB peak: 140MB)
 
 
 Process completed successfully.
-# Fri Nov 14 09:21:14 2025
+# Fri Nov 14 14:04:32 2025
 
 ###########################################################]
 ###########################################################[
@@ -92,10 +93,10 @@ Synopsys software or the associated documentation is strictly prohibited.
 Tool: Synplify Pro (R)
 Build: T-2022.09M-SP2-1
 Install: /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro
-OS: Linux Mint 22.1
-Hostname: homework
+OS: Linux Mint 22.2
+Hostname: homework2
 max virtual memory: unlimited (bytes)
-max user processes: 126487
+max user processes: 190838
 max stack size: 8388608 (bytes)
 
 
@@ -145,7 +146,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Fri Nov 14 09:21:14 2025
+# Fri Nov 14 14:04:32 2025
 
 ###########################################################]
 ###########################################################[
@@ -186,6 +187,7 @@ Process completed successfully.
 @I::"/home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/component/work/Filterwheel/Filterwheel.v" (library work)
 @N|stack limit increased to max
 Verilog syntax check successful!
+File /home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesis/synwork/_verilog_hintfile changed - recompiling
 @N: CG364 :"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/generic/smartfusion2.v":362:7:362:12|Synthesizing module CLKINT in library work.
 Running optimization stage 1 on CLKINT .......
 Finished optimization stage 1 on CLKINT (CPU Time 0h:00m:00s, Memory Used current: 137MB peak: 137MB)
@@ -569,12 +571,36 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Fri Nov 14 09:21:14 2025
+# Fri Nov 14 14:04:33 2025
 
 ###########################################################]
 ###########################################################[
 @N|stack limit increased to max
 @N:"/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/Main.vhd":13:7:13:10|Top entity is set to Main.
+File /home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/UartRxRaw.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/CGraphTypes.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/ClockDivider2X.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotor.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/RegisterSpace.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/crc_stream.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/crc_fifo.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/UartRxExtClk.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClk.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/PeekRam.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/PeekRingBuffer.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClkPeek.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd changed - recompiling
+File /home/summer/projects/CGraph/firmware/include/fpga/FourWireStepperMotorDriver.vhd changed - recompiling
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/FilterwheelTq144/fpga/BuildNumber.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/crc_byte.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd'.
@@ -1068,11 +1094,11 @@ For a summary of runtime per design unit, please see file:
 
 
 
-At c_vhdl Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 166MB peak: 166MB)
+At c_vhdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 166MB peak: 166MB)
 
 
 Process completed successfully.
-# Fri Nov 14 09:21:17 2025
+# Fri Nov 14 14:04:34 2025
 
 ###########################################################]
 ###########################################################[
@@ -1085,10 +1111,10 @@ Synopsys software or the associated documentation is strictly prohibited.
 Tool: Synplify Pro (R)
 Build: T-2022.09M-SP2-1
 Install: /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro
-OS: Linux Mint 22.1
-Hostname: homework
+OS: Linux Mint 22.2
+Hostname: homework2
 max virtual memory: unlimited (bytes)
-max user processes: 126487
+max user processes: 190838
 max stack size: 8388608 (bytes)
 
 
@@ -1096,6 +1122,8 @@ Implementation : synthesis
 Synopsys Synopsys Netlist Linker, Version comp202209synp2, Build 179R, Built Jun 27 2023 09:29:53, @4799148
 
 @N|Running in 64-bit mode
+File /home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesis/synwork/layer0.srs changed - recompiling
+File /home/summer/projects/CGraph/firmware/FilterwheelTq144/Libero/synthesis/synwork/layer1.srs changed - recompiling
 
 =======================================================================================
 For a summary of linker messages for components that did not bind, please see log file:
@@ -1108,7 +1136,7 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Fri Nov 14 09:21:17 2025
+# Fri Nov 14 14:04:34 2025
 
 ###########################################################]
 
@@ -1118,11 +1146,11 @@ For a summary of runtime and memory usage for all design units, please see file:
 
 @END
 
-At c_hdl Exit (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 45MB peak: 45MB)
+At c_hdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 45MB peak: 45MB)
 
-Process took 0h:00m:03s realtime, 0h:00m:03s cputime
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Fri Nov 14 09:21:17 2025
+# Fri Nov 14 14:04:34 2025
 
 ###########################################################]

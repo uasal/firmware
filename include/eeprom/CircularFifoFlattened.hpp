@@ -27,7 +27,7 @@ public:
 
 	
 	//Accepts an offset from 0 to depth and returns the byte at that point in the buffer
-	uint8_t operator[](const size_t offset) const override
+	uint8_t operator[](const long offset) const override
 	{
 		if ( (nullptr == WriteOffset) || (nullptr == ReadOffset) ) { return(0); }
 
@@ -41,16 +41,20 @@ public:
 		if (d < 0) { d += Len; }
 		if (d > (long)Len) { d = Len; }
 		
-		if (offset >= (size_t)d) { return(0); }
+		//Here's where things get fun- we're gonna wrap both ends, so we can do logical addressing off the ends of the array and *not* have to deal with that mess in code that uses this interface =)
+		long off = offset;
+		if (off >= (long)Len) { off %= Len; }
+		if (off < 0) { off = Len + (off % Len); }
 		
 		//Ok, enough error checking, let's do something useful...
-		size_t pos = r + offset;
-		if (pos >= Len) { pos -= Len; }		
-		return(Data[pos]);
+		long pos = r + off;
+		if (pos >= (long)Len) { pos -= Len; }		
+		*DataOffset = pos;
+		return(*Data);
 	}
 	
 	//Accepts an offset from 0 to depth and returns the byte at that point in the buffer
-	uint8_t peek(const size_t offset) const override
+	uint8_t peek(const long offset) const override
 	{
 		if ( (nullptr == WriteOffset) || (nullptr == ReadOffset) ) { return(0); }
 
@@ -64,12 +68,16 @@ public:
 		if (d < 0) { d += Len; }
 		if (d > (long)Len) { d = Len; }
 		
-		if (offset >= (size_t)d) { return(0); }
+		//Here's where things get fun- we're gonna wrap both ends, so we can do logical addressing off the ends of the array and *not* have to deal with that mess in code that uses this interface =)
+		long off = offset;
+		if (off >= (long)Len) { off %= Len; }
+		if (off < 0) { off = Len + (off % Len); }
 		
 		//Ok, enough error checking, let's do something useful...
-		size_t pos = r + offset;
-		if (pos >= Len) { pos -= Len; }		
-		return(Data[pos]);
+		long pos = r + off;
+		if (pos >= (long)Len) { pos -= Len; }		
+		*DataOffset = pos;
+		return(*Data);
 	}
 	
 	uint16_t asU16(const size_t offset) const override

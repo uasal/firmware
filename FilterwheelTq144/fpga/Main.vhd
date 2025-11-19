@@ -1876,7 +1876,7 @@ begin
 	port map
 	(
 		clk => MasterClk,
-		rst => not(Uart0DoCrc),
+		rst => Uart0FifoReset_i,
 		FifoStartAddr => Uart0CrcStartAddr,
 		FifoEndAddr => Uart0CrcEndAddr,
 		FifoPeekData => Uart0RxFifoPeekPeekData,

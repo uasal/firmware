@@ -13,7 +13,7 @@
 #include "uart/TerminalUart.hpp"
 
 #include "uart/BinaryUart.hpp"
-#include "eeprom/CircularFifoFlattened.hpp"
+#include "eeprom/CircularFifoFlattenedFpga.hpp"
 #include "uart/BinaryUartRingBuffer.hpp"
 
 extern uart_pinout_fpga FPGAUartPinout0;

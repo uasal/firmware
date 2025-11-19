@@ -112,16 +112,20 @@ begin
 					FifoPeekAddr_i <= FifoStartAddr;
 			
 				else
+				
+					if (CrcComplete = '0') then
 
-					if (FifoPeekAddr_i /= FifoEndAddr) then
-					
-						FifoPeekAddr_i <= FifoPeekAddr_i + std_logic_vector(to_unsigned(1, DEPTH_BITS));
+						if (FifoPeekAddr_i /= FifoEndAddr) then
 						
-					else
-		
-						Crc <= CrcOut;
-						CrcComplete <= '1';
+							FifoPeekAddr_i <= FifoPeekAddr_i + std_logic_vector(to_unsigned(1, DEPTH_BITS));
+							
+						else
+			
+							Crc <= CrcOut;
+							CrcComplete <= '1';
 
+						end if;
+				
 					end if;
 				
 				end if;

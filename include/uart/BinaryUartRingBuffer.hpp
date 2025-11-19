@@ -23,7 +23,7 @@
 #include "uart/IPacket.hpp"
 //~ #include "uart/IUartParser.hpp"
 
-#include "eeprom/CircularFifoFlattened.hpp"
+#include "IArray.hpp"
 
 #include "BinaryUart.h"
 
@@ -38,7 +38,7 @@
 struct BinaryUartRingBuffer// : IUartParser
 {
     // Constants for initial values
-    static const uint16_t LastDataLenInit = 0; 				///< Initial count for received bytes.
+    static const uint16_t LastDataPosInit = 0; 				///< Initial count for received bytes.
     static const size_t PacketStartPosInit = 0;
     static const size_t PacketLenInit = 0;
     static const size_t PayloadLenInit = 0;
@@ -69,7 +69,7 @@ struct BinaryUartRingBuffer// : IUartParser
     size_t HeaderLen;
     size_t FooterLen;
     uint64_t SerialNum;									///< Serial number for validating received packets.
-    uint32_t LastDataLen;
+    uint32_t LastDataPos;
     uint32_t PacketSearchedPos;
 
     /**
@@ -103,7 +103,7 @@ struct BinaryUartRingBuffer// : IUartParser
         FooterLen(FooterLenInit),
         //~ Argument(argument),
         SerialNum(serialnum),
-        LastDataLen(0),
+        LastDataPos(0),
         PacketSearchedPos(0)
 
     {
@@ -130,14 +130,14 @@ struct BinaryUartRingBuffer// : IUartParser
     int Init(uint64_t serialnum = 0)
     {
         SerialNum = serialnum;
-        //~ LastDataLen = LastDataLenInit;
+        //~ LastDataPos = LastDataPosInit;
         PacketStartPos = PacketStartPosInit;
         PacketLen = PacketLenInit;
         PayloadLen = PayloadLenInit;
         HeaderLen = HeaderLenInit;
         FooterLen = FooterLenInit;
         InPacket = InPacketInit;
-        LastDataLen = 0;
+        LastDataPos = 0;
         PacketSearchedPos = 0;
         //~ memset(Data.Data, EmptyBufferChar, Data.DataLenBytes);
 
@@ -152,14 +152,14 @@ struct BinaryUartRingBuffer// : IUartParser
     int InitFast(uint64_t serialnum = 0)
     {
         SerialNum = serialnum;
-        //~ LastDataLen = LastDataLenInit;
+        //~ LastDataPos = LastDataPosInit;
         PacketStartPos = PacketStartPosInit;
         PacketLen = PacketLenInit;
         PayloadLen = PayloadLenInit;
         HeaderLen = HeaderLenInit;
         FooterLen = FooterLenInit;
         InPacket = InPacketInit;
-        LastDataLen = 0;
+        LastDataPos = 0;
         PacketSearchedPos = 0;
 
         //memset(Data.Data, EmptyBufferChar, Data.DataLenBytes);
@@ -184,41 +184,40 @@ struct BinaryUartRingBuffer// : IUartParser
         //Of note: the DataLen should only grow as we process, since there is no other consumer removing bytes from the buffer, and we're not going to remove any until it overflows or we find the end of a packet.
 
         //New char?
-        size_t DataLen = Data.Depth();
-        if (LastDataLen == DataLen)
+        size_t DataPos = Data.WritePos();
+        //~ if (DataPos != 0)
+        //~ {
+			//~ ::formatf("\n\nBinaryUartRingBufferRingBuffer: N/D(%u, %u).\n\r", LastDataPos, DataPos);
+        //~ }
+        if (LastDataPos == DataPos)
         {
+			//~ ::formatf("\n\nBinaryUartRingBufferRingBuffer: N/D(%u, %u).\n\r", LastDataPos, DataPos);
             return(false);
         }
-        int32_t NewDataLen = DataLen - LastDataLen;
+        int32_t NewDataLen = DataPos - LastDataPos;
         if (NewDataLen < 0)
         {
-            NewDataLen = 0;
+            NewDataLen = Data.MaxDepth() + NewDataLen;
         }
-        LastDataLen = DataLen;
-        if (0 == LastDataLen)
-        {
-            return(false);
-        }
-		
-        //~ if (debug) { ::formatf("\n\nBinaryUartRingBufferRingBuffer: GotData(%u).\n\r", LastDataLen); }
+
+        //~ if (debug) { ::formatf("\n\nBinaryUartRingBufferRingBuffer: GotData(LastPos:%u, Len:%u).\n\r", LastDataPos, NewDataLen); }
+		//~ ::formatf("\n\nBinaryUartRingBufferRingBuffer: GotData(%u).\n\r", LastDataPos); 
 
         //Packet End?? We have nothing to do until we have the end of a packet!
         //Need at least a Footer's worth of data...
-        if (LastDataLen >= Packet.FooterLen())
+        if (NewDataLen >= (int)Packet.FooterLen())
         {
             //Where do we start searching for the Footer?
-            int32_t FooterSearchStartPos = LastDataLen - NewDataLen;
-            FooterSearchStartPos -= Packet.FooterLen(); //If we just got the final byte(s) of the footer, we need to look behind in the buffer from the start of the new data to actually find the footer!
-            if (FooterSearchStartPos < 0)
-            {
-                FooterSearchStartPos = 0;    //But that could underrun the buffer so we truncate...
-            }
+			PacketEndPos = NewDataLen + LastDataPos;
+            int32_t FooterSearchStartPos = DataPos; //If we just got the final byte(s) of the footer, we need to look behind in the buffer from the start of the new data to actually find the footer!
+			//Now that we can wrap, we don't need to check for < 0 on ring buffers!
+            //~ if (PacketEndPos < 0) { PacketEndPos = 0; }    //But that could underrun the buffer so we truncate...
+			//~ if (FooterSearchStartPos < 0) { FooterSearchStartPos = 0; }    //But that could underrun the buffer so we truncate...
 
-			//~ if (debug) { ::formatf("\n\nBinaryUartRingBufferRingBuffer: Searching for Packet End @ %u.\n\r", FooterSearchStartPos); }
-			
             //Did we get it??
-            PacketEndPos = LastDataLen;
-            if (Packet.FindPacketEndPos(Data, FooterSearchStartPos, PacketEndPos))
+            if (debug) { ::formatf("\n\nBinaryUartRingBufferRingBuffer: Searching for Packet End @ %u, Len:%u, Last:%u.\n\r", FooterSearchStartPos, NewDataLen, LastDataPos); }
+			
+			if (Packet.ReverseFindPacketEndPos(Data, FooterSearchStartPos, NewDataLen, PacketEndPos))
             {
                 //Oh, things just got interesting!
 
@@ -334,12 +333,14 @@ struct BinaryUartRingBuffer// : IUartParser
 							//~ Data.CopyToFlatBuffer(PacketStartPos, PktLen, PacketBuf, TwiceMaxPacketLen);									
 							//~ Callbacks.EveryPacket((IPacket*)(PacketBuf), PacketEndPos - PacketStartPos);
 							
-							PacketStartSearchEndPos = 0;
+							PacketStartPos = PacketEndPos + Packet.EndTokenLen();
+							PacketStartSearchEndPos = PacketEndPos + Packet.EndTokenLen();
+							PacketStartFound = false;
 
-							if (debug) { ::formatf("\n\nBinaryUartRingBufferRingBuffer: PopMany(%u).\n\r", PacketEndPos + Packet.EndTokenLen()); }
+							if (debug) { ::formatf("\n\nBinaryUartRingBufferRingBuffer: PopMany(%u).\n\r", PacketStartSearchEndPos); }
 					
 							//Ok, now we have to figure out how to remove the packet from the buffer...
-							Data.PopMany(PacketEndPos + Packet.EndTokenLen());
+							Data.PopMany(PacketStartSearchEndPos);
 							//~ InitFast(SerialNum);
 							
 							break;
@@ -374,7 +375,10 @@ struct BinaryUartRingBuffer// : IUartParser
 					}
                 }
             }
-        }
+
+			LastDataPos = DataPos;
+
+		}
 	
 		return(true); //We just want to know if there's chars in the buffer to put threads to sleep or not...
 	}
@@ -418,8 +422,8 @@ struct BinaryUartRingBuffer// : IUartParser
 	{
 		Data.formatf();
 		Crcer.formatf();
-		::formatf("\n\nBinaryUartRingBuffer(%u, %c, %u): :", LastDataLen, InPacket?'Y':'N', PacketStartPos);
-		for(size_t i = 0; i < LastDataLen; i++)
+		::formatf("\n\nBinaryUartRingBuffer(%u, %c, %u): :", LastDataPos, InPacket?'Y':'N', PacketStartPos);
+		for(size_t i = 0; i < LastDataPos; i++)
 		{
 			::formatf("%2X:", Data[i]);
 		}

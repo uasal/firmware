@@ -123,6 +123,8 @@ union CGraphCrcCurrentAddr
 
     CGraphCrcCurrentAddr() { all = 0; }
     CGraphCrcCurrentAddr(volatile CGraphCrcCurrentAddr& c) { all = c.all; }
+	CGraphCrcCurrentAddr& operator=(const CGraphCrcCurrentAddr& c)  { all = c.all; return(*this); }
+	//~ CGraphCrcCurrentAddr& operator=(volatile CGraphCrcCurrentAddr& c)  { all = c.all; return(*this); }
 	
 	void formatf() const //note: using this function causes some major fuckery with the volatile qulifier in many places...
 	{ 

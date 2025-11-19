@@ -134,23 +134,23 @@ public:
         return(false);
     }
 
-    virtual size_t HeaderLen() const override
+    virtual const size_t HeaderLen() const override
     {
         return(sizeof(CGraphPacketHeader));
     }
-    virtual size_t FooterLen() const override
+    virtual const size_t FooterLen() const override
     {
         return(sizeof(CGraphPacketFooter));
     }
-    virtual size_t EndTokenLen() const override
+    virtual const size_t EndTokenLen() const override
     {
         return(sizeof(CGraphPacketFooter::PacketEndToken));
     }
-    virtual size_t PayloadOffset() const override
+    virtual const size_t PayloadOffset() const override
     {
         return(sizeof(CGraphPacketHeader));
     }
-    virtual size_t MaxPayloadLength() const override
+    virtual const size_t MaxPayloadLength() const override
     {
         return(0xFFFFU);
     }
@@ -291,6 +291,36 @@ public:
         return(false);
     }
 
+    virtual bool FindPacketEndPos(const IArray& Buffer, const size_t SearchStartPos, const size_t SearchLen, size_t& Offset) const override
+    {
+        for (size_t i = SearchStartPos; i <= SearchStartPos + SearchLen; i++)
+        {
+			//~ ::formatf("\n\nCGraphPacket::FindPacketEndPos(): Buffer.asU32(%u) = 0x%lx.\n\r", i, (unsigned long)(Buffer.asU32(i))); 
+			
+            if (CGraphMagikPacketEndToken == Buffer.asU32(i))
+            {
+                Offset = i;
+                return(true);
+            }
+        }
+        return(false);
+    }
+
+    virtual bool ReverseFindPacketEndPos(const IArray& Buffer, const size_t SearchStartPos, const size_t SearchLen, size_t& Offset) const override
+    {
+        for (size_t i = SearchStartPos; i >= SearchStartPos - SearchLen; i--)
+        {
+			//~ ::formatf("\n\nCGraphPacket::FindPacketEndPos(): Buffer.asU32(%u) = 0x%lx.\n\r", i, (unsigned long)(Buffer.asU32(i))); 
+			
+            if (CGraphMagikPacketEndToken == Buffer.asU32(i))
+            {
+                Offset = i;
+                return(true);
+            }
+        }
+        return(false);
+    }
+
     virtual size_t PayloadLen(const IArray& Buffer, const size_t PacketStartPos) const override
     {
         if ((PacketStartPos + sizeof(CGraphPacketHeader)) > Buffer.Depth())
@@ -329,6 +359,7 @@ public:
             return(false);
         }
 
+		//~ ::formatf("\n\nCGraphPacket::IsValid(): &CRC: 0x%8lX\n", PacketStartPos + sizeof(CGraphPacketHeader) + payloadlen + offsetof(CGraphPacketFooter, CRC32BZIP2)); //This is indirected by fpga and therefore insensitive to unaligned addresses...
         uint32_t crc = Buffer.asU32(PacketStartPos + sizeof(CGraphPacketHeader) + payloadlen + offsetof(CGraphPacketFooter, CRC32BZIP2));
         uint32_t packetendtoken = Buffer.asU32(PacketStartPos + sizeof(CGraphPacketHeader) + payloadlen + offsetof(CGraphPacketFooter, PacketEndToken));
 
@@ -350,18 +381,19 @@ public:
 		
 		//Naw, let's let the fpga do the crc instead!
 		int32_t CrcEndPos = PacketEndPos - sizeof(CGraphPacketFooter);
-		if (CrcEndPos < 0) { }
+		if (CrcEndPos < 0) { CrcEndPos = 0; }
+		::formatf("\n\nCGraphPacket::IsValid(): CRC: End: %u Start: %u .\n\r", CrcEndPos, PacketStartPos);
 		*FpgaCrc.CrcStartAddr = PacketStartPos;
 		*FpgaCrc.CrcEndAddr = CrcEndPos;
 		
 		size_t crctimeout = 0;
-		const CGraphCrcCurrentAddr CrcStatus = *FpgaCrc.CrcCurrentAddr;
 		for (crctimeout = 0; crctimeout < (3 * sizeof(CGraphPacketHeader) + payloadlen + sizeof(CGraphPacketFooter)); crctimeout++)
 		{
+			volatile CGraphCrcCurrentAddr CrcStatus = *FpgaCrc.CrcCurrentAddr;
 			if ( (CrcStatus.CurrentAddr == CrcEndPos) || (CrcStatus.CrcComplete == 1) ) { break; }
-		}
-		
-        ::formatf("\n\nCGraphPacket::IsValid(): Calc'd CRC: 0x%lx (CrcCurrentAddr: 0x%lx).\n\r", (unsigned long)*FpgaCrc.CrcResult, FpgaCrc.CrcCurrentAddr->all);
+		}		
+		volatile CGraphCrcCurrentAddr CrcStatus = *FpgaCrc.CrcCurrentAddr;
+        ::formatf("\n\nCGraphPacket::IsValid(): Calc'd CRC: 0x%lx (CrcCurrentAddr: 0x%lx), (timeout: %u).\n\r", (unsigned long)*FpgaCrc.CrcResult, CrcStatus.CurrentAddr, crctimeout);
 		
 		if (*FpgaCrc.CrcResult != crc)
         {
