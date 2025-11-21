@@ -49,7 +49,7 @@ class linux_pinout_uart : public IUart
 {
 public:
 
-	linux_pinout_uart() : IUart(), ComFileDescriptor(-1), echo(false), autoreopen(false), Baud(0), RtsCts(false), OddParity(false) { }
+	linux_pinout_uart() : IUart(), ComFileDescriptor(-1), echo(false), autoreopen(true), Baud(0), RtsCts(false), OddParity(false) { }
 		
 	virtual ~linux_pinout_uart() { if (-1 != ComFileDescriptor) { close(ComFileDescriptor); } }
 
@@ -362,7 +362,17 @@ public:
 
 	virtual bool dataready() const
 	{
-		if (-1 == ComFileDescriptor) { printf("\nlinux_pinout_uart::dataready(): ioctl on uninitialized port; please open port!\n"); return(false); }
+		if (-1 == ComFileDescriptor) 
+		{ 
+			printf("\nlinux_pinout_uart::dataready(): ioctl on uninitialized port; please open port!\n");
+			
+			if (autoreopen) 
+			{
+				printf("\nlinux_pinout_uart::autoreopen.\n");
+				const_cast<linux_pinout_uart*>(this)->deinit();
+				const_cast<linux_pinout_uart*>(this)->init(Baud, Device, RtsCts, OddParity);
+			}		
+		}
 
 		//Didn't work under cygwin:
 		//~ {
@@ -398,6 +408,13 @@ public:
 			{
 				fprintf(stderr,"\nlinux_pinout_uart::dataready(): select() returned -1\n");
 				rtnval = 0;
+				
+				if (autoreopen) 
+				{
+					printf("\nlinux_pinout_uart::autoreopen.\n");
+					const_cast<linux_pinout_uart*>(this)->deinit();
+					const_cast<linux_pinout_uart*>(this)->init(Baud, Device, RtsCts, OddParity);
+				}		
 			}
 			else if (status > 0)
 			{
