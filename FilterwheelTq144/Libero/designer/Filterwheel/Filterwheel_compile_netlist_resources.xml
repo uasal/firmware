@@ -3,7 +3,7 @@
 <doc>
 <title>Resource Report</title>
 <text>Microchip Technology Inc. - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)</text>
-<text>Date: Fri Nov 14 14:04:55 2025
+<text>Date: Fri Nov 21 16:02:28 2025
 </text>
 <section><name>Device Selection</name></section>
 <table>
@@ -106,15 +106,15 @@
 </header>
 <row>
  <cell>4LUT</cell>
- <cell>3572</cell>
+ <cell>3816</cell>
  <cell>12084</cell>
- <cell>29.56</cell>
+ <cell>31.58</cell>
 </row>
 <row>
  <cell>DFF</cell>
- <cell>2800</cell>
+ <cell>2912</cell>
  <cell>12084</cell>
- <cell>23.17</cell>
+ <cell>24.10</cell>
 </row>
 <row>
  <cell>I/O Register</cell>
@@ -204,8 +204,8 @@
 </header>
 <row>
  <cell>Fabric Logic</cell>
- <cell>3140</cell>
- <cell>2368</cell>
+ <cell>3384</cell>
+ <cell>2480</cell>
 </row>
 <row>
  <cell>RAM64x18 Interface Logic</cell>
@@ -224,8 +224,8 @@
 </row>
 <row>
  <cell>Total Used</cell>
- <cell>3572</cell>
- <cell>2800</cell>
+ <cell>3816</cell>
+ <cell>2912</cell>
 </row>
 </table>
 <section><name>MSS Resource Usage</name></section>
@@ -329,7 +329,7 @@
 </row>
 <row>
  <cell>10</cell>
- <cell>16</cell>
+ <cell>2</cell>
 </row>
 <row>
  <cell>11</cell>
@@ -337,6 +337,10 @@
 </row>
 <row>
  <cell>12</cell>
+ <cell>14</cell>
+</row>
+<row>
+ <cell>13</cell>
  <cell>11</cell>
 </row>
 <row>
@@ -426,7 +430,7 @@
  <cell>Name</cell>
 </header>
 <row>
- <cell>2088</cell>
+ <cell>2199</cell>
  <cell>INT_NET</cell>
  <cell>Net   : FCCC_C0_0_GL0</cell>
 </row>
@@ -572,6 +576,16 @@
  <cell>Driver: Main_0/RegisterSpace/ResetSteps_i_RNIDTSH</cell>
 </row>
 <row>
+ <cell>172</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/O</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/GenRamAddrBus.2.IBUF_RamAddr_i/O</cell>
+</row>
+<row>
  <cell>164</cell>
  <cell>INT_NET</cell>
  <cell>Net   : Main_0/BootupReset/shot_i_rep_Z</cell>
@@ -582,57 +596,7 @@
  <cell>Driver: Main_0/BootupReset/shot_i_rep</cell>
 </row>
 <row>
- <cell>123</cell>
- <cell>INT_NET</cell>
- <cell>Net   : Main_0/Uart3FifoReset_i_Z</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: Main_0/Uart3FifoReset_i</cell>
-</row>
-<row>
- <cell>123</cell>
- <cell>INT_NET</cell>
- <cell>Net   : Main_0/Uart1FifoReset_i_Z</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: Main_0/Uart1FifoReset_i</cell>
-</row>
-<row>
- <cell>123</cell>
- <cell>INT_NET</cell>
- <cell>Net   : Main_0/Uart2FifoReset_i_Z</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: Main_0/Uart2FifoReset_i</cell>
-</row>
-<row>
- <cell>123</cell>
- <cell>INT_NET</cell>
- <cell>Net   : Main_0/UartUsbFifoReset_i_Z</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: Main_0/UartUsbFifoReset_i</cell>
-</row>
-<row>
- <cell>123</cell>
- <cell>INT_NET</cell>
- <cell>Net   : Main_0/UartGpsFifoReset_i_Z</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: Main_0/UartGpsFifoReset_i</cell>
-</row>
-<row>
- <cell>122</cell>
+ <cell>131</cell>
  <cell>INT_NET</cell>
  <cell>Net   : Main_0/Uart0FifoReset_i_Z</cell>
 </row>
@@ -642,27 +606,67 @@
  <cell>Driver: Main_0/Uart0FifoReset_i</cell>
 </row>
 <row>
- <cell>84</cell>
+ <cell>130</cell>
  <cell>INT_NET</cell>
- <cell>Net   : Main_0/RamBusAddress_i[6]</cell>
+ <cell>Net   : Main_0/Uart3FifoReset_i_Z</cell>
 </row>
 <row>
  <cell></cell>
  <cell></cell>
- <cell>Driver: Main_0/GenRamAddrBus.6.IBUF_RamAddr_i/O</cell>
+ <cell>Driver: Main_0/Uart3FifoReset_i</cell>
 </row>
 <row>
- <cell>76</cell>
+ <cell>130</cell>
  <cell>INT_NET</cell>
- <cell>Net   : Main_0/O</cell>
+ <cell>Net   : Main_0/UartGpsFifoReset_i_Z</cell>
 </row>
 <row>
  <cell></cell>
  <cell></cell>
- <cell>Driver: Main_0/GenRamAddrBus.2.IBUF_RamAddr_i/O</cell>
+ <cell>Driver: Main_0/UartGpsFifoReset_i</cell>
 </row>
 <row>
- <cell>73</cell>
+ <cell>130</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/UartUsbFifoReset_i_Z</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/UartUsbFifoReset_i</cell>
+</row>
+<row>
+ <cell>130</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/Uart2FifoReset_i_Z</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/Uart2FifoReset_i</cell>
+</row>
+<row>
+ <cell>130</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/Uart1FifoReset_i_Z</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/Uart1FifoReset_i</cell>
+</row>
+<row>
+ <cell>117</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/Address[4]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/GenRamAddrBus.4.IBUF_RamAddr_i/O</cell>
+</row>
+<row>
+ <cell>93</cell>
  <cell>INT_NET</cell>
  <cell>Net   : Main_0/Address[3]</cell>
 </row>
@@ -672,7 +676,7 @@
  <cell>Driver: Main_0/GenRamAddrBus.3.IBUF_RamAddr_i/O</cell>
 </row>
 <row>
- <cell>70</cell>
+ <cell>74</cell>
  <cell>INT_NET</cell>
  <cell>Net   : Main_0/Address[5]</cell>
 </row>
@@ -680,16 +684,6 @@
  <cell></cell>
  <cell></cell>
  <cell>Driver: Main_0/GenRamAddrBus.5.IBUF_RamAddr_i/O</cell>
-</row>
-<row>
- <cell>70</cell>
- <cell>INT_NET</cell>
- <cell>Net   : Main_0/Address[4]</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: Main_0/GenRamAddrBus.4.IBUF_RamAddr_i/O</cell>
 </row>
 <row>
  <cell>67</cell>
@@ -710,6 +704,26 @@
  <cell></cell>
  <cell></cell>
  <cell>Driver: Main_0/PPSAccumulator/PPSAccum_0_sqmuxa_0</cell>
+</row>
+<row>
+ <cell>63</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/RamBusAddress_i[6]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/GenRamAddrBus.6.IBUF_RamAddr_i/O</cell>
+</row>
+<row>
+ <cell>53</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/RegisterSpace/N_803</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/RegisterSpace/un132_readreq_0_a2_0</cell>
 </row>
 <row>
  <cell>52</cell>
@@ -870,16 +884,6 @@
  <cell></cell>
  <cell></cell>
  <cell>Driver: Main_0/StepperMotor/CurrentStep_i[0]</cell>
-</row>
-<row>
- <cell>52</cell>
- <cell>INT_NET</cell>
- <cell>Net   : Main_0/Address[7]</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: Main_0/GenRamAddrBus.7.IBUF_RamAddr_i/O</cell>
 </row>
 </table>
 <section><name>High fanout nets (through buffer trees)</name></section>
@@ -900,6 +904,16 @@
  <cell>Driver: Main_0/RegisterSpace/ResetSteps_i_RNIDTSH</cell>
 </row>
 <row>
+ <cell>172</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/O</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/GenRamAddrBus.2.IBUF_RamAddr_i/O</cell>
+</row>
+<row>
  <cell>164</cell>
  <cell>INT_NET</cell>
  <cell>Net   : Main_0/BootupReset/shot_i_rep_Z</cell>
@@ -910,57 +924,7 @@
  <cell>Driver: Main_0/BootupReset/shot_i_rep</cell>
 </row>
 <row>
- <cell>123</cell>
- <cell>INT_NET</cell>
- <cell>Net   : Main_0/Uart3FifoReset_i_Z</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: Main_0/Uart3FifoReset_i</cell>
-</row>
-<row>
- <cell>123</cell>
- <cell>INT_NET</cell>
- <cell>Net   : Main_0/Uart1FifoReset_i_Z</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: Main_0/Uart1FifoReset_i</cell>
-</row>
-<row>
- <cell>123</cell>
- <cell>INT_NET</cell>
- <cell>Net   : Main_0/Uart2FifoReset_i_Z</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: Main_0/Uart2FifoReset_i</cell>
-</row>
-<row>
- <cell>123</cell>
- <cell>INT_NET</cell>
- <cell>Net   : Main_0/UartUsbFifoReset_i_Z</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: Main_0/UartUsbFifoReset_i</cell>
-</row>
-<row>
- <cell>123</cell>
- <cell>INT_NET</cell>
- <cell>Net   : Main_0/UartGpsFifoReset_i_Z</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: Main_0/UartGpsFifoReset_i</cell>
-</row>
-<row>
- <cell>122</cell>
+ <cell>131</cell>
  <cell>INT_NET</cell>
  <cell>Net   : Main_0/Uart0FifoReset_i_Z</cell>
 </row>
@@ -970,27 +934,67 @@
  <cell>Driver: Main_0/Uart0FifoReset_i</cell>
 </row>
 <row>
- <cell>84</cell>
+ <cell>130</cell>
  <cell>INT_NET</cell>
- <cell>Net   : Main_0/RamBusAddress_i[6]</cell>
+ <cell>Net   : Main_0/Uart3FifoReset_i_Z</cell>
 </row>
 <row>
  <cell></cell>
  <cell></cell>
- <cell>Driver: Main_0/GenRamAddrBus.6.IBUF_RamAddr_i/O</cell>
+ <cell>Driver: Main_0/Uart3FifoReset_i</cell>
 </row>
 <row>
- <cell>76</cell>
+ <cell>130</cell>
  <cell>INT_NET</cell>
- <cell>Net   : Main_0/O</cell>
+ <cell>Net   : Main_0/UartGpsFifoReset_i_Z</cell>
 </row>
 <row>
  <cell></cell>
  <cell></cell>
- <cell>Driver: Main_0/GenRamAddrBus.2.IBUF_RamAddr_i/O</cell>
+ <cell>Driver: Main_0/UartGpsFifoReset_i</cell>
 </row>
 <row>
- <cell>73</cell>
+ <cell>130</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/UartUsbFifoReset_i_Z</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/UartUsbFifoReset_i</cell>
+</row>
+<row>
+ <cell>130</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/Uart2FifoReset_i_Z</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/Uart2FifoReset_i</cell>
+</row>
+<row>
+ <cell>130</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/Uart1FifoReset_i_Z</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/Uart1FifoReset_i</cell>
+</row>
+<row>
+ <cell>117</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/Address[4]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/GenRamAddrBus.4.IBUF_RamAddr_i/O</cell>
+</row>
+<row>
+ <cell>93</cell>
  <cell>INT_NET</cell>
  <cell>Net   : Main_0/Address[3]</cell>
 </row>
@@ -1000,7 +1004,7 @@
  <cell>Driver: Main_0/GenRamAddrBus.3.IBUF_RamAddr_i/O</cell>
 </row>
 <row>
- <cell>70</cell>
+ <cell>74</cell>
  <cell>INT_NET</cell>
  <cell>Net   : Main_0/Address[5]</cell>
 </row>
@@ -1008,16 +1012,6 @@
  <cell></cell>
  <cell></cell>
  <cell>Driver: Main_0/GenRamAddrBus.5.IBUF_RamAddr_i/O</cell>
-</row>
-<row>
- <cell>70</cell>
- <cell>INT_NET</cell>
- <cell>Net   : Main_0/Address[4]</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: Main_0/GenRamAddrBus.4.IBUF_RamAddr_i/O</cell>
 </row>
 <row>
  <cell>67</cell>
@@ -1038,6 +1032,26 @@
  <cell></cell>
  <cell></cell>
  <cell>Driver: Main_0/PPSAccumulator/PPSAccum_0_sqmuxa_0</cell>
+</row>
+<row>
+ <cell>63</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/RamBusAddress_i[6]</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/GenRamAddrBus.6.IBUF_RamAddr_i/O</cell>
+</row>
+<row>
+ <cell>53</cell>
+ <cell>INT_NET</cell>
+ <cell>Net   : Main_0/RegisterSpace/N_803</cell>
+</row>
+<row>
+ <cell></cell>
+ <cell></cell>
+ <cell>Driver: Main_0/RegisterSpace/un132_readreq_0_a2_0</cell>
 </row>
 <row>
  <cell>52</cell>
@@ -1198,16 +1212,6 @@
  <cell></cell>
  <cell></cell>
  <cell>Driver: Main_0/StepperMotor/CurrentStep_i[0]</cell>
-</row>
-<row>
- <cell>52</cell>
- <cell>INT_NET</cell>
- <cell>Net   : Main_0/Address[7]</cell>
-</row>
-<row>
- <cell></cell>
- <cell></cell>
- <cell>Driver: Main_0/GenRamAddrBus.7.IBUF_RamAddr_i/O</cell>
 </row>
 </table>
 </doc>

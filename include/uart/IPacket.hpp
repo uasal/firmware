@@ -37,7 +37,10 @@ class IPacket
 public:
 	IPacket() { }
 	virtual ~IPacket() { }	
-	
+
+	virtual void Debug(bool dbg) = 0;
+    virtual bool Debug() const = 0;
+
 	virtual bool FindPacketStartPos(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const = 0;
 	virtual bool FindPacketEndPos(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const = 0;
 	virtual bool FindPacketStartPos(const uint8_t* Buffer, const size_t BufferLen, const size_t SearchStartPos, size_t& Offset) const = 0;
@@ -57,9 +60,10 @@ public:
 	
 	virtual bool FindPacketStartPos(const IArray& Buffer, const size_t SearchStartPos, size_t& Offset) const = 0;
 	virtual bool ReverseFindPacketStartPos(const IArray& Buffer, const size_t SearchEndPos, size_t& Offset) const = 0; //Look backwards from this location for first occurence of start byte(s)
+	virtual bool ReverseFindPacketStartPos(const IArray& Buffer, const size_t SearchEndPos, const int32_t SearchStartPos, size_t& Offset) const = 0; //Look backwards from this location for first occurence of start byte(s)
 	virtual bool FindPacketEndPos(const IArray& Buffer, const size_t SearchStartPos,  size_t& Offset) const = 0;
-    virtual bool FindPacketEndPos(const IArray& Buffer, const size_t SearchStartPos, const size_t SearchLen, size_t& Offset) const = 0;
-	virtual bool ReverseFindPacketEndPos(const IArray& Buffer, const size_t SearchStartPos, const size_t SearchLen, size_t& Offset) const = 0;
+    virtual bool FindPacketEndPos(const IArray& Buffer, const size_t SearchStartPos, const int32_t SearchLen, size_t& Offset) const = 0;
+	virtual bool ReverseFindPacketEndPos(const IArray& Buffer, const size_t SearchStartPos, const int32_t SearchEndPos, size_t& Offset) const = 0;
 	virtual size_t PayloadLen(const IArray& Buffer, const size_t PacketStartPos) const = 0;
 	virtual bool IsValid(const IArray& Buffer, const size_t PacketStartPos, const size_t PacketEndPos, FpgaRingBufferCrcer& FpgaCrc) const = 0;
 	virtual bool IsBroadcastSerialNum(const IArray& Buffer, const size_t PacketStartPos, const size_t PacketEndPos) const = 0;

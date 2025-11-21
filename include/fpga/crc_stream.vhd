@@ -64,7 +64,7 @@ architecture implementation of CrcStream is
 	end component;
 
 	signal CrcIn : std_logic_vector(31 downto 0);
-	signal CrcOut : std_logic_vector(31 downto 0);
+	signal Crc_i : std_logic_vector(31 downto 0);
 	
 begin
 
@@ -73,10 +73,10 @@ begin
 	(
 		crcIn => CrcIn,
 		data => data,
-		crcOut => CrcOut--,
+		crcOut => Crc_i--,
 	);
 	
-	crc <= CrcOut; --these concepts are synchronous in this design
+	crc <= Crc_i; --these concepts are synchronous in this design
 		
 	process (clk, rst)
 	begin
@@ -84,13 +84,13 @@ begin
 		if (rst = '1') then 
 		
 			CrcIn <= x"FFFFFFFF";
-			CrcOut <= x"FFFFFFFF";
+			--~ CrcIn <= x"00000000";
 					
 		else
 			
 			if ( (clk'event) and (clk = '1') ) then
 
-				CrcIn <= CrcOut;
+				CrcIn <= Crc_i;
 			
 			end if;	
 			

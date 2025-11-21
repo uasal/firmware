@@ -155,12 +155,12 @@ entity RegisterSpacePorts is
 		Uart0RxFifoFull : in std_logic;
 		Uart0RxFifoEmpty : in std_logic;
 		Uart0RxFifoData : in std_logic_vector(7 downto 0);
-		Uart0RxFifoCount : in std_logic_vector(9 downto 0);
+		Uart0RxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 		WriteUart0 : out std_logic;
 		Uart0TxFifoFull : in std_logic;
 		Uart0TxFifoEmpty : in std_logic;
 		Uart0TxFifoData : out std_logic_vector(7 downto 0);
-		Uart0TxFifoCount : in std_logic_vector(9 downto 0);
+		Uart0TxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 		Uart0ClkDivider : out std_logic_vector(7 downto 0);
 		
 		Uart0RxFifoPeekReadAddr : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
@@ -181,12 +181,12 @@ entity RegisterSpacePorts is
 		Uart1RxFifoFull : in std_logic;
 		Uart1RxFifoEmpty : in std_logic;
 		Uart1RxFifoData : in std_logic_vector(7 downto 0);
-		Uart1RxFifoCount : in std_logic_vector(9 downto 0);
+		Uart1RxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 		WriteUart1 : out std_logic;
 		Uart1TxFifoFull : in std_logic;
 		Uart1TxFifoEmpty : in std_logic;
 		Uart1TxFifoData : out std_logic_vector(7 downto 0);
-		Uart1TxFifoCount : in std_logic_vector(9 downto 0);
+		Uart1TxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 		Uart1ClkDivider : out std_logic_vector(7 downto 0);
 		
 		Uart2FifoReset : out std_logic;
@@ -194,12 +194,12 @@ entity RegisterSpacePorts is
 		Uart2RxFifoFull : in std_logic;
 		Uart2RxFifoEmpty : in std_logic;
 		Uart2RxFifoData : in std_logic_vector(7 downto 0);
-		Uart2RxFifoCount : in std_logic_vector(9 downto 0);
+		Uart2RxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 		WriteUart2 : out std_logic;
 		Uart2TxFifoFull : in std_logic;
 		Uart2TxFifoEmpty : in std_logic;
 		Uart2TxFifoData : out std_logic_vector(7 downto 0);
-		Uart2TxFifoCount : in std_logic_vector(9 downto 0);
+		Uart2TxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 		Uart2ClkDivider : out std_logic_vector(7 downto 0);
 		
 		Uart3FifoReset : out std_logic;
@@ -207,12 +207,12 @@ entity RegisterSpacePorts is
 		Uart3RxFifoFull : in std_logic;
 		Uart3RxFifoEmpty : in std_logic;
 		Uart3RxFifoData : in std_logic_vector(7 downto 0);
-		Uart3RxFifoCount : in std_logic_vector(9 downto 0);
+		Uart3RxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 		WriteUart3 : out std_logic;
 		Uart3TxFifoFull : in std_logic;
 		Uart3TxFifoEmpty : in std_logic;
 		Uart3TxFifoData : out std_logic_vector(7 downto 0);
-		Uart3TxFifoCount : in std_logic_vector(9 downto 0);
+		Uart3TxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 		Uart3ClkDivider : out std_logic_vector(7 downto 0);
 		
 		UartUsbFifoReset : out std_logic;
@@ -220,12 +220,12 @@ entity RegisterSpacePorts is
 		UartUsbRxFifoFull : in std_logic;
 		UartUsbRxFifoEmpty : in std_logic;
 		UartUsbRxFifoData : in std_logic_vector(7 downto 0);
-		UartUsbRxFifoCount : in std_logic_vector(9 downto 0);
+		UartUsbRxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 		WriteUartUsb : out std_logic;
 		UartUsbTxFifoFull : in std_logic;
 		UartUsbTxFifoEmpty : in std_logic;
 		UartUsbTxFifoData : out std_logic_vector(7 downto 0);
-		UartUsbTxFifoCount : in std_logic_vector(9 downto 0);
+		UartUsbTxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 		UartUsbClkDivider : out std_logic_vector(7 downto 0);
 		
 		UartGpsFifoReset : out std_logic;
@@ -233,12 +233,12 @@ entity RegisterSpacePorts is
 		UartGpsRxFifoFull : in std_logic;
 		UartGpsRxFifoEmpty : in std_logic;
 		UartGpsRxFifoData : in std_logic_vector(7 downto 0);
-		UartGpsRxFifoCount : in std_logic_vector(9 downto 0);
+		UartGpsRxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 		WriteUartGps : out std_logic;
 		UartGpsTxFifoFull : in std_logic;
 		UartGpsTxFifoEmpty : in std_logic;
 		UartGpsTxFifoData : out std_logic_vector(7 downto 0);
-		UartGpsTxFifoCount : in std_logic_vector(9 downto 0);
+		UartGpsTxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 		UartGpsClkDivider : out std_logic_vector(7 downto 0);
 		
 		--Timing
@@ -568,10 +568,8 @@ begin
 								DataOut(5) <= '0';
 								DataOut(6) <= '0';
 								DataOut(7) <= '0';
-								DataOut(17 downto 8) <= Uart0RxFifoCount;
-								DataOut(27 downto 18) <= Uart0RxFifoCount;
-								DataOut(31 downto 28) <= "0000";
-								
+								DataOut(15 downto 8) <= x"00";
+								DataOut(31 downto 16) <= (UART_FIFO_DEPTH_BITS + 15 downto 16 => Uart0RxFifoCount, others => '0');
 						
 							
 							when Uart1FifoAddr =>
@@ -596,10 +594,8 @@ begin
 								DataOut(5) <= '0';
 								DataOut(6) <= '0';
 								DataOut(7) <= '0';
-								DataOut(17 downto 8) <= Uart1RxFifoCount;
-								DataOut(27 downto 18) <= Uart1RxFifoCount;
-								DataOut(31 downto 28) <= "0000";
-							
+								DataOut(15 downto 8) <= x"00";
+								DataOut(31 downto 16) <= (UART_FIFO_DEPTH_BITS + 15 downto 16 => Uart1RxFifoCount, others => '0');
 							
 							
 							when Uart2FifoAddr =>
@@ -624,10 +620,9 @@ begin
 								DataOut(5) <= '0';
 								DataOut(6) <= '0';
 								DataOut(7) <= '0';
-								DataOut(17 downto 8) <= Uart2RxFifoCount;
-								DataOut(27 downto 18) <= Uart2RxFifoCount;
-								DataOut(31 downto 28) <= "0000";
-							
+								DataOut(15 downto 8) <= x"00";
+								DataOut(31 downto 16) <= (UART_FIFO_DEPTH_BITS + 15 downto 16 => Uart2RxFifoCount, others => '0');
+
 							
 							
 							when Uart3FifoAddr =>
@@ -652,10 +647,9 @@ begin
 								DataOut(5) <= '0';
 								DataOut(6) <= '0';
 								DataOut(7) <= '0';
-								DataOut(17 downto 8) <= Uart3RxFifoCount;
-								DataOut(27 downto 18) <= Uart3RxFifoCount;
-								DataOut(31 downto 28) <= "0000";
-								
+								DataOut(15 downto 8) <= x"00";
+								DataOut(31 downto 16) <= (UART_FIFO_DEPTH_BITS + 15 downto 16 => Uart3RxFifoCount, others => '0');
+
 								
 								
 							when UartUsbFifoAddr =>
@@ -680,10 +674,8 @@ begin
 								DataOut(5) <= '0';
 								DataOut(6) <= '0';
 								DataOut(7) <= '0';
-								DataOut(17 downto 8) <= UartUsbRxFifoCount;
-								DataOut(27 downto 18) <= UartUsbRxFifoCount;
-								DataOut(31 downto 28) <= "0000";
-
+								DataOut(15 downto 8) <= x"00";
+								DataOut(31 downto 16) <= (UART_FIFO_DEPTH_BITS + 15 downto 16 => UartUsbRxFifoCount, others => '0');
 
 
 							when UartGpsFifoAddr =>
@@ -708,10 +700,9 @@ begin
 								DataOut(5) <= '0';
 								DataOut(6) <= '0';
 								DataOut(7) <= '0';
-								DataOut(17 downto 8) <= UartGpsRxFifoCount;
-								DataOut(27 downto 18) <= UartGpsRxFifoCount;
-								DataOut(31 downto 28) <= "0000";
-								
+								DataOut(15 downto 8) <= x"00";
+								DataOut(31 downto 16) <= (UART_FIFO_DEPTH_BITS + 15 downto 16 => UartGpsRxFifoCount, others => '0');
+
 								
 								
 							--Uart Clock dividers

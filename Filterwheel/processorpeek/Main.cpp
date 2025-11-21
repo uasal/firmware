@@ -227,7 +227,7 @@ int main(int argc, char *argv[])
 	formatf("\nOffset of Uart0RxFifoPeekPeekData: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, Uart0RxFifoPeekPeekData), 344UL);
 	formatf("\nOffset of Uart0RxFifoPeekPeekAddr: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFWHardwareInterface, Uart0RxFifoPeekPeekAddr), 340UL);
 
-	FpgaUartParser0.Init();
+	//~ FpgaUartParser0.Init();
 	FpgaUartParser1.Init();
 	FpgaUartParser2.Init();
 	FpgaUartParser3.Init();

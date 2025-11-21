@@ -159,6 +159,8 @@ int main(int argc, char *argv[])
         BaudRate = atoi(argv[2]);
     }
 	
+	LocalPortPinout.AutoReopen(true);
+	
     int err = LocalPortPinout.init(BaudRate, PortName);
     if (IUart::IUartOK != err)
     {

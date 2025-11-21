@@ -33,54 +33,64 @@ public:
 	//Accepts an offset from 0 to depth and returns the byte at that point in the buffer
 	uint8_t operator[](const long offset) const override
 	{
-		if ( (nullptr == WriteOffset) || (nullptr == ReadOffset) ) { return(0); }
+		//Relative addressing:
 
-		size_t w,r;
-		w = *WriteOffset;
-		if ( (w > Len) || (w < 0) ) { w = 0; }
-		r = *ReadOffset;
-		if ( (r > Len) || (r < 0) ) { r = 0; }
+		//~ if ( (nullptr == WriteOffset) || (nullptr == ReadOffset) ) { return(0); }
+
+		//~ size_t w,r;
+		//~ w = *WriteOffset;
+		//~ if ( (w > Len) || (w < 0) ) { w = 0; }
+		//~ r = *ReadOffset;
+		//~ if ( (r > Len) || (r < 0) ) { r = 0; }
 		
-		long d = w - r;
-		if (d < 0) { d += Len; }
-		if (d > (long)Len) { d = Len; }
+		//~ long d = w - r;
+		//~ if (d < 0) { d += Len; }
+		//~ if (d > (long)Len) { d = Len; }
 		
+		//Absolute addressing:
 		//Here's where things get fun- we're gonna wrap both ends, so we can do logical addressing off the ends of the array and *not* have to deal with that mess in code that uses this interface =)
 		long off = offset;
 		if (off >= (long)Len) { off %= Len; }
 		if (off < 0) { off = Len + (off % Len); }
 		
 		//Ok, enough error checking, let's do something useful...
-		long pos = r + off;
-		if (pos >= (long)Len) { pos -= Len; }		
-		*DataOffset = pos;
+		//~ long pos = r + off;
+		//~ if (pos >= (long)Len) { pos -= Len; }		
+		//~ *DataOffset = pos;
+		
+		*DataOffset = off;
 		return(*Data);
 	}
 	
 	//Accepts an offset from 0 to depth and returns the byte at that point in the buffer
 	uint8_t peek(const long offset) const override
 	{
-		if ( (nullptr == WriteOffset) || (nullptr == ReadOffset) ) { return(0); }
+		//Relative addressing:
 
-		size_t w,r;
-		w = *WriteOffset;
-		if ( (w > Len) || (w < 0) ) { w = 0; }
-		r = *ReadOffset;
-		if ( (r > Len) || (r < 0) ) { r = 0; }
+		//~ if ( (nullptr == WriteOffset) || (nullptr == ReadOffset) ) { return(0); }
+
+		//~ size_t w,r;
+		//~ w = *WriteOffset;
+		//~ if ( (w > Len) || (w < 0) ) { w = 0; }
+		//~ r = *ReadOffset;
+		//~ if ( (r > Len) || (r < 0) ) { r = 0; }
 		
-		long d = w - r;
-		if (d < 0) { d += Len; }
-		if (d > (long)Len) { d = Len; }
+		//~ long d = w - r;
+		//~ if (d < 0) { d += Len; }
+		//~ if (d > (long)Len) { d = Len; }
 		
+		//Absolute addressing:
 		//Here's where things get fun- we're gonna wrap both ends, so we can do logical addressing off the ends of the array and *not* have to deal with that mess in code that uses this interface =)
 		long off = offset;
 		if (off >= (long)Len) { off %= Len; }
 		if (off < 0) { off = Len + (off % Len); }
 		
 		//Ok, enough error checking, let's do something useful...
-		long pos = r + off;
-		if (pos >= (long)Len) { pos -= Len; }		
-		*DataOffset = pos;
+		//~ long pos = r + off;
+		//~ if (pos >= (long)Len) { pos -= Len; }		
+		//~ *DataOffset = pos;
+		
+		*DataOffset = off;
 		return(*Data);
 	}
 	

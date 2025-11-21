@@ -366,12 +366,12 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		//~ BinaryUartRingBuffer FpgaUartParser0(FifoFlattener, FpgaCrc0, FPGAUartProtocol, FPGAUartPinout0, BinaryCmds, NumBinaryCmds, BinaryPacketCallbacks, false);
 
 		::formatf("\n\nBISTCommand: :");
-		for(uint32_t i = 0; i < 32; i++)
+		for(uint32_t i = 0; i < 64; i++)
 		{
 			FW->Uart0RxFifoPeekPeekAddr = i;
 			uint32_t j = FW->Uart0RxFifoPeekPeekData;
 			//~ uint32_t j = FW->Uart0RxFifoPeekPeekAddr;
-			::formatf("%2X:", j);
+			::formatf("%02X:", j);
 		}
 		::formatf("\n\n");
 

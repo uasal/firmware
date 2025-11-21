@@ -20,7 +20,10 @@
 -- Input word width:            8 bits
 
 library IEEE;
-use IEEE.std_logic_1164.all;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.all;
+library work;
 
 entity crc_byte is
     port (
@@ -32,6 +35,7 @@ end entity crc_byte;
 
 architecture Behavioral of crc_byte is
 begin
+	--~ crcOut <= crcIn + x"00000001";
     crcOut(0) <= crcIn(24) xor crcIn(30) xor data(0) xor data(6);
     crcOut(1) <= crcIn(24) xor crcIn(25) xor crcIn(30) xor crcIn(31) xor data(0) xor data(1) xor data(6) xor data(7);
     crcOut(2) <= crcIn(24) xor crcIn(25) xor crcIn(26) xor crcIn(30) xor crcIn(31) xor data(0) xor data(1) xor data(2) xor data(6) xor data(7);

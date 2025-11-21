@@ -66,8 +66,15 @@ struct CGraphPacketFooter
 class CGraphPacket: public IPacket
 {
 public:
-    CGraphPacket() { }
+    CGraphPacket() : debug(true) { }
     virtual ~CGraphPacket() { }
+	
+	void Debug(bool dbg) override
+    {
+        debug = dbg;
+    }
+
+	bool Debug() const override { return(debug); }
 
     virtual bool FindPacketStartPos(const uint8_t* Buffer, const size_t BufferLen, size_t& Offset) const override
     {
@@ -276,6 +283,21 @@ public:
         return(false);
     }
 
+    virtual bool ReverseFindPacketStartPos(const IArray& Buffer, const size_t SearchEndPos, const int32_t SearchStartPos, size_t& Offset) const override
+    {
+        for (int32_t i = SearchEndPos; i >= SearchStartPos; i--)
+        {
+			//~ ::formatf("\n\nCGraphPacket::ReverseFindPacketStartPos(): Buffer.asU32(%u) = 0x%lx.\n\r", i, (unsigned long)(Buffer.asU32(i))); 
+
+            if (CGraphMagikPacketStartToken == Buffer.asU32(i))
+            {
+                Offset = i;
+                return(true);
+            }
+        }
+        return(false);
+    }
+
     virtual bool FindPacketEndPos(const IArray& Buffer, const size_t SearchStartPos, size_t& Offset) const override
     {
         for (size_t i = SearchStartPos; i <= (Buffer.Depth() - sizeof(uint32_t)); i++)
@@ -291,7 +313,7 @@ public:
         return(false);
     }
 
-    virtual bool FindPacketEndPos(const IArray& Buffer, const size_t SearchStartPos, const size_t SearchLen, size_t& Offset) const override
+    virtual bool FindPacketEndPos(const IArray& Buffer, const size_t SearchStartPos, const int32_t SearchLen, size_t& Offset) const override
     {
         for (size_t i = SearchStartPos; i <= SearchStartPos + SearchLen; i++)
         {
@@ -306,11 +328,11 @@ public:
         return(false);
     }
 
-    virtual bool ReverseFindPacketEndPos(const IArray& Buffer, const size_t SearchStartPos, const size_t SearchLen, size_t& Offset) const override
+    virtual bool ReverseFindPacketEndPos(const IArray& Buffer, const size_t SearchStartPos, int32_t SearchEndPos, size_t& Offset) const override
     {
-        for (size_t i = SearchStartPos; i >= SearchStartPos - SearchLen; i--)
+        for (int32_t i = SearchStartPos; i >= SearchEndPos; i--)
         {
-			//~ ::formatf("\n\nCGraphPacket::FindPacketEndPos(): Buffer.asU32(%u) = 0x%lx.\n\r", i, (unsigned long)(Buffer.asU32(i))); 
+			//~ ::formatf("\n\nCGraphPacket::ReverseFindPacketEndPos(): Buffer.asU32(%u) = 0x%lx.\n\r", i, (unsigned long)(Buffer.asU32(i))); 
 			
             if (CGraphMagikPacketEndToken == Buffer.asU32(i))
             {
@@ -337,25 +359,31 @@ public:
 
     virtual bool IsValid(const IArray& Buffer, const size_t PacketStartPos, const size_t PacketEndPos, FpgaRingBufferCrcer& FpgaCrc) const override
     {
-        uint32_t packetstarttoken = Buffer.asU32(PacketStartPos + offsetof(CGraphPacketHeader, PacketStartToken));
+		bool dbg = true;
+		
+		uint32_t packetstarttoken = Buffer.asU32(PacketStartPos + offsetof(CGraphPacketHeader, PacketStartToken));
         //~ uint16_t payloadtype = Buffer.asU16(PacketStartPos + offsetof(CGraphPacketHeader, PayloadType));
         uint16_t payloadlen = Buffer.asU16(PacketStartPos + offsetof(CGraphPacketHeader, PayloadLen));
 
-		::formatf("\n\nCGraphPacket::IsValid(): PacketStartToken: Buffer.asU32(%u) = 0x%lx.\n\r", PacketStartPos + offsetof(CGraphPacketHeader, PacketStartToken), (unsigned long)(Buffer.asU32(PacketStartPos + offsetof(CGraphPacketHeader, PacketStartToken)))); 
-		::formatf("\n\nCGraphPacket::IsValid(): payloadtype: Buffer.asU16(%u) = 0x%x.\n\r", PacketStartPos + offsetof(CGraphPacketHeader, PayloadType), Buffer.asU16(PacketStartPos + offsetof(CGraphPacketHeader, PayloadType))); 
-		::formatf("\n\nCGraphPacket::IsValid(): payloadlen: Buffer.asU16(%u) = 0x%x.\n\r", PacketStartPos + offsetof(CGraphPacketHeader, PayloadLen), Buffer.asU16(PacketStartPos + offsetof(CGraphPacketHeader, PayloadLen))); 
+		if (dbg) { ::formatf("\n\nCGraphPacket::IsValid(): PacketStartToken: Buffer.asU32(%u) = 0x%lx.\n\r", PacketStartPos + offsetof(CGraphPacketHeader, PacketStartToken), (unsigned long)(Buffer.asU32(PacketStartPos + offsetof(CGraphPacketHeader, PacketStartToken)))); }
+		if (dbg) { ::formatf("\n\nCGraphPacket::IsValid(): payloadtype: Buffer.asU16(%u) = 0x%x.\n\r", PacketStartPos + offsetof(CGraphPacketHeader, PayloadType), Buffer.asU16(PacketStartPos + offsetof(CGraphPacketHeader, PayloadType))); }
+		if (dbg) { ::formatf("\n\nCGraphPacket::IsValid(): payloadlen: Buffer.asU16(%u) = 0x%x.\n\r", PacketStartPos + offsetof(CGraphPacketHeader, PayloadLen), Buffer.asU16(PacketStartPos + offsetof(CGraphPacketHeader, PayloadLen))); }
         
-        if ((PacketStartPos + sizeof(CGraphPacketHeader) + sizeof(CGraphPacketFooter)) > Buffer.Depth())
+        if ((PacketEndPos - PacketStartPos) > Buffer.Depth())
         {
+			if (dbg) { ::formatf("\n\nCGraphPacket::IsValid(): packet oversized: BufferDepth: %u, PacketLen: %u.\n\r", Buffer.Depth(), (PacketEndPos - PacketStartPos)); }
             return(false);
         }
-        //~ const CGraphPacketHeader* Header = reinterpret_cast<const CGraphPacketHeader*>(&(Buffer[PacketStartPos]));
-        if ((PacketStartPos + sizeof(CGraphPacketHeader) + payloadlen + sizeof(CGraphPacketFooter)) > Buffer.Depth())
-        {
-            return(false);
-        }
+		
+        //~ if ((PacketStartPos + sizeof(CGraphPacketHeader) + payloadlen + sizeof(CGraphPacketFooter)) > Buffer.Depth())
+        //~ {
+			//~ if (dbg) { ::formatf("\n\nCGraphPacket::IsValid(): packet+payload oversized: BufferDepth: %u, PacketLen: %u.\n\r", Buffer.Depth(), (PacketStartPos + sizeof(CGraphPacketHeader) + payloadlen + sizeof(CGraphPacketFooter))); }
+            //~ return(false);
+        //~ }
+		
         if (CGraphMagikPacketStartToken != packetstarttoken)
         {
+         	if (dbg) { ::formatf("\n\nCGraphPacket::IsValid(): token mismatch: Expected: %u, Actual: %u.\n\r", CGraphMagikPacketStartToken, packetstarttoken); }
             return(false);
         }
 
@@ -363,8 +391,8 @@ public:
         uint32_t crc = Buffer.asU32(PacketStartPos + sizeof(CGraphPacketHeader) + payloadlen + offsetof(CGraphPacketFooter, CRC32BZIP2));
         uint32_t packetendtoken = Buffer.asU32(PacketStartPos + sizeof(CGraphPacketHeader) + payloadlen + offsetof(CGraphPacketFooter, PacketEndToken));
 
-		::formatf("\n\nCGraphPacket::IsValid(): CRC: Buffer.asU32(%u) = 0x%lx.\n\r", PacketStartPos + sizeof(CGraphPacketHeader) + payloadlen + offsetof(CGraphPacketFooter, CRC32BZIP2), (unsigned long)(Buffer.asU32(PacketStartPos + sizeof(CGraphPacketHeader) + payloadlen + offsetof(CGraphPacketFooter, CRC32BZIP2)))); 
-		::formatf("\n\nCGraphPacket::IsValid(): PacketEndToken: Buffer.asU32(%u) = 0x%lx.\n\r", PacketStartPos + sizeof(CGraphPacketHeader) + payloadlen + offsetof(CGraphPacketFooter, PacketEndToken), (unsigned long)(Buffer.asU32(PacketStartPos + sizeof(CGraphPacketHeader) + payloadlen + offsetof(CGraphPacketFooter, PacketEndToken)))); 
+		if (dbg) { ::formatf("\n\nCGraphPacket::IsValid(): CRC: Buffer.asU32(%u) = 0x%lx.\n\r", PacketStartPos + sizeof(CGraphPacketHeader) + payloadlen + offsetof(CGraphPacketFooter, CRC32BZIP2), (unsigned long)(Buffer.asU32(PacketStartPos + sizeof(CGraphPacketHeader) + payloadlen + offsetof(CGraphPacketFooter, CRC32BZIP2)))); }
+		if (dbg) { ::formatf("\n\nCGraphPacket::IsValid(): PacketEndToken: Buffer.asU32(%u) = 0x%lx.\n\r", PacketStartPos + sizeof(CGraphPacketHeader) + payloadlen + offsetof(CGraphPacketFooter, PacketEndToken), (unsigned long)(Buffer.asU32(PacketStartPos + sizeof(CGraphPacketHeader) + payloadlen + offsetof(CGraphPacketFooter, PacketEndToken)))); }
 
         //~ const CGraphPacketFooter* Footer = reinterpret_cast<const CGraphPacketFooter*>(&(Buffer[PacketStartPos + sizeof(CGraphPacketHeader) + Header->PayloadLen]));
         if (CGraphMagikPacketEndToken != packetendtoken)
@@ -380,9 +408,9 @@ public:
 		//~ uint32_t CRC = CRC32BZIP2(CRCBuf, sizeof(CGraphPacketHeader) + payloadlen);
 		
 		//Naw, let's let the fpga do the crc instead!
-		int32_t CrcEndPos = PacketEndPos - sizeof(CGraphPacketFooter);
+		int32_t CrcEndPos = PacketEndPos - sizeof(CGraphPacketFooter::CRC32BZIP2);
 		if (CrcEndPos < 0) { CrcEndPos = 0; }
-		::formatf("\n\nCGraphPacket::IsValid(): CRC: End: %u Start: %u .\n\r", CrcEndPos, PacketStartPos);
+		if (dbg) { ::formatf("\n\nCGraphPacket::IsValid(): CRC: End: %u Start: %u .\n\r", CrcEndPos, PacketStartPos); }
 		*FpgaCrc.CrcStartAddr = PacketStartPos;
 		*FpgaCrc.CrcEndAddr = CrcEndPos;
 		
@@ -393,7 +421,8 @@ public:
 			if ( (CrcStatus.CurrentAddr == CrcEndPos) || (CrcStatus.CrcComplete == 1) ) { break; }
 		}		
 		volatile CGraphCrcCurrentAddr CrcStatus = *FpgaCrc.CrcCurrentAddr;
-        ::formatf("\n\nCGraphPacket::IsValid(): Calc'd CRC: 0x%lx (CrcCurrentAddr: 0x%lx), (timeout: %u).\n\r", (unsigned long)*FpgaCrc.CrcResult, CrcStatus.CurrentAddr, crctimeout);
+        if (dbg) { ::formatf("\n\nCGraphPacket::IsValid(): Calc'd CRC: 0x%lx (CrcCurrentAddr: 0x%lx), (timeout: %u).\n\r", (unsigned long)*FpgaCrc.CrcResult, CrcStatus.CurrentAddr, crctimeout); }
+		if (dbg) { ::formatf("\n\nCGraphPacket::IsValid(): CrcStartAddr: 0x%lx, CrcEndAddr: 0x%lx\n\r", (unsigned long)*FpgaCrc.CrcStartAddr, (unsigned long)*FpgaCrc.CrcEndAddr); }
 		
 		if (*FpgaCrc.CrcResult != crc)
         {
@@ -439,6 +468,10 @@ public:
         }
         return(false);
     }
+	
+private:
+		
+	bool debug;
 };
 
 //************************************************* Packet Types *************************************************

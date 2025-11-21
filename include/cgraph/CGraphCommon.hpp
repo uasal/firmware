@@ -154,10 +154,10 @@ struct FpgaRingBufferCrcer
 	void formatf() const //note: using this function causes some major fuckery with the volatile qulifier in many places...
 	{ 
 		::formatf("FpgaRingBufferCrcer: ");
-		::formatf("CrcStartAddr: 0x%8lX, ", (unsigned)CrcStartAddr);
-		::formatf("CrcEndAddr: 0x%8lX, ", (unsigned)CrcEndAddr);
-		::formatf("CrcCurrentAddr: 0x%8lX, ", (unsigned)CrcCurrentAddr);
-		::formatf("CrcResult: 0x%8lX.", (unsigned)CrcResult);		
+		::formatf("CrcStartAddr: 0x%8lX, ", (unsigned long)CrcStartAddr);
+		::formatf("CrcEndAddr: 0x%8lX, ", (unsigned long)CrcEndAddr);
+		::formatf("CrcCurrentAddr: 0x%8lX, ", (unsigned long)CrcCurrentAddr);
+		::formatf("CrcResult: 0x%8lX.", (unsigned long)CrcResult);		
 	}
 
 };

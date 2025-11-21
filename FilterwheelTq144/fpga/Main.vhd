@@ -736,12 +736,12 @@ architecture architecture_Main of Main is
 							Uart0RxFifoFull : in std_logic;
 							Uart0RxFifoEmpty : in std_logic;
 							Uart0RxFifoData : in std_logic_vector(7 downto 0);
-							Uart0RxFifoCount : in std_logic_vector(9 downto 0);
+							Uart0RxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 							WriteUart0 : out std_logic;
 							Uart0TxFifoFull : in std_logic;
 							Uart0TxFifoEmpty : in std_logic;
 							Uart0TxFifoData : out std_logic_vector(7 downto 0);
-							Uart0TxFifoCount : in std_logic_vector(9 downto 0);
+							Uart0TxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 							Uart0ClkDivider : out std_logic_vector(7 downto 0);
 
 							Uart0RxFifoPeekReadAddr : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
@@ -763,12 +763,12 @@ architecture architecture_Main of Main is
 							Uart1RxFifoFull : in std_logic;
 							Uart1RxFifoEmpty : in std_logic;
 							Uart1RxFifoData : in std_logic_vector(7 downto 0);
-							Uart1RxFifoCount : in std_logic_vector(9 downto 0);
+							Uart1RxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 							WriteUart1 : out std_logic;
 							Uart1TxFifoFull : in std_logic;
 							Uart1TxFifoEmpty : in std_logic;
 							Uart1TxFifoData : out std_logic_vector(7 downto 0);
-							Uart1TxFifoCount : in std_logic_vector(9 downto 0);
+							Uart1TxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 							Uart1ClkDivider : out std_logic_vector(7 downto 0);
 							
 							Uart2FifoReset : out std_logic;
@@ -776,12 +776,12 @@ architecture architecture_Main of Main is
 							Uart2RxFifoFull : in std_logic;
 							Uart2RxFifoEmpty : in std_logic;
 							Uart2RxFifoData : in std_logic_vector(7 downto 0);
-							Uart2RxFifoCount : in std_logic_vector(9 downto 0);
+							Uart2RxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 							WriteUart2 : out std_logic;
 							Uart2TxFifoFull : in std_logic;
 							Uart2TxFifoEmpty : in std_logic;
 							Uart2TxFifoData : out std_logic_vector(7 downto 0);
-							Uart2TxFifoCount : in std_logic_vector(9 downto 0);
+							Uart2TxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 							Uart2ClkDivider : out std_logic_vector(7 downto 0);
 							
 							Uart3FifoReset : out std_logic;
@@ -789,12 +789,12 @@ architecture architecture_Main of Main is
 							Uart3RxFifoFull : in std_logic;
 							Uart3RxFifoEmpty : in std_logic;
 							Uart3RxFifoData : in std_logic_vector(7 downto 0);
-							Uart3RxFifoCount : in std_logic_vector(9 downto 0);
+							Uart3RxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 							WriteUart3 : out std_logic;
 							Uart3TxFifoFull : in std_logic;
 							Uart3TxFifoEmpty : in std_logic;
 							Uart3TxFifoData : out std_logic_vector(7 downto 0);
-							Uart3TxFifoCount : in std_logic_vector(9 downto 0);
+							Uart3TxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 							Uart3ClkDivider : out std_logic_vector(7 downto 0);
 							
 							UartUsbFifoReset : out std_logic;
@@ -802,12 +802,12 @@ architecture architecture_Main of Main is
 							UartUsbRxFifoFull : in std_logic;
 							UartUsbRxFifoEmpty : in std_logic;
 							UartUsbRxFifoData : in std_logic_vector(7 downto 0);
-							UartUsbRxFifoCount : in std_logic_vector(9 downto 0);
+							UartUsbRxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 							WriteUartUsb : out std_logic;
 							UartUsbTxFifoFull : in std_logic;
 							UartUsbTxFifoEmpty : in std_logic;
 							UartUsbTxFifoData : out std_logic_vector(7 downto 0);
-							UartUsbTxFifoCount : in std_logic_vector(9 downto 0);
+							UartUsbTxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 							UartUsbClkDivider : out std_logic_vector(7 downto 0);
 							
 							UartGpsFifoReset : out std_logic;
@@ -815,12 +815,12 @@ architecture architecture_Main of Main is
 							UartGpsRxFifoFull : in std_logic;
 							UartGpsRxFifoEmpty : in std_logic;
 							UartGpsRxFifoData : in std_logic_vector(7 downto 0);
-							UartGpsRxFifoCount : in std_logic_vector(9 downto 0);
+							UartGpsRxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 							WriteUartGps : out std_logic;
 							UartGpsTxFifoFull : in std_logic;
 							UartGpsTxFifoEmpty : in std_logic;
 							UartGpsTxFifoData : out std_logic_vector(7 downto 0);
-							UartGpsTxFifoCount : in std_logic_vector(9 downto 0);
+							UartGpsTxFifoCount : in std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 							UartGpsClkDivider : out std_logic_vector(7 downto 0);
 							
 							--Timing
@@ -1016,7 +1016,7 @@ architecture architecture_Main of Main is
 		--~ constant UartClockPeriod : real := 68.1; --really should be exactly 1 / conv_real(UartBaseClockFreq), but it's just used by DCM clock library, and conv_real doesn't exist.
 		--~ constant UartClockFreq : natural := BaseClockFreq * UartClockFreqMultiplier / UartClockFreqDivider; -- 14.6802MHz (14.7456 ideal; 0.44% dev)
 
-		constant UART_FIFO_DEPTH_BITS : natural := 10;
+		constant UART_FIFO_DEPTH_BITS : natural := 11;
 
 		--FPGA internal
 		
@@ -1083,12 +1083,12 @@ architecture architecture_Main of Main is
 			signal Uart0RxFifoEmpty : std_logic;
 			signal Uart0RxFifoReadAck : std_logic;
 			signal Uart0RxFifoData : std_logic_vector(7 downto 0);
-			signal Uart0RxFifoCount : std_logic_vector(9 downto 0);
+			signal Uart0RxFifoCount : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 			signal WriteUart0 : std_logic;
 			signal Uart0TxFifoFull : std_logic;
 			signal Uart0TxFifoEmpty : std_logic;
 			signal Uart0TxFifoData : std_logic_vector(7 downto 0);
-			signal Uart0TxFifoCount : std_logic_vector(9 downto 0);
+			signal Uart0TxFifoCount : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 			signal Uart0ClkDivider : std_logic_vector(7 downto 0);
 			signal UartClk0 : std_logic;			
 			signal UartTxClk0 : std_logic;			
@@ -1117,12 +1117,12 @@ architecture architecture_Main of Main is
 			signal Uart1RxFifoEmpty : std_logic;
 			signal Uart1RxFifoReadAck : std_logic;
 			signal Uart1RxFifoData : std_logic_vector(7 downto 0);
-			signal Uart1RxFifoCount : std_logic_vector(9 downto 0);
+			signal Uart1RxFifoCount : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 			signal WriteUart1 : std_logic;
 			signal Uart1TxFifoFull : std_logic;
 			signal Uart1TxFifoEmpty : std_logic;
 			signal Uart1TxFifoData : std_logic_vector(7 downto 0);
-			signal Uart1TxFifoCount : std_logic_vector(9 downto 0);
+			signal Uart1TxFifoCount : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 			signal Uart1ClkDivider : std_logic_vector(7 downto 0);
 			signal UartClk1 : std_logic;			
 			signal UartTxClk1 : std_logic;			
@@ -1137,12 +1137,12 @@ architecture architecture_Main of Main is
 			signal Uart2RxFifoEmpty : std_logic;
 			signal Uart2RxFifoReadAck : std_logic;
 			signal Uart2RxFifoData : std_logic_vector(7 downto 0);
-			signal Uart2RxFifoCount : std_logic_vector(9 downto 0);
+			signal Uart2RxFifoCount : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 			signal WriteUart2 : std_logic;
 			signal Uart2TxFifoFull : std_logic;
 			signal Uart2TxFifoEmpty : std_logic;
 			signal Uart2TxFifoData : std_logic_vector(7 downto 0);
-			signal Uart2TxFifoCount : std_logic_vector(9 downto 0);
+			signal Uart2TxFifoCount : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 			signal Uart2ClkDivider : std_logic_vector(7 downto 0);
 			signal UartClk2 : std_logic;			
 			signal UartTxClk2 : std_logic;			
@@ -1157,12 +1157,12 @@ architecture architecture_Main of Main is
 			signal Uart3RxFifoEmpty : std_logic;
 			signal Uart3RxFifoReadAck : std_logic;
 			signal Uart3RxFifoData : std_logic_vector(7 downto 0);
-			signal Uart3RxFifoCount : std_logic_vector(9 downto 0);
+			signal Uart3RxFifoCount : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 			signal WriteUart3 : std_logic;
 			signal Uart3TxFifoFull : std_logic;
 			signal Uart3TxFifoEmpty : std_logic;
 			signal Uart3TxFifoData : std_logic_vector(7 downto 0);
-			signal Uart3TxFifoCount : std_logic_vector(9 downto 0);
+			signal Uart3TxFifoCount : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 			signal Uart3ClkDivider : std_logic_vector(7 downto 0);
 			signal UartClk3 : std_logic;			
 			signal UartTxClk3 : std_logic;			
@@ -1177,12 +1177,12 @@ architecture architecture_Main of Main is
 			signal UartUsbRxFifoEmpty : std_logic;
 			signal UartUsbRxFifoReadAck : std_logic;
 			signal UartUsbRxFifoData : std_logic_vector(7 downto 0);
-			signal UartUsbRxFifoCount : std_logic_vector(9 downto 0);
+			signal UartUsbRxFifoCount : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 			signal WriteUartUsb : std_logic;
 			signal UartUsbTxFifoFull : std_logic;
 			signal UartUsbTxFifoEmpty : std_logic;
 			signal UartUsbTxFifoData : std_logic_vector(7 downto 0);
-			signal UartUsbTxFifoCount : std_logic_vector(9 downto 0);
+			signal UartUsbTxFifoCount : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 			signal UartUsbClkDivider : std_logic_vector(7 downto 0);
 			signal UartClkUsb : std_logic;			
 			signal UartTxClkUsb : std_logic;			
@@ -1198,12 +1198,12 @@ architecture architecture_Main of Main is
 			signal UartGpsRxFifoEmpty : std_logic;
 			signal UartGpsRxFifoReadAck : std_logic;
 			signal UartGpsRxFifoData : std_logic_vector(7 downto 0);
-			signal UartGpsRxFifoCount : std_logic_vector(9 downto 0);
+			signal UartGpsRxFifoCount : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 			signal WriteUartGps : std_logic;
 			signal UartGpsTxFifoFull : std_logic;
 			signal UartGpsTxFifoEmpty : std_logic;
 			signal UartGpsTxFifoData : std_logic_vector(7 downto 0);
-			signal UartGpsTxFifoCount : std_logic_vector(9 downto 0);
+			signal UartGpsTxFifoCount : std_logic_vector(UART_FIFO_DEPTH_BITS - 1 downto 0);
 			signal UartGpsClkDivider : std_logic_vector(7 downto 0);
 			signal UartClkGps : std_logic;			
 			signal UartTxClkGps : std_logic;			
@@ -1366,7 +1366,7 @@ begin
 	(	
 		clk => MasterClk,
 		--~ rst => not(rst_in),
-		rst => open,
+		rst => '0',
 		shot => MasterReset
 		--~ shot => rst_pulse
 	);
@@ -1871,7 +1871,7 @@ begin
 	RS422_Rx0_Crcer : CrcFifo
 	generic map
 	(
-		DEPTH_BITS => 10--,
+		DEPTH_BITS => UART_FIFO_DEPTH_BITS--,
 	)
 	port map
 	(
@@ -1893,7 +1893,7 @@ begin
 	Uart0RxFifoPeekPeekAddr_i <= Uart0CrcCurrentAddr when (Uart0CrcDone = '0') else Uart0RxFifoPeekPeekAddrRegisterSpace;
 
 	--~ LedG <= not(UartRx0Dbg);
-	LedG <= Uart0CrcDone;
+	LedG <= Uart0DoCrc;
 	--~ LedR <= not(Uart0RxFifoEmpty);
 	LedR <= '0';
 	TP1 <= Uart0CrcDone;
@@ -1908,7 +1908,7 @@ begin
 	generic map
 	(
 		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
-		FIFO_BITS => 10--,
+		FIFO_BITS => UART_FIFO_DEPTH_BITS--,
 		--~ BAUD_DIVIDER_BITS => 8--,
 		--~ BAUDRATE => 12500000--,
 		--~ BAUDRATE => 8000000--,
@@ -1977,7 +1977,7 @@ begin
 	generic map
 	(
 		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
-		FIFO_BITS => 10--,
+		FIFO_BITS => UART_FIFO_DEPTH_BITS--,
 		--~ BAUD_DIVIDER_BITS => 8--,
 		--~ BAUDRATE => 12500000--,
 		--~ BAUDRATE => 8000000--,
@@ -2007,7 +2007,7 @@ begin
 	generic map
 	(
 		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
-		FIFO_BITS => 10--,
+		FIFO_BITS => UART_FIFO_DEPTH_BITS--,
 		--~ BAUD_DIVIDER_BITS => 8--,
 		--~ BAUDRATE => 12500000--,
 		--~ BAUDRATE => 8000000--,
@@ -2077,7 +2077,7 @@ begin
 	generic map
 	(
 		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
-		FIFO_BITS => 10--,
+		FIFO_BITS => UART_FIFO_DEPTH_BITS--,
 		--~ BAUD_DIVIDER_BITS => 8--,
 		--~ BAUDRATE => 12500000--,
 		--~ BAUDRATE => 8000000--,
@@ -2107,8 +2107,8 @@ begin
 	generic map
 	(
 		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
-		--~ FIFO_BITS => 10,
-		FIFO_BITS => 10--,
+		--~ FIFO_BITS => UART_FIFO_DEPTH_BITS,
+		FIFO_BITS => UART_FIFO_DEPTH_BITS--,
 		--~ BAUD_DIVIDER_BITS => 8--,
 		--~ BAUDRATE => 12500000--,
 		--~ BAUDRATE => 8000000--,
@@ -2188,7 +2188,7 @@ begin
 	generic map
 	(
 		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
-		FIFO_BITS => 10--,
+		FIFO_BITS => UART_FIFO_DEPTH_BITS--,
 		--~ BAUD_DIVIDER_BITS => 8--,
 		--~ BAUDRATE => 13500000--,
 		--~ BAUDRATE => 8000000--,
@@ -2218,8 +2218,8 @@ begin
 	generic map
 	(
 		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
-		--~ FIFO_BITS => 10,
-		FIFO_BITS => 10--,
+		--~ FIFO_BITS => UART_FIFO_DEPTH_BITS,
+		FIFO_BITS => UART_FIFO_DEPTH_BITS--,
 		--~ BAUD_DIVIDER_BITS => 8--,
 		--~ BAUDRATE => 13500000--,
 		--~ BAUDRATE => 8000000--,
@@ -2317,7 +2317,7 @@ begin
 	generic map
 	(
 		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
-		FIFO_BITS => 10--,
+		FIFO_BITS => UART_FIFO_DEPTH_BITS--,
 		--~ BAUD_DIVIDER_BITS => 8--,
 		--~ BAUDRATE => 1Usb500000--,
 		--~ BAUDRATE => 8000000--,
@@ -2352,8 +2352,8 @@ begin
 	generic map
 	(
 		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
-		--~ FIFO_BITS => 10,
-		FIFO_BITS => 10--,
+		--~ FIFO_BITS => UART_FIFO_DEPTH_BITS,
+		FIFO_BITS => UART_FIFO_DEPTH_BITS--,
 		--~ BAUD_DIVIDER_BITS => 8--,
 		--~ BAUDRATE => 1Usb500000--,
 		--~ BAUDRATE => 8000000--,
@@ -2442,7 +2442,7 @@ begin
 	generic map
 	(
 		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
-		FIFO_BITS => 10--,
+		FIFO_BITS => UART_FIFO_DEPTH_BITS--,
 		--~ BAUD_DIVIDER_BITS => 8--,
 		--~ BAUDRATE => 1Gps500000--,
 		--~ BAUDRATE => 8000000--,
@@ -2474,8 +2474,8 @@ begin
 	generic map
 	(
 		--~ UART_CLOCK_FREQHZ => BoardMasterClockFreq,
-		--~ FIFO_BITS => 10,
-		FIFO_BITS => 10--,
+		--~ FIFO_BITS => UART_FIFO_DEPTH_BITS,
+		FIFO_BITS => UART_FIFO_DEPTH_BITS--,
 		--~ BAUD_DIVIDER_BITS => 8--,
 		--~ BAUDRATE => 1Gps500000--,
 		--~ BAUDRATE => 8000000--,

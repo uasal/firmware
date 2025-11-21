@@ -73,6 +73,8 @@ architecture implementation of CrcFifo is
 	); end component;
 
 	signal LastStartCrc : std_logic;
+
+	signal CrcComplete_i : std_logic;
 	
 	signal CrcOut : std_logic_vector(31 downto 0);
 	
@@ -84,20 +86,21 @@ begin
 	port map
 	(
 		clk => clk,
-		rst => rst,
+		rst => CrcComplete_i,
 		data => FifoPeekData,
 		crc => CrcOut--,
 	);
 	
 	FifoPeekAddr <= FifoPeekAddr_i;
-			
+	CrcComplete <= CrcComplete_i;
+	
 	process (clk, rst)
 	begin
 	
 		if (rst = '1') then 
 		
 			LastStartCrc <= '0';
-			CrcComplete <= '1';
+			CrcComplete_i <= '1';
 			FifoPeekAddr_i <= FifoStartAddr;
 					
 		else
@@ -108,12 +111,14 @@ begin
 	  
 				if ( (LastStartCrc = '0') and (StartCrc = '1') ) then
 				
-					CrcComplete <= '0';
+					CrcComplete_i <= '0';
 					FifoPeekAddr_i <= FifoStartAddr;
 			
 				else
 				
-					if (CrcComplete = '0') then
+					if (CrcComplete_i = '0') then
+					
+						--~ Crc <= CrcOut;
 
 						if (FifoPeekAddr_i /= FifoEndAddr) then
 						
@@ -122,7 +127,8 @@ begin
 						else
 			
 							Crc <= CrcOut;
-							CrcComplete <= '1';
+							--~ Crc <= (DEPTH_BITS - 1 downto 0 => FifoPeekAddr_i, others => '0');
+							CrcComplete_i <= '1';
 
 						end if;
 				
