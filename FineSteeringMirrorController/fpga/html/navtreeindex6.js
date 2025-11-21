@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"classSpiMasterTrioPorts.html#ad4eb4a624c47b0c231e8f7cc7cf7b452":[1,0,45,7],
 "classSpiMasterTrioPorts.html#ae00f3f04545af57582ff10609eee23e2":[1,0,45,19],
 "classSpiMasterTrioPorts.html#ae106f17a2b73445119c8eb039d3e102e":[1,0,45,20],
 "classSpiMasterTrioPorts.html#ae4f03c286607f3181e16b9aa12d0c6d4":[1,0,45,12],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "classUartTxFifoExtClk_1_1implementation.html#a8adcf9ff89125830c4d751e1aec82ac1":[1,0,55,0,2],
 "classUartTxFifoExtClk_1_1implementation.html#a8defab5e569c1e3bd51cfd2176c80dde":[1,0,55,0,7],
 "classUartTxFifoExtClk_1_1implementation.html#a9ffb5565122135227df580cffb6eb885":[1,0,55,0,13],
-"classUartTxFifoExtClk_1_1implementation.html#abc75b9d455bee6e20f7fc143689bdd1f":[1,0,55,0,1],
-"classUartTxFifoExtClk_1_1implementation.html#abd8368eb0cd59590ed1a2ef2f8e68a40":[1,0,55,0,20]
+"classUartTxFifoExtClk_1_1implementation.html#abc75b9d455bee6e20f7fc143689bdd1f":[1,0,55,0,1]
 };

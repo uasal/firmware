@@ -1,10 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"structCGraphPacketHeader.html#a7abef20f790c1615bdea50675a285d84":[1,0,34,6],
-"structCGraphPacketHeader.html#a7cb9a795a10ea07746a97886ca2eadea":[1,0,34,1],
-"structCGraphPacketHeader.html#ade8f5918c9c4e5c04212f1a24a35c150":[1,0,34,7],
-"structCGraphPacketHeader.html#ae6021c64734a8394c79338262dc5c3df":[1,0,34,0],
-"structCGraphVersionPayload.html":[1,0,40],
 "structCGraphVersionPayload.html#a19befd003f6fd1aeaea0ae39414ffca3":[1,0,40,2],
 "structCGraphVersionPayload.html#a83628e3c34caad80888c6fdda3d3d189":[1,0,40,3],
 "structCGraphVersionPayload.html#a9757179c759ea383869aca78c2066202":[1,0,40,1],
@@ -249,5 +244,10 @@ var NAVTREEINDEX7 =
 "unionCGraphDMHardwareControlRegister.html#aafe5c07b734471f58d7eb5da7e67781b":[1,0,12,3],
 "unionCGraphDMHardwareControlRegister.html#ab925a74f24d31c406f3dbb294e54f375":[1,0,12,2],
 "unionCGraphDMHardwareControlRegister.html#ad8fa7cdb823abb421bea157307b90a72":[1,0,12,0],
-"unionCGraphDMHardwareStatusRegister.html":[1,0,14]
+"unionCGraphDMHardwareStatusRegister.html":[1,0,14],
+"unionCGraphDMHardwareStatusRegister.html#a2db28aea2cbe88f2d565a4e32cfe7d3d":[1,0,14,9],
+"unionCGraphDMHardwareStatusRegister.html#a397caea2b3c7960229b37f65cc593bd6":[1,0,14,6],
+"unionCGraphDMHardwareStatusRegister.html#a7cc023a911f08c6d8156f64ed9a2fb3f":[1,0,14,7],
+"unionCGraphDMHardwareStatusRegister.html#a876573fa0adc890f0086f2df9e7ba1a4":[1,0,14,5],
+"unionCGraphDMHardwareStatusRegister.html#a9a984c4f8d0a151b7feb8a2aaa58aacb":[1,0,14,10]
 };

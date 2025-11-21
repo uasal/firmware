@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"classUartRxExtClk.html":[1,0,47],
 "classUartRxExtClk.html#a241c3e72dd8024cc8ae831b1b2aed7db":[1,0,47,9],
 "classUartRxExtClk.html#a2cb6fb2fa203d55f097082f1f755a0a6":[1,0,47,7],
 "classUartRxExtClk.html#a50da91b765765ac486df1b41692e962f":[1,0,47,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "classUartTxFifoParity.html#ae4f03c286607f3181e16b9aa12d0c6d4":[1,0,56,9],
 "classUartTxFifoParity_1_1implementation.html":[1,0,56,0],
 "classUartTxFifoParity_1_1implementation.html#a09a64b22b78c0f4ff53b881b8ab44d0f":[1,0,56,0,0],
-"classUartTxFifoParity_1_1implementation.html#a180299fb129c25af87f3c5de1f316016":[1,0,56,0,23],
-"classUartTxFifoParity_1_1implementation.html#a261fb530603b63f5ca7559f7162596dc":[1,0,56,0,18]
+"classUartTxFifoParity_1_1implementation.html#a180299fb129c25af87f3c5de1f316016":[1,0,56,0,23]
 };

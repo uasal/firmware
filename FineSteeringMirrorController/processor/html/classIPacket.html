@@ -117,6 +117,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a970e033333775279b4a962551be32708"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3dc7833a83c26d50ef75f43f60f17f20" id="r_a3dc7833a83c26d50ef75f43f60f17f20"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPacket.html#a3dc7833a83c26d50ef75f43f60f17f20">~IPacket</a> ()</td></tr>
 <tr class="separator:a3dc7833a83c26d50ef75f43f60f17f20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cd6528e48a23144f3f35ef5dbf09fea" id="r_a2cd6528e48a23144f3f35ef5dbf09fea"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPacket.html#a2cd6528e48a23144f3f35ef5dbf09fea">Debug</a> (bool dbg)=0</td></tr>
+<tr class="separator:a2cd6528e48a23144f3f35ef5dbf09fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2831bd87e9402db6d91f99f08b4a5c2" id="r_ad2831bd87e9402db6d91f99f08b4a5c2"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPacket.html#ad2831bd87e9402db6d91f99f08b4a5c2">Debug</a> () const =0</td></tr>
+<tr class="separator:ad2831bd87e9402db6d91f99f08b4a5c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdbd5f85a036c3b51c16ec938c18823d" id="r_abdbd5f85a036c3b51c16ec938c18823d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPacket.html#abdbd5f85a036c3b51c16ec938c18823d">FindPacketStartPos</a> (const uint8_t *<a class="el" href="CmdHandlersAscii_8cpp.html#a40c0e0193a4ed265043847344773fbcb">Buffer</a>, const size_t BufferLen, size_t &amp;Offset) const =0</td></tr>
 <tr class="separator:abdbd5f85a036c3b51c16ec938c18823d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7c686a76164a3f61268ae04baadae51" id="r_ac7c686a76164a3f61268ae04baadae51"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPacket.html#ac7c686a76164a3f61268ae04baadae51">FindPacketEndPos</a> (const uint8_t *<a class="el" href="CmdHandlersAscii_8cpp.html#a40c0e0193a4ed265043847344773fbcb">Buffer</a>, const size_t BufferLen, size_t &amp;Offset) const =0</td></tr>
@@ -153,12 +157,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a159e4ae03874b9ce6890f8b111b025bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5ec2ec95d04f13049e107741eea6f46" id="r_ae5ec2ec95d04f13049e107741eea6f46"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPacket.html#ae5ec2ec95d04f13049e107741eea6f46">ReverseFindPacketStartPos</a> (const <a class="el" href="classIArray.html">IArray</a> &amp;<a class="el" href="CmdHandlersAscii_8cpp.html#a40c0e0193a4ed265043847344773fbcb">Buffer</a>, const size_t SearchEndPos, size_t &amp;Offset) const =0</td></tr>
 <tr class="separator:ae5ec2ec95d04f13049e107741eea6f46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a573b8a521c74b01734c5d63f826d622b" id="r_a573b8a521c74b01734c5d63f826d622b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPacket.html#a573b8a521c74b01734c5d63f826d622b">ReverseFindPacketStartPos</a> (const <a class="el" href="classIArray.html">IArray</a> &amp;<a class="el" href="CmdHandlersAscii_8cpp.html#a40c0e0193a4ed265043847344773fbcb">Buffer</a>, const size_t SearchEndPos, const int32_t SearchStartPos, size_t &amp;Offset) const =0</td></tr>
+<tr class="separator:a573b8a521c74b01734c5d63f826d622b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6e4ab3990bcad2921f889131f24d64f" id="r_af6e4ab3990bcad2921f889131f24d64f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPacket.html#af6e4ab3990bcad2921f889131f24d64f">FindPacketEndPos</a> (const <a class="el" href="classIArray.html">IArray</a> &amp;<a class="el" href="CmdHandlersAscii_8cpp.html#a40c0e0193a4ed265043847344773fbcb">Buffer</a>, const size_t SearchStartPos, size_t &amp;Offset) const =0</td></tr>
 <tr class="separator:af6e4ab3990bcad2921f889131f24d64f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58fe1876255e432f3bc8d73ed4a7aa06" id="r_a58fe1876255e432f3bc8d73ed4a7aa06"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPacket.html#a58fe1876255e432f3bc8d73ed4a7aa06">FindPacketEndPos</a> (const <a class="el" href="classIArray.html">IArray</a> &amp;<a class="el" href="CmdHandlersAscii_8cpp.html#a40c0e0193a4ed265043847344773fbcb">Buffer</a>, const size_t SearchStartPos, const size_t SearchLen, size_t &amp;Offset) const =0</td></tr>
-<tr class="separator:a58fe1876255e432f3bc8d73ed4a7aa06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ed9c692bff18b992af1f458069e3b1c" id="r_a5ed9c692bff18b992af1f458069e3b1c"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPacket.html#a5ed9c692bff18b992af1f458069e3b1c">ReverseFindPacketEndPos</a> (const <a class="el" href="classIArray.html">IArray</a> &amp;<a class="el" href="CmdHandlersAscii_8cpp.html#a40c0e0193a4ed265043847344773fbcb">Buffer</a>, const size_t SearchStartPos, const size_t SearchLen, size_t &amp;Offset) const =0</td></tr>
-<tr class="separator:a5ed9c692bff18b992af1f458069e3b1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41957756525b3f62e7e85c69bbe6c373" id="r_a41957756525b3f62e7e85c69bbe6c373"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPacket.html#a41957756525b3f62e7e85c69bbe6c373">FindPacketEndPos</a> (const <a class="el" href="classIArray.html">IArray</a> &amp;<a class="el" href="CmdHandlersAscii_8cpp.html#a40c0e0193a4ed265043847344773fbcb">Buffer</a>, const size_t SearchStartPos, const int32_t SearchLen, size_t &amp;Offset) const =0</td></tr>
+<tr class="separator:a41957756525b3f62e7e85c69bbe6c373"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a339ff3c2f47ccf2ffe4ee4a5b66738b0" id="r_a339ff3c2f47ccf2ffe4ee4a5b66738b0"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPacket.html#a339ff3c2f47ccf2ffe4ee4a5b66738b0">ReverseFindPacketEndPos</a> (const <a class="el" href="classIArray.html">IArray</a> &amp;<a class="el" href="CmdHandlersAscii_8cpp.html#a40c0e0193a4ed265043847344773fbcb">Buffer</a>, const size_t SearchStartPos, const int32_t SearchEndPos, size_t &amp;Offset) const =0</td></tr>
+<tr class="separator:a339ff3c2f47ccf2ffe4ee4a5b66738b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad202634318db598aa8ffda2e5d19b71f" id="r_ad202634318db598aa8ffda2e5d19b71f"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPacket.html#ad202634318db598aa8ffda2e5d19b71f">PayloadLen</a> (const <a class="el" href="classIArray.html">IArray</a> &amp;<a class="el" href="CmdHandlersAscii_8cpp.html#a40c0e0193a4ed265043847344773fbcb">Buffer</a>, const size_t PacketStartPos) const =0</td></tr>
 <tr class="separator:ad202634318db598aa8ffda2e5d19b71f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a412104214be691f88199f0f0d1f3515e" id="r_a412104214be691f88199f0f0d1f3515e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPacket.html#a412104214be691f88199f0f0d1f3515e">IsValid</a> (const <a class="el" href="classIArray.html">IArray</a> &amp;<a class="el" href="CmdHandlersAscii_8cpp.html#a40c0e0193a4ed265043847344773fbcb">Buffer</a>, const size_t PacketStartPos, const size_t PacketEndPos, <a class="el" href="structFpgaRingBufferCrcer.html">FpgaRingBufferCrcer</a> &amp;FpgaCrc) const =0</td></tr>
@@ -232,6 +238,75 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad2831bd87e9402db6d91f99f08b4a5c2" name="ad2831bd87e9402db6d91f99f08b4a5c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2831bd87e9402db6d91f99f08b4a5c2">&#9670;&#160;</a></span>Debug() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IPacket::Debug </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classCGraphPacket.html#a099a7c23d18b35fd941a090ba4a8f993">CGraphPacket</a>.</p>
+
+</div>
+</div>
+<a id="a2cd6528e48a23144f3f35ef5dbf09fea" name="a2cd6528e48a23144f3f35ef5dbf09fea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cd6528e48a23144f3f35ef5dbf09fea">&#9670;&#160;</a></span>Debug() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IPacket::Debug </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>dbg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classCGraphPacket.html#a6314ea5d582a74d45e338b99d811ab90">CGraphPacket</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00094">BinaryUartRingBuffer::Debug()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00110">BinaryUartRingBuffer::Process()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classIPacket_a2cd6528e48a23144f3f35ef5dbf09fea_icgraph.png" border="0" usemap="#aclassIPacket_a2cd6528e48a23144f3f35ef5dbf09fea_icgraph" alt=""/></div>
+<map name="aclassIPacket_a2cd6528e48a23144f3f35ef5dbf09fea_icgraph" id="aclassIPacket_a2cd6528e48a23144f3f35ef5dbf09fea_icgraph">
+<area shape="rect" title=" " alt="" coords="213,45,332,70"/>
+<area shape="rect" href="structBinaryUartRingBuffer.html#a1b04af6bce3c868920063681e3266b62" title=" " alt="" coords="5,5,165,45"/>
+<area shape="poly" title=" " alt="" coords="199,48,165,42,166,36,200,42"/>
+<area shape="rect" href="structBinaryUartRingBuffer.html#a09efe6a5785ee86ced2471f020960fc7" title="Processes incoming data and checks for new packets." alt="" coords="5,69,165,109"/>
+<area shape="poly" title=" " alt="" coords="200,72,166,78,165,73,199,67"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a349fb3451cce68b72bcc32baa7a41693" name="a349fb3451cce68b72bcc32baa7a41693"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a349fb3451cce68b72bcc32baa7a41693">&#9670;&#160;</a></span>DoesPayloadTypeMatch() <span class="overload">[1/2]</span></h2>
 
@@ -336,7 +411,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implemented in <a class="el" href="classCGraphPacket.html#ab4cc5f24e0881df488a7faec36c39cc2">CGraphPacket</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">BinaryUart::CheckPacketEnd()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">BinaryUartRingBuffer::Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">BinaryUart::CheckPacketEnd()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00110">BinaryUartRingBuffer::Process()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -379,7 +454,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implemented in <a class="el" href="classCGraphPacket.html#abb38708a1da2cd2b24035e5b7e239599">CGraphPacket</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">BinaryUartRingBuffer::Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00110">BinaryUartRingBuffer::Process()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -393,8 +468,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a58fe1876255e432f3bc8d73ed4a7aa06" name="a58fe1876255e432f3bc8d73ed4a7aa06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58fe1876255e432f3bc8d73ed4a7aa06">&#9670;&#160;</a></span>FindPacketEndPos() <span class="overload">[1/4]</span></h2>
+<a id="a41957756525b3f62e7e85c69bbe6c373" name="a41957756525b3f62e7e85c69bbe6c373"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41957756525b3f62e7e85c69bbe6c373">&#9670;&#160;</a></span>FindPacketEndPos() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -417,7 +492,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramtype">const int32_t&#160;</td>
           <td class="paramname"><em>SearchLen</em>, </td>
         </tr>
         <tr>
@@ -439,7 +514,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classCGraphPacket.html#a4f882d408366e7b2d11f33a89832a71b">CGraphPacket</a>.</p>
+<p>Implemented in <a class="el" href="classCGraphPacket.html#a4405e36fd2a7eb7101193836fcb9e559">CGraphPacket</a>.</p>
 
 </div>
 </div>
@@ -772,28 +847,22 @@ Here is the caller graph for this function:</div>
 
 <p>Implemented in <a class="el" href="classCGraphPacket.html#a766839cd2dfee835ec6336d8eab85ca2">CGraphPacket</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00122">BinaryUart::Init()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00130">BinaryUartRingBuffer::Init()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">BinaryUartRingBuffer::Process()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00164">BinaryUart::Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00122">BinaryUart::Init()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00164">BinaryUart::Process()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classIPacket_aae378234fa6b67186eea047ed0bda774_icgraph.png" border="0" usemap="#aclassIPacket_aae378234fa6b67186eea047ed0bda774_icgraph" alt=""/></div>
 <map name="aclassIPacket_aae378234fa6b67186eea047ed0bda774_icgraph" id="aclassIPacket_aae378234fa6b67186eea047ed0bda774_icgraph">
-<area shape="rect" title=" " alt="" coords="640,135,780,160"/>
-<area shape="rect" href="structBinaryUart.html#abb67d795a67cbd9293dc1d699d9c47bf" title="Initializes the BinaryUart." alt="" coords="451,55,573,80"/>
-<area shape="poly" title=" " alt="" coords="664,132,591,102,544,83,546,78,593,97,666,127"/>
+<area shape="rect" title=" " alt="" coords="601,80,741,105"/>
+<area shape="rect" href="structBinaryUart.html#abb67d795a67cbd9293dc1d699d9c47bf" title="Initializes the BinaryUart." alt="" coords="432,55,553,80"/>
+<area shape="poly" title=" " alt="" coords="587,83,553,79,554,73,588,78"/>
 <area shape="rect" href="structBinaryUart.html#a1328d9d193b052cbc4013f21c7e6e222" title="Processes incoming data and checks for new packets." alt="" coords="5,80,156,105"/>
-<area shape="poly" title=" " alt="" coords="626,143,156,102,157,96,627,138"/>
-<area shape="rect" href="structBinaryUartRingBuffer.html#a9d3ed2b44ec21d65c57d829c5e680a90" title="Initializes the BinaryUartRingBuffer." alt="" coords="432,155,592,195"/>
-<area shape="poly" title=" " alt="" coords="627,162,593,167,592,161,626,157"/>
-<area shape="rect" href="structBinaryUartRingBuffer.html#a09efe6a5785ee86ced2471f020960fc7" title="Processes incoming data and checks for new packets." alt="" coords="432,219,592,259"/>
-<area shape="poly" title=" " alt="" coords="675,169,593,210,565,222,563,217,591,205,672,164"/>
+<area shape="poly" title=" " alt="" coords="587,95,156,95,156,90,587,90"/>
 <area shape="rect" href="structBinaryUart.html#a8258918913fd0bec31fc50328ff4a90e" title="Constructs a BinaryUart object and initializes with given parameters." alt="" coords="209,5,379,31"/>
-<area shape="poly" title=" " alt="" coords="441,54,350,33,352,28,443,49"/>
+<area shape="poly" title=" " alt="" coords="427,54,345,33,347,28,428,49"/>
 <area shape="rect" href="structBinaryUart.html#a16b484e326a172e0c3b37ba6e8eed8a5" title="Adds a byte to the Rx buffer and handles buffer overflow." alt="" coords="204,55,384,80"/>
-<area shape="poly" title=" " alt="" coords="438,70,384,70,384,65,438,65"/>
+<area shape="poly" title=" " alt="" coords="419,70,384,70,384,65,419,65"/>
 <area shape="poly" title=" " alt="" coords="191,82,157,86,156,81,190,77"/>
-<area shape="rect" href="structBinaryUartRingBuffer.html#a3bda8a8d526e606677deea72c94e7cda" title="Constructs a BinaryUartRingBuffer object and initializes with given parameters." alt="" coords="210,155,378,195"/>
-<area shape="poly" title=" " alt="" coords="418,178,378,178,378,173,418,173"/>
 </map>
 </div>
 
@@ -824,31 +893,25 @@ Here is the caller graph for this function:</div>
 
 <p>Implemented in <a class="el" href="classCGraphPacket.html#aee51261609544a94d5bee02ca36d3f5d">CGraphPacket</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00242">BinaryUart::CheckPacketStart()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">BinaryUart::Init()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00130">BinaryUartRingBuffer::Init()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">BinaryUartRingBuffer::Process()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00164">BinaryUart::Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00242">BinaryUart::CheckPacketStart()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">BinaryUart::Init()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00164">BinaryUart::Process()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classIPacket_ad2ae0d8eb688d7987e63f438b007713c_icgraph.png" border="0" usemap="#aclassIPacket_ad2ae0d8eb688d7987e63f438b007713c_icgraph" alt=""/></div>
 <map name="aclassIPacket_ad2ae0d8eb688d7987e63f438b007713c_icgraph" id="aclassIPacket_ad2ae0d8eb688d7987e63f438b007713c_icgraph">
-<area shape="rect" title=" " alt="" coords="673,107,820,132"/>
-<area shape="rect" href="structBinaryUart.html#ad350385f839762fcb3aad27a69e9809e" title="Checks if a packet is present in the buffer." alt="" coords="204,5,417,31"/>
-<area shape="poly" title=" " alt="" coords="716,101,674,75,624,53,573,39,519,29,417,20,418,15,520,24,574,34,626,47,677,70,719,96"/>
+<area shape="rect" title=" " alt="" coords="693,56,840,81"/>
+<area shape="rect" href="structBinaryUart.html#ad350385f839762fcb3aad27a69e9809e" title="Checks if a packet is present in the buffer." alt="" coords="432,5,645,31"/>
+<area shape="poly" title=" " alt="" coords="695,56,596,33,597,28,696,50"/>
 <area shape="rect" href="structBinaryUart.html#a1328d9d193b052cbc4013f21c7e6e222" title="Processes incoming data and checks for new packets." alt="" coords="5,56,156,81"/>
-<area shape="poly" title=" " alt="" coords="680,106,625,97,496,84,367,76,156,71,156,66,368,71,497,78,626,91,681,101"/>
-<area shape="rect" href="structBinaryUart.html#abb67d795a67cbd9293dc1d699d9c47bf" title="Initializes the BinaryUart." alt="" coords="485,107,606,132"/>
-<area shape="poly" title=" " alt="" coords="659,122,606,122,606,117,659,117"/>
-<area shape="rect" href="structBinaryUartRingBuffer.html#a9d3ed2b44ec21d65c57d829c5e680a90" title="Initializes the BinaryUartRingBuffer." alt="" coords="465,157,625,197"/>
-<area shape="poly" title=" " alt="" coords="689,138,617,159,615,154,688,133"/>
-<area shape="rect" href="structBinaryUartRingBuffer.html#a09efe6a5785ee86ced2471f020960fc7" title="Processes incoming data and checks for new packets." alt="" coords="465,221,625,261"/>
-<area shape="poly" title=" " alt="" coords="722,143,679,177,627,211,602,223,600,218,624,206,676,173,719,139"/>
-<area shape="poly" title=" " alt="" coords="239,36,140,59,138,53,238,31"/>
-<area shape="rect" href="structBinaryUart.html#a8258918913fd0bec31fc50328ff4a90e" title="Constructs a BinaryUart object and initializes with given parameters." alt="" coords="225,107,396,132"/>
-<area shape="poly" title=" " alt="" coords="471,122,396,122,396,117,471,117"/>
-<area shape="rect" href="structBinaryUart.html#a16b484e326a172e0c3b37ba6e8eed8a5" title="Adds a byte to the Rx buffer and handles buffer overflow." alt="" coords="221,156,401,181"/>
-<area shape="poly" title=" " alt="" coords="471,137,373,159,371,153,470,132"/>
-<area shape="poly" title=" " alt="" coords="229,155,203,146,144,115,97,84,100,79,146,110,205,141,231,150"/>
-<area shape="rect" href="structBinaryUartRingBuffer.html#a3bda8a8d526e606677deea72c94e7cda" title="Constructs a BinaryUartRingBuffer object and initializes with given parameters." alt="" coords="227,206,395,246"/>
-<area shape="poly" title=" " alt="" coords="452,199,395,211,394,206,451,194"/>
+<area shape="poly" title=" " alt="" coords="679,71,156,71,156,66,679,66"/>
+<area shape="rect" href="structBinaryUart.html#abb67d795a67cbd9293dc1d699d9c47bf" title="Initializes the BinaryUart." alt="" coords="478,107,599,132"/>
+<area shape="poly" title=" " alt="" coords="696,87,597,109,596,104,695,82"/>
+<area shape="poly" title=" " alt="" coords="419,30,204,53,156,59,156,54,204,47,418,25"/>
+<area shape="rect" href="structBinaryUart.html#a8258918913fd0bec31fc50328ff4a90e" title="Constructs a BinaryUart object and initializes with given parameters." alt="" coords="209,107,379,132"/>
+<area shape="poly" title=" " alt="" coords="464,122,380,122,380,117,464,117"/>
+<area shape="rect" href="structBinaryUart.html#a16b484e326a172e0c3b37ba6e8eed8a5" title="Adds a byte to the Rx buffer and handles buffer overflow." alt="" coords="204,156,384,181"/>
+<area shape="poly" title=" " alt="" coords="465,137,358,159,357,153,464,132"/>
+<area shape="poly" title=" " alt="" coords="222,154,203,147,144,115,97,84,100,79,146,110,205,142,224,150"/>
 </map>
 </div>
 
@@ -1054,7 +1117,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implemented in <a class="el" href="classCGraphPacket.html#a24e2d807e628fe9fb8c9af8eb48c8765">CGraphPacket</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">BinaryUart::CheckPacketEnd()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">BinaryUartRingBuffer::Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">BinaryUart::CheckPacketEnd()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00110">BinaryUartRingBuffer::Process()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1126,7 +1189,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implemented in <a class="el" href="classCGraphPacket.html#a1cc4c17fb847626f753f1287726a6c11">CGraphPacket</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00403">BinaryUart::TxBinaryPacket()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00397">BinaryUartRingBuffer::TxBinaryPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00403">BinaryUart::TxBinaryPacket()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00304">BinaryUartRingBuffer::TxBinaryPacket()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1249,7 +1312,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implemented in <a class="el" href="classCGraphPacket.html#a1bbcd4c92f2804301840efffb3d75027">CGraphPacket</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">BinaryUartRingBuffer::Process()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00164">BinaryUart::Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00110">BinaryUartRingBuffer::Process()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00164">BinaryUart::Process()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1378,7 +1441,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implemented in <a class="el" href="classCGraphPacket.html#a9c7856e19635f1631d2b7ba3d98d2045">CGraphPacket</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">BinaryUart::CheckPacketEnd()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">BinaryUartRingBuffer::Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">BinaryUart::CheckPacketEnd()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00110">BinaryUartRingBuffer::Process()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1396,8 +1459,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a5ed9c692bff18b992af1f458069e3b1c" name="a5ed9c692bff18b992af1f458069e3b1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ed9c692bff18b992af1f458069e3b1c">&#9670;&#160;</a></span>ReverseFindPacketEndPos()</h2>
+<a id="a339ff3c2f47ccf2ffe4ee4a5b66738b0" name="a339ff3c2f47ccf2ffe4ee4a5b66738b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a339ff3c2f47ccf2ffe4ee4a5b66738b0">&#9670;&#160;</a></span>ReverseFindPacketEndPos()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1420,8 +1483,8 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const size_t&#160;</td>
-          <td class="paramname"><em>SearchLen</em>, </td>
+          <td class="paramtype">const int32_t&#160;</td>
+          <td class="paramname"><em>SearchEndPos</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1442,14 +1505,14 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classCGraphPacket.html#aeff122d7005190b1a218bec76a506f8f">CGraphPacket</a>.</p>
+<p>Implemented in <a class="el" href="classCGraphPacket.html#a89247063f921ca89f8d410d9c8f769af">CGraphPacket</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">BinaryUartRingBuffer::Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00110">BinaryUartRingBuffer::Process()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classIPacket_a5ed9c692bff18b992af1f458069e3b1c_icgraph.png" border="0" usemap="#aclassIPacket_a5ed9c692bff18b992af1f458069e3b1c_icgraph" alt=""/></div>
-<map name="aclassIPacket_a5ed9c692bff18b992af1f458069e3b1c_icgraph" id="aclassIPacket_a5ed9c692bff18b992af1f458069e3b1c_icgraph">
+<div class="center"><img src="classIPacket_a339ff3c2f47ccf2ffe4ee4a5b66738b0_icgraph.png" border="0" usemap="#aclassIPacket_a339ff3c2f47ccf2ffe4ee4a5b66738b0_icgraph" alt=""/></div>
+<map name="aclassIPacket_a339ff3c2f47ccf2ffe4ee4a5b66738b0_icgraph" id="aclassIPacket_a339ff3c2f47ccf2ffe4ee4a5b66738b0_icgraph">
 <area shape="rect" title=" " alt="" coords="213,5,412,45"/>
 <area shape="rect" href="structBinaryUartRingBuffer.html#a09efe6a5785ee86ced2471f020960fc7" title="Processes incoming data and checks for new packets." alt="" coords="5,5,165,45"/>
 <area shape="poly" title=" " alt="" coords="199,28,166,28,166,23,199,23"/>
@@ -1458,8 +1521,58 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a573b8a521c74b01734c5d63f826d622b" name="a573b8a521c74b01734c5d63f826d622b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a573b8a521c74b01734c5d63f826d622b">&#9670;&#160;</a></span>ReverseFindPacketStartPos() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IPacket::ReverseFindPacketStartPos </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classIArray.html">IArray</a> &amp;&#160;</td>
+          <td class="paramname"><em>Buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>SearchEndPos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int32_t&#160;</td>
+          <td class="paramname"><em>SearchStartPos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t &amp;&#160;</td>
+          <td class="paramname"><em>Offset</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classCGraphPacket.html#ae9a7284bdc03a50e2b79b50fc9660676">CGraphPacket</a>.</p>
+
+</div>
+</div>
 <a id="ae5ec2ec95d04f13049e107741eea6f46" name="ae5ec2ec95d04f13049e107741eea6f46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5ec2ec95d04f13049e107741eea6f46">&#9670;&#160;</a></span>ReverseFindPacketStartPos()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5ec2ec95d04f13049e107741eea6f46">&#9670;&#160;</a></span>ReverseFindPacketStartPos() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1500,7 +1613,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implemented in <a class="el" href="classCGraphPacket.html#ab6eaa55b41600f4cefe7e4a2701c69bb">CGraphPacket</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00180">BinaryUartRingBuffer::Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00110">BinaryUartRingBuffer::Process()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1625,7 +1738,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classIPacket.html">IPacket</a></li>
-    <li class="footer">Generated on Fri Nov 21 2025 14:43:42 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 21 2025 23:10:46 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

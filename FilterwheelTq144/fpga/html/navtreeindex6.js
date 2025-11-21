@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"classSpiDeviceDualPorts.html#ae00f3f04545af57582ff10609eee23e2":[1,0,38,12],
 "classSpiDeviceDualPorts.html#ae106f17a2b73445119c8eb039d3e102e":[1,0,38,15],
 "classSpiDeviceDualPorts.html#ae4f03c286607f3181e16b9aa12d0c6d4":[1,0,38,6],
 "classSpiDeviceDualPorts_1_1SpiDeviceDual.html":[1,0,38,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "classUartRx.html#ae00f3f04545af57582ff10609eee23e2":[1,0,46,5],
 "classUartRx.html#ae106f17a2b73445119c8eb039d3e102e":[1,0,46,6],
 "classUartRx.html#ae4f03c286607f3181e16b9aa12d0c6d4":[1,0,46,4],
-"classUartRx.html#af30af24d92659430e2a5ca22c6f6bc4d":[1,0,46,7],
-"classUartRxExtClk.html":[1,0,47]
+"classUartRx.html#af30af24d92659430e2a5ca22c6f6bc4d":[1,0,46,7]
 };

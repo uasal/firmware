@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"classFourWireStepperMotorPorts.html#ad4d0413cb3d4a4c0f605981d600cf094":[1,0,13,7],
 "classFourWireStepperMotorPorts.html#ad9a82a4f6bdcc3876ba22dedcf6c561a":[1,0,13,4],
 "classFourWireStepperMotorPorts.html#ae00f3f04545af57582ff10609eee23e2":[1,0,13,8],
 "classFourWireStepperMotorPorts.html#ae106f17a2b73445119c8eb039d3e102e":[1,0,13,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "classMain.html#a7feae668b8b88a7f5e9ff11f516a7347":[1,0,27,22],
 "classMain.html#a812b2d601fd1ce88879ddea2e41ae1c6":[1,0,27,12],
 "classMain.html#a81a9445b51efe2500d1486171f7cddb4":[1,0,27,51],
-"classMain.html#a8acbeff621c07df83911426cfbc2dfdc":[1,0,27,33],
-"classMain.html#a8fc02fd1090ba71799389df84e4c5019":[1,0,27,74]
+"classMain.html#a8acbeff621c07df83911426cfbc2dfdc":[1,0,27,33]
 };

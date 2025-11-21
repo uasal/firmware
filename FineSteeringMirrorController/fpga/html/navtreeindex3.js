@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"classMain_1_1architecture__Main.html#ab98cbd146d0f1a17d65e5be4cdf3daa1":[1,0,27,0,49],
 "classMain_1_1architecture__Main.html#aba98e523319a7b9fbc1d2f814e19daf2":[1,0,27,0,184],
 "classMain_1_1architecture__Main.html#abce2f63c461fad2b690a594ef5920922":[1,0,27,0,202],
 "classMain_1_1architecture__Main.html#ac674532dc1f1b906b078057906b46082":[1,0,27,0,77],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "classRegisterSpacePorts.html#aa461b3d2aaee28e50fc95d8e334ef1fe":[1,0,33,101],
 "classRegisterSpacePorts.html#aa4b2b25246a821511120e3149b003563":[1,0,33,73],
 "classRegisterSpacePorts.html#aa4e96a47e2b8089d0a07d87c8fd0e857":[1,0,33,61],
-"classRegisterSpacePorts.html#aa6ccb502b0152dc4a720286b69d6af6b":[1,0,33,15],
-"classRegisterSpacePorts.html#aaa17b3fe456fb3ef04fd4088054a7f5c":[1,0,33,29]
+"classRegisterSpacePorts.html#aa6ccb502b0152dc4a720286b69d6af6b":[1,0,33,15]
 };

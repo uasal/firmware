@@ -2,10 +2,12 @@ var classCGraphPacket =
 [
     [ "CGraphPacket", "classCGraphPacket.html#ab11b17d609c4ac02fd548f40e086b8ee", null ],
     [ "~CGraphPacket", "classCGraphPacket.html#ac4bb585dd9f9ed603dc599ce683406b5", null ],
+    [ "Debug", "classCGraphPacket.html#a099a7c23d18b35fd941a090ba4a8f993", null ],
+    [ "Debug", "classCGraphPacket.html#a6314ea5d582a74d45e338b99d811ab90", null ],
     [ "DoesPayloadTypeMatch", "classCGraphPacket.html#ab8e32ef48f558c47d06c483501db8544", null ],
     [ "DoesPayloadTypeMatch", "classCGraphPacket.html#ab4cc5f24e0881df488a7faec36c39cc2", null ],
     [ "EndTokenLen", "classCGraphPacket.html#abb38708a1da2cd2b24035e5b7e239599", null ],
-    [ "FindPacketEndPos", "classCGraphPacket.html#a4f882d408366e7b2d11f33a89832a71b", null ],
+    [ "FindPacketEndPos", "classCGraphPacket.html#a4405e36fd2a7eb7101193836fcb9e559", null ],
     [ "FindPacketEndPos", "classCGraphPacket.html#a8ae60c9ee3615d329105146b9f8f4e97", null ],
     [ "FindPacketEndPos", "classCGraphPacket.html#afb8d7871c3188d769b03341f3ca48cbd", null ],
     [ "FindPacketEndPos", "classCGraphPacket.html#aa0bc632ec4e0566b8d64f3f974d0dec3", null ],
@@ -25,8 +27,10 @@ var classCGraphPacket =
     [ "PayloadOffset", "classCGraphPacket.html#a2288164fb85f17445bfe1deeb1275764", null ],
     [ "PayloadType", "classCGraphPacket.html#adf463b28618e83edd624708591be50c6", null ],
     [ "PayloadType", "classCGraphPacket.html#a9c7856e19635f1631d2b7ba3d98d2045", null ],
-    [ "ReverseFindPacketEndPos", "classCGraphPacket.html#aeff122d7005190b1a218bec76a506f8f", null ],
+    [ "ReverseFindPacketEndPos", "classCGraphPacket.html#a89247063f921ca89f8d410d9c8f769af", null ],
+    [ "ReverseFindPacketStartPos", "classCGraphPacket.html#ae9a7284bdc03a50e2b79b50fc9660676", null ],
     [ "ReverseFindPacketStartPos", "classCGraphPacket.html#ab6eaa55b41600f4cefe7e4a2701c69bb", null ],
     [ "SerialNum", "classCGraphPacket.html#add89226a3ce5be71c05640ccd868ac5e", null ],
-    [ "SerialNum", "classCGraphPacket.html#a992673ddea3494f32dbedbb28dccf0e2", null ]
+    [ "SerialNum", "classCGraphPacket.html#a992673ddea3494f32dbedbb28dccf0e2", null ],
+    [ "debug", "classCGraphPacket.html#ad5e70eb3b85e53e15f9c81ce715d2380", null ]
 ];

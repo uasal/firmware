@@ -1,10 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"structCGraphDMHardwareInterface.html#aa995f910754c44bfbe34536a988a5bce":[1,0,13,10],
-"structCGraphDMHardwareInterface.html#aada3cb42a9a25ac90dfd7d8dd6b314fa":[1,0,13,12],
-"structCGraphDMHardwareInterface.html#ab88455be6a0cce88a2adc2dc7d5c5509":[1,0,13,18],
-"structCGraphDMHardwareInterface.html#ac5602c0e560b802d6424fc1974f8f3dc":[1,0,13,2],
-"structCGraphDMHardwareInterface.html#acbd759beef9c803294199d70b68c2b50":[1,0,13,13],
 "structCGraphDMHardwareInterface.html#acf9361e0193ec2f4b2f6e42cad1324b1":[1,0,13,6],
 "structCGraphDMHardwareInterface.html#ad245da18741e09400168b6ac983cde51":[1,0,13,39],
 "structCGraphDMHardwareInterface.html#ae26801b7ac390035f668b53ecd7890f0":[1,0,13,22],
@@ -249,5 +244,10 @@ var NAVTREEINDEX6 =
 "structCGraphPacketHeader.html#a1518de33389c99f128f29eabb0771bdb":[1,0,34,3],
 "structCGraphPacketHeader.html#a1755f0a8d9296c58f4c095f973fb9c16":[1,0,34,5],
 "structCGraphPacketHeader.html#a307362fe2918569a9f6cbf98e4336ad8":[1,0,34,4],
-"structCGraphPacketHeader.html#a53fc17820da22ef07d7b3764ab409e00":[1,0,34,2]
+"structCGraphPacketHeader.html#a53fc17820da22ef07d7b3764ab409e00":[1,0,34,2],
+"structCGraphPacketHeader.html#a7abef20f790c1615bdea50675a285d84":[1,0,34,6],
+"structCGraphPacketHeader.html#a7cb9a795a10ea07746a97886ca2eadea":[1,0,34,1],
+"structCGraphPacketHeader.html#ade8f5918c9c4e5c04212f1a24a35c150":[1,0,34,7],
+"structCGraphPacketHeader.html#ae6021c64734a8394c79338262dc5c3df":[1,0,34,0],
+"structCGraphVersionPayload.html":[1,0,40]
 };

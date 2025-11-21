@@ -4,7 +4,7 @@ var searchData=
   ['idlemode_1',['idlemode',['../ads1258_8h.html#a2fb3ef1bb6db44f432cc28147a6d58f1',1,'idlemode:&#160;ads1258.h'],['../unionads1258details_1_1config1register.html#ab3fd7c420d1059d9dd54f82f5581b64a',1,'ads1258details::config1register::idlemode']]],
   ['initok_2',['InitOK',['../structads1258.html#a5a20b1f7fff790675b15fe581aa715c9',1,'ads1258']]],
   ['inpacket_3',['inpacket',['../structBinaryUart.html#a1fb5dda68613df8a9869bbcd88cd32aa',1,'BinaryUart::InPacket'],['../structBinaryUartRingBuffer.html#aebd1bb0622efd883ba36455af91575ce',1,'BinaryUartRingBuffer::InPacket']]],
-  ['inpacketinit_4',['inpacketinit',['../structBinaryUart.html#a81e88aae96ad265754badac14f7c680f',1,'BinaryUart::InPacketInit'],['../structBinaryUartRingBuffer.html#a8833696c9e62fc2a524617727d778ca7',1,'BinaryUartRingBuffer::InPacketInit']]],
+  ['inpacketinit_4',['InPacketInit',['../structBinaryUart.html#a81e88aae96ad265754badac14f7c680f',1,'BinaryUart']]],
   ['inputtypedifferential_5',['inputtypedifferential',['../structads1258.html#a78b8371f4d6ab8f4390daf8670909f95',1,'ads1258']]],
   ['inputtypesingleended_6',['inputtypesingleended',['../structads1258.html#a53bd2d2a5338a9946b165a16b4cb18f3',1,'ads1258']]],
   ['invalidserialnumber_7',['invalidserialnumber',['../structBinaryUartRingBuffer.html#a25e223b62563fa33cb49bbc9697c0152',1,'BinaryUartRingBuffer::InvalidSerialNumber'],['../structBinaryUart.html#ac5fa531e1a02ae3279e1c8a4e0643cd6',1,'BinaryUart::InvalidSerialNumber']]],

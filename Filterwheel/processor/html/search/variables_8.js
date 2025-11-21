@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['headerlen_0',['headerlen',['../structBinaryUartRingBuffer.html#a7c0dfab977850f87ecc04f047828cee1',1,'BinaryUartRingBuffer::HeaderLen'],['../structBinaryUart.html#a73097595008c1fa47bcc67912bfc5caa',1,'BinaryUart::HeaderLen']]],
-  ['headerleninit_1',['headerleninit',['../structBinaryUart.html#a989a786ac5849114d31333e8689e6ba5',1,'BinaryUart::HeaderLenInit'],['../structBinaryUartRingBuffer.html#af76e0cf2c48bff88e4aeb1dff806a2ba',1,'BinaryUartRingBuffer::HeaderLenInit']]],
+  ['headerlen_0',['headerlen',['../structBinaryUartRingBuffer.html#a5040d89ec050f4b1c7938cb3968dc6e5',1,'BinaryUartRingBuffer::HeaderLen'],['../structBinaryUart.html#a73097595008c1fa47bcc67912bfc5caa',1,'BinaryUart::HeaderLen']]],
+  ['headerleninit_1',['HeaderLenInit',['../structBinaryUart.html#a989a786ac5849114d31333e8689e6ba5',1,'BinaryUart']]],
   ['help_2',['help',['../structCmd.html#ac5dd6521b17f844b57fc2d70206d783a',1,'Cmd::Help'],['../structBinaryCmd.html#a16f29a225aebfc3c5d4c8d08dedcd241',1,'BinaryCmd::Help']]],
   ['hfsr_3',['HFSR',['../structCGraphHardFaultPayload.html#afcfaa3f7ef0cdb0cdac050e3a5add4c7',1,'CGraphHardFaultPayload']]],
   ['highvoltageenable_4',['highvoltageenable',['../CGraphDeprecatedPZTHardwareInterface_8hpp.html#a1ffa9bb2e148fb9f6b26c59876a9e53c',1,'HighVoltageEnable:&#160;CGraphDeprecatedPZTHardwareInterface.hpp'],['../CGraphDMHardwareInterface_8hpp.html#a1ffa9bb2e148fb9f6b26c59876a9e53c',1,'HighVoltageEnable:&#160;CGraphDMHardwareInterface.hpp'],['../unionCGraphDMHardwareControlRegister.html#aafe5c07b734471f58d7eb5da7e67781b',1,'CGraphDMHardwareControlRegister::HighVoltageEnable'],['../unionCGraphPZTHardwareControlRegister.html#a271dcfbeb634c29e2bcce73a797d4068',1,'CGraphPZTHardwareControlRegister::HighVoltageEnable']]],

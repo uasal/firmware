@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"classRegisterSpacePorts_1_1RegisterSpace.html#a4050ac2d945c79a17d86e53f944f01d2":[1,0,33,0,73],
 "classRegisterSpacePorts_1_1RegisterSpace.html#a47133b6783ae32699fa8b88ec5381352":[1,0,33,0,91],
 "classRegisterSpacePorts_1_1RegisterSpace.html#a4959c664852f739215d44fa982f5ef6a":[1,0,33,0,114],
 "classRegisterSpacePorts_1_1RegisterSpace.html#a4e221c816beef36b27dd27f4f5e32c3f":[1,0,33,0,14],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "classSpiDeviceDualPorts.html#ac26bfbb0812a6582c09bfea95f8d92fb":[1,0,38,13],
 "classSpiDeviceDualPorts.html#ac684d0660a66be867d58d752176f66e0":[1,0,38,22],
 "classSpiDeviceDualPorts.html#ad2241de8628fd5eba1e2e2df030b5280":[1,0,38,19],
-"classSpiDeviceDualPorts.html#ad5733819008f337e99074297b00ff092":[1,0,38,1],
-"classSpiDeviceDualPorts.html#ae00f3f04545af57582ff10609eee23e2":[1,0,38,12]
+"classSpiDeviceDualPorts.html#ad5733819008f337e99074297b00ff092":[1,0,38,1]
 };

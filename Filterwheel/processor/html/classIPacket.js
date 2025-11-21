@@ -2,10 +2,12 @@ var classIPacket =
 [
     [ "IPacket", "classIPacket.html#a970e033333775279b4a962551be32708", null ],
     [ "~IPacket", "classIPacket.html#a3dc7833a83c26d50ef75f43f60f17f20", null ],
+    [ "Debug", "classIPacket.html#ad2831bd87e9402db6d91f99f08b4a5c2", null ],
+    [ "Debug", "classIPacket.html#a2cd6528e48a23144f3f35ef5dbf09fea", null ],
     [ "DoesPayloadTypeMatch", "classIPacket.html#a349fb3451cce68b72bcc32baa7a41693", null ],
     [ "DoesPayloadTypeMatch", "classIPacket.html#a6db60bf5beb402e644ccc323e0fb4b03", null ],
     [ "EndTokenLen", "classIPacket.html#a5020a3536b5d0a8c6773e37ecb67b58a", null ],
-    [ "FindPacketEndPos", "classIPacket.html#a58fe1876255e432f3bc8d73ed4a7aa06", null ],
+    [ "FindPacketEndPos", "classIPacket.html#a41957756525b3f62e7e85c69bbe6c373", null ],
     [ "FindPacketEndPos", "classIPacket.html#af6e4ab3990bcad2921f889131f24d64f", null ],
     [ "FindPacketEndPos", "classIPacket.html#a5cfb8b284dd0722a4c387bb4d3ebeb58", null ],
     [ "FindPacketEndPos", "classIPacket.html#ac7c686a76164a3f61268ae04baadae51", null ],
@@ -25,7 +27,8 @@ var classIPacket =
     [ "PayloadOffset", "classIPacket.html#a7a5164a785c8baef7fbe21c38f61da03", null ],
     [ "PayloadType", "classIPacket.html#a96ace76eb5657bad9594b79b7b9b233e", null ],
     [ "PayloadType", "classIPacket.html#ace74729172ff26454c90e09d5e48784e", null ],
-    [ "ReverseFindPacketEndPos", "classIPacket.html#a5ed9c692bff18b992af1f458069e3b1c", null ],
+    [ "ReverseFindPacketEndPos", "classIPacket.html#a339ff3c2f47ccf2ffe4ee4a5b66738b0", null ],
+    [ "ReverseFindPacketStartPos", "classIPacket.html#a573b8a521c74b01734c5d63f826d622b", null ],
     [ "ReverseFindPacketStartPos", "classIPacket.html#ae5ec2ec95d04f13049e107741eea6f46", null ],
     [ "SerialNum", "classIPacket.html#ad10c09a8efe82cea19087fa88b31fddf", null ],
     [ "SerialNum", "classIPacket.html#a54069372377ca86ac8ae677ae2c1544b", null ]

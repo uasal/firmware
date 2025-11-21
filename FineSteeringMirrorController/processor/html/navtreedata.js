@@ -63,13 +63,13 @@ var NAVTREEINDEX =
 "CGraphFSMHardwareInterface_8hpp.html#a7c6ef995b9656d76c14b039d125657f0",
 "CmdHandlersAscii_8cpp.html#ac1bb7ac494243ea97b43a3a90f6d91a6",
 "Uarts_8hpp.html#a81a71161305149975fb868e23800dc15",
-"classIUart.html#ac8928b803f6751af4168a5deec359a39",
-"classwin32__pinout__uart.html#ac5630cf2b87463e6ab3bf1b1a70fcf3c",
-"namespaceads1258details.html#aa0dc2b562b9e90964cdeb2fccaf1627a",
-"structCGraphFSMHardwareInterface.html#a1b5f13d02a936fe1ab018192645cd857",
-"structCGraphPZTHardwareInterface.html#aff6e3efc05696992e5a15846358b6ef1",
-"unionAdcAccumulator.html#a69703f3cd1c657dc169caec7234f1941",
-"unionads1258details_1_1ads1258sample.html#aa1f88c5d476ab8051f17cde66304da2d"
+"classIUart.html#a5596bc1c37a997ad63f6fd7273f0f582",
+"classwin32__pinout__uart.html#a16c11a71b77901e9e8f302402fb5ffb6",
+"namespaceads1258details.html#a83439930ce45c1bdaac87821cc54a3e0",
+"structCGraphFSMHardwareInterface.html#a4b9436091cf19fce640584446c7ccff0",
+"structCGraphPacketHeader.html",
+"unionAdcFifo.html#a74a90683108d18b2f96fc7ac278b7048",
+"unionads1258details_1_1ads1258sample.html#ac348ec86bf6fcf8cc71a6981a6fcf4c1"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
