@@ -1,7 +1,7 @@
 var unionCGraphPZTUartStatusRegister =
 [
     [ "CGraphPZTUartStatusRegister", "unionCGraphPZTUartStatusRegister.html#a2db855a0bf4ce6c52ce85cecbedaf8cd", null ],
-    [ "__attribute__", "unionCGraphPZTUartStatusRegister.html#a3df29bb80d853f51745d54b21351d6c1", null ],
+    [ "__attribute__", "unionCGraphPZTUartStatusRegister.html#a912b3b168c5696a16958d534d966bcd2", null ],
     [ "formatf", "unionCGraphPZTUartStatusRegister.html#aca90066d9efa0c16b1572b61a27b2668", null ],
     [ "all", "unionCGraphPZTUartStatusRegister.html#a008c900f068a58ff411b5d9dc3a864a9", null ],
     [ "reserved1", "unionCGraphPZTUartStatusRegister.html#a8475cdaee5bddec08c5ee59f128a659f", null ],

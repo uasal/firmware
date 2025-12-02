@@ -33,6 +33,7 @@ var annotated_dup =
     [ "CGraphDMProtoHardwareMmapper", "classCGraphDMProtoHardwareMmapper.html", "classCGraphDMProtoHardwareMmapper" ],
     [ "CGraphDMRamInterface", "structCGraphDMRamInterface.html", "structCGraphDMRamInterface" ],
     [ "CGraphDMTelemetryPayload", "structCGraphDMTelemetryPayload.html", "structCGraphDMTelemetryPayload" ],
+    [ "CGraphDualMonitorAdcCommandStatusRegister", "unionCGraphDualMonitorAdcCommandStatusRegister.html", "unionCGraphDualMonitorAdcCommandStatusRegister" ],
     [ "CGraphFSMHardwareControlRegister", "unionCGraphFSMHardwareControlRegister.html", "unionCGraphFSMHardwareControlRegister" ],
     [ "CGraphFSMHardwareInterface", "structCGraphFSMHardwareInterface.html", "structCGraphFSMHardwareInterface" ],
     [ "CGraphFSMMonitorAdc", "structCGraphFSMMonitorAdc.html", "structCGraphFSMMonitorAdc" ],

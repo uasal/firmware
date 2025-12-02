@@ -2,7 +2,11 @@ var unionads1258details_1_1config1register =
 [
     [ "config1register", "unionads1258details_1_1config1register.html#aa5f707757b14734266d3e7bde3934706", null ],
     [ "config1register", "unionads1258details_1_1config1register.html#ac45fcd4fbfe40114d9f637cd9748bf68", null ],
+    [ "config1register", "unionads1258details_1_1config1register.html#aa5f707757b14734266d3e7bde3934706", null ],
+    [ "config1register", "unionads1258details_1_1config1register.html#ac45fcd4fbfe40114d9f637cd9748bf68", null ],
     [ "__attribute__", "unionads1258details_1_1config1register.html#ae436568f13fe324589c856b012880d48", null ],
+    [ "__attribute__", "unionads1258details_1_1config1register.html#a9ccdcaf542d7e51fabfe84e52ce81cda", null ],
+    [ "operator!=", "unionads1258details_1_1config1register.html#acba7e9692875a245a68c3756cce86485", null ],
     [ "operator!=", "unionads1258details_1_1config1register.html#acba7e9692875a245a68c3756cce86485", null ],
     [ "all", "unionads1258details_1_1config1register.html#a73c1ebcb414c1c8f4a860ca2e1d69fe4", null ],
     [ "datarate", "unionads1258details_1_1config1register.html#a05febd923e5025fb7c671e368dc37ebb", null ],

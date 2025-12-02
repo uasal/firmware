@@ -2,8 +2,13 @@ var unionads1258details_1_1ads1258sample =
 [
     [ "ads1258sample", "unionads1258details_1_1ads1258sample.html#ac670f7722d2b2e92c0b752251664d2a4", null ],
     [ "ads1258sample", "unionads1258details_1_1ads1258sample.html#aab8dcf9f3b338e143a3ee1f688bffdce", null ],
+    [ "ads1258sample", "unionads1258details_1_1ads1258sample.html#ac670f7722d2b2e92c0b752251664d2a4", null ],
+    [ "ads1258sample", "unionads1258details_1_1ads1258sample.html#aab8dcf9f3b338e143a3ee1f688bffdce", null ],
     [ "__attribute__", "unionads1258details_1_1ads1258sample.html#af31baa6884a2f34e8f0d22339d366959", null ],
     [ "__attribute__", "unionads1258details_1_1ads1258sample.html#ae910cdad5dc37b9f4a53edfe7560c9d4", null ],
+    [ "__attribute__", "unionads1258details_1_1ads1258sample.html#a14caf6c0e869df024d6a13983a2998dc", null ],
+    [ "__attribute__", "unionads1258details_1_1ads1258sample.html#a9a8e1e46e7b2e71e386fcf7a4a4b2c7c", null ],
+    [ "formatf", "unionads1258details_1_1ads1258sample.html#ac348ec86bf6fcf8cc71a6981a6fcf4c1", null ],
     [ "formatf", "unionads1258details_1_1ads1258sample.html#ac348ec86bf6fcf8cc71a6981a6fcf4c1", null ],
     [ "all", "unionads1258details_1_1ads1258sample.html#a05ca871afb15f2e3bc45ef203f49657e", null ],
     [ "one", "unionads1258details_1_1ads1258sample.html#a019afb2468f1051f8634926f71979a81", null ],

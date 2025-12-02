@@ -3,7 +3,7 @@ var MonitorAdc_8cpp =
     [ "CalibrateMonitorAdcCommand", "MonitorAdc_8cpp.html#a099574b759dc2fb77e782178ca9b595c", null ],
     [ "ScanMonitorAdcCommand", "MonitorAdc_8cpp.html#ac86f4098ef8bed6dd00703357186bbef", null ],
     [ "TestMonitorAdcCommand", "MonitorAdc_8cpp.html#a0d379e9f53e1a3da9f310f1633ea43cf", null ],
-    [ "AmbientLightCalibrate", "MonitorAdc_8cpp.html#a31850d21886e684f536b52adbb32e377", null ],
+    [ "AmbientLightCalibrate", "MonitorAdc_8cpp.html#ad9d9cd2a15c98afa5b2a9353dbaf3258", null ],
     [ "Aux0Calibrate", "MonitorAdc_8cpp.html#af6885b4bdc38c6b2c7a8ec230df7ffc7", null ],
     [ "Aux1Calibrate", "MonitorAdc_8cpp.html#a8bb9f6db517513d14041b089d43c3c86", null ],
     [ "Aux2Calibrate", "MonitorAdc_8cpp.html#a1102f91f2cf5eeadd37a526a76c64800", null ],

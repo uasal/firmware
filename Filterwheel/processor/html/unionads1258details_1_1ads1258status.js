@@ -1,6 +1,8 @@
 var unionads1258details_1_1ads1258status =
 [
     [ "__attribute__", "unionads1258details_1_1ads1258status.html#a8cb2f68d6eba9186f06fdad97d916059", null ],
+    [ "__attribute__", "unionads1258details_1_1ads1258status.html#ac272bdccf451aca9848e114925b6ee58", null ],
+    [ "formatf", "unionads1258details_1_1ads1258status.html#a29ce033d1be89e5b772785559b341ba9", null ],
     [ "formatf", "unionads1258details_1_1ads1258status.html#a29ce033d1be89e5b772785559b341ba9", null ],
     [ "all", "unionads1258details_1_1ads1258status.html#a912552c152e902636c9df85bbfffb189", null ],
     [ "channel", "unionads1258details_1_1ads1258status.html#a08354c4a694c75f51880844d0649f1ed", null ],

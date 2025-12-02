@@ -20,7 +20,7 @@ var structCGraphFSMHardwareInterface =
     [ "IdealTicksPerSecond", "structCGraphFSMHardwareInterface.html#ad7c760db0c8e6d57deca60f45c7b2e3a", null ],
     [ "MonitorAdcAccumulator", "structCGraphFSMHardwareInterface.html#ada346ecb7cac5bb54405398a4e4fbc35", null ],
     [ "MonitorAdcReadChannel", "structCGraphFSMHardwareInterface.html#a2b1caa4cda41beb25c8817238895bc53", null ],
-    [ "MonitorAdcSpiCommandStatusRegister", "structCGraphFSMHardwareInterface.html#a5c713fbb997f4ef080a3cb724eefafe9", null ],
+    [ "MonitorAdcSpiCommandStatusRegister", "structCGraphFSMHardwareInterface.html#a8cd651a26a43e809d124ba5b4bfd0107", null ],
     [ "MonitorAdcSpiTransactionRegister", "structCGraphFSMHardwareInterface.html#a91259e668a5307e6755f5885a24934fd", null ],
     [ "PZTDriverFullScaleOutputTravel", "structCGraphFSMHardwareInterface.html#a874956915626e9492a496b4c0ad543b4", null ],
     [ "reserved1", "structCGraphFSMHardwareInterface.html#a8219d02afc29336bf6390e51ede21f0f", null ],

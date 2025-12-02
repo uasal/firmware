@@ -4,7 +4,7 @@ var lt244x_8h =
     [ "lt244xdetails::configregister", "unionlt244xdetails_1_1configregister.html", "unionlt244xdetails_1_1configregister" ],
     [ "lt244xdetails::lt244x_sample", "unionlt244xdetails_1_1lt244x__sample.html", "unionlt244xdetails_1_1lt244x__sample" ],
     [ "lt244x< pinout, spi, SpiClkDiv >", "structlt244x.html", "structlt244x" ],
-    [ "__attribute__", "lt244x_8h.html#a5fcedb4e7a6bd0a08a6ba824768d5492", null ],
+    [ "__attribute__", "lt244x_8h.html#a95d5e253f126f18d961250f653323721", null ],
     [ "__attribute__", "lt244x_8h.html#a19912fa47c0c2f76dd813fa1af42ba8c", null ],
     [ "channel", "lt244x_8h.html#a6fbbbfcaf139ba9908baa4b0fe030a59", null ],
     [ "channel", "lt244x_8h.html#ac91c05ff21a976d6ee091aec4a9f99b3", null ],

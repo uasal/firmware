@@ -2,7 +2,7 @@ var CGraphFSMHardwareInterface_8hpp =
 [
     [ "CGraphFSMHardwareControlRegister", "unionCGraphFSMHardwareControlRegister.html", "unionCGraphFSMHardwareControlRegister" ],
     [ "CGraphFSMHardwareInterface", "structCGraphFSMHardwareInterface.html", "structCGraphFSMHardwareInterface" ],
-    [ "__attribute__", "CGraphFSMHardwareInterface_8hpp.html#a2712d79f2f0e448085fc296e5504c7ba", null ],
+    [ "__attribute__", "CGraphFSMHardwareInterface_8hpp.html#ae72f9ed3151137f443425f3400aa54e8", null ],
     [ "__attribute__", "CGraphFSMHardwareInterface_8hpp.html#a2d6a41431045516fc90b81e5a67795b9", null ],
     [ "CGraphFSMHardwareControlRegister", "CGraphFSMHardwareInterface_8hpp.html#a6851dd04984ad1ca42c5738bfa7244e3", null ],
     [ "formatf", "CGraphFSMHardwareInterface_8hpp.html#a9f573dbd37f866eb7c33792daf23f413", null ],
@@ -41,7 +41,7 @@ var CGraphFSMHardwareInterface_8hpp =
     [ "IdealTicksPerSecond", "CGraphFSMHardwareInterface_8hpp.html#a84e76d810b44fa1f03ad1ccabc9c3d01", null ],
     [ "MonitorAdcAccumulator", "CGraphFSMHardwareInterface_8hpp.html#a540711cfe47e638431d674e6ebcc2128", null ],
     [ "MonitorAdcReadChannel", "CGraphFSMHardwareInterface_8hpp.html#a19c56d402b0171f47d6ef5fb65232c28", null ],
-    [ "MonitorAdcSpiCommandStatusRegister", "CGraphFSMHardwareInterface_8hpp.html#a67577dbcd41c5aaac609e73837d18a54", null ],
+    [ "MonitorAdcSpiCommandStatusRegister", "CGraphFSMHardwareInterface_8hpp.html#a07ffddef34085e139e51dce19e31565f", null ],
     [ "MonitorAdcSpiTransactionRegister", "CGraphFSMHardwareInterface_8hpp.html#a28df7edaa2a9764356147c4153634548", null ],
     [ "nFaultsClr", "CGraphFSMHardwareInterface_8hpp.html#a13425944d3da122dd425a036b35ef99a", null ],
     [ "nHVFaultA", "CGraphFSMHardwareInterface_8hpp.html#a275ed4916ecf75b6bd550bf5797fc66a", null ],

@@ -1,7 +1,7 @@
 var unionlt244xdetails_1_1lt244x__sample =
 [
     [ "lt244x_sample", "unionlt244xdetails_1_1lt244x__sample.html#ac734c0c32a9241eec3ee9b5d23701952", null ],
-    [ "__attribute__", "unionlt244xdetails_1_1lt244x__sample.html#a2cd482088de5adf22c078332ce53c7eb", null ],
+    [ "__attribute__", "unionlt244xdetails_1_1lt244x__sample.html#a1ff1b09bbc9bafee81f758ca36ffe15c", null ],
     [ "CountsToVolts", "unionlt244xdetails_1_1lt244x__sample.html#a63abcd7f0f8cdc80c35e1e04720ef05a", null ],
     [ "formatf", "unionlt244xdetails_1_1lt244x__sample.html#a34abbe68c200e91504f2e2f883f601ab", null ],
     [ "operator!=", "unionlt244xdetails_1_1lt244x__sample.html#a7b156e27a88b6d3be41709c23fe194d1", null ],

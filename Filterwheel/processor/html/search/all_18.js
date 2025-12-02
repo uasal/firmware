@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['_7eads1258_0',['~ads1258',['../structads1258.html#a2234f8daf999e9b541506d311e00eccd',1,'ads1258']]],
+  ['_7eads1258_0',['~ads1258',['../structads1258.html#a2234f8daf999e9b541506d311e00eccd',1,'ads1258::~ads1258()'],['../structads1258.html#a2234f8daf999e9b541506d311e00eccd',1,'ads1258::~ads1258()']]],
   ['_7ebinaryuartcallbacks_1',['~BinaryUartCallbacks',['../structBinaryUartCallbacks.html#a1d1803a16b1b2e3e715043f64b781600',1,'BinaryUartCallbacks']]],
   ['_7ecgraphpacket_2',['~CGraphPacket',['../classCGraphPacket.html#ac4bb585dd9f9ed603dc599ce683406b5',1,'CGraphPacket']]],
   ['_7eezthread_3',['~EzThread',['../classEzThread.html#a97129140f31f9e68c296b05c899234a5',1,'EzThread']]],
@@ -21,7 +21,7 @@ var searchData=
   ['_7elt244x_18',['~lt244x',['../structlt244x.html#a5cdd6598132362855202381bdee3ba73',1,'lt244x']]],
   ['_7elt244x_5faccum_19',['~lt244x_accum',['../structlt244x__accum.html#a9586618bae870b50c31e03447876a55d',1,'lt244x_accum']]],
   ['_7ertscallback_20',['~RTSCallback',['../structRTSCallback.html#ab4db3b9fe6b42de2018ac04c7d4a064b',1,'RTSCallback']]],
-  ['_7espi_5fbusmsg_21',['~spi_busmsg',['../structads1258_1_1spi__busmsg.html#a517f4a8825b6341e1328c1beeb9655d3',1,'ads1258::spi_busmsg']]],
+  ['_7espi_5fbusmsg_21',['~spi_busmsg',['../structads1258_1_1spi__busmsg.html#a517f4a8825b6341e1328c1beeb9655d3',1,'ads1258::spi_busmsg::~spi_busmsg()'],['../structads1258_1_1spi__busmsg.html#a517f4a8825b6341e1328c1beeb9655d3',1,'ads1258::spi_busmsg::~spi_busmsg()']]],
   ['_7euart_5fpinout_5ffpga_22',['~uart_pinout_fpga',['../classuart__pinout__fpga.html#a548bcc5c79576819b2e243214286a629',1,'uart_pinout_fpga']]],
   ['_7ewin32_5fpinout_5fuart_23',['~win32_pinout_uart',['../classwin32__pinout__uart.html#a6b02339b8be8e28f9495f1916652691c',1,'win32_pinout_uart']]]
 ];

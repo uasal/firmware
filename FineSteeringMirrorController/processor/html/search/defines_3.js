@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['fpga_5fmap_5fmask_0',['FPGA_MAP_MASK',['../CGraphDeprecatedPZTHardwareInterface_8cpp.html#a60985fedab27865c3c71beb3818a03bb',1,'CGraphDeprecatedPZTHardwareInterface.cpp']]],
-  ['fpga_5fmem_5faddr_1',['FPGA_MEM_ADDR',['../CGraphDeprecatedPZTHardwareInterface_8cpp.html#a80fd14f27e03612c669c66e42082fdf0',1,'CGraphDeprecatedPZTHardwareInterface.cpp']]]
+  ['host_5fname_5fsize_0',['host_name_size',['../linux__pinout__client__socket_8hpp.html#a797a7243dfb617f0dcc6aa4a0425ab5c',1,'HOST_NAME_SIZE:&#160;linux_pinout_client_socket.hpp'],['../linux__pinout__server__socket_8hpp.html#a797a7243dfb617f0dcc6aa4a0425ab5c',1,'HOST_NAME_SIZE:&#160;linux_pinout_server_socket.hpp']]]
 ];

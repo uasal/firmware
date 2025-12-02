@@ -12,6 +12,6 @@ var searchData=
   ['blockontxbufffull_9',['BlockOnTxBuffFull',['../structTerminalUart.html#ae2deeafa8db28d577649823fd00d62d0',1,'TerminalUart']]],
   ['boreddelayus_10',['BoredDelayuS',['../classEzThread.html#afdf5af15c8dcecb953e9760a62b56a1b',1,'EzThread']]],
   ['buffer_11',['buffer',['../classlinux__pinout__circular__buffer.html#a28535fab435365235440b1935a69f8a9',1,'linux_pinout_circular_buffer::Buffer'],['../classlinux__pinout__circular__buffer.html#a5cf8066e24e9677de124ca7b2429aa05',1,'linux_pinout_circular_buffer::Buffer']]],
-  ['bypass_12',['bypass',['../unionads1258details_1_1config0register.html#a6ecf0e298b1be80244e7545e7ef55822',1,'ads1258details::config0register::bypass'],['../ads1258_8h.html#ab9db0440c25feb3e3898f8615c9f5d93',1,'bypass:&#160;ads1258.h']]],
+  ['bypass_12',['bypass',['../unionads1258details_1_1config0register.html#a6ecf0e298b1be80244e7545e7ef55822',1,'ads1258details::config0register::bypass'],['../ads1258_8h.html#ab9db0440c25feb3e3898f8615c9f5d93',1,'bypass:&#160;ads1258.h'],['../ads1258dual_8h.html#ab9db0440c25feb3e3898f8615c9f5d93',1,'bypass:&#160;ads1258dual.h']]],
   ['bytes_13',['bytes',['../unionlt244xdetails_1_1lt244x__sample.html#affacd3bb4f3e634f9f4cab3286b9a34f',1,'lt244xdetails::lt244x_sample::bytes'],['../unionlt244xdetails_1_1configregister.html#aee351373c9138b5f67bac26f2b31dc0f',1,'lt244xdetails::configregister::bytes'],['../lt244x_8h.html#a819b2c23bfd133882581f257658ab8b0',1,'bytes:&#160;lt244x.h']]]
 ];

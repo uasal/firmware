@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['debugadc_0',['DEBUGADC',['../MonitorAdc_8hpp.html#a0410cc5c8f089f3fe56b73f7386ac31b',1,'MonitorAdc.hpp']]]
+  ['fpga_5fmap_5fmask_0',['FPGA_MAP_MASK',['../CGraphDeprecatedPZTHardwareInterface_8cpp.html#a60985fedab27865c3c71beb3818a03bb',1,'CGraphDeprecatedPZTHardwareInterface.cpp']]],
+  ['fpga_5fmem_5faddr_1',['FPGA_MEM_ADDR',['../CGraphDeprecatedPZTHardwareInterface_8cpp.html#a80fd14f27e03612c669c66e42082fdf0',1,'CGraphDeprecatedPZTHardwareInterface.cpp']]]
 ];

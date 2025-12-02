@@ -22,6 +22,7 @@ var hierarchy =
     [ "CGraphDMProtoHardwareMmapper", "classCGraphDMProtoHardwareMmapper.html", null ],
     [ "CGraphDMRamInterface", "structCGraphDMRamInterface.html", null ],
     [ "CGraphDMTelemetryPayload", "structCGraphDMTelemetryPayload.html", null ],
+    [ "CGraphDualMonitorAdcCommandStatusRegister", "unionCGraphDualMonitorAdcCommandStatusRegister.html", null ],
     [ "CGraphFSMHardwareControlRegister", "unionCGraphFSMHardwareControlRegister.html", null ],
     [ "CGraphFSMHardwareInterface", "structCGraphFSMHardwareInterface.html", null ],
     [ "CGraphFSMMonitorAdc", "structCGraphFSMMonitorAdc.html", null ],
@@ -91,6 +92,7 @@ var hierarchy =
       [ "lt244x< pinout, spi, SpiClkDiv >", "structlt244x.html", null ]
     ] ],
     [ "PinoutMonitorAdc", "structPinoutMonitorAdc.html", [
+      [ "ads1258< PinoutMonitorAdc >", "structads1258.html", null ],
       [ "ads1258< PinoutMonitorAdc >", "structads1258.html", null ]
     ] ],
     [ "RTSCallback", "structRTSCallback.html", null ],
@@ -100,6 +102,7 @@ var hierarchy =
     ] ],
     [ "ads1258< spipinout >::spi_busmsg", "structads1258_1_1spi__busmsg.html", null ],
     [ "spipinout", "classspipinout.html", [
+      [ "ads1258< spipinout >", "structads1258.html", null ],
       [ "ads1258< spipinout >", "structads1258.html", null ]
     ] ],
     [ "ads1258details::sysreadregister", "unionads1258details_1_1sysreadregister.html", null ],

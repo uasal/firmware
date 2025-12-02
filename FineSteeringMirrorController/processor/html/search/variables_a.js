@@ -3,7 +3,7 @@ var searchData=
   ['lastc_0',['LastC',['../structTerminalUart.html#a2fe4c0e9936eb29fb5a6c0904dfd183c',1,'TerminalUart']]],
   ['lastchannelandsamplingfreq_1',['LastChannelAndSamplingFreq',['../structlt244x.html#a7c6a75a4b49ed6e91f75ea2c5d79c370',1,'lt244x']]],
   ['lastdatapos_2',['LastDataPos',['../structBinaryUartRingBuffer.html#a20672925c9a27118e19ad61e5c3b57dd',1,'BinaryUartRingBuffer']]],
-  ['lastsamples_3',['lastsamples',['../structads1258.html#a8728de28361b09af6ca286d51729fccd',1,'ads1258']]],
+  ['lastsamples_3',['lastsamples',['../structads1258.html#a1c0c77163724107aa90e155ead1e22ff',1,'ads1258']]],
   ['ledb_4',['ledb',['../unionCGraphFWHardwareControlRegister.html#a775787e96893def91600da9e9be86174',1,'CGraphFWHardwareControlRegister::LedB'],['../CGraphFWHardwareInterface_8hpp.html#a613e7f953022a19aeeb178b074c0137b',1,'LedB:&#160;CGraphFWHardwareInterface.hpp']]],
   ['ledg_5',['ledg',['../unionCGraphFWHardwareControlRegister.html#a106d423cd2c1102a0ddc2047410045f7',1,'CGraphFWHardwareControlRegister::LedG'],['../CGraphFWHardwareInterface_8hpp.html#adacac334291a8d490b906339a30ba94b',1,'LedG:&#160;CGraphFWHardwareInterface.hpp']]],
   ['ledr_6',['ledr',['../unionCGraphFWHardwareControlRegister.html#a7242e1e78b4015895b912304252513d8',1,'CGraphFWHardwareControlRegister::LedR'],['../CGraphFWHardwareInterface_8hpp.html#aee62617d524e93abf5690b6a724efb27',1,'LedR:&#160;CGraphFWHardwareInterface.hpp']]],
