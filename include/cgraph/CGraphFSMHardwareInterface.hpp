@@ -61,74 +61,75 @@ union CGraphFSMHardwareControlRegister
 
     CGraphFSMHardwareControlRegister() { all = 0; }
 
-    void formatf() const 	{ ::formatf("CGraphFSMHardwareControlRegister: all: 0x%lx, \
-										FaultNegV: %lu, \
-										Fault1V: %lu, \
-										Fault2VA: %lu, \
-										Fault2VD: %lu, \
-										Fault3VA: %lu, \
-										Fault3VD: %lu, \
-										Fault43V: %lu, \
-										Fault5V: %lu, \
-										FaultHV: %lu, \
-										nHVFaultA: %lu, \
-										nHVFaultB: %lu, \
-										nHVFaultC: %lu, \
-										nHVFaultD: %lu, \
-										PowerCycdAndClr: %lu, \
-										PowernEn: %lu, \
-										reserved1: %lu, \
-										Uart0OE: %lu, \
-										Uart1OE: %lu, \
-										Uart2OE: %lu, \
-										Uart3OE: %lu, \
-										Ux1SelJmp: %lu, \
-										reserved2: %lu, \
-										PPSDetectedAndRst: %lu, \
-										reserved3: %lu, \
-										PowernEnHV: %lu, \
-										HVEn1: %lu, \
-										HVEn2: %lu, \
-										DacSelectMaxti: %lu, \
-										GlobalFaultInhibit: %lu, \
-										nFaultsClr: %lu, \
-										reserved4: %lu, \
-										reserved5: %lu",
-										all,
-										FaultNegV,
-										Fault1V,
-										Fault2VA,
-										Fault2VD,
-										Fault3VA,
-										Fault3VD,
-										Fault43V,
-										Fault5V,
-										FaultHV,
-										nHVFaultA,
-										nHVFaultB,
-										nHVFaultC,
-										nHVFaultD,
-										PowerCycdAndClr,
-										PowernEn,
-										reserved1,
-										Uart0OE,
-										Uart1OE,
-										Uart2OE,
-										Uart3OE,
-										Ux1SelJmp,
-										reserved2,
-										PPSDetectedAndRst,
-										reserved3,
-										PowernEnHV,
-										HVEn1,
-										HVEn2,
-										DacSelectMaxti,
-										GlobalFaultInhibit,
-										nFaultsClr,
-										reserved4,
-										reserved5);
-
-							}
+    void formatf() const 	
+	{ 
+	::formatf("CGraphFSMHardwareControlRegister: all: 0x%lx, \
+	FaultNegV: %lu, \
+	Fault1V: %lu, \
+	Fault2VA: %lu, \
+	Fault2VD: %lu, \
+	Fault3VA: %lu, \
+	Fault3VD: %lu, \
+	Fault43V: %lu, \
+	Fault5V: %lu, \
+	FaultHV: %lu, \
+	nHVFaultA: %lu, \
+	nHVFaultB: %lu, \
+	nHVFaultC: %lu, \
+	nHVFaultD: %lu, \
+	PowerCycdAndClr: %lu, \
+	PowernEn: %lu, \
+	reserved1: %lu, \
+	Uart0OE: %lu, \
+	Uart1OE: %lu, \
+	Uart2OE: %lu, \
+	Uart3OE: %lu, \
+	Ux1SelJmp: %lu, \
+	reserved2: %lu, \
+	PPSDetectedAndRst: %lu, \
+	reserved3: %lu, \
+	PowernEnHV: %lu, \
+	HVEn1: %lu, \
+	HVEn2: %lu, \
+	DacSelectMaxti: %lu, \
+	GlobalFaultInhibit: %lu, \
+	nFaultsClr: %lu, \
+	reserved4: %lu, \
+	reserved5: %lu",
+	all,
+	FaultNegV,
+	Fault1V,
+	Fault2VA,
+	Fault2VD,
+	Fault3VA,
+	Fault3VD,
+	Fault43V,
+	Fault5V,
+	FaultHV,
+	nHVFaultA,
+	nHVFaultB,
+	nHVFaultC,
+	nHVFaultD,
+	PowerCycdAndClr,
+	PowernEn,
+	reserved1,
+	Uart0OE,
+	Uart1OE,
+	Uart2OE,
+	Uart3OE,
+	Ux1SelJmp,
+	reserved2,
+	PPSDetectedAndRst,
+	reserved3,
+	PowernEnHV,
+	HVEn1,
+	HVEn2,
+	DacSelectMaxti,
+	GlobalFaultInhibit,
+	nFaultsClr,
+	reserved4,
+	reserved5);
+	}
 
 }// __attribute__((__packed__));
 __attribute__((packed, aligned(1)));
@@ -158,7 +159,7 @@ struct CGraphFSMHardwareInterface
 	AdcAccumulator MonitorAdcAccumulator; //92; ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
 	uint32_t MonitorAdcReadChannel; //100; rw; which channel to read for MonitorA/D
 	uint32_t MonitorAdcSpiTransactionRegister; //104; rw
-	CGraphMonitorAdcCommandStatusRegister MonitorAdcSpiCommandStatusRegister; //108; 
+	CGraphDualMonitorAdcCommandStatusRegister MonitorAdcSpiCommandStatusRegister; //108; 
 	
 	CGraphBaudDividers BaudDividers; //112; rw
 	

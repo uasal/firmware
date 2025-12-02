@@ -111,6 +111,24 @@ union CGraphMonitorAdcCommandStatusRegister
 
 } __attribute__((__packed__));
 
+union CGraphDualMonitorAdcCommandStatusRegister
+{
+    uint32_t all;
+    struct 
+    {
+        uint32_t FrameEnable : 1; //1=nCs asserted (0), 0=nCs clear (1)
+        uint32_t TransactionComplete : 1; //Is the bus busy?
+        uint32_t nDrdy0 : 1; //Samples ready?
+		uint32_t nDrdy1 : 1; //Samples ready?
+        
+    } __attribute__((__packed__));
+
+    CGraphDualMonitorAdcCommandStatusRegister() { all = 0; }
+
+    void formatf() const { ::formatf("CGraphDualMonitorAdcCommandStatusRegister: FrameEnable:%c, TransactionComplete:%c, nDrdy0:%c, nDrdy1:%c", FrameEnable?'1':'0', TransactionComplete?'1':'0', nDrdy0?'1':'0', nDrdy1?'1':'0'); }
+
+} __attribute__((__packed__));
+
 union CGraphCrcCurrentAddr
 {
     uint32_t all;

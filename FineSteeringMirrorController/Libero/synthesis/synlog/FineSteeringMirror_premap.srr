@@ -1,4 +1,4 @@
-# Fri Nov  7 15:25:25 2025
+# Tue Dec  2 12:18:06 2025
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -9,10 +9,10 @@ Synopsys software or the associated documentation is strictly prohibited.
 Tool: Synplify Pro (R)
 Build: T-2022.09M-SP2-1
 Install: /home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro
-OS: Linux Mint 22.1
-Hostname: homework
+OS: Linux Mint 22.2
+Hostname: homework2
 max virtual memory: unlimited (bytes)
-max user processes: 126491
+max user processes: 190838
 max stack size: 8388608 (bytes)
 
 
@@ -41,7 +41,7 @@ Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0
 Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 248MB peak: 248MB)
 
 
-Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 250MB peak: 250MB)
+Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 252MB peak: 252MB)
 
 NConnInternalConnection caching is on
 @W: BN132 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1089:4:1089:9|Removing sequential instance FineSteeringMirror_sb_0.CORERESETP_0.MDDR_DDR_AXI_S_CORE_RESET_N_int because it is equivalent to instance FineSteeringMirror_sb_0.CORERESETP_0.FDDR_CORE_RESET_N_int. To keep the instance, apply constraint syn_preserve=1 on the instance.
@@ -56,18 +56,18 @@ NConnInternalConnection caching is on
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart2ClkDivider_i[7:0] is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart1ClkDivider_i[7:0] is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart0ClkDivider_i[7:0] is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.nFaultsClr_i is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart3OE_i is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart2OE_i is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart1OE_i is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart0OE_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.PowernEnHV_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.HVEn1_i is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacSelectMaxti_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.nFaultsClr_i is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.Ux1SelJmp_i is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.PowernEn_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.PowernEnHV_i is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.MonitorAdcSpiFrameEnable_i is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.HVEn2_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.HVEn1_i is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.GlobalFaultInhibit_i is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.LastWriteReq is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|User-specified initial value defined for instance Main_0.RegisterSpace.LastReadReq is being ignored due to limitations in architecture. 
@@ -288,7 +288,7 @@ Finished Pre Mapping Phase.
 @N: MO111 :|Tristate driver TrigMonAdcs_t (in view: work.FineSteeringMirror(verilog)) on net TrigMonAdcs (in view: work.FineSteeringMirror(verilog)) has its enable tied to GND.
 @N: BN225 |Writing default property annotation file /home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/synthesis/FineSteeringMirror.sap.
 
-Starting constraint checker (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 288MB peak: 288MB)
+Starting constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 288MB peak: 288MB)
 
 Encoding state machine sm0_state[6:0] (in view: work.CoreResetP_Z2_layer0(verilog))
 original code -> new code
@@ -300,16 +300,16 @@ original code -> new code
    101 -> 0100000
    110 -> 1000000
 
-Finished constraint checker preprocessing (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 288MB peak: 288MB)
+Finished constraint checker preprocessing (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 288MB peak: 288MB)
 
 
-Finished constraint checker (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 288MB peak: 288MB)
+Finished constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 288MB peak: 288MB)
 
 Pre-mapping successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 288MB peak: 288MB)
+At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 288MB peak: 288MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Fri Nov  7 15:25:26 2025
+# Tue Dec  2 12:18:07 2025
 
 ###########################################################]

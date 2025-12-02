@@ -313,6 +313,7 @@ begin
 			Uart3ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(115200) * 16.0)) - 1.0), 8));
 			
 			MonitorAdcChannelReadIndex_i <= "00000";	
+			MonitorAdcSpiFrameEnable_i <= '0';
 			
 			DacSelectMaxti_i <= '1';	
 			WriteDacs_i <= '0';		
@@ -325,8 +326,15 @@ begin
 			Uart1OE_i <= '1';
 			Uart2OE_i <= '1';
 			Uart3OE_i <= '1';								
+						
+			PowernEn_i <= '0';
+			Ux1SelJmp_i <= '0';
+			PowernEnHV_i <= '1';
+			HVEn1_i <= '1';
+			HVEn2_i <= '0';
+			GlobalFaultInhibit_i <= '0';
+			nFaultsClr_i <= '1';
 			
-					
 		else
 			
 			if ( (clk'event) and (clk = '1') ) then

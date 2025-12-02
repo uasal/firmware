@@ -25,10 +25,10 @@
 extern CGraphFSMHardwareInterface* volatile FSM;	
 
 //Note: if any offsets are not 4-byte aligned, the M3 processor WILL crash:
-const size_t MonitorAdcFpgaAdcSampleAddr = 104;
-const size_t MonitorAdcFpgaAdcChannelAddr = 112;
-const size_t MonitorAdcFpgaSpiXferAddr = 348;
-const size_t MonitorAdcSpiCommandStatusRegister = 352;
+const size_t MonitorAdcFpgaAdcSampleAddr = 92;
+const size_t MonitorAdcFpgaAdcChannelAddr = 100;
+const size_t MonitorAdcFpgaSpiXferAddr = 104;
+const size_t MonitorAdcSpiCommandStatusRegister = 108;
 
 struct PinoutMonitorAdc
 {
@@ -72,12 +72,12 @@ struct PinoutMonitorAdc
 		waitbusytimeout();
 		out = FSM->MonitorAdcSpiTransactionRegister; 
 		
-		return(out);
+		return(out & 0x000000FFUL);
 	}		
 	
 	static bool nDrdy() 				
 	{ 
-		return(0 == (FSM->MonitorAdcSpiCommandStatusRegister.nDrdy) );
+		return( (0 == (FSM->MonitorAdcSpiCommandStatusRegister.nDrdy0) ) || (0 == (FSM->MonitorAdcSpiCommandStatusRegister.nDrdy1) ) );
 	}		
 	
 	static void setclkpolarity(const bool en) { } //handled by fpga
@@ -172,23 +172,45 @@ public:
 	//~ static void SetAdcReadChannel(const uint8_t val) 					{ *(((uint8_t*)FSM)+MonitorAdcFpgaAdcChannelAddr) = (uint8_t)val; }
 	//~ static void GetAdcSample(Ltc244xAccumulator& val) 				{ val = *((Ltc244xAccumulator*)(((uint8_t*)FSM)+MonitorAdcFpgaAdcSampleAddr)); }		
 	
-	//Adc channels:
-	#define P1V2Channel ads1258details::chan_se1
-	#define P2V2Channel ads1258details::chan_se2
-	#define P28VChannel ads1258details::chan_se0
-	#define P2V5Channel ads1258details::chan_se7
+	//Adc0 channels:
+	#define IHVChannel ads1258details::chan_se0
+	#define IMVChannel ads1258details::chan_se1
+	#define I6VChannel ads1258details::chan_se2
+	#define I3VDChannel ads1258details::chan_se3
+	#define I2VDChannel ads1258details::chan_se4
+	#define I1VChannel ads1258details::chan_se5
+	#define StrainBPChannel ads1258details::chan_se6
+	#define StrainBMChannel ads1258details::chan_se7
+	#define StrainBChannel ads1258details::chan_diff3
+	#define StrainDPChannel ads1258details::chan_se8
+	#define StrainDMChannel ads1258details::chan_se9
+	#define StrainDChannel ads1258details::chan_diff4
+	#define StrainCMChannel ads1258details::chan_se10
+	#define StrainCPChannel ads1258details::chan_se11
+	#define StrainCChannel ads1258details::chan_diff5
+	#define StrainAMChannel ads1258details::chan_se12
+	#define StrainAPChannel ads1258details::chan_se13
+	#define StrainAChannel ads1258details::chan_diff6
+	#define P5VDChannel ads1258details::chan_se14
+	#define I2VAChannel ads1258details::chan_se15
+	
+	//Adc1 channels:
+	#define TempChannel ads1258details::chan_se0
+	#define P3V3DChannel ads1258details::chan_se1
+	#define P28VChannel ads1258details::chan_se2
+	#define P2V2Channel ads1258details::chan_se3
+	#define P2V5DChannel ads1258details::chan_se4
+	#define P1V2Channel ads1258details::chan_se5
+	#define P2V5AChannel ads1258details::chan_se6
+	#define P4V3Channel ads1258details::chan_se7
+	#define I3VAChannel ads1258details::chan_se8
+	#define P3V3AChannel ads1258details::chan_se9
 	#define P6VChannel ads1258details::chan_se10
-	#define P5VChannel ads1258details::chan_se11
-	#define P3V3DChannel ads1258details::chan_se6
-	#define P4V3Channel ads1258details::chan_se8
-	#define P2I2Channel ads1258details::chan_se3
-	#define P4I3Channel ads1258details::chan_se9
-	#define P6IChannel ads1258details::chan_se12
-	#define Aux0Channel ads1258details::chan_se14
-	#define Aux1Channel ads1258details::chan_se5
-	#define Aux2Channel ads1258details::chan_se4
-	#define AmbientLightChannel ads1258details::chan_se13
-	#define TemperatureChannel ads1258details::chan_se15
+	#define P5VAChannel ads1258details::chan_se11
+	#define LuxRadsChannel ads1258details::chan_se12
+	#define M18VChannel ads1258details::chan_se13
+	#define M20VChannel ads1258details::chan_se14
+	#define P125VChannel ads1258details::chan_se15
 	
 	bool GetMonitor() const { return(Monitor); }
 	void SetMonitor(bool monitor) { Monitor = monitor; }

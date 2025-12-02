@@ -268,19 +268,21 @@ int8_t FSMAdcsCommand(char const* Name, char const* Params, const size_t ParamsL
 		
 		//Show current A/D values:
 		{
-			AdcAccumulator A, B, C;
+			AdcAccumulator A, B, C, D;
 			A = FSM->AdcAAccumulator;
 			B = FSM->AdcBAccumulator;
 			C = FSM->AdcCAccumulator;
+			D = FSM->AdcDAccumulator;
 
-			double Av, Bv, Cv;
+			double Av, Bv, Cv, Dv;
 			Av = (8.192 * ((A.Samples - 0) / A.NumAccums)) / 16777216.0;
 			Bv = (8.192 * ((B.Samples - 0) / B.NumAccums)) / 16777216.0;
 			Cv = (8.192 * ((C.Samples - 0) / C.NumAccums)) / 16777216.0;
+			Dv = (8.192 * ((D.Samples - 0) / D.NumAccums)) / 16777216.0;
 			
 				
 			//~ formatf("\n\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 16777216.0, (4.096 * (B.Samples / B.NumAccums)) / 16777216.0, (4.096 * (C.Samples / C.NumAccums)) / 16777216.0);
-			formatf("\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, Av, Bv, Cv);
+			formatf("\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx, 0x%016llx; %+d(%u), %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, D.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, D.Samples, D.NumAccums, Av, Bv, Cv, Dv);
 		}
 		
 		//~ //Quit on any keypress
@@ -518,19 +520,21 @@ int8_t GoXYCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	
 	//Show current A/D values:
 	{
-		AdcAccumulator Aa, Ba, Ca;
+		AdcAccumulator Aa, Ba, Ca, Da;
 		Aa = FSM->AdcAAccumulator;
 		Ba = FSM->AdcBAccumulator;
 		Ca = FSM->AdcCAccumulator;
+		Da = FSM->AdcDAccumulator;
 
-		double Av, Bv, Cv;
+		double Av, Bv, Cv, Dv;
 		Av = (8.192 * ((Aa.Samples - 0) / Aa.NumAccums)) / 16777216.0;
 		Bv = (8.192 * ((Ba.Samples - 0) / Ba.NumAccums)) / 16777216.0;
 		Cv = (8.192 * ((Ca.Samples - 0) / Ca.NumAccums)) / 16777216.0;
+		Dv = (8.192 * ((Da.Samples - 0) / Da.NumAccums)) / 16777216.0;
 		
 			
 		//~ formatf("\n\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 16777216.0, (4.096 * (B.Samples / B.NumAccums)) / 16777216.0, (4.096 * (C.Samples / C.NumAccums)) / 16777216.0);
-		formatf("\nGoXY: Sensor A/D's: 0x%016llx, 0x%016llx, 0x%016llx; %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", Aa.all, Ba.all, Ca.all, Aa.Samples, Aa.NumAccums, Ba.Samples, Ba.NumAccums, Ca.Samples, Ca.NumAccums, Av, Bv, Cv);
+		formatf("\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx, 0x%016llx; %+d(%u), %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf, %+1.3lf\n", Aa.all, Ba.all, Ca.all, Da.all, Aa.Samples, Aa.NumAccums, Ba.Samples, Ba.NumAccums, Ca.Samples, Ca.NumAccums, Da.Samples, Da.NumAccums, Av, Bv, Cv, Dv);
 	}
 	
 	//~ formatf("\n\nFSMdaca: D/A registers at: %u, %u, %u.\n", offsetof(CGraphFSMHardwareInterface, DacASetpoint), offsetof(CGraphFSMHardwareInterface, DacBSetpoint), offsetof(CGraphFSMHardwareInterface, DacCSetpoint));
@@ -747,7 +751,7 @@ int8_t MonitorSerialCommand(char const* Name, char const* Params, const size_t P
     bool OnOff = false;
 
 	//Convert parameters
-    int8_t numfound = sscanf(Params, "%lu%2[,\t ]%c", &port, seperator, &onoff);
+    int8_t numfound = sscanf(Params, "%lu%2[,\t ] %c", &port, seperator, &onoff);
     if (numfound >= 4)
     {
 		if ( ('Y' == onoff) || ('y' == onoff) || ('T' == onoff) || ('t' == onoff) || ('1' == onoff) ) { OnOff = true; }
@@ -782,14 +786,56 @@ int8_t MonitorSerialCommand(char const* Name, char const* Params, const size_t P
 
 int8_t ControlRegisterCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
+	CGraphFSMHardwareControlRegister cr;
+	char c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14;
+	bool o1=false, o2=false, o3=false, o4=false, o5=false, o6=false, o7=false, o8=false, o9=false, o10=false, o11=false, o12=false, o13=false, o14=false;
+    
 	if (NULL == FSM)
 	{
 		formatf("\nControlRegisterCommand: Fpga interface is not initialized!");
 		return(ParamsLen);
 	}
+	
+    int8_t numfound = sscanf(Params, " %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c,", &c1, &c2, &c3, &c4, &c5, &c6, &c7, &c8, &c9, &c10, &c11, &c12, &c13, &c14);
+    if (numfound >= 1)
+    {
+		if ( ('Y' == c1) || ('y' == c1) || ('T' == c1) || ('t' == c1) || ('1' == c1) ) { o1 = true; }
+		if ( ('Y' == c2) || ('y' == c2) || ('T' == c2) || ('t' == c2) || ('1' == c2) ) { o2 = true; }
+		if ( ('Y' == c3) || ('y' == c3) || ('T' == c3) || ('t' == c3) || ('1' == c3) ) { o3 = true; }
+		if ( ('Y' == c4) || ('y' == c4) || ('T' == c4) || ('t' == c4) || ('1' == c4) ) { o4 = true; }
+		if ( ('Y' == c5) || ('y' == c5) || ('T' == c5) || ('t' == c5) || ('1' == c5) ) { o5 = true; }
+		if ( ('Y' == c6) || ('y' == c6) || ('T' == c6) || ('t' == c6) || ('1' == c6) ) { o6 = true; }
+		if ( ('Y' == c7) || ('y' == c7) || ('T' == c7) || ('t' == c7) || ('1' == c7) ) { o7 = true; }
+		if ( ('Y' == c8) || ('y' == c8) || ('T' == c8) || ('t' == c8) || ('1' == c8) ) { o8 = true; }
+		if ( ('Y' == c9) || ('y' == c9) || ('T' == c9) || ('t' == c9) || ('1' == c9) ) { o9 = true; }
+		if ( ('Y' == c10) || ('y' == c10) || ('T' == c10) || ('t' == c10) || ('1' == c10) ) { o10 = true; }
+		if ( ('Y' == c11) || ('y' == c11) || ('T' == c11) || ('t' == c11) || ('1' == c11) ) { o11 = true; }
+		if ( ('Y' == c12) || ('y' == c12) || ('T' == c12) || ('t' == c12) || ('1' == c12) ) { o12 = true; }
+		if ( ('Y' == c13) || ('y' == c13) || ('T' == c13) || ('t' == c13) || ('1' == c13) ) { o13 = true; }
+		if ( ('Y' == c14) || ('y' == c14) || ('T' == c14) || ('t' == c14) || ('1' == c14) ) { o14 = true; }
+
+		cr.PowerCycdAndClr = o1;
+		cr.PowernEn = o2;
+		cr.Uart0OE = o3;
+		cr.Uart1OE = o4;
+		cr.Uart2OE = o5;
+		cr.Uart3OE = o6;
+		cr.Ux1SelJmp = o7;
+		cr.PPSDetectedAndRst = o8;
+		cr.PowernEnHV = o9;
+		cr.HVEn1 = o10;
+		cr.HVEn2 = o11;
+		cr.DacSelectMaxti = o12;
+		cr.GlobalFaultInhibit = o13;
+		cr.nFaultsClr = o14;
+		
+		FSM->ControlRegister = cr;
+	}		
+	
+	cr = FSM->ControlRegister;
 
 	formatf("\nControlRegisterCommand: Current values: ");
-	FSM->ControlRegister.formatf();
+	cr.formatf();
 	
     return(strlen(Params));
 }
@@ -808,7 +854,7 @@ int8_t DacSelectCommand(char const* Name, char const* Params, const size_t Param
     bool OnOff = false;
 
 	//Convert parameters
-    int8_t numfound = sscanf(Params, "%c", &onoff);
+    int8_t numfound = sscanf(Params, " %c", &onoff);
     if (numfound >= 1)
     {
 		if ( ('Y' == onoff) || ('y' == onoff) || ('T' == onoff) || ('t' == onoff) || ('1' == onoff) ) { OnOff = true; }
@@ -819,10 +865,11 @@ int8_t DacSelectCommand(char const* Name, char const* Params, const size_t Param
 		
 		FSM->ControlRegister = cr;
 		
-		formatf("\n\nDacSelect: %c.\n", OnOff?'1':'0');
+		formatf("\n\nDacSelect: %c ('%c').\n", OnOff?'1':'0', onoff);
 	}
 	
-	//~ formatf("\nDacSelect: Current value: %lu.\n", (uint8_t)(FSM->ControlRegister.DacSelectMaxti));
+	cr = FSM->ControlRegister;
+	formatf("\nDacSelect: Current value: %lu.\n", (uint8_t)(cr.DacSelectMaxti));
 	
     return(strlen(Params));
 }

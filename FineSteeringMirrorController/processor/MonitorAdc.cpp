@@ -33,7 +33,7 @@ MonitorAdcCalibratedInput P6ICalibrate(1.0, 0.0); //1:1
 MonitorAdcCalibratedInput Aux0Calibrate(1.0, 0.0); //1:1
 MonitorAdcCalibratedInput Aux1Calibrate(1.0, 0.0); //1:1
 MonitorAdcCalibratedInput Aux2Calibrate(1.0, 0.0); //1:1
-MonitorAdcCalibratedInput AmbientLightCalibrate(1.0, 0.0); //1:1 301-ohm
+MonitorAdcCalibratedInput AmbientLightCalibrate(2.0, 0.0); //1:1 301-ohm
 MonitorAdcCalibratedInput TemperatureCalibrate(1.0, 0.0); //not actually connected on prototype pcb
 //~ //Debug: Make all gains 1.0 so we get raw volts from the board...
 //~ MonitorAdcCalibratedInput P1V2Calibrate(1.0, 0.0); //1:1
@@ -72,23 +72,47 @@ void CGraphFSMMonitorAdc::Init()
 	}
 	if (AdcFound)
 	{
+
+	//~ //Adc1 channels:
+	//~ #define TempChannel ads1258details::chan_se0
+	//~ #define P3V3DChannel ads1258details::chan_se1
+	//~ #define P28VChannel ads1258details::chan_se2
+	//~ #define P2V2Channel ads1258details::chan_se3
+	//~ #define P2V5DChannel ads1258details::chan_se4
+	//~ #define P1V2Channel ads1258details::chan_se5
+	//~ #define P2V5AChannel ads1258details::chan_se6
+	//~ #define P4V3Channel ads1258details::chan_se7
+	//~ #define I3VAChannel ads1258details::chan_se8
+	//~ #define P3V3AChannel ads1258details::chan_se9
+	//~ #define P6VChannel ads1258details::chan_se10
+	//~ #define P5VAChannel ads1258details::chan_se11
+	//~ #define LuxRadsChannel ads1258details::chan_se12
+	//~ #define M18VChannel ads1258details::chan_se13
+	//~ #define M20VChannel ads1258details::chan_se14
+	//~ #define P125VChannel ads1258details::chan_se15
+
 		Adc.ClearScanChannels();
-		Adc.AddScanChannel(P1V2Channel);
-		Adc.AddScanChannel(P2V2Channel);
-		Adc.AddScanChannel(P28VChannel);
-		Adc.AddScanChannel(P2V5Channel);
-		Adc.AddScanChannel(P6VChannel);
-		Adc.AddScanChannel(P5VChannel);
-		Adc.AddScanChannel(P3V3DChannel);
-		Adc.AddScanChannel(P4V3Channel);
-		Adc.AddScanChannel(P2I2Channel);
-		Adc.AddScanChannel(P4I3Channel);
-		Adc.AddScanChannel(P6IChannel);
-		Adc.AddScanChannel(Aux0Channel);
-		Adc.AddScanChannel(Aux1Channel);
-		Adc.AddScanChannel(Aux2Channel);
-		Adc.AddScanChannel(AmbientLightChannel);
-		Adc.AddScanChannel(TemperatureChannel);
+		Adc.AddScanChannel(IHVChannel);
+		Adc.AddScanChannel(IMVChannel);
+		Adc.AddScanChannel(I6VChannel);
+		Adc.AddScanChannel(I3VDChannel);
+		Adc.AddScanChannel(I2VDChannel);
+		Adc.AddScanChannel(I1VChannel);
+		Adc.AddScanChannel(StrainBPChannel);
+		Adc.AddScanChannel(StrainBMChannel);
+		Adc.AddScanChannel(StrainDPChannel);
+		Adc.AddScanChannel(StrainDMChannel);
+		Adc.AddScanChannel(StrainCMChannel);
+		Adc.AddScanChannel(StrainCPChannel);
+		Adc.AddScanChannel(StrainAMChannel);
+		Adc.AddScanChannel(StrainAPChannel);
+		Adc.AddScanChannel(P5VDChannel);
+		Adc.AddScanChannel(I2VAChannel);
+		Adc.AddScanChannel(StrainBChannel);
+		Adc.AddScanChannel(StrainDChannel);
+		Adc.AddScanChannel(StrainCChannel);
+		Adc.AddScanChannel(StrainAChannel);
+		
 		Adc.CommitScanChannels();
 		Adc.StartChannelScan();
 		//Take start pin high to initiate auto-scan
@@ -141,22 +165,22 @@ void CGraphFSMMonitorAdc::Process()
 
 						switch(sample.status.channel)
 						{
-							case P1V2Channel : { P1V2 = (sample.sample); break; } 
-							case P2V2Channel : { P2V2 = (sample.sample); break; } 
-							case P28VChannel : { P28V = (sample.sample); break; } 
-							case P2V5Channel : { P2V5 = (sample.sample); break; } 
-							case P6VChannel : { P6V = (sample.sample); break; } 
-							case P5VChannel : { P5V = (sample.sample); break; } 
-							case P3V3DChannel : { P3V3D = (sample.sample); break; } 
-							case P4V3Channel : { P4V3 = (sample.sample); break; } 
-							case P2I2Channel : { P2I2 = (sample.sample); break; } 
-							case P4I3Channel : { P4I3 = (sample.sample); break; } 
-							case P6IChannel : { P6I = (sample.sample); break; } 
-							case Aux0Channel : { Aux0 = (sample.sample); break; } 
-							case Aux1Channel : { Aux1 = (sample.sample); break; } 
-							case Aux2Channel : { Aux2 = (sample.sample); break; } 
-							case AmbientLightChannel : { AmbientLight = (sample.sample); break; } 
-							case TemperatureChannel : { Temperature = (sample.sample); break; } 
+							case IHVChannel : { P1V2 = (sample.sample); break; } 
+							case IMVChannel : { P2V2 = (sample.sample); break; } 
+							case I6VChannel : { P28V = (sample.sample); break; } 
+							case I3VDChannel : { P2V5 = (sample.sample); break; } 
+							case I2VDChannel : { P6V = (sample.sample); break; } 
+							case I1VChannel : { P5V = (sample.sample); break; } 
+							case StrainBPChannel : { P3V3D = (sample.sample); break; } 
+							case StrainBMChannel : { P4V3 = (sample.sample); break; } 
+							case StrainDPChannel : { P2I2 = (sample.sample); break; } 
+							case StrainDMChannel : { P4I3 = (sample.sample); break; } 
+							case StrainCMChannel : { P6I = (sample.sample); break; } 
+							case StrainCPChannel : { Aux0 = (sample.sample); break; } 
+							case StrainAMChannel : { Aux1 = (sample.sample); break; } 
+							case StrainAPChannel : { Aux2 = (sample.sample); break; } 
+							case P5VDChannel : { AmbientLight = (sample.sample); break; } 
+							case I2VAChannel : { Temperature = (sample.sample); break; } 
 							
 							default: { break; } //do nothing; we can scan all 16 channels and discard the unused ones.
 						}
@@ -177,22 +201,22 @@ int8_t ScanMonitorAdcCommand(char const* Name, char const* Params, const size_t 
 {
     formatf("\n\nScanMonitorAdc Command: Values with corrected units follow:\n");
 	
-	formatf("P1V2: %3.6lf V\n", MonitorAdc.GetP1V2());
-	formatf("P2V2: %3.6lf V\n", MonitorAdc.GetP2V2());
-	formatf("P28V: %3.6lf V\n", MonitorAdc.GetP28V());
-	formatf("P2V5: %3.6lf V\n", MonitorAdc.GetP2V5());
-	formatf("P6V: %3.6lf V\n", MonitorAdc.GetP6V());
-	formatf("P5V: %3.6lf V\n", MonitorAdc.GetP5V());
-	formatf("P3V3D: %3.6lf V\n", MonitorAdc.GetP3V3D());
-	formatf("P4V3: %3.6lf V\n", MonitorAdc.GetP4V3());
-	formatf("P2I2: %3.6lf V\n", MonitorAdc.GetP2I2());
-	formatf("P4I3: %3.6lf V\n", MonitorAdc.GetP4I3());
-	formatf("P6I: %3.6lf V\n", MonitorAdc.GetP6I());
-	formatf("Aux0: %3.6lf V\n", MonitorAdc.GetAux0());
-	formatf("Aux1: %3.6lf V\n", MonitorAdc.GetAux1());
-	formatf("Aux2: %3.6lf V\n", MonitorAdc.GetAux2());
-	formatf("AmbientLight: %3.6lf V\n", MonitorAdc.GetAmbientLight());
-	formatf("Temperature: %3.6lf V\n", MonitorAdc.GetTemperature());
+	formatf("IHV: %3.6lf V\n", MonitorAdc.GetP1V2());
+	formatf("IMV: %3.6lf V\n", MonitorAdc.GetP2V2());
+	formatf("I6V: %3.6lf V\n", MonitorAdc.GetP28V());
+	formatf("I3VD: %3.6lf V\n", MonitorAdc.GetP2V5());
+	formatf("I2VD: %3.6lf V\n", MonitorAdc.GetP6V());
+	formatf("I1V: %3.6lf V\n", MonitorAdc.GetP5V());
+	formatf("StrainB+: %3.6lf V\n", MonitorAdc.GetP3V3D());
+	formatf("StrainB-: %3.6lf V\n", MonitorAdc.GetP4V3());
+	formatf("StrainD+: %3.6lf V\n", MonitorAdc.GetP2I2());
+	formatf("StrainD:- %3.6lf V\n", MonitorAdc.GetP4I3());
+	formatf("StrainC-: %3.6lf V\n", MonitorAdc.GetP6I());
+	formatf("StrainC+: %3.6lf V\n", MonitorAdc.GetAux0());
+	formatf("StrainA-: %3.6lf V\n", MonitorAdc.GetAux1());
+	formatf("StrainA+: %3.6lf V\n", MonitorAdc.GetAux2());
+	formatf("P5VD: %3.6lf V\n", MonitorAdc.GetAmbientLight());
+	formatf("I2VA: %3.6lf V\n", MonitorAdc.GetTemperature());
 	
     formatf("\nScanMonitorAdc Command: Complete.\n\n");
     return(strlen(Params));
@@ -298,7 +322,7 @@ int8_t CalibrateMonitorAdcCommand(char const* Name, char const* Params, const si
 		Aux0Calibrate.Calibrate(1.0, 0.0);
 		Aux1Calibrate.Calibrate(1.0, 0.0);
 		Aux2Calibrate.Calibrate(1.0, 0.0);
-		AmbientLightCalibrate.Calibrate(1.0, 0.0);
+		AmbientLightCalibrate.Calibrate(2.0, 0.0);
 		TemperatureCalibrate.Calibrate(1.0, 0.0);
 		formatf("\nMonitorAdcCalibrate: All calibrates set to defaults!\n\n");
 		return(strlen(Params));
