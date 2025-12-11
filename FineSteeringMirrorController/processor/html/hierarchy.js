@@ -92,7 +92,6 @@ var hierarchy =
       [ "lt244x< pinout, spi, SpiClkDiv >", "structlt244x.html", null ]
     ] ],
     [ "PinoutMonitorAdc", "structPinoutMonitorAdc.html", [
-      [ "ads1258< PinoutMonitorAdc >", "structads1258.html", null ],
       [ "ads1258< PinoutMonitorAdc >", "structads1258.html", null ]
     ] ],
     [ "RTSCallback", "structRTSCallback.html", null ],
@@ -101,9 +100,10 @@ var hierarchy =
       [ "lt244x< pinout, spi, SpiClkDiv >", "structlt244x.html", null ]
     ] ],
     [ "ads1258< spipinout >::spi_busmsg", "structads1258_1_1spi__busmsg.html", null ],
+    [ "ads1258dual< spipinout >::spi_busmsg", "structads1258dual_1_1spi__busmsg.html", null ],
     [ "spipinout", "classspipinout.html", [
       [ "ads1258< spipinout >", "structads1258.html", null ],
-      [ "ads1258< spipinout >", "structads1258.html", null ]
+      [ "ads1258dual< spipinout >", "structads1258dual.html", null ]
     ] ],
     [ "ads1258details::sysreadregister", "unionads1258details_1_1sysreadregister.html", null ],
     [ "UartStatusRegister", "unionUartStatusRegister.html", null ],

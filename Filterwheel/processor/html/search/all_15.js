@@ -10,5 +10,5 @@ var searchData=
   ['write_7',['write',['../structDac8830.html#a336d4f11ecfe1eaf4d212339f13e59e0',1,'Dac8830::Write()'],['../classCGraphPZTProtoHardwareMmapper.html#a8418a816b194846a610e7372714d319f',1,'CGraphPZTProtoHardwareMmapper::write()'],['../classCGraphDMProtoHardwareMmapper.html#a075e6e080f99e1933aad3138fd72f423',1,'CGraphDMProtoHardwareMmapper::write()']]],
   ['writedataregister_8',['WriteDataRegister',['../classuart__pinout__fpga.html#a69fe78399bc475166e7c6a5e6c4cfecf',1,'uart_pinout_fpga']]],
   ['writepos_9',['WritePos',['../classIArray.html#a062c2527d9a5f63a2643721b37a50274',1,'IArray']]],
-  ['writeregister_10',['writeregister',['../structads1258.html#a18b0bfed153f94e3b4a02b144e3fbfb1',1,'ads1258::WriteRegister(const uint8_t addr, const uint8_t val)'],['../structads1258.html#a18b0bfed153f94e3b4a02b144e3fbfb1',1,'ads1258::WriteRegister(const uint8_t addr, const uint8_t val)']]]
+  ['writeregister_10',['writeregister',['../structads1258.html#a18b0bfed153f94e3b4a02b144e3fbfb1',1,'ads1258::WriteRegister()'],['../structads1258dual.html#a0196da2a91f45e9bd464ef09e31a6d5a',1,'ads1258dual::WriteRegister()']]]
 ];

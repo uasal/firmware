@@ -25,6 +25,6 @@ var searchData=
   ['numasciiuartparsers_22',['NumAsciiUartParsers',['../UartParserTable_8hpp.html#a37f4ee3070c72cfe33b946f87a36662f',1,'UartParserTable.hpp']]],
   ['numbinaryuartparsers_23',['NumBinaryUartParsers',['../UartParserTable_8hpp.html#aa0b6e48aaf7a924cb4f71c490ac95a69',1,'UartParserTable.hpp']]],
   ['numcmds_24',['numcmds',['../structTerminalUart.html#ac5eb9443297e0c664879baaaac82de4f',1,'TerminalUart::NumCmds'],['../structBinaryUartRingBuffer.html#afdffc43260b447fb5123b922bfd9b2e7',1,'BinaryUartRingBuffer::NumCmds'],['../structBinaryUart.html#a05d557949d44aeb4bbccc7ba81ed1c5d',1,'BinaryUart::NumCmds']]],
-  ['numscanchannels_25',['numscanchannels',['../structads1258.html#a04738847c1d5b7e666a55ae4f13fc90c',1,'ads1258::NumScanChannels()'],['../structads1258.html#a04738847c1d5b7e666a55ae4f13fc90c',1,'ads1258::NumScanChannels()']]],
+  ['numscanchannels_25',['numscanchannels',['../structads1258dual.html#af627bff73b788acf8f9310d14a187ca9',1,'ads1258dual::NumScanChannels()'],['../structads1258.html#a04738847c1d5b7e666a55ae4f13fc90c',1,'ads1258::NumScanChannels()']]],
   ['numuartparsers_26',['NumUartParsers',['../UartParserTable_8hpp.html#a45d1e83748e1299fdb86ec67cd127bc8',1,'UartParserTable.hpp']]]
 ];

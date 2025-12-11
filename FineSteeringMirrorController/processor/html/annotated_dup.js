@@ -18,6 +18,7 @@ var annotated_dup =
     [ "AdcFifo", "unionAdcFifo.html", "unionAdcFifo" ],
     [ "AdcTimestamp", "unionAdcTimestamp.html", "unionAdcTimestamp" ],
     [ "ads1258", "structads1258.html", "structads1258" ],
+    [ "ads1258dual", "structads1258dual.html", "structads1258dual" ],
     [ "BinaryCmd", "structBinaryCmd.html", "structBinaryCmd" ],
     [ "BinaryUart", "structBinaryUart.html", "structBinaryUart" ],
     [ "BinaryUartCallbacks", "structBinaryUartCallbacks.html", "structBinaryUartCallbacks" ],

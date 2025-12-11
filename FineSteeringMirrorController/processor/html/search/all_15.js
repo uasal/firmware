@@ -13,5 +13,5 @@ var searchData=
   ['writedataregister_10',['WriteDataRegister',['../classuart__pinout__fpga.html#a69fe78399bc475166e7c6a5e6c4cfecf',1,'uart_pinout_fpga']]],
   ['writefpgacommand_11',['writefpgacommand',['../CmdHandlersAscii_8cpp.html#aa93eeb184cc83dad7e46ed119f24afde',1,'WriteFpgaCommand(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument):&#160;CmdHandlersAscii.cpp'],['../CmdTableAscii_8hpp.html#aa93eeb184cc83dad7e46ed119f24afde',1,'WriteFpgaCommand(char const *Name, char const *Params, const size_t ParamsLen, const void *Argument):&#160;CmdHandlersAscii.cpp']]],
   ['writepos_12',['WritePos',['../classIArray.html#a062c2527d9a5f63a2643721b37a50274',1,'IArray']]],
-  ['writeregister_13',['writeregister',['../structads1258.html#a18b0bfed153f94e3b4a02b144e3fbfb1',1,'ads1258::WriteRegister(const uint8_t addr, const uint8_t val)'],['../structads1258.html#a18b0bfed153f94e3b4a02b144e3fbfb1',1,'ads1258::WriteRegister(const uint8_t addr, const uint8_t val)']]]
+  ['writeregister_13',['writeregister',['../structads1258.html#a18b0bfed153f94e3b4a02b144e3fbfb1',1,'ads1258::WriteRegister()'],['../structads1258dual.html#a0196da2a91f45e9bd464ef09e31a6d5a',1,'ads1258dual::WriteRegister()']]]
 ];

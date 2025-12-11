@@ -26,6 +26,6 @@ var searchData=
   ['numbinarycmds_23',['numbinarycmds',['../CmdTableBinary_8cpp.html#a60b1842f2a2bff89aa0c9d73174753cd',1,'NumBinaryCmds:&#160;CmdTableBinary.cpp'],['../CmdTableBinary_8hpp.html#a60b1842f2a2bff89aa0c9d73174753cd',1,'NumBinaryCmds:&#160;CmdTableBinary.cpp']]],
   ['numbinaryuartparsers_24',['numbinaryuartparsers',['../Uarts_8cpp.html#aa0b6e48aaf7a924cb4f71c490ac95a69',1,'NumBinaryUartParsers:&#160;Uarts.cpp'],['../UartParserTable_8hpp.html#aa0b6e48aaf7a924cb4f71c490ac95a69',1,'NumBinaryUartParsers:&#160;Uarts.cpp']]],
   ['numcmds_25',['numcmds',['../structTerminalUart.html#ac5eb9443297e0c664879baaaac82de4f',1,'TerminalUart::NumCmds'],['../structBinaryUart.html#a05d557949d44aeb4bbccc7ba81ed1c5d',1,'BinaryUart::NumCmds'],['../structBinaryUartRingBuffer.html#afdffc43260b447fb5123b922bfd9b2e7',1,'BinaryUartRingBuffer::NumCmds']]],
-  ['numscanchannels_26',['numscanchannels',['../structads1258.html#a04738847c1d5b7e666a55ae4f13fc90c',1,'ads1258::NumScanChannels()'],['../structads1258.html#a04738847c1d5b7e666a55ae4f13fc90c',1,'ads1258::NumScanChannels()']]],
+  ['numscanchannels_26',['numscanchannels',['../structads1258dual.html#af627bff73b788acf8f9310d14a187ca9',1,'ads1258dual::NumScanChannels()'],['../structads1258.html#a04738847c1d5b7e666a55ae4f13fc90c',1,'ads1258::NumScanChannels()']]],
   ['numuartparsers_27',['numuartparsers',['../Uarts_8cpp.html#a45d1e83748e1299fdb86ec67cd127bc8',1,'NumUartParsers:&#160;Uarts.cpp'],['../UartParserTable_8hpp.html#a45d1e83748e1299fdb86ec67cd127bc8',1,'NumUartParsers:&#160;Uarts.cpp']]]
 ];

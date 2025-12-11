@@ -2,6 +2,7 @@ var structCGraphFSMMonitorAdc =
 [
     [ "CGraphFSMMonitorAdc", "structCGraphFSMMonitorAdc.html#ab271a4efc1386515f725ed9cb1b8ecf3", null ],
     [ "~CGraphFSMMonitorAdc", "structCGraphFSMMonitorAdc.html#a5e0bd5f2501b431ad13e68fd620ebc4f", null ],
+    [ "Dump", "structCGraphFSMMonitorAdc.html#aa9bff308de3dd74e0ff51bb032a8f7bc", null ],
     [ "GetAmbientLight", "structCGraphFSMMonitorAdc.html#a82d6464d9738bf9b935d762dfc58eb6f", null ],
     [ "GetAmbientLightRaw", "structCGraphFSMMonitorAdc.html#a814e1d61394ddafaf7c97f32215a5b98", null ],
     [ "GetAux0", "structCGraphFSMMonitorAdc.html#a802e353f21beb0644745f060343d4cb8", null ],
