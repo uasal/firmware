@@ -1,4 +1,4 @@
-# Tue Dec  2 12:18:06 2025
+# Thu Dec  4 16:43:27 2025
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -128,7 +128,6 @@ Finished HSTDM IP insertion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:0
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":15:7:15:24|Tristate driver RCOSC_25_50MHZ_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net RCOSC_25_50MHZ_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":19:7:19:16|Tristate driver XTLOSC_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net XTLOSC_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":20:7:20:16|Tristate driver XTLOSC_O2F (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net XTLOSC_O2F (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
-@N: MO111 :"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/std1164.vhd":52:28:52:28|Tristate driver TrigMonAdcs_1 (in view: work.Main(architecture_main)) on net TrigMonAdcs_1 (in view: work.Main(architecture_main)) has its enable tied to GND.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":676:4:676:9|Sequential instance FineSteeringMirror_sb_0.CORERESETP_0.SDIF0_PERST_N_q1 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":695:4:695:9|Sequential instance FineSteeringMirror_sb_0.CORERESETP_0.SDIF1_PERST_N_q1 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":714:4:714:9|Sequential instance FineSteeringMirror_sb_0.CORERESETP_0.SDIF2_PERST_N_q1 is reduced to a combinational gate by constant propagation.
@@ -285,7 +284,6 @@ ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock    
 
 @N: FX1143 |Skipping assigning INTERNAL_VREF to iobanks, because the table of mapping from pin to iobank is not initialized.
 Finished Pre Mapping Phase.
-@N: MO111 :|Tristate driver TrigMonAdcs_t (in view: work.FineSteeringMirror(verilog)) on net TrigMonAdcs (in view: work.FineSteeringMirror(verilog)) has its enable tied to GND.
 @N: BN225 |Writing default property annotation file /home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/synthesis/FineSteeringMirror.sap.
 
 Starting constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 288MB peak: 288MB)
@@ -310,6 +308,6 @@ Pre-mapping successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 288MB peak: 288MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Dec  2 12:18:07 2025
+# Thu Dec  4 16:43:28 2025
 
 ###########################################################]

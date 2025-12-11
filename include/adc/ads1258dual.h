@@ -278,7 +278,7 @@ namespace ads1258details
 using namespace ads1258details;
 
 template <class spipinout>
-struct ads1258 : spipinout
+struct ads1258dual : spipinout
 {
 	public:
 
@@ -294,7 +294,7 @@ struct ads1258 : spipinout
 	
 		const double AdcVRef;
 
-		explicit ads1258(const double adcvref) :
+		explicit ads1258dual(const double adcvref) :
 			AdcVRef(adcvref),
 			ScanChansDiff(0),
 			ScanChansSELo(0),
@@ -305,7 +305,7 @@ struct ads1258 : spipinout
 			spipinout::setclkphase(true);
 		}
 
-		virtual ~ads1258() { }
+		virtual ~ads1258dual() { }
 		
 		double CountsToVolts(const int32_t& Counts) const
 		{
@@ -603,6 +603,44 @@ struct ads1258 : spipinout
 
 			return(InitOK);
 			//~ return(Return);			
+		}
+
+		void Dump()
+		{
+			//1. Reset spi - disable for 4096xFclk
+			{
+				enable(false);
+				delayus(10000);
+			}
+
+			//5. Readback registers
+			{
+				uint8_t temp;
+
+				ReadRegister(ads1258details::register_config0, temp);
+				::formatf("ads1258::Dump(): config0 reads:0x%.2X\n", temp);
+
+				ReadRegister(ads1258details::register_config1, temp);
+				::formatf("ads1258::Dump(): config1 reads:0x%.2X\n", temp);
+
+				ReadRegister(ads1258details::register_sysread, temp);
+				::formatf("ads1258::Dump(): sysread reads:0x%.2X\n", temp);
+
+				ReadRegister(ads1258details::register_gpioc, temp);
+				::formatf("ads1258::Dump(): gpioc reads:0x%.2X\n", temp);
+
+				ReadRegister(ads1258details::register_idnum, temp);
+				::formatf("ads1258::Dump(): idnum reads:0x%.2X\n", temp);
+
+				ReadRegister(ads1258details::register_muxdif, temp);
+				::formatf("ads1258::Dump(): muxdif reads:0x%.2X\n", temp);
+
+				ReadRegister(ads1258details::register_muxsg0, temp);
+				::formatf("ads1258::Dump(): muxsg0 reads:0x%.2X\n", temp);
+				
+				ReadRegister(ads1258details::register_muxsg1, temp);
+				::formatf("ads1258::Dump(): muxsg1 reads:0x%.2X\n", temp);
+			}
 		}
 
 	private:

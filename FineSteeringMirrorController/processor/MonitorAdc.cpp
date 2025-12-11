@@ -231,6 +231,9 @@ int8_t TestMonitorAdcCommand(char const* Name, char const* Params, const size_t 
 	
 	{
 		cycle++;
+		
+		MonitorAdc.Init();
+		MonitorAdc.Dump();
 	
 		formatf("\n\nTestMonitorAdc Command: Serial: Reading A/D's (raw values):\n");
 		

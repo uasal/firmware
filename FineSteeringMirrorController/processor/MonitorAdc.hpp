@@ -218,6 +218,8 @@ public:
 	void Init();
 	void Process();
 	
+	void Dump() { Adc.Dump(); }
+	
 	double GetP1V2() { return(P1V2Calibrate.ReadCalibrated(P1V2)); }
 	double GetP2V2() { return(P2V2Calibrate.ReadCalibrated(P2V2)); }
 	double GetP28V() { return(P28VCalibrate.ReadCalibrated(P28V)); }

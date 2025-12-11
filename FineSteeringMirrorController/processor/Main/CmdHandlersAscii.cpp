@@ -275,14 +275,19 @@ int8_t FSMAdcsCommand(char const* Name, char const* Params, const size_t ParamsL
 			D = FSM->AdcDAccumulator;
 
 			double Av, Bv, Cv, Dv;
-			Av = (8.192 * ((A.Samples - 0) / A.NumAccums)) / 16777216.0;
-			Bv = (8.192 * ((B.Samples - 0) / B.NumAccums)) / 16777216.0;
-			Cv = (8.192 * ((C.Samples - 0) / C.NumAccums)) / 16777216.0;
-			Dv = (8.192 * ((D.Samples - 0) / D.NumAccums)) / 16777216.0;
+			//~ Av = (8.192 * ((A.Samples - 0) / A.NumAccums)) / 16777216.0;
+			//~ Bv = (8.192 * ((B.Samples - 0) / B.NumAccums)) / 16777216.0;
+			//~ Cv = (8.192 * ((C.Samples - 0) / C.NumAccums)) / 16777216.0;
+			//~ Dv = (8.192 * ((D.Samples - 0) / D.NumAccums)) / 16777216.0;
+			Av = (8.192 * ((A.Samples - 0) / 1)) / 16777216.0;
+			Bv = (8.192 * ((B.Samples - 0) / 1)) / 16777216.0;
+			Cv = (8.192 * ((C.Samples - 0) / 1)) / 16777216.0;
+			Dv = (8.192 * ((D.Samples - 0) / 1)) / 16777216.0;
 			
 				
 			//~ formatf("\n\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 16777216.0, (4.096 * (B.Samples / B.NumAccums)) / 16777216.0, (4.096 * (C.Samples / C.NumAccums)) / 16777216.0);
-			formatf("\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx, 0x%016llx; %+d(%u), %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, D.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, D.Samples, D.NumAccums, Av, Bv, Cv, Dv);
+			//~ formatf("\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx, 0x%016llx; %+d(%u), %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, D.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, D.Samples, D.NumAccums, Av, Bv, Cv, Dv);
+			formatf("\nFSMAdcs: current values: %+d, %+d, %+d, %+d, %+1.3lf, %+1.3lf, %+1.3lf, %+1.3lf\n", A.Samples, B.Samples, C.Samples, D.Samples, Av, Bv, Cv, Dv);
 		}
 		
 		//~ //Quit on any keypress

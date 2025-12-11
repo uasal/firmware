@@ -605,6 +605,44 @@ struct ads1258 : spipinout
 			//~ return(Return);			
 		}
 
+		void Dump()
+		{
+			//1. Reset spi - disable for 4096xFclk
+			{
+				enable(false);
+				delayus(10000);
+			}
+
+			//5. Readback registers
+			{
+				uint8_t temp;
+
+				ReadRegister(ads1258details::register_config0, temp);
+				::formatf("ads1258::Dump(): config0 reads:0x%.2X\n", temp);
+
+				ReadRegister(ads1258details::register_config1, temp);
+				::formatf("ads1258::Dump(): config1 reads:0x%.2X\n", temp);
+
+				ReadRegister(ads1258details::register_sysread, temp);
+				::formatf("ads1258::Dump(): sysread reads:0x%.2X\n", temp);
+
+				ReadRegister(ads1258details::register_gpioc, temp);
+				::formatf("ads1258::Dump(): gpioc reads:0x%.2X\n", temp);
+
+				ReadRegister(ads1258details::register_idnum, temp);
+				::formatf("ads1258::Dump(): idnum reads:0x%.2X\n", temp);
+
+				ReadRegister(ads1258details::register_muxdif, temp);
+				::formatf("ads1258::Dump(): muxdif reads:0x%.2X\n", temp);
+
+				ReadRegister(ads1258details::register_muxsg0, temp);
+				::formatf("ads1258::Dump(): muxsg0 reads:0x%.2X\n", temp);
+				
+				ReadRegister(ads1258details::register_muxsg1, temp);
+				::formatf("ads1258::Dump(): muxsg1 reads:0x%.2X\n", temp);
+			}
+		}
+
 	private:
 
 		ads1258details::ads1258sample lastsamples[ads1258details::ads1258numchannels];

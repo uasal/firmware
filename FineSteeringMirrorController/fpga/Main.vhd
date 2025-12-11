@@ -1702,7 +1702,7 @@ begin
 	SckMonAdcs <= SckMonitorAdc_i;
 	MosiMonAdcs <= MosiMonitorAdc_i;	
 	
-	TrigMonAdcs <= 'Z'; --We're not driving this rn
+	TrigMonAdcs <= '1'; --high for autoscan (we might use this as clk input later if we want power of 2 data rates...)
 	
 	MonitorAdcReset_i <= MasterReset or MonitorAdcReset;
 	
