@@ -240,9 +240,10 @@ begin
 	generic map (
 		--~ CLOCK_DIVIDER => 0, --supposed to work at 100MHz; ...datasheet suggests >64...
 		--~ CLOCK_DIVIDER => 1, --supposed to work at 100MHz; ...datasheet suggests >64...
-		CLOCK_DIVIDER => 32, --1.5MHz
+		--~ CLOCK_DIVIDER => 256, --200kHz
+		--~ CLOCK_DIVIDER => 32, --1.5MHz
 		--~ CLOCK_DIVIDER => 10, --10MHz
-		--~ CLOCK_DIVIDER => 4, --36MHz
+		CLOCK_DIVIDER => 8, --12MHz
 		--~ CLOCK_DIVIDER => MASTER_CLOCK_FREQHZ / 10000,
 		BYTE_WIDTH => 3, --Ltc2378AccumQuad samples are 18 bits wide; will be left-just to 24bit.
 		CPOL => '0'--,
@@ -379,6 +380,10 @@ begin
 									--~ AdcSampleB <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoB));
 									--~ AdcSampleC <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoC));
 									--~ AdcSampleD <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoD));
+									AdcSampleToReadA <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoA));
+									AdcSampleToReadB <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoB));
+									AdcSampleToReadC <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoC));
+									AdcSampleToReadD <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoD));
 									
 									
 									SampleLatched <= '1';
@@ -424,10 +429,10 @@ begin
 								if (ReadAdcSample = '1') then
 								
 									--We're not actually accumulating just yet...
-									AdcSampleToReadA <= std_logic_vector(to_signed(0, 48) + signed(AdcSampleA));
-									AdcSampleToReadB <= std_logic_vector(to_signed(0, 48) + signed(AdcSampleB));
-									AdcSampleToReadC <= std_logic_vector(to_signed(0, 48) + signed(AdcSampleC));
-									AdcSampleToReadD <= std_logic_vector(to_signed(0, 48) + signed(AdcSampleD));
+									--~ AdcSampleToReadA <= std_logic_vector(to_signed(0, 48) + signed(AdcSampleA));
+									--~ AdcSampleToReadB <= std_logic_vector(to_signed(0, 48) + signed(AdcSampleB));
+									--~ AdcSampleToReadC <= std_logic_vector(to_signed(0, 48) + signed(AdcSampleC));
+									--~ AdcSampleToReadD <= std_logic_vector(to_signed(0, 48) + signed(AdcSampleD));
 									AdcSampleNumAccums <= x"0001";
 
 								end if;					

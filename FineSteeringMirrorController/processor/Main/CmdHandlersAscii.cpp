@@ -182,12 +182,12 @@ int8_t FSMDacsCommand(char const* Name, char const* Params, const size_t ParamsL
 		Ca = FSM->AdcCAccumulator;
 
 		double Av, Bv, Cv;
-		Av = (8.192 * ((Aa.Samples - 0) / Aa.NumAccums)) / 16777216.0;
-		Bv = (8.192 * ((Ba.Samples - 0) / Ba.NumAccums)) / 16777216.0;
-		Cv = (8.192 * ((Ca.Samples - 0) / Ca.NumAccums)) / 16777216.0;
+		Av = (4.096 * ((Aa.Samples - 0) / Aa.NumAccums)) / 8388608.0;
+		Bv = (4.096 * ((Ba.Samples - 0) / Ba.NumAccums)) / 8388608.0;
+		Cv = (4.096 * ((Ca.Samples - 0) / Ca.NumAccums)) / 8388608.0;
 		
 			
-		//~ formatf("\n\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 16777216.0, (4.096 * (B.Samples / B.NumAccums)) / 16777216.0, (4.096 * (C.Samples / C.NumAccums)) / 16777216.0);
+		//~ formatf("\n\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 8388608.0, (4.096 * (B.Samples / B.NumAccums)) / 8388608.0, (4.096 * (C.Samples / C.NumAccums)) / 8388608.0);
 		formatf("\nFSMDacs: Sensor A/D's: 0x%016llx, 0x%016llx, 0x%016llx; %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", Aa.all, Ba.all, Ca.all, Aa.Samples, Aa.NumAccums, Ba.Samples, Ba.NumAccums, Ca.Samples, Ca.NumAccums, Av, Bv, Cv);
 	}
 	
@@ -275,19 +275,19 @@ int8_t FSMAdcsCommand(char const* Name, char const* Params, const size_t ParamsL
 			D = FSM->AdcDAccumulator;
 
 			double Av, Bv, Cv, Dv;
-			//~ Av = (8.192 * ((A.Samples - 0) / A.NumAccums)) / 16777216.0;
-			//~ Bv = (8.192 * ((B.Samples - 0) / B.NumAccums)) / 16777216.0;
-			//~ Cv = (8.192 * ((C.Samples - 0) / C.NumAccums)) / 16777216.0;
-			//~ Dv = (8.192 * ((D.Samples - 0) / D.NumAccums)) / 16777216.0;
-			Av = (8.192 * ((A.Samples - 0) / 1)) / 16777216.0;
-			Bv = (8.192 * ((B.Samples - 0) / 1)) / 16777216.0;
-			Cv = (8.192 * ((C.Samples - 0) / 1)) / 16777216.0;
-			Dv = (8.192 * ((D.Samples - 0) / 1)) / 16777216.0;
+			//~ Av = (4.096 * ((A.Samples - 0) / A.NumAccums)) / 8388608.0;
+			//~ Bv = (4.096 * ((B.Samples - 0) / B.NumAccums)) / 8388608.0;
+			//~ Cv = (4.096 * ((C.Samples - 0) / C.NumAccums)) / 8388608.0;
+			//~ Dv = (4.096 * ((D.Samples - 0) / D.NumAccums)) / 8388608.0;
+			Av = (4.096 * ((A.Samples - 0) / 1)) / 8388608.0;
+			Bv = (4.096 * ((B.Samples - 0) / 1)) / 8388608.0;
+			Cv = (4.096 * ((C.Samples - 0) / 1)) / 8388608.0;
+			Dv = (4.096 * ((D.Samples - 0) / 1)) / 8388608.0;
 			
 				
-			//~ formatf("\n\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 16777216.0, (4.096 * (B.Samples / B.NumAccums)) / 16777216.0, (4.096 * (C.Samples / C.NumAccums)) / 16777216.0);
+			//~ formatf("\n\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 8388608.0, (4.096 * (B.Samples / B.NumAccums)) / 8388608.0, (4.096 * (C.Samples / C.NumAccums)) / 8388608.0);
 			//~ formatf("\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx, 0x%016llx; %+d(%u), %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, D.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, D.Samples, D.NumAccums, Av, Bv, Cv, Dv);
-			formatf("\nFSMAdcs: current values: %+d, %+d, %+d, %+d, %+1.3lf, %+1.3lf, %+1.3lf, %+1.3lf\n", A.Samples, B.Samples, C.Samples, D.Samples, Av, Bv, Cv, Dv);
+			formatf("\nFSMAdcs: current values: %+9d, %+9d, %+9d, %+9d, %+1.6lf, %+1.6lf, %+1.6lf, %+1.6lf\n", A.Samples, B.Samples, C.Samples, D.Samples, Av, Bv, Cv, Dv);
 		}
 		
 		//~ //Quit on any keypress
@@ -532,13 +532,13 @@ int8_t GoXYCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		Da = FSM->AdcDAccumulator;
 
 		double Av, Bv, Cv, Dv;
-		Av = (8.192 * ((Aa.Samples - 0) / Aa.NumAccums)) / 16777216.0;
-		Bv = (8.192 * ((Ba.Samples - 0) / Ba.NumAccums)) / 16777216.0;
-		Cv = (8.192 * ((Ca.Samples - 0) / Ca.NumAccums)) / 16777216.0;
-		Dv = (8.192 * ((Da.Samples - 0) / Da.NumAccums)) / 16777216.0;
+		Av = (4.096 * ((Aa.Samples - 0) / Aa.NumAccums)) / 8388608.0;
+		Bv = (4.096 * ((Ba.Samples - 0) / Ba.NumAccums)) / 8388608.0;
+		Cv = (4.096 * ((Ca.Samples - 0) / Ca.NumAccums)) / 8388608.0;
+		Dv = (4.096 * ((Da.Samples - 0) / Da.NumAccums)) / 8388608.0;
 		
 			
-		//~ formatf("\n\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 16777216.0, (4.096 * (B.Samples / B.NumAccums)) / 16777216.0, (4.096 * (C.Samples / C.NumAccums)) / 16777216.0);
+		//~ formatf("\n\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 8388608.0, (4.096 * (B.Samples / B.NumAccums)) / 8388608.0, (4.096 * (C.Samples / C.NumAccums)) / 8388608.0);
 		formatf("\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx, 0x%016llx; %+d(%u), %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf, %+1.3lf\n", Aa.all, Ba.all, Ca.all, Da.all, Aa.Samples, Aa.NumAccums, Ba.Samples, Ba.NumAccums, Ca.Samples, Ca.NumAccums, Da.Samples, Da.NumAccums, Av, Bv, Cv, Dv);
 	}
 	

@@ -1524,14 +1524,14 @@ begin
 	--~ TP4_i <= WriteAck;
 	--~ TP4_i <= RamBusData_in(0);
 	
-	TP1 <= nCsDacA_i;
-	TP2 <= SckDacs_i;
-	TP3 <= MosiDacA_i;
-	TP4 <= nLDacs_i;
-	TP5 <= WriteDacs;
-	TP6 <= DacSelectMaxti;
-	TP7 <= DacASetpoint(0);
-	TP8 <= WriteDacs;	
+	--~ TP1 <= nCsDacA_i;
+	--~ TP2 <= SckDacs_i;
+	--~ TP3 <= MosiDacA_i;
+	--~ TP4 <= nLDacs_i;
+	--~ TP5 <= WriteDacs;
+	--~ TP6 <= DacSelectMaxti;
+	--~ TP7 <= DacASetpoint(0);
+	--~ TP8 <= WriteDacs;	
 	
 	----------------------------- A/D's ----------------------------------
 	
@@ -1571,9 +1571,11 @@ begin
 		AdcPowerDown => '0',
 		--~ AdcClkDivider => x"002F", --1MHz
 		--~ AdcClkDivider => x"05DC", --32kHz
-		AdcClkDivider => x"0FFF", --32kHz
-		--~ SamplesToAverage => x"03FF",		
-		SamplesToAverage => x"0001",		
+		--~ AdcClkDivider => x"0FFF", --24kHz
+		AdcClkDivider => x"00FF", --400kHz
+		--~ AdcClkDivider => x"FFFF", --1kHz
+		SamplesToAverage => x"FFFF",		
+		--~ SamplesToAverage => x"0001",		
 		ChopperEnable => '0',
 		ChopperMuxPos => ChopperMuxPos_i,
 		ChopperMuxNeg => ChopperMuxNeg_i,
@@ -1609,20 +1611,14 @@ begin
 	SckAdcs <= SckAdcs_i;
 		
 	--To test between fpga & A/D:
-	--~ TP1_i <= TrigAdcs_i;
-	--~ TP2_i <= nDrdyAdcA_i;
-	--~ TP3_i <= nCsAdcA_i;
-	--~ TP4_i <= SckAdcs_i;
-	--~ TP8_i <= SarAdcMiso_i;	
-	--~ TP5_i <= MisoAdcA_i;
-	--~ TP6_i <= MisoAdcB_i;
-	--~ TP7_i <= MisoAdcC_i;
-	--~ TP8_i <= ReadAdcSample;
-	
-	--To test between fpga & uC:
-	--~ TP8_i <= SarReadAdcSample;
-	--~ TP4_i <= SarAdcSampleReadAck;
-	--~ TP5_i <= SarFifoAdcSample(0);
+	TP1 <= TrigAdcs_i;
+	TP2 <= nDrdyAdcA_i;
+	TP3 <= nCsAdcA_i;
+	TP4 <= SckAdcs_i;
+	TP5 <= MisoAdcA_i;
+	TP6 <= MisoAdcB_i;
+	TP7 <= MisoAdcC_i;
+	TP8 <= ReadAdcSample;
 	
 	----------------------------------------------------------------Monitor A/D--------------------------------------------------------------------
 			
