@@ -1611,14 +1611,14 @@ begin
 	SckAdcs <= SckAdcs_i;
 		
 	--To test between fpga & A/D:
-	TP1 <= TrigAdcs_i;
-	TP2 <= nDrdyAdcA_i;
-	TP3 <= nCsAdcA_i;
-	TP4 <= SckAdcs_i;
-	TP5 <= MisoAdcA_i;
-	TP6 <= MisoAdcB_i;
-	TP7 <= MisoAdcC_i;
-	TP8 <= ReadAdcSample;
+	--~ TP1 <= TrigAdcs_i;
+	--~ TP2 <= nDrdyAdcA_i;
+	--~ TP3 <= nCsAdcA_i;
+	--~ TP4 <= SckAdcs_i;
+	--~ TP5 <= MisoAdcA_i;
+	--~ TP6 <= MisoAdcB_i;
+	--~ TP7 <= MisoAdcC_i;
+	--~ TP8 <= ReadAdcSample;
 	
 	----------------------------------------------------------------Monitor A/D--------------------------------------------------------------------
 			
@@ -1702,14 +1702,14 @@ begin
 	
 	MonitorAdcReset_i <= MasterReset or MonitorAdcReset;
 	
-	--~ TP1 <= nCsMonitorAdc_i;
-	--~ TP2 <= SckMonitorAdc_i;
-	--~ TP3 <= MosiMonitorAdc_i;
-	--~ TP4 <= MisoMonitorAdc_i;
-	--~ TP5 <= MonitorAdcSpiXferStart;
-	--~ TP6 <= MonitorAdcSpiXferDone;
-	--~ TP7 <= MonitorAdcSpiDataIn(0);
-	--~ TP8 <= MonitorAdcSpiDataOut(0);
+	TP1 <= nCsMonitorAdc_i;
+	TP2 <= SckMonitorAdc_i;
+	TP3 <= MosiMonitorAdc_i;
+	TP4 <= MisoMonitorAdc0_i;
+	TP5 <= MisoMonitorAdc1_i;
+	TP6 <= MonitorAdcSpiXferDone;
+	TP7 <= MonitorAdcSpiDataIn(0);
+	TP8 <= MonitorAdcSpiDataOut0(0);
 	
 	
 	----------------------------- RS-422 ----------------------------------

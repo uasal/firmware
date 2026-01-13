@@ -52,27 +52,29 @@ struct PinoutMonitorAdc
 		if (i >= spi_timeout - 2) { formatf("\nPinoutMonitorAdc: T/O."); }
 	}
 	
-	static void enable(const bool en) { FSM->MonitorAdcSpiCommandStatusRegister.all = (uint32_t)en; }
+	//~ static void enable(const bool en) { FSM->MonitorAdcSpiCommandStatusRegister.all = (uint32_t)en; }
+	static void enable(const bool en) { FSM->MonitorAdcSpiCommandStatusRegister.FrameEnable = en; } //If frame enable isn't in the zero offset byte this is gonna do a big ol memory protection fault, cause our compiler is stupid...
 	
-	static void transmit(const uint8_t val) 					
+	static void transmit(const uint32_t val) 					
 	{ 
 		waitbusytimeout();
-		FSM->MonitorAdcSpiTransactionRegister = (uint32_t)val; 
+		FSM->MonitorAdcSpiTransactionRegister = val; 
 	}
 	
-	static uint8_t receive(uint8_t val) 				
+	static uint32_t receive(uint32_t val) 				
 	{ 
 		uint32_t out = 0;
 		
 		//Do the xfer
 		waitbusytimeout();
-		FSM->MonitorAdcSpiTransactionRegister = (uint32_t)val; 
+		FSM->MonitorAdcSpiTransactionRegister = val; 
 		
 		//readback
 		waitbusytimeout();
 		out = FSM->MonitorAdcSpiTransactionRegister; 
 		
-		return(out & 0x000000FFUL);
+		//~ return(out & 0x0000FFFFUL);
+		return(out);
 	}		
 	
 	static bool nDrdy() 				

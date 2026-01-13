@@ -69,7 +69,7 @@ bool Process()
 {
     bool Bored = true;
 	
-	//~ MonitorAdc.Process();
+	MonitorAdc.Process();
 	
 	//Enable this if we need to debug ascii and binary on the same uart (note: madness ensues!)
 	//~ {
@@ -133,7 +133,9 @@ int main(int argc, char *argv[])
 	//~ ShowBuildParameters();
 
 	//~ formatf("\nUartFifo3: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFSMHardwareInterface, UartFifo3), 152UL);
-	formatf("\nOffset of FSM->ControlRegister: 0x%.2lX, expected: 0x%.2lX; size: %lu.", (unsigned long)offsetof(CGraphFSMHardwareInterface, ControlRegister), 32UL, sizeof(CGraphFSMHardwareControlRegister));
+	//~ formatf("\nOffset of FSM->ControlRegister: 0x%.2lX, expected: 0x%.2lX; size: %lu.", (unsigned long)offsetof(CGraphFSMHardwareInterface, ControlRegister), 32UL, sizeof(CGraphFSMHardwareControlRegister));
+	formatf("\nOffset of FSM->MonitorAdcSpiTransactionRegister: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFSMHardwareInterface, MonitorAdcSpiTransactionRegister), 104UL);
+
 
 	//~ DbgUartUsb.Init();
 	DbgUart485_0.Init();

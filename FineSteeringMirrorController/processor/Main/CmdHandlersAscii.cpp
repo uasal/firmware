@@ -368,28 +368,43 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		
 		//Show the monitor A/D
 		{
-			size_t j = cycle % 12;
-			switch(j)
+			//~ size_t j = cycle % 12;
+			//~ MonitorAdc.Init();
+			//~ switch(j)
+			//~ {
+				//~ case 0: { formatf("P1V2: %3.6lf V\n", MonitorAdc.GetP1V2()); break; }
+				//~ case 1: { formatf("P2V2: %3.6lf V\n", MonitorAdc.GetP2V2()); break; }
+				//~ case 2: { formatf("P28V: %3.6lf V\n", MonitorAdc.GetP28V()); break; }
+				//~ case 3: { formatf("P2V5: %3.6lf V\n", MonitorAdc.GetP2V5()); break; }
+				//case 4: { formatf("P3V3A: %3.6lf V\n", MonitorAdc.GetP3V3A()); break; }
+				//~ case 5: { formatf("P6V: %3.6lf V\n", MonitorAdc.GetP6V()); break; }
+				//~ case 6: { formatf("P5V: %3.6lf V\n", MonitorAdc.GetP5V()); break; }
+				//~ case 7: { formatf("P3V3D: %3.6lf V\n", MonitorAdc.GetP3V3D()); break; }
+				//~ case 8: { formatf("P4V3: %3.6lf V\n", MonitorAdc.GetP4V3()); break; }
+				//case 9: { formatf("N5V: %3.6lf V\n", MonitorAdc.GetN5V()); break; }
+				//case 10: { formatf("N6V: %3.6lf V\n", MonitorAdc.GetN6V()); break; }
+				//case 11: { formatf("P150V: %3.6lf V\n\n\n", MonitorAdc.GetP150V()); break; }
+				//~ default : { }
+			//~ }
+			
+			if ((cycle % 256) > 0x40)
 			{
-				case 0: { formatf("P1V2: %3.6lf V\n", MonitorAdc.GetP1V2()); break; }
-				case 1: { formatf("P2V2: %3.6lf V\n", MonitorAdc.GetP2V2()); break; }
-				case 2: { formatf("P28V: %3.6lf V\n", MonitorAdc.GetP28V()); break; }
-				case 3: { formatf("P2V5: %3.6lf V\n", MonitorAdc.GetP2V5()); break; }
-				//~ case 4: { formatf("P3V3A: %3.6lf V\n", MonitorAdc.GetP3V3A()); break; }
-				case 5: { formatf("P6V: %3.6lf V\n", MonitorAdc.GetP6V()); break; }
-				case 6: { formatf("P5V: %3.6lf V\n", MonitorAdc.GetP5V()); break; }
-				case 7: { formatf("P3V3D: %3.6lf V\n", MonitorAdc.GetP3V3D()); break; }
-				case 8: { formatf("P4V3: %3.6lf V\n", MonitorAdc.GetP4V3()); break; }
-				//~ case 9: { formatf("N5V: %3.6lf V\n", MonitorAdc.GetN5V()); break; }
-				//~ case 10: { formatf("N6V: %3.6lf V\n", MonitorAdc.GetN6V()); break; }
-				//~ case 11: { formatf("P150V: %3.6lf V\n\n\n", MonitorAdc.GetP150V()); break; }
-				default : { }
+				const uint32_t zero = 0UL;			
+				const uint32_t one = 1UL;
+				//~ *(uint32_t*)(FSM+108UL) = zero;
+				*(uint8_t*)(&FSM->MonitorAdcSpiCommandStatusRegister.all) = zero;
+				FSM->MonitorAdcSpiTransactionRegister = (uint32_t)(cycle % 256); 
+				uint32_t out = FSM->MonitorAdcSpiTransactionRegister; 
+				*(uint8_t*)(&FSM->MonitorAdcSpiCommandStatusRegister.all) = one;
+				formatf("ads1258(%4ld): 0x%4lX\n", cycle % 256, out & 0xFFFFUL);
+				delayus(200);
 			}
 		}
 		
 		//Quit on any keypress
 		{
 			//~ if (0 != key) 
+			if (cycle > 1000)
 			{ 
 				fflush(stdin);
 				formatf("\n\nBIST: Keypress(%d); exiting.\n", key);

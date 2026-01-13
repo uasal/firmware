@@ -7,6 +7,7 @@
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":17:7:17:20|Tristate driver RCOSC_1MHZ_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net RCOSC_1MHZ_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":15:7:15:24|Tristate driver RCOSC_25_50MHZ_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net RCOSC_25_50MHZ_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: BN115 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FineSteeringMirror_sb.v":347:0:347:11|Removing instance FineSteeringMirror_sb_0.CORERESETP_0 (in view: work.FineSteeringMirror(verilog)) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|Removing sequential instance ReadAdcSample (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|Removing sequential instance ReadMonitorAdcSample (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":297:2:297:3|Found counter in view:work.Main(architecture_main) instance ltc2378.SamplesAveraged[15:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart0BitClockDiv.ClkDiv[7:0] 
@@ -48,24 +49,24 @@
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_6(rtl) instance fifo_i.waddr_r[9:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_6(rtl) instance fifo_i.raddr_r[9:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":54:65:54:65|Found counter in view:work.PPSCountPorts_work_main_architecture_main_0layer1(ppscount) instance PPSAccum_i[31:0] 
-@N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_198 
-@N: FP130 |Promoting Net Main_0.SpiRst_arst on CLKINT  I_199 
-@N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_i on CLKINT  I_200 
-@N: FP130 |Promoting Net Main_0.Uart3FifoReset_i_i on CLKINT  I_201 
-@N: FP130 |Promoting Net Main_0.Uart1FifoReset_i_i on CLKINT  I_202 
-@N: FP130 |Promoting Net Main_0.Uart2FifoReset_i_i on CLKINT  I_203 
-@N: FP130 |Promoting Net Main_0.ltc2378.shot_i_arst_0 on CLKINT  I_204 
-@N: FP130 |Promoting Net Main_0.PPSCountReset_arst on CLKINT  I_205 
-@N: FP130 |Promoting Net Main_0.ClkDac_i.SpiRst_arst on CLKINT  I_206 
-@N: FP130 |Promoting Net Main_0.ads1258.SpiRst_arst on CLKINT  I_207 
-@N: FP130 |Promoting Net Main_0.UartClk2 on CLKINT  I_208 
-@N: FP130 |Promoting Net Main_0.UartClk3 on CLKINT  I_209 
-@N: FP130 |Promoting Net Main_0.UartClk0 on CLKINT  I_210 
-@N: FP130 |Promoting Net Main_0.UartClk1 on CLKINT  I_211 
-@N: FP130 |Promoting Net Main_0.UartTxClk2 on CLKINT  I_212 
-@N: FP130 |Promoting Net Main_0.UartTxClk3 on CLKINT  I_213 
-@N: FP130 |Promoting Net Main_0.UartTxClk0 on CLKINT  I_214 
-@N: FP130 |Promoting Net Main_0.UartTxClk1 on CLKINT  I_215 
+@N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_257 
+@N: FP130 |Promoting Net Main_0.SpiRst_arst on CLKINT  I_258 
+@N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_i on CLKINT  I_259 
+@N: FP130 |Promoting Net Main_0.Uart3FifoReset_i_i on CLKINT  I_260 
+@N: FP130 |Promoting Net Main_0.Uart1FifoReset_i_i on CLKINT  I_261 
+@N: FP130 |Promoting Net Main_0.Uart2FifoReset_i_i on CLKINT  I_262 
+@N: FP130 |Promoting Net Main_0.ltc2378.shot_i_arst_0 on CLKINT  I_263 
+@N: FP130 |Promoting Net Main_0.PPSCountReset_arst on CLKINT  I_264 
+@N: FP130 |Promoting Net Main_0.ClkDac_i.SpiRst_arst on CLKINT  I_265 
+@N: FP130 |Promoting Net Main_0.ads1258.SpiRst_arst on CLKINT  I_266 
+@N: FP130 |Promoting Net Main_0.UartClk2 on CLKINT  I_267 
+@N: FP130 |Promoting Net Main_0.UartClk3 on CLKINT  I_268 
+@N: FP130 |Promoting Net Main_0.UartClk0 on CLKINT  I_269 
+@N: FP130 |Promoting Net Main_0.UartClk1 on CLKINT  I_270 
+@N: FP130 |Promoting Net Main_0.UartTxClk2 on CLKINT  I_271 
+@N: FP130 |Promoting Net Main_0.UartTxClk3 on CLKINT  I_272 
+@N: FP130 |Promoting Net Main_0.UartTxClk0 on CLKINT  I_273 
+@N: FP130 |Promoting Net Main_0.UartTxClk1 on CLKINT  I_274 
 @N: MT611 :|Automatically generated clock FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock is not used and is being removed
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
 @N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 
