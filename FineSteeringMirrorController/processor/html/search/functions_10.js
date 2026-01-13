@@ -7,7 +7,7 @@ var searchData=
   ['readlastchannel_4',['readlastchannel',['../structads1258.html#a97f562e798bea1a79e82e57205761f2d',1,'ads1258::ReadLastChannel()'],['../structads1258dual.html#af764ef3747fc0ea968e6fa7bc41a215c',1,'ads1258dual::ReadLastChannel()']]],
   ['readpos_5',['ReadPos',['../classIArray.html#a95d746884023cf525103686072766ff0',1,'IArray']]],
   ['readregister_6',['readregister',['../structads1258.html#a1211e458bd1f4942ba829760ee01e64f',1,'ads1258::ReadRegister()'],['../structads1258dual.html#a4f6a89863050fdff66e7bf5c211800f6',1,'ads1258dual::ReadRegister()'],['../structads1258.html#a5936a2aefe689689bbbd8e68f0a11402',1,'ads1258::ReadRegister()'],['../structads1258dual.html#a3cff67837623c361f097a5b2338cc177',1,'ads1258dual::ReadRegister()']]],
-  ['receive_7',['receive',['../structPinoutMonitorAdc.html#ade28b32c1ad4b67a244c800ddd3d8c65',1,'PinoutMonitorAdc']]],
+  ['receive_7',['receive',['../structPinoutMonitorAdc.html#a50cfc290e4a5e0f54263e0b617e2d552',1,'PinoutMonitorAdc']]],
   ['remotedataready_8',['remotedataready',['../classlinux__pinout__circular__uart.html#a6d99357e95f75192cc7160d0fd331644',1,'linux_pinout_circular_uart']]],
   ['remotedepth_9',['remotedepth',['../classlinux__pinout__circular__uart.html#aa4293dcb98bae1050227af0c1e13d158',1,'linux_pinout_circular_uart']]],
   ['remotegetcqq_10',['remotegetcqq',['../classlinux__pinout__circular__uart.html#a6da3e20fd66b4d33b75854b955fb9e1e',1,'linux_pinout_circular_uart']]],

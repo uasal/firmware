@@ -16,7 +16,7 @@ var searchData=
   ['readrequestregister_13',['ReadRequestRegister',['../classuart__pinout__fpga.html#a27c5c034c3c54a37599437f19e3588bb',1,'uart_pinout_fpga']]],
   ['readwritemaskread_14',['ReadWriteMaskRead',['../classlinux__pinout__named__pipe.html#ab7da60e121241b9dc87d4730a495784f',1,'linux_pinout_named_pipe']]],
   ['readwritemaskwrite_15',['ReadWriteMaskWrite',['../classlinux__pinout__named__pipe.html#aab58c123f405c0c8c76b362b908bdf18',1,'linux_pinout_named_pipe']]],
-  ['receive_16',['receive',['../structPinoutMonitorAdc.html#ade28b32c1ad4b67a244c800ddd3d8c65',1,'PinoutMonitorAdc']]],
+  ['receive_16',['receive',['../structPinoutMonitorAdc.html#a50cfc290e4a5e0f54263e0b617e2d552',1,'PinoutMonitorAdc']]],
   ['register_5fconfig0_17',['register_config0',['../namespaceads1258details.html#addd34f78b79a8448adc902a97a44a87f',1,'ads1258details::register_config0'],['../namespaceads1258details.html#addd34f78b79a8448adc902a97a44a87f',1,'ads1258details::register_config0']]],
   ['register_5fconfig1_18',['register_config1',['../namespaceads1258details.html#a95b75e693aebd4d1273a358b36bf246b',1,'ads1258details::register_config1'],['../namespaceads1258details.html#a95b75e693aebd4d1273a358b36bf246b',1,'ads1258details::register_config1']]],
   ['register_5fgpioc_19',['register_gpioc',['../namespaceads1258details.html#a7868e416beaaf746fd4411266f580b75',1,'ads1258details::register_gpioc'],['../namespaceads1258details.html#a7868e416beaaf746fd4411266f580b75',1,'ads1258details::register_gpioc']]],
