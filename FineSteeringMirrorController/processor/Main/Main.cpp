@@ -143,8 +143,8 @@ int main(int argc, char *argv[])
     //~ DbgUartUsb.SetEcho(false);
     DbgUart485_0.SetEcho(false);
 	
-	MonitorAdc.SetMonitor(true);
-	//~ MonitorAdc.SetMonitor(false);
+	//~ MonitorAdc.SetMonitor(true);
+	MonitorAdc.SetMonitor(false);
 	MonitorAdc.Init();
 	
 	//~ uint8_t i = 0;

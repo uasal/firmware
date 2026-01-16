@@ -37,6 +37,7 @@ namespace ads1258details
 {
 	const int32_t CountPosMax = 0x7FFFFFUL; //106% VRef
 	const int32_t CountPosVRef = 0x780000UL;
+	const int32_t CountQuarterScaleUsually1V = 0x1E0000UL;
 	const int32_t CountZero = 0x000000UL;
 	const int32_t CountNegVRef = (int32_t)0xFF87FFFFUL;
 	const int32_t CountNegMin = (int32_t)0xFF800000UL; //-106% VRef

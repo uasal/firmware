@@ -532,7 +532,7 @@ static const uint16_t CGraphPayloadTypeFSMAdcsDeprecated = 0x0004U; //Payload: 3
 static const uint16_t CGraphPayloadTypeFSMAdcsFloatingPointDeprecated = 0x0005U; //Payload: 3 double-precision floats
 static const uint16_t CGraphPayloadTypeFSMStatusDeprecated = 0x0006U;
 
-struct CGraphFSMTelemetryPayload
+struct CGraphPZTTelemetryPayload
 {
     double P1V2;
     double P2V2;
@@ -546,8 +546,46 @@ struct CGraphFSMTelemetryPayload
     double N5V;
     double N6V;
     double P150V;
+};
 
-    //~ void formatf() const { ::printf("CGraphFSMStatusPayload: SerialNum: 0x%lX, ProcessorFirmwareBuildNum: %lu, FPGAFirmwareBuildNum: %lu", (long)SerialNum, (unsigned long)ProcessorFirmwareBuildNum, (unsigned long)FPGAFirmwareBuildNum); }
+struct CGraphFSMTelemetryPayload
+{
+	double IHV;
+	double INV;
+	double I6V;
+	double I3VD;
+	double I2VD;
+	double I1V;
+	double StrainBP;
+	double StrainBM;
+	double StrainB;
+	double StrainDP;
+	double StrainDM;
+	double StrainD;
+	double StrainCM;
+	double StrainCP;
+	double StrainC;
+	double StrainAM;
+	double StrainAP;
+	double StrainA;
+	double P5VD;
+	double I2VA;
+	double Temp;
+	double P3V3D;
+	double P28V;
+	double P2V2;
+	double P2V5D;
+	double P1V2;
+	double P2V5A;
+	double P4V3;
+	double I3VA;
+	double P3V3A;
+	double P6V;
+	double P5VA;
+	double LuxRads;
+	double N18V;
+	double N20V;
+	double P125V;
 };
 
 //--------------------------------------------------------------------- DM Deformable Mirror 0x3000 packets -------------------------------------------------------------

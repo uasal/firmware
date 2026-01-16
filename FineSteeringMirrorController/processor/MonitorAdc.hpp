@@ -17,7 +17,7 @@
 //~ #include "adc/lt244x_accum.h"
 //~ #include "adc/lt244x.h"
 #define DEBUGADC
-#include "adc/ads1258.h"
+#include "adc/ads1258dual.h"
 #include "temp/TempLM35.hpp"
 #include "format/formatf.h"
 
@@ -108,22 +108,46 @@ struct MonitorAdcCalibratedInput
 	double GetOffset() const { return(Offset); }
 };
 
-extern MonitorAdcCalibratedInput P1V2Calibrate;
-extern MonitorAdcCalibratedInput P2V2Calibrate;
-extern MonitorAdcCalibratedInput P28VCalibrate;
-extern MonitorAdcCalibratedInput P2V5Calibrate;
-extern MonitorAdcCalibratedInput P6VCalibrate;
-extern MonitorAdcCalibratedInput P5VCalibrate;
-extern MonitorAdcCalibratedInput P3V3DCalibrate;
-extern MonitorAdcCalibratedInput P4V3Calibrate;
-extern MonitorAdcCalibratedInput P2I2Calibrate;
-extern MonitorAdcCalibratedInput P4I3Calibrate;
-extern MonitorAdcCalibratedInput P6ICalibrate;
-extern MonitorAdcCalibratedInput Aux0Calibrate;
-extern MonitorAdcCalibratedInput Aux1Calibrate;
-extern MonitorAdcCalibratedInput Aux2Calibrate;
-extern MonitorAdcCalibratedInput AmbientLightCalibrate;
-extern MonitorAdcCalibratedInput TemperatureCalibrate;
+//Adc0 Calibrates
+extern MonitorAdcCalibratedInput IHVCalibrate; // ads1258details::chan_se0
+extern MonitorAdcCalibratedInput INVCalibrate; // ads1258details::chan_se1
+extern MonitorAdcCalibratedInput I6VCalibrate; // ads1258details::chan_se2
+extern MonitorAdcCalibratedInput I3VDCalibrate; // ads1258details::chan_se3
+extern MonitorAdcCalibratedInput I2VDCalibrate; // ads1258details::chan_se4
+extern MonitorAdcCalibratedInput I1VCalibrate; // ads1258details::chan_se5
+extern MonitorAdcCalibratedInput StrainBPCalibrate; // ads1258details::chan_se6
+extern MonitorAdcCalibratedInput StrainBMCalibrate; // ads1258details::chan_se7
+extern MonitorAdcCalibratedInput StrainBCalibrate; // ads1258details::chan_diff3
+extern MonitorAdcCalibratedInput StrainDPCalibrate; // ads1258details::chan_se8
+extern MonitorAdcCalibratedInput StrainDMCalibrate; // ads1258details::chan_se9
+extern MonitorAdcCalibratedInput StrainDCalibrate; // ads1258details::chan_diff4
+extern MonitorAdcCalibratedInput StrainCMCalibrate; // ads1258details::chan_se10
+extern MonitorAdcCalibratedInput StrainCPCalibrate; // ads1258details::chan_se11
+extern MonitorAdcCalibratedInput StrainCCalibrate; // ads1258details::chan_diff5
+extern MonitorAdcCalibratedInput StrainAMCalibrate; // ads1258details::chan_se12
+extern MonitorAdcCalibratedInput StrainAPCalibrate; // ads1258details::chan_se13
+extern MonitorAdcCalibratedInput StrainACalibrate; // ads1258details::chan_diff6
+extern MonitorAdcCalibratedInput P5VDCalibrate; // ads1258details::chan_se14
+extern MonitorAdcCalibratedInput I2VACalibrate; // ads1258details::chan_se15
+
+//Adc1 Calibrates
+extern MonitorAdcCalibratedInput TempCalibrate; // ads1258details::chan_se0
+extern MonitorAdcCalibratedInput P3V3DCalibrate; // ads1258details::chan_se1
+extern MonitorAdcCalibratedInput P28VCalibrate; // ads1258details::chan_se2
+extern MonitorAdcCalibratedInput P2V2Calibrate; // ads1258details::chan_se3
+extern MonitorAdcCalibratedInput P2V5DCalibrate; // ads1258details::chan_se4
+extern MonitorAdcCalibratedInput P1V2Calibrate; // ads1258details::chan_se5
+extern MonitorAdcCalibratedInput P2V5ACalibrate; // ads1258details::chan_se6
+extern MonitorAdcCalibratedInput P4V3Calibrate; // ads1258details::chan_se7
+extern MonitorAdcCalibratedInput I3VACalibrate; // ads1258details::chan_se8
+extern MonitorAdcCalibratedInput P3V3ACalibrate; // ads1258details::chan_se9
+extern MonitorAdcCalibratedInput P6VCalibrate; // ads1258details::chan_se10
+extern MonitorAdcCalibratedInput P5VACalibrate; // ads1258details::chan_se11
+extern MonitorAdcCalibratedInput LuxRadsCalibrate; // ads1258details::chan_se12
+extern MonitorAdcCalibratedInput N18VCalibrate; // ads1258details::chan_se13
+extern MonitorAdcCalibratedInput N20VCalibrate; // ads1258details::chan_se14
+extern MonitorAdcCalibratedInput P125VCalibrate; // ads1258details::chan_se15
+
 
 //~ template <class spi, class adcpinout, unsigned int spiclkdivider = 39>
 struct CGraphFSMMonitorAdc
@@ -141,34 +165,57 @@ private:
 	static const uint8_t GpioDirections = 0x00; //All outputs (unused should be outputs according to datasheet)
     static const uint8_t StartPinMask = 0x80; //Gpio7
 
-	int32_t P1V2; //chan_se1
-	int32_t P2V2; //chan_se2
-	int32_t P28V; //chan_se0
-	int32_t P2V5; //chan_se7
-	int32_t P6V; //chan_se10
-	int32_t P5V; //chan_se11
-	int32_t P3V3D; //chan_se6
-	int32_t P4V3; //chan_se8
-	int32_t P2I2; //chan_se3
-	int32_t P4I3; //chan_se9
-	int32_t P6I; //chan_se12
-	int32_t Aux0; //chan_se14
-	int32_t Aux1; //chan_se5
-	int32_t Aux2; //chan_se4
-	int32_t AmbientLight; //chan_se13
-	int32_t Temperature; //chan_se15
+	//Adc0
+	int32_t IHV; // ads1258details::chan_se0
+	int32_t INV; // ads1258details::chan_se1
+	int32_t I6V; // ads1258details::chan_se2
+	int32_t I3VD; // ads1258details::chan_se3
+	int32_t I2VD; // ads1258details::chan_se4
+	int32_t I1V; // ads1258details::chan_se5
+	int32_t StrainBP; // ads1258details::chan_se6
+	int32_t StrainBM; // ads1258details::chan_se7
+	int32_t StrainB; // ads1258details::chan_diff3
+	int32_t StrainDP; // ads1258details::chan_se8
+	int32_t StrainDM; // ads1258details::chan_se9
+	int32_t StrainD; // ads1258details::chan_diff4
+	int32_t StrainCM; // ads1258details::chan_se10
+	int32_t StrainCP; // ads1258details::chan_se11
+	int32_t StrainC; // ads1258details::chan_diff5
+	int32_t StrainAM; // ads1258details::chan_se12
+	int32_t StrainAP; // ads1258details::chan_se13
+	int32_t StrainA; // ads1258details::chan_diff6
+	int32_t P5VD; // ads1258details::chan_se14
+	int32_t I2VA; // ads1258details::chan_se15
 	
+	//Adc1
+	int32_t Temp; // ads1258details::chan_se0
+	int32_t P3V3D; // ads1258details::chan_se1
+	int32_t P28V; // ads1258details::chan_se2
+	int32_t P2V2; // ads1258details::chan_se3
+	int32_t P2V5D; // ads1258details::chan_se4
+	int32_t P1V2; // ads1258details::chan_se5
+	int32_t P2V5A; // ads1258details::chan_se6
+	int32_t P4V3; // ads1258details::chan_se7
+	int32_t I3VA; // ads1258details::chan_se8
+	int32_t P3V3A; // ads1258details::chan_se9
+	int32_t P6V; // ads1258details::chan_se10
+	int32_t P5VA; // ads1258details::chan_se11
+	int32_t LuxRads; // ads1258details::chan_se12
+	int32_t N18V; // ads1258details::chan_se13
+	int32_t N20V; // ads1258details::chan_se14
+	int32_t P125V; // ads1258details::chan_se15
 
 public:
 	
 	CGraphFSMMonitorAdc() : AdcFound(false), Monitor(false),
-							P1V2(0), P2V2(0), P28V(0), P2V5(0), P6V(0), P5V(0), P3V3D(0), P4V3(0), P2I2(0), P4I3(0), P6I(0), Aux0(0), Aux1(0), Aux2(0), AmbientLight(0), Temperature(0),
+							//set all to 1.024V (could be ambiguous if things are actually dead): IHV(0x1E0000UL), 	INV(0x1E0000UL), 	I6V(0x1E0000UL), 	I3VD(0x1E0000UL), 	I2VD(0x1E0000UL), 	I1V(0x1E0000UL), 	StrainBP(0x1E0000UL), 	StrainBM(0x1E0000UL), 	StrainB(0x1E0000UL), 	StrainDP(0x1E0000UL), 	StrainDM(0x1E0000UL), 	StrainD(0x1E0000UL), 	StrainCM(0x1E0000UL), 	StrainCP(0x1E0000UL), 	StrainC(0x1E0000UL), 	StrainAM(0x1E0000UL), 	StrainAP(0x1E0000UL), 	StrainA(0x1E0000UL), 	P5VD(0x1E0000UL), 	I2VA(0x1E0000UL), 	Temp(0x1E0000UL), 	P3V3D(0x1E0000UL), 	P28V(0x1E0000UL), 	P2V2(0x1E0000UL), 	P2V5D(0x1E0000UL), 	P1V2(0x1E0000UL), 	P2V5A(0x1E0000UL), 	P4V3(0x1E0000UL), 	I3VA(0x1E0000UL), 	P3V3A(0x1E0000UL), 	P6V(0x1E0000UL), 	P5VA(0x1E0000UL), 	LuxRads(0x1E0000UL), 	N18V(0x1E0000UL), 	N20V(0x1E0000UL), 	P125V(0x1E0000UL),
+							IHV(0UL), 	INV(0UL), 	I6V(0UL), 	I3VD(0UL), 	I2VD(0UL), 	I1V(0UL), 	StrainBP(0UL), 	StrainBM(0UL), 	StrainB(0UL), 	StrainDP(0UL), 	StrainDM(0UL), 	StrainD(0UL), 	StrainCM(0UL), 	StrainCP(0UL), 	StrainC(0UL), 	StrainAM(0UL), 	StrainAP(0UL), 	StrainA(0UL), 	P5VD(0UL), 	I2VA(0UL), 	Temp(0UL), 	P3V3D(0UL), 	P28V(0UL), 	P2V2(0UL), 	P2V5D(0UL), 	P1V2(0UL), 	P2V5A(0UL), 	P4V3(0UL), 	I3VA(0UL), 	P3V3A(0UL), 	P6V(0UL), 	P5VA(0UL), 	LuxRads(0UL), 	N18V(0UL), 	N20V(0UL), 	P125V(0UL),
 							Adc(4.096)//,
 	{ }
 	
 	~CGraphFSMMonitorAdc() { }
 	
-	ads1258<PinoutMonitorAdc> Adc;
+	ads1258dual<PinoutMonitorAdc> Adc;
 	
 	//~ static uint8_t GetAdcReadChannel()								{ uint8_t val = *(((uint8_t*)FSM)+MonitorAdcFpgaAdcChannelAddr); return(val); }
 	//~ static void SetAdcReadChannel(const uint8_t val) 					{ *(((uint8_t*)FSM)+MonitorAdcFpgaAdcChannelAddr) = (uint8_t)val; }
@@ -176,7 +223,7 @@ public:
 	
 	//Adc0 channels:
 	#define IHVChannel ads1258details::chan_se0
-	#define IMVChannel ads1258details::chan_se1
+	#define INVChannel ads1258details::chan_se1
 	#define I6VChannel ads1258details::chan_se2
 	#define I3VDChannel ads1258details::chan_se3
 	#define I2VDChannel ads1258details::chan_se4
@@ -210,8 +257,8 @@ public:
 	#define P6VChannel ads1258details::chan_se10
 	#define P5VAChannel ads1258details::chan_se11
 	#define LuxRadsChannel ads1258details::chan_se12
-	#define M18VChannel ads1258details::chan_se13
-	#define M20VChannel ads1258details::chan_se14
+	#define N18VChannel ads1258details::chan_se13
+	#define N20VChannel ads1258details::chan_se14
 	#define P125VChannel ads1258details::chan_se15
 	
 	bool GetMonitor() const { return(Monitor); }
@@ -222,40 +269,87 @@ public:
 	
 	void Dump() { Adc.Dump(); }
 	
-	double GetP1V2() { return(P1V2Calibrate.ReadCalibrated(P1V2)); }
-	double GetP2V2() { return(P2V2Calibrate.ReadCalibrated(P2V2)); }
-	double GetP28V() { return(P28VCalibrate.ReadCalibrated(P28V)); }
-	double GetP2V5() { return(P2V5Calibrate.ReadCalibrated(P2V5)); }
-	double GetP6V() { return(P6VCalibrate.ReadCalibrated(P6V)); }
-	double GetP5V() { return(P5VCalibrate.ReadCalibrated(P5V)); }
-	double GetP3V3D() { return(P3V3DCalibrate.ReadCalibrated(P3V3D)); }
-	double GetP4V3() { return(P4V3Calibrate.ReadCalibrated(P4V3)); }
-	double GetP2I2() { return(P2I2Calibrate.ReadCalibrated(P2I2)); }
-	double GetP4I3() { return(P4I3Calibrate.ReadCalibrated(P4I3)); }
-	double GetP6I() { return(P6ICalibrate.ReadCalibrated(P6I)); }
-	double GetAux0() { return(Aux0Calibrate.ReadCalibrated(Aux0)); }
-	double GetAux1() { return(Aux1Calibrate.ReadCalibrated(Aux1)); }
-	double GetAux2() { return(Aux1Calibrate.ReadCalibrated(Aux2)); }
-	double GetAmbientLight() { return(AmbientLightCalibrate.ReadCalibrated(AmbientLight)); }
-	double GetTemperature() { return(TemperatureCalibrate.ReadCalibrated(Temperature)); }
+	//Adc0
+	double GetIHV() { return(IHVCalibrate.ReadCalibrated(IHV)); } // ads1258details::chan_se0
+	double GetINV() { return(INVCalibrate.ReadCalibrated(INV)); } // ads1258details::chan_se1
+	double GetI6V() { return(I6VCalibrate.ReadCalibrated(I6V)); } // ads1258details::chan_se2
+	double GetI3VD() { return(I3VDCalibrate.ReadCalibrated(I3VD)); } // ads1258details::chan_se3
+	double GetI2VD() { return(I2VDCalibrate.ReadCalibrated(I2VD)); } // ads1258details::chan_se4
+	double GetI1V() { return(I1VCalibrate.ReadCalibrated(I1V)); } // ads1258details::chan_se5
+	double GetStrainBP() { return(StrainBPCalibrate.ReadCalibrated(StrainBP)); } // ads1258details::chan_se6
+	double GetStrainBM() { return(StrainBMCalibrate.ReadCalibrated(StrainBM)); } // ads1258details::chan_se7
+	double GetStrainB() { return(StrainBCalibrate.ReadCalibrated(StrainB)); } // ads1258details::chan_diff3
+	double GetStrainDP() { return(StrainDPCalibrate.ReadCalibrated(StrainDP)); } // ads1258details::chan_se8
+	double GetStrainDM() { return(StrainDMCalibrate.ReadCalibrated(StrainDM)); } // ads1258details::chan_se9
+	double GetStrainD() { return(StrainDCalibrate.ReadCalibrated(StrainD)); } // ads1258details::chan_diff4
+	double GetStrainCM() { return(StrainCMCalibrate.ReadCalibrated(StrainCM)); } // ads1258details::chan_se10
+	double GetStrainCP() { return(StrainCPCalibrate.ReadCalibrated(StrainCP)); } // ads1258details::chan_se11
+	double GetStrainC() { return(StrainCCalibrate.ReadCalibrated(StrainC)); } // ads1258details::chan_diff5
+	double GetStrainAM() { return(StrainAMCalibrate.ReadCalibrated(StrainAM)); } // ads1258details::chan_se12
+	double GetStrainAP() { return(StrainAPCalibrate.ReadCalibrated(StrainAP)); } // ads1258details::chan_se13
+	double GetStrainA() { return(StrainACalibrate.ReadCalibrated(StrainA)); } // ads1258details::chan_diff6
+	double GetP5VD() { return(P5VDCalibrate.ReadCalibrated(P5VD)); } // ads1258details::chan_se14
+	double GetI2VA() { return(I2VACalibrate.ReadCalibrated(I2VA)); } // ads1258details::chan_se15
 	
-	void GetP1V2Raw(int32_t& val) { val = (P1V2); }
-	void GetP2V2Raw(int32_t& val) { val = (P2V2); }
-	void GetP28VRaw(int32_t& val) { val = (P28V); }
-	void GetP2V5Raw(int32_t& val) { val = (P2V5); }
-	void GetP6VRaw(int32_t& val) { val = (P6V); }
-	void GetP5VRaw(int32_t& val) { val = (P5V); }
-	void GetP3V3DRaw(int32_t& val) { val = (P3V3D); }
-	void GetP4V3Raw(int32_t& val) { val = (P4V3); }
-	void GetP2I2Raw(int32_t& val) { val = (P2I2); }
-	void GetP4I3Raw(int32_t& val) { val = (P4I3); }
-	void GetP6IRaw(int32_t& val) { val = (P6I); }
-	void GetAux0Raw(int32_t& val) { val = (Aux0); }
-	void GetAux1Raw(int32_t& val) { val = (Aux1); }
-	void GetAux2Raw(int32_t& val) { val = (Aux2); }
-	void GetAmbientLightRaw(int32_t& val) { val = (AmbientLight); }
-	void GetTemperatureRaw(int32_t& val) { val = (Temperature); }
+	//Adc1
+	double GetTemp() { return(TempCalibrate.ReadCalibrated(Temp)); } // ads1258details::chan_se0
+	double GetP3V3D() { return(P3V3DCalibrate.ReadCalibrated(P3V3D)); } // ads1258details::chan_se1
+	double GetP28V() { return(P28VCalibrate.ReadCalibrated(P28V)); } // ads1258details::chan_se2
+	double GetP2V2() { return(P2V2Calibrate.ReadCalibrated(P2V2)); } // ads1258details::chan_se3
+	double GetP2V5D() { return(P2V5DCalibrate.ReadCalibrated(P2V5D)); } // ads1258details::chan_se4
+	double GetP1V2() { return(P1V2Calibrate.ReadCalibrated(P1V2)); } // ads1258details::chan_se5
+	double GetP2V5A() { return(P2V5ACalibrate.ReadCalibrated(P2V5A)); } // ads1258details::chan_se6
+	double GetP4V3() { return(P4V3Calibrate.ReadCalibrated(P4V3)); } // ads1258details::chan_se7
+	double GetI3VA() { return(I3VACalibrate.ReadCalibrated(I3VA)); } // ads1258details::chan_se8
+	double GetP3V3A() { return(P3V3ACalibrate.ReadCalibrated(P3V3A)); } // ads1258details::chan_se9
+	double GetP6V() { return(P6VCalibrate.ReadCalibrated(P6V)); } // ads1258details::chan_se10
+	double GetP5VA() { return(P5VACalibrate.ReadCalibrated(P5VA)); } // ads1258details::chan_se11
+	double GetLuxRads() { return(LuxRadsCalibrate.ReadCalibrated(LuxRads)); } // ads1258details::chan_se12
+	double GetN18V() { return(N18VCalibrate.ReadCalibrated(N18V)); } // ads1258details::chan_se13
+	double GetN20V() { return(N20VCalibrate.ReadCalibrated(N20V)); } // ads1258details::chan_se14
+	double GetP125V() { return(P125VCalibrate.ReadCalibrated(P125V)); } // ads1258details::chan_se15
 	
+	//Adc0
+	void GetIHVRaw(int32_t& val) { val = (IHV); } // ads1258details::chan_se0
+	void GetINVRaw(int32_t& val) { val = (INV); } // ads1258details::chan_se1
+	void GetI6VRaw(int32_t& val) { val = (I6V); } // ads1258details::chan_se2
+	void GetI3VDRaw(int32_t& val) { val = (I3VD); } // ads1258details::chan_se3
+	void GetI2VDRaw(int32_t& val) { val = (I2VD); } // ads1258details::chan_se4
+	void GetI1VRaw(int32_t& val) { val = (I1V); } // ads1258details::chan_se5
+	void GetStrainBPRaw(int32_t& val) { val = (StrainBP); } // ads1258details::chan_se6
+	void GetStrainBMRaw(int32_t& val) { val = (StrainBM); } // ads1258details::chan_se7
+	void GetStrainBRaw(int32_t& val) { val = (StrainB); } // ads1258details::chan_diff3
+	void GetStrainDPRaw(int32_t& val) { val = (StrainDP); } // ads1258details::chan_se8
+	void GetStrainDMRaw(int32_t& val) { val = (StrainDM); } // ads1258details::chan_se9
+	void GetStrainDRaw(int32_t& val) { val = (StrainD); } // ads1258details::chan_diff4
+	void GetStrainCMRaw(int32_t& val) { val = (StrainCM); } // ads1258details::chan_se10
+	void GetStrainCPRaw(int32_t& val) { val = (StrainCP); } // ads1258details::chan_se11
+	void GetStrainCRaw(int32_t& val) { val = (StrainC); } // ads1258details::chan_diff5
+	void GetStrainAMRaw(int32_t& val) { val = (StrainAM); } // ads1258details::chan_se12
+	void GetStrainAPRaw(int32_t& val) { val = (StrainAP); } // ads1258details::chan_se13
+	void GetStrainARaw(int32_t& val) { val = (StrainA); } // ads1258details::chan_diff6
+	void GetP5VDRaw(int32_t& val) { val = (P5VD); } // ads1258details::chan_se14
+	void GetI2VARaw(int32_t& val) { val = (I2VA); } // ads1258details::chan_se15
+	
+	//Adc1
+	void GetTempRaw(int32_t& val) { val = (Temp); } // ads1258details::chan_se0
+	void GetP3V3DRaw(int32_t& val) { val = (P3V3D); } // ads1258details::chan_se1
+	void GetP28VRaw(int32_t& val) { val = (P28V); } // ads1258details::chan_se2
+	void GetP2V2Raw(int32_t& val) { val = (P2V2); } // ads1258details::chan_se3
+	void GetP2V5DRaw(int32_t& val) { val = (P2V5D); } // ads1258details::chan_se4
+	void GetP1V2Raw(int32_t& val) { val = (P1V2); } // ads1258details::chan_se5
+	void GetP2V5ARaw(int32_t& val) { val = (P2V5A); } // ads1258details::chan_se6
+	void GetP4V3Raw(int32_t& val) { val = (P4V3); } // ads1258details::chan_se7
+	void GetI3VARaw(int32_t& val) { val = (I3VA); } // ads1258details::chan_se8
+	void GetP3V3ARaw(int32_t& val) { val = (P3V3A); } // ads1258details::chan_se9
+	void GetP6VRaw(int32_t& val) { val = (P6V); } // ads1258details::chan_se10
+	void GetP5VARaw(int32_t& val) { val = (P5VA); } // ads1258details::chan_se11
+	void GetLuxRadsRaw(int32_t& val) { val = (LuxRads); } // ads1258details::chan_se12
+	void GetN18VRaw(int32_t& val) { val = (N18V); } // ads1258details::chan_se13
+	void GetN20VRaw(int32_t& val) { val = (N20V); } // ads1258details::chan_se14
+	void GetP125VRaw(int32_t& val) { val = (P125V); } // ads1258details::chan_se15
+	
+	//This presumes some form of storage media; best to have science computers do this on orbit?
 	void SaveCals(double* Buffer, size_t& BufferMaxInBufferUsedOut)
 	{
 		if ( (NULL == Buffer) || (BufferMaxInBufferUsedOut < (32 * sizeof(double))) )
@@ -265,42 +359,12 @@ public:
 		}
 				
 		//~ Buffer[0] = P1V2Calibrate.GetGain();
-		//~ Buffer[1] = P2V2Calibrate.GetGain();
-		//~ Buffer[2] = P24VCalibrate.GetGain();
-		//~ Buffer[3] = P2V5Calibrate.GetGain();
-		//~ Buffer[4] = P3V3ACalibrate.GetGain();
-		//~ Buffer[5] = P6VCalibrate.GetGain();
-		//~ Buffer[6] = P5VCalibrate.GetGain();
-		//~ Buffer[7] = P3V3DCalibrate.GetGain();
-		//~ Buffer[8] = P4V3Calibrate.GetGain();
-		//~ Buffer[9] = N5VCalibrate.GetGain();
-		//~ Buffer[10] = N6VCalibrate.GetGain();
-		//~ Buffer[11] = P150VCalibrate.GetGain();	
-		//~ Buffer[12] = Aux0Calibrate.GetGain();
-		//~ Buffer[13] = Aux1Calibrate.GetGain();
-		//~ Buffer[14] = AmbientLightCalibrate.GetGain();
-		//~ Buffer[15] = TemperatureCalibrate.GetGain();	
-		
-		//~ Buffer[16] = P1V2Calibrate.GetOffset();
-		//~ Buffer[17] = P2V2Calibrate.GetOffset();
-		//~ Buffer[18] = P24VCalibrate.GetOffset();
-		//~ Buffer[19] = P2V5Calibrate.GetOffset();
-		//~ Buffer[20] = P3V3ACalibrate.GetOffset();
-		//~ Buffer[21] = P6VCalibrate.GetOffset();
-		//~ Buffer[22] = P5VCalibrate.GetOffset();
-		//~ Buffer[23] = P3V3DCalibrate.GetOffset();
-		//~ Buffer[24] = P4V3Calibrate.GetOffset();
-		//~ Buffer[25] = N5VCalibrate.GetOffset();
-		//~ Buffer[26] = N6VCalibrate.GetOffset();
-		//~ Buffer[27] = P150VCalibrate.GetOffset();	
-		//~ Buffer[28] = Aux0Calibrate.GetOffset();
-		//~ Buffer[29] = Aux1Calibrate.GetOffset();
-		//~ Buffer[30] = AmbientLightCalibrate.GetOffset();
-		//~ Buffer[31] = TemperatureCalibrate.GetOffset();	
+		//etc
 		
 		BufferMaxInBufferUsedOut = (32 * sizeof(double));
 	}
 
+	//This presumes some form of storage media; best to have science computers do this on orbit?
 	void RestoreCals(const double* Buffer, size_t& BufferMaxInBufferUsedOut)	
 	{
 		if ( (NULL == Buffer) || ((BufferMaxInBufferUsedOut < (32 * sizeof(double)))) )
@@ -310,21 +374,7 @@ public:
 		}
 		
 		//~ P1V2Calibrate.Calibrate(Buffer[0], Buffer[16]);
-		//~ P2V2Calibrate.Calibrate(Buffer[1], Buffer[17]);
-		//~ P24VCalibrate.Calibrate(Buffer[2], Buffer[18]);
-		//~ P2V5Calibrate.Calibrate(Buffer[3], Buffer[19]);
-		//~ P3V3ACalibrate.Calibrate(Buffer[4], Buffer[20]);
-		//~ P6VCalibrate.Calibrate(Buffer[5], Buffer[21]);
-		//~ P5VCalibrate.Calibrate(Buffer[6], Buffer[22]);
-		//~ P3V3DCalibrate.Calibrate(Buffer[7], Buffer[23]);
-		//~ P4V3Calibrate.Calibrate(Buffer[8], Buffer[24]);
-		//~ N5VCalibrate.Calibrate(Buffer[9], Buffer[25]);
-		//~ N6VCalibrate.Calibrate(Buffer[10], Buffer[26]);
-		//~ P150VCalibrate.Calibrate(Buffer[11], Buffer[27]);	
-		//~ Aux0Calibrate.Calibrate(Buffer[12], Buffer[28]);
-		//~ Aux1Calibrate.Calibrate(Buffer[13], Buffer[29]);
-		//~ AmbientLightCalibrate.Calibrate(Buffer[14], Buffer[30]);
-		//~ TemperatureCalibrate.Calibrate(Buffer[15], Buffer[31]);	
+		//etc
 		
 		BufferMaxInBufferUsedOut = (32 * sizeof(double));
 	}

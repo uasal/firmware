@@ -37,6 +37,7 @@ namespace ads1258details
 {
 	const int32_t CountPosMax = 0x7FFFFFUL; //106% VRef
 	const int32_t CountPosVRef = 0x780000UL;
+	const int32_t CountQuarterScaleUsually1V = 0x1E0000UL;
 	const int32_t CountZero = 0x000000UL;
 	const int32_t CountNegVRef = (int32_t)0xFF87FFFFUL;
 	const int32_t CountNegMin = (int32_t)0xFF800000UL; //-106% VRef
@@ -108,7 +109,8 @@ namespace ads1258details
 	static const uint8_t register_gpioc = 0x07; //gpio direction 0=7: 0=output, 1=input !!note ads1258 uses 0 for output, 1 for input, unlike every other device ever...
 	static const uint8_t register_gpiod = 0x08; //gpio value 0=7: 0=pin low, 1=pin hi
 	static const uint8_t register_idnum = 0x09; //always reads 0x8B; hard-coded
-
+	static const uint8_t ads1258_idnum_always = 0x8B; //always reads 0x8B; hard-coded
+	
 	union ads1258cmdheader
 	{
 		uint8_t all;
@@ -312,7 +314,7 @@ struct ads1258dual : spipinout
 			return(((double)Counts * (double)AdcVRef) / (double)CountPosVRef);
 		}
 
-		int32_t ConvertOnceDiff(uint8_t chanpos, uint8_t channeg)
+		uint8_t ConvertOnceDiff(uint8_t chanpos, uint8_t channeg, ads1258details::ads1258sample& Adc0Sample, ads1258details::ads1258sample& Adc1Sample)
 		{
 			//Set fixedchannel mode:
 			ads1258details::config0register config0(1, 1, 1, 0, 0, 1);
@@ -322,12 +324,12 @@ struct ads1258dual : spipinout
 			//Set channel to read (always differential + & -)
 			ads1258details::muxschregister muxsch(chanpos, channeg);
 			WriteRegister(ads1258details::register_muxsch, muxsch.all);
-			uint8_t temp = 0;
+			uint16_t temp = 0;
 			ReadRegister(ads1258details::register_muxsch, temp);
-			if (muxsch.all != temp)
+			if ( (muxsch.all != (temp & 0xFF)) || (muxsch.all != (temp >> 8)) )
 			{
 				#ifdef DEBUGADC
-					formatf("ads1258::ConvertOnceDiff(): muxsch mismatch (reads:0x%.2X)\n", temp);
+					formatf("ads1258::ConvertOnceDiff(): muxsch mismatch (reads:0x%.4X)\n", temp);
 				#endif
 				return(ads1258details::register_muxdif);
 			}
@@ -339,7 +341,9 @@ struct ads1258dual : spipinout
 			delayus(1000000);
 
 			//Read data & return:
-			return(ReadLastChannel(chanpos));
+			ReadLastChannel(Adc0Sample, Adc1Sample);
+			
+			return(0);
 		}
 
 		void ClearScanChannels()
@@ -419,33 +423,33 @@ struct ads1258dual : spipinout
 			WriteRegister(ads1258details::register_muxsg1, ScanChansSEHi);
 			WriteRegister(ads1258details::register_sysread, ScanChansInternal);
 
-			uint8_t temp;
+			uint16_t temp;
 			ReadRegister(ads1258details::register_muxdif, temp);
-			if (ScanChansDiff != temp)
+			if ( (ScanChansDiff != (temp & 0xFF)) || (ScanChansDiff != (temp >> 8)) )
 			{
 				//~ #ifdef DEBUGADC
-					formatf("ads1258::SetScanChannels(): muxdif mismatch (reads:0x%.2X)\n", temp);
+					formatf("ads1258::SetScanChannels(): muxdif mismatch (reads:0x%.4X)\n", temp);
 				//~ #endif
 			}
 			ReadRegister(ads1258details::register_muxsg0, temp);
-			if (ScanChansSELo != temp)
+			if ( (ScanChansSELo != (temp & 0xFF)) || (ScanChansSELo != (temp >> 8)) )
 			{
 				//~ #ifdef DEBUGADC
-					formatf("ads1258::SetScanChannels(): muxsg0 mismatch (reads:0x%.2X)\n", temp);
+					formatf("ads1258::SetScanChannels(): muxsg0 mismatch (reads:0x%.4X)\n", temp);
 				//~ #endif
 			}
 			ReadRegister(ads1258details::register_muxsg1, temp);
-			if (ScanChansSEHi != temp)
+			if ( (ScanChansSEHi != (temp & 0xFF)) || (ScanChansSEHi != (temp >> 8)) )
 			{
 				//~ #ifdef DEBUGADC
-					formatf("ads1258::SetScanChannels(): muxsg1 mismatch (reads:0x%.2X)\n", temp);
+					formatf("ads1258::SetScanChannels(): muxsg1 mismatch (reads:0x%.4X)\n", temp);
 				//~ #endif
 			}
 			ReadRegister(ads1258details::register_sysread, temp);
-			if (ScanChansInternal != temp)
+			if ( (ScanChansInternal != (temp & 0xFF)) || (ScanChansInternal != (temp >> 8)) )
 			{
 				//~ #ifdef DEBUGADC
-					formatf("ads1258::SetScanChannels(): sysred mismatch (reads:0x%.2X)\n", temp);
+					formatf("ads1258::SetScanChannels(): sysred mismatch (reads:0x%.4X)\n", temp);
 				//~ #endif
 			}
 		}
@@ -469,13 +473,20 @@ struct ads1258dual : spipinout
 
 		bool Scan()
 		{
-			ads1258details::ads1258sample temp = ReadLastChannel();
+			ads1258details::ads1258sample Adc0;
+			ads1258details::ads1258sample Adc1;
+			ReadLastChannel(Adc0, Adc1);
 
 			SendCommand(ads1258details::ads1258cmdheader(ads1258details::cmdtype_pulseconvert, false, 0));
 
-			if ( (temp.status.channel < ads1258details::ads1258numchannels) && (temp.status.isnew) )
+			if ( (Adc0.status.channel < ads1258details::ads1258numchannels) && (Adc0.status.isnew) )
 			{
-				lastsamples[temp.status.channel] = temp;
+				lastsamples0[Adc0.status.channel] = Adc0;
+			}
+			
+			if ( (Adc1.status.channel < ads1258details::ads1258numchannels) && (Adc1.status.isnew) )
+			{
+				lastsamples1[Adc1.status.channel] = Adc1;
 			}
 
 			bool Sucess = true;
@@ -484,27 +495,36 @@ struct ads1258dual : spipinout
 		
 		bool AutoScan()
 		{
-			ads1258details::ads1258sample temp = ReadLastChannel();
+			ads1258details::ads1258sample Adc0;
+			ads1258details::ads1258sample Adc1;
+			ReadLastChannel(Adc0, Adc1);
 
-			if ( (temp.status.channel < ads1258details::ads1258numchannels) && (temp.status.isnew) )
+			if ( (Adc0.status.channel < ads1258details::ads1258numchannels) && (Adc0.status.isnew) )
 			{
-				lastsamples[temp.status.channel] = temp;
+				lastsamples0[Adc0.status.channel] = Adc0;
+			}
+			
+			if ( (Adc1.status.channel < ads1258details::ads1258numchannels) && (Adc1.status.isnew) )
+			{
+				lastsamples1[Adc1.status.channel] = Adc1;
 			}
 
 			bool Sucess = true;
 			return(Sucess);
 		}
 
-		void GetLastSample(const uint8_t channel, ads1258details::ads1258sample& sample)
+		void GetLastSample(const uint8_t channel, ads1258details::ads1258sample& sample0, ads1258details::ads1258sample& sample1)
 		{
 			//validate index
 			if (channel >= ads1258details::ads1258numchannels) { return; }
 			
 			//copy out the sample
-			sample = lastsamples[channel];
+			sample0 = lastsamples0[channel];
+			sample1 = lastsamples1[channel];
 			
 			//make that sample 'old' so we don't use it twice
-			lastsamples[channel].status.isnew = false;
+			lastsamples0[channel].status.isnew = false;
+			lastsamples1[channel].status.isnew = false;
 		}
 		
 		virtual uint8_t Init(uint8_t gpio_output_mask = gpio_output_mask_all_outputs) //All outputs is reccommended in datasheet as inputs are not allowed to float for some ass reason.
@@ -544,33 +564,33 @@ struct ads1258dual : spipinout
 
 			//5. Readback registers
 			{
-				uint8_t temp;
+				uint16_t temp;
 
 				ReadRegister(ads1258details::register_config0, temp);
-				if (config0.all != temp)
+				if ( (config0.all != (temp & 0xFF)) || (config0.all != (temp >> 8)) )
 				{
 					//~ #ifdef DEBUGADC
-						::formatf("ads1258::init(): config0 mismatch (reads:0x%.2X, wanted:0x%.2X)\n", temp, config0.all);
+						::formatf("ads1258::init(): config0 mismatch (reads:0x%.4X, wanted:0x%.2X)\n", temp, config0.all);
 					//~ #endif
 					return(ads1258details::register_config0);
 					//~ Return |= ads1258details::register_config0;
 				}
 
 				ReadRegister(ads1258details::register_config1, temp);
-				if (config1.all != temp)
+				if ( (config1.all != (temp & 0xFF)) || (config1.all != (temp >> 8)) )
 				{
 					//~ #ifdef DEBUGADC
-						::formatf("ads1258::init(): config1 mismatch (reads:0x%.2X, wanted:0x%.2X)\n", temp, config1.all);
+						::formatf("ads1258::init(): config1 mismatch (reads:0x%.4X, wanted:0x%.2X)\n", temp, config1.all);
 					//~ #endif
 					return(ads1258details::register_config1);
 					//~ Return |= ads1258details::register_config1;
 				}
 
 				ReadRegister(ads1258details::register_sysread, temp);
-				if (sysread.all != temp)
+				if ( (sysread.all != (temp & 0xFF)) || (sysread.all != (temp >> 8)) )
 				{
 					//~ #ifdef DEBUGADC
-						::formatf("ads1258::init(): sysread mismatch (reads:0x%.2X, wanted:0x%.2X)\n", temp, sysread.all);
+						::formatf("ads1258::init(): sysread mismatch (reads:0x%.4X, wanted:0x%.2X)\n", temp, sysread.all);
 					//~ #endif
 					return(ads1258details::register_sysread);
 					//~ Return |= ads1258details::register_sysread;
@@ -578,10 +598,10 @@ struct ads1258dual : spipinout
 
 				//pg 42: set no-connected gpio's to outputs
 				ReadRegister(ads1258details::register_gpioc, temp);
-				if (gpio_output_mask != temp)
+				if ( (gpio_output_mask != (temp & 0xFF)) || (gpio_output_mask != (temp >> 8)) )
 				{
 					//~ #ifdef DEBUGADC
-						::formatf("ads1258::init(): gpioc mismatch (reads:0x%.2X, wanted:0x%.2X)\n", temp, gpio_output_mask);
+						::formatf("ads1258::init(): gpioc mismatch (reads:0x%.4X, wanted:0x%.2X)\n", temp, gpio_output_mask);
 					//~ #endif
 					return(ads1258details::register_gpioc);
 					//~ Return |= ads1258details::register_gpioc;
@@ -591,10 +611,10 @@ struct ads1258dual : spipinout
 				
 				//Check and see if the ID register matched 0x8B:
 				ReadRegister(ads1258details::register_idnum, temp);
-				if (0x8B != temp)
+				if ( (ads1258_idnum_always != (temp & 0xFF)) || (ads1258_idnum_always != (temp >> 8)) )
 				{
 					//~ #ifdef DEBUGADC
-						::formatf("ads1258::init(): idnum mismatch (reads:0x%.2X, wanted:0x%.2X)\n", temp, 0x8B);
+						::formatf("ads1258::init(): idnum mismatch (reads:0x%.4X, wanted:0x%.2X)\n", temp, 0x8B8B);
 					//~ #endif
 					return(ads1258details::register_idnum);
 					//~ Return |= ads1258details::register_idnum;
@@ -615,37 +635,38 @@ struct ads1258dual : spipinout
 
 			//5. Readback registers
 			{
-				uint8_t temp;
+				uint16_t temp;
 
 				ReadRegister(ads1258details::register_config0, temp);
-				::formatf("ads1258::Dump(): config0 reads:0x%.2X\n", temp);
+				::formatf("ads1258::Dump(): config0 reads:0x%.4X\n", temp);
 
 				ReadRegister(ads1258details::register_config1, temp);
-				::formatf("ads1258::Dump(): config1 reads:0x%.2X\n", temp);
+				::formatf("ads1258::Dump(): config1 reads:0x%.4X\n", temp);
 
 				ReadRegister(ads1258details::register_sysread, temp);
-				::formatf("ads1258::Dump(): sysread reads:0x%.2X\n", temp);
+				::formatf("ads1258::Dump(): sysread reads:0x%.4X\n", temp);
 
 				ReadRegister(ads1258details::register_gpioc, temp);
-				::formatf("ads1258::Dump(): gpioc reads:0x%.2X\n", temp);
+				::formatf("ads1258::Dump(): gpioc reads:0x%.4X\n", temp);
 
 				ReadRegister(ads1258details::register_idnum, temp);
-				::formatf("ads1258::Dump(): idnum reads:0x%.2X\n", temp);
+				::formatf("ads1258::Dump(): idnum reads:0x%.4X\n", temp);
 
 				ReadRegister(ads1258details::register_muxdif, temp);
-				::formatf("ads1258::Dump(): muxdif reads:0x%.2X\n", temp);
+				::formatf("ads1258::Dump(): muxdif reads:0x%.4X\n", temp);
 
 				ReadRegister(ads1258details::register_muxsg0, temp);
-				::formatf("ads1258::Dump(): muxsg0 reads:0x%.2X\n", temp);
+				::formatf("ads1258::Dump(): muxsg0 reads:0x%.4X\n", temp);
 				
 				ReadRegister(ads1258details::register_muxsg1, temp);
-				::formatf("ads1258::Dump(): muxsg1 reads:0x%.2X\n", temp);
+				::formatf("ads1258::Dump(): muxsg1 reads:0x%.4X\n", temp);
 			}
 		}
 
 	private:
 
-		ads1258details::ads1258sample lastsamples[ads1258details::ads1258numchannels];
+		ads1258details::ads1258sample lastsamples0[ads1258details::ads1258numchannels];
+		ads1258details::ads1258sample lastsamples1[ads1258details::ads1258numchannels];
 
 		uint8_t ScanChansDiff;
 		uint8_t ScanChansSELo;
@@ -661,7 +682,7 @@ struct ads1258dual : spipinout
 
 		//tx/rx a byte over spi:
 		__inline__ void txb(uint8_t byte) { spipinout::transmit(byte); }
-		__inline__ uint8_t rxb() { uint8_t x = spipinout::receive((uint8_t)(0)); return(x); }
+		__inline__ uint16_t rxb() { uint16_t x = spipinout::receive((uint8_t)(0)); return(x); }
 		
 	public:
 
@@ -670,10 +691,27 @@ struct ads1258dual : spipinout
 		//~ __inline__ void WriteRegister(const uint8_t addr, const uint8_t val)  	{ ads1258details::ads1258cmdheader cmd(ads1258details::cmdtype_registerwrite, false, addr); spi_busmsg x; txb(cmd.all); txb(val); }
 		__inline__ void WriteRegister(const uint8_t addr, const uint8_t val)  	{ spi_busmsg x; txb(addr | 0x60); txb(val); }
 
-		//~ __inline__ ads1258sample ReadLastChannel() { spi_busmsg x; ads1258sample val; ads1258cmdheader cmd(cmdtype_chanreadregister, 1, 0); txb(cmd.all); val.three = rxb(); val.two = rxb(); val.one = rxb(); val.zero = rxb(); return(val); }
-		__inline__ ads1258details::ads1258sample ReadLastChannel() { spi_busmsg x; ads1258details::ads1258sample val; txb(0x30); val.three = rxb(); val.two = rxb(); val.one = rxb(); val.zero = rxb(); return(val); }
-		__inline__ uint8_t  ReadRegister(const uint8_t addr) 	{ spi_busmsg x; uint8_t  val = 0; txb(addr | 0x40); val |= rxb(); return(val); }
-		__inline__ void  ReadRegister(const uint8_t addr, uint8_t& val) 				{ spi_busmsg x; val = 0; txb(addr | 0x40); val |= rxb(); }
+		__inline__ void ReadLastChannel(ads1258details::ads1258sample& Adc0, ads1258details::ads1258sample& Adc1) 
+		{ 
+			uint16_t val = 0;
+			spi_busmsg x; 
+			txb(0x30);
+			val = rxb();
+			Adc0.three = (uint8_t)(val & 0xFF);
+			Adc1.three = (uint8_t)(val >> 8);
+			val = rxb();
+			Adc0.two = (uint8_t)(val & 0xFF);
+			Adc1.two = (uint8_t)(val >> 8);
+			val = rxb();
+			Adc0.one = (uint8_t)(val & 0xFF);
+			Adc1.one = (uint8_t)(val >> 8);
+			val = rxb();
+			Adc0.zero = (uint8_t)(val & 0xFF);
+			Adc1.zero = (uint8_t)(val >> 8);
+		}
+		
+		__inline__ uint16_t  ReadRegister(const uint8_t addr) 	{ spi_busmsg x; uint8_t  val = 0; txb(addr | 0x40); val |= rxb(); return(val); }
+		__inline__ void  ReadRegister(const uint8_t addr, uint16_t& val) 				{ spi_busmsg x; val = 0; txb(addr | 0x40); val |= rxb(); }
 
 		__inline__ void SendCommand(ads1258details::ads1258cmdheader cmd)  	{ spi_busmsg x; txb(cmd.all); }
 };
