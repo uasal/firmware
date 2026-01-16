@@ -54,6 +54,7 @@ var annotated_dup =
     [ "CGraphPZTHardwareInterface", "structCGraphPZTHardwareInterface.html", "structCGraphPZTHardwareInterface" ],
     [ "CGraphPZTHardwareStatusRegister", "unionCGraphPZTHardwareStatusRegister.html", "unionCGraphPZTHardwareStatusRegister" ],
     [ "CGraphPZTProtoHardwareMmapper", "classCGraphPZTProtoHardwareMmapper.html", "classCGraphPZTProtoHardwareMmapper" ],
+    [ "CGraphPZTTelemetryPayload", "structCGraphPZTTelemetryPayload.html", "structCGraphPZTTelemetryPayload" ],
     [ "CGraphPZTUartStatusRegister", "unionCGraphPZTUartStatusRegister.html", "unionCGraphPZTUartStatusRegister" ],
     [ "CGraphVersionPayload", "structCGraphVersionPayload.html", "structCGraphVersionPayload" ],
     [ "Cmd", "structCmd.html", "structCmd" ],

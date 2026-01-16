@@ -41,6 +41,7 @@ var hierarchy =
     [ "CGraphPZTHardwareInterface", "structCGraphPZTHardwareInterface.html", null ],
     [ "CGraphPZTHardwareStatusRegister", "unionCGraphPZTHardwareStatusRegister.html", null ],
     [ "CGraphPZTProtoHardwareMmapper", "classCGraphPZTProtoHardwareMmapper.html", null ],
+    [ "CGraphPZTTelemetryPayload", "structCGraphPZTTelemetryPayload.html", null ],
     [ "CGraphPZTUartStatusRegister", "unionCGraphPZTUartStatusRegister.html", null ],
     [ "CGraphVersionPayload", "structCGraphVersionPayload.html", null ],
     [ "lt244xdetails::channel", "unionlt244xdetails_1_1channel.html", null ],
@@ -92,7 +93,7 @@ var hierarchy =
       [ "lt244x< pinout, spi, SpiClkDiv >", "structlt244x.html", null ]
     ] ],
     [ "PinoutMonitorAdc", "structPinoutMonitorAdc.html", [
-      [ "ads1258< PinoutMonitorAdc >", "structads1258.html", null ]
+      [ "ads1258dual< PinoutMonitorAdc >", "structads1258dual.html", null ]
     ] ],
     [ "RTSCallback", "structRTSCallback.html", null ],
     [ "spi", "classspi.html", [

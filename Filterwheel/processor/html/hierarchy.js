@@ -38,6 +38,7 @@ var hierarchy =
     [ "CGraphPZTHardwareInterface", "structCGraphPZTHardwareInterface.html", null ],
     [ "CGraphPZTHardwareStatusRegister", "unionCGraphPZTHardwareStatusRegister.html", null ],
     [ "CGraphPZTProtoHardwareMmapper", "classCGraphPZTProtoHardwareMmapper.html", null ],
+    [ "CGraphPZTTelemetryPayload", "structCGraphPZTTelemetryPayload.html", null ],
     [ "CGraphPZTUartStatusRegister", "unionCGraphPZTUartStatusRegister.html", null ],
     [ "CGraphVersionPayload", "structCGraphVersionPayload.html", null ],
     [ "lt244xdetails::channel", "unionlt244xdetails_1_1channel.html", null ],

@@ -5,6 +5,7 @@ var CGraphPacket_8hpp =
     [ "CGraphPacket", "classCGraphPacket.html", "classCGraphPacket" ],
     [ "CGraphVersionPayload", "structCGraphVersionPayload.html", "structCGraphVersionPayload" ],
     [ "CGraphHardFaultPayload", "structCGraphHardFaultPayload.html", "structCGraphHardFaultPayload" ],
+    [ "CGraphPZTTelemetryPayload", "structCGraphPZTTelemetryPayload.html", "structCGraphPZTTelemetryPayload" ],
     [ "CGraphFSMTelemetryPayload", "structCGraphFSMTelemetryPayload.html", "structCGraphFSMTelemetryPayload" ],
     [ "CGraphDMTelemetryPayload", "structCGraphDMTelemetryPayload.html", "structCGraphDMTelemetryPayload" ],
     [ "CGraphDMPixelPayloadHeader", "structCGraphDMPixelPayloadHeader.html", "structCGraphDMPixelPayloadHeader" ],

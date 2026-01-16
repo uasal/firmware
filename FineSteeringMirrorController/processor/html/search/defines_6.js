@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['m18vchannel_0',['M18VChannel',['../MonitorAdc_8hpp.html#a0d61f658d341c6afd005865b6e21caf6',1,'MonitorAdc.hpp']]],
-  ['m20vchannel_1',['M20VChannel',['../MonitorAdc_8hpp.html#a8de8043175ed097bfe208e1e92616e2e',1,'MonitorAdc.hpp']]]
+  ['n18vchannel_0',['N18VChannel',['../MonitorAdc_8hpp.html#aa57f8d991b7ccbd395387879952d270b',1,'MonitorAdc.hpp']]],
+  ['n20vchannel_1',['N20VChannel',['../MonitorAdc_8hpp.html#a34bc4cbb7eb98bab26788ce348da09ea',1,'MonitorAdc.hpp']]]
 ];

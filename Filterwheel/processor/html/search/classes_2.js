@@ -30,11 +30,12 @@ var searchData=
   ['cgraphpzthardwareinterface_27',['CGraphPZTHardwareInterface',['../structCGraphPZTHardwareInterface.html',1,'']]],
   ['cgraphpzthardwarestatusregister_28',['CGraphPZTHardwareStatusRegister',['../unionCGraphPZTHardwareStatusRegister.html',1,'']]],
   ['cgraphpztprotohardwaremmapper_29',['CGraphPZTProtoHardwareMmapper',['../classCGraphPZTProtoHardwareMmapper.html',1,'']]],
-  ['cgraphpztuartstatusregister_30',['CGraphPZTUartStatusRegister',['../unionCGraphPZTUartStatusRegister.html',1,'']]],
-  ['cgraphversionpayload_31',['CGraphVersionPayload',['../structCGraphVersionPayload.html',1,'']]],
-  ['channel_32',['channel',['../unionlt244xdetails_1_1channel.html',1,'lt244xdetails']]],
-  ['cmd_33',['Cmd',['../structCmd.html',1,'']]],
-  ['config0register_34',['config0register',['../unionads1258details_1_1config0register.html',1,'ads1258details']]],
-  ['config1register_35',['config1register',['../unionads1258details_1_1config1register.html',1,'ads1258details']]],
-  ['configregister_36',['configregister',['../unionlt244xdetails_1_1configregister.html',1,'lt244xdetails']]]
+  ['cgraphpzttelemetrypayload_30',['CGraphPZTTelemetryPayload',['../structCGraphPZTTelemetryPayload.html',1,'']]],
+  ['cgraphpztuartstatusregister_31',['CGraphPZTUartStatusRegister',['../unionCGraphPZTUartStatusRegister.html',1,'']]],
+  ['cgraphversionpayload_32',['CGraphVersionPayload',['../structCGraphVersionPayload.html',1,'']]],
+  ['channel_33',['channel',['../unionlt244xdetails_1_1channel.html',1,'lt244xdetails']]],
+  ['cmd_34',['Cmd',['../structCmd.html',1,'']]],
+  ['config0register_35',['config0register',['../unionads1258details_1_1config0register.html',1,'ads1258details']]],
+  ['config1register_36',['config1register',['../unionads1258details_1_1config1register.html',1,'ads1258details']]],
+  ['configregister_37',['configregister',['../unionlt244xdetails_1_1configregister.html',1,'lt244xdetails']]]
 ];

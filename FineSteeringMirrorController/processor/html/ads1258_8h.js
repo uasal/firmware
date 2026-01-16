@@ -84,6 +84,7 @@ var ads1258_8h =
     [ "CountNegVRef", "ads1258_8h.html#aee4fd3c15a9f608cc178e0abfdbb54fa", null ],
     [ "CountPosMax", "ads1258_8h.html#a94ec3917c6cfb04420e13489f9ab391e", null ],
     [ "CountPosVRef", "ads1258_8h.html#ac0bc019df46f540b57dfc4260e4d6e02", null ],
+    [ "CountQuarterScaleUsually1V", "ads1258_8h.html#a8eddf05f3412aa1e1da2ae2fed0f9d18", null ],
     [ "CountVRefVccDenominator", "ads1258_8h.html#ac996141ddc744ca3e72412ce9d842e0a", null ],
     [ "CountZero", "ads1258_8h.html#a47f79866dfb09e5c8615d4c00b1ab5bb", null ],
     [ "datarate", "ads1258_8h.html#ae43cdedfa65fee43c251fb7a46a4ac32", null ],

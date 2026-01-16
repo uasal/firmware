@@ -7,5 +7,5 @@ var searchData=
   ['i3vdchannel_4',['I3VDChannel',['../MonitorAdc_8hpp.html#aed21ceebaa5dbf3af08818e1e9d120cf',1,'MonitorAdc.hpp']]],
   ['i6vchannel_5',['I6VChannel',['../MonitorAdc_8hpp.html#a0e642b756674fccb4cd17088ce541677',1,'MonitorAdc.hpp']]],
   ['ihvchannel_6',['IHVChannel',['../MonitorAdc_8hpp.html#a007e0c2faec350f9a6d50f8100994b6d',1,'MonitorAdc.hpp']]],
-  ['imvchannel_7',['IMVChannel',['../MonitorAdc_8hpp.html#ab4e4e718c88e7009db9d58a5820a1531',1,'MonitorAdc.hpp']]]
+  ['invchannel_7',['INVChannel',['../MonitorAdc_8hpp.html#a5ebc1c2bd2a8cab88abb0669eb3853cf',1,'MonitorAdc.hpp']]]
 ];

@@ -31,6 +31,7 @@ var ads1258dual_8h =
     [ "sysreadregister", "ads1258dual_8h.html#a8740d951d98d1b2b5456a5968ca7514e", null ],
     [ "sysreadregister", "ads1258dual_8h.html#a514e91f23e8977125f977d6b6c90b8af", null ],
     [ "address", "ads1258dual_8h.html#af3f726014b044194def151079f1f2d89", null ],
+    [ "ads1258_idnum_always", "ads1258dual_8h.html#a8ca286b6c991dc1cae1b1b3ea8c1bb9a", null ],
     [ "all", "ads1258dual_8h.html#af61f8246015db4f0a85a942ac747131e", null ],
     [ "alsomustbezero", "ads1258dual_8h.html#a43cc47d7cb51d8be01e4a24b203c08a2", null ],
     [ "bypass", "ads1258dual_8h.html#ab9db0440c25feb3e3898f8615c9f5d93", null ],
