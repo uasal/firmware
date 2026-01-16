@@ -267,12 +267,12 @@ namespace ads1258details
 	const uint8_t chan_se13 = 0x15;
 	const uint8_t chan_se14 = 0x16;
 	const uint8_t chan_se15 = 0x17;
-	const uint8_t chan_offset = 0x18; //24d
-	const uint8_t chan_zeroed = 0x19;
-	const uint8_t chan_vcc = 0x1A; //err?  skips 0x19 in datasheet!
-	const uint8_t chan_temp = 0x1B;
-	const uint8_t chan_gain = 0x1C; //28d
-	const uint8_t chan_ref = 0x1D;
+	const uint8_t chan_offset = 0x18; //24d //Ideally, the code from this register function is 0h, but varies because of the noise of the ADC and offsets stemming from the ADC and external signal conditioning
+	const uint8_t chan_zeroed = 0x19; //zero //err?  skips 0x19 in datasheet
+	const uint8_t chan_vcc = 0x1A; //Total Analog Supply Voltage (V) = Code / 786432
+	const uint8_t chan_temp = 0x1B; //Temperature(°C) = ( (Temp Reading(uV) - 168,000mV) / Temp Sensor Coefficient ) + 25°C; Where Temp Sensor Coefficient = 563mV/°C (if the ADS1258 and test PCB temperatures are forced together), or 394mV/°C (if only the ADS1258 temperature is forced and the test PCB is in free-air).
+	const uint8_t chan_gain = 0x1C; //28d //Device Gain (V/V) = Code / 7864320
+	const uint8_t chan_ref = 0x1D; //External Reference (V) = Code / 786432
 
 	const uint8_t ads1258numchannels = 0x1E;
 };
@@ -548,9 +548,10 @@ struct ads1258dual : spipinout
 			}
 
 			//4. Config registers
-			//ads1258details::config0register config0(1, 0, 1, 0, 0, 1); //Chopper off
-			ads1258details::config0register config0(1, 0, 1, 0, 1, 1); //Chopper on
-			ads1258details::config1register config1(0, 7, 0, 0);
+			//~ ads1258details::config0register config0(1, 0, 1, 0, 0, 1); //Chopper off (set this to read internal registers (sysread)
+			ads1258details::config0register config0(1, 0, 1, 0, 1, 1); //Chopper on - removes external offset (can't read internal registers (sysread)
+			//~ ads1258details::config1register config1(0, 7, 0, 0); //Min Fs, Max Settling
+			ads1258details::config1register config1(0, 1, 0, 0); //Min Fs, Min Settling
 			ads1258details::sysreadregister sysread(1, 1, 1, 1, 1);
 			{
 				WriteRegister(ads1258details::register_config0, config0.all);

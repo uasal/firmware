@@ -242,6 +242,16 @@ public:
 	#define StrainAChannel ads1258details::chan_diff6
 	#define P5VDChannel ads1258details::chan_se14
 	#define I2VAChannel ads1258details::chan_se15
+
+	//Let's also plan on reading the internal registers!
+	//Note that it is required to disable chopping (CHOP = 0) prior to taking this reading
+	//~ const uint8_t chan_offset = 0x18; //24d
+	//~ const uint8_t chan_zeroed = 0x19;
+	//~ const uint8_t chan_vcc = 0x1A; //err?  skips 0x19 in datasheet!
+	//~ const uint8_t chan_temp = 0x1B;
+	//~ const uint8_t chan_gain = 0x1C; //28d
+	//~ const uint8_t chan_ref = 0x1D;
+
 	
 	//Adc1 channels:
 	#define TempChannel ads1258details::chan_se0
