@@ -423,7 +423,7 @@ begin
 
 								DataOut <= AdcSampleToReadB(31 downto 0);
 								
-								ReadAdcSample <= '1';	
+								--~ ReadAdcSample <= '1';	
 
 							when AdcBAccumulatorAddr + std_logic_vector(to_unsigned(4, MAX_ADDRESS_BITS)) =>
 
@@ -436,7 +436,7 @@ begin
 
 								DataOut <= AdcSampleToReadC(31 downto 0);
 								
-								ReadAdcSample <= '1';	
+								--~ ReadAdcSample <= '1';	
 
 							when AdcCAccumulatorAddr + std_logic_vector(to_unsigned(4, MAX_ADDRESS_BITS)) =>
 
@@ -449,7 +449,7 @@ begin
 
 								DataOut <= AdcSampleToReadD(31 downto 0);
 								
-								ReadAdcSample <= '1';	
+								--~ ReadAdcSample <= '1';	
 
 							when AdcDAccumulatorAddr + std_logic_vector(to_unsigned(4, MAX_ADDRESS_BITS)) =>
 

@@ -30,6 +30,7 @@
 --------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.all;
 
 --Considering this as a 24-bit output A/D for rough compatibility with AD7760, we have 8 bits left for PPS timestamp.
@@ -187,18 +188,21 @@ architecture Ltc2378AccumQuad of Ltc2378AccumQuadPorts is
 	--~ signal TrigNextState : TrigStates;
 	--~ signal TrigCurrentState : TrigStates;
 	
-	signal AdcSampleA : std_logic_vector(23 downto 0);
-	signal AdcSampleB : std_logic_vector(23 downto 0);
-	signal AdcSampleC : std_logic_vector(23 downto 0);
-	signal AdcSampleD : std_logic_vector(23 downto 0);
+	signal AdcSampleA : signed(47 downto 0);
+	signal AdcSampleB : signed(47 downto 0);
+	signal AdcSampleC : signed(47 downto 0);
+	signal AdcSampleD : signed(47 downto 0);
 	signal SampleLatched : std_logic;
 	
 	signal SamplesAveraged : std_logic_vector(15 downto 0);
 	signal SamplesThisSecond : std_logic_vector(31 downto 0);
 	
 	signal LastReadRequest : std_logic;
+	signal LastSpiRst : std_logic;
 
 	signal ChopperPolarity : std_logic := '0';
+	
+	signal AdcSampleNumAccums_i : std_logic_vector(15 downto 0);	
 	
 begin
 
@@ -308,6 +312,7 @@ begin
 			ChopperMuxPos <= '0';
 			ChopperMuxNeg <= '0';		
 			LastReadRequest <= '0';			
+			AdcSampleNumAccums_i <= x"0000";
 			
 		else
 			
@@ -329,6 +334,11 @@ begin
 
 						ChopperMuxPos <= ChopperPolarity;
 						ChopperMuxNeg <= ChopperPolarity;
+						
+					else
+					
+						ChopperMuxPos <= '0';
+						ChopperMuxNeg <= '0';
 						
 					end if;
 					
@@ -369,54 +379,58 @@ begin
 
 							if (SpiXferComplete = '1') then
 						
-								if (ChopperEnable = '0') then
-								
-									--grab sample
-									AdcSampleA(23 downto 0) <= DataFromMisoA;
-									AdcSampleB(23 downto 0) <= DataFromMisoB;
-									AdcSampleC(23 downto 0) <= DataFromMisoC;
-									AdcSampleD(23 downto 0) <= DataFromMisoD;
-									--~ AdcSampleA <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoA));
-									--~ AdcSampleB <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoB));
-									--~ AdcSampleC <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoC));
-									--~ AdcSampleD <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoD));
-									AdcSampleToReadA <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoA));
-									AdcSampleToReadB <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoB));
-									AdcSampleToReadC <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoC));
-									AdcSampleToReadD <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoD));
-									
-									
-									SampleLatched <= '1';
-									
-								else
-								
-									ChopperPolarity <= not(ChopperPolarity);
-									
-									if (ChopperPolarity = '0') then
-									
-										--just grab sample
-										AdcSampleA(23 downto 0) <= DataFromMisoA;
-										AdcSampleB(23 downto 0) <= DataFromMisoB;
-										AdcSampleC(23 downto 0) <= DataFromMisoC;
-										AdcSampleD(23 downto 0) <= DataFromMisoD;
-										
-									else
-									
-										--do the difference!
-										AdcSampleA(23 downto 0) <= std_logic_vector(signed(AdcSampleA(23 downto 0)) - signed(DataFromMisoA));								
-										AdcSampleB(23 downto 0) <= std_logic_vector(signed(AdcSampleB(23 downto 0)) - signed(DataFromMisoB));								
-										AdcSampleC(23 downto 0) <= std_logic_vector(signed(AdcSampleC(23 downto 0)) - signed(DataFromMisoC));								
-										AdcSampleD(23 downto 0) <= std_logic_vector(signed(AdcSampleD(23 downto 0)) - signed(DataFromMisoD));								
-										SampleLatched <= '1';
-										
-									end if;
-									
-								end if;
-								
+								SampleLatched <= '1';
+																
 								SamplesThisSecond <= std_logic_vector(unsigned(SamplesThisSecond) + x"00000001");
 								
 								--turn off spi master bus
 								SpiRst <= '1';
+	
+								--~ if (ChopperEnable = '0') then
+								
+									AdcSampleNumAccums_i <= AdcSampleNumAccums_i + x"0001";
+								
+									--grab sample
+									--~ AdcSampleA(23 downto 0) <= DataFromMisoA;
+									--~ AdcSampleB(23 downto 0) <= DataFromMisoB;
+									--~ AdcSampleC(23 downto 0) <= DataFromMisoC;
+									--~ AdcSampleD(23 downto 0) <= DataFromMisoD;
+									--~ AdcSampleA <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoA));
+									--~ AdcSampleB <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoB));
+									--~ AdcSampleC <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoC));
+									--~ AdcSampleD <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoD));
+									AdcSampleA <= AdcSampleA + signed(DataFromMisoA);
+									AdcSampleB <= AdcSampleB + signed(DataFromMisoB);
+									AdcSampleC <= AdcSampleC + signed(DataFromMisoC);
+									AdcSampleD <= AdcSampleD + signed(DataFromMisoD);
+									
+								--~ else
+								
+									--~ ChopperPolarity <= not(ChopperPolarity);
+									
+									--~ if (ChopperPolarity = '0') then
+									
+										--~ --just grab sample
+										--~ AdcSampleA <= AdcSampleA + signed(DataFromMisoA);
+										--~ AdcSampleB <= AdcSampleB + signed(DataFromMisoB);
+										--~ AdcSampleC <= AdcSampleC + signed(DataFromMisoC);
+										--~ AdcSampleD <= AdcSampleD + signed(DataFromMisoD);
+
+										
+									--~ else
+									
+										--~ AdcSampleNumAccums_i <= AdcSampleNumAccums_i + x"0001";
+								
+										--~ --do the difference!
+										--~ AdcSampleA <= AdcSampleA - signed(DataFromMisoA);								
+										--~ AdcSampleB <= AdcSampleB - signed(DataFromMisoB);								
+										--~ AdcSampleC <= AdcSampleC - signed(DataFromMisoC);								
+										--~ AdcSampleD <= AdcSampleD - signed(DataFromMisoD);								
+										--~ SampleLatched <= '1';
+										
+									--~ end if;
+									
+								--~ end if;
 								
 							end if;
 							
@@ -428,17 +442,44 @@ begin
 								
 								if (ReadAdcSample = '1') then
 								
-									--We're not actually accumulating just yet...
-									--~ AdcSampleToReadA <= std_logic_vector(to_signed(0, 48) + signed(AdcSampleA));
-									--~ AdcSampleToReadB <= std_logic_vector(to_signed(0, 48) + signed(AdcSampleB));
-									--~ AdcSampleToReadC <= std_logic_vector(to_signed(0, 48) + signed(AdcSampleC));
-									--~ AdcSampleToReadD <= std_logic_vector(to_signed(0, 48) + signed(AdcSampleD));
-									AdcSampleNumAccums <= x"0001";
+									AdcSampleNumAccums <= AdcSampleNumAccums_i;
+									AdcSampleToReadA <= std_logic_vector(AdcSampleA);
+									AdcSampleToReadB <= std_logic_vector(AdcSampleB);
+									AdcSampleToReadC <= std_logic_vector(AdcSampleC);
+									AdcSampleToReadD <= std_logic_vector(AdcSampleD);
+									
+								end if;
+								
+								if (ReadAdcSample = '0') then
+								
+									AdcSampleNumAccums_i <= x"0000";									
+									AdcSampleA <= to_signed(0, 48);
+									AdcSampleB <= to_signed(0, 48);
+									AdcSampleC <= to_signed(0, 48);
+									AdcSampleD <= to_signed(0, 48);
 
 								end if;					
 
-							end if;
+							--~ end if;
+							else
 						
+							--~ if (SpiRst /= LastSpiRst) then
+					
+								--~ LastSpiRst <= SpiRst;
+								
+								--~ --Done with SPI xfer, then just put the sample in the read buffer...
+								--~ if (SpiRst = '1') then
+								
+									--~ AdcSampleNumAccums <= AdcSampleNumAccums_i;
+									--~ AdcSampleToReadA <= std_logic_vector(AdcSampleA);
+									--~ AdcSampleToReadB <= std_logic_vector(AdcSampleB);
+									--~ AdcSampleToReadC <= std_logic_vector(AdcSampleC);
+									--~ AdcSampleToReadD <= std_logic_vector(AdcSampleD);
+
+								--~ end if;					
+
+							end if;
+
 						end if;		
 						
 					end if;

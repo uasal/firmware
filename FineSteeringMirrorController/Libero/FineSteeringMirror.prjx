@@ -90,8 +90,8 @@ SIZE="1186"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpga/Main.vhd,hdl"
 STATE="utd"
-TIME="1767734231"
-SIZE="73409"
+TIME="1768333665"
+SIZE="73406"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpga/RegisterSpace.vhd,hdl"
 STATE="utd"
@@ -170,8 +170,8 @@ SIZE="1783"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/Ltc2378AccumQuad.vhd,hdl"
 STATE="utd"
-TIME="1767734296"
-SIZE="19879"
+TIME="1768947247"
+SIZE="20205"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/ltc244x.vhd,hdl"
 STATE="utd"
@@ -407,8 +407,8 @@ SIZE="1783"
 ENDFILE
 VALUE "<project>/../../include/fpga/Ltc2378AccumQuad.vhd,hdl"
 STATE="utd"
-TIME="1767734296"
-SIZE="19879"
+TIME="1768947247"
+SIZE="20205"
 ENDFILE
 VALUE "<project>/../../include/fpga/ltc244x.vhd,hdl"
 STATE="utd"
@@ -575,8 +575,8 @@ ENDFILE
 VALUE "<project>/../fpga/Main.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
 STATE="utd"
-TIME="1767734231"
-SIZE="73409"
+TIME="1768333665"
+SIZE="73406"
 ENDFILE
 VALUE "<project>/../fpga/RegisterSpace.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
@@ -1147,8 +1147,8 @@ SIZE="278"
 ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror.vm,syn_vm"
 STATE="utd"
-TIME="1767734321"
-SIZE="1024554"
+TIME="1768947265"
+SIZE="1198288"
 ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror_syn.prj,prj"
 STATE="utd"
@@ -1159,6 +1159,11 @@ VALUE "<project>/synthesis/FineSteeringMirror_vm.sdc,syn_sdc"
 STATE="utd"
 TIME="1767734322"
 SIZE="3949"
+ENDFILE
+VALUE "<project>/synthesis/synwork/layer1.so,so"
+STATE="utd"
+TIME="1768947081"
+SIZE="154"
 ENDFILE
 ENDLIST
 LIST UsedFile
@@ -1529,8 +1534,8 @@ NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
 LOCATION="/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/bin/synplify_pro"
-PARAM=""
-BATCH=0
+PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
+BATCH=1
 LICENSE=""
 IS32BIT="1"
 EndProfile
@@ -1753,8 +1758,12 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
+Reports;Reports;0
+ReportsCurrentItem;Generate FPGA Array Data:FineSteeringMirror_init_config.xml
+Constraint Manager;Constraint Manager;0
+SmartDesign;FineSteeringMirror;0
 StartPage;StartPage;0
-ACTIVEVIEW;StartPage
+ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","${CGRAPH_FIRMWARE}/include/fpga/ads1258.vhd","FALSE","FALSE"
@@ -1778,6 +1787,13 @@ SUBBLOCK "CoreSF2Reset::work","component/Actel/DirectCore/CoreSF2Reset/3.0.100/r
 ENDLIST
 LIST "CORESYSSERVICES_C0::work","component/work/CORESYSSERVICES_C0/CORESYSSERVICES_C0.v","TRUE","FALSE"
 SUBBLOCK "CORESYSSERVICES_C0_CORESYSSERVICES_C0_0_CORESYSSERVICES::CORESYSSERVICES_LIB","component/work/CORESYSSERVICES_C0/CORESYSSERVICES_C0_0/rtl/vlog/core/CoreSysServices.v","FALSE","FALSE"
+ENDLIST
+LIST "DESIGN_FIRMWARE::work","component/work/DESIGN_FIRMWARE/DESIGN_FIRMWARE.cxf","TRUE","FALSE"
+SUBBLOCK "SmartFusion2_CMSIS::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
+SUBBLOCK "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
 ENDLIST
 LIST "ClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 ENDLIST
@@ -1941,6 +1957,16 @@ ENDLIST
 LIST "RegisterSpacePorts::work","${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpga/RegisterSpace.vhd","FALSE","FALSE"
 ENDLIST
 LIST "RtcCounterPorts::work","${CGRAPH_FIRMWARE}/include/fpga/RtcCounter.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_CMSIS::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_HPDMA_Driver::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_NVM_Driver::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_System_Services_Driver::work","","FALSE","FALSE"
+ENDLIST
+LIST "SmartFusion2_MSS_Timer_Driver::work","","FALSE","FALSE"
 ENDLIST
 LIST "SpiExtBusAddrTxPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiExtBusAddrTx.vhd","FALSE","FALSE"
 SUBBLOCK "UartTx::work","${CGRAPH_FIRMWARE}/include/fpga/UartTx.vhd","FALSE","FALSE"
