@@ -90,13 +90,13 @@ SIZE="1186"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpga/Main.vhd,hdl"
 STATE="utd"
-TIME="1768333665"
-SIZE="73406"
+TIME="1769114879"
+SIZE="79048"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpga/RegisterSpace.vhd,hdl"
 STATE="utd"
-TIME="1764700397"
-SIZE="33214"
+TIME="1769104586"
+SIZE="33517"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/ads1258.vhd,hdl"
 STATE="utd"
@@ -112,6 +112,11 @@ VALUE "${CGRAPH_FIRMWARE}/include/fpga/ClockDivider.vhd,hdl"
 STATE="utd"
 TIME="1763032478"
 SIZE="2006"
+ENDFILE
+VALUE "${CGRAPH_FIRMWARE}/include/fpga/DacDitherer.vhd,hdl"
+STATE="utd"
+TIME="1769114449"
+SIZE="4878"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/fifo_gen.vhd,hdl"
 STATE="utd"
@@ -170,8 +175,8 @@ SIZE="1783"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/Ltc2378AccumQuad.vhd,hdl"
 STATE="utd"
-TIME="1768947247"
-SIZE="20205"
+TIME="1769020606"
+SIZE="22344"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/ltc244x.vhd,hdl"
 STATE="utd"
@@ -213,6 +218,11 @@ STATE="utd"
 TIME="1763032478"
 SIZE="3305"
 ENDFILE
+VALUE "${CGRAPH_FIRMWARE}/include/fpga/QuadDacDitherer.vhd,hdl"
+STATE="utd"
+TIME="1769110538"
+SIZE="8828"
+ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/RtcCounter.vhd,hdl"
 STATE="utd"
 TIME="1763032478"
@@ -225,8 +235,8 @@ SIZE="6109"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/SpiDacQuad.vhd,hdl"
 STATE="utd"
-TIME="1763032477"
-SIZE="7126"
+TIME="1769039451"
+SIZE="7499"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/SpiDeviceDual.vhd,hdl"
 STATE="utd"
@@ -407,8 +417,8 @@ SIZE="1783"
 ENDFILE
 VALUE "<project>/../../include/fpga/Ltc2378AccumQuad.vhd,hdl"
 STATE="utd"
-TIME="1768947247"
-SIZE="20205"
+TIME="1769020606"
+SIZE="22344"
 ENDFILE
 VALUE "<project>/../../include/fpga/ltc244x.vhd,hdl"
 STATE="utd"
@@ -462,8 +472,8 @@ SIZE="6109"
 ENDFILE
 VALUE "<project>/../../include/fpga/SpiDacQuad.vhd,hdl"
 STATE="utd"
-TIME="1763032477"
-SIZE="7126"
+TIME="1769039451"
+SIZE="7499"
 ENDFILE
 VALUE "<project>/../../include/fpga/SpiDeviceDual.vhd,hdl"
 STATE="utd"
@@ -575,14 +585,14 @@ ENDFILE
 VALUE "<project>/../fpga/Main.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
 STATE="utd"
-TIME="1768333665"
-SIZE="73406"
+TIME="1769114879"
+SIZE="79048"
 ENDFILE
 VALUE "<project>/../fpga/RegisterSpace.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
 STATE="utd"
-TIME="1764700397"
-SIZE="33214"
+TIME="1769104586"
+SIZE="33517"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
@@ -1145,11 +1155,6 @@ STATE="utd"
 TIME="1767734322"
 SIZE="278"
 ENDFILE
-VALUE "<project>/synthesis/FineSteeringMirror.vm,syn_vm"
-STATE="utd"
-TIME="1768947265"
-SIZE="1198288"
-ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror_syn.prj,prj"
 STATE="utd"
 TIME="1767734322"
@@ -1162,7 +1167,7 @@ SIZE="3949"
 ENDFILE
 VALUE "<project>/synthesis/synwork/layer1.so,so"
 STATE="utd"
-TIME="1768947081"
+TIME="1769114462"
 SIZE="154"
 ENDFILE
 ENDLIST
@@ -1180,68 +1185,6 @@ ENDLIST
 LIST PNRConstraints
 VALUE "<project>/constraint/user.sdc,sdc"
 VALUE "<project>/constraint/io/user.pdc,io_pdc"
-ENDLIST
-LIST ProjectState5.1
-LIST Impl1
-ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl4
-ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl5
-ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl6
-ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
 ENDLIST
 ENDLIST
 LIST "FineSteeringMirror_sb::work"
@@ -1559,68 +1502,6 @@ IS32BIT="1"
 EndProfile
 ENDLIST
 LIST ProjectState5.1
-LIST "FineSteeringMirror::work"
-LIST Impl1
-ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl4
-ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl5
-ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl6
-ideSYNTHESIS(<project>/synthesis/FineSteeringMirror.vm,syn_vm)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
 LIST "FineSteeringMirror_sb::work"
 LIST Impl1
 ideSTIMULUS=StateSuccess
@@ -1759,7 +1640,7 @@ ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 Reports;Reports;0
-ReportsCurrentItem;Generate FPGA Array Data:FineSteeringMirror_init_config.xml
+ReportsCurrentItem;synthesis:FineSteeringMirror.srr
 Constraint Manager;Constraint Manager;0
 SmartDesign;FineSteeringMirror;0
 StartPage;StartPage;0
@@ -1787,6 +1668,8 @@ SUBBLOCK "CoreSF2Reset::work","component/Actel/DirectCore/CoreSF2Reset/3.0.100/r
 ENDLIST
 LIST "CORESYSSERVICES_C0::work","component/work/CORESYSSERVICES_C0/CORESYSSERVICES_C0.v","TRUE","FALSE"
 SUBBLOCK "CORESYSSERVICES_C0_CORESYSSERVICES_C0_0_CORESYSSERVICES::CORESYSSERVICES_LIB","component/work/CORESYSSERVICES_C0/CORESYSSERVICES_C0_0/rtl/vlog/core/CoreSysServices.v","FALSE","FALSE"
+ENDLIST
+LIST "DacDitherer::work","","FALSE","FALSE"
 ENDLIST
 LIST "DESIGN_FIRMWARE::work","component/work/DESIGN_FIRMWARE/DESIGN_FIRMWARE.cxf","TRUE","FALSE"
 SUBBLOCK "SmartFusion2_CMSIS::work","","FALSE","FALSE"
@@ -1845,6 +1728,8 @@ ENDLIST
 LIST "ClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 ENDLIST
 LIST "SpiMasterPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiMaster.vhd","FALSE","FALSE"
+ENDLIST
+LIST "ClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 ENDLIST
 LIST "SpiMasterPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiMaster.vhd","FALSE","FALSE"
 ENDLIST
@@ -1921,6 +1806,7 @@ SUBBLOCK "SpiMasterPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiMaster.vhd",
 ENDLIST
 LIST "Main::work","${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpga/Main.vhd","FALSE","FALSE"
 SUBBLOCK "BuildNumberPorts::work","${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpga/BuildNumber.vhd","FALSE","FALSE"
+SUBBLOCK "DacDitherer::work","","FALSE","FALSE"
 SUBBLOCK "IBufP1Ports::work","${CGRAPH_FIRMWARE}/include/fpga/IBufP1.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP2Ports::work","${CGRAPH_FIRMWARE}/include/fpga/IBufP2.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP3Ports::work","${CGRAPH_FIRMWARE}/include/fpga/IBufP3.vhd","FALSE","FALSE"
@@ -1943,6 +1829,9 @@ LIST "PhaseComparatorPorts::work","${CGRAPH_FIRMWARE}/include/fpga/PhaseComparat
 SUBBLOCK "IBufP3Ports::work","${CGRAPH_FIRMWARE}/include/fpga/IBufP3.vhd","FALSE","FALSE"
 ENDLIST
 LIST "PPSCountPorts::work","${CGRAPH_FIRMWARE}/include/fpga/PPSCount.vhd","FALSE","FALSE"
+ENDLIST
+LIST "QuadDacDitherer::work","${CGRAPH_FIRMWARE}/include/fpga/QuadDacDitherer.vhd","FALSE","FALSE"
+SUBBLOCK "ClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 ENDLIST
 LIST "ramb16_s36_s36::work","","FALSE","FALSE"
 ENDLIST

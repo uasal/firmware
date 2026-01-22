@@ -879,7 +879,8 @@ architecture architecture_Main of Main is
 												
 						component SpiDacQuadPorts is
 						generic (
-							MASTER_CLOCK_FREQHZ : natural := 100000000--;
+							MASTER_CLOCK_FREQHZ : natural := 100000000;
+							BYTE_WIDTH : natural := 3--;
 						);
 						port (
 						
@@ -958,6 +959,65 @@ architecture architecture_Main of Main is
 						); end component;
 						
 
+						component DacDitherer is
+						generic (
+							DITHER_CLOCK_DIV : natural := 1024;
+							REGISTER_IN_BITS : natural := 24;
+							REGISTER_OUT_BITS : natural := 24;
+							DATA_BITS : natural := 20;
+							DITHER_BITS : natural := 2--;
+						);
+						port (
+						
+							--Globals
+							clk : in std_logic;
+							rst : in std_logic;
+							
+							-- A/D:
+							DacTrigger : out std_logic;
+							DacXferComplete : in std_logic;
+							
+							SetPointIn : in std_logic_vector(REGISTER_IN_BITS - 1 downto 0);
+							DacMagnitudeOut : out std_logic_vector(REGISTER_OUT_BITS - 1 downto 0)--;
+							
+						); end component;
+
+						component QuadDacDitherer is
+						generic (
+							DITHER_CLOCK_DIV : natural := 1024;
+							REGISTER_IN_BITS : natural := 24;
+							REGISTER_OUT_BITS : natural := 24;
+							DATA_BITS : natural := 20;
+							DITHER_BITS : natural := 2--;
+						);
+						port (
+						
+							--Globals
+							clk : in std_logic;
+							rst : in std_logic;
+							
+							-- A/D:
+							DacTrigger : out std_logic;
+							DacXferComplete : in std_logic; --we really shouldn't be updating values when this is low...
+							
+							SetPointInA : in std_logic_vector(REGISTER_IN_BITS - 1 downto 0);
+							DacMagnitudeOutA : out std_logic_vector(REGISTER_OUT_BITS - 1 downto 0);
+							
+							SetPointInB : in std_logic_vector(REGISTER_IN_BITS - 1 downto 0);
+							DacMagnitudeOutB : out std_logic_vector(REGISTER_OUT_BITS - 1 downto 0);
+							
+							SetPointInC : in std_logic_vector(REGISTER_IN_BITS - 1 downto 0);
+							DacMagnitudeOutC : out std_logic_vector(REGISTER_OUT_BITS - 1 downto 0);
+							
+							SetPointInD : in std_logic_vector(REGISTER_IN_BITS - 1 downto 0);
+							DacMagnitudeOutD : out std_logic_vector(REGISTER_OUT_BITS - 1 downto 0);
+							
+							TP1 : out std_logic;
+							TP2 : out std_logic;
+							TP3 : out std_logic;
+							TP4 : out std_logic--;
+
+						); end component;
 
 						
 --Constants & Setup
@@ -1009,30 +1069,63 @@ architecture architecture_Main of Main is
 		-- FSM D/As
 		
 			signal DacSelectMaxti : std_logic;	
-			signal nCsDacA_i : std_logic;	
-			signal nCsDacB_i : std_logic;	
-			signal nCsDacC_i : std_logic;	
-			signal nCsDacD_i : std_logic;	
-			signal SckDacs_i : std_logic;	
-			signal MosiDacA_i : std_logic;	
-			signal MosiDacB_i : std_logic;	
-			signal MosiDacC_i : std_logic;	
-			signal MosiDacD_i : std_logic;	
-			signal MisoDacA_i : std_logic;	
-			signal MisoDacB_i : std_logic;	
-			signal MisoDacC_i : std_logic;	
-			signal MisoDacD_i : std_logic;	
+			signal nCsDacMaxA_i : std_logic;	
+			signal nCsDacMaxB_i : std_logic;	
+			signal nCsDacMaxC_i : std_logic;	
+			signal nCsDacMaxD_i : std_logic;	
+			signal SckDacsMax_i : std_logic;	
+			signal MosiDacMaxA_i : std_logic;	
+			signal MosiDacMaxB_i : std_logic;	
+			signal MosiDacMaxC_i : std_logic;	
+			signal MosiDacMaxD_i : std_logic;	
+			signal MisoDacMaxA_i : std_logic;	
+			signal MisoDacMaxB_i : std_logic;	
+			signal MisoDacMaxC_i : std_logic;	
+			signal MisoDacMaxD_i : std_logic;				
+			signal nCsDacTiA_i : std_logic;	
+			signal nCsDacTiB_i : std_logic;	
+			signal nCsDacTiC_i : std_logic;	
+			signal nCsDacTiD_i : std_logic;	
+			signal SckDacsTi_i : std_logic;	
+			signal MosiDacTiA_i : std_logic;	
+			signal MosiDacTiB_i : std_logic;	
+			signal MosiDacTiC_i : std_logic;	
+			signal MosiDacTiD_i : std_logic;	
+			signal MisoDacTiA_i : std_logic;	
+			signal MisoDacTiB_i : std_logic;	
+			signal MisoDacTiC_i : std_logic;	
+			signal MisoDacTiD_i : std_logic;	
 			signal DacASetpoint : std_logic_vector(23 downto 0);	
 			signal DacBSetpoint : std_logic_vector(23 downto 0);	
 			signal DacCSetpoint : std_logic_vector(23 downto 0);	
 			signal DacDSetpoint : std_logic_vector(23 downto 0);	
-			signal WriteDacs : std_logic;	
+			signal DacASetpointMax_i : std_logic_vector(23 downto 0);	
+			signal DacBSetpointMax_i : std_logic_vector(23 downto 0);	
+			signal DacCSetpointMax_i : std_logic_vector(23 downto 0);	
+			signal DacDSetpointMax_i : std_logic_vector(23 downto 0);	
+			signal DacASetpointTi_i : std_logic_vector(15 downto 0);	
+			signal DacBSetpointTi_i : std_logic_vector(15 downto 0);	
+			signal DacCSetpointTi_i : std_logic_vector(15 downto 0);	
+			signal DacDSetpointTi_i : std_logic_vector(15 downto 0);	
 			signal DacAReadback : std_logic_vector(23 downto 0);	
 			signal DacBReadback : std_logic_vector(23 downto 0);	
 			signal DacCReadback : std_logic_vector(23 downto 0);	
 			signal DacDReadback : std_logic_vector(23 downto 0);	
+			signal DacAReadbackMax : std_logic_vector(23 downto 0);	
+			signal DacBReadbackMax : std_logic_vector(23 downto 0);	
+			signal DacCReadbackMax : std_logic_vector(23 downto 0);	
+			signal DacDReadbackMax : std_logic_vector(23 downto 0);	
+			signal DacAReadbackTi : std_logic_vector(15 downto 0);	
+			signal DacBReadbackTi : std_logic_vector(15 downto 0);	
+			signal DacCReadbackTi : std_logic_vector(15 downto 0);	
+			signal DacDReadbackTi : std_logic_vector(15 downto 0);	
+			
+			signal WriteDacs : std_logic;	
 			signal nLDacs_i : std_logic;	
-			signal DacTransferComplete : std_logic;	
+			signal DacTriggerTi : std_logic;	
+			signal DacTransferCompleteTi : std_logic;	
+			signal DacTriggerMax : std_logic;	
+			signal DacTransferCompleteMax : std_logic;	
 			
 			
 		-- FSM Readback A/Ds
@@ -1344,7 +1437,7 @@ begin
 		--~ DacAReadback => DacASetpoint,
 		--~ DacBReadback => DacBSetpoint,
 		--~ DacCReadback => DacCSetpoint--,
-		DacTransferComplete => DacTransferComplete,
+		DacTransferComplete => (DacTransferCompleteMax and DacTransferCompleteTi),
 		
 		--FSM A/D's
 		ReadAdcSample => ReadAdcSample,
@@ -1439,47 +1532,66 @@ begin
 		--~ IBufFSMDacMisoB : IBufP1Ports port map(clk => MasterClk, I => MosiDacB, O => MisoDacB_i); --No actual Miso on MAX5719, so we're looping back the Mosi signal to see if the bit is stuck on the pcb...
 		--~ IBufFSMDacMisoC : IBufP1Ports port map(clk => MasterClk, I => MosiDacC, O => MisoDacC_i); --No actual Miso on MAX5719, so we're looping back the Mosi signal to see if the bit is stuck on the pcb...
 		--~ IBufFSMDacMisoD : IBufP1Ports port map(clk => MasterClk, I => MosiDacD, O => MisoDacD_i); --No actual Miso on MAX5719, so we're looping back the Mosi signal to see if the bit is stuck on the pcb...
-		
+
+	--Running D/A's at 10MHz sck, so should be able to run dither at 10/4 = 400kHz max...
+	--~ DITHER_CLOCK_DIV => 1048576, --100Hz
+	--~ DITHER_CLOCK_DIV => 104857, --1kHz
+	--~ DITHER_CLOCK_DIV => 10485, --10kHz
+	--~ DITHER_CLOCK_DIV => 1024, --102kHz
+	
+	DacDithererMaxA : DacDitherer generic map (DITHER_CLOCK_DIV => 1024, REGISTER_IN_BITS => 24, REGISTER_OUT_BITS => 24, DATA_BITS => 20,	DITHER_BITS => 4) port map (clk => MasterClk, rst => MasterReset, DacTrigger => DacTriggerMax, DacXferComplete => DacTransferCompleteMax, SetPointIn => DacASetpoint, DacMagnitudeOut => DacASetpointMax_i);
+	DacDithererMaxB : DacDitherer generic map (DITHER_CLOCK_DIV => 1024, REGISTER_IN_BITS => 24, REGISTER_OUT_BITS => 24, DATA_BITS => 20,	DITHER_BITS => 4) port map (clk => MasterClk, rst => MasterReset, DacTrigger => open, DacXferComplete => DacTransferCompleteMax, SetPointIn => DacBSetpoint, DacMagnitudeOut => DacBSetpointMax_i);
+	DacDithererMaxC : DacDitherer generic map (DITHER_CLOCK_DIV => 1024, REGISTER_IN_BITS => 24, REGISTER_OUT_BITS => 24, DATA_BITS => 20,	DITHER_BITS => 4) port map (clk => MasterClk, rst => MasterReset, DacTrigger => open, DacXferComplete => DacTransferCompleteMax, SetPointIn => DacCSetpoint, DacMagnitudeOut => DacCSetpointMax_i);
+	DacDithererMaxD : DacDitherer generic map (DITHER_CLOCK_DIV => 1024, REGISTER_IN_BITS => 24, REGISTER_OUT_BITS => 24, DATA_BITS => 20,	DITHER_BITS => 4) port map (clk => MasterClk, rst => MasterReset, DacTrigger => open, DacXferComplete => DacTransferCompleteMax, SetPointIn => DacDSetpoint, DacMagnitudeOut => DacDSetpointMax_i);
+
+	DacDithererTiA : DacDitherer generic map (DITHER_CLOCK_DIV => 1024, REGISTER_IN_BITS => 24, REGISTER_OUT_BITS => 16, DATA_BITS => 16,	DITHER_BITS => 4) port map (clk => MasterClk, rst => MasterReset, DacTrigger => DacTriggerTi, DacXferComplete => DacTransferCompleteTi, SetPointIn => DacASetpoint, DacMagnitudeOut => DacASetpointTi_i);
+	DacDithererTiB : DacDitherer generic map (DITHER_CLOCK_DIV => 1024, REGISTER_IN_BITS => 24, REGISTER_OUT_BITS => 16, DATA_BITS => 16,	DITHER_BITS => 4) port map (clk => MasterClk, rst => MasterReset, DacTrigger => open, DacXferComplete => DacTransferCompleteTi, SetPointIn => DacBSetpoint, DacMagnitudeOut => DacBSetpointTi_i);
+	DacDithererTiC : DacDitherer generic map (DITHER_CLOCK_DIV => 1024, REGISTER_IN_BITS => 24, REGISTER_OUT_BITS => 16, DATA_BITS => 16,	DITHER_BITS => 4) port map (clk => MasterClk, rst => MasterReset, DacTrigger => open, DacXferComplete => DacTransferCompleteTi, SetPointIn => DacCSetpoint, DacMagnitudeOut => DacCSetpointTi_i);
+	DacDithererTiD : DacDitherer generic map (DITHER_CLOCK_DIV => 1024, REGISTER_IN_BITS => 24, REGISTER_OUT_BITS => 16, DATA_BITS => 16,	DITHER_BITS => 4) port map (clk => MasterClk, rst => MasterReset, DacTrigger => open, DacXferComplete => DacTransferCompleteTi, SetPointIn => DacDSetpoint, DacMagnitudeOut => DacDSetpointTi_i);
+
 	--MAX5719 is left-shifted, MSB-first
-	FSMDacs_i : SpiDacQuadPorts
+	FSMDacsMax_i : SpiDacQuadPorts
 	generic map 
 	(
-		MASTER_CLOCK_FREQHZ => BoardMasterClockFreq--,
+		MASTER_CLOCK_FREQHZ => BoardMasterClockFreq,
+		BYTE_WIDTH => 3--,
+
 	)
 	port map 
 	(
 		clk => MasterClk,
 		rst => MasterReset,
-		nCsA => nCsDacA_i,
-		nCsB => nCsDacB_i,
-		nCsC => nCsDacC_i,
-		nCsD => nCsDacD_i,
-		Sck => SckDacs_i,
-		MosiA => MosiDacA_i,
-		MosiB => MosiDacB_i,
-		MosiC => MosiDacC_i,
-		MosiD => MosiDacD_i,
-		MisoA => MosiDacA_i, --these should really loop back at the board level not the signal level, but we got two d/a's to juggle...
-		MisoB => MosiDacB_i,
-		MisoC => MosiDacC_i,
-		MisoD => MosiDacD_i,
-		WriteDac => WriteDacs,
-		DacWriteOutA => DacASetpoint,
-		DacWriteOutB => DacBSetpoint,
-		DacWriteOutC => DacCSetpoint,
-		DacWriteOutD => DacDSetpoint,
-		DacReadbackA => DacAReadback,
-		DacReadbackB => DacBReadback,
-		DacReadbackC => DacCReadback,
-		DacReadbackD => DacDReadback,
-		TransferComplete => DacTransferComplete
+		nCsA => nCsDacMaxA_i,
+		nCsB => nCsDacMaxB_i,
+		nCsC => nCsDacMaxC_i,
+		nCsD => nCsDacMaxD_i,
+		Sck => SckDacsMax_i,
+		MosiA => MosiDacMaxA_i,
+		MosiB => MosiDacMaxB_i,
+		MosiC => MosiDacMaxC_i,
+		MosiD => MosiDacMaxD_i,
+		MisoA => MosiDacMaxA_i, --these should really loop back at the board level not the signal level, but we got two d/a's to juggle...
+		MisoB => MosiDacMaxB_i,
+		MisoC => MosiDacMaxC_i,
+		MisoD => MosiDacMaxD_i,
+		--~ --Enable these to remove dither:
+		--~ WriteDac => WriteDacs,
+		--~ DacWriteOutA => DacASetpoint(31 downto 8),
+		--~ DacWriteOutB => DacBSetpoint(31 downto 8),
+		--~ DacWriteOutC => DacCSetpoint(31 downto 8),
+		--~ DacWriteOutD => DacDSetpoint(31 downto 8),
+		WriteDac => DacTriggerMax,
+		DacWriteOutA => DacASetpointMax_i,
+		DacWriteOutB => DacBSetpointMax_i,
+		DacWriteOutC => DacCSetpointMax_i,
+		DacWriteOutD => DacDSetpointMax_i,
+		DacReadbackA => DacAReadbackMax,
+		DacReadbackB => DacBReadbackMax,
+		DacReadbackC => DacCReadbackMax,
+		DacReadbackD => DacDReadbackMax,
+		TransferComplete => DacTransferCompleteMax
 	);
-
-	--~ UserJmpJstnCse <= nCsDacA_i;
-	--~ TP3 <= SckDacs_i;
-	--~ TP1 <= MosiDacA_i;
-	--~ TP1 <= nLDacs_i;	
-
+	
 	--not(nCs) prolly works, but this is more technically correct:
 	nLDacsOneShot : OneShotPorts
 	generic map (
@@ -1491,38 +1603,80 @@ begin
 	)
 	port map (	
 		clk => MasterClk,
-		rst => not(nCsDacA_i),
+		rst => not(nCsDacMaxA_i),
 		shot => nLDacs_i
 	);
 
+	--DAC8830 takes last 16 MSB's, so it needs it's own component to drive it
+	FSMDacsTi_i : SpiDacQuadPorts
+	generic map 
+	(
+		MASTER_CLOCK_FREQHZ => BoardMasterClockFreq,
+		BYTE_WIDTH => 2--,
+
+	)
+	port map 
+	(
+		clk => MasterClk,
+		rst => MasterReset,
+		nCsA => nCsDacTiA_i,
+		nCsB => nCsDacTiB_i,
+		nCsC => nCsDacTiC_i,
+		nCsD => nCsDacTiD_i,
+		Sck => SckDacsTi_i,
+		MosiA => MosiDacTiA_i,
+		MosiB => MosiDacTiB_i,
+		MosiC => MosiDacTiC_i,
+		MosiD => MosiDacTiD_i,
+		MisoA => MosiDacTiA_i, --these should really loop back at the board level not the signal level, but we got two d/a's to juggle...
+		MisoB => MosiDacTiB_i,
+		MisoC => MosiDacTiC_i,
+		MisoD => MosiDacTiD_i,
+		WriteDac => DacTriggerTi,
+		DacWriteOutA => DacASetpointTi_i,
+		DacWriteOutB => DacBSetpointTi_i,
+		DacWriteOutC => DacCSetpointTi_i,
+		DacWriteOutD => DacDSetpointTi_i,
+		DacReadbackA => DacAReadbackTi,
+		DacReadbackB => DacBReadbackTi,
+		DacReadbackC => DacCReadbackTi,
+		DacReadbackD => DacDReadbackTi,
+		TransferComplete => DacTransferCompleteTi
+	);
+
+
 	--D/A Muxing:
 	
-	MosiTiDacA <= MosiDacA_i when (DacSelectMaxti = '0') else 'Z';
-	MosiTiDacB <= MosiDacB_i when (DacSelectMaxti = '0') else 'Z';
-	MosiTiDacC <= MosiDacC_i when (DacSelectMaxti = '0') else 'Z';
-	MosiTiDacD <= MosiDacD_i when (DacSelectMaxti = '0') else 'Z';
-	SckTiDacs <= SckDacs_i when (DacSelectMaxti = '0') else 'Z';
-	nCsTiDacs <= nCsDacA_i when (DacSelectMaxti = '0') else 'Z';
+	MosiTiDacA <= MosiDacTiA_i when (DacSelectMaxti = '0') else 'Z';
+	MosiTiDacB <= MosiDacTiB_i when (DacSelectMaxti = '0') else 'Z';
+	MosiTiDacC <= MosiDacTiC_i when (DacSelectMaxti = '0') else 'Z';
+	MosiTiDacD <= MosiDacTiD_i when (DacSelectMaxti = '0') else 'Z';
+	SckTiDacs <= SckDacsTi_i when (DacSelectMaxti = '0') else 'Z';
+	nCsTiDacs <= nCsDacTiA_i when (DacSelectMaxti = '0') else 'Z';
 	PowerEnTi <= not(DacSelectMaxti);
 	
-	MosiMaxDacA <= MosiDacA_i when (DacSelectMaxti = '1') else 'Z';
-	MosiMaxDacB <= MosiDacB_i when (DacSelectMaxti = '1') else 'Z';
-	MosiMaxDacC <= MosiDacC_i when (DacSelectMaxti = '1') else 'Z';
-	MosiMaxDacD <= MosiDacD_i when (DacSelectMaxti = '1') else 'Z';
-	SckMaxDacs <= SckDacs_i when (DacSelectMaxti = '1') else 'Z';
-	nCsMaxDacs <= nCsDacA_i when (DacSelectMaxti = '1') else 'Z';
+	MosiMaxDacA <= MosiDacMaxA_i when (DacSelectMaxti = '1') else 'Z';
+	MosiMaxDacB <= MosiDacMaxB_i when (DacSelectMaxti = '1') else 'Z';
+	MosiMaxDacC <= MosiDacMaxC_i when (DacSelectMaxti = '1') else 'Z';
+	MosiMaxDacD <= MosiDacMaxD_i when (DacSelectMaxti = '1') else 'Z';
+	SckMaxDacs <= SckDacsMax_i when (DacSelectMaxti = '1') else 'Z';
+	nCsMaxDacs <= nCsDacMaxA_i when (DacSelectMaxti = '1') else 'Z';
 	nLoadMaxDacs <= nLDacs_i when (DacSelectMaxti = '1') else 'Z';
 	PowerEnMax <= DacSelectMaxti;
 	
-	--~ TP1_i <= nCsDacA_i;
-	--~ TP2_i <= nLDacs_i;
-	--~ TP2_i <= MosiDacA_i;
-	--~ TP2_i <= RamBusWE;
-	--~ TP3_i <= SckDacs_i;
-	--~ TP3_i <= WriteDacs;
-	--~ TP4_i <= MisoDacA_i;
-	--~ TP4_i <= WriteAck;
-	--~ TP4_i <= RamBusData_in(0);
+	DacAReadback <= (DacAReadbackTi, others => '0') when (DacSelectMaxti = '0') else DacAReadbackMax;
+	DacBReadback <= (DacBReadbackTi, others => '0') when (DacSelectMaxti = '0') else DacBReadbackMax;
+	DacCReadback <= (DacCReadbackTi, others => '0') when (DacSelectMaxti = '0') else DacCReadbackMax;
+	DacDReadback <= (DacDReadbackTi, others => '0') when (DacSelectMaxti = '0') else DacDReadbackMax;
+	
+	TP1 <= DacTriggerTi;
+	TP2 <= DacTransferCompleteTi;
+	TP3 <= SckDacsTi_i;
+	TP4 <= DacASetpointTi_i(2);
+	TP5 <= DacASetpointTi_i(3);
+	TP6 <= DacASetpointTi_i(4);
+	TP7 <= DacASetpointTi_i(5);
+	TP8 <= DacASetpointTi_i(6);
 	
 	--~ TP1 <= nCsDacA_i;
 	--~ TP2 <= SckDacs_i;
@@ -1702,14 +1856,14 @@ begin
 	
 	MonitorAdcReset_i <= MasterReset or MonitorAdcReset;
 	
-	TP1 <= nCsMonitorAdc_i;
-	TP2 <= SckMonitorAdc_i;
-	TP3 <= MosiMonitorAdc_i;
-	TP4 <= MisoMonitorAdc0_i;
-	TP5 <= MisoMonitorAdc1_i;
-	TP6 <= MonitorAdcSpiXferDone;
-	TP7 <= MonitorAdcSpiDataIn(0);
-	TP8 <= MonitorAdcSpiDataOut0(0);
+	--~ TP1 <= nCsMonitorAdc_i;
+	--~ TP2 <= SckMonitorAdc_i;
+	--~ TP3 <= MosiMonitorAdc_i;
+	--~ TP4 <= MisoMonitorAdc0_i;
+	--~ TP5 <= MisoMonitorAdc1_i;
+	--~ TP6 <= MonitorAdcSpiXferDone;
+	--~ TP7 <= MonitorAdcSpiDataIn(0);
+	--~ TP8 <= MonitorAdcSpiDataOut0(0);
 	
 	
 	----------------------------- RS-422 ----------------------------------

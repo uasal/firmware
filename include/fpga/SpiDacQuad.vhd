@@ -43,7 +43,8 @@ use IEEE.NUMERIC_STD.all;
 
 entity SpiDacQuadPorts is
 	generic (
-		MASTER_CLOCK_FREQHZ : natural := 100000000--;
+		MASTER_CLOCK_FREQHZ : natural := 100000000;
+		BYTE_WIDTH : natural := 3--;
 	);
 	port (
 	
@@ -68,14 +69,14 @@ entity SpiDacQuadPorts is
 		
 		--Control signals
 		WriteDac : in std_logic;
-		DacWriteOutA : in std_logic_vector(23 downto 0);
-		DacWriteOutB : in std_logic_vector(23 downto 0);
-		DacWriteOutC : in std_logic_vector(23 downto 0);
-		DacWriteOutD : in std_logic_vector(23 downto 0);
-		DacReadbackA : out std_logic_vector(23 downto 0);
-		DacReadbackB : out std_logic_vector(23 downto 0);
-		DacReadbackC : out std_logic_vector(23 downto 0);
-		DacReadbackD : out std_logic_vector(23 downto 0);
+		DacWriteOutA : in std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
+		DacWriteOutB : in std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
+		DacWriteOutC : in std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
+		DacWriteOutD : in std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
+		DacReadbackA : out std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
+		DacReadbackB : out std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
+		DacReadbackC : out std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
+		DacReadbackD : out std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
 		TransferComplete : out std_logic--;
 		
 	); end SpiDacQuadPorts;
@@ -127,14 +128,14 @@ architecture SpiDacQuad of SpiDacQuadPorts is
 		
 	--~ signal DacClk : std_logic;
 	signal LastWriteDac : std_logic;
-	signal DacWriteOutA_i : std_logic_vector(23 downto 0);
-	signal DacWriteOutB_i : std_logic_vector(23 downto 0);
-	signal DacWriteOutC_i : std_logic_vector(23 downto 0);
-	signal DacWriteOutD_i : std_logic_vector(23 downto 0);
-	signal DacReadbackA_i : std_logic_vector(23 downto 0);
-	signal DacReadbackB_i : std_logic_vector(23 downto 0);
-	signal DacReadbackC_i : std_logic_vector(23 downto 0);
-	signal DacReadbackD_i : std_logic_vector(23 downto 0);
+	signal DacWriteOutA_i : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
+	signal DacWriteOutB_i : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
+	signal DacWriteOutC_i : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
+	signal DacWriteOutD_i : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
+	signal DacReadbackA_i : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
+	signal DacReadbackB_i : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
+	signal DacReadbackC_i : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
+	signal DacReadbackD_i : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
 	
 begin
 
@@ -146,7 +147,8 @@ begin
 		--~ CLOCK_DIVIDER => 4, --25MHz
 		--~ CLOCK_DIVIDER => 3, --33MHz
 		--~ CLOCK_DIVIDER => 2, --50MHz
-		BYTE_WIDTH => 3,
+		--~ BYTE_WIDTH => 3,
+		BYTE_WIDTH => BYTE_WIDTH,
 		CPOL => '0'--, --'inverted' SCK polarity?
 	)
 	port map
@@ -189,10 +191,10 @@ begin
 			SpiRst <= '1';			
 			LastWriteDac <= '0';
 			LastSpiXferComplete <= '0';
-			DacWriteOutA_i <= x"000000";
-			DacWriteOutB_i <= x"000000";
-			DacWriteOutC_i <= x"000000";
-			DacWriteOutD_i <= x"000000";
+			DacWriteOutA_i <= (others => '0');
+			DacWriteOutB_i <= (others => '0');
+			DacWriteOutC_i <= (others => '0');
+			DacWriteOutD_i <= (others => '0');
 			
 		else
 			

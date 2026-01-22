@@ -30,7 +30,7 @@
 --------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+--~ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.all;
 
 --Considering this as a 24-bit output A/D for rough compatibility with AD7760, we have 8 bits left for PPS timestamp.
@@ -174,6 +174,10 @@ architecture Ltc2378AccumQuad of Ltc2378AccumQuadPorts is
 	signal DataFromMisoB : std_logic_vector(23 downto 0);
 	signal DataFromMisoC : std_logic_vector(23 downto 0);
 	signal DataFromMisoD : std_logic_vector(23 downto 0);
+	signal DataFromMisoAExt : std_logic_vector(47 downto 0);
+	signal DataFromMisoBExt : std_logic_vector(47 downto 0);
+	signal DataFromMisoCExt : std_logic_vector(47 downto 0);
+	signal DataFromMisoDExt : std_logic_vector(47 downto 0);
 	signal SpiRst : std_logic; --kicks off / inhibits transfer of a sample out of the A/D
 	signal SpiRst_i : std_logic; --delayed version to give a/d time to drive miso
 	signal SpiXferComplete : std_logic;
@@ -202,7 +206,7 @@ architecture Ltc2378AccumQuad of Ltc2378AccumQuadPorts is
 
 	signal ChopperPolarity : std_logic := '0';
 	
-	signal AdcSampleNumAccums_i : std_logic_vector(15 downto 0);	
+	signal AdcSampleNumAccums_i : unsigned(15 downto 0);	
 	
 begin
 
@@ -385,8 +389,16 @@ begin
 								
 								--turn off spi master bus
 								SpiRst <= '1';
+								
+								DataFromMisoAExt <= x"000000" & DataFromMisoA when (DataFromMisoA(23) = '0') else x"FFFFFF" & DataFromMisoA;
+								DataFromMisoBExt <= x"000000" & DataFromMisoB when (DataFromMisoB(23) = '0') else x"FFFFFF" & DataFromMisoB;
+								DataFromMisoCExt <= x"000000" & DataFromMisoC when (DataFromMisoC(23) = '0') else x"FFFFFF" & DataFromMisoC;
+								DataFromMisoDExt <= x"000000" & DataFromMisoD when (DataFromMisoD(23) = '0') else x"FFFFFF" & DataFromMisoD;
+
 	
 								--~ if (ChopperEnable = '0') then
+								
+								if (AdcSampleNumAccums_i < x"0008") then
 								
 									AdcSampleNumAccums_i <= AdcSampleNumAccums_i + x"0001";
 								
@@ -399,10 +411,24 @@ begin
 									--~ AdcSampleB <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoB));
 									--~ AdcSampleC <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoC));
 									--~ AdcSampleD <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoD));
-									AdcSampleA <= AdcSampleA + signed(DataFromMisoA);
-									AdcSampleB <= AdcSampleB + signed(DataFromMisoB);
-									AdcSampleC <= AdcSampleC + signed(DataFromMisoC);
-									AdcSampleD <= AdcSampleD + signed(DataFromMisoD);
+									
+									--This results in output shrinking the more it's averaged, as though the result is limited to 24b
+									--~ AdcSampleA <= AdcSampleA + signed(DataFromMisoA);
+									--~ AdcSampleB <= AdcSampleB + signed(DataFromMisoB);
+									--~ AdcSampleC <= AdcSampleC + signed(DataFromMisoC);
+									--~ AdcSampleD <= AdcSampleD + signed(DataFromMisoD);
+									
+									--~ --This results in weird output - values bounce all over, clearly not being sign extended correctly
+									--~ AdcSampleA <= AdcSampleA + resize(signed(DataFromMisoA), 48);
+									--~ AdcSampleB <= AdcSampleB + resize(signed(DataFromMisoB), 48);
+									--~ AdcSampleC <= AdcSampleC + resize(signed(DataFromMisoC), 48);
+									--~ AdcSampleD <= AdcSampleD + resize(signed(DataFromMisoD), 48);
+									
+									--Works??
+									AdcSampleA <= AdcSampleA + signed(DataFromMisoAExt);
+									AdcSampleB <= AdcSampleB + signed(DataFromMisoBExt);
+									AdcSampleC <= AdcSampleC + signed(DataFromMisoCExt);
+									AdcSampleD <= AdcSampleD + signed(DataFromMisoDExt);
 									
 								--~ else
 								
@@ -430,7 +456,7 @@ begin
 										
 									--~ end if;
 									
-								--~ end if;
+								end if;
 								
 							end if;
 							
@@ -442,7 +468,7 @@ begin
 								
 								if (ReadAdcSample = '1') then
 								
-									AdcSampleNumAccums <= AdcSampleNumAccums_i;
+									AdcSampleNumAccums <= std_logic_vector(AdcSampleNumAccums_i);
 									AdcSampleToReadA <= std_logic_vector(AdcSampleA);
 									AdcSampleToReadB <= std_logic_vector(AdcSampleB);
 									AdcSampleToReadC <= std_logic_vector(AdcSampleC);

@@ -377,26 +377,30 @@ begin
 							
 							when DacASetpointAddr =>
 
+								--~ DataOut <= DacAReadback;
 								DataOut(23 downto 0) <= DacAReadback;
-								--~ DataOut(31 downto 24) <= x"58";
+								--DataOut(31 downto 24) <= x"58";
 								DataOut(31 downto 24) <= x"00";
 							
 							when DacBSetpointAddr =>
 
+								--~ DataOut <= DacBReadback;
 								DataOut(23 downto 0) <= DacBReadback;
-								--~ DataOut(31 downto 24) <= x"58";
+								--DataOut(31 downto 24) <= x"58";
 								DataOut(31 downto 24) <= x"00";
 							
 							when DacCSetpointAddr =>
 
+								--~ DataOut <= DacCReadback;
 								DataOut(23 downto 0) <= DacCReadback;
-								--~ DataOut(31 downto 24) <= x"58";
+								--DataOut(31 downto 24) <= x"58";
 								DataOut(31 downto 24) <= x"00";
 							
 							when DacDSetpointAddr =>
 
+								--~ DataOut <= DacDReadback;
 								DataOut(23 downto 0) <= DacDReadback;
-								--~ DataOut(31 downto 24) <= x"58";
+								--DataOut(31 downto 24) <= x"58";
 								DataOut(31 downto 24) <= x"00";
 														
 								
@@ -755,6 +759,7 @@ begin
 							when DacASetpointAddr =>
 
 								DacASetpoint_i <= DataIn(23 downto 0);
+								--~ DacASetpoint_i <= DataIn;
 								
 								--The $$$ question: does our processor hit the low addr last or the high one???
 								--Also we shold prolly wait until all the D/A registers are loaded, and do it on channel "C" only
@@ -766,18 +771,21 @@ begin
 							when DacBSetpointAddr =>
 
 								DacBSetpoint_i <= DataIn(23 downto 0);
+								--~ DacBSetpoint_i <= DataIn;
 								
 							--DacCSetpoint
 								
-								when DacCSetpointAddr =>
+							when DacCSetpointAddr =>
 
 								DacCSetpoint_i <= DataIn(23 downto 0);
+								--~ DacCSetpoint_i <= DataIn;
 							
 							--DacDSetpoint
 														
 							when DacDSetpointAddr =>
 
 								DacDSetpoint_i <= DataIn(23 downto 0);
+								--~ DacDSetpoint_i <= DataIn;
 								
 								--The $$$ question: does our processor hit the low addr last or the high one???
 								--Also we shold prolly wait until all the D/A registers are loaded, and do it on channel "C" only
