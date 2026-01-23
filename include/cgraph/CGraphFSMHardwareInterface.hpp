@@ -146,7 +146,7 @@ struct CGraphFSMHardwareInterface
 	uint32_t reserved1; //28; PPSRtcPhaseCmpAddr
 	CGraphFSMHardwareControlRegister ControlRegister; //32; rw
 	uint32_t reserved2; //36
-	uint32_t reserved3; //40
+	uint32_t LatchAdcs; //40
     uint32_t DacASetpoint; //44; rw; First D/A; Zero = zero travel, DacFullScale = full scale travel
     uint32_t DacBSetpoint; //48; rw; Second D/A; Zero = zero travel, DacFullScale = full scale travel
     uint32_t DacCSetpoint; //52; rw; Third D/A; Zero = zero travel, DacFullScale = full scale travel

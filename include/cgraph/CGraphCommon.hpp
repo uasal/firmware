@@ -18,9 +18,9 @@ union AdcAccumulator
     uint64_t all;
     struct 
     {
-        //~ int64_t Samples : 48;
-		int64_t Samples : 24;
-		int64_t reserved : 24;
+        int64_t Samples : 48;
+		//~ int64_t Samples : 24;
+		//~ int64_t reserved : 24;
         uint16_t NumAccums;
 
     } __attribute__((__packed__));

@@ -45,7 +45,8 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 int8_t PrintBuffersCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t MonitorSerialCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t ControlRegisterCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
-int8_t DacSelectCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t SelectDacCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t SelectOutputCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 
 ///The actual table (array) of commands for the system - links with CmdSystem.cpp.o
 extern const Cmd AsciiCmds[];

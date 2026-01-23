@@ -195,7 +195,13 @@ const Cmd AsciiCmds[] =
 	Cmd(
         "SELECTDAC",
         "\"SelectDac <0/1>\": Which D/A to use for output.",
-        DacSelectCommand
+        SelectDacCommand
+    ),
+	
+	Cmd(
+        "SELECTOUTPUT",
+        "\"SelectOutput <0/1>\": Which H/V driver amp to use for output.",
+        SelectOutputCommand
     ),
 };
 

@@ -268,6 +268,8 @@ int8_t FSMAdcsCommand(char const* Name, char const* Params, const size_t ParamsL
 		
 		//Show current A/D values:
 		{
+			*((uint8_t*)&(FSM->LatchAdcs)) = 1;
+			
 			AdcAccumulator A, B, C, D;
 			A = FSM->AdcAAccumulator;
 			B = FSM->AdcBAccumulator;
@@ -288,7 +290,8 @@ int8_t FSMAdcsCommand(char const* Name, char const* Params, const size_t ParamsL
 				
 			//~ formatf("\n\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 8388608.0, (4.096 * (B.Samples / B.NumAccums)) / 8388608.0, (4.096 * (C.Samples / C.NumAccums)) / 8388608.0);
 			//~ formatf("\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx, 0x%016llx; %+d(%u), %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, D.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, D.Samples, D.NumAccums, Av, Bv, Cv, Dv);
-			formatf("\nFSMAdcs: current values: Num: %5d, %+9d, %+9d, %+9d, %+9d, %+1.6lf, %+1.6lf, %+1.6lf, %+1.6lf\n", A.NumAccums, A.Samples, B.Samples, C.Samples, D.Samples, Av, Bv, Cv, Dv);
+			//~ formatf("\nFSMAdcs: current values: Num: %5d, %+9d, %+9d, %+9d, %+9d, %+1.6lf, %+1.6lf, %+1.6lf, %+1.6lf\n", A.NumAccums, A.Samples, B.Samples, C.Samples, D.Samples, Av, Bv, Cv, Dv);
+			formatf("\nFSMAdcs: current values: Num: %5d, 0x%016llx, 0x%016llx, 0x%016llx, 0x%016llx, %+1.6lf, %+1.6lf, %+1.6lf, %+1.6lf\n", A.NumAccums, A.Samples, B.Samples, C.Samples, D.Samples, Av, Bv, Cv, Dv);
 		}
 		
 		//~ //Quit on any keypress
@@ -861,13 +864,13 @@ int8_t ControlRegisterCommand(char const* Name, char const* Params, const size_t
     return(strlen(Params));
 }
 
-int8_t DacSelectCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+int8_t SelectDacCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	CGraphFSMHardwareControlRegister cr;
 	
 	if (NULL == FSM)
 	{
-		formatf("\nDacSelect: Fpga interface is not initialized!");
+		formatf("\nSelectDac: Fpga interface is not initialized!");
 		return(ParamsLen);
 	}
 
@@ -886,11 +889,46 @@ int8_t DacSelectCommand(char const* Name, char const* Params, const size_t Param
 		
 		FSM->ControlRegister = cr;
 		
-		formatf("\n\nDacSelect: %c ('%c').\n", OnOff?'1':'0', onoff);
+		formatf("\n\nSelectDac: %c ('%c').\n", OnOff?'1':'0', onoff);
 	}
 	
 	cr = FSM->ControlRegister;
-	formatf("\nDacSelect: Current value: %lu.\n", (uint8_t)(cr.DacSelectMaxti));
+	formatf("\nSelectDac: Current value: %lu.\n", (uint8_t)(cr.DacSelectMaxti));
+	
+    return(strlen(Params));
+}
+
+int8_t SelectOutputCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	CGraphFSMHardwareControlRegister cr;
+	
+	if (NULL == FSM)
+	{
+		formatf("\nSelectOutput: Fpga interface is not initialized!");
+		return(ParamsLen);
+	}
+
+	char onoff;
+    bool OnOff = false;
+
+	//Convert parameters
+    int8_t numfound = sscanf(Params, " %c", &onoff);
+    if (numfound >= 1)
+    {
+		if ( ('Y' == onoff) || ('y' == onoff) || ('T' == onoff) || ('t' == onoff) || ('1' == onoff) ) { OnOff = true; }
+		
+		cr = FSM->ControlRegister;
+		
+		if (OnOff) { cr.HVEn1 = 0; cr.HVEn2 = 1; }
+		else { cr.HVEn1 = 1; cr.HVEn2 = 0; }
+		
+		FSM->ControlRegister = cr;
+		
+		formatf("\n\nSelectOutput: %c ('%c').\n", OnOff?'1':'0', onoff);
+	}
+	
+	cr = FSM->ControlRegister;
+	formatf("\nSelectOutput: Current value: %lu.\n", (uint8_t)(cr.HVEn2));
 	
     return(strlen(Params));
 }

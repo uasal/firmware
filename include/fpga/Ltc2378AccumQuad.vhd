@@ -164,6 +164,7 @@ architecture Ltc2378AccumQuad of Ltc2378AccumQuadPorts is
 	constant NoDataReady : std_logic := '1';
 	
 	signal LastnDrdy : std_logic; --to grab edge
+	signal RstNext : std_logic; --to grab edge
 	
 	--~ signal LastPPS : std_logic; 
 	
@@ -304,6 +305,7 @@ begin
 	
 		if (rst = '1') then --We're using AdcClkReset instead of the external rst signal here so that sync will reset SamplesAveraged so our sample is aligned to sync when we are downsampling...
 		
+			RstNext <= '0';
 			SpiRst <= '1';			
 			LastnDrdy <= '0';
 			--~ SampleLatched <= '0';
@@ -322,16 +324,10 @@ begin
 			
 			if ( (clk'event) and (clk = '1') ) then
 			
-				--Follow Drdy
-				--~ if (nDrdy /= LastnDrdy) then
-					--~ LastnDrdy <= nDrdy;
-					--~ if (nDrdy = DataReady) then
-					
+				---New sample @ A/D?	
 				if ((nDrdyA = DataReady) and (nDrdyB = DataReady) and (nDrdyC = DataReady) and (nDrdyD = DataReady) and (LastnDrdy = NoDataReady)) then
 				
 					LastnDrdy <= DataReady;
-					
-					--Here we go...
 					
 					--Switch the mux right at start of acquisition (aka right after a conversion is finished) to maximize settling time:
 					if (ChopperEnable = '1') then
@@ -346,7 +342,7 @@ begin
 						
 					end if;
 					
-					--~ if (SamplesAveraged >= SamplesToAverage) then
+					--Have we averaged enough samples to read the A/D yet?
 					--~ if ( (SamplesAveraged >= SamplesToAverage) or ((PPSTrigger = '1') and (PPSCount > std_logic_vector(to_unsigned(100663196, 32)))) ) then
 					if (unsigned(SamplesAveraged) >= unsigned(SamplesToAverage)) then
 					
@@ -364,7 +360,7 @@ begin
 						
 					else
 					
-						SamplesAveraged <= std_logic_vector(unsigned(SamplesAveraged) + x"0001");
+						SamplesAveraged <= std_logic_vector(unsigned(SamplesAveraged) + to_unsigned(1, 16));
 					
 					end if;
 					
@@ -388,19 +384,23 @@ begin
 								SamplesThisSecond <= std_logic_vector(unsigned(SamplesThisSecond) + x"00000001");
 								
 								--turn off spi master bus
+								RstNext <= '1';
 								SpiRst <= '1';
 								
 								DataFromMisoAExt <= x"000000" & DataFromMisoA when (DataFromMisoA(23) = '0') else x"FFFFFF" & DataFromMisoA;
 								DataFromMisoBExt <= x"000000" & DataFromMisoB when (DataFromMisoB(23) = '0') else x"FFFFFF" & DataFromMisoB;
 								DataFromMisoCExt <= x"000000" & DataFromMisoC when (DataFromMisoC(23) = '0') else x"FFFFFF" & DataFromMisoC;
 								DataFromMisoDExt <= x"000000" & DataFromMisoD when (DataFromMisoD(23) = '0') else x"FFFFFF" & DataFromMisoD;
-
-	
+								--~ DataFromMisoAExt <= resize(signed(DataFromMisoA), 48);
+								--~ DataFromMisoBExt <= resize(signed(DataFromMisoB), 48);
+								--~ DataFromMisoCExt <= resize(signed(DataFromMisoC), 48);
+								--~ DataFromMisoDExt <= resize(signed(DataFromMisoD), 48);
+								
 								--~ if (ChopperEnable = '0') then
 								
-								if (AdcSampleNumAccums_i < x"0008") then
+								if (AdcSampleNumAccums_i < x"8000") then
 								
-									AdcSampleNumAccums_i <= AdcSampleNumAccums_i + x"0001";
+									--~ AdcSampleNumAccums_i <= AdcSampleNumAccums_i + x"0001";
 								
 									--grab sample
 									--~ AdcSampleA(23 downto 0) <= DataFromMisoA;
@@ -425,10 +425,16 @@ begin
 									--~ AdcSampleD <= AdcSampleD + resize(signed(DataFromMisoD), 48);
 									
 									--Works??
-									AdcSampleA <= AdcSampleA + signed(DataFromMisoAExt);
-									AdcSampleB <= AdcSampleB + signed(DataFromMisoBExt);
-									AdcSampleC <= AdcSampleC + signed(DataFromMisoCExt);
-									AdcSampleD <= AdcSampleD + signed(DataFromMisoDExt);
+									--~ AdcSampleA <= AdcSampleA + signed(DataFromMisoAExt);
+									--~ AdcSampleB <= AdcSampleB + signed(DataFromMisoBExt);
+									--~ AdcSampleC <= AdcSampleC + signed(DataFromMisoCExt);
+									--~ AdcSampleD <= AdcSampleD + signed(DataFromMisoDExt);
+									--Don't accumulate...
+									AdcSampleNumAccums_i <= x"0001";
+									AdcSampleA <= signed(DataFromMisoAExt);
+									AdcSampleB <= signed(DataFromMisoBExt);
+									AdcSampleC <= signed(DataFromMisoCExt);
+									AdcSampleD <= signed(DataFromMisoDExt);
 									
 								--~ else
 								
@@ -462,27 +468,49 @@ begin
 							
 						else
 						
+							if (RstNext = '1') then
+							
+								--turn off spi master bus
+								RstNext <= '0';
+								SpiRst <= '1';
+								
+							end if;
+									
 							if (ReadAdcSample /= LastReadRequest) then
 					
 								LastReadRequest <= ReadAdcSample;
 								
 								if (ReadAdcSample = '1') then
 								
+									--Latch the old data for the next read...we can't do this regularly when we get samples, cause the damn uC reads it a byte at a time and it's very non-atomic that way and conssitently corrupted...
 									AdcSampleNumAccums <= std_logic_vector(AdcSampleNumAccums_i);
 									AdcSampleToReadA <= std_logic_vector(AdcSampleA);
 									AdcSampleToReadB <= std_logic_vector(AdcSampleB);
 									AdcSampleToReadC <= std_logic_vector(AdcSampleC);
 									AdcSampleToReadD <= std_logic_vector(AdcSampleD);
 									
-								end if;
-								
-								if (ReadAdcSample = '0') then
-								
 									AdcSampleNumAccums_i <= x"0000";									
 									AdcSampleA <= to_signed(0, 48);
 									AdcSampleB <= to_signed(0, 48);
 									AdcSampleC <= to_signed(0, 48);
 									AdcSampleD <= to_signed(0, 48);
+								
+								end if;
+								
+								if (ReadAdcSample = '0') then
+								
+									--~ --Latch the old data for the next read...we can't do this regularly when we get samples, cause the damn uC reads it a byte at a time and it's very non-atomic that way and conssitently corrupted...
+									--~ AdcSampleNumAccums <= std_logic_vector(AdcSampleNumAccums_i);
+									--~ AdcSampleToReadA <= std_logic_vector(AdcSampleA);
+									--~ AdcSampleToReadB <= std_logic_vector(AdcSampleB);
+									--~ AdcSampleToReadC <= std_logic_vector(AdcSampleC);
+									--~ AdcSampleToReadD <= std_logic_vector(AdcSampleD);
+									
+									--~ AdcSampleNumAccums_i <= x"0000";									
+									--~ AdcSampleA <= to_signed(0, 48);
+									--~ AdcSampleB <= to_signed(0, 48);
+									--~ AdcSampleC <= to_signed(0, 48);
+									--~ AdcSampleD <= to_signed(0, 48);
 
 								end if;					
 

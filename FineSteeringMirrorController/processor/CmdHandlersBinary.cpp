@@ -88,7 +88,7 @@ int8_t BinaryFSMAdcsCommand(const uint32_t Name, char const* Params, const size_
 	AdcVals[0] = FSM->AdcAAccumulator;
 	AdcVals[1] = FSM->AdcBAccumulator;
 	AdcVals[2] = FSM->AdcCAccumulator;	
-	printf("\nBinaryFSMAdcsCommand  Replying (%d, %d, %d)...\n\n", AdcVals[0].Samples, AdcVals[1].Samples, AdcVals[2].Samples);
+	printf("\nBinaryFSMAdcsCommand  Replying (%lld, %lld, %lld)...\n\n", AdcVals[0].Samples, AdcVals[1].Samples, AdcVals[2].Samples);
 	TxBinaryPacket(Argument, CGraphPayloadTypeFSMAdcs, 0, AdcVals, 3 * sizeof(AdcAccumulator));
     return(ParamsLen);
 }
@@ -102,9 +102,9 @@ int8_t BinaryFSMAdcsFloatingPointCommand(const uint32_t Name, char const* Params
 	A = FSM->AdcAAccumulator;
 	B = FSM->AdcBAccumulator;
 	C = FSM->AdcCAccumulator;
-	AdcVals[0] = (8.192 * ((A.Samples - 0) / A.NumAccums)) / 16777216.0;
-	AdcVals[1] = (8.192 * ((B.Samples - 0) / B.NumAccums)) / 16777216.0;
-	AdcVals[2] = (8.192 * ((C.Samples - 0) / C.NumAccums)) / 16777216.0;
+	AdcVals[0] = (4.096 * (((double)A.Samples - 0) / (double)A.NumAccums)) / 8388608.0;
+	AdcVals[1] = (4.096 * (((double)B.Samples - 0) / (double)B.NumAccums)) / 8388608.0;
+	AdcVals[2] = (4.096 * (((double)C.Samples - 0) / (double)C.NumAccums)) / 8388608.0;
 	printf("\nBinaryFSMAdcsFloatingPointCommand  Replying (%lf, %lf, %lf)...\n\n", AdcVals[0], AdcVals[1], AdcVals[2]);
 	TxBinaryPacket(Argument, CGraphPayloadTypeFSMAdcsFloatingPoint, 0, AdcVals, 3 * sizeof(double));
 

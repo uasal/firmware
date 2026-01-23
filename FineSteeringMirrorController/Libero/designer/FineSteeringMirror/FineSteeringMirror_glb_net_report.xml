@@ -3,7 +3,7 @@
 <doc>
 <title>Global Net Report</title>
 <text>Microchip Technology Inc. - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)</text>
-<text>Date: Thu Jan 22 14:48:48 2026
+<text>Date: Fri Jan 23 15:28:32 2026
 </text>
 <section>
 <name>Global Nets Information</name>
@@ -20,7 +20,7 @@
  <cell>GB[2] </cell>
  <cell>(220, 54)</cell>
  <cell>FCCC_C0_0/FCCC_C0_0/GL1_INST/U0_YNn</cell>
- <cell>2551</cell>
+ <cell>2354</cell>
 </row>
 <row>
  <cell>2</cell>
@@ -93,7 +93,7 @@
 <row>
  <cell>1</cell>
  <cell>Main_0/Uart2BitClockDiv/clko_i:Q</cell>
- <cell>(215, 40)</cell>
+ <cell>(182, 58)</cell>
  <cell>GB[1] </cell>
  <cell>Main_0/Uart2BitClockDiv/clko_i_2</cell>
  <cell>ROUTED</cell>
@@ -102,7 +102,7 @@
 <row>
  <cell>2</cell>
  <cell>Main_0/Uart1BitClockDiv/clko_i:Q</cell>
- <cell>(261, 52)</cell>
+ <cell>(177, 43)</cell>
  <cell>GB[3] </cell>
  <cell>Main_0/Uart1BitClockDiv/clko_i_Z</cell>
  <cell>ROUTED</cell>
@@ -111,7 +111,7 @@
 <row>
  <cell>3</cell>
  <cell>Main_0/Uart3BitClockDiv/clko_i:Q</cell>
- <cell>(380, 43)</cell>
+ <cell>(383, 52)</cell>
  <cell>GB[4] </cell>
  <cell>Main_0/Uart3BitClockDiv/clko_i_1</cell>
  <cell>ROUTED</cell>
@@ -120,7 +120,7 @@
 <row>
  <cell>4</cell>
  <cell>Main_0/Uart0BitClockDiv/clko_i:Q</cell>
- <cell>(370, 52)</cell>
+ <cell>(185, 25)</cell>
  <cell>GB[6] </cell>
  <cell>Main_0/Uart0BitClockDiv/clko_i_0</cell>
  <cell>ROUTED</cell>
@@ -129,7 +129,7 @@
 <row>
  <cell>5</cell>
  <cell>Main_0/Uart0TxBitClockDiv/div_i:Q</cell>
- <cell>(258, 61)</cell>
+ <cell>(186, 58)</cell>
  <cell>GB[5] </cell>
  <cell>Main_0/Uart0TxBitClockDiv/div_i_Z</cell>
  <cell>ROUTED</cell>
@@ -245,12 +245,12 @@
 <row>
  <cell>1</cell>
  <cell>Main_0/BootupReset/shot_i_rep:Q</cell>
- <cell>(271, 40)</cell>
+ <cell>(170, 43)</cell>
  <cell>Main_0/BootupReset/shot_i_rep_Z</cell>
- <cell>16</cell>
+ <cell>17</cell>
  <cell>1</cell>
  <cell>(218, 3)</cell>
- <cell>19</cell>
+ <cell>17</cell>
 </row>
 <row>
  <cell> </cell>
@@ -269,8 +269,8 @@
  <cell> </cell>
  <cell> </cell>
  <cell>3</cell>
- <cell>(218, 18)</cell>
- <cell>11</cell>
+ <cell>(218, 9)</cell>
+ <cell>3</cell>
 </row>
 <row>
  <cell> </cell>
@@ -279,8 +279,8 @@
  <cell> </cell>
  <cell> </cell>
  <cell>4</cell>
- <cell>(218, 30)</cell>
- <cell>85</cell>
+ <cell>(218, 12)</cell>
+ <cell>3</cell>
 </row>
 <row>
  <cell> </cell>
@@ -289,8 +289,8 @@
  <cell> </cell>
  <cell> </cell>
  <cell>5</cell>
- <cell>(218, 33)</cell>
- <cell>73</cell>
+ <cell>(218, 30)</cell>
+ <cell>79</cell>
 </row>
 <row>
  <cell> </cell>
@@ -299,8 +299,8 @@
  <cell> </cell>
  <cell> </cell>
  <cell>6</cell>
- <cell>(218, 36)</cell>
- <cell>87</cell>
+ <cell>(218, 33)</cell>
+ <cell>83</cell>
 </row>
 <row>
  <cell> </cell>
@@ -309,8 +309,8 @@
  <cell> </cell>
  <cell> </cell>
  <cell>7</cell>
- <cell>(218, 45)</cell>
- <cell>26</cell>
+ <cell>(218, 36)</cell>
+ <cell>80</cell>
 </row>
 <row>
  <cell> </cell>
@@ -319,8 +319,8 @@
  <cell> </cell>
  <cell> </cell>
  <cell>8</cell>
- <cell>(218, 48)</cell>
- <cell>29</cell>
+ <cell>(218, 39)</cell>
+ <cell>106</cell>
 </row>
 <row>
  <cell> </cell>
@@ -329,8 +329,8 @@
  <cell> </cell>
  <cell> </cell>
  <cell>9</cell>
- <cell>(218, 60)</cell>
- <cell>4</cell>
+ <cell>(218, 42)</cell>
+ <cell>61</cell>
 </row>
 <row>
  <cell> </cell>
@@ -339,8 +339,8 @@
  <cell> </cell>
  <cell> </cell>
  <cell>10</cell>
- <cell>(219, 15)</cell>
- <cell>4</cell>
+ <cell>(218, 45)</cell>
+ <cell>45</cell>
 </row>
 <row>
  <cell> </cell>
@@ -349,8 +349,8 @@
  <cell> </cell>
  <cell> </cell>
  <cell>11</cell>
- <cell>(219, 24)</cell>
- <cell>9</cell>
+ <cell>(218, 57)</cell>
+ <cell>5</cell>
 </row>
 <row>
  <cell> </cell>
@@ -359,6 +359,16 @@
  <cell> </cell>
  <cell> </cell>
  <cell>12</cell>
+ <cell>(219, 24)</cell>
+ <cell>36</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell> </cell>
+ <cell> </cell>
+ <cell> </cell>
+ <cell> </cell>
+ <cell>13</cell>
  <cell>(219, 27)</cell>
  <cell>30</cell>
 </row>
@@ -368,19 +378,9 @@
  <cell> </cell>
  <cell> </cell>
  <cell> </cell>
- <cell>13</cell>
- <cell>(219, 39)</cell>
- <cell>92</cell>
-</row>
-<row>
- <cell> </cell>
- <cell> </cell>
- <cell> </cell>
- <cell> </cell>
- <cell> </cell>
  <cell>14</cell>
- <cell>(219, 42)</cell>
- <cell>87</cell>
+ <cell>(219, 48)</cell>
+ <cell>18</cell>
 </row>
 <row>
  <cell> </cell>
@@ -389,8 +389,8 @@
  <cell> </cell>
  <cell> </cell>
  <cell>15</cell>
- <cell>(219, 51)</cell>
- <cell>18</cell>
+ <cell>(220, 18)</cell>
+ <cell>1</cell>
 </row>
 <row>
  <cell> </cell>
@@ -400,6 +400,16 @@
  <cell> </cell>
  <cell>16</cell>
  <cell>(220, 21)</cell>
+ <cell>5</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell> </cell>
+ <cell> </cell>
+ <cell> </cell>
+ <cell> </cell>
+ <cell>17</cell>
+ <cell>(221, 51)</cell>
  <cell>9</cell>
 </row>
 </table>
@@ -423,10 +433,10 @@
  <cell>GB[2] </cell>
  <cell>(220, 54)</cell>
  <cell>FCCC_C0_0/FCCC_C0_0/GL1_INST/U0_YNn</cell>
- <cell>2551</cell>
+ <cell>2354</cell>
  <cell>1</cell>
- <cell>(218, 57)</cell>
- <cell>28</cell>
+ <cell>(218, 75)</cell>
+ <cell>1</cell>
 </row>
 <row>
  <cell> </cell>
@@ -435,8 +445,8 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
- <cell>(218, 93)</cell>
- <cell>2</cell>
+ <cell>(218, 96)</cell>
+ <cell>1</cell>
 </row>
 <row>
  <cell> </cell>
@@ -446,7 +456,7 @@
  <cell></cell>
  <cell>3</cell>
  <cell>(218, 99)</cell>
- <cell>3</cell>
+ <cell>1</cell>
 </row>
 <row>
  <cell> </cell>
@@ -455,8 +465,8 @@
  <cell></cell>
  <cell></cell>
  <cell>4</cell>
- <cell>(219, 60)</cell>
- <cell>1</cell>
+ <cell>(219, 57)</cell>
+ <cell>4</cell>
 </row>
 <row>
  <cell> </cell>
@@ -475,8 +485,8 @@
  <cell>Main_0/Uart2BitClockDiv/clko_i_inferred_clock_RNIMS3/U0_YNn_GSouth</cell>
  <cell>31</cell>
  <cell>1</cell>
- <cell>(218, 39)</cell>
- <cell>15</cell>
+ <cell>(218, 24)</cell>
+ <cell>7</cell>
 </row>
 <row>
  <cell> </cell>
@@ -485,8 +495,38 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
- <cell>(218, 42)</cell>
- <cell>16</cell>
+ <cell>(218, 27)</cell>
+ <cell>3</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>3</cell>
+ <cell>(219, 18)</cell>
+ <cell>2</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>4</cell>
+ <cell>(219, 21)</cell>
+ <cell>17</cell>
+</row>
+<row>
+ <cell> </cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell></cell>
+ <cell>5</cell>
+ <cell>(220, 51)</cell>
+ <cell>2</cell>
 </row>
 <row>
  <cell>3</cell>
@@ -495,8 +535,8 @@
  <cell>Main_0/Uart1BitClockDiv/clko_i_inferred_clock_RNILRIF/U0_YNn_GSouth</cell>
  <cell>31</cell>
  <cell>1</cell>
- <cell>(218, 21)</cell>
- <cell>2</cell>
+ <cell>(218, 48)</cell>
+ <cell>19</cell>
 </row>
 <row>
  <cell> </cell>
@@ -505,18 +545,8 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
- <cell>(218, 24)</cell>
- <cell>14</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>3</cell>
- <cell>(218, 27)</cell>
- <cell>15</cell>
+ <cell>(219, 51)</cell>
+ <cell>12</cell>
 </row>
 <row>
  <cell>4</cell>
@@ -525,7 +555,7 @@
  <cell>Main_0/Uart3BitClockDiv/clko_i_inferred_clock_RNINTK/U0_YNn_GSouth</cell>
  <cell>31</cell>
  <cell>1</cell>
- <cell>(218, 12)</cell>
+ <cell>(218, 18)</cell>
  <cell>8</cell>
 </row>
 <row>
@@ -535,18 +565,8 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
- <cell>(218, 15)</cell>
- <cell>14</cell>
-</row>
-<row>
- <cell> </cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell></cell>
- <cell>3</cell>
- <cell>(219, 21)</cell>
- <cell>9</cell>
+ <cell>(218, 21)</cell>
+ <cell>23</cell>
 </row>
 <row>
  <cell>5</cell>
@@ -555,8 +575,8 @@
  <cell>Main_0/Uart0BitClockDiv/clko_i_inferred_clock_RNIKQ1F/U0_YNn</cell>
  <cell>31</cell>
  <cell>1</cell>
- <cell>(219, 57)</cell>
- <cell>4</cell>
+ <cell>(218, 60)</cell>
+ <cell>7</cell>
 </row>
 <row>
  <cell> </cell>
@@ -565,8 +585,8 @@
  <cell></cell>
  <cell></cell>
  <cell>2</cell>
- <cell>(220, 60)</cell>
- <cell>24</cell>
+ <cell>(220, 57)</cell>
+ <cell>19</cell>
 </row>
 <row>
  <cell>6</cell>
@@ -614,30 +634,54 @@
 </header>
 <row>
  <cell>1</cell>
+ <cell>Main_0/FSMDacsTi_i/Spi/N_1685_i:Y</cell>
+ <cell>Main_0/FSMDacsTi_i/Spi/N_1685_i_Z</cell>
+ <cell>Main_0/FSMDacsTi_i/Spi/un1_rst_8_rs:CLK</cell>
+</row>
+<row>
+ <cell>2</cell>
  <cell>Main_0/FSMDacsMax_i/Spi/un1_rst_3:Y</cell>
  <cell>Main_0/FSMDacsMax_i/Spi/un1_rst_3_Z</cell>
  <cell>Main_0/FSMDacsMax_i/Spi/un1_rst_7_rs:CLK</cell>
 </row>
 <row>
- <cell>2</cell>
+ <cell>3</cell>
  <cell>Main_0/FSMDacsMax_i/Spi/un1_rst_4:Y</cell>
  <cell>Main_0/FSMDacsMax_i/Spi/un1_rst_4_Z</cell>
  <cell>Main_0/FSMDacsMax_i/Spi/un1_rst_8_rs:CLK</cell>
 </row>
 <row>
- <cell>3</cell>
+ <cell>4</cell>
+ <cell>Main_0/FSMDacsMax_i/Spi/un1_rst_5:Y</cell>
+ <cell>Main_0/FSMDacsMax_i/Spi/un1_rst_5_Z</cell>
+ <cell>Main_0/FSMDacsMax_i/Spi/un1_rst_10_rs:CLK</cell>
+</row>
+<row>
+ <cell>5</cell>
+ <cell>Main_0/ads1258/Spi/N_40_i:Y</cell>
+ <cell>Main_0/ads1258/Spi/N_40_i_Z</cell>
+ <cell>Main_0/ads1258/Spi/un1_rst_4_rs:CLK</cell>
+</row>
+<row>
+ <cell>6</cell>
  <cell>Main_0/FSMDacsMax_i/Spi/un1_rst:Y</cell>
  <cell>Main_0/FSMDacsMax_i/Spi/un1_rst_Z</cell>
  <cell>Main_0/FSMDacsMax_i/Spi/un1_rst_6_rs:CLK</cell>
 </row>
 <row>
- <cell>4</cell>
+ <cell>7</cell>
  <cell>Main_0/FSMDacsTi_i/Spi/un1_rst:Y</cell>
  <cell>Main_0/FSMDacsTi_i/Spi/un1_rst_Z</cell>
  <cell>Main_0/FSMDacsTi_i/Spi/un1_rst_9_rs:CLK</cell>
 </row>
 <row>
- <cell>5</cell>
+ <cell>8</cell>
+ <cell>Main_0/FSMDacsTi_i/Spi/N_1686_i:Y</cell>
+ <cell>Main_0/FSMDacsTi_i/Spi/N_1686_i_Z</cell>
+ <cell>Main_0/FSMDacsTi_i/Spi/un1_rst_7_rs:CLK</cell>
+</row>
+<row>
+ <cell>9</cell>
  <cell>Main_0/Uart2TxBitClockDiv/div_i:Q</cell>
  <cell>Main_0/Uart2TxBitClockDiv/div_i_1</cell>
  <cell>Main_0/RS422_Tx2/UartTxUart/BitCnt[0]:CLK</cell>
@@ -691,61 +735,55 @@
  <cell>Main_0/RS422_Tx2/UartTxUart/Busy_i:CLK</cell>
 </row>
 <row>
- <cell>6</cell>
+ <cell>10</cell>
+ <cell>Main_0/FSMDacsMax_i/Spi/un1_rst_1:Y</cell>
+ <cell>Main_0/FSMDacsMax_i/Spi/un1_rst_1_Z</cell>
+ <cell>Main_0/FSMDacsMax_i/Spi/un1_rst_9_rs:CLK</cell>
+</row>
+<row>
+ <cell>11</cell>
  <cell>Main_0/ads1258/Spi/un1_rst_1:Y</cell>
  <cell>Main_0/ads1258/Spi/un1_rst_1_Z</cell>
  <cell>Main_0/ads1258/Spi/un1_rst_6_rs:CLK</cell>
 </row>
 <row>
- <cell>7</cell>
+ <cell>12</cell>
  <cell>Main_0/ltc2378/Spi/un1_rst_2:Y</cell>
  <cell>Main_0/ltc2378/Spi/un1_rst_2_Z</cell>
  <cell>Main_0/ltc2378/Spi/un1_rst_7_rs:CLK</cell>
 </row>
 <row>
- <cell>8</cell>
- <cell>Main_0/FSMDacsMax_i/Spi/N_198_i:Y</cell>
- <cell>Main_0/FSMDacsMax_i/Spi/N_198_i_Z</cell>
- <cell>Main_0/FSMDacsMax_i/Spi/un1_rst_10_rs:CLK</cell>
-</row>
-<row>
- <cell>9</cell>
- <cell>Main_0/FSMDacsTi_i/Spi/N_65_i:Y</cell>
- <cell>Main_0/FSMDacsTi_i/Spi/N_65_i_Z</cell>
- <cell>Main_0/FSMDacsTi_i/Spi/un1_rst_7_rs:CLK</cell>
-</row>
-<row>
- <cell>10</cell>
+ <cell>13</cell>
  <cell>Main_0/ltc2378/Spi/un1_rst_4:Y</cell>
  <cell>Main_0/ltc2378/Spi/un1_rst_4_Z</cell>
  <cell>Main_0/ltc2378/Spi/un1_rst_6_rs:CLK</cell>
 </row>
 <row>
- <cell>11</cell>
+ <cell>14</cell>
  <cell>Main_0/ads1258/Spi/un1_rst_2:Y</cell>
  <cell>Main_0/ads1258/Spi/un1_rst_2_Z</cell>
  <cell>Main_0/ads1258/Spi/un1_rst_7_rs:CLK</cell>
 </row>
 <row>
- <cell>12</cell>
- <cell>Main_0/FSMDacsMax_i/Spi/N_194_i:Y</cell>
- <cell>Main_0/FSMDacsMax_i/Spi/N_194_i_Z</cell>
- <cell>Main_0/FSMDacsMax_i/Spi/un1_rst_9_rs:CLK</cell>
-</row>
-<row>
- <cell>13</cell>
- <cell>Main_0/FSMDacsMax_i/Spi/N_196_i:Y</cell>
- <cell>Main_0/FSMDacsMax_i/Spi/N_196_i_Z</cell>
+ <cell>15</cell>
+ <cell>Main_0/FSMDacsMax_i/Spi/un1_rst_2:Y</cell>
+ <cell>Main_0/FSMDacsMax_i/Spi/un1_rst_2_Z</cell>
  <cell>Main_0/FSMDacsMax_i/Spi/un1_rst_11_rs:CLK</cell>
 </row>
 <row>
- <cell>14</cell>
+ <cell>16</cell>
  <cell>Main_0/FSMDacsTi_i/Spi/un1_rst_4:Y</cell>
  <cell>Main_0/FSMDacsTi_i/Spi/un1_rst_4_Z</cell>
  <cell>Main_0/FSMDacsTi_i/Spi/un1_rst_11_rs:CLK</cell>
 </row>
 <row>
- <cell>15</cell>
+ <cell>17</cell>
+ <cell>Main_0/ClkDac_i/Spi/N_1932_i:Y</cell>
+ <cell>Main_0/ClkDac_i/Spi/N_1932_i_Z</cell>
+ <cell>Main_0/ClkDac_i/Spi/un1_rst_2_rs:CLK</cell>
+</row>
+<row>
+ <cell>18</cell>
  <cell>Main_0/Uart3TxBitClockDiv/div_i:Q</cell>
  <cell>Main_0/Uart3TxBitClockDiv/div_i_2</cell>
  <cell>Main_0/RS433_Tx3/UartTxUart/Busy_i:CLK</cell>
@@ -799,28 +837,10 @@
  <cell>Main_0/RS433_Tx3/UartTxUart/LastGo:CLK</cell>
 </row>
 <row>
- <cell>16</cell>
- <cell>Main_0/FSMDacsTi_i/Spi/N_67_i:Y</cell>
- <cell>Main_0/FSMDacsTi_i/Spi/N_67_i_0</cell>
- <cell>Main_0/FSMDacsTi_i/Spi/un1_rst_6_rs:CLK</cell>
-</row>
-<row>
- <cell>17</cell>
- <cell>Main_0/ClkDac_i/Spi/N_1080_i:Y</cell>
- <cell>Main_0/ClkDac_i/Spi/N_1080_i_Z</cell>
- <cell>Main_0/ClkDac_i/Spi/un1_rst_2_rs:CLK</cell>
-</row>
-<row>
- <cell>18</cell>
+ <cell>19</cell>
  <cell>Main_0/FSMDacsTi_i/Spi/un1_rst_1:Y</cell>
  <cell>Main_0/FSMDacsTi_i/Spi/un1_rst_1_Z</cell>
  <cell>Main_0/FSMDacsTi_i/Spi/un1_rst_10_rs:CLK</cell>
-</row>
-<row>
- <cell>19</cell>
- <cell>Main_0/ads1258/Spi/N_918_i:Y</cell>
- <cell>Main_0/ads1258/Spi/N_918_i_Z</cell>
- <cell>Main_0/ads1258/Spi/un1_rst_4_rs:CLK</cell>
 </row>
 <row>
  <cell>20</cell>
@@ -878,15 +898,15 @@
 </row>
 <row>
  <cell>21</cell>
- <cell>Main_0/ltc2378/Spi/un1_rst:Y</cell>
- <cell>Main_0/ltc2378/Spi/un1_rst_Z</cell>
- <cell>Main_0/ltc2378/Spi/un1_rst_8_rs:CLK</cell>
+ <cell>Main_0/FSMDacsTi_i/Spi/N_1687_i:Y</cell>
+ <cell>Main_0/FSMDacsTi_i/Spi/N_1687_i_Z</cell>
+ <cell>Main_0/FSMDacsTi_i/Spi/un1_rst_6_rs:CLK</cell>
 </row>
 <row>
  <cell>22</cell>
- <cell>Main_0/FSMDacsTi_i/Spi/N_63_i:Y</cell>
- <cell>Main_0/FSMDacsTi_i/Spi/N_63_i_0</cell>
- <cell>Main_0/FSMDacsTi_i/Spi/un1_rst_8_rs:CLK</cell>
+ <cell>Main_0/ltc2378/Spi/un1_rst:Y</cell>
+ <cell>Main_0/ltc2378/Spi/un1_rst_Z</cell>
+ <cell>Main_0/ltc2378/Spi/un1_rst_8_rs:CLK</cell>
 </row>
 </table>
 </section>

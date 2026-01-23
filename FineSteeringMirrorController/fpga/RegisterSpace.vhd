@@ -182,7 +182,7 @@ architecture RegisterSpace of RegisterSpacePorts is
 
 	constant ControlRegisterAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(32, MAX_ADDRESS_BITS)); --we have guard addresses on all fifos because accidental reading still removes a char from the fifo.
 	--~ constant MotorControlStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(36, MAX_ADDRESS_BITS));
-	--~ constant PosSensAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(40, MAX_ADDRESS_BITS));
+	constant LatchAdcsAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(40, MAX_ADDRESS_BITS));
 	
 	constant DacASetpointAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(44, MAX_ADDRESS_BITS));
 	constant DacBSetpointAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(48, MAX_ADDRESS_BITS));
@@ -407,13 +407,17 @@ begin
 
 							--FSM Readback A/D's
 							
+							when LatchAdcsAddr =>
+							
+								ReadAdcSample <= '1';	
+							
 							--AdcSampleToReadA
 							
 							when AdcAAccumulatorAddr =>
 
 								DataOut <= AdcSampleToReadA(31 downto 0);
 								
-								ReadAdcSample <= '1';	
+								--~ ReadAdcSample <= '1';	
 
 							when AdcAAccumulatorAddr + std_logic_vector(to_unsigned(4, MAX_ADDRESS_BITS)) =>
 
@@ -459,6 +463,8 @@ begin
 
 								DataOut(15 downto 0) <= AdcSampleToReadD(47 downto 32);
 								DataOut(31 downto 16) <= AdcSampleNumAccums;
+								
+								--~ ReadAdcSample <= '1';	
 							
 							
 								
@@ -797,6 +803,10 @@ begin
 								
 								
 							--~ --FSM Readback A/D's
+							
+							when LatchAdcsAddr =>
+							
+								ReadAdcSample <= '1';	
 	
 							--~ when AdcAAccumulatorAddr =>
 								
@@ -936,6 +946,8 @@ begin
 					if (LastWriteReq = '1') then
 					
 						LastWriteReq <= '0';
+						
+						ReadAdcSample <= '0';	
 						
 					else
 					
