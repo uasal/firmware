@@ -947,9 +947,9 @@ begin
 					
 						LastWriteReq <= '0';
 						
-						ReadAdcSample <= '0';	
-						
 					else
+					
+						ReadAdcSample <= '0';							
 					
 						WriteAck <= '0';
 						

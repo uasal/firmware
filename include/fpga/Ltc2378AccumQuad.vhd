@@ -342,6 +342,7 @@ begin
 						
 					end if;
 					
+					--LTC2380 Only! SamplesToAverage should be 1 otherwise...
 					--Have we averaged enough samples to read the A/D yet?
 					--~ if ( (SamplesAveraged >= SamplesToAverage) or ((PPSTrigger = '1') and (PPSCount > std_logic_vector(to_unsigned(100663196, 32)))) ) then
 					if (unsigned(SamplesAveraged) >= unsigned(SamplesToAverage)) then
@@ -398,9 +399,9 @@ begin
 								
 								--~ if (ChopperEnable = '0') then
 								
-								if (AdcSampleNumAccums_i < x"8000") then
+								if (AdcSampleNumAccums_i < x"0100") then
 								
-									--~ AdcSampleNumAccums_i <= AdcSampleNumAccums_i + x"0001";
+									AdcSampleNumAccums_i <= AdcSampleNumAccums_i + x"0001";
 								
 									--grab sample
 									--~ AdcSampleA(23 downto 0) <= DataFromMisoA;
@@ -425,16 +426,16 @@ begin
 									--~ AdcSampleD <= AdcSampleD + resize(signed(DataFromMisoD), 48);
 									
 									--Works??
-									--~ AdcSampleA <= AdcSampleA + signed(DataFromMisoAExt);
-									--~ AdcSampleB <= AdcSampleB + signed(DataFromMisoBExt);
-									--~ AdcSampleC <= AdcSampleC + signed(DataFromMisoCExt);
-									--~ AdcSampleD <= AdcSampleD + signed(DataFromMisoDExt);
-									--Don't accumulate...
-									AdcSampleNumAccums_i <= x"0001";
-									AdcSampleA <= signed(DataFromMisoAExt);
-									AdcSampleB <= signed(DataFromMisoBExt);
-									AdcSampleC <= signed(DataFromMisoCExt);
-									AdcSampleD <= signed(DataFromMisoDExt);
+									AdcSampleA <= AdcSampleA + signed(DataFromMisoAExt);
+									AdcSampleB <= AdcSampleB + signed(DataFromMisoBExt);
+									AdcSampleC <= AdcSampleC + signed(DataFromMisoCExt);
+									AdcSampleD <= AdcSampleD + signed(DataFromMisoDExt);
+									--~ --Don't accumulate...
+									--~ AdcSampleNumAccums_i <= x"0001";
+									--~ AdcSampleA <= signed(DataFromMisoAExt);
+									--~ AdcSampleB <= signed(DataFromMisoBExt);
+									--~ AdcSampleC <= signed(DataFromMisoCExt);
+									--~ AdcSampleD <= signed(DataFromMisoDExt);
 									
 								--~ else
 								
@@ -489,15 +490,15 @@ begin
 									AdcSampleToReadC <= std_logic_vector(AdcSampleC);
 									AdcSampleToReadD <= std_logic_vector(AdcSampleD);
 									
+								end if;
+								
+								if (ReadAdcSample = '0') then
+								
 									AdcSampleNumAccums_i <= x"0000";									
 									AdcSampleA <= to_signed(0, 48);
 									AdcSampleB <= to_signed(0, 48);
 									AdcSampleC <= to_signed(0, 48);
 									AdcSampleD <= to_signed(0, 48);
-								
-								end if;
-								
-								if (ReadAdcSample = '0') then
 								
 									--~ --Latch the old data for the next read...we can't do this regularly when we get samples, cause the damn uC reads it a byte at a time and it's very non-atomic that way and conssitently corrupted...
 									--~ AdcSampleNumAccums <= std_logic_vector(AdcSampleNumAccums_i);

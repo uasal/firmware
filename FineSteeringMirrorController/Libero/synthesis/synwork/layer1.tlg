@@ -136,53 +136,37 @@ Running optimization stage 1 on Ltc2378AccumQuadPorts .......
 @W: CL111 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":306:2:306:3|All reachable assignments to ChopperPolarity are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
 @W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit ChopperMuxNeg to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit ChopperMuxPos to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(1) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(2) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(3) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(4) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(5) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(6) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(7) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(8) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(9) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(10) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(11) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(12) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(13) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(14) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(15) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Pruning register bits 15 to 1 of AdcSampleNumAccums_i(15 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 @W: CL169 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Pruning unused register ChopperMuxNeg. Make sure that there are no unused intermediate registers.
 @W: CL169 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Pruning unused register ChopperMuxPos. Make sure that there are no unused intermediate registers.
-Finished optimization stage 1 on Ltc2378AccumQuadPorts (CPU Time 0h:00m:00s, Memory Used current: 151MB peak: 151MB)
+Finished optimization stage 1 on Ltc2378AccumQuadPorts (CPU Time 0h:00m:00s, Memory Used current: 152MB peak: 152MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd":44:7:44:21|Synthesizing work.spidacquadports.spidacquad.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd":38:7:38:24|Synthesizing work.spimasterquadports.spimasterquad.
 Post processing for work.spimasterquadports.spimasterquad
 Running optimization stage 1 on SpiMasterQuadPorts .......
-Finished optimization stage 1 on SpiMasterQuadPorts (CPU Time 0h:00m:00s, Memory Used current: 151MB peak: 151MB)
+Finished optimization stage 1 on SpiMasterQuadPorts (CPU Time 0h:00m:00s, Memory Used current: 152MB peak: 152MB)
 Post processing for work.spidacquadports.spidacquad
 Running optimization stage 1 on SpiDacQuadPorts .......
 @A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd":189:2:189:3|Feedback mux created for signal DacReadbackD[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 @A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd":189:2:189:3|Feedback mux created for signal DacReadbackC[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 @A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd":189:2:189:3|Feedback mux created for signal DacReadbackB[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 @A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd":189:2:189:3|Feedback mux created for signal DacReadbackA[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-Finished optimization stage 1 on SpiDacQuadPorts (CPU Time 0h:00m:00s, Memory Used current: 151MB peak: 151MB)
+Finished optimization stage 1 on SpiDacQuadPorts (CPU Time 0h:00m:00s, Memory Used current: 152MB peak: 152MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":30:7:30:18|Synthesizing work.oneshotports.oneshot.
 Post processing for work.oneshotports.oneshot
 Running optimization stage 1 on OneShotPorts .......
-Finished optimization stage 1 on OneShotPorts (CPU Time 0h:00m:00s, Memory Used current: 151MB peak: 151MB)
+Finished optimization stage 1 on OneShotPorts (CPU Time 0h:00m:00s, Memory Used current: 152MB peak: 152MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd":44:7:44:21|Synthesizing work.spidacquadports.spidacquad.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd":38:7:38:24|Synthesizing work.spimasterquadports.spimasterquad.
 Post processing for work.spimasterquadports.spimasterquad
 Running optimization stage 1 on SpiMasterQuadPorts .......
-Finished optimization stage 1 on SpiMasterQuadPorts (CPU Time 0h:00m:00s, Memory Used current: 151MB peak: 151MB)
+Finished optimization stage 1 on SpiMasterQuadPorts (CPU Time 0h:00m:00s, Memory Used current: 152MB peak: 152MB)
 Post processing for work.spidacquadports.spidacquad
 Running optimization stage 1 on SpiDacQuadPorts .......
 @A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd":189:2:189:3|Feedback mux created for signal DacReadbackD[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 @A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd":189:2:189:3|Feedback mux created for signal DacReadbackC[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 @A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd":189:2:189:3|Feedback mux created for signal DacReadbackB[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 @A: CL282 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd":189:2:189:3|Feedback mux created for signal DacReadbackA[23:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-Finished optimization stage 1 on SpiDacQuadPorts (CPU Time 0h:00m:00s, Memory Used current: 151MB peak: 151MB)
+Finished optimization stage 1 on SpiDacQuadPorts (CPU Time 0h:00m:00s, Memory Used current: 152MB peak: 152MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":40:7:40:17|Synthesizing work.dacditherer.dacdithererlogic.
 @W: CD454 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":131:7:131:69|Storing to null range (-1 downto 0) of variable dacmagnitudeout_i 
 @W: CD454 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":136:7:136:69|Storing to null range (-1 downto 0) of variable dacmagnitudeout_i 
@@ -190,10 +174,10 @@ Finished optimization stage 1 on SpiDacQuadPorts (CPU Time 0h:00m:00s, Memory Us
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":30:7:30:23|Synthesizing work.clockdividerports.clockdivider.
 Post processing for work.clockdividerports.clockdivider
 Running optimization stage 1 on ClockDividerPorts .......
-Finished optimization stage 1 on ClockDividerPorts (CPU Time 0h:00m:00s, Memory Used current: 151MB peak: 151MB)
+Finished optimization stage 1 on ClockDividerPorts (CPU Time 0h:00m:00s, Memory Used current: 152MB peak: 152MB)
 Post processing for work.dacditherer.dacdithererlogic
 Running optimization stage 1 on DacDitherer .......
-Finished optimization stage 1 on DacDitherer (CPU Time 0h:00m:00s, Memory Used current: 151MB peak: 151MB)
+Finished optimization stage 1 on DacDitherer (CPU Time 0h:00m:00s, Memory Used current: 152MB peak: 152MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":40:7:40:17|Synthesizing work.dacditherer.dacdithererlogic.
 @W: CD434 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":107:20:107:34|Signal dacxfercomplete in the sensitivity list is not used in the process. Make sure all variables in the sensitivity list are referenced in the process.
 Post processing for work.dacditherer.dacdithererlogic
@@ -235,19 +219,19 @@ Running optimization stage 1 on RegisterSpacePorts .......
 @A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|Feedback mux created for signal MonitorAdcSpiDataIn[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 @A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|Feedback mux created for signal ReadAck. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 @A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":301:2:301:3|Feedback mux created for signal WriteAck. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-Finished optimization stage 1 on RegisterSpacePorts (CPU Time 0h:00m:00s, Memory Used current: 153MB peak: 153MB)
+Finished optimization stage 1 on RegisterSpacePorts (CPU Time 0h:00m:00s, Memory Used current: 154MB peak: 154MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd":30:7:30:17|Synthesizing work.ibufp1ports.ibufp1.
 Post processing for work.ibufp1ports.ibufp1
 Running optimization stage 1 on IBufP1Ports .......
-Finished optimization stage 1 on IBufP1Ports (CPU Time 0h:00m:00s, Memory Used current: 153MB peak: 153MB)
+Finished optimization stage 1 on IBufP1Ports (CPU Time 0h:00m:00s, Memory Used current: 154MB peak: 154MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":30:7:30:18|Synthesizing work.oneshotports.oneshot.
 Post processing for work.oneshotports.oneshot
 Running optimization stage 1 on OneShotPorts .......
-Finished optimization stage 1 on OneShotPorts (CPU Time 0h:00m:00s, Memory Used current: 153MB peak: 153MB)
+Finished optimization stage 1 on OneShotPorts (CPU Time 0h:00m:00s, Memory Used current: 154MB peak: 154MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/BuildNumber.vhd":14:7:14:22|Synthesizing work.buildnumberports.buildnumber.
 Post processing for work.buildnumberports.buildnumber
 Running optimization stage 1 on BuildNumberPorts .......
-Finished optimization stage 1 on BuildNumberPorts (CPU Time 0h:00m:00s, Memory Used current: 153MB peak: 153MB)
+Finished optimization stage 1 on BuildNumberPorts (CPU Time 0h:00m:00s, Memory Used current: 154MB peak: 154MB)
 Post processing for work.main.architecture_main
 Running optimization stage 1 on Main .......
 @W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1369:1:1369:13|Bit 0 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
@@ -314,13 +298,13 @@ Running optimization stage 1 on Main .......
 @W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1369:1:1369:13|Bit 61 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 @W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1369:1:1369:13|Bit 62 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 @W: CL245 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1369:1:1369:13|Bit 63 of input monitoradcsampletoread of instance RegisterSpace is undriven. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-Finished optimization stage 1 on Main (CPU Time 0h:00m:00s, Memory Used current: 153MB peak: 153MB)
+Finished optimization stage 1 on Main (CPU Time 0h:00m:00s, Memory Used current: 154MB peak: 154MB)
 Running optimization stage 2 on BuildNumberPorts .......
-Finished optimization stage 2 on BuildNumberPorts (CPU Time 0h:00m:00s, Memory Used current: 153MB peak: 153MB)
+Finished optimization stage 2 on BuildNumberPorts (CPU Time 0h:00m:00s, Memory Used current: 154MB peak: 154MB)
 Running optimization stage 2 on OneShotPorts_work_main_architecture_main_0layer1 .......
-Finished optimization stage 2 on OneShotPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 153MB peak: 153MB)
+Finished optimization stage 2 on OneShotPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 154MB peak: 154MB)
 Running optimization stage 2 on IBufP1Ports .......
-Finished optimization stage 2 on IBufP1Ports (CPU Time 0h:00m:00s, Memory Used current: 153MB peak: 153MB)
+Finished optimization stage 2 on IBufP1Ports (CPU Time 0h:00m:00s, Memory Used current: 154MB peak: 154MB)
 Running optimization stage 2 on RegisterSpacePorts_10 .......
 @N: CL159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":78:2:78:20|Input DacTransferComplete is unused.
 @N: CL159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":92:2:92:23|Input MonitorAdcSampleToRead is unused.
@@ -331,84 +315,89 @@ Running optimization stage 2 on RegisterSpacePorts_10 .......
 Finished optimization stage 2 on RegisterSpacePorts_10 (CPU Time 0h:00m:00s, Memory Used current: 158MB peak: 158MB)
 Running optimization stage 2 on DacDitherer_1024_24_24_20_4 .......
 @N: CL159 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":56:2:56:16|Input DacXferComplete is unused.
-Finished optimization stage 2 on DacDitherer_1024_24_24_20_4 (CPU Time 0h:00m:00s, Memory Used current: 158MB peak: 158MB)
+Finished optimization stage 2 on DacDitherer_1024_24_24_20_4 (CPU Time 0h:00m:00s, Memory Used current: 160MB peak: 160MB)
 Running optimization stage 2 on ClockDividerPorts_work_main_architecture_main_1layer1 .......
-Finished optimization stage 2 on ClockDividerPorts_work_main_architecture_main_1layer1 (CPU Time 0h:00m:00s, Memory Used current: 158MB peak: 158MB)
+Finished optimization stage 2 on ClockDividerPorts_work_main_architecture_main_1layer1 (CPU Time 0h:00m:00s, Memory Used current: 160MB peak: 160MB)
 Running optimization stage 2 on DacDitherer_1024_24_16_16_4 .......
 @W: CL246 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":58:2:58:11|Input port bits 3 to 0 of setpointin(23 downto 0) are unused. Assign logic for all port bits or change the input port size.
 @N: CL159 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":56:2:56:16|Input DacXferComplete is unused.
-Finished optimization stage 2 on DacDitherer_1024_24_16_16_4 (CPU Time 0h:00m:00s, Memory Used current: 158MB peak: 158MB)
+Finished optimization stage 2 on DacDitherer_1024_24_16_16_4 (CPU Time 0h:00m:00s, Memory Used current: 160MB peak: 160MB)
 Running optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_2layer1 .......
-Finished optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_2layer1 (CPU Time 0h:00m:00s, Memory Used current: 158MB peak: 158MB)
+Finished optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_2layer1 (CPU Time 0h:00m:00s, Memory Used current: 160MB peak: 160MB)
 Running optimization stage 2 on SpiDacQuadPorts_102000000_3 .......
-Finished optimization stage 2 on SpiDacQuadPorts_102000000_3 (CPU Time 0h:00m:00s, Memory Used current: 158MB peak: 158MB)
+Finished optimization stage 2 on SpiDacQuadPorts_102000000_3 (CPU Time 0h:00m:00s, Memory Used current: 160MB peak: 160MB)
 Running optimization stage 2 on OneShotPorts_work_main_architecture_main_1layer1 .......
-Finished optimization stage 2 on OneShotPorts_work_main_architecture_main_1layer1 (CPU Time 0h:00m:00s, Memory Used current: 158MB peak: 158MB)
+Finished optimization stage 2 on OneShotPorts_work_main_architecture_main_1layer1 (CPU Time 0h:00m:00s, Memory Used current: 160MB peak: 160MB)
 Running optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_1layer1 .......
-Finished optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_1layer1 (CPU Time 0h:00m:00s, Memory Used current: 158MB peak: 158MB)
+Finished optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_1layer1 (CPU Time 0h:00m:00s, Memory Used current: 160MB peak: 160MB)
 Running optimization stage 2 on SpiDacQuadPorts_102000000_2 .......
-Finished optimization stage 2 on SpiDacQuadPorts_102000000_2 (CPU Time 0h:00m:00s, Memory Used current: 158MB peak: 158MB)
+Finished optimization stage 2 on SpiDacQuadPorts_102000000_2 (CPU Time 0h:00m:00s, Memory Used current: 160MB peak: 160MB)
 Running optimization stage 2 on VariableClockDividerPorts_work_main_architecture_main_1layer1 .......
-Finished optimization stage 2 on VariableClockDividerPorts_work_main_architecture_main_1layer1 (CPU Time 0h:00m:00s, Memory Used current: 158MB peak: 158MB)
+Finished optimization stage 2 on VariableClockDividerPorts_work_main_architecture_main_1layer1 (CPU Time 0h:00m:00s, Memory Used current: 160MB peak: 160MB)
 Running optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_0layer1 .......
-Finished optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 158MB peak: 158MB)
+Finished optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 160MB peak: 160MB)
 Running optimization stage 2 on OneShotPorts_work_main_architecture_main_2layer1 .......
-Finished optimization stage 2 on OneShotPorts_work_main_architecture_main_2layer1 (CPU Time 0h:00m:00s, Memory Used current: 158MB peak: 158MB)
+Finished optimization stage 2 on OneShotPorts_work_main_architecture_main_2layer1 (CPU Time 0h:00m:00s, Memory Used current: 160MB peak: 160MB)
 Running optimization stage 2 on Ltc2378AccumQuadPorts .......
+@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(9) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(10) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(11) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(12) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(13) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(14) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Optimizing register bit AdcSampleNumAccums_i(15) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Pruning register bits 15 to 9 of AdcSampleNumAccums_i(15 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@N: CL189 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Register bit AdcSampleNumAccums(9) is always 0.
+@N: CL189 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Register bit AdcSampleNumAccums(10) is always 0.
+@N: CL189 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Register bit AdcSampleNumAccums(11) is always 0.
+@N: CL189 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Register bit AdcSampleNumAccums(12) is always 0.
+@N: CL189 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Register bit AdcSampleNumAccums(13) is always 0.
+@N: CL189 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Register bit AdcSampleNumAccums(14) is always 0.
+@N: CL189 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Register bit AdcSampleNumAccums(15) is always 0.
+@W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Pruning register bits 15 to 9 of AdcSampleNumAccums(15 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 @W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Pruning register bits 47 to 25 of DataFromMisoAExt(47 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 @W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Pruning register bits 47 to 25 of DataFromMisoBExt(47 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 @W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Pruning register bits 47 to 25 of DataFromMisoCExt(47 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 @W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Pruning register bits 47 to 25 of DataFromMisoDExt(47 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Pruning register bits 47 to 25 of AdcSampleD(47 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Pruning register bits 47 to 25 of AdcSampleC(47 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Pruning register bits 47 to 25 of AdcSampleB(47 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Pruning register bits 47 to 25 of AdcSampleA(47 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Pruning register bits 15 to 2 of AdcSampleNumAccums(15 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Pruning register bits 47 to 25 of AdcSampleToReadD(47 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Pruning register bits 47 to 25 of AdcSampleToReadC(47 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Pruning register bits 47 to 25 of AdcSampleToReadB(47 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Pruning register bits 47 to 25 of AdcSampleToReadA(47 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL257 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Register bit 1 always 0, optimizing ...
-@W: CL260 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":208:39:208:41|Pruning register bit 1 of AdcSampleNumAccums(1 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
 @N: CL159 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":71:2:71:14|Input ChopperEnable is unused.
-Finished optimization stage 2 on Ltc2378AccumQuadPorts (CPU Time 0h:00m:00s, Memory Used current: 161MB peak: 161MB)
+Finished optimization stage 2 on Ltc2378AccumQuadPorts (CPU Time 0h:00m:00s, Memory Used current: 162MB peak: 162MB)
 Running optimization stage 2 on SpiMasterDualPorts_work_main_architecture_main_0layer1 .......
-Finished optimization stage 2 on SpiMasterDualPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 161MB peak: 161MB)
+Finished optimization stage 2 on SpiMasterDualPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 162MB peak: 162MB)
 Running optimization stage 2 on SpiDeviceDualPorts_work_main_architecture_main_0layer1 .......
-Finished optimization stage 2 on SpiDeviceDualPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 161MB peak: 161MB)
+Finished optimization stage 2 on SpiDeviceDualPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 162MB peak: 162MB)
 Running optimization stage 2 on VariableClockDividerPorts_work_main_architecture_main_0layer1 .......
-Finished optimization stage 2 on VariableClockDividerPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 161MB peak: 161MB)
+Finished optimization stage 2 on VariableClockDividerPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 162MB peak: 162MB)
 Running optimization stage 2 on ClockDividerPorts_work_main_architecture_main_0layer1 .......
-Finished optimization stage 2 on ClockDividerPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 161MB peak: 161MB)
+Finished optimization stage 2 on ClockDividerPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 162MB peak: 162MB)
 Running optimization stage 2 on IBufP3Ports .......
 @N: CL135 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd":48:2:48:3|Found sequential shift O with address depth of 3 words and data bit width of 1.
-Finished optimization stage 2 on IBufP3Ports (CPU Time 0h:00m:00s, Memory Used current: 161MB peak: 161MB)
+Finished optimization stage 2 on IBufP3Ports (CPU Time 0h:00m:00s, Memory Used current: 162MB peak: 162MB)
 Running optimization stage 2 on UartRxRaw .......
-Finished optimization stage 2 on UartRxRaw (CPU Time 0h:00m:00s, Memory Used current: 161MB peak: 161MB)
+Finished optimization stage 2 on UartRxRaw (CPU Time 0h:00m:00s, Memory Used current: 162MB peak: 162MB)
 Running optimization stage 2 on UartRxExtClk .......
 @N: CL159 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxExtClk.vhd":37:2:37:4|Input clk is unused.
-Finished optimization stage 2 on UartRxExtClk (CPU Time 0h:00m:00s, Memory Used current: 161MB peak: 161MB)
+Finished optimization stage 2 on UartRxExtClk (CPU Time 0h:00m:00s, Memory Used current: 162MB peak: 162MB)
 Running optimization stage 2 on UartRxFifoExtClk_10 .......
-Finished optimization stage 2 on UartRxFifoExtClk_10 (CPU Time 0h:00m:00s, Memory Used current: 161MB peak: 161MB)
+Finished optimization stage 2 on UartRxFifoExtClk_10 (CPU Time 0h:00m:00s, Memory Used current: 162MB peak: 162MB)
 Running optimization stage 2 on fifo_8_10 .......
-Finished optimization stage 2 on fifo_8_10 (CPU Time 0h:00m:00s, Memory Used current: 161MB peak: 161MB)
+Finished optimization stage 2 on fifo_8_10 (CPU Time 0h:00m:00s, Memory Used current: 162MB peak: 162MB)
 Running optimization stage 2 on gated_fifo_8_10 .......
-Finished optimization stage 2 on gated_fifo_8_10 (CPU Time 0h:00m:00s, Memory Used current: 161MB peak: 161MB)
+Finished optimization stage 2 on gated_fifo_8_10 (CPU Time 0h:00m:00s, Memory Used current: 162MB peak: 162MB)
 Running optimization stage 2 on UartTx .......
-Finished optimization stage 2 on UartTx (CPU Time 0h:00m:00s, Memory Used current: 161MB peak: 161MB)
+Finished optimization stage 2 on UartTx (CPU Time 0h:00m:00s, Memory Used current: 162MB peak: 162MB)
 Running optimization stage 2 on UartTxFifoExtClk_10 .......
-Finished optimization stage 2 on UartTxFifoExtClk_10 (CPU Time 0h:00m:00s, Memory Used current: 161MB peak: 161MB)
+Finished optimization stage 2 on UartTxFifoExtClk_10 (CPU Time 0h:00m:00s, Memory Used current: 162MB peak: 162MB)
 Running optimization stage 2 on IBufP2Ports .......
-Finished optimization stage 2 on IBufP2Ports (CPU Time 0h:00m:00s, Memory Used current: 161MB peak: 161MB)
+Finished optimization stage 2 on IBufP2Ports (CPU Time 0h:00m:00s, Memory Used current: 162MB peak: 162MB)
 Running optimization stage 2 on PPSCountPorts_work_main_architecture_main_0layer1 .......
-Finished optimization stage 2 on PPSCountPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 161MB peak: 161MB)
+Finished optimization stage 2 on PPSCountPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
 Running optimization stage 2 on SpiMasterPorts_work_main_architecture_main_0layer1 .......
-Finished optimization stage 2 on SpiMasterPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 161MB peak: 161MB)
+Finished optimization stage 2 on SpiMasterPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
 Running optimization stage 2 on SpiDacPorts_work_main_architecture_main_0layer1 .......
-Finished optimization stage 2 on SpiDacPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 161MB peak: 161MB)
+Finished optimization stage 2 on SpiDacPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
 Running optimization stage 2 on Main .......
 @N: CL159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":74:1:74:11|Input RamBusLatch is unused.
-Finished optimization stage 2 on Main (CPU Time 0h:00m:00s, Memory Used current: 161MB peak: 161MB)
+Finished optimization stage 2 on Main (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
 
 For a summary of runtime per design unit, please see file:
 ==========================================================

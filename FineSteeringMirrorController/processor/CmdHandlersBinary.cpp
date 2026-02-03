@@ -85,10 +85,12 @@ int8_t BinaryFSMDacsCommand(const uint32_t Name, char const* Params, const size_
 int8_t BinaryFSMAdcsCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	AdcAccumulator AdcVals[3];	
+	//Prepare for atomic read of samples (do as an 8-bit pointer so the processor doesn't crash !#@$%#!):
+	*((uint8_t*)&(FSM->LatchAdcs)) = 1;
 	AdcVals[0] = FSM->AdcAAccumulator;
 	AdcVals[1] = FSM->AdcBAccumulator;
 	AdcVals[2] = FSM->AdcCAccumulator;	
-	printf("\nBinaryFSMAdcsCommand  Replying (%lld, %lld, %lld)...\n\n", AdcVals[0].Samples, AdcVals[1].Samples, AdcVals[2].Samples);
+	printf("\nBinaryFSMAdcsCommand  Replying (%ld, %ld, %ld)...\n\n", AdcVals[0].Samples, AdcVals[1].Samples, AdcVals[2].Samples);
 	TxBinaryPacket(Argument, CGraphPayloadTypeFSMAdcs, 0, AdcVals, 3 * sizeof(AdcAccumulator));
     return(ParamsLen);
 }
@@ -98,6 +100,8 @@ int8_t BinaryFSMAdcsFloatingPointCommand(const uint32_t Name, char const* Params
 	printf("\nBinaryFSMAdcsCommand processing(%u)...\n\n", ParamsLen);
 	
 	double AdcVals[3];
+	//Prepare for atomic read of samples (do as an 8-bit pointer so the processor doesn't crash !#@$%#!):
+	*((uint8_t*)&(FSM->LatchAdcs)) = 1;
 	AdcAccumulator A, B, C;
 	A = FSM->AdcAAccumulator;
 	B = FSM->AdcBAccumulator;

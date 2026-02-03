@@ -176,6 +176,9 @@ int8_t FSMDacsCommand(char const* Name, char const* Params, const size_t ParamsL
 	
 	//Show current A/D values:
 	{
+		//Prepare for atomic read of samples (do as an 8-bit pointer so the processor doesn't crash !#@$%#!):
+		*((uint8_t*)&(FSM->LatchAdcs)) = 1;
+		
 		AdcAccumulator Aa, Ba, Ca;
 		Aa = FSM->AdcAAccumulator;
 		Ba = FSM->AdcBAccumulator;
@@ -253,7 +256,7 @@ int8_t VoltageCommand(char const* Name, char const* Params, const size_t ParamsL
 
 int8_t FSMAdcsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	//~ size_t cycle = 0;
+	size_t cycle = 0;
 	//~ int key = 0;
 
 	if (NULL == FSM)
@@ -264,11 +267,12 @@ int8_t FSMAdcsCommand(char const* Name, char const* Params, const size_t ParamsL
 	
 	//~ while(true)
 	//~ {
-		//~ cycle++;
+		cycle++;
 		
 		//Show current A/D values:
 		{
-			*((uint8_t*)&(FSM->LatchAdcs)) = 1;
+			//Prepare for atomic read of samples (do as an 8-bit pointer so the processor doesn't crash !#@$%#!):
+			*((uint8_t*)&(FSM->LatchAdcs)) = cycle | 1;
 			
 			AdcAccumulator A, B, C, D;
 			A = FSM->AdcAAccumulator;
@@ -281,7 +285,6 @@ int8_t FSMAdcsCommand(char const* Name, char const* Params, const size_t ParamsL
 			Bv = (4.096 * (double)B.Samples) / (8388608.0 * (double)B.NumAccums);
 			Cv = (4.096 * (double)C.Samples) / (8388608.0 * (double)C.NumAccums);
 			Dv = (4.096 * (double)D.Samples) / (8388608.0 * (double)D.NumAccums);
-			//~ Bv = (4.096 * ((B.Samples - 0) / B.NumAccums)) / 8388608.0;
 			//~ Av = (4.096 * ((A.Samples - 0) / 1)) / 8388608.0;
 			//~ Bv = (4.096 * ((B.Samples - 0) / 1)) / 8388608.0;
 			//~ Cv = (4.096 * ((C.Samples - 0) / 1)) / 8388608.0;
@@ -292,6 +295,10 @@ int8_t FSMAdcsCommand(char const* Name, char const* Params, const size_t ParamsL
 			//~ formatf("\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx, 0x%016llx; %+d(%u), %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, D.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, D.Samples, D.NumAccums, Av, Bv, Cv, Dv);
 			//~ formatf("\nFSMAdcs: current values: Num: %5d, %+9d, %+9d, %+9d, %+9d, %+1.6lf, %+1.6lf, %+1.6lf, %+1.6lf\n", A.NumAccums, A.Samples, B.Samples, C.Samples, D.Samples, Av, Bv, Cv, Dv);
 			formatf("\nFSMAdcs: current values: Num: %5d, 0x%016llx, 0x%016llx, 0x%016llx, 0x%016llx, %+1.6lf, %+1.6lf, %+1.6lf, %+1.6lf\n", A.NumAccums, A.Samples, B.Samples, C.Samples, D.Samples, Av, Bv, Cv, Dv);
+			A.formatf();
+			B.formatf();
+			C.formatf();
+			D.formatf();
 		}
 		
 		//~ //Quit on any keypress
@@ -338,6 +345,8 @@ int8_t BISTCommand(char const* Name, char const* Params, const size_t ParamsLen,
 		
 		//~ //Show current A/D values:
 		//~ {
+			//~ //Prepare for atomic read of samples (do as an 8-bit pointer so the processor doesn't crash !#@$%#!):
+			//~ *((uint8_t*)&(FSM->LatchAdcs)) = cycle | 1;
 			//~ AdcAccumulator A, B, C;
 			//~ A = FSM->AdcAAccumulator;
 			//~ B = FSM->AdcBAccumulator;
@@ -544,6 +553,8 @@ int8_t GoXYCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	
 	//Show current A/D values:
 	{
+		//Prepare for atomic read of samples (do as an 8-bit pointer so the processor doesn't crash !#@$%#!):
+		*((uint8_t*)&(FSM->LatchAdcs)) = 1;
 		AdcAccumulator Aa, Ba, Ca, Da;
 		Aa = FSM->AdcAAccumulator;
 		Ba = FSM->AdcBAccumulator;

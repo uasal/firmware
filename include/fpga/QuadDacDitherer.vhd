@@ -103,8 +103,10 @@ architecture DacDithererLogic of QuadDacDitherer is
 	
 begin
 
-	TP1 <= std_logic_vector(to_unsigned(DitherPos, DITHER_BITS))(0);
-	TP2 <= std_logic_vector(to_unsigned(DitherPos, DITHER_BITS))(1);
+	--~ TP1 <= std_logic_vector(to_unsigned(DitherPos, DITHER_BITS))(0);
+	--~ TP2 <= std_logic_vector(to_unsigned(DitherPos, DITHER_BITS))(1);
+	TP1 <= DitherClock;
+	TP2 <= DitherClock;
 	TP3 <= DitherClock;
 	TP4 <= LastDitherClock;
 	
