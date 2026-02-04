@@ -36,7 +36,7 @@ jobs:
                 doxygen 
                 cd $GITHUB_WORKSPACE
                 mkdir -p doxygen/FineSteeringMirrorController/processor
-                cd FineSteeringMirrorController/processor/Main/dox
+                cd FineSteeringMirrorController/processor/dox
                 doxygen 
                 cd $GITHUB_WORKSPACE
                 mkdir -p doxygen/FineSteeringMirrorController/fpga
