@@ -13,25 +13,33 @@
 
 #include "format/formatf.h"
 
-union AdcAccumulator 		
-{
-    uint64_t all;
-    struct 
+//~ union AdcAccumulator 		
+//~ {
+    //~ uint64_t all;
+    //~ struct 
+	struct AdcAccumulator
     {
         //~ int64_t Samples : 48;
 		//~ int64_t Samples : 32;
 		//~ int64_t reserved : 16;
-		int32_t Samples;
-		int16_t reserved;
-        uint16_t NumAccums;
+		//~ int32_t Samples;
+		//~ int16_t reserved;
+        //~ uint16_t NumAccums;
+		int64_t Samples : 32;
+		int64_t reserved : 16;
+		int64_t NumAccums : 16;
+		
 
-    } __attribute__((__packed__));
+    //~ } __attribute__((__packed__));
 
     //static const int32_t AdcFullScale = 0x7FFFFFFFL; //2^32 - 1; must divide accumulator by numaccums first obviously
 
-    AdcAccumulator() { all = 0; }
+    AdcAccumulator() { Samples = 0; reserved = 0; NumAccums = 0; }
+	
+	void SetHiWord(const uint32_t& hi) { reserved = hi & 0xFFFFU; NumAccums = hi >> 16; }
 
-    void formatf() const { ::formatf("AdcAccumulator: Samples: %+10.0lf ", (double)Samples); ::formatf("(0x%.8lX", (unsigned long)(all >> 32));  ::formatf("%.8lX)", (unsigned long)(all)); ::formatf(", NumAccums: %lu ", (unsigned long)NumAccums); ::formatf("(0x%lX)", (unsigned long)NumAccums); }
+    //~ void formatf() const { ::formatf("AdcAccumulator: Samples: %+10.0lf ", (double)Samples); ::formatf("(0x%.8lX", (unsigned long)(all >> 32));  ::formatf("%.8lX)", (unsigned long)(all)); ::formatf(", Samples: %.8lX, reserved: %.8lX, NumAccums: %lu ", (unsigned long)Samples, (unsigned long)reserved, (unsigned long)NumAccums); ::formatf("(0x%lX)", (unsigned long)NumAccums); }
+	void formatf() const { ::formatf("AdcAccumulator: Samples: %+10.0lf ", (double)Samples); ::formatf(", Samples: %.8lX, reserved: %.8lX, NumAccums: %lu ", (unsigned long)Samples, (unsigned long)reserved, (unsigned long)NumAccums); ::formatf("(0x%lX)", (unsigned long)NumAccums); }
 
 } __attribute__((__packed__));
 
@@ -68,6 +76,22 @@ union AdcFifo
     AdcFifo() { all = 0; }
 
     //~ void formatf() const { ::formatf("AdcFifo: Sample: %+10.0lf ", (double)Sample); ::formatf("(0x%.8lX", (unsigned long)(all >> 32));  ::formatf("%.8lX)", (unsigned long)(all)); ::formatf(", NumAccums: %lu ", (unsigned long)NumAccums); ::formatf("(0x%lX)", (unsigned long)NumAccums); }
+
+} __attribute__((__packed__));
+
+union AdcConfigRegister 		
+{
+    uint32_t all;
+    struct 
+    {
+        uint16_t AdcClkDivider;
+		uint16_t AdcSamplesToAverage;
+
+    } __attribute__((__packed__));
+
+    AdcConfigRegister() { all = 0; }
+
+    void formatf() const { ::formatf("AdcConfigRegister: AdcClkDivider: %u (0x%4X), AdcSamplesToAverage %u (0x%4X)", AdcClkDivider, AdcClkDivider, AdcSamplesToAverage, AdcSamplesToAverage); }
 
 } __attribute__((__packed__));
 

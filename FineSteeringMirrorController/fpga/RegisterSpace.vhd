@@ -59,6 +59,9 @@ entity RegisterSpacePorts is
 		PowerCycd : in std_logic;
 		nPowerCycClr : out std_logic;								
 		PowernEn : out std_logic;
+		ChopEn : out std_logic;
+		ChopRefState : out std_logic;
+		ChopAdcState : out std_logic;
 		Uart0OE : out std_logic;
 		Uart1OE : out std_logic;
 		Uart2OE : out std_logic;
@@ -84,7 +87,9 @@ entity RegisterSpacePorts is
 		AdcSampleToReadC : in std_logic_vector(47 downto 0);	
 		AdcSampleToReadD : in std_logic_vector(47 downto 0);	
 		AdcSampleNumAccums : in std_logic_vector(15 downto 0);	
-		
+		AdcClkDivider : out std_logic_vector(15 downto 0);	
+		AdcSamplesToAverage : out std_logic_vector(15 downto 0);	
+
 		--Monitor A/D:
 		MonitorAdcChannelReadIndex : out std_logic_vector(4 downto 0);
 		ReadMonitorAdcSample : out std_logic;
@@ -181,8 +186,8 @@ architecture RegisterSpace of RegisterSpacePorts is
 	--~ constant PPSRtcPhaseCmpAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(28, MAX_ADDRESS_BITS));
 
 	constant ControlRegisterAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(32, MAX_ADDRESS_BITS)); --we have guard addresses on all fifos because accidental reading still removes a char from the fifo.
-	--~ constant MotorControlStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(36, MAX_ADDRESS_BITS));
-	constant LatchAdcsAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(40, MAX_ADDRESS_BITS));
+	constant AdcConfigAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(36, MAX_ADDRESS_BITS));
+	--~ constant LatchAdcsAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(40, MAX_ADDRESS_BITS));
 	
 	constant DacASetpointAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(44, MAX_ADDRESS_BITS));
 	constant DacBSetpointAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(48, MAX_ADDRESS_BITS));
@@ -215,6 +220,12 @@ architecture RegisterSpace of RegisterSpacePorts is
 	constant Uart3FifoAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(152, MAX_ADDRESS_BITS));
 	constant Uart3FifoStatusAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(156, MAX_ADDRESS_BITS));
 	constant Uart3FifoReadDataAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(160, MAX_ADDRESS_BITS));
+	
+	--~ constant AdcConfigAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(164, MAX_ADDRESS_BITS));
+	
+	--164-199 reserved by peek infrastructure
+	
+	constant LatchAdcsAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(200, MAX_ADDRESS_BITS));
 	
 	--Control Signals
 	
@@ -255,6 +266,13 @@ architecture RegisterSpace of RegisterSpacePorts is
 	signal DacSelectMaxti_i :  std_logic := '0';								
 	signal GlobalFaultInhibit_i :  std_logic := '0';
 	signal nFaultsClr_i :  std_logic := '0';
+	
+	signal ChopEn_i :  std_logic := '0';
+	signal ChopRefState_i :  std_logic := '0';
+	signal ChopAdcState_i :  std_logic := '0';
+	signal AdcClkDivider_i : std_logic_vector(15 downto 0);	
+	signal AdcSamplesToAverage_i : std_logic_vector(15 downto 0);	
+
 		
 begin
 
@@ -294,12 +312,47 @@ begin
 	GlobalFaultInhibit <= GlobalFaultInhibit_i;
 	nFaultsClr <= nFaultsClr_i;
 	
-		
+	ChopEn <= ChopEn_i;
+	ChopRefState <= ChopRefState_i;
+	ChopAdcState <= ChopAdcState_i;	
+	AdcClkDivider <= AdcClkDivider_i;	
+	AdcSamplesToAverage <= AdcSamplesToAverage_i;	
+	
 	process (clk, rst)
 	begin
 	
 		if (rst = '1') then
 		
+			--Set all the generic outs to zero to avoid feedback mux warnings
+			DataOut <= (others => '0');
+			PPSCountReset <= '1';
+			ReadAdcSample <= '0';
+			nPowerCycClr <= '0';
+			WriteUart3 <= '0';
+			WriteUart2 <= '0';
+			WriteUart1 <= '0';
+			WriteUart0 <= '0';
+			WriteClkDac <= '0';
+			Uart3FifoReset <= '1';
+			Uart2FifoReset <= '1';
+			Uart1FifoReset <= '1';
+			Uart0FifoReset <= '1';
+			ReadUart3 <= '0';
+			ReadUart2 <= '0';
+			ReadUart1 <= '0';
+			ReadUart0 <= '0';
+			ReadMonitorAdcSample <= '0';
+			MonitorAdcSpiXferStart <= '0';
+			MonitorAdcReset <= '1';
+			ClkDacWrite <= (others => '0');
+			Uart3TxFifoData <= (others => '0');
+			Uart2TxFifoData <= (others => '0');
+			Uart1TxFifoData <= (others => '0');
+			Uart0TxFifoData <= (others => '0');
+			MonitorAdcSpiDataIn <= (others => '0');
+			ReadAck <= '1';
+			WriteAck <= '1';
+
 			LastReadReq <= '0';			
 			LastWriteReq <= '0';		
 
@@ -334,6 +387,17 @@ begin
 			HVEn2_i <= '0';
 			GlobalFaultInhibit_i <= '0';
 			nFaultsClr_i <= '1';
+			ChopEn_i <= '0';
+			ChopRefState_i <= '0';
+			ChopAdcState_i <= '0';
+			
+			--~ AdcClkDivider => x"002F", --1MHz
+			--~ AdcClkDivider => x"05DC", --32kHz
+			--~ AdcClkDivider => x"0FFF", --24kHz
+			AdcClkDivider_i <= x"00FF"; --400kHz
+			--~ AdcClkDivider => x"FFFF", --1kHz
+			AdcSamplesToAverage_i <= x"FFFF";		
+			--~ AdcSamplesToAverage_i => x"0001",		
 			
 		else
 			
@@ -407,15 +471,24 @@ begin
 
 							--FSM Readback A/D's
 							
-							when LatchAdcsAddr =>
+							--~ when LatchAdcsAddr =>
 							
-								ReadAdcSample <= '1';	
+								--~ ReadAdcSample <= '1';	
+								
+							when AdcConfigAddr =>
 							
+								DataOut(15 downto 0) <= AdcClkDivider_i;
+								DataOut(31 downto 16) <= AdcSamplesToAverage_i;
+								--Ponder adding SPI clock divider as well..
+								
 							--AdcSampleToReadA
 							
 							when AdcAAccumulatorAddr =>
 
 								DataOut <= AdcSampleToReadA(31 downto 0);
+								--~ DataOut <= x"00000013";
+								--~ DataOut(15 downto 0) <= x"D0D0";
+								--~ DataOut(31 downto 16) <= x"6969";
 								
 								--~ ReadAdcSample <= '1';	
 
@@ -423,6 +496,8 @@ begin
 
 								DataOut(15 downto 0) <= AdcSampleToReadA(47 downto 32);
 								DataOut(31 downto 16) <= AdcSampleNumAccums;
+								--~ DataOut(15 downto 0) <= x"D0D0";
+								--~ DataOut(31 downto 16) <= x"6969";
 								
 															
 							--AdcSampleToReadB
@@ -430,6 +505,9 @@ begin
 							when AdcBAccumulatorAddr =>
 
 								DataOut <= AdcSampleToReadB(31 downto 0);
+								--~ DataOut <= x"00000013";
+								--~ DataOut(15 downto 0) <= x"F00D";
+								--~ DataOut(31 downto 16) <= x"6666";
 								
 								--~ ReadAdcSample <= '1';	
 
@@ -437,12 +515,15 @@ begin
 
 								DataOut(15 downto 0) <= AdcSampleToReadB(47 downto 32);
 								DataOut(31 downto 16) <= AdcSampleNumAccums;
+								--~ DataOut(15 downto 0) <= x"D0D0";
+								--~ DataOut(31 downto 16) <= x"6969";
 							
 							--AdcSampleToReadC
 							
 							when AdcCAccumulatorAddr =>
 
 								DataOut <= AdcSampleToReadC(31 downto 0);
+								--~ DataOut <= x"00000013";
 								
 								--~ ReadAdcSample <= '1';	
 
@@ -450,12 +531,15 @@ begin
 
 								DataOut(15 downto 0) <= AdcSampleToReadC(47 downto 32);
 								DataOut(31 downto 16) <= AdcSampleNumAccums;
+								--~ DataOut(15 downto 0) <= x"BAAD";
+								--~ DataOut(31 downto 16) <= x"8888";
 							
 							--AdcSampleToReadD
 							
 							when AdcDAccumulatorAddr =>
 
 								DataOut <= AdcSampleToReadD(31 downto 0);
+								--~ DataOut <= x"00000013";
 								
 								--~ ReadAdcSample <= '1';	
 
@@ -463,6 +547,8 @@ begin
 
 								DataOut(15 downto 0) <= AdcSampleToReadD(47 downto 32);
 								DataOut(31 downto 16) <= AdcSampleNumAccums;
+								--~ DataOut(15 downto 0) <= x"D0D0";
+								--~ DataOut(31 downto 16) <= x"6969";
 								
 								--~ ReadAdcSample <= '1';	
 							
@@ -681,7 +767,7 @@ begin
 								DataOut(12) <= nHVFaultD;								
 								DataOut(13) <= PowerCycd;
 								DataOut(14) <= PowernEn_i;
-								DataOut(15) <= '0';
+								DataOut(15) <= ChopEn_i;
 								
 								DataOut(16) <= Uart0OE_i;
 								DataOut(17) <= Uart1OE_i;
@@ -698,9 +784,9 @@ begin
 								DataOut(27) <= DacSelectMaxti_i;
 								DataOut(28) <= GlobalFaultInhibit_i;
 								DataOut(29) <= nFaultsClr_i;
-								DataOut(30) <= '0';
-								DataOut(31) <= '0';
-								 								
+								DataOut(30) <= ChopRefState_i;
+								DataOut(31) <= ChopAdcState_i;
+								 										
 								--~ DataOut(31 downto 23) <= "000000000";
 								
 
@@ -807,7 +893,13 @@ begin
 							when LatchAdcsAddr =>
 							
 								ReadAdcSample <= '1';	
-	
+								
+							when AdcConfigAddr =>
+							
+								AdcClkDivider_i <= DataIn(15 downto 0);
+								AdcSamplesToAverage_i <= DataIn(31 downto 16);
+								--Ponder adding SPI clock divider as well..
+								
 							--~ when AdcAAccumulatorAddr =>
 								
 								--~ ReadAdcSample <= '1';	
@@ -910,6 +1002,7 @@ begin
 								
 								nPowerCycClr <= DataIn(13);
 								PowernEn_i <= DataIn(14);
+								ChopEn_i <= DataIn(15);
 								
 								Uart0OE_i <= DataIn(16);
 								Uart1OE_i <= DataIn(17);
@@ -924,6 +1017,8 @@ begin
 								DacSelectMaxti_i <= DataIn(27);
 								GlobalFaultInhibit_i <= DataIn(28);
 								nFaultsClr_i <= DataIn(29);
+								ChopRefState_i <= DataIn(30);
+								ChopAdcState_i <= DataIn(31);
 								
 							
 

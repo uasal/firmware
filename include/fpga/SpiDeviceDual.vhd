@@ -157,7 +157,9 @@ begin
 			SpiRst <= '1';			
 			LastTransfer <= '0';
 			LastSpiXferComplete <= '0';
-			TransferActuallyComplete <= '0';			
+			TransferActuallyComplete <= '0';		
+			ReadbackA <= (others => '0');
+			ReadbackB <= (others => '0');
 			
 		else
 			

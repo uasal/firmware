@@ -37,7 +37,7 @@ union CGraphFSMHardwareControlRegister
 		uint32_t nHVFaultD : 1; //b12;
 		uint32_t PowerCycdAndClr : 1; //b13;
 		uint32_t PowernEn : 1; //b14;
-		uint32_t reserved1 : 1; //b15;
+		uint32_t ChopEn : 1; //b15;
 		
 		uint32_t Uart0OE : 1; //b16;
 		uint32_t Uart1OE : 1; //b17;
@@ -54,8 +54,8 @@ union CGraphFSMHardwareControlRegister
 		uint32_t DacSelectMaxti : 1; //b27;
 		uint32_t GlobalFaultInhibit : 1; //b28;
 		uint32_t nFaultsClr : 1; //b29;
-		uint32_t reserved4 : 1; //b30;
-		uint32_t reserved5 : 1; //b31;
+		uint32_t ChopRefState : 1; //b30;
+		uint32_t ChopAdcState : 1; //b31;
         
     } __attribute__((__packed__));
 
@@ -79,7 +79,7 @@ union CGraphFSMHardwareControlRegister
 	nHVFaultD: %lu, \
 	PowerCycdAndClr: %lu, \
 	PowernEn: %lu, \
-	reserved1: %lu, \
+	ChopEn: %lu, \
 	Uart0OE: %lu, \
 	Uart1OE: %lu, \
 	Uart2OE: %lu, \
@@ -94,8 +94,8 @@ union CGraphFSMHardwareControlRegister
 	DacSelectMaxti: %lu, \
 	GlobalFaultInhibit: %lu, \
 	nFaultsClr: %lu, \
-	reserved4: %lu, \
-	reserved5: %lu",
+	ChopRefState: %lu, \
+	ChopAdcState: %lu",
 	all,
 	FaultNegV,
 	Fault1V,
@@ -112,7 +112,7 @@ union CGraphFSMHardwareControlRegister
 	nHVFaultD,
 	PowerCycdAndClr,
 	PowernEn,
-	reserved1,
+	ChopEn,
 	Uart0OE,
 	Uart1OE,
 	Uart2OE,
@@ -127,12 +127,12 @@ union CGraphFSMHardwareControlRegister
 	DacSelectMaxti,
 	GlobalFaultInhibit,
 	nFaultsClr,
-	reserved4,
-	reserved5);
+	ChopRefState,
+	ChopAdcState);
 	}
 
 }// __attribute__((__packed__));
-__attribute__((packed, aligned(1)));
+__attribute__((packed, aligned(4)));
 
 struct CGraphFSMHardwareInterface
 {
@@ -145,16 +145,27 @@ struct CGraphFSMHardwareInterface
     uint32_t ClockSteeringDacSetpoint; //24; rw; 
 	uint32_t reserved1; //28; PPSRtcPhaseCmpAddr
 	CGraphFSMHardwareControlRegister ControlRegister; //32; rw
-	uint32_t reserved2; //36
-	uint32_t LatchAdcs; //40
+	AdcConfigRegister AdcConfig; //36
+	//~ uint32_t LatchAdcs; //40; wo; Transfers AdcAccumulators to read registers so reads are atomic across channels & datawords
+	uint32_t reserved2; //40; wo; Transfers AdcAccumulators to read registers so reads are atomic across channels & datawords
     uint32_t DacASetpoint; //44; rw; First D/A; Zero = zero travel, DacFullScale = full scale travel
     uint32_t DacBSetpoint; //48; rw; Second D/A; Zero = zero travel, DacFullScale = full scale travel
     uint32_t DacCSetpoint; //52; rw; Third D/A; Zero = zero travel, DacFullScale = full scale travel
 	uint32_t DacDSetpoint; //56; rw; Third D/A; Zero = zero travel, DacFullScale = full scale travel
-    AdcAccumulator AdcAAccumulator; //60; rw; First A/D; read or write any value to clear & reset accumulator
-    AdcAccumulator AdcBAccumulator; //68; rw; Second A/D; read or write any value to clear & reset accumulator
-    AdcAccumulator AdcCAccumulator; //76; rw; Third A/D; read or write any value to clear & reset accumulator
-	AdcAccumulator AdcDAccumulator; //84; rw; Third A/D; read or write any value to clear & reset accumulator
+	
+	//Our compiler is now wholy incapable of dealing with reading 64bit integers from the bus, proven by wasting a week of my life debugging!! If you read them as 2 32b pointers and smash together in code, it is show that there is no problem in the FPGA, and it is GCC making a mess! As usual when something truly inexplicable happens!!
+    //~ AdcAccumulator AdcAAccumulator; //60; rw; First A/D; read or write any value to clear & reset accumulator
+    //~ AdcAccumulator AdcBAccumulator; //68; rw; Second A/D; read or write any value to clear & reset accumulator
+    //~ AdcAccumulator AdcCAccumulator; //76; rw; Third A/D; read or write any value to clear & reset accumulator
+	//~ AdcAccumulator AdcDAccumulator; //84; rw; Third A/D; read or write any value to clear & reset accumulator
+	int32_t AdcAAccumulator; //60; rw; First A/D; read or write any value to clear & reset accumulator
+    int32_t AdcAAccumulatorHiandNumAccums; //64; rw; First A/D; read or write any value to clear & reset accumulator
+    int32_t AdcBAccumulator; //68; rw; Second A/D; read or write any value to clear & reset accumulator
+    int32_t AdcBAccumulatorHiandNumAccums; //72; rw; Second A/D; read or write any value to clear & reset accumulator
+    int32_t AdcCAccumulator; //76; rw; Third A/D; read or write any value to clear & reset accumulator
+	int32_t AdcCAccumulatorHiandNumAccums; //80; rw; Third A/D; read or write any value to clear & reset accumulator
+	int32_t AdcDAccumulator; //84; rw; Third A/D; read or write any value to clear & reset accumulator
+    int32_t AdcDAccumulatorHiandNumAccums; //88; rw; Third A/D; read or write any value to clear & reset accumulator
     
 	AdcAccumulator MonitorAdcAccumulator; //92; ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
 	uint32_t MonitorAdcReadChannel; //100; rw; which channel to read for MonitorA/D
@@ -196,7 +207,9 @@ struct CGraphFSMHardwareInterface
 	uint32_t Uart0CrcStartAddr; //184
 	uint32_t Uart0CrcEndAddr; //188
 	CGraphCrcCurrentAddr Uart0CrcCurrentAddr; //192
-	uint32_t Uart0Crc; //180
+	uint32_t Uart0Crc; //196
+	
+	uint32_t LatchAdcs; //200; wo; Transfers AdcAccumulators to read registers so reads are atomic across channels & datawords
 
 	static const uint32_t DacFullScale; //2^20 - 1
     static const double DacDriverFullScaleOutputVoltage; //150 Volts, don't get your fingers near this thing!
@@ -204,8 +217,11 @@ struct CGraphFSMHardwareInterface
 
     //~ void formatf() const { ::formatf("CGraphFSMHardwareInterface: Sample: %+10.0lf ", (double)Sample); ::formatf("(0x%.8lX", (uint32_t)(all >> 32));  ::formatf("%.8lX)", (uint32_t)(all)); ::formatf(", NumAccums: %lu ", (uint32_t)NumAccums); ::formatf("(0x%lX)", (uint32_t)NumAccums); }
 
+	//While we're struggling with gcc trying to read 32b values as 3 unaligned bytes (and one aligned one) and crash the processor, this is our workaround:
+	void InititateLatchAdcs();
+
 }// __attribute__((__packed__)) __attribute__((__unaligned__));
-__attribute__((packed, aligned(1)));
+__attribute__((packed, aligned(4)));
 
 extern CGraphFSMHardwareInterface* volatile FSM;
  

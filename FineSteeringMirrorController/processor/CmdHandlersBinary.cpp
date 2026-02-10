@@ -87,10 +87,13 @@ int8_t BinaryFSMAdcsCommand(const uint32_t Name, char const* Params, const size_
 	AdcAccumulator AdcVals[3];	
 	//Prepare for atomic read of samples (do as an 8-bit pointer so the processor doesn't crash !#@$%#!):
 	*((uint8_t*)&(FSM->LatchAdcs)) = 1;
-	AdcVals[0] = FSM->AdcAAccumulator;
-	AdcVals[1] = FSM->AdcBAccumulator;
-	AdcVals[2] = FSM->AdcCAccumulator;	
-	printf("\nBinaryFSMAdcsCommand  Replying (%ld, %ld, %ld)...\n\n", AdcVals[0].Samples, AdcVals[1].Samples, AdcVals[2].Samples);
+	AdcVals[0].Samples = FSM->AdcAAccumulator;
+	AdcVals[0].SetHiWord(FSM->AdcAAccumulatorHiandNumAccums);
+	AdcVals[1].Samples = FSM->AdcBAccumulator;
+	AdcVals[1].SetHiWord(FSM->AdcBAccumulatorHiandNumAccums);
+	AdcVals[2].Samples = FSM->AdcCAccumulator;	
+	AdcVals[2].SetHiWord(FSM->AdcCAccumulatorHiandNumAccums);
+	printf("\nBinaryFSMAdcsCommand  Replying (%d, %d, %d)...\n\n", AdcVals[0].Samples, AdcVals[1].Samples, AdcVals[2].Samples);
 	TxBinaryPacket(Argument, CGraphPayloadTypeFSMAdcs, 0, AdcVals, 3 * sizeof(AdcAccumulator));
     return(ParamsLen);
 }
@@ -103,9 +106,15 @@ int8_t BinaryFSMAdcsFloatingPointCommand(const uint32_t Name, char const* Params
 	//Prepare for atomic read of samples (do as an 8-bit pointer so the processor doesn't crash !#@$%#!):
 	*((uint8_t*)&(FSM->LatchAdcs)) = 1;
 	AdcAccumulator A, B, C;
-	A = FSM->AdcAAccumulator;
-	B = FSM->AdcBAccumulator;
-	C = FSM->AdcCAccumulator;
+	//~ A = FSM->AdcAAccumulator;
+	//~ B = FSM->AdcBAccumulator;
+	//~ C = FSM->AdcCAccumulator;
+	A.Samples = FSM->AdcAAccumulator;
+	A.SetHiWord(FSM->AdcAAccumulatorHiandNumAccums);
+	B.Samples = FSM->AdcBAccumulator;
+	B.SetHiWord(FSM->AdcBAccumulatorHiandNumAccums);
+	C.Samples = FSM->AdcCAccumulator;	
+	C.SetHiWord(FSM->AdcCAccumulatorHiandNumAccums);
 	AdcVals[0] = (4.096 * (((double)A.Samples - 0) / (double)A.NumAccums)) / 8388608.0;
 	AdcVals[1] = (4.096 * (((double)B.Samples - 0) / (double)B.NumAccums)) / 8388608.0;
 	AdcVals[2] = (4.096 * (((double)C.Samples - 0) / (double)C.NumAccums)) / 8388608.0;

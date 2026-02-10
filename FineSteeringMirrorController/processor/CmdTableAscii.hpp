@@ -42,6 +42,7 @@ int8_t CirclesCommand(char const* Name, char const* Params, const size_t ParamsL
 int8_t GoXYCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t UartCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t ConfigAdcCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t PrintBuffersCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t MonitorSerialCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t ControlRegisterCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);

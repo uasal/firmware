@@ -69,11 +69,11 @@ entity Ltc2378AccumQuadPorts is
 		AdcClkDivider : in std_logic_vector(15 downto 0); --This knob controls the acquisition speed of the A/D.
 		SamplesToAverage : in std_logic_vector(15 downto 0); --Only supported on LTC2380-24 hardware! This also controls the acquisition speed of the A/D; each 4x averaging gives an extra bit of SNR or 6dB.
 		ChopperEnable : in std_logic; --turns chopper on/off to reduce 1/f noise and offset!
-		ChopperMuxPos : out std_logic; --switches inputs when chopper on to reduce 1/f noise and offset!
-		ChopperMuxNeg : out std_logic; --switches inputs when chopper on to reduce 1/f noise and offset!
+		ChopperMuxRef : out std_logic; --switches inputs when chopper on to reduce 1/f noise and offset!
+		ChopperMuxAdc : out std_logic; --switches inputs when chopper on to reduce 1/f noise and offset!
 	
 		--Bus interface
-		ReadAdcSample : in std_logic;  --"inversion results in read on falling edge so next sample is always in register before we start reading. When fifo is emptied, the first sample will probably always be crap, we'll fix that when this works...	"
+		ReadAdcSample : in std_logic;		
 		AdcSampleToReadA : out std_logic_vector(47 downto 0);		
 		AdcSampleToReadB : out std_logic_vector(47 downto 0);		
 		AdcSampleToReadC : out std_logic_vector(47 downto 0);	
@@ -164,7 +164,6 @@ architecture Ltc2378AccumQuad of Ltc2378AccumQuadPorts is
 	constant NoDataReady : std_logic := '1';
 	
 	signal LastnDrdy : std_logic; --to grab edge
-	signal RstNext : std_logic; --to grab edge
 	
 	--~ signal LastPPS : std_logic; 
 	
@@ -203,7 +202,7 @@ architecture Ltc2378AccumQuad of Ltc2378AccumQuadPorts is
 	signal SamplesThisSecond : std_logic_vector(31 downto 0);
 	
 	signal LastReadRequest : std_logic;
-	signal LastSpiRst : std_logic;
+	--~ signal LastSpiRst : std_logic;
 
 	signal ChopperPolarity : std_logic := '0';
 	
@@ -212,7 +211,7 @@ architecture Ltc2378AccumQuad of Ltc2378AccumQuadPorts is
 begin
 
 	TP1 <= SpiRst;
-	TP2 <= Sck_i;
+	TP2 <= SpiXferComplete;
 	TP3 <= SampleLatched;
 	TP4 <= TriggeredSampleClk;
 
@@ -281,18 +280,22 @@ begin
 		XferComplete => SpiXferComplete--,
 	);
 	
-	SpiEnableDelayOneShot : OneShotPorts
-	generic map (
-		CLOCK_FREQHZ => 100000000,
-		DELAY_SECONDS => 0.00000003,
-		SHOT_RST_STATE => '1',
-		SHOT_PRETRIGGER_STATE => '1'
-	)
-	port map (		
-		clk => clk,
-		rst => SpiRst,
-		shot => SpiRst_i--,
-	);
+	--Bus enable time is 16nsec from datasheet (LTC2380-24)
+	--However, at 102MHz/8 = 12MHz, sck period is 78nsec, so this is super likely to be superfluous, and is shown to cause serious instability (race condition) in the reset/xfer complete logic...
+	--~ SpiEnableDelayOneShot : OneShotPorts
+	--~ generic map (
+		--~ CLOCK_FREQHZ => 100000000,
+		--~ DELAY_SECONDS => 0.00000003,
+		--~ SHOT_RST_STATE => '1',
+		--~ SHOT_PRETRIGGER_STATE => '1'
+	--~ )
+	--~ port map (		
+		--~ clk => clk,
+		--~ rst => SpiRst,
+		--~ shot => SpiRst_i--,
+	--~ );
+	
+	SpiRst_i <= SpiRst;
 	
 	nCsA <= SpiRst; --these concepts are synchronous in this design
 	nCsB <= SpiRst; --these concepts are synchronous in this design
@@ -305,7 +308,6 @@ begin
 	
 		if (rst = '1') then --We're using AdcClkReset instead of the external rst signal here so that sync will reset SamplesAveraged so our sample is aligned to sync when we are downsampling...
 		
-			RstNext <= '0';
 			SpiRst <= '1';			
 			LastnDrdy <= '0';
 			--~ SampleLatched <= '0';
@@ -315,10 +317,23 @@ begin
 			SamplesAveraged <= x"0000";
 			SamplesThisSecond <= x"00000000";
 			ChopperPolarity <= '0';
-			ChopperMuxPos <= '0';
-			ChopperMuxNeg <= '0';		
+			ChopperMuxRef <= '0';
+			ChopperMuxAdc <= '0';		
 			LastReadRequest <= '0';			
+			AdcSampleNumAccums <= (others => '0');
 			AdcSampleNumAccums_i <= x"0000";
+			AdcSampleA <= to_signed(0, 48);
+			AdcSampleB <= to_signed(0, 48);
+			AdcSampleC <= to_signed(0, 48);
+			AdcSampleD <= to_signed(0, 48);
+			DataFromMisoAExt <= std_logic_vector(to_signed(0, 48));
+			DataFromMisoBExt <= std_logic_vector(to_signed(0, 48));
+			DataFromMisoCExt <= std_logic_vector(to_signed(0, 48));
+			DataFromMisoDExt <= std_logic_vector(to_signed(0, 48));
+			AdcSampleToReadA <= std_logic_vector(to_signed(0, 48));
+			AdcSampleToReadB <= std_logic_vector(to_signed(0, 48));
+			AdcSampleToReadC <= std_logic_vector(to_signed(0, 48));
+			AdcSampleToReadD <= std_logic_vector(to_signed(0, 48));
 			
 		else
 			
@@ -332,13 +347,13 @@ begin
 					--Switch the mux right at start of acquisition (aka right after a conversion is finished) to maximize settling time:
 					if (ChopperEnable = '1') then
 
-						ChopperMuxPos <= ChopperPolarity;
-						ChopperMuxNeg <= ChopperPolarity;
+						ChopperMuxRef <= ChopperPolarity;
+						ChopperMuxAdc <= ChopperPolarity;
 						
 					else
 					
-						ChopperMuxPos <= '0';
-						ChopperMuxNeg <= '0';
+						ChopperMuxRef <= '0';
+						ChopperMuxAdc <= '0';
 						
 					end if;
 					
@@ -385,13 +400,12 @@ begin
 								SamplesThisSecond <= std_logic_vector(unsigned(SamplesThisSecond) + x"00000001");
 								
 								--turn off spi master bus
-								RstNext <= '1';
 								SpiRst <= '1';
 								
-								DataFromMisoAExt <= x"000000" & DataFromMisoA when (DataFromMisoA(23) = '0') else x"FFFFFF" & DataFromMisoA;
-								DataFromMisoBExt <= x"000000" & DataFromMisoB when (DataFromMisoB(23) = '0') else x"FFFFFF" & DataFromMisoB;
-								DataFromMisoCExt <= x"000000" & DataFromMisoC when (DataFromMisoC(23) = '0') else x"FFFFFF" & DataFromMisoC;
-								DataFromMisoDExt <= x"000000" & DataFromMisoD when (DataFromMisoD(23) = '0') else x"FFFFFF" & DataFromMisoD;
+								--~ DataFromMisoAExt <= x"000000" & DataFromMisoA when (DataFromMisoA(23) = '0') else x"FFFFFF" & DataFromMisoA;
+								--~ DataFromMisoBExt <= x"000000" & DataFromMisoB when (DataFromMisoB(23) = '0') else x"FFFFFF" & DataFromMisoB;
+								--~ DataFromMisoCExt <= x"000000" & DataFromMisoC when (DataFromMisoC(23) = '0') else x"FFFFFF" & DataFromMisoC;
+								--~ DataFromMisoDExt <= x"000000" & DataFromMisoD when (DataFromMisoD(23) = '0') else x"FFFFFF" & DataFromMisoD;
 								--~ DataFromMisoAExt <= resize(signed(DataFromMisoA), 48);
 								--~ DataFromMisoBExt <= resize(signed(DataFromMisoB), 48);
 								--~ DataFromMisoCExt <= resize(signed(DataFromMisoC), 48);
@@ -426,10 +440,14 @@ begin
 									--~ AdcSampleD <= AdcSampleD + resize(signed(DataFromMisoD), 48);
 									
 									--Works??
-									AdcSampleA <= AdcSampleA + signed(DataFromMisoAExt);
-									AdcSampleB <= AdcSampleB + signed(DataFromMisoBExt);
-									AdcSampleC <= AdcSampleC + signed(DataFromMisoCExt);
-									AdcSampleD <= AdcSampleD + signed(DataFromMisoDExt);
+									--~ AdcSampleA <= AdcSampleA + signed(DataFromMisoAExt);
+									--~ AdcSampleB <= AdcSampleB + signed(DataFromMisoBExt);
+									--~ AdcSampleC <= AdcSampleC + signed(DataFromMisoCExt);
+									--~ AdcSampleD <= AdcSampleD + signed(DataFromMisoDExt);
+									AdcSampleA <= AdcSampleA + signed(DataFromMisoA);
+									AdcSampleB <= AdcSampleB + signed(DataFromMisoB);
+									AdcSampleC <= AdcSampleC + signed(DataFromMisoC);
+									AdcSampleD <= AdcSampleD + signed(DataFromMisoD);
 									--~ --Don't accumulate...
 									--~ AdcSampleNumAccums_i <= x"0001";
 									--~ AdcSampleA <= signed(DataFromMisoAExt);
@@ -469,14 +487,6 @@ begin
 							
 						else
 						
-							if (RstNext = '1') then
-							
-								--turn off spi master bus
-								RstNext <= '0';
-								SpiRst <= '1';
-								
-							end if;
-									
 							if (ReadAdcSample /= LastReadRequest) then
 					
 								LastReadRequest <= ReadAdcSample;
@@ -518,18 +528,18 @@ begin
 							--~ end if;
 							else
 						
-							--~ if (SpiRst /= LastSpiRst) then
-					
-								--~ LastSpiRst <= SpiRst;
-								
-								--~ --Done with SPI xfer, then just put the sample in the read buffer...
-								--~ if (SpiRst = '1') then
-								
-									--~ AdcSampleNumAccums <= AdcSampleNumAccums_i;
-									--~ AdcSampleToReadA <= std_logic_vector(AdcSampleA);
-									--~ AdcSampleToReadB <= std_logic_vector(AdcSampleB);
-									--~ AdcSampleToReadC <= std_logic_vector(AdcSampleC);
-									--~ AdcSampleToReadD <= std_logic_vector(AdcSampleD);
+								--~ if (SpiRst /= LastSpiRst) then
+						
+									--~ LastSpiRst <= SpiRst;
+									
+									--~ --Done with SPI xfer, then just put the sample in the read buffer...
+									--~ if (SpiRst = '1') then
+									
+										--~ AdcSampleNumAccums <= AdcSampleNumAccums_i;
+										--~ AdcSampleToReadA <= std_logic_vector(AdcSampleA);
+										--~ AdcSampleToReadB <= std_logic_vector(AdcSampleB);
+										--~ AdcSampleToReadC <= std_logic_vector(AdcSampleC);
+										--~ AdcSampleToReadD <= std_logic_vector(AdcSampleD);
 
 								--~ end if;					
 

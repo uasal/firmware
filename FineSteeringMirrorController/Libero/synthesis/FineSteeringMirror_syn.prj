@@ -1,7 +1,7 @@
 #--  Synopsys, Inc.
 #--  Version T-2022.09M-SP2-1
 #--  Project file /home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/synthesis/FineSteeringMirror_syn.prj
-#--  Written on Tue Feb  3 15:06:58 2026
+#--  Written on Tue Feb 10 15:42:32 2026
 
 
 #project files
@@ -25,7 +25,6 @@ add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/IBu
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd"
-add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd"
@@ -37,6 +36,7 @@ add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/gat
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/UartRxFifoExtClk.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd"
+add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd"
 add_file -vhdl -lib work "/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd"

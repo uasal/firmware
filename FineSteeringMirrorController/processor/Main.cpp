@@ -134,8 +134,12 @@ int main(int argc, char *argv[])
 
 	//~ formatf("\nUartFifo3: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFSMHardwareInterface, UartFifo3), 152UL);
 	//~ formatf("\nOffset of FSM->ControlRegister: 0x%.2lX, expected: 0x%.2lX; size: %lu.", (unsigned long)offsetof(CGraphFSMHardwareInterface, ControlRegister), 32UL, sizeof(CGraphFSMHardwareControlRegister));
-	formatf("\nOffset of FSM->MonitorAdcSpiTransactionRegister: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFSMHardwareInterface, MonitorAdcSpiTransactionRegister), 104UL);
-
+	//~ formatf("\nOffset of FSM->MonitorAdcSpiTransactionRegister: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFSMHardwareInterface, MonitorAdcSpiTransactionRegister), 104UL);
+	formatf("\nOffset of FSM->LatchAdcs: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFSMHardwareInterface, LatchAdcs), 200UL);
+	formatf("\nOffset of FSM->AdcAAccumulator: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFSMHardwareInterface, AdcAAccumulator), 60UL);
+	formatf("\nOffset of FSM->AdcBAccumulator: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFSMHardwareInterface, AdcBAccumulator), 68UL);
+	formatf("\nOffset of FSM->Uart0RxFifoPeekReadAddr: 0x%.2lX, expected: 0x%.2lX.", (unsigned long)offsetof(CGraphFSMHardwareInterface, Uart0RxFifoPeekReadAddr), 164UL);
+	
 
 	//~ DbgUartUsb.Init();
 	DbgUart485_0.Init();

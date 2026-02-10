@@ -195,6 +195,10 @@ begin
 			DacWriteOutB_i <= (others => '0');
 			DacWriteOutC_i <= (others => '0');
 			DacWriteOutD_i <= (others => '0');
+			DacReadbackA <= (others => '0');
+			DacReadbackB <= (others => '0');
+			DacReadbackC <= (others => '0');
+			DacReadbackD <= (others => '0');
 			
 		else
 			

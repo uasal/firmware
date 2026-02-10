@@ -175,24 +175,24 @@ int8_t FSMDacsCommand(char const* Name, char const* Params, const size_t ParamsL
 	formatf("\n\nFSMDacs: current value: %lx, %lx, %lx, %lx.\n", A, B, C, D);
 	
 	//Show current A/D values:
-	{
-		//Prepare for atomic read of samples (do as an 8-bit pointer so the processor doesn't crash !#@$%#!):
-		*((uint8_t*)&(FSM->LatchAdcs)) = 1;
+	//~ {
+		//~ //Prepare for atomic read of samples (do as an 8-bit pointer so the processor doesn't crash !#@$%#!):
+		//~ *((uint8_t*)&(FSM->LatchAdcs)) = 1;
 		
-		AdcAccumulator Aa, Ba, Ca;
-		Aa = FSM->AdcAAccumulator;
-		Ba = FSM->AdcBAccumulator;
-		Ca = FSM->AdcCAccumulator;
+		//~ AdcAccumulator Aa, Ba, Ca;
+		//~ Aa = FSM->AdcAAccumulator;
+		//~ Ba = FSM->AdcBAccumulator;
+		//~ Ca = FSM->AdcCAccumulator;
 
-		double Av, Bv, Cv;
-		Av = (4.096 * ((Aa.Samples - 0) / Aa.NumAccums)) / 8388608.0;
-		Bv = (4.096 * ((Ba.Samples - 0) / Ba.NumAccums)) / 8388608.0;
-		Cv = (4.096 * ((Ca.Samples - 0) / Ca.NumAccums)) / 8388608.0;
+		//~ double Av, Bv, Cv;
+		//~ Av = (4.096 * ((Aa.Samples - 0) / Aa.NumAccums)) / 8388608.0;
+		//~ Bv = (4.096 * ((Ba.Samples - 0) / Ba.NumAccums)) / 8388608.0;
+		//~ Cv = (4.096 * ((Ca.Samples - 0) / Ca.NumAccums)) / 8388608.0;
 		
 			
-		//~ formatf("\n\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 8388608.0, (4.096 * (B.Samples / B.NumAccums)) / 8388608.0, (4.096 * (C.Samples / C.NumAccums)) / 8388608.0);
-		formatf("\nFSMDacs: Sensor A/D's: 0x%016llx, 0x%016llx, 0x%016llx; %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", Aa.all, Ba.all, Ca.all, Aa.Samples, Aa.NumAccums, Ba.Samples, Ba.NumAccums, Ca.Samples, Ca.NumAccums, Av, Bv, Cv);
-	}
+		//~ //formatf("\n\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 8388608.0, (4.096 * (B.Samples / B.NumAccums)) / 8388608.0, (4.096 * (C.Samples / C.NumAccums)) / 8388608.0);
+		//~ formatf("\nFSMDacs: Sensor A/D's: %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", Aa.Samples, Aa.NumAccums, Ba.Samples, Ba.NumAccums, Ca.Samples, Ca.NumAccums, Av, Bv, Cv);
+	//~ }
 	
 	//~ formatf("\n\nFSMdaca: D/A registers at: %u, %u, %u.\n", offsetof(CGraphFSMHardwareInterface, DacASetpoint), offsetof(CGraphFSMHardwareInterface, DacBSetpoint), offsetof(CGraphFSMHardwareInterface, DacCSetpoint));
 	
@@ -274,12 +274,22 @@ int8_t FSMAdcsCommand(char const* Name, char const* Params, const size_t ParamsL
 			//Prepare for atomic read of samples (do as an 8-bit pointer so the processor doesn't crash !#@$%#!):
 			*((uint8_t*)&(FSM->LatchAdcs)) = cycle | 1;
 			
-			AdcAccumulator A, B, C, D;
-			A = FSM->AdcAAccumulator;
-			B = FSM->AdcBAccumulator;
-			C = FSM->AdcCAccumulator;
-			D = FSM->AdcDAccumulator;
+			//~ AdcAccumulator A, B, C, D;
+			//~ A = FSM->AdcAAccumulator;
+			//~ B = FSM->AdcBAccumulator;
+			//~ C = FSM->AdcCAccumulator;
+			//~ D = FSM->AdcDAccumulator;
 
+			AdcAccumulator A, B, C, D;
+			A.Samples = FSM->AdcAAccumulator;
+			A.SetHiWord(FSM->AdcAAccumulatorHiandNumAccums);
+			B.Samples = FSM->AdcBAccumulator;
+			B.SetHiWord(FSM->AdcBAccumulatorHiandNumAccums);
+			C.Samples = FSM->AdcCAccumulator;	
+			C.SetHiWord(FSM->AdcCAccumulatorHiandNumAccums);
+			D.Samples = FSM->AdcDAccumulator;	
+			D.SetHiWord(FSM->AdcDAccumulatorHiandNumAccums);
+			
 			double Av, Bv, Cv, Dv;
 			Av = (4.096 * (double)A.Samples) / (8388608.0 * (double)A.NumAccums);
 			Bv = (4.096 * (double)B.Samples) / (8388608.0 * (double)B.NumAccums);
@@ -551,26 +561,26 @@ int8_t GoXYCommand(char const* Name, char const* Params, const size_t ParamsLen,
 	D = FSM->DacDSetpoint;
 	formatf("\n\nGoXY: current value: %lx, %lx, %lx, %lx (%lfV x %lfV).\n", A, B, C, D, X * 100.0, Y * 100.0);
 	
-	//Show current A/D values:
-	{
-		//Prepare for atomic read of samples (do as an 8-bit pointer so the processor doesn't crash !#@$%#!):
-		*((uint8_t*)&(FSM->LatchAdcs)) = 1;
-		AdcAccumulator Aa, Ba, Ca, Da;
-		Aa = FSM->AdcAAccumulator;
-		Ba = FSM->AdcBAccumulator;
-		Ca = FSM->AdcCAccumulator;
-		Da = FSM->AdcDAccumulator;
+	//~ //Show current A/D values:
+	//~ {
+		//~ //Prepare for atomic read of samples (do as an 8-bit pointer so the processor doesn't crash !#@$%#!):
+		//~ FSM->InititateLatchAdcs();
+		//~ AdcAccumulator Aa, Ba, Ca, Da;
+		//~ Aa = FSM->AdcAAccumulator;
+		//~ Ba = FSM->AdcBAccumulator;
+		//~ Ca = FSM->AdcCAccumulator;
+		//~ Da = FSM->AdcDAccumulator;
 
-		double Av, Bv, Cv, Dv;
-		Av = (4.096 * ((Aa.Samples - 0) / Aa.NumAccums)) / 8388608.0;
-		Bv = (4.096 * ((Ba.Samples - 0) / Ba.NumAccums)) / 8388608.0;
-		Cv = (4.096 * ((Ca.Samples - 0) / Ca.NumAccums)) / 8388608.0;
-		Dv = (4.096 * ((Da.Samples - 0) / Da.NumAccums)) / 8388608.0;
+		//~ double Av, Bv, Cv, Dv;
+		//~ Av = (4.096 * ((Aa.Samples - 0) / Aa.NumAccums)) / 8388608.0;
+		//~ Bv = (4.096 * ((Ba.Samples - 0) / Ba.NumAccums)) / 8388608.0;
+		//~ Cv = (4.096 * ((Ca.Samples - 0) / Ca.NumAccums)) / 8388608.0;
+		//~ Dv = (4.096 * ((Da.Samples - 0) / Da.NumAccums)) / 8388608.0;
 		
 			
-		//~ formatf("\n\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 8388608.0, (4.096 * (B.Samples / B.NumAccums)) / 8388608.0, (4.096 * (C.Samples / C.NumAccums)) / 8388608.0);
-		formatf("\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx, 0x%016llx; %+d(%u), %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf, %+1.3lf\n", Aa.all, Ba.all, Ca.all, Da.all, Aa.Samples, Aa.NumAccums, Ba.Samples, Ba.NumAccums, Ca.Samples, Ca.NumAccums, Da.Samples, Da.NumAccums, Av, Bv, Cv, Dv);
-	}
+		//~ //formatf("\n\nFSMAdcs: current values: 0x%016llx, 0x%016llx, 0x%016llx; %+lld(%u), %+lld(%u), %+lld(%u), %+1.3lf, %+1.3lf, %+1.3lf\n", A.all, B.all, C.all, A.Samples, A.NumAccums, B.Samples, B.NumAccums, C.Samples, C.NumAccums, (4.096 * (A.Samples / A.NumAccums)) / 8388608.0, (4.096 * (B.Samples / B.NumAccums)) / 8388608.0, (4.096 * (C.Samples / C.NumAccums)) / 8388608.0);
+		//~ formatf("\nFSMAdcs: current values: %+d(%u), %+d(%u), %+d(%u), %+d(%u), %+1.3lf, %+1.3lf, %+1.3lf, %+1.3lf\n", Aa.Samples, Aa.NumAccums, Ba.Samples, Ba.NumAccums, Ca.Samples, Ca.NumAccums, Da.Samples, Da.NumAccums, Av, Bv, Cv, Dv);
+	//~ }
 	
 	//~ formatf("\n\nFSMdaca: D/A registers at: %u, %u, %u.\n", offsetof(CGraphFSMHardwareInterface, DacASetpoint), offsetof(CGraphFSMHardwareInterface, DacBSetpoint), offsetof(CGraphFSMHardwareInterface, DacCSetpoint));
 	
@@ -767,6 +777,37 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 	return(ParamsLen);
 }
 
+int8_t ConfigAdcCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	AdcConfigRegister cr;
+	unsigned long A = 0, B = 0;
+	
+	if (NULL == FSM)
+	{
+		formatf("\n\nConfigAdc: Fpga interface is not initialized! Please call InitFpga first!.");
+		return(ParamsLen);
+	}
+	
+	//Convert parameters
+    int8_t numfound = sscanf(Params, "%lu,%lu", &A, &B);
+    if (numfound >= 2)
+    {
+		cr.AdcClkDivider = A;
+		cr.AdcSamplesToAverage = B;
+		formatf("\n\nConfigAdc: setting to: ");
+		cr.formatf();
+		formatf("\n");
+		FSM->AdcConfig = cr;
+    }
+	
+	cr = FSM->AdcConfig;
+	formatf("\n\nConfigAdc: current values: ");
+	cr.formatf();
+	formatf("\n");
+	
+	return(ParamsLen);
+}
+
 int8_t PrintBuffersCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	formatf("\nShowBuffersCommand: FpgaUartParser: ");
@@ -822,8 +863,8 @@ int8_t MonitorSerialCommand(char const* Name, char const* Params, const size_t P
 int8_t ControlRegisterCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	CGraphFSMHardwareControlRegister cr;
-	char c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14;
-	bool o1=false, o2=false, o3=false, o4=false, o5=false, o6=false, o7=false, o8=false, o9=false, o10=false, o11=false, o12=false, o13=false, o14=false;
+	char c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17;
+	bool o1=false, o2=false, o3=false, o4=false, o5=false, o6=false, o7=false, o8=false, o9=false, o10=false, o11=false, o12=false, o13=false, o14=false, o15=false, o16=false, o17=false;
     
 	if (NULL == FSM)
 	{
@@ -831,7 +872,7 @@ int8_t ControlRegisterCommand(char const* Name, char const* Params, const size_t
 		return(ParamsLen);
 	}
 	
-    int8_t numfound = sscanf(Params, " %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c,", &c1, &c2, &c3, &c4, &c5, &c6, &c7, &c8, &c9, &c10, &c11, &c12, &c13, &c14);
+    int8_t numfound = sscanf(Params, " %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c", &c1, &c2, &c3, &c4, &c5, &c6, &c7, &c8, &c9, &c10, &c11, &c12, &c13, &c14, &c15, &c16, &c17);
     if (numfound >= 1)
     {
 		if ( ('Y' == c1) || ('y' == c1) || ('T' == c1) || ('t' == c1) || ('1' == c1) ) { o1 = true; }
@@ -848,21 +889,27 @@ int8_t ControlRegisterCommand(char const* Name, char const* Params, const size_t
 		if ( ('Y' == c12) || ('y' == c12) || ('T' == c12) || ('t' == c12) || ('1' == c12) ) { o12 = true; }
 		if ( ('Y' == c13) || ('y' == c13) || ('T' == c13) || ('t' == c13) || ('1' == c13) ) { o13 = true; }
 		if ( ('Y' == c14) || ('y' == c14) || ('T' == c14) || ('t' == c14) || ('1' == c14) ) { o14 = true; }
+		if ( ('Y' == c15) || ('y' == c15) || ('T' == c15) || ('t' == c15) || ('1' == c15) ) { o15 = true; }
+		if ( ('Y' == c16) || ('y' == c16) || ('T' == c16) || ('t' == c16) || ('1' == c16) ) { o16 = true; }
+		if ( ('Y' == c17) || ('y' == c17) || ('T' == c17) || ('t' == c17) || ('1' == c17) ) { o17 = true; }
 
 		cr.PowerCycdAndClr = o1;
 		cr.PowernEn = o2;
-		cr.Uart0OE = o3;
-		cr.Uart1OE = o4;
-		cr.Uart2OE = o5;
-		cr.Uart3OE = o6;
-		cr.Ux1SelJmp = o7;
-		cr.PPSDetectedAndRst = o8;
-		cr.PowernEnHV = o9;
-		cr.HVEn1 = o10;
-		cr.HVEn2 = o11;
-		cr.DacSelectMaxti = o12;
-		cr.GlobalFaultInhibit = o13;
-		cr.nFaultsClr = o14;
+		cr.ChopEn = o3;
+		cr.ChopRefState = o4;
+		cr.ChopAdcState = o5;
+		cr.Uart0OE = o6;
+		cr.Uart1OE = o7;
+		cr.Uart2OE = o8;
+		cr.Uart3OE = o9;
+		cr.Ux1SelJmp = o10;
+		cr.PPSDetectedAndRst = o11;
+		cr.PowernEnHV = o12;
+		cr.HVEn1 = o13;
+		cr.HVEn2 = o14;
+		cr.DacSelectMaxti = o15;
+		cr.GlobalFaultInhibit = o16;
+		cr.nFaultsClr = o17;
 		
 		FSM->ControlRegister = cr;
 	}		

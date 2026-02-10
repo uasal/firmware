@@ -169,6 +169,12 @@ const Cmd AsciiCmds[] =
     ),
 	
 	Cmd(
+        "CONFIGADC",
+        "\"ConfigAdc\": <ClkDiv>, <NumAvg>: Set/query the sample clock divider and the number of samples for the A/D to average",
+        ConfigAdcCommand
+    ),
+	
+	Cmd(
         "PRINTBUFFERS",
         "\"PrintBuffers\": Dump current contents of parsers for debug...",
         PrintBuffersCommand

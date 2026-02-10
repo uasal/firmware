@@ -104,7 +104,7 @@ begin
 	DacMagnitudeOut <= DacMagnitudeOut_i;
 	
 	--Read A/D:
-	process (clk, rst, DacXferComplete)
+	process (clk, rst)
 	begin
 	
 		if (rst = '1') then --We're using AdcClkReset instead of the external rst signal here so that sync will reset SamplesAveraged so our sample is aligned to sync when we are downsampling...

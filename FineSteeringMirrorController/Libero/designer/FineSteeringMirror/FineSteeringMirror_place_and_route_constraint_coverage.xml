@@ -3,7 +3,7 @@
 <doc>
 <text>SmartTime Version 2023.2.0.10</text>
 <text>Microsemi Corporation - Microchip Libero Software Release v2023.2 SP1 (Version 2023.2.0.10)
-Date: Tue Feb  3 15:07:11 2026 </text>
+Date: Tue Feb 10 15:42:42 2026 </text>
 <table>
 <header>
 </header>
@@ -51,14 +51,14 @@ Date: Tue Feb  3 15:07:11 2026 </text>
 <row>
  <cell>Setup</cell>
  <cell>            0</cell>
- <cell>         5304</cell>
- <cell>         5304</cell>
+ <cell>         4986</cell>
+ <cell>         4986</cell>
 </row>
 <row>
  <cell>Recovery</cell>
  <cell>            0</cell>
- <cell>         1724</cell>
- <cell>         1724</cell>
+ <cell>         2448</cell>
+ <cell>         2448</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
@@ -69,21 +69,21 @@ Date: Tue Feb  3 15:07:11 2026 </text>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>         7084</cell>
- <cell>         7084</cell>
+ <cell>         7490</cell>
+ <cell>         7490</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
  <cell>            0</cell>
- <cell>         5304</cell>
- <cell>         5304</cell>
+ <cell>         4986</cell>
+ <cell>         4986</cell>
 </row>
 <row>
  <cell>Removal</cell>
  <cell>            0</cell>
- <cell>         1724</cell>
- <cell>         1724</cell>
+ <cell>         2448</cell>
+ <cell>         2448</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
@@ -94,8 +94,8 @@ Date: Tue Feb  3 15:07:11 2026 </text>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>         7084</cell>
- <cell>         7084</cell>
+ <cell>         7490</cell>
+ <cell>         7490</cell>
 </row>
 </table>
 <section>
@@ -174,51 +174,51 @@ Date: Tue Feb  3 15:07:11 2026 </text>
 <row>
  <cell>Setup</cell>
  <cell>            0</cell>
- <cell>         5039</cell>
- <cell>         5039</cell>
+ <cell>         4721</cell>
+ <cell>         4721</cell>
 </row>
 <row>
  <cell>Recovery</cell>
  <cell>            0</cell>
- <cell>         1580</cell>
- <cell>         1580</cell>
+ <cell>         2304</cell>
+ <cell>         2304</cell>
 </row>
 <row>
  <cell>Output Setup</cell>
  <cell>            0</cell>
- <cell>           43</cell>
- <cell>           43</cell>
+ <cell>           45</cell>
+ <cell>           45</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>         6662</cell>
- <cell>         6662</cell>
+ <cell>         7070</cell>
+ <cell>         7070</cell>
 </row>
 <separator/>
 <row>
  <cell>Hold</cell>
  <cell>            0</cell>
- <cell>         5039</cell>
- <cell>         5039</cell>
+ <cell>         4721</cell>
+ <cell>         4721</cell>
 </row>
 <row>
  <cell>Removal</cell>
  <cell>            0</cell>
- <cell>         1580</cell>
- <cell>         1580</cell>
+ <cell>         2304</cell>
+ <cell>         2304</cell>
 </row>
 <row>
  <cell>Output Hold</cell>
  <cell>            0</cell>
- <cell>           43</cell>
- <cell>           43</cell>
+ <cell>           45</cell>
+ <cell>           45</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>         6662</cell>
- <cell>         6662</cell>
+ <cell>         7070</cell>
+ <cell>         7070</cell>
 </row>
 </table>
 <section>
@@ -301,6 +301,8 @@ Date: Tue Feb  3 15:07:11 2026 </text>
 <text> - Max output delay constraint missing on ports:</text>
 <text>   </text>
 <list>
+ <item>ChopAdc</item>
+ <item>ChopRef</item>
  <item>GlobalFaultInhibit</item>
  <item>HVEn1</item>
  <item>HVEn2</item>
@@ -349,6 +351,8 @@ Date: Tue Feb  3 15:07:11 2026 </text>
 <text> - Min output delay constraint missing on ports:</text>
 <text>   </text>
 <list>
+ <item>ChopAdc</item>
+ <item>ChopRef</item>
  <item>GlobalFaultInhibit</item>
  <item>HVEn1</item>
  <item>HVEn2</item>
@@ -2636,14 +2640,14 @@ Date: Tue Feb  3 15:07:11 2026 </text>
 <row>
  <cell>Output Setup</cell>
  <cell>            0</cell>
- <cell>            8</cell>
- <cell>            8</cell>
+ <cell>            6</cell>
+ <cell>            6</cell>
 </row>
 <row>
  <cell>Total Setup</cell>
  <cell>            0</cell>
- <cell>            8</cell>
- <cell>            8</cell>
+ <cell>            6</cell>
+ <cell>            6</cell>
 </row>
 <separator/>
 <row>
@@ -2661,14 +2665,14 @@ Date: Tue Feb  3 15:07:11 2026 </text>
 <row>
  <cell>Output Hold</cell>
  <cell>            0</cell>
- <cell>            8</cell>
- <cell>            8</cell>
+ <cell>            6</cell>
+ <cell>            6</cell>
 </row>
 <row>
  <cell>Total Hold</cell>
  <cell>            0</cell>
- <cell>            8</cell>
- <cell>            8</cell>
+ <cell>            6</cell>
+ <cell>            6</cell>
 </row>
 </table>
 <section>
