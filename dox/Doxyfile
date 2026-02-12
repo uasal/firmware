@@ -29,4 +29,4 @@ OUTPUT_DIRECTORY = ../doxygen/
 FILE_PATTERNS = *.dox
 
 # Link documentation of each folder
-HTML_EXTRA_FILES = Filterwheel/processor/html/index.html FilterwheelTq144/fpga/html/index.html FineSteeringMirrorController/processor/html/index.html FineSteeringMirrorController/fpga/html/index.html
+HTML_EXTRA_FILES = ../doxygen/Filterwheel/processor/html/index.html ../doxygen/FilterwheelTq144/fpga/html/index.html ../doxygen/FineSteeringMirrorController/processor/html/index.html ../doxygen/FineSteeringMirrorController/fpga/html/index.html
