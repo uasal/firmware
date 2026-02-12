@@ -642,6 +642,8 @@ architecture architecture_Main of Main is
 							AdcSampleNumAccums : in std_logic_vector(15 downto 0);	
 							AdcClkDivider : out std_logic_vector(15 downto 0);	
 							AdcSamplesToAverage : out std_logic_vector(15 downto 0);	
+							ControlAdcMaxAccums : out std_logic_vector(15 downto 0);	
+							MonitorAdcMaxAccums : out std_logic_vector(15 downto 0);	
 
 							--Monitor A/D:
 							MonitorAdcChannelReadIndex : out std_logic_vector(4 downto 0);
@@ -869,6 +871,7 @@ architecture architecture_Main of Main is
 							AdcPowerDown : in std_logic; --self-explanatory...
 							AdcClkDivider : in std_logic_vector(15 downto 0); --This knob controls the acquisition speed of the A/D.
 							SamplesToAverage : in std_logic_vector(15 downto 0); --Only supported on LTC2380-24 hardware! This also controls the acquisition speed of the A/D; each 4x averaging gives an extra bit of SNR or 6dB.
+							MaxAccums : in std_logic_vector(15 downto 0); --This alows us to determine if the final bit width fits in a 32b integer or a 40b integer 
 							ChopperEnable : in std_logic; --turns chopper on/off to reduce 1/f noise and offset!
 							ChopperMuxRef : out std_logic; --switches inputs when chopper on to reduce 1/f noise and offset!
 							ChopperMuxAdc : out std_logic; --switches inputs when chopper on to reduce 1/f noise and offset!
@@ -1169,8 +1172,9 @@ architecture architecture_Main of Main is
 			signal ChopperMuxAdc : std_logic;	
 			signal AdcClkDivider : std_logic_vector(15 downto 0);	
 			signal AdcSamplesToAverage : std_logic_vector(15 downto 0);	
-			
-			
+			signal ControlAdcMaxAccums : std_logic_vector(15 downto 0);	
+			signal MonitorAdcMaxAccums : std_logic_vector(15 downto 0);	
+
 		--Monitor A/D
 		
 			signal nDrdyMonitorAdc0_i : std_logic;
@@ -1471,7 +1475,9 @@ begin
 		AdcSampleNumAccums => AdcSampleNumAccums,
 		AdcClkDivider => AdcClkDivider,
 		AdcSamplesToAverage => AdcSamplesToAverage,	
-		
+		ControlAdcMaxAccums => ControlAdcMaxAccums,	
+		MonitorAdcMaxAccums => MonitorAdcMaxAccums,	
+					
 		--Monitor A/D
 		MonitorAdcChannelReadIndex => MonitorAdcChannel,
 		ReadMonitorAdcSample => MonitorAdcReadSample,
@@ -1757,6 +1763,7 @@ begin
 		--~ SamplesToAverage => x"0001",		
 		AdcClkDivider => AdcClkDivider,
 		SamplesToAverage => AdcSamplesToAverage,	
+		MaxAccums => ControlAdcMaxAccums,			
 		ChopperEnable => ChopEn,
 		ChopperMuxRef => ChopperMuxRef,
 		ChopperMuxAdc => ChopperMuxAdc,
@@ -1834,6 +1841,7 @@ begin
 		--~ AdcSampleLatched => MonitorAdcSampleLatched,
 		--~ AdcChannelLatched => open,
 		--~ AdcChannelReadIndex => MonitorAdcChannel,
+		--~ MaxAccums => MonitorAdcMaxAccums,			
 		--~ ReadAdcSample => MonitorAdcReadSample,
 		--~ AdcSampleToRead => MonitorAdcSampleToRead--,
 	--~ );

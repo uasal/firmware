@@ -780,7 +780,8 @@ int8_t BaudDividersCommand(char const* Name, char const* Params, const size_t Pa
 int8_t ConfigAdcCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	AdcConfigRegister cr;
-	unsigned long A = 0, B = 0;
+	AccumulatorConfigRegister ar;
+	unsigned long A = 0, B = 0, C, D;
 	
 	if (NULL == FSM)
 	{
@@ -789,20 +790,32 @@ int8_t ConfigAdcCommand(char const* Name, char const* Params, const size_t Param
 	}
 	
 	//Convert parameters
-    int8_t numfound = sscanf(Params, "%lu,%lu", &A, &B);
+    int8_t numfound = sscanf(Params, "%lu,%lu,%lu,%lu", &A, &B, &C, &D);
     if (numfound >= 2)
     {
 		cr.AdcClkDivider = A;
 		cr.AdcSamplesToAverage = B;
-		formatf("\n\nConfigAdc: setting to: ");
+		formatf("\n\nConfigAdc: setting AdcConfig to: ");
 		cr.formatf();
 		formatf("\n");
 		FSM->AdcConfig = cr;
     }
+	if (numfound >= 4)
+    {
+		ar.ControlAdcMaxAccums = C;
+		ar.MonitorAdcMaxAccums = D;
+		formatf("\n\nConfigAdc: setting AccumConfig to: ");
+		ar.formatf();
+		formatf("\n");
+		FSM->AccumConfig = ar;
+    }
 	
 	cr = FSM->AdcConfig;
+	ar = FSM->AccumConfig;
 	formatf("\n\nConfigAdc: current values: ");
 	cr.formatf();
+	formatf("; ");
+	ar.formatf();
 	formatf("\n");
 	
 	return(ParamsLen);

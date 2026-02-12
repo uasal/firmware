@@ -68,6 +68,7 @@ entity Ltc2378AccumQuadPorts is
 		AdcPowerDown : in std_logic; --self-explanatory...
 		AdcClkDivider : in std_logic_vector(15 downto 0); --This knob controls the acquisition speed of the A/D.
 		SamplesToAverage : in std_logic_vector(15 downto 0); --Only supported on LTC2380-24 hardware! This also controls the acquisition speed of the A/D; each 4x averaging gives an extra bit of SNR or 6dB.
+		MaxAccums : in std_logic_vector(15 downto 0); --This alows us to determine if the final bit width fits in a 32b integer or a 40b integer 
 		ChopperEnable : in std_logic; --turns chopper on/off to reduce 1/f noise and offset!
 		ChopperMuxRef : out std_logic; --switches inputs when chopper on to reduce 1/f noise and offset!
 		ChopperMuxAdc : out std_logic; --switches inputs when chopper on to reduce 1/f noise and offset!
@@ -170,14 +171,22 @@ architecture Ltc2378AccumQuad of Ltc2378AccumQuadPorts is
 	--~ signal DataFromMisoA : signed(23 downto 0);
 	--~ signal DataFromMisoB : signed(23 downto 0);
 	--~ signal DataFromMisoC : signed(23 downto 0);
-	signal DataFromMisoA : std_logic_vector(23 downto 0);
-	signal DataFromMisoB : std_logic_vector(23 downto 0);
-	signal DataFromMisoC : std_logic_vector(23 downto 0);
-	signal DataFromMisoD : std_logic_vector(23 downto 0);
-	signal DataFromMisoAExt : std_logic_vector(47 downto 0);
-	signal DataFromMisoBExt : std_logic_vector(47 downto 0);
-	signal DataFromMisoCExt : std_logic_vector(47 downto 0);
-	signal DataFromMisoDExt : std_logic_vector(47 downto 0);
+	signal DataFromMisoAQ0 : std_logic_vector(23 downto 0);
+	signal DataFromMisoBQ0 : std_logic_vector(23 downto 0);
+	signal DataFromMisoCQ0 : std_logic_vector(23 downto 0);
+	signal DataFromMisoDQ0 : std_logic_vector(23 downto 0);
+	signal DataFromMisoAQ1 : std_logic_vector(23 downto 0);
+	signal DataFromMisoBQ1 : std_logic_vector(23 downto 0);
+	signal DataFromMisoCQ1 : std_logic_vector(23 downto 0);
+	signal DataFromMisoDQ1 : std_logic_vector(23 downto 0);
+	signal DataFromMisoAQ2 : std_logic_vector(23 downto 0);
+	signal DataFromMisoBQ2 : std_logic_vector(23 downto 0);
+	signal DataFromMisoCQ2 : std_logic_vector(23 downto 0);
+	signal DataFromMisoDQ2 : std_logic_vector(23 downto 0);
+	signal DataFromMisoAQ3 : std_logic_vector(23 downto 0);
+	signal DataFromMisoBQ3 : std_logic_vector(23 downto 0);
+	signal DataFromMisoCQ3 : std_logic_vector(23 downto 0);
+	signal DataFromMisoDQ3 : std_logic_vector(23 downto 0);
 	signal SpiRst : std_logic; --kicks off / inhibits transfer of a sample out of the A/D
 	signal SpiRst_i : std_logic; --delayed version to give a/d time to drive miso
 	signal SpiXferComplete : std_logic;
@@ -204,7 +213,7 @@ architecture Ltc2378AccumQuad of Ltc2378AccumQuadPorts is
 	signal LastReadRequest : std_logic;
 	--~ signal LastSpiRst : std_logic;
 
-	signal ChopperPolarity : std_logic := '0';
+	signal ChopperQuadrant : unsigned(1 downto 0);
 	
 	signal AdcSampleNumAccums_i : unsigned(15 downto 0);	
 	
@@ -273,10 +282,10 @@ begin
 		DataToMosiB => x"000000",
 		DataToMosiC => x"000000",
 		DataToMosiD => x"000000",
-		DataFromMisoA => DataFromMisoA,
-		DataFromMisoB => DataFromMisoB,
-		DataFromMisoC => DataFromMisoC,
-		DataFromMisoD => DataFromMisoD,
+		DataFromMisoA => DataFromMisoAQ3,
+		DataFromMisoB => DataFromMisoBQ3,
+		DataFromMisoC => DataFromMisoCQ3,
+		DataFromMisoD => DataFromMisoDQ3,
 		XferComplete => SpiXferComplete--,
 	);
 	
@@ -316,20 +325,28 @@ begin
 			LastSpiXferComplete <= '0';
 			SamplesAveraged <= x"0000";
 			SamplesThisSecond <= x"00000000";
-			ChopperPolarity <= '0';
 			ChopperMuxRef <= '0';
 			ChopperMuxAdc <= '0';		
+			ChopperQuadrant <= "00";
 			LastReadRequest <= '0';			
 			AdcSampleNumAccums <= (others => '0');
 			AdcSampleNumAccums_i <= x"0000";
+			DataFromMisoAQ0 <= (others => '0');
+			DataFromMisoBQ0 <= (others => '0');
+			DataFromMisoCQ0 <= (others => '0');
+			DataFromMisoDQ0 <= (others => '0');
+			DataFromMisoAQ1 <= (others => '0');
+			DataFromMisoBQ1 <= (others => '0');
+			DataFromMisoCQ1 <= (others => '0');
+			DataFromMisoDQ1 <= (others => '0');
+			DataFromMisoAQ2 <= (others => '0');
+			DataFromMisoBQ2 <= (others => '0');
+			DataFromMisoCQ2 <= (others => '0');
+			DataFromMisoDQ2 <= (others => '0');
 			AdcSampleA <= to_signed(0, 48);
 			AdcSampleB <= to_signed(0, 48);
 			AdcSampleC <= to_signed(0, 48);
 			AdcSampleD <= to_signed(0, 48);
-			DataFromMisoAExt <= std_logic_vector(to_signed(0, 48));
-			DataFromMisoBExt <= std_logic_vector(to_signed(0, 48));
-			DataFromMisoCExt <= std_logic_vector(to_signed(0, 48));
-			DataFromMisoDExt <= std_logic_vector(to_signed(0, 48));
 			AdcSampleToReadA <= std_logic_vector(to_signed(0, 48));
 			AdcSampleToReadB <= std_logic_vector(to_signed(0, 48));
 			AdcSampleToReadC <= std_logic_vector(to_signed(0, 48));
@@ -347,8 +364,8 @@ begin
 					--Switch the mux right at start of acquisition (aka right after a conversion is finished) to maximize settling time:
 					if (ChopperEnable = '1') then
 
-						ChopperMuxRef <= ChopperPolarity;
-						ChopperMuxAdc <= ChopperPolarity;
+						ChopperMuxRef <= ChopperQuadrant(0);
+						ChopperMuxAdc <= ChopperQuadrant(1);
 						
 					else
 					
@@ -402,84 +419,60 @@ begin
 								--turn off spi master bus
 								SpiRst <= '1';
 								
-								--~ DataFromMisoAExt <= x"000000" & DataFromMisoA when (DataFromMisoA(23) = '0') else x"FFFFFF" & DataFromMisoA;
-								--~ DataFromMisoBExt <= x"000000" & DataFromMisoB when (DataFromMisoB(23) = '0') else x"FFFFFF" & DataFromMisoB;
-								--~ DataFromMisoCExt <= x"000000" & DataFromMisoC when (DataFromMisoC(23) = '0') else x"FFFFFF" & DataFromMisoC;
-								--~ DataFromMisoDExt <= x"000000" & DataFromMisoD when (DataFromMisoD(23) = '0') else x"FFFFFF" & DataFromMisoD;
-								--~ DataFromMisoAExt <= resize(signed(DataFromMisoA), 48);
-								--~ DataFromMisoBExt <= resize(signed(DataFromMisoB), 48);
-								--~ DataFromMisoCExt <= resize(signed(DataFromMisoC), 48);
-								--~ DataFromMisoDExt <= resize(signed(DataFromMisoD), 48);
+								if (ChopperEnable = '0') then
 								
-								--~ if (ChopperEnable = '0') then
+									if (AdcSampleNumAccums_i < unsigned(MaxAccums)) then
+									
+										AdcSampleNumAccums_i <= AdcSampleNumAccums_i + x"0001";
+									
+										AdcSampleA <= AdcSampleA + signed(DataFromMisoAQ3);
+										AdcSampleB <= AdcSampleB + signed(DataFromMisoBQ3);
+										AdcSampleC <= AdcSampleC + signed(DataFromMisoCQ3);
+										AdcSampleD <= AdcSampleD + signed(DataFromMisoDQ3);
 								
-								if (AdcSampleNumAccums_i < x"0100") then
+									end if;
+									
+								else
 								
-									AdcSampleNumAccums_i <= AdcSampleNumAccums_i + x"0001";
-								
-									--grab sample
-									--~ AdcSampleA(23 downto 0) <= DataFromMisoA;
-									--~ AdcSampleB(23 downto 0) <= DataFromMisoB;
-									--~ AdcSampleC(23 downto 0) <= DataFromMisoC;
-									--~ AdcSampleD(23 downto 0) <= DataFromMisoD;
-									--~ AdcSampleA <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoA));
-									--~ AdcSampleB <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoB));
-									--~ AdcSampleC <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoC));
-									--~ AdcSampleD <= std_logic_vector(to_signed(0, 48) + signed(DataFromMisoD));
+									ChopperQuadrant <= ChopperQuadrant + "01";
 									
-									--This results in output shrinking the more it's averaged, as though the result is limited to 24b
-									--~ AdcSampleA <= AdcSampleA + signed(DataFromMisoA);
-									--~ AdcSampleB <= AdcSampleB + signed(DataFromMisoB);
-									--~ AdcSampleC <= AdcSampleC + signed(DataFromMisoC);
-									--~ AdcSampleD <= AdcSampleD + signed(DataFromMisoD);
-									
-									--~ --This results in weird output - values bounce all over, clearly not being sign extended correctly
-									--~ AdcSampleA <= AdcSampleA + resize(signed(DataFromMisoA), 48);
-									--~ AdcSampleB <= AdcSampleB + resize(signed(DataFromMisoB), 48);
-									--~ AdcSampleC <= AdcSampleC + resize(signed(DataFromMisoC), 48);
-									--~ AdcSampleD <= AdcSampleD + resize(signed(DataFromMisoD), 48);
-									
-									--Works??
-									--~ AdcSampleA <= AdcSampleA + signed(DataFromMisoAExt);
-									--~ AdcSampleB <= AdcSampleB + signed(DataFromMisoBExt);
-									--~ AdcSampleC <= AdcSampleC + signed(DataFromMisoCExt);
-									--~ AdcSampleD <= AdcSampleD + signed(DataFromMisoDExt);
-									AdcSampleA <= AdcSampleA + signed(DataFromMisoA);
-									AdcSampleB <= AdcSampleB + signed(DataFromMisoB);
-									AdcSampleC <= AdcSampleC + signed(DataFromMisoC);
-									AdcSampleD <= AdcSampleD + signed(DataFromMisoD);
-									--~ --Don't accumulate...
-									--~ AdcSampleNumAccums_i <= x"0001";
-									--~ AdcSampleA <= signed(DataFromMisoAExt);
-									--~ AdcSampleB <= signed(DataFromMisoBExt);
-									--~ AdcSampleC <= signed(DataFromMisoCExt);
-									--~ AdcSampleD <= signed(DataFromMisoDExt);
-									
-								--~ else
-								
-									--~ ChopperPolarity <= not(ChopperPolarity);
-									
-									--~ if (ChopperPolarity = '0') then
-									
-										--~ --just grab sample
-										--~ AdcSampleA <= AdcSampleA + signed(DataFromMisoA);
-										--~ AdcSampleB <= AdcSampleB + signed(DataFromMisoB);
-										--~ AdcSampleC <= AdcSampleC + signed(DataFromMisoC);
-										--~ AdcSampleD <= AdcSampleD + signed(DataFromMisoD);
+									case ChopperQuadrant is
 
+										when "00" =>	
+
+											DataFromMisoAQ0 <= DataFromMisoAQ3;
+											DataFromMisoBQ0 <= DataFromMisoBQ3;
+											DataFromMisoCQ0 <= DataFromMisoCQ3;
+											DataFromMisoDQ0 <= DataFromMisoDQ3;
+											
+										when "01" =>	
+
+											DataFromMisoAQ1 <= DataFromMisoAQ3;
+											DataFromMisoBQ1 <= DataFromMisoBQ3;
+											DataFromMisoCQ1 <= DataFromMisoCQ3;
+											DataFromMisoDQ1 <= DataFromMisoDQ3;
+											
+										when "10" =>	
+
+											DataFromMisoAQ2 <= DataFromMisoAQ3;
+											DataFromMisoBQ2 <= DataFromMisoBQ3;
+											DataFromMisoCQ2 <= DataFromMisoCQ3;
+											DataFromMisoDQ2 <= DataFromMisoDQ3;
+											
+										when "11" =>	
 										
-									--~ else
+											if (AdcSampleNumAccums_i < unsigned(MaxAccums)) then
 									
-										--~ AdcSampleNumAccums_i <= AdcSampleNumAccums_i + x"0001";
-								
-										--~ --do the difference!
-										--~ AdcSampleA <= AdcSampleA - signed(DataFromMisoA);								
-										--~ AdcSampleB <= AdcSampleB - signed(DataFromMisoB);								
-										--~ AdcSampleC <= AdcSampleC - signed(DataFromMisoC);								
-										--~ AdcSampleD <= AdcSampleD - signed(DataFromMisoD);								
-										--~ SampleLatched <= '1';
+												AdcSampleNumAccums_i <= AdcSampleNumAccums_i + x"0004";
 										
-									--~ end if;
+												AdcSampleA <= AdcSampleA + signed(DataFromMisoAQ0) - signed(DataFromMisoAQ1) - signed(DataFromMisoAQ2) + signed(DataFromMisoAQ3);
+												AdcSampleB <= AdcSampleB + signed(DataFromMisoBQ0) - signed(DataFromMisoBQ1) - signed(DataFromMisoBQ2) + signed(DataFromMisoBQ3);
+												AdcSampleC <= AdcSampleC + signed(DataFromMisoCQ0) - signed(DataFromMisoCQ1) - signed(DataFromMisoCQ2) + signed(DataFromMisoCQ3);
+												AdcSampleD <= AdcSampleD + signed(DataFromMisoDQ0) - signed(DataFromMisoDQ1) - signed(DataFromMisoDQ2) + signed(DataFromMisoDQ3);
+												
+											end if;
+								
+									end case;
 									
 								end if;
 								
@@ -510,38 +503,7 @@ begin
 									AdcSampleC <= to_signed(0, 48);
 									AdcSampleD <= to_signed(0, 48);
 								
-									--~ --Latch the old data for the next read...we can't do this regularly when we get samples, cause the damn uC reads it a byte at a time and it's very non-atomic that way and conssitently corrupted...
-									--~ AdcSampleNumAccums <= std_logic_vector(AdcSampleNumAccums_i);
-									--~ AdcSampleToReadA <= std_logic_vector(AdcSampleA);
-									--~ AdcSampleToReadB <= std_logic_vector(AdcSampleB);
-									--~ AdcSampleToReadC <= std_logic_vector(AdcSampleC);
-									--~ AdcSampleToReadD <= std_logic_vector(AdcSampleD);
-									
-									--~ AdcSampleNumAccums_i <= x"0000";									
-									--~ AdcSampleA <= to_signed(0, 48);
-									--~ AdcSampleB <= to_signed(0, 48);
-									--~ AdcSampleC <= to_signed(0, 48);
-									--~ AdcSampleD <= to_signed(0, 48);
-
 								end if;					
-
-							--~ end if;
-							else
-						
-								--~ if (SpiRst /= LastSpiRst) then
-						
-									--~ LastSpiRst <= SpiRst;
-									
-									--~ --Done with SPI xfer, then just put the sample in the read buffer...
-									--~ if (SpiRst = '1') then
-									
-										--~ AdcSampleNumAccums <= AdcSampleNumAccums_i;
-										--~ AdcSampleToReadA <= std_logic_vector(AdcSampleA);
-										--~ AdcSampleToReadB <= std_logic_vector(AdcSampleB);
-										--~ AdcSampleToReadC <= std_logic_vector(AdcSampleC);
-										--~ AdcSampleToReadD <= std_logic_vector(AdcSampleD);
-
-								--~ end if;					
 
 							end if;
 

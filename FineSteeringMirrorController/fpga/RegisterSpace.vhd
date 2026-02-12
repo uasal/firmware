@@ -89,6 +89,8 @@ entity RegisterSpacePorts is
 		AdcSampleNumAccums : in std_logic_vector(15 downto 0);	
 		AdcClkDivider : out std_logic_vector(15 downto 0);	
 		AdcSamplesToAverage : out std_logic_vector(15 downto 0);	
+		ControlAdcMaxAccums : out std_logic_vector(15 downto 0);	
+		MonitorAdcMaxAccums : out std_logic_vector(15 downto 0);	
 
 		--Monitor A/D:
 		MonitorAdcChannelReadIndex : out std_logic_vector(4 downto 0);
@@ -187,7 +189,7 @@ architecture RegisterSpace of RegisterSpacePorts is
 
 	constant ControlRegisterAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(32, MAX_ADDRESS_BITS)); --we have guard addresses on all fifos because accidental reading still removes a char from the fifo.
 	constant AdcConfigAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(36, MAX_ADDRESS_BITS));
-	--~ constant LatchAdcsAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(40, MAX_ADDRESS_BITS));
+	constant AccumConfigAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(40, MAX_ADDRESS_BITS));
 	
 	constant DacASetpointAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(44, MAX_ADDRESS_BITS));
 	constant DacBSetpointAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(48, MAX_ADDRESS_BITS));
@@ -272,7 +274,8 @@ architecture RegisterSpace of RegisterSpacePorts is
 	signal ChopAdcState_i :  std_logic := '0';
 	signal AdcClkDivider_i : std_logic_vector(15 downto 0);	
 	signal AdcSamplesToAverage_i : std_logic_vector(15 downto 0);	
-
+	signal ControlAdcMaxAccums_i : std_logic_vector(15 downto 0);	
+	signal MonitorAdcMaxAccums_i : std_logic_vector(15 downto 0);	
 		
 begin
 
@@ -317,6 +320,9 @@ begin
 	ChopAdcState <= ChopAdcState_i;	
 	AdcClkDivider <= AdcClkDivider_i;	
 	AdcSamplesToAverage <= AdcSamplesToAverage_i;	
+	ControlAdcMaxAccums <= ControlAdcMaxAccums_i;
+	MonitorAdcMaxAccums <= MonitorAdcMaxAccums_i;
+
 	
 	process (clk, rst)
 	begin
@@ -387,7 +393,7 @@ begin
 			HVEn2_i <= '0';
 			GlobalFaultInhibit_i <= '0';
 			nFaultsClr_i <= '1';
-			ChopEn_i <= '0';
+			ChopEn_i <= '1';
 			ChopRefState_i <= '0';
 			ChopAdcState_i <= '0';
 			
@@ -398,7 +404,9 @@ begin
 			--~ AdcClkDivider => x"FFFF", --1kHz
 			AdcSamplesToAverage_i <= x"FFFF";		
 			--~ AdcSamplesToAverage_i => x"0001",		
-			
+			ControlAdcMaxAccums <= x"00FF"; --24b A/D won't overflow 32b int unless >256 accums...
+			MonitorAdcMaxAccums <= x"00FF";
+
 		else
 			
 			if ( (clk'event) and (clk = '1') ) then
@@ -480,6 +488,12 @@ begin
 								DataOut(15 downto 0) <= AdcClkDivider_i;
 								DataOut(31 downto 16) <= AdcSamplesToAverage_i;
 								--Ponder adding SPI clock divider as well..
+								
+							when AccumConfigAddr =>
+							
+								DataOut(15 downto 0) <= ControlAdcMaxAccums_i;
+								DataOut(31 downto 16) <= MonitorAdcMaxAccums_i;
+								
 								
 							--AdcSampleToReadA
 							
@@ -899,6 +913,12 @@ begin
 								AdcClkDivider_i <= DataIn(15 downto 0);
 								AdcSamplesToAverage_i <= DataIn(31 downto 16);
 								--Ponder adding SPI clock divider as well..
+								
+							when AccumConfigAddr =>
+							
+								ControlAdcMaxAccums_i <= DataIn(15 downto 0);
+								MonitorAdcMaxAccums_i <= DataIn(31 downto 16);
+								
 								
 							--~ when AdcAAccumulatorAddr =>
 								

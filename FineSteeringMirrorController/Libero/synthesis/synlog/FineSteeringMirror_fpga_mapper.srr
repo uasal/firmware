@@ -1,4 +1,4 @@
-# Tue Feb 10 15:42:25 2026
+# Thu Feb 12 15:04:29 2026
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -39,7 +39,7 @@ Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h
 
 
 
-Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 281MB peak: 281MB)
+Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 282MB peak: 282MB)
 
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":20:7:20:16|Tristate driver XTLOSC_O2F (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net XTLOSC_O2F (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":19:7:19:16|Tristate driver XTLOSC_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net XTLOSC_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
@@ -56,6 +56,12 @@ Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapse
 Available hyper_sources - for debug and ip models
 	None Found
 
+@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererTiD.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererTiC.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererTiC.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererTiA.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererTiB.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererMaxD.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererTiA.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererMaxC.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererMaxD.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererMaxB.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererMaxC.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererMaxA.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Removing sequential instance Main_0.DacDithererTiD.DitherClk.ClkDiv[8:0] because it is equivalent to instance Main_0.DacDithererTiC.DitherClk.ClkDiv[8:0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Removing sequential instance Main_0.DacDithererTiC.DitherClk.ClkDiv[8:0] because it is equivalent to instance Main_0.DacDithererTiA.DitherClk.ClkDiv[8:0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Removing sequential instance Main_0.DacDithererTiB.DitherClk.ClkDiv[8:0] because it is equivalent to instance Main_0.DacDithererMaxD.DitherClk.ClkDiv[8:0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
@@ -68,12 +74,6 @@ Available hyper_sources - for debug and ip models
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":65:8:65:40|Removing user instance Main_0.DacDithererTiA.DitherClk.un2_clkdiv because it is equivalent to instance Main_0.DacDithererMaxC.DitherClk.un2_clkdiv. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":65:8:65:40|Removing user instance Main_0.DacDithererMaxD.DitherClk.un2_clkdiv because it is equivalent to instance Main_0.DacDithererMaxB.DitherClk.un2_clkdiv. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":65:8:65:40|Removing user instance Main_0.DacDithererMaxC.DitherClk.un2_clkdiv because it is equivalent to instance Main_0.DacDithererMaxA.DitherClk.un2_clkdiv. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererTiD.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererTiC.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererTiC.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererTiA.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererTiB.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererMaxD.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererTiA.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererMaxC.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererMaxD.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererMaxB.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererMaxC.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererMaxA.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":45:66:45:66|Removing user instance Main_0.DacDithererTiD.DitherClk.un1_clkdiv because it is equivalent to instance Main_0.DacDithererTiC.DitherClk.un1_clkdiv. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":45:66:45:66|Removing user instance Main_0.DacDithererTiC.DitherClk.un1_clkdiv because it is equivalent to instance Main_0.DacDithererTiA.DitherClk.un1_clkdiv. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":45:66:45:66|Removing user instance Main_0.DacDithererTiB.DitherClk.un1_clkdiv because it is equivalent to instance Main_0.DacDithererMaxD.DitherClk.un1_clkdiv. To keep the instance, apply constraint syn_preserve=1 on the instance.
@@ -101,11 +101,11 @@ Available hyper_sources - for debug and ip models
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":110:2:110:3|Removing sequential instance Main_0.DacDithererMaxD.LastDitherClock because it is equivalent to instance Main_0.DacDithererMaxB.LastDitherClock. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":110:2:110:3|Removing sequential instance Main_0.DacDithererMaxC.LastDitherClock because it is equivalent to instance Main_0.DacDithererMaxA.LastDitherClock. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":45:66:45:66|Removing user instance Main_0.DacDithererMaxB.DitherClk.un1_clkdiv because it is equivalent to instance Main_0.DacDithererMaxA.DitherClk.un1_clkdiv. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Removing sequential instance Main_0.DacDithererMaxB.DitherClk.div_i because it is equivalent to instance Main_0.DacDithererMaxA.DitherClk.div_i. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":102:15:102:29|Removing user instance Main_0.DacDithererMaxB.DacTrigger because it is equivalent to instance Main_0.DacDithererMaxA.DacTrigger. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Removing sequential instance Main_0.DacDithererMaxB.DitherClk.div_i because it is equivalent to instance Main_0.DacDithererMaxA.DitherClk.div_i. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":110:2:110:3|Removing sequential instance Main_0.DacDithererMaxB.LastDitherClock because it is equivalent to instance Main_0.DacDithererMaxA.LastDitherClock. To keep the instance, apply constraint syn_preserve=1 on the instance.
 
-Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 284MB peak: 284MB)
+Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 289MB peak: 289MB)
 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart0BitClockDiv.ClkDiv[7:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart1BitClockDiv.ClkDiv[7:0] 
@@ -129,8 +129,7 @@ Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00
 @W: MO160 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd":189:2:189:3|Register bit DacWriteOutD_i[2] (in view view:work.SpiDacQuadPorts_102000000_3(spidacquad)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
 @W: MO160 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd":189:2:189:3|Register bit DacWriteOutD_i[1] (in view view:work.SpiDacQuadPorts_102000000_3(spidacquad)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
 @W: MO160 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd":189:2:189:3|Register bit DacWriteOutD_i[0] (in view view:work.SpiDacQuadPorts_102000000_3(spidacquad)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":309:2:309:3|Found counter in view:work.Ltc2378AccumQuadPorts(ltc2378accumquad) instance SamplesAveraged[15:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":207:39:207:41|Found counter in view:work.Ltc2378AccumQuadPorts(ltc2378accumquad) instance AdcSampleNumAccums_i[8:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":318:2:318:3|Found counter in view:work.Ltc2378AccumQuadPorts(ltc2378accumquad) instance SamplesAveraged[15:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd":96:2:96:3|Found counter in view:work.SpiMasterDualPorts_work_main_architecture_main_0layer1(spimasterdual) instance ClkDiv[6:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
 @W: FX107 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|RAM ram[7:0] (in view: work.fifo_8_10_0(rtl)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
@@ -174,7 +173,7 @@ Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_6(rtl) instance fifo_i.raddr_r[9:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":54:65:54:65|Found counter in view:work.PPSCountPorts_work_main_architecture_main_0layer1(ppscount) instance PPSAccum_i[31:0] 
 
-Starting factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 289MB peak: 289MB)
+Starting factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 294MB peak: 294MB)
 
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd":110:2:110:3|Removing instance Main_0.FSMDacsMax_i.Spi.DataToMosiD_i[3] because it is equivalent to instance Main_0.FSMDacsMax_i.Spi.DataToMosiD_i[2]. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd":110:2:110:3|Removing instance Main_0.FSMDacsMax_i.Spi.DataToMosiD_i[2] because it is equivalent to instance Main_0.FSMDacsMax_i.Spi.DataToMosiD_i[1]. To keep the instance, apply constraint syn_preserve=1 on the instance.
@@ -192,79 +191,106 @@ Starting factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; M
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd":110:2:110:3|Removing instance Main_0.FSMDacsMax_i.Spi.DataToMosiA_i[2] because it is equivalent to instance Main_0.FSMDacsMax_i.Spi.DataToMosiA_i[1]. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd":110:2:110:3|Removing instance Main_0.FSMDacsMax_i.Spi.DataToMosiA_i[1] because it is equivalent to instance Main_0.FSMDacsMax_i.Spi.DataToMosiA_i[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDacQuad.vhd":189:2:189:3|Removing instance Main_0.FSMDacsMax_i.LastWriteDac because it is equivalent to instance Main_0.FSMDacsTi_i.LastWriteDac. To keep the instance, apply constraint syn_preserve=1 on the instance.
-Auto Dissolve of ltc2378 (inst of view:work.Ltc2378AccumQuadPorts(ltc2378accumquad))
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd":110:2:110:3|Removing sequential instance FSMDacsMax_i.Spi.DataToMosiA_i[0] (in view: work.Main(architecture_main)) because it does not drive other instances.
 
-Finished factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 318MB peak: 318MB)
+Finished factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 313MB peak: 313MB)
 
 NConnInternalConnection caching is on
 
-Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 324MB peak: 324MB)
+Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 328MB peak: 328MB)
 
 
-Starting Early Timing Optimization (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 324MB peak: 324MB)
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 328MB peak: 328MB)
 
 
-Finished Early Timing Optimization (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 324MB peak: 324MB)
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 328MB peak: 328MB)
 
 
-Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 324MB peak: 324MB)
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 328MB peak: 328MB)
 
 
-Finished preparing to map (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 324MB peak: 324MB)
+Finished preparing to map (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 328MB peak: 328MB)
 
 
-Finished technology mapping (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 336MB peak: 336MB)
+Finished technology mapping (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 338MB peak: 338MB)
 
 Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
-   1		0h:00m:04s		     0.44ns		2793 /      2545
-   2		0h:00m:04s		     0.44ns		2760 /      2545
-   3		0h:00m:04s		     0.52ns		2760 /      2545
-@N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_779 
-@N: FP130 |Promoting Net Main_0.SpiRst_arst on CLKINT  I_780 
-@N: FP130 |Promoting Net Main_0.FSMDacsTi_i.SpiRst_arst on CLKINT  I_781 
-@N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_i on CLKINT  I_782 
-@N: FP130 |Promoting Net Main_0.Uart3FifoReset_i_i on CLKINT  I_783 
-@N: FP130 |Promoting Net Main_0.Uart1FifoReset_i_i on CLKINT  I_784 
-@N: FP130 |Promoting Net Main_0.Uart2FifoReset_i_i on CLKINT  I_785 
-@N: FP130 |Promoting Net Main_0.ltc2378.SpiRst_arst on CLKINT  I_786 
-@N: FP130 |Promoting Net Main_0.RegisterSpace.PPSCountReset on CLKINT  I_787 
-@N: FP130 |Promoting Net Main_0.ClkDac_i.SpiRst_arst on CLKINT  I_788 
-@N: FP130 |Promoting Net Main_0.ads1258.SpiRst_arst on CLKINT  I_789 
-@N: FP130 |Promoting Net Main_0.UartClk3 on CLKINT  I_790 
-@N: FP130 |Promoting Net Main_0.UartClk1 on CLKINT  I_791 
-@N: FP130 |Promoting Net Main_0.UartClk2 on CLKINT  I_792 
-@N: FP130 |Promoting Net Main_0.UartClk0 on CLKINT  I_793 
-@N: FP130 |Promoting Net Main_0.MonitorAdcReset_i_i on CLKINT  I_794 
-@N: FP130 |Promoting Net Main_0.UartTxClk3 on CLKINT  I_795 
-@N: FP130 |Promoting Net Main_0.UartTxClk2 on CLKINT  I_796 
-@N: FP130 |Promoting Net Main_0.UartTxClk1 on CLKINT  I_797 
-@N: FP130 |Promoting Net Main_0.UartTxClk0 on CLKINT  I_798 
+   1		0h:00m:05s		    -2.38ns		3648 /      2851
+   2		0h:00m:05s		    -2.38ns		3585 /      2851
+   3		0h:00m:05s		    -2.38ns		3585 /      2851
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un1_AdcSampleNumAccums_i_1_sqmuxa_i_0_o2 (in view: work.FineSteeringMirror(verilog)) with 193 loads 3 times to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":47:2:47:3|Replicating instance Main_0.IBufSarAdcnDrdyC.O (in view: work.FineSteeringMirror(verilog)) with 4 loads 1 time to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un15[24] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un16[24] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un13[24] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un14[24] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un11[0] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un12[0] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un5[0] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un9[0] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
+Timing driven replication report
+Added 1 Registers via timing driven replication
+Added 27 LUTs via timing driven replication
+
+   4		0h:00m:07s		    -1.46ns		3612 /      2852
+   5		0h:00m:07s		    -1.12ns		3612 /      2852
+   6		0h:00m:07s		    -1.00ns		3612 /      2852
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un1_AdcSampleNumAccums_i_1_sqmuxa_i_0_o2_fast (in view: work.FineSteeringMirror(verilog)) with 45 loads 3 times to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un1_AdcSampleNumAccums_i_1_sqmuxa_i_0_o2_rep1 (in view: work.FineSteeringMirror(verilog)) with 47 loads 3 times to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un1_AdcSampleNumAccums_i_1_sqmuxa_i_0_o2_rep2 (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un1_AdcSampleNumAccums_i_1_sqmuxa_i_0_o2 (in view: work.FineSteeringMirror(verilog)) with 52 loads 3 times to improve timing.
+Timing driven replication report
+Added 0 Registers via timing driven replication
+Added 12 LUTs via timing driven replication
+
+
+   7		0h:00m:08s		    -0.71ns		3625 /      2852
+   8		0h:00m:08s		    -0.71ns		3625 /      2852
+@N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_589 
+@N: FP130 |Promoting Net Main_0.SpiRst_arst on CLKINT  I_590 
+@N: FP130 |Promoting Net Main_0.FSMDacsTi_i.SpiRst_arst on CLKINT  I_591 
+@N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_i on CLKINT  I_592 
+@N: FP130 |Promoting Net Main_0.Uart3FifoReset_i_i on CLKINT  I_593 
+@N: FP130 |Promoting Net Main_0.Uart1FifoReset_i_i on CLKINT  I_594 
+@N: FP130 |Promoting Net Main_0.Uart2FifoReset_i_i on CLKINT  I_595 
+@N: FP130 |Promoting Net Main_0.ltc2378.SpiRst_arst on CLKINT  I_596 
+@N: FP130 |Promoting Net Main_0.RegisterSpace.PPSCountReset on CLKINT  I_597 
+@N: FP130 |Promoting Net Main_0.ClkDac_i.SpiRst_arst on CLKINT  I_598 
+@N: FP130 |Promoting Net Main_0.ads1258.SpiRst_arst on CLKINT  I_599 
+@N: FP130 |Promoting Net Main_0.UartClk3 on CLKINT  I_600 
+@N: FP130 |Promoting Net Main_0.UartClk1 on CLKINT  I_601 
+@N: FP130 |Promoting Net Main_0.UartClk2 on CLKINT  I_602 
+@N: FP130 |Promoting Net Main_0.UartClk0 on CLKINT  I_603 
+@N: FP130 |Promoting Net Main_0.MonitorAdcReset_i_i on CLKINT  I_604 
+@N: FP130 |Promoting Net Main_0.UartTxClk3 on CLKINT  I_605 
+@N: FP130 |Promoting Net Main_0.UartTxClk2 on CLKINT  I_606 
+@N: FP130 |Promoting Net Main_0.UartTxClk1 on CLKINT  I_607 
+@N: FP130 |Promoting Net Main_0.UartTxClk0 on CLKINT  I_608 
 
 Added 0 Buffers
 Added 0 Cells via replication
 	Added 0 Sequential Cells via replication
 	Added 0 Combinational Cells via replication
 
-Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 339MB peak: 339MB)
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 341MB peak: 341MB)
 
 
-Finished restoring hierarchy (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 340MB peak: 340MB)
+Finished restoring hierarchy (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 343MB peak: 343MB)
 
 @N: MT611 :|Automatically generated clock FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock is not used and is being removed
 
-Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 341MB peak: 341MB)
+Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 343MB peak: 343MB)
 
 
-Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 341MB peak: 341MB)
+Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 343MB peak: 343MB)
 
 
-Start Writing Netlists (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 341MB peak: 341MB)
+Start Writing Netlists (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 343MB peak: 343MB)
 
 Writing Analyst data base /home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/synthesis/synwork/FineSteeringMirror_m.srm
 
-Finished Writing Netlist Databases (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 341MB peak: 341MB)
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 343MB peak: 343MB)
 
 Writing Verilog Simulation files
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
@@ -281,13 +307,13 @@ Writing Verilog Simulation files
 @W: BW156 :|Option "-name" of set_clock_groups cannot be forward-annotated; there is no equivalent option in your place-and-route tool.
 @W: BW150 :|Clock FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock in set_clock_groups command cannot be found and will not be forward annotated
 
-Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 341MB peak: 341MB)
+Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 343MB peak: 343MB)
 
 
-Finished Writing Netlists (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 341MB peak: 341MB)
+Finished Writing Netlists (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 343MB peak: 343MB)
 
 
-Start final timing analysis (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 341MB peak: 341MB)
+Start final timing analysis (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 343MB peak: 343MB)
 
 @W: MT246 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/CCC_0/FineSteeringMirror_sb_CCC_0_FCCC.v":20:36:20:43|Blackbox CCC is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results)
 @W: MT420 |Found inferred clock FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock with period 10.00ns. Please declare a user-defined clock on net FCCC_C0_0.FCCC_C0_0.GL1_net.
@@ -303,7 +329,7 @@ Start final timing analysis (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:0
 
 
 ##### START OF TIMING REPORT #####[
-# Timing report written on Tue Feb 10 15:42:32 2026
+# Timing report written on Thu Feb 12 15:04:40 2026
 #
 
 
@@ -323,7 +349,7 @@ Performance Summary
 *******************
 
 
-Worst slack in design: 1.444
+Worst slack in design: 0.279
 
                                                                                           Requested     Estimated     Requested     Estimated               Clock        Clock                 
 Starting Clock                                                                            Frequency     Frequency     Period        Period        Slack     Type         Group                 
@@ -333,12 +359,12 @@ ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock    
 ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock              100.0 MHz     255.0 MHz     10.000        3.921         6.079     inferred     Inferred_clkgroup_0_4 
 ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock              100.0 MHz     255.0 MHz     10.000        3.921         6.079     inferred     Inferred_clkgroup_0_6 
 ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock              100.0 MHz     255.0 MHz     10.000        3.921         6.079     inferred     Inferred_clkgroup_0_8 
-FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             100.0 MHz     137.0 MHz     10.000        7.297         2.703     inferred     Inferred_clkgroup_0_1 
+FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             100.0 MHz     102.9 MHz     10.000        9.721         0.279     inferred     Inferred_clkgroup_0_1 
 FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                   100.0 MHz     116.9 MHz     10.000        8.556         1.444     inferred     Inferred_clkgroup_0_10
-VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     100.0 MHz     180.7 MHz     10.000        5.534         4.466     inferred     Inferred_clkgroup_0_3 
+VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     100.0 MHz     183.2 MHz     10.000        5.459         4.541     inferred     Inferred_clkgroup_0_3 
 VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     100.0 MHz     180.7 MHz     10.000        5.534         4.466     inferred     Inferred_clkgroup_0_5 
 VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     100.0 MHz     180.7 MHz     10.000        5.534         4.466     inferred     Inferred_clkgroup_0_7 
-VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     100.0 MHz     183.8 MHz     10.000        5.439         4.561     inferred     Inferred_clkgroup_0_9 
+VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     100.0 MHz     183.2 MHz     10.000        5.459         4.541     inferred     Inferred_clkgroup_0_9 
 System                                                                                    100.0 MHz     272.7 MHz     10.000        3.667         6.333     system       system_clkgroup       
 ===============================================================================================================================================================================================
 Estimated period and frequency reported as NA means no slack depends directly on the clock waveform
@@ -355,9 +381,9 @@ Clocks                                                                          
 Starting                                                                               Ending                                                                                 |  constraint  slack  |  constraint  slack  |  constraint  slack  |  constraint  slack
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 System                                                                                 System                                                                                 |  10.000      6.333  |  No paths    -      |  10.000      6.784  |  No paths    -    
-System                                                                                 FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  10.000      6.092  |  No paths    -      |  No paths    -      |  No paths    -    
+System                                                                                 FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  10.000      5.093  |  No paths    -      |  No paths    -      |  No paths    -    
 FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          System                                                                                 |  10.000      6.739  |  No paths    -      |  10.000      6.739  |  No paths    -    
-FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  10.000      2.703  |  No paths    -      |  No paths    -      |  No paths    -    
+FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  10.000      0.279  |  No paths    -      |  No paths    -      |  No paths    -    
 FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock           |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
 FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock  |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
 FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock           |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
@@ -370,7 +396,7 @@ FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                   
 ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock           FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
 ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock           ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock           |  10.000      6.079  |  No paths    -      |  No paths    -      |  No paths    -    
 VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock  FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
-VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock  VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock  |  10.000      4.466  |  No paths    -      |  No paths    -      |  No paths    -    
+VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock  VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock  |  10.000      4.541  |  No paths    -      |  No paths    -      |  No paths    -    
 ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock           FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
 ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock           ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock           |  10.000      6.079  |  No paths    -      |  No paths    -      |  No paths    -    
 VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock  FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
@@ -382,7 +408,7 @@ VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_
 ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock           FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
 ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock           ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock           |  10.000      6.079  |  No paths    -      |  No paths    -      |  No paths    -    
 VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock  FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
-VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock  VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock  |  10.000      4.561  |  No paths    -      |  No paths    -      |  No paths    -    
+VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock  VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock  |  10.000      4.541  |  No paths    -      |  No paths    -      |  No paths    -    
 FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
 FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                |  10.000      1.444  |  No paths    -      |  No paths    -      |  No paths    -    
 ====================================================================================================================================================================================================================================================================
@@ -751,41 +777,41 @@ Detailed Report for Clock: FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock
 Starting Points with Worst Slack
 ********************************
 
-                                              Starting                                                                                  Arrival          
-Instance                                      Reference                                         Type     Pin     Net                    Time        Slack
-                                              Clock                                                                                                      
----------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.BootupReset.shot_i_rep                 FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      Q       shot_i_rep             0.108       2.703
-Main_0.ltc2378.Spi.XferComplete_i             FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      Q       TP6_c                  0.108       3.143
-Main_0.IBufSarAdcnDrdyA.O                     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      Q       TP2_c                  0.108       3.198
-Main_0.GenRamAddrBus\.0\.IBUF_RamAddr_i.O     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      Q       Address[0]             0.087       3.257
-Main_0.GenRamAddrBus\.1\.IBUF_RamAddr_i.O     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      Q       Address[1]             0.087       3.357
-Main_0.GenRamAddrBus\.8\.IBUF_RamAddr_i.O     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      Q       Address[8]             0.087       3.440
-Main_0.GenRamAddrBus\.3\.IBUF_RamAddr_i.O     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      Q       RamBusAddress_i[3]     0.108       3.466
-Main_0.GenRamAddrBus\.2\.IBUF_RamAddr_i.O     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      Q       RamBusAddress_i[2]     0.108       3.475
-Main_0.GenRamAddrBus\.9\.IBUF_RamAddr_i.O     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      Q       Address[9]             0.087       3.483
-Main_0.IBufSarAdcnDrdyD.O                     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      Q       nDrdyAdcD_i            0.108       3.492
-=========================================================================================================================================================
+                                            Starting                                                                                        Arrival          
+Instance                                    Reference                                         Type     Pin     Net                          Time        Slack
+                                            Clock                                                                                                            
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Main_0.ltc2378.AdcSampleNumAccums_i[4]      FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      Q       AdcSampleNumAccums_i[4]      0.087       0.279
+Main_0.ltc2378.AdcSampleNumAccums_i[0]      FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      Q       AdcSampleNumAccums_i[0]      0.087       0.357
+Main_0.ltc2378.AdcSampleNumAccums_i[5]      FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      Q       AdcSampleNumAccums_i[5]      0.087       0.379
+Main_0.ltc2378.AdcSampleNumAccums_i[11]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      Q       AdcSampleNumAccums_i[11]     0.087       0.402
+Main_0.ltc2378.AdcSampleNumAccums_i[1]      FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      Q       AdcSampleNumAccums_i[1]      0.087       0.457
+Main_0.ltc2378.AdcSampleNumAccums_i[6]      FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      Q       AdcSampleNumAccums_i[6]      0.087       0.462
+Main_0.ltc2378.AdcSampleNumAccums_i[8]      FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      Q       AdcSampleNumAccums_i[8]      0.087       0.479
+Main_0.ltc2378.AdcSampleNumAccums_i[12]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      Q       AdcSampleNumAccums_i[12]     0.087       0.503
+Main_0.ltc2378.AdcSampleNumAccums_i[7]      FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      Q       AdcSampleNumAccums_i[7]      0.087       0.505
+Main_0.ltc2378.AdcSampleNumAccums_i[2]      FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      Q       AdcSampleNumAccums_i[2]      0.087       0.540
+=============================================================================================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                                            Starting                                                                             Required          
-Instance                                    Reference                                         Type     Pin     Net               Time         Slack
-                                            Clock                                                                                                  
----------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.RegisterSpace.AdcClkDivider_i[0]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      ALn     shot_i_arst_i     10.000       2.703
-Main_0.RegisterSpace.AdcClkDivider_i[1]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      ALn     shot_i_arst_i     10.000       2.703
-Main_0.RegisterSpace.AdcClkDivider_i[2]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      ALn     shot_i_arst_i     10.000       2.703
-Main_0.RegisterSpace.AdcClkDivider_i[3]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      ALn     shot_i_arst_i     10.000       2.703
-Main_0.RegisterSpace.AdcClkDivider_i[4]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      ALn     shot_i_arst_i     10.000       2.703
-Main_0.RegisterSpace.AdcClkDivider_i[5]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      ALn     shot_i_arst_i     10.000       2.703
-Main_0.RegisterSpace.AdcClkDivider_i[6]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      ALn     shot_i_arst_i     10.000       2.703
-Main_0.RegisterSpace.AdcClkDivider_i[7]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      ALn     shot_i_arst_i     10.000       2.703
-Main_0.RegisterSpace.AdcClkDivider_i[8]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      ALn     shot_i_arst_i     10.000       2.703
-Main_0.RegisterSpace.AdcClkDivider_i[9]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      ALn     shot_i_arst_i     10.000       2.703
-===================================================================================================================================================
+                                  Starting                                                                                                        Required          
+Instance                          Reference                                         Type     Pin     Net                                          Time         Slack
+                                  Clock                                                                                                                             
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Main_0.ltc2378.AdcSampleA[47]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       AdcSampleA_RNO_S[47]                         9.745        0.279
+Main_0.ltc2378.AdcSampleB[47]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       AdcSampleB_RNO_S[47]                         9.745        0.279
+Main_0.ltc2378.AdcSampleC[47]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       AdcSampleC_RNO_S[47]                         9.745        0.279
+Main_0.ltc2378.AdcSampleD[47]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       AdcSampleD_RNO_S[47]                         9.745        0.279
+Main_0.ltc2378.AdcSampleA[46]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_AdcSampleA_1_iv_0_RNIGOUCD01_S[1]        9.745        0.311
+Main_0.ltc2378.AdcSampleB[46]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_DataFromMisoBQ3_iv_0_RNIEF2CHB2_S[1]     9.745        0.311
+Main_0.ltc2378.AdcSampleC[46]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_AdcSampleC_1_iv_0_RNIT2SU5M1_S[1]        9.745        0.311
+Main_0.ltc2378.AdcSampleD[46]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_AdcSampleD_1_iv_0_RNI0Q8ONJ2_S[1]        9.745        0.311
+Main_0.ltc2378.AdcSampleA[45]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_AdcSampleA_1_iv_0_RNIJ8UCQ81_S[2]        9.745        0.344
+Main_0.ltc2378.AdcSampleB[45]     FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock     SLE      D       un1_DataFromMisoBQ3_iv_0_RNIHNRIC72_S[2]     9.745        0.344
+====================================================================================================================================================================
 
 
 
@@ -795,34 +821,322 @@ Worst Path Information
 
 Path information for path number 1: 
       Requested Period:                      10.000
-    - Setup time:                            0.000
+    - Setup time:                            0.255
     + Clock delay at ending point:           0.000 (ideal)
-    = Required time:                         10.000
+    = Required time:                         9.745
 
-    - Propagation time:                      7.297
+    - Propagation time:                      9.466
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 2.703
+    = Slack (critical) :                     0.279
 
-    Number of logic level(s):                2
-    Starting point:                          Main_0.BootupReset.shot_i_rep / Q
-    Ending point:                            Main_0.RegisterSpace.AdcClkDivider_i[0] / ALn
+    Number of logic level(s):                98
+    Starting point:                          Main_0.ltc2378.AdcSampleNumAccums_i[4] / Q
+    Ending point:                            Main_0.ltc2378.AdcSampleA[47] / D
     The start point is clocked by            FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock [rising] (rise=0.000 fall=5.000 period=10.000) on pin CLK
     The end   point is clocked by            FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock [rising] (rise=0.000 fall=5.000 period=10.000) on pin CLK
 
-Instance / Net                                         Pin      Pin               Arrival     No. of    
-Name                                        Type       Name     Dir     Delay     Time        Fan Out(s)
---------------------------------------------------------------------------------------------------------
-Main_0.BootupReset.shot_i_rep               SLE        Q        Out     0.108     0.108 f     -         
-shot_i_rep                                  Net        -        -       1.830     -           1         
-Main_0.BootupReset.shot_i_rep_RNIOJ31       CLKINT     A        In      -         1.938 f     -         
-Main_0.BootupReset.shot_i_rep_RNIOJ31       CLKINT     Y        Out     0.375     2.314 f     -         
-shot_i_arst                                 Net        -        -       1.450     -           1         
-Main_0.BootupReset.shot_i_rep_RNIOJ31_0     CFG1       A        In      -         3.764 f     -         
-Main_0.BootupReset.shot_i_rep_RNIOJ31_0     CFG1       Y        Out     0.100     3.864 r     -         
-shot_i_arst_i                               Net        -        -       3.433     -           1285      
-Main_0.RegisterSpace.AdcClkDivider_i[0]     SLE        ALn      In      -         7.297 r     -         
-========================================================================================================
-Total path delay (propagation time + setup) of 7.297 is 0.584(8.0%) logic and 6.713(92.0%) route.
+Instance / Net                                                      Pin      Pin               Arrival     No. of    
+Name                                                       Type     Name     Dir     Delay     Time        Fan Out(s)
+---------------------------------------------------------------------------------------------------------------------
+Main_0.ltc2378.AdcSampleNumAccums_i[4]                     SLE      Q        Out     0.087     0.087 r     -         
+AdcSampleNumAccums_i[4]                                    Net      -        -       0.745     -           3         
+Main_0.ltc2378.un3_spixfercompletelto7_4                   CFG4     D        In      -         0.833 r     -         
+Main_0.ltc2378.un3_spixfercompletelto7_4                   CFG4     Y        Out     0.326     1.159 f     -         
+un3_spixfercompletelto7_4                                  Net      -        -       0.248     -           1         
+Main_0.ltc2378.un3_spixfercompletelto15                    CFG4     D        In      -         1.408 f     -         
+Main_0.ltc2378.un3_spixfercompletelto15                    CFG4     Y        Out     0.288     1.695 f     -         
+un3_spixfercomplete                                        Net      -        -       0.745     -           3         
+Main_0.ltc2378.Spi.XferComplete_i_RNIO6T52                 CFG4     D        In      -         2.441 f     -         
+Main_0.ltc2378.Spi.XferComplete_i_RNIO6T52                 CFG4     Y        Out     0.288     2.728 f     -         
+N_8_i                                                      Net      -        -       2.603     -           792       
+Main_0.ltc2378.un1_AdcSampleA_2_7_m[0]                     CFG2     A        In      -         5.331 f     -         
+Main_0.ltc2378.un1_AdcSampleA_2_7_m[0]                     CFG2     Y        Out     0.087     5.418 f     -         
+un1_AdcSampleA_2_7[0]                                      Net      -        -       0.497     -           2         
+Main_0.ltc2378.un5_RNI8P952[47]                            ARI1     C        In      -         5.915 f     -         
+Main_0.ltc2378.un5_RNI8P952[47]                            ARI1     Y        Out     0.210     6.125 f     -         
+un5_RNI8P952_Y[47]                                         Net      -        -       0.248     -           1         
+Main_0.ltc2378.un5_RNI3E8D5[46]                            ARI1     A        In      -         6.373 f     -         
+Main_0.ltc2378.un5_RNI3E8D5[46]                            ARI1     S        Out     0.245     6.618 f     -         
+un1_AdcSampleA_2_6[1]                                      Net      -        -       0.497     -           2         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIE7FMG[46]       ARI1     C        In      -         7.115 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIE7FMG[46]       ARI1     Y        Out     0.210     7.324 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIE7FMG_Y[46]                    Net      -        -       0.248     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIGTKNF1[45]      ARI1     A        In      -         7.573 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIGTKNF1[45]      ARI1     FCO      Out     0.121     7.694 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIGTKNF1_FCO[45]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI4CB2U1[45]      ARI1     FCI      In      -         7.694 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI4CB2U1[45]      ARI1     FCO      Out     0.016     7.710 f     -         
+un1_DataFromMisoAQ3_iv_0_RNI4CB2U1_FCO[45]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNID1RPR4[44]      ARI1     FCI      In      -         7.710 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNID1RPR4[44]      ARI1     FCO      Out     0.016     7.726 f     -         
+un1_DataFromMisoAQ3_iv_0_RNID1RPR4_FCO[44]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIIAVER5[44]      ARI1     FCI      In      -         7.726 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIIAVER5[44]      ARI1     FCO      Out     0.016     7.743 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIIAVER5_FCO[44]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIAIU7PD[43]      ARI1     FCI      In      -         7.743 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIAIU7PD[43]      ARI1     FCO      Out     0.016     7.759 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIAIU7PD_FCO[43]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIGFUHRF[43]      ARI1     FCI      In      -         7.759 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIGFUHRF[43]      ARI1     FCO      Out     0.016     7.775 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIGFUHRF_FCO[43]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI73KNU31[42]     ARI1     FCI      In      -         7.775 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI73KNU31[42]     ARI1     FCO      Out     0.016     7.792 f     -         
+un1_DataFromMisoAQ3_iv_0_RNI73KNU31_FCO[42]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIE7BB681[42]     ARI1     FCI      In      -         7.792 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIE7BB681[42]     ARI1     FCO      Out     0.016     7.808 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIE7BB681_FCO[42]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI40STUO2[41]     ARI1     FCI      In      -         7.808 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI40STUO2[41]     ARI1     FCO      Out     0.016     7.824 f     -         
+un1_DataFromMisoAQ3_iv_0_RNI40STUO2_FCO[41]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNICH15H13[41]     ARI1     FCI      In      -         7.824 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNICH15H13[41]     ARI1     FCO      Out     0.016     7.840 f     -         
+un1_DataFromMisoAQ3_iv_0_RNICH15H13_FCO[41]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI1D5O9K2[40]     ARI1     FCI      In      -         7.840 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI1D5O9K2[40]     ARI1     FCO      Out     0.016     7.857 f     -         
+un1_DataFromMisoAQ3_iv_0_RNI1D5O9K2_FCO[40]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIAN76H53[40]     ARI1     FCI      In      -         7.857 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIAN76H53[40]     ARI1     FCO      Out     0.016     7.873 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIAN76H53_FCO[40]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI2B88KD3[39]     ARI1     FCI      In      -         7.873 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI2B88KD3[39]     ARI1     FCO      Out     0.016     7.889 f     -         
+un1_DataFromMisoAQ3_iv_0_RNI2B88KD3_FCO[39]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIG7146G[39]      ARI1     FCI      In      -         7.889 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIG7146G[39]      ARI1     FCO      Out     0.016     7.906 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIG7146G_FCO[39]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNINE8VI53[38]     ARI1     FCI      In      -         7.906 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNINE8VI53[38]     ARI1     FCO      Out     0.016     7.922 f     -         
+un1_DataFromMisoAQ3_iv_0_RNINE8VI53_FCO[38]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIEEEMPA1[38]     ARI1     FCI      In      -         7.922 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIEEEMPA1[38]     ARI1     FCO      Out     0.016     7.938 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIEEEMPA1_FCO[38]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIBESL303[37]     ARI1     FCI      In      -         7.938 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIBESL303[37]     ARI1     FCO      Out     0.016     7.955 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIBESL303_FCO[37]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIQVRUJA3[37]     ARI1     FCI      In      -         7.955 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIQVRUJA3[37]     ARI1     FCO      Out     0.016     7.971 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIQVRUJA3_FCO[37]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI0C90BA3[36]     ARI1     FCI      In      -         7.971 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI0C90BA3[36]     ARI1     FCO      Out     0.016     7.987 f     -         
+un1_DataFromMisoAQ3_iv_0_RNI0C90BA3_FCO[36]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNICOQ2EV3[36]     ARI1     FCI      In      -         7.987 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNICOQ2EV3[36]     ARI1     FCO      Out     0.016     8.004 f     -         
+un1_DataFromMisoAQ3_iv_0_RNICOQ2EV3_FCO[36]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNITHAR491[35]     ARI1     FCI      In      -         8.004 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNITHAR491[35]     ARI1     FCO      Out     0.016     8.020 f     -         
+un1_DataFromMisoAQ3_iv_0_RNITHAR491_FCO[35]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI2JVGDJ2[35]     ARI1     FCI      In      -         8.020 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI2JVGDJ2[35]     ARI1     FCO      Out     0.016     8.036 f     -         
+un1_DataFromMisoAQ3_iv_0_RNI2JVGDJ2_FCO[35]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIQFRTER3[34]     ARI1     FCI      In      -         8.036 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIQFRTER3[34]     ARI1     FCO      Out     0.016     8.052 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIQFRTER3_FCO[34]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIGPNP2G2[34]     ARI1     FCI      In      -         8.052 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIGPNP2G2[34]     ARI1     FCO      Out     0.016     8.069 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIGPNP2G2_FCO[34]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNINCQRF92[33]     ARI1     FCI      In      -         8.069 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNINCQRF92[33]     ARI1     FCO      Out     0.016     8.085 f     -         
+un1_DataFromMisoAQ3_iv_0_RNINCQRF92_FCO[33]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIE654QI3[33]     ARI1     FCI      In      -         8.085 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIE654QI3[33]     ARI1     FCO      Out     0.016     8.101 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIE654QI3_FCO[33]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIK5I9BO1[32]     ARI1     FCI      In      -         8.101 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIK5I9BO1[32]     ARI1     FCO      Out     0.016     8.118 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIK5I9BO1_FCO[32]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNICUPA2B[32]      ARI1     FCI      In      -         8.118 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNICUPA2B[32]      ARI1     FCO      Out     0.016     8.134 f     -         
+un1_DataFromMisoAQ3_iv_0_RNICUPA2B_FCO[32]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIHIL8LR1[31]     ARI1     FCI      In      -         8.134 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIHIL8LR1[31]     ARI1     FCO      Out     0.016     8.150 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIHIL8LR1_FCO[31]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIA8NR513[31]     ARI1     FCI      In      -         8.150 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIA8NR513[31]     ARI1     FCO      Out     0.016     8.166 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIA8NR513_FCO[31]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIEV3EFD[30]      ARI1     FCI      In      -         8.166 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIEV3EFD[30]      ARI1     FCO      Out     0.016     8.183 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIEV3EFD_FCO[30]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI8EP4JO2[30]     ARI1     FCI      In      -         8.183 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI8EP4JO2[30]     ARI1     FCO      Out     0.016     8.199 f     -         
+un1_DataFromMisoAQ3_iv_0_RNI8EP4JO2_FCO[30]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIFTC7G72[29]     ARI1     FCI      In      -         8.199 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIFTC7G72[29]     ARI1     FCO      Out     0.016     8.215 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIFTC7G72_FCO[29]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIEU65QT2[29]     ARI1     FCI      In      -         8.215 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIEU65QT2[29]     ARI1     FCO      Out     0.016     8.232 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIEU65QT2_FCO[29]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI41HMA83[28]     ARI1     FCI      In      -         8.232 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI41HMA83[28]     ARI1     FCO      Out     0.016     8.248 f     -         
+un1_DataFromMisoAQ3_iv_0_RNI41HMA83_FCO[28]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIC5K21L[28]      ARI1     FCI      In      -         8.248 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIC5K21L[28]      ARI1     FCO      Out     0.016     8.264 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIC5K21L_FCO[28]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI8CUDH3[27]      ARI1     FCI      In      -         8.264 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI8CUDH3[27]      ARI1     FCO      Out     0.016     8.281 f     -         
+un1_DataFromMisoAQ3_iv_0_RNI8CUDH3_FCO[27]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIODKM0T2[27]     ARI1     FCI      In      -         8.281 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIODKM0T2[27]     ARI1     FCO      Out     0.016     8.297 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIODKM0T2_FCO[27]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIT56F2D3[26]     ARI1     FCI      In      -         8.297 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIT56F2D3[26]     ARI1     FCO      Out     0.016     8.313 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIT56F2D3_FCO[26]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIAG3H301[26]     ARI1     FCI      In      -         8.313 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIAG3H301[26]     ARI1     FCO      Out     0.016     8.329 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIAG3H301_FCO[26]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIQRIMB61[25]     ARI1     FCI      In      -         8.329 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIQRIMB61[25]     ARI1     FCO      Out     0.016     8.346 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIQRIMB61_FCO[25]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI0NUAGC[25]      ARI1     FCI      In      -         8.346 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI0NUAGC[25]      ARI1     FCO      Out     0.016     8.362 f     -         
+un1_DataFromMisoAQ3_iv_0_RNI0NUAGC_FCO[25]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIRDR7C53[24]     ARI1     FCI      In      -         8.362 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIRDR7C53[24]     ARI1     FCO      Out     0.016     8.378 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIRDR7C53_FCO[24]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIMDPPNH1[24]     ARI1     FCI      In      -         8.378 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIMDPPNH1[24]     ARI1     FCO      Out     0.016     8.395 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIMDPPNH1_FCO[24]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIBFKQ8S3[23]     ARI1     FCI      In      -         8.395 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIBFKQ8S3[23]     ARI1     FCO      Out     0.016     8.411 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIBFKQ8S3_FCO[23]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIA3M12L[23]      ARI1     FCI      In      -         8.411 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIA3M12L[23]      ARI1     FCO      Out     0.016     8.427 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIA3M12L_FCO[23]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIHAHKOR2[22]     ARI1     FCI      In      -         8.427 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIHAHKOR2[22]     ARI1     FCO      Out     0.016     8.444 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIHAHKOR2_FCO[22]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIEEM5DD[22]      ARI1     FCI      In      -         8.444 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIEEM5DD[22]      ARI1     FCO      Out     0.016     8.460 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIEEM5DD_FCO[22]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIQ5PG5U3[21]     ARI1     FCI      In      -         8.460 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIQ5PG5U3[21]     ARI1     FCO      Out     0.016     8.476 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIQ5PG5U3_FCO[21]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIOE5MG13[21]     ARI1     FCI      In      -         8.476 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIOE5MG13[21]     ARI1     FCO      Out     0.016     8.492 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIOE5MG13_FCO[21]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNILL5QP9[20]      ARI1     FCI      In      -         8.492 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNILL5QP9[20]      ARI1     FCO      Out     0.016     8.509 f     -         
+un1_DataFromMisoAQ3_iv_0_RNILL5QP9_FCO[20]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIQD08IG2[20]     ARI1     FCI      In      -         8.509 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIQD08IG2[20]     ARI1     FCO      Out     0.016     8.525 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIQD08IG2_FCO[20]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIU7NENE1[19]     ARI1     FCI      In      -         8.525 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIU7NENE1[19]     ARI1     FCO      Out     0.016     8.541 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIU7NENE1_FCO[19]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI8KDDAS1[19]     ARI1     FCI      In      -         8.541 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI8KDDAS1[19]     ARI1     FCO      Out     0.016     8.558 f     -         
+un1_DataFromMisoAQ3_iv_0_RNI8KDDAS1_FCO[19]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI51CRSJ[18]      ARI1     FCI      In      -         8.558 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI51CRSJ[18]      ARI1     FCO      Out     0.016     8.574 f     -         
+un1_DataFromMisoAQ3_iv_0_RNI51CRSJ_FCO[18]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIQPSR4F1[18]     ARI1     FCI      In      -         8.574 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIQPSR4F1[18]     ARI1     FCO      Out     0.016     8.590 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIQPSR4F1_FCO[18]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIS10SRK[17]      ARI1     FCI      In      -         8.590 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIS10SRK[17]      ARI1     FCO      Out     0.016     8.607 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIS10SRK_FCO[17]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI4G60EB2[17]     ARI1     FCI      In      -         8.607 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI4G60EB2[17]     ARI1     FCO      Out     0.016     8.623 f     -         
+un1_DataFromMisoAQ3_iv_0_RNI4G60EB2_FCO[17]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIAE0C24[16]      ARI1     FCI      In      -         8.623 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIAE0C24[16]      ARI1     FCO      Out     0.016     8.639 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIAE0C24_FCO[16]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNICSJN8H3[16]     ARI1     FCI      In      -         8.639 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNICSJN8H3[16]     ARI1     FCO      Out     0.016     8.655 f     -         
+un1_DataFromMisoAQ3_iv_0_RNICSJN8H3_FCO[16]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNILGD90T1[15]     ARI1     FCI      In      -         8.655 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNILGD90T1[15]     ARI1     FCO      Out     0.016     8.672 f     -         
+un1_DataFromMisoAQ3_iv_0_RNILGD90T1_FCO[15]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNII8J3FN[15]      ARI1     FCI      In      -         8.672 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNII8J3FN[15]      ARI1     FCO      Out     0.016     8.688 f     -         
+un1_DataFromMisoAQ3_iv_0_RNII8J3FN_FCO[15]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIU4RFU33[14]     ARI1     FCI      In      -         8.688 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIU4RFU33[14]     ARI1     FCO      Out     0.016     8.704 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIU4RFU33_FCO[14]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIOOFOUO[14]      ARI1     FCI      In      -         8.704 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIOOFOUO[14]      ARI1     FCO      Out     0.016     8.721 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIOOFOUO_FCO[14]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI92IM0S[13]      ARI1     FCI      In      -         8.721 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI92IM0S[13]      ARI1     FCO      Out     0.016     8.737 f     -         
+un1_DataFromMisoAQ3_iv_0_RNI92IM0S_FCO[13]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI2J4S36[13]      ARI1     FCI      In      -         8.737 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI2J4S36[13]      ARI1     FCO      Out     0.016     8.753 f     -         
+un1_DataFromMisoAQ3_iv_0_RNI2J4S36_FCO[13]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI0MNNG03[12]     ARI1     FCI      In      -         8.753 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI0MNNG03[12]     ARI1     FCO      Out     0.016     8.770 f     -         
+un1_DataFromMisoAQ3_iv_0_RNI0MNNG03_FCO[12]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIS56NPK1[12]     ARI1     FCI      In      -         8.770 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIS56NPK1[12]     ARI1     FCO      Out     0.016     8.786 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIS56NPK1_FCO[12]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI0BU08I[11]      ARI1     FCI      In      -         8.786 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI0BU08I[11]      ARI1     FCO      Out     0.016     8.802 f     -         
+un1_DataFromMisoAQ3_iv_0_RNI0BU08I_FCO[11]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI8AGJSQ1[11]     ARI1     FCI      In      -         8.802 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNI8AGJSQ1[11]     ARI1     FCO      Out     0.016     8.819 f     -         
+un1_DataFromMisoAQ3_iv_0_RNI8AGJSQ1_FCO[11]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIMV11572[10]     ARI1     FCI      In      -         8.819 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNIMV11572[10]     ARI1     FCO      Out     0.016     8.835 f     -         
+un1_DataFromMisoAQ3_iv_0_RNIMV11572_FCO[10]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNISA3RGO[10]      ARI1     FCI      In      -         8.835 f     -         
+Main_0.ltc2378.un1_DataFromMisoAQ3_iv_0_RNISA3RGO[10]      ARI1     FCO      Out     0.016     8.851 f     -         
+un1_DataFromMisoAQ3_iv_0_RNISA3RGO_FCO[10]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNIJ1F7SJ2[9]         ARI1     FCI      In      -         8.851 f     -         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNIJ1F7SJ2[9]         ARI1     FCO      Out     0.016     8.867 f     -         
+un1_AdcSampleA_1_iv_0_RNIJ1F7SJ2_FCO[9]                    Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNIEDNOMM3[9]         ARI1     FCI      In      -         8.867 f     -         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNIEDNOMM3[9]         ARI1     FCO      Out     0.016     8.884 f     -         
+un1_AdcSampleA_1_iv_0_RNIEDNOMM3_FCO[9]                    Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNI46L05J1[8]         ARI1     FCI      In      -         8.884 f     -         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNI46L05J1[8]         ARI1     FCO      Out     0.016     8.900 f     -         
+un1_AdcSampleA_1_iv_0_RNI46L05J1_FCO[8]                    Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNICHRFSO3[8]         ARI1     FCI      In      -         8.900 f     -         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNICHRFSO3[8]         ARI1     FCO      Out     0.016     8.916 f     -         
+un1_AdcSampleA_1_iv_0_RNICHRFSO3_FCO[8]                    Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNIM9QAAT3[7]         ARI1     FCI      In      -         8.916 f     -         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNIM9QAAT3[7]         ARI1     FCO      Out     0.016     8.933 f     -         
+un1_AdcSampleA_1_iv_0_RNIM9QAAT3_FCO[7]                    Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNIKGTLR8[7]          ARI1     FCI      In      -         8.933 f     -         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNIKGTLR8[7]          ARI1     FCO      Out     0.016     8.949 f     -         
+un1_AdcSampleA_1_iv_0_RNIKGTLR8_FCO[7]                     Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNI5KPES81[6]         ARI1     FCI      In      -         8.949 f     -         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNI5KPES81[6]         ARI1     FCO      Out     0.016     8.965 f     -         
+un1_AdcSampleA_1_iv_0_RNI5KPES81_FCO[6]                    Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNI27OH102[6]         ARI1     FCI      In      -         8.965 f     -         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNI27OH102[6]         ARI1     FCO      Out     0.016     8.982 f     -         
+un1_AdcSampleA_1_iv_0_RNI27OH102_FCO[6]                    Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNI4U5MFE1[5]         ARI1     FCI      In      -         8.982 f     -         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNI4U5MFE1[5]         ARI1     FCO      Out     0.016     8.998 f     -         
+un1_AdcSampleA_1_iv_0_RNI4U5MFE1_FCO[5]                    Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNI4ER8SS2[5]         ARI1     FCI      In      -         8.998 f     -         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNI4ER8SS2[5]         ARI1     FCO      Out     0.016     9.014 f     -         
+un1_AdcSampleA_1_iv_0_RNI4ER8SS2_FCO[5]                    Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNIJBQ3KM[4]          ARI1     FCI      In      -         9.014 f     -         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNIJBQ3KM[4]          ARI1     FCO      Out     0.016     9.030 f     -         
+un1_AdcSampleA_1_iv_0_RNIJBQ3KM_FCO[4]                     Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNIUQTLFJ3[4]         ARI1     FCI      In      -         9.030 f     -         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNIUQTLFJ3[4]         ARI1     FCO      Out     0.016     9.047 f     -         
+un1_AdcSampleA_1_iv_0_RNIUQTLFJ3_FCO[4]                    Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNI29RSO01[3]         ARI1     FCI      In      -         9.047 f     -         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNI29RSO01[3]         ARI1     FCO      Out     0.016     9.063 f     -         
+un1_AdcSampleA_1_iv_0_RNI29RSO01_FCO[3]                    Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNI8SQDIQ2[3]         ARI1     FCI      In      -         9.063 f     -         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNI8SQDIQ2[3]         ARI1     FCO      Out     0.016     9.079 f     -         
+un1_AdcSampleA_1_iv_0_RNI8SQDIQ2_FCO[3]                    Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNIJ8UCQ81[2]         ARI1     FCI      In      -         9.079 f     -         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNIJ8UCQ81[2]         ARI1     FCO      Out     0.016     9.096 f     -         
+un1_AdcSampleA_1_iv_0_RNIJ8UCQ81_FCO[2]                    Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNIMO6UFS[2]          ARI1     FCI      In      -         9.096 f     -         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNIMO6UFS[2]          ARI1     FCO      Out     0.016     9.112 f     -         
+un1_AdcSampleA_1_iv_0_RNIMO6UFS_FCO[2]                     Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNIGOUCD01[1]         ARI1     FCI      In      -         9.112 f     -         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNIGOUCD01[1]         ARI1     FCO      Out     0.016     9.128 f     -         
+un1_AdcSampleA_1_iv_0_RNIGOUCD01_FCO[1]                    Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNIKVFTQ7[1]          ARI1     FCI      In      -         9.128 f     -         
+Main_0.ltc2378.un1_AdcSampleA_1_iv_0_RNIKVFTQ7[1]          ARI1     FCO      Out     0.016     9.145 f     -         
+un1_AdcSampleA_1_iv_0_RNIKVFTQ7_FCO[1]                     Net      -        -       0.000     -           1         
+Main_0.ltc2378.AdcSampleA_RNO[47]                          ARI1     FCI      In      -         9.145 f     -         
+Main_0.ltc2378.AdcSampleA_RNO[47]                          ARI1     S        Out     0.073     9.217 r     -         
+AdcSampleA_RNO_S[47]                                       Net      -        -       0.248     -           1         
+Main_0.ltc2378.AdcSampleA[47]                              SLE      D        In      -         9.466 r     -         
+=====================================================================================================================
+Total path delay (propagation time + setup) of 9.721 is 3.640(37.4%) logic and 6.081(62.6%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -882,7 +1196,7 @@ Path information for path number 1:
 
     - Propagation time:                      7.027
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (critical) :                     1.444
+    = Slack (non-critical) :                 1.444
 
     Number of logic level(s):                3
     Starting point:                          FineSteeringMirror_sb_0.FineSteeringMirror_sb_MSS_0.MSS_ADLIB_INST / F_HM0_ADDR[15]
@@ -925,15 +1239,15 @@ Starting Points with Worst Slack
 Instance                                    Reference                                                                                 Type     Pin     Net              Time        Slack
                                             Clock                                                                                                                                        
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.RS433_Rx3.Uart.Uart.bitpos[0]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[0]        0.108       4.466
-Main_0.RS433_Rx3.Uart.Uart.bitpos[1]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[1]        0.108       4.569
-Main_0.RS433_Rx3.Uart.Uart.bitpos[2]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[2]        0.108       4.651
-Main_0.RS433_Rx3.Uart.Uart.bitpos[3]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[3]        0.108       4.987
-Main_0.RS433_Rx3.Uart.Uart.samplecnt[0]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.214
-Main_0.RS433_Rx3.Uart.Uart.samplecnt[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.333
-Main_0.RS433_Rx3.Uart.Uart.samplecnt[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.378
-Main_0.RS433_Rx3.Uart.Uart.samplecnt[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[3]     0.108       6.496
-Main_0.RS433_Rx3.Uart.ClkSyncRxd.O          VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       Rxd_i            0.108       7.216
+Main_0.RS433_Rx3.Uart.Uart.bitpos[0]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[0]        0.108       4.541
+Main_0.RS433_Rx3.Uart.Uart.bitpos[1]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[1]        0.108       4.644
+Main_0.RS433_Rx3.Uart.Uart.bitpos[2]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[2]        0.108       4.726
+Main_0.RS433_Rx3.Uart.Uart.bitpos[3]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[3]        0.108       5.062
+Main_0.RS433_Rx3.Uart.Uart.samplecnt[0]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.235
+Main_0.RS433_Rx3.Uart.Uart.samplecnt[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.353
+Main_0.RS433_Rx3.Uart.ClkSyncRxd.O          VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       Rxd_i            0.108       6.425
+Main_0.RS433_Rx3.Uart.Uart.samplecnt[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.439
+Main_0.RS433_Rx3.Uart.Uart.samplecnt[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[3]     0.087       6.564
 Main_0.Uart3TxBitClockDiv.div_i             VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       div_i_i          0.108       8.106
 =========================================================================================================================================================================================
 
@@ -945,16 +1259,16 @@ Ending Points with Worst Slack
 Instance                                 Reference                                                                                 Type     Pin     Net              Time         Slack
                                          Clock                                                                                                                                         
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.RS433_Rx3.Uart.Uart.RReg[0]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_1           9.662        4.466
-Main_0.RS433_Rx3.Uart.Uart.RReg[1]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_2           9.662        4.466
-Main_0.RS433_Rx3.Uart.Uart.RReg[2]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_3           9.662        4.466
-Main_0.RS433_Rx3.Uart.Uart.RReg[3]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_4           9.662        4.466
-Main_0.RS433_Rx3.Uart.Uart.RReg[4]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_5           9.662        4.466
-Main_0.RS433_Rx3.Uart.Uart.RReg[5]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_6           9.662        4.466
-Main_0.RS433_Rx3.Uart.Uart.RReg[6]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_7           9.662        4.544
-Main_0.RS433_Rx3.Uart.Uart.RReg[7]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_8           9.662        4.544
-Main_0.RS433_Rx3.Uart.Uart.bitpos[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      D       bitpos_10[1]     9.745        4.698
-Main_0.RS433_Rx3.Uart.Uart.bitpos[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      D       SUM_2[2]         9.745        5.154
+Main_0.RS433_Rx3.Uart.Uart.RReg[0]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_1           9.662        4.541
+Main_0.RS433_Rx3.Uart.Uart.RReg[1]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_2           9.662        4.541
+Main_0.RS433_Rx3.Uart.Uart.RReg[2]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_3           9.662        4.541
+Main_0.RS433_Rx3.Uart.Uart.RReg[3]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_4           9.662        4.541
+Main_0.RS433_Rx3.Uart.Uart.RReg[4]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_5           9.662        4.541
+Main_0.RS433_Rx3.Uart.Uart.RReg[5]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_6           9.662        4.541
+Main_0.RS433_Rx3.Uart.Uart.RReg[6]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_7           9.662        4.619
+Main_0.RS433_Rx3.Uart.Uart.RReg[7]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_8           9.662        4.619
+Main_0.RS433_Rx3.Uart.Uart.bitpos[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      D       bitpos_10[1]     9.745        4.845
+Main_0.RS433_Rx3.Uart.Uart.bitpos[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      D       SUM_2[2]         9.745        5.232
 =======================================================================================================================================================================================
 
 
@@ -969,9 +1283,9 @@ Path information for path number 1:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.662
 
-    - Propagation time:                      5.197
+    - Propagation time:                      5.122
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 4.466
+    = Slack (non-critical) :                 4.541
 
     Number of logic level(s):                4
     Starting point:                          Main_0.RS433_Rx3.Uart.Uart.bitpos[0] / Q
@@ -986,19 +1300,19 @@ Main_0.RS433_Rx3.Uart.Uart.bitpos[0]               SLE      Q        Out     0.1
 bitpos[0]                                          Net      -        -       1.119     -           13        
 Main_0.RS433_Rx3.Uart.Uart.RxProc\.un3_enable      CFG4     D        In      -         1.227 f     -         
 Main_0.RS433_Rx3.Uart.Uart.RxProc\.un3_enable      CFG4     Y        Out     0.317     1.544 r     -         
-bitpos_1_sqmuxa                                    Net      -        -       1.017     -           9         
-Main_0.RS433_Rx3.Uart.Uart.RxProc\.un21_enable     CFG2     A        In      -         2.561 r     -         
-Main_0.RS433_Rx3.Uart.Uart.RxProc\.un21_enable     CFG2     Y        Out     0.077     2.639 r     -         
+bitpos_1_sqmuxa                                    Net      -        -       0.855     -           5         
+Main_0.RS433_Rx3.Uart.Uart.RxProc\.un21_enable     CFG2     B        In      -         2.399 r     -         
+Main_0.RS433_Rx3.Uart.Uart.RxProc\.un21_enable     CFG2     Y        Out     0.165     2.564 r     -         
 un21_enable                                        Net      -        -       0.896     -           6         
-Main_0.RS433_Rx3.Uart.Uart.RReg_1_sqmuxa           CFG4     B        In      -         3.534 r     -         
-Main_0.RS433_Rx3.Uart.Uart.RReg_1_sqmuxa           CFG4     Y        Out     0.143     3.678 f     -         
+Main_0.RS433_Rx3.Uart.Uart.RReg_1_sqmuxa           CFG4     B        In      -         3.459 r     -         
+Main_0.RS433_Rx3.Uart.Uart.RReg_1_sqmuxa           CFG4     Y        Out     0.143     3.603 f     -         
 RReg_1_sqmuxa                                      Net      -        -       0.977     -           8         
-Main_0.RS433_Rx3.Uart.Uart.RReg_1_0                CFG4     D        In      -         4.654 f     -         
-Main_0.RS433_Rx3.Uart.Uart.RReg_1_0                CFG4     Y        Out     0.288     4.942 f     -         
+Main_0.RS433_Rx3.Uart.Uart.RReg_1_0                CFG4     D        In      -         4.579 f     -         
+Main_0.RS433_Rx3.Uart.Uart.RReg_1_0                CFG4     Y        Out     0.288     4.867 f     -         
 RReg_1                                             Net      -        -       0.254     -           1         
-Main_0.RS433_Rx3.Uart.Uart.RReg[0]                 SLE      EN       In      -         5.197 f     -         
+Main_0.RS433_Rx3.Uart.Uart.RReg[0]                 SLE      EN       In      -         5.122 f     -         
 =============================================================================================================
-Total path delay (propagation time + setup) of 5.534 is 1.271(23.0%) logic and 4.263(77.0%) route.
+Total path delay (propagation time + setup) of 5.459 is 1.359(24.9%) logic and 4.100(75.1%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -1201,15 +1515,15 @@ Starting Points with Worst Slack
 Instance                                    Reference                                                                                 Type     Pin     Net              Time        Slack
                                             Clock                                                                                                                                        
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.RS422_Rx0.Uart.Uart.bitpos[0]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[0]        0.108       4.561
-Main_0.RS422_Rx0.Uart.Uart.bitpos[1]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[1]        0.108       4.677
-Main_0.RS422_Rx0.Uart.Uart.bitpos[2]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[2]        0.108       4.734
-Main_0.RS422_Rx0.Uart.Uart.bitpos[3]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[3]        0.108       4.858
-Main_0.RS422_Rx0.Uart.Uart.samplecnt[0]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.189
-Main_0.RS422_Rx0.Uart.Uart.samplecnt[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.308
-Main_0.RS422_Rx0.Uart.Uart.samplecnt[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.353
-Main_0.RS422_Rx0.Uart.Uart.samplecnt[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[3]     0.087       6.478
-Main_0.RS422_Rx0.Uart.ClkSyncRxd.O          VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       Rxd_i            0.108       7.216
+Main_0.RS422_Rx0.Uart.Uart.bitpos[0]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[0]        0.108       4.541
+Main_0.RS422_Rx0.Uart.Uart.bitpos[1]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[1]        0.108       4.644
+Main_0.RS422_Rx0.Uart.Uart.bitpos[2]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[2]        0.108       4.726
+Main_0.RS422_Rx0.Uart.Uart.bitpos[3]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[3]        0.108       5.062
+Main_0.RS422_Rx0.Uart.Uart.samplecnt[0]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.235
+Main_0.RS422_Rx0.Uart.Uart.samplecnt[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.353
+Main_0.RS422_Rx0.Uart.ClkSyncRxd.O          VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       Rxd_i            0.108       6.425
+Main_0.RS422_Rx0.Uart.Uart.samplecnt[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.439
+Main_0.RS422_Rx0.Uart.Uart.samplecnt[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[3]     0.087       6.564
 Main_0.Uart0TxBitClockDiv.div_i             VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       div_i_i          0.108       8.106
 =========================================================================================================================================================================================
 
@@ -1221,16 +1535,16 @@ Ending Points with Worst Slack
 Instance                                 Reference                                                                                 Type     Pin     Net              Time         Slack
                                          Clock                                                                                                                                         
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.RS422_Rx0.Uart.Uart.RReg[0]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_1           9.662        4.561
-Main_0.RS422_Rx0.Uart.Uart.RReg[2]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_3           9.662        4.561
-Main_0.RS422_Rx0.Uart.Uart.RReg[4]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_5           9.662        4.561
-Main_0.RS422_Rx0.Uart.Uart.RReg[6]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_7           9.662        4.561
-Main_0.RS422_Rx0.Uart.Uart.bitpos[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      D       bitpos_10[1]     9.745        5.200
-Main_0.RS422_Rx0.Uart.Uart.bitpos[0]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      D       bitpos_10[0]     9.745        5.239
-Main_0.RS422_Rx0.Uart.Uart.RReg[1]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_2           9.662        5.502
-Main_0.RS422_Rx0.Uart.Uart.RReg[3]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_4           9.662        5.502
-Main_0.RS422_Rx0.Uart.Uart.RReg[5]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_6           9.662        5.502
-Main_0.RS422_Rx0.Uart.Uart.bitpos[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      D       bitpos_10[3]     9.745        5.595
+Main_0.RS422_Rx0.Uart.Uart.RReg[0]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_1           9.662        4.541
+Main_0.RS422_Rx0.Uart.Uart.RReg[1]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_2           9.662        4.541
+Main_0.RS422_Rx0.Uart.Uart.RReg[2]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_3           9.662        4.541
+Main_0.RS422_Rx0.Uart.Uart.RReg[3]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_4           9.662        4.541
+Main_0.RS422_Rx0.Uart.Uart.RReg[4]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_5           9.662        4.541
+Main_0.RS422_Rx0.Uart.Uart.RReg[5]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_6           9.662        4.541
+Main_0.RS422_Rx0.Uart.Uart.RReg[6]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_7           9.662        4.619
+Main_0.RS422_Rx0.Uart.Uart.RReg[7]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_8           9.662        4.619
+Main_0.RS422_Rx0.Uart.Uart.bitpos[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      D       bitpos_10[1]     9.745        4.845
+Main_0.RS422_Rx0.Uart.Uart.bitpos[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      D       SUM[2]           9.745        5.232
 =======================================================================================================================================================================================
 
 
@@ -1245,9 +1559,9 @@ Path information for path number 1:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.662
 
-    - Propagation time:                      5.102
+    - Propagation time:                      5.122
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 4.561
+    = Slack (non-critical) :                 4.541
 
     Number of logic level(s):                4
     Starting point:                          Main_0.RS422_Rx0.Uart.Uart.bitpos[0] / Q
@@ -1259,22 +1573,22 @@ Instance / Net                                              Pin      Pin        
 Name                                               Type     Name     Dir     Delay     Time        Fan Out(s)
 -------------------------------------------------------------------------------------------------------------
 Main_0.RS422_Rx0.Uart.Uart.bitpos[0]               SLE      Q        Out     0.108     0.108 f     -         
-bitpos[0]                                          Net      -        -       1.058     -           10        
-Main_0.RS422_Rx0.Uart.Uart.RxProc\.un3_enable      CFG4     D        In      -         1.166 f     -         
-Main_0.RS422_Rx0.Uart.Uart.RxProc\.un3_enable      CFG4     Y        Out     0.317     1.484 r     -         
-bitpos_1_sqmuxa                                    Net      -        -       1.017     -           9         
-Main_0.RS422_Rx0.Uart.Uart.RxProc\.un21_enable     CFG2     A        In      -         2.501 r     -         
-Main_0.RS422_Rx0.Uart.Uart.RxProc\.un21_enable     CFG2     Y        Out     0.077     2.578 r     -         
-un21_enable                                        Net      -        -       1.102     -           11        
-Main_0.RS422_Rx0.Uart.Uart.RReg_1_sqmuxa           CFG4     B        In      -         3.680 r     -         
-Main_0.RS422_Rx0.Uart.Uart.RReg_1_sqmuxa           CFG4     Y        Out     0.143     3.823 f     -         
-RReg_1_sqmuxa                                      Net      -        -       0.815     -           4         
-Main_0.RS422_Rx0.Uart.Uart.RReg_1_0                CFG4     C        In      -         4.638 f     -         
-Main_0.RS422_Rx0.Uart.Uart.RReg_1_0                CFG4     Y        Out     0.210     4.847 f     -         
+bitpos[0]                                          Net      -        -       1.119     -           13        
+Main_0.RS422_Rx0.Uart.Uart.RxProc\.un3_enable      CFG4     D        In      -         1.227 f     -         
+Main_0.RS422_Rx0.Uart.Uart.RxProc\.un3_enable      CFG4     Y        Out     0.317     1.544 r     -         
+bitpos_1_sqmuxa                                    Net      -        -       0.855     -           5         
+Main_0.RS422_Rx0.Uart.Uart.RxProc\.un21_enable     CFG2     B        In      -         2.399 r     -         
+Main_0.RS422_Rx0.Uart.Uart.RxProc\.un21_enable     CFG2     Y        Out     0.165     2.564 r     -         
+un21_enable                                        Net      -        -       0.896     -           6         
+Main_0.RS422_Rx0.Uart.Uart.RReg_1_sqmuxa           CFG4     B        In      -         3.459 r     -         
+Main_0.RS422_Rx0.Uart.Uart.RReg_1_sqmuxa           CFG4     Y        Out     0.143     3.603 f     -         
+RReg_1_sqmuxa                                      Net      -        -       0.977     -           8         
+Main_0.RS422_Rx0.Uart.Uart.RReg_1_0                CFG4     D        In      -         4.579 f     -         
+Main_0.RS422_Rx0.Uart.Uart.RReg_1_0                CFG4     Y        Out     0.288     4.867 f     -         
 RReg_1                                             Net      -        -       0.254     -           1         
-Main_0.RS422_Rx0.Uart.Uart.RReg[0]                 SLE      EN       In      -         5.102 f     -         
+Main_0.RS422_Rx0.Uart.Uart.RReg[0]                 SLE      EN       In      -         5.122 f     -         
 =============================================================================================================
-Total path delay (propagation time + setup) of 5.439 is 1.193(21.9%) logic and 4.246(78.1%) route.
+Total path delay (propagation time + setup) of 5.459 is 1.359(24.9%) logic and 4.100(75.1%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -1289,41 +1603,41 @@ Detailed Report for Clock: System
 Starting Points with Worst Slack
 ********************************
 
-                                                 Starting                                         Arrival          
-Instance                                         Reference     Type     Pin     Net               Time        Slack
-                                                 Clock                                                             
--------------------------------------------------------------------------------------------------------------------
-Main_0.ltc2378.clk_div_adcconv.un1_rst_31_rs     System        SLE      Q       un1_rst_31_rs     0.087       6.092
-Main_0.ltc2378.clk_div_adcconv.un1_rst_30_rs     System        SLE      Q       un1_rst_30_rs     0.087       6.109
-Main_0.ltc2378.clk_div_adcconv.un1_rst_29_rs     System        SLE      Q       un1_rst_29_rs     0.087       6.125
-Main_0.ltc2378.clk_div_adcconv.un1_rst_28_rs     System        SLE      Q       un1_rst_28_rs     0.087       6.141
-Main_0.ltc2378.clk_div_adcconv.un1_rst_27_rs     System        SLE      Q       un1_rst_27_rs     0.087       6.158
-Main_0.ltc2378.clk_div_adcconv.un1_rst_26_rs     System        SLE      Q       un1_rst_26_rs     0.087       6.174
-Main_0.ltc2378.clk_div_adcconv.un1_rst_25_rs     System        SLE      Q       un1_rst_25_rs     0.087       6.190
-Main_0.ltc2378.clk_div_adcconv.un1_rst_24_rs     System        SLE      Q       un1_rst_24_rs     0.087       6.207
-Main_0.ltc2378.clk_div_adcconv.un1_rst_23_rs     System        SLE      Q       un1_rst_23_rs     0.087       6.223
-Main_0.ltc2378.clk_div_adcconv.un1_rst_22_rs     System        SLE      Q       un1_rst_22_rs     0.087       6.239
-===================================================================================================================
+                                                 Starting                                          Arrival          
+Instance                                         Reference     Type     Pin     Net                Time        Slack
+                                                 Clock                                                              
+--------------------------------------------------------------------------------------------------------------------
+Main_0.ltc2378.Spi.un1_rst_6_rs                  System        SLE      Q       un1_rst_6_rs_1     0.108       5.093
+Main_0.ltc2378.Spi.un1_rst_7_rs                  System        SLE      Q       un1_rst_7_rs_1     0.108       5.296
+Main_0.ltc2378.Spi.un1_rst_8_rs                  System        SLE      Q       un1_rst_8_rs_1     0.108       5.296
+Main_0.ltc2378.clk_div_adcconv.un1_rst_31_rs     System        SLE      Q       un1_rst_31_rs      0.087       6.092
+Main_0.ltc2378.clk_div_adcconv.un1_rst_30_rs     System        SLE      Q       un1_rst_30_rs      0.087       6.109
+Main_0.ltc2378.clk_div_adcconv.un1_rst_29_rs     System        SLE      Q       un1_rst_29_rs      0.087       6.125
+Main_0.ltc2378.clk_div_adcconv.un1_rst_28_rs     System        SLE      Q       un1_rst_28_rs      0.087       6.141
+Main_0.ltc2378.clk_div_adcconv.un1_rst_27_rs     System        SLE      Q       un1_rst_27_rs      0.087       6.158
+Main_0.ltc2378.clk_div_adcconv.un1_rst_26_rs     System        SLE      Q       un1_rst_26_rs      0.087       6.174
+Main_0.ltc2378.clk_div_adcconv.un1_rst_25_rs     System        SLE      Q       un1_rst_25_rs      0.087       6.190
+====================================================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                                              Starting                                        Required          
-Instance                                      Reference     Type     Pin     Net              Time         Slack
-                                              Clock                                                             
-----------------------------------------------------------------------------------------------------------------
-Main_0.ltc2378.clk_div_adcconv.ClkDiv[15]     System        SLE      D       ClkDiv_4[15]     9.745        6.092
-Main_0.ltc2378.clk_div_adcconv.ClkDiv[14]     System        SLE      D       ClkDiv_4[14]     9.745        6.109
-Main_0.ltc2378.clk_div_adcconv.ClkDiv[13]     System        SLE      D       ClkDiv_4[13]     9.745        6.125
-Main_0.ltc2378.clk_div_adcconv.ClkDiv[12]     System        SLE      D       ClkDiv_4[12]     9.745        6.141
-Main_0.ltc2378.clk_div_adcconv.ClkDiv[11]     System        SLE      D       ClkDiv_4[11]     9.745        6.158
-Main_0.ltc2378.clk_div_adcconv.ClkDiv[10]     System        SLE      D       ClkDiv_4[10]     9.745        6.174
-Main_0.ltc2378.clk_div_adcconv.ClkDiv[9]      System        SLE      D       ClkDiv_4[9]      9.745        6.190
-Main_0.ltc2378.clk_div_adcconv.ClkDiv[8]      System        SLE      D       ClkDiv_4[8]      9.745        6.207
-Main_0.ltc2378.clk_div_adcconv.ClkDiv[7]      System        SLE      D       ClkDiv_4[7]      9.745        6.223
-Main_0.ltc2378.clk_div_adcconv.ClkDiv[6]      System        SLE      D       ClkDiv_4[6]      9.745        6.239
-================================================================================================================
+                                  Starting                                                                 Required          
+Instance                          Reference     Type     Pin     Net                                       Time         Slack
+                                  Clock                                                                                      
+-----------------------------------------------------------------------------------------------------------------------------
+Main_0.ltc2378.AdcSampleC[47]     System        SLE      D       AdcSampleC_RNO_S[47]                      9.745        5.093
+Main_0.ltc2378.AdcSampleD[47]     System        SLE      D       AdcSampleD_RNO_S[47]                      9.745        5.093
+Main_0.ltc2378.AdcSampleC[46]     System        SLE      D       un1_AdcSampleC_1_iv_0_RNIT2SU5M1_S[1]     9.745        5.125
+Main_0.ltc2378.AdcSampleD[46]     System        SLE      D       un1_AdcSampleD_1_iv_0_RNI0Q8ONJ2_S[1]     9.745        5.125
+Main_0.ltc2378.AdcSampleC[45]     System        SLE      D       un1_AdcSampleC_1_iv_0_RNI0RCRAP2_S[2]     9.745        5.158
+Main_0.ltc2378.AdcSampleD[45]     System        SLE      D       un1_AdcSampleD_1_iv_0_RNI3ACU0T2_S[2]     9.745        5.158
+Main_0.ltc2378.AdcSampleC[44]     System        SLE      D       un1_AdcSampleC_1_iv_0_RNIFB5NQB2_S[3]     9.745        5.191
+Main_0.ltc2378.AdcSampleD[44]     System        SLE      D       un1_AdcSampleD_1_iv_0_RNIIIGI483_S[3]     9.745        5.191
+Main_0.ltc2378.AdcSampleC[43]     System        SLE      D       un1_AdcSampleC_1_iv_0_RNI0EK4HL1_S[4]     9.745        5.223
+Main_0.ltc2378.AdcSampleD[43]     System        SLE      D       un1_AdcSampleD_1_iv_0_RNI3LN5UG3_S[4]     9.745        5.223
+=============================================================================================================================
 
 
 
@@ -1337,124 +1651,175 @@ Path information for path number 1:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.745
 
-    - Propagation time:                      3.652
+    - Propagation time:                      4.652
     - Clock delay at starting point:         0.000 (ideal)
     - Estimated clock delay at start point:  -0.000
-    = Slack (non-critical) :                 6.092
+    = Slack (non-critical) :                 5.093
 
-    Number of logic level(s):                33
-    Starting point:                          Main_0.ltc2378.clk_div_adcconv.un1_rst_31_rs / Q
-    Ending point:                            Main_0.ltc2378.clk_div_adcconv.ClkDiv[15] / D
+    Number of logic level(s):                50
+    Starting point:                          Main_0.ltc2378.Spi.un1_rst_6_rs / Q
+    Ending point:                            Main_0.ltc2378.AdcSampleC[47] / D
     The start point is clocked by            System [rising] on pin CLK
     The end   point is clocked by            FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock [rising] (rise=0.000 fall=5.000 period=10.000) on pin CLK
 
-Instance / Net                                                            Pin      Pin               Arrival     No. of    
-Name                                                             Type     Name     Dir     Delay     Time        Fan Out(s)
----------------------------------------------------------------------------------------------------------------------------
-Main_0.ltc2378.clk_div_adcconv.un1_rst_31_rs                     SLE      Q        Out     0.087     0.087 r     -         
-un1_rst_31_rs                                                    Net      -        -       0.248     -           1         
-Main_0.ltc2378.clk_div_adcconv.un1_rst_31_rs_RNIPPA41            CFG3     C        In      -         0.336 r     -         
-Main_0.ltc2378.clk_div_adcconv.un1_rst_31_rs_RNIPPA41            CFG3     Y        Out     0.203     0.539 r     -         
-ClkDiv[0]                                                        Net      -        -       0.745     -           3         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_0      ARI1     B        In      -         1.284 r     -         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_0      ARI1     FCO      Out     0.178     1.462 f     -         
-clkdiv15_cry_0                                                   Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_1      ARI1     FCI      In      -         1.462 f     -         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_1      ARI1     FCO      Out     0.016     1.479 f     -         
-clkdiv15_cry_1                                                   Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_2      ARI1     FCI      In      -         1.479 f     -         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_2      ARI1     FCO      Out     0.016     1.495 f     -         
-clkdiv15_cry_2                                                   Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_3      ARI1     FCI      In      -         1.495 f     -         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_3      ARI1     FCO      Out     0.016     1.511 f     -         
-clkdiv15_cry_3                                                   Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_4      ARI1     FCI      In      -         1.511 f     -         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_4      ARI1     FCO      Out     0.016     1.528 f     -         
-clkdiv15_cry_4                                                   Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_5      ARI1     FCI      In      -         1.528 f     -         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_5      ARI1     FCO      Out     0.016     1.544 f     -         
-clkdiv15_cry_5                                                   Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_6      ARI1     FCI      In      -         1.544 f     -         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_6      ARI1     FCO      Out     0.016     1.560 f     -         
-clkdiv15_cry_6                                                   Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_7      ARI1     FCI      In      -         1.560 f     -         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_7      ARI1     FCO      Out     0.016     1.576 f     -         
-clkdiv15_cry_7                                                   Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_8      ARI1     FCI      In      -         1.576 f     -         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_8      ARI1     FCO      Out     0.016     1.593 f     -         
-clkdiv15_cry_8                                                   Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_9      ARI1     FCI      In      -         1.593 f     -         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_9      ARI1     FCO      Out     0.016     1.609 f     -         
-clkdiv15_cry_9                                                   Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_10     ARI1     FCI      In      -         1.609 f     -         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_10     ARI1     FCO      Out     0.016     1.625 f     -         
-clkdiv15_cry_10                                                  Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_11     ARI1     FCI      In      -         1.625 f     -         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_11     ARI1     FCO      Out     0.016     1.642 f     -         
-clkdiv15_cry_11                                                  Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_12     ARI1     FCI      In      -         1.642 f     -         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_12     ARI1     FCO      Out     0.016     1.658 f     -         
-clkdiv15_cry_12                                                  Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_13     ARI1     FCI      In      -         1.658 f     -         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_13     ARI1     FCO      Out     0.016     1.674 f     -         
-clkdiv15_cry_13                                                  Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_14     ARI1     FCI      In      -         1.674 f     -         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_14     ARI1     FCO      Out     0.016     1.690 f     -         
-clkdiv15_cry_14                                                  Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_15     ARI1     FCI      In      -         1.690 f     -         
-Main_0.ltc2378.clk_div_adcconv.op_lt\.op_lt\.clkdiv15_cry_15     ARI1     FCO      Out     0.016     1.707 f     -         
-clkdiv15                                                         Net      -        -       1.153     -           17        
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_0                    ARI1     C        In      -         2.859 f     -         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_0                    ARI1     FCO      Out     0.243     3.103 f     -         
-ClkDiv_4_cry_0                                                   Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_1                    ARI1     FCI      In      -         3.103 f     -         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_1                    ARI1     FCO      Out     0.016     3.119 f     -         
-ClkDiv_4_cry_1                                                   Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_2                    ARI1     FCI      In      -         3.119 f     -         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_2                    ARI1     FCO      Out     0.016     3.135 f     -         
-ClkDiv_4_cry_2                                                   Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_3                    ARI1     FCI      In      -         3.135 f     -         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_3                    ARI1     FCO      Out     0.016     3.151 f     -         
-ClkDiv_4_cry_3                                                   Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_4                    ARI1     FCI      In      -         3.151 f     -         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_4                    ARI1     FCO      Out     0.016     3.168 f     -         
-ClkDiv_4_cry_4                                                   Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_5                    ARI1     FCI      In      -         3.168 f     -         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_5                    ARI1     FCO      Out     0.016     3.184 f     -         
-ClkDiv_4_cry_5                                                   Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_6                    ARI1     FCI      In      -         3.184 f     -         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_6                    ARI1     FCO      Out     0.016     3.200 f     -         
-ClkDiv_4_cry_6                                                   Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_7                    ARI1     FCI      In      -         3.200 f     -         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_7                    ARI1     FCO      Out     0.016     3.217 f     -         
-ClkDiv_4_cry_7                                                   Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_8                    ARI1     FCI      In      -         3.217 f     -         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_8                    ARI1     FCO      Out     0.016     3.233 f     -         
-ClkDiv_4_cry_8                                                   Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_9                    ARI1     FCI      In      -         3.233 f     -         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_9                    ARI1     FCO      Out     0.016     3.249 f     -         
-ClkDiv_4_cry_9                                                   Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_10                   ARI1     FCI      In      -         3.249 f     -         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_10                   ARI1     FCO      Out     0.016     3.266 f     -         
-ClkDiv_4_cry_10                                                  Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_11                   ARI1     FCI      In      -         3.266 f     -         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_11                   ARI1     FCO      Out     0.016     3.282 f     -         
-ClkDiv_4_cry_11                                                  Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_12                   ARI1     FCI      In      -         3.282 f     -         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_12                   ARI1     FCO      Out     0.016     3.298 f     -         
-ClkDiv_4_cry_12                                                  Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_13                   ARI1     FCI      In      -         3.298 f     -         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_13                   ARI1     FCO      Out     0.016     3.314 f     -         
-ClkDiv_4_cry_13                                                  Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_14                   ARI1     FCI      In      -         3.314 f     -         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_cry_14                   ARI1     FCO      Out     0.016     3.331 f     -         
-ClkDiv_4_cry_14                                                  Net      -        -       0.000     -           1         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_s_15                     ARI1     FCI      In      -         3.331 f     -         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv_4_s_15                     ARI1     S        Out     0.073     3.404 r     -         
-ClkDiv_4[15]                                                     Net      -        -       0.248     -           1         
-Main_0.ltc2378.clk_div_adcconv.ClkDiv[15]                        SLE      D        In      -         3.652 r     -         
-===========================================================================================================================
-Total path delay (propagation time + setup) of 3.908 is 1.513(38.7%) logic and 2.395(61.3%) route.
+Instance / Net                                                   Pin      Pin               Arrival     No. of    
+Name                                                    Type     Name     Dir     Delay     Time        Fan Out(s)
+------------------------------------------------------------------------------------------------------------------
+Main_0.ltc2378.Spi.un1_rst_6_rs                         SLE      Q        Out     0.108     0.108 f     -         
+un1_rst_6_rs_1                                          Net      -        -       0.497     -           2         
+Main_0.ltc2378.Spi.DataFromMisoC_1_RNI8B901[23]         CFG3     B        In      -         0.605 f     -         
+Main_0.ltc2378.Spi.DataFromMisoC_1_RNI8B901[23]         CFG3     Y        Out     0.164     0.769 f     -         
+DataFromMisoCQ3[23]                                     Net      -        -       1.509     -           53        
+Main_0.ltc2378.un1_DataFromMisoCQ3_iv_0[24]             CFG4     D        In      -         2.279 f     -         
+Main_0.ltc2378.un1_DataFromMisoCQ3_iv_0[24]             CFG4     Y        Out     0.288     2.566 f     -         
+un1_DataFromMisoCQ3_iv_0[24]                            Net      -        -       0.497     -           2         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIKQE28M1[24]     ARI1     B        In      -         3.063 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIKQE28M1[24]     ARI1     Y        Out     0.164     3.228 f     -         
+un1_AdcSampleC_1_iv_0_RNIKQE28M1_Y[24]                  Net      -        -       0.248     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIOV30IB2[23]     ARI1     A        In      -         3.476 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIOV30IB2[23]     ARI1     FCO      Out     0.121     3.597 f     -         
+un1_AdcSampleC_1_iv_0_RNIOV30IB2_FCO[23]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI8AARJA1[23]     ARI1     FCI      In      -         3.597 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI8AARJA1[23]     ARI1     FCO      Out     0.016     3.613 f     -         
+un1_AdcSampleC_1_iv_0_RNI8AARJA1_FCO[23]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIU6FCDJ[22]      ARI1     FCI      In      -         3.613 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIU6FCDJ[22]      ARI1     FCO      Out     0.016     3.630 f     -         
+un1_AdcSampleC_1_iv_0_RNIU6FCDJ_FCO[22]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNICP92JH2[22]     ARI1     FCI      In      -         3.630 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNICP92JH2[22]     ARI1     FCO      Out     0.016     3.646 f     -         
+un1_AdcSampleC_1_iv_0_RNICP92JH2_FCO[22]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI7QMFJV[21]      ARI1     FCI      In      -         3.646 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI7QMFJV[21]      ARI1     FCO      Out     0.016     3.662 f     -         
+un1_AdcSampleC_1_iv_0_RNI7QMFJV_FCO[21]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIM1QQ0S[21]      ARI1     FCI      In      -         3.662 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIM1QQ0S[21]      ARI1     FCO      Out     0.016     3.678 f     -         
+un1_AdcSampleC_1_iv_0_RNIM1QQ0S_FCO[21]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI2Q8BUG1[20]     ARI1     FCI      In      -         3.678 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI2Q8BUG1[20]     ARI1     FCO      Out     0.016     3.695 f     -         
+un1_AdcSampleC_1_iv_0_RNI2Q8BUG1_FCO[20]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIOGT0R91[20]     ARI1     FCI      In      -         3.695 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIOGT0R91[20]     ARI1     FCO      Out     0.016     3.711 f     -         
+un1_AdcSampleC_1_iv_0_RNIOGT0R91_FCO[20]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIBCHCH52[19]     ARI1     FCI      In      -         3.711 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIBCHCH52[19]     ARI1     FCO      Out     0.016     3.727 f     -         
+un1_AdcSampleC_1_iv_0_RNIBCHCH52_FCO[19]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI6N7NCN1[19]     ARI1     FCI      In      -         3.727 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI6N7NCN1[19]     ARI1     FCO      Out     0.016     3.744 f     -         
+un1_AdcSampleC_1_iv_0_RNI6N7NCN1_FCO[19]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNII5C3II2[18]     ARI1     FCI      In      -         3.744 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNII5C3II2[18]     ARI1     FCO      Out     0.016     3.760 f     -         
+un1_AdcSampleC_1_iv_0_RNII5C3II2_FCO[18]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIOS8OAM1[18]     ARI1     FCI      In      -         3.760 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIOS8OAM1[18]     ARI1     FCO      Out     0.016     3.776 f     -         
+un1_AdcSampleC_1_iv_0_RNIOS8OAM1_FCO[18]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI96SP8K1[17]     ARI1     FCI      In      -         3.776 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI96SP8K1[17]     ARI1     FCO      Out     0.016     3.792 f     -         
+un1_AdcSampleC_1_iv_0_RNI96SP8K1_FCO[17]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI2J63SR3[17]     ARI1     FCI      In      -         3.792 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI2J63SR3[17]     ARI1     FCO      Out     0.016     3.809 f     -         
+un1_AdcSampleC_1_iv_0_RNI2J63SR3_FCO[17]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNINIKO07[16]      ARI1     FCI      In      -         3.809 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNINIKO07[16]      ARI1     FCO      Out     0.016     3.825 f     -         
+un1_AdcSampleC_1_iv_0_RNINIKO07_FCO[16]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIAVRA9M[16]      ARI1     FCI      In      -         3.825 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIAVRA9M[16]      ARI1     FCO      Out     0.016     3.841 f     -         
+un1_AdcSampleC_1_iv_0_RNIAVRA9M_FCO[16]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI2PK95B2[15]     ARI1     FCI      In      -         3.841 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI2PK95B2[15]     ARI1     FCO      Out     0.016     3.858 f     -         
+un1_AdcSampleC_1_iv_0_RNI2PK95B2_FCO[15]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIGJHTN93[15]     ARI1     FCI      In      -         3.858 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIGJHTN93[15]     ARI1     FCO      Out     0.016     3.874 f     -         
+un1_AdcSampleC_1_iv_0_RNIGJHTN93_FCO[15]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIB35BMG[14]      ARI1     FCI      In      -         3.874 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIB35BMG[14]      ARI1     FCO      Out     0.016     3.890 f     -         
+un1_AdcSampleC_1_iv_0_RNIB35BMG_FCO[14]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIMV6RSD2[14]     ARI1     FCI      In      -         3.890 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIMV6RSD2[14]     ARI1     FCO      Out     0.016     3.907 f     -         
+un1_AdcSampleC_1_iv_0_RNIMV6RSD2_FCO[14]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIM4QU7M[13]      ARI1     FCI      In      -         3.907 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIM4QU7M[13]      ARI1     FCO      Out     0.016     3.923 f     -         
+un1_AdcSampleC_1_iv_0_RNIM4QU7M_FCO[13]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI0A67MG[13]      ARI1     FCI      In      -         3.923 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI0A67MG[13]      ARI1     FCO      Out     0.016     3.939 f     -         
+un1_AdcSampleC_1_iv_0_RNI0A67MG_FCO[13]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIDGD7AM[12]      ARI1     FCI      In      -         3.939 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIDGD7AM[12]      ARI1     FCO      Out     0.016     3.955 f     -         
+un1_AdcSampleC_1_iv_0_RNIDGD7AM_FCO[12]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIQCE08B[12]      ARI1     FCI      In      -         3.955 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIQCE08B[12]      ARI1     FCO      Out     0.016     3.972 f     -         
+un1_AdcSampleC_1_iv_0_RNIQCE08B_FCO[12]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIDHSLC[11]       ARI1     FCI      In      -         3.972 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIDHSLC[11]       ARI1     FCO      Out     0.016     3.988 f     -         
+un1_AdcSampleC_1_iv_0_RNIDHSLC_FCO[11]                  Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI69SA9A3[11]     ARI1     FCI      In      -         3.988 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI69SA9A3[11]     ARI1     FCO      Out     0.016     4.004 f     -         
+un1_AdcSampleC_1_iv_0_RNI69SA9A3_FCO[11]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI3MGCD81[10]     ARI1     FCI      In      -         4.004 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI3MGCD81[10]     ARI1     FCO      Out     0.016     4.021 f     -         
+un1_AdcSampleC_1_iv_0_RNI3MGCD81_FCO[10]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIQP838S3[10]     ARI1     FCI      In      -         4.021 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIQP838S3[10]     ARI1     FCO      Out     0.016     4.037 f     -         
+un1_AdcSampleC_1_iv_0_RNIQP838S3_FCO[10]                Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI0KQ3701[9]      ARI1     FCI      In      -         4.037 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI0KQ3701[9]      ARI1     FCO      Out     0.016     4.053 f     -         
+un1_AdcSampleC_1_iv_0_RNI0KQ3701_FCO[9]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNICK31U72[9]      ARI1     FCI      In      -         4.053 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNICK31U72[9]      ARI1     FCO      Out     0.016     4.070 f     -         
+un1_AdcSampleC_1_iv_0_RNICK31U72_FCO[9]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIH8I6BV2[8]      ARI1     FCI      In      -         4.070 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIH8I6BV2[8]      ARI1     FCO      Out     0.016     4.086 f     -         
+un1_AdcSampleC_1_iv_0_RNIH8I6BV2_FCO[8]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIA8TAQE1[8]      ARI1     FCI      In      -         4.086 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIA8TAQE1[8]      ARI1     FCO      Out     0.016     4.102 f     -         
+un1_AdcSampleC_1_iv_0_RNIA8TAQE1_FCO[8]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI3CA8KS3[7]      ARI1     FCI      In      -         4.102 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI3CA8KS3[7]      ARI1     FCO      Out     0.016     4.119 f     -         
+un1_AdcSampleC_1_iv_0_RNI3CA8KS3_FCO[7]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNII7QQJR[7]       ARI1     FCI      In      -         4.119 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNII7QQJR[7]       ARI1     FCO      Out     0.016     4.135 f     -         
+un1_AdcSampleC_1_iv_0_RNII7QQJR_FCO[7]                  Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIIMF48L3[6]      ARI1     FCI      In      -         4.135 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIIMF48L3[6]      ARI1     FCO      Out     0.016     4.151 f     -         
+un1_AdcSampleC_1_iv_0_RNIIMF48L3_FCO[6]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI0UAJ8J1[6]      ARI1     FCI      In      -         4.151 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI0UAJ8J1[6]      ARI1     FCO      Out     0.016     4.167 f     -         
+un1_AdcSampleC_1_iv_0_RNI0UAJ8J1_FCO[6]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIH08EJ23[5]      ARI1     FCI      In      -         4.167 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIH08EJ23[5]      ARI1     FCO      Out     0.016     4.184 f     -         
+un1_AdcSampleC_1_iv_0_RNIH08EJ23_FCO[5]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI25QLLU2[5]      ARI1     FCI      In      -         4.184 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI25QLLU2[5]      ARI1     FCO      Out     0.016     4.200 f     -         
+un1_AdcSampleC_1_iv_0_RNI25QLLU2_FCO[5]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI0EK4HL1[4]      ARI1     FCI      In      -         4.200 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI0EK4HL1[4]      ARI1     FCO      Out     0.016     4.216 f     -         
+un1_AdcSampleC_1_iv_0_RNI0EK4HL1_FCO[4]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNISHKTMD1[4]      ARI1     FCI      In      -         4.216 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNISHKTMD1[4]      ARI1     FCO      Out     0.016     4.233 f     -         
+un1_AdcSampleC_1_iv_0_RNISHKTMD1_FCO[4]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIFB5NQB2[3]      ARI1     FCI      In      -         4.233 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIFB5NQB2[3]      ARI1     FCO      Out     0.016     4.249 f     -         
+un1_AdcSampleC_1_iv_0_RNIFB5NQB2_FCO[3]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI6J1J7S1[3]      ARI1     FCI      In      -         4.249 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI6J1J7S1[3]      ARI1     FCO      Out     0.016     4.265 f     -         
+un1_AdcSampleC_1_iv_0_RNI6J1J7S1_FCO[3]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI0RCRAP2[2]      ARI1     FCI      In      -         4.265 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNI0RCRAP2[2]      ARI1     FCO      Out     0.016     4.282 f     -         
+un1_AdcSampleC_1_iv_0_RNI0RCRAP2_FCO[2]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIKFMG6Q1[2]      ARI1     FCI      In      -         4.282 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIKFMG6Q1[2]      ARI1     FCO      Out     0.016     4.298 f     -         
+un1_AdcSampleC_1_iv_0_RNIKFMG6Q1_FCO[2]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIT2SU5M1[1]      ARI1     FCI      In      -         4.298 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNIT2SU5M1[1]      ARI1     FCO      Out     0.016     4.314 f     -         
+un1_AdcSampleC_1_iv_0_RNIT2SU5M1_FCO[1]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNII6BSUN3[1]      ARI1     FCI      In      -         4.314 f     -         
+Main_0.ltc2378.un1_AdcSampleC_1_iv_0_RNII6BSUN3[1]      ARI1     FCO      Out     0.016     4.330 f     -         
+un1_AdcSampleC_1_iv_0_RNII6BSUN3_FCO[1]                 Net      -        -       0.000     -           1         
+Main_0.ltc2378.AdcSampleC_RNO[47]                       ARI1     FCI      In      -         4.330 f     -         
+Main_0.ltc2378.AdcSampleC_RNO[47]                       ARI1     S        Out     0.073     4.403 r     -         
+AdcSampleC_RNO_S[47]                                    Net      -        -       0.248     -           1         
+Main_0.ltc2378.AdcSampleC[47]                           SLE      D        In      -         4.652 r     -         
+==================================================================================================================
+Total path delay (propagation time + setup) of 4.907 is 1.907(38.9%) logic and 3.000(61.1%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -1463,10 +1828,10 @@ Path delay compensated for clock skew. Clock skew is added to clock-to-out value
 
 Timing exceptions that could not be applied
 
-Finished final timing analysis (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 341MB peak: 341MB)
+Finished final timing analysis (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 343MB peak: 343MB)
 
 
-Finished timing report (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 341MB peak: 341MB)
+Finished timing report (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 343MB peak: 343MB)
 
 ---------------------------------------
 Resource Usage Report for FineSteeringMirror 
@@ -1476,19 +1841,19 @@ Cell usage:
 CCC             2 uses
 CLKINT          23 uses
 MSS_010         1 use
-CFG1           97 uses
-CFG2           349 uses
-CFG3           588 uses
-CFG4           675 uses
+CFG1           98 uses
+CFG2           764 uses
+CFG3           619 uses
+CFG4           1131 uses
 
 Carry cells:
-ARI1            930 uses - used for arithmetic functions
-ARI1            279 uses - used for Wide-Mux implementation
-Total ARI1      1209 uses
+ARI1            1692 uses - used for arithmetic functions
+ARI1            241 uses - used for Wide-Mux implementation
+Total ARI1      1933 uses
 
 
 Sequential Cells: 
-SLE            2693 uses
+SLE            3000 uses
 
 DSP Blocks:    0 of 22 (0%)
 
@@ -1504,7 +1869,7 @@ Global Clock Buffers: 23
 RAM/ROM usage summary
 Total Block RAMs (RAM1K18) : 8 of 21 (38%)
 
-Total LUTs:    2918
+Total LUTs:    4545
 
 Extra resources required for RAM and MACC interface logic during P&R:
 
@@ -1512,14 +1877,14 @@ RAM64x18 Interface Logic : SLEs = 0; LUTs = 0;
 RAM1K18  Interface Logic : SLEs = 288; LUTs = 288;
 MACC     Interface Logic : SLEs = 0; LUTs = 0;
 
-Total number of SLEs after P&R:  2693 + 0 + 288 + 0 = 2981;
-Total number of LUTs after P&R:  2918 + 0 + 288 + 0 = 3206;
+Total number of SLEs after P&R:  3000 + 0 + 288 + 0 = 3288;
+Total number of LUTs after P&R:  4545 + 0 + 288 + 0 = 4833;
 
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 341MB peak: 341MB)
+At Mapper Exit (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 343MB peak: 343MB)
 
-Process took 0h:00m:07s realtime, 0h:00m:07s cputime
-# Tue Feb 10 15:42:32 2026
+Process took 0h:00m:11s realtime, 0h:00m:11s cputime
+# Thu Feb 12 15:04:40 2026
 
 ###########################################################]

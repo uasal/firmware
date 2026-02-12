@@ -95,6 +95,22 @@ union AdcConfigRegister
 
 } __attribute__((__packed__));
 
+union AccumulatorConfigRegister 		
+{
+    uint32_t all;
+    struct 
+    {
+        uint16_t ControlAdcMaxAccums;
+		uint16_t MonitorAdcMaxAccums;
+
+    } __attribute__((__packed__));
+
+    AccumulatorConfigRegister() { all = 0; }
+
+    void formatf() const { ::formatf("AccumulatorConfigRegister: ControlAdcMaxAccums: %u (0x%4X), MonitorAdcMaxAccums %u (0x%4X)", ControlAdcMaxAccums, ControlAdcMaxAccums, MonitorAdcMaxAccums, MonitorAdcMaxAccums); }
+
+} __attribute__((__packed__));
+
 union CGraphBaudDividers
 {
     uint32_t all;
