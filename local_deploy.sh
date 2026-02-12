@@ -4,6 +4,9 @@
 #DEBIAN_FRONTEND=noninteractive apt install -y doxygen graphviz
 mkdir -p doxygen
 
+# TODO: This can be done better / automatically but keeping as is for now
+# (Exisiting code / quicker)
+
 # Build FilterWheel processor docs
 mkdir -p doxygen/Filterwheel/processor
 ls doxygen
