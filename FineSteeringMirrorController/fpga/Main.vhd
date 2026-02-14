@@ -17,7 +17,7 @@ port (
 	
 	nCsXO : out std_logic;
 	SckXO : out std_logic;
-	MosiXO : out std_logic;
+	MosiXO : inout std_logic;
 	
 	--D/A's
 	
@@ -1793,7 +1793,7 @@ begin
 	SckAdcs <= SckAdcs_i;
 		
 	--To test between fpga & A/D:
-	TP1 <= TrigAdcs_i;
+	--~ TP1 <= TrigAdcs_i;
 	TP2 <= nDrdyAdcA_i;
 	TP3 <= nCsAdcA_i;
 	TP4 <= SckAdcs_i;
@@ -2361,6 +2361,8 @@ begin
 	Uart3FifoReset_i <= MasterReset or Uart3FifoReset;
 
 	--DEBUG
+	
+	TP1 <= UartTxClk2;
 	--~ TP8 <= TxdLab_i;
 	
 	--~ LedR <= not(TxdLab_i);
@@ -2464,8 +2466,8 @@ begin
 		--~ Milliseconds => Milliseconds--,
 	--~ );
 	
-	--~ IBufDacMiso : IBufP2Ports port map(clk => MasterClk, I => '1', O => MisoXO_i);
-	MisoXO_i <= '1';
+	IBufDacMiso : IBufP2Ports port map(clk => MasterClk, I => MosiXO, O => MisoXO_i);
+	--~ MisoXO_i <= '1';
 
 	ClkDac_i : SpiDacPorts
 	generic map 

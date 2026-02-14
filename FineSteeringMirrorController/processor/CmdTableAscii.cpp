@@ -209,6 +209,12 @@ const Cmd AsciiCmds[] =
         "\"SelectOutput <0/1>\": Which H/V driver amp to use for output.",
         SelectOutputCommand
     ),
+	
+	Cmd(
+        "CLOCKDAC",
+        "\"ClockDac <0 - 65535>\": Set/Query clock steering D/A.",
+        ClockDacCommand
+    ),
 };
 
 //Calculate the number of commands instanciated in the system - links with CmdSystem.cpp.o

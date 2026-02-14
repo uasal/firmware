@@ -234,16 +234,10 @@ architecture RegisterSpace of RegisterSpacePorts is
 	signal LastReadReq :  std_logic := '0';		
 	signal LastWriteReq :  std_logic := '0';		
 
-	--signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 32.0)) - 1.0), 8));	--38.4k
-	--signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 32.0)) - 1.0), 8));	--230k
-	--signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(38400) * 32.0)) - 1.0), 8));	--38.4k
-	--signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(230400) * 32.0)) - 1.0), 8));	--230k
-	signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(38400) * 16.0)) - 1.0), 8));	--38.4k
-	signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(102000000) / ( real(230400) * 16.0)) - 1.0), 8));	--230k
-	--signal Uart0ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(38400) * 16.0)) - 1.0), 8));	--38.4k
-	--signal Uart1ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(natural((real(153000000) / ( real(230400) * 16.0)) - 1.0), 8));	--230k
-	signal Uart2ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8));	--"real fast"
-	signal Uart3ClkDivider_i : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(0, 8));	--"real fast"
+	signal Uart0ClkDivider_i : std_logic_vector(7 downto 0);
+	signal Uart1ClkDivider_i : std_logic_vector(7 downto 0);
+	signal Uart2ClkDivider_i : std_logic_vector(7 downto 0);
+	signal Uart3ClkDivider_i : std_logic_vector(7 downto 0);
 	
 	
 	signal MonitorAdcChannelReadIndex_i : std_logic_vector(4 downto 0);	
@@ -368,8 +362,8 @@ begin
 			--~ Uart3ClkDivider_i <= std_logic_vector(to_unsigned(0, 8));	--"real fast"
 			Uart0ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(115200) * 16.0)) - 1.0), 8));
 			Uart1ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(115200) * 16.0)) - 1.0), 8));
-			Uart2ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(115200) * 16.0)) - 1.0), 8));
-			Uart3ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(115200) * 16.0)) - 1.0), 8));
+			Uart2ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(460800) * 16.0)) - 1.0), 8)); --the final divider here should be 14 (13.8) from the main clock; expect this to be screwed up the first time...
+			Uart3ClkDivider_i <= std_logic_vector(to_unsigned(natural((real(102000000) / ( real(921600) * 16.0)) - 1.0), 8)); --the final divider here should be 7 (6.9) from the main clock; expect this to be screwed up the first time...
 			
 			MonitorAdcChannelReadIndex_i <= "00000";	
 			MonitorAdcSpiFrameEnable_i <= '0';

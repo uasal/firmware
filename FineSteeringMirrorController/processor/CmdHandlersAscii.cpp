@@ -1004,5 +1004,30 @@ int8_t SelectOutputCommand(char const* Name, char const* Params, const size_t Pa
     return(strlen(Params));
 }
 
+int8_t ClockDacCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	unsigned long A = 0;
+	
+	if (NULL == FSM)
+	{
+		formatf("\n\nClockDac: Fpga interface is not initialized! Please call InitFpga first!.");
+		return(ParamsLen);
+	}
+	
+	//Convert parameters
+    int8_t numfound = sscanf(Params, "%lu", &A);
+    if (numfound >= 1)
+    {
+		formatf("\n\nClockDac: setting Clock D/A to: %lu (0x%lX).\n", A, A);
+		FSM->ClockSteeringDacSetpoint = A;
+    }
+	
+	A = FSM->ClockSteeringDacSetpoint;
+	formatf("\n\nClockDac: current value: %lu (0x%lX)", A, A);
+	
+	return(ParamsLen);
+}
+
+
 //EOF
 

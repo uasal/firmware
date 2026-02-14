@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Mon Sep  8 17:20:00 2025
+// Created by SmartDesign Fri Feb 13 17:39:54 2026
 // Version: 2023.2 2023.2.0.10
 //////////////////////////////////////////////////////////////////////
 
@@ -293,7 +293,6 @@ wire          Oe1_net_1;
 wire          Oe2_net_1;
 wire          nCsXO_net_1;
 wire          SckXO_net_1;
-wire          MosiXO_net_1;
 wire          Oe3_net_1;
 wire          nPowerCycClr_net_1;
 wire          PowerSync_net_1;
@@ -350,8 +349,6 @@ assign nCsXO_net_1              = nCsXO_net_0;
 assign nCsXO                    = nCsXO_net_1;
 assign SckXO_net_1              = SckXO_net_0;
 assign SckXO                    = SckXO_net_1;
-assign MosiXO_net_1             = MosiXO_net_0;
-assign MosiXO                   = MosiXO_net_1;
 assign Oe3_net_1                = Oe3_net_0;
 assign Oe3                      = Oe3_net_1;
 assign nPowerCycClr_net_1       = nPowerCycClr_net_0;
@@ -473,6 +470,8 @@ Main Main_0(
         .nDrdyAdcB          ( nDrdyAdcB ),
         .nDrdyAdcC          ( nDrdyAdcC ),
         .nDrdyAdcD          ( nDrdyAdcD ),
+        .RamBusAddress      ( FineSteeringMirror_sb_0_AMBA_SLAVE_0_PADDRS9to0 ),
+        .RamBusDataIn       ( FineSteeringMirror_sb_0_AMBA_SLAVE_0_PWDATAS ),
         .RamBusnCs          ( FineSteeringMirror_sb_0_AMBA_SLAVE_0_PSELS0 ),
         .RamBusWrnRd        ( FineSteeringMirror_sb_0_AMBA_SLAVE_0_PWRITES ),
         .RamBusLatch        ( FineSteeringMirror_sb_0_AMBA_SLAVE_0_PENABLES ),
@@ -495,12 +494,9 @@ Main Main_0(
         .Fault43V           ( Fault43V ),
         .Fault5V            ( Fault5V ),
         .FaultHV            ( FaultHV ),
-        .RamBusAddress      ( FineSteeringMirror_sb_0_AMBA_SLAVE_0_PADDRS9to0 ),
-        .RamBusDataIn       ( FineSteeringMirror_sb_0_AMBA_SLAVE_0_PWDATAS ),
         // Outputs
         .nCsXO              ( nCsXO_net_0 ),
         .SckXO              ( SckXO_net_0 ),
-        .MosiXO             ( MosiXO_net_0 ),
         .PowerEnTi          ( PowerEnTi_net_0 ),
         .PowerEnMax         ( PowerEnMax_net_0 ),
         .HVEn1              ( HVEn1_net_0 ),
@@ -511,6 +507,7 @@ Main Main_0(
         .TrigAdcs           ( TrigAdcs_net_0 ),
         .SckAdcs            ( SckAdcs_net_0 ),
         .nCsAdcs            ( nCsAdcs_net_0 ),
+        .RamBusDataOut      ( Main_0_RamBusDataOut ),
         .RamBusAck          ( Main_0_RamBusAck ),
         .Tx0                ( Tx0_net_0 ),
         .Oe0                ( Oe0_net_0 ),
@@ -537,8 +534,8 @@ Main Main_0(
         .TP6                ( TP6_net_0 ),
         .TP7                ( TP7_net_0 ),
         .TP8                ( TP8_net_0 ),
-        .RamBusDataOut      ( Main_0_RamBusDataOut ),
         // Inouts
+        .MosiXO             ( MosiXO_net_0 ),
         .MosiTiDacA         ( MosiDacATi ),
         .MosiTiDacB         ( MosiDacBTi ),
         .MosiTiDacC         ( MosiDacCTi ),

@@ -205,8 +205,9 @@ Finished optimization stage 1 on SYSRESET (CPU Time 0h:00m:00s, Memory Used curr
 Running optimization stage 1 on FineSteeringMirror_sb .......
 Finished optimization stage 1 on FineSteeringMirror_sb (CPU Time 0h:00m:00s, Memory Used current: 143MB peak: 143MB)
 @N: CG364 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v":9:7:9:24|Synthesizing module FineSteeringMirror in library work.
-@N: CG794 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v":461:5:461:10|Using module Main from library work
+@N: CG794 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v":458:5:458:10|Using module Main from library work
 Running optimization stage 1 on FineSteeringMirror .......
+@W: CL318 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v":145:7:145:12|*Output MosiXO has undriven bits; assigning undriven bits to 'Z'.  Simulation mismatch possible. Assign all bits of the output.
 Finished optimization stage 1 on FineSteeringMirror (CPU Time 0h:00m:00s, Memory Used current: 143MB peak: 143MB)
 Running optimization stage 2 on FineSteeringMirror .......
 Finished optimization stage 2 on FineSteeringMirror (CPU Time 0h:00m:00s, Memory Used current: 143MB peak: 143MB)

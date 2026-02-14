@@ -54,13 +54,14 @@ struct UartBinaryUartCallbacks : public BinaryUartCallbacks
 	virtual void UnHandledPacket(const IPacket* Packet, const size_t& PacketLen)
 	{ 
 		printf("\nUartBinaryUartCallbacks: UnHandledPacket: ");
-		//~ Packet->formatf();
+		Packet->formatf();
 		//~ printf(" Payload: { ");
 		//~ for(size_t i = 0; i < Packet->PayloadLen(); i++)
 		//~ {
 			//~ printf("%.2X:", ((const uint8_t*)Packet->PayloadOffset())[i]);
 		//~ }
-		printf(" }\n");
+		//~ printf(" }");
+		printf("\n");
 	}
 	
 	//In case we need to look at every packet that goes by...
@@ -174,8 +175,8 @@ int main(int argc, char *argv[])
 	
 	StartUserInterface();
 	
-	//~ UartParser.Debug(true);
-	UartParser.Debug(false);
+	UartParser.Debug(true);
+	//~ UartParser.Debug(false);
 	
 	//~ LocalPortPinout.Echo(true);
 	LocalPortPinout.Echo(false);

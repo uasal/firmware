@@ -469,6 +469,11 @@ public:
         return(false);
     }
 	
+	virtual void formatf() const override
+	{
+		reinterpret_cast<const CGraphPacketHeader*>(this)->formatf();
+	}
+	
 private:
 		
 	bool debug;

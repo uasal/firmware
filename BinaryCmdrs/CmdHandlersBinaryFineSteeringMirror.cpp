@@ -99,18 +99,42 @@ int8_t BinaryFSMTelemetryCommand(const uint32_t Name, char const* Params, const 
 
 		formatf("\n\nBinaryFSMTelemetry Command: Values with corrected units follow:\n\n");
 		
-		formatf("P1V2: %3.6lf V\n", Status->P1V2);
-		formatf("P2V2: %3.6lf V\n", Status->P2V2);
+		formatf("IHV: %3.6lf V\n", Status->IHV);
+		formatf("INV: %3.6lf V\n", Status->INV);
+		formatf("I6V: %3.6lf V\n", Status->I6V);
+		formatf("I3VD: %3.6lf V\n", Status->I3VD);
+		formatf("I2VD: %3.6lf V\n", Status->I2VD);
+		formatf("I1V: %3.6lf V\n", Status->I1V);
+		formatf("StrainBP: %3.6lf V\n", Status->StrainBP);
+		formatf("StrainBM: %3.6lf V\n", Status->StrainBM);
+		formatf("StrainB: %3.6lf V\n", Status->StrainB);
+		formatf("StrainDP: %3.6lf V\n", Status->StrainDP);
+		formatf("StrainDM: %3.6lf V\n", Status->StrainDM);
+		formatf("StrainD: %3.6lf V\n", Status->StrainD);
+		formatf("StrainCM: %3.6lf V\n", Status->StrainCM);
+		formatf("StrainCP: %3.6lf V\n", Status->StrainCP);
+		formatf("StrainC: %3.6lf V\n", Status->StrainC);
+		formatf("StrainAM: %3.6lf V\n", Status->StrainAM);
+		formatf("StrainAP: %3.6lf V\n", Status->StrainAP);
+		formatf("StrainA: %3.6lf V\n", Status->StrainA);
+		formatf("P5VD: %3.6lf V\n", Status->P5VD);
+		formatf("I2VA: %3.6lf V\n", Status->I2VA);
+		formatf("Temp: %3.6lf V\n", Status->Temp);
+		formatf("P3V3D: %3.6lf V\n", Status->P3V3D);
 		formatf("P28V: %3.6lf V\n", Status->P28V);
-		formatf("P2V5: %3.6lf V\n", Status->P2V5);
+		formatf("P2V2: %3.6lf V\n", Status->P2V2);
+		formatf("P2V5D: %3.6lf V\n", Status->P2V5D);
+		formatf("P1V2: %3.6lf V\n", Status->P1V2);
+		formatf("P2V5A: %3.6lf V\n", Status->P2V5A);
+		formatf("P4V3: %3.6lf V\n", Status->P4V3);
+		formatf("I3VA: %3.6lf V\n", Status->I3VA);
 		formatf("P3V3A: %3.6lf V\n", Status->P3V3A);
 		formatf("P6V: %3.6lf V\n", Status->P6V);
-		formatf("P5V: %3.6lf V\n", Status->P5V);
-		formatf("P3V3D: %3.6lf V\n", Status->P3V3D);
-		formatf("P4V3: %3.6lf V\n", Status->P4V3);
-		formatf("N5V: %3.6lf V\n", Status->N5V);
-		formatf("N6V: %3.6lf V\n", Status->N6V);
-		formatf("P150V: %3.6lf V\n", Status->P150V);
+		formatf("P5VA: %3.6lf V\n", Status->P5VA);
+		formatf("LuxRads: %3.6lf V\n", Status->LuxRads);
+		formatf("N18V: %3.6lf V\n", Status->N18V);
+		formatf("N20V: %3.6lf V\n", Status->N20V);
+		formatf("P125V: %3.6lf V\n", Status->P125V);
 		
 		formatf("\n\nBinaryFSMTelemetry Command complete.\n\n");
 	}

@@ -70,4 +70,6 @@ public:
 	virtual uint64_t SerialNum(const IArray& Buffer, const size_t PacketStartPos, const size_t PacketEndPos) const = 0;
 	virtual uint64_t PayloadType(const IArray& Buffer, const size_t PacketStartPos, const size_t PacketEndPos) const = 0;
 	virtual bool DoesPayloadTypeMatch(const IArray& Buffer, const size_t PacketStartPos, const size_t PacketEndPos, const uint32_t CmdType) const = 0;
+	
+	virtual void formatf() const = 0;
 };

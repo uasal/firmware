@@ -48,8 +48,10 @@ int8_t MonitorSerialCommand(char const* Name, char const* Params, const size_t P
 int8_t ControlRegisterCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t SelectDacCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t SelectOutputCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t ClockDacCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 
 ///The actual table (array) of commands for the system - links with CmdSystem.cpp.o
 extern const Cmd AsciiCmds[];
 extern const uint8_t NumAsciiCmds;
+
 

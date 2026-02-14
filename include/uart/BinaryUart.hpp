@@ -286,41 +286,39 @@ struct BinaryUart : IUartParser
 		// Validate packet
 		if (Packet.IsValid(RxBuffer, RxCount, PacketStart, PacketEnd))
 		{
-                  // Confirm that the serial number matches or is a broadcast
-                  if ( (SerialNum == InvalidSerialNumber) || (Packet.IsBroadcastSerialNum(RxBuffer, PacketStart, PacketEnd)) || (SerialNum == Packet.SerialNum(RxBuffer, PacketStart, PacketEnd)) )
-                    {
-                      // Just look at each command, and exectute it if the input line matches.
-                      bool CmdFound = false;
+			// Confirm that the serial number matches or is a broadcast
+			if ( (SerialNum == InvalidSerialNumber) || (Packet.IsBroadcastSerialNum(RxBuffer, PacketStart, PacketEnd)) || (SerialNum == Packet.SerialNum(RxBuffer, PacketStart, PacketEnd)) )
+			{
+			  // Just look at each command, and exectute it if the input line matches.
+			  bool CmdFound = false;
 
-                      // Search for a matching command in the packet
-                      // Inefficient to go through whole list of commands
-                      // Idea: last nibble or byte (depending on number of commands) corresponds to position of command
-                      // and can be used as index to Cmds[i].Response(...)
-                      // This only happens once for each full packet, so might not be much time savings
-                      //for (size_t i = 0; i < NumCmds; i++)
-                      //{
-                      size_t ii = Packet.PayloadType(RxBuffer, RxCount, PacketStart) & 0x0F;
-                      // Check if command in buffer matches the defined command name
-                      if (Packet.DoesPayloadTypeMatch(RxBuffer, RxCount, PacketStart, PacketEnd, Cmds[ii].Name))
-                        {
-                          //strip the part of the line with the arguments to this command (chars following command) for compatibility with the  parsing code, the "params" officially start with the s/n
-                          //const char* Params = reinterpret_cast<char*>(&(RxBuffer[PacketStart + Packet.PayloadOffset()]));
-                          const char* Params = reinterpret_cast<char*>(&(RxBuffer[PacketStart + HeaderLen]));
-                          // Execute the command's response function
-                          // We already figured out the payload length, so we don't need to call Packet.PayloadLen
-                          // to get it again.  Comment out and use simpler Cmds[i].Respons(...) below
-                          //Cmds[i].Response(Cmds[i].Name, Params, Packet.PayloadLen(RxBuffer, RxCount, PacketStart), (void*)this);
-                          Cmds[ii].Response(Cmds[ii].Name, Params, PayloadLen, (void*)this);
-                          CmdFound = true;
-                          Processed = true;
-                        }
-                                        //}
+			  // Search for a matching command in the packet
+			  // Inefficient to go through whole list of commands
+			  // Idea: last nibble or byte (depending on number of commands) corresponds to position of command
+			  // and can be used as index to Cmds[i].Response(...)
+			  // This only happens once for each full packet, so might not be much time savings
+			  for (size_t i = 0; i < NumCmds; i++)
+			  {
+				  // Check if command in buffer matches the defined command name
+				  if (Packet.DoesPayloadTypeMatch(RxBuffer, RxCount, PacketStart, PacketEnd, Cmds[i].Name))
+					{
+					  //strip the part of the line with the arguments to this command (chars following command) for compatibility with the  parsing code, the "params" officially start with the s/n
+					  //const char* Params = reinterpret_cast<char*>(&(RxBuffer[PacketStart + Packet.PayloadOffset()]));
+					  const char* Params = reinterpret_cast<char*>(&(RxBuffer[PacketStart + HeaderLen]));
+					  // Execute the command's response function
+					  // We already figured out the payload length, so we don't need to call Packet.PayloadLen
+					  // to get it again.  Comment out and use simpler Cmds[i].Respons(...) below
+					  Cmds[i].Response(Cmds[i].Name, Params, Packet.PayloadLen(RxBuffer, RxCount, PacketStart), (void*)this);
+					  CmdFound = true;
+					  Processed = true;
+					}
+				}
 
 				// If no command was found, trigger the unhandled packet callback
 				if (!CmdFound)
 				{
 					//~ if (debug) { ::formatf("\n\nBinaryUart: Unmatched command 0x%.8lX!\n", PacketHeader->PayloadTypeToken); }
-					if (debug) { ::formatf("\n\nBinaryUart: Unmatched command 0x%.8lX! NumCmds: %lu\n", Packet.PayloadType(RxBuffer, PacketStart, PacketEnd), (unsigned long)NumCmds); }
+					if (debug) { ::formatf("\n\nBinaryUart: Unmatched command 0x%.8lX! NumCmds: %lu, Start: %lu, End: %lu\n", Packet.PayloadType(RxBuffer, PacketStart, PacketEnd), (unsigned long)NumCmds, (unsigned long)PacketStart, (unsigned long)PacketEnd); }
 
 					Callbacks.UnHandledPacket(reinterpret_cast<IPacket*>(&RxBuffer[PacketStart]), PacketEnd - PacketStart);
 				}

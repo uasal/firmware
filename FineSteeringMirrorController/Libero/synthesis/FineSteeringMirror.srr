@@ -3,7 +3,7 @@
 #OS: Linux 
 #Hostname: homework2
 
-# Thu Feb 12 15:04:25 2026
+# Fri Feb 13 17:40:18 2026
 
 #Implementation: synthesis
 
@@ -83,7 +83,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memor
 
 
 Process completed successfully.
-# Thu Feb 12 15:04:25 2026
+# Fri Feb 13 17:40:19 2026
 
 ###########################################################]
 ###########################################################[
@@ -149,7 +149,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Thu Feb 12 15:04:25 2026
+# Fri Feb 13 17:40:19 2026
 
 ###########################################################]
 ###########################################################[
@@ -397,8 +397,9 @@ Finished optimization stage 1 on SYSRESET (CPU Time 0h:00m:00s, Memory Used curr
 Running optimization stage 1 on FineSteeringMirror_sb .......
 Finished optimization stage 1 on FineSteeringMirror_sb (CPU Time 0h:00m:00s, Memory Used current: 143MB peak: 143MB)
 @N: CG364 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v":9:7:9:24|Synthesizing module FineSteeringMirror in library work.
-@N: CG794 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v":461:5:461:10|Using module Main from library work
+@N: CG794 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v":458:5:458:10|Using module Main from library work
 Running optimization stage 1 on FineSteeringMirror .......
+@W: CL318 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v":145:7:145:12|*Output MosiXO has undriven bits; assigning undriven bits to 'Z'.  Simulation mismatch possible. Assign all bits of the output.
 Finished optimization stage 1 on FineSteeringMirror (CPU Time 0h:00m:00s, Memory Used current: 143MB peak: 143MB)
 Running optimization stage 2 on FineSteeringMirror .......
 Finished optimization stage 2 on FineSteeringMirror (CPU Time 0h:00m:00s, Memory Used current: 143MB peak: 143MB)
@@ -573,7 +574,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Thu Feb 12 15:04:25 2026
+# Fri Feb 13 17:40:19 2026
 
 ###########################################################]
 ###########################################################[
@@ -620,14 +621,14 @@ Finished optimization stage 1 on SpiMasterPorts (CPU Time 0h:00m:00s, Memory Use
 Post processing for work.spidacports.spidac
 Running optimization stage 1 on SpiDacPorts .......
 Finished optimization stage 1 on SpiDacPorts (CPU Time 0h:00m:00s, Memory Used current: 144MB peak: 144MB)
-@N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":30:7:30:19|Synthesizing work.ppscountports.ppscount.
-Post processing for work.ppscountports.ppscount
-Running optimization stage 1 on PPSCountPorts .......
-Finished optimization stage 1 on PPSCountPorts (CPU Time 0h:00m:00s, Memory Used current: 144MB peak: 144MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":30:7:30:17|Synthesizing work.ibufp2ports.ibufp2.
 Post processing for work.ibufp2ports.ibufp2
 Running optimization stage 1 on IBufP2Ports .......
 Finished optimization stage 1 on IBufP2Ports (CPU Time 0h:00m:00s, Memory Used current: 144MB peak: 144MB)
+@N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":30:7:30:19|Synthesizing work.ppscountports.ppscount.
+Post processing for work.ppscountports.ppscount
+Running optimization stage 1 on PPSCountPorts .......
+Finished optimization stage 1 on PPSCountPorts (CPU Time 0h:00m:00s, Memory Used current: 144MB peak: 144MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":33:7:33:22|Synthesizing work.uarttxfifoextclk.implementation.
 @N: CD233 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":122:15:122:16|Using sequential encoding for type states.
 @N: CD604 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":274:5:274:18|OTHERS clause is not synthesized.
@@ -734,40 +735,40 @@ Finished optimization stage 1 on DacDitherer (CPU Time 0h:00m:00s, Memory Used c
 @N: CD630 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":14:7:14:24|Synthesizing work.registerspaceports.registerspace.
 Post processing for work.registerspaceports.registerspace
 Running optimization stage 1 on RegisterSpacePorts .......
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Feedback mux created for signal MonitorAdcMaxAccums_i[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Feedback mux created for signal ControlAdcMaxAccums_i[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(0) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(1) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(2) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(3) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(4) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(5) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(6) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(7) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(8) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(9) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(10) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(11) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(12) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(13) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(14) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(15) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(0) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(1) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(2) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(3) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(4) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(5) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(6) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(7) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(8) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(9) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(10) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(11) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(12) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(13) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(14) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(15) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Feedback mux created for signal MonitorAdcMaxAccums_i[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Feedback mux created for signal ControlAdcMaxAccums_i[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(0) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(1) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(2) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(3) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(4) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(5) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(6) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(7) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(8) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(9) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(10) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(11) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(12) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(13) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(14) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(15) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(0) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(1) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(2) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(3) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(4) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(5) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(6) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(7) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(8) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(9) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(10) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(11) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(12) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(13) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(14) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(15) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
 Finished optimization stage 1 on RegisterSpacePorts (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd":30:7:30:17|Synthesizing work.ibufp1ports.ibufp1.
 Post processing for work.ibufp1ports.ibufp1
@@ -849,10 +850,10 @@ Running optimization stage 2 on UartTx .......
 Finished optimization stage 2 on UartTx (CPU Time 0h:00m:00s, Memory Used current: 168MB peak: 168MB)
 Running optimization stage 2 on UartTxFifoExtClk_10 .......
 Finished optimization stage 2 on UartTxFifoExtClk_10 (CPU Time 0h:00m:00s, Memory Used current: 168MB peak: 168MB)
-Running optimization stage 2 on IBufP2Ports .......
-Finished optimization stage 2 on IBufP2Ports (CPU Time 0h:00m:00s, Memory Used current: 168MB peak: 168MB)
 Running optimization stage 2 on PPSCountPorts_work_main_architecture_main_0layer1 .......
 Finished optimization stage 2 on PPSCountPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 168MB peak: 168MB)
+Running optimization stage 2 on IBufP2Ports .......
+Finished optimization stage 2 on IBufP2Ports (CPU Time 0h:00m:00s, Memory Used current: 168MB peak: 168MB)
 Running optimization stage 2 on SpiMasterPorts_work_main_architecture_main_0layer1 .......
 Finished optimization stage 2 on SpiMasterPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 168MB peak: 168MB)
 Running optimization stage 2 on SpiDacPorts_work_main_architecture_main_0layer1 .......
@@ -871,7 +872,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memor
 
 
 Process completed successfully.
-# Thu Feb 12 15:04:27 2026
+# Fri Feb 13 17:40:20 2026
 
 ###########################################################]
 ###########################################################[
@@ -907,7 +908,7 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Thu Feb 12 15:04:27 2026
+# Fri Feb 13 17:40:20 2026
 
 ###########################################################]
 
@@ -922,7 +923,7 @@ At c_hdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Thu Feb 12 15:04:27 2026
+# Fri Feb 13 17:40:20 2026
 
 ###########################################################]
 ###########################################################[
@@ -952,12 +953,12 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Thu Feb 12 15:04:28 2026
+# Fri Feb 13 17:40:21 2026
 
 ###########################################################]
 Premap Report
 
-# Thu Feb 12 15:04:28 2026
+# Fri Feb 13 17:40:21 2026
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -1006,67 +1007,63 @@ NConnInternalConnection caching is on
 @W: BN132 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1089:4:1089:9|Removing sequential instance FineSteeringMirror_sb_0.CORERESETP_0.MDDR_DDR_AXI_S_CORE_RESET_N_int because it is equivalent to instance FineSteeringMirror_sb_0.CORERESETP_0.FDDR_CORE_RESET_N_int. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|User-specified initial value defined for instance Main_0.BootupReset.ClkDiv[9:0] is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|User-specified initial value defined for instance Main_0.BootupReset.shot_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.WriteDacs_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacDSetpoint_i[23:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacCSetpoint_i[23:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacBSetpoint_i[23:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacASetpoint_i[23:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart3ClkDivider_i[7:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart2ClkDivider_i[7:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart1ClkDivider_i[7:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart0ClkDivider_i[7:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.nFaultsClr_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart3OE_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart2OE_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart1OE_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart0OE_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.PowernEnHV_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.HVEn1_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacSelectMaxti_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.ChopEn_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.Ux1SelJmp_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.PowernEn_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.MonitorAdcSpiFrameEnable_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.HVEn2_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.GlobalFaultInhibit_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.ChopRefState_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.ChopAdcState_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.LastWriteReq is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|User-specified initial value defined for instance Main_0.RegisterSpace.LastReadReq is being ignored due to limitations in architecture. 
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net GND, connecting output pin:Q[15] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net GND, connecting output pin:Q[14] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net GND, connecting output pin:Q[13] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net GND, connecting output pin:Q[12] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net GND, connecting output pin:Q[11] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net GND, connecting output pin:Q[10] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net GND, connecting output pin:Q[9] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net GND, connecting output pin:Q[8] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net GND, connecting output pin:Q[15] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net GND, connecting output pin:Q[14] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net GND, connecting output pin:Q[13] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net GND, connecting output pin:Q[12] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net GND, connecting output pin:Q[11] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net GND, connecting output pin:Q[10] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net GND, connecting output pin:Q[9] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net GND, connecting output pin:Q[8] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net VCC, connecting output pin:Q[7] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net VCC, connecting output pin:Q[6] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net VCC, connecting output pin:Q[5] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net VCC, connecting output pin:Q[4] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net VCC, connecting output pin:Q[3] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net VCC, connecting output pin:Q[2] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net VCC, connecting output pin:Q[1] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net VCC, connecting output pin:Q[0] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net VCC, connecting output pin:Q[7] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net VCC, connecting output pin:Q[6] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net VCC, connecting output pin:Q[5] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net VCC, connecting output pin:Q[4] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net VCC, connecting output pin:Q[3] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net VCC, connecting output pin:Q[2] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net VCC, connecting output pin:Q[1] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Resolving multiple drivers on net VCC, connecting output pin:Q[0] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Removing sequential instance MonitorAdcMaxAccums_i[15:0] (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Removing sequential instance ControlAdcMaxAccums_i[15:0] (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.WriteDacs_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacDSetpoint_i[23:0] is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacCSetpoint_i[23:0] is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacBSetpoint_i[23:0] is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacASetpoint_i[23:0] is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.nFaultsClr_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart3OE_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart2OE_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart1OE_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart0OE_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.PowernEnHV_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.HVEn1_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacSelectMaxti_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.ChopEn_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.Ux1SelJmp_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.PowernEn_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.MonitorAdcSpiFrameEnable_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.HVEn2_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.GlobalFaultInhibit_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.ChopRefState_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.ChopAdcState_i is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.LastWriteReq is being ignored due to limitations in architecture. 
+@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.LastReadReq is being ignored due to limitations in architecture. 
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[15] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[14] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[13] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[12] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[11] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[10] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[9] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[8] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[15] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[14] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[13] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[12] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[11] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[10] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[9] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[8] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[7] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[6] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[5] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[4] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[3] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[2] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[1] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[0] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[7] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[6] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[5] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[4] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[3] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[2] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[1] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
+@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[0] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
+@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Removing sequential instance MonitorAdcMaxAccums_i[15:0] (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Removing sequential instance ControlAdcMaxAccums_i[15:0] (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|User-specified initial value defined for instance Main_0.DacDithererMaxD.DitherClk.ClkDiv[8:0] is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":110:2:110:3|User-specified initial value defined for instance Main_0.DacDithererMaxD.DitherPos[3:0] is being ignored due to limitations in architecture. 
 @W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":110:2:110:3|User-specified initial value defined for instance Main_0.DacDithererTiD.DitherPos[3:0] is being ignored due to limitations in architecture. 
@@ -1124,6 +1121,7 @@ Finished HSTDM IP insertion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:0
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":15:7:15:24|Tristate driver RCOSC_25_50MHZ_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net RCOSC_25_50MHZ_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":19:7:19:16|Tristate driver XTLOSC_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net XTLOSC_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":20:7:20:16|Tristate driver XTLOSC_O2F (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net XTLOSC_O2F (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
+@N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v":145:7:145:12|Tristate driver MosiXO (in view: work.FineSteeringMirror(verilog)) on net MosiXO (in view: work.FineSteeringMirror(verilog)) has its enable tied to GND.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":676:4:676:9|Sequential instance FineSteeringMirror_sb_0.CORERESETP_0.SDIF0_PERST_N_q1 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":695:4:695:9|Sequential instance FineSteeringMirror_sb_0.CORERESETP_0.SDIF1_PERST_N_q1 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":714:4:714:9|Sequential instance FineSteeringMirror_sb_0.CORERESETP_0.SDIF2_PERST_N_q1 is reduced to a combinational gate by constant propagation.
@@ -1163,8 +1161,8 @@ Finished DisTri Cleanup (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:0
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1365:4:1365:9|Removing sequential instance SDIF3_PHY_RESET_N_int (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1365:4:1365:9|Removing sequential instance SDIF3_CORE_RESET_N_0 (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd":110:2:110:3|Removing sequential instance DataToMosiLatched (in view: work.SpiMasterQuadPorts_work_main_architecture_main_0layer1(spimasterquad)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Removing sequential instance WriteDacs_i (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Removing sequential instance ReadMonitorAdcSample (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Removing sequential instance WriteDacs_i (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Removing sequential instance ReadMonitorAdcSample (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd":145:2:145:3|Removing sequential instance TransferComplete (in view: work.SpiDacPorts_work_main_architecture_main_0layer1(spidac)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd":96:2:96:3|Removing sequential instance MosiB_i (in view: work.SpiMasterDualPorts_work_main_architecture_main_0layer1(spimasterdual)) of type view:PrimLib.dffrse(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":86:2:86:3|Removing sequential instance r_ack (in view: work.gated_fifo_8_10_0(rtl)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
@@ -1208,7 +1206,7 @@ Level     Clock                                                                 
                                                                                                                                                                              
 0 -       System                                                                                    100.0 MHz     10.000        system       system_clkgroup            0    
                                                                                                                                                                              
-0 -       FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             100.0 MHz     10.000        inferred     Inferred_clkgroup_0_1      2927 
+0 -       FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             100.0 MHz     10.000        inferred     Inferred_clkgroup_0_1      2929 
                                                                                                                                                                              
 0 -       FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                   100.0 MHz     10.000        inferred     Inferred_clkgroup_0_10     36   
                                                                                                                                                                              
@@ -1243,7 +1241,7 @@ CLK0_PAD                                                                        
                                                                                                                                                                                                                                                                                                                                                               
 System                                                                                    0         -                                                                            -                                                                               -                 -                                                                          
                                                                                                                                                                                                                                                                                                                                                               
-FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             2927      FCCC_C0_0.FCCC_C0_0.CCC_INST.GL1(CCC)                                        Main_0.ClkDac_i.LastWriteDac.C                                                  -                 FCCC_C0_0.FCCC_C0_0.GL1_INST.I(BUFG)                                       
+FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             2929      FCCC_C0_0.FCCC_C0_0.CCC_INST.GL1(CCC)                                        Main_0.ClkDac_i.LastWriteDac.C                                                  -                 FCCC_C0_0.FCCC_C0_0.GL1_INST.I(BUFG)                                       
                                                                                                                                                                                                                                                                                                                                                               
 FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                   36        FineSteeringMirror_sb_0.CCC_0.CCC_INST.GL0(CCC)                              FineSteeringMirror_sb_0.FineSteeringMirror_sb_MSS_0.MSS_ADLIB_INST.CLK_BASE     -                 FineSteeringMirror_sb_0.CCC_0.GL0_INST.I(BUFG)                             
                                                                                                                                                                                                                                                                                                                                                               
@@ -1266,7 +1264,7 @@ ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock    
 ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock              9         Main_0.Uart0TxBitClockDiv.div_i.Q[0](dffre)                                  Main_0.RS422_Tx0.UartTxUart.LastGo.C                                            -                 -                                                                          
 ==============================================================================================================================================================================================================================================================================================================================================================
 
-@W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found inferred clock FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock which controls 2927 sequential elements including Main_0.BootupReset.ClkDiv[9:0]. This clock has no specified timing constraint which may adversely impact design performance. 
+@W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found inferred clock FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock which controls 2929 sequential elements including Main_0.BootupReset.ClkDiv[9:0]. This clock has no specified timing constraint which may adversely impact design performance. 
 @W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":47:2:47:3|Found inferred clock ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock which controls 9 sequential elements including Main_0.RS433_Tx3.IBufStartTx.Temp1. This clock has no specified timing constraint which may adversely impact design performance. 
 @W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Found inferred clock VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock which controls 31 sequential elements including Main_0.Uart3TxBitClockDiv.div_i. This clock has no specified timing constraint which may adversely impact design performance. 
 @W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":47:2:47:3|Found inferred clock ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock which controls 9 sequential elements including Main_0.RS422_Tx2.IBufStartTx.Temp1. This clock has no specified timing constraint which may adversely impact design performance. 
@@ -1280,6 +1278,7 @@ ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock    
 
 @N: FX1143 |Skipping assigning INTERNAL_VREF to iobanks, because the table of mapping from pin to iobank is not initialized.
 Finished Pre Mapping Phase.
+@N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v":145:7:145:12|Tristate driver MosiXO (in view: work.FineSteeringMirror(verilog)) on net MosiXO (in view: work.FineSteeringMirror(verilog)) has its enable tied to GND.
 @N: BN225 |Writing default property annotation file /home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/synthesis/FineSteeringMirror.sap.
 
 Starting constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 292MB peak: 292MB)
@@ -1304,12 +1303,12 @@ Pre-mapping successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 294MB peak: 294MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Thu Feb 12 15:04:29 2026
+# Fri Feb 13 17:40:22 2026
 
 ###########################################################]
 Map & Optimize Report
 
-# Thu Feb 12 15:04:29 2026
+# Fri Feb 13 17:40:22 2026
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -1357,6 +1356,7 @@ Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapse
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":18:7:18:20|Tristate driver RCOSC_1MHZ_O2F (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net RCOSC_1MHZ_O2F (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":17:7:17:20|Tristate driver RCOSC_1MHZ_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net RCOSC_1MHZ_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":15:7:15:24|Tristate driver RCOSC_25_50MHZ_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net RCOSC_25_50MHZ_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
+@N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v":145:7:145:12|Tristate driver MosiXO (in view: work.FineSteeringMirror(verilog)) on net MosiXO (in view: work.FineSteeringMirror(verilog)) has its enable tied to GND.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":963:4:963:9|Removing sequential instance FineSteeringMirror_sb_0.CORERESETP_0.sdif3_spll_lock_q1 because it is equivalent to instance FineSteeringMirror_sb_0.CORERESETP_0.CONFIG2_DONE_q1. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":946:4:946:9|Removing sequential instance FineSteeringMirror_sb_0.CORERESETP_0.CONFIG2_DONE_q1 because it is equivalent to instance FineSteeringMirror_sb_0.CORERESETP_0.CONFIG1_DONE_q1. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":946:4:946:9|Removing sequential instance FineSteeringMirror_sb_0.CORERESETP_0.CONFIG2_DONE_clk_base because it is equivalent to instance FineSteeringMirror_sb_0.CORERESETP_0.sdif3_spll_lock_q2. To keep the instance, apply constraint syn_preserve=1 on the instance.
@@ -1367,12 +1367,6 @@ Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapse
 Available hyper_sources - for debug and ip models
 	None Found
 
-@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererTiD.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererTiC.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererTiC.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererTiA.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererTiB.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererMaxD.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererTiA.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererMaxC.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererMaxD.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererMaxB.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererMaxC.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererMaxA.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Removing sequential instance Main_0.DacDithererTiD.DitherClk.ClkDiv[8:0] because it is equivalent to instance Main_0.DacDithererTiC.DitherClk.ClkDiv[8:0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Removing sequential instance Main_0.DacDithererTiC.DitherClk.ClkDiv[8:0] because it is equivalent to instance Main_0.DacDithererTiA.DitherClk.ClkDiv[8:0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Removing sequential instance Main_0.DacDithererTiB.DitherClk.ClkDiv[8:0] because it is equivalent to instance Main_0.DacDithererMaxD.DitherClk.ClkDiv[8:0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
@@ -1385,6 +1379,12 @@ Available hyper_sources - for debug and ip models
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":65:8:65:40|Removing user instance Main_0.DacDithererTiA.DitherClk.un2_clkdiv because it is equivalent to instance Main_0.DacDithererMaxC.DitherClk.un2_clkdiv. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":65:8:65:40|Removing user instance Main_0.DacDithererMaxD.DitherClk.un2_clkdiv because it is equivalent to instance Main_0.DacDithererMaxB.DitherClk.un2_clkdiv. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":65:8:65:40|Removing user instance Main_0.DacDithererMaxC.DitherClk.un2_clkdiv because it is equivalent to instance Main_0.DacDithererMaxA.DitherClk.un2_clkdiv. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererTiD.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererTiC.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererTiC.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererTiA.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererTiB.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererMaxD.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererTiA.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererMaxC.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererMaxD.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererMaxB.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":67:16:67:25|Removing user instance Main_0.DacDithererMaxC.DitherClk.un5_clkdiv[24:32] because it is equivalent to instance Main_0.DacDithererMaxA.DitherClk.un5_clkdiv[24:32]. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":45:66:45:66|Removing user instance Main_0.DacDithererTiD.DitherClk.un1_clkdiv because it is equivalent to instance Main_0.DacDithererTiC.DitherClk.un1_clkdiv. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":45:66:45:66|Removing user instance Main_0.DacDithererTiC.DitherClk.un1_clkdiv because it is equivalent to instance Main_0.DacDithererTiA.DitherClk.un1_clkdiv. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":45:66:45:66|Removing user instance Main_0.DacDithererTiB.DitherClk.un1_clkdiv because it is equivalent to instance Main_0.DacDithererMaxD.DitherClk.un1_clkdiv. To keep the instance, apply constraint syn_preserve=1 on the instance.
@@ -1404,14 +1404,13 @@ Available hyper_sources - for debug and ip models
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":102:15:102:29|Removing user instance Main_0.DacDithererMaxD.DacTrigger because it is equivalent to instance Main_0.DacDithererMaxB.DacTrigger. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":102:15:102:29|Removing user instance Main_0.DacDithererMaxC.DacTrigger because it is equivalent to instance Main_0.DacDithererMaxA.DacTrigger. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Removing sequential instance Main_0.DacDithererMaxB.DitherClk.ClkDiv[8:0] because it is equivalent to instance Main_0.DacDithererMaxA.DitherClk.ClkDiv[8:0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":65:8:65:40|Removing user instance Main_0.DacDithererMaxB.DitherClk.un2_clkdiv because it is equivalent to instance Main_0.DacDithererMaxA.DitherClk.un2_clkdiv. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":110:2:110:3|Removing sequential instance Main_0.DacDithererTiD.LastDitherClock because it is equivalent to instance Main_0.DacDithererTiC.LastDitherClock. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":110:2:110:3|Removing sequential instance Main_0.DacDithererTiC.LastDitherClock because it is equivalent to instance Main_0.DacDithererTiA.LastDitherClock. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":110:2:110:3|Removing sequential instance Main_0.DacDithererTiB.LastDitherClock because it is equivalent to instance Main_0.DacDithererMaxD.LastDitherClock. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":110:2:110:3|Removing sequential instance Main_0.DacDithererTiA.LastDitherClock because it is equivalent to instance Main_0.DacDithererMaxC.LastDitherClock. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":110:2:110:3|Removing sequential instance Main_0.DacDithererMaxD.LastDitherClock because it is equivalent to instance Main_0.DacDithererMaxB.LastDitherClock. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":110:2:110:3|Removing sequential instance Main_0.DacDithererMaxC.LastDitherClock because it is equivalent to instance Main_0.DacDithererMaxA.LastDitherClock. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":45:66:45:66|Removing user instance Main_0.DacDithererMaxB.DitherClk.un1_clkdiv because it is equivalent to instance Main_0.DacDithererMaxA.DitherClk.un1_clkdiv. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":65:8:65:40|Removing user instance Main_0.DacDithererMaxB.DitherClk.un2_clkdiv because it is equivalent to instance Main_0.DacDithererMaxA.DitherClk.un2_clkdiv. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":102:15:102:29|Removing user instance Main_0.DacDithererMaxB.DacTrigger because it is equivalent to instance Main_0.DacDithererMaxA.DacTrigger. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Removing sequential instance Main_0.DacDithererMaxB.DitherClk.div_i because it is equivalent to instance Main_0.DacDithererMaxA.DitherClk.div_i. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":110:2:110:3|Removing sequential instance Main_0.DacDithererMaxB.LastDitherClock because it is equivalent to instance Main_0.DacDithererMaxA.LastDitherClock. To keep the instance, apply constraint syn_preserve=1 on the instance.
@@ -1511,7 +1510,7 @@ NConnInternalConnection caching is on
 Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 328MB peak: 328MB)
 
 
-Starting Early Timing Optimization (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 328MB peak: 328MB)
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 328MB peak: 328MB)
 
 
 Finished Early Timing Optimization (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 328MB peak: 328MB)
@@ -1523,13 +1522,13 @@ Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:03s; CP
 Finished preparing to map (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 328MB peak: 328MB)
 
 
-Finished technology mapping (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 338MB peak: 338MB)
+Finished technology mapping (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 337MB peak: 337MB)
 
 Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
-   1		0h:00m:05s		    -2.38ns		3648 /      2851
-   2		0h:00m:05s		    -2.38ns		3585 /      2851
-   3		0h:00m:05s		    -2.38ns		3585 /      2851
+   1		0h:00m:04s		    -2.38ns		3701 /      2853
+   2		0h:00m:05s		    -2.38ns		3580 /      2853
+   3		0h:00m:05s		    -2.38ns		3580 /      2853
 @N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un1_AdcSampleNumAccums_i_1_sqmuxa_i_0_o2 (in view: work.FineSteeringMirror(verilog)) with 193 loads 3 times to improve timing.
 @N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":47:2:47:3|Replicating instance Main_0.IBufSarAdcnDrdyC.O (in view: work.FineSteeringMirror(verilog)) with 4 loads 1 time to improve timing.
 @N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un15[24] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
@@ -1544,9 +1543,9 @@ Timing driven replication report
 Added 1 Registers via timing driven replication
 Added 27 LUTs via timing driven replication
 
-   4		0h:00m:07s		    -1.46ns		3612 /      2852
-   5		0h:00m:07s		    -1.12ns		3612 /      2852
-   6		0h:00m:07s		    -1.00ns		3612 /      2852
+   4		0h:00m:07s		    -1.46ns		3607 /      2854
+   5		0h:00m:07s		    -1.12ns		3607 /      2854
+   6		0h:00m:07s		    -1.00ns		3607 /      2854
 @N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un1_AdcSampleNumAccums_i_1_sqmuxa_i_0_o2_fast (in view: work.FineSteeringMirror(verilog)) with 45 loads 3 times to improve timing.
 @N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un1_AdcSampleNumAccums_i_1_sqmuxa_i_0_o2_rep1 (in view: work.FineSteeringMirror(verilog)) with 47 loads 3 times to improve timing.
 @N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un1_AdcSampleNumAccums_i_1_sqmuxa_i_0_o2_rep2 (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
@@ -1556,52 +1555,52 @@ Added 0 Registers via timing driven replication
 Added 12 LUTs via timing driven replication
 
 
-   7		0h:00m:08s		    -0.71ns		3625 /      2852
-   8		0h:00m:08s		    -0.71ns		3625 /      2852
-@N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_589 
-@N: FP130 |Promoting Net Main_0.SpiRst_arst on CLKINT  I_590 
-@N: FP130 |Promoting Net Main_0.FSMDacsTi_i.SpiRst_arst on CLKINT  I_591 
-@N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_i on CLKINT  I_592 
-@N: FP130 |Promoting Net Main_0.Uart3FifoReset_i_i on CLKINT  I_593 
-@N: FP130 |Promoting Net Main_0.Uart1FifoReset_i_i on CLKINT  I_594 
-@N: FP130 |Promoting Net Main_0.Uart2FifoReset_i_i on CLKINT  I_595 
-@N: FP130 |Promoting Net Main_0.ltc2378.SpiRst_arst on CLKINT  I_596 
-@N: FP130 |Promoting Net Main_0.RegisterSpace.PPSCountReset on CLKINT  I_597 
-@N: FP130 |Promoting Net Main_0.ClkDac_i.SpiRst_arst on CLKINT  I_598 
-@N: FP130 |Promoting Net Main_0.ads1258.SpiRst_arst on CLKINT  I_599 
-@N: FP130 |Promoting Net Main_0.UartClk3 on CLKINT  I_600 
-@N: FP130 |Promoting Net Main_0.UartClk1 on CLKINT  I_601 
-@N: FP130 |Promoting Net Main_0.UartClk2 on CLKINT  I_602 
-@N: FP130 |Promoting Net Main_0.UartClk0 on CLKINT  I_603 
-@N: FP130 |Promoting Net Main_0.MonitorAdcReset_i_i on CLKINT  I_604 
-@N: FP130 |Promoting Net Main_0.UartTxClk3 on CLKINT  I_605 
-@N: FP130 |Promoting Net Main_0.UartTxClk2 on CLKINT  I_606 
-@N: FP130 |Promoting Net Main_0.UartTxClk1 on CLKINT  I_607 
-@N: FP130 |Promoting Net Main_0.UartTxClk0 on CLKINT  I_608 
+   7		0h:00m:07s		    -0.71ns		3620 /      2854
+   8		0h:00m:07s		    -0.71ns		3620 /      2854
+@N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_601 
+@N: FP130 |Promoting Net Main_0.SpiRst_arst on CLKINT  I_602 
+@N: FP130 |Promoting Net Main_0.FSMDacsTi_i.SpiRst_arst on CLKINT  I_603 
+@N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_i on CLKINT  I_604 
+@N: FP130 |Promoting Net Main_0.Uart3FifoReset_i_i on CLKINT  I_605 
+@N: FP130 |Promoting Net Main_0.Uart1FifoReset_i_i on CLKINT  I_606 
+@N: FP130 |Promoting Net Main_0.Uart2FifoReset_i_i on CLKINT  I_607 
+@N: FP130 |Promoting Net Main_0.ltc2378.SpiRst_arst on CLKINT  I_608 
+@N: FP130 |Promoting Net Main_0.RegisterSpace.PPSCountReset on CLKINT  I_609 
+@N: FP130 |Promoting Net Main_0.ClkDac_i.SpiRst_arst on CLKINT  I_610 
+@N: FP130 |Promoting Net Main_0.ads1258.SpiRst_arst on CLKINT  I_611 
+@N: FP130 |Promoting Net Main_0.UartClk3 on CLKINT  I_612 
+@N: FP130 |Promoting Net Main_0.UartClk1 on CLKINT  I_613 
+@N: FP130 |Promoting Net Main_0.UartClk2 on CLKINT  I_614 
+@N: FP130 |Promoting Net Main_0.UartClk0 on CLKINT  I_615 
+@N: FP130 |Promoting Net Main_0.MonitorAdcReset_i_i on CLKINT  I_616 
+@N: FP130 |Promoting Net Main_0.UartTxClk3 on CLKINT  I_617 
+@N: FP130 |Promoting Net TP1_c on CLKINT  I_618 
+@N: FP130 |Promoting Net Main_0.UartTxClk1 on CLKINT  I_619 
+@N: FP130 |Promoting Net Main_0.UartTxClk0 on CLKINT  I_620 
 
 Added 0 Buffers
 Added 0 Cells via replication
 	Added 0 Sequential Cells via replication
 	Added 0 Combinational Cells via replication
 
-Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 341MB peak: 341MB)
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:07s; Memory used current: 340MB peak: 340MB)
 
 
-Finished restoring hierarchy (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 343MB peak: 343MB)
+Finished restoring hierarchy (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 341MB peak: 341MB)
 
 @N: MT611 :|Automatically generated clock FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock is not used and is being removed
 
-Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 343MB peak: 343MB)
+Starting CDBProcessSetClockGroups... (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 341MB peak: 341MB)
 
 
-Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 343MB peak: 343MB)
+Finished with CDBProcessSetClockGroups (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 341MB peak: 341MB)
 
 
-Start Writing Netlists (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 343MB peak: 343MB)
+Start Writing Netlists (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 341MB peak: 341MB)
 
 Writing Analyst data base /home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/synthesis/synwork/FineSteeringMirror_m.srm
 
-Finished Writing Netlist Databases (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 343MB peak: 343MB)
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 341MB peak: 341MB)
 
 Writing Verilog Simulation files
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
@@ -1618,13 +1617,13 @@ Writing Verilog Simulation files
 @W: BW156 :|Option "-name" of set_clock_groups cannot be forward-annotated; there is no equivalent option in your place-and-route tool.
 @W: BW150 :|Clock FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock in set_clock_groups command cannot be found and will not be forward annotated
 
-Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 343MB peak: 343MB)
+Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 341MB peak: 341MB)
 
 
-Finished Writing Netlists (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 343MB peak: 343MB)
+Finished Writing Netlists (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 341MB peak: 341MB)
 
 
-Start final timing analysis (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 343MB peak: 343MB)
+Start final timing analysis (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 341MB peak: 341MB)
 
 @W: MT246 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/CCC_0/FineSteeringMirror_sb_CCC_0_FCCC.v":20:36:20:43|Blackbox CCC is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results)
 @W: MT420 |Found inferred clock FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock with period 10.00ns. Please declare a user-defined clock on net FCCC_C0_0.FCCC_C0_0.GL1_net.
@@ -1640,7 +1639,7 @@ Start final timing analysis (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:0
 
 
 ##### START OF TIMING REPORT #####[
-# Timing report written on Thu Feb 12 15:04:40 2026
+# Timing report written on Fri Feb 13 17:40:32 2026
 #
 
 
@@ -1672,10 +1671,10 @@ ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock    
 ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock              100.0 MHz     255.0 MHz     10.000        3.921         6.079     inferred     Inferred_clkgroup_0_8 
 FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             100.0 MHz     102.9 MHz     10.000        9.721         0.279     inferred     Inferred_clkgroup_0_1 
 FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                   100.0 MHz     116.9 MHz     10.000        8.556         1.444     inferred     Inferred_clkgroup_0_10
-VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     100.0 MHz     183.2 MHz     10.000        5.459         4.541     inferred     Inferred_clkgroup_0_3 
+VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     100.0 MHz     180.7 MHz     10.000        5.534         4.466     inferred     Inferred_clkgroup_0_3 
 VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     100.0 MHz     180.7 MHz     10.000        5.534         4.466     inferred     Inferred_clkgroup_0_5 
 VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     100.0 MHz     180.7 MHz     10.000        5.534         4.466     inferred     Inferred_clkgroup_0_7 
-VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     100.0 MHz     183.2 MHz     10.000        5.459         4.541     inferred     Inferred_clkgroup_0_9 
+VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     100.0 MHz     180.7 MHz     10.000        5.534         4.466     inferred     Inferred_clkgroup_0_9 
 System                                                                                    100.0 MHz     272.7 MHz     10.000        3.667         6.333     system       system_clkgroup       
 ===============================================================================================================================================================================================
 Estimated period and frequency reported as NA means no slack depends directly on the clock waveform
@@ -1707,7 +1706,7 @@ FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                   
 ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock           FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
 ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock           ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock           |  10.000      6.079  |  No paths    -      |  No paths    -      |  No paths    -    
 VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock  FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
-VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock  VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock  |  10.000      4.541  |  No paths    -      |  No paths    -      |  No paths    -    
+VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock  VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock  |  10.000      4.466  |  No paths    -      |  No paths    -      |  No paths    -    
 ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock           FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
 ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock           ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock           |  10.000      6.079  |  No paths    -      |  No paths    -      |  No paths    -    
 VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock  FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
@@ -1719,7 +1718,7 @@ VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_
 ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock           FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
 ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock           ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock           |  10.000      6.079  |  No paths    -      |  No paths    -      |  No paths    -    
 VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock  FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
-VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock  VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock  |  10.000      4.541  |  No paths    -      |  No paths    -      |  No paths    -    
+VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock  VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock  |  10.000      4.466  |  No paths    -      |  No paths    -      |  No paths    -    
 FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                          |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
 FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                |  10.000      1.444  |  No paths    -      |  No paths    -      |  No paths    -    
 ====================================================================================================================================================================================================================================================================
@@ -2550,15 +2549,15 @@ Starting Points with Worst Slack
 Instance                                    Reference                                                                                 Type     Pin     Net              Time        Slack
                                             Clock                                                                                                                                        
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.RS433_Rx3.Uart.Uart.bitpos[0]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[0]        0.108       4.541
-Main_0.RS433_Rx3.Uart.Uart.bitpos[1]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[1]        0.108       4.644
-Main_0.RS433_Rx3.Uart.Uart.bitpos[2]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[2]        0.108       4.726
-Main_0.RS433_Rx3.Uart.Uart.bitpos[3]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[3]        0.108       5.062
-Main_0.RS433_Rx3.Uart.Uart.samplecnt[0]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.235
-Main_0.RS433_Rx3.Uart.Uart.samplecnt[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.353
-Main_0.RS433_Rx3.Uart.ClkSyncRxd.O          VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       Rxd_i            0.108       6.425
-Main_0.RS433_Rx3.Uart.Uart.samplecnt[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.439
-Main_0.RS433_Rx3.Uart.Uart.samplecnt[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[3]     0.087       6.564
+Main_0.RS433_Rx3.Uart.Uart.bitpos[0]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[0]        0.108       4.466
+Main_0.RS433_Rx3.Uart.Uart.bitpos[1]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[1]        0.108       4.569
+Main_0.RS433_Rx3.Uart.Uart.bitpos[2]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[2]        0.108       4.651
+Main_0.RS433_Rx3.Uart.Uart.bitpos[3]        VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       bitpos[3]        0.108       4.987
+Main_0.RS433_Rx3.Uart.Uart.samplecnt[0]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.214
+Main_0.RS433_Rx3.Uart.Uart.samplecnt[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.333
+Main_0.RS433_Rx3.Uart.Uart.samplecnt[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.378
+Main_0.RS433_Rx3.Uart.Uart.samplecnt[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       samplecnt[3]     0.108       6.496
+Main_0.RS433_Rx3.Uart.ClkSyncRxd.O          VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       Rxd_i            0.108       7.216
 Main_0.Uart3TxBitClockDiv.div_i             VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      Q       div_i_i          0.108       8.106
 =========================================================================================================================================================================================
 
@@ -2570,16 +2569,16 @@ Ending Points with Worst Slack
 Instance                                 Reference                                                                                 Type     Pin     Net              Time         Slack
                                          Clock                                                                                                                                         
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.RS433_Rx3.Uart.Uart.RReg[0]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_1           9.662        4.541
-Main_0.RS433_Rx3.Uart.Uart.RReg[1]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_2           9.662        4.541
-Main_0.RS433_Rx3.Uart.Uart.RReg[2]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_3           9.662        4.541
-Main_0.RS433_Rx3.Uart.Uart.RReg[3]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_4           9.662        4.541
-Main_0.RS433_Rx3.Uart.Uart.RReg[4]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_5           9.662        4.541
-Main_0.RS433_Rx3.Uart.Uart.RReg[5]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_6           9.662        4.541
-Main_0.RS433_Rx3.Uart.Uart.RReg[6]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_7           9.662        4.619
-Main_0.RS433_Rx3.Uart.Uart.RReg[7]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_8           9.662        4.619
-Main_0.RS433_Rx3.Uart.Uart.bitpos[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      D       bitpos_10[1]     9.745        4.845
-Main_0.RS433_Rx3.Uart.Uart.bitpos[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      D       SUM_2[2]         9.745        5.232
+Main_0.RS433_Rx3.Uart.Uart.RReg[0]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_1           9.662        4.466
+Main_0.RS433_Rx3.Uart.Uart.RReg[1]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_2           9.662        4.466
+Main_0.RS433_Rx3.Uart.Uart.RReg[2]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_3           9.662        4.466
+Main_0.RS433_Rx3.Uart.Uart.RReg[3]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_4           9.662        4.466
+Main_0.RS433_Rx3.Uart.Uart.RReg[4]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_5           9.662        4.466
+Main_0.RS433_Rx3.Uart.Uart.RReg[5]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_6           9.662        4.466
+Main_0.RS433_Rx3.Uart.Uart.RReg[6]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_7           9.662        4.544
+Main_0.RS433_Rx3.Uart.Uart.RReg[7]       VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      EN      RReg_8           9.662        4.544
+Main_0.RS433_Rx3.Uart.Uart.bitpos[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      D       bitpos_10[1]     9.745        4.698
+Main_0.RS433_Rx3.Uart.Uart.bitpos[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock     SLE      D       SUM_2[2]         9.745        5.154
 =======================================================================================================================================================================================
 
 
@@ -2594,9 +2593,9 @@ Path information for path number 1:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.662
 
-    - Propagation time:                      5.122
+    - Propagation time:                      5.197
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 4.541
+    = Slack (non-critical) :                 4.466
 
     Number of logic level(s):                4
     Starting point:                          Main_0.RS433_Rx3.Uart.Uart.bitpos[0] / Q
@@ -2611,19 +2610,19 @@ Main_0.RS433_Rx3.Uart.Uart.bitpos[0]               SLE      Q        Out     0.1
 bitpos[0]                                          Net      -        -       1.119     -           13        
 Main_0.RS433_Rx3.Uart.Uart.RxProc\.un3_enable      CFG4     D        In      -         1.227 f     -         
 Main_0.RS433_Rx3.Uart.Uart.RxProc\.un3_enable      CFG4     Y        Out     0.317     1.544 r     -         
-bitpos_1_sqmuxa                                    Net      -        -       0.855     -           5         
-Main_0.RS433_Rx3.Uart.Uart.RxProc\.un21_enable     CFG2     B        In      -         2.399 r     -         
-Main_0.RS433_Rx3.Uart.Uart.RxProc\.un21_enable     CFG2     Y        Out     0.165     2.564 r     -         
+bitpos_1_sqmuxa                                    Net      -        -       1.017     -           9         
+Main_0.RS433_Rx3.Uart.Uart.RxProc\.un21_enable     CFG2     A        In      -         2.561 r     -         
+Main_0.RS433_Rx3.Uart.Uart.RxProc\.un21_enable     CFG2     Y        Out     0.077     2.639 r     -         
 un21_enable                                        Net      -        -       0.896     -           6         
-Main_0.RS433_Rx3.Uart.Uart.RReg_1_sqmuxa           CFG4     B        In      -         3.459 r     -         
-Main_0.RS433_Rx3.Uart.Uart.RReg_1_sqmuxa           CFG4     Y        Out     0.143     3.603 f     -         
+Main_0.RS433_Rx3.Uart.Uart.RReg_1_sqmuxa           CFG4     B        In      -         3.534 r     -         
+Main_0.RS433_Rx3.Uart.Uart.RReg_1_sqmuxa           CFG4     Y        Out     0.143     3.678 f     -         
 RReg_1_sqmuxa                                      Net      -        -       0.977     -           8         
-Main_0.RS433_Rx3.Uart.Uart.RReg_1_0                CFG4     D        In      -         4.579 f     -         
-Main_0.RS433_Rx3.Uart.Uart.RReg_1_0                CFG4     Y        Out     0.288     4.867 f     -         
+Main_0.RS433_Rx3.Uart.Uart.RReg_1_0                CFG4     D        In      -         4.654 f     -         
+Main_0.RS433_Rx3.Uart.Uart.RReg_1_0                CFG4     Y        Out     0.288     4.942 f     -         
 RReg_1                                             Net      -        -       0.254     -           1         
-Main_0.RS433_Rx3.Uart.Uart.RReg[0]                 SLE      EN       In      -         5.122 f     -         
+Main_0.RS433_Rx3.Uart.Uart.RReg[0]                 SLE      EN       In      -         5.197 f     -         
 =============================================================================================================
-Total path delay (propagation time + setup) of 5.459 is 1.359(24.9%) logic and 4.100(75.1%) route.
+Total path delay (propagation time + setup) of 5.534 is 1.271(23.0%) logic and 4.263(77.0%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -2646,10 +2645,10 @@ Main_0.RS422_Rx2.Uart.Uart.bitpos[0]        VariableClockDividerPorts_work_main_
 Main_0.RS422_Rx2.Uart.Uart.bitpos[1]        VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     SLE      Q       bitpos[1]        0.108       4.569
 Main_0.RS422_Rx2.Uart.Uart.bitpos[2]        VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     SLE      Q       bitpos[2]        0.108       4.651
 Main_0.RS422_Rx2.Uart.Uart.bitpos[3]        VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     SLE      Q       bitpos[3]        0.108       4.987
-Main_0.RS422_Rx2.Uart.Uart.samplecnt[0]     VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.214
-Main_0.RS422_Rx2.Uart.Uart.samplecnt[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.333
-Main_0.RS422_Rx2.Uart.Uart.samplecnt[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.378
-Main_0.RS422_Rx2.Uart.Uart.samplecnt[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     SLE      Q       samplecnt[3]     0.108       6.496
+Main_0.RS422_Rx2.Uart.Uart.samplecnt[0]     VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.275
+Main_0.RS422_Rx2.Uart.Uart.samplecnt[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.394
+Main_0.RS422_Rx2.Uart.Uart.samplecnt[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.439
+Main_0.RS422_Rx2.Uart.Uart.samplecnt[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     SLE      Q       samplecnt[3]     0.087       6.564
 Main_0.RS422_Rx2.Uart.ClkSyncRxd.O          VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     SLE      Q       Rxd_i            0.108       7.216
 Main_0.Uart2TxBitClockDiv.div_i             VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     SLE      Q       div_i_i          0.108       8.106
 =========================================================================================================================================================================================
@@ -2670,7 +2669,7 @@ Main_0.RS422_Rx2.Uart.Uart.RReg[4]       VariableClockDividerPorts_work_main_arc
 Main_0.RS422_Rx2.Uart.Uart.RReg[5]       VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     SLE      EN      RReg_6           9.662        4.466
 Main_0.RS422_Rx2.Uart.Uart.RReg[6]       VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     SLE      EN      RReg_7           9.662        4.544
 Main_0.RS422_Rx2.Uart.Uart.RReg[7]       VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     SLE      EN      RReg_8           9.662        4.544
-Main_0.RS422_Rx2.Uart.Uart.bitpos[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     SLE      D       bitpos_10[1]     9.745        4.698
+Main_0.RS422_Rx2.Uart.Uart.bitpos[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     SLE      D       bitpos_10[1]     9.745        4.766
 Main_0.RS422_Rx2.Uart.Uart.bitpos[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_1|clko_i_inferred_clock     SLE      D       SUM_1[2]         9.745        5.154
 =======================================================================================================================================================================================
 
@@ -2738,10 +2737,10 @@ Main_0.RS422_Rx1.Uart.Uart.bitpos[0]        VariableClockDividerPorts_work_main_
 Main_0.RS422_Rx1.Uart.Uart.bitpos[1]        VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       bitpos[1]        0.108       4.569
 Main_0.RS422_Rx1.Uart.Uart.bitpos[2]        VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       bitpos[2]        0.108       4.651
 Main_0.RS422_Rx1.Uart.Uart.bitpos[3]        VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       bitpos[3]        0.108       4.987
-Main_0.RS422_Rx1.Uart.Uart.samplecnt[0]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.214
-Main_0.RS422_Rx1.Uart.Uart.samplecnt[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.333
-Main_0.RS422_Rx1.Uart.Uart.samplecnt[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.378
-Main_0.RS422_Rx1.Uart.Uart.samplecnt[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       samplecnt[3]     0.108       6.496
+Main_0.RS422_Rx1.Uart.Uart.samplecnt[0]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.275
+Main_0.RS422_Rx1.Uart.Uart.samplecnt[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.394
+Main_0.RS422_Rx1.Uart.Uart.samplecnt[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.439
+Main_0.RS422_Rx1.Uart.Uart.samplecnt[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       samplecnt[3]     0.087       6.564
 Main_0.RS422_Rx1.Uart.ClkSyncRxd.O          VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       Rxd_i            0.108       7.216
 Main_0.Uart1TxBitClockDiv.div_i             VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      Q       div_i_i          0.108       8.106
 =========================================================================================================================================================================================
@@ -2762,7 +2761,7 @@ Main_0.RS422_Rx1.Uart.Uart.RReg[4]       VariableClockDividerPorts_work_main_arc
 Main_0.RS422_Rx1.Uart.Uart.RReg[5]       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      EN      RReg_6           9.662        4.466
 Main_0.RS422_Rx1.Uart.Uart.RReg[6]       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      EN      RReg_7           9.662        4.544
 Main_0.RS422_Rx1.Uart.Uart.RReg[7]       VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      EN      RReg_8           9.662        4.544
-Main_0.RS422_Rx1.Uart.Uart.bitpos[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      D       bitpos_10[1]     9.745        4.698
+Main_0.RS422_Rx1.Uart.Uart.bitpos[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      D       bitpos_10[1]     9.745        4.766
 Main_0.RS422_Rx1.Uart.Uart.bitpos[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_2|clko_i_inferred_clock     SLE      D       SUM_0[2]         9.745        5.154
 =======================================================================================================================================================================================
 
@@ -2826,15 +2825,15 @@ Starting Points with Worst Slack
 Instance                                    Reference                                                                                 Type     Pin     Net              Time        Slack
                                             Clock                                                                                                                                        
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.RS422_Rx0.Uart.Uart.bitpos[0]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[0]        0.108       4.541
-Main_0.RS422_Rx0.Uart.Uart.bitpos[1]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[1]        0.108       4.644
-Main_0.RS422_Rx0.Uart.Uart.bitpos[2]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[2]        0.108       4.726
-Main_0.RS422_Rx0.Uart.Uart.bitpos[3]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[3]        0.108       5.062
-Main_0.RS422_Rx0.Uart.Uart.samplecnt[0]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.235
-Main_0.RS422_Rx0.Uart.Uart.samplecnt[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.353
-Main_0.RS422_Rx0.Uart.ClkSyncRxd.O          VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       Rxd_i            0.108       6.425
-Main_0.RS422_Rx0.Uart.Uart.samplecnt[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.439
-Main_0.RS422_Rx0.Uart.Uart.samplecnt[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[3]     0.087       6.564
+Main_0.RS422_Rx0.Uart.Uart.bitpos[0]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[0]        0.108       4.466
+Main_0.RS422_Rx0.Uart.Uart.bitpos[1]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[1]        0.108       4.569
+Main_0.RS422_Rx0.Uart.Uart.bitpos[2]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[2]        0.108       4.651
+Main_0.RS422_Rx0.Uart.Uart.bitpos[3]        VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       bitpos[3]        0.108       4.987
+Main_0.RS422_Rx0.Uart.Uart.samplecnt[0]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[0]     0.108       6.214
+Main_0.RS422_Rx0.Uart.Uart.samplecnt[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[1]     0.108       6.333
+Main_0.RS422_Rx0.Uart.Uart.samplecnt[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[2]     0.108       6.378
+Main_0.RS422_Rx0.Uart.Uart.samplecnt[3]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       samplecnt[3]     0.108       6.496
+Main_0.RS422_Rx0.Uart.ClkSyncRxd.O          VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       Rxd_i            0.108       7.216
 Main_0.Uart0TxBitClockDiv.div_i             VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      Q       div_i_i          0.108       8.106
 =========================================================================================================================================================================================
 
@@ -2846,16 +2845,16 @@ Ending Points with Worst Slack
 Instance                                 Reference                                                                                 Type     Pin     Net              Time         Slack
                                          Clock                                                                                                                                         
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Main_0.RS422_Rx0.Uart.Uart.RReg[0]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_1           9.662        4.541
-Main_0.RS422_Rx0.Uart.Uart.RReg[1]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_2           9.662        4.541
-Main_0.RS422_Rx0.Uart.Uart.RReg[2]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_3           9.662        4.541
-Main_0.RS422_Rx0.Uart.Uart.RReg[3]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_4           9.662        4.541
-Main_0.RS422_Rx0.Uart.Uart.RReg[4]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_5           9.662        4.541
-Main_0.RS422_Rx0.Uart.Uart.RReg[5]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_6           9.662        4.541
-Main_0.RS422_Rx0.Uart.Uart.RReg[6]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_7           9.662        4.619
-Main_0.RS422_Rx0.Uart.Uart.RReg[7]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_8           9.662        4.619
-Main_0.RS422_Rx0.Uart.Uart.bitpos[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      D       bitpos_10[1]     9.745        4.845
-Main_0.RS422_Rx0.Uart.Uart.bitpos[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      D       SUM[2]           9.745        5.232
+Main_0.RS422_Rx0.Uart.Uart.RReg[0]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_1           9.662        4.466
+Main_0.RS422_Rx0.Uart.Uart.RReg[1]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_2           9.662        4.466
+Main_0.RS422_Rx0.Uart.Uart.RReg[2]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_3           9.662        4.466
+Main_0.RS422_Rx0.Uart.Uart.RReg[3]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_4           9.662        4.466
+Main_0.RS422_Rx0.Uart.Uart.RReg[4]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_5           9.662        4.466
+Main_0.RS422_Rx0.Uart.Uart.RReg[5]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_6           9.662        4.466
+Main_0.RS422_Rx0.Uart.Uart.RReg[6]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_7           9.662        4.544
+Main_0.RS422_Rx0.Uart.Uart.RReg[7]       VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      EN      RReg_8           9.662        4.544
+Main_0.RS422_Rx0.Uart.Uart.bitpos[1]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      D       bitpos_10[1]     9.745        4.698
+Main_0.RS422_Rx0.Uart.Uart.bitpos[2]     VariableClockDividerPorts_work_main_architecture_main_0layer1_3|clko_i_inferred_clock     SLE      D       SUM[2]           9.745        5.154
 =======================================================================================================================================================================================
 
 
@@ -2870,9 +2869,9 @@ Path information for path number 1:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.662
 
-    - Propagation time:                      5.122
+    - Propagation time:                      5.197
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 4.541
+    = Slack (non-critical) :                 4.466
 
     Number of logic level(s):                4
     Starting point:                          Main_0.RS422_Rx0.Uart.Uart.bitpos[0] / Q
@@ -2887,19 +2886,19 @@ Main_0.RS422_Rx0.Uart.Uart.bitpos[0]               SLE      Q        Out     0.1
 bitpos[0]                                          Net      -        -       1.119     -           13        
 Main_0.RS422_Rx0.Uart.Uart.RxProc\.un3_enable      CFG4     D        In      -         1.227 f     -         
 Main_0.RS422_Rx0.Uart.Uart.RxProc\.un3_enable      CFG4     Y        Out     0.317     1.544 r     -         
-bitpos_1_sqmuxa                                    Net      -        -       0.855     -           5         
-Main_0.RS422_Rx0.Uart.Uart.RxProc\.un21_enable     CFG2     B        In      -         2.399 r     -         
-Main_0.RS422_Rx0.Uart.Uart.RxProc\.un21_enable     CFG2     Y        Out     0.165     2.564 r     -         
+bitpos_1_sqmuxa                                    Net      -        -       1.017     -           9         
+Main_0.RS422_Rx0.Uart.Uart.RxProc\.un21_enable     CFG2     A        In      -         2.561 r     -         
+Main_0.RS422_Rx0.Uart.Uart.RxProc\.un21_enable     CFG2     Y        Out     0.077     2.639 r     -         
 un21_enable                                        Net      -        -       0.896     -           6         
-Main_0.RS422_Rx0.Uart.Uart.RReg_1_sqmuxa           CFG4     B        In      -         3.459 r     -         
-Main_0.RS422_Rx0.Uart.Uart.RReg_1_sqmuxa           CFG4     Y        Out     0.143     3.603 f     -         
+Main_0.RS422_Rx0.Uart.Uart.RReg_1_sqmuxa           CFG4     B        In      -         3.534 r     -         
+Main_0.RS422_Rx0.Uart.Uart.RReg_1_sqmuxa           CFG4     Y        Out     0.143     3.678 f     -         
 RReg_1_sqmuxa                                      Net      -        -       0.977     -           8         
-Main_0.RS422_Rx0.Uart.Uart.RReg_1_0                CFG4     D        In      -         4.579 f     -         
-Main_0.RS422_Rx0.Uart.Uart.RReg_1_0                CFG4     Y        Out     0.288     4.867 f     -         
+Main_0.RS422_Rx0.Uart.Uart.RReg_1_0                CFG4     D        In      -         4.654 f     -         
+Main_0.RS422_Rx0.Uart.Uart.RReg_1_0                CFG4     Y        Out     0.288     4.942 f     -         
 RReg_1                                             Net      -        -       0.254     -           1         
-Main_0.RS422_Rx0.Uart.Uart.RReg[0]                 SLE      EN       In      -         5.122 f     -         
+Main_0.RS422_Rx0.Uart.Uart.RReg[0]                 SLE      EN       In      -         5.197 f     -         
 =============================================================================================================
-Total path delay (propagation time + setup) of 5.459 is 1.359(24.9%) logic and 4.100(75.1%) route.
+Total path delay (propagation time + setup) of 5.534 is 1.271(23.0%) logic and 4.263(77.0%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -3139,10 +3138,10 @@ Path delay compensated for clock skew. Clock skew is added to clock-to-out value
 
 Timing exceptions that could not be applied
 
-Finished final timing analysis (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 343MB peak: 343MB)
+Finished final timing analysis (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 341MB peak: 341MB)
 
 
-Finished timing report (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 343MB peak: 343MB)
+Finished timing report (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 341MB peak: 341MB)
 
 ---------------------------------------
 Resource Usage Report for FineSteeringMirror 
@@ -3152,27 +3151,27 @@ Cell usage:
 CCC             2 uses
 CLKINT          23 uses
 MSS_010         1 use
-CFG1           98 uses
-CFG2           764 uses
-CFG3           619 uses
-CFG4           1131 uses
+CFG1           99 uses
+CFG2           750 uses
+CFG3           622 uses
+CFG4           1162 uses
 
 Carry cells:
 ARI1            1692 uses - used for arithmetic functions
-ARI1            241 uses - used for Wide-Mux implementation
-Total ARI1      1933 uses
+ARI1            217 uses - used for Wide-Mux implementation
+Total ARI1      1909 uses
 
 
 Sequential Cells: 
-SLE            3000 uses
+SLE            3004 uses
 
 DSP Blocks:    0 of 22 (0%)
 
 I/O ports: 85
 I/O primitives: 84
 INBUF          32 uses
-OUTBUF         39 uses
-TRIBUFF        13 uses
+OUTBUF         38 uses
+TRIBUFF        14 uses
 
 
 Global Clock Buffers: 23
@@ -3180,7 +3179,7 @@ Global Clock Buffers: 23
 RAM/ROM usage summary
 Total Block RAMs (RAM1K18) : 8 of 21 (38%)
 
-Total LUTs:    4545
+Total LUTs:    4542
 
 Extra resources required for RAM and MACC interface logic during P&R:
 
@@ -3188,14 +3187,14 @@ RAM64x18 Interface Logic : SLEs = 0; LUTs = 0;
 RAM1K18  Interface Logic : SLEs = 288; LUTs = 288;
 MACC     Interface Logic : SLEs = 0; LUTs = 0;
 
-Total number of SLEs after P&R:  3000 + 0 + 288 + 0 = 3288;
-Total number of LUTs after P&R:  4545 + 0 + 288 + 0 = 4833;
+Total number of SLEs after P&R:  3004 + 0 + 288 + 0 = 3292;
+Total number of LUTs after P&R:  4542 + 0 + 288 + 0 = 4830;
 
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 343MB peak: 343MB)
+At Mapper Exit (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 341MB peak: 341MB)
 
-Process took 0h:00m:11s realtime, 0h:00m:11s cputime
-# Thu Feb 12 15:04:40 2026
+Process took 0h:00m:10s realtime, 0h:00m:10s cputime
+# Fri Feb 13 17:40:33 2026
 
 ###########################################################]

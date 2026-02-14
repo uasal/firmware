@@ -74,7 +74,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memor
 
 
 Process completed successfully.
-# Thu Feb 12 15:04:25 2026
+# Fri Feb 13 17:40:19 2026
 
 ###########################################################]
 ###########################################################[
@@ -140,7 +140,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Thu Feb 12 15:04:25 2026
+# Fri Feb 13 17:40:19 2026
 
 ###########################################################]
 ###########################################################[
@@ -388,8 +388,9 @@ Finished optimization stage 1 on SYSRESET (CPU Time 0h:00m:00s, Memory Used curr
 Running optimization stage 1 on FineSteeringMirror_sb .......
 Finished optimization stage 1 on FineSteeringMirror_sb (CPU Time 0h:00m:00s, Memory Used current: 143MB peak: 143MB)
 @N: CG364 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v":9:7:9:24|Synthesizing module FineSteeringMirror in library work.
-@N: CG794 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v":461:5:461:10|Using module Main from library work
+@N: CG794 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v":458:5:458:10|Using module Main from library work
 Running optimization stage 1 on FineSteeringMirror .......
+@W: CL318 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v":145:7:145:12|*Output MosiXO has undriven bits; assigning undriven bits to 'Z'.  Simulation mismatch possible. Assign all bits of the output.
 Finished optimization stage 1 on FineSteeringMirror (CPU Time 0h:00m:00s, Memory Used current: 143MB peak: 143MB)
 Running optimization stage 2 on FineSteeringMirror .......
 Finished optimization stage 2 on FineSteeringMirror (CPU Time 0h:00m:00s, Memory Used current: 143MB peak: 143MB)
@@ -564,7 +565,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Thu Feb 12 15:04:25 2026
+# Fri Feb 13 17:40:19 2026
 
 ###########################################################]
 ###########################################################[
@@ -611,14 +612,14 @@ Finished optimization stage 1 on SpiMasterPorts (CPU Time 0h:00m:00s, Memory Use
 Post processing for work.spidacports.spidac
 Running optimization stage 1 on SpiDacPorts .......
 Finished optimization stage 1 on SpiDacPorts (CPU Time 0h:00m:00s, Memory Used current: 144MB peak: 144MB)
-@N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":30:7:30:19|Synthesizing work.ppscountports.ppscount.
-Post processing for work.ppscountports.ppscount
-Running optimization stage 1 on PPSCountPorts .......
-Finished optimization stage 1 on PPSCountPorts (CPU Time 0h:00m:00s, Memory Used current: 144MB peak: 144MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":30:7:30:17|Synthesizing work.ibufp2ports.ibufp2.
 Post processing for work.ibufp2ports.ibufp2
 Running optimization stage 1 on IBufP2Ports .......
 Finished optimization stage 1 on IBufP2Ports (CPU Time 0h:00m:00s, Memory Used current: 144MB peak: 144MB)
+@N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":30:7:30:19|Synthesizing work.ppscountports.ppscount.
+Post processing for work.ppscountports.ppscount
+Running optimization stage 1 on PPSCountPorts .......
+Finished optimization stage 1 on PPSCountPorts (CPU Time 0h:00m:00s, Memory Used current: 144MB peak: 144MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":33:7:33:22|Synthesizing work.uarttxfifoextclk.implementation.
 @N: CD233 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":122:15:122:16|Using sequential encoding for type states.
 @N: CD604 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":274:5:274:18|OTHERS clause is not synthesized.
@@ -725,40 +726,40 @@ Finished optimization stage 1 on DacDitherer (CPU Time 0h:00m:00s, Memory Used c
 @N: CD630 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":14:7:14:24|Synthesizing work.registerspaceports.registerspace.
 Post processing for work.registerspaceports.registerspace
 Running optimization stage 1 on RegisterSpacePorts .......
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Feedback mux created for signal MonitorAdcMaxAccums_i[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|Feedback mux created for signal ControlAdcMaxAccums_i[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(0) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(1) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(2) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(3) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(4) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(5) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(6) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(7) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(8) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(9) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(10) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(11) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(12) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(13) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(14) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to MonitorAdcMaxAccums(15) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(0) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(1) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(2) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(3) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(4) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(5) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(6) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(7) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(8) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(9) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(10) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(11) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(12) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(13) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(14) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":330:2:330:3|All reachable assignments to ControlAdcMaxAccums(15) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Feedback mux created for signal MonitorAdcMaxAccums_i[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Feedback mux created for signal ControlAdcMaxAccums_i[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(0) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(1) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(2) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(3) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(4) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(5) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(6) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(7) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(8) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(9) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(10) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(11) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(12) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(13) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(14) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(15) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(0) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(1) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(2) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(3) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(4) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(5) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(6) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(7) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(8) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(9) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(10) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(11) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(12) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(13) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(14) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(15) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
 Finished optimization stage 1 on RegisterSpacePorts (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd":30:7:30:17|Synthesizing work.ibufp1ports.ibufp1.
 Post processing for work.ibufp1ports.ibufp1
@@ -840,10 +841,10 @@ Running optimization stage 2 on UartTx .......
 Finished optimization stage 2 on UartTx (CPU Time 0h:00m:00s, Memory Used current: 168MB peak: 168MB)
 Running optimization stage 2 on UartTxFifoExtClk_10 .......
 Finished optimization stage 2 on UartTxFifoExtClk_10 (CPU Time 0h:00m:00s, Memory Used current: 168MB peak: 168MB)
-Running optimization stage 2 on IBufP2Ports .......
-Finished optimization stage 2 on IBufP2Ports (CPU Time 0h:00m:00s, Memory Used current: 168MB peak: 168MB)
 Running optimization stage 2 on PPSCountPorts_work_main_architecture_main_0layer1 .......
 Finished optimization stage 2 on PPSCountPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 168MB peak: 168MB)
+Running optimization stage 2 on IBufP2Ports .......
+Finished optimization stage 2 on IBufP2Ports (CPU Time 0h:00m:00s, Memory Used current: 168MB peak: 168MB)
 Running optimization stage 2 on SpiMasterPorts_work_main_architecture_main_0layer1 .......
 Finished optimization stage 2 on SpiMasterPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 168MB peak: 168MB)
 Running optimization stage 2 on SpiDacPorts_work_main_architecture_main_0layer1 .......
@@ -862,7 +863,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memor
 
 
 Process completed successfully.
-# Thu Feb 12 15:04:27 2026
+# Fri Feb 13 17:40:20 2026
 
 ###########################################################]
 ###########################################################[
@@ -898,7 +899,7 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Thu Feb 12 15:04:27 2026
+# Fri Feb 13 17:40:20 2026
 
 ###########################################################]
 
@@ -913,6 +914,6 @@ At c_hdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Thu Feb 12 15:04:27 2026
+# Fri Feb 13 17:40:20 2026
 
 ###########################################################]

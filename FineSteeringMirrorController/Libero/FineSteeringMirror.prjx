@@ -90,13 +90,13 @@ SIZE="1186"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpga/Main.vhd,hdl"
 STATE="utd"
-TIME="1769114879"
-SIZE="79048"
+TIME="1771029541"
+SIZE="83780"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpga/RegisterSpace.vhd,hdl"
 STATE="utd"
-TIME="1769104586"
-SIZE="33517"
+TIME="1771025400"
+SIZE="36871"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/ads1258.vhd,hdl"
 STATE="utd"
@@ -115,8 +115,8 @@ SIZE="2006"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/DacDitherer.vhd,hdl"
 STATE="utd"
-TIME="1769114449"
-SIZE="4878"
+TIME="1770333346"
+SIZE="4905"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/fifo_gen.vhd,hdl"
 STATE="utd"
@@ -175,8 +175,8 @@ SIZE="1783"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/Ltc2378AccumQuad.vhd,hdl"
 STATE="utd"
-TIME="1769020606"
-SIZE="22344"
+TIME="1770933669"
+SIZE="22369"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/ltc244x.vhd,hdl"
 STATE="utd"
@@ -220,8 +220,8 @@ SIZE="3305"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/QuadDacDitherer.vhd,hdl"
 STATE="utd"
-TIME="1769110538"
-SIZE="8828"
+TIME="1770155542"
+SIZE="8878"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/RtcCounter.vhd,hdl"
 STATE="utd"
@@ -235,13 +235,13 @@ SIZE="6109"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/SpiDacQuad.vhd,hdl"
 STATE="utd"
-TIME="1769039451"
-SIZE="7499"
+TIME="1770333182"
+SIZE="7643"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/SpiDeviceDual.vhd,hdl"
 STATE="utd"
-TIME="1763032477"
-SIZE="6191"
+TIME="1770334960"
+SIZE="6256"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/SpiExtBus.vhd,hdl"
 STATE="utd"
@@ -265,7 +265,7 @@ SIZE="6133"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/SpiMasterQuad.vhd,hdl"
 STATE="utd"
-TIME="1763032477"
+TIME="1770417338"
 SIZE="7872"
 ENDFILE
 VALUE "${CGRAPH_FIRMWARE}/include/fpga/UartRx.vhd,hdl"
@@ -417,8 +417,8 @@ SIZE="1783"
 ENDFILE
 VALUE "<project>/../../include/fpga/Ltc2378AccumQuad.vhd,hdl"
 STATE="utd"
-TIME="1769020606"
-SIZE="22344"
+TIME="1770933669"
+SIZE="22369"
 ENDFILE
 VALUE "<project>/../../include/fpga/ltc244x.vhd,hdl"
 STATE="utd"
@@ -472,13 +472,13 @@ SIZE="6109"
 ENDFILE
 VALUE "<project>/../../include/fpga/SpiDacQuad.vhd,hdl"
 STATE="utd"
-TIME="1769039451"
-SIZE="7499"
+TIME="1770333182"
+SIZE="7643"
 ENDFILE
 VALUE "<project>/../../include/fpga/SpiDeviceDual.vhd,hdl"
 STATE="utd"
-TIME="1763032477"
-SIZE="6191"
+TIME="1770334960"
+SIZE="6256"
 ENDFILE
 VALUE "<project>/../../include/fpga/SpiExtBus.vhd,hdl"
 STATE="utd"
@@ -502,7 +502,7 @@ SIZE="6133"
 ENDFILE
 VALUE "<project>/../../include/fpga/SpiMasterQuad.vhd,hdl"
 STATE="utd"
-TIME="1763032477"
+TIME="1770417338"
 SIZE="7872"
 ENDFILE
 VALUE "<project>/../../include/fpga/UartRx.vhd,hdl"
@@ -585,14 +585,14 @@ ENDFILE
 VALUE "<project>/../fpga/Main.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
 STATE="utd"
-TIME="1769114879"
-SIZE="79048"
+TIME="1771029541"
+SIZE="83780"
 ENDFILE
 VALUE "<project>/../fpga/RegisterSpace.vhd,hdl"
 LINKFILEROOT "<project>/../fpga"
 STATE="utd"
-TIME="1769104586"
-SIZE="33517"
+TIME="1771025400"
+SIZE="36871"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/CoreAPB3/4.1.100/CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
@@ -980,15 +980,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/FineSteeringMirror/FineSteeringMirror.cxf,actgen_cxf"
 STATE="utd"
-TIME="1763032488"
-SIZE="14955"
-ENDFILE
-VALUE "<project>/component/work/FineSteeringMirror/FineSteeringMirror.v,hdl"
-STATE="utd"
-TIME="1763032488"
-SIZE="17559"
-PARENT="<project>/component/work/FineSteeringMirror/FineSteeringMirror.cxf"
-IS_READONLY="TRUE"
+TIME="1771029590"
+SIZE="14648"
 ENDFILE
 VALUE "<project>/component/work/FineSteeringMirror_sb/CCC_0/FineSteeringMirror_sb_CCC_0_FCCC.cxf,actgen_cxf"
 STATE="utd"
@@ -1155,6 +1148,11 @@ STATE="utd"
 TIME="1767734322"
 SIZE="278"
 ENDFILE
+VALUE "<project>/synthesis/FineSteeringMirror.vm,syn_vm"
+STATE="ood"
+TIME="1771025439"
+SIZE="2103618"
+ENDFILE
 VALUE "<project>/synthesis/FineSteeringMirror_syn.prj,prj"
 STATE="utd"
 TIME="1767734322"
@@ -1165,17 +1163,12 @@ STATE="utd"
 TIME="1767734322"
 SIZE="3949"
 ENDFILE
-VALUE "<project>/synthesis/synwork/layer1.so,so"
-STATE="utd"
-TIME="1769114462"
-SIZE="154"
-ENDFILE
 ENDLIST
 LIST UsedFile
 ENDLIST
 LIST NewModulesInfo
 LIST "FineSteeringMirror::work"
-FILE "<project>/component/work/FineSteeringMirror/FineSteeringMirror.v,hdl"
+FILE "<project>/component/work/FineSteeringMirror/FineSteeringMirror.cxf,actgen_cxf"
 LIST SynthesisConstraints
 VALUE "<project>/constraint/user.sdc,sdc"
 ENDLIST
@@ -1639,12 +1632,10 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
-Reports;Reports;0
-ReportsCurrentItem;synthesis:FineSteeringMirror.srr
-Constraint Manager;Constraint Manager;0
 SmartDesign;FineSteeringMirror;0
-StartPage;StartPage;0
-ACTIVEVIEW;Reports
+Reports;Reports;0
+ReportsCurrentItem;Run Programming Action:FineSteeringMirror_PROGRAM.log
+ACTIVEVIEW;FineSteeringMirror
 ENDLIST
 LIST ModuleSubBlockList
 LIST "ads1258::work","${CGRAPH_FIRMWARE}/include/fpga/ads1258.vhd","FALSE","FALSE"
@@ -1669,7 +1660,8 @@ ENDLIST
 LIST "CORESYSSERVICES_C0::work","component/work/CORESYSSERVICES_C0/CORESYSSERVICES_C0.v","TRUE","FALSE"
 SUBBLOCK "CORESYSSERVICES_C0_CORESYSSERVICES_C0_0_CORESYSSERVICES::CORESYSSERVICES_LIB","component/work/CORESYSSERVICES_C0/CORESYSSERVICES_C0_0/rtl/vlog/core/CoreSysServices.v","FALSE","FALSE"
 ENDLIST
-LIST "DacDitherer::work","","FALSE","FALSE"
+LIST "DacDitherer::work","${CGRAPH_FIRMWARE}/include/fpga/DacDitherer.vhd","FALSE","FALSE"
+SUBBLOCK "ClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 ENDLIST
 LIST "DESIGN_FIRMWARE::work","component/work/DESIGN_FIRMWARE/DESIGN_FIRMWARE.cxf","TRUE","FALSE"
 SUBBLOCK "SmartFusion2_CMSIS::work","","FALSE","FALSE"
@@ -1682,6 +1674,9 @@ LIST "ClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/ClockDivider.vhd
 ENDLIST
 LIST "CoreResetP::work","component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v","FALSE","FALSE"
 SUBBLOCK "coreresetp_pcie_hotreset::work","component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp_pcie_hotreset.v","FALSE","FALSE"
+ENDLIST
+LIST "DacDitherer::work","${CGRAPH_FIRMWARE}/include/fpga/DacDitherer.vhd","FALSE","FALSE"
+SUBBLOCK "ClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 ENDLIST
 LIST "fifo::work","${CGRAPH_FIRMWARE}/include/fpga/fifo_gen.vhd","FALSE","FALSE"
 ENDLIST
@@ -1715,15 +1710,18 @@ LIST "fifo::work","${CGRAPH_FIRMWARE}/include/fpga/fifo_gen.vhd","FALSE","FALSE"
 ENDLIST
 LIST "OneShotPorts::work","${CGRAPH_FIRMWARE}/include/fpga/OneShot.vhd","FALSE","FALSE"
 ENDLIST
+LIST "SpiDacQuadPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiDacQuad.vhd","FALSE","FALSE"
+SUBBLOCK "SpiMasterQuadPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiMasterQuad.vhd","FALSE","FALSE"
+ENDLIST
 LIST "SpiMasterPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiMaster.vhd","FALSE","FALSE"
 ENDLIST
 LIST "SpiMasterQuadPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiMasterQuad.vhd","FALSE","FALSE"
 ENDLIST
 LIST "ClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 ENDLIST
-LIST "OneShotPorts::work","${CGRAPH_FIRMWARE}/include/fpga/OneShot.vhd","FALSE","FALSE"
-ENDLIST
 LIST "SpiMasterPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiMaster.vhd","FALSE","FALSE"
+ENDLIST
+LIST "SpiMasterQuadPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiMasterQuad.vhd","FALSE","FALSE"
 ENDLIST
 LIST "ClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 ENDLIST
@@ -1743,7 +1741,7 @@ ENDLIST
 LIST "fifo_gen_tb::work","${CGRAPH_FIRMWARE}/include/fpga/fifo_gen_tb.vhd","FALSE","FALSE"
 SUBBLOCK "fifo::work","${CGRAPH_FIRMWARE}/include/fpga/fifo_gen.vhd","FALSE","FALSE"
 ENDLIST
-LIST "FineSteeringMirror::work","component/work/FineSteeringMirror/FineSteeringMirror.v","TRUE","FALSE"
+LIST "FineSteeringMirror::work","component/work/FineSteeringMirror/FineSteeringMirror.cxf","TRUE","FALSE"
 SUBBLOCK "FCCC_C0::work","component/work/FCCC_C0/FCCC_C0.v","TRUE","FALSE"
 SUBBLOCK "FineSteeringMirror_sb::work","component/work/FineSteeringMirror_sb/FineSteeringMirror_sb.v","TRUE","FALSE"
 SUBBLOCK "Main::work","${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpga/Main.vhd","FALSE","FALSE"
@@ -1789,7 +1787,6 @@ ENDLIST
 LIST "Ltc2378AccumQuadPorts::work","${CGRAPH_FIRMWARE}/include/fpga/Ltc2378AccumQuad.vhd","FALSE","FALSE"
 SUBBLOCK "VariableClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/VariableClockDivider2X.vhd","FALSE","FALSE"
 SUBBLOCK "SpiMasterQuadPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiMasterQuad.vhd","FALSE","FALSE"
-SUBBLOCK "OneShotPorts::work","${CGRAPH_FIRMWARE}/include/fpga/OneShot.vhd","FALSE","FALSE"
 ENDLIST
 LIST "ltc244x_types::work","${CGRAPH_FIRMWARE}/include/fpga/ltc244x_types.vhd","FALSE","FALSE"
 ENDLIST
@@ -1806,7 +1803,7 @@ SUBBLOCK "SpiMasterPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiMaster.vhd",
 ENDLIST
 LIST "Main::work","${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpga/Main.vhd","FALSE","FALSE"
 SUBBLOCK "BuildNumberPorts::work","${CGRAPH_FIRMWARE}/FineSteeringMirrorController/fpga/BuildNumber.vhd","FALSE","FALSE"
-SUBBLOCK "DacDitherer::work","","FALSE","FALSE"
+SUBBLOCK "DacDitherer::work","${CGRAPH_FIRMWARE}/include/fpga/DacDitherer.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP1Ports::work","${CGRAPH_FIRMWARE}/include/fpga/IBufP1.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP2Ports::work","${CGRAPH_FIRMWARE}/include/fpga/IBufP2.vhd","FALSE","FALSE"
 SUBBLOCK "IBufP3Ports::work","${CGRAPH_FIRMWARE}/include/fpga/IBufP3.vhd","FALSE","FALSE"
@@ -1816,12 +1813,14 @@ SUBBLOCK "RegisterSpacePorts::work","${CGRAPH_FIRMWARE}/FineSteeringMirrorContro
 SUBBLOCK "UartRxFifoExtClk::work","${CGRAPH_FIRMWARE}/include/fpga/UartRxFifoExtClk.vhd","FALSE","FALSE"
 SUBBLOCK "UartTxFifoExtClk::work","${CGRAPH_FIRMWARE}/include/fpga/UartTxFifoExtClk.vhd","FALSE","FALSE"
 SUBBLOCK "VariableClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/VariableClockDivider2X.vhd","FALSE","FALSE"
-SUBBLOCK "ClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/ClockDivider.vhd","FALSE","FALSE"
+SUBBLOCK "DacDitherer::work","${CGRAPH_FIRMWARE}/include/fpga/DacDitherer.vhd","FALSE","FALSE"
 SUBBLOCK "OneShotPorts::work","${CGRAPH_FIRMWARE}/include/fpga/OneShot.vhd","FALSE","FALSE"
 SUBBLOCK "SpiDacPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiDac.vhd","FALSE","FALSE"
 SUBBLOCK "SpiDacQuadPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiDacQuad.vhd","FALSE","FALSE"
 SUBBLOCK "SpiDeviceDualPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiDeviceDual.vhd","FALSE","FALSE"
+SUBBLOCK "ClockDividerPorts::work","${CGRAPH_FIRMWARE}/include/fpga/ClockDivider.vhd","FALSE","FALSE"
 SUBBLOCK "OneShotPorts::work","${CGRAPH_FIRMWARE}/include/fpga/OneShot.vhd","FALSE","FALSE"
+SUBBLOCK "SpiDacQuadPorts::work","${CGRAPH_FIRMWARE}/include/fpga/SpiDacQuad.vhd","FALSE","FALSE"
 ENDLIST
 LIST "OneShotPorts::work","${CGRAPH_FIRMWARE}/include/fpga/OneShot.vhd","FALSE","FALSE"
 ENDLIST
