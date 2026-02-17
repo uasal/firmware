@@ -42,7 +42,7 @@ end ClockDividerPorts;
 
 architecture ClockDivider of ClockDividerPorts is
 
-	signal ClkDiv : natural range 0 to ((CLOCK_DIVIDER / 2) - 1) := 0;
+	signal ClkDiv : natural range 0 to ((CLOCK_DIVIDER / 2) - 1);
 	signal div_i : std_logic;	
 
 begin

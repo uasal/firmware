@@ -43,8 +43,8 @@ architecture Behaviour of UartTx is
 
   --~ signal BitCnt : std_logic_vector(3 downto 0);         -- bit counter
   signal BitCnt : natural range 0 to 15; --Which clock cycle are we on anyway?
-  signal LastGo : std_logic := '0';
-  signal Busy_i : std_logic := '0';
+  signal LastGo : std_logic;
+  signal Busy_i : std_logic;
   --~ constant CntOne : std_logic_vector(3 downto 0):="0001";
   
 begin

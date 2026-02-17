@@ -111,6 +111,22 @@ union AccumulatorConfigRegister
 
 } __attribute__((__packed__));
 
+union DacConfigRegister 		
+{
+    uint32_t all;
+    struct 
+    {
+        uint16_t DitherClkDivider;
+		uint16_t reserved;
+
+    } __attribute__((__packed__));
+
+    DacConfigRegister() { all = 0; }
+
+    void formatf() const { ::formatf("DacConfigRegister: DitherClkDivider: %u (0x%4X), reserved %u (0x%4X)", DitherClkDivider, DitherClkDivider, reserved, reserved); }
+
+} __attribute__((__packed__));
+
 union CGraphBaudDividers
 {
     uint32_t all;

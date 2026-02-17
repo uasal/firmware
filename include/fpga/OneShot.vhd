@@ -45,8 +45,8 @@ architecture OneShot of OneShotPorts is
 
 	--~ constant CLOCK_DIVIDER : natural := ((natural(real(CLOCK_FREQHZ) * DELAY_SECONDS)) / 2) - 1;
 	constant CLOCK_DIVIDER : natural := ((natural(real(CLOCK_FREQHZ) * DELAY_SECONDS)) / 1) - 1;
-	signal ClkDiv : natural range 0 to CLOCK_DIVIDER := 0;
-	signal shot_i : std_logic := SHOT_RST_STATE;	
+	signal ClkDiv : natural range 0 to CLOCK_DIVIDER;
+	signal shot_i : std_logic;
 
 begin
 

@@ -42,11 +42,10 @@ Synopsys VHDL Compiler, Version comp202209synp2, Build 179R, Built Jun 27 2023 0
 @N|stack limit increased to max
 @N:"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":11:7:11:10|Top entity is set to Main.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/BuildNumber.vhd'.
-@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd'.
-@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd'.
@@ -54,6 +53,7 @@ Synopsys VHDL Compiler, Version comp202209synp2, Build 179R, Built Jun 27 2023 0
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd'.
 @N: CD895 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Setting attribute syn_ramstyle to "no_rw_check" on shared variable ram
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd'.
@@ -74,7 +74,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memor
 
 
 Process completed successfully.
-# Fri Feb 13 17:40:19 2026
+# Tue Feb 17 16:47:19 2026
 
 ###########################################################]
 ###########################################################[
@@ -140,7 +140,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Fri Feb 13 17:40:19 2026
+# Tue Feb 17 16:47:19 2026
 
 ###########################################################]
 ###########################################################[
@@ -565,18 +565,17 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 
 
 Process completed successfully.
-# Fri Feb 13 17:40:19 2026
+# Tue Feb 17 16:47:19 2026
 
 ###########################################################]
 ###########################################################[
 @N|stack limit increased to max
 @N:"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":11:7:11:10|Top entity is set to Main.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/BuildNumber.vhd'.
-@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/IBufP3.vhd'.
-@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd'.
@@ -584,6 +583,7 @@ Process completed successfully.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd'.
 @N: CD895 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Setting attribute syn_ramstyle to "no_rw_check" on shared variable ram
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd'.
 @N: CD140 :	| Using the VHDL 2008 Standard for file '/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd'.
@@ -600,10 +600,6 @@ Process completed successfully.
 VHDL syntax check successful!
 @N: CD231 :"/home/summer/microchip/Libero_SoC_v2023.2/SynplifyPro/lib/vhd2008/std1164.vhd":889:16:889:17|Using onehot encoding for type mvl9plus. For example, enumeration 'U' is mapped to "1000000000".
 @N: CD630 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":11:7:11:10|Synthesizing work.main.architecture_main.
-@W: CD326 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":2011:1:2011:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
-@W: CD326 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":2110:1:2110:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
-@W: CD326 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":2209:1:2209:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
-@W: CD326 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":2320:1:2320:9|Port bitcountout of entity work.uarttxfifoextclk is unconnected. If a port needs to remain unconnected, use the keyword open.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd":44:7:44:17|Synthesizing work.spidacports.spidac.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMaster.vhd":38:7:38:20|Synthesizing work.spimasterports.spimaster.
 Post processing for work.spimasterports.spimaster
@@ -662,7 +658,7 @@ Finished optimization stage 1 on ClockDividerPorts (CPU Time 0h:00m:00s, Memory 
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":30:7:30:31|Synthesizing work.variableclockdividerports.variableclockdivider.
 Post processing for work.variableclockdividerports.variableclockdivider
 Running optimization stage 1 on VariableClockDividerPorts .......
-Finished optimization stage 1 on VariableClockDividerPorts (CPU Time 0h:00m:00s, Memory Used current: 145MB peak: 145MB)
+Finished optimization stage 1 on VariableClockDividerPorts (CPU Time 0h:00m:00s, Memory Used current: 146MB peak: 146MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDeviceDual.vhd":44:7:44:24|Synthesizing work.spidevicedualports.spidevicedual.
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd":38:7:38:24|Synthesizing work.spimasterdualports.spimasterdual.
 Post processing for work.spimasterdualports.spimasterdual
@@ -675,7 +671,7 @@ Finished optimization stage 1 on SpiDeviceDualPorts (CPU Time 0h:00m:00s, Memory
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd":38:7:38:24|Synthesizing work.spimasterquadports.spimasterquad.
 Post processing for work.spimasterquadports.spimasterquad
 Running optimization stage 1 on SpiMasterQuadPorts .......
-Finished optimization stage 1 on SpiMasterQuadPorts (CPU Time 0h:00m:00s, Memory Used current: 147MB peak: 147MB)
+Finished optimization stage 1 on SpiMasterQuadPorts (CPU Time 0h:00m:00s, Memory Used current: 148MB peak: 148MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":30:7:30:31|Synthesizing work.variableclockdividerports.variableclockdivider.
 Post processing for work.variableclockdividerports.variableclockdivider
 Running optimization stage 1 on VariableClockDividerPorts .......
@@ -705,61 +701,23 @@ Post processing for work.spidacquadports.spidacquad
 Running optimization stage 1 on SpiDacQuadPorts .......
 Finished optimization stage 1 on SpiDacQuadPorts (CPU Time 0h:00m:00s, Memory Used current: 153MB peak: 153MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":40:7:40:17|Synthesizing work.dacditherer.dacdithererlogic.
-@W: CD454 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":131:7:131:69|Storing to null range (-1 downto 0) of variable dacmagnitudeout_i 
-@W: CD454 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":136:7:136:69|Storing to null range (-1 downto 0) of variable dacmagnitudeout_i 
-@N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":30:7:30:23|Synthesizing work.clockdividerports.clockdivider.
-Post processing for work.clockdividerports.clockdivider
-Running optimization stage 1 on ClockDividerPorts .......
-Finished optimization stage 1 on ClockDividerPorts (CPU Time 0h:00m:00s, Memory Used current: 153MB peak: 153MB)
+@W: CD454 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":162:7:162:69|Storing to null range (-1 downto 0) of variable dacmagnitudeout_i 
+@W: CD454 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":167:7:167:69|Storing to null range (-1 downto 0) of variable dacmagnitudeout_i 
 Post processing for work.dacditherer.dacdithererlogic
 Running optimization stage 1 on DacDitherer .......
 Finished optimization stage 1 on DacDitherer (CPU Time 0h:00m:00s, Memory Used current: 153MB peak: 153MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":40:7:40:17|Synthesizing work.dacditherer.dacdithererlogic.
 Post processing for work.dacditherer.dacdithererlogic
 Running optimization stage 1 on DacDitherer .......
-@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":110:2:110:3|Optimizing register bit DacMagnitudeOut_i(0) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":110:2:110:3|Optimizing register bit DacMagnitudeOut_i(1) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":110:2:110:3|Optimizing register bit DacMagnitudeOut_i(2) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":110:2:110:3|Optimizing register bit DacMagnitudeOut_i(3) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":110:2:110:3|Pruning register bits 3 to 0 of DacMagnitudeOut_i(23 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":141:2:141:3|Optimizing register bit DacMagnitudeOut_i(0) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":141:2:141:3|Optimizing register bit DacMagnitudeOut_i(1) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":141:2:141:3|Optimizing register bit DacMagnitudeOut_i(2) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":141:2:141:3|Optimizing register bit DacMagnitudeOut_i(3) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL279 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":141:2:141:3|Pruning register bits 3 to 0 of DacMagnitudeOut_i(23 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 Finished optimization stage 1 on DacDitherer (CPU Time 0h:00m:00s, Memory Used current: 153MB peak: 153MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":14:7:14:24|Synthesizing work.registerspaceports.registerspace.
 Post processing for work.registerspaceports.registerspace
 Running optimization stage 1 on RegisterSpacePorts .......
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Feedback mux created for signal MonitorAdcMaxAccums_i[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@A: CL282 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Feedback mux created for signal ControlAdcMaxAccums_i[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(0) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(1) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(2) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(3) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(4) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(5) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(6) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(7) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(8) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(9) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(10) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(11) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(12) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(13) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(14) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to MonitorAdcMaxAccums(15) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(0) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(1) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(2) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(3) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(4) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(5) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(6) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(7) are '1'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(8) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(9) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(10) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(11) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(12) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(13) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(14) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
-@W: CL111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|All reachable assignments to ControlAdcMaxAccums(15) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
 Finished optimization stage 1 on RegisterSpacePorts (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
 @N: CD630 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP1.vhd":30:7:30:17|Synthesizing work.ibufp1ports.ibufp1.
 Post processing for work.ibufp1ports.ibufp1
@@ -784,35 +742,29 @@ Running optimization stage 2 on IBufP1Ports .......
 Finished optimization stage 2 on IBufP1Ports (CPU Time 0h:00m:00s, Memory Used current: 155MB peak: 155MB)
 Running optimization stage 2 on RegisterSpacePorts_10 .......
 @N: CL159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":81:2:81:20|Input DacTransferComplete is unused.
-@N: CL159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":99:2:99:23|Input MonitorAdcSampleToRead is unused.
-@N: CL159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":121:2:121:17|Input Uart0TxFifoCount is unused.
-@N: CL159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":134:2:134:17|Input Uart1TxFifoCount is unused.
-@N: CL159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":147:2:147:17|Input Uart2TxFifoCount is unused.
-@N: CL159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":160:2:160:17|Input Uart3TxFifoCount is unused.
-Finished optimization stage 2 on RegisterSpacePorts_10 (CPU Time 0h:00m:00s, Memory Used current: 161MB peak: 161MB)
-Running optimization stage 2 on DacDitherer_1024_24_24_20_4 .......
+@N: CL159 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":100:2:100:23|Input MonitorAdcSampleToRead is unused.
+Finished optimization stage 2 on RegisterSpacePorts_10 (CPU Time 0h:00m:00s, Memory Used current: 162MB peak: 162MB)
+Running optimization stage 2 on DacDitherer_24_24_20_4 .......
 @N: CL159 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":56:2:56:16|Input DacXferComplete is unused.
-Finished optimization stage 2 on DacDitherer_1024_24_24_20_4 (CPU Time 0h:00m:00s, Memory Used current: 163MB peak: 163MB)
-Running optimization stage 2 on ClockDividerPorts_work_main_architecture_main_1layer1 .......
-Finished optimization stage 2 on ClockDividerPorts_work_main_architecture_main_1layer1 (CPU Time 0h:00m:00s, Memory Used current: 163MB peak: 163MB)
-Running optimization stage 2 on DacDitherer_1024_24_16_16_4 .......
+Finished optimization stage 2 on DacDitherer_24_24_20_4 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
+Running optimization stage 2 on DacDitherer_24_16_16_4 .......
 @W: CL246 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":58:2:58:11|Input port bits 3 to 0 of setpointin(23 downto 0) are unused. Assign logic for all port bits or change the input port size.
 @N: CL159 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":56:2:56:16|Input DacXferComplete is unused.
-Finished optimization stage 2 on DacDitherer_1024_24_16_16_4 (CPU Time 0h:00m:00s, Memory Used current: 163MB peak: 163MB)
+Finished optimization stage 2 on DacDitherer_24_16_16_4 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
 Running optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_2layer1 .......
-Finished optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_2layer1 (CPU Time 0h:00m:00s, Memory Used current: 163MB peak: 163MB)
+Finished optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_2layer1 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
 Running optimization stage 2 on SpiDacQuadPorts_102000000_3 .......
-Finished optimization stage 2 on SpiDacQuadPorts_102000000_3 (CPU Time 0h:00m:00s, Memory Used current: 163MB peak: 163MB)
+Finished optimization stage 2 on SpiDacQuadPorts_102000000_3 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
 Running optimization stage 2 on OneShotPorts_work_main_architecture_main_1layer1 .......
-Finished optimization stage 2 on OneShotPorts_work_main_architecture_main_1layer1 (CPU Time 0h:00m:00s, Memory Used current: 163MB peak: 163MB)
+Finished optimization stage 2 on OneShotPorts_work_main_architecture_main_1layer1 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
 Running optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_1layer1 .......
-Finished optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_1layer1 (CPU Time 0h:00m:00s, Memory Used current: 163MB peak: 163MB)
+Finished optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_1layer1 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
 Running optimization stage 2 on SpiDacQuadPorts_102000000_2 .......
-Finished optimization stage 2 on SpiDacQuadPorts_102000000_2 (CPU Time 0h:00m:00s, Memory Used current: 163MB peak: 163MB)
+Finished optimization stage 2 on SpiDacQuadPorts_102000000_2 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
 Running optimization stage 2 on VariableClockDividerPorts_work_main_architecture_main_1layer1 .......
-Finished optimization stage 2 on VariableClockDividerPorts_work_main_architecture_main_1layer1 (CPU Time 0h:00m:00s, Memory Used current: 163MB peak: 163MB)
+Finished optimization stage 2 on VariableClockDividerPorts_work_main_architecture_main_1layer1 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
 Running optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_0layer1 .......
-Finished optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 163MB peak: 163MB)
+Finished optimization stage 2 on SpiMasterQuadPorts_work_main_architecture_main_0layer1 (CPU Time 0h:00m:00s, Memory Used current: 164MB peak: 164MB)
 Running optimization stage 2 on Ltc2378AccumQuadPorts .......
 Finished optimization stage 2 on Ltc2378AccumQuadPorts (CPU Time 0h:00m:00s, Memory Used current: 168MB peak: 168MB)
 Running optimization stage 2 on SpiMasterDualPorts_work_main_architecture_main_0layer1 .......
@@ -829,7 +781,6 @@ Finished optimization stage 2 on IBufP3Ports (CPU Time 0h:00m:00s, Memory Used c
 Running optimization stage 2 on UartRxRaw .......
 Finished optimization stage 2 on UartRxRaw (CPU Time 0h:00m:00s, Memory Used current: 168MB peak: 168MB)
 Running optimization stage 2 on UartRxExtClk .......
-@N: CL159 :"/home/summer/projects/CGraph/firmware/include/fpga/UartRxExtClk.vhd":37:2:37:4|Input clk is unused.
 Finished optimization stage 2 on UartRxExtClk (CPU Time 0h:00m:00s, Memory Used current: 168MB peak: 168MB)
 Running optimization stage 2 on UartRxFifoExtClk_10 .......
 Finished optimization stage 2 on UartRxFifoExtClk_10 (CPU Time 0h:00m:00s, Memory Used current: 168MB peak: 168MB)
@@ -863,7 +814,7 @@ At c_vhdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memor
 
 
 Process completed successfully.
-# Fri Feb 13 17:40:20 2026
+# Tue Feb 17 16:47:20 2026
 
 ###########################################################]
 ###########################################################[
@@ -899,7 +850,7 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Fri Feb 13 17:40:20 2026
+# Tue Feb 17 16:47:20 2026
 
 ###########################################################]
 
@@ -914,6 +865,6 @@ At c_hdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Fri Feb 13 17:40:20 2026
+# Tue Feb 17 16:47:20 2026
 
 ###########################################################]

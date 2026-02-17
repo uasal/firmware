@@ -1028,6 +1028,35 @@ int8_t ClockDacCommand(char const* Name, char const* Params, const size_t Params
 	return(ParamsLen);
 }
 
+int8_t ConfigDacCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	DacConfigRegister cr;
+	unsigned long A = 0;
+	
+	if (NULL == FSM)
+	{
+		formatf("\n\nConfigDacCommand: Fpga interface is not initialized! Please call InitFpga first!.");
+		return(ParamsLen);
+	}
+	
+	//Convert parameters
+    int8_t numfound = sscanf(Params, "%lu", &A);
+    if (numfound >= 1)
+    {
+		cr.DitherClkDivider = A;
+		formatf("\n\nConfigDacCommand: setting DacConfig to: ");
+		cr.formatf();
+		formatf("\n");
+		FSM->DacConfig = cr;
+    }
+	
+	cr = FSM->DacConfig;
+	formatf("\n\nConfigDacCommand: current values: ");
+	cr.formatf();
+	formatf("\n");
+	
+	return(ParamsLen);
+}
 
 //EOF
 

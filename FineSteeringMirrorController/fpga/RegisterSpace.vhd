@@ -79,6 +79,7 @@ entity RegisterSpacePorts is
 		DacCReadback : in std_logic_vector(23 downto 0);		
 		DacDReadback : in std_logic_vector(23 downto 0);		
 		DacTransferComplete : in std_logic; --Prolly a bad idea if we try writing new data to the D/A's while a xfer is in progress...				
+		DitherClkDiv : out std_logic_vector(15 downto 0);	
 
 		-- FSM Readback A/Ds
 		ReadAdcSample : out std_logic;
@@ -228,11 +229,12 @@ architecture RegisterSpace of RegisterSpacePorts is
 	--164-199 reserved by peek infrastructure
 	
 	constant LatchAdcsAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(200, MAX_ADDRESS_BITS));
+	constant DacConfigAddr : std_logic_vector(MAX_ADDRESS_BITS - 1 downto 0) := std_logic_vector(to_unsigned(204, MAX_ADDRESS_BITS));
 	
 	--Control Signals
 	
-	signal LastReadReq :  std_logic := '0';		
-	signal LastWriteReq :  std_logic := '0';		
+	signal LastReadReq : std_logic;
+	signal LastWriteReq : std_logic;
 
 	signal Uart0ClkDivider_i : std_logic_vector(7 downto 0);
 	signal Uart1ClkDivider_i : std_logic_vector(7 downto 0);
@@ -241,35 +243,36 @@ architecture RegisterSpace of RegisterSpacePorts is
 	
 	
 	signal MonitorAdcChannelReadIndex_i : std_logic_vector(4 downto 0);	
-	signal MonitorAdcSpiFrameEnable_i : std_logic := '0';	
+	signal MonitorAdcSpiFrameEnable_i : std_logic;
 	
-	signal WriteDacs_i :  std_logic := '0';		
-	signal DacASetpoint_i :  std_logic_vector(23 downto 0) := x"000000";		
-	signal DacBSetpoint_i :  std_logic_vector(23 downto 0) := x"000000";		
-	signal DacCSetpoint_i :  std_logic_vector(23 downto 0) := x"000000";	
-	signal DacDSetpoint_i :  std_logic_vector(23 downto 0) := x"000000";	
+	signal WriteDacs_i :  std_logic;
+	signal DacASetpoint_i :  std_logic_vector(23 downto 0);		
+	signal DacBSetpoint_i :  std_logic_vector(23 downto 0);		
+	signal DacCSetpoint_i :  std_logic_vector(23 downto 0);	
+	signal DacDSetpoint_i :  std_logic_vector(23 downto 0);	
 	
-	signal PowernEn_i :  std_logic := '0';								
-	signal Uart0OE_i :  std_logic := '0';
-	signal Uart1OE_i :  std_logic := '0';
-	signal Uart2OE_i :  std_logic := '0';
-	signal Uart3OE_i :  std_logic := '0';								
-	signal Ux1SelJmp_i :  std_logic := '0';
+	signal PowernEn_i :  std_logic;
+	signal Uart0OE_i :  std_logic;
+	signal Uart1OE_i :  std_logic;
+	signal Uart2OE_i :  std_logic;
+	signal Uart3OE_i :  std_logic;								
+	signal Ux1SelJmp_i :  std_logic;
 	
-	signal PowernEnHV_i :  std_logic := '0';
-	signal HVEn1_i :  std_logic := '0';
-	signal HVEn2_i :  std_logic := '0';
-	signal DacSelectMaxti_i :  std_logic := '0';								
-	signal GlobalFaultInhibit_i :  std_logic := '0';
-	signal nFaultsClr_i :  std_logic := '0';
+	signal PowernEnHV_i :  std_logic;
+	signal HVEn1_i :  std_logic;
+	signal HVEn2_i :  std_logic;
+	signal DacSelectMaxti_i :  std_logic;
+	signal GlobalFaultInhibit_i :  std_logic;
+	signal nFaultsClr_i :  std_logic;
 	
-	signal ChopEn_i :  std_logic := '0';
-	signal ChopRefState_i :  std_logic := '0';
-	signal ChopAdcState_i :  std_logic := '0';
+	signal ChopEn_i :  std_logic;
+	signal ChopRefState_i :  std_logic;
+	signal ChopAdcState_i :  std_logic;
 	signal AdcClkDivider_i : std_logic_vector(15 downto 0);	
 	signal AdcSamplesToAverage_i : std_logic_vector(15 downto 0);	
 	signal ControlAdcMaxAccums_i : std_logic_vector(15 downto 0);	
 	signal MonitorAdcMaxAccums_i : std_logic_vector(15 downto 0);	
+	signal DitherClkDiv_i : std_logic_vector(15 downto 0);	
 		
 begin
 
@@ -316,7 +319,7 @@ begin
 	AdcSamplesToAverage <= AdcSamplesToAverage_i;	
 	ControlAdcMaxAccums <= ControlAdcMaxAccums_i;
 	MonitorAdcMaxAccums <= MonitorAdcMaxAccums_i;
-
+	DitherClkDiv <= DitherClkDiv_i;
 	
 	process (clk, rst)
 	begin
@@ -398,8 +401,9 @@ begin
 			--~ AdcClkDivider => x"FFFF", --1kHz
 			AdcSamplesToAverage_i <= x"FFFF";		
 			--~ AdcSamplesToAverage_i => x"0001",		
-			ControlAdcMaxAccums <= x"00FF"; --24b A/D won't overflow 32b int unless >256 accums...
-			MonitorAdcMaxAccums <= x"00FF";
+			ControlAdcMaxAccums_i <= x"00FF"; --24b A/D won't overflow 32b int unless >256 accums...
+			MonitorAdcMaxAccums_i <= x"00FF";
+			DitherClkDiv_i <= x"03FF"; --1024
 
 		else
 			
@@ -469,6 +473,11 @@ begin
 								--DataOut(31 downto 24) <= x"58";
 								DataOut(31 downto 24) <= x"00";
 														
+							when DacConfigAddr =>
+							
+								DataOut(15 downto 0) <= DitherClkDiv_i;
+								DataOut(31 downto 16) <= x"0000";
+								
 								
 
 							--FSM Readback A/D's
@@ -630,7 +639,7 @@ begin
 								DataOut(6) <= '0';
 								DataOut(7) <= '0';
 								DataOut(17 downto 8) <= Uart0RxFifoCount;
-								DataOut(27 downto 18) <= Uart0RxFifoCount;
+								DataOut(27 downto 18) <= Uart0TxFifoCount;
 								DataOut(31 downto 28) <= "0000";
 								
 						
@@ -658,7 +667,7 @@ begin
 								DataOut(6) <= '0';
 								DataOut(7) <= '0';
 								DataOut(17 downto 8) <= Uart1RxFifoCount;
-								DataOut(27 downto 18) <= Uart1RxFifoCount;
+								DataOut(27 downto 18) <= Uart1TxFifoCount;
 								DataOut(31 downto 28) <= "0000";
 							
 							
@@ -686,7 +695,7 @@ begin
 								DataOut(6) <= '0';
 								DataOut(7) <= '0';
 								DataOut(17 downto 8) <= Uart2RxFifoCount;
-								DataOut(27 downto 18) <= Uart2RxFifoCount;
+								DataOut(27 downto 18) <= Uart2TxFifoCount;
 								DataOut(31 downto 28) <= "0000";
 							
 							
@@ -714,7 +723,7 @@ begin
 								DataOut(6) <= '0';
 								DataOut(7) <= '0';
 								DataOut(17 downto 8) <= Uart3RxFifoCount;
-								DataOut(27 downto 18) <= Uart3RxFifoCount;
+								DataOut(27 downto 18) <= Uart3TxFifoCount;
 								DataOut(31 downto 28) <= "0000";
 								
 							--Uart Clock dividers
@@ -894,6 +903,13 @@ begin
 								--The $$$ question: does our processor hit the low addr last or the high one???
 								--~ if ('1' = DacTransferComplete) then WriteDacs_i <= '1'; end if;
 								WriteDacs_i <= '1';
+								
+							when DacConfigAddr =>
+							
+								DitherClkDiv_i <= DataIn(15 downto 0);
+								--~  <= DataIn(31 downto 16);
+							
+
 								
 								
 							--~ --FSM Readback A/D's

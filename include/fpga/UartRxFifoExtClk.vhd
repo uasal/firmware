@@ -98,7 +98,6 @@ architecture implementation of UartRxFifoExtClk is
 		component UartRxExtClk is
 		port 
 		(
-			clk : in std_logic;
 			uclk : in std_logic;
 			rst : in std_logic;
             UartClk : out std_logic; --debug
@@ -132,7 +131,6 @@ begin
 	--The actual uart to grab data
 	Uart : UartRxExtClk
 	port map (						
-		clk => clk,
 		uclk => uclk,
         UartClk => open,
 		rst => rst,

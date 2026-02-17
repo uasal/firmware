@@ -34,7 +34,6 @@ use IEEE.NUMERIC_STD.all;
 entity UartRxExtClk is
 	port 
 	(
-		clk : in std_logic;
 		uclk : in std_logic;
 		rst : in std_logic;
 		UartClk : out std_logic; --debug

@@ -166,7 +166,8 @@ struct CGraphFSMHardwareInterface
 	int32_t AdcDAccumulator; //84; rw; Third A/D; read or write any value to clear & reset accumulator
     int32_t AdcDAccumulatorHiandNumAccums; //88; rw; Third A/D; read or write any value to clear & reset accumulator
     
-	AdcAccumulator MonitorAdcAccumulator; //92; ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
+	int32_t MonitorAdcAccumulator; //92; ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
+	int32_t MonitorAdcAccumulatorHiandNumAccums; //96; ro; Monitor A/D samples for channel specififed in MonitorAdcReadChannel
 	uint32_t MonitorAdcReadChannel; //100; rw; which channel to read for MonitorA/D
 	uint32_t MonitorAdcSpiTransactionRegister; //104; rw
 	CGraphDualMonitorAdcCommandStatusRegister MonitorAdcSpiCommandStatusRegister; //108; 
@@ -209,6 +210,7 @@ struct CGraphFSMHardwareInterface
 	uint32_t Uart0Crc; //196
 	
 	uint32_t LatchAdcs; //200; wo; Transfers AdcAccumulators to read registers so reads are atomic across channels & datawords
+	DacConfigRegister DacConfig; //204; rw; configure D/A's
 
 	static const uint32_t DacFullScale; //2^20 - 1
     static const double DacDriverFullScaleOutputVoltage; //150 Volts, don't get your fingers near this thing!

@@ -120,8 +120,8 @@ architecture implementation of UartTxFifoExtClk is
 			signal TxInProgress_i_i : std_logic; --same thing, uart clk domain
 			
 			type States is (Idle, StartRead, WaitAck, Tx);
-			signal NextState : States := Idle;
-			signal CurrentState : States := Idle;
+			signal NextState : States;
+			signal CurrentState : States;
 			
 			signal Cts_i : std_logic;
 

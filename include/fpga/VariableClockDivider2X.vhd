@@ -44,7 +44,7 @@ end VariableClockDividerPorts;
 
 architecture VariableClockDivider of VariableClockDividerPorts is
 
-	signal ClkDiv : natural range 0 to ((2**WIDTH_BITS) - 1) := 0;
+	signal ClkDiv : natural range 0 to ((2**WIDTH_BITS) - 1);
 	signal clko_i : std_logic;	
 
 begin

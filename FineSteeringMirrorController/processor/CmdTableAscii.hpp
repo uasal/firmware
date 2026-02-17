@@ -49,6 +49,7 @@ int8_t ControlRegisterCommand(char const* Name, char const* Params, const size_t
 int8_t SelectDacCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t SelectOutputCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 int8_t ClockDacCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
+int8_t ConfigDacCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument);
 
 ///The actual table (array) of commands for the system - links with CmdSystem.cpp.o
 extern const Cmd AsciiCmds[];

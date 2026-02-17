@@ -45,16 +45,16 @@ architecture rtl of fifo is
 	--~ shared variable RAM		: ram_type := (others => (others => '0'));
 	shared variable RAM		: ram_type;
 	-- Read/Write address pointers
-	signal raddr_r, waddr_r	: unsigned(DEPTH_BITS - 1 downto 0) := (others => '0');
+	signal raddr_r, waddr_r	: unsigned(DEPTH_BITS - 1 downto 0);
 	-- Async. counter change/Read/Write flag
-	signal do_count			: std_logic := '0';
-	signal do_write			: std_logic := '0';
-	signal do_read			: std_logic := '0';
+	signal do_count			: std_logic;
+	signal do_write			: std_logic;
+	signal do_read			: std_logic;
 	-- Fill counter
-	signal counter_r		: natural range 0 to DEPTH := 0;
-	signal empty_r			: std_logic := '1';
-	signal full_r			: std_logic := '0';
-	signal data_r			: std_logic_vector(WIDTH_BITS - 1 downto 0) := (others => '0');
+	signal counter_r		: natural range 0 to DEPTH;
+	signal empty_r			: std_logic;
+	signal full_r			: std_logic;
+	signal data_r			: std_logic_vector(WIDTH_BITS - 1 downto 0);
 begin
 	do_read <= re_i and not empty_r;
 	do_write <= we_i and not full_r;

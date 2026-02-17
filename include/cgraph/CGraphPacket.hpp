@@ -531,6 +531,10 @@ static const uint16_t CGraphPayloadTypeFSMAdcs = 0x2003U;
 static const uint16_t CGraphPayloadTypeFSMAdcsFloatingPoint = 0x2004U;
 static const uint16_t CGraphPayloadTypeFSMDacsFloatingPoint = 0x2005U;
 static const uint16_t CGraphPayloadTypeFSMTelemetry = 0x2006U;
+static const uint16_t CGraphPayloadTypeFSMHardwareConfigRegister = 0x2007U;
+static const uint16_t CGraphPayloadTypeFSMAdcConfigRegister = 0x2008U;
+static const uint16_t CGraphPayloadTypeFSMAccumulatorConfigRegister = 0x2009U;
+static const uint16_t CGraphPayloadTypeFSMDacConfigRegister = 0x200AU;
 
 static const uint16_t CGraphPayloadTypeFSMDacsFloatingPointDeprecated = 0x0003U; //Payload: 3 double-precision floats
 static const uint16_t CGraphPayloadTypeFSMAdcsDeprecated = 0x0004U; //Payload: 3 AdcAcumulators

@@ -1,4 +1,4 @@
-# Fri Feb 13 17:40:21 2026
+# Tue Feb 17 16:47:21 2026
 
 
 Copyright (C) 1994-2022 Synopsys, Inc.
@@ -32,129 +32,25 @@ See clock summary report "/home/summer/projects/CGraph/firmware/FineSteeringMirr
 @N: MF248 |Running in 64-bit mode.
 @N: MF667 |Clock conversion disabled. (Command "set_option -fix_gated_and_generated_clocks 0" in the project file.)
 
-Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 248MB peak: 248MB)
+Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 249MB peak: 249MB)
 
 
-Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 248MB peak: 248MB)
+Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 249MB peak: 249MB)
 
 
 Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 250MB peak: 250MB)
 
 
-Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 252MB peak: 252MB)
+Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 253MB peak: 253MB)
 
 NConnInternalConnection caching is on
 @W: BN132 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1089:4:1089:9|Removing sequential instance FineSteeringMirror_sb_0.CORERESETP_0.MDDR_DDR_AXI_S_CORE_RESET_N_int because it is equivalent to instance FineSteeringMirror_sb_0.CORERESETP_0.FDDR_CORE_RESET_N_int. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|User-specified initial value defined for instance Main_0.BootupReset.ClkDiv[9:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|User-specified initial value defined for instance Main_0.BootupReset.shot_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.WriteDacs_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacDSetpoint_i[23:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacCSetpoint_i[23:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacBSetpoint_i[23:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacASetpoint_i[23:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.nFaultsClr_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart3OE_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart2OE_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart1OE_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.Uart0OE_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.PowernEnHV_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.HVEn1_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.DacSelectMaxti_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.ChopEn_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.Ux1SelJmp_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.PowernEn_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.MonitorAdcSpiFrameEnable_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.HVEn2_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.GlobalFaultInhibit_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.ChopRefState_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.ChopAdcState_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.LastWriteReq is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|User-specified initial value defined for instance Main_0.RegisterSpace.LastReadReq is being ignored due to limitations in architecture. 
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[15] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[14] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[13] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[12] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[11] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[10] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[9] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[8] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[15] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[14] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[13] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[12] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[11] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[10] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[9] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net GND, connecting output pin:Q[8] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to GND
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[7] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[6] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[5] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[4] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[3] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[2] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[1] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[0] inst:MonitorAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[7] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[6] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[5] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[4] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[3] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[2] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[1] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@W: BN393 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Resolving multiple drivers on net VCC, connecting output pin:Q[0] inst:ControlAdcMaxAccums_i[15:0] of PrimLib.dffe(prim) to VCC
-@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Removing sequential instance MonitorAdcMaxAccums_i[15:0] (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Removing sequential instance ControlAdcMaxAccums_i[15:0] (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffe(prim) because it does not drive other instances.
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|User-specified initial value defined for instance Main_0.DacDithererMaxD.DitherClk.ClkDiv[8:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":110:2:110:3|User-specified initial value defined for instance Main_0.DacDithererMaxD.DitherPos[3:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/DacDitherer.vhd":110:2:110:3|User-specified initial value defined for instance Main_0.DacDithererTiD.DitherPos[3:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|User-specified initial value defined for instance Main_0.nLDacsOneShot.ClkDiv[2:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|User-specified initial value defined for instance Main_0.nLDacsOneShot.shot_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.ltc2378.clk_div_adcconv.ClkDiv[15] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.ltc2378.clk_div_adcconv.ClkDiv[14] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.ltc2378.clk_div_adcconv.ClkDiv[13] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.ltc2378.clk_div_adcconv.ClkDiv[12] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.ltc2378.clk_div_adcconv.ClkDiv[11] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.ltc2378.clk_div_adcconv.ClkDiv[10] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.ltc2378.clk_div_adcconv.ClkDiv[9] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.ltc2378.clk_div_adcconv.ClkDiv[8] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.ltc2378.clk_div_adcconv.ClkDiv[7] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.ltc2378.clk_div_adcconv.ClkDiv[6] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.ltc2378.clk_div_adcconv.ClkDiv[5] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.ltc2378.clk_div_adcconv.ClkDiv[4] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.ltc2378.clk_div_adcconv.ClkDiv[3] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.ltc2378.clk_div_adcconv.ClkDiv[2] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.ltc2378.clk_div_adcconv.ClkDiv[1] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.ltc2378.clk_div_adcconv.ClkDiv[0] is being ignored due to limitations in architecture. 
 @W: BN132 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":318:2:318:3|Removing sequential instance Main_0.ltc2378.SampleLatched because it is equivalent to instance Main_0.ltc2378.SpiRst. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.Uart3BitClockDiv.ClkDiv[7] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.Uart3BitClockDiv.ClkDiv[6] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.Uart3BitClockDiv.ClkDiv[5] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.Uart3BitClockDiv.ClkDiv[4] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.Uart3BitClockDiv.ClkDiv[3] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.Uart3BitClockDiv.ClkDiv[2] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.Uart3BitClockDiv.ClkDiv[1] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|User-specified initial value defined for instance Main_0.Uart3BitClockDiv.ClkDiv[0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|User-specified initial value defined for instance Main_0.Uart3TxBitClockDiv.ClkDiv[2:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|User-specified initial value defined for instance Main_0.RS433_Rx3.UartFifo.fifo_i.counter_r[10:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|User-specified initial value defined for instance Main_0.RS433_Rx3.UartFifo.fifo_i.waddr_r[9:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|User-specified initial value defined for instance Main_0.RS433_Rx3.UartFifo.fifo_i.raddr_r[9:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|User-specified initial value defined for instance Main_0.RS433_Rx3.UartFifo.fifo_i.empty_r is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|User-specified initial value defined for instance Main_0.RS433_Rx3.UartFifo.fifo_i.full_r is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":124:2:124:3|User-specified initial value defined for instance Main_0.RS433_Rx3.UartFifo.fifo_i.data_r[7:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":86:2:86:3|User-specified initial value defined for instance Main_0.RS433_Rx3.UartFifo.we_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":86:2:86:3|User-specified initial value defined for instance Main_0.RS433_Rx3.UartFifo.re_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":86:2:86:3|User-specified initial value defined for instance Main_0.RS433_Rx3.UartFifo.Last_wone_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":86:2:86:3|User-specified initial value defined for instance Main_0.RS433_Rx3.UartFifo.Last_rone_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd":59:2:59:3|User-specified initial value defined for instance Main_0.RS433_Tx3.UartTxUart.Busy_i is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTx.vhd":59:2:59:3|User-specified initial value defined for instance Main_0.RS433_Tx3.UartTxUart.LastGo is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":205:2:205:3|User-specified initial value defined for instance Main_0.RS433_Tx3.CurrentState[1:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":205:2:205:3|User-specified initial value defined for instance Main_0.RS433_Tx3.NextState[1:0] is being ignored due to limitations in architecture. 
-@W: FX1172 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":54:65:54:65|User-specified initial value defined for instance Main_0.PPSAccumulator.InvalidatePPSCount is being ignored due to limitations in architecture. 
 
-Starting HSTDM IP insertion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 290MB peak: 290MB)
+Starting HSTDM IP insertion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 291MB peak: 291MB)
 
 
-Finished HSTDM IP insertion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 290MB peak: 290MB)
+Finished HSTDM IP insertion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 291MB peak: 291MB)
 
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":17:7:17:20|Tristate driver RCOSC_1MHZ_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net RCOSC_1MHZ_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":18:7:18:20|Tristate driver RCOSC_1MHZ_O2F (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net RCOSC_1MHZ_O2F (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
@@ -178,16 +74,16 @@ Finished HSTDM IP insertion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:0
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":733:4:733:9|Sequential instance FineSteeringMirror_sb_0.CORERESETP_0.SDIF3_PERST_N_q3 is reduced to a combinational gate by constant propagation.
 @W: MO129 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1388:4:1388:9|Sequential instance FineSteeringMirror_sb_0.CORERESETP_0.RESET_N_F2M_int is reduced to a combinational gate by constant propagation.
 
-Started DisTri Cleanup (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 290MB peak: 290MB)
+Started DisTri Cleanup (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 291MB peak: 291MB)
 
 
-Finished DisTri Cleanup (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 290MB peak: 290MB)
+Finished DisTri Cleanup (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 291MB peak: 291MB)
 
 @N: BN115 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":192:1:192:7|Removing instance IBufCts (in view: work.UartTxFifoExtClk_10_3(implementation)) because it does not drive other instances.
 @N: BN115 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":192:1:192:7|Removing instance IBufCts (in view: work.UartTxFifoExtClk_10_2(implementation)) because it does not drive other instances.
 @N: BN115 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":192:1:192:7|Removing instance IBufCts (in view: work.UartTxFifoExtClk_10_1(implementation)) because it does not drive other instances.
 @N: BN115 :"/home/summer/projects/CGraph/firmware/include/fpga/UartTxFifoExtClk.vhd":192:1:192:7|Removing instance IBufCts (in view: work.UartTxFifoExtClk_10_0(implementation)) because it does not drive other instances.
-@N: BN115 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1319:1:1319:13|Removing instance BuildNumber_i (in view: work.Main(architecture_main)) because it does not drive other instances.
+@N: BN115 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1283:1:1283:13|Removing instance BuildNumber_i (in view: work.Main(architecture_main)) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1089:4:1089:9|Removing sequential instance DDR_READY_int (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1089:4:1089:9|Removing sequential instance SDIF_READY_int (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1089:4:1089:9|Removing sequential instance SDIF_RELEASED_int (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
@@ -201,22 +97,18 @@ Finished DisTri Cleanup (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:0
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1365:4:1365:9|Removing sequential instance SDIF3_PHY_RESET_N_int (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1365:4:1365:9|Removing sequential instance SDIF3_CORE_RESET_N_0 (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd":110:2:110:3|Removing sequential instance DataToMosiLatched (in view: work.SpiMasterQuadPorts_work_main_architecture_main_0layer1(spimasterquad)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Removing sequential instance WriteDacs_i (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":324:2:324:3|Removing sequential instance ReadMonitorAdcSample (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":327:2:327:3|Removing sequential instance WriteDacs_i (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/RegisterSpace.vhd":327:2:327:3|Removing sequential instance ReadMonitorAdcSample (in view: work.RegisterSpacePorts_10(registerspace)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiDac.vhd":145:2:145:3|Removing sequential instance TransferComplete (in view: work.SpiDacPorts_work_main_architecture_main_0layer1(spidac)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd":96:2:96:3|Removing sequential instance MosiB_i (in view: work.SpiMasterDualPorts_work_main_architecture_main_0layer1(spimasterdual)) of type view:PrimLib.dffrse(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":86:2:86:3|Removing sequential instance r_ack (in view: work.gated_fifo_8_10_0(rtl)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":86:2:86:3|Removing sequential instance r_ack (in view: work.gated_fifo_8_10_1_1(rtl)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":86:2:86:3|Removing sequential instance r_ack (in view: work.gated_fifo_8_10_1_3(rtl)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":86:2:86:3|Removing sequential instance r_ack (in view: work.gated_fifo_8_10_1_5(rtl)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":84:2:84:3|Removing sequential instance r_ack (in view: work.gated_fifo_8_10_0(rtl)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":84:2:84:3|Removing sequential instance r_ack (in view: work.gated_fifo_8_10_1_1(rtl)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":84:2:84:3|Removing sequential instance r_ack (in view: work.gated_fifo_8_10_1_3(rtl)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/gated_fifo.vhd":84:2:84:3|Removing sequential instance r_ack (in view: work.gated_fifo_8_10_1_5(rtl)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1170:4:1170:9|Removing sequential instance sdif0_state[3:0] (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.statemachine(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1235:4:1235:9|Removing sequential instance sdif1_state[3:0] (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.statemachine(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1300:4:1300:9|Removing sequential instance sdif2_state[3:0] (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.statemachine(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":1365:4:1365:9|Removing sequential instance sdif3_state[3:0] (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.statemachine(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Removing sequential instance count_o[9:0] (in view: work.fifo_8_10_1_0(rtl)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Removing sequential instance count_o[9:0] (in view: work.fifo_8_10_1_2(rtl)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Removing sequential instance count_o[9:0] (in view: work.fifo_8_10_1_4(rtl)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
-@N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Removing sequential instance count_o[9:0] (in view: work.fifo_8_10_1_6(rtl)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":797:4:797:9|Removing sequential instance sdif0_areset_n_clk_base (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":811:4:811:9|Removing sequential instance sdif1_areset_n_clk_base (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
 @N: BN362 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/Actel/DirectCore/CoreResetP/7.1.100/rtl/vlog/core/coreresetp.v":825:4:825:9|Removing sequential instance sdif2_areset_n_clk_base (in view: work.CoreResetP_Z2_layer0(verilog)) of type view:PrimLib.dffr(prim) because it does not drive other instances.
@@ -232,7 +124,7 @@ Finished DisTri Cleanup (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:0
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":124:2:124:3|Removing sequential instance r_ack (in view: work.fifo_8_10_1_5(rtl)) of type view:PrimLib.dff(prim) because it does not drive other instances.
 @N: FX1184 |Applying syn_allowed_resources blockrams=21 on top level netlist FineSteeringMirror 
 
-Finished netlist restructuring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 292MB peak: 292MB)
+Finished netlist restructuring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 293MB peak: 293MB)
 
 
 
@@ -246,7 +138,7 @@ Level     Clock                                                                 
                                                                                                                                                                              
 0 -       System                                                                                    100.0 MHz     10.000        system       system_clkgroup            0    
                                                                                                                                                                              
-0 -       FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             100.0 MHz     10.000        inferred     Inferred_clkgroup_0_1      2929 
+0 -       FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             100.0 MHz     10.000        inferred     Inferred_clkgroup_0_1      3073 
                                                                                                                                                                              
 0 -       FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                   100.0 MHz     10.000        inferred     Inferred_clkgroup_0_10     36   
                                                                                                                                                                              
@@ -281,7 +173,7 @@ CLK0_PAD                                                                        
                                                                                                                                                                                                                                                                                                                                                               
 System                                                                                    0         -                                                                            -                                                                               -                 -                                                                          
                                                                                                                                                                                                                                                                                                                                                               
-FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             2929      FCCC_C0_0.FCCC_C0_0.CCC_INST.GL1(CCC)                                        Main_0.ClkDac_i.LastWriteDac.C                                                  -                 FCCC_C0_0.FCCC_C0_0.GL1_INST.I(BUFG)                                       
+FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock                                             3073      FCCC_C0_0.FCCC_C0_0.CCC_INST.GL1(CCC)                                        Main_0.ClkDac_i.LastWriteDac.C                                                  -                 FCCC_C0_0.FCCC_C0_0.GL1_INST.I(BUFG)                                       
                                                                                                                                                                                                                                                                                                                                                               
 FineSteeringMirror_sb_CCC_0_FCCC|GL0_net_inferred_clock                                   36        FineSteeringMirror_sb_0.CCC_0.CCC_INST.GL0(CCC)                              FineSteeringMirror_sb_0.FineSteeringMirror_sb_MSS_0.MSS_ADLIB_INST.CLK_BASE     -                 FineSteeringMirror_sb_0.CCC_0.GL0_INST.I(BUFG)                             
                                                                                                                                                                                                                                                                                                                                                               
@@ -304,7 +196,7 @@ ClockDividerPorts_work_main_architecture_main_0layer1_2|div_i_inferred_clock    
 ClockDividerPorts_work_main_architecture_main_0layer1_3|div_i_inferred_clock              9         Main_0.Uart0TxBitClockDiv.div_i.Q[0](dffre)                                  Main_0.RS422_Tx0.UartTxUart.LastGo.C                                            -                 -                                                                          
 ==============================================================================================================================================================================================================================================================================================================================================================
 
-@W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found inferred clock FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock which controls 2929 sequential elements including Main_0.BootupReset.ClkDiv[9:0]. This clock has no specified timing constraint which may adversely impact design performance. 
+@W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found inferred clock FCCC_C0_FCCC_C0_0_FCCC|GL1_net_inferred_clock which controls 3073 sequential elements including Main_0.BootupReset.ClkDiv[9:0]. This clock has no specified timing constraint which may adversely impact design performance. 
 @W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":47:2:47:3|Found inferred clock ClockDividerPorts_work_main_architecture_main_0layer1_0|div_i_inferred_clock which controls 9 sequential elements including Main_0.RS433_Tx3.IBufStartTx.Temp1. This clock has no specified timing constraint which may adversely impact design performance. 
 @W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Found inferred clock VariableClockDividerPorts_work_main_architecture_main_0layer1_0|clko_i_inferred_clock which controls 31 sequential elements including Main_0.Uart3TxBitClockDiv.div_i. This clock has no specified timing constraint which may adversely impact design performance. 
 @W: MT530 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":47:2:47:3|Found inferred clock ClockDividerPorts_work_main_architecture_main_0layer1_1|div_i_inferred_clock which controls 9 sequential elements including Main_0.RS422_Tx2.IBufStartTx.Temp1. This clock has no specified timing constraint which may adversely impact design performance. 
@@ -321,7 +213,7 @@ Finished Pre Mapping Phase.
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v":145:7:145:12|Tristate driver MosiXO (in view: work.FineSteeringMirror(verilog)) on net MosiXO (in view: work.FineSteeringMirror(verilog)) has its enable tied to GND.
 @N: BN225 |Writing default property annotation file /home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/synthesis/FineSteeringMirror.sap.
 
-Starting constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 292MB peak: 292MB)
+Starting constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 293MB peak: 293MB)
 
 Encoding state machine sm0_state[6:0] (in view: work.CoreResetP_Z2_layer0(verilog))
 original code -> new code
@@ -333,16 +225,16 @@ original code -> new code
    101 -> 0100000
    110 -> 1000000
 
-Finished constraint checker preprocessing (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 292MB peak: 292MB)
+Finished constraint checker preprocessing (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 293MB peak: 293MB)
 
 
-Finished constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 294MB peak: 294MB)
+Finished constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 295MB peak: 295MB)
 
 Pre-mapping successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 294MB peak: 294MB)
+At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 295MB peak: 295MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Fri Feb 13 17:40:22 2026
+# Tue Feb 17 16:47:22 2026
 
 ###########################################################]

@@ -49,13 +49,11 @@ architecture rtl of gated_fifo is
 	);
 	end component;
 
-	signal we_i : std_logic := '0';
-	signal re_i : std_logic := '0';
-	signal r_ack_i : std_logic := '0';
-	--~ signal written : std_logic := '0';
-	--~ signal readed : std_logic := '0';
-	signal Last_wone_i : std_logic := '0';
-	signal Last_rone_i : std_logic := '0';
+	signal we_i : std_logic;
+	signal re_i : std_logic;
+	signal r_ack_i : std_logic;
+	signal Last_wone_i : std_logic;
+	signal Last_rone_i : std_logic;
 	
 
 begin
@@ -87,8 +85,6 @@ begin
 		
 			we_i <= '0';
 			re_i <= '0';
-			--~ written <= '0';
-			--~ readed <= '0';
 			Last_wone_i <= '0';
 			Last_rone_i <= '0';
 			r_ack <= '0';

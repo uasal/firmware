@@ -215,6 +215,12 @@ const Cmd AsciiCmds[] =
         "\"ClockDac <0 - 65535>\": Set/Query clock steering D/A.",
         ClockDacCommand
     ),
+	
+	Cmd(
+        "CONFIGDAC",
+        "\"ConfigDac <0 - 65535>\": Set/Query D/A dither clock divider (note: values < 100 will kill D/A SPI timing).",
+        ConfigDacCommand
+    ),
 };
 
 //Calculate the number of commands instanciated in the system - links with CmdSystem.cpp.o

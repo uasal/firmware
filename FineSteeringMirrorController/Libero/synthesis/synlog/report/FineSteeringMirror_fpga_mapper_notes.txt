@@ -8,11 +8,18 @@
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FABOSC_0/FineSteeringMirror_sb_FABOSC_0_OSC.v":15:7:15:24|Tristate driver RCOSC_25_50MHZ_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) on net RCOSC_25_50MHZ_CCC (in view: work.FineSteeringMirror_sb_FABOSC_0_OSC(verilog)) has its enable tied to GND.
 @N: MO111 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror/FineSteeringMirror.v":145:7:145:12|Tristate driver MosiXO (in view: work.FineSteeringMirror(verilog)) on net MosiXO (in view: work.FineSteeringMirror(verilog)) has its enable tied to GND.
 @N: BN115 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/Libero/component/work/FineSteeringMirror_sb/FineSteeringMirror_sb.v":347:0:347:11|Removing instance FineSteeringMirror_sb_0.CORERESETP_0 (in view: work.FineSteeringMirror(verilog)) because it does not drive other instances.
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance DacDithererMaxA.DitherClk.ClkDiv[15:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance DacDithererMaxB.DitherClk.ClkDiv[15:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance DacDithererMaxC.DitherClk.ClkDiv[15:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance DacDithererMaxD.DitherClk.ClkDiv[15:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance DacDithererTiA.DitherClk.ClkDiv[15:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance DacDithererTiB.DitherClk.ClkDiv[15:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance DacDithererTiC.DitherClk.ClkDiv[15:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance DacDithererTiD.DitherClk.ClkDiv[15:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart0BitClockDiv.ClkDiv[7:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart1BitClockDiv.ClkDiv[7:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart2BitClockDiv.ClkDiv[7:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/VariableClockDivider2X.vhd":57:2:57:3|Found counter in view:work.Main(architecture_main) instance Uart3BitClockDiv.ClkDiv[7:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/ClockDivider.vhd":55:2:55:3|Found counter in view:work.Main(architecture_main) instance DacDithererMaxA.DitherClk.ClkDiv[8:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/OneShot.vhd":58:2:58:3|Found counter in view:work.Main(architecture_main) instance BootupReset.ClkDiv[9:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":318:2:318:3|Found counter in view:work.Ltc2378AccumQuadPorts(ltc2378accumquad) instance SamplesAveraged[15:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterDual.vhd":96:2:96:3|Found counter in view:work.SpiMasterDualPorts_work_main_architecture_main_0layer1(spimasterdual) instance ClkDiv[6:0] 
@@ -20,70 +27,73 @@
 @N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.fifo_8_10_0(rtl) instance counter_r[10:0]  
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_0(rtl) instance waddr_r[9:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_0(rtl) instance raddr_r[9:0] 
-@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM fifo_i.ram[7:0] with specified coding style. Inferring block RAM.
-@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_0(rtl) instance fifo_i.counter_r[10:0]  
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_0(rtl) instance fifo_i.waddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_0(rtl) instance fifo_i.raddr_r[9:0] 
+@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
+@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.fifo_8_10_1_0(rtl) instance counter_r[10:0]  
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_0(rtl) instance waddr_r[9:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_0(rtl) instance raddr_r[9:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
 @N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.fifo_8_10_1_1(rtl) instance counter_r[10:0]  
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_1(rtl) instance waddr_r[9:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_1(rtl) instance raddr_r[9:0] 
-@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM fifo_i.ram[7:0] with specified coding style. Inferring block RAM.
-@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_2(rtl) instance fifo_i.counter_r[10:0]  
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_2(rtl) instance fifo_i.waddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_2(rtl) instance fifo_i.raddr_r[9:0] 
+@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
+@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.fifo_8_10_1_2(rtl) instance counter_r[10:0]  
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_2(rtl) instance waddr_r[9:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_2(rtl) instance raddr_r[9:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
 @N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.fifo_8_10_1_3(rtl) instance counter_r[10:0]  
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_3(rtl) instance waddr_r[9:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_3(rtl) instance raddr_r[9:0] 
-@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM fifo_i.ram[7:0] with specified coding style. Inferring block RAM.
-@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_4(rtl) instance fifo_i.counter_r[10:0]  
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_4(rtl) instance fifo_i.waddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_4(rtl) instance fifo_i.raddr_r[9:0] 
+@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
+@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.fifo_8_10_1_4(rtl) instance counter_r[10:0]  
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_4(rtl) instance waddr_r[9:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_4(rtl) instance raddr_r[9:0] 
 @N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
 @N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.fifo_8_10_1_5(rtl) instance counter_r[10:0]  
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_5(rtl) instance waddr_r[9:0] 
 @N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_5(rtl) instance raddr_r[9:0] 
-@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM fifo_i.ram[7:0] with specified coding style. Inferring block RAM.
-@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.gated_fifo_8_10_1_6(rtl) instance fifo_i.counter_r[10:0]  
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_6(rtl) instance fifo_i.waddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.gated_fifo_8_10_1_6(rtl) instance fifo_i.raddr_r[9:0] 
-@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":54:65:54:65|Found counter in view:work.PPSCountPorts_work_main_architecture_main_0layer1(ppscount) instance PPSAccum_i[31:0] 
+@N: FX403 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":46:17:46:19|Property "block_ram" or "no_rw_check" found for RAM ram[7:0] with specified coding style. Inferring block RAM.
+@N: MO230 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found up-down counter in view:work.fifo_8_10_1_6(rtl) instance counter_r[10:0]  
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_6(rtl) instance waddr_r[9:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/fifo_gen.vhd":68:2:68:3|Found counter in view:work.fifo_8_10_1_6(rtl) instance raddr_r[9:0] 
+@N: MO231 :"/home/summer/projects/CGraph/firmware/include/fpga/PPSCount.vhd":65:2:65:3|Found counter in view:work.PPSCountPorts_work_main_architecture_main_0layer1(ppscount) instance PPSAccum_i[31:0] 
 @N: BN362 :"/home/summer/projects/CGraph/firmware/include/fpga/SpiMasterQuad.vhd":110:2:110:3|Removing sequential instance FSMDacsMax_i.Spi.DataToMosiA_i[0] (in view: work.Main(architecture_main)) because it does not drive other instances.
-@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un1_AdcSampleNumAccums_i_1_sqmuxa_i_0_o2 (in view: work.FineSteeringMirror(verilog)) with 193 loads 3 times to improve timing.
-@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":47:2:47:3|Replicating instance Main_0.IBufSarAdcnDrdyC.O (in view: work.FineSteeringMirror(verilog)) with 4 loads 1 time to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1698:1:1698:7|Replicating instance Main_0.ltc2378.m4 (in view: work.FineSteeringMirror(verilog)) with 108 loads 3 times to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1698:1:1698:7|Replicating instance Main_0.ltc2378.m1 (in view: work.FineSteeringMirror(verilog)) with 197 loads 3 times to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":47:2:47:3|Replicating instance Main_0.IBufSarAdcnDrdyC.O (in view: work.FineSteeringMirror(verilog)) with 5 loads 1 time to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1698:1:1698:7|Replicating instance Main_0.ltc2378.m59 (in view: work.FineSteeringMirror(verilog)) with 114 loads 3 times to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un14[24] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un13[24] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
 @N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un15[24] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
 @N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un16[24] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
-@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un13[24] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
-@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un14[24] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un9[0] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un5[0] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
 @N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un11[0] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
 @N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un12[0] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
-@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un5[0] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
-@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un9[0] (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
-@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un1_AdcSampleNumAccums_i_1_sqmuxa_i_0_o2_fast (in view: work.FineSteeringMirror(verilog)) with 45 loads 3 times to improve timing.
-@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un1_AdcSampleNumAccums_i_1_sqmuxa_i_0_o2_rep1 (in view: work.FineSteeringMirror(verilog)) with 47 loads 3 times to improve timing.
-@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un1_AdcSampleNumAccums_i_1_sqmuxa_i_0_o2_rep2 (in view: work.FineSteeringMirror(verilog)) with 49 loads 3 times to improve timing.
-@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/Ltc2378AccumQuad.vhd":360:4:360:5|Replicating instance Main_0.ltc2378.un1_AdcSampleNumAccums_i_1_sqmuxa_i_0_o2 (in view: work.FineSteeringMirror(verilog)) with 52 loads 3 times to improve timing.
-@N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_601 
-@N: FP130 |Promoting Net Main_0.SpiRst_arst on CLKINT  I_602 
-@N: FP130 |Promoting Net Main_0.FSMDacsTi_i.SpiRst_arst on CLKINT  I_603 
-@N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_i on CLKINT  I_604 
-@N: FP130 |Promoting Net Main_0.Uart3FifoReset_i_i on CLKINT  I_605 
-@N: FP130 |Promoting Net Main_0.Uart1FifoReset_i_i on CLKINT  I_606 
-@N: FP130 |Promoting Net Main_0.Uart2FifoReset_i_i on CLKINT  I_607 
-@N: FP130 |Promoting Net Main_0.ltc2378.SpiRst_arst on CLKINT  I_608 
-@N: FP130 |Promoting Net Main_0.RegisterSpace.PPSCountReset on CLKINT  I_609 
-@N: FP130 |Promoting Net Main_0.ClkDac_i.SpiRst_arst on CLKINT  I_610 
-@N: FP130 |Promoting Net Main_0.ads1258.SpiRst_arst on CLKINT  I_611 
-@N: FP130 |Promoting Net Main_0.UartClk3 on CLKINT  I_612 
-@N: FP130 |Promoting Net Main_0.UartClk1 on CLKINT  I_613 
-@N: FP130 |Promoting Net Main_0.UartClk2 on CLKINT  I_614 
-@N: FP130 |Promoting Net Main_0.UartClk0 on CLKINT  I_615 
-@N: FP130 |Promoting Net Main_0.MonitorAdcReset_i_i on CLKINT  I_616 
-@N: FP130 |Promoting Net Main_0.UartTxClk3 on CLKINT  I_617 
-@N: FP130 |Promoting Net TP1_c on CLKINT  I_618 
-@N: FP130 |Promoting Net Main_0.UartTxClk1 on CLKINT  I_619 
-@N: FP130 |Promoting Net Main_0.UartTxClk0 on CLKINT  I_620 
+@N: FX271 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1698:1:1698:7|Replicating instance Main_0.ltc2378.m1_rep1 (in view: work.FineSteeringMirror(verilog)) with 48 loads 3 times to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1698:1:1698:7|Replicating instance Main_0.ltc2378.m1 (in view: work.FineSteeringMirror(verilog)) with 58 loads 3 times to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":47:2:47:3|Replicating instance Main_0.IBufSarAdcnDrdyD.O (in view: work.FineSteeringMirror(verilog)) with 5 loads 1 time to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/include/fpga/IBufP2.vhd":47:2:47:3|Replicating instance Main_0.IBufSarAdcnDrdyB.O (in view: work.FineSteeringMirror(verilog)) with 5 loads 1 time to improve timing.
+@N: FX271 :"/home/summer/projects/CGraph/firmware/FineSteeringMirrorController/fpga/Main.vhd":1698:1:1698:7|Replicating instance Main_0.ltc2378.m1_rep2 (in view: work.FineSteeringMirror(verilog)) with 52 loads 3 times to improve timing.
+@N: FP130 |Promoting Net Main_0.shot_i_arst on CLKINT  I_724 
+@N: FP130 |Promoting Net Main_0.SpiRst_arst on CLKINT  I_725 
+@N: FP130 |Promoting Net Main_0.FSMDacsTi_i.SpiRst_arst on CLKINT  I_726 
+@N: FP130 |Promoting Net Main_0.Uart0FifoReset_i_i on CLKINT  I_727 
+@N: FP130 |Promoting Net Main_0.Uart3FifoReset_i_i on CLKINT  I_728 
+@N: FP130 |Promoting Net Main_0.Uart1FifoReset_i_i on CLKINT  I_729 
+@N: FP130 |Promoting Net Main_0.Uart2FifoReset_i_i on CLKINT  I_730 
+@N: FP130 |Promoting Net Main_0.ltc2378.SpiRst_arst on CLKINT  I_731 
+@N: FP130 |Promoting Net Main_0.RegisterSpace.PPSCountReset on CLKINT  I_732 
+@N: FP130 |Promoting Net Main_0.ClkDac_i.SpiRst_arst on CLKINT  I_733 
+@N: FP130 |Promoting Net Main_0.ads1258.SpiRst_arst on CLKINT  I_734 
+@N: FP130 |Promoting Net Main_0.UartClk3 on CLKINT  I_735 
+@N: FP130 |Promoting Net Main_0.UartClk1 on CLKINT  I_736 
+@N: FP130 |Promoting Net Main_0.UartClk2 on CLKINT  I_737 
+@N: FP130 |Promoting Net Main_0.UartClk0 on CLKINT  I_738 
+@N: FP130 |Promoting Net Main_0.MonitorAdcReset_i_i on CLKINT  I_739 
+@N: FP130 |Promoting Net Main_0.UartTxClk3 on CLKINT  I_740 
+@N: FP130 |Promoting Net TP1_c on CLKINT  I_741 
+@N: FP130 |Promoting Net Main_0.UartTxClk1 on CLKINT  I_742 
+@N: FP130 |Promoting Net Main_0.UartTxClk0 on CLKINT  I_743 
 @N: MT611 :|Automatically generated clock FineSteeringMirror_sb_FABOSC_0_OSC|N_RCOSC_25_50MHZ_CLKOUT_inferred_clock is not used and is being removed
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
 @N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 

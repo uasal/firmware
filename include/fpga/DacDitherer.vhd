@@ -39,7 +39,6 @@ use IEEE.NUMERIC_STD_UNSIGNED.ALL;
 
 entity DacDitherer is
 	generic (
-		DITHER_CLOCK_DIV : natural := 1024;
 		REGISTER_IN_BITS : natural := 24;
 		REGISTER_OUT_BITS : natural := 24;
 		DATA_BITS : natural := 20;
@@ -51,7 +50,8 @@ entity DacDitherer is
 		clk : in std_logic;
 		rst : in std_logic;
 		
-		-- A/D:
+		-- D/A:
+		DitherClkDiv : in std_logic_vector(15 downto 0);
 		DacTrigger : out std_logic;
 		DacXferComplete : in std_logic; --we really shouldn't be updating values when this is low...
 		
@@ -74,31 +74,62 @@ architecture DacDithererLogic of DacDitherer is
 		div : out std_logic
 	);
 	end component;
+
+	component VariableClockDividerPorts is
+	generic (
+		WIDTH_BITS : natural := 8;
+		DIVOUT_RST_STATE : std_logic := '0'--;
+	);
+	port 
+	(						
+		clki : in std_logic;
+		rst : in std_logic;
+		rst_count : in std_logic_vector(WIDTH_BITS - 1 downto 0);
+		terminal_count : in std_logic_vector(WIDTH_BITS - 1 downto 0);
+		clko : out std_logic
+	);
+	end component;
+	
 	
 	constant MaxVal : std_logic_vector((REGISTER_IN_BITS - 1) downto (REGISTER_IN_BITS - DATA_BITS)) := (others => '1');
 	
 	signal DitherClock : std_logic;
 	signal LastDitherClock : std_logic;
 	
-	signal DitherPos : natural range 0 to ((2**DITHER_BITS) - 1) := 0;
+	signal DitherPos : natural range 0 to ((2**DITHER_BITS) - 1);
 	
 	signal DacMagnitudeOut_i : std_logic_vector((REGISTER_OUT_BITS - 1) downto 0);
 	
 begin
 
-	DitherClk : ClockDividerPorts
+	--~ DitherClk : ClockDividerPorts
+	--~ generic map
+	--~ (
+		--~ CLOCK_DIVIDER => DITHER_CLOCK_DIV,
+		--~ DIVOUT_RST_STATE => '0'--;
+	--~ )
+	--~ port map
+	--~ (
+		--~ clk => clk,
+		--~ rst => rst,
+		--~ div => DitherClock
+	--~ );	
+	DitherClk : VariableClockDividerPorts
 	generic map
 	(
-		CLOCK_DIVIDER => DITHER_CLOCK_DIV,
+		WIDTH_BITS => 16,
 		DIVOUT_RST_STATE => '0'--;
 	)
 	port map
 	(
-		clk => clk,
+		clki => clk,
 		rst => rst,
-		div => DitherClock
-	);	
+		rst_count => x"0000",
+		terminal_count => DitherClkDiv,
+		clko => DitherClock
+	);
 	
+	--~ DacTrigger <= not(DitherClock) when (DacXferComplete = '1') else '0'; --give us time to move things on rising edge so we don't have race conditions
 	DacTrigger <= not(DitherClock); --give us time to move things on rising edge so we don't have race conditions
 	
 	DacMagnitudeOut <= DacMagnitudeOut_i;
