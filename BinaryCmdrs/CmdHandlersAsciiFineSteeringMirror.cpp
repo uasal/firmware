@@ -228,3 +228,139 @@ int8_t FSMGoXYCommand(char const* Name, char const* Params, const size_t ParamsL
 	
     return(ParamsLen);
 }
+
+int8_t ControlRegisterCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	CGraphFSMHardwareControlRegister cr;
+	char c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17;
+	bool o1=false, o2=false, o3=false, o4=false, o5=false, o6=false, o7=false, o8=false, o9=false, o10=false, o11=false, o12=false, o13=false, o14=false, o15=false, o16=false, o17=false;
+    
+	if (NULL == FSM)
+	{
+		formatf("\nControlRegisterCommand: Fpga interface is not initialized!");
+		return(ParamsLen);
+	}
+	
+    int8_t numfound = sscanf(Params, " %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c", &c1, &c2, &c3, &c4, &c5, &c6, &c7, &c8, &c9, &c10, &c11, &c12, &c13, &c14, &c15, &c16, &c17);
+    if (numfound >= 1)
+    {
+		if ( ('Y' == c1) || ('y' == c1) || ('T' == c1) || ('t' == c1) || ('1' == c1) ) { o1 = true; }
+		if ( ('Y' == c2) || ('y' == c2) || ('T' == c2) || ('t' == c2) || ('1' == c2) ) { o2 = true; }
+		if ( ('Y' == c3) || ('y' == c3) || ('T' == c3) || ('t' == c3) || ('1' == c3) ) { o3 = true; }
+		if ( ('Y' == c4) || ('y' == c4) || ('T' == c4) || ('t' == c4) || ('1' == c4) ) { o4 = true; }
+		if ( ('Y' == c5) || ('y' == c5) || ('T' == c5) || ('t' == c5) || ('1' == c5) ) { o5 = true; }
+		if ( ('Y' == c6) || ('y' == c6) || ('T' == c6) || ('t' == c6) || ('1' == c6) ) { o6 = true; }
+		if ( ('Y' == c7) || ('y' == c7) || ('T' == c7) || ('t' == c7) || ('1' == c7) ) { o7 = true; }
+		if ( ('Y' == c8) || ('y' == c8) || ('T' == c8) || ('t' == c8) || ('1' == c8) ) { o8 = true; }
+		if ( ('Y' == c9) || ('y' == c9) || ('T' == c9) || ('t' == c9) || ('1' == c9) ) { o9 = true; }
+		if ( ('Y' == c10) || ('y' == c10) || ('T' == c10) || ('t' == c10) || ('1' == c10) ) { o10 = true; }
+		if ( ('Y' == c11) || ('y' == c11) || ('T' == c11) || ('t' == c11) || ('1' == c11) ) { o11 = true; }
+		if ( ('Y' == c12) || ('y' == c12) || ('T' == c12) || ('t' == c12) || ('1' == c12) ) { o12 = true; }
+		if ( ('Y' == c13) || ('y' == c13) || ('T' == c13) || ('t' == c13) || ('1' == c13) ) { o13 = true; }
+		if ( ('Y' == c14) || ('y' == c14) || ('T' == c14) || ('t' == c14) || ('1' == c14) ) { o14 = true; }
+		if ( ('Y' == c15) || ('y' == c15) || ('T' == c15) || ('t' == c15) || ('1' == c15) ) { o15 = true; }
+		if ( ('Y' == c16) || ('y' == c16) || ('T' == c16) || ('t' == c16) || ('1' == c16) ) { o16 = true; }
+		if ( ('Y' == c17) || ('y' == c17) || ('T' == c17) || ('t' == c17) || ('1' == c17) ) { o17 = true; }
+
+		cr.PowerCycdAndClr = o1;
+		cr.PowernEn = o2;
+		cr.ChopEn = o3;
+		cr.ChopRefState = o4;
+		cr.ChopAdcState = o5;
+		cr.Uart0OE = o6;
+		cr.Uart1OE = o7;
+		cr.Uart2OE = o8;
+		cr.Uart3OE = o9;
+		cr.Ux1SelJmp = o10;
+		cr.PPSDetectedAndRst = o11;
+		cr.PowernEnHV = o12;
+		cr.HVEn1 = o13;
+		cr.HVEn2 = o14;
+		cr.DacSelectMaxti = o15;
+		cr.GlobalFaultInhibit = o16;
+		cr.nFaultsClr = o17;
+		
+		FSM->ControlRegister = cr;
+	}		
+	
+	cr = FSM->ControlRegister;
+
+	formatf("\nControlRegisterCommand: Current values: ");
+	cr.formatf();
+	
+    return(strlen(Params));
+}
+
+int8_t ConfigAdcCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	AdcConfigRegister cr;
+	AccumulatorConfigRegister ar;
+	unsigned long A = 0, B = 0, C, D;
+	
+	if (NULL == FSM)
+	{
+		formatf("\n\nConfigAdc: Fpga interface is not initialized! Please call InitFpga first!.");
+		return(ParamsLen);
+	}
+	
+	//Convert parameters
+    int8_t numfound = sscanf(Params, "%lu,%lu,%lu,%lu", &A, &B, &C, &D);
+    if (numfound >= 2)
+    {
+		cr.AdcClkDivider = A;
+		cr.AdcSamplesToAverage = B;
+		formatf("\n\nConfigAdc: setting AdcConfig to: ");
+		cr.formatf();
+		formatf("\n");
+		FSM->AdcConfig = cr;
+    }
+	if (numfound >= 4)
+    {
+		ar.ControlAdcMaxAccums = C;
+		ar.MonitorAdcMaxAccums = D;
+		formatf("\n\nConfigAdc: setting AccumConfig to: ");
+		ar.formatf();
+		formatf("\n");
+		FSM->AccumConfig = ar;
+    }
+	
+	cr = FSM->AdcConfig;
+	ar = FSM->AccumConfig;
+	formatf("\n\nConfigAdc: current values: ");
+	cr.formatf();
+	formatf("; ");
+	ar.formatf();
+	formatf("\n");
+	
+	return(ParamsLen);
+}
+
+int8_t ConfigDacCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+{
+	DacConfigRegister cr;
+	unsigned long A = 0;
+	
+	if (NULL == FSM)
+	{
+		formatf("\n\nConfigDacCommand: Fpga interface is not initialized! Please call InitFpga first!.");
+		return(ParamsLen);
+	}
+	
+	//Convert parameters
+    int8_t numfound = sscanf(Params, "%lu", &A);
+    if (numfound >= 1)
+    {
+		cr.DitherClkDivider = A;
+		formatf("\n\nConfigDacCommand: setting DacConfig to: ");
+		cr.formatf();
+		formatf("\n");
+		FSM->DacConfig = cr;
+    }
+	
+	cr = FSM->DacConfig;
+	formatf("\n\nConfigDacCommand: current values: ");
+	cr.formatf();
+	formatf("\n");
+	
+	return(ParamsLen);
+}

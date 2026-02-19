@@ -95,6 +95,30 @@ const BinaryCmd BinaryCmds[] =
 		BinaryFSMTelemetryCommand
     ),	
 	
+	BinaryCmd (
+		CGraphPayloadTypeFSMHardwareConfigRegister,
+		"BinaryFSMHWConfigCommand",
+		BinaryFSMHardwareConfigCommand
+    ),
+		
+	BinaryCmd (
+		CGraphPayloadTypeFSMAdcConfigRegister,
+		"BinaryFSMAdcConfigCommand",
+		BinaryFSMAdcConfigCommand
+    ),
+	
+	BinaryCmd (
+		CGraphPayloadTypeFSMAccumulatorConfigRegister,
+		"BinaryFSMAccumConfigCommand",
+		BinaryFSMAccumConfigCommand
+    ),
+	
+	BinaryCmd (
+		CGraphPayloadTypeFSMDacConfigRegister,
+		"BinaryFSMDacConfigCommand",
+		BinaryFSMDacConfigCommand
+    ),
+
 	//DeformableMirror Commands
 	
 	//~ BinaryCmd (
