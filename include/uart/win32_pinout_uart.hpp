@@ -37,13 +37,19 @@ class win32_pinout_uart : public IUart
 {
 public:
 
-	win32_pinout_uart() : IUart(), ComFileDescriptor(INVALID_HANDLE_VALUE), echo(false) { }
+	win32_pinout_uart() : IUart(), ComFileDescriptor(INVALID_HANDLE_VALUE), echo(false), autoreopen(true), Baud(0), RtsCts(false), OddParity(false) { }
 	virtual ~win32_pinout_uart() { if (INVALID_HANDLE_VALUE != ComFileDescriptor) { CloseHandle(ComFileDescriptor); } }
 
-	virtual int init(const uint32_t Baudrate, const char* device, const bool UseRtsCts = IUart::NoRTSCTS)
+	virtual int init(const uint32_t Baudrate, const char* device, const bool UseRtsCts = IUart::NoRTSCTS, const bool UseOddParity = IUart::NoParity)
 	{
 		DCB    dcb;
 		COMMTIMEOUTS CommTimeOuts;
+		
+		//save for autoreopen
+		Baud = Baudrate;
+		strncpy(Device, device, DeviceMaxLen);
+		RtsCts = UseRtsCts;
+		OddParity = UseOddParity;
 		
 		//close if previously opened
 		if (INVALID_HANDLE_VALUE != ComFileDescriptor) { CloseHandle(ComFileDescriptor); }
@@ -131,7 +137,11 @@ public:
 		DWORD dwErrorFlags;
 		COMSTAT ComStat;
 
-		if (INVALID_HANDLE_VALUE == ComFileDescriptor) { printf("\nwin32_pinout_uart::dataready(): ioctl on uninitialized port; please open port!\n"); return(false); }
+		if (INVALID_HANDLE_VALUE == ComFileDescriptor) 
+		{ 
+			printf("\nwin32_pinout_uart::dataready(): ioctl on uninitialized port; please open port!\n"); 
+			return(false);
+		}
 
 		ClearCommError(ComFileDescriptor, &dwErrorFlags, &ComStat );
 
@@ -150,7 +160,18 @@ public:
 		
 		bool readed = ReadFile(ComFileDescriptor, &c, 1, &len, NULL);
 
-		if ( (!readed) || (len != 1) ) { int err = GetLastError(); printf("\nwin32_pinout_uart::getcqq(): read failure (len: %lu, errno: %u)\n", len, err); return('\0'); }
+		if ( (!readed) || (len != 1) ) 
+		{ 
+			int err = GetLastError(); 
+			printf("\nwin32_pinout_uart::getcqq(): read failure (len: %lu, errno: %u)\n", len, err); 
+			if (autoreopen) 
+			{
+				printf("\nwin32_pinout_uart::autoreopen.\n");
+				deinit();
+				init(Baud, Device, RtsCts, OddParity);
+			}					
+			return('\0');
+		}
 			
 		if (echo) { printf(":%.2X:", c); }
 
@@ -167,8 +188,18 @@ public:
 
 			bool written = WriteFile(ComFileDescriptor, &c, 1, &len, NULL);
 			
-			if ( (!written) || (len != 1) ) { int err = GetLastError(); printf("\nwin32_pinout_uart::putcqq(): write failure (len: %lu, errno: %u)\n", len, err); return('\0'); }
-			
+			if ( (!written) || (len != 1) ) 
+			{ 
+				int err = GetLastError(); 
+				printf("\nwin32_pinout_uart::putcqq(): write failure (len: %lu, errno: %u)\n", len, err); 
+				if (autoreopen) 
+				{
+					printf("\nwin32_pinout_uart::autoreopen.\n");
+					deinit();
+					init(Baud, Device, RtsCts, OddParity);
+				}						
+				return('\0'); 
+			}
 		}
 		else
 		{
@@ -206,11 +237,23 @@ public:
 	
 	virtual bool isopen() const { return(INVALID_HANDLE_VALUE != ComFileDescriptor); }
 	
+	bool AutoReopen() { return(autoreopen); }
+	
+	void AutoReopen(const bool ar) { autoreopen = ar; }
+		
 	private:
 
 		HANDLE ComFileDescriptor; //INVALID_HANDLE_VALUE: not open
 	
 		bool echo;
+	
+		bool autoreopen;
+	
+		uint32_t Baud;
+		static const size_t DeviceMaxLen = 256;
+		char Device[DeviceMaxLen];
+		bool RtsCts;
+		bool OddParity;
 };
 
 #endif //win32_pinout_uart_h

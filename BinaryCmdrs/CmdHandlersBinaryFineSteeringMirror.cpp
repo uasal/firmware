@@ -147,72 +147,64 @@ int8_t BinaryFSMTelemetryCommand(const uint32_t Name, char const* Params, const 
 
 int8_t BinaryFSMHardwareConfigCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	if (ParamsLen >= sizeof(CGraphFSMHardwareControlRegister))
+	if ( (NULL != Params) && (ParamsLen >= (sizeof(CGraphFSMHardwareControlRegister))) )
 	{
-		const CGraphFSMHardwareControlRegister* val = (const CGraphFSMHardwareControlRegister*)Params;
-		printf("\nBinaryFSMHardwareConfigCommand Setting to:");
-		val->formatf();
-		printf(".\n\n");
-		FSM->ControlRegister = *val;
+		const CGraphFSMHardwareControlRegister* read = reinterpret_cast<const CGraphFSMHardwareControlRegister*>(Params);
+		printf("\nBinaryFSMHardwareConfigCommand Reply:");
+		read->formatf();
+		printf(".\n\n");	
 	}
-	CGraphFSMHardwareControlRegister read = FSM->ControlRegister;
-	printf("\nBinaryFSMHardwareConfigCommand Replying:");
-	read.formatf();
-	printf(".\n\n");	
-	TxBinaryPacket(Argument, CGraphPayloadTypeFSMHardwareConfigRegister, 0, &read, sizeof(CGraphFSMHardwareControlRegister));
+	else
+	{
+		printf("\nBinaryFSMHardwareConfigCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(CGraphFSMHardwareControlRegister)));
+	}
     return(ParamsLen);
 }
 
 int8_t BinaryFSMAdcConfigCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	if (ParamsLen >= sizeof(AdcConfigRegister))
+	if ( (NULL != Params) && (ParamsLen >= (sizeof(AdcConfigRegister))) )
 	{
-		const AdcConfigRegister* val = (const AdcConfigRegister*)Params;
-		printf("\nBinaryFSMAdcConfigCommand Setting to:");
-		val->formatf();
-		printf(".\n\n");
-		FSM->AdcConfig = *val;
+		const AdcConfigRegister* read = reinterpret_cast<const AdcConfigRegister*>(Params);
+		printf("\nBinaryFSMAdcConfigCommand Reply:");
+		read->formatf();
+		printf(".\n\n");	
 	}
-	AdcConfigRegister read = FSM->AdcConfig;
-	printf("\nBinaryFSMAdcConfigCommand Replying:");
-	read.formatf();
-	printf(".\n\n");	
-	TxBinaryPacket(Argument, CGraphPayloadTypeFSMAdcConfigRegister, 0, &read, sizeof(AdcConfigRegister));
+	else
+	{
+		printf("\nBinaryFSMAdcConfigCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(AdcConfigRegister)));
+	}
     return(ParamsLen);
 }
 
 int8_t BinaryFSMAccumConfigCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	if (ParamsLen >= sizeof(AccumulatorConfigRegister))
+	if ( (NULL != Params) && (ParamsLen >= (sizeof(AccumulatorConfigRegister))) )
 	{
-		const AccumulatorConfigRegister* val = (const AccumulatorConfigRegister*)Params;
-		printf("\nBinaryFSMAccumConfigCommand Setting to:");
-		val->formatf();
-		printf(".\n\n");
-		FSM->AccumConfig = *val;
+		const AccumulatorConfigRegister* read = reinterpret_cast<const AccumulatorConfigRegister*>(Params);
+		printf("\nBinaryFSMAccumConfigCommand Reply:");
+		read->formatf();
+		printf(".\n\n");	
 	}
-	AccumulatorConfigRegister read = FSM->AccumConfig;
-	printf("\nBinaryFSMAccumConfigCommand Replying:");
-	read.formatf();
-	printf(".\n\n");	
-	TxBinaryPacket(Argument, CGraphPayloadTypeFSMAccumulatorConfigRegister, 0, &read, sizeof(AccumulatorConfigRegister));
+	else
+	{
+		printf("\nBinaryFSMAccumConfigCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(AccumulatorConfigRegister)));
+	}
     return(ParamsLen);
 }
 
 int8_t BinaryFSMDacConfigCommand(const uint32_t Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
-	if (ParamsLen >= sizeof(DacConfigRegister))
+	if ( (NULL != Params) && (ParamsLen >= (sizeof(DacConfigRegister))) )
 	{
-		const DacConfigRegister* val = (const DacConfigRegister*)Params;
-		printf("\nBinaryFSMDacConfigCommand Setting to:");
-		val->formatf();
-		printf(".\n\n");
-		FSM->DacConfig = *val;
+		const DacConfigRegister* read = reinterpret_cast<const DacConfigRegister*>(Params);
+		printf("\nBinaryFSMDacConfigCommand Reply:");
+		read->formatf();
+		printf(".\n\n");	
 	}
-	DacConfigRegister read = FSM->DacConfig;
-	printf("\nBinaryFSMDacConfigCommand Replying:");
-	read.formatf();
-	printf(".\n\n");	
-	TxBinaryPacket(Argument, CGraphPayloadTypeFSMDacConfigRegister, 0, &read, sizeof(DacConfigRegister));
+	else
+	{
+		printf("\nBinaryFSMDacConfigCommand: Short packet: %lu (exptected %lu bytes): ", (unsigned long)ParamsLen, (unsigned long)(sizeof(DacConfigRegister)));
+	}
     return(ParamsLen);
 }

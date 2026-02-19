@@ -63,9 +63,12 @@ using namespace std;
 //~ extern CGraphFSMMonitorAdc MonitorAdc;
 
 #include "cgraph/CGraphPacket.hpp"
+#include "cgraph/CGraphCommon.hpp"
 
 #include "uart/BinaryUart.hpp"
 extern BinaryUart UartParser;
+
+#include "cgraph/CGraphFSMHardwareInterface.hpp"
 
 int8_t FSMDacsCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
@@ -229,19 +232,13 @@ int8_t FSMGoXYCommand(char const* Name, char const* Params, const size_t ParamsL
     return(ParamsLen);
 }
 
-int8_t ControlRegisterCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+int8_t FSMControlRegisterCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	CGraphFSMHardwareControlRegister cr;
 	char c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17;
 	bool o1=false, o2=false, o3=false, o4=false, o5=false, o6=false, o7=false, o8=false, o9=false, o10=false, o11=false, o12=false, o13=false, o14=false, o15=false, o16=false, o17=false;
     
-	if (NULL == FSM)
-	{
-		formatf("\nControlRegisterCommand: Fpga interface is not initialized!");
-		return(ParamsLen);
-	}
-	
-    int8_t numfound = sscanf(Params, " %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c", &c1, &c2, &c3, &c4, &c5, &c6, &c7, &c8, &c9, &c10, &c11, &c12, &c13, &c14, &c15, &c16, &c17);
+	int8_t numfound = sscanf(Params, " %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c", &c1, &c2, &c3, &c4, &c5, &c6, &c7, &c8, &c9, &c10, &c11, &c12, &c13, &c14, &c15, &c16, &c17);
     if (numfound >= 1)
     {
 		if ( ('Y' == c1) || ('y' == c1) || ('T' == c1) || ('t' == c1) || ('1' == c1) ) { o1 = true; }
@@ -280,87 +277,76 @@ int8_t ControlRegisterCommand(char const* Name, char const* Params, const size_t
 		cr.GlobalFaultInhibit = o16;
 		cr.nFaultsClr = o17;
 		
-		FSM->ControlRegister = cr;
+		formatf("\nFSMControlRegisterCommand: Setting to: ");
+		cr.formatf();
+		formatf("\n");
+		
+		TxBinaryPacket(&UartParser, CGraphPayloadTypeFSMHardwareConfigRegister, 0, &cr, sizeof(CGraphFSMHardwareControlRegister));
+		
+		return(ParamsLen);
 	}		
 	
-	cr = FSM->ControlRegister;
-
-	formatf("\nControlRegisterCommand: Current values: ");
-	cr.formatf();
+	formatf("\nFSMControlRegisterCommand: Querying...");
+	TxBinaryPacket(&UartParser, CGraphPayloadTypeFSMHardwareConfigRegister, 0, NULL, 0);	
 	
-    return(strlen(Params));
+    return(ParamsLen);
 }
 
-int8_t ConfigAdcCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+int8_t FSMConfigAdcCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	AdcConfigRegister cr;
 	AccumulatorConfigRegister ar;
 	unsigned long A = 0, B = 0, C, D;
 	
-	if (NULL == FSM)
-	{
-		formatf("\n\nConfigAdc: Fpga interface is not initialized! Please call InitFpga first!.");
-		return(ParamsLen);
-	}
-	
 	//Convert parameters
     int8_t numfound = sscanf(Params, "%lu,%lu,%lu,%lu", &A, &B, &C, &D);
-    if (numfound >= 2)
-    {
-		cr.AdcClkDivider = A;
-		cr.AdcSamplesToAverage = B;
-		formatf("\n\nConfigAdc: setting AdcConfig to: ");
-		cr.formatf();
-		formatf("\n");
-		FSM->AdcConfig = cr;
-    }
-	if (numfound >= 4)
+    if (numfound >= 4)
     {
 		ar.ControlAdcMaxAccums = C;
 		ar.MonitorAdcMaxAccums = D;
-		formatf("\n\nConfigAdc: setting AccumConfig to: ");
+		formatf("\n\nFSMConfigAdc: setting AccumConfig to: ");
 		ar.formatf();
 		formatf("\n");
-		FSM->AccumConfig = ar;
+		TxBinaryPacket(&UartParser, CGraphPayloadTypeFSMAccumulatorConfigRegister, 0, &ar, sizeof(AccumulatorConfigRegister));
+    }
+	if (numfound >= 2)
+    {
+		cr.AdcClkDivider = A;
+		cr.AdcSamplesToAverage = B;
+		formatf("\n\nFSMConfigAdc: setting AdcConfig to: ");
+		cr.formatf();
+		formatf("\n");
+		TxBinaryPacket(&UartParser, CGraphPayloadTypeFSMAdcConfigRegister, 0, &cr, sizeof(AdcConfigRegister));		
+		return(ParamsLen);
     }
 	
-	cr = FSM->AdcConfig;
-	ar = FSM->AccumConfig;
-	formatf("\n\nConfigAdc: current values: ");
-	cr.formatf();
-	formatf("; ");
-	ar.formatf();
-	formatf("\n");
+	formatf("\nFSMConfigAdc: Querying...");
+	TxBinaryPacket(&UartParser, CGraphPayloadTypeFSMAdcConfigRegister, 0, NULL, 0);	
+	TxBinaryPacket(&UartParser, CGraphPayloadTypeFSMAccumulatorConfigRegister, 0, NULL, 0);	
 	
-	return(ParamsLen);
+    return(ParamsLen);
 }
 
-int8_t ConfigDacCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
+int8_t FSMConfigDacCommand(char const* Name, char const* Params, const size_t ParamsLen, const void* Argument)
 {
 	DacConfigRegister cr;
 	unsigned long A = 0;
-	
-	if (NULL == FSM)
-	{
-		formatf("\n\nConfigDacCommand: Fpga interface is not initialized! Please call InitFpga first!.");
-		return(ParamsLen);
-	}
 	
 	//Convert parameters
     int8_t numfound = sscanf(Params, "%lu", &A);
     if (numfound >= 1)
     {
 		cr.DitherClkDivider = A;
-		formatf("\n\nConfigDacCommand: setting DacConfig to: ");
+		formatf("\nFSMConfigDacCommand: Setting to: ");
 		cr.formatf();
 		formatf("\n");
-		FSM->DacConfig = cr;
+		TxBinaryPacket(&UartParser, CGraphPayloadTypeFSMDacConfigRegister, 0, &cr, sizeof(DacConfigRegister));
+		
+		return(ParamsLen);
     }
 	
-	cr = FSM->DacConfig;
-	formatf("\n\nConfigDacCommand: current values: ");
-	cr.formatf();
-	formatf("\n");
+	formatf("\nFSMConfigDacCommand: Querying...");
+	TxBinaryPacket(&UartParser, CGraphPayloadTypeFSMDacConfigRegister, 0, NULL, 0);	
 	
-	return(ParamsLen);
+    return(ParamsLen);
 }

@@ -189,7 +189,7 @@ int8_t FloodCommand(char const* Name, char const* Params, const size_t ParamsLen
 	printf("\n\nFloodCommand: Strap in...\n");
 	
 	size_t cycle = 0;
-	int key = 0;
+	int key = 1;
 
 	while(true)
 	{
@@ -203,6 +203,8 @@ int8_t FloodCommand(char const* Name, char const* Params, const size_t ParamsLen
 		
 		//Quit on any keypress
 		{
+			#ifdef WIN32
+			#else
 			struct termios argin, argout;
 			tcgetattr(0,&argin);
 			argout = argin;
@@ -215,6 +217,7 @@ int8_t FloodCommand(char const* Name, char const* Params, const size_t ParamsLen
 			//read(0, &key, 1);
 			ioctl(0, FIONREAD, &key);
 			tcsetattr(0,TCSADRAIN,&argin);
+			#endif
 			if (0 != key) 
 			{ 
 				fflush(stdin);

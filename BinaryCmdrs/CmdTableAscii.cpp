@@ -117,6 +117,25 @@ const Cmd AsciiCmds[] =
         FSMGoXYCommand
     ),
 	
+	Cmd(
+        "FSMCONTROLREGISTER",
+        "\"FSMControlRegister <params>\": Set/Query control signals.",
+        FSMControlRegisterCommand
+    ),
+	
+	Cmd(
+        "FSMCONFIGADC",
+        "\"FSMConfigAdc\": <ClkDiv>, <NumAvg>: Set/query the sample clock divider and the number of samples for the A/D to average",
+        FSMConfigAdcCommand
+    ),
+
+	Cmd(
+        "FSMCONFIGDAC",
+        "\"FSMConfigDac <0 - 65535>\": Set/Query D/A dither clock divider (note: values < 100 will kill D/A SPI timing).",
+        FSMConfigDacCommand
+    ),
+
+
 	//DM Commands
 	
 	Cmd(
