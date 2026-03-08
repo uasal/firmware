@@ -72,11 +72,14 @@ begin
 		rst <= '0';
 		wait for 100 ns;
 		
-		test_divider(div_cfg1, rst, "Test 1: Standard Config (DIV=10, RST=0)", 10, '0');
+		test_name_display <= "Test 1: Standard Config (DIV=10, RST=0) ";
+		test_divider(div_cfg1, rst, test_name_display, 10, '0');
 		
-		test_divider(div_cfg2, rst, "Test 2: Fast Divider (DIV=6, RST=0)", 6, '0');
+		test_name_display <= "Test 2: Fast Divider (DIV=6, RST=0)     ";
+		test_divider(div_cfg2, rst, test_name_display, 6, '0');
 		
-		test_divider(div_cfg3, rst, "Test 3: Inverted Reset (DIV=10, RST=1)", 10, '1');
+		test_name_display <= "Test 3: Inverted Reset (DIV=10, RST=1)  ";
+		test_divider(div_cfg3, rst, test_name_display, 10, '1');
 		
 		test_name_display <= "== All Tests Complete ==                ";
 		report "All tests passed!" severity note;
