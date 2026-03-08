@@ -46,7 +46,7 @@ architecture sim of ClockDivider_tb is
 				wait until falling_edge(clk);
 			end loop;
 			wait until falling_edge(clk);
-			expected_div := expected_div;
+			expected_div := not expected_div;
 			assert_equal(div, expected_div, "Toggle " & integer'image(i));
 		end loop;
 		
