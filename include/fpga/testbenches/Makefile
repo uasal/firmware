@@ -22,8 +22,29 @@ define build_tb
 endef
 
 .PHONY: all
-all: $(TESTBENCHES)
-	@echo "Done!"
+
+.PHONY: all
+all:
+	@fail=0; \
+	for tb in $(TESTBENCHES); do \
+		name=$${tb%.sim}; \
+		TB=$${name}_tb; \
+		rm -rf *.cf; rm -rf $(WORK_DIR)/*.cf; \
+		$(MAKE) $${tb} > $(WORK_DIR)/$${TB}_run.log 2>&1; \
+		if grep -q "FAIL:" $(WORK_DIR)/$${TB}_output.log; then \
+			echo "Testbench $${TB} failed! Output:"; \
+			cat $(WORK_DIR)/$${TB}_output.log; \
+			fail=1; \
+		else \
+			echo "$${TB} passed."; \
+		fi; \
+	done; \
+	if [ $$fail -eq 0 ]; then \
+		echo "All testbenches passed."; \
+	else \
+		echo "Some testbenches failed."; \
+		exit 1; \
+	fi
 
 # command line
 %.sim:
