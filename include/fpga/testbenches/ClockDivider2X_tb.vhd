@@ -90,7 +90,7 @@ begin
 
 	-- Clock Divider configurations, I can't easily parameterize the test procedure so making multiple, probably overkill
 	-- I'm sure there's a better way to do this but this works for now
-	dut_cfg1: entity work.ClockDividerPorts
+	dut_cfg1: entity work.ClockDivider2XPorts
 		generic map (
 			CLOCK_DIVIDER => 10,
 			DIVOUT_RST_STATE => '0'
@@ -101,7 +101,7 @@ begin
 			div => div_cfg1
 		);
 	
-	dut_cfg2: entity work.ClockDividerPorts
+	dut_cfg2: entity work.ClockDivider2XPorts
 		generic map (
 			CLOCK_DIVIDER => 6,
 			DIVOUT_RST_STATE => '0'
@@ -112,7 +112,7 @@ begin
 			div => div_cfg2
 		);
 	
-	dut_cfg3: entity work.ClockDividerPorts
+	dut_cfg3: entity work.ClockDivider2XPorts
 		generic map (
 			CLOCK_DIVIDER => 10,
 			DIVOUT_RST_STATE => '1'

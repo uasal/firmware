@@ -22,6 +22,11 @@ package tb_utils_pkg is
 		constant msg : string
 	);
 
+	procedure reset_dut(
+		signal clk : in std_logic;
+		signal rst_out : out std_logic
+	);
+
 	procedure set_test_name(
 		signal dst : out string;
 		constant src : in string
@@ -58,6 +63,17 @@ package body tb_utils_pkg is
 				severity error;
 		end if;
 	end procedure;
+
+	procedure reset_dut(
+		signal clk : in std_logic;
+		signal rst_out : out std_logic
+	) is
+    begin
+        rst_out <= '1';
+        wait until falling_edge(clk);
+        rst_out <= '0';
+        -- wait until falling_edge(clk);
+    end procedure;
 
 	procedure set_test_name(
 		signal dst : out string;
