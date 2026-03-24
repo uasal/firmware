@@ -56,13 +56,14 @@ architecture rtl of fifo_peek is
 	type ram_type is array (0 to DEPTH - 1) of std_logic_vector(WIDTH_BITS - 1 downto 0);
 	-- Shared variable to infer block ram
 	--~ shared variable RAM		: ram_type := (others => (others => '0'));
-	shared variable RAM		: ram_type;
+	-- shared variable RAM		: ram_type;
+	signal RAM : ram_type := (others => (others => '0'));
 	-- Read/Write address pointers
 	signal raddr_r, waddr_r	: std_logic_vector(DEPTH_BITS - 1 downto 0) := (others => '0');
 	-- Async. counter change/Read/Write flag
 	signal do_count			: std_logic := '0';
 	signal do_write			: std_logic := '0';
-	--~ signal do_read			: std_logic := '0';
+	signal do_read			: std_logic := '0';
 	-- Fill counter
 	signal counter_r		: natural range 0 to DEPTH := 0;
 	signal empty_r			: std_logic := '1';
@@ -70,114 +71,107 @@ architecture rtl of fifo_peek is
 	signal data_r			: std_logic_vector(WIDTH_BITS - 1 downto 0) := (others => '0');
 	signal lastmultipop_e_i	: std_logic := '0';
 begin
-	--~ do_read <= re_i and not empty_r;
+	do_read <= re_i and not empty_r and not multipop_e_i;
 	do_write <= we_i and not full_r;
-	--~ do_count <= '1' when do_read /= do_write else '0';
-	do_count <= '1' when do_write = '1' else '0';
+	do_count <= '1' when (do_read /= do_write) else '0';
+	-- do_count <= '1' when do_write = '1' else '0';
 	empty_o <= empty_r;
 	full_o <= full_r;
 	data_o <= data_r;
+	raddr_o <= raddr_r;
+	waddr_o <= waddr_r;
+
+	count_o <= std_logic_vector(to_unsigned(DEPTH - 1, DEPTH_BITS)) when full_r = '1'
+           else std_logic_vector(to_unsigned(counter_r, DEPTH_BITS));
 
 	update: process(rst, clk)
 	begin
-	
-		--~ raddr_o <= raddr_r;
-		waddr_o <= waddr_r;
-		
 		if rst = '1' then
 			counter_r <= 0;
-			--~ raddr_r <= (others => '0');
+			raddr_r <= (others => '0');
 			waddr_r <= (others => '0');
 			full_r <= '0';
 			empty_r <= '1';
-		else
-		
-			if rising_edge(clk) then
-			
-				if (full_r = '0') then
-					count_o <= std_logic_vector(to_unsigned(counter_r, DEPTH_BITS));
-				else 
-					count_o <= std_logic_vector(to_unsigned((2**DEPTH_BITS) - 1, DEPTH_BITS));
-				end if;
-					
-				--~ if counter_r = 0 or (counter_r = 1 and do_read = '1' and 
-					--~ do_write = '0') then
-					--~ empty_r <= '1';
-				--~ else
-					--~ empty_r <= '0';
-				--~ end if;
-				if counter_r = 0 then
-					empty_r <= '1';
-				else
-					empty_r <= '0';
-				end if;
+			lastmultipop_e_i <= '0';
 
-				--~ if counter_r = DEPTH or (counter_r = DEPTH - 1
-					--~ and do_write = '1' and do_read = '0') then
-					--~ full_r <= '1';
-				--~ else
-					--~ full_r <= '0';
-				--~ end if;
+		elsif rising_edge(clk) then
 
-				if counter_r = DEPTH then
-					full_r <= '1';
-				else
-					full_r <= '0';
+			if ((counter_r = 0) and (do_write = '0')) or (counter_r = 1 and do_read = '1' and 
+				do_write = '0') then
+				empty_r <= '1';
+			else
+				empty_r <= '0';
+			end if;
+
+			if (counter_r = DEPTH and do_read = '0') or (counter_r = DEPTH - 1
+				and do_write = '1' and do_read = '0') then
+				full_r <= '1';
+			else
+				full_r <= '0';
+			end if;
+
+			lastmultipop_e_i <= multipop_e_i;
+
+			if (multipop_e_i = '1') and (lastmultipop_e_i = '0') then 
+				if raddr_i /= raddr_r then
+					if unsigned(raddr_i) >= unsigned(raddr_r) then
+						if counter_r >= (to_integer(unsigned(raddr_i)) - to_integer(unsigned(raddr_r))) then
+							counter_r <= counter_r - (to_integer(unsigned(raddr_i)) - to_integer(unsigned(raddr_r)));
+						else
+							counter_r <= 0;
+						end if;
+					else
+						if counter_r >= (DEPTH - to_integer(unsigned(raddr_r)) + to_integer(unsigned(raddr_i))) then
+							counter_r <= counter_r - (DEPTH - to_integer(unsigned(raddr_r)) + to_integer(unsigned(raddr_i)));
+						else
+							counter_r <= 0;
+						end if;
+					end if;
+					raddr_r <= raddr_i;
 				end if;
-
-				lastmultipop_e_i <= multipop_e_i;
-				
-				--~ if do_read = '1' then
-					--~ raddr_r <= raddr_r + 1;
-				--~ else
-					--~ if ( (multipop_e_i = '1') and (lastmultipop_e_i = '0') ) then --edge strrobe
-						--~ raddr_r <= raddr_i;
-						--~ counter_r <= counter_r - (to_integer(raddr_i) - to_integer(raddr_r)); --yeah.... this is prolly gonna mess shit up. but keeping a counter is a crap way to do a fifo anyway and this whole core needs replacing...like how does an integer that only has a set number of bits wrap in subtraction anyway?? but this is not a critical infrastructure, so let's ignore it for now
-					--~ end if;
-				--~ end if;
+			else
+				if do_read = '1' then
+					raddr_r <= std_logic_vector(unsigned(raddr_r) + 1);
+				end if;
 
 				if do_write = '1' then
-					waddr_r <= waddr_r + std_logic_vector(to_unsigned(1, DEPTH_BITS));
+					waddr_r <= std_logic_vector(unsigned(waddr_r) + 1);
 				end if;
 
 				if do_count = '1' then
-					--~ if do_read = '1' then
-						--~ counter_r <= counter_r - 1;
-					--~ else
+					if do_read = '1' then
+						counter_r <= counter_r - 1;
+					else
 						counter_r <= counter_r + 1;
-					--~ end if;
+					end if;
 				end if;
-				
 			end if;
 		end if;
 	end process update;
 
-	dpram_porta: process(clk, do_write)
+	dpram_porta: process(clk, rst)
 	begin
-		if rising_edge(clk) then
-		
+		if (rst = '1') then
+			RAM <= (others => (others => '0'));
+		elsif rising_edge(clk) then
 			if do_write = '1' then
-				RAM(to_integer(unsigned(waddr_r))) := data_i;
+				RAM(to_integer(unsigned(waddr_r))) <= data_i;
 			end if;
-
-			--~ peek_data_o <= peekaddr_i(WIDTH_BITS - 1 downto 0);
-			--~ peek_data_o <= RAM(to_integer(peekaddr_i));
-			
 		end if;
 	end process dpram_porta;
 
-	--~ dpram_portb: process(clk, do_read)
-	dpram_portb: process(clk)
+	dpram_portb: process(clk, rst)
 	begin
-		if rising_edge(clk) then
-			--~ if do_read = '1' then
-				--~ data_r <= RAM(to_integer(raddr_r));
-				--~ r_ack <= '1';
-			--~ else
-				--~ peek_data_o <= RAM(to_integer(peekaddr_i));
-				peek_data_o <= peekaddr_i(WIDTH_BITS - 1 downto 0);
+		if (rst = '1') then
+		elsif rising_edge(clk) then
+			if do_read = '1' then
+				data_r <= RAM(to_integer(unsigned(raddr_r)));
+				r_ack <= '1';
+			else
 				r_ack <= '0';
-			--~ end if;
+			end if;
+
+			peek_data_o <= RAM(to_integer(unsigned(peekaddr_i)));
 		end if;
 	end process dpram_portb;
 end rtl;

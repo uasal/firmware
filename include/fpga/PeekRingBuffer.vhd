@@ -292,4 +292,3 @@ architecture PeekRingBufferImplemenatation of PeekRingBuffer is
   end process;
 
 end PeekRingBufferImplemenatation;
-

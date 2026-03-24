@@ -45,7 +45,7 @@ end PeekRam;
 
 architecture PeekRamImplementation of PeekRam is
 
-	shared variable RAM : PeekRamType;
+	signal RAM : PeekRamType := (others => (others => '0'));
 
   begin
   
@@ -64,7 +64,7 @@ architecture PeekRamImplementation of PeekRam is
 		ByteOut <= RAM(to_integer(unsigned(ReadAddress)));
 		
         if (WriteReq = '1') then
-            RAM(to_integer(unsigned(WriteAddress))) := ByteIn;
+            RAM(to_integer(unsigned(WriteAddress))) <= ByteIn;
         end if;
       end if;  
     end if;
