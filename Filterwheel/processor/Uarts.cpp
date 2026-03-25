@@ -118,7 +118,7 @@ void ProcessAllUarts()
 {	
 	for (size_t i = 0; i < NumUartParsers; i++)
 	{
-		if (nullptr != UartParsers[i]) { UartParsers[i]->Process(); }
+		if (nullptr != UartParsers[i]) { UartParsers[i]->ProcessBulk(); }
 	}
 }
 

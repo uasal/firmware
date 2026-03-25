@@ -381,9 +381,9 @@ int main(int argc, char *argv[])
 			//~ FpgaUart.Process();
 		//~ }
 		
-		if (FpgaUartParser2.Process()) { Bored = false; }
-		if (FpgaUartParser1.Process()) { Bored = false; }
-		if (FpgaUartParser0.Process()) { Bored = false; }
+		if (FpgaUartParser2.ProcessBulk()) { Bored = false; }
+		if (FpgaUartParser1.ProcessBulk()) { Bored = false; }
+		if (FpgaUartParser0.ProcessBulk()) { Bored = false; }
 		
 		//~ //Log the A/D's if possible:
 		//~ if (Logfile.IsOpen())

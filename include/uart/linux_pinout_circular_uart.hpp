@@ -60,6 +60,16 @@ public:
 		return((char)c);
 	}
 
+	virtual int readBulk(uint8_t* buf, size_t maxLen) override
+	{
+		size_t count = 0;
+		BufferT c = 0;
+		while (count < maxLen && RxBuffer.pop(c)) {
+			buf[count++] = static_cast<uint8_t>(c);
+		}
+		return static_cast<int>(count);
+	}
+
 	virtual char putcqq(char b)
 	{
 		BufferT c = (BufferT)b;

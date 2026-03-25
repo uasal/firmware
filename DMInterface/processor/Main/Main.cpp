@@ -210,7 +210,7 @@ int main(int argc, char *argv[])
     while(1) {
       bool Bored = true;
 
-      if (FpgaUartParser2.Process()) {
+      if (FpgaUartParser2.ProcessBulk()) {
         Bored = false;
       }
       //give up our timeslice so as not to bog the system:

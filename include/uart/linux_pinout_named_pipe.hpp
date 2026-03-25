@@ -151,6 +151,20 @@ public:
   		return(c);
 	}
 	
+	virtual int readBulk(uint8_t* buf, size_t maxLen) override
+	{
+		if (-1 == fd) return(0);
+
+		ssize_t numbytes = read(fd, buf, maxLen);
+		if (numbytes < 0) {
+			if (errno == EAGAIN || errno == EWOULDBLOCK) return(0);
+			if (!silent) { perror("\nlinux_pinout_named_pipe::readBulk(): read() failed"); }
+			return(0);
+		}
+
+		return static_cast<int>(numbytes);
+	}
+
 	virtual int get(void* p, const size_t len)
 	{
 		ssize_t numbytes = 0;
