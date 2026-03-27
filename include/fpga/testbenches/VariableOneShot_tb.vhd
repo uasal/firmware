@@ -9,7 +9,7 @@ end entity VariableOneShot_tb;
 
 architecture sim of VariableOneShot_tb is
 
-    signal clk : std_logic := '0';
+    signal clk : std_logic;
     signal rst : std_logic;
 
     signal shot_cfg1 : std_logic;
@@ -20,9 +20,9 @@ architecture sim of VariableOneShot_tb is
     constant DEFAULT_WIDTH_BITS : natural := 8;
     constant MAX_DELAY_CYCLES : natural := (2**DEFAULT_WIDTH_BITS) - 1;
 
-    signal test_name_display : string(1 to 80) := (others => ' ');
+    signal test_name_display : string(1 to 80);
     constant CLK_PERIOD : time := 10 ns;
-    signal delay_clks : std_logic_vector(DEFAULT_WIDTH_BITS - 1 downto 0) := (others => '0');
+    signal delay_clks : std_logic_vector(DEFAULT_WIDTH_BITS - 1 downto 0);
 
     procedure test_one_shot(
         signal shot : in std_logic;
@@ -72,7 +72,7 @@ begin
             wait for CLK_PERIOD/2;
         end process;
 
-        test_process: process
+    test_process: process
         begin
 
         delay_clks <= std_logic_vector(to_unsigned(0, DEFAULT_WIDTH_BITS));

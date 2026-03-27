@@ -34,10 +34,8 @@ endef
 
 PKG_FILES = $(RTL_DIR)/CGraphTypes.vhd
 
-# RTL files that have a matching *_tb.vhd
 TESTED_RTL_FILES = $(patsubst %_tb.vhd,$(RTL_DIR)/%.vhd,$(TB_FILES))
 
-# Avoid compiling packages twice
 TESTED_RTL_FILES := $(filter-out $(PKG_FILES),$(TESTED_RTL_FILES))
 
 all:
@@ -58,8 +56,8 @@ all:
 
 # command line
 %.sim:
-	@rm -rf *.cf; \
-	rm -rf $(WORK_DIR)/*.cf
+	@rm -f *.cf 2>/dev/null || true
+	@rm -rf $(WORK_DIR)
 	@$(build_tb)
 	@TB=$*_tb; \
 	LOG="$(WORK_DIR)/$${TB}_output.log"; \
@@ -76,8 +74,8 @@ all:
 
 # waveforms (gtkwave)
 %.wav:
-	@rm -rf *.cf; \
-	rm -rf $(WORK_DIR)/*.cf
+	@rm -f *.cf 2>/dev/null || true
+	@rm -rf $(WORK_DIR)
 	@$(build_tb)
 	@TB=$*_tb; \
 	if ! ghdl -r $(GHDL_FLAGS) $${TB} --wave=$(WORK_DIR)/$${TB}.ghw; then \

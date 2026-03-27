@@ -11,7 +11,7 @@ entity CGraphTypes_tb is
 end entity CGraphTypes_tb;
 
 architecture sim of CGraphTypes_tb is
-	signal test_name_display : string(1 to 80) := (others => ' ');
+	signal test_name_display : string(1 to 80);
 begin
 	process
 		variable arr : PeekRamType;

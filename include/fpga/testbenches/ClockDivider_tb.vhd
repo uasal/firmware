@@ -10,7 +10,7 @@ end entity ClockDivider_tb;
 
 architecture sim of ClockDivider_tb is
 
-	signal clk : std_logic := '0';
+	signal clk : std_logic;
 	signal rst : std_logic;
 	
 	constant CLK_PERIOD : time := 10 ns;
@@ -19,7 +19,7 @@ architecture sim of ClockDivider_tb is
 	signal div_cfg2 : std_logic;
 	signal div_cfg3 : std_logic;
 	
-	signal test_name_display : string(1 to 40) := (others => ' ');
+	signal test_name_display : string(1 to 40);
 	
 	procedure test_divider(
 		signal div : in std_logic;
@@ -81,8 +81,6 @@ begin
 		test_name_display <= "Test 3: Inverted Reset (DIV=10, RST=1)  ";
 		test_divider(div_cfg3, rst, test_name_display, 10, '1');
 		
-		test_name_display <= "== All Tests Complete ==                ";
-		report "All tests passed!" severity note;
 		finish;
 		
 	end process;

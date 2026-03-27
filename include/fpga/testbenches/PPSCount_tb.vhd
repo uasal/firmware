@@ -9,13 +9,13 @@ end entity PPSCount_tb;
 
 architecture sim of PPSCount_tb is
 
-    signal clk : std_logic := '0';
+    signal clk : std_logic;
     signal rst : std_logic;
     signal PPS : std_logic;
     signal PPSDetected : std_logic;
     signal PPSCounter : std_logic_vector(31 downto 0);
     signal PPSAccum : std_logic_vector(31 downto 0);
-    signal test_name_display : string(1 to 80) := (others => ' ');
+    signal test_name_display : string(1 to 80);
     constant CLK_PERIOD : time := 10 ns;
 
     procedure test_pps_count(

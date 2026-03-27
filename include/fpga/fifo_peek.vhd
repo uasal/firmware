@@ -41,10 +41,6 @@ entity fifo_peek is
 		peekaddr_i : in std_logic_vector(DEPTH_BITS - 1 downto 0);
 		--peek value: this is whatever's in the fifo at the peekaddr
 		peek_data_o	: out std_logic_vector(WIDTH_BITS - 1 downto 0);
-		--read pointer override: allows one to smash forward a big chunk after we're done digging around in the fifo
-		raddr_i : in std_logic_vector(DEPTH_BITS - 1 downto 0);
-		-- multipop_en: initiates the smash-forward
-		multipop_e_i	: in std_logic;
 		--allows one to wait until lastest data is read from ram:
 		r_ack : out std_logic--;
 	);
@@ -56,22 +52,21 @@ architecture rtl of fifo_peek is
 	type ram_type is array (0 to DEPTH - 1) of std_logic_vector(WIDTH_BITS - 1 downto 0);
 	-- Shared variable to infer block ram
 	--~ shared variable RAM		: ram_type := (others => (others => '0'));
-	-- shared variable RAM		: ram_type;
-	signal RAM : ram_type := (others => (others => '0'));
+	shared variable RAM		: ram_type;
+	-- signal RAM : ram_type;
 	-- Read/Write address pointers
-	signal raddr_r, waddr_r	: std_logic_vector(DEPTH_BITS - 1 downto 0) := (others => '0');
+	signal raddr_r, waddr_r	: std_logic_vector(DEPTH_BITS - 1 downto 0);
 	-- Async. counter change/Read/Write flag
-	signal do_count			: std_logic := '0';
-	signal do_write			: std_logic := '0';
-	signal do_read			: std_logic := '0';
+	signal do_count			: std_logic;
+	signal do_write			: std_logic;
+	signal do_read			: std_logic;
 	-- Fill counter
-	signal counter_r		: natural range 0 to DEPTH := 0;
-	signal empty_r			: std_logic := '1';
-	signal full_r			: std_logic := '0';
-	signal data_r			: std_logic_vector(WIDTH_BITS - 1 downto 0) := (others => '0');
-	signal lastmultipop_e_i	: std_logic := '0';
+	signal counter_r		: natural range 0 to DEPTH;
+	signal empty_r			: std_logic;
+	signal full_r			: std_logic;
+	signal data_r			: std_logic_vector(WIDTH_BITS - 1 downto 0);
 begin
-	do_read <= re_i and not empty_r and not multipop_e_i;
+	do_read <= re_i and not empty_r;
 	do_write <= we_i and not full_r;
 	do_count <= '1' when (do_read /= do_write) else '0';
 	-- do_count <= '1' when do_write = '1' else '0';
@@ -92,7 +87,6 @@ begin
 			waddr_r <= (others => '0');
 			full_r <= '0';
 			empty_r <= '1';
-			lastmultipop_e_i <= '0';
 
 		elsif rising_edge(clk) then
 
@@ -110,40 +104,19 @@ begin
 				full_r <= '0';
 			end if;
 
-			lastmultipop_e_i <= multipop_e_i;
+			if do_read = '1' then
+				raddr_r <= std_logic_vector(unsigned(raddr_r) + 1);
+			end if;
 
-			if (multipop_e_i = '1') and (lastmultipop_e_i = '0') then 
-				if raddr_i /= raddr_r then
-					if unsigned(raddr_i) >= unsigned(raddr_r) then
-						if counter_r >= (to_integer(unsigned(raddr_i)) - to_integer(unsigned(raddr_r))) then
-							counter_r <= counter_r - (to_integer(unsigned(raddr_i)) - to_integer(unsigned(raddr_r)));
-						else
-							counter_r <= 0;
-						end if;
-					else
-						if counter_r >= (DEPTH - to_integer(unsigned(raddr_r)) + to_integer(unsigned(raddr_i))) then
-							counter_r <= counter_r - (DEPTH - to_integer(unsigned(raddr_r)) + to_integer(unsigned(raddr_i)));
-						else
-							counter_r <= 0;
-						end if;
-					end if;
-					raddr_r <= raddr_i;
-				end if;
-			else
+			if do_write = '1' then
+				waddr_r <= std_logic_vector(unsigned(waddr_r) + 1);
+			end if;
+
+			if do_count = '1' then
 				if do_read = '1' then
-					raddr_r <= std_logic_vector(unsigned(raddr_r) + 1);
-				end if;
-
-				if do_write = '1' then
-					waddr_r <= std_logic_vector(unsigned(waddr_r) + 1);
-				end if;
-
-				if do_count = '1' then
-					if do_read = '1' then
-						counter_r <= counter_r - 1;
-					else
-						counter_r <= counter_r + 1;
-					end if;
+					counter_r <= counter_r - 1;
+				else
+					counter_r <= counter_r + 1;
 				end if;
 			end if;
 		end if;
@@ -151,11 +124,9 @@ begin
 
 	dpram_porta: process(clk, rst)
 	begin
-		if (rst = '1') then
-			RAM <= (others => (others => '0'));
-		elsif rising_edge(clk) then
+		if rising_edge(clk) then
 			if do_write = '1' then
-				RAM(to_integer(unsigned(waddr_r))) <= data_i;
+				RAM(to_integer(unsigned(waddr_r))) := data_i;
 			end if;
 		end if;
 	end process dpram_porta;
@@ -163,6 +134,9 @@ begin
 	dpram_portb: process(clk, rst)
 	begin
 		if (rst = '1') then
+			data_r <= (others => '0');
+			r_ack <= '0';
+			peek_data_o <= (others => '0');
 		elsif rising_edge(clk) then
 			if do_read = '1' then
 				data_r <= RAM(to_integer(unsigned(raddr_r)));

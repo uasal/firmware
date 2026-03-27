@@ -43,8 +43,8 @@ architecture rtl of fifo is
 	type ram_type is array (0 to DEPTH - 1) of std_logic_vector(WIDTH_BITS - 1 downto 0);
 	-- Shared variable to infer block ram
 	-- ~ shared variable RAM		: ram_type := (others => (others => '0'));
-	-- shared variable RAM		: ram_type;
-	signal RAM : ram_type := (others => (others => '0'));
+	shared variable RAM		: ram_type;
+	-- signal RAM : ram_type;
 	-- Read/Write address pointers
 	signal raddr_r, waddr_r	: unsigned(DEPTH_BITS - 1 downto 0);
 	-- Async. counter change/Read/Write flag
@@ -118,13 +118,16 @@ begin
 	dpram_porta: process(clk, do_write)
 	begin
 		   if rising_edge(clk) and do_write = '1' then
-			   RAM(to_integer(waddr_r)) <= data_i;
+			   RAM(to_integer(waddr_r)) := data_i;
 		   end if;
 	end process dpram_porta;
 
-	dpram_portb: process(clk, do_read)
+	dpram_portb: process(clk, rst)
 	begin
-		if rising_edge(clk) then
+		if (rst = '1') then
+			data_r <= (others => '0');
+			r_ack <= '0';
+		elsif rising_edge(clk) then
 			if do_read = '1' then
 				data_r <= RAM(to_integer(raddr_r));
 				r_ack <= '1';

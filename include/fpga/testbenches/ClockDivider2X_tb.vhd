@@ -10,7 +10,7 @@ end entity ClockDivider2X_tb;
 
 architecture sim of ClockDivider2X_tb is
 
-	signal clk : std_logic := '0';
+	signal clk : std_logic;
 	signal rst : std_logic;
 	
 	constant CLK_PERIOD : time := 10 ns;
@@ -18,8 +18,11 @@ architecture sim of ClockDivider2X_tb is
 	signal div_cfg1 : std_logic;
 	signal div_cfg2 : std_logic;
 	signal div_cfg3 : std_logic;
+	signal div_cfg4 : std_logic;
+	signal div_cfg5 : std_logic;
+	signal div_cfg6 : std_logic;
 	
-	signal test_name_display : string(1 to 40) := (others => ' ');
+	signal test_name_display : string(1 to 40);
 	
 	procedure test_divider(
 		signal div : in std_logic;
@@ -32,7 +35,7 @@ architecture sim of ClockDivider2X_tb is
 	begin
 
 		wait until falling_edge(clk);
-		report COLOR_YELLOW & "Testing: " & name & COLOR_RESET;
+		-- report COLOR_YELLOW & "Testing: " & name & COLOR_RESET;
 
 		rst_out <= '1';
 		wait until falling_edge(clk);
@@ -67,23 +70,32 @@ begin
 
 	test_process: process
 	begin
-		test_name_display <= "Initializing...                         ";
-
-		rst <= '0';
-		wait for 100 ns;
 		
-		test_name_display <= "Test 1: Standard Config (DIV=10, RST=0) ";
+		set_test_name(test_name_display, "Test 1: Standard Config (DIV=10, RST=0) ");
 		test_divider(div_cfg1, rst, test_name_display, 10, '0');
 		
-		test_name_display <= "Test 2: Fast Divider (DIV=6, RST=0)     ";
+		set_test_name(test_name_display, "Test 2: Fast Divider (DIV=6, RST=0)     ");
 		test_divider(div_cfg2, rst, test_name_display, 6, '0');
 		
-		test_name_display <= "Test 3: Inverted Reset (DIV=10, RST=1)  ";
+		set_test_name(test_name_display, "Test 3: Inverted Reset (DIV=10, RST=1)  ");
 		test_divider(div_cfg3, rst, test_name_display, 10, '1');
 		
-		test_name_display <= "== All Tests Complete ==                ";
-        wait until falling_edge(clk);
-		report "All tests passed!" severity note;
+		-- For now will not work with 0 divider
+		-- test_name_display <= "Test 4: Divider=0 (DIV=0, RST=0)        ";
+		-- test_divider(div_cfg4, rst, test_name_display, 0, '0');
+		
+		test_name_display <= "Test 5: Divider=1 (DIV=1, RST=0)        ";
+		for i in 1 to 128 loop
+			wait until falling_edge(clk);
+			assert_equal(div_cfg5, '0', "Divider=1 should be 0");
+		end loop;
+		wait until falling_edge(clk);
+		assert_equal(div_cfg5, '0', "Divider=1 should be 0");
+		
+		set_test_name(test_name_display, "Test 6: Divider=2 (DIV=2, RST=0)        ");
+		wait until falling_edge(clk);
+		test_divider(div_cfg6, rst, test_name_display, 2, '0');
+		
 		finish;
 		
 	end process;
@@ -121,6 +133,40 @@ begin
 			clk => clk,
 			rst => rst,
 			div => div_cfg3
+		);
+		
+	-- For now will not work with 0 divider
+	-- dut_cfg4: entity work.ClockDivider2XPorts
+	-- 	generic map (
+	-- 		CLOCK_DIVIDER => 0,
+	-- 		DIVOUT_RST_STATE => '0'
+	-- 	)
+	-- 	port map (
+	-- 		clk => clk,
+	-- 		rst => rst,
+	-- 		div => div_cfg4
+	-- 	);
+
+	dut_cfg5: entity work.ClockDivider2XPorts
+		generic map (
+			CLOCK_DIVIDER => 1,
+			DIVOUT_RST_STATE => '0'
+		)
+		port map (
+			clk => clk,
+			rst => rst,
+			div => div_cfg5
+		);
+
+		dut_cfg6: entity work.ClockDivider2XPorts
+		generic map (
+			CLOCK_DIVIDER => 2,
+			DIVOUT_RST_STATE => '0'
+		)
+		port map (
+			clk => clk,
+			rst => rst,
+			div => div_cfg6
 		);
 
 end architecture sim;

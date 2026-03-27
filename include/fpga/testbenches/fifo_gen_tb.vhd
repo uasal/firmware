@@ -15,18 +15,18 @@ architecture sim of fifo_gen_tb is
 
     constant CLK_PERIOD : time := 10 ns;
 
-    signal clk      : std_logic := '0';
-    signal rst      : std_logic := '0';
-    signal we_i     : std_logic := '0';
+    signal clk      : std_logic;
+    signal rst      : std_logic;
+    signal we_i     : std_logic;
     signal data_i   : std_logic_vector(WIDTH_BITS - 1 downto 0);
-    signal re_i     : std_logic := '0';
+    signal re_i     : std_logic;
     signal full_o   : std_logic;
     signal empty_o  : std_logic;
     signal data_o   : std_logic_vector(WIDTH_BITS - 1 downto 0);
     signal count_o  : std_logic_vector(DEPTH_BITS - 1 downto 0);
     signal r_ack    : std_logic;
     
-    signal test_name_display : string(1 to 80) := (others => ' ');
+    signal test_name_display : string(1 to 80);
 
     procedure read_fifo(
         signal re_out : out std_logic
@@ -72,6 +72,10 @@ begin
 
     test_process: process
     begin
+        we_i <= '0';
+        re_i <= '0';
+        data_i <= (others => '0');
+
         set_test_name(test_name_display, "Reset");
         reset_dut(clk, rst);
         assert_equal(count_o, std_logic_vector(to_unsigned(0, DEPTH_BITS)), "Counter should be 0 after reset");

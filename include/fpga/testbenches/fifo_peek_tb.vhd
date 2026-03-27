@@ -15,24 +15,22 @@ architecture sim of fifo_peek_tb is
 
     constant CLK_PERIOD : time := 10 ns;
 
-    signal clk          : std_logic := '0';
-    signal rst          : std_logic := '0';
-    signal we_i         : std_logic := '0';
-    signal data_i       : std_logic_vector(WIDTH_BITS - 1 downto 0) := (others => '0');
-    signal re_i         : std_logic := '0';
-    signal full_o       : std_logic := '0';
-    signal empty_o      : std_logic := '0';
+    signal clk          : std_logic;
+    signal rst          : std_logic;
+    signal we_i         : std_logic;
+    signal data_i       : std_logic_vector(WIDTH_BITS - 1 downto 0);
+    signal re_i         : std_logic;
+    signal full_o       : std_logic;
+    signal empty_o      : std_logic;
     signal data_o       : std_logic_vector(WIDTH_BITS - 1 downto 0);
     signal count_o      : std_logic_vector(DEPTH_BITS - 1 downto 0);
     signal raddr_o      : std_logic_vector(DEPTH_BITS - 1 downto 0);
     signal waddr_o      : std_logic_vector(DEPTH_BITS - 1 downto 0);
-    signal peekaddr_i   : std_logic_vector(DEPTH_BITS - 1 downto 0) := (others => '0');
+    signal peekaddr_i   : std_logic_vector(DEPTH_BITS - 1 downto 0);
     signal peek_data_o  : std_logic_vector(WIDTH_BITS - 1 downto 0);
-    signal raddr_i      : std_logic_vector(DEPTH_BITS - 1 downto 0) := (others => '0');
-    signal multipop_e_i : std_logic := '0';
-    signal r_ack        : std_logic := '0';
+    signal r_ack        : std_logic;
 
-    signal test_name_display : string(1 to 80) := (others => ' ');
+    signal test_name_display : string(1 to 80);
 
     procedure read_fifo(
         signal re_out : out std_logic
@@ -77,20 +75,6 @@ architecture sim of fifo_peek_tb is
         peekaddr_out <= (others => '0');
     end procedure;
 
-    procedure multipop_fifo(
-        signal raddr_override_out : out std_logic_vector(DEPTH_BITS - 1 downto 0);
-        signal multipop_out : out std_logic;
-        constant addr : natural
-    ) is
-    begin
-        wait until falling_edge(clk);
-        raddr_override_out <= std_logic_vector(to_unsigned(addr, DEPTH_BITS));
-        multipop_out <= '1';
-        wait until falling_edge(clk);
-        raddr_override_out <= (others => '0');
-        multipop_out <= '0';
-    end procedure;
-
 begin
 
     clk_process: process
@@ -103,6 +87,11 @@ begin
 
     test_process: process
     begin
+        we_i <= '0';
+        re_i <= '0';
+        data_i <= (others => '0');
+        peekaddr_i <= (others => '0');
+
         set_test_name(test_name_display, "Reset");
         reset_dut(clk, rst);
         assert_equal(count_o, std_logic_vector(to_unsigned(0, DEPTH_BITS)), "Counter should be 0 after reset");
@@ -269,64 +258,6 @@ begin
         end loop;
         assert_equal(count_o, std_logic_vector(to_unsigned(8, DEPTH_BITS)), "Count should not change after peeks");
 
-        set_test_name(test_name_display, "Multipop by zero");
-        reset_dut(clk, rst);
-        for i in 0 to 7 loop
-            write_fifo(we_i, data_i, std_logic_vector(to_unsigned(i, WIDTH_BITS)));
-        end loop;
-        multipop_fifo(raddr_i, multipop_e_i, to_integer(unsigned(raddr_o)));
-        wait until falling_edge(clk);
-        assert_equal(count_o, std_logic_vector(to_unsigned(8, DEPTH_BITS)), "Count should not change on multipop by zero");
-
-        set_test_name(test_name_display, "Multipop by one");
-        reset_dut(clk, rst);
-        for i in 0 to 7 loop
-            write_fifo(we_i, data_i, std_logic_vector(to_unsigned(i, WIDTH_BITS)));
-        end loop;
-        multipop_fifo(raddr_i, multipop_e_i, to_integer(unsigned(raddr_o)) + 1);
-        wait until falling_edge(clk);
-        assert_equal(count_o, std_logic_vector(to_unsigned(7, DEPTH_BITS)), "Count should decrease by one on multipop by one");
-
-        set_test_name(test_name_display, "Multipop across wraparound");
-        reset_dut(clk, rst);
-        for i in 0 to (DEPTH-1) loop
-            write_fifo(we_i, data_i, std_logic_vector(to_unsigned(i, WIDTH_BITS)));
-        end loop;
-        for i in 0 to (DEPTH-4) loop
-            read_fifo(re_i);
-            wait until falling_edge(clk);
-        end loop;
-        multipop_fifo(raddr_i, multipop_e_i, 2);
-        wait until falling_edge(clk);
-        assert_equal(count_o, std_logic_vector(to_unsigned(0, DEPTH_BITS)), "Count should decrease by wrapped distance");
-
-
-        set_test_name(test_name_display, "Multipop larger than count");
-        reset_dut(clk, rst);
-        for i in 0 to 2 loop
-            write_fifo(we_i, data_i, std_logic_vector(to_unsigned(i, WIDTH_BITS)));
-        end loop;
-        multipop_fifo(raddr_i, multipop_e_i, to_integer(unsigned(raddr_o)) + 10);
-        wait until falling_edge(clk);
-        assert_equal(count_o, std_logic_vector(to_unsigned(0, DEPTH_BITS)), "Count should clamp to zero on oversized multipop");
-        assert_equal(empty_o, '1', "FIFO should be empty after oversized multipop");
-
-
-        set_test_name(test_name_display, "Multipop pulse width/retrigger");
-        reset_dut(clk, rst);
-        for i in 0 to 7 loop
-            write_fifo(we_i, data_i, std_logic_vector(to_unsigned(i, WIDTH_BITS)));
-        end loop;
-        multipop_e_i <= '1';
-        raddr_i <= std_logic_vector(unsigned(raddr_o) + 3);
-        wait until falling_edge(clk);
-        assert_equal(count_o, std_logic_vector(to_unsigned(5, DEPTH_BITS)), "Count should decrease by 3 on multipop");
-        wait until falling_edge(clk);
-        assert_equal(count_o, std_logic_vector(to_unsigned(5, DEPTH_BITS)), "Count should not change on held multipop");
-        multipop_e_i <= '0';
-        raddr_i <= (others => '0');
-
-
         set_test_name(test_name_display, "Reset while non-empty");
         reset_dut(clk, rst);
         for i in 0 to 7 loop
@@ -381,8 +312,6 @@ begin
         waddr_o => waddr_o,
         peekaddr_i => peekaddr_i,
         peek_data_o => peek_data_o,
-        raddr_i => raddr_i,
-        multipop_e_i => multipop_e_i,
         r_ack => r_ack
     );
 

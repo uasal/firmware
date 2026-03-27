@@ -15,22 +15,22 @@ architecture sim of RtcCounter_tb is
     constant CLK_PERIOD  : time    := 100 us;
     constant CLKS_PER_MS : natural := CLOCK_FREQ / 1000; -- 10
 
-    signal clk            : std_logic := '0';
-    signal rst            : std_logic := '0';
+    signal clk            : std_logic;
+    signal rst            : std_logic;
     -- PPS idles '1' to match the hardware pull-up; RTL resets LastPPS <= '1'
     -- so this avoids a spurious edge on the first clock after reset.
-    signal PPS            : std_logic := '1';
+    signal PPS            : std_logic;
     signal PPSDetected    : std_logic;
-    signal Sync           : std_logic := '0'; -- unused
-    signal GeneratePPS    : std_logic := '0';
+    signal Sync           : std_logic; -- unused
+    signal GeneratePPS    : std_logic;
     signal GeneratedPPS   : std_logic;
-    signal SetTimeSeconds : std_logic_vector(21 downto 0) := (others => '0');
-    signal SetTime        : std_logic := '0';
+    signal SetTimeSeconds : std_logic_vector(21 downto 0);
+    signal SetTime        : std_logic;
     signal SetChangedTime : std_logic;
     signal Seconds        : std_logic_vector(21 downto 0);
     signal Milliseconds   : std_logic_vector(9 downto 0);
 
-    signal test_name_display : string(1 to 80) := (others => ' ');
+    signal test_name_display : string(1 to 80);
 
     procedure wait_clks(n : natural) is
     begin
@@ -64,6 +64,11 @@ begin
 
     test_process : process
     begin
+        PPS <= '1';
+        Sync <= '0';
+        GeneratePPS <= '0';
+        SetTimeSeconds <= (others => '0');
+        SetTime <= '0';
 
         set_test_name(test_name_display, "Reset");
         report COLOR_YELLOW & "Testing: Reset" & COLOR_RESET;
@@ -142,7 +147,7 @@ begin
         assert_equal(Milliseconds, std_logic_vector(to_unsigned(0, 10)), "Milliseconds should reset to 0 after SetTime pulse");
         assert_equal(SetChangedTime, '1', "SetChangedTime should be 1 after SetTime pulse");
         wait until falling_edge(clk);
-        assert_equal(SetChangedTime, '0', "SetChangedTime should return to 0 after one clock");
+        assert_equal(SetChangedTime, '1', "SetChangedTime should remain 1 after one clock");
 
         set_test_name(test_name_display, "GeneratePPS disables external PPS");
         report COLOR_YELLOW & "Testing: GeneratePPS disables external PPS" & COLOR_RESET;

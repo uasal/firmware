@@ -13,16 +13,16 @@ architecture sim of PeekRam_tb is
 
     constant CLK_PERIOD : time := 10 ns;
 
-    signal clk : std_logic := '0';
-    signal rst : std_logic := '0';
+    signal clk : std_logic;
+    signal rst : std_logic;
 
-    signal ReadAddress  : std_logic_vector(PeekRamDepth - 1 downto 0) := (others => '0');
-    signal WriteAddress : std_logic_vector(PeekRamDepth - 1 downto 0) := (others => '0');
-    signal ByteIn       : std_logic_vector(7 downto 0) := (others => '0');
+    signal ReadAddress  : std_logic_vector(PeekRamDepth - 1 downto 0);
+    signal WriteAddress : std_logic_vector(PeekRamDepth - 1 downto 0);
+    signal ByteIn       : std_logic_vector(7 downto 0);
     signal ByteOut      : std_logic_vector(7 downto 0);
-    signal WriteReq     : std_logic := '0';
+    signal WriteReq     : std_logic;
 
-    signal test_name_display : string(1 to 80) := (others => ' ');
+    signal test_name_display : string(1 to 80);
 
     procedure write_ram(
         signal write_addr_out : out std_logic_vector(PeekRamDepth - 1 downto 0);
@@ -62,13 +62,21 @@ begin
 
     test_process : process
     begin
+        -- wait until falling_edge(clk);
+        ReadAddress  <= (others => '0');
+        WriteAddress <= (others => '0');
+        ByteIn       <= (others => '0');
+        WriteReq     <= '0';
+
         set_test_name(test_name_display, "Reset");
         reset_dut(clk, rst);
         assert_equal(ByteOut, x"FF", "ByteOut should be FF during reset");
 
-        set_test_name(test_name_display, "Read unwritten address");
+        -- No declaration-time RAM init: establish known data by explicit write.
+        set_test_name(test_name_display, "Write and read address 0");
+        write_ram(WriteAddress, ByteIn, WriteReq, 0, x"00");
         read_ram(ReadAddress, 0);
-        assert_equal(ByteOut, x"00", "Unwritten address should return 00");
+        assert_equal(ByteOut, x"00", "Read should return written value at address 0");
 
         set_test_name(test_name_display, "Single Write and Read");
         write_ram(WriteAddress, ByteIn, WriteReq, 5, x"AB");
@@ -90,6 +98,7 @@ begin
         assert_equal(ByteOut, x"CD", "Address 5 should contain overwritten value CD");
 
         set_test_name(test_name_display, "No write when WriteReq low");
+        write_ram(WriteAddress, ByteIn, WriteReq, 20, x"00");
         wait until falling_edge(clk);
         WriteAddress <= std_logic_vector(to_unsigned(20, PeekRamDepth));
         ByteIn <= x"77";

@@ -28,8 +28,6 @@ entity gated_fifo_peek is
 		waddr_o : out std_logic_vector(DEPTH_BITS - 1 downto 0);
 		peekaddr_i : in std_logic_vector(DEPTH_BITS - 1 downto 0);
 		peek_data_o	: out std_logic_vector(WIDTH_BITS - 1 downto 0);
-		raddr_i : in std_logic_vector(DEPTH_BITS - 1 downto 0);
-		multipop_e_i	: in std_logic;
 		r_ack : out std_logic--;
 	);
 end gated_fifo_peek;
@@ -55,19 +53,17 @@ architecture rtl of gated_fifo_peek is
 		waddr_o : out std_logic_vector(DEPTH_BITS - 1 downto 0);
 		peekaddr_i : in std_logic_vector(DEPTH_BITS - 1 downto 0);
 		peek_data_o	: out std_logic_vector(WIDTH_BITS - 1 downto 0);
-		raddr_i : in std_logic_vector(DEPTH_BITS - 1 downto 0);
-		multipop_e_i	: in std_logic;
 		r_ack : out std_logic--;
 	);
 	end component;
 
-	signal we_i : std_logic := '0';
-	signal re_i : std_logic := '0';
-	signal r_ack_i : std_logic := '0';
+	signal we_i : std_logic;
+	signal re_i : std_logic;
+	signal r_ack_i : std_logic;
 	--~ signal written : std_logic := '0';
 	--~ signal readed : std_logic := '0';
-	signal Last_wone_i : std_logic := '0';
-	signal Last_rone_i : std_logic := '0';
+	signal Last_wone_i : std_logic;
+	signal Last_rone_i : std_logic;
 	
 
 begin
@@ -93,8 +89,6 @@ begin
 		waddr_o => waddr_o,
 		peekaddr_i => peekaddr_i,
 		peek_data_o => peek_data_o,
-		raddr_i => raddr_i,
-		multipop_e_i => multipop_e_i,
 		r_ack => r_ack_i--,
 	);
 	

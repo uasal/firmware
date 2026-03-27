@@ -9,13 +9,13 @@ end entity OneShot_tb;
 
 architecture sim of OneShot_tb is
 
-    signal clk : std_logic := '0';
+    signal clk : std_logic;
     signal rst : std_logic;
     signal shot_cfg1 : std_logic;
     signal shot_cfg2 : std_logic;
     signal shot_cfg3 : std_logic;
     signal shot_cfg4 : std_logic;
-    signal test_name_display : string(1 to 80) := (others => ' ');
+    signal test_name_display : string(1 to 80);
     constant CLK_PERIOD : time := 10 ns;
 
     procedure test_one_shot(

@@ -43,8 +43,8 @@ end VariableOneShotPorts;
 
 architecture VariableOneShot of VariableOneShotPorts is
 
-	signal ClkDiv : natural range 0 to (((2**WIDTH_BITS) / 2) - 1);
-	signal shot_i : std_logic := SHOT_RST_STATE;	
+	signal ClkDiv : natural range 0 to ((2**WIDTH_BITS) - 1);
+	signal shot_i : std_logic;
 
 begin
 

@@ -15,7 +15,7 @@ architecture sim of PeekRingBuffer_tb is
     constant DEPTH      : natural := 2 ** PeekRamDepth;
 
     signal clk : std_logic := '0';
-    signal rst : std_logic := '0';
+    signal rst : std_logic := '1';
 
     signal DataStartAddress : std_logic_vector(PeekRamDepth - 1 downto 0);
     signal DataEndAddress   : std_logic_vector(PeekRamDepth - 1 downto 0);
@@ -25,14 +25,14 @@ architecture sim of PeekRingBuffer_tb is
     signal ByteOut          : std_logic_vector(7 downto 0);
     signal WriteReq         : std_logic := '0';
     signal PopReq           : std_logic := '0';
-    signal Dbg1             : std_logic := '0';
-    signal Dbg2             : std_logic := '0';
-    signal Dbg3             : std_logic := '0';
-    signal Empty            : std_logic := '0';
-    signal Full             : std_logic := '0';
+    signal Dbg1             : std_logic;
+    signal Dbg2             : std_logic;
+    signal Dbg3             : std_logic;
+    signal Empty            : std_logic;
+    signal Full             : std_logic;
     signal Count            : std_logic_vector(PeekRamDepth - 1 downto 0);
 
-    signal test_name_display : string(1 to 80) := (others => ' ');
+    signal test_name_display : string(1 to 80);
 
     procedure write_once(
         signal write_req_out : out std_logic;
