@@ -217,7 +217,7 @@ public:
 	}
 
 
-	virtual int readBulk(uint8_t* buf, size_t maxLen) override
+	virtual int read(uint8_t* buf, size_t maxLen) override
 	{
 		if (-1 == hSocket) return (0);
 

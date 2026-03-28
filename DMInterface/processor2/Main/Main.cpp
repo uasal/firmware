@@ -157,14 +157,14 @@ bool Process()
 {
     bool Bored = true;
 	
-    if (FpgaUartParser3.ProcessBulk()) { Bored = false; }    
+    if (FpgaUartParser3.Process()) { Bored = false; }    
     
     return(Bored);
 }
 
 void ProcessAllUarts()
 {
-        FpgaUartParser3.ProcessBulk();
+        FpgaUartParser3.Process();
 }
 
 /*==============================================================================

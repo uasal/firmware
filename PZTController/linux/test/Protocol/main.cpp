@@ -165,7 +165,7 @@ int main(int argc, char *argv[])
 		//~ for (size_t j = 0; j < (Tests[i].TestDataLen + 40); j++)
 		for (size_t j = 0; j < Tests[i].TestDataLen; j++)
 		{
-			CGraphProtocolParser.ProcessBulk();
+			CGraphProtocolParser.Process();
 		}
 	}
 	

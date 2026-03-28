@@ -60,7 +60,7 @@ public:
 		return((char)(c));
 	}
 
-	virtual int readBulk(uint8_t* buf, size_t maxLen) override
+	virtual int read(uint8_t* buf, size_t maxLen) override
 	{
 		if (NULL == PZT) return(0);
 
@@ -132,7 +132,7 @@ public:
 		return((char)(c));
 	}
 
-	virtual int readBulk(uint8_t* buf, size_t maxLen) override
+	virtual int read(uint8_t* buf, size_t maxLen) override
 	{
 		if (NULL == PZT) return(0);
 
@@ -204,7 +204,7 @@ public:
 		return((char)(c));
 	}
 
-	virtual int readBulk(uint8_t* buf, size_t maxLen) override
+	virtual int read(uint8_t* buf, size_t maxLen) override
 	{
 		if (NULL == PZT) return(0);
 

@@ -112,11 +112,11 @@ public:
   		return(c);
 	}
 
-	virtual int readBulk(uint8_t* buf, size_t maxLen) override
+	virtual int read(uint8_t* buf, size_t maxLen) override
 	{
 		if (NULL == fd) 
 		{
-			printf("\nlinux_pinout_file::readBulk(): read on uninitialized file; please open file!\n");
+			printf("\nlinux_pinout_file::read(): read on uninitialized file; please open file!\n");
 			return(0);
 		}
 

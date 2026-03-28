@@ -195,7 +195,7 @@ int main(int argc, char *argv[])
 		
 		if (LocalPortPinout.Process())  { Bored = false; }
 		if (LocalPortPinout.RxData.Process())  { Bored = false; }
-		if (UartParser.ProcessBulk())  { Bored = false; }
+		if (UartParser.Process())  { Bored = false; }
 		
 		//We probably didn't connect when we initialized, so just keep trying until we get a client...
 		if (false == LocalPortPinout.connected())

@@ -151,7 +151,7 @@ int main(int argc, char *argv[])
             Bored = false;
         }
 		
-		if (UartParser.ProcessBulk())
+		if (UartParser.Process())
 		{
             Bored = false;
         }

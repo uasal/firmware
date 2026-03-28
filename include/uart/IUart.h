@@ -60,7 +60,9 @@ public:
 	
 	/// Read up to maxLen bytes into buf. Returns number of bytes read.
 	/// Default implementation falls back to byte-by-byte via dataready()/getcqq().
-	virtual int readBulk(uint8_t* buf, size_t maxLen)
+	/// NOTE: Subclasses that override this and call the POSIX read() syscall internally
+	/// must qualify those calls as ::read() to avoid infinite recursion.
+	virtual int read(uint8_t* buf, size_t maxLen)
 	{
 		size_t count = 0;
 		while (count < maxLen && dataready()) {

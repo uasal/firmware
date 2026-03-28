@@ -60,7 +60,7 @@ public:
 		return((char)c);
 	}
 
-	virtual int readBulk(uint8_t* buf, size_t maxLen) override
+	virtual int read(uint8_t* buf, size_t maxLen) override
 	{
 		size_t count = 0;
 		BufferT c = 0;

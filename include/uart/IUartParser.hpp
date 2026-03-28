@@ -40,10 +40,6 @@ public:
 	IUart& Pinout;
 
 	virtual bool Process() = 0;
-
-	/// Bulk-read variant: reads all available bytes at once, then processes them in memory.
-	/// Default falls back to single-byte Process() for parsers that don't benefit from bulk reads.
-	virtual bool ProcessBulk() { return Process(); }
 	
 	void puts(const char* s, const size_t len)
 	{

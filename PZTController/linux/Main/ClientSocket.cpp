@@ -128,7 +128,7 @@ bool ClientSocketThread::Process()
 	{
 		for (size_t c = 0; c < 255; c++)
 		{
-			Processed = ClientConnections[Client].SocketHandler.ProcessBulk();
+			Processed = ClientConnections[Client].SocketHandler.Process();
 			if (!Processed) { break; }
 		}
 	}

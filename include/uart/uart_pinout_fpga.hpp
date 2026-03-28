@@ -72,7 +72,7 @@ public:
 		return((char)(c));
 	}
 
-	virtual int readBulk(uint8_t* buf, size_t maxLen) override
+	virtual int read(uint8_t* buf, size_t maxLen) override
 	{
 		if (NULL == StatusRegister || NULL == ReadRequestRegister || NULL == ReadDataRegister) return(0);
 
