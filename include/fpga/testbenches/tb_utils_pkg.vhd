@@ -10,6 +10,8 @@ package tb_utils_pkg is
 	constant COLOR_YELLOW : string := character'val(27) & "[33m";
 	constant COLOR_RESET : string := character'val(27) & "[0m";
 
+	function byte_bit(constant b : std_logic_vector(7 downto 0); constant idx : integer) return std_logic;
+
 	procedure assert_equal(
 		constant actual : std_logic;
 		constant expected : std_logic;
@@ -35,6 +37,11 @@ package tb_utils_pkg is
 end package tb_utils_pkg;
 
 package body tb_utils_pkg is
+
+    function byte_bit(constant b : std_logic_vector(7 downto 0); constant idx : integer) return std_logic is
+    begin
+        return b(idx);
+    end function;
 
 	procedure assert_equal(
 		constant actual : std_logic;

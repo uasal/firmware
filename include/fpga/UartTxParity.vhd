@@ -62,7 +62,7 @@ begin
         else
 			if (Rising_Edge(Clk)) then
 			
-				if (Go /= LastGo) then
+				if (Busy = '0') and (Go /= LastGo) then
 					LastGo <= Go;
 					if (Go = '1') then BitCnt <= "1111"; end if;
 				end if;
