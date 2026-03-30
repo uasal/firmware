@@ -102,6 +102,7 @@ begin
 			LastStartCrc <= '0';
 			CrcComplete_i <= '1';
 			FifoPeekAddr_i <= FifoStartAddr;
+			Crc <= x"FFFFFFFF";
 					
 		else
 			
@@ -113,6 +114,7 @@ begin
 				
 					CrcComplete_i <= '0';
 					FifoPeekAddr_i <= FifoStartAddr;
+					Crc <= x"FFFFFFFF";
 			
 				else
 				
