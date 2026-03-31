@@ -12,6 +12,11 @@ package tb_utils_pkg is
 
 	function byte_bit(constant b : std_logic_vector(7 downto 0); constant idx : integer) return std_logic;
 
+	procedure cycle_clock(
+		signal clk : in std_logic;
+		constant cycles : natural
+	);
+
 	procedure assert_equal(
 		constant actual : std_logic;
 		constant expected : std_logic;
@@ -42,6 +47,16 @@ package body tb_utils_pkg is
     begin
         return b(idx);
     end function;
+
+	procedure cycle_clock(
+		signal clk : in std_logic;
+		constant cycles : natural
+	) is
+	begin
+		for i in 1 to cycles loop
+        	wait until falling_edge(clk);
+    	end loop;
+	end procedure;
 
 	procedure assert_equal(
 		constant actual : std_logic;
