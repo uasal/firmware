@@ -38,6 +38,11 @@ entity PeekRingBuffer is
 	DataEndAddress : out std_logic_vector(PeekRamDepth - 1 downto 0);
     PeekAddress : in std_logic_vector(PeekRamDepth - 1 downto 0);
     PopAddress : in std_logic_vector(PeekRamDepth - 1 downto 0);
+    LastHeaderEnd : out std_logic_vector(PeekRamDepth - 1 downto 0);
+	LastFooterEnd : out std_logic_vector(PeekRamDepth - 1 downto 0);
+    PopAddress : in std_logic_vector(PeekRamDepth - 1 downto 0);
+	PayloadLen : out std_logic_vector(31 downto 0);
+	HeaderFooterPayloadLenMatches : out std_logic;
     ByteIn : in std_logic_vector(7 downto 0);
     ByteOut : out std_logic_vector(7 downto 0);
     WriteReq : in std_logic;
@@ -68,11 +73,49 @@ architecture PeekRingBufferImplemenatation of PeekRingBuffer is
 	  );
 	end component;
 	
+	component PatternFinder is
+	  generic (
+		Byte0 : std_logic_vector(7 downto 0) := x"00";
+		Byte1 : std_logic_vector(7 downto 0) := x"00";
+		Byte2 : std_logic_vector(7 downto 0) := x"00";
+		Byte3 : std_logic_vector(7 downto 0) := x"00"--;
+	  );
+	  port (
+		clk : in std_logic;
+		rst : in std_logic;
+			
+		-- Bus:
+		ByteIn : in std_logic_vector(7 downto 0);
+		WriteReq : in std_logic;
+		Found : out std_logic--;
+	  );
+	end component;
+	
+	component FieldLatcher is
+	  port (
+		clk : in std_logic;
+		rst : in std_logic;
+			
+		-- Bus:
+		ByteIn : in std_logic_vector(7 downto 0);
+		WriteReq : in std_logic;
+		FieldLatched : out std_logic_vector(31 downto 0)--;
+	  );
+	end component;
+
+
 	signal DataStartAddress_i : std_logic_vector(PeekRamDepth - 1 downto 0);
 	signal WriteAddress : std_logic_vector(PeekRamDepth - 1 downto 0);
 
 	signal LastPopReq : std_logic;
 	signal LastWriteReq : std_logic;
+
+	signal HeaderFound : std_logic;
+	signal FooterFound : std_logic;
+	signal LastHeaderFound : std_logic;
+	signal LastFooterFound : std_logic;
+	
+	signal MaybePayloadLen : std_logic_vector(31 downto 0);
 	
   begin
   
@@ -86,6 +129,50 @@ architecture PeekRingBufferImplemenatation of PeekRingBuffer is
 		ByteIn => ByteIn,
 		ByteOut => ByteOut,
 		WriteReq => WriteReq
+	);
+	
+	HeaderFinder : PatternFinder
+	generic map 
+	(
+		Byte0 => x"1B",
+		Byte1 => x"AD",
+		Byte2 => x"BA",
+		Byte3 => x"BE"--,
+	);
+	port map
+	(
+		clk => clk,
+		rst => rst,
+		ByteIn => ByteIn,
+		WriteReq => WriteReq,
+		Found => HeaderFound--,
+	);
+	
+	FooterFinder : PatternFinder
+	generic map 
+	(
+		Byte0 => x"0A",
+		Byte1 => x"0F",
+		Byte2 => x"AD",
+		Byte3 => x"ED"--,
+	);
+	port map
+	(
+		clk => clk,
+		rst => rst,
+		ByteIn => ByteIn,
+		WriteReq => WriteReq,
+		Found => FooterFound--,
+	);
+	
+	PayloadLenLatcher : FieldLatcher
+	port map 
+	(
+		clk => clk,
+		rst => rst,
+		ByteIn => ByteIn,
+		WriteReq => WriteReq,
+		FieldLatched => MaybePayloadLen--,
 	);
 	
   process (clk, rst)
@@ -114,12 +201,17 @@ architecture PeekRingBufferImplemenatation of PeekRingBuffer is
 		LastWriteReq <= '0';
 		DataStartAddress_i <= (others => '0');
 		WriteAddress <= (others => '0');
+		LastHeaderEnd <= (others => '0');
+		LastFooterEnd <= (others => '0');
+		PayloadLen <= x"00000000";
         
     else
       if ( (clk'event) and (clk = '1') ) then
 
 	    LastPopReq <= PopReq;
 	    LastWriteReq <= WriteReq;
+		LastHeaderFound <= HeaderFound;
+		LastFooterFound <= FooterFound;
 	  
         if ( (LastPopReq = '0') and (PopReq = '1') ) then
 		
@@ -133,21 +225,68 @@ architecture PeekRingBufferImplemenatation of PeekRingBuffer is
 				
 			if (WriteAddress < ( (2**PeekRamDepth) - 1) ) then
 		
-				--~ WriteAddress <= WriteAddress + std_logic_vector(to_unsigned(1, PeekRamDepth));
-				WriteAddress <= WriteAddress + "0000000001";
+				WriteAddress <= WriteAddress + std_logic_vector(to_unsigned(1, PeekRamDepth));
+				--~ WriteAddress <= WriteAddress + "0000000001";
 				
 			else --wrap
 			
 				WriteAddress <= (others => '0');
 				
 			end if;
-        
+			
+			--If we wrap footer or header, clear!
+			if (LastHeaderEnd = WriteAddress + "0000000001") then LastHeaderEnd <= (others => '0'); end if;
+			
+			if (LastFooterEnd = WriteAddress + "0000000001") then LastFooterEnd <= (others => '0'); end if;
+			
+			--Grab the payload len?
+			
+			if (WriteAddress >= LastHeaderEnd) then
+			
+				if (WriteAddress = (LastHeaderEnd + 3) then PayloadLen <= MaybePayloadLen; end if;
+			
+			else
+
+				if (WriteAddress = (LastHeaderEnd + 3 - (2**PeekRamDepth)) then PayloadLen <= MaybePayloadLen; end if; --!!!this calc is WRONG!!! Needs to WRAP correctly...
+			
+			end if;
+			
 		else
 		
 			Dbg1 <= '0';
 			
 		end if;
 
+		--Update on the edge of found; can't put this on the writereq edge, because the flag will toggle on the next clock after, not synchrounously!
+		if ( (LastHeaderFound = '0') and (HeaderFound = '1') ) then LastHeaderEnd = WriteAddress - "0000000001"; end if;
+		
+		if ( (LastFooterFound = '0') and (FooterFound = '1') ) then 
+		
+			LastFooterEnd = WriteAddress - "0000000001"; 
+			
+			--Found a footer! This should initiate more checks; namely, generating & testing the CRC and checking if headerpos +length <+appropriate offsets> = footerpos
+				--Really need to test & fix CRCer first...
+					--~ RS422_Rx0_Crcer : CrcFifo
+					--~ generic map
+					--~ (
+						--~ DEPTH_BITS => 10--,
+					--~ )
+					--~ port map
+					--~ (
+						--~ clk => MasterClk,
+						--~ rst => Uart0DoCrc,
+						--~ FifoStartAddr => Uart0CrcStartAddr,
+						--~ FifoEndAddr => Uart0CrcEndAddr,
+						--~ FifoPeekData => Uart0RxFifoPeekPeekData,
+						--~ FifoPeekAddr => Uart0RxFifoPeekPeekAddrCrcer,
+						--~ Crc => Uart0Crc,
+						--~ CrcComplete => Uart0CrcDone--,
+					--~ );
+
+			--~ HeaderFooterPayloadLenMatches <=
+        
+		end if;
+		
   	  end if;  
     end if;
   end process;
