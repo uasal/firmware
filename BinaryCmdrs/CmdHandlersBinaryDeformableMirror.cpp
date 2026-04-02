@@ -206,8 +206,8 @@ int8_t BinaryDMDitherCommand(const uint32_t Name, char const* Params, const size
 						
 		for (size_t i = 0; i < NumPixels; i++)
 		{
-			const uint32_t Pixel = *reinterpret_cast<const uint32_t*>(Params+sizeof(CGraphDMPixelPayloadHeader)+(i*sizeof(uint32_t)));
-			printf("\nBinaryDMDitherCommand: Pixel %lu: %lu", (unsigned long)i, (unsigned long)Pixel);
+			const uint8_t Pixel = *reinterpret_cast<const uint8_t*>(Params + sizeof(CGraphDMPixelPayloadHeader) + (i * sizeof(uint8_t)));
+			printf("\nBinaryDMDitherCommand: Pixel %lu: %u", (unsigned long)i, (unsigned)Pixel);
 		}
 		printf("\n\n");
 	}
