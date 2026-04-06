@@ -114,7 +114,8 @@ architecture implementation of UartRxFifoParity is
 			Enable : in  std_logic;  -- Enable input
 			RxD    : in  std_logic;  -- RS-232 data input
 			RxAv   : out std_logic;  -- Byte available
-			DataO  : out std_logic_vector(7 downto 0)--; -- Byte received
+			DataO  : out std_logic_vector(7 downto 0); -- Byte received
+			ParityErr : out std_logic
 		);
 		end component;
 
@@ -122,6 +123,7 @@ architecture implementation of UartRxFifoParity is
 	signal Rxd_i : std_logic; --Sync Rxd to clock domain
 	signal RxComplete : std_logic; --Just got a byte
 	signal RxData : std_logic_vector(7 downto 0); --The byte we just got		
+	signal UartParityErr : std_logic;
 	signal ReadFifo_i : std_logic; --Sync ReadFifo to clock domain
 	signal WriteFifo_i : std_logic; --Sync WriteFifo to clock domain	
 	
@@ -168,7 +170,8 @@ begin
 		Enable => '1',
 		RxD => Rxd_i,
 		RxAv  => RxComplete,
-		DataO => RxData--,
+		DataO => RxData,
+		ParityErr => UartParityErr
 	);
 	
 	--Just sync the fifo write from the usbclk to the MasterClock
