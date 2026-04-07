@@ -15,6 +15,7 @@ var classIPacket =
     [ "FindPacketStartPos", "classIPacket.html#a104f4f3cc1efcb063f4187d73ad4ae0e", null ],
     [ "FindPacketStartPos", "classIPacket.html#abdbd5f85a036c3b51c16ec938c18823d", null ],
     [ "FooterLen", "classIPacket.html#aae378234fa6b67186eea047ed0bda774", null ],
+    [ "formatf", "classIPacket.html#aecf52db93ab500cf7cc668c76fe47589", null ],
     [ "HeaderLen", "classIPacket.html#ad2ae0d8eb688d7987e63f438b007713c", null ],
     [ "IsBroadcastSerialNum", "classIPacket.html#a56c7f5a444fa41bdad4045472eb435a0", null ],
     [ "IsBroadcastSerialNum", "classIPacket.html#aac324d1be13b345811c62808e3046a0b", null ],

@@ -1,6 +1,6 @@
 var classSpiExtBusAddrTxPorts_1_1SpiExtBusAddrTx =
 [
-    [ "PROCESS_38", "classSpiExtBusAddrTxPorts_1_1SpiExtBusAddrTx.html#a7b64120810dc2807cdf43d1ebcc59c47", null ],
+    [ "PROCESS_39", "classSpiExtBusAddrTxPorts_1_1SpiExtBusAddrTx.html#aa1fc5515187ef5caac6a3bb7b9de453b", null ],
     [ "ClockDividerPorts", "classSpiExtBusAddrTxPorts_1_1SpiExtBusAddrTx.html#a40230d1eabbeb02dc89dc66911451995", null ],
     [ "LatchTxdSpiExtBusAddr", "classSpiExtBusAddrTxPorts_1_1SpiExtBusAddrTx.html#a20a86216357ca83c88d11a2512800906", null ],
     [ "spiextbusaddroutuart", "classSpiExtBusAddrTxPorts_1_1SpiExtBusAddrTx.html#aa37ccd230f2104ec97cb251f6b7fe16d", null ],

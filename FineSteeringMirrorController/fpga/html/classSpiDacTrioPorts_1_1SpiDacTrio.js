@@ -1,6 +1,6 @@
 var classSpiDacTrioPorts_1_1SpiDacTrio =
 [
-    [ "PROCESS_34", "classSpiDacTrioPorts_1_1SpiDacTrio.html#a81e94d96b9d97775c28c7c10742a34c1", null ],
+    [ "PROCESS_35", "classSpiDacTrioPorts_1_1SpiDacTrio.html#a81eb8b583996ca946411854e0bb13c24", null ],
     [ "DacReadbackA_i", "classSpiDacTrioPorts_1_1SpiDacTrio.html#a9649773f528b7797c0d1622be752a6ab", null ],
     [ "DacReadbackB_i", "classSpiDacTrioPorts_1_1SpiDacTrio.html#ad4991cd67ca9dc458f3d2c88636d118a", null ],
     [ "DacReadbackC_i", "classSpiDacTrioPorts_1_1SpiDacTrio.html#ac1a9773ae8a3979936b8a8eb6c966797", null ],

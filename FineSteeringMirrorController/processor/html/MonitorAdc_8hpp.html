@@ -99,47 +99,31 @@ $(document).ready(function(){initNavTree('MonitorAdc_8hpp.html',''); initResizab
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="Delay_8h_source.html">Delay.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="ads1258dual_8h_source.html">adc/ads1258dual.h</a>&quot;</code><br />
+<code>#include &quot;Delay.h&quot;</code><br />
+<code>#include &quot;adc/ads1258dual.h&quot;</code><br />
 <code>#include &quot;temp/TempLM35.hpp&quot;</code><br />
 <code>#include &quot;format/formatf.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html">cgraph/CGraphFSMHardwareInterface.hpp</a>&quot;</code><br />
+<code>#include &quot;cgraph/CGraphFSMHardwareInterface.hpp&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for MonitorAdc.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="MonitorAdc_8hpp__incl.png" border="0" usemap="#aMonitorAdc_8hpp" alt=""/></div>
 <map name="aMonitorAdc_8hpp" id="aMonitorAdc_8hpp">
-<area shape="rect" title=" " alt="" coords="651,5,775,31"/>
-<area shape="rect" title=" " alt="" coords="240,313,311,339"/>
-<area shape="poly" title=" " alt="" coords="650,22,559,25,443,34,315,52,189,81,89,107,69,115,52,127,34,144,18,168,10,183,8,197,10,211,15,223,37,246,69,265,107,282,149,295,227,314,226,319,148,301,105,287,66,270,33,250,11,226,5,212,3,197,5,182,13,165,30,141,48,123,67,111,87,102,188,76,314,47,442,29,559,20,650,17"/>
-<area shape="rect" title=" " alt="" coords="801,86,872,111"/>
-<area shape="poly" title=" " alt="" coords="732,29,808,76,805,81,730,33"/>
-<area shape="rect" href="Delay_8h.html" title=" " alt="" coords="655,167,725,192"/>
-<area shape="poly" title=" " alt="" coords="714,31,696,153,691,152,708,30"/>
-<area shape="rect" href="ads1258dual_8h.html" title=" " alt="" coords="531,86,675,111"/>
-<area shape="poly" title=" " alt="" coords="698,33,632,80,629,76,695,29"/>
-<area shape="rect" title=" " alt="" coords="501,313,631,339"/>
-<area shape="poly" title=" " alt="" coords="721,30,734,60,747,101,751,148,748,171,740,193,714,232,679,265,641,291,607,310,604,305,638,286,675,261,710,229,736,191,743,170,746,147,741,102,729,61,716,32"/>
-<area shape="rect" title=" " alt="" coords="896,86,1055,111"/>
-<area shape="poly" title=" " alt="" coords="752,28,925,80,923,85,750,33"/>
-<area shape="rect" href="CGraphFSMHardwareInterface_8hpp.html" title=" " alt="" coords="201,79,409,119"/>
-<area shape="poly" title=" " alt="" coords="654,33,416,79,415,73,653,28"/>
-<area shape="poly" title=" " alt="" coords="594,113,521,183,469,227,411,268,366,292,322,311,320,306,364,287,409,263,465,223,518,179,591,109"/>
-<area shape="poly" title=" " alt="" coords="618,110,669,155,665,159,614,113"/>
-<area shape="poly" title=" " alt="" coords="605,112,600,177,587,266,577,301,572,299,582,265,595,177,600,111"/>
-<area shape="poly" title=" " alt="" coords="276,121,247,142,216,170,186,203,164,241,162,252,163,263,177,281,200,297,228,309,226,313,198,301,173,285,158,265,156,252,160,239,182,200,212,166,244,138,273,117"/>
-<area shape="poly" title=" " alt="" coords="400,116,448,136,492,165,519,196,539,233,563,299,558,301,535,235,515,200,488,169,446,140,398,121"/>
-<area shape="rect" title=" " alt="" coords="27,167,123,192"/>
-<area shape="poly" title=" " alt="" coords="251,121,123,165,121,160,249,116"/>
-<area shape="rect" href="UartStatusRegister_8hpp.html" title=" " alt="" coords="174,240,377,265"/>
-<area shape="poly" title=" " alt="" coords="290,120,275,142,263,167,261,198,268,226,263,228,256,198,258,166,270,139,286,117"/>
-<area shape="rect" href="CGraphCommon_8hpp.html" title=" " alt="" coords="273,167,478,192"/>
-<area shape="poly" title=" " alt="" coords="324,117,358,155,354,158,320,121"/>
-<area shape="poly" title=" " alt="" coords="278,266,278,300,273,300,273,266"/>
-<area shape="poly" title=" " alt="" coords="323,263,507,307,505,313,321,268"/>
-<area shape="poly" title=" " alt="" coords="384,192,396,226,397,247,391,267,378,283,361,296,325,315,323,310,358,292,374,279,386,264,392,246,391,227,379,193"/>
-<area shape="poly" title=" " alt="" coords="393,190,542,303,538,307,389,195"/>
-<area shape="poly" title=" " alt="" coords="361,194,304,234,301,230,358,190"/>
+<area shape="rect" title=" " alt="" coords="300,5,424,31"/>
+<area shape="rect" title=" " alt="" coords="5,86,76,111"/>
+<area shape="poly" title=" " alt="" coords="300,32,200,52,88,81,81,84,79,79,87,76,199,47,299,27"/>
+<area shape="rect" title=" " alt="" coords="100,86,171,111"/>
+<area shape="poly" title=" " alt="" coords="326,33,183,81,176,84,175,79,181,76,324,28"/>
+<area shape="rect" title=" " alt="" coords="195,86,265,111"/>
+<area shape="poly" title=" " alt="" coords="344,33,262,81,260,77,341,29"/>
+<area shape="rect" title=" " alt="" coords="290,86,434,111"/>
+<area shape="poly" title=" " alt="" coords="365,31,365,72,359,72,359,31"/>
+<area shape="rect" title=" " alt="" coords="459,86,617,111"/>
+<area shape="poly" title=" " alt="" coords="389,28,501,78,499,83,387,33"/>
+<area shape="rect" title=" " alt="" coords="642,86,773,111"/>
+<area shape="poly" title=" " alt="" coords="416,28,631,76,648,80,647,85,629,81,414,33"/>
+<area shape="rect" title=" " alt="" coords="797,79,1005,119"/>
+<area shape="poly" title=" " alt="" coords="424,25,783,76,782,81,424,30"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -176,77 +160,77 @@ Classes</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:a0410cc5c8f089f3fe56b73f7386ac31b" id="r_a0410cc5c8f089f3fe56b73f7386ac31b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a0410cc5c8f089f3fe56b73f7386ac31b">DEBUGADC</a></td></tr>
 <tr class="separator:a0410cc5c8f089f3fe56b73f7386ac31b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a007e0c2faec350f9a6d50f8100994b6d" id="r_a007e0c2faec350f9a6d50f8100994b6d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a007e0c2faec350f9a6d50f8100994b6d">IHVChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#aa0dc2b562b9e90964cdeb2fccaf1627a">ads1258details::chan_se0</a></td></tr>
+<tr class="memitem:a007e0c2faec350f9a6d50f8100994b6d" id="r_a007e0c2faec350f9a6d50f8100994b6d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a007e0c2faec350f9a6d50f8100994b6d">IHVChannel</a>&#160;&#160;&#160;ads1258details::chan_se0</td></tr>
 <tr class="separator:a007e0c2faec350f9a6d50f8100994b6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ebc1c2bd2a8cab88abb0669eb3853cf" id="r_a5ebc1c2bd2a8cab88abb0669eb3853cf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a5ebc1c2bd2a8cab88abb0669eb3853cf">INVChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#af2caeb8ddf836d4f54559bb6ef0d8ec7">ads1258details::chan_se1</a></td></tr>
+<tr class="memitem:a5ebc1c2bd2a8cab88abb0669eb3853cf" id="r_a5ebc1c2bd2a8cab88abb0669eb3853cf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a5ebc1c2bd2a8cab88abb0669eb3853cf">INVChannel</a>&#160;&#160;&#160;ads1258details::chan_se1</td></tr>
 <tr class="separator:a5ebc1c2bd2a8cab88abb0669eb3853cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e642b756674fccb4cd17088ce541677" id="r_a0e642b756674fccb4cd17088ce541677"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a0e642b756674fccb4cd17088ce541677">I6VChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#aaba9fdb5a11301b8875bd55496768ba0">ads1258details::chan_se2</a></td></tr>
+<tr class="memitem:a0e642b756674fccb4cd17088ce541677" id="r_a0e642b756674fccb4cd17088ce541677"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a0e642b756674fccb4cd17088ce541677">I6VChannel</a>&#160;&#160;&#160;ads1258details::chan_se2</td></tr>
 <tr class="separator:a0e642b756674fccb4cd17088ce541677"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed21ceebaa5dbf3af08818e1e9d120cf" id="r_aed21ceebaa5dbf3af08818e1e9d120cf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#aed21ceebaa5dbf3af08818e1e9d120cf">I3VDChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a04d2255100365d41d53d2e0869896b55">ads1258details::chan_se3</a></td></tr>
+<tr class="memitem:aed21ceebaa5dbf3af08818e1e9d120cf" id="r_aed21ceebaa5dbf3af08818e1e9d120cf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#aed21ceebaa5dbf3af08818e1e9d120cf">I3VDChannel</a>&#160;&#160;&#160;ads1258details::chan_se3</td></tr>
 <tr class="separator:aed21ceebaa5dbf3af08818e1e9d120cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3feb86e3c85c13020b15b6524a8213db" id="r_a3feb86e3c85c13020b15b6524a8213db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a3feb86e3c85c13020b15b6524a8213db">I2VDChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a8adde10e6ea86f3f43d99b7e8ca9ddf1">ads1258details::chan_se4</a></td></tr>
+<tr class="memitem:a3feb86e3c85c13020b15b6524a8213db" id="r_a3feb86e3c85c13020b15b6524a8213db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a3feb86e3c85c13020b15b6524a8213db">I2VDChannel</a>&#160;&#160;&#160;ads1258details::chan_se4</td></tr>
 <tr class="separator:a3feb86e3c85c13020b15b6524a8213db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a752d691b8829981ae2062139d0a9c420" id="r_a752d691b8829981ae2062139d0a9c420"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a752d691b8829981ae2062139d0a9c420">I1VChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#ac265d8a19337356f6bb490a7b5782540">ads1258details::chan_se5</a></td></tr>
+<tr class="memitem:a752d691b8829981ae2062139d0a9c420" id="r_a752d691b8829981ae2062139d0a9c420"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a752d691b8829981ae2062139d0a9c420">I1VChannel</a>&#160;&#160;&#160;ads1258details::chan_se5</td></tr>
 <tr class="separator:a752d691b8829981ae2062139d0a9c420"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b91ec787e97af97f788a3a0883a5df7" id="r_a3b91ec787e97af97f788a3a0883a5df7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a3b91ec787e97af97f788a3a0883a5df7">StrainBPChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a1c594e601419345b06bfadc311ebb8ba">ads1258details::chan_se6</a></td></tr>
+<tr class="memitem:a3b91ec787e97af97f788a3a0883a5df7" id="r_a3b91ec787e97af97f788a3a0883a5df7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a3b91ec787e97af97f788a3a0883a5df7">StrainBPChannel</a>&#160;&#160;&#160;ads1258details::chan_se6</td></tr>
 <tr class="separator:a3b91ec787e97af97f788a3a0883a5df7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7026cb0470bc78b91962eda2bb6d1eef" id="r_a7026cb0470bc78b91962eda2bb6d1eef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a7026cb0470bc78b91962eda2bb6d1eef">StrainBMChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a262a07edc5293f16fd851bf03aa03679">ads1258details::chan_se7</a></td></tr>
+<tr class="memitem:a7026cb0470bc78b91962eda2bb6d1eef" id="r_a7026cb0470bc78b91962eda2bb6d1eef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a7026cb0470bc78b91962eda2bb6d1eef">StrainBMChannel</a>&#160;&#160;&#160;ads1258details::chan_se7</td></tr>
 <tr class="separator:a7026cb0470bc78b91962eda2bb6d1eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae49ea611be753ca71c7f9727e3b82d65" id="r_ae49ea611be753ca71c7f9727e3b82d65"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#ae49ea611be753ca71c7f9727e3b82d65">StrainBChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a456a00c3eb54198fde7de929cf73628d">ads1258details::chan_diff3</a></td></tr>
+<tr class="memitem:ae49ea611be753ca71c7f9727e3b82d65" id="r_ae49ea611be753ca71c7f9727e3b82d65"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#ae49ea611be753ca71c7f9727e3b82d65">StrainBChannel</a>&#160;&#160;&#160;ads1258details::chan_diff3</td></tr>
 <tr class="separator:ae49ea611be753ca71c7f9727e3b82d65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a344c4e1b146451db44da2d0d67efd8eb" id="r_a344c4e1b146451db44da2d0d67efd8eb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a344c4e1b146451db44da2d0d67efd8eb">StrainDPChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#affef09c61ec30862725c24a709eff94c">ads1258details::chan_se8</a></td></tr>
+<tr class="memitem:a344c4e1b146451db44da2d0d67efd8eb" id="r_a344c4e1b146451db44da2d0d67efd8eb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a344c4e1b146451db44da2d0d67efd8eb">StrainDPChannel</a>&#160;&#160;&#160;ads1258details::chan_se8</td></tr>
 <tr class="separator:a344c4e1b146451db44da2d0d67efd8eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba6521a2a5bde03fbdecb3ecd2f72747" id="r_aba6521a2a5bde03fbdecb3ecd2f72747"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#aba6521a2a5bde03fbdecb3ecd2f72747">StrainDMChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a753373ad54627d1bbe20ce570a8e884a">ads1258details::chan_se9</a></td></tr>
+<tr class="memitem:aba6521a2a5bde03fbdecb3ecd2f72747" id="r_aba6521a2a5bde03fbdecb3ecd2f72747"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#aba6521a2a5bde03fbdecb3ecd2f72747">StrainDMChannel</a>&#160;&#160;&#160;ads1258details::chan_se9</td></tr>
 <tr class="separator:aba6521a2a5bde03fbdecb3ecd2f72747"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a734a27e0a352111267782b8b665262fd" id="r_a734a27e0a352111267782b8b665262fd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a734a27e0a352111267782b8b665262fd">StrainDChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#afce396f611c5e333eda61cc07c0dc081">ads1258details::chan_diff4</a></td></tr>
+<tr class="memitem:a734a27e0a352111267782b8b665262fd" id="r_a734a27e0a352111267782b8b665262fd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a734a27e0a352111267782b8b665262fd">StrainDChannel</a>&#160;&#160;&#160;ads1258details::chan_diff4</td></tr>
 <tr class="separator:a734a27e0a352111267782b8b665262fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9cf6d61388a01367e5ac80a7e456fd5" id="r_aa9cf6d61388a01367e5ac80a7e456fd5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#aa9cf6d61388a01367e5ac80a7e456fd5">StrainCMChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#aa231ce40385fba5052a1a58c7dc7fe6f">ads1258details::chan_se10</a></td></tr>
+<tr class="memitem:aa9cf6d61388a01367e5ac80a7e456fd5" id="r_aa9cf6d61388a01367e5ac80a7e456fd5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#aa9cf6d61388a01367e5ac80a7e456fd5">StrainCMChannel</a>&#160;&#160;&#160;ads1258details::chan_se10</td></tr>
 <tr class="separator:aa9cf6d61388a01367e5ac80a7e456fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2554c1f18d3deab04d35185f85245295" id="r_a2554c1f18d3deab04d35185f85245295"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a2554c1f18d3deab04d35185f85245295">StrainCPChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#ad1bfcf2160d76ca0c5c12754519cebfb">ads1258details::chan_se11</a></td></tr>
+<tr class="memitem:a2554c1f18d3deab04d35185f85245295" id="r_a2554c1f18d3deab04d35185f85245295"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a2554c1f18d3deab04d35185f85245295">StrainCPChannel</a>&#160;&#160;&#160;ads1258details::chan_se11</td></tr>
 <tr class="separator:a2554c1f18d3deab04d35185f85245295"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a835ad4deb3750c0019e99d387d962e50" id="r_a835ad4deb3750c0019e99d387d962e50"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a835ad4deb3750c0019e99d387d962e50">StrainCChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a4380d4c4d750f05f38f94aa7b8f07ec0">ads1258details::chan_diff5</a></td></tr>
+<tr class="memitem:a835ad4deb3750c0019e99d387d962e50" id="r_a835ad4deb3750c0019e99d387d962e50"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a835ad4deb3750c0019e99d387d962e50">StrainCChannel</a>&#160;&#160;&#160;ads1258details::chan_diff5</td></tr>
 <tr class="separator:a835ad4deb3750c0019e99d387d962e50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe326cd39da6769bfa658faaf0f1fb38" id="r_afe326cd39da6769bfa658faaf0f1fb38"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#afe326cd39da6769bfa658faaf0f1fb38">StrainAMChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a0b9c3d462d7159caa52bd8e55aeaac93">ads1258details::chan_se12</a></td></tr>
+<tr class="memitem:afe326cd39da6769bfa658faaf0f1fb38" id="r_afe326cd39da6769bfa658faaf0f1fb38"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#afe326cd39da6769bfa658faaf0f1fb38">StrainAMChannel</a>&#160;&#160;&#160;ads1258details::chan_se12</td></tr>
 <tr class="separator:afe326cd39da6769bfa658faaf0f1fb38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1bb60571d28ea4684600f95f110fd3b" id="r_ac1bb60571d28ea4684600f95f110fd3b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#ac1bb60571d28ea4684600f95f110fd3b">StrainAPChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#aab776c2868d0935a10bb4a2f1874f798">ads1258details::chan_se13</a></td></tr>
+<tr class="memitem:ac1bb60571d28ea4684600f95f110fd3b" id="r_ac1bb60571d28ea4684600f95f110fd3b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#ac1bb60571d28ea4684600f95f110fd3b">StrainAPChannel</a>&#160;&#160;&#160;ads1258details::chan_se13</td></tr>
 <tr class="separator:ac1bb60571d28ea4684600f95f110fd3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae94138f77d32b0756372fffd8ac27444" id="r_ae94138f77d32b0756372fffd8ac27444"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#ae94138f77d32b0756372fffd8ac27444">StrainAChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a496ad75c368e58a3bf80cb1d5d584e42">ads1258details::chan_diff6</a></td></tr>
+<tr class="memitem:ae94138f77d32b0756372fffd8ac27444" id="r_ae94138f77d32b0756372fffd8ac27444"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#ae94138f77d32b0756372fffd8ac27444">StrainAChannel</a>&#160;&#160;&#160;ads1258details::chan_diff6</td></tr>
 <tr class="separator:ae94138f77d32b0756372fffd8ac27444"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42cb3d3adbc393b2454567269586286c" id="r_a42cb3d3adbc393b2454567269586286c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a42cb3d3adbc393b2454567269586286c">P5VDChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a1962625d026ebb93ba3363735f4218b6">ads1258details::chan_se14</a></td></tr>
+<tr class="memitem:a42cb3d3adbc393b2454567269586286c" id="r_a42cb3d3adbc393b2454567269586286c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a42cb3d3adbc393b2454567269586286c">P5VDChannel</a>&#160;&#160;&#160;ads1258details::chan_se14</td></tr>
 <tr class="separator:a42cb3d3adbc393b2454567269586286c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d2d7482149a82a1b7460177c4411a14" id="r_a3d2d7482149a82a1b7460177c4411a14"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a3d2d7482149a82a1b7460177c4411a14">I2VAChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a7ea79f36d850327fe172dcba5548700c">ads1258details::chan_se15</a></td></tr>
+<tr class="memitem:a3d2d7482149a82a1b7460177c4411a14" id="r_a3d2d7482149a82a1b7460177c4411a14"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a3d2d7482149a82a1b7460177c4411a14">I2VAChannel</a>&#160;&#160;&#160;ads1258details::chan_se15</td></tr>
 <tr class="separator:a3d2d7482149a82a1b7460177c4411a14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad19df6fd1e017d8fa8324701c17d7959" id="r_ad19df6fd1e017d8fa8324701c17d7959"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#ad19df6fd1e017d8fa8324701c17d7959">TempChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#aa0dc2b562b9e90964cdeb2fccaf1627a">ads1258details::chan_se0</a></td></tr>
+<tr class="memitem:ad19df6fd1e017d8fa8324701c17d7959" id="r_ad19df6fd1e017d8fa8324701c17d7959"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#ad19df6fd1e017d8fa8324701c17d7959">TempChannel</a>&#160;&#160;&#160;ads1258details::chan_se0</td></tr>
 <tr class="separator:ad19df6fd1e017d8fa8324701c17d7959"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a549e0c23e554a3c10f9660d5b17bdd4d" id="r_a549e0c23e554a3c10f9660d5b17bdd4d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a549e0c23e554a3c10f9660d5b17bdd4d">P3V3DChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#af2caeb8ddf836d4f54559bb6ef0d8ec7">ads1258details::chan_se1</a></td></tr>
+<tr class="memitem:a549e0c23e554a3c10f9660d5b17bdd4d" id="r_a549e0c23e554a3c10f9660d5b17bdd4d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a549e0c23e554a3c10f9660d5b17bdd4d">P3V3DChannel</a>&#160;&#160;&#160;ads1258details::chan_se1</td></tr>
 <tr class="separator:a549e0c23e554a3c10f9660d5b17bdd4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dfca4b2395e6bcc89cacdad99f084de" id="r_a7dfca4b2395e6bcc89cacdad99f084de"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a7dfca4b2395e6bcc89cacdad99f084de">P28VChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#aaba9fdb5a11301b8875bd55496768ba0">ads1258details::chan_se2</a></td></tr>
+<tr class="memitem:a7dfca4b2395e6bcc89cacdad99f084de" id="r_a7dfca4b2395e6bcc89cacdad99f084de"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a7dfca4b2395e6bcc89cacdad99f084de">P28VChannel</a>&#160;&#160;&#160;ads1258details::chan_se2</td></tr>
 <tr class="separator:a7dfca4b2395e6bcc89cacdad99f084de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0db6ee721e449cfceb093c49c604db7f" id="r_a0db6ee721e449cfceb093c49c604db7f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a0db6ee721e449cfceb093c49c604db7f">P2V2Channel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a04d2255100365d41d53d2e0869896b55">ads1258details::chan_se3</a></td></tr>
+<tr class="memitem:a0db6ee721e449cfceb093c49c604db7f" id="r_a0db6ee721e449cfceb093c49c604db7f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a0db6ee721e449cfceb093c49c604db7f">P2V2Channel</a>&#160;&#160;&#160;ads1258details::chan_se3</td></tr>
 <tr class="separator:a0db6ee721e449cfceb093c49c604db7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af12fea6ce535814181e3667bdb460f63" id="r_af12fea6ce535814181e3667bdb460f63"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#af12fea6ce535814181e3667bdb460f63">P2V5DChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a8adde10e6ea86f3f43d99b7e8ca9ddf1">ads1258details::chan_se4</a></td></tr>
+<tr class="memitem:af12fea6ce535814181e3667bdb460f63" id="r_af12fea6ce535814181e3667bdb460f63"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#af12fea6ce535814181e3667bdb460f63">P2V5DChannel</a>&#160;&#160;&#160;ads1258details::chan_se4</td></tr>
 <tr class="separator:af12fea6ce535814181e3667bdb460f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25e4d787564e41c933d14aea298ec298" id="r_a25e4d787564e41c933d14aea298ec298"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a25e4d787564e41c933d14aea298ec298">P1V2Channel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#ac265d8a19337356f6bb490a7b5782540">ads1258details::chan_se5</a></td></tr>
+<tr class="memitem:a25e4d787564e41c933d14aea298ec298" id="r_a25e4d787564e41c933d14aea298ec298"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a25e4d787564e41c933d14aea298ec298">P1V2Channel</a>&#160;&#160;&#160;ads1258details::chan_se5</td></tr>
 <tr class="separator:a25e4d787564e41c933d14aea298ec298"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab09f6c9d91c06ea3893f4597f093f701" id="r_ab09f6c9d91c06ea3893f4597f093f701"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#ab09f6c9d91c06ea3893f4597f093f701">P2V5AChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a1c594e601419345b06bfadc311ebb8ba">ads1258details::chan_se6</a></td></tr>
+<tr class="memitem:ab09f6c9d91c06ea3893f4597f093f701" id="r_ab09f6c9d91c06ea3893f4597f093f701"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#ab09f6c9d91c06ea3893f4597f093f701">P2V5AChannel</a>&#160;&#160;&#160;ads1258details::chan_se6</td></tr>
 <tr class="separator:ab09f6c9d91c06ea3893f4597f093f701"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf9adb1d4a2fe674b5c9705173ec9a6e" id="r_abf9adb1d4a2fe674b5c9705173ec9a6e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#abf9adb1d4a2fe674b5c9705173ec9a6e">P4V3Channel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a262a07edc5293f16fd851bf03aa03679">ads1258details::chan_se7</a></td></tr>
+<tr class="memitem:abf9adb1d4a2fe674b5c9705173ec9a6e" id="r_abf9adb1d4a2fe674b5c9705173ec9a6e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#abf9adb1d4a2fe674b5c9705173ec9a6e">P4V3Channel</a>&#160;&#160;&#160;ads1258details::chan_se7</td></tr>
 <tr class="separator:abf9adb1d4a2fe674b5c9705173ec9a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67f4f389119110b4ce417e3cc365e945" id="r_a67f4f389119110b4ce417e3cc365e945"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a67f4f389119110b4ce417e3cc365e945">I3VAChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#affef09c61ec30862725c24a709eff94c">ads1258details::chan_se8</a></td></tr>
+<tr class="memitem:a67f4f389119110b4ce417e3cc365e945" id="r_a67f4f389119110b4ce417e3cc365e945"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a67f4f389119110b4ce417e3cc365e945">I3VAChannel</a>&#160;&#160;&#160;ads1258details::chan_se8</td></tr>
 <tr class="separator:a67f4f389119110b4ce417e3cc365e945"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa260a877df692bf2cc6c6f030fa7f7f8" id="r_aa260a877df692bf2cc6c6f030fa7f7f8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#aa260a877df692bf2cc6c6f030fa7f7f8">P3V3AChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a753373ad54627d1bbe20ce570a8e884a">ads1258details::chan_se9</a></td></tr>
+<tr class="memitem:aa260a877df692bf2cc6c6f030fa7f7f8" id="r_aa260a877df692bf2cc6c6f030fa7f7f8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#aa260a877df692bf2cc6c6f030fa7f7f8">P3V3AChannel</a>&#160;&#160;&#160;ads1258details::chan_se9</td></tr>
 <tr class="separator:aa260a877df692bf2cc6c6f030fa7f7f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cabc9ba4ce240404adf44273bd0962f" id="r_a3cabc9ba4ce240404adf44273bd0962f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a3cabc9ba4ce240404adf44273bd0962f">P6VChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#aa231ce40385fba5052a1a58c7dc7fe6f">ads1258details::chan_se10</a></td></tr>
+<tr class="memitem:a3cabc9ba4ce240404adf44273bd0962f" id="r_a3cabc9ba4ce240404adf44273bd0962f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a3cabc9ba4ce240404adf44273bd0962f">P6VChannel</a>&#160;&#160;&#160;ads1258details::chan_se10</td></tr>
 <tr class="separator:a3cabc9ba4ce240404adf44273bd0962f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f22731f922713f124e41bff1a796c53" id="r_a2f22731f922713f124e41bff1a796c53"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a2f22731f922713f124e41bff1a796c53">P5VAChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#ad1bfcf2160d76ca0c5c12754519cebfb">ads1258details::chan_se11</a></td></tr>
+<tr class="memitem:a2f22731f922713f124e41bff1a796c53" id="r_a2f22731f922713f124e41bff1a796c53"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a2f22731f922713f124e41bff1a796c53">P5VAChannel</a>&#160;&#160;&#160;ads1258details::chan_se11</td></tr>
 <tr class="separator:a2f22731f922713f124e41bff1a796c53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc373c91a5fd6490ead52dc6c92b804b" id="r_adc373c91a5fd6490ead52dc6c92b804b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#adc373c91a5fd6490ead52dc6c92b804b">LuxRadsChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a0b9c3d462d7159caa52bd8e55aeaac93">ads1258details::chan_se12</a></td></tr>
+<tr class="memitem:adc373c91a5fd6490ead52dc6c92b804b" id="r_adc373c91a5fd6490ead52dc6c92b804b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#adc373c91a5fd6490ead52dc6c92b804b">LuxRadsChannel</a>&#160;&#160;&#160;ads1258details::chan_se12</td></tr>
 <tr class="separator:adc373c91a5fd6490ead52dc6c92b804b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa57f8d991b7ccbd395387879952d270b" id="r_aa57f8d991b7ccbd395387879952d270b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#aa57f8d991b7ccbd395387879952d270b">N18VChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#aab776c2868d0935a10bb4a2f1874f798">ads1258details::chan_se13</a></td></tr>
+<tr class="memitem:aa57f8d991b7ccbd395387879952d270b" id="r_aa57f8d991b7ccbd395387879952d270b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#aa57f8d991b7ccbd395387879952d270b">N18VChannel</a>&#160;&#160;&#160;ads1258details::chan_se13</td></tr>
 <tr class="separator:aa57f8d991b7ccbd395387879952d270b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34bc4cbb7eb98bab26788ce348da09ea" id="r_a34bc4cbb7eb98bab26788ce348da09ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a34bc4cbb7eb98bab26788ce348da09ea">N20VChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a1962625d026ebb93ba3363735f4218b6">ads1258details::chan_se14</a></td></tr>
+<tr class="memitem:a34bc4cbb7eb98bab26788ce348da09ea" id="r_a34bc4cbb7eb98bab26788ce348da09ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a34bc4cbb7eb98bab26788ce348da09ea">N20VChannel</a>&#160;&#160;&#160;ads1258details::chan_se14</td></tr>
 <tr class="separator:a34bc4cbb7eb98bab26788ce348da09ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91239e56e4de867e4b2aa9f4b71af6a0" id="r_a91239e56e4de867e4b2aa9f4b71af6a0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a91239e56e4de867e4b2aa9f4b71af6a0">P125VChannel</a>&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a7ea79f36d850327fe172dcba5548700c">ads1258details::chan_se15</a></td></tr>
+<tr class="memitem:a91239e56e4de867e4b2aa9f4b71af6a0" id="r_a91239e56e4de867e4b2aa9f4b71af6a0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a91239e56e4de867e4b2aa9f4b71af6a0">P125VChannel</a>&#160;&#160;&#160;ads1258details::chan_se15</td></tr>
 <tr class="separator:a91239e56e4de867e4b2aa9f4b71af6a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -260,7 +244,7 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a323a4653305b6f1c3991540ac415fb68" id="r_a323a4653305b6f1c3991540ac415fb68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structCGraphFSMHardwareInterface.html">CGraphFSMHardwareInterface</a> *volatile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a323a4653305b6f1c3991540ac415fb68">FSM</a></td></tr>
+<tr class="memitem:a323a4653305b6f1c3991540ac415fb68" id="r_a323a4653305b6f1c3991540ac415fb68"><td class="memItemLeft" align="right" valign="top">CGraphFSMHardwareInterface *volatile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a323a4653305b6f1c3991540ac415fb68">FSM</a></td></tr>
 <tr class="separator:a323a4653305b6f1c3991540ac415fb68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19d2d1c7c402fcc7a4c4ea8690b5fcf8" id="r_a19d2d1c7c402fcc7a4c4ea8690b5fcf8"><td class="memItemLeft" align="right" valign="top">const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MonitorAdc_8hpp.html#a19d2d1c7c402fcc7a4c4ea8690b5fcf8">MonitorAdcFpgaAdcSampleAddr</a> = 92</td></tr>
 <tr class="separator:a19d2d1c7c402fcc7a4c4ea8690b5fcf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -381,7 +365,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define I1VChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#ac265d8a19337356f6bb490a7b5782540">ads1258details::chan_se5</a></td>
+          <td class="memname">#define I1VChannel&#160;&#160;&#160;ads1258details::chan_se5</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -397,7 +381,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define I2VAChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a7ea79f36d850327fe172dcba5548700c">ads1258details::chan_se15</a></td>
+          <td class="memname">#define I2VAChannel&#160;&#160;&#160;ads1258details::chan_se15</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -413,7 +397,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define I2VDChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a8adde10e6ea86f3f43d99b7e8ca9ddf1">ads1258details::chan_se4</a></td>
+          <td class="memname">#define I2VDChannel&#160;&#160;&#160;ads1258details::chan_se4</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -429,7 +413,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define I3VAChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#affef09c61ec30862725c24a709eff94c">ads1258details::chan_se8</a></td>
+          <td class="memname">#define I3VAChannel&#160;&#160;&#160;ads1258details::chan_se8</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -445,7 +429,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define I3VDChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a04d2255100365d41d53d2e0869896b55">ads1258details::chan_se3</a></td>
+          <td class="memname">#define I3VDChannel&#160;&#160;&#160;ads1258details::chan_se3</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -461,7 +445,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define I6VChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#aaba9fdb5a11301b8875bd55496768ba0">ads1258details::chan_se2</a></td>
+          <td class="memname">#define I6VChannel&#160;&#160;&#160;ads1258details::chan_se2</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -477,7 +461,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define IHVChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#aa0dc2b562b9e90964cdeb2fccaf1627a">ads1258details::chan_se0</a></td>
+          <td class="memname">#define IHVChannel&#160;&#160;&#160;ads1258details::chan_se0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -493,7 +477,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define INVChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#af2caeb8ddf836d4f54559bb6ef0d8ec7">ads1258details::chan_se1</a></td>
+          <td class="memname">#define INVChannel&#160;&#160;&#160;ads1258details::chan_se1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -509,7 +493,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define LuxRadsChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a0b9c3d462d7159caa52bd8e55aeaac93">ads1258details::chan_se12</a></td>
+          <td class="memname">#define LuxRadsChannel&#160;&#160;&#160;ads1258details::chan_se12</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -525,7 +509,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define N18VChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#aab776c2868d0935a10bb4a2f1874f798">ads1258details::chan_se13</a></td>
+          <td class="memname">#define N18VChannel&#160;&#160;&#160;ads1258details::chan_se13</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -541,7 +525,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define N20VChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a1962625d026ebb93ba3363735f4218b6">ads1258details::chan_se14</a></td>
+          <td class="memname">#define N20VChannel&#160;&#160;&#160;ads1258details::chan_se14</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -557,7 +541,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define P125VChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a7ea79f36d850327fe172dcba5548700c">ads1258details::chan_se15</a></td>
+          <td class="memname">#define P125VChannel&#160;&#160;&#160;ads1258details::chan_se15</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -573,7 +557,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define P1V2Channel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#ac265d8a19337356f6bb490a7b5782540">ads1258details::chan_se5</a></td>
+          <td class="memname">#define P1V2Channel&#160;&#160;&#160;ads1258details::chan_se5</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -589,7 +573,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define P28VChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#aaba9fdb5a11301b8875bd55496768ba0">ads1258details::chan_se2</a></td>
+          <td class="memname">#define P28VChannel&#160;&#160;&#160;ads1258details::chan_se2</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -605,7 +589,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define P2V2Channel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a04d2255100365d41d53d2e0869896b55">ads1258details::chan_se3</a></td>
+          <td class="memname">#define P2V2Channel&#160;&#160;&#160;ads1258details::chan_se3</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -621,7 +605,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define P2V5AChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a1c594e601419345b06bfadc311ebb8ba">ads1258details::chan_se6</a></td>
+          <td class="memname">#define P2V5AChannel&#160;&#160;&#160;ads1258details::chan_se6</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -637,7 +621,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define P2V5DChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a8adde10e6ea86f3f43d99b7e8ca9ddf1">ads1258details::chan_se4</a></td>
+          <td class="memname">#define P2V5DChannel&#160;&#160;&#160;ads1258details::chan_se4</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -653,7 +637,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define P3V3AChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a753373ad54627d1bbe20ce570a8e884a">ads1258details::chan_se9</a></td>
+          <td class="memname">#define P3V3AChannel&#160;&#160;&#160;ads1258details::chan_se9</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -669,7 +653,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define P3V3DChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#af2caeb8ddf836d4f54559bb6ef0d8ec7">ads1258details::chan_se1</a></td>
+          <td class="memname">#define P3V3DChannel&#160;&#160;&#160;ads1258details::chan_se1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -685,7 +669,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define P4V3Channel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a262a07edc5293f16fd851bf03aa03679">ads1258details::chan_se7</a></td>
+          <td class="memname">#define P4V3Channel&#160;&#160;&#160;ads1258details::chan_se7</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -701,7 +685,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define P5VAChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#ad1bfcf2160d76ca0c5c12754519cebfb">ads1258details::chan_se11</a></td>
+          <td class="memname">#define P5VAChannel&#160;&#160;&#160;ads1258details::chan_se11</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -717,7 +701,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define P5VDChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a1962625d026ebb93ba3363735f4218b6">ads1258details::chan_se14</a></td>
+          <td class="memname">#define P5VDChannel&#160;&#160;&#160;ads1258details::chan_se14</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -733,7 +717,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define P6VChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#aa231ce40385fba5052a1a58c7dc7fe6f">ads1258details::chan_se10</a></td>
+          <td class="memname">#define P6VChannel&#160;&#160;&#160;ads1258details::chan_se10</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -749,7 +733,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define StrainAChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a496ad75c368e58a3bf80cb1d5d584e42">ads1258details::chan_diff6</a></td>
+          <td class="memname">#define StrainAChannel&#160;&#160;&#160;ads1258details::chan_diff6</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -765,7 +749,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define StrainAMChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a0b9c3d462d7159caa52bd8e55aeaac93">ads1258details::chan_se12</a></td>
+          <td class="memname">#define StrainAMChannel&#160;&#160;&#160;ads1258details::chan_se12</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -781,7 +765,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define StrainAPChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#aab776c2868d0935a10bb4a2f1874f798">ads1258details::chan_se13</a></td>
+          <td class="memname">#define StrainAPChannel&#160;&#160;&#160;ads1258details::chan_se13</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -797,7 +781,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define StrainBChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a456a00c3eb54198fde7de929cf73628d">ads1258details::chan_diff3</a></td>
+          <td class="memname">#define StrainBChannel&#160;&#160;&#160;ads1258details::chan_diff3</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -813,7 +797,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define StrainBMChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a262a07edc5293f16fd851bf03aa03679">ads1258details::chan_se7</a></td>
+          <td class="memname">#define StrainBMChannel&#160;&#160;&#160;ads1258details::chan_se7</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -829,7 +813,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define StrainBPChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a1c594e601419345b06bfadc311ebb8ba">ads1258details::chan_se6</a></td>
+          <td class="memname">#define StrainBPChannel&#160;&#160;&#160;ads1258details::chan_se6</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -845,7 +829,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define StrainCChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a4380d4c4d750f05f38f94aa7b8f07ec0">ads1258details::chan_diff5</a></td>
+          <td class="memname">#define StrainCChannel&#160;&#160;&#160;ads1258details::chan_diff5</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -861,7 +845,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define StrainCMChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#aa231ce40385fba5052a1a58c7dc7fe6f">ads1258details::chan_se10</a></td>
+          <td class="memname">#define StrainCMChannel&#160;&#160;&#160;ads1258details::chan_se10</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -877,7 +861,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define StrainCPChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#ad1bfcf2160d76ca0c5c12754519cebfb">ads1258details::chan_se11</a></td>
+          <td class="memname">#define StrainCPChannel&#160;&#160;&#160;ads1258details::chan_se11</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -893,7 +877,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define StrainDChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#afce396f611c5e333eda61cc07c0dc081">ads1258details::chan_diff4</a></td>
+          <td class="memname">#define StrainDChannel&#160;&#160;&#160;ads1258details::chan_diff4</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -909,7 +893,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define StrainDMChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#a753373ad54627d1bbe20ce570a8e884a">ads1258details::chan_se9</a></td>
+          <td class="memname">#define StrainDMChannel&#160;&#160;&#160;ads1258details::chan_se9</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -925,7 +909,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define StrainDPChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#affef09c61ec30862725c24a709eff94c">ads1258details::chan_se8</a></td>
+          <td class="memname">#define StrainDPChannel&#160;&#160;&#160;ads1258details::chan_se8</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -941,7 +925,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TempChannel&#160;&#160;&#160;<a class="el" href="namespaceads1258details.html#aa0dc2b562b9e90964cdeb2fccaf1627a">ads1258details::chan_se0</a></td>
+          <td class="memname">#define TempChannel&#160;&#160;&#160;ads1258details::chan_se0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -991,21 +975,19 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="MonitorAdc_8cpp_source.html#l00388">388</a> of file <a class="el" href="MonitorAdc_8cpp_source.html">MonitorAdc.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="MonitorAdc_8hpp_source.html#l00102">MonitorAdcCalibratedInput::Calibrate()</a>, <a class="el" href="ads1258_8h_source.html#l00010">formatf()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00107">MonitorAdcCalibratedInput::GetGain()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00108">MonitorAdcCalibratedInput::GetOffset()</a>, and <a class="el" href="MonitorAdc_8cpp.html#af354eb5af22f799c5babe949067743da">P1V2Calibrate</a>.</p>
+<p class="reference">References <a class="el" href="MonitorAdc_8hpp_source.html#l00102">MonitorAdcCalibratedInput::Calibrate()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00107">MonitorAdcCalibratedInput::GetGain()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00108">MonitorAdcCalibratedInput::GetOffset()</a>, and <a class="el" href="MonitorAdc_8cpp.html#af354eb5af22f799c5babe949067743da">P1V2Calibrate</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="MonitorAdc_8hpp_a099574b759dc2fb77e782178ca9b595c_cgraph.png" border="0" usemap="#aMonitorAdc_8hpp_a099574b759dc2fb77e782178ca9b595c_cgraph" alt=""/></div>
 <map name="aMonitorAdc_8hpp_a099574b759dc2fb77e782178ca9b595c_cgraph" id="aMonitorAdc_8hpp_a099574b759dc2fb77e782178ca9b595c_cgraph">
-<area shape="rect" title=" " alt="" coords="5,99,228,125"/>
+<area shape="rect" title=" " alt="" coords="5,77,228,102"/>
 <area shape="rect" href="structMonitorAdcCalibratedInput.html#af646cf5e9d999321da7db4dc8ae577ea" title=" " alt="" coords="276,5,472,45"/>
-<area shape="poly" title=" " alt="" coords="153,97,275,55,298,47,300,52,277,60,155,102"/>
-<area shape="rect" href="ads1258_8h.html#aac4a82c72fa3b8a5f87bfa525126205b" title=" " alt="" coords="339,70,409,95"/>
-<area shape="poly" title=" " alt="" coords="228,97,325,86,325,91,229,102"/>
-<area shape="rect" href="structMonitorAdcCalibratedInput.html#aa5609e0e8cef47beddba5c05597a4634" title=" " alt="" coords="276,120,472,160"/>
-<area shape="poly" title=" " alt="" coords="229,121,263,125,262,131,228,127"/>
-<area shape="rect" href="structMonitorAdcCalibratedInput.html#a7fa01cc8743e56d2ffbfeaeb17014fee" title=" " alt="" coords="276,184,472,224"/>
-<area shape="poly" title=" " alt="" coords="151,122,277,169,298,177,297,182,275,175,150,127"/>
+<area shape="poly" title=" " alt="" coords="168,74,279,46,280,51,170,79"/>
+<area shape="rect" href="structMonitorAdcCalibratedInput.html#aa5609e0e8cef47beddba5c05597a4634" title=" " alt="" coords="276,69,472,109"/>
+<area shape="poly" title=" " alt="" coords="228,87,262,87,262,92,228,92"/>
+<area shape="rect" href="structMonitorAdcCalibratedInput.html#a7fa01cc8743e56d2ffbfeaeb17014fee" title=" " alt="" coords="276,133,472,173"/>
+<area shape="poly" title=" " alt="" coords="170,100,280,127,279,133,168,105"/>
 </map>
 </div>
 
@@ -1051,126 +1033,122 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="MonitorAdc_8cpp_source.html#l00269">269</a> of file <a class="el" href="MonitorAdc_8cpp_source.html">MonitorAdc.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="ads1258_8h_source.html#l00010">formatf()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00288">CGraphFSMMonitorAdc::GetI1V()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00302">CGraphFSMMonitorAdc::GetI2VA()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00287">CGraphFSMMonitorAdc::GetI2VD()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00313">CGraphFSMMonitorAdc::GetI3VA()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00286">CGraphFSMMonitorAdc::GetI3VD()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00285">CGraphFSMMonitorAdc::GetI6V()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00283">CGraphFSMMonitorAdc::GetIHV()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00284">CGraphFSMMonitorAdc::GetINV()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00317">CGraphFSMMonitorAdc::GetLuxRads()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00318">CGraphFSMMonitorAdc::GetN18V()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00319">CGraphFSMMonitorAdc::GetN20V()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00320">CGraphFSMMonitorAdc::GetP125V()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00310">CGraphFSMMonitorAdc::GetP1V2()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00307">CGraphFSMMonitorAdc::GetP28V()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00308">CGraphFSMMonitorAdc::GetP2V2()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00311">CGraphFSMMonitorAdc::GetP2V5A()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00309">CGraphFSMMonitorAdc::GetP2V5D()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00314">CGraphFSMMonitorAdc::GetP3V3A()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00306">CGraphFSMMonitorAdc::GetP3V3D()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00312">CGraphFSMMonitorAdc::GetP4V3()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00316">CGraphFSMMonitorAdc::GetP5VA()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00301">CGraphFSMMonitorAdc::GetP5VD()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00315">CGraphFSMMonitorAdc::GetP6V()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00300">CGraphFSMMonitorAdc::GetStrainA()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00298">CGraphFSMMonitorAdc::GetStrainAM()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00299">CGraphFSMMonitorAdc::GetStrainAP()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00291">CGraphFSMMonitorAdc::GetStrainB()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00290">CGraphFSMMonitorAdc::GetStrainBM()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00289">CGraphFSMMonitorAdc::GetStrainBP()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00297">CGraphFSMMonitorAdc::GetStrainC()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00295">CGraphFSMMonitorAdc::GetStrainCM()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00296">CGraphFSMMonitorAdc::GetStrainCP()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00294">CGraphFSMMonitorAdc::GetStrainD()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00293">CGraphFSMMonitorAdc::GetStrainDM()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00292">CGraphFSMMonitorAdc::GetStrainDP()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00305">CGraphFSMMonitorAdc::GetTemp()</a>, and <a class="el" href="MonitorAdc_8cpp_source.html#l00020">MonitorAdc</a>.</p>
+<p class="reference">References <a class="el" href="MonitorAdc_8hpp_source.html#l00288">CGraphFSMMonitorAdc::GetI1V()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00302">CGraphFSMMonitorAdc::GetI2VA()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00287">CGraphFSMMonitorAdc::GetI2VD()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00313">CGraphFSMMonitorAdc::GetI3VA()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00286">CGraphFSMMonitorAdc::GetI3VD()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00285">CGraphFSMMonitorAdc::GetI6V()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00283">CGraphFSMMonitorAdc::GetIHV()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00284">CGraphFSMMonitorAdc::GetINV()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00317">CGraphFSMMonitorAdc::GetLuxRads()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00318">CGraphFSMMonitorAdc::GetN18V()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00319">CGraphFSMMonitorAdc::GetN20V()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00320">CGraphFSMMonitorAdc::GetP125V()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00310">CGraphFSMMonitorAdc::GetP1V2()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00307">CGraphFSMMonitorAdc::GetP28V()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00308">CGraphFSMMonitorAdc::GetP2V2()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00311">CGraphFSMMonitorAdc::GetP2V5A()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00309">CGraphFSMMonitorAdc::GetP2V5D()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00314">CGraphFSMMonitorAdc::GetP3V3A()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00306">CGraphFSMMonitorAdc::GetP3V3D()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00312">CGraphFSMMonitorAdc::GetP4V3()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00316">CGraphFSMMonitorAdc::GetP5VA()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00301">CGraphFSMMonitorAdc::GetP5VD()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00315">CGraphFSMMonitorAdc::GetP6V()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00300">CGraphFSMMonitorAdc::GetStrainA()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00298">CGraphFSMMonitorAdc::GetStrainAM()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00299">CGraphFSMMonitorAdc::GetStrainAP()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00291">CGraphFSMMonitorAdc::GetStrainB()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00290">CGraphFSMMonitorAdc::GetStrainBM()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00289">CGraphFSMMonitorAdc::GetStrainBP()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00297">CGraphFSMMonitorAdc::GetStrainC()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00295">CGraphFSMMonitorAdc::GetStrainCM()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00296">CGraphFSMMonitorAdc::GetStrainCP()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00294">CGraphFSMMonitorAdc::GetStrainD()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00293">CGraphFSMMonitorAdc::GetStrainDM()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00292">CGraphFSMMonitorAdc::GetStrainDP()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00305">CGraphFSMMonitorAdc::GetTemp()</a>, and <a class="el" href="MonitorAdc_8cpp_source.html#l00020">MonitorAdc</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="MonitorAdc_8hpp_ac86f4098ef8bed6dd00703357186bbef_cgraph.png" border="0" usemap="#aMonitorAdc_8hpp_ac86f4098ef8bed6dd00703357186bbef_cgraph" alt=""/></div>
 <map name="aMonitorAdc_8hpp_ac86f4098ef8bed6dd00703357186bbef_cgraph" id="aMonitorAdc_8hpp_ac86f4098ef8bed6dd00703357186bbef_cgraph">
-<area shape="rect" title=" " alt="" coords="5,1151,200,1176"/>
-<area shape="rect" href="ads1258_8h.html#aac4a82c72fa3b8a5f87bfa525126205b" title=" " alt="" coords="298,5,369,31"/>
-<area shape="poly" title=" " alt="" coords="101,1150,102,955,106,798,116,621,133,442,159,275,176,201,196,137,219,83,246,42,263,28,283,20,285,25,266,33,250,45,224,85,201,138,181,203,164,276,138,443,121,622,112,798,107,955,106,1151"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#ab90d92d466f750e3f299b17e353e32e6" title=" " alt="" coords="248,55,419,95"/>
-<area shape="poly" title=" " alt="" coords="101,1151,105,966,111,818,122,653,140,484,165,327,181,258,200,196,221,145,246,106,248,103,252,106,250,109,226,147,205,198,187,259,170,328,145,485,127,653,116,819,110,966,107,1151"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a28db519ede6e86f17716822d35fa1cda" title=" " alt="" coords="248,119,419,159"/>
-<area shape="poly" title=" " alt="" coords="101,1150,106,976,114,837,126,682,144,524,169,377,184,312,202,254,223,206,246,170,249,167,253,170,250,173,228,209,207,256,190,313,174,378,149,525,131,682,119,837,112,976,107,1150"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#af2a6d357fbf5cb3e71fdd2cca68aff8c" title=" " alt="" coords="248,183,419,223"/>
-<area shape="poly" title=" " alt="" coords="102,1151,108,986,116,856,129,711,147,564,172,427,187,366,205,313,224,268,246,234,249,231,253,234,250,237,229,270,210,315,192,368,177,428,152,565,134,712,121,857,113,986,107,1151"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a2624d0d690498c9964811f00e2117c2d" title=" " alt="" coords="248,247,419,287"/>
-<area shape="poly" title=" " alt="" coords="102,1150,110,995,132,740,151,603,176,476,207,371,225,329,246,298,249,294,253,298,250,301,230,332,212,373,181,478,156,604,138,740,115,996,107,1150"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a8c5aafcec8c77700bef261c40fb2fb87" title=" " alt="" coords="248,311,419,351"/>
-<area shape="poly" title=" " alt="" coords="102,1150,111,1006,136,770,155,644,179,527,209,429,227,391,246,362,249,358,253,362,250,365,231,393,214,431,184,528,160,645,141,771,117,1007,107,1151"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a517ca1c1d4b450e18da51a6ca698cd0d" title=" " alt="" coords="248,375,419,415"/>
-<area shape="poly" title=" " alt="" coords="102,1150,113,1016,139,799,159,684,182,576,211,487,228,452,246,426,249,422,253,426,250,429,233,455,216,489,188,578,164,685,144,800,119,1017,107,1151"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#ae38d1a24942e87c40e65d293567edd1c" title=" " alt="" coords="248,439,419,479"/>
-<area shape="poly" title=" " alt="" coords="102,1150,115,1027,143,829,162,724,186,626,214,546,229,514,246,490,249,486,253,490,250,493,234,517,219,548,191,628,168,725,148,830,120,1027,108,1151"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a45dfba6d7d5f04a44a35284e860810be" title=" " alt="" coords="248,503,419,543"/>
-<area shape="poly" title=" " alt="" coords="103,1150,117,1037,146,858,166,763,190,676,216,604,231,575,246,554,249,550,253,554,250,557,235,578,221,606,195,678,171,765,152,859,122,1037,108,1151"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#aff4566006f55d7ba980345fc4fa44d19" title=" " alt="" coords="248,567,419,607"/>
-<area shape="poly" title=" " alt="" coords="101,1150,102,1063,106,997,117,921,134,842,160,762,197,685,220,650,246,618,249,614,253,618,250,621,224,653,201,688,165,764,139,843,122,922,112,997,107,1063,106,1150"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a9c183b824ff727b5b3fff84276f946e0" title=" " alt="" coords="248,631,419,671"/>
-<area shape="poly" title=" " alt="" coords="101,1151,105,1072,112,1014,123,948,141,878,167,807,201,741,246,682,250,678,254,682,250,685,206,744,172,810,146,879,129,949,117,1014,111,1072,107,1151"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a0c3308117615525d3d3c71802b7f00cb" title=" " alt="" coords="248,695,419,735"/>
-<area shape="poly" title=" " alt="" coords="102,1150,109,1081,131,973,149,913,174,853,206,796,246,746,251,741,254,745,250,749,210,799,178,855,154,915,136,974,114,1081,107,1151"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a0b97addc5bad66b37223f0a198eeca52" title=" " alt="" coords="248,759,419,799"/>
-<area shape="poly" title=" " alt="" coords="103,1150,113,1090,138,999,157,949,181,899,210,851,246,809,251,805,254,809,250,813,214,855,185,901,162,951,143,1001,119,1091,108,1151"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a573a4e60e1762a6cc4876c03ea262ac8" title=" " alt="" coords="248,823,419,863"/>
-<area shape="poly" title=" " alt="" coords="104,1150,118,1099,145,1025,187,945,215,907,246,873,252,869,255,873,250,877,219,910,192,948,150,1028,123,1101,109,1151"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a506377365274d8a9259c23c970fc9cb9" title=" " alt="" coords="248,887,419,927"/>
-<area shape="poly" title=" " alt="" coords="107,1149,124,1109,154,1052,194,991,219,963,246,937,253,932,256,937,250,941,223,966,199,994,158,1055,129,1111,111,1151"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#aa7009bded1a094bccb7b9099cb938f0a" title=" " alt="" coords="248,951,419,991"/>
-<area shape="poly" title=" " alt="" coords="110,1149,163,1080,202,1038,246,1001,256,995,258,1000,250,1005,205,1042,167,1083,115,1152"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a260d33ec178aafcd65f23d30cbcc5b73" title=" " alt="" coords="248,1015,419,1055"/>
-<area shape="poly" title=" " alt="" coords="119,1148,174,1109,247,1065,261,1058,263,1063,249,1070,177,1113,122,1153"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#abc1801a695c1e18e0b6428b46384a179" title=" " alt="" coords="248,1079,419,1119"/>
-<area shape="poly" title=" " alt="" coords="149,1148,247,1120,248,1126,150,1153"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a1fc87f0885351b28b58dca3132da52a6" title=" " alt="" coords="248,1143,419,1183"/>
-<area shape="poly" title=" " alt="" coords="200,1161,234,1161,234,1166,200,1166"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a0cc031ddc907bbf3e6dfcc63360b3ce1" title=" " alt="" coords="248,1207,419,1247"/>
-<area shape="poly" title=" " alt="" coords="150,1174,248,1201,247,1206,149,1179"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a3b69f1548ad1013bae7585330adfc009" title=" " alt="" coords="248,1271,419,1311"/>
-<area shape="poly" title=" " alt="" coords="122,1174,177,1213,249,1257,263,1264,261,1268,247,1262,174,1218,119,1178"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#aff740f70f348e3911eef7ad0946b644c" title=" " alt="" coords="248,1335,419,1375"/>
-<area shape="poly" title=" " alt="" coords="115,1175,167,1243,205,1285,250,1321,258,1327,256,1331,246,1325,202,1289,163,1247,110,1178"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a8e1f23ea2d7d058811d1dfccf8c92840" title=" " alt="" coords="248,1399,419,1439"/>
-<area shape="poly" title=" " alt="" coords="111,1175,129,1216,158,1272,199,1332,223,1360,250,1385,256,1390,253,1394,246,1389,219,1364,194,1336,154,1275,124,1218,107,1178"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a466df2d17bacd216c8ade79e91f15a53" title=" " alt="" coords="248,1463,419,1503"/>
-<area shape="poly" title=" " alt="" coords="109,1176,123,1226,150,1299,192,1379,219,1416,250,1449,255,1454,252,1458,246,1453,215,1420,187,1382,145,1301,118,1228,104,1177"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#afd07fb38686bb6f9c4cd2ebda3b73db0" title=" " alt="" coords="248,1527,419,1567"/>
-<area shape="poly" title=" " alt="" coords="108,1176,119,1236,143,1326,162,1376,185,1425,214,1472,250,1513,254,1517,251,1521,246,1517,210,1475,181,1428,157,1378,138,1328,113,1237,103,1177"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a0ae75be2153c3aad2824a019c3eedc3b" title=" " alt="" coords="248,1591,419,1631"/>
-<area shape="poly" title=" " alt="" coords="107,1176,114,1245,136,1352,154,1412,178,1471,210,1528,250,1578,254,1582,251,1585,246,1581,206,1531,174,1474,149,1414,131,1354,109,1246,102,1176"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a70906063005238912b160c282e33419e" title=" " alt="" coords="248,1655,419,1695"/>
-<area shape="poly" title=" " alt="" coords="107,1176,111,1254,117,1312,129,1378,146,1448,172,1517,206,1583,250,1642,254,1645,250,1649,246,1645,201,1586,167,1519,141,1449,123,1379,112,1313,105,1255,101,1176"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a38d50aa907ab852c877b19ff890b102c" title=" " alt="" coords="248,1719,419,1759"/>
-<area shape="poly" title=" " alt="" coords="106,1176,107,1264,112,1330,122,1404,139,1484,165,1563,201,1639,224,1673,250,1706,253,1709,249,1712,246,1709,220,1676,197,1641,160,1565,134,1485,117,1405,106,1330,102,1264,101,1176"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a60334fc44c3cbbda279260022f2e315f" title=" " alt="" coords="248,1783,419,1823"/>
-<area shape="poly" title=" " alt="" coords="108,1176,122,1289,152,1468,171,1562,195,1649,221,1721,235,1749,250,1770,253,1773,249,1776,246,1773,231,1751,216,1723,190,1651,166,1563,146,1469,117,1290,103,1177"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#af80b6d75be67b5c28feab5256e257a53" title=" " alt="" coords="248,1847,419,1887"/>
-<area shape="poly" title=" " alt="" coords="108,1176,120,1299,148,1497,168,1602,191,1699,219,1779,234,1810,250,1834,253,1837,249,1840,246,1837,229,1813,214,1781,186,1700,162,1603,143,1498,115,1300,102,1176"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a74ed22521e64a7de2c759de3940908fb" title=" " alt="" coords="248,1911,419,1951"/>
-<area shape="poly" title=" " alt="" coords="107,1176,119,1310,144,1527,164,1642,188,1749,216,1837,233,1872,250,1898,253,1901,249,1904,246,1901,228,1874,211,1839,182,1750,159,1643,139,1528,113,1310,102,1176"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#ad6cb644db27afb9cde16d6a82ba13a05" title=" " alt="" coords="248,1975,419,2015"/>
-<area shape="poly" title=" " alt="" coords="107,1176,117,1320,141,1556,160,1682,184,1799,214,1896,231,1933,250,1962,253,1965,249,1968,246,1965,227,1936,209,1898,179,1800,155,1683,136,1557,111,1320,102,1176"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#afe17bda3f7f4620b86ed060b04bd53df" title=" " alt="" coords="248,2039,419,2079"/>
-<area shape="poly" title=" " alt="" coords="107,1176,115,1331,138,1586,156,1722,181,1849,212,1954,230,1995,250,2026,253,2029,249,2032,246,2029,225,1997,207,1956,176,1850,151,1723,132,1587,110,1331,102,1177"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a7a96a8c3a0d301a93e40fc2bee0b745a" title=" " alt="" coords="248,2103,419,2143"/>
-<area shape="poly" title=" " alt="" coords="107,1176,113,1340,121,1470,134,1615,152,1762,177,1899,192,1959,210,2012,229,2056,250,2090,253,2093,249,2096,246,2093,224,2059,205,2014,187,1961,172,1900,147,1763,129,1615,116,1470,108,1341,102,1176"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#afe851061dac340663a1dac5a22ef5aef" title=" " alt="" coords="248,2167,419,2207"/>
-<area shape="poly" title=" " alt="" coords="107,1176,112,1351,119,1490,131,1645,149,1802,174,1949,190,2014,207,2070,228,2118,250,2154,253,2157,249,2160,246,2157,223,2120,202,2072,184,2015,169,1950,144,1803,126,1645,114,1490,106,1351,101,1176"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a704da95f5ad68919591fd1f1049a6872" title=" " alt="" coords="248,2231,419,2271"/>
-<area shape="poly" title=" " alt="" coords="107,1176,110,1360,116,1508,127,1673,145,1842,170,1998,187,2068,205,2129,226,2179,250,2218,252,2220,248,2224,246,2221,221,2182,200,2130,181,2069,165,1999,140,1842,122,1674,111,1508,105,1360,101,1176"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#af303f30559bdf668cc4cacd8930149c7" title=" " alt="" coords="248,2295,419,2335"/>
-<area shape="poly" title=" " alt="" coords="107,1176,108,1370,114,1527,124,1703,141,1882,167,2048,184,2122,203,2187,225,2241,250,2282,252,2284,248,2288,246,2285,220,2243,198,2189,178,2123,162,2049,136,1882,119,1703,108,1527,103,1370,101,1176"/>
-<area shape="rect" href="structMonitorAdcCalibratedInput.html#a17d39ca0ed78bee116b262b3e8935a9e" title=" " alt="" coords="467,1175,663,1215"/>
-<area shape="poly" title=" " alt="" coords="408,94,421,106,445,144,466,193,484,252,500,320,526,471,544,635,555,800,562,951,566,1161,561,1161,557,951,550,800,538,636,520,472,495,321,479,254,461,195,440,146,417,109,404,98"/>
-<area shape="rect" href="namespaceads1258details.html#ac86c4a65afef2109821adba8a146926c" title=" " alt="" coords="711,1175,899,1215"/>
-<area shape="poly" title=" " alt="" coords="663,1193,697,1193,697,1198,663,1198"/>
-<area shape="poly" title=" " alt="" coords="407,157,421,170,443,205,463,252,481,307,497,370,522,512,540,666,552,820,560,962,566,1161,560,1161,555,962,547,820,535,666,517,512,492,371,476,308,459,254,439,208,417,173,404,161"/>
-<area shape="poly" title=" " alt="" coords="407,221,421,234,442,267,461,310,493,420,518,552,536,696,549,840,558,973,565,1161,560,1162,553,973,544,840,531,697,513,553,488,421,456,312,437,270,417,237,404,225"/>
-<area shape="poly" title=" " alt="" coords="407,285,421,298,441,329,459,369,490,470,514,593,533,726,556,984,565,1161,560,1162,551,984,527,727,509,594,485,472,454,370,436,331,417,301,404,289"/>
-<area shape="poly" title=" " alt="" coords="407,349,421,362,440,390,457,427,486,521,510,634,529,757,554,995,564,1161,559,1162,548,996,524,757,505,635,481,522,452,429,435,393,417,365,404,353"/>
-<area shape="poly" title=" " alt="" coords="407,414,421,426,438,452,454,485,483,571,506,675,525,787,551,1007,564,1162,559,1162,546,1007,520,788,501,676,478,573,450,487,434,454,417,429,404,418"/>
-<area shape="poly" title=" " alt="" coords="407,477,421,490,437,513,452,544,479,622,502,715,521,818,549,1018,563,1161,558,1162,544,1019,516,819,497,717,474,623,447,546,432,516,417,493,403,481"/>
-<area shape="poly" title=" " alt="" coords="407,541,421,554,436,575,450,602,476,672,498,756,518,849,547,1030,563,1161,557,1162,541,1031,512,850,493,758,471,674,445,604,431,578,417,557,403,545"/>
-<area shape="poly" title=" " alt="" coords="406,605,421,618,448,661,472,723,494,798,513,880,544,1042,562,1162,556,1162,539,1043,508,881,489,799,467,724,443,663,417,621,403,610"/>
-<area shape="poly" title=" " alt="" coords="406,669,421,681,464,739,498,804,524,872,542,941,554,1008,561,1069,566,1162,561,1162,556,1069,549,1009,537,942,518,874,493,806,460,742,417,685,402,673"/>
-<area shape="poly" title=" " alt="" coords="406,733,421,745,460,795,491,850,516,909,534,968,556,1079,565,1161,559,1162,551,1080,529,970,510,911,486,853,455,798,417,749,402,738"/>
-<area shape="poly" title=" " alt="" coords="405,797,421,809,455,851,484,897,507,946,526,996,551,1090,563,1161,557,1162,545,1091,521,998,502,948,479,899,451,854,417,813,402,802"/>
-<area shape="poly" title=" " alt="" coords="404,861,420,873,451,907,477,944,517,1024,544,1100,560,1161,554,1162,539,1102,512,1026,472,947,447,910,417,877,401,866"/>
-<area shape="poly" title=" " alt="" coords="402,925,420,937,446,963,470,991,508,1053,537,1113,556,1162,551,1163,532,1115,504,1055,465,994,442,966,417,941,399,930"/>
-<area shape="poly" title=" " alt="" coords="400,989,420,1001,462,1039,498,1082,549,1162,544,1164,494,1085,458,1043,417,1005,398,994"/>
-<area shape="poly" title=" " alt="" coords="397,1053,420,1065,486,1114,538,1163,534,1167,482,1118,417,1070,394,1058"/>
-<area shape="poly" title=" " alt="" coords="390,1117,420,1129,508,1167,506,1172,418,1134,388,1122"/>
-<area shape="poly" title=" " alt="" coords="420,1173,453,1177,453,1183,419,1178"/>
-<area shape="poly" title=" " alt="" coords="419,1213,453,1208,453,1213,420,1218"/>
-<area shape="poly" title=" " alt="" coords="388,1269,418,1257,506,1219,508,1223,420,1262,390,1274"/>
-<area shape="poly" title=" " alt="" coords="394,1333,417,1321,482,1273,534,1223,538,1227,486,1277,420,1326,397,1338"/>
-<area shape="poly" title=" " alt="" coords="398,1397,417,1385,458,1348,494,1305,544,1226,549,1229,498,1308,462,1352,420,1389,400,1401"/>
-<area shape="poly" title=" " alt="" coords="399,1461,417,1449,442,1424,465,1396,504,1335,532,1276,551,1227,556,1229,537,1278,508,1338,470,1399,446,1428,420,1453,402,1465"/>
-<area shape="poly" title=" " alt="" coords="401,1525,417,1513,447,1481,472,1444,512,1365,539,1289,554,1228,560,1230,544,1290,517,1367,477,1447,451,1484,420,1517,404,1529"/>
-<area shape="poly" title=" " alt="" coords="402,1589,417,1577,451,1537,479,1491,502,1443,521,1393,545,1300,557,1228,563,1229,551,1301,526,1395,507,1445,484,1494,455,1540,421,1581,405,1593"/>
-<area shape="poly" title=" " alt="" coords="402,1653,417,1641,455,1593,486,1538,510,1480,529,1421,551,1311,559,1229,565,1229,556,1312,534,1422,516,1482,491,1540,460,1596,421,1645,406,1657"/>
-<area shape="poly" title=" " alt="" coords="402,1717,417,1705,460,1649,493,1585,518,1517,537,1448,549,1382,556,1321,561,1229,566,1229,561,1322,554,1383,542,1449,524,1518,498,1587,464,1651,421,1709,406,1721"/>
-<area shape="poly" title=" " alt="" coords="403,1781,417,1770,443,1728,467,1666,489,1592,508,1510,539,1348,556,1228,562,1229,544,1349,513,1511,494,1593,472,1668,448,1730,421,1773,406,1785"/>
-<area shape="poly" title=" " alt="" coords="403,1845,417,1834,431,1813,445,1786,471,1717,493,1633,512,1541,541,1360,557,1229,563,1229,547,1361,518,1542,498,1634,476,1719,450,1788,436,1816,421,1837,407,1849"/>
-<area shape="poly" title=" " alt="" coords="403,1909,417,1898,432,1875,447,1845,474,1768,497,1674,516,1572,544,1372,558,1229,563,1229,549,1372,521,1573,502,1675,479,1769,452,1847,437,1877,421,1901,407,1913"/>
-<area shape="poly" title=" " alt="" coords="404,1973,417,1962,434,1936,450,1903,478,1818,501,1715,520,1603,546,1383,559,1229,564,1229,551,1384,525,1603,506,1716,483,1820,454,1905,438,1939,421,1965,407,1977"/>
-<area shape="poly" title=" " alt="" coords="404,2037,417,2026,435,1998,452,1962,481,1869,505,1756,524,1633,548,1395,559,1229,564,1229,554,1395,529,1634,510,1757,486,1870,457,1964,440,2001,421,2029,407,2041"/>
-<area shape="poly" title=" " alt="" coords="404,2101,417,2090,436,2060,454,2020,485,1919,509,1797,527,1664,551,1406,560,1229,565,1229,556,1407,533,1664,514,1798,490,1920,459,2022,441,2062,421,2093,407,2105"/>
-<area shape="poly" title=" " alt="" coords="404,2165,417,2154,437,2121,456,2079,488,1969,513,1837,531,1694,544,1550,553,1418,560,1229,565,1229,558,1418,549,1551,536,1695,518,1838,493,1971,461,2080,442,2124,421,2157,407,2169"/>
-<area shape="poly" title=" " alt="" coords="404,2229,417,2218,439,2183,459,2137,476,2082,492,2020,517,1878,535,1725,547,1571,555,1429,560,1229,566,1229,560,1429,552,1571,540,1725,522,1879,497,2021,481,2084,463,2139,443,2185,421,2221,407,2233"/>
-<area shape="poly" title=" " alt="" coords="404,2293,417,2282,440,2244,461,2195,479,2137,495,2070,520,1919,538,1755,550,1591,557,1440,561,1229,566,1229,562,1440,555,1591,544,1755,526,1920,500,2071,484,2138,466,2197,445,2247,421,2285,408,2297"/>
+<area shape="rect" title=" " alt="" coords="5,1133,200,1158"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#ab90d92d466f750e3f299b17e353e32e6" title=" " alt="" coords="248,5,419,45"/>
+<area shape="poly" title=" " alt="" coords="101,1133,104,943,110,791,120,620,138,446,164,284,180,213,199,149,221,96,246,56,248,53,252,56,250,59,226,99,204,151,185,214,169,285,143,447,126,621,115,791,109,943,107,1133"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a28db519ede6e86f17716822d35fa1cda" title=" " alt="" coords="248,69,419,109"/>
+<area shape="poly" title=" " alt="" coords="101,1132,106,952,112,809,124,649,142,486,167,334,183,267,201,207,222,158,246,120,249,117,253,120,250,123,227,160,206,209,188,268,172,335,147,487,129,649,118,809,111,953,107,1132"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#af2a6d357fbf5cb3e71fdd2cca68aff8c" title=" " alt="" coords="248,133,419,173"/>
+<area shape="poly" title=" " alt="" coords="102,1132,107,962,115,828,127,678,145,525,170,384,186,321,204,265,223,219,246,184,249,181,253,184,250,187,228,222,209,267,191,322,176,385,151,526,133,678,120,828,113,962,107,1132"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a2624d0d690498c9964811f00e2117c2d" title=" " alt="" coords="248,197,419,237"/>
+<area shape="poly" title=" " alt="" coords="102,1132,109,973,131,708,149,566,174,434,206,324,225,281,246,248,249,244,253,248,250,251,229,283,211,326,179,435,154,566,136,708,114,973,107,1133"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a8c5aafcec8c77700bef261c40fb2fb87" title=" " alt="" coords="248,261,419,301"/>
+<area shape="poly" title=" " alt="" coords="102,1132,111,982,134,736,153,605,177,483,208,382,226,342,246,312,249,308,253,312,250,315,231,345,213,384,183,485,158,606,139,737,116,983,107,1132"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a517ca1c1d4b450e18da51a6ca698cd0d" title=" " alt="" coords="248,325,419,365"/>
+<area shape="poly" title=" " alt="" coords="102,1132,112,993,137,766,157,646,181,533,210,440,227,404,246,376,249,372,253,376,250,379,232,406,215,442,186,535,162,647,143,767,118,994,107,1133"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#ae38d1a24942e87c40e65d293567edd1c" title=" " alt="" coords="248,389,419,429"/>
+<area shape="poly" title=" " alt="" coords="102,1132,114,1004,141,796,160,686,184,583,213,498,229,465,246,440,249,436,253,440,250,443,233,468,218,500,189,585,166,687,146,797,120,1004,108,1133"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a45dfba6d7d5f04a44a35284e860810be" title=" " alt="" coords="248,453,419,493"/>
+<area shape="poly" title=" " alt="" coords="103,1132,116,1013,145,825,164,725,188,633,215,557,230,527,246,504,249,500,253,504,250,507,235,529,220,559,193,635,170,726,150,826,122,1014,108,1132"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#aff4566006f55d7ba980345fc4fa44d19" title=" " alt="" coords="248,517,419,557"/>
+<area shape="poly" title=" " alt="" coords="103,1132,118,1024,148,855,168,766,191,683,217,615,246,568,249,564,253,568,250,571,222,617,196,685,173,767,153,856,123,1025,108,1133"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a9c183b824ff727b5b3fff84276f946e0" title=" " alt="" coords="248,581,419,621"/>
+<area shape="poly" title=" " alt="" coords="101,1133,103,1050,109,987,120,917,138,842,163,767,199,695,221,662,246,632,250,628,254,631,250,635,225,665,204,698,168,769,143,843,125,918,114,988,109,1050,106,1133"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a0c3308117615525d3d3c71802b7f00cb" title=" " alt="" coords="248,645,419,685"/>
+<area shape="poly" title=" " alt="" coords="102,1132,107,1058,115,1003,127,942,145,877,170,812,204,750,246,696,250,692,254,696,250,699,208,753,175,814,150,879,132,943,120,1004,113,1059,107,1133"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a0b97addc5bad66b37223f0a198eeca52" title=" " alt="" coords="248,709,419,749"/>
+<area shape="poly" title=" " alt="" coords="102,1132,111,1067,134,968,153,913,177,858,208,806,246,759,251,755,254,759,250,763,212,809,182,860,158,915,139,969,117,1068,108,1133"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a573a4e60e1762a6cc4876c03ea262ac8" title=" " alt="" coords="248,773,419,813"/>
+<area shape="poly" title=" " alt="" coords="104,1132,116,1076,142,994,161,949,184,904,212,861,246,823,252,819,255,823,250,827,217,864,189,906,165,951,147,996,121,1078,109,1133"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a506377365274d8a9259c23c970fc9cb9" title=" " alt="" coords="248,837,419,877"/>
+<area shape="poly" title=" " alt="" coords="105,1131,121,1086,150,1020,191,950,217,917,246,887,253,882,256,887,250,891,221,920,195,953,154,1023,126,1087,110,1133"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#aa7009bded1a094bccb7b9099cb938f0a" title=" " alt="" coords="248,901,419,941"/>
+<area shape="poly" title=" " alt="" coords="108,1131,127,1096,158,1048,198,997,246,951,254,946,257,950,250,955,202,1000,162,1051,132,1099,113,1134"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a260d33ec178aafcd65f23d30cbcc5b73" title=" " alt="" coords="248,965,419,1005"/>
+<area shape="poly" title=" " alt="" coords="114,1130,168,1076,205,1044,247,1015,258,1009,260,1014,249,1020,209,1048,171,1080,117,1134"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#abc1801a695c1e18e0b6428b46384a179" title=" " alt="" coords="248,1029,419,1069"/>
+<area shape="poly" title=" " alt="" coords="130,1130,247,1079,264,1072,266,1077,249,1084,132,1135"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a1fc87f0885351b28b58dca3132da52a6" title=" " alt="" coords="248,1093,419,1133"/>
+<area shape="poly" title=" " alt="" coords="194,1130,234,1124,235,1130,195,1135"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a0cc031ddc907bbf3e6dfcc63360b3ce1" title=" " alt="" coords="248,1157,419,1197"/>
+<area shape="poly" title=" " alt="" coords="195,1155,235,1161,234,1166,194,1161"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a3b69f1548ad1013bae7585330adfc009" title=" " alt="" coords="248,1221,419,1261"/>
+<area shape="poly" title=" " alt="" coords="132,1156,249,1207,266,1214,264,1219,247,1212,130,1160"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#aff740f70f348e3911eef7ad0946b644c" title=" " alt="" coords="248,1285,419,1325"/>
+<area shape="poly" title=" " alt="" coords="117,1156,171,1211,209,1243,249,1271,260,1277,258,1282,247,1276,205,1247,168,1215,114,1160"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a8e1f23ea2d7d058811d1dfccf8c92840" title=" " alt="" coords="248,1349,419,1389"/>
+<area shape="poly" title=" " alt="" coords="113,1157,132,1192,162,1239,202,1290,250,1335,257,1340,254,1345,246,1339,198,1294,158,1242,127,1194,108,1159"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a466df2d17bacd216c8ade79e91f15a53" title=" " alt="" coords="248,1413,419,1453"/>
+<area shape="poly" title=" " alt="" coords="110,1158,126,1203,154,1268,195,1338,221,1370,250,1399,256,1404,253,1408,246,1403,217,1374,191,1341,150,1270,121,1205,105,1159"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#afd07fb38686bb6f9c4cd2ebda3b73db0" title=" " alt="" coords="248,1477,419,1517"/>
+<area shape="poly" title=" " alt="" coords="109,1158,121,1213,147,1295,165,1340,189,1384,217,1426,250,1463,255,1468,252,1472,246,1467,212,1430,184,1387,161,1342,142,1297,116,1214,104,1159"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a0ae75be2153c3aad2824a019c3eedc3b" title=" " alt="" coords="248,1541,419,1581"/>
+<area shape="poly" title=" " alt="" coords="108,1158,117,1223,139,1321,158,1376,182,1430,212,1482,250,1527,254,1531,251,1535,246,1531,208,1485,177,1433,153,1378,134,1323,111,1224,102,1159"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a70906063005238912b160c282e33419e" title=" " alt="" coords="248,1605,419,1645"/>
+<area shape="poly" title=" " alt="" coords="107,1158,113,1232,120,1286,132,1347,150,1412,175,1477,208,1537,250,1592,254,1595,250,1599,246,1595,204,1540,170,1479,145,1414,127,1349,115,1287,107,1233,102,1159"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a38d50aa907ab852c877b19ff890b102c" title=" " alt="" coords="248,1669,419,1709"/>
+<area shape="poly" title=" " alt="" coords="106,1158,109,1241,114,1303,125,1373,143,1447,168,1522,204,1593,225,1625,250,1656,254,1659,250,1663,246,1659,221,1629,199,1595,163,1524,138,1449,120,1374,109,1303,103,1241,101,1158"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a60334fc44c3cbbda279260022f2e315f" title=" " alt="" coords="248,1733,419,1773"/>
+<area shape="poly" title=" " alt="" coords="108,1158,123,1266,153,1435,173,1524,196,1606,222,1674,250,1720,253,1723,249,1726,246,1723,217,1676,191,1607,168,1525,148,1436,118,1266,103,1159"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#af80b6d75be67b5c28feab5256e257a53" title=" " alt="" coords="248,1797,419,1837"/>
+<area shape="poly" title=" " alt="" coords="108,1158,122,1277,150,1465,170,1564,193,1656,220,1732,235,1761,250,1784,253,1787,249,1790,246,1787,230,1764,215,1734,188,1658,164,1565,145,1466,116,1278,103,1159"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a74ed22521e64a7de2c759de3940908fb" title=" " alt="" coords="248,1861,419,1901"/>
+<area shape="poly" title=" " alt="" coords="108,1158,120,1287,146,1494,166,1604,189,1706,218,1790,233,1823,250,1848,253,1851,249,1854,246,1851,229,1826,213,1792,184,1707,160,1605,141,1495,114,1287,102,1158"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#ad6cb644db27afb9cde16d6a82ba13a05" title=" " alt="" coords="248,1925,419,1965"/>
+<area shape="poly" title=" " alt="" coords="107,1158,118,1297,143,1523,162,1644,186,1756,215,1849,232,1884,250,1912,253,1915,249,1918,246,1915,227,1887,210,1851,181,1757,157,1645,137,1524,112,1297,102,1158"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#afe17bda3f7f4620b86ed060b04bd53df" title=" " alt="" coords="248,1989,419,2029"/>
+<area shape="poly" title=" " alt="" coords="107,1158,116,1308,139,1554,158,1685,183,1806,213,1907,231,1946,250,1976,253,1979,249,1982,246,1979,226,1949,208,1909,177,1807,153,1686,134,1554,111,1308,102,1159"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a7a96a8c3a0d301a93e40fc2bee0b745a" title=" " alt="" coords="248,2053,419,2093"/>
+<area shape="poly" title=" " alt="" coords="107,1158,114,1318,136,1583,154,1724,179,1856,211,1965,229,2007,250,2040,253,2043,249,2046,246,2043,225,2010,206,1967,174,1857,149,1725,131,1583,109,1318,102,1158"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#afe851061dac340663a1dac5a22ef5aef" title=" " alt="" coords="248,2117,419,2157"/>
+<area shape="poly" title=" " alt="" coords="107,1158,113,1328,120,1463,133,1612,151,1765,176,1906,191,1968,209,2023,228,2069,250,2104,253,2107,249,2110,246,2107,223,2072,204,2025,186,1970,170,1907,145,1765,127,1613,115,1463,107,1329,102,1159"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a704da95f5ad68919591fd1f1049a6872" title=" " alt="" coords="248,2181,419,2221"/>
+<area shape="poly" title=" " alt="" coords="107,1158,111,1338,118,1481,129,1641,147,1804,172,1956,188,2023,206,2082,227,2130,250,2168,253,2171,249,2174,246,2171,222,2133,201,2083,183,2024,167,1957,142,1805,124,1642,112,1482,106,1338,101,1158"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#af303f30559bdf668cc4cacd8930149c7" title=" " alt="" coords="248,2245,419,2285"/>
+<area shape="poly" title=" " alt="" coords="107,1158,109,1347,115,1500,126,1670,143,1844,169,2005,185,2077,204,2140,226,2192,250,2232,252,2234,248,2238,246,2235,221,2194,199,2141,180,2078,164,2006,138,1844,120,1670,110,1500,104,1347,101,1158"/>
+<area shape="rect" href="structMonitorAdcCalibratedInput.html#a17d39ca0ed78bee116b262b3e8935a9e" title=" " alt="" coords="467,1125,663,1165"/>
+<area shape="poly" title=" " alt="" coords="408,44,421,56,445,94,466,143,484,202,500,270,526,421,544,585,555,750,562,901,566,1111,561,1111,557,901,550,750,538,586,520,422,495,271,479,204,461,145,440,96,417,59,404,48"/>
+<area shape="poly" title=" " alt="" coords="407,107,421,120,443,155,463,202,481,257,497,320,522,462,540,616,552,770,560,912,566,1111,560,1111,555,912,547,770,535,616,517,462,492,321,476,258,459,204,439,158,417,123,404,111"/>
+<area shape="poly" title=" " alt="" coords="407,171,421,184,442,217,461,260,493,370,518,502,536,646,549,790,558,923,565,1111,560,1112,553,923,544,790,531,647,513,503,488,371,456,262,437,220,417,187,404,175"/>
+<area shape="poly" title=" " alt="" coords="407,235,421,248,441,279,459,319,490,420,514,543,533,676,556,934,565,1111,560,1112,551,934,527,677,509,544,485,422,454,320,436,281,417,251,404,239"/>
+<area shape="poly" title=" " alt="" coords="407,299,421,312,440,340,457,377,486,471,510,584,529,707,554,945,564,1111,559,1112,548,946,524,707,505,585,481,472,452,379,435,343,417,315,404,303"/>
+<area shape="poly" title=" " alt="" coords="407,364,421,376,438,402,454,435,483,521,506,625,525,737,551,957,564,1112,559,1112,546,957,520,738,501,626,478,523,450,437,434,404,417,379,404,368"/>
+<area shape="poly" title=" " alt="" coords="407,427,421,440,437,463,452,494,479,572,502,665,521,768,549,968,563,1111,558,1112,544,969,516,769,497,667,474,573,447,496,432,466,417,443,403,431"/>
+<area shape="poly" title=" " alt="" coords="407,491,421,504,436,525,450,552,476,622,498,706,518,799,547,980,563,1111,557,1112,541,981,512,800,493,708,471,624,445,554,431,528,417,507,403,495"/>
+<area shape="poly" title=" " alt="" coords="406,555,421,568,448,611,472,673,494,748,513,830,544,992,562,1112,556,1112,539,993,508,831,489,749,467,674,443,613,417,571,403,560"/>
+<area shape="poly" title=" " alt="" coords="406,619,421,631,464,689,498,754,524,822,542,891,554,958,561,1019,566,1112,561,1112,556,1019,549,959,537,892,518,824,493,756,460,692,417,635,402,623"/>
+<area shape="poly" title=" " alt="" coords="406,683,421,695,460,745,491,800,516,859,534,918,556,1029,565,1111,559,1112,551,1030,529,920,510,861,486,803,455,748,417,699,402,688"/>
+<area shape="poly" title=" " alt="" coords="405,747,421,759,455,801,484,847,507,896,526,946,551,1040,563,1111,557,1112,545,1041,521,948,502,898,479,849,451,804,417,763,402,752"/>
+<area shape="poly" title=" " alt="" coords="404,811,420,823,451,857,477,894,517,974,544,1050,560,1111,554,1112,539,1052,512,976,472,897,447,860,417,827,401,816"/>
+<area shape="poly" title=" " alt="" coords="402,875,420,887,446,913,470,941,508,1003,537,1063,556,1112,551,1113,532,1065,504,1005,465,944,442,916,417,891,399,880"/>
+<area shape="poly" title=" " alt="" coords="400,939,420,951,462,989,498,1032,549,1112,544,1114,494,1035,458,993,417,955,398,944"/>
+<area shape="poly" title=" " alt="" coords="397,1003,420,1015,486,1064,538,1113,534,1117,482,1068,417,1020,394,1008"/>
+<area shape="poly" title=" " alt="" coords="390,1067,420,1079,508,1117,506,1122,418,1084,388,1072"/>
+<area shape="poly" title=" " alt="" coords="420,1123,453,1127,453,1133,419,1128"/>
+<area shape="poly" title=" " alt="" coords="419,1163,453,1158,453,1163,420,1168"/>
+<area shape="poly" title=" " alt="" coords="388,1219,418,1207,506,1169,508,1173,420,1212,390,1224"/>
+<area shape="poly" title=" " alt="" coords="394,1283,417,1271,482,1223,534,1173,538,1177,486,1227,420,1276,397,1288"/>
+<area shape="poly" title=" " alt="" coords="398,1347,417,1335,458,1298,494,1255,544,1176,549,1179,498,1258,462,1302,420,1339,400,1351"/>
+<area shape="poly" title=" " alt="" coords="399,1411,417,1399,442,1374,465,1346,504,1285,532,1226,551,1177,556,1179,537,1228,508,1288,470,1349,446,1378,420,1403,402,1415"/>
+<area shape="poly" title=" " alt="" coords="401,1475,417,1463,447,1431,472,1394,512,1315,539,1239,554,1178,560,1180,544,1240,517,1317,477,1397,451,1434,420,1467,404,1479"/>
+<area shape="poly" title=" " alt="" coords="402,1539,417,1527,451,1487,479,1441,502,1393,521,1343,545,1250,557,1178,563,1179,551,1251,526,1345,507,1395,484,1444,455,1490,421,1531,405,1543"/>
+<area shape="poly" title=" " alt="" coords="402,1603,417,1591,455,1543,486,1488,510,1430,529,1371,551,1261,559,1179,565,1179,556,1262,534,1372,516,1432,491,1490,460,1546,421,1595,406,1607"/>
+<area shape="poly" title=" " alt="" coords="402,1667,417,1655,460,1599,493,1535,518,1467,537,1398,549,1332,556,1271,561,1179,566,1179,561,1272,554,1333,542,1399,524,1468,498,1537,464,1601,421,1659,406,1671"/>
+<area shape="poly" title=" " alt="" coords="403,1731,417,1720,443,1678,467,1616,489,1542,508,1460,539,1298,556,1178,562,1179,544,1299,513,1461,494,1543,472,1618,448,1680,421,1723,406,1735"/>
+<area shape="poly" title=" " alt="" coords="403,1795,417,1784,431,1763,445,1736,471,1667,493,1583,512,1491,541,1310,557,1179,563,1179,547,1311,518,1492,498,1584,476,1669,450,1738,436,1766,421,1787,407,1799"/>
+<area shape="poly" title=" " alt="" coords="403,1859,417,1848,432,1825,447,1795,474,1718,497,1624,516,1522,544,1322,558,1179,563,1179,549,1322,521,1523,502,1625,479,1719,452,1797,437,1827,421,1851,407,1863"/>
+<area shape="poly" title=" " alt="" coords="404,1923,417,1912,434,1886,450,1853,478,1768,501,1665,520,1553,546,1333,559,1179,564,1179,551,1334,525,1553,506,1666,483,1770,454,1855,438,1889,421,1915,407,1927"/>
+<area shape="poly" title=" " alt="" coords="404,1987,417,1976,435,1948,452,1912,481,1819,505,1706,524,1583,548,1345,559,1179,564,1179,554,1345,529,1584,510,1707,486,1820,457,1914,440,1951,421,1979,407,1991"/>
+<area shape="poly" title=" " alt="" coords="404,2051,417,2040,436,2010,454,1970,485,1869,509,1747,527,1614,551,1356,560,1179,565,1179,556,1357,533,1614,514,1748,490,1870,459,1972,441,2012,421,2043,407,2055"/>
+<area shape="poly" title=" " alt="" coords="404,2115,417,2104,437,2071,456,2029,488,1919,513,1787,531,1644,544,1500,553,1368,560,1179,565,1179,558,1368,549,1501,536,1645,518,1788,493,1921,461,2030,442,2074,421,2107,407,2119"/>
+<area shape="poly" title=" " alt="" coords="404,2179,417,2168,439,2133,459,2087,476,2032,492,1970,517,1828,535,1675,547,1521,555,1379,560,1179,566,1179,560,1379,552,1521,540,1675,522,1829,497,1971,481,2034,463,2089,443,2135,421,2171,407,2183"/>
+<area shape="poly" title=" " alt="" coords="404,2243,417,2232,440,2194,461,2145,479,2087,495,2020,520,1869,538,1705,550,1541,557,1390,561,1179,566,1179,562,1390,555,1541,544,1705,526,1870,500,2021,484,2088,466,2147,445,2197,421,2235,408,2247"/>
 </map>
 </div>
 
@@ -1216,134 +1194,89 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="MonitorAdc_8cpp_source.html#l00316">316</a> of file <a class="el" href="MonitorAdc_8cpp_source.html">MonitorAdc.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="MonitorAdc_8hpp_source.html#l00280">CGraphFSMMonitorAdc::Dump()</a>, <a class="el" href="ads1258_8h_source.html#l00010">formatf()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00328">CGraphFSMMonitorAdc::GetI1VRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00342">CGraphFSMMonitorAdc::GetI2VARaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00327">CGraphFSMMonitorAdc::GetI2VDRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00353">CGraphFSMMonitorAdc::GetI3VARaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00326">CGraphFSMMonitorAdc::GetI3VDRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00325">CGraphFSMMonitorAdc::GetI6VRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00323">CGraphFSMMonitorAdc::GetIHVRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00324">CGraphFSMMonitorAdc::GetINVRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00357">CGraphFSMMonitorAdc::GetLuxRadsRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00358">CGraphFSMMonitorAdc::GetN18VRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00359">CGraphFSMMonitorAdc::GetN20VRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00360">CGraphFSMMonitorAdc::GetP125VRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00350">CGraphFSMMonitorAdc::GetP1V2Raw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00347">CGraphFSMMonitorAdc::GetP28VRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00348">CGraphFSMMonitorAdc::GetP2V2Raw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00351">CGraphFSMMonitorAdc::GetP2V5ARaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00349">CGraphFSMMonitorAdc::GetP2V5DRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00354">CGraphFSMMonitorAdc::GetP3V3ARaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00346">CGraphFSMMonitorAdc::GetP3V3DRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00352">CGraphFSMMonitorAdc::GetP4V3Raw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00356">CGraphFSMMonitorAdc::GetP5VARaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00341">CGraphFSMMonitorAdc::GetP5VDRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00355">CGraphFSMMonitorAdc::GetP6VRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00338">CGraphFSMMonitorAdc::GetStrainAMRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00339">CGraphFSMMonitorAdc::GetStrainAPRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00340">CGraphFSMMonitorAdc::GetStrainARaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00330">CGraphFSMMonitorAdc::GetStrainBMRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00329">CGraphFSMMonitorAdc::GetStrainBPRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00331">CGraphFSMMonitorAdc::GetStrainBRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00335">CGraphFSMMonitorAdc::GetStrainCMRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00336">CGraphFSMMonitorAdc::GetStrainCPRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00337">CGraphFSMMonitorAdc::GetStrainCRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00333">CGraphFSMMonitorAdc::GetStrainDMRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00332">CGraphFSMMonitorAdc::GetStrainDPRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00334">CGraphFSMMonitorAdc::GetStrainDRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00345">CGraphFSMMonitorAdc::GetTempRaw()</a>, <a class="el" href="MonitorAdc_8cpp_source.html#l00099">CGraphFSMMonitorAdc::Init()</a>, <a class="el" href="MonitorAdc_8cpp_source.html#l00020">MonitorAdc</a>, and <a class="el" href="lt244x__accum_8h_source.html#l00000">Sample</a>.</p>
+<p class="reference">References <a class="el" href="MonitorAdc_8hpp_source.html#l00280">CGraphFSMMonitorAdc::Dump()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00328">CGraphFSMMonitorAdc::GetI1VRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00342">CGraphFSMMonitorAdc::GetI2VARaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00327">CGraphFSMMonitorAdc::GetI2VDRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00353">CGraphFSMMonitorAdc::GetI3VARaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00326">CGraphFSMMonitorAdc::GetI3VDRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00325">CGraphFSMMonitorAdc::GetI6VRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00323">CGraphFSMMonitorAdc::GetIHVRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00324">CGraphFSMMonitorAdc::GetINVRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00357">CGraphFSMMonitorAdc::GetLuxRadsRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00358">CGraphFSMMonitorAdc::GetN18VRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00359">CGraphFSMMonitorAdc::GetN20VRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00360">CGraphFSMMonitorAdc::GetP125VRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00350">CGraphFSMMonitorAdc::GetP1V2Raw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00347">CGraphFSMMonitorAdc::GetP28VRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00348">CGraphFSMMonitorAdc::GetP2V2Raw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00351">CGraphFSMMonitorAdc::GetP2V5ARaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00349">CGraphFSMMonitorAdc::GetP2V5DRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00354">CGraphFSMMonitorAdc::GetP3V3ARaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00346">CGraphFSMMonitorAdc::GetP3V3DRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00352">CGraphFSMMonitorAdc::GetP4V3Raw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00356">CGraphFSMMonitorAdc::GetP5VARaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00341">CGraphFSMMonitorAdc::GetP5VDRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00355">CGraphFSMMonitorAdc::GetP6VRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00338">CGraphFSMMonitorAdc::GetStrainAMRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00339">CGraphFSMMonitorAdc::GetStrainAPRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00340">CGraphFSMMonitorAdc::GetStrainARaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00330">CGraphFSMMonitorAdc::GetStrainBMRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00329">CGraphFSMMonitorAdc::GetStrainBPRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00331">CGraphFSMMonitorAdc::GetStrainBRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00335">CGraphFSMMonitorAdc::GetStrainCMRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00336">CGraphFSMMonitorAdc::GetStrainCPRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00337">CGraphFSMMonitorAdc::GetStrainCRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00333">CGraphFSMMonitorAdc::GetStrainDMRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00332">CGraphFSMMonitorAdc::GetStrainDPRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00334">CGraphFSMMonitorAdc::GetStrainDRaw()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00345">CGraphFSMMonitorAdc::GetTempRaw()</a>, <a class="el" href="MonitorAdc_8cpp_source.html#l00099">CGraphFSMMonitorAdc::Init()</a>, and <a class="el" href="MonitorAdc_8cpp_source.html#l00020">MonitorAdc</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="MonitorAdc_8hpp_a0d379e9f53e1a3da9f310f1633ea43cf_cgraph.png" border="0" usemap="#aMonitorAdc_8hpp_a0d379e9f53e1a3da9f310f1633ea43cf_cgraph" alt=""/></div>
 <map name="aMonitorAdc_8hpp_a0d379e9f53e1a3da9f310f1633ea43cf_cgraph" id="aMonitorAdc_8hpp_a0d379e9f53e1a3da9f310f1633ea43cf_cgraph">
-<area shape="rect" title=" " alt="" coords="5,1280,195,1305"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#aa9bff308de3dd74e0ff51bb032a8f7bc" title=" " alt="" coords="243,2489,413,2529"/>
-<area shape="poly" title=" " alt="" coords="104,1305,104,1510,108,1675,117,1861,133,2051,159,2227,176,2305,195,2374,218,2431,245,2475,247,2478,243,2481,240,2478,214,2434,190,2376,170,2307,154,2228,128,2051,112,1861,102,1675,98,1510,98,1305"/>
-<area shape="rect" href="ads1258_8h.html#aac4a82c72fa3b8a5f87bfa525126205b" title=" " alt="" coords="554,5,625,31"/>
-<area shape="poly" title=" " alt="" coords="99,1280,113,1058,142,684,162,488,185,314,211,181,226,135,241,107,272,77,308,54,348,37,390,25,472,13,541,12,541,17,473,19,391,30,350,42,311,59,275,81,245,110,231,137,217,182,191,315,168,489,148,684,118,1059,105,1280"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#ab19f0d71afc289d2997fe5a7a1272b0f" title=" " alt="" coords="243,185,413,225"/>
-<area shape="poly" title=" " alt="" coords="99,1280,102,1096,107,948,118,782,135,614,160,457,176,387,195,326,216,274,241,235,243,232,247,236,245,238,221,277,200,327,181,388,166,458,141,614,123,783,113,948,107,1096,104,1280"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a91815c61f34705db48c08090e6c16c57" title=" " alt="" coords="243,249,413,289"/>
-<area shape="poly" title=" " alt="" coords="99,1280,103,1105,110,966,122,811,139,653,164,506,179,441,197,384,218,336,241,299,243,296,247,299,245,302,222,338,202,386,185,443,169,507,144,654,127,811,115,966,108,1105,104,1280"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#ad90f7a6afa7494971a9169371ded77b6" title=" " alt="" coords="243,313,413,353"/>
-<area shape="poly" title=" " alt="" coords="99,1280,105,1116,113,986,125,841,143,693,167,556,182,495,199,442,219,397,241,363,243,360,247,363,245,366,224,400,204,444,187,497,172,557,148,694,130,841,118,986,110,1116,104,1280"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a8f05c2c36e513e2ae589dbe6f8fd28b4" title=" " alt="" coords="243,377,413,417"/>
-<area shape="poly" title=" " alt="" coords="99,1279,107,1125,128,869,147,733,171,606,202,500,220,459,241,427,244,424,248,427,245,430,225,461,207,502,176,607,152,734,134,870,112,1125,104,1280"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a0eaca6aa7232af5b6eba12cc0820cd7a" title=" " alt="" coords="243,441,413,481"/>
-<area shape="poly" title=" " alt="" coords="99,1280,108,1136,132,899,150,773,174,656,204,558,221,520,241,491,244,488,248,491,245,494,226,523,209,560,179,657,155,774,137,900,114,1136,105,1280"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a57671c383128934dc4b4f87322a035e8" title=" " alt="" coords="243,505,413,545"/>
-<area shape="poly" title=" " alt="" coords="99,1280,110,1146,135,929,154,813,178,706,206,617,223,582,241,555,244,552,248,555,245,558,227,584,211,619,183,707,159,814,140,929,115,1146,105,1280"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a144172b622ff142002e6347651731052" title=" " alt="" coords="243,569,413,609"/>
-<area shape="poly" title=" " alt="" coords="100,1280,112,1156,139,958,158,853,181,756,209,675,224,643,241,619,244,616,248,619,245,622,229,646,213,677,186,757,163,854,144,959,117,1157,105,1280"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#ab9ccefbe916cca9c79d8b60ef93a70ec" title=" " alt="" coords="243,633,413,673"/>
-<area shape="poly" title=" " alt="" coords="100,1279,114,1166,142,987,162,893,185,806,211,733,225,705,241,683,244,680,248,683,245,686,230,707,216,735,190,807,167,894,148,988,119,1167,105,1280"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a67613e75a684fa8c24f49c2b97b7c697" title=" " alt="" coords="243,697,413,737"/>
-<area shape="poly" title=" " alt="" coords="100,1279,116,1176,146,1017,166,933,188,856,213,791,241,747,244,744,248,747,245,750,218,794,193,857,171,934,151,1018,121,1177,106,1280"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a029e452da7c31f53dab75fb395a42e29" title=" " alt="" coords="243,761,413,801"/>
-<area shape="poly" title=" " alt="" coords="99,1280,102,1201,108,1143,119,1077,137,1007,162,937,196,870,241,811,245,807,248,811,245,814,201,873,167,939,142,1009,125,1078,114,1144,107,1202,104,1280"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a73242e05e760b84527551d956d7fa51a" title=" " alt="" coords="243,825,413,865"/>
-<area shape="poly" title=" " alt="" coords="99,1280,106,1210,127,1103,145,1042,169,982,201,925,241,875,245,871,249,874,245,878,205,928,174,985,150,1044,132,1104,111,1211,105,1280"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#abca515ec07f2700ea1253f1887a674a7" title=" " alt="" coords="243,889,413,929"/>
-<area shape="poly" title=" " alt="" coords="100,1279,110,1219,134,1129,152,1078,176,1028,205,981,241,939,245,935,249,939,245,943,209,984,180,1031,157,1080,139,1130,115,1220,105,1280"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#ae7cbc895bc8cac9e7ca094b0b7f3ad09" title=" " alt="" coords="243,953,413,993"/>
-<area shape="poly" title=" " alt="" coords="102,1279,115,1228,141,1155,160,1114,183,1074,210,1036,241,1003,246,998,250,1002,244,1007,214,1040,187,1077,165,1117,146,1157,120,1230,107,1280"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#ae187ad38ce5b1d563fb50b6b9d33179c" title=" " alt="" coords="243,1017,413,1057"/>
-<area shape="poly" title=" " alt="" coords="104,1278,121,1238,150,1181,190,1120,214,1092,241,1067,248,1062,251,1066,244,1071,218,1096,194,1124,154,1184,126,1240,109,1281"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a1990aaf185bd78f4712373e8fc9c26a4" title=" " alt="" coords="243,1081,413,1121"/>
-<area shape="poly" title=" " alt="" coords="107,1278,158,1209,197,1167,241,1131,250,1125,253,1129,244,1135,201,1171,163,1212,112,1281"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#abad701987e4ab7d69bb00b9da1949526" title=" " alt="" coords="243,1145,413,1185"/>
-<area shape="poly" title=" " alt="" coords="116,1278,170,1238,241,1194,255,1188,257,1193,244,1199,173,1242,119,1282"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a5f68e39d5942608d0268e7cc3ae6a450" title=" " alt="" coords="243,1209,413,1249"/>
-<area shape="poly" title=" " alt="" coords="146,1277,242,1250,244,1255,147,1282"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a6105802ee9c5da7f06f70629279f09bb" title=" " alt="" coords="243,1273,413,1313"/>
-<area shape="poly" title=" " alt="" coords="195,1290,229,1290,229,1295,195,1295"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a9f5d84d38ebc1b4670c290041b0a2276" title=" " alt="" coords="243,1337,413,1377"/>
-<area shape="poly" title=" " alt="" coords="147,1303,244,1330,242,1336,146,1308"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#ac825eb493dc097600151abee6c4a5890" title=" " alt="" coords="243,1401,413,1441"/>
-<area shape="poly" title=" " alt="" coords="119,1303,173,1343,244,1386,257,1393,255,1398,241,1391,170,1347,116,1308"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a8e422c6b3359e4b8b4804e552fc9d0da" title=" " alt="" coords="243,1465,413,1505"/>
-<area shape="poly" title=" " alt="" coords="112,1304,163,1373,201,1414,244,1451,253,1456,250,1460,241,1455,197,1418,158,1376,107,1307"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a6ae0297fd80f0b6022c0e21b30e85bbd" title=" " alt="" coords="243,1529,413,1569"/>
-<area shape="poly" title=" " alt="" coords="109,1305,126,1345,154,1401,194,1462,218,1490,244,1515,251,1519,248,1524,241,1519,214,1493,190,1465,150,1404,121,1347,104,1307"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a31bb5be4ce1b4897bb0e0b9eea6d7be6" title=" " alt="" coords="243,1593,413,1633"/>
-<area shape="poly" title=" " alt="" coords="107,1305,120,1355,146,1428,165,1469,187,1508,214,1546,244,1579,250,1583,246,1587,241,1583,210,1549,183,1511,160,1471,141,1431,115,1357,102,1306"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a0b06311cfcec07751ade7c902c1909e2" title=" " alt="" coords="243,1657,413,1697"/>
-<area shape="poly" title=" " alt="" coords="105,1305,115,1365,139,1455,157,1505,180,1555,209,1601,245,1643,249,1647,245,1651,241,1647,205,1605,176,1557,152,1507,134,1457,110,1366,100,1306"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a4fd6c56a152997ca1f9b2f7bb59e482a" title=" " alt="" coords="243,1721,413,1761"/>
-<area shape="poly" title=" " alt="" coords="105,1305,111,1375,132,1482,150,1541,174,1601,205,1657,245,1707,249,1711,245,1715,241,1710,201,1660,169,1603,145,1543,127,1483,106,1375,99,1306"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#af7e1eab172fb76a1eb4269c086261bdc" title=" " alt="" coords="243,1785,413,1825"/>
-<area shape="poly" title=" " alt="" coords="104,1305,107,1384,114,1442,125,1507,142,1577,167,1646,201,1712,245,1771,248,1774,245,1778,241,1774,196,1715,162,1649,137,1578,119,1508,108,1442,102,1384,99,1305"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#ae6424514b321773b16eae01d299d5d1a" title=" " alt="" coords="243,1849,413,1889"/>
-<area shape="poly" title=" " alt="" coords="106,1305,121,1408,151,1567,171,1651,193,1728,218,1792,245,1835,248,1838,244,1842,241,1838,213,1794,188,1730,166,1652,146,1568,116,1409,100,1306"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#ac4a6ddde1a2d53b432a0bc4f479523db" title=" " alt="" coords="243,1913,413,1953"/>
-<area shape="poly" title=" " alt="" coords="105,1305,119,1419,148,1597,167,1691,190,1778,216,1850,230,1878,245,1899,248,1902,244,1906,241,1902,225,1881,211,1852,185,1780,162,1693,142,1598,114,1419,100,1306"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#aeaf9f29690f9f6c310a475380a837949" title=" " alt="" coords="243,1977,413,2017"/>
-<area shape="poly" title=" " alt="" coords="105,1305,117,1429,144,1626,163,1731,186,1828,213,1908,229,1939,245,1963,248,1966,244,1970,241,1966,224,1942,209,1910,181,1830,158,1732,139,1627,112,1429,100,1306"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a8600c142182b98edc93fe45c745b368c" title=" " alt="" coords="243,2041,413,2081"/>
-<area shape="poly" title=" " alt="" coords="105,1305,115,1439,140,1656,159,1771,183,1878,211,1967,227,2001,245,2027,248,2030,244,2034,241,2030,223,2004,206,1969,178,1880,154,1772,135,1657,110,1440,99,1306"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a86fe0a40b1c6ea52e7f0762afa20bd19" title=" " alt="" coords="243,2105,413,2145"/>
-<area shape="poly" title=" " alt="" coords="105,1305,114,1449,137,1685,155,1811,179,1928,209,2025,226,2063,245,2091,248,2094,244,2098,241,2094,221,2065,204,2027,174,1929,150,1812,132,1686,108,1450,99,1306"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#ab10e7ddb0983d70839518bab346f9412" title=" " alt="" coords="243,2169,413,2209"/>
-<area shape="poly" title=" " alt="" coords="104,1306,112,1460,134,1715,152,1852,176,1978,207,2083,225,2124,245,2155,248,2158,244,2162,241,2158,220,2127,202,2085,171,1980,147,1853,128,1716,107,1461,99,1306"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a63bb0d60c3081e09be278c1e1753b1e3" title=" " alt="" coords="243,2233,413,2273"/>
-<area shape="poly" title=" " alt="" coords="104,1305,110,1470,118,1599,130,1744,148,1891,172,2028,187,2088,204,2141,224,2186,245,2219,247,2222,243,2225,241,2222,219,2188,199,2143,182,2090,167,2029,143,1892,125,1745,113,1600,105,1470,99,1305"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a313da8a85d4c2ec3435b24f61df81ff9" title=" " alt="" coords="243,2297,413,2337"/>
-<area shape="poly" title=" " alt="" coords="104,1306,108,1480,115,1619,127,1774,144,1931,169,2078,185,2143,202,2200,222,2247,245,2283,247,2286,243,2289,241,2286,218,2250,197,2202,179,2144,164,2079,139,1932,122,1774,110,1619,103,1480,99,1306"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#a88d1c9bbb00ab0ebd4f4236f94507122" title=" " alt="" coords="243,2361,413,2401"/>
-<area shape="poly" title=" " alt="" coords="104,1305,107,1490,113,1637,123,1803,141,1971,166,2128,181,2197,200,2258,221,2309,245,2347,247,2350,243,2353,241,2350,216,2311,195,2260,176,2198,160,2129,135,1972,118,1803,107,1638,102,1490,99,1305"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#ad40adb5102c34b81b9888571d6a4d03d" title=" " alt="" coords="243,2425,413,2465"/>
-<area shape="poly" title=" " alt="" coords="104,1305,105,1500,110,1656,120,1832,137,2011,162,2177,179,2251,198,2316,220,2370,245,2411,247,2414,243,2417,241,2414,215,2372,193,2318,173,2253,157,2178,132,2011,115,1832,105,1657,100,1500,99,1305"/>
-<area shape="rect" href="structCGraphFSMMonitorAdc.html#ae061f73a99590b41f21eb3480bcfdb1d" title=" " alt="" coords="243,121,413,161"/>
-<area shape="poly" title=" " alt="" coords="99,1280,100,1086,105,929,115,753,132,574,157,407,173,333,193,267,215,213,241,171,243,168,247,172,245,174,220,215,198,269,179,334,162,408,137,575,120,753,110,929,105,1086,104,1280"/>
-<area shape="rect" href="structads1258dual.html#ad74fcd191df4788a49d116517f2e7575" title=" " alt="" coords="513,353,665,379"/>
-<area shape="poly" title=" " alt="" coords="399,2487,411,2475,423,2455,434,2426,456,2346,475,2239,493,2109,522,1801,545,1456,562,1107,574,791,585,392,590,393,580,791,568,1108,551,1456,528,1802,498,2110,481,2240,461,2347,439,2428,428,2457,415,2478,403,2491"/>
-<area shape="rect" href="DelayLinux_8cpp.html#a3bdb063fa6daf4ed6f77bfefa94a0027" title="Copyright (c) by Franks Development, LLC." alt="" coords="860,255,933,280"/>
-<area shape="poly" title=" " alt="" coords="665,357,691,350,716,340,730,328,739,316,748,303,764,290,805,275,846,267,847,273,806,280,767,295,752,306,744,319,734,332,719,344,693,355,666,362"/>
-<area shape="rect" href="ads1258dual_8h.html#a6d15a129218f002b274e03281dca51f8" title=" " alt="" coords="861,304,932,329"/>
-<area shape="poly" title=" " alt="" coords="665,351,847,322,848,327,666,357"/>
-<area shape="rect" href="structads1258dual.html#a5f4c6cfb717a5bb2cbee3a8f44d1c834" title=" " alt="" coords="797,353,997,379"/>
-<area shape="poly" title=" " alt="" coords="666,363,783,363,783,369,666,369"/>
-<area shape="rect" href="structads1258dual.html#af6f27911b79654610ebee3b5f18a17ed" title=" " alt="" coords="1076,353,1211,379"/>
-<area shape="poly" title=" " alt="" coords="997,363,1062,363,1062,369,997,369"/>
-<area shape="rect" href="structads1258dual.html#a229afc142ab091bac80c9e7a921b6fd4" title=" " alt="" coords="1076,205,1211,231"/>
-<area shape="poly" title=" " alt="" coords="996,352,1027,340,1058,318,1085,292,1125,240,1129,244,1089,296,1061,322,1029,344,998,357"/>
-<area shape="poly" title=" " alt="" coords="401,159,415,171,433,200,440,230,439,259,435,287,432,315,433,341,442,366,463,389,509,417,561,432,615,437,671,433,724,424,775,411,855,382,857,387,776,416,726,429,671,438,615,442,560,437,507,422,460,393,437,368,428,342,427,315,430,287,434,258,435,230,428,202,411,174,398,163"/>
-<area shape="poly" title=" " alt="" coords="348,119,397,78,427,57,460,40,501,26,540,19,541,24,502,32,462,44,430,62,400,82,352,123"/>
-<area shape="rect" href="structads1258dual.html#abfc9540669a9d0f1e45124aa8c4c8521" title=" " alt="" coords="478,55,701,80"/>
-<area shape="poly" title=" " alt="" coords="378,118,461,90,501,80,502,85,462,95,380,123"/>
-<area shape="rect" href="structads1258dual.html#ae11eab70298e1457d852d607ae21a358" title=" " alt="" coords="470,153,709,179"/>
-<area shape="poly" title=" " alt="" coords="414,146,457,150,456,156,413,152"/>
-<area shape="rect" href="structads1258dual.html#a86643c13b840aaba75caac47128cd749" title=" " alt="" coords="461,304,717,329"/>
-<area shape="poly" title=" " alt="" coords="399,159,415,171,428,187,434,203,439,234,443,263,450,277,463,291,469,295,465,299,460,295,446,280,438,265,433,234,429,204,423,189,411,175,396,163"/>
-<area shape="rect" href="structads1258dual.html#a0196da2a91f45e9bd464ef09e31a6d5a" title=" " alt="" coords="795,205,998,231"/>
-<area shape="poly" title=" " alt="" coords="383,158,414,170,438,181,462,189,544,203,628,212,781,218,781,223,628,217,544,208,461,194,436,186,412,175,381,163"/>
-<area shape="rect" href="structads1258dual.html#af3ee706ee755fdcbb41347b814020764" title=" " alt="" coords="522,255,657,280"/>
-<area shape="poly" title=" " alt="" coords="395,159,415,171,431,187,439,203,448,219,463,233,485,245,509,253,507,258,483,250,460,238,443,222,435,206,426,190,412,175,392,163"/>
-<area shape="rect" href="structads1258dual.html#a64b96f7d34460b58c786d7c51b03e0ea" title=" " alt="" coords="475,104,703,129"/>
-<area shape="poly" title=" " alt="" coords="413,130,461,126,462,131,414,135"/>
-<area shape="rect" href="structads1258dual.html#a684b8ba2a31a3c80f54285fadc9e2f5e" title=" " alt="" coords="765,80,1028,105"/>
-<area shape="poly" title=" " alt="" coords="701,74,752,78,751,83,701,79"/>
-<area shape="rect" href="structads1258dual.html#aa677d3087d3e19cae4a3fbbb48c8ab8b" title=" " alt="" coords="767,31,1027,56"/>
-<area shape="poly" title=" " alt="" coords="701,56,753,52,754,57,701,61"/>
-<area shape="poly" title=" " alt="" coords="718,314,848,314,848,319,718,319"/>
-<area shape="poly" title=" " alt="" coords="670,327,803,348,803,354,669,332"/>
-<area shape="poly" title=" " alt="" coords="689,301,716,290,730,279,739,267,748,253,764,241,782,233,784,238,767,246,752,257,744,270,734,283,719,295,691,306"/>
-<area shape="poly" title=" " alt="" coords="998,215,1062,215,1062,221,998,221"/>
-<area shape="poly" title=" " alt="" coords="657,265,846,265,846,270,657,270"/>
-<area shape="poly" title=" " alt="" coords="657,275,848,306,847,312,656,281"/>
-<area shape="poly" title=" " alt="" coords="658,270,689,278,719,290,734,303,743,316,752,328,767,340,785,348,782,353,764,344,748,332,739,319,730,306,716,295,687,283,656,276"/>
-<area shape="poly" title=" " alt="" coords="656,254,803,230,804,236,657,259"/>
-<area shape="rect" href="structads1258dual.html#aba752d3c6c47c80f8dec75b2202ee817" title=" " alt="" coords="791,156,1003,181"/>
-<area shape="poly" title=" " alt="" coords="616,252,682,222,765,191,802,182,804,187,766,197,684,227,618,257"/>
-<area shape="poly" title=" " alt="" coords="965,179,1029,191,1069,200,1068,205,1027,197,964,184"/>
-<area shape="poly" title=" " alt="" coords="689,127,719,140,735,153,744,167,752,180,767,192,783,199,781,204,764,196,748,183,739,170,731,156,716,144,687,132"/>
-<area shape="poly" title=" " alt="" coords="666,127,808,151,807,156,665,132"/>
+<area shape="rect" title=" " alt="" coords="5,1197,195,1222"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#aa9bff308de3dd74e0ff51bb032a8f7bc" title=" " alt="" coords="243,5,413,45"/>
+<area shape="poly" title=" " alt="" coords="98,1197,99,997,104,836,113,655,130,471,155,299,172,222,191,155,214,99,241,56,243,53,247,56,245,59,219,101,197,157,177,224,160,300,135,471,118,656,109,836,104,997,104,1197"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#ab19f0d71afc289d2997fe5a7a1272b0f" title=" " alt="" coords="243,69,413,109"/>
+<area shape="poly" title=" " alt="" coords="99,1197,101,1007,106,855,116,684,133,510,159,348,175,277,194,213,216,160,241,120,243,117,247,120,245,123,220,163,199,215,180,278,164,349,139,511,122,685,111,855,106,1007,104,1197"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a91815c61f34705db48c08090e6c16c57" title=" " alt="" coords="243,133,413,173"/>
+<area shape="poly" title=" " alt="" coords="99,1196,102,1017,109,873,120,713,137,550,162,398,178,331,196,271,217,222,241,184,243,181,247,184,245,187,222,224,201,273,183,332,167,399,142,551,125,713,114,873,108,1017,104,1196"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#ad90f7a6afa7494971a9169371ded77b6" title=" " alt="" coords="243,197,413,237"/>
+<area shape="poly" title=" " alt="" coords="99,1196,104,1026,111,892,123,742,141,589,166,448,181,385,198,329,218,283,241,248,243,245,247,248,245,251,223,286,203,331,186,386,171,449,146,590,129,742,117,892,109,1026,104,1196"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a8f05c2c36e513e2ae589dbe6f8fd28b4" title=" " alt="" coords="243,261,413,301"/>
+<area shape="poly" title=" " alt="" coords="99,1196,106,1037,127,772,145,630,169,498,201,388,219,345,241,312,243,309,247,312,245,315,224,347,206,390,174,499,150,630,132,772,111,1037,104,1197"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a0eaca6aa7232af5b6eba12cc0820cd7a" title=" " alt="" coords="243,325,413,365"/>
+<area shape="poly" title=" " alt="" coords="99,1196,107,1046,130,800,148,669,173,547,203,446,221,406,241,376,244,372,248,376,245,379,225,409,208,448,178,549,154,670,135,801,113,1047,104,1196"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a57671c383128934dc4b4f87322a035e8" title=" " alt="" coords="243,389,413,429"/>
+<area shape="poly" title=" " alt="" coords="99,1196,109,1057,133,831,152,710,176,597,205,504,222,468,241,440,244,436,248,440,245,443,227,470,210,506,181,599,157,711,139,831,114,1058,105,1197"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a144172b622ff142002e6347651731052" title=" " alt="" coords="243,453,413,493"/>
+<area shape="poly" title=" " alt="" coords="100,1196,111,1068,137,860,156,750,179,647,207,562,223,529,241,504,244,500,248,504,245,507,228,532,212,564,185,649,161,751,142,861,116,1068,105,1197"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#ab9ccefbe916cca9c79d8b60ef93a70ec" title=" " alt="" coords="243,517,413,557"/>
+<area shape="poly" title=" " alt="" coords="100,1196,113,1077,141,889,160,789,183,697,210,621,225,591,241,568,244,564,248,568,245,571,229,593,215,623,188,699,165,790,146,890,118,1078,105,1196"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a67613e75a684fa8c24f49c2b97b7c697" title=" " alt="" coords="243,581,413,621"/>
+<area shape="poly" title=" " alt="" coords="100,1196,115,1088,144,919,164,830,186,747,212,679,241,632,244,628,248,632,245,635,217,681,191,749,169,831,149,920,120,1089,106,1197"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a029e452da7c31f53dab75fb395a42e29" title=" " alt="" coords="243,645,413,685"/>
+<area shape="poly" title=" " alt="" coords="98,1197,100,1114,106,1051,116,981,133,906,159,831,194,759,216,726,241,696,244,692,248,695,245,699,220,729,198,762,164,833,138,907,121,982,111,1052,105,1114,104,1197"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a73242e05e760b84527551d956d7fa51a" title=" " alt="" coords="243,709,413,749"/>
+<area shape="poly" title=" " alt="" coords="99,1196,104,1122,111,1067,123,1006,141,941,166,876,198,814,241,760,245,756,248,760,245,763,203,817,170,878,146,943,128,1007,116,1068,109,1123,104,1196"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#abca515ec07f2700ea1253f1887a674a7" title=" " alt="" coords="243,773,413,813"/>
+<area shape="poly" title=" " alt="" coords="100,1196,108,1131,130,1032,148,977,172,922,203,870,241,824,245,819,249,823,245,827,207,873,177,924,153,979,135,1033,113,1132,105,1197"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#ae7cbc895bc8cac9e7ca094b0b7f3ad09" title=" " alt="" coords="243,837,413,877"/>
+<area shape="poly" title=" " alt="" coords="101,1196,113,1140,138,1058,156,1013,179,968,207,925,241,887,246,883,249,887,245,891,212,928,184,970,161,1015,143,1060,118,1142,106,1197"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#ae187ad38ce5b1d563fb50b6b9d33179c" title=" " alt="" coords="243,901,413,941"/>
+<area shape="poly" title=" " alt="" coords="103,1195,118,1150,145,1084,186,1014,212,981,241,951,247,947,250,951,244,955,216,984,191,1017,150,1087,123,1151,108,1197"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a1990aaf185bd78f4712373e8fc9c26a4" title=" " alt="" coords="243,965,413,1005"/>
+<area shape="poly" title=" " alt="" coords="105,1195,124,1160,154,1112,193,1061,241,1015,249,1010,252,1014,244,1019,197,1064,158,1115,128,1163,110,1198"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#abad701987e4ab7d69bb00b9da1949526" title=" " alt="" coords="243,1029,413,1069"/>
+<area shape="poly" title=" " alt="" coords="111,1194,164,1140,201,1108,241,1079,252,1073,255,1078,244,1084,204,1112,167,1144,114,1198"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a5f68e39d5942608d0268e7cc3ae6a450" title=" " alt="" coords="243,1093,413,1133"/>
+<area shape="poly" title=" " alt="" coords="127,1194,242,1143,259,1136,261,1141,244,1148,129,1199"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a6105802ee9c5da7f06f70629279f09bb" title=" " alt="" coords="243,1157,413,1197"/>
+<area shape="poly" title=" " alt="" coords="191,1194,229,1189,229,1194,191,1199"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a9f5d84d38ebc1b4670c290041b0a2276" title=" " alt="" coords="243,1221,413,1261"/>
+<area shape="poly" title=" " alt="" coords="191,1219,229,1225,229,1230,191,1225"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#ac825eb493dc097600151abee6c4a5890" title=" " alt="" coords="243,1285,413,1325"/>
+<area shape="poly" title=" " alt="" coords="129,1220,244,1271,261,1278,259,1283,242,1276,127,1225"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a8e422c6b3359e4b8b4804e552fc9d0da" title=" " alt="" coords="243,1349,413,1389"/>
+<area shape="poly" title=" " alt="" coords="114,1220,167,1275,204,1307,244,1335,255,1341,252,1346,241,1340,201,1311,164,1279,111,1224"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a6ae0297fd80f0b6022c0e21b30e85bbd" title=" " alt="" coords="243,1413,413,1453"/>
+<area shape="poly" title=" " alt="" coords="110,1221,128,1256,158,1303,197,1354,244,1399,252,1404,249,1409,241,1403,193,1358,154,1306,124,1258,105,1223"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a31bb5be4ce1b4897bb0e0b9eea6d7be6" title=" " alt="" coords="243,1477,413,1517"/>
+<area shape="poly" title=" " alt="" coords="108,1222,123,1267,150,1332,191,1402,216,1434,244,1463,250,1468,247,1472,241,1467,212,1438,186,1405,145,1334,118,1269,103,1223"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a0b06311cfcec07751ade7c902c1909e2" title=" " alt="" coords="243,1541,413,1581"/>
+<area shape="poly" title=" " alt="" coords="106,1222,118,1277,143,1359,161,1404,184,1448,212,1490,245,1527,249,1531,246,1535,241,1531,207,1494,179,1451,156,1406,138,1361,113,1278,101,1223"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a4fd6c56a152997ca1f9b2f7bb59e482a" title=" " alt="" coords="243,1605,413,1645"/>
+<area shape="poly" title=" " alt="" coords="105,1222,113,1287,135,1385,153,1440,177,1494,207,1546,245,1592,249,1595,245,1599,241,1595,203,1549,172,1497,148,1442,130,1387,108,1288,100,1223"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#af7e1eab172fb76a1eb4269c086261bdc" title=" " alt="" coords="243,1669,413,1709"/>
+<area shape="poly" title=" " alt="" coords="104,1222,109,1296,116,1350,128,1411,146,1476,170,1540,203,1601,245,1656,248,1659,245,1663,241,1659,198,1604,166,1543,141,1478,123,1413,111,1351,104,1297,99,1223"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#ae6424514b321773b16eae01d299d5d1a" title=" " alt="" coords="243,1733,413,1773"/>
+<area shape="poly" title=" " alt="" coords="104,1222,105,1305,111,1367,121,1437,138,1511,164,1586,198,1657,220,1689,245,1720,248,1723,244,1727,241,1723,216,1693,194,1659,159,1588,133,1513,116,1438,106,1367,100,1305,98,1222"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#ac4a6ddde1a2d53b432a0bc4f479523db" title=" " alt="" coords="243,1797,413,1837"/>
+<area shape="poly" title=" " alt="" coords="106,1222,120,1330,149,1499,169,1588,191,1670,217,1738,245,1784,248,1787,244,1790,241,1787,212,1740,186,1671,164,1589,144,1500,115,1330,100,1223"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#aeaf9f29690f9f6c310a475380a837949" title=" " alt="" coords="243,1861,413,1901"/>
+<area shape="poly" title=" " alt="" coords="105,1222,118,1341,146,1529,165,1628,188,1720,215,1796,229,1825,245,1848,248,1851,244,1854,241,1851,225,1828,210,1798,183,1722,160,1629,141,1530,113,1342,100,1223"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a8600c142182b98edc93fe45c745b368c" title=" " alt="" coords="243,1925,413,1965"/>
+<area shape="poly" title=" " alt="" coords="105,1222,116,1350,142,1558,161,1668,185,1770,212,1854,228,1887,245,1912,248,1915,244,1918,241,1915,223,1890,207,1856,179,1771,156,1669,137,1559,111,1351,100,1222"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a86fe0a40b1c6ea52e7f0762afa20bd19" title=" " alt="" coords="243,1989,413,2029"/>
+<area shape="poly" title=" " alt="" coords="105,1222,114,1361,139,1587,157,1708,181,1820,210,1913,227,1948,245,1976,248,1979,244,1982,241,1979,222,1951,205,1914,176,1821,152,1709,133,1588,109,1361,99,1222"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#ab10e7ddb0983d70839518bab346f9412" title=" " alt="" coords="243,2053,413,2093"/>
+<area shape="poly" title=" " alt="" coords="104,1222,113,1372,135,1618,154,1749,178,1870,208,1971,225,2010,245,2040,248,2043,244,2046,241,2043,221,2013,203,1973,173,1871,148,1750,130,1618,107,1372,99,1223"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a63bb0d60c3081e09be278c1e1753b1e3" title=" " alt="" coords="243,2117,413,2157"/>
+<area shape="poly" title=" " alt="" coords="104,1222,111,1382,132,1647,150,1788,174,1920,206,2029,224,2071,245,2104,247,2107,243,2110,241,2107,219,2074,201,2031,169,1921,145,1789,127,1647,106,1382,99,1222"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a313da8a85d4c2ec3435b24f61df81ff9" title=" " alt="" coords="243,2181,413,2221"/>
+<area shape="poly" title=" " alt="" coords="104,1222,109,1392,117,1527,129,1676,146,1828,171,1970,186,2032,203,2087,223,2133,245,2168,247,2171,243,2174,241,2171,218,2135,198,2089,181,2034,166,1971,141,1829,123,1677,111,1527,104,1393,99,1223"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#a88d1c9bbb00ab0ebd4f4236f94507122" title=" " alt="" coords="243,2245,413,2285"/>
+<area shape="poly" title=" " alt="" coords="104,1222,108,1402,114,1545,125,1705,142,1868,167,2020,183,2087,201,2146,222,2194,245,2232,247,2234,243,2238,241,2235,217,2197,196,2147,178,2088,162,2021,137,1869,120,1706,109,1546,102,1402,99,1222"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#ad40adb5102c34b81b9888571d6a4d03d" title=" " alt="" coords="243,2309,413,2349"/>
+<area shape="poly" title=" " alt="" coords="104,1222,106,1411,111,1564,122,1734,139,1908,164,2069,180,2141,199,2204,220,2256,245,2296,247,2298,243,2302,241,2299,216,2258,194,2205,175,2142,159,2070,133,1908,116,1734,106,1564,101,1411,99,1222"/>
+<area shape="rect" href="structCGraphFSMMonitorAdc.html#ae061f73a99590b41f21eb3480bcfdb1d" title=" " alt="" coords="243,2373,413,2413"/>
+<area shape="poly" title=" " alt="" coords="104,1222,104,1421,109,1582,118,1763,135,1947,160,2119,177,2195,197,2262,219,2317,245,2360,247,2363,243,2366,241,2363,214,2320,191,2264,172,2196,155,2120,130,1948,113,1764,104,1583,99,1421,98,1222"/>
 </map>
 </div>
 
@@ -1408,7 +1341,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structCGraphFSMHardwareInterface.html">CGraphFSMHardwareInterface</a>* volatile FSM</td>
+          <td class="memname">CGraphFSMHardwareInterface* volatile FSM</td>
         </tr>
       </table>
   </td>
@@ -2457,7 +2390,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="MonitorAdc_8hpp.html">MonitorAdc.hpp</a></li>
-    <li class="footer">Generated on Fri Jan 16 2026 23:17:10 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Apr 7 2026 04:00:35 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

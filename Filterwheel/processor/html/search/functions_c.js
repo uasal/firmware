@@ -1,7 +1,7 @@
 var searchData=
 [
   ['makepacket_0',['makepacket',['../classIPacket.html#aa50e563805822827057ebb7f7e99e6c2',1,'IPacket::MakePacket()'],['../classCGraphPacket.html#a1cc4c17fb847626f753f1287726a6c11',1,'CGraphPacket::MakePacket()']]],
-  ['max_1',['max',['../classfixedlistlite.html#a95a8987a8e433706ac3056a9906a25ac',1,'fixedlistlite::Max()'],['../classfixedqueue.html#adbd7dc766d1cd8edfd90376b4acd5232',1,'fixedqueue::max()'],['../classfixedqueue__mt.html#af5c5060e88b5c53d4de0dc21756600e0',1,'fixedqueue_mt::max()']]],
+  ['max_1',['max',['../classfixedqueue.html#adbd7dc766d1cd8edfd90376b4acd5232',1,'fixedqueue::max()'],['../classfixedqueue__mt.html#af5c5060e88b5c53d4de0dc21756600e0',1,'fixedqueue_mt::max()'],['../classfixedlistlite.html#a95a8987a8e433706ac3056a9906a25ac',1,'fixedlistlite::Max()']]],
   ['maxdepth_2',['MaxDepth',['../classIArray.html#a58894d86576a9b339c17771f0ca0eecc',1,'IArray']]],
   ['maxpayloadlength_3',['maxpayloadlength',['../classCGraphPacket.html#a44865595164b64647a9dec6d7b4342b1',1,'CGraphPacket::MaxPayloadLength()'],['../classIPacket.html#ac82824467a47aeda61ad2b08bf757f16',1,'IPacket::MaxPayloadLength()']]],
   ['maybegetc_4',['maybegetc',['../structTerminalUart.html#a40da7214273e0a27217d76b516dfeaba',1,'TerminalUart']]],

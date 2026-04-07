@@ -1,9 +1,13 @@
 var CmdTableBinary_8hpp =
 [
+    [ "BinaryFSMAccumConfigCommand", "CmdTableBinary_8hpp.html#ae55d8216e6d6efff3080f03b5acfdf92", null ],
+    [ "BinaryFSMAdcConfigCommand", "CmdTableBinary_8hpp.html#a3dd80b1767f70e0d5017ae52886ac3fa", null ],
     [ "BinaryFSMAdcsCommand", "CmdTableBinary_8hpp.html#a1a3196faf86fe31f812c81d9eb97cbb1", null ],
     [ "BinaryFSMAdcsFloatingPointCommand", "CmdTableBinary_8hpp.html#a95e61de178b1863a444a7715517ac921", null ],
+    [ "BinaryFSMDacConfigCommand", "CmdTableBinary_8hpp.html#ae8463377587dfc86dd19fc3cc0f1dbae", null ],
     [ "BinaryFSMDacsCommand", "CmdTableBinary_8hpp.html#a447ea2bfc62ce92c1bc39cba7052f814", null ],
     [ "BinaryFSMDacsFloatingPointCommand", "CmdTableBinary_8hpp.html#a16614d2c1f00c99956fac1f2f8b4c79e", null ],
+    [ "BinaryFSMHardwareConfigCommand", "CmdTableBinary_8hpp.html#a387cf3ecb3f0e937d677d416db6a9758", null ],
     [ "BinaryFSMStatusCommand", "CmdTableBinary_8hpp.html#aec5fa529265f82a973393c16e4fb0abc", null ],
     [ "BinaryVersionCommand", "CmdTableBinary_8hpp.html#a85aa5bebae290c335bee68813a4800f3", null ],
     [ "BinaryCmds", "CmdTableBinary_8hpp.html#a713b0cdc1242d44fdd7f69646239f157", null ],

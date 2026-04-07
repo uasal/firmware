@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['registerspace_2evhd_0',['RegisterSpace.vhd',['../RegisterSpace_8vhd.html',1,'']]],
-  ['rtccounter_2evhd_1',['RtcCounter.vhd',['../RtcCounter_8vhd.html',1,'']]]
+  ['patternfinder_2evhd_0',['PatternFinder.vhd',['../PatternFinder_8vhd.html',1,'']]],
+  ['peekram_2evhd_1',['PeekRam.vhd',['../PeekRam_8vhd.html',1,'']]],
+  ['peekringbuffer_2evhd_2',['PeekRingBuffer.vhd',['../PeekRingBuffer_8vhd.html',1,'']]],
+  ['phasecomparator_2evhd_3',['PhaseComparator.vhd',['../PhaseComparator_8vhd.html',1,'']]],
+  ['ppscount_2evhd_4',['PPSCount.vhd',['../PPSCount_8vhd.html',1,'']]]
 ];

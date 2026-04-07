@@ -15,6 +15,7 @@ var classCGraphPacket =
     [ "FindPacketStartPos", "classCGraphPacket.html#af6317dfc19053e89dfc38a088d7ff711", null ],
     [ "FindPacketStartPos", "classCGraphPacket.html#a43a5300d52523a1f0309128be6e05206", null ],
     [ "FooterLen", "classCGraphPacket.html#a766839cd2dfee835ec6336d8eab85ca2", null ],
+    [ "formatf", "classCGraphPacket.html#a7eadc06385324862dabdb8a563d2f1ba", null ],
     [ "HeaderLen", "classCGraphPacket.html#aee51261609544a94d5bee02ca36d3f5d", null ],
     [ "IsBroadcastSerialNum", "classCGraphPacket.html#a2b033a2eeb23833eb311461cb337f53b", null ],
     [ "IsBroadcastSerialNum", "classCGraphPacket.html#aff0821fceaa5120bd98e77399a28649c", null ],

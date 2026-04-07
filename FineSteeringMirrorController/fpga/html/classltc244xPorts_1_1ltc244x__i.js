@@ -1,6 +1,6 @@
 var classltc244xPorts_1_1ltc244x__i =
 [
-    [ "PROCESS_23", "classltc244xPorts_1_1ltc244x__i.html#a4e4f76078a44ea67ffa228cb25e17414", null ],
+    [ "PROCESS_24", "classltc244xPorts_1_1ltc244x__i.html#a43c7eef8cc62f69ed2baae36e79ec5a9", null ],
     [ "DataFromMiso", "classltc244xPorts_1_1ltc244x__i.html#a972f76f20c0c2ae7e594a00412673c2a", null ],
     [ "DataReady", "classltc244xPorts_1_1ltc244x__i.html#a5a86ed64ed54d7a2e8965cfd6b8dcf48", null ],
     [ "DataToMosi", "classltc244xPorts_1_1ltc244x__i.html#a58fd603a2b03ebbdfe9b35db3684a97e", null ],

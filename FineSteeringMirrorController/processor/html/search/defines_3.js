@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['host_5fname_5fsize_0',['host_name_size',['../linux__pinout__client__socket_8hpp.html#a797a7243dfb617f0dcc6aa4a0425ab5c',1,'HOST_NAME_SIZE:&#160;linux_pinout_client_socket.hpp'],['../linux__pinout__server__socket_8hpp.html#a797a7243dfb617f0dcc6aa4a0425ab5c',1,'HOST_NAME_SIZE:&#160;linux_pinout_server_socket.hpp']]]
+  ['n18vchannel_0',['N18VChannel',['../MonitorAdc_8hpp.html#aa57f8d991b7ccbd395387879952d270b',1,'MonitorAdc.hpp']]],
+  ['n20vchannel_1',['N20VChannel',['../MonitorAdc_8hpp.html#a34bc4cbb7eb98bab26788ce348da09ea',1,'MonitorAdc.hpp']]]
 ];

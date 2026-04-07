@@ -1,6 +1,6 @@
 var classSpiDeviceDualPorts_1_1SpiDeviceDual =
 [
-    [ "PROCESS_36", "classSpiDeviceDualPorts_1_1SpiDeviceDual.html#a21266d7d00d1672f6db71356b32383ab", null ],
+    [ "PROCESS_37", "classSpiDeviceDualPorts_1_1SpiDeviceDual.html#ac2916ba7302be3f84f86b92461de7c81", null ],
     [ "IBufP2Ports", "classSpiDeviceDualPorts_1_1SpiDeviceDual.html#ad60196fb461e8a9b57fe678f31b93b1e", null ],
     [ "LastSpiXferComplete", "classSpiDeviceDualPorts_1_1SpiDeviceDual.html#aea05eba3d1b6dd1132679b0320691b5a", null ],
     [ "LastTransfer", "classSpiDeviceDualPorts_1_1SpiDeviceDual.html#a7d61b711b70ba41469e34ed2a7cad7f4", null ],

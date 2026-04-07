@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['zero_0',['Zero',['../classPhaseComparatorPorts_1_1PhaseComparatorr.html#ae70cc4092f78f7bd4911eb0f541011b3',1,'PhaseComparatorPorts::PhaseComparatorr']]]
+  ['xfercomplete_0',['xfercomplete',['../classSpiMasterPorts.html#a4e5b911ada797dbf2555df752b56c302',1,'SpiMasterPorts.XferComplete'],['../classSpiMasterDualPorts.html#a4e5b911ada797dbf2555df752b56c302',1,'SpiMasterDualPorts.XferComplete'],['../classSpiMasterQuadPorts.html#a4e5b911ada797dbf2555df752b56c302',1,'SpiMasterQuadPorts.XferComplete'],['../classSpiMasterTrioPorts.html#a4e5b911ada797dbf2555df752b56c302',1,'SpiMasterTrioPorts.XferComplete']]],
+  ['xfercomplete_5fi_1',['xfercomplete_i',['../classSpiMasterPorts_1_1SpiMaster.html#aeb530b90d699466d57500fc145b93920',1,'SpiMasterPorts.SpiMaster.XferComplete_i'],['../classSpiMasterDualPorts_1_1SpiMasterDual.html#aeb530b90d699466d57500fc145b93920',1,'SpiMasterDualPorts.SpiMasterDual.XferComplete_i'],['../classSpiMasterQuadPorts_1_1SpiMasterQuad.html#aeb530b90d699466d57500fc145b93920',1,'SpiMasterQuadPorts.SpiMasterQuad.XferComplete_i'],['../classSpiMasterTrioPorts_1_1SpiMasterTrio.html#aeb530b90d699466d57500fc145b93920',1,'SpiMasterTrioPorts.SpiMasterTrio.XferComplete_i']]]
 ];

@@ -1,6 +1,6 @@
 var classSpiExtBusPorts_1_1SpiExtBus =
 [
-    [ "PROCESS_37", "classSpiExtBusPorts_1_1SpiExtBus.html#a05eb0d8f260a3c44f2fbfc00eb968939", null ],
+    [ "PROCESS_38", "classSpiExtBusPorts_1_1SpiExtBus.html#a847ccbfe2303078c421994f5981b90f0", null ],
     [ "IBufP2Ports", "classSpiExtBusPorts_1_1SpiExtBus.html#ad60196fb461e8a9b57fe678f31b93b1e", null ],
     [ "LastSpiXferComplete", "classSpiExtBusPorts_1_1SpiExtBus.html#aea05eba3d1b6dd1132679b0320691b5a", null ],
     [ "LastWriteSpiExtBus", "classSpiExtBusPorts_1_1SpiExtBus.html#a099b8fe915053c0d37d0980e75ebd744", null ],

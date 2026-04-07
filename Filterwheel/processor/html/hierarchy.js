@@ -1,6 +1,8 @@
 var hierarchy =
 [
-    [ "AdcAccumulator", "unionAdcAccumulator.html", null ],
+    [ "AccumulatorConfigRegister", "unionAccumulatorConfigRegister.html", null ],
+    [ "AdcAccumulator", "structAdcAccumulator.html", null ],
+    [ "AdcConfigRegister", "unionAdcConfigRegister.html", null ],
     [ "AdcFifo", "unionAdcFifo.html", null ],
     [ "AdcTimestamp", "unionAdcTimestamp.html", null ],
     [ "ads1258details::ads1258cmdheader", "unionads1258details_1_1ads1258cmdheader.html", null ],
@@ -46,6 +48,7 @@ var hierarchy =
     [ "ads1258details::config0register", "unionads1258details_1_1config0register.html", null ],
     [ "ads1258details::config1register", "unionads1258details_1_1config1register.html", null ],
     [ "lt244xdetails::configregister", "unionlt244xdetails_1_1configregister.html", null ],
+    [ "DacConfigRegister", "unionDacConfigRegister.html", null ],
     [ "doublebe_t", "uniondoublebe__t.html", null ],
     [ "EzThread", "classEzThread.html", null ],
     [ "fixedlist< T, list_size >", "classfixedlist.html", null ],

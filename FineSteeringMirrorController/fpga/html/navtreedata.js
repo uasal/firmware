@@ -47,15 +47,15 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "BuildNumber_8vhd.html",
-"classFourWireStepperMotorPorts.html#ad4d0413cb3d4a4c0f605981d600cf094",
-"classMain.html#a693bb629417f0cc210ae4dc82912f4f1",
-"classMain_1_1architecture__Main.html#ab98cbd146d0f1a17d65e5be4cdf3daa1",
-"classRegisterSpacePorts.html#aaa17b3fe456fb3ef04fd4088054a7f5c",
-"classSpiDacTrioPorts_1_1SpiDacTrio.html#a474e95d3d115d0ad7ed1c09d2834c7dd",
-"classSpiMasterTrioPorts.html#ad4eb4a624c47b0c231e8f7cc7cf7b452",
-"classUartTxFifoExtClk_1_1implementation.html#abd8368eb0cd59590ed1a2ef2f8e68a40",
-"classfifo__gen__tb.html",
-"classltc244xaccumulatorPorts_1_1ltc244xaccumulator__i.html#ac0cfe1b2a2ab8eb171506ffaba09b498"
+"classFieldLatcher.html#a62f3af5cff1ba971976e853e4c0ca086",
+"classLtc2378AccumTrioPorts_1_1Ltc2378AccumTrio.html#a11cddd149aee795596bcf7f5bcdd4893",
+"classMain_1_1architecture__Main.html#a6c68c8d59af8c87f706cd8d07221c625",
+"classPeekRingBuffer.html#aa451f4ff6fac25c0a16622835618614f",
+"classRegisterSpacePorts_1_1RegisterSpace.html#a75190331c14b7061e1aaed22ff077183",
+"classSpiDevicePorts_1_1SpiDevice.html#a21266d7d00d1672f6db71356b32383ab",
+"classUartRxFifoExtClk.html#afd1ec96baa2c2ff610f79bb0affd6395",
+"classUartTxFifo_1_1implementation.html#a8adcf9ff89125830c4d751e1aec82ac1",
+"classgated__fifo.html#a69a1cf4fd9595722f9c4c41bdd5151ca"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

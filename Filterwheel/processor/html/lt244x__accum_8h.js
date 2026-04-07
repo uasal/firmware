@@ -9,7 +9,7 @@ var lt244x__accum_8h =
     [ "Ltc244xAccumulator", "lt244x__accum_8h.html#a4940b320070a73995e23786e57d66331", null ],
     [ "Ltc244xAccumulatorChannel", "lt244x__accum_8h.html#a4d1ee5d9199725cb42950fa87413314b", null ],
     [ "Ltc244xAccumulatorChannel", "lt244x__accum_8h.html#a99a5253275bd211ec23098313091d1cb", null ],
-    [ "__attribute__", "lt244x__accum_8h.html#a12f69cac11721f223989d34f78a0d150", null ],
+    [ "__attribute__", "lt244x__accum_8h.html#ad5877d59b253b69e742d2c31fa82a63e", null ],
     [ "all", "lt244x__accum_8h.html#af61f8246015db4f0a85a942ac747131e", null ],
     [ "ChanBit0orInvertDiffChan", "lt244x__accum_8h.html#a4d1d5477d971d76c76488fc6fcc36391", null ],
     [ "ChannelBits123", "lt244x__accum_8h.html#a4ad6e941fe5eaec3a4ae41a6acc2eb65", null ],

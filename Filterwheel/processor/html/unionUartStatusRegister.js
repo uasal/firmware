@@ -1,7 +1,7 @@
 var unionUartStatusRegister =
 [
     [ "UartStatusRegister", "unionUartStatusRegister.html#a488d6ace57f6d4621b2fcbf0d80a1e17", null ],
-    [ "__attribute__", "unionUartStatusRegister.html#abff497d8342f76da7d277ffd094735e0", null ],
+    [ "__attribute__", "unionUartStatusRegister.html#ac571c2dd0fcfaab515ef9a152f706134", null ],
     [ "formatf", "unionUartStatusRegister.html#a1dfb782fa57602582e2927bccbdefe6d", null ],
     [ "all", "unionUartStatusRegister.html#a47c365f492ba8059732a8ec0804399fa", null ],
     [ "reserved1", "unionUartStatusRegister.html#aa0ca80063bf5c9b0279dc399449e7223", null ],

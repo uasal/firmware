@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['fpga_5fmap_5fmask_0',['FPGA_MAP_MASK',['../CGraphDeprecatedPZTHardwareInterface_8cpp.html#a60985fedab27865c3c71beb3818a03bb',1,'CGraphDeprecatedPZTHardwareInterface.cpp']]],
-  ['fpga_5fmem_5faddr_1',['FPGA_MEM_ADDR',['../CGraphDeprecatedPZTHardwareInterface_8cpp.html#a80fd14f27e03612c669c66e42082fdf0',1,'CGraphDeprecatedPZTHardwareInterface.cpp']]]
+  ['luxradschannel_0',['LuxRadsChannel',['../MonitorAdc_8hpp.html#adc373c91a5fd6490ead52dc6c92b804b',1,'MonitorAdc.hpp']]]
 ];

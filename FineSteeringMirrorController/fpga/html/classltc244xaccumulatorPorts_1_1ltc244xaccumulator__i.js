@@ -1,6 +1,6 @@
 var classltc244xaccumulatorPorts_1_1ltc244xaccumulator__i =
 [
-    [ "PROCESS_25", "classltc244xaccumulatorPorts_1_1ltc244xaccumulator__i.html#a1593b8d21a575201cfaf875670b6c1af", null ],
+    [ "PROCESS_26", "classltc244xaccumulatorPorts_1_1ltc244xaccumulator__i.html#a9fed86de69115c4b11f6ed4477163e94", null ],
     [ "AccumSampleCurrentState", "classltc244xaccumulatorPorts_1_1ltc244xaccumulator__i.html#ad88b7ef7fd932118e899d39acecc3811", null ],
     [ "AccumSampleNextState", "classltc244xaccumulatorPorts_1_1ltc244xaccumulator__i.html#ac97ca57bd72ecdf662492eff7e14f82c", null ],
     [ "AccumSampleStates", "classltc244xaccumulatorPorts_1_1ltc244xaccumulator__i.html#a5d5c0cc54b8bff616e9fe7faded99447", null ],

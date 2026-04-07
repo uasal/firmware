@@ -1,7 +1,6 @@
 var classUartRxExtClk =
 [
     [ "UartRxExtClk.implementation", "classUartRxExtClk_1_1implementation.html", "classUartRxExtClk_1_1implementation" ],
-    [ "clk", "classUartRxExtClk.html#a50da91b765765ac486df1b41692e962f", null ],
     [ "IEEE", "classUartRxExtClk.html#ae4f03c286607f3181e16b9aa12d0c6d4", null ],
     [ "NUMERIC_STD", "classUartRxExtClk.html#ae00f3f04545af57582ff10609eee23e2", null ],
     [ "rst", "classUartRxExtClk.html#ae106f17a2b73445119c8eb039d3e102e", null ],

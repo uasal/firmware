@@ -32,7 +32,7 @@ var classMain =
     [ "MosiTiDacB", "classMain.html#ae4684fdd36a6b6bab7a1c544e06710e4", null ],
     [ "MosiTiDacC", "classMain.html#a63d6812bfd2f19b98687a9a4ecb9d119", null ],
     [ "MosiTiDacD", "classMain.html#aeef47a7a6d557d7403b081cf76b7503e", null ],
-    [ "MosiXO", "classMain.html#a771772ade5b874d9a78fb95c04f23997", null ],
+    [ "MosiXO", "classMain.html#a69abf3cbf97e8d39c449e5f66ab55cfd", null ],
     [ "nCsAdcs", "classMain.html#a1cbc46feb4d06af70834df96f1873a38", null ],
     [ "nCsMaxDacs", "classMain.html#ac943706ddeca1ba75cbc2cbb8b4a7e4a", null ],
     [ "nCsMonAdcs", "classMain.html#a44cfb27e43969ef92fd9882b713b6b73", null ],

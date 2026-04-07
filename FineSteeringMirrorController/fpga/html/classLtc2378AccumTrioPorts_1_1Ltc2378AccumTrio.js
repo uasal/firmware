@@ -1,6 +1,6 @@
 var classLtc2378AccumTrioPorts_1_1Ltc2378AccumTrio =
 [
-    [ "PROCESS_22", "classLtc2378AccumTrioPorts_1_1Ltc2378AccumTrio.html#a9cf704ba888b5d6fda74fb7f178a2519", null ],
+    [ "PROCESS_23", "classLtc2378AccumTrioPorts_1_1Ltc2378AccumTrio.html#ad1fe1cdada9f0b321db42299f1653e1a", null ],
     [ "AdcSampleA", "classLtc2378AccumTrioPorts_1_1Ltc2378AccumTrio.html#a977cb11de0166c3d59f8e5832bc3d584", null ],
     [ "AdcSampleB", "classLtc2378AccumTrioPorts_1_1Ltc2378AccumTrio.html#aef1c5f0ff5115372ff3e871dd9547745", null ],
     [ "AdcSampleC", "classLtc2378AccumTrioPorts_1_1Ltc2378AccumTrio.html#a8e1ce9ee5d4c2f027cef31cab6409f61", null ],

@@ -1,7 +1,7 @@
 var unionCGraphDualMonitorAdcCommandStatusRegister =
 [
     [ "CGraphDualMonitorAdcCommandStatusRegister", "unionCGraphDualMonitorAdcCommandStatusRegister.html#adc68609a5b3e5fc9e2655a9414d3d1b7", null ],
-    [ "__attribute__", "unionCGraphDualMonitorAdcCommandStatusRegister.html#a9f0e19d447c5920b36a9c2347977e52a", null ],
+    [ "__attribute__", "unionCGraphDualMonitorAdcCommandStatusRegister.html#acf7a3edab8e13e888b2bdbd18db8c5f0", null ],
     [ "formatf", "unionCGraphDualMonitorAdcCommandStatusRegister.html#a881ece2d8aa9a13e5609127baad6de14", null ],
     [ "all", "unionCGraphDualMonitorAdcCommandStatusRegister.html#a91e71b3b6d9d776683bfd8a9a2672f19", null ],
     [ "FrameEnable", "unionCGraphDualMonitorAdcCommandStatusRegister.html#ab28b54c059c3326ae8094dfcebafbd7a", null ],

@@ -4,6 +4,6 @@ var searchData=
   ['generatedpps_1',['GeneratedPPS',['../classRtcCounterPorts.html#a64f1b7473fe474b57b3f6fdd51125c55',1,'RtcCounterPorts']]],
   ['generatepps_2',['GeneratePPS',['../classRtcCounterPorts.html#a33fefc1ba651ce7ae889dac64df51382',1,'RtcCounterPorts']]],
   ['globalfaultinhibit_3',['globalfaultinhibit',['../classMain.html#a3f969dc38f61a0fc8028ec3f4a08e925',1,'Main.GlobalFaultInhibit'],['../classRegisterSpacePorts.html#a3f969dc38f61a0fc8028ec3f4a08e925',1,'RegisterSpacePorts.GlobalFaultInhibit']]],
-  ['globalfaultinhibit_5fi_4',['GlobalFaultInhibit_i',['../classRegisterSpacePorts_1_1RegisterSpace.html#a84246bd3518f720d6202bcce564e9498',1,'RegisterSpacePorts::RegisterSpace']]],
+  ['globalfaultinhibit_5fi_4',['GlobalFaultInhibit_i',['../classRegisterSpacePorts_1_1RegisterSpace.html#affe50f13f914b1d4923c6bf1cbc70180',1,'RegisterSpacePorts::RegisterSpace']]],
   ['go_5',['go',['../classUartTx.html#a21457a35982e457865df6aaf7c281540',1,'UartTx.Go'],['../classUartTxParity.html#a21457a35982e457865df6aaf7c281540',1,'UartTxParity.Go']]]
 ];

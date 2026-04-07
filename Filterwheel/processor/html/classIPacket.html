@@ -178,6 +178,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a96ace76eb5657bad9594b79b7b9b233e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a349fb3451cce68b72bcc32baa7a41693" id="r_a349fb3451cce68b72bcc32baa7a41693"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPacket.html#a349fb3451cce68b72bcc32baa7a41693">DoesPayloadTypeMatch</a> (const <a class="el" href="classIArray.html">IArray</a> &amp;Buffer, const size_t PacketStartPos, const size_t PacketEndPos, const uint32_t CmdType) const =0</td></tr>
 <tr class="separator:a349fb3451cce68b72bcc32baa7a41693"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecf52db93ab500cf7cc668c76fe47589" id="r_aecf52db93ab500cf7cc668c76fe47589"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPacket.html#aecf52db93ab500cf7cc668c76fe47589">formatf</a> () const =0</td></tr>
+<tr class="separator:aecf52db93ab500cf7cc668c76fe47589"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Copyright (c) by Franks Development, LLC. </p>
@@ -869,6 +871,33 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="aecf52db93ab500cf7cc668c76fe47589" name="aecf52db93ab500cf7cc668c76fe47589"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecf52db93ab500cf7cc668c76fe47589">&#9670;&#160;</a></span>formatf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IPacket::formatf </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classCGraphPacket.html#a7eadc06385324862dabdb8a563d2f1ba">CGraphPacket</a>.</p>
+
+</div>
+</div>
 <a id="ad2ae0d8eb688d7987e63f438b007713c" name="ad2ae0d8eb688d7987e63f438b007713c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad2ae0d8eb688d7987e63f438b007713c">&#9670;&#160;</a></span>HeaderLen()</h2>
 
@@ -1190,7 +1219,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implemented in <a class="el" href="classCGraphPacket.html#a1cc4c17fb847626f753f1287726a6c11">CGraphPacket</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00403">BinaryUart::TxBinaryPacket()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00304">BinaryUartRingBuffer::TxBinaryPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00401">BinaryUart::TxBinaryPacket()</a>, and <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00304">BinaryUartRingBuffer::TxBinaryPacket()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1313,17 +1342,20 @@ Here is the caller graph for this function:</div>
 
 <p>Implemented in <a class="el" href="classCGraphPacket.html#a1bbcd4c92f2804301840efffb3d75027">CGraphPacket</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00110">BinaryUartRingBuffer::Process()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00164">BinaryUart::Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">BinaryUart::CheckPacketEnd()</a>, <a class="el" href="BinaryUartRingBuffer_8hpp_source.html#l00110">BinaryUartRingBuffer::Process()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00164">BinaryUart::Process()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classIPacket_ae1f269523fdd7b923e6600c46d93a94f_icgraph.png" border="0" usemap="#aclassIPacket_ae1f269523fdd7b923e6600c46d93a94f_icgraph" alt=""/></div>
 <map name="aclassIPacket_ae1f269523fdd7b923e6600c46d93a94f_icgraph" id="aclassIPacket_ae1f269523fdd7b923e6600c46d93a94f_icgraph">
-<area shape="rect" title=" " alt="" coords="213,42,364,67"/>
-<area shape="rect" href="structBinaryUartRingBuffer.html#a09efe6a5785ee86ced2471f020960fc7" title="Processes incoming data and checks for new packets." alt="" coords="5,5,165,45"/>
-<area shape="poly" title=" " alt="" coords="200,45,165,40,166,34,200,39"/>
-<area shape="rect" href="structBinaryUart.html#a1328d9d193b052cbc4013f21c7e6e222" title="Processes incoming data and checks for new packets." alt="" coords="10,70,161,95"/>
-<area shape="poly" title=" " alt="" coords="200,70,161,75,160,70,199,64"/>
+<area shape="rect" title=" " alt="" coords="459,56,609,81"/>
+<area shape="rect" href="structBinaryUart.html#a710ecfd14e702d8cf732707d6184c2c2" title="Checks if a complete packet (with both header and footer) is present in the buffer." alt="" coords="204,5,411,31"/>
+<area shape="poly" title=" " alt="" coords="462,56,364,33,365,28,464,50"/>
+<area shape="rect" href="structBinaryUart.html#a1328d9d193b052cbc4013f21c7e6e222" title="Processes incoming data and checks for new packets." alt="" coords="5,31,156,56"/>
+<area shape="poly" title=" " alt="" coords="444,66,156,50,156,45,445,61"/>
+<area shape="rect" href="structBinaryUartRingBuffer.html#a09efe6a5785ee86ced2471f020960fc7" title="Processes incoming data and checks for new packets." alt="" coords="227,106,387,146"/>
+<area shape="poly" title=" " alt="" coords="471,87,388,109,386,103,469,82"/>
+<area shape="poly" title=" " alt="" coords="191,34,157,38,156,32,190,28"/>
 </map>
 </div>
 
@@ -1739,7 +1771,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classIPacket.html">IPacket</a></li>
-    <li class="footer">Generated on Fri Jan 16 2026 23:16:59 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Apr 7 2026 04:00:23 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

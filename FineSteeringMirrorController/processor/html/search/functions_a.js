@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kbhit_0',['kbhit',['../classlinux__pinout__stdio.html#a6f64e7e84158a0b6726b97f5e234b3b7',1,'linux_pinout_stdio']]]
+  ['ndrdy_0',['nDrdy',['../structPinoutMonitorAdc.html#ac59c29d4c706c308035e5d7a07d949eb',1,'PinoutMonitorAdc']]]
 ];

@@ -25,22 +25,14 @@
 var NAVTREE =
 [
   [ "ESC FilterWheel C++ Source", "index.html", [
-    [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
-      [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ],
-        [ "Variables", "namespacemembers_vars.html", null ]
-      ] ]
-    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", "functions_vars" ]
+        [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -48,9 +40,7 @@ var NAVTREE =
       [ "File Members", "globals.html", [
         [ "All", "globals.html", "globals_dup" ],
         [ "Functions", "globals_func.html", null ],
-        [ "Variables", "globals_vars.html", "globals_vars" ],
-        [ "Enumerations", "globals_enum.html", null ],
-        [ "Enumerator", "globals_eval.html", null ],
+        [ "Variables", "globals_vars.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -59,19 +49,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"AsciiCmdUserInterfaceLinux_8cpp.html",
-"CGraphFSMHardwareInterface_8hpp.html#a78845d2c22a0bbda40168036365b820c",
-"CmdHandlersAscii_8cpp.html#ab71c91ad1088ec58bda2255a744a7cdf",
-"TerminalUart_8hpp.html#a0fa521642fccc3e7e0689de377d9a1e5",
-"ads1258dual_8h.html#ae921cf33e84ab31133c94ece3b6af147",
-"classlinux__pinout__circular__buffer.html#ae97aeeca453eae4adbf6ca5fb73f211f",
-"globals_f.html",
-"structBinaryCmd.html",
-"structCGraphFSMMonitorAdc.html#a63bb0d60c3081e09be278c1e1753b1e3",
-"structCGraphPZTTelemetryPayload.html#a75b58bcd66786d0574442ea9fadd1279",
-"structlt244x__accum.html#a53bfe5dabe3999ad0ef04d0db4ae2d80",
-"unionLtc244xAccumulator.html",
-"unionfloatbe__t.html#a2239a22a194086e0b1cd6e6e16acdb8d"
+"CmdHandlersAscii_8cpp.html",
+"Uarts_8cpp.html#a90847bb51dcb9b2edda50ccf0753bb36"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

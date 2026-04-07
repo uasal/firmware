@@ -107,143 +107,59 @@ $(document).ready(function(){initNavTree('CmdHandlersAscii_8cpp.html',''); initR
 <code>#include &lt;inttypes.h&gt;</code><br />
 <code>#include &lt;cstddef&gt;</code><br />
 <code>#include &lt;unordered_map&gt;</code><br />
-<code>#include &quot;<a class="el" href="BinaryUart_8hpp_source.html">uart/BinaryUart.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="uart__pinout__fpga_8hpp_source.html">uart/uart_pinout_fpga.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="CGraphPacket_8hpp_source.html">cgraph/CGraphPacket.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html">cgraph/CGraphFSMHardwareInterface.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="MonitorAdc_8hpp_source.html">../MonitorAdc.hpp</a>&quot;</code><br />
+<code>#include &quot;uart/BinaryUart.hpp&quot;</code><br />
+<code>#include &quot;uart/uart_pinout_fpga.hpp&quot;</code><br />
+<code>#include &quot;cgraph/CGraphPacket.hpp&quot;</code><br />
+<code>#include &quot;cgraph/CGraphFSMHardwareInterface.hpp&quot;</code><br />
+<code>#include &quot;<a class="el" href="MonitorAdc_8hpp_source.html">MonitorAdc.hpp</a>&quot;</code><br />
 <code>#include &quot;MainBuildNum&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for CmdHandlersAscii.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="CmdHandlersAscii_8cpp__incl.png" border="0" usemap="#aCmdHandlersAscii_8cpp" alt=""/></div>
 <map name="aCmdHandlersAscii_8cpp" id="aCmdHandlersAscii_8cpp">
-<area shape="rect" title="Copyright (c) by Franks Development, LLC." alt="" coords="1467,5,1635,31"/>
-<area shape="rect" title=" " alt="" coords="1565,387,1635,412"/>
-<area shape="poly" title=" " alt="" coords="1635,18,1691,24,1752,34,1815,51,1875,76,1901,91,1919,106,1934,124,1948,151,1961,183,1968,210,1966,237,1952,267,1922,301,1886,329,1846,351,1804,368,1720,389,1649,399,1649,393,1719,384,1802,363,1844,346,1883,324,1918,297,1947,264,1961,236,1963,211,1956,184,1943,153,1930,127,1916,110,1898,95,1872,81,1813,56,1751,39,1690,29,1634,24"/>
-<area shape="rect" title=" " alt="" coords="1866,240,1937,265"/>
-<area shape="poly" title=" " alt="" coords="1636,25,1730,43,1781,57,1829,76,1887,103,1908,122,1926,151,1932,171,1931,192,1918,229,1913,227,1925,191,1926,171,1922,153,1904,125,1884,108,1827,81,1779,62,1729,48,1635,30"/>
-<area shape="rect" title=" " alt="" coords="448,387,515,412"/>
-<area shape="poly" title=" " alt="" coords="1466,22,1196,23,833,30,646,37,472,48,323,62,211,81,138,91,72,98,46,106,26,119,13,140,8,171,8,254,11,269,21,283,57,309,110,332,176,350,317,377,435,391,434,397,316,382,174,356,109,337,54,314,17,287,6,271,3,254,3,170,8,138,22,115,44,101,71,93,137,86,210,76,323,57,472,43,646,32,833,25,1196,17,1466,16"/>
-<area shape="rect" title=" " alt="" coords="1070,79,1141,104"/>
-<area shape="poly" title=" " alt="" coords="1467,32,1325,52,1155,81,1154,76,1324,47,1466,27"/>
-<area shape="rect" title=" " alt="" coords="1165,79,1233,104"/>
-<area shape="poly" title=" " alt="" coords="1488,33,1247,81,1246,76,1487,28"/>
-<area shape="rect" title=" " alt="" coords="1257,79,1321,104"/>
-<area shape="poly" title=" " alt="" coords="1509,33,1335,80,1334,75,1508,28"/>
-<area shape="rect" title=" " alt="" coords="1346,79,1433,104"/>
-<area shape="poly" title=" " alt="" coords="1526,33,1429,75,1427,71,1524,28"/>
-<area shape="rect" title=" " alt="" coords="82,240,153,265"/>
-<area shape="poly" title=" " alt="" coords="1466,23,1137,31,922,39,697,51,482,68,296,91,219,104,157,119,111,136,85,154,77,170,79,190,88,209,100,227,96,230,83,212,74,191,72,170,81,150,109,131,155,114,218,99,295,85,482,63,697,46,921,34,1137,26,1466,18"/>
-<area shape="rect" title=" " alt="" coords="1669,79,1793,104"/>
-<area shape="poly" title=" " alt="" coords="1581,28,1690,71,1688,76,1579,33"/>
-<area shape="rect" href="BinaryUart_8hpp.html" title="UART interface for binary packet communication." alt="" coords="670,79,821,104"/>
-<area shape="poly" title=" " alt="" coords="1467,29,835,85,834,80,1466,24"/>
-<area shape="rect" href="uart__pinout__fpga_8hpp.html" title=" " alt="" coords="1695,159,1886,185"/>
-<area shape="poly" title=" " alt="" coords="1636,25,1738,44,1780,58,1807,77,1815,94,1816,113,1806,147,1801,146,1811,112,1810,95,1803,80,1778,63,1736,49,1635,30"/>
-<area shape="rect" href="CGraphPacket_8hpp.html" title=" " alt="" coords="1457,79,1645,104"/>
-<area shape="poly" title=" " alt="" coords="1553,31,1553,65,1548,65,1548,31"/>
-<area shape="rect" href="CGraphFSMHardwareInterface_8hpp.html" title=" " alt="" coords="2208,152,2416,192"/>
-<area shape="poly" title=" " alt="" coords="1635,18,1730,23,1846,33,1971,50,2095,76,2187,108,2266,143,2263,148,2185,113,2094,81,1970,55,1845,38,1730,28,1635,24"/>
-<area shape="rect" href="MonitorAdc_8hpp.html" title=" " alt="" coords="2244,79,2380,104"/>
-<area shape="poly" title=" " alt="" coords="1635,24,2208,76,2231,78,2230,84,2208,81,1635,29"/>
-<area shape="rect" title=" " alt="" coords="2405,79,2523,104"/>
-<area shape="poly" title=" " alt="" coords="1635,20,1962,39,2174,55,2391,76,2391,81,2173,60,1962,44,1635,26"/>
-<area shape="poly" title=" " alt="" coords="821,91,905,96,1007,106,1116,123,1223,149,1274,168,1312,188,1395,238,1465,270,1495,286,1530,311,1561,342,1586,373,1582,377,1557,346,1526,315,1492,290,1462,275,1392,242,1309,193,1272,173,1222,155,1115,128,1006,111,905,101,821,97"/>
-<area shape="poly" title=" " alt="" coords="670,104,574,124,519,141,464,162,411,190,362,224,320,265,288,314,283,334,289,350,303,363,324,373,379,387,434,393,434,399,378,392,322,378,300,367,284,353,278,334,283,312,316,262,358,220,408,185,462,157,518,135,572,119,669,99"/>
-<area shape="rect" title=" " alt="" coords="937,387,1012,412"/>
-<area shape="poly" title=" " alt="" coords="670,104,576,124,538,137,514,153,510,174,510,208,514,242,521,264,544,294,568,311,634,336,711,360,790,377,924,393,923,398,789,382,710,366,632,341,565,316,540,297,516,267,509,243,505,208,504,173,510,151,535,133,575,118,669,99"/>
-<area shape="rect" href="fixedqueue_8hpp.html" title=" " alt="" coords="94,159,215,185"/>
-<area shape="poly" title=" " alt="" coords="670,101,473,121,235,155,213,159,212,154,234,149,472,116,669,96"/>
-<area shape="rect" href="IUart_8h.html" title=" " alt="" coords="1037,240,1133,265"/>
-<area shape="poly" title=" " alt="" coords="738,106,725,124,713,147,709,170,711,181,717,190,737,205,767,218,849,235,941,244,1024,248,1024,253,941,250,848,240,765,223,734,210,713,194,706,183,704,170,708,145,720,122,733,103"/>
-<area shape="rect" title=" " alt="" coords="2512,387,2643,412"/>
-<area shape="poly" title=" " alt="" coords="821,93,1059,101,1747,106,1973,111,2176,119,2335,131,2392,140,2429,150,2482,177,2502,193,2517,211,2541,255,2561,313,2576,372,2570,374,2556,314,2536,257,2513,214,2498,197,2479,181,2427,154,2390,145,2334,137,2176,124,1973,116,1747,112,1059,107,821,98"/>
-<area shape="rect" href="CmdSystem_8hpp.html" title=" " alt="" coords="901,159,1059,185"/>
-<area shape="poly" title=" " alt="" coords="780,101,934,153,932,158,779,107"/>
-<area shape="rect" href="IProtocol_8hpp.html" title=" " alt="" coords="774,313,911,339"/>
-<area shape="poly" title=" " alt="" coords="735,106,717,127,702,153,698,172,702,191,724,227,753,258,784,284,812,304,809,308,780,288,749,262,720,230,698,193,693,172,698,151,712,124,731,103"/>
-<area shape="rect" href="IPacket_8hpp.html" title=" " alt="" coords="1083,159,1210,185"/>
-<area shape="poly" title=" " alt="" coords="816,101,1073,149,1091,154,1090,159,1071,155,815,107"/>
-<area shape="rect" href="IUartParser_8hpp.html" title=" " alt="" coords="726,159,877,185"/>
-<area shape="poly" title=" " alt="" coords="756,103,787,147,783,150,751,106"/>
-<area shape="rect" href="BinaryUart_8h.html" title="UART interface for binary packet communication." alt="" coords="645,313,749,339"/>
-<area shape="poly" title=" " alt="" coords="673,107,593,126,560,139,541,154,524,182,519,208,525,235,541,264,555,276,578,287,638,307,636,312,576,292,552,280,537,267,520,237,514,208,519,180,537,150,558,134,591,121,672,101"/>
-<area shape="poly" title=" " alt="" coords="152,186,131,229,126,226,147,184"/>
-<area shape="poly" title=" " alt="" coords="1127,263,1552,382,1550,387,1125,268"/>
-<area shape="poly" title=" " alt="" coords="1038,265,1019,268,910,279,824,281,739,289,691,299,634,316,566,347,510,381,507,376,563,342,632,311,689,294,738,284,823,276,909,273,1018,263,1037,260"/>
-<area shape="poly" title=" " alt="" coords="1074,267,1029,315,989,376,985,373,1025,312,1070,264"/>
-<area shape="rect" href="IBlockDevice_8hpp.html" title=" " alt="" coords="1038,313,1173,339"/>
-<area shape="poly" title=" " alt="" coords="1091,265,1101,299,1096,301,1086,266"/>
-<area shape="poly" title=" " alt="" coords="1173,334,1551,388,1550,394,1173,340"/>
-<area shape="poly" title=" " alt="" coords="1038,338,529,395,528,390,1038,332"/>
-<area shape="poly" title=" " alt="" coords="1086,341,1009,382,1007,378,1083,336"/>
-<area shape="poly" title=" " alt="" coords="1035,182,1293,237,1319,249,1344,263,1443,311,1568,378,1566,382,1440,316,1341,268,1317,254,1291,243,1034,187"/>
-<area shape="poly" title=" " alt="" coords="1030,182,1072,189,1300,215,1524,232,1852,247,1852,253,1524,237,1300,220,1072,195,1029,187"/>
-<area shape="poly" title=" " alt="" coords="927,187,890,195,805,207,738,213,672,221,590,243,502,264,469,280,454,295,440,315,435,330,439,345,459,375,455,378,434,347,430,329,435,312,450,291,466,276,501,259,589,237,671,216,738,207,804,201,889,189,926,182"/>
-<area shape="poly" title=" " alt="" coords="912,331,1551,391,1551,396,911,336"/>
-<area shape="poly" title=" " alt="" coords="785,341,529,391,527,386,784,336"/>
-<area shape="poly" title=" " alt="" coords="865,336,942,378,940,382,863,341"/>
-<area shape="poly" title=" " alt="" coords="1189,182,1328,230,1412,267,1493,311,1540,344,1579,375,1575,380,1536,348,1491,316,1410,272,1326,235,1187,187"/>
-<area shape="poly" title=" " alt="" coords="1103,187,1073,195,1014,204,939,212,765,229,678,242,599,259,534,283,509,298,490,315,482,328,478,343,479,373,473,373,473,342,477,326,486,312,506,294,532,278,597,254,677,236,764,224,938,207,1013,199,1071,189,1102,182"/>
-<area shape="poly" title=" " alt="" coords="1112,187,1068,208,1046,223,1027,242,1007,274,993,309,980,373,974,372,988,308,1002,271,1023,238,1043,219,1065,204,1110,182"/>
-<area shape="rect" href="CGraphCommon_8hpp.html" title=" " alt="" coords="2113,240,2319,265"/>
-<area shape="poly" title=" " alt="" coords="1211,175,2100,240,2100,246,1210,181"/>
-<area shape="rect" href="IArray_8hpp.html" title=" " alt="" coords="1197,313,1283,339"/>
-<area shape="poly" title=" " alt="" coords="1156,183,1228,300,1223,303,1151,186"/>
-<area shape="poly" title=" " alt="" coords="2205,268,2160,305,2129,325,2096,341,2057,352,2007,362,1882,379,1649,398,1649,392,1882,373,2006,357,2056,347,2094,336,2126,320,2157,301,2202,264"/>
-<area shape="poly" title=" " alt="" coords="2250,263,2380,311,2540,379,2538,384,2378,316,2248,268"/>
-<area shape="rect" href="UartStatusRegister_8hpp.html" title=" " alt="" coords="2164,313,2367,339"/>
-<area shape="poly" title=" " alt="" coords="2226,264,2252,301,2247,304,2222,267"/>
-<area shape="poly" title=" " alt="" coords="2164,341,1649,395,1649,390,2164,335"/>
-<area shape="poly" title=" " alt="" coords="2316,336,2514,381,2513,386,2315,341"/>
-<area shape="poly" title=" " alt="" coords="1284,333,1552,386,1551,391,1283,338"/>
-<area shape="poly" title=" " alt="" coords="1197,339,1186,341,995,365,807,381,529,399,528,393,807,376,995,359,1185,336,1196,334"/>
-<area shape="poly" title=" " alt="" coords="1198,341,1026,387,1025,382,1197,336"/>
-<area shape="poly" title=" " alt="" coords="854,182,890,189,1018,211,1075,221,1146,237,1255,271,1362,311,1557,380,1555,385,1360,316,1253,276,1145,243,1074,226,1017,216,889,195,853,187"/>
-<area shape="poly" title=" " alt="" coords="726,183,565,205,490,222,460,232,439,242,410,263,390,285,381,309,383,322,389,337,410,361,437,379,434,383,406,365,384,340,378,324,376,309,385,282,407,259,436,238,458,227,488,217,564,200,725,178"/>
-<area shape="poly" title=" " alt="" coords="843,182,1032,234,1030,239,842,187"/>
-<area shape="poly" title=" " alt="" coords="750,334,763,336,994,360,1220,377,1551,394,1551,399,1220,382,993,365,762,341,749,340"/>
-<area shape="poly" title=" " alt="" coords="663,341,529,385,527,380,662,336"/>
-<area shape="poly" title=" " alt="" coords="743,336,925,383,923,388,741,341"/>
-<area shape="poly" title=" " alt="" coords="1789,186,1756,256,1729,300,1697,341,1668,364,1639,382,1636,378,1665,360,1693,337,1725,297,1751,253,1784,184"/>
-<area shape="poly" title=" " alt="" coords="1809,183,1875,230,1872,234,1805,187"/>
-<area shape="poly" title=" " alt="" coords="1700,187,1632,195,1397,209,1093,225,938,237,793,256,668,281,616,297,572,316,531,345,500,378,496,374,528,341,569,311,614,292,667,276,793,251,937,232,1092,219,1396,203,1632,189,1699,182"/>
-<area shape="poly" title=" " alt="" coords="1696,187,1632,195,1147,247,1147,242,1632,189,1695,182"/>
-<area shape="poly" title=" " alt="" coords="1773,187,1700,228,1651,250,1601,268,1488,294,1398,303,1305,306,1187,316,1186,311,1305,301,1397,297,1488,288,1599,263,1649,245,1697,223,1771,183"/>
-<area shape="poly" title=" " alt="" coords="1798,184,1819,224,1835,246,1856,263,1907,282,1982,297,2150,316,2150,321,1981,303,1906,288,1853,268,1832,249,1814,227,1793,187"/>
-<area shape="rect" href="Delay_8h.html" title=" " alt="" coords="2666,240,2737,265"/>
-<area shape="poly" title=" " alt="" coords="1887,179,2653,244,2652,250,1886,184"/>
-<area shape="poly" title=" " alt="" coords="1579,102,1609,121,1623,135,1634,151,1643,170,1649,200,1646,253,1629,339,1616,376,1611,374,1624,338,1640,253,1643,201,1638,171,1630,153,1619,138,1606,125,1576,106"/>
-<area shape="poly" title=" " alt="" coords="1645,100,1803,122,1866,135,1888,142,1901,150,1911,168,1915,189,1911,227,1906,227,1909,189,1906,170,1897,154,1886,147,1865,140,1802,127,1645,105"/>
-<area shape="poly" title=" " alt="" coords="1457,106,1446,107,1340,112,1207,114,1056,116,897,121,742,134,600,156,538,172,483,191,436,214,399,242,379,265,367,287,365,311,376,337,387,352,402,365,436,383,434,387,399,369,383,356,371,340,360,312,362,286,374,262,396,238,433,210,480,186,536,166,599,151,742,128,897,116,1056,110,1207,108,1340,106,1445,101,1456,100"/>
-<area shape="poly" title=" " alt="" coords="1535,106,1472,154,1445,181,1424,207,1391,255,1355,299,1330,320,1297,341,1227,370,1154,388,1084,397,1026,401,1026,396,1083,392,1153,383,1226,365,1295,336,1327,316,1352,295,1387,252,1419,204,1441,178,1469,150,1532,102"/>
-<area shape="poly" title=" " alt="" coords="1645,100,1657,101,2133,113,2442,126,2548,137,2581,143,2598,150,2616,176,2625,205,2628,236,2626,268,2611,328,2592,375,2587,373,2606,326,2620,267,2623,236,2620,206,2611,178,2594,154,2579,148,2547,142,2441,132,2133,118,1657,107,1645,106"/>
-<area shape="poly" title=" " alt="" coords="1485,107,1230,155,1209,159,1208,154,1229,149,1484,101"/>
-<area shape="poly" title=" " alt="" coords="1521,107,1475,127,1427,154,1377,192,1330,234,1261,305,1257,301,1327,230,1374,188,1424,150,1473,122,1519,102"/>
-<area shape="rect" href="Crc32Bzip2_8h.html" title=" " alt="" coords="1482,159,1619,185"/>
-<area shape="poly" title=" " alt="" coords="1553,104,1553,145,1548,145,1548,104"/>
-<area shape="poly" title=" " alt="" coords="1565,183,1585,207,1603,239,1610,275,1612,311,1607,373,1602,373,1607,311,1605,276,1597,241,1581,210,1561,186"/>
-<area shape="rect" title=" " alt="" coords="1513,240,1588,265"/>
-<area shape="poly" title=" " alt="" coords="1553,185,1553,226,1548,226,1548,185"/>
-<area shape="poly" title=" " alt="" coords="2209,193,2153,212,2127,226,2103,242,2091,254,2084,266,2076,291,2068,317,2059,329,2045,341,2014,356,1970,368,1861,385,1745,395,1649,399,1649,394,1744,390,1860,380,1969,363,2012,351,2043,336,2055,326,2063,315,2071,290,2079,264,2087,251,2100,238,2124,221,2151,207,2207,188"/>
-<area shape="poly" title=" " alt="" coords="2411,190,2459,209,2503,238,2521,262,2540,298,2571,373,2566,375,2535,300,2516,265,2499,242,2457,214,2409,195"/>
-<area shape="poly" title=" " alt="" coords="2290,194,2242,233,2239,229,2287,190"/>
-<area shape="poly" title=" " alt="" coords="2325,191,2336,226,2338,247,2333,266,2318,289,2298,307,2295,303,2314,286,2328,264,2332,246,2331,227,2320,193"/>
-<area shape="rect" title=" " alt="" coords="2393,240,2489,265"/>
-<area shape="poly" title=" " alt="" coords="2345,190,2412,231,2409,235,2342,194"/>
-<area shape="poly" title=" " alt="" coords="2288,106,2197,154,2135,194,2078,242,2055,270,2040,295,2023,319,1995,341,1966,353,1929,363,1834,379,1649,398,1649,392,1834,374,1927,358,1965,348,1992,336,2019,315,2035,292,2050,266,2074,238,2131,190,2195,150,2286,102"/>
-<area shape="poly" title=" " alt="" coords="2265,107,2191,127,2109,154,2014,196,1936,236,1933,231,2012,191,2107,150,2190,122,2264,101"/>
-<area shape="poly" title=" " alt="" coords="2381,100,2394,101,2639,113,2790,126,2844,136,2874,150,2893,175,2903,197,2902,218,2891,238,2871,259,2842,282,2759,341,2708,368,2655,386,2653,381,2706,363,2756,336,2839,278,2868,255,2887,235,2897,217,2897,198,2889,178,2870,154,2843,141,2789,131,2639,118,2393,107,2380,105"/>
-<area shape="poly" title=" " alt="" coords="2381,101,2545,128,2648,150,2666,166,2679,186,2697,225,2692,228,2675,189,2662,170,2645,154,2544,133,2380,106"/>
-<area shape="poly" title=" " alt="" coords="2315,104,2315,138,2309,138,2309,104"/>
-<area shape="rect" href="ads1258dual_8h.html" title=" " alt="" coords="2716,159,2860,185"/>
-<area shape="poly" title=" " alt="" coords="2381,100,2698,149,2722,154,2721,159,2697,155,2380,105"/>
-<area shape="rect" title=" " alt="" coords="2935,159,3094,185"/>
-<area shape="poly" title=" " alt="" coords="2381,100,2394,101,2540,116,2655,123,2770,132,2916,149,2947,154,2946,159,2916,155,2769,137,2655,129,2540,121,2393,107,2380,105"/>
-<area shape="poly" title=" " alt="" coords="2789,186,2779,226,2768,248,2751,267,2704,300,2661,321,2619,332,2578,336,2488,335,2437,336,2379,341,2167,365,1957,382,1649,399,1649,394,1957,377,2166,360,2378,336,2437,331,2488,330,2577,331,2618,327,2659,316,2702,296,2748,263,2763,245,2774,224,2784,184"/>
-<area shape="poly" title=" " alt="" coords="2795,184,2802,222,2802,245,2796,266,2782,289,2765,309,2723,343,2678,368,2634,385,2632,380,2675,363,2720,338,2761,306,2778,286,2791,264,2797,244,2797,222,2790,185"/>
-<area shape="poly" title=" " alt="" coords="2777,187,2726,232,2723,229,2773,183"/>
+<area shape="rect" title="Copyright (c) by Franks Development, LLC." alt="" coords="662,5,830,31"/>
+<area shape="rect" title=" " alt="" coords="5,159,76,185"/>
+<area shape="poly" title=" " alt="" coords="662,21,568,25,454,34,331,52,211,81,171,97,132,116,69,154,66,149,129,111,169,92,209,76,330,46,453,28,567,19,662,16"/>
+<area shape="rect" title=" " alt="" coords="100,159,171,185"/>
+<area shape="poly" title=" " alt="" coords="662,27,444,47,337,62,262,81,232,96,204,114,158,152,155,148,200,110,229,91,260,76,336,57,443,41,662,22"/>
+<area shape="rect" title=" " alt="" coords="435,79,502,104"/>
+<area shape="poly" title=" " alt="" coords="702,33,516,81,515,76,701,28"/>
+<area shape="rect" title=" " alt="" coords="527,79,597,104"/>
+<area shape="poly" title=" " alt="" coords="717,33,606,76,604,71,715,28"/>
+<area shape="rect" title=" " alt="" coords="621,79,689,104"/>
+<area shape="poly" title=" " alt="" coords="733,33,683,72,679,68,730,29"/>
+<area shape="rect" title=" " alt="" coords="714,79,778,104"/>
+<area shape="poly" title=" " alt="" coords="749,31,749,65,743,65,743,31"/>
+<area shape="rect" title=" " alt="" coords="803,79,889,104"/>
+<area shape="poly" title=" " alt="" coords="764,29,820,68,817,73,761,33"/>
+<area shape="rect" title=" " alt="" coords="913,79,984,104"/>
+<area shape="poly" title=" " alt="" coords="779,28,904,72,902,77,778,33"/>
+<area shape="rect" title=" " alt="" coords="1008,79,1132,104"/>
+<area shape="poly" title=" " alt="" coords="799,28,1005,73,1004,78,797,33"/>
+<area shape="rect" title=" " alt="" coords="1156,79,1307,104"/>
+<area shape="poly" title=" " alt="" coords="824,28,1143,74,1142,80,824,33"/>
+<area shape="rect" title=" " alt="" coords="1331,79,1521,104"/>
+<area shape="poly" title=" " alt="" coords="830,25,1317,76,1317,81,830,31"/>
+<area shape="rect" title=" " alt="" coords="1545,79,1733,104"/>
+<area shape="poly" title=" " alt="" coords="830,22,1135,44,1532,76,1532,81,1135,49,830,27"/>
+<area shape="rect" title=" " alt="" coords="195,152,403,192"/>
+<area shape="poly" title=" " alt="" coords="662,27,430,46,329,62,295,71,277,81,271,93,270,108,281,139,276,141,265,109,266,92,273,77,293,66,328,57,429,41,661,21"/>
+<area shape="rect" href="MonitorAdc_8hpp.html" title=" " alt="" coords="287,79,411,104"/>
+<area shape="poly" title=" " alt="" coords="683,33,425,79,424,74,682,28"/>
+<area shape="rect" title=" " alt="" coords="1757,79,1876,104"/>
+<area shape="poly" title=" " alt="" coords="831,19,1221,35,1479,52,1744,76,1743,81,1479,57,1221,41,830,24"/>
+<area shape="poly" title=" " alt="" coords="287,107,192,127,88,155,81,157,79,152,87,149,191,121,286,101"/>
+<area shape="poly" title=" " alt="" coords="317,107,184,155,178,157,176,152,182,149,315,102"/>
+<area shape="poly" title=" " alt="" coords="344,106,321,142,316,139,339,103"/>
+<area shape="rect" title=" " alt="" coords="935,159,1005,185"/>
+<area shape="poly" title=" " alt="" coords="411,100,424,101,564,113,674,116,784,124,848,134,923,149,932,152,931,157,921,155,847,139,783,129,674,122,564,118,423,107,411,105"/>
+<area shape="rect" title=" " alt="" coords="427,159,571,185"/>
+<area shape="poly" title=" " alt="" coords="372,102,466,151,464,155,370,107"/>
+<area shape="rect" title=" " alt="" coords="596,159,755,185"/>
+<area shape="poly" title=" " alt="" coords="397,101,615,154,614,159,396,107"/>
+<area shape="rect" title=" " alt="" coords="779,159,910,185"/>
+<area shape="poly" title=" " alt="" coords="411,100,424,101,596,123,671,133,768,149,788,154,787,159,767,155,671,138,595,128,423,107,411,105"/>
 </map>
 </div>
 </div>
@@ -273,30 +189,38 @@ Functions</h2></td></tr>
 <tr class="separator:a0e1f7374afef0fa8d10ae0fa03e6c023"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4ea1029a4c33b59ac01f1c4d81d9e59" id="r_ab4ea1029a4c33b59ac01f1c4d81d9e59"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#ab4ea1029a4c33b59ac01f1c4d81d9e59">BaudDividersCommand</a> (char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</td></tr>
 <tr class="separator:ab4ea1029a4c33b59ac01f1c4d81d9e59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf1f63bf1b795322814efa0ce1ab9ed6" id="r_aaf1f63bf1b795322814efa0ce1ab9ed6"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#aaf1f63bf1b795322814efa0ce1ab9ed6">ConfigAdcCommand</a> (char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</td></tr>
+<tr class="separator:aaf1f63bf1b795322814efa0ce1ab9ed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0eba3493f066d8514e57a4c83d82ec61" id="r_a0eba3493f066d8514e57a4c83d82ec61"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#a0eba3493f066d8514e57a4c83d82ec61">PrintBuffersCommand</a> (char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</td></tr>
 <tr class="separator:a0eba3493f066d8514e57a4c83d82ec61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeac0b2b7e04597ff71a42ebded44d087" id="r_aeac0b2b7e04597ff71a42ebded44d087"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#aeac0b2b7e04597ff71a42ebded44d087">MonitorSerialCommand</a> (char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</td></tr>
 <tr class="separator:aeac0b2b7e04597ff71a42ebded44d087"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd92310843dce0a842a7ebb9b071ec6f" id="r_abd92310843dce0a842a7ebb9b071ec6f"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#abd92310843dce0a842a7ebb9b071ec6f">ControlRegisterCommand</a> (char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</td></tr>
 <tr class="separator:abd92310843dce0a842a7ebb9b071ec6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a126e0fe6bd25a762ab8028341bcfb8df" id="r_a126e0fe6bd25a762ab8028341bcfb8df"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#a126e0fe6bd25a762ab8028341bcfb8df">DacSelectCommand</a> (char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</td></tr>
-<tr class="separator:a126e0fe6bd25a762ab8028341bcfb8df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9033727bc28be0b84c6b49ca6ddbea18" id="r_a9033727bc28be0b84c6b49ca6ddbea18"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#a9033727bc28be0b84c6b49ca6ddbea18">SelectDacCommand</a> (char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</td></tr>
+<tr class="separator:a9033727bc28be0b84c6b49ca6ddbea18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad21c5bddbb0281474a272dcf490b0675" id="r_ad21c5bddbb0281474a272dcf490b0675"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#ad21c5bddbb0281474a272dcf490b0675">SelectOutputCommand</a> (char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</td></tr>
+<tr class="separator:ad21c5bddbb0281474a272dcf490b0675"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6775d8b28ea18c168b858a00b61dba79" id="r_a6775d8b28ea18c168b858a00b61dba79"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#a6775d8b28ea18c168b858a00b61dba79">ClockDacCommand</a> (char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</td></tr>
+<tr class="separator:a6775d8b28ea18c168b858a00b61dba79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6e086f9053a6effbd35b4df49ad77fb" id="r_af6e086f9053a6effbd35b4df49ad77fb"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#af6e086f9053a6effbd35b4df49ad77fb">ConfigDacCommand</a> (char const *Name, char const *Params, const size_t ParamsLen, const void *Argument)</td></tr>
+<tr class="separator:af6e086f9053a6effbd35b4df49ad77fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a8241bd3dbaf72f0605ca4de5f7c9578d" id="r_a8241bd3dbaf72f0605ca4de5f7c9578d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structCGraphFSMHardwareInterface.html">CGraphFSMHardwareInterface</a> *volatile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#a8241bd3dbaf72f0605ca4de5f7c9578d">FSM</a></td></tr>
+<tr class="memitem:a8241bd3dbaf72f0605ca4de5f7c9578d" id="r_a8241bd3dbaf72f0605ca4de5f7c9578d"><td class="memItemLeft" align="right" valign="top">CGraphFSMHardwareInterface *volatile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#a8241bd3dbaf72f0605ca4de5f7c9578d">FSM</a></td></tr>
 <tr class="separator:a8241bd3dbaf72f0605ca4de5f7c9578d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1eaf6780af9b2e7b8e94501100d30d19" id="r_a1eaf6780af9b2e7b8e94501100d30d19"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structCGraphFSMMonitorAdc.html">CGraphFSMMonitorAdc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#a1eaf6780af9b2e7b8e94501100d30d19">MonitorAdc</a></td></tr>
 <tr class="separator:a1eaf6780af9b2e7b8e94501100d30d19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5723914e3b442c2f3c09e8937a80c502" id="r_a5723914e3b442c2f3c09e8937a80c502"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuart__pinout__fpga.html">uart_pinout_fpga</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#a5723914e3b442c2f3c09e8937a80c502">FPGAUartPinout0</a></td></tr>
+<tr class="memitem:a5723914e3b442c2f3c09e8937a80c502" id="r_a5723914e3b442c2f3c09e8937a80c502"><td class="memItemLeft" align="right" valign="top">uart_pinout_fpga&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#a5723914e3b442c2f3c09e8937a80c502">FPGAUartPinout0</a></td></tr>
 <tr class="separator:a5723914e3b442c2f3c09e8937a80c502"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ddd4ccfc7fbc06e747fd4a2ecc77660" id="r_a4ddd4ccfc7fbc06e747fd4a2ecc77660"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuart__pinout__fpga.html">uart_pinout_fpga</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#a4ddd4ccfc7fbc06e747fd4a2ecc77660">FPGAUartPinout1</a></td></tr>
+<tr class="memitem:a4ddd4ccfc7fbc06e747fd4a2ecc77660" id="r_a4ddd4ccfc7fbc06e747fd4a2ecc77660"><td class="memItemLeft" align="right" valign="top">uart_pinout_fpga&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#a4ddd4ccfc7fbc06e747fd4a2ecc77660">FPGAUartPinout1</a></td></tr>
 <tr class="separator:a4ddd4ccfc7fbc06e747fd4a2ecc77660"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada693876ee7508348ff9dd5813bac2aa" id="r_ada693876ee7508348ff9dd5813bac2aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuart__pinout__fpga.html">uart_pinout_fpga</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#ada693876ee7508348ff9dd5813bac2aa">FPGAUartPinout2</a></td></tr>
+<tr class="memitem:ada693876ee7508348ff9dd5813bac2aa" id="r_ada693876ee7508348ff9dd5813bac2aa"><td class="memItemLeft" align="right" valign="top">uart_pinout_fpga&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#ada693876ee7508348ff9dd5813bac2aa">FPGAUartPinout2</a></td></tr>
 <tr class="separator:ada693876ee7508348ff9dd5813bac2aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0257a7e95427fa5c261c0c5816118fa" id="r_ab0257a7e95427fa5c261c0c5816118fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuart__pinout__fpga.html">uart_pinout_fpga</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#ab0257a7e95427fa5c261c0c5816118fa">FPGAUartPinout3</a></td></tr>
+<tr class="memitem:ab0257a7e95427fa5c261c0c5816118fa" id="r_ab0257a7e95427fa5c261c0c5816118fa"><td class="memItemLeft" align="right" valign="top">uart_pinout_fpga&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#ab0257a7e95427fa5c261c0c5816118fa">FPGAUartPinout3</a></td></tr>
 <tr class="separator:ab0257a7e95427fa5c261c0c5816118fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ff5358bede7521205d4a25977339451" id="r_a1ff5358bede7521205d4a25977339451"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuart__pinout__fpga.html">uart_pinout_fpga</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#a1ff5358bede7521205d4a25977339451">FPGAUartPinoutUsb</a></td></tr>
+<tr class="memitem:a1ff5358bede7521205d4a25977339451" id="r_a1ff5358bede7521205d4a25977339451"><td class="memItemLeft" align="right" valign="top">uart_pinout_fpga&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#a1ff5358bede7521205d4a25977339451">FPGAUartPinoutUsb</a></td></tr>
 <tr class="separator:a1ff5358bede7521205d4a25977339451"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40c0e0193a4ed265043847344773fbcb" id="r_a40c0e0193a4ed265043847344773fbcb"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CmdHandlersAscii_8cpp.html#a40c0e0193a4ed265043847344773fbcb">Buffer</a> [4096]</td></tr>
 <tr class="separator:a40c0e0193a4ed265043847344773fbcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -348,19 +272,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00693">693</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00718">718</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00164">CGraphFSMHardwareInterface::BaudDividers</a>, <a class="el" href="CGraphCommon_8hpp_source.html#l00077">CGraphBaudDividers::Divider0</a>, <a class="el" href="CGraphCommon_8hpp_source.html#l00078">CGraphBaudDividers::Divider1</a>, <a class="el" href="CGraphCommon_8hpp_source.html#l00079">CGraphBaudDividers::Divider2</a>, <a class="el" href="CGraphCommon_8hpp_source.html#l00080">CGraphBaudDividers::Divider3</a>, <a class="el" href="ads1258_8h_source.html#l00010">formatf()</a>, and <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="CmdHandlersAscii_8cpp_ab4ea1029a4c33b59ac01f1c4d81d9e59_cgraph.png" border="0" usemap="#aCmdHandlersAscii_8cpp_ab4ea1029a4c33b59ac01f1c4d81d9e59_cgraph" alt=""/></div>
-<map name="aCmdHandlersAscii_8cpp_ab4ea1029a4c33b59ac01f1c4d81d9e59_cgraph" id="aCmdHandlersAscii_8cpp_ab4ea1029a4c33b59ac01f1c4d81d9e59_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,181,31"/>
-<area shape="rect" href="ads1258_8h.html#aac4a82c72fa3b8a5f87bfa525126205b" title=" " alt="" coords="229,5,300,31"/>
-<area shape="poly" title=" " alt="" coords="181,15,216,15,216,21,181,21"/>
-</map>
-</div>
+<p class="reference">References <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
 
 </div>
 </div>
@@ -402,21 +316,9 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00325">325</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00346">346</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CGraphCommon_8hpp_source.html#l00116">CGraphDualMonitorAdcCommandStatusRegister::all</a>, <a class="el" href="DelayLinux_8cpp_source.html#l00046">delayus()</a>, <a class="el" href="ads1258_8h_source.html#l00010">formatf()</a>, <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00162">CGraphFSMHardwareInterface::MonitorAdcSpiCommandStatusRegister</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00161">CGraphFSMHardwareInterface::MonitorAdcSpiTransactionRegister</a>, <a class="el" href="stdintle_8h_source.html#l00000">one</a>, and <a class="el" href="ads1258_8h_source.html#l00000">zero</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="CmdHandlersAscii_8cpp_a9dc13c583b0bab5e9c4d4c07209fe3f1_cgraph.png" border="0" usemap="#aCmdHandlersAscii_8cpp_a9dc13c583b0bab5e9c4d4c07209fe3f1_cgraph" alt=""/></div>
-<map name="aCmdHandlersAscii_8cpp_a9dc13c583b0bab5e9c4d4c07209fe3f1_cgraph" id="aCmdHandlersAscii_8cpp_a9dc13c583b0bab5e9c4d4c07209fe3f1_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,123,56"/>
-<area shape="rect" href="DelayLinux_8cpp.html#a3bdb063fa6daf4ed6f77bfefa94a0027" title="Copyright (c) by Franks Development, LLC." alt="" coords="171,5,244,31"/>
-<area shape="poly" title=" " alt="" coords="122,30,157,24,157,29,123,36"/>
-<area shape="rect" href="ads1258_8h.html#aac4a82c72fa3b8a5f87bfa525126205b" title=" " alt="" coords="172,55,243,80"/>
-<area shape="poly" title=" " alt="" coords="123,51,159,57,158,62,123,56"/>
-</map>
-</div>
+<p class="reference">References <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
 
 </div>
 </div>
@@ -458,21 +360,141 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00421">421</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00444">444</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00150">CGraphFSMHardwareInterface::DacASetpoint</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00151">CGraphFSMHardwareInterface::DacBSetpoint</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00152">CGraphFSMHardwareInterface::DacCSetpoint</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00153">CGraphFSMHardwareInterface::DacDSetpoint</a>, <a class="el" href="DelayLinux_8cpp_source.html#l00046">delayus()</a>, <a class="el" href="ads1258_8h_source.html#l00010">formatf()</a>, and <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="CmdHandlersAscii_8cpp_ab71c91ad1088ec58bda2255a744a7cdf_cgraph.png" border="0" usemap="#aCmdHandlersAscii_8cpp_ab71c91ad1088ec58bda2255a744a7cdf_cgraph" alt=""/></div>
-<map name="aCmdHandlersAscii_8cpp_ab71c91ad1088ec58bda2255a744a7cdf_cgraph" id="aCmdHandlersAscii_8cpp_ab71c91ad1088ec58bda2255a744a7cdf_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,139,56"/>
-<area shape="rect" href="DelayLinux_8cpp.html#a3bdb063fa6daf4ed6f77bfefa94a0027" title="Copyright (c) by Franks Development, LLC." alt="" coords="187,5,260,31"/>
-<area shape="poly" title=" " alt="" coords="139,30,173,24,174,29,139,35"/>
-<area shape="rect" href="ads1258_8h.html#aac4a82c72fa3b8a5f87bfa525126205b" title=" " alt="" coords="188,55,259,80"/>
-<area shape="poly" title=" " alt="" coords="139,51,175,57,174,62,139,57"/>
-</map>
+<p class="reference">References <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
+
 </div>
+</div>
+<a id="a6775d8b28ea18c168b858a00b61dba79" name="a6775d8b28ea18c168b858a00b61dba79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6775d8b28ea18c168b858a00b61dba79">&#9670;&#160;</a></span>ClockDacCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t ClockDacCommand </td>
+          <td>(</td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>Name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>Params</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>ParamsLen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>Argument</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l01007">1007</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
+
+</div>
+</div>
+<a id="aaf1f63bf1b795322814efa0ce1ab9ed6" name="aaf1f63bf1b795322814efa0ce1ab9ed6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf1f63bf1b795322814efa0ce1ab9ed6">&#9670;&#160;</a></span>ConfigAdcCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t ConfigAdcCommand </td>
+          <td>(</td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>Name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>Params</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>ParamsLen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>Argument</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00780">780</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
+
+</div>
+</div>
+<a id="af6e086f9053a6effbd35b4df49ad77fb" name="af6e086f9053a6effbd35b4df49ad77fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6e086f9053a6effbd35b4df49ad77fb">&#9670;&#160;</a></span>ConfigDacCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t ConfigDacCommand </td>
+          <td>(</td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>Name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>Params</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>ParamsLen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>Argument</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l01031">1031</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
 
 </div>
 </div>
@@ -514,76 +536,9 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00807">807</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00876">876</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00147">CGraphFSMHardwareInterface::ControlRegister</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00054">CGraphFSMHardwareControlRegister::DacSelectMaxti</a>, <a class="el" href="ads1258_8h_source.html#l00010">formatf()</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00064">CGraphFSMHardwareControlRegister::formatf()</a>, <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00055">CGraphFSMHardwareControlRegister::GlobalFaultInhibit</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00052">CGraphFSMHardwareControlRegister::HVEn1</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00053">CGraphFSMHardwareControlRegister::HVEn2</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00056">CGraphFSMHardwareControlRegister::nFaultsClr</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00038">CGraphFSMHardwareControlRegister::PowerCycdAndClr</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00039">CGraphFSMHardwareControlRegister::PowernEn</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00051">CGraphFSMHardwareControlRegister::PowernEnHV</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00048">CGraphFSMHardwareControlRegister::PPSDetectedAndRst</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00042">CGraphFSMHardwareControlRegister::Uart0OE</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00043">CGraphFSMHardwareControlRegister::Uart1OE</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00044">CGraphFSMHardwareControlRegister::Uart2OE</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00045">CGraphFSMHardwareControlRegister::Uart3OE</a>, and <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00046">CGraphFSMHardwareControlRegister::Ux1SelJmp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="CmdHandlersAscii_8cpp_abd92310843dce0a842a7ebb9b071ec6f_cgraph.png" border="0" usemap="#aCmdHandlersAscii_8cpp_abd92310843dce0a842a7ebb9b071ec6f_cgraph" alt=""/></div>
-<map name="aCmdHandlersAscii_8cpp_abd92310843dce0a842a7ebb9b071ec6f_cgraph" id="aCmdHandlersAscii_8cpp_abd92310843dce0a842a7ebb9b071ec6f_cgraph">
-<area shape="rect" title=" " alt="" coords="5,47,196,72"/>
-<area shape="rect" href="ads1258_8h.html#aac4a82c72fa3b8a5f87bfa525126205b" title=" " alt="" coords="312,5,383,31"/>
-<area shape="poly" title=" " alt="" coords="177,44,298,23,298,29,178,49"/>
-<area shape="rect" href="unionCGraphFSMHardwareControlRegister.html#a18b17d9e95234aa455bb419cdc6de2a4" title=" " alt="" coords="244,79,451,119"/>
-<area shape="poly" title=" " alt="" coords="180,69,230,78,230,83,179,75"/>
-<area shape="poly" title=" " alt="" coords="302,80,299,70,306,60,323,55,347,53,376,56,391,63,389,68,374,61,347,58,324,60,309,65,304,71,307,78"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a126e0fe6bd25a762ab8028341bcfb8df" name="a126e0fe6bd25a762ab8028341bcfb8df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a126e0fe6bd25a762ab8028341bcfb8df">&#9670;&#160;</a></span>DacSelectCommand()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int8_t DacSelectCommand </td>
-          <td>(</td>
-          <td class="paramtype">char const *&#160;</td>
-          <td class="paramname"><em>Name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char const *&#160;</td>
-          <td class="paramname"><em>Params</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const size_t&#160;</td>
-          <td class="paramname"><em>ParamsLen</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const void *&#160;</td>
-          <td class="paramname"><em>Argument</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00863">863</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00147">CGraphFSMHardwareInterface::ControlRegister</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00054">CGraphFSMHardwareControlRegister::DacSelectMaxti</a>, <a class="el" href="ads1258_8h_source.html#l00010">formatf()</a>, and <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="CmdHandlersAscii_8cpp_a126e0fe6bd25a762ab8028341bcfb8df_cgraph.png" border="0" usemap="#aCmdHandlersAscii_8cpp_a126e0fe6bd25a762ab8028341bcfb8df_cgraph" alt=""/></div>
-<map name="aCmdHandlersAscii_8cpp_a126e0fe6bd25a762ab8028341bcfb8df_cgraph" id="aCmdHandlersAscii_8cpp_a126e0fe6bd25a762ab8028341bcfb8df_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,160,31"/>
-<area shape="rect" href="ads1258_8h.html#aac4a82c72fa3b8a5f87bfa525126205b" title=" " alt="" coords="208,5,279,31"/>
-<area shape="poly" title=" " alt="" coords="160,15,194,15,194,21,160,21"/>
-</map>
-</div>
+<p class="reference">References <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
 
 </div>
 </div>
@@ -625,19 +580,9 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00254">254</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00257">257</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00154">CGraphFSMHardwareInterface::AdcAAccumulator</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00155">CGraphFSMHardwareInterface::AdcBAccumulator</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00156">CGraphFSMHardwareInterface::AdcCAccumulator</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00157">CGraphFSMHardwareInterface::AdcDAccumulator</a>, <a class="el" href="ads1258_8h_source.html#l00010">formatf()</a>, <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>, and <a class="el" href="CGraphCommon_8hpp_source.html#l00022">AdcAccumulator::Samples</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="CmdHandlersAscii_8cpp_af7db44973e7235b9f30ea336417e4ce2_cgraph.png" border="0" usemap="#aCmdHandlersAscii_8cpp_af7db44973e7235b9f30ea336417e4ce2_cgraph" alt=""/></div>
-<map name="aCmdHandlersAscii_8cpp_af7db44973e7235b9f30ea336417e4ce2_cgraph" id="aCmdHandlersAscii_8cpp_af7db44973e7235b9f30ea336417e4ce2_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,152,31"/>
-<area shape="rect" href="ads1258_8h.html#aac4a82c72fa3b8a5f87bfa525126205b" title=" " alt="" coords="200,5,271,31"/>
-<area shape="poly" title=" " alt="" coords="152,15,186,15,186,21,152,21"/>
-</map>
-</div>
+<p class="reference">References <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
 
 </div>
 </div>
@@ -681,17 +626,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00139">139</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00154">CGraphFSMHardwareInterface::AdcAAccumulator</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00155">CGraphFSMHardwareInterface::AdcBAccumulator</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00156">CGraphFSMHardwareInterface::AdcCAccumulator</a>, <a class="el" href="CGraphCommon_8hpp_source.html#l00018">AdcAccumulator::all</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00150">CGraphFSMHardwareInterface::DacASetpoint</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00151">CGraphFSMHardwareInterface::DacBSetpoint</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00152">CGraphFSMHardwareInterface::DacCSetpoint</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00153">CGraphFSMHardwareInterface::DacDSetpoint</a>, <a class="el" href="ads1258_8h_source.html#l00010">formatf()</a>, <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>, <a class="el" href="CGraphCommon_8hpp_source.html#l00024">AdcAccumulator::NumAccums</a>, and <a class="el" href="CGraphCommon_8hpp_source.html#l00022">AdcAccumulator::Samples</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="CmdHandlersAscii_8cpp_a77c200b677689749486d1e48e6b22c67_cgraph.png" border="0" usemap="#aCmdHandlersAscii_8cpp_a77c200b677689749486d1e48e6b22c67_cgraph" alt=""/></div>
-<map name="aCmdHandlersAscii_8cpp_a77c200b677689749486d1e48e6b22c67_cgraph" id="aCmdHandlersAscii_8cpp_a77c200b677689749486d1e48e6b22c67_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,153,31"/>
-<area shape="rect" href="ads1258_8h.html#aac4a82c72fa3b8a5f87bfa525126205b" title=" " alt="" coords="201,5,272,31"/>
-<area shape="poly" title=" " alt="" coords="153,15,187,15,187,21,153,21"/>
-</map>
-</div>
+<p class="reference">References <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
 
 </div>
 </div>
@@ -733,19 +668,9 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00504">504</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00527">527</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00154">CGraphFSMHardwareInterface::AdcAAccumulator</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00155">CGraphFSMHardwareInterface::AdcBAccumulator</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00156">CGraphFSMHardwareInterface::AdcCAccumulator</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00157">CGraphFSMHardwareInterface::AdcDAccumulator</a>, <a class="el" href="CGraphCommon_8hpp_source.html#l00018">AdcAccumulator::all</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00150">CGraphFSMHardwareInterface::DacASetpoint</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00151">CGraphFSMHardwareInterface::DacBSetpoint</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00152">CGraphFSMHardwareInterface::DacCSetpoint</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00153">CGraphFSMHardwareInterface::DacDSetpoint</a>, <a class="el" href="ads1258_8h_source.html#l00010">formatf()</a>, <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>, <a class="el" href="CGraphCommon_8hpp_source.html#l00024">AdcAccumulator::NumAccums</a>, and <a class="el" href="CGraphCommon_8hpp_source.html#l00022">AdcAccumulator::Samples</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="CmdHandlersAscii_8cpp_ac1bb7ac494243ea97b43a3a90f6d91a6_cgraph.png" border="0" usemap="#aCmdHandlersAscii_8cpp_ac1bb7ac494243ea97b43a3a90f6d91a6_cgraph" alt=""/></div>
-<map name="aCmdHandlersAscii_8cpp_ac1bb7ac494243ea97b43a3a90f6d91a6_cgraph" id="aCmdHandlersAscii_8cpp_ac1bb7ac494243ea97b43a3a90f6d91a6_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,128,31"/>
-<area shape="rect" href="ads1258_8h.html#aac4a82c72fa3b8a5f87bfa525126205b" title=" " alt="" coords="176,5,247,31"/>
-<area shape="poly" title=" " alt="" coords="128,15,163,15,163,21,128,21"/>
-</map>
-</div>
+<p class="reference">References <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
 
 </div>
 </div>
@@ -787,21 +712,9 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00766">766</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00835">835</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="ads1258_8h_source.html#l00010">formatf()</a>, <a class="el" href="CmdHandlersAscii_8cpp.html#a5723914e3b442c2f3c09e8937a80c502">FPGAUartPinout0</a>, <a class="el" href="CmdHandlersAscii_8cpp.html#a4ddd4ccfc7fbc06e747fd4a2ecc77660">FPGAUartPinout1</a>, <a class="el" href="CmdHandlersAscii_8cpp.html#ada693876ee7508348ff9dd5813bac2aa">FPGAUartPinout2</a>, <a class="el" href="CmdHandlersAscii_8cpp.html#ab0257a7e95427fa5c261c0c5816118fa">FPGAUartPinout3</a>, and <a class="el" href="uart__pinout__fpga_8hpp_source.html#l00091">uart_pinout_fpga::Monitor()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="CmdHandlersAscii_8cpp_aeac0b2b7e04597ff71a42ebded44d087_cgraph.png" border="0" usemap="#aCmdHandlersAscii_8cpp_aeac0b2b7e04597ff71a42ebded44d087_cgraph" alt=""/></div>
-<map name="aCmdHandlersAscii_8cpp_aeac0b2b7e04597ff71a42ebded44d087_cgraph" id="aCmdHandlersAscii_8cpp_aeac0b2b7e04597ff71a42ebded44d087_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,181,56"/>
-<area shape="rect" href="ads1258_8h.html#aac4a82c72fa3b8a5f87bfa525126205b" title=" " alt="" coords="289,5,360,31"/>
-<area shape="poly" title=" " alt="" coords="181,31,275,21,276,26,182,36"/>
-<area shape="rect" href="classuart__pinout__fpga.html#aa5a2633baaec16416336aab18688b673" title=" " alt="" coords="229,55,420,80"/>
-<area shape="poly" title=" " alt="" coords="182,50,216,53,216,59,181,55"/>
-</map>
-</div>
+<p class="reference">References <a class="el" href="CmdHandlersAscii_8cpp.html#a5723914e3b442c2f3c09e8937a80c502">FPGAUartPinout0</a>, <a class="el" href="CmdHandlersAscii_8cpp.html#a4ddd4ccfc7fbc06e747fd4a2ecc77660">FPGAUartPinout1</a>, <a class="el" href="CmdHandlersAscii_8cpp.html#ada693876ee7508348ff9dd5813bac2aa">FPGAUartPinout2</a>, and <a class="el" href="CmdHandlersAscii_8cpp.html#ab0257a7e95427fa5c261c0c5816118fa">FPGAUartPinout3</a>.</p>
 
 </div>
 </div>
@@ -843,19 +756,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00755">755</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="ads1258_8h_source.html#l00010">formatf()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="CmdHandlersAscii_8cpp_a0eba3493f066d8514e57a4c83d82ec61_cgraph.png" border="0" usemap="#aCmdHandlersAscii_8cpp_a0eba3493f066d8514e57a4c83d82ec61_cgraph" alt=""/></div>
-<map name="aCmdHandlersAscii_8cpp_a0eba3493f066d8514e57a4c83d82ec61_cgraph" id="aCmdHandlersAscii_8cpp_a0eba3493f066d8514e57a4c83d82ec61_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,171,31"/>
-<area shape="rect" href="ads1258_8h.html#aac4a82c72fa3b8a5f87bfa525126205b" title=" " alt="" coords="219,5,289,31"/>
-<area shape="poly" title=" " alt="" coords="171,15,205,15,205,21,171,21"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00824">824</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
 
 </div>
 </div>
@@ -899,17 +800,95 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00084">84</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="ads1258_8h_source.html#l00010">formatf()</a>, and <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="CmdHandlersAscii_8cpp_abc2e31fd83e07a83506ac4868661d598_cgraph.png" border="0" usemap="#aCmdHandlersAscii_8cpp_abc2e31fd83e07a83506ac4868661d598_cgraph" alt=""/></div>
-<map name="aCmdHandlersAscii_8cpp_abc2e31fd83e07a83506ac4868661d598_cgraph" id="aCmdHandlersAscii_8cpp_abc2e31fd83e07a83506ac4868661d598_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,160,31"/>
-<area shape="rect" href="ads1258_8h.html#aac4a82c72fa3b8a5f87bfa525126205b" title=" " alt="" coords="208,5,279,31"/>
-<area shape="poly" title=" " alt="" coords="160,15,194,15,194,21,160,21"/>
-</map>
+<p class="reference">References <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
+
 </div>
+</div>
+<a id="a9033727bc28be0b84c6b49ca6ddbea18" name="a9033727bc28be0b84c6b49ca6ddbea18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9033727bc28be0b84c6b49ca6ddbea18">&#9670;&#160;</a></span>SelectDacCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t SelectDacCommand </td>
+          <td>(</td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>Name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>Params</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>ParamsLen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>Argument</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00938">938</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
+
+</div>
+</div>
+<a id="ad21c5bddbb0281474a272dcf490b0675" name="ad21c5bddbb0281474a272dcf490b0675"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad21c5bddbb0281474a272dcf490b0675">&#9670;&#160;</a></span>SelectOutputCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t SelectOutputCommand </td>
+          <td>(</td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>Name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>Params</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>ParamsLen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>Argument</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00972">972</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
 
 </div>
 </div>
@@ -951,21 +930,9 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00565">565</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00590">590</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00139">CGraphFSMHardwareInterface::DeviceSerialNumber</a>, <a class="el" href="ads1258_8h_source.html#l00010">formatf()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00489">CGraphVersionPayload::formatf()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00488">CGraphVersionPayload::FPGAFirmwareBuildNum</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00140">CGraphFSMHardwareInterface::FpgaFirmwareBuildNumber</a>, <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00487">CGraphVersionPayload::ProcessorFirmwareBuildNum</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00486">CGraphVersionPayload::SerialNum</a>, <a class="el" href="Uarts_8cpp_source.html#l00037">UartFifo2</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00174">CGraphFSMHardwareInterface::UartFifo2</a>, and <a class="el" href="CGraphDeprecatedPZTHardwareInterface_8hpp_source.html#l00023">UartStatusRegister2</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="CmdHandlersAscii_8cpp_a0e1f7374afef0fa8d10ae0fa03e6c023_cgraph.png" border="0" usemap="#aCmdHandlersAscii_8cpp_a0e1f7374afef0fa8d10ae0fa03e6c023_cgraph" alt=""/></div>
-<map name="aCmdHandlersAscii_8cpp_a0e1f7374afef0fa8d10ae0fa03e6c023_cgraph" id="aCmdHandlersAscii_8cpp_a0e1f7374afef0fa8d10ae0fa03e6c023_cgraph">
-<area shape="rect" title=" " alt="" coords="5,35,123,60"/>
-<area shape="rect" href="ads1258_8h.html#aac4a82c72fa3b8a5f87bfa525126205b" title=" " alt="" coords="220,5,291,31"/>
-<area shape="poly" title=" " alt="" coords="123,36,206,23,207,28,123,41"/>
-<area shape="rect" href="structCGraphVersionPayload.html#aac5c8a5cea469839eeed586a9b0283c3" title=" " alt="" coords="171,55,340,95"/>
-<area shape="poly" title=" " alt="" coords="123,53,157,58,156,64,123,59"/>
-</map>
-</div>
+<p class="reference">References <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>, and <a class="el" href="Uarts_8cpp_source.html#l00037">UartFifo2</a>.</p>
 
 </div>
 </div>
@@ -1009,17 +976,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00070">70</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00139">CGraphFSMHardwareInterface::DeviceSerialNumber</a>, <a class="el" href="ads1258_8h_source.html#l00010">formatf()</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00140">CGraphFSMHardwareInterface::FpgaFirmwareBuildNumber</a>, and <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="CmdHandlersAscii_8cpp_a1a94f07a60b50cf4b49f08169de95e99_cgraph.png" border="0" usemap="#aCmdHandlersAscii_8cpp_a1a94f07a60b50cf4b49f08169de95e99_cgraph" alt=""/></div>
-<map name="aCmdHandlersAscii_8cpp_a1a94f07a60b50cf4b49f08169de95e99_cgraph" id="aCmdHandlersAscii_8cpp_a1a94f07a60b50cf4b49f08169de95e99_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,143,31"/>
-<area shape="rect" href="ads1258_8h.html#aac4a82c72fa3b8a5f87bfa525126205b" title=" " alt="" coords="191,5,261,31"/>
-<area shape="poly" title=" " alt="" coords="143,15,177,15,177,21,143,21"/>
-</map>
-</div>
+<p class="reference">References <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
 
 </div>
 </div>
@@ -1061,19 +1018,9 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00199">199</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00202">202</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00150">CGraphFSMHardwareInterface::DacASetpoint</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00151">CGraphFSMHardwareInterface::DacBSetpoint</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00152">CGraphFSMHardwareInterface::DacCSetpoint</a>, <a class="el" href="CGraphFSMHardwareInterface_8hpp_source.html#l00153">CGraphFSMHardwareInterface::DacDSetpoint</a>, <a class="el" href="ads1258_8h_source.html#l00010">formatf()</a>, and <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="CmdHandlersAscii_8cpp_aaa7cdcc6c030145d8c976116ad252534_cgraph.png" border="0" usemap="#aCmdHandlersAscii_8cpp_aaa7cdcc6c030145d8c976116ad252534_cgraph" alt=""/></div>
-<map name="aCmdHandlersAscii_8cpp_aaa7cdcc6c030145d8c976116ad252534_cgraph" id="aCmdHandlersAscii_8cpp_aaa7cdcc6c030145d8c976116ad252534_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,144,31"/>
-<area shape="rect" href="ads1258_8h.html#aac4a82c72fa3b8a5f87bfa525126205b" title=" " alt="" coords="192,5,263,31"/>
-<area shape="poly" title=" " alt="" coords="144,15,178,15,178,21,144,21"/>
-</map>
-</div>
+<p class="reference">References <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
 
 </div>
 </div>
@@ -1117,17 +1064,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00117">117</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="ads1258_8h_source.html#l00010">formatf()</a>, and <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="CmdHandlersAscii_8cpp_aa93eeb184cc83dad7e46ed119f24afde_cgraph.png" border="0" usemap="#aCmdHandlersAscii_8cpp_aa93eeb184cc83dad7e46ed119f24afde_cgraph" alt=""/></div>
-<map name="aCmdHandlersAscii_8cpp_aa93eeb184cc83dad7e46ed119f24afde_cgraph" id="aCmdHandlersAscii_8cpp_aa93eeb184cc83dad7e46ed119f24afde_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,161,31"/>
-<area shape="rect" href="ads1258_8h.html#aac4a82c72fa3b8a5f87bfa525126205b" title=" " alt="" coords="209,5,280,31"/>
-<area shape="poly" title=" " alt="" coords="162,15,196,15,196,21,162,21"/>
-</map>
-</div>
+<p class="reference">References <a class="el" href="Uarts_8cpp_source.html#l00036">FSM</a>.</p>
 
 </div>
 </div>
@@ -1146,7 +1083,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00068">68</a> of file <a class="el" href="CmdHandlersAscii_8cpp_source.html">CmdHandlersAscii.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="CGraphPacket_8hpp_source.html#l00455">CGraphPacket::DoesPayloadTypeMatch()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00193">CGraphPacket::DoesPayloadTypeMatch()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00316">CGraphPacket::FindPacketEndPos()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00301">CGraphPacket::FindPacketEndPos()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00131">CGraphPacket::FindPacketEndPos()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00107">CGraphPacket::FindPacketEndPos()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00258">CGraphPacket::FindPacketStartPos()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00118">CGraphPacket::FindPacketStartPos()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00079">CGraphPacket::FindPacketStartPos()</a>, <a class="el" href="Uarts_8cpp_source.html#l00047">FPGABinaryUartCallbacks::InvalidPacket()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00360">CGraphPacket::IsValid()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00209">CGraphPacket::IsValid()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00237">CGraphPacket::MakePacket()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00346">CGraphPacket::PayloadLen()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00173">CGraphPacket::PayloadLen()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00443">CGraphPacket::PayloadType()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00183">CGraphPacket::PayloadType()</a>, <a class="el" href="CGraphDeprecatedPZTHardwareInterface_8cpp_source.html#l00113">CGraphPZTProtoHardwareMmapper::read()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00378">CGraphFSMMonitorAdc::RestoreCals()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00331">CGraphPacket::ReverseFindPacketEndPos()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00286">CGraphPacket::ReverseFindPacketStartPos()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00271">CGraphPacket::ReverseFindPacketStartPos()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00363">CGraphFSMMonitorAdc::SaveCals()</a>, and <a class="el" href="CGraphDeprecatedPZTHardwareInterface_8cpp_source.html#l00127">CGraphPZTProtoHardwareMmapper::write()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Uarts_8cpp_source.html#l00047">FPGABinaryUartCallbacks::InvalidPacket()</a>, <a class="el" href="MonitorAdc_8hpp_source.html#l00378">CGraphFSMMonitorAdc::RestoreCals()</a>, and <a class="el" href="MonitorAdc_8hpp_source.html#l00363">CGraphFSMMonitorAdc::SaveCals()</a>.</p>
 
 </div>
 </div>
@@ -1160,7 +1097,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classuart__pinout__fpga.html">uart_pinout_fpga</a> FPGAUartPinout0</td>
+          <td class="memname">uart_pinout_fpga FPGAUartPinout0</td>
         </tr>
       </table>
   </td>
@@ -1170,7 +1107,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="Main_8cpp_source.html#l00100">main()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00766">MonitorSerialCommand()</a>, and <a class="el" href="Uarts_8cpp_source.html#l00129">stdio_hook_putc()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Main_8cpp_source.html#l00100">main()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00835">MonitorSerialCommand()</a>, and <a class="el" href="Uarts_8cpp_source.html#l00129">stdio_hook_putc()</a>.</p>
 
 </div>
 </div>
@@ -1184,7 +1121,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classuart__pinout__fpga.html">uart_pinout_fpga</a> FPGAUartPinout1</td>
+          <td class="memname">uart_pinout_fpga FPGAUartPinout1</td>
         </tr>
       </table>
   </td>
@@ -1194,7 +1131,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00766">MonitorSerialCommand()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00835">MonitorSerialCommand()</a>.</p>
 
 </div>
 </div>
@@ -1208,7 +1145,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classuart__pinout__fpga.html">uart_pinout_fpga</a> FPGAUartPinout2</td>
+          <td class="memname">uart_pinout_fpga FPGAUartPinout2</td>
         </tr>
       </table>
   </td>
@@ -1218,7 +1155,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00766">MonitorSerialCommand()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00835">MonitorSerialCommand()</a>.</p>
 
 </div>
 </div>
@@ -1232,7 +1169,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classuart__pinout__fpga.html">uart_pinout_fpga</a> FPGAUartPinout3</td>
+          <td class="memname">uart_pinout_fpga FPGAUartPinout3</td>
         </tr>
       </table>
   </td>
@@ -1242,7 +1179,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00766">MonitorSerialCommand()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00835">MonitorSerialCommand()</a>.</p>
 
 </div>
 </div>
@@ -1256,7 +1193,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classuart__pinout__fpga.html">uart_pinout_fpga</a> FPGAUartPinoutUsb</td>
+          <td class="memname">uart_pinout_fpga FPGAUartPinoutUsb</td>
         </tr>
       </table>
   </td>
@@ -1278,7 +1215,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classuart__pinout__fpga.html">uart_pinout_fpga</a> <a class="el" href="CmdHandlersAscii_8cpp.html#a5723914e3b442c2f3c09e8937a80c502">FPGAUartPinout0</a> &amp;FSM &amp;FSM &amp;FSM <a class="el" href="classuart__pinout__fpga.html">uart_pinout_fpga</a> <a class="el" href="CmdHandlersAscii_8cpp.html#a4ddd4ccfc7fbc06e747fd4a2ecc77660">FPGAUartPinout1</a> &amp;FSM &amp;FSM &amp;FSM <a class="el" href="classuart__pinout__fpga.html">uart_pinout_fpga</a> <a class="el" href="CmdHandlersAscii_8cpp.html#ada693876ee7508348ff9dd5813bac2aa">FPGAUartPinout2</a> &amp;FSM &amp;FSM &amp;FSM <a class="el" href="classuart__pinout__fpga.html">uart_pinout_fpga</a> <a class="el" href="CmdHandlersAscii_8cpp.html#ab0257a7e95427fa5c261c0c5816118fa">FPGAUartPinout3</a> FSM</td>
+          <td class="memname">uart_pinout_fpga <a class="el" href="CmdHandlersAscii_8cpp.html#a5723914e3b442c2f3c09e8937a80c502">FPGAUartPinout0</a> &amp;FSM &amp;FSM &amp;FSM uart_pinout_fpga <a class="el" href="CmdHandlersAscii_8cpp.html#a4ddd4ccfc7fbc06e747fd4a2ecc77660">FPGAUartPinout1</a> &amp;FSM &amp;FSM &amp;FSM uart_pinout_fpga <a class="el" href="CmdHandlersAscii_8cpp.html#ada693876ee7508348ff9dd5813bac2aa">FPGAUartPinout2</a> &amp;FSM &amp;FSM &amp;FSM uart_pinout_fpga <a class="el" href="CmdHandlersAscii_8cpp.html#ab0257a7e95427fa5c261c0c5816118fa">FPGAUartPinout3</a> FSM</td>
         </tr>
       </table>
   </td>
@@ -1287,11 +1224,10 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>University of Arizona Steward Observatory UASAL - UA Space Astrophysics Labratory CAAO - Center for Astronomical Adaptive Optics MagAOX </p>
 
 <p class="definition">Definition at line <a class="el" href="Uarts_8cpp_source.html#l00036">36</a> of file <a class="el" href="Uarts_8cpp_source.html">Uarts.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00693">BaudDividersCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00325">BISTCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00421">CirclesCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00807">ControlRegisterCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00863">DacSelectCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00254">FSMAdcsCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00139">FSMDacsCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00504">GoXYCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00084">ReadFpgaCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00565">UartCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00070">VersionCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00199">VoltageCommand()</a>, and <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00117">WriteFpgaCommand()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00718">BaudDividersCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00346">BISTCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00444">CirclesCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l01007">ClockDacCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00780">ConfigAdcCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l01031">ConfigDacCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00876">ControlRegisterCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00257">FSMAdcsCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00139">FSMDacsCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00527">GoXYCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00084">ReadFpgaCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00938">SelectDacCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00972">SelectOutputCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00590">UartCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00070">VersionCommand()</a>, <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00202">VoltageCommand()</a>, and <a class="el" href="CmdHandlersAscii_8cpp_source.html#l00117">WriteFpgaCommand()</a>.</p>
 
 </div>
 </div>
@@ -1327,7 +1263,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="CmdHandlersAscii_8cpp.html">CmdHandlersAscii.cpp</a></li>
-    <li class="footer">Generated on Fri Jan 16 2026 23:17:10 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Apr 7 2026 04:00:35 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

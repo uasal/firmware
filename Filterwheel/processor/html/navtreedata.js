@@ -60,16 +60,16 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "AsciiCmdUserInterfaceLinux_8cpp.html",
-"CGraphFSMHardwareInterface_8hpp.html#a78845d2c22a0bbda40168036365b820c",
-"Dac8830_8h.html",
-"ads1258dual_8h.html#af61f8246015db4f0a85a942ac747131e",
-"classlinux__pinout__circular__uart.html#a8469ef6491d325b1c75c508fa380911d",
-"globals_o.html",
-"structBinaryUart.html#a16b484e326a172e0c3b37ba6e8eed8a5",
-"structCGraphFWHardwareInterface.html#a56c09a686f4474a6a6442740debaf58b",
-"structads1258dual.html#a229afc142ab091bac80c9e7a921b6fd4",
-"unionCGraphFWHardwareControlRegister.html#a775787e96893def91600da9e9be86174",
-"unionads1258details_1_1config1register.html#ab055d16f04c0a52c01dc1e5081f3ce5e"
+"CGraphFSMHardwareInterface_8hpp.html#a428072691c48821e578f5b5260caaa5c",
+"CGraphPacket_8hpp.html#aef431d0e80acb8fccac2aca323682767",
+"ads1258dual_8h.html#ab5ba2e2b93dceddb2492c9cac049706a",
+"classlinux__pinout__circular__buffer.html#a3a8a523b278768dea05afcc41a71f571",
+"functions_vars_l.html",
+"stdintle_8cpp.html#a777e4f357e6d0f4a575de24761e37806",
+"structCGraphFSMTelemetryPayload.html#a3b2d6fafe67070b35a1d443ea8dcad7e",
+"structads1258.html",
+"unionCGraphDualMonitorAdcCommandStatusRegister.html#a881ece2d8aa9a13e5609127baad6de14",
+"unionads1258details_1_1ads1258status.html#a29ce033d1be89e5b772785559b341ba9"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

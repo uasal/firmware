@@ -14,7 +14,9 @@ var annotated_dup =
       [ "configregister", "unionlt244xdetails_1_1configregister.html", "unionlt244xdetails_1_1configregister" ],
       [ "lt244x_sample", "unionlt244xdetails_1_1lt244x__sample.html", "unionlt244xdetails_1_1lt244x__sample" ]
     ] ],
-    [ "AdcAccumulator", "unionAdcAccumulator.html", "unionAdcAccumulator" ],
+    [ "AccumulatorConfigRegister", "unionAccumulatorConfigRegister.html", "unionAccumulatorConfigRegister" ],
+    [ "AdcAccumulator", "structAdcAccumulator.html", "structAdcAccumulator" ],
+    [ "AdcConfigRegister", "unionAdcConfigRegister.html", "unionAdcConfigRegister" ],
     [ "AdcFifo", "unionAdcFifo.html", "unionAdcFifo" ],
     [ "AdcTimestamp", "unionAdcTimestamp.html", "unionAdcTimestamp" ],
     [ "ads1258", "structads1258.html", "structads1258" ],
@@ -58,6 +60,7 @@ var annotated_dup =
     [ "CGraphVersionPayload", "structCGraphVersionPayload.html", "structCGraphVersionPayload" ],
     [ "Cmd", "structCmd.html", "structCmd" ],
     [ "Dac8830", "structDac8830.html", "structDac8830" ],
+    [ "DacConfigRegister", "unionDacConfigRegister.html", "unionDacConfigRegister" ],
     [ "doublebe_t", "uniondoublebe__t.html", "uniondoublebe__t" ],
     [ "EzThread", "classEzThread.html", "classEzThread" ],
     [ "fixedlist", "classfixedlist.html", "classfixedlist" ],
