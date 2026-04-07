@@ -1,3 +1,5 @@
+-- Same average rate as ClockDivider for the same CLOCK_DIVIDER, but a 0..DIV-1 counter is updated every cycle and the output is decoded from it
+-- TODO (maybe) make it /2 like VariableClockDivider2X
 
 library ieee;
 use ieee.std_logic_1164.all;

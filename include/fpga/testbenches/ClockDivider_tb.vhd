@@ -1,3 +1,4 @@
+-- Toggles the output every CLOCK_DIVIDER/2 rising input edges, so the output period is CLOCK_DIVIDER clki cycles (~50% duty for even N)
 
 library ieee;
 use ieee.std_logic_1164.all;
