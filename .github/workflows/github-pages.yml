@@ -19,32 +19,14 @@ jobs:
               uses: actions/setup-python@v5
               with:
                 python-version: '3.x'
-            
+
             - name: Install Dependencies
               run: |
                 sudo apt-get install doxygen graphviz -y
 
             - name: Build Doxygen Docs
               run: |
-                mkdir -p doxygen
-                mkdir -p doxygen/Filterwheel/processor
-                cd Filterwheel/processor/dox
-                doxygen
-                cd $GITHUB_WORKSPACE
-                mkdir -p doxygen/FilterwheelTq144/fpga  
-                cd FilterwheelTq144/fpga/dox
-                doxygen 
-                cd $GITHUB_WORKSPACE
-                mkdir -p doxygen/FineSteeringMirrorController/processor
-                cd FineSteeringMirrorController/processor/Main/dox
-                doxygen 
-                cd $GITHUB_WORKSPACE
-                mkdir -p doxygen/FineSteeringMirrorController/fpga
-                cd FineSteeringMirrorController/fpga/dox
-                doxygen
-                cd $GITHUB_WORKSPACE
-                cd dox
-                doxygen
+                bash local_deploy.sh
 
             - name: Prep for gh-pages
               run: |
