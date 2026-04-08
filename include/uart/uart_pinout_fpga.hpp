@@ -72,6 +72,23 @@ public:
 		return((char)(c));
 	}
 
+	virtual int read(uint8_t* buf, size_t maxLen) override
+	{
+		if (NULL == StatusRegister || NULL == ReadRequestRegister || NULL == ReadDataRegister) return(0);
+
+		size_t available = depth();
+		if (available == 0) return(0);
+		if (available > maxLen) available = maxLen;
+
+		for (size_t i = 0; i < available; i++) {
+			volatile uint32_t c = *ReadRequestRegister;
+			c = *ReadDataRegister;
+			buf[i] = static_cast<uint8_t>(c);
+		}
+
+		return static_cast<int>(available);
+	}
+
 	virtual char putcqq(char c) override
 	{
 		if (NULL != WriteDataRegister) { *WriteDataRegister = c; }

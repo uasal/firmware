@@ -440,7 +440,7 @@ public:
 
 		if (-1 == ComFileDescriptor) { printf("\nlinux_pinout_uart::getcqq(): read on uninitialized port; please open port!\n"); return('\0'); }
 
-	    size_t len = read(ComFileDescriptor, &c, 1);
+	    size_t len = ::read(ComFileDescriptor, &c, 1); // ::read to call POSIX read, not this class's read()
 
 		if (len != 1) 
 		{ 
@@ -461,6 +461,28 @@ public:
 		if (echo) { formatf("<%.2x ", (uint8_t)c); }
 
   		return(c);
+	}
+
+
+	virtual int read(uint8_t* buf, size_t maxLen) override
+	{
+		if (-1 == ComFileDescriptor) {
+			return(0);
+		}
+
+		ssize_t len = ::read(ComFileDescriptor, buf, maxLen); // ::read to call POSIX read, not this method
+		if (len < 0) {
+			if (errno == EAGAIN || errno == EWOULDBLOCK) return(0);
+
+			if (autoreopen)
+			{
+				deinit();
+				init(Baud, Device, RtsCts, OddParity);
+			}
+			return(0);
+		}
+
+		return static_cast<int>(len);
 	}
 
 	virtual char putcqq(char c)

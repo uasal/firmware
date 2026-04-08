@@ -60,6 +60,23 @@ public:
 		return((char)(c));
 	}
 
+	virtual int read(uint8_t* buf, size_t maxLen) override
+	{
+		if (NULL == PZT) return(0);
+
+		size_t available = depth();
+		if (available == 0) return(0);
+		if (available > maxLen) available = maxLen;
+
+		for (size_t i = 0; i < available; i++) {
+			uint16_t c = PZT->UartFifo2;
+			c >>= 8;
+			buf[i] = static_cast<uint8_t>(c);
+		}
+
+		return static_cast<int>(available);
+	}
+
 	virtual char putcqq(char c)
 	{
 		if (NULL == PZT) { return(c); }
@@ -115,6 +132,23 @@ public:
 		return((char)(c));
 	}
 
+	virtual int read(uint8_t* buf, size_t maxLen) override
+	{
+		if (NULL == PZT) return(0);
+
+		size_t available = depth();
+		if (available == 0) return(0);
+		if (available > maxLen) available = maxLen;
+
+		for (size_t i = 0; i < available; i++) {
+			uint16_t c = PZT->UartFifo1;
+			c >>= 8;
+			buf[i] = static_cast<uint8_t>(c);
+		}
+
+		return static_cast<int>(available);
+	}
+
 	virtual char putcqq(char c)
 	{
 		if (NULL == PZT) { return(c); }
@@ -168,6 +202,23 @@ public:
 		if (MonitorSerial0) { printf(":%.2x", c); }
 		//~ printf("|%.4x", c);
 		return((char)(c));
+	}
+
+	virtual int read(uint8_t* buf, size_t maxLen) override
+	{
+		if (NULL == PZT) return(0);
+
+		size_t available = depth();
+		if (available == 0) return(0);
+		if (available > maxLen) available = maxLen;
+
+		for (size_t i = 0; i < available; i++) {
+			uint16_t c = PZT->UartFifo0;
+			c >>= 8;
+			buf[i] = static_cast<uint8_t>(c);
+		}
+
+		return static_cast<int>(available);
 	}
 
 	virtual char putcqq(char c)

@@ -134,7 +134,7 @@ public:
 		
 		if (-1 != fd)
 		{
-			ssize_t numbytes = read(fd, &c, 1);
+			ssize_t numbytes = ::read(fd, &c, 1); // ::read to call POSIX read, not this class's read()
 			if (numbytes < 0)
 			{
 				//~ if (!silent) { printf("\nlinux_pinout_named_pipe::getcqq(): read() failed with %ld.\n", (long int)errno); }
@@ -151,13 +151,27 @@ public:
   		return(c);
 	}
 	
+	virtual int read(uint8_t* buf, size_t maxLen) override
+	{
+		if (-1 == fd) return(0);
+
+		ssize_t numbytes = ::read(fd, buf, maxLen); // ::read to call POSIX read, not this method
+		if (numbytes < 0) {
+			if (errno == EAGAIN || errno == EWOULDBLOCK) return(0);
+			if (!silent) { perror("\nlinux_pinout_named_pipe::read(): read() failed"); }
+			return(0);
+		}
+
+		return static_cast<int>(numbytes);
+	}
+
 	virtual int get(void* p, const size_t len)
 	{
 		ssize_t numbytes = 0;
 		
 		if (-1 != fd)
 		{
-			numbytes = read(fd, p, len);
+			numbytes = ::read(fd, p, len); // ::read to call POSIX read, not this class's read()
 			if (numbytes < 0)
 			{
 				//~ if (!silent) { printf("\nlinux_pinout_named_pipe::getcqq(): read() failed with %ld.\n", (long int)errno); }

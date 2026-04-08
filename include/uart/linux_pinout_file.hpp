@@ -112,6 +112,18 @@ public:
   		return(c);
 	}
 
+	virtual int read(uint8_t* buf, size_t maxLen) override
+	{
+		if (NULL == fd) 
+		{
+			printf("\nlinux_pinout_file::read(): read on uninitialized file; please open file!\n");
+			return(0);
+		}
+
+		size_t numbytes = fread(buf, 1, maxLen, fd);
+		return static_cast<int>(numbytes);
+	}
+
 	virtual char putcqq(char c)
 	{
 		if (NULL != fd)

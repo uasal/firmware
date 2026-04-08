@@ -154,10 +154,11 @@ struct BinaryUart : IUartParser
     }
 
     /**
-     * @brief Processes incoming data and checks for new packets.
+     * @brief Reads all available bytes and checks for new packets.
      *
-     * Reads a new character if available, adds it to the Rx buffer, and checks
-     * for packet boundaries (start and end).
+     * Bulk-reads all available data from the UART into a temporary buffer,
+     * then feeds each byte through the packet parsing state machine, checking
+     * for packet boundaries (start and end) after each byte.
      *
      * @return bool Returns true if data was processed, false if no new data.
      */
@@ -166,44 +167,39 @@ struct BinaryUart : IUartParser
       //~ uint32_t start=0;
       //~ uint32_t end=0;
       //~ uint32_t length=0;
-      bool     gotStart = false;
 
 	    //New char?
         if ( !(Pinout.dataready()) ) { return(false); }
 
-		//pull it off the hardware
-        
-        uint8_t c = Pinout.getcqq(); // is taking no time
-        
+		// Read all available bytes at once into a temporary buffer
+		uint8_t tempBuffer[RxBufferLenBytes];
+		int bytesRead = Pinout.read(tempBuffer, sizeof(tempBuffer));
 
-		if (debug) {
-			printf(".%.2x", c);
+		if (bytesRead <= 0) return(false);
+
+		// Feed each byte through the existing packet parsing state machine
+		for (int i = 0; i < bytesRead; i++)
+		{
+			if (debug) {
+				printf(".%.2x", tempBuffer[i]);
+			}
+
+			ProcessByte(tempBuffer[i]);
+
+			if (!InPacket) {
+				bool gotStart = CheckPacketStart();
+				if (gotStart) {
+					PayloadLen = Packet.PayloadLen(RxBuffer, RxCount, PacketStart);
+					HeaderLen = Packet.HeaderLen();
+					FooterLen = Packet.FooterLen();
+				}
+			}
+			else {
+				if (!(RxCount < HeaderLen + FooterLen + PayloadLen)) {
+					CheckPacketEnd();
+				}
+			}
 		}
-        //        start = DM->GetTimer;
-
-        ProcessByte(c);
-        
-        if (!InPacket) {
-          gotStart = CheckPacketStart();
-          if (gotStart) {
-            PayloadLen = Packet.PayloadLen(RxBuffer, RxCount, PacketStart);
-            HeaderLen = Packet.HeaderLen();
-            FooterLen = Packet.FooterLen();
-          }
-          
-        }
-        else {
-          
-          if (!(RxCount < HeaderLen + FooterLen + PayloadLen)) {
-            CheckPacketEnd();  // this returns if a packet was processed
-            //end = DM->GetTimer;
-            //length = end - start;
-            //TxBinaryPacket(CGraphPayloadTypeDMTelemetry, 0, &length, sizeof(uint32_t));
-          }
-        }
-        //end = DM->GetTimer;
-        //length = end - start;
-        //TxBinaryPacket(CGraphPayloadTypeDMTelemetry, 0, &length, sizeof(uint32_t));
 
         return(true); //We just want to know if there's chars in the buffer to put threads to sleep or not...
     }
@@ -233,12 +229,6 @@ struct BinaryUart : IUartParser
 		}
 	}
 
-    /**
-     * @brief Checks if a packet is present in the buffer.
-     *
-	 * If a packet is detected, InPacket is set to true.
-	 *
-     */
 	bool CheckPacketStart()
 	{
 		//Packet Start?

@@ -301,6 +301,40 @@ public:
   		return(c);
 	}
 
+	virtual int read(uint8_t* buf, size_t maxLen) override
+	{
+		if (-1 == hSocket) return(0);
+
+		ssize_t numbytes = recv(hSocket, buf, maxLen, MSG_DONTWAIT);
+		if (numbytes < 0) {
+			if (errno == EAGAIN || errno == EWOULDBLOCK) return(0);
+
+			#ifdef WIN32
+			closesocket(hSocket);
+			#else
+			close(hSocket);
+			#endif
+			hSocket = -1;
+			formatf("\nlinux_pinout_server_socket: Closed old socket; looking for new connections.\n\n");
+			SocketConnect();
+			return(0);
+		}
+		if (numbytes == 0) {
+			// Connection closed by peer
+			#ifdef WIN32
+			closesocket(hSocket);
+			#else
+			close(hSocket);
+			#endif
+			hSocket = -1;
+			formatf("\nlinux_pinout_server_socket: Closed old socket; looking for new connections.\n\n");
+			SocketConnect();
+			return(0);
+		}
+
+		return static_cast<int>(numbytes);
+	}
+
 	virtual char putcqq(char c)
 	{
 		if (-1 != hSocket)
