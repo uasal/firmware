@@ -151,6 +151,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a85bc2fe0ccd84c2479f348ea07adafb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3716c895ae341828b397803367353bf3" id="r_a3716c895ae341828b397803367353bf3"><td class="memItemLeft" align="right" valign="top">virtual char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlinux__pinout__named__pipe.html#a3716c895ae341828b397803367353bf3">getcqq</a> ()</td></tr>
 <tr class="separator:a3716c895ae341828b397803367353bf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95a942061922828a37c2cbaea2682572" id="r_a95a942061922828a37c2cbaea2682572"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlinux__pinout__named__pipe.html#a95a942061922828a37c2cbaea2682572">read</a> (uint8_t *buf, size_t maxLen) override</td></tr>
+<tr class="separator:a95a942061922828a37c2cbaea2682572"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adabb51f81cf41f8636d36bca7a411355" id="r_adabb51f81cf41f8636d36bca7a411355"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlinux__pinout__named__pipe.html#adabb51f81cf41f8636d36bca7a411355">get</a> (void *p, const size_t len)</td></tr>
 <tr class="separator:adabb51f81cf41f8636d36bca7a411355"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad13fa7e901e5f3d533896e011f9db8b2" id="r_ad13fa7e901e5f3d533896e011f9db8b2"><td class="memItemLeft" align="right" valign="top">virtual char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlinux__pinout__named__pipe.html#ad13fa7e901e5f3d533896e011f9db8b2">putcqq</a> (char c)</td></tr>
@@ -323,9 +325,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00107">107</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00248">fd</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00247">silent</a>.</p>
+<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00262">fd</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00261">silent</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00221">purgeinput()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00235">purgeinput()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -364,7 +366,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00092">92</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00248">fd</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00247">silent</a>.</p>
+<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00262">fd</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00261">silent</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00058">init()</a>.</p>
 <div class="dynheader">
@@ -405,7 +407,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="classIUart.html#a1775ba7eac15a10e21cb0c8102e5ca30">IUart</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00243">243</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00257">257</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
 
 </div>
 </div>
@@ -443,9 +445,20 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00154">154</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00168">168</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00248">fd</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00247">silent</a>.</p>
+<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00262">fd</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00154">read()</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00261">silent</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classlinux__pinout__named__pipe_adabb51f81cf41f8636d36bca7a411355_cgraph.png" border="0" usemap="#aclasslinux__pinout__named__pipe_adabb51f81cf41f8636d36bca7a411355_cgraph" alt=""/></div>
+<map name="aclasslinux__pinout__named__pipe_adabb51f81cf41f8636d36bca7a411355_cgraph" id="aclasslinux__pinout__named__pipe_adabb51f81cf41f8636d36bca7a411355_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,160,69"/>
+<area shape="rect" href="classlinux__pinout__named__pipe.html#a95a942061922828a37c2cbaea2682572" title=" " alt="" coords="208,29,363,69"/>
+<area shape="poly" title=" " alt="" coords="160,47,194,47,194,52,160,52"/>
+<area shape="poly" title=" " alt="" coords="247,30,245,20,251,11,265,5,285,3,309,6,322,13,319,18,307,11,285,8,266,10,254,15,250,21,252,28"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -476,9 +489,20 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00131">131</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00248">fd</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00247">silent</a>.</p>
+<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00262">fd</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00154">read()</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00261">silent</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00221">purgeinput()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00235">purgeinput()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classlinux__pinout__named__pipe_a3716c895ae341828b397803367353bf3_cgraph.png" border="0" usemap="#aclasslinux__pinout__named__pipe_a3716c895ae341828b397803367353bf3_cgraph" alt=""/></div>
+<map name="aclasslinux__pinout__named__pipe_a3716c895ae341828b397803367353bf3_cgraph" id="aclasslinux__pinout__named__pipe_a3716c895ae341828b397803367353bf3_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,160,69"/>
+<area shape="rect" href="classlinux__pinout__named__pipe.html#a95a942061922828a37c2cbaea2682572" title=" " alt="" coords="208,29,363,69"/>
+<area shape="poly" title=" " alt="" coords="160,47,194,47,194,52,160,52"/>
+<area shape="poly" title=" " alt="" coords="247,30,245,20,251,11,265,5,285,3,309,6,322,13,319,18,307,11,285,8,266,10,254,15,250,21,252,28"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -528,7 +552,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00058">58</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00092">deinit()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00248">fd</a>, <a class="el" href="IUart_8h_source.html#l00041">IUart::IUartOK</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00247">silent</a>.</p>
+<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00092">deinit()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00262">fd</a>, <a class="el" href="IUart_8h_source.html#l00041">IUart::IUartOK</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00261">silent</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -567,9 +591,9 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="classIUart.html#a96ed701e6b9592230b9f02e93acc807f">IUart</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00223">223</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00237">237</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00248">fd</a>.</p>
+<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00262">fd</a>.</p>
 
 </div>
 </div>
@@ -598,7 +622,7 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="classIUart.html#a995f4af4eca6913eaebe4313c5add900">IUart</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00221">221</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00235">235</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00107">dataready()</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00131">getcqq()</a>.</p>
 <div class="dynheader">
@@ -611,6 +635,9 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="160,43,194,37,195,42,161,48"/>
 <area shape="rect" href="classlinux__pinout__named__pipe.html#a3716c895ae341828b397803367353bf3" title=" " alt="" coords="208,69,363,109"/>
 <area shape="poly" title=" " alt="" coords="161,67,195,72,194,78,160,72"/>
+<area shape="rect" href="classlinux__pinout__named__pipe.html#a95a942061922828a37c2cbaea2682572" title=" " alt="" coords="411,69,565,109"/>
+<area shape="poly" title=" " alt="" coords="363,87,396,87,396,92,363,92"/>
+<area shape="poly" title=" " alt="" coords="450,70,448,60,454,51,467,45,488,43,512,46,525,53,522,58,510,51,488,48,469,50,457,55,453,61,455,68"/>
 </map>
 </div>
 
@@ -650,9 +677,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00198">198</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00212">212</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00248">fd</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00247">silent</a>.</p>
+<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00262">fd</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00261">silent</a>.</p>
 
 </div>
 </div>
@@ -682,9 +709,78 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="classIUart.html#a1c1fcaf4781bb826f1130e02e26db652">IUart</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00177">177</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00191">191</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00248">fd</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00247">silent</a>.</p>
+<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00262">fd</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00261">silent</a>.</p>
+
+</div>
+</div>
+<a id="a95a942061922828a37c2cbaea2682572" name="a95a942061922828a37c2cbaea2682572"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95a942061922828a37c2cbaea2682572">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int linux_pinout_named_pipe::read </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>maxLen</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Read up to maxLen bytes into buf. Returns number of bytes read. Default implementation falls back to byte-by-byte via <a class="el" href="classlinux__pinout__named__pipe.html#a85bc2fe0ccd84c2479f348ea07adafb5">dataready()</a>/getcqq(). NOTE: Subclasses that override this and call the POSIX <a class="el" href="classlinux__pinout__named__pipe.html#a95a942061922828a37c2cbaea2682572">read()</a> syscall internally must qualify those calls as <a class="el" href="classlinux__pinout__named__pipe.html#a95a942061922828a37c2cbaea2682572">read()</a> to avoid infinite recursion. </p>
+
+<p>Reimplemented from <a class="el" href="classIUart.html#aa4064134d06b53eb580536c4a59af478">IUart</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00154">154</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00262">fd</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00154">read()</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00261">silent</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00168">get()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00131">getcqq()</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00154">read()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classlinux__pinout__named__pipe_a95a942061922828a37c2cbaea2682572_cgraph.png" border="0" usemap="#aclasslinux__pinout__named__pipe_a95a942061922828a37c2cbaea2682572_cgraph" alt=""/></div>
+<map name="aclasslinux__pinout__named__pipe_a95a942061922828a37c2cbaea2682572_cgraph" id="aclasslinux__pinout__named__pipe_a95a942061922828a37c2cbaea2682572_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,160,69"/>
+<area shape="poly" title=" " alt="" coords="53,29,52,20,56,11,67,5,83,3,101,6,111,13,108,17,99,11,83,8,68,10,60,14,57,21,59,28"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classlinux__pinout__named__pipe_a95a942061922828a37c2cbaea2682572_icgraph.png" border="0" usemap="#aclasslinux__pinout__named__pipe_a95a942061922828a37c2cbaea2682572_icgraph" alt=""/></div>
+<map name="aclasslinux__pinout__named__pipe_a95a942061922828a37c2cbaea2682572_icgraph" id="aclasslinux__pinout__named__pipe_a95a942061922828a37c2cbaea2682572_icgraph">
+<area shape="rect" title=" " alt="" coords="411,37,565,77"/>
+<area shape="poly" title=" " alt="" coords="522,26,510,19,488,16,469,18,457,23,453,29,455,36,450,38,448,28,454,19,467,13,488,11,512,14,525,21"/>
+<area shape="rect" href="classlinux__pinout__named__pipe.html#adabb51f81cf41f8636d36bca7a411355" title=" " alt="" coords="208,5,363,45"/>
+<area shape="poly" title=" " alt="" coords="397,46,363,40,364,35,398,40"/>
+<area shape="rect" href="classlinux__pinout__named__pipe.html#a3716c895ae341828b397803367353bf3" title=" " alt="" coords="208,69,363,109"/>
+<area shape="poly" title=" " alt="" coords="398,74,364,80,363,74,397,69"/>
+<area shape="rect" href="classlinux__pinout__named__pipe.html#a85aaf548aeeb38c0ef41e48fbc4891fb" title=" " alt="" coords="5,69,160,109"/>
+<area shape="poly" title=" " alt="" coords="194,92,161,92,161,87,194,87"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -712,9 +808,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00225">225</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00239">239</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00247">silent</a>.</p>
+<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00261">silent</a>.</p>
 
 </div>
 </div>
@@ -742,9 +838,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00227">227</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00241">241</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00248">fd</a>.</p>
+<p class="reference">References <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00262">fd</a>.</p>
 
 </div>
 </div>
@@ -769,9 +865,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00248">248</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00262">262</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00107">dataready()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00092">deinit()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00154">get()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00131">getcqq()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00058">init()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00223">isopen()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00198">put()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00177">putcqq()</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00227">size()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00107">dataready()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00092">deinit()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00168">get()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00131">getcqq()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00058">init()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00237">isopen()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00212">put()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00191">putcqq()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00154">read()</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00241">size()</a>.</p>
 
 </div>
 </div>
@@ -827,9 +923,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00247">247</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00261">261</a> of file <a class="el" href="linux__pinout__named__pipe_8hpp_source.html">linux_pinout_named_pipe.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00107">dataready()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00092">deinit()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00154">get()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00131">getcqq()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00058">init()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00198">put()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00177">putcqq()</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00225">Silent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00107">dataready()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00092">deinit()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00168">get()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00131">getcqq()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00058">init()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00212">put()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00191">putcqq()</a>, <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00154">read()</a>, and <a class="el" href="linux__pinout__named__pipe_8hpp_source.html#l00239">Silent()</a>.</p>
 
 </div>
 </div>
@@ -842,7 +938,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classlinux__pinout__named__pipe.html">linux_pinout_named_pipe</a></li>
-    <li class="footer">Generated on Tue Apr 7 2026 04:00:23 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Apr 8 2026 16:09:27 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,13 @@
 var NAVTREEINDEX9 =
 {
+"unionCGraphDMHardwareStatusRegister.html#ad56c3e99f53c87b696abf78d5f7bc4a2":[1,0,17,3],
+"unionCGraphDMHardwareStatusRegister.html#addff2f967457309564eb3bea673e422c":[1,0,17,4],
+"unionCGraphDMHardwareStatusRegister.html#aec7fa14ff26e4d22e677c9fe8b5da28c":[1,0,17,1],
+"unionCGraphDMHardwareStatusRegister.html#aedd904367595d9a134c8c9a8b86bd864":[1,0,17,12],
+"unionCGraphDualMonitorAdcCommandStatusRegister.html":[1,0,24],
+"unionCGraphDualMonitorAdcCommandStatusRegister.html#a147aca99e39a251c4b9c4f1bb67ec2f8":[1,0,24,5],
+"unionCGraphDualMonitorAdcCommandStatusRegister.html#a35c470a85f9739d2a1c95c94552db059":[1,0,24,6],
+"unionCGraphDualMonitorAdcCommandStatusRegister.html#a6f523f4c4b877ca5d79fbda973d4feba":[1,0,24,7],
 "unionCGraphDualMonitorAdcCommandStatusRegister.html#a881ece2d8aa9a13e5609127baad6de14":[1,0,24,2],
 "unionCGraphDualMonitorAdcCommandStatusRegister.html#a91e71b3b6d9d776683bfd8a9a2672f19":[1,0,24,3],
 "unionCGraphDualMonitorAdcCommandStatusRegister.html#ab28b54c059c3326ae8094dfcebafbd7a":[1,0,24,4],
@@ -241,13 +249,5 @@ var NAVTREEINDEX9 =
 "unionads1258details_1_1ads1258sample.html#ad346128c89639a41fa8783e601acbe0d":[0,0,0,1,16],
 "unionads1258details_1_1ads1258sample.html#ad346128c89639a41fa8783e601acbe0d":[1,0,0,1,16],
 "unionads1258details_1_1ads1258sample.html#ae910cdad5dc37b9f4a53edfe7560c9d4":[0,0,0,1,5],
-"unionads1258details_1_1ads1258sample.html#ae910cdad5dc37b9f4a53edfe7560c9d4":[1,0,0,1,5],
-"unionads1258details_1_1ads1258sample.html#af31baa6884a2f34e8f0d22339d366959":[0,0,0,1,4],
-"unionads1258details_1_1ads1258sample.html#af31baa6884a2f34e8f0d22339d366959":[1,0,0,1,4],
-"unionads1258details_1_1ads1258status.html":[1,0,0,2],
-"unionads1258details_1_1ads1258status.html":[0,0,0,2],
-"unionads1258details_1_1ads1258status.html#a08354c4a694c75f51880844d0649f1ed":[0,0,0,2,5],
-"unionads1258details_1_1ads1258status.html#a08354c4a694c75f51880844d0649f1ed":[1,0,0,2,5],
-"unionads1258details_1_1ads1258status.html#a29ce033d1be89e5b772785559b341ba9":[0,0,0,2,2],
-"unionads1258details_1_1ads1258status.html#a29ce033d1be89e5b772785559b341ba9":[1,0,0,2,2]
+"unionads1258details_1_1ads1258sample.html#ae910cdad5dc37b9f4a53edfe7560c9d4":[1,0,0,1,5]
 };

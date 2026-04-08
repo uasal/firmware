@@ -1,5 +1,13 @@
 var NAVTREEINDEX8 =
 {
+"structTerminalUart.html#ad6ff3cd11020959c46e146121e25dd46":[1,0,79,36],
+"structTerminalUart.html#adc50d6171f1fae404dcd13f396a06580":[1,0,79,32],
+"structTerminalUart.html#adc637bbba73f5fc52f5ed5cb7944f22d":[1,0,79,33],
+"structTerminalUart.html#ae2deeafa8db28d577649823fd00d62d0":[1,0,79,22],
+"structTerminalUart.html#aec07f7b2c2286c1fd1b392862e426f76":[1,0,79,18],
+"structTerminalUart.html#aef4ffd217599aeedad9f49413073155b":[1,0,79,27],
+"structTerminalUart.html#af59d4b36e3311fd27d46645fb7d42a20":[1,0,79,19],
+"structTerminalUart.html#afb7d9d6df0047e2416e1199834efd2e2":[1,0,79,20],
 "structads1258.html":[1,0,7],
 "structads1258.html#a04738847c1d5b7e666a55ae4f13fc90c":[1,0,7,14],
 "structads1258.html#a08ebb96e0a031ba6fcb869e8a86c6474":[1,0,7,6],
@@ -241,13 +249,5 @@ var NAVTREEINDEX8 =
 "unionCGraphDMHardwareStatusRegister.html#a9fdcab0d7769ce255cb8472f1124aa95":[1,0,17,8],
 "unionCGraphDMHardwareStatusRegister.html#ab2ac65fe049baa870417aecb02378cb3":[1,0,17,0],
 "unionCGraphDMHardwareStatusRegister.html#abe13a18883e1f2b275a8116f77747932":[1,0,17,2],
-"unionCGraphDMHardwareStatusRegister.html#ace006bdd48bab56a2553381298a91081":[1,0,17,11],
-"unionCGraphDMHardwareStatusRegister.html#ad56c3e99f53c87b696abf78d5f7bc4a2":[1,0,17,3],
-"unionCGraphDMHardwareStatusRegister.html#addff2f967457309564eb3bea673e422c":[1,0,17,4],
-"unionCGraphDMHardwareStatusRegister.html#aec7fa14ff26e4d22e677c9fe8b5da28c":[1,0,17,1],
-"unionCGraphDMHardwareStatusRegister.html#aedd904367595d9a134c8c9a8b86bd864":[1,0,17,12],
-"unionCGraphDualMonitorAdcCommandStatusRegister.html":[1,0,24],
-"unionCGraphDualMonitorAdcCommandStatusRegister.html#a147aca99e39a251c4b9c4f1bb67ec2f8":[1,0,24,5],
-"unionCGraphDualMonitorAdcCommandStatusRegister.html#a35c470a85f9739d2a1c95c94552db059":[1,0,24,6],
-"unionCGraphDualMonitorAdcCommandStatusRegister.html#a6f523f4c4b877ca5d79fbda973d4feba":[1,0,24,7]
+"unionCGraphDMHardwareStatusRegister.html#ace006bdd48bab56a2553381298a91081":[1,0,17,11]
 };

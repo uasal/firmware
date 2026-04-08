@@ -169,13 +169,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a54a6187390028315b7ba5a84c2cc09bb" id="r_a54a6187390028315b7ba5a84c2cc09bb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBinaryUart.html#a54a6187390028315b7ba5a84c2cc09bb">InitFast</a> (uint64_t serialnum=0)</td></tr>
 <tr class="separator:a54a6187390028315b7ba5a84c2cc09bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1328d9d193b052cbc4013f21c7e6e222" id="r_a1328d9d193b052cbc4013f21c7e6e222"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBinaryUart.html#a1328d9d193b052cbc4013f21c7e6e222">Process</a> () override</td></tr>
-<tr class="memdesc:a1328d9d193b052cbc4013f21c7e6e222"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes incoming data and checks for new packets.  <br /></td></tr>
+<tr class="memdesc:a1328d9d193b052cbc4013f21c7e6e222"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads all available bytes and checks for new packets.  <br /></td></tr>
 <tr class="separator:a1328d9d193b052cbc4013f21c7e6e222"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16b484e326a172e0c3b37ba6e8eed8a5" id="r_a16b484e326a172e0c3b37ba6e8eed8a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBinaryUart.html#a16b484e326a172e0c3b37ba6e8eed8a5">ProcessByte</a> (const char c)</td></tr>
 <tr class="memdesc:a16b484e326a172e0c3b37ba6e8eed8a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a byte to the Rx buffer and handles buffer overflow.  <br /></td></tr>
 <tr class="separator:a16b484e326a172e0c3b37ba6e8eed8a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad350385f839762fcb3aad27a69e9809e" id="r_ad350385f839762fcb3aad27a69e9809e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBinaryUart.html#ad350385f839762fcb3aad27a69e9809e">CheckPacketStart</a> ()</td></tr>
-<tr class="memdesc:ad350385f839762fcb3aad27a69e9809e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a packet is present in the buffer.  <br /></td></tr>
 <tr class="separator:ad350385f839762fcb3aad27a69e9809e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a710ecfd14e702d8cf732707d6184c2c2" id="r_a710ecfd14e702d8cf732707d6184c2c2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBinaryUart.html#a710ecfd14e702d8cf732707d6184c2c2">CheckPacketEnd</a> ()</td></tr>
 <tr class="memdesc:a710ecfd14e702d8cf732707d6184c2c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a complete packet (with both header and footer) is present in the buffer.  <br /></td></tr>
@@ -400,11 +399,11 @@ Here is the call graph for this function:</div>
 <p>If a packet end is detected, verifies its validity and processes it. Handles incomplete or corrupted packets, and clears the buffer appropriately after processing.</p>
 <dl class="section return"><dt>Returns</dt><dd>bool Returns true if a packet was successfully processed, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00266">266</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00256">256</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="BinaryUart_8hpp_source.html#l00060">Callbacks</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00058">Cmds</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00061">debug</a>, <a class="el" href="classIPacket.html#a6db60bf5beb402e644ccc323e0fb4b03">IPacket::DoesPayloadTypeMatch()</a>, <a class="el" href="BinaryUart_8h_source.html#l00031">BinaryUartCallbacks::EveryPacket()</a>, <a class="el" href="classIPacket.html#ac7c686a76164a3f61268ae04baadae51">IPacket::FindPacketEndPos()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00418">formatf()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00066">HeaderLen</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00139">InitFast()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00062">InPacket</a>, <a class="el" href="BinaryUart_8h_source.html#l00025">BinaryUartCallbacks::InvalidPacket()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00050">InvalidSerialNumber</a>, <a class="el" href="classIPacket.html#aac324d1be13b345811c62808e3046a0b">IPacket::IsBroadcastSerialNum()</a>, <a class="el" href="classIPacket.html#ae508735aa416afc0e8cb2a10f96006e8">IPacket::IsValid()</a>, <a class="el" href="CmdSystem_8hpp_source.html#l00054">BinaryCmd::Name</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00059">NumCmds</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00057">Packet</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00052">PacketEnd</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00063">PacketStart</a>, <a class="el" href="classIPacket.html#ae1f269523fdd7b923e6600c46d93a94f">IPacket::PayloadLen()</a>, <a class="el" href="classIPacket.html#ace74729172ff26454c90e09d5e48784e">IPacket::PayloadType()</a>, <a class="el" href="CmdSystem_8hpp_source.html#l00056">BinaryCmd::Response</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00053">RxBuffer</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00054">RxCount</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00068">SerialNum</a>, <a class="el" href="classIPacket.html#a54069372377ca86ac8ae677ae2c1544b">IPacket::SerialNum()</a>, and <a class="el" href="BinaryUart_8h_source.html#l00028">BinaryUartCallbacks::UnHandledPacket()</a>.</p>
+<p class="reference">References <a class="el" href="BinaryUart_8hpp_source.html#l00060">Callbacks</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00058">Cmds</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00061">debug</a>, <a class="el" href="classIPacket.html#a6db60bf5beb402e644ccc323e0fb4b03">IPacket::DoesPayloadTypeMatch()</a>, <a class="el" href="BinaryUart_8h_source.html#l00031">BinaryUartCallbacks::EveryPacket()</a>, <a class="el" href="classIPacket.html#ac7c686a76164a3f61268ae04baadae51">IPacket::FindPacketEndPos()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00408">formatf()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00066">HeaderLen</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00139">InitFast()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00062">InPacket</a>, <a class="el" href="BinaryUart_8h_source.html#l00025">BinaryUartCallbacks::InvalidPacket()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00050">InvalidSerialNumber</a>, <a class="el" href="classIPacket.html#aac324d1be13b345811c62808e3046a0b">IPacket::IsBroadcastSerialNum()</a>, <a class="el" href="classIPacket.html#ae508735aa416afc0e8cb2a10f96006e8">IPacket::IsValid()</a>, <a class="el" href="CmdSystem_8hpp_source.html#l00054">BinaryCmd::Name</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00059">NumCmds</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00057">Packet</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00052">PacketEnd</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00063">PacketStart</a>, <a class="el" href="classIPacket.html#ae1f269523fdd7b923e6600c46d93a94f">IPacket::PayloadLen()</a>, <a class="el" href="classIPacket.html#ace74729172ff26454c90e09d5e48784e">IPacket::PayloadType()</a>, <a class="el" href="CmdSystem_8hpp_source.html#l00056">BinaryCmd::Response</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00053">RxBuffer</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00054">RxCount</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00068">SerialNum</a>, <a class="el" href="classIPacket.html#a54069372377ca86ac8ae677ae2c1544b">IPacket::SerialNum()</a>, and <a class="el" href="BinaryUart_8h_source.html#l00028">BinaryUartCallbacks::UnHandledPacket()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00164">Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00165">Process()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -444,7 +443,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="structBinaryUart_a710ecfd14e702d8cf732707d6184c2c2_icgraph.png" border="0" usemap="#astructBinaryUart_a710ecfd14e702d8cf732707d6184c2c2_icgraph" alt=""/></div>
 <map name="astructBinaryUart_a710ecfd14e702d8cf732707d6184c2c2_icgraph" id="astructBinaryUart_a710ecfd14e702d8cf732707d6184c2c2_icgraph">
 <area shape="rect" title="Checks if a complete packet (with both header and footer) is present in the buffer." alt="" coords="204,5,411,31"/>
-<area shape="rect" href="structBinaryUart.html#a1328d9d193b052cbc4013f21c7e6e222" title="Processes incoming data and checks for new packets." alt="" coords="5,5,156,31"/>
+<area shape="rect" href="structBinaryUart.html#a1328d9d193b052cbc4013f21c7e6e222" title="Reads all available bytes and checks for new packets." alt="" coords="5,5,156,31"/>
 <area shape="poly" title=" " alt="" coords="190,21,157,21,157,15,190,15"/>
 </map>
 </div>
@@ -474,20 +473,17 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Checks if a packet is present in the buffer. </p>
-<p>If a packet is detected, InPacket is set to true. </p>
-
-<p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00242">242</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00232">232</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="classIPacket.html#abdbd5f85a036c3b51c16ec938c18823d">IPacket::FindPacketStartPos()</a>, <a class="el" href="classIPacket.html#ad2ae0d8eb688d7987e63f438b007713c">IPacket::HeaderLen()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00062">InPacket</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00057">Packet</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00063">PacketStart</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00053">RxBuffer</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00054">RxCount</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00164">Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00165">Process()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="structBinaryUart_ad350385f839762fcb3aad27a69e9809e_cgraph.png" border="0" usemap="#astructBinaryUart_ad350385f839762fcb3aad27a69e9809e_cgraph" alt=""/></div>
 <map name="astructBinaryUart_ad350385f839762fcb3aad27a69e9809e_cgraph" id="astructBinaryUart_ad350385f839762fcb3aad27a69e9809e_cgraph">
-<area shape="rect" title="Checks if a packet is present in the buffer." alt="" coords="5,31,219,56"/>
+<area shape="rect" title=" " alt="" coords="5,31,219,56"/>
 <area shape="rect" href="classIPacket.html#abdbd5f85a036c3b51c16ec938c18823d" title=" " alt="" coords="267,5,465,31"/>
 <area shape="poly" title=" " alt="" coords="219,30,253,27,254,32,219,35"/>
 <area shape="rect" href="classIPacket.html#ad2ae0d8eb688d7987e63f438b007713c" title=" " alt="" coords="293,55,439,80"/>
@@ -499,8 +495,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="structBinaryUart_ad350385f839762fcb3aad27a69e9809e_icgraph.png" border="0" usemap="#astructBinaryUart_ad350385f839762fcb3aad27a69e9809e_icgraph" alt=""/></div>
 <map name="astructBinaryUart_ad350385f839762fcb3aad27a69e9809e_icgraph" id="astructBinaryUart_ad350385f839762fcb3aad27a69e9809e_icgraph">
-<area shape="rect" title="Checks if a packet is present in the buffer." alt="" coords="204,5,417,31"/>
-<area shape="rect" href="structBinaryUart.html#a1328d9d193b052cbc4013f21c7e6e222" title="Processes incoming data and checks for new packets." alt="" coords="5,5,156,31"/>
+<area shape="rect" title=" " alt="" coords="204,5,417,31"/>
+<area shape="rect" href="structBinaryUart.html#a1328d9d193b052cbc4013f21c7e6e222" title="Reads all available bytes and checks for new packets." alt="" coords="5,5,156,31"/>
 <area shape="poly" title=" " alt="" coords="190,21,156,21,156,15,190,15"/>
 </map>
 </div>
@@ -589,11 +585,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00418">418</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00408">408</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="BinaryUart_8hpp_source.html#l00418">formatf()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00062">InPacket</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00063">PacketStart</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00053">RxBuffer</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00054">RxCount</a>.</p>
+<p class="reference">References <a class="el" href="BinaryUart_8hpp_source.html#l00408">formatf()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00062">InPacket</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00063">PacketStart</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00053">RxBuffer</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00054">RxCount</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">CheckPacketEnd()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00418">formatf()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00216">ProcessByte()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00401">TxBinaryPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00256">CheckPacketEnd()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00408">formatf()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00212">ProcessByte()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00391">TxBinaryPacket()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -618,7 +614,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="693,100,398,115,397,109,693,94"/>
 <area shape="rect" href="structBinaryUart.html#abc0fd5b1ee9d392550ec3923f5200a8e" title="Transmit a binary packet over UART." alt="" coords="459,156,659,181"/>
 <area shape="poly" title=" " alt="" coords="734,113,660,139,601,158,600,153,658,134,732,108"/>
-<area shape="rect" href="structBinaryUart.html#a1328d9d193b052cbc4013f21c7e6e222" title="Processes incoming data and checks for new packets." alt="" coords="5,55,156,80"/>
+<area shape="rect" href="structBinaryUart.html#a1328d9d193b052cbc4013f21c7e6e222" title="Reads all available bytes and checks for new packets." alt="" coords="5,55,156,80"/>
 <area shape="poly" title=" " alt="" coords="236,36,140,57,139,52,234,31"/>
 <area shape="rect" href="structBinaryUart.html#a8258918913fd0bec31fc50328ff4a90e" title="Constructs a BinaryUart object and initializes with given parameters." alt="" coords="222,55,393,80"/>
 <area shape="poly" title=" " alt="" coords="484,70,393,70,393,65,484,65"/>
@@ -665,9 +661,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00122">122</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="BinaryUart_8hpp_source.html#l00061">debug</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00047">EmptyBufferChar</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00067">FooterLen</a>, <a class="el" href="classIPacket.html#aae378234fa6b67186eea047ed0bda774">IPacket::FooterLen()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00044">FooterLenInit</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00418">formatf()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00066">HeaderLen</a>, <a class="el" href="classIPacket.html#ad2ae0d8eb688d7987e63f438b007713c">IPacket::HeaderLen()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00043">HeaderLenInit</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00062">InPacket</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00045">InPacketInit</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00057">Packet</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00064">PacketLen</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00041">PacketLenInit</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00063">PacketStart</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00040">PacketStartInit</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00065">PayloadLen</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00042">PayloadLenInit</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00053">RxBuffer</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00048">RxBufferLenBytes</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00054">RxCount</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00039">RxCountInit</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00068">SerialNum</a>.</p>
+<p class="reference">References <a class="el" href="BinaryUart_8hpp_source.html#l00061">debug</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00047">EmptyBufferChar</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00067">FooterLen</a>, <a class="el" href="classIPacket.html#aae378234fa6b67186eea047ed0bda774">IPacket::FooterLen()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00044">FooterLenInit</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00408">formatf()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00066">HeaderLen</a>, <a class="el" href="classIPacket.html#ad2ae0d8eb688d7987e63f438b007713c">IPacket::HeaderLen()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00043">HeaderLenInit</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00062">InPacket</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00045">InPacketInit</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00057">Packet</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00064">PacketLen</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00041">PacketLenInit</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00063">PacketStart</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00040">PacketStartInit</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00065">PayloadLen</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00042">PayloadLenInit</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00053">RxBuffer</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00048">RxBufferLenBytes</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00054">RxCount</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00039">RxCountInit</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00068">SerialNum</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00081">BinaryUart()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00216">ProcessByte()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00081">BinaryUart()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00212">ProcessByte()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -693,7 +689,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="418,37,379,32,380,26,419,31"/>
 <area shape="rect" href="structBinaryUart.html#a16b484e326a172e0c3b37ba6e8eed8a5" title="Adds a byte to the Rx buffer and handles buffer overflow." alt="" coords="204,55,384,80"/>
 <area shape="poly" title=" " alt="" coords="419,55,384,59,384,54,418,50"/>
-<area shape="rect" href="structBinaryUart.html#a1328d9d193b052cbc4013f21c7e6e222" title="Processes incoming data and checks for new packets." alt="" coords="5,55,156,80"/>
+<area shape="rect" href="structBinaryUart.html#a1328d9d193b052cbc4013f21c7e6e222" title="Reads all available bytes and checks for new packets." alt="" coords="5,55,156,80"/>
 <area shape="poly" title=" " alt="" coords="191,70,157,70,157,65,191,65"/>
 </map>
 </div>
@@ -728,7 +724,7 @@ Here is the caller graph for this function:</div>
 
 <p class="reference">References <a class="el" href="BinaryUart_8hpp_source.html#l00067">FooterLen</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00044">FooterLenInit</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00066">HeaderLen</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00043">HeaderLenInit</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00062">InPacket</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00045">InPacketInit</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00064">PacketLen</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00041">PacketLenInit</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00063">PacketStart</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00040">PacketStartInit</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00065">PayloadLen</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00042">PayloadLenInit</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00054">RxCount</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00039">RxCountInit</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00068">SerialNum</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">CheckPacketEnd()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00256">CheckPacketEnd()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -737,7 +733,7 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title=" " alt="" coords="459,5,605,31"/>
 <area shape="rect" href="structBinaryUart.html#a710ecfd14e702d8cf732707d6184c2c2" title="Checks if a complete packet (with both header and footer) is present in the buffer." alt="" coords="204,5,411,31"/>
 <area shape="poly" title=" " alt="" coords="445,21,411,21,411,15,445,15"/>
-<area shape="rect" href="structBinaryUart.html#a1328d9d193b052cbc4013f21c7e6e222" title="Processes incoming data and checks for new packets." alt="" coords="5,5,156,31"/>
+<area shape="rect" href="structBinaryUart.html#a1328d9d193b052cbc4013f21c7e6e222" title="Reads all available bytes and checks for new packets." alt="" coords="5,5,156,31"/>
 <area shape="poly" title=" " alt="" coords="190,21,157,21,157,15,190,15"/>
 </map>
 </div>
@@ -767,72 +763,75 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Processes incoming data and checks for new packets. </p>
-<p>Reads a new character if available, adds it to the Rx buffer, and checks for packet boundaries (start and end).</p>
+<p>Reads all available bytes and checks for new packets. </p>
+<p>Bulk-reads all available data from the UART into a temporary buffer, then feeds each byte through the packet parsing state machine, checking for packet boundaries (start and end) after each byte.</p>
 <dl class="section return"><dt>Returns</dt><dd>bool Returns true if data was processed, false if no new data. </dd></dl>
 
 <p>Implements <a class="el" href="classIUartParser.html#a2e0ae0f8381237a9f972e1c7077f35cb">IUartParser</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00164">164</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00165">165</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="BinaryUart_8hpp_source.html#l00266">CheckPacketEnd()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00242">CheckPacketStart()</a>, <a class="el" href="classIUart.html#a639d6c3b3a8d73c2133c0fa24b53726c">IUart::dataready()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00061">debug</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00067">FooterLen</a>, <a class="el" href="classIPacket.html#aae378234fa6b67186eea047ed0bda774">IPacket::FooterLen()</a>, <a class="el" href="classIUart.html#aef9c35f7c2ded43d57f2d532bb97da84">IUart::getcqq()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00066">HeaderLen</a>, <a class="el" href="classIPacket.html#ad2ae0d8eb688d7987e63f438b007713c">IPacket::HeaderLen()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00062">InPacket</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00057">Packet</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00063">PacketStart</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00065">PayloadLen</a>, <a class="el" href="classIPacket.html#ae1f269523fdd7b923e6600c46d93a94f">IPacket::PayloadLen()</a>, <a class="el" href="IUartParser_8hpp_source.html#l00040">IUartParser::Pinout</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00216">ProcessByte()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00053">RxBuffer</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00054">RxCount</a>.</p>
+<p class="reference">References <a class="el" href="BinaryUart_8hpp_source.html#l00256">CheckPacketEnd()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00232">CheckPacketStart()</a>, <a class="el" href="classIUart.html#a639d6c3b3a8d73c2133c0fa24b53726c">IUart::dataready()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00061">debug</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00067">FooterLen</a>, <a class="el" href="classIPacket.html#aae378234fa6b67186eea047ed0bda774">IPacket::FooterLen()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00066">HeaderLen</a>, <a class="el" href="classIPacket.html#ad2ae0d8eb688d7987e63f438b007713c">IPacket::HeaderLen()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00062">InPacket</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00057">Packet</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00063">PacketStart</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00065">PayloadLen</a>, <a class="el" href="classIPacket.html#ae1f269523fdd7b923e6600c46d93a94f">IPacket::PayloadLen()</a>, <a class="el" href="IUartParser_8hpp_source.html#l00040">IUartParser::Pinout</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00212">ProcessByte()</a>, <a class="el" href="IUart_8h_source.html#l00065">IUart::read()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00053">RxBuffer</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00048">RxBufferLenBytes</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00054">RxCount</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="structBinaryUart_a1328d9d193b052cbc4013f21c7e6e222_cgraph.png" border="0" usemap="#astructBinaryUart_a1328d9d193b052cbc4013f21c7e6e222_cgraph" alt=""/></div>
 <map name="astructBinaryUart_a1328d9d193b052cbc4013f21c7e6e222_cgraph" id="astructBinaryUart_a1328d9d193b052cbc4013f21c7e6e222_cgraph">
-<area shape="rect" title="Processes incoming data and checks for new packets." alt="" coords="5,853,156,878"/>
-<area shape="rect" href="structBinaryUart.html#a710ecfd14e702d8cf732707d6184c2c2" title="Checks if a complete packet (with both header and footer) is present in the buffer." alt="" coords="207,498,414,523"/>
-<area shape="poly" title=" " alt="" coords="88,851,292,533,296,536,93,854"/>
-<area shape="rect" href="classIPacket.html#ae1f269523fdd7b923e6600c46d93a94f" title=" " alt="" coords="500,777,651,802"/>
-<area shape="poly" title=" " alt="" coords="110,850,153,833,203,819,277,805,352,796,486,788,486,793,353,802,278,811,205,824,155,838,112,855"/>
-<area shape="rect" href="structBinaryUart.html#ad350385f839762fcb3aad27a69e9809e" title="Checks if a packet is present in the buffer." alt="" coords="204,878,417,903"/>
-<area shape="poly" title=" " alt="" coords="157,871,191,875,190,880,156,876"/>
-<area shape="rect" href="classIPacket.html#ad2ae0d8eb688d7987e63f438b007713c" title=" " alt="" coords="735,878,881,903"/>
-<area shape="poly" title=" " alt="" coords="110,876,206,915,272,937,348,958,430,974,516,982,601,980,685,964,711,954,737,940,780,910,783,915,740,945,714,959,686,969,602,985,515,987,430,979,347,963,271,942,204,920,108,881"/>
-<area shape="rect" href="classIUart.html#a639d6c3b3a8d73c2133c0fa24b53726c" title=" " alt="" coords="247,1030,375,1055"/>
-<area shape="poly" title=" " alt="" coords="92,877,134,940,167,977,205,1008,235,1023,233,1028,203,1013,163,981,130,943,87,880"/>
-<area shape="rect" href="classIPacket.html#aae378234fa6b67186eea047ed0bda774" title=" " alt="" coords="738,499,878,525"/>
-<area shape="poly" title=" " alt="" coords="156,861,462,845,606,831,656,822,684,811,714,783,739,749,759,711,775,672,794,597,802,538,808,539,799,598,780,674,764,714,744,752,718,786,687,816,658,827,607,836,462,851,156,866"/>
-<area shape="rect" href="classIUart.html#aef9c35f7c2ded43d57f2d532bb97da84" title=" " alt="" coords="257,1079,364,1105"/>
-<area shape="poly" title=" " alt="" coords="88,877,102,915,125,967,160,1021,181,1045,206,1066,224,1076,245,1083,243,1088,222,1081,202,1070,178,1049,156,1024,121,969,97,917,83,879"/>
-<area shape="rect" href="structBinaryUart.html#a16b484e326a172e0c3b37ba6e8eed8a5" title="Adds a byte to the Rx buffer and handles buffer overflow." alt="" coords="221,121,401,146"/>
-<area shape="poly" title=" " alt="" coords="83,852,299,158,304,160,88,853"/>
-<area shape="rect" href="classIPacket.html#a6db60bf5beb402e644ccc323e0fb4b03" title=" " alt="" coords="480,271,671,311"/>
-<area shape="poly" title=" " alt="" coords="316,497,337,462,370,414,413,364,464,320,474,314,477,319,467,325,416,368,374,417,341,464,321,499"/>
-<area shape="rect" href="structBinaryUartCallbacks.html#a508d662c0d5228df5049e092aed51770" title=" " alt="" coords="498,335,653,375"/>
-<area shape="poly" title=" " alt="" coords="322,496,380,442,420,411,464,384,484,375,486,380,467,389,423,416,384,446,326,500"/>
-<area shape="rect" href="classIPacket.html#ac7c686a76164a3f61268ae04baadae51" title=" " alt="" coords="479,399,671,425"/>
-<area shape="poly" title=" " alt="" coords="333,495,391,465,464,433,491,425,493,431,466,439,394,469,335,500"/>
-<area shape="rect" href="structBinaryUart.html#a1b97f089ceb8177a9d9c4bd3f947da75" title=" " alt="" coords="733,121,883,146"/>
-<area shape="poly" title=" " alt="" coords="310,497,319,434,343,340,363,289,389,239,422,194,464,156,483,147,509,139,574,130,648,127,720,127,720,132,649,132,575,136,510,145,485,152,467,161,426,197,394,242,368,291,348,341,325,435,316,498"/>
-<area shape="rect" href="structBinaryUart.html#a54a6187390028315b7ba5a84c2cc09bb" title=" " alt="" coords="502,613,649,638"/>
-<area shape="poly" title=" " alt="" coords="331,521,390,559,466,598,493,606,491,612,464,602,387,564,329,526"/>
-<area shape="rect" href="structBinaryUartCallbacks.html#a61b30efec2c972e1b05aff498997e173" title=" " alt="" coords="498,663,653,703"/>
-<area shape="poly" title=" " alt="" coords="324,522,381,581,422,617,467,647,487,657,484,662,464,652,419,621,378,585,321,525"/>
-<area shape="rect" href="classIPacket.html#aac324d1be13b345811c62808e3046a0b" title=" " alt="" coords="465,727,685,753"/>
-<area shape="poly" title=" " alt="" coords="320,522,339,560,371,612,414,667,439,691,467,712,480,720,477,724,464,717,436,695,410,670,367,615,335,563,315,525"/>
-<area shape="rect" href="classIPacket.html#ae508735aa416afc0e8cb2a10f96006e8" title=" " alt="" coords="516,221,635,246"/>
-<area shape="poly" title=" " alt="" coords="313,497,330,451,360,385,404,316,432,284,464,256,501,239,504,244,467,261,436,288,409,319,365,388,335,453,318,499"/>
-<area shape="poly" title=" " alt="" coords="318,523,335,569,364,634,408,704,436,735,467,762,488,773,485,778,464,766,432,739,404,707,360,637,330,571,313,525"/>
-<area shape="rect" href="classIPacket.html#ace74729172ff26454c90e09d5e48784e" title=" " alt="" coords="497,449,654,474"/>
-<area shape="poly" title=" " alt="" coords="379,495,493,474,494,479,380,501"/>
-<area shape="rect" href="classIPacket.html#a54069372377ca86ac8ae677ae2c1544b" title=" " alt="" coords="503,498,647,523"/>
-<area shape="poly" title=" " alt="" coords="414,508,490,508,490,513,414,513"/>
-<area shape="rect" href="structBinaryUartCallbacks.html#a2ef2d961f39fd01758fb0f21f5850bda" title=" " alt="" coords="498,548,653,588"/>
-<area shape="poly" title=" " alt="" coords="371,521,485,546,484,551,370,526"/>
-<area shape="poly" title=" " alt="" coords="770,122,762,112,766,102,782,96,808,94,841,98,853,107,850,112,839,103,808,99,783,101,770,106,767,112,774,119"/>
-<area shape="rect" href="classIPacket.html#abdbd5f85a036c3b51c16ec938c18823d" title=" " alt="" coords="476,929,675,954"/>
-<area shape="poly" title=" " alt="" coords="378,901,495,923,494,929,377,906"/>
-<area shape="poly" title=" " alt="" coords="418,888,721,888,721,893,418,893"/>
-<area shape="poly" title=" " alt="" coords="401,118,465,112,575,107,686,112,723,116,723,121,685,117,575,112,466,117,401,123"/>
-<area shape="rect" href="structBinaryUartCallbacks.html#addd4c0dc575fa60d305d2a37df619003" title=" " alt="" coords="498,5,653,45"/>
-<area shape="poly" title=" " alt="" coords="337,118,464,62,501,48,503,53,466,66,339,123"/>
-<area shape="rect" href="structBinaryUart.html#abb67d795a67cbd9293dc1d699d9c47bf" title="Initializes the BinaryUart." alt="" coords="515,171,636,197"/>
-<area shape="poly" title=" " alt="" coords="378,143,502,167,501,173,377,149"/>
-<area shape="poly" title=" " alt="" coords="634,169,735,146,737,152,635,174"/>
-<area shape="poly" title=" " alt="" coords="637,182,664,190,687,206,704,234,715,271,726,365,730,462,736,536,773,724,803,864,798,865,768,725,731,536,725,462,721,365,710,272,699,236,683,210,662,195,635,187"/>
-<area shape="poly" title=" " alt="" coords="637,184,663,192,687,206,717,237,742,273,762,312,777,352,798,427,807,485,802,486,792,428,772,353,757,314,737,276,713,240,684,210,661,197,635,189"/>
+<area shape="rect" title="Reads all available bytes and checks for new packets." alt="" coords="5,781,156,806"/>
+<area shape="rect" href="structBinaryUart.html#a710ecfd14e702d8cf732707d6184c2c2" title="Checks if a complete packet (with both header and footer) is present in the buffer." alt="" coords="207,469,414,494"/>
+<area shape="poly" title=" " alt="" coords="89,779,290,504,294,507,94,782"/>
+<area shape="rect" href="classIPacket.html#ae1f269523fdd7b923e6600c46d93a94f" title=" " alt="" coords="500,742,651,768"/>
+<area shape="poly" title=" " alt="" coords="156,785,486,759,486,765,156,790"/>
+<area shape="rect" href="structBinaryUart.html#ad350385f839762fcb3aad27a69e9809e" title=" " alt="" coords="204,34,417,60"/>
+<area shape="poly" title=" " alt="" coords="80,780,86,649,105,438,121,326,142,222,169,136,184,103,202,77,217,64,221,68,206,81,189,105,173,138,147,223,126,327,111,439,92,650,85,781"/>
+<area shape="rect" href="classIPacket.html#ad2ae0d8eb688d7987e63f438b007713c" title=" " alt="" coords="735,85,881,110"/>
+<area shape="poly" title=" " alt="" coords="82,780,109,664,136,575,175,476,226,373,256,323,290,275,328,229,369,188,414,151,464,121,495,107,528,96,595,84,661,80,721,83,721,88,661,86,596,89,529,101,497,111,467,125,418,156,373,192,331,233,294,278,261,326,230,376,180,478,141,577,114,666,87,782"/>
+<area shape="rect" href="classIUart.html#a639d6c3b3a8d73c2133c0fa24b53726c" title=" " alt="" coords="511,958,639,984"/>
+<area shape="poly" title=" " alt="" coords="101,804,147,835,205,866,281,896,360,920,499,954,497,959,358,925,279,901,203,871,144,839,98,809"/>
+<area shape="rect" href="classIPacket.html#aae378234fa6b67186eea047ed0bda774" title=" " alt="" coords="738,950,878,976"/>
+<area shape="poly" title=" " alt="" coords="88,806,102,843,125,895,160,948,181,972,206,993,268,1033,326,1061,380,1079,434,1088,489,1087,548,1079,612,1064,684,1043,712,1032,739,1016,782,983,785,987,742,1021,715,1036,686,1048,614,1069,549,1084,489,1093,434,1093,379,1084,324,1066,266,1037,202,997,177,976,155,952,120,897,97,845,83,807"/>
+<area shape="rect" href="structBinaryUart.html#a16b484e326a172e0c3b37ba6e8eed8a5" title="Adds a byte to the Rx buffer and handles buffer overflow." alt="" coords="221,832,401,857"/>
+<area shape="poly" title=" " alt="" coords="140,804,240,826,238,831,139,809"/>
+<area shape="rect" href="classIUart.html#aa4064134d06b53eb580536c4a59af478" title=" " alt="" coords="265,958,356,984"/>
+<area shape="poly" title=" " alt="" coords="94,805,139,858,171,889,206,918,264,950,261,955,202,922,167,893,135,862,90,808"/>
+<area shape="rect" href="classIPacket.html#a6db60bf5beb402e644ccc323e0fb4b03" title=" " alt="" coords="480,398,671,438"/>
+<area shape="poly" title=" " alt="" coords="364,466,478,438,479,444,365,471"/>
+<area shape="rect" href="structBinaryUartCallbacks.html#a508d662c0d5228df5049e092aed51770" title=" " alt="" coords="498,462,653,502"/>
+<area shape="poly" title=" " alt="" coords="414,479,484,479,484,484,414,484"/>
+<area shape="rect" href="classIPacket.html#ac7c686a76164a3f61268ae04baadae51" title=" " alt="" coords="479,526,671,552"/>
+<area shape="poly" title=" " alt="" coords="371,492,503,521,502,526,370,497"/>
+<area shape="rect" href="structBinaryUart.html#a1b97f089ceb8177a9d9c4bd3f947da75" title=" " alt="" coords="733,793,883,818"/>
+<area shape="poly" title=" " alt="" coords="333,492,392,526,466,560,499,570,528,575,580,578,630,585,657,595,687,613,728,651,760,696,784,741,800,779,795,781,779,743,755,699,724,654,684,617,655,600,629,590,580,583,528,580,498,576,464,565,389,531,331,497"/>
+<area shape="rect" href="structBinaryUart.html#a54a6187390028315b7ba5a84c2cc09bb" title=" " alt="" coords="502,628,649,653"/>
+<area shape="poly" title=" " alt="" coords="326,492,383,547,423,579,467,606,503,621,501,626,464,611,420,583,380,551,322,496"/>
+<area shape="rect" href="structBinaryUartCallbacks.html#a61b30efec2c972e1b05aff498997e173" title=" " alt="" coords="498,678,653,718"/>
+<area shape="poly" title=" " alt="" coords="321,493,342,527,375,572,417,621,467,662,486,673,484,677,464,666,413,624,371,576,338,530,317,496"/>
+<area shape="rect" href="classIPacket.html#aac324d1be13b345811c62808e3046a0b" title=" " alt="" coords="465,136,685,161"/>
+<area shape="poly" title=" " alt="" coords="312,468,325,413,352,332,372,288,397,244,428,204,464,170,471,165,474,170,467,174,432,208,402,247,377,290,357,334,330,414,317,469"/>
+<area shape="rect" href="classIPacket.html#ae508735aa416afc0e8cb2a10f96006e8" title=" " alt="" coords="516,185,635,210"/>
+<area shape="poly" title=" " alt="" coords="313,468,329,421,359,353,379,316,403,281,431,248,464,219,482,209,502,202,503,207,484,214,467,224,435,251,407,284,383,319,363,355,334,422,318,470"/>
+<area shape="poly" title=" " alt="" coords="318,493,335,539,365,602,409,670,436,701,467,727,488,739,486,744,464,732,432,705,405,674,360,605,330,541,313,495"/>
+<area shape="rect" href="classIPacket.html#ace74729172ff26454c90e09d5e48784e" title=" " alt="" coords="497,234,654,260"/>
+<area shape="poly" title=" " alt="" coords="315,468,334,428,365,374,409,317,435,291,464,269,482,259,485,264,467,273,439,295,413,320,370,377,339,431,320,470"/>
+<area shape="rect" href="classIPacket.html#a54069372377ca86ac8ae677ae2c1544b" title=" " alt="" coords="503,284,647,309"/>
+<area shape="poly" title=" " alt="" coords="318,467,373,396,415,355,464,319,488,308,491,313,467,324,419,359,377,400,322,470"/>
+<area shape="rect" href="structBinaryUartCallbacks.html#a2ef2d961f39fd01758fb0f21f5850bda" title=" " alt="" coords="498,334,653,374"/>
+<area shape="poly" title=" " alt="" coords="328,467,386,426,464,383,484,375,486,380,466,388,389,431,331,471"/>
+<area shape="poly" title=" " alt="" coords="770,795,762,785,766,775,782,768,808,766,841,770,853,780,850,784,839,775,808,772,783,774,770,779,767,784,774,791"/>
+<area shape="rect" href="classIPacket.html#abdbd5f85a036c3b51c16ec938c18823d" title=" " alt="" coords="476,34,675,60"/>
+<area shape="poly" title=" " alt="" coords="417,44,462,44,462,50,417,50"/>
+<area shape="poly" title=" " alt="" coords="356,32,421,17,504,6,596,4,642,9,686,19,714,29,740,43,783,74,780,78,737,48,711,34,685,24,641,15,595,10,505,11,422,23,357,37"/>
+<area shape="poly" title=" " alt="" coords="401,834,465,828,719,809,720,814,466,834,401,839"/>
+<area shape="rect" href="structBinaryUartCallbacks.html#addd4c0dc575fa60d305d2a37df619003" title=" " alt="" coords="498,894,653,934"/>
+<area shape="poly" title=" " alt="" coords="361,854,485,887,484,893,359,860"/>
+<area shape="rect" href="structBinaryUart.html#abb67d795a67cbd9293dc1d699d9c47bf" title="Initializes the BinaryUart." alt="" coords="515,844,636,869"/>
+<area shape="poly" title=" " alt="" coords="401,846,501,850,501,856,401,851"/>
+<area shape="poly" title=" " alt="" coords="634,841,735,819,737,824,635,846"/>
+<area shape="poly" title=" " alt="" coords="604,841,646,816,666,798,683,778,708,722,730,644,749,551,766,451,790,258,802,124,807,125,795,258,771,452,755,552,735,646,713,724,688,780,670,802,649,820,607,846"/>
+<area shape="poly" title=" " alt="" coords="637,864,686,879,739,908,783,940,780,944,736,913,684,884,635,869"/>
+<area shape="poly" title=" " alt="" coords="356,968,497,968,497,974,356,974"/>
+<area shape="rect" href="classIUart.html#aef9c35f7c2ded43d57f2d532bb97da84" title=" " alt="" coords="522,1008,629,1033"/>
+<area shape="poly" title=" " alt="" coords="357,977,509,1005,508,1010,356,982"/>
 </map>
 </div>
 
@@ -870,11 +869,11 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00216">216</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00212">212</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="BinaryUart_8h_source.html#l00034">BinaryUartCallbacks::BufferOverflow()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00060">Callbacks</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00061">debug</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00418">formatf()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00053">RxBuffer</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00048">RxBufferLenBytes</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00054">RxCount</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00068">SerialNum</a>.</p>
+<p class="reference">References <a class="el" href="BinaryUart_8h_source.html#l00034">BinaryUartCallbacks::BufferOverflow()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00060">Callbacks</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00061">debug</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00408">formatf()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00053">RxBuffer</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00048">RxBufferLenBytes</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00054">RxCount</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00068">SerialNum</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00164">Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00165">Process()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -901,7 +900,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="structBinaryUart_a16b484e326a172e0c3b37ba6e8eed8a5_icgraph.png" border="0" usemap="#astructBinaryUart_a16b484e326a172e0c3b37ba6e8eed8a5_icgraph" alt=""/></div>
 <map name="astructBinaryUart_a16b484e326a172e0c3b37ba6e8eed8a5_icgraph" id="astructBinaryUart_a16b484e326a172e0c3b37ba6e8eed8a5_icgraph">
 <area shape="rect" title="Adds a byte to the Rx buffer and handles buffer overflow." alt="" coords="204,5,384,31"/>
-<area shape="rect" href="structBinaryUart.html#a1328d9d193b052cbc4013f21c7e6e222" title="Processes incoming data and checks for new packets." alt="" coords="5,5,156,31"/>
+<area shape="rect" href="structBinaryUart.html#a1328d9d193b052cbc4013f21c7e6e222" title="Reads all available bytes and checks for new packets." alt="" coords="5,5,156,31"/>
 <area shape="poly" title=" " alt="" coords="191,21,157,21,157,15,191,15"/>
 </map>
 </div>
@@ -968,9 +967,9 @@ Here is the caller graph for this function:</div>
 <p>&lt; Temporary buffer to hold the constructed packet</p>
 <p>&lt; Build packet</p>
 
-<p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00401">401</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00391">391</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="BinaryUart_8hpp_source.html#l00061">debug</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00418">formatf()</a>, <a class="el" href="classIPacket.html#aa50e563805822827057ebb7f7e99e6c2">IPacket::MakePacket()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00057">Packet</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00008">PayloadData()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00001">PayloadType</a>, <a class="el" href="IUartParser_8hpp_source.html#l00040">IUartParser::Pinout</a>, <a class="el" href="classIUart.html#a1c1fcaf4781bb826f1130e02e26db652">IUart::putcqq()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00049">TxBufferLenBytes</a>.</p>
+<p class="reference">References <a class="el" href="BinaryUart_8hpp_source.html#l00061">debug</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00408">formatf()</a>, <a class="el" href="classIPacket.html#aa50e563805822827057ebb7f7e99e6c2">IPacket::MakePacket()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00057">Packet</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00008">PayloadData()</a>, <a class="el" href="CGraphPacket_8hpp_source.html#l00001">PayloadType</a>, <a class="el" href="IUartParser_8hpp_source.html#l00040">IUartParser::Pinout</a>, <a class="el" href="classIUart.html#a1c1fcaf4781bb826f1130e02e26db652">IUart::putcqq()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00049">TxBufferLenBytes</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1006,7 +1005,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00060">60</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">CheckPacketEnd()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00216">ProcessByte()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00256">CheckPacketEnd()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00212">ProcessByte()</a>.</p>
 
 </div>
 </div>
@@ -1026,7 +1025,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00058">58</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">CheckPacketEnd()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00256">CheckPacketEnd()</a>.</p>
 
 </div>
 </div>
@@ -1044,7 +1043,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00061">61</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">CheckPacketEnd()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00110">Debug()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00105">Debug()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00164">Process()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00216">ProcessByte()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00401">TxBinaryPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00256">CheckPacketEnd()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00110">Debug()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00105">Debug()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00165">Process()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00212">ProcessByte()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00391">TxBinaryPacket()</a>.</p>
 
 </div>
 </div>
@@ -1114,7 +1113,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00067">67</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00139">InitFast()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00164">Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00139">InitFast()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00165">Process()</a>.</p>
 
 </div>
 </div>
@@ -1158,7 +1157,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00066">66</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">CheckPacketEnd()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00139">InitFast()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00164">Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00256">CheckPacketEnd()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00139">InitFast()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00165">Process()</a>.</p>
 
 </div>
 </div>
@@ -1204,7 +1203,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00062">62</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">CheckPacketEnd()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00242">CheckPacketStart()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00418">formatf()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00139">InitFast()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00164">Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00256">CheckPacketEnd()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00232">CheckPacketStart()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00408">formatf()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00139">InitFast()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00165">Process()</a>.</p>
 
 </div>
 </div>
@@ -1258,7 +1257,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00050">50</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">CheckPacketEnd()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00256">CheckPacketEnd()</a>.</p>
 
 </div>
 </div>
@@ -1276,7 +1275,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00059">59</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">CheckPacketEnd()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00256">CheckPacketEnd()</a>.</p>
 
 </div>
 </div>
@@ -1296,7 +1295,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00057">57</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">CheckPacketEnd()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00242">CheckPacketStart()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00164">Process()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00401">TxBinaryPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00256">CheckPacketEnd()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00232">CheckPacketStart()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00165">Process()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00391">TxBinaryPacket()</a>.</p>
 
 </div>
 </div>
@@ -1316,7 +1315,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00052">52</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">CheckPacketEnd()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00256">CheckPacketEnd()</a>.</p>
 
 </div>
 </div>
@@ -1378,7 +1377,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00063">63</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">CheckPacketEnd()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00242">CheckPacketStart()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00418">formatf()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00139">InitFast()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00164">Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00256">CheckPacketEnd()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00232">CheckPacketStart()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00408">formatf()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00139">InitFast()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00165">Process()</a>.</p>
 
 </div>
 </div>
@@ -1422,7 +1421,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00065">65</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00139">InitFast()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00164">Process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00139">InitFast()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00165">Process()</a>.</p>
 
 </div>
 </div>
@@ -1468,7 +1467,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00053">53</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">CheckPacketEnd()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00242">CheckPacketStart()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00418">formatf()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00164">Process()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00216">ProcessByte()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00256">CheckPacketEnd()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00232">CheckPacketStart()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00408">formatf()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00165">Process()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00212">ProcessByte()</a>.</p>
 
 </div>
 </div>
@@ -1494,7 +1493,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00048">48</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00216">ProcessByte()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00165">Process()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00212">ProcessByte()</a>.</p>
 
 </div>
 </div>
@@ -1514,7 +1513,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00054">54</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">CheckPacketEnd()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00242">CheckPacketStart()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00418">formatf()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00139">InitFast()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00164">Process()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00216">ProcessByte()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00256">CheckPacketEnd()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00232">CheckPacketStart()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00408">formatf()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00139">InitFast()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00165">Process()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00212">ProcessByte()</a>.</p>
 
 </div>
 </div>
@@ -1562,7 +1561,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00068">68</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00266">CheckPacketEnd()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00139">InitFast()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00216">ProcessByte()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00256">CheckPacketEnd()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00122">Init()</a>, <a class="el" href="BinaryUart_8hpp_source.html#l00139">InitFast()</a>, and <a class="el" href="BinaryUart_8hpp_source.html#l00212">ProcessByte()</a>.</p>
 
 </div>
 </div>
@@ -1588,7 +1587,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BinaryUart_8hpp_source.html#l00049">49</a> of file <a class="el" href="BinaryUart_8hpp_source.html">BinaryUart.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00401">TxBinaryPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BinaryUart_8hpp_source.html#l00391">TxBinaryPacket()</a>.</p>
 
 </div>
 </div>
@@ -1601,7 +1600,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structBinaryUart.html">BinaryUart</a></li>
-    <li class="footer">Generated on Tue Apr 7 2026 04:00:23 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Apr 8 2026 16:09:27 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

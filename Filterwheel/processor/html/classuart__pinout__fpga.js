@@ -11,6 +11,7 @@ var classuart__pinout__fpga =
     [ "Monitor", "classuart__pinout__fpga.html#aa5a2633baaec16416336aab18688b673", null ],
     [ "purgeinput", "classuart__pinout__fpga.html#a269a05d993746c079afa1d2fcd9008fd", null ],
     [ "putcqq", "classuart__pinout__fpga.html#a5d071f36e46b27aa00f305cdb8b1eb99", null ],
+    [ "read", "classuart__pinout__fpga.html#a63347961757b6602dd35cda60625ee3b", null ],
     [ "monitor", "classuart__pinout__fpga.html#ac40363e86622c4509ec9e70b3a309ee5", null ],
     [ "MonitorPrefaceChar", "classuart__pinout__fpga.html#a0c6c7d50823c9a7db42a315d22baa06c", null ],
     [ "ReadDataRegister", "classuart__pinout__fpga.html#a45549f8ebd0c5bbb869d555c2c51ec37", null ],

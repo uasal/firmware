@@ -12,6 +12,7 @@ var classlinux__pinout__circular__uart =
     [ "isopen", "classlinux__pinout__circular__uart.html#abd4771d4e327da40d44e463007d8f8a6", null ],
     [ "purgeinput", "classlinux__pinout__circular__uart.html#aef8de12996a504a06fb9f2296dd8741d", null ],
     [ "putcqq", "classlinux__pinout__circular__uart.html#a41b97ab0fe1151c1170d0a6e9b8b3e67", null ],
+    [ "read", "classlinux__pinout__circular__uart.html#ad5591bd0a44d593b911b91c1a73f8420", null ],
     [ "remotedataready", "classlinux__pinout__circular__uart.html#a6d99357e95f75192cc7160d0fd331644", null ],
     [ "remotedepth", "classlinux__pinout__circular__uart.html#aa4293dcb98bae1050227af0c1e13d158", null ],
     [ "remotegetcqq", "classlinux__pinout__circular__uart.html#a6da3e20fd66b4d33b75854b955fb9e1e", null ],

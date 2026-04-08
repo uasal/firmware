@@ -158,18 +158,29 @@ $(document).ready(function(){initNavTree('IUart_8h_source.html',''); initResizab
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classIUart.html#a995f4af4eca6913eaebe4313c5add900">   58</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classIUart.html#a995f4af4eca6913eaebe4313c5add900">purgeinput</a>() = 0;</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classIUart.html#a96ed701e6b9592230b9f02e93acc807f">   59</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classIUart.html#a96ed701e6b9592230b9f02e93acc807f">isopen</a>() <span class="keyword">const</span> = 0;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    </div>
-<div class="foldopen" id="foldopen00061" data-start="{" data-end="}">
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classIUart.html#a4ee951ad181647eb0c373fa2204d0681">   61</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classIUart.html#a4ee951ad181647eb0c373fa2204d0681">puts</a>(uint8_t <span class="keyword">const</span>* s, <span class="keyword">const</span> <span class="keywordtype">size_t</span> len)<span class="keyword"> override</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; len; i++)</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        {</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            <span class="keywordflow">if</span> (<span class="charliteral">&#39;\0&#39;</span> == s[i]) { <span class="keywordflow">break</span>; }</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <a class="code hl_function" href="classIUart.html#a1c1fcaf4781bb826f1130e02e26db652">putcqq</a>(s[i]);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        }</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    }</div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classIUart.html#aa4064134d06b53eb580536c4a59af478">   65</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classIUart.html#aa4064134d06b53eb580536c4a59af478">read</a>(uint8_t* buf, <span class="keywordtype">size_t</span> maxLen)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordtype">size_t</span> count = 0;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keywordflow">while</span> (count &lt; maxLen &amp;&amp; <a class="code hl_function" href="classIUart.html#a639d6c3b3a8d73c2133c0fa24b53726c">dataready</a>()) {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            buf[count++] = <span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(<a class="code hl_function" href="classIUart.html#aef9c35f7c2ded43d57f2d532bb97da84">getcqq</a>());</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(count);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
 </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>};</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="foldopen" id="foldopen00074" data-start="{" data-end="}">
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classIUart.html#a4ee951ad181647eb0c373fa2204d0681">   74</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classIUart.html#a4ee951ad181647eb0c373fa2204d0681">puts</a>(uint8_t <span class="keyword">const</span>* s, <span class="keyword">const</span> <span class="keywordtype">size_t</span> len)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; len; i++)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keywordflow">if</span> (<span class="charliteral">&#39;\0&#39;</span> == s[i]) { <span class="keywordflow">break</span>; }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <a class="code hl_function" href="classIUart.html#a1c1fcaf4781bb826f1130e02e26db652">putcqq</a>(s[i]);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    }</div>
+</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>};</div>
 </div>
 <div class="ttc" id="aIBlockDevice_8hpp_html"><div class="ttname"><a href="IBlockDevice_8hpp.html">IBlockDevice.hpp</a></div></div>
 <div class="ttc" id="aclassIBlockDevice_html"><div class="ttname"><a href="classIBlockDevice.html">IBlockDevice</a></div><div class="ttdoc">Copyright (c) by Franks Development, LLC.</div><div class="ttdef"><b>Definition</b> <a href="IBlockDevice_8hpp_source.html#l00031">IBlockDevice.hpp:32</a></div></div>
@@ -177,7 +188,7 @@ $(document).ready(function(){initNavTree('IUart_8h_source.html',''); initResizab
 <div class="ttc" id="aclassIUart_html_a1775ba7eac15a10e21cb0c8102e5ca30"><div class="ttname"><a href="classIUart.html#a1775ba7eac15a10e21cb0c8102e5ca30">IUart::flushoutput</a></div><div class="ttdeci">virtual void flushoutput()=0</div></div>
 <div class="ttc" id="aclassIUart_html_a1c1fcaf4781bb826f1130e02e26db652"><div class="ttname"><a href="classIUart.html#a1c1fcaf4781bb826f1130e02e26db652">IUart::putcqq</a></div><div class="ttdeci">virtual char putcqq(char c)=0</div></div>
 <div class="ttc" id="aclassIUart_html_a3d1b8f89f2299a0adf846cc472d35998"><div class="ttname"><a href="classIUart.html#a3d1b8f89f2299a0adf846cc472d35998">IUart::UseRTSCTS</a></div><div class="ttdeci">static const bool UseRTSCTS</div><div class="ttdef"><b>Definition</b> <a href="IUart_8h_source.html#l00042">IUart.h:42</a></div></div>
-<div class="ttc" id="aclassIUart_html_a4ee951ad181647eb0c373fa2204d0681"><div class="ttname"><a href="classIUart.html#a4ee951ad181647eb0c373fa2204d0681">IUart::puts</a></div><div class="ttdeci">virtual void puts(uint8_t const *s, const size_t len) override</div><div class="ttdef"><b>Definition</b> <a href="IUart_8h_source.html#l00061">IUart.h:61</a></div></div>
+<div class="ttc" id="aclassIUart_html_a4ee951ad181647eb0c373fa2204d0681"><div class="ttname"><a href="classIUart.html#a4ee951ad181647eb0c373fa2204d0681">IUart::puts</a></div><div class="ttdeci">virtual void puts(uint8_t const *s, const size_t len) override</div><div class="ttdef"><b>Definition</b> <a href="IUart_8h_source.html#l00074">IUart.h:74</a></div></div>
 <div class="ttc" id="aclassIUart_html_a5596bc1c37a997ad63f6fd7273f0f582"><div class="ttname"><a href="classIUart.html#a5596bc1c37a997ad63f6fd7273f0f582">IUart::NoRTSCTS</a></div><div class="ttdeci">static const bool NoRTSCTS</div><div class="ttdef"><b>Definition</b> <a href="IUart_8h_source.html#l00043">IUart.h:43</a></div></div>
 <div class="ttc" id="aclassIUart_html_a639d6c3b3a8d73c2133c0fa24b53726c"><div class="ttname"><a href="classIUart.html#a639d6c3b3a8d73c2133c0fa24b53726c">IUart::dataready</a></div><div class="ttdeci">virtual bool dataready() const =0</div></div>
 <div class="ttc" id="aclassIUart_html_a91a3bc93823d8abedb3796e256ae9a14"><div class="ttname"><a href="classIUart.html#a91a3bc93823d8abedb3796e256ae9a14">IUart::~IUart</a></div><div class="ttdeci">virtual ~IUart()</div><div class="ttdef"><b>Definition</b> <a href="IUart_8h_source.html#l00037">IUart.h:37</a></div></div>
@@ -185,6 +196,7 @@ $(document).ready(function(){initNavTree('IUart_8h_source.html',''); initResizab
 <div class="ttc" id="aclassIUart_html_a96ed701e6b9592230b9f02e93acc807f"><div class="ttname"><a href="classIUart.html#a96ed701e6b9592230b9f02e93acc807f">IUart::isopen</a></div><div class="ttdeci">virtual bool isopen() const =0</div></div>
 <div class="ttc" id="aclassIUart_html_a995f4af4eca6913eaebe4313c5add900"><div class="ttname"><a href="classIUart.html#a995f4af4eca6913eaebe4313c5add900">IUart::purgeinput</a></div><div class="ttdeci">virtual void purgeinput()=0</div></div>
 <div class="ttc" id="aclassIUart_html_a9b07f9f0939ad012fe6cf88945419f6e"><div class="ttname"><a href="classIUart.html#a9b07f9f0939ad012fe6cf88945419f6e">IUart::IUartOK</a></div><div class="ttdeci">static const bool IUartOK</div><div class="ttdef"><b>Definition</b> <a href="IUart_8h_source.html#l00041">IUart.h:41</a></div></div>
+<div class="ttc" id="aclassIUart_html_aa4064134d06b53eb580536c4a59af478"><div class="ttname"><a href="classIUart.html#aa4064134d06b53eb580536c4a59af478">IUart::read</a></div><div class="ttdeci">virtual int read(uint8_t *buf, size_t maxLen)</div><div class="ttdef"><b>Definition</b> <a href="IUart_8h_source.html#l00065">IUart.h:65</a></div></div>
 <div class="ttc" id="aclassIUart_html_ac8928b803f6751af4168a5deec359a39"><div class="ttname"><a href="classIUart.html#ac8928b803f6751af4168a5deec359a39">IUart::OddParity</a></div><div class="ttdeci">static const bool OddParity</div><div class="ttdef"><b>Definition</b> <a href="IUart_8h_source.html#l00039">IUart.h:39</a></div></div>
 <div class="ttc" id="aclassIUart_html_ae460209f21ef210649583cedb2e63049"><div class="ttname"><a href="classIUart.html#ae460209f21ef210649583cedb2e63049">IUart::IUart</a></div><div class="ttdeci">IUart()</div><div class="ttdef"><b>Definition</b> <a href="IUart_8h_source.html#l00036">IUart.h:36</a></div></div>
 <div class="ttc" id="aclassIUart_html_aef9c35f7c2ded43d57f2d532bb97da84"><div class="ttname"><a href="classIUart.html#aef9c35f7c2ded43d57f2d532bb97da84">IUart::getcqq</a></div><div class="ttdeci">virtual char getcqq()=0</div></div>
@@ -194,7 +206,7 @@ $(document).ready(function(){initNavTree('IUart_8h_source.html',''); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d6f08dacffa511a6d27e4de96b253a49.html">uart</a></li><li class="navelem"><a class="el" href="IUart_8h.html">IUart.h</a></li>
-    <li class="footer">Generated on Tue Apr 7 2026 04:00:23 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Apr 8 2026 16:09:27 for ESC FilterWheel C++ Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

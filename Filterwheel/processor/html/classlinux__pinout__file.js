@@ -10,5 +10,6 @@ var classlinux__pinout__file =
     [ "isopen", "classlinux__pinout__file.html#a12327d65065b70b0b2ac51ffde0bc5ef", null ],
     [ "purgeinput", "classlinux__pinout__file.html#a77a5b169f9224220a5b92fb5155fa015", null ],
     [ "putcqq", "classlinux__pinout__file.html#a99b97529ce75bdbd5095f96c846b0489", null ],
+    [ "read", "classlinux__pinout__file.html#afbb4df96d1ab0efddbe538a11fc027ac", null ],
     [ "fd", "classlinux__pinout__file.html#a91ceab4c4c5bc7e0d43e62f82893605c", null ]
 ];

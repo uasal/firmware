@@ -11,6 +11,7 @@ var classlinux__pinout__server__socket =
     [ "isopen", "classlinux__pinout__server__socket.html#ac9c565155633e60323b04a3c72f3fe59", null ],
     [ "purgeinput", "classlinux__pinout__server__socket.html#adb468760af2ccac563825bc16cdf01b7", null ],
     [ "putcqq", "classlinux__pinout__server__socket.html#a1f0c2f6818ec01c9c6d674460319fee9", null ],
+    [ "read", "classlinux__pinout__server__socket.html#a9b0c933503e3c6c530f49350362a5fdc", null ],
     [ "silent", "classlinux__pinout__server__socket.html#a6bf858c8a8079ec33c33cece3bbcbf76", null ],
     [ "SocketConnect", "classlinux__pinout__server__socket.html#abc5e602838dbce28edbd13ce13ee9349", null ],
     [ "Address", "classlinux__pinout__server__socket.html#af069212dfe258858306bb87147212735", null ],

@@ -15,6 +15,7 @@ var classlinux__pinout__uart =
     [ "isopen", "classlinux__pinout__uart.html#a00c5f3242250b2f7ef36f9af5e3b8408", null ],
     [ "purgeinput", "classlinux__pinout__uart.html#ac567162314bf11cd3d5a7e4e41acd802", null ],
     [ "putcqq", "classlinux__pinout__uart.html#a9a32021b55f7eee1ec97a1ead9c58f25", null ],
+    [ "read", "classlinux__pinout__uart.html#a4a1825a1ed984a879eee3db92b8ba8b1", null ],
     [ "autoreopen", "classlinux__pinout__uart.html#a3b4f0d416ec74f7c4c8e5e0bf89c8ffa", null ],
     [ "Baud", "classlinux__pinout__uart.html#a8e8a9dd5ea5bba02d3fb38d68e14d9cf", null ],
     [ "ComFileDescriptor", "classlinux__pinout__uart.html#afd26a4a8ee681d87611dae8d3715af3d", null ],

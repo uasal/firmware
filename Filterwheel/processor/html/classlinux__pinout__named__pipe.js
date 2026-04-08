@@ -13,6 +13,7 @@ var classlinux__pinout__named__pipe =
     [ "purgeinput", "classlinux__pinout__named__pipe.html#a85aaf548aeeb38c0ef41e48fbc4891fb", null ],
     [ "put", "classlinux__pinout__named__pipe.html#a803a4c1ce6f89bfa24d7e1a0884702a5", null ],
     [ "putcqq", "classlinux__pinout__named__pipe.html#ad13fa7e901e5f3d533896e011f9db8b2", null ],
+    [ "read", "classlinux__pinout__named__pipe.html#a95a942061922828a37c2cbaea2682572", null ],
     [ "Silent", "classlinux__pinout__named__pipe.html#accf6e71cf921a5b9779a2b4158e35bcc", null ],
     [ "size", "classlinux__pinout__named__pipe.html#a42c1cc5b4a680773708b45d20a79b235", null ],
     [ "fd", "classlinux__pinout__named__pipe.html#ac446a4006459ae56b0d5346a3c90f8e6", null ],
