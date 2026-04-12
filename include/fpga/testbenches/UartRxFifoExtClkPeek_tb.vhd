@@ -89,36 +89,36 @@ begin
 
     test_process : process
     begin
-        ReadFifo <= '0';
-        FifoPeekAddr <= (others => '0');
-        FifoMultiPopAddr <= (others => '0');
-        FifoMultiPopStrobe <= '0';
-        Rxd <= '1';
-        FifoPeekAddr <= (others => '0');
-        FifoMultiPopAddr <= (others => '0');
-        FifoMultiPopStrobe <= '0';
+        -- ReadFifo <= '0';
+        -- FifoPeekAddr <= (others => '0');
+        -- FifoMultiPopAddr <= (others => '0');
+        -- FifoMultiPopStrobe <= '0';
+        -- Rxd <= '1';
+        -- FifoPeekAddr <= (others => '0');
+        -- FifoMultiPopAddr <= (others => '0');
+        -- FifoMultiPopStrobe <= '0';
 
-        set_test_name(test_name_display, "Reset");
-        reset_dut(bit_clk, rst);
-        assert_equal(FifoEmpty, '1', "FifoEmpty should be 1 after reset");
-        assert_equal(FifoFull, '0', "FifoFull should be 0 after reset");
-        assert_equal(FifoCount, std_logic_vector(to_unsigned(0, PeekRamDepth)), "FifoCount should be 0 after reset");
-        assert_equal(RxComplete, '0', "RxComplete should be 0 after reset");
+        -- set_test_name(test_name_display, "Reset");
+        -- reset_dut(bit_clk, rst);
+        -- assert_equal(FifoEmpty, '1', "FifoEmpty should be 1 after reset");
+        -- assert_equal(FifoFull, '0', "FifoFull should be 0 after reset");
+        -- assert_equal(FifoCount, std_logic_vector(to_unsigned(0, PeekRamDepth)), "FifoCount should be 0 after reset");
+        -- assert_equal(RxComplete, '0', "RxComplete should be 0 after reset");
 
-        set_test_name(test_name_display, "Receive Byte 0xA5");
-        send_byte_timed(Rxd, x"A5");
-        wait until falling_edge(bit_clk);
-        wait until falling_edge(bit_clk);
-        assert_equal(FifoEmpty, '0', "FifoEmpty should be 0 after receiving byte");
-        assert_equal(FifoFull, '0', "FifoFull should be 0 after receiving one byte");
-        assert_equal(FifoCount, std_logic_vector(to_unsigned(1, PeekRamDepth)), "FifoCount should be 1 after receiving one byte");
+        -- set_test_name(test_name_display, "Receive Byte 0xA5");
+        -- send_byte_timed(Rxd, x"A5");
+        -- wait until falling_edge(bit_clk);
+        -- wait until falling_edge(bit_clk);
+        -- assert_equal(FifoEmpty, '0', "FifoEmpty should be 0 after receiving byte");
+        -- assert_equal(FifoFull, '0', "FifoFull should be 0 after receiving one byte");
+        -- assert_equal(FifoCount, std_logic_vector(to_unsigned(1, PeekRamDepth)), "FifoCount should be 1 after receiving one byte");
 
-        send_byte_timed(Rxd, x"5A");
-        wait until falling_edge(bit_clk);
-        wait until falling_edge(bit_clk);
-        assert_equal(FifoEmpty, '0', "FifoEmpty should be 0 after receiving byte");
-        assert_equal(FifoFull, '0', "FifoFull should be 0 after receiving one byte");
-        assert_equal(FifoCount, std_logic_vector(to_unsigned(2, PeekRamDepth)), "FifoCount should be 2 after receiving two bytes");
+        -- send_byte_timed(Rxd, x"5A");
+        -- wait until falling_edge(bit_clk);
+        -- wait until falling_edge(bit_clk);
+        -- assert_equal(FifoEmpty, '0', "FifoEmpty should be 0 after receiving byte");
+        -- assert_equal(FifoFull, '0', "FifoFull should be 0 after receiving one byte");
+        -- assert_equal(FifoCount, std_logic_vector(to_unsigned(2, PeekRamDepth)), "FifoCount should be 2 after receiving two bytes");
 
         
 

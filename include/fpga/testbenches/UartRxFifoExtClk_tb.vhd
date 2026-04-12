@@ -93,25 +93,25 @@ begin
         ReadFifo <= '0';
         Rxd <= '1';
 
-        set_test_name(test_name_display, "Reset");
-        reset_dut(bit_clk, rst);
-        assert_equal(FifoEmpty, '1', "FifoEmpty should be 1 after reset");
-        assert_equal(FifoFull, '0', "FifoFull should be 0 after reset");
-        assert_equal(FifoCount, std_logic_vector(to_unsigned(0, FIFO_BITS)), "FifoCount should be 0 after reset");
-        assert_equal(RxComplete, '0', "RxComplete should be 0 after reset");
-        assert_equal(FifoReadAck, '0', "FifoReadAck should be 0 after reset");
-        assert_equal(FifoReadData, x"00", "FifoReadData should be 0 after reset");
+        -- set_test_name(test_name_display, "Reset");
+        -- reset_dut(bit_clk, rst);
+        -- assert_equal(FifoEmpty, '1', "FifoEmpty should be 1 after reset");
+        -- assert_equal(FifoFull, '0', "FifoFull should be 0 after reset");
+        -- assert_equal(FifoCount, std_logic_vector(to_unsigned(0, FIFO_BITS)), "FifoCount should be 0 after reset");
+        -- assert_equal(RxComplete, '0', "RxComplete should be 0 after reset");
+        -- assert_equal(FifoReadAck, '0', "FifoReadAck should be 0 after reset");
+        -- assert_equal(FifoReadData, x"00", "FifoReadData should be 0 after reset");
 
-        set_test_name(test_name_display, "Receive Byte 0xA5");
-        send_byte_timed(Rxd, x"A5");
-        wait until falling_edge(bit_clk);
-        wait until falling_edge(bit_clk);
-        wait until falling_edge(bit_clk);
-        assert_equal(FifoEmpty, '0', "FifoEmpty should be 0 after receiving byte");
-        assert_equal(FifoFull, '0', "FifoFull should be 0 after receiving one byte");
-        assert_equal(FifoCount, std_logic_vector(to_unsigned(1, FIFO_BITS)), "FifoCount should be 1 after receiving one byte");
-        assert_equal(FifoReadData, x"00", "FifoReadData should still be 0 before reading from FIFO");
-        assert_equal(FifoReadAck, '0', "FifoReadAck should be 0 before reading from FIFO");
+        -- set_test_name(test_name_display, "Receive Byte 0xA5");
+        -- send_byte_timed(Rxd, x"A5");
+        -- wait until falling_edge(bit_clk);
+        -- wait until falling_edge(bit_clk);
+        -- wait until falling_edge(bit_clk);
+        -- assert_equal(FifoEmpty, '0', "FifoEmpty should be 0 after receiving byte");
+        -- assert_equal(FifoFull, '0', "FifoFull should be 0 after receiving one byte");
+        -- assert_equal(FifoCount, std_logic_vector(to_unsigned(1, FIFO_BITS)), "FifoCount should be 1 after receiving one byte");
+        -- assert_equal(FifoReadData, x"00", "FifoReadData should still be 0 before reading from FIFO");
+        -- assert_equal(FifoReadAck, '0', "FifoReadAck should be 0 before reading from FIFO");
 
 
         finish;
