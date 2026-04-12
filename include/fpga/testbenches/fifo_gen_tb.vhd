@@ -81,6 +81,7 @@ begin
         assert_equal(count_o, std_logic_vector(to_unsigned(0, DEPTH_BITS)), "Counter should be 0 after reset");
         assert_equal(empty_o, '1', "FIFO should be empty after reset");
         assert_equal(full_o, '0', "FIFO should not be full after reset");
+        assert_equal(r_ack, '0', "r_ack should be 0 after reset");
 
 
         set_test_name(test_name_display, "Simple Writes and Reads");

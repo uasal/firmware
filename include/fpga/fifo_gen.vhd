@@ -57,8 +57,8 @@ architecture rtl of fifo is
 	signal full_r			: std_logic;
 	signal data_r			: std_logic_vector(WIDTH_BITS - 1 downto 0);
 begin
-	do_read <= re_i and not empty_r;
-	do_write <= we_i and not full_r;
+	do_read <= '1' when (re_i = '1' and empty_r = '0') else '0';
+	do_write <= '1' when (we_i = '1' and full_r = '0') else '0';
 	do_count <= '1' when do_read /= do_write else '0';
 	empty_o <= empty_r;
 	full_o <= full_r;

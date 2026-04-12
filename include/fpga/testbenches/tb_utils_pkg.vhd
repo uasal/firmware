@@ -94,6 +94,7 @@ package body tb_utils_pkg is
         rst_out <= '1';
         wait until falling_edge(clk);
         rst_out <= '0';
+		wait for 0 ns;
     end procedure;
 
 	procedure set_test_name(

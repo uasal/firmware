@@ -74,24 +74,22 @@ architecture implementation of UartRxFifoExtClk is
 		);
 		end component;
 
-		component gated_fifo is
-		generic 
-		(
+		component fifo is
+		generic (
 			WIDTH_BITS : natural := 32;
 			DEPTH_BITS : natural := 9
 		);
-		port 
-		(
+		port (
 			clk		: in std_logic;
 			rst		: in std_logic;
-			wone_i	: in std_logic;
+			we_i	: in std_logic;
 			data_i	: in std_logic_vector(WIDTH_BITS - 1 downto 0);
-			rone_i	: in std_logic;
+			re_i	: in std_logic;
 			full_o	: out std_logic;
 			empty_o	: out std_logic;
 			data_o	: out std_logic_vector(WIDTH_BITS - 1 downto 0);
 			count_o	: out std_logic_vector(DEPTH_BITS - 1 downto 0);
-			r_ack : out std_logic--;
+			r_ack	: out std_logic--;
 		);
 		end component;
 		
@@ -109,9 +107,11 @@ architecture implementation of UartRxFifoExtClk is
 
 	signal RxComplete_i : std_logic; --Just got a byte
 	signal RxData : std_logic_vector(7 downto 0); --The byte we just got		
-	signal ReadFifo_i : std_logic; --Sync ReadFifo to clock domain
-	signal WriteFifo_i : std_logic; --Sync WriteFifo to clock domain	
-	
+	signal ReadFifo_i : std_logic;
+	signal WriteFifo_i : std_logic;
+	-- signal WriteFifo_clean : std_logic;
+	-- signal ReadFifo_clean : std_logic;
+
 begin
 
 	--~ --Just sync the Txd to the UartClock
@@ -127,6 +127,8 @@ begin
 	Dbg1 <= WriteFifo_i;	
 	
 	ReadFifo_i <= ReadFifo;
+	-- WriteFifo_clean <= '1' when (WriteFifo_i = '1' and rst = '0') else '0';
+	-- ReadFifo_clean <= '1' when (ReadFifo_i = '1' and rst = '0') else '0';
 	
 	--The actual uart to grab data
 	Uart : UartRxExtClk
@@ -151,24 +153,23 @@ begin
 	);
 	
 	--Fifo holds bytes after we get them
-	UartFifo : gated_fifo
+	UartFifo : fifo
 	generic map
 	(
 		WIDTH_BITS => 8,
 		DEPTH_BITS => FIFO_BITS--,
 	)
-	port map
-	(
+	port map (
 		clk => clk,
 		rst => rst,
-		wone_i => WriteFifo_i,
+		we_i => WriteFifo_i,
 		data_i => RxData,
+		re_i => ReadFifo_i,
 		full_o => FifoFull,
 		empty_o => FifoEmpty,
 		count_o => FifoCount,
-		rone_i => ReadFifo_i,
 		r_ack => FifoReadAck,
 		data_o => FifoReadData--,
 	);
-	
+
 end implementation;
