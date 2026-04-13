@@ -68,9 +68,8 @@ begin
         rst  <= '1';
         data <= x"48";
         wait until falling_edge(clk);
-        assert_equal(crc, crc_next_byte_ref(x"FFFFFFFF", x"48"), "reset with H on bus");
-
         rst <= '0';
+        assert_equal(crc, crc_next_byte_ref(x"FFFFFFFF", x"48"), "reset with H on bus");
         wait until rising_edge(clk);
         running := crc_next_byte_ref(x"FFFFFFFF", x"48");
         data <= x"49";

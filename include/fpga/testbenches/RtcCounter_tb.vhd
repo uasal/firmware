@@ -9,16 +9,12 @@ end entity RtcCounter_tb;
 
 architecture sim of RtcCounter_tb is
 
-    -- 10 kHz → ClockDividerRollover = 9 (10 clocks per ms).
-    -- Keeps the SetTime branch reachable and a full second = 10,000 clocks.
     constant CLOCK_FREQ  : natural := 10000;
     constant CLK_PERIOD  : time    := 100 us;
     constant CLKS_PER_MS : natural := CLOCK_FREQ / 1000; -- 10
 
     signal clk            : std_logic;
     signal rst            : std_logic;
-    -- PPS idles '1' to match the hardware pull-up; RTL resets LastPPS <= '1'
-    -- so this avoids a spurious edge on the first clock after reset.
     signal PPS            : std_logic;
     signal PPSDetected    : std_logic;
     signal Sync           : std_logic; -- unused

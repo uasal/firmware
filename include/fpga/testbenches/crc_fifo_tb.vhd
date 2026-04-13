@@ -1,3 +1,8 @@
+-- Follows:
+-- clears crc / resets crcstate (this clear pause might cause timing problems asp)
+-- advances internal crc state + assumes fifopeekdata corresponds correctly
+-- when current address = end address, crc is complete
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -83,10 +88,10 @@ begin
         StartCrc     <= '1';
         wait until falling_edge(clk);
         StartCrc     <= '0';
-        while CrcComplete = '0' loop
-            FifoPeekData <= std_logic_vector(to_unsigned(to_integer(unsigned(FifoPeekAddr)) mod 256, 8));
-            wait until falling_edge(clk);
-        end loop;
+        FifoPeekData <= std_logic_vector(to_unsigned(0, 8));
+        wait until falling_edge(clk);
+        FifoPeekData <= std_logic_vector(to_unsigned(1, 8));
+        wait until falling_edge(clk);
         expected_crc := x"FFFFFFFF";
         expected_crc := crc_next_byte(expected_crc, x"00");
         expected_crc := crc_next_byte(expected_crc, x"01");

@@ -1,4 +1,4 @@
--- Same phase-decode idea as ClockDivider2X; set terminal_count to (fixed CLOCK_DIVIDER - 1) for the same rate as the generic 2X
+-- Same phase-decode idea as ClockDivider2X, set terminal_count to (fixed CLOCK_DIVIDER - 1) for the same rate as the generic 2X
 
 library ieee;
 use ieee.std_logic_1164.all;
