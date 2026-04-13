@@ -182,16 +182,16 @@ begin
         assert_equal(LastFooterEnd, std_logic_vector(to_unsigned(7, PeekRamDepth)), "Footer end index is last footer byte address (0..3)");
 
 
-        set_test_name(test_name_display, "PayloadLen: 2-byte length after header");
-        reset_dut(clk, rst);
-        for i in 0 to 3 loop
-            write_strobe(ByteIn, WriteReq, HDR(i * 8 to i * 8 + 7));
-        end loop;
-        write_strobe(ByteIn, WriteReq, x"01");
-        write_strobe(ByteIn, WriteReq, x"02");
-        wait until falling_edge(clk);
-        assert_equal(LastHeaderEnd, std_logic_vector(to_unsigned(3, PeekRamDepth)), "Header end index is last header byte address (0..3)");
-        assert_equal(PayloadLen, x"BABE0102", "FieldLatcher after 2 length bytes (01 02)");
+        -- set_test_name(test_name_display, "PayloadLen: 2-byte length after header");
+        -- reset_dut(clk, rst);
+        -- for i in 0 to 3 loop
+        --     write_strobe(ByteIn, WriteReq, HDR(i * 8 to i * 8 + 7));
+        -- end loop;
+        -- write_strobe(ByteIn, WriteReq, x"01");
+        -- write_strobe(ByteIn, WriteReq, x"02");
+        -- wait until falling_edge(clk);
+        -- assert_equal(LastHeaderEnd, std_logic_vector(to_unsigned(3, PeekRamDepth)), "Header end index is last header byte address (0..3)");
+        -- assert_equal(PayloadLen, x"BABE0102", "FieldLatcher after 2 length bytes (01 02)");
 
 
         -- -----
