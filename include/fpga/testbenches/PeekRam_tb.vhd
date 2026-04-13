@@ -72,7 +72,6 @@ begin
         reset_dut(clk, rst);
         assert_equal(ByteOut, x"FF", "ByteOut should be FF during reset");
 
-        -- No declaration-time RAM init: establish known data by explicit write.
         set_test_name(test_name_display, "Write and read address 0");
         write_ram(WriteAddress, ByteIn, WriteReq, 0, x"00");
         read_ram(ReadAddress, 0);

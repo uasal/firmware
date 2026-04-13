@@ -288,6 +288,32 @@ begin
         end loop;
         assert_equal(Crc, expected_crc, "back-to-back second CRC");
 
+        set_test_name(test_name_display, "Reset in middle of CRC");
+        FifoStartAddr <= std_logic_vector(to_unsigned(30, DEPTH_BITS));
+        FifoEndAddr   <= std_logic_vector(to_unsigned(32, DEPTH_BITS));
+        wait until falling_edge(clk);
+        FifoPeekData <= std_logic_vector(to_unsigned(30 mod 256, 8));
+        StartCrc     <= '1';
+        wait until falling_edge(clk);
+        StartCrc     <= '0';
+        rst <= '1';
+        wait until falling_edge(clk);
+        rst <= '0';
+        wait until falling_edge(clk);
+        FifoPeekData <= std_logic_vector(to_unsigned(30 mod 256, 8));
+        StartCrc     <= '1';
+        wait until falling_edge(clk);
+        StartCrc     <= '0';
+        while CrcComplete = '0' loop
+            FifoPeekData <= std_logic_vector(to_unsigned(to_integer(unsigned(FifoPeekAddr)) mod 256, 8));
+            wait until falling_edge(clk);
+        end loop;
+        expected_crc := x"FFFFFFFF";
+        for i in 30 to 32 loop
+            expected_crc := crc_next_byte(expected_crc, std_logic_vector(to_unsigned(i mod 256, 8)));
+        end loop;
+        assert_equal(Crc, expected_crc, "reset in middle of CRC");
+
         finish;
     end process;
 

@@ -122,7 +122,7 @@ begin
         assert_equal(RxComplete, '0', "RxComplete should be 0 after mid-byte reset");
 
 
-        -- Assert while line still low; release + reset avoids 0x00 complete from UartRxRaw
+        -- Assert while line still low!! release + reset avoids 0x00 complete from UartRxRaw
         set_test_name(test_name_display, "Break condition");
         Rxd <= '1';
         wait until falling_edge(bit_clk);

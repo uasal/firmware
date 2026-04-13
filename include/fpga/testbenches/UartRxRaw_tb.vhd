@@ -19,7 +19,7 @@ architecture sim of UartRXRaw_tb is
     signal test_name_display : string(1 to 80);
 
     constant CLK_PERIOD : time := 10 ns;
-    constant BIT_CYCLES : natural := 16; -- matches SampleCnt 0..15 in DUT
+    constant BIT_CYCLES : natural := 16;
 
     procedure send_byte_timed(
         signal RxD_o : out std_logic;
