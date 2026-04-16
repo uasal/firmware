@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
-[*] Wed Mar 25 17:48:07 2026
+[*] Wed Apr 15 21:53:45 2026
 [*]
 [dumpfile] "/home/ellis/ant/firmware/include/fpga/testbenches/work/ClockDivider2X_tb.ghw"
-[dumpfile_mtime] "Wed Mar 25 17:39:36 2026"
-[dumpfile_size] 40924
+[dumpfile_mtime] "Wed Apr 15 21:50:40 2026"
+[dumpfile_size] 40954
 [savefile] "/home/ellis/ant/firmware/include/fpga/testbenches/waves/ClockDivider2X.gtkw"
-[timestart] 1700000000
+[timestart] 5711100000
 [size] 1908 999
-[pos] -500 -270
-*-31.000000 2705000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -1 -1
+*-25.000000 5809400000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.clockdivider2x_tb.
 [sst_width] 214
@@ -48,5 +48,35 @@ top.clockdivider2x_tb.dut_cfg3.clkdiv
 top.clockdivider2x_tb.dut_cfg3.div
 top.clockdivider2x_tb.dut_cfg3.div_i
 top.clockdivider2x_tb.dut_cfg3.rst
+@200
+-Divider: 5, 0
+@28
+top.clockdivider2x_tb.dut_cfg4.div_i
+@420
+top.clockdivider2x_tb.dut_cfg4.clkdiv
+@28
+top.clockdivider2x_tb.dut_cfg4.div
+top.clockdivider2x_tb.dut_cfg4.rst
+top.clockdivider2x_tb.dut_cfg4.clk
+@200
+-Divider: 1, Rst 0
+@28
+top.clockdivider2x_tb.dut_cfg5.div_i
+@420
+top.clockdivider2x_tb.dut_cfg5.clkdiv
+@28
+top.clockdivider2x_tb.dut_cfg5.div
+top.clockdivider2x_tb.dut_cfg5.rst
+top.clockdivider2x_tb.dut_cfg5.clk
+@200
+-Divider: 2, Rst: 0
+@29
+top.clockdivider2x_tb.dut_cfg6.div_i
+@421
+top.clockdivider2x_tb.dut_cfg6.clkdiv
+@29
+top.clockdivider2x_tb.dut_cfg6.div
+top.clockdivider2x_tb.dut_cfg6.rst
+top.clockdivider2x_tb.dut_cfg6.clk
 [pattern_trace] 1
 [pattern_trace] 0

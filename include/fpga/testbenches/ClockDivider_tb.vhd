@@ -1,5 +1,3 @@
--- Toggles the output every CLOCK_DIVIDER/2 rising input edges, so the output period is CLOCK_DIVIDER clki cycles (~50% duty for even N)
-
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -13,77 +11,119 @@ architecture sim of ClockDivider_tb is
 
 	signal clk : std_logic;
 	signal rst : std_logic;
-	
+
 	constant CLK_PERIOD : time := 10 ns;
-	
+
 	signal div_cfg1 : std_logic;
 	signal div_cfg2 : std_logic;
 	signal div_cfg3 : std_logic;
-	
-	signal test_name_display : string(1 to 40);
-	
-	procedure test_divider(
-		signal div : in std_logic;
-		signal rst_out : out std_logic;
-		constant name : string;
-		constant divider_value : natural;
-		constant rst_state : std_logic
+	signal div_cfg4 : std_logic;
+
+	signal test_name_display : string(1 to 80);
+
+	procedure expect_stable(
+		signal observed : in std_logic;
+		constant expected : std_logic;
+		constant cycles : natural;
+		constant check_name : string
 	) is
-		variable expected_div : std_logic := rst_state;
 	begin
-
-		wait until falling_edge(clk);
-		report COLOR_YELLOW & "Testing: " & name & COLOR_RESET;
-
-		rst_out <= '1';
-		wait until falling_edge(clk);
-		assert_equal(div, rst_state, "Reset state");
-		
-		rst_out <= '0';
-		expected_div := rst_state;
-		
-		for i in 1 to 128 loop
-			for k in 1 to (divider_value / 2) - 1 loop
+		for i in 0 to cycles loop
+			assert_equal(observed, expected, check_name & " cycle " & integer'image(i));
+			if (i < cycles) then
 				wait until falling_edge(clk);
-			end loop;
-			wait until falling_edge(clk);
-			expected_div := not expected_div;
-			assert_equal(div, expected_div, "Toggle " & integer'image(i));
+			end if;
 		end loop;
-		
-		rst_out <= '0';
-		wait for 50 ns;
-		
 	end procedure;
 
 begin
 
-	clk_process: process
+	clk_process : process
 	begin
 		clk <= '0';
-		wait for CLK_PERIOD/2;
+		wait for CLK_PERIOD / 2;
 		clk <= '1';
-		wait for CLK_PERIOD/2;
+		wait for CLK_PERIOD / 2;
 	end process;
 
-	test_process: process
+	test_process : process
+		variable expected : std_logic;
 	begin
-		test_name_display <= "Initializing...                         ";
+		set_test_name(test_name_display, "Reset states");
+		reset_dut(clk, rst);
+		assert_equal(div_cfg1, '0', "cfg1 reset state");
+		assert_equal(div_cfg2, '0', "cfg2 reset state");
+		assert_equal(div_cfg3, '1', "cfg3 reset state");
+		assert_equal(div_cfg4, '0', "cfg4 reset state");
 
+		set_test_name(test_name_display, "cfg1 div10 toggles every 5 cycles");
+		expected := '0';
+		for t in 1 to 40 loop
+			expect_stable(div_cfg1, expected, 4, "cfg1 hold before toggle");
+			wait until falling_edge(clk);
+			expected := not expected;
+			assert_equal(div_cfg1, expected, "cfg1 toggle " & integer'image(t));
+		end loop;
+
+		set_test_name(test_name_display, "cfg2 div6 toggles every 3 cycles");
+		reset_dut(clk, rst);
+		expected := '0';
+		for t in 1 to 48 loop
+			expect_stable(div_cfg2, expected, 2, "cfg2 hold before toggle");
+			wait until falling_edge(clk);
+			expected := not expected;
+			assert_equal(div_cfg2, expected, "cfg2 toggle " & integer'image(t));
+		end loop;
+
+		set_test_name(test_name_display, "cfg3 div10 with inverted reset");
+		reset_dut(clk, rst);
+		expected := '1';
+		for t in 1 to 30 loop
+			expect_stable(div_cfg3, expected, 4, "cfg3 hold before toggle");
+			wait until falling_edge(clk);
+			expected := not expected;
+			assert_equal(div_cfg3, expected, "cfg3 toggle " & integer'image(t));
+		end loop;
+
+		set_test_name(test_name_display, "cfg4 div2 toggles every cycle");
+		reset_dut(clk, rst);
+		expected := '0';
+		for t in 1 to 80 loop
+			wait until falling_edge(clk);
+			expected := not expected;
+			assert_equal(div_cfg4, expected, "cfg4 toggle " & integer'image(t));
+		end loop;
+
+		set_test_name(test_name_display, "Mid-run reset recovery from low phase");
+		cycle_clock(clk, 3);
+		rst <= '1';
+		wait until falling_edge(clk);
+		assert_equal(div_cfg1, '0', "cfg1 reset asserted");
 		rst <= '0';
-		wait for 100 ns;
-		
-		test_name_display <= "Test 1: Standard Config (DIV=10, RST=0) ";
-		test_divider(div_cfg1, rst, test_name_display, 10, '0');
-		
-		test_name_display <= "Test 2: Fast Divider (DIV=6, RST=0)     ";
-		test_divider(div_cfg2, rst, test_name_display, 6, '0');
-		
-		test_name_display <= "Test 3: Inverted Reset (DIV=10, RST=1)  ";
-		test_divider(div_cfg3, rst, test_name_display, 10, '1');
-		
+		expect_stable(div_cfg1, '0', 4, "cfg1 restarts after reset");
+		wait until falling_edge(clk);
+		assert_equal(div_cfg1, '1', "cfg1 toggles after restart");
+
+		set_test_name(test_name_display, "Mid-run reset recovery from high phase");
+		cycle_clock(clk, 5);
+		rst <= '1';
+		wait until falling_edge(clk);
+		assert_equal(div_cfg1, '0', "cfg1 forced to reset state");
+		rst <= '0';
+		expect_stable(div_cfg1, '0', 4, "cfg1 low hold after second reset");
+		wait until falling_edge(clk);
+		assert_equal(div_cfg1, '1', "cfg1 resumes cadence after second reset");
+
+		set_test_name(test_name_display, "cfg1 long stress cadence");
+		expected := div_cfg1;
+		for t in 1 to 100 loop
+			expect_stable(div_cfg1, expected, 4, "cfg1 stress hold");
+			wait until falling_edge(clk);
+			expected := not expected;
+			assert_equal(div_cfg1, expected, "cfg1 stress toggle " & integer'image(t));
+		end loop;
+
 		finish;
-		
 	end process;
 
 	-- Clock Divider configurations, I can't easily parameterize the test procedure so making multiple, probably overkill
@@ -121,7 +161,18 @@ begin
 			div => div_cfg3
 		);
 
+	-- Divider=1 not instantiated here because the DUT's internal
+	-- counter range uses CLOCK_DIVIDER/2 and becomes invalid for value 1.
+
+	dut_cfg4: entity work.ClockDividerPorts
+		generic map (
+			CLOCK_DIVIDER => 2,
+			DIVOUT_RST_STATE => '0'
+		)
+		port map (
+			clk => clk,
+			rst => rst,
+			div => div_cfg4
+		);
+
 end architecture sim;
-
-
-	

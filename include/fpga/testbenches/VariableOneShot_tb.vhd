@@ -24,204 +24,114 @@ architecture sim of VariableOneShot_tb is
     constant CLK_PERIOD : time := 10 ns;
     signal delay_clks : std_logic_vector(DEFAULT_WIDTH_BITS - 1 downto 0);
 
-    procedure test_one_shot(
-        signal shot : in std_logic;
-        signal rst_out : out std_logic;
-        signal delay_clks_in : in std_logic_vector(DEFAULT_WIDTH_BITS - 1 downto 0);
-        constant name : string;
-        constant rst_state : std_logic;
-        constant pretrigger_state : std_logic
-    )
-    is
-        variable delay_cycles : natural;
+    procedure expect_stable(
+        signal observed : in std_logic;
+        constant expected : std_logic;
+        constant cycles : natural;
+        constant check_name : string
+    ) is
     begin
-
-        wait until falling_edge(clk);
-		delay_cycles := to_integer(unsigned(delay_clks_in));
-		report COLOR_YELLOW & "Testing: " & name & COLOR_RESET;
-
-        rst_out <= '1';
-        wait until falling_edge(clk);
-        assert_equal(shot, rst_state, "Reset state");
-
-        rst_out <= '0';
-
-        for i in 0 to (delay_cycles) loop
-            wait until falling_edge(clk);
-            if (i < delay_cycles) then
-                assert_equal(shot, pretrigger_state, "Pre-trigger state at cycle " & integer'image(i));
-            else
-                assert_equal(shot, not pretrigger_state, "Shot state at cycle " & integer'image(i));
+        for i in 0 to cycles loop
+            assert_equal(observed, expected, check_name & " cycle " & integer'image(i));
+            if (i < cycles) then
+                wait until falling_edge(clk);
             end if;
         end loop;
-
-        for i in 1 to 3 loop
-            wait until falling_edge(clk);
-            assert_equal(shot, not pretrigger_state, "Post-shot hold state at cycle " & integer'image(i));
-        end loop;
-
     end procedure;
 
 begin
 
-    clk_process: process
-        begin
-            clk <= '0';
-            wait for CLK_PERIOD/2;
-            clk <= '1';
-            wait for CLK_PERIOD/2;
-        end process;
+    clk_process : process
+    begin
+        clk <= '0';
+        wait for CLK_PERIOD / 2;
+        clk <= '1';
+        wait for CLK_PERIOD / 2;
+    end process;
 
-    test_process: process
-        begin
+    test_process : process
+    begin
+        set_test_name(test_name_display, "Reset states");
+        delay_clks <= (others => '0');
+        reset_dut(clk, rst);
+        assert_equal(shot_cfg1, '0', "cfg1 reset");
+        assert_equal(shot_cfg2, '1', "cfg2 reset");
+        assert_equal(shot_cfg3, '0', "cfg3 reset");
+        assert_equal(shot_cfg4, '1', "cfg4 reset");
 
+        set_test_name(test_name_display, "cfg1 delay=0 immediate trigger");
         delay_clks <= std_logic_vector(to_unsigned(0, DEFAULT_WIDTH_BITS));
-        set_test_name(test_name_display, "cfg1 delay=0 edge case");
-        test_one_shot(
-            shot => shot_cfg1,
-            rst_out => rst,
-            delay_clks_in => delay_clks,
-            name => "cfg1 delay=0 edge case",
-            rst_state => '0',
-            pretrigger_state => '0'
-        );
-
-        delay_clks <= std_logic_vector(to_unsigned(1, DEFAULT_WIDTH_BITS));
-        set_test_name(test_name_display, "cfg1 delay=1 edge case");
-        test_one_shot(
-            shot => shot_cfg1,
-            rst_out => rst,
-            delay_clks_in => delay_clks,
-            name => "cfg1 delay=1 edge case",
-            rst_state => '0',
-            pretrigger_state => '0'
-        );
-
-        delay_clks <= std_logic_vector(to_unsigned(10, DEFAULT_WIDTH_BITS));
-        set_test_name(test_name_display, "cfg1 delay=10 nominal");
-        test_one_shot(
-            shot => shot_cfg1,
-            rst_out => rst,
-            delay_clks_in => delay_clks,
-            name => "cfg1 delay=10 nominal",
-            rst_state => '0',
-            pretrigger_state => '0'
-        );
-
-        delay_clks <= std_logic_vector(to_unsigned(MAX_DELAY_CYCLES, DEFAULT_WIDTH_BITS));
-        set_test_name(test_name_display, "cfg1 delay=max 8-bit");
-        test_one_shot(
-            shot => shot_cfg1,
-            rst_out => rst,
-            delay_clks_in => delay_clks,
-            name => "cfg1 delay=max 8-bit",
-            rst_state => '0',
-            pretrigger_state => '0'
-        );
-
-        delay_clks <= std_logic_vector(to_unsigned(0, DEFAULT_WIDTH_BITS));
-        set_test_name(test_name_display, "cfg2 delay=0 edge case");
-        test_one_shot(
-            shot => shot_cfg2,
-            rst_out => rst,
-            delay_clks_in => delay_clks,
-            name => "cfg2 delay=0 edge case",
-            rst_state => '1',
-            pretrigger_state => '0'
-        );
-
-        delay_clks <= std_logic_vector(to_unsigned(6, DEFAULT_WIDTH_BITS));
-        set_test_name(test_name_display, "cfg2 delay=6 nominal");
-        test_one_shot(
-            shot => shot_cfg2,
-            rst_out => rst,
-            delay_clks_in => delay_clks,
-            name => "cfg2 delay=6 nominal",
-            rst_state => '1',
-            pretrigger_state => '0'
-        );
-
-        delay_clks <= std_logic_vector(to_unsigned(200, DEFAULT_WIDTH_BITS));
-        set_test_name(test_name_display, "cfg2 delay=200 high");
-        test_one_shot(
-            shot => shot_cfg2,
-            rst_out => rst,
-            delay_clks_in => delay_clks,
-            name => "cfg2 delay=200 high",
-            rst_state => '1',
-            pretrigger_state => '0'
-        );
-
-        delay_clks <= std_logic_vector(to_unsigned(1, DEFAULT_WIDTH_BITS));
-        set_test_name(test_name_display, "cfg3 delay=1 edge case");
-        test_one_shot(
-            shot => shot_cfg3,
-            rst_out => rst,
-            delay_clks_in => delay_clks,
-            name => "cfg3 delay=1 edge case",
-            rst_state => '0',
-            pretrigger_state => '1'
-        );
-
-        delay_clks <= std_logic_vector(to_unsigned(12, DEFAULT_WIDTH_BITS));
-        set_test_name(test_name_display, "cfg3 delay=12 nominal");
-        test_one_shot(
-            shot => shot_cfg3,
-            rst_out => rst,
-            delay_clks_in => delay_clks,
-            name => "cfg3 delay=12 nominal",
-            rst_state => '0',
-            pretrigger_state => '1'
-        );
-
-        delay_clks <= std_logic_vector(to_unsigned(254, DEFAULT_WIDTH_BITS));
-        set_test_name(test_name_display, "cfg3 delay=254 near-max");
-        test_one_shot(
-            shot => shot_cfg3,
-            rst_out => rst,
-            delay_clks_in => delay_clks,
-            name => "cfg3 delay=254 near-max",
-            rst_state => '0',
-            pretrigger_state => '1'
-        );
-
-        delay_clks <= std_logic_vector(to_unsigned(0, DEFAULT_WIDTH_BITS));
-        set_test_name(test_name_display, "cfg4 delay=0 edge case");
-        test_one_shot(
-            shot => shot_cfg4,
-            rst_out => rst,
-            delay_clks_in => delay_clks,
-            name => "cfg4 delay=0 edge case",
-            rst_state => '1',
-            pretrigger_state => '1'
-        );
-
-        delay_clks <= std_logic_vector(to_unsigned(3, DEFAULT_WIDTH_BITS));
-        set_test_name(test_name_display, "cfg4 delay=3 nominal");
-        test_one_shot(
-            shot => shot_cfg4,
-            rst_out => rst,
-            delay_clks_in => delay_clks,
-            name => "cfg4 delay=3 nominal",
-            rst_state => '1',
-            pretrigger_state => '1'
-        );
-
-        delay_clks <= std_logic_vector(to_unsigned(MAX_DELAY_CYCLES, DEFAULT_WIDTH_BITS));
-        set_test_name(test_name_display, "cfg4 delay=max 8-bit");
-        test_one_shot(
-            shot => shot_cfg4,
-            rst_out => rst,
-            delay_clks_in => delay_clks,
-            name => "cfg4 delay=max 8-bit",
-            rst_state => '1',
-            pretrigger_state => '1'
-        );
-
+        reset_dut(clk, rst);
         wait until falling_edge(clk);
-        report "All tests passed!" severity note;
-        finish;
+        assert_equal(shot_cfg1, '1', "cfg1 immediate trigger");
+        expect_stable(shot_cfg1, '1', 40, "cfg1 latched");
 
+        set_test_name(test_name_display, "cfg1 delay=10 nominal");
+        delay_clks <= std_logic_vector(to_unsigned(10, DEFAULT_WIDTH_BITS));
+        reset_dut(clk, rst);
+        expect_stable(shot_cfg1, '0', 10, "cfg1 pretrigger");
+        wait until falling_edge(clk);
+        assert_equal(shot_cfg1, '1', "cfg1 trigger");
+        expect_stable(shot_cfg1, '1', 40, "cfg1 post-trigger hold");
+
+        set_test_name(test_name_display, "cfg1 delay=1 edge case");
+        delay_clks <= std_logic_vector(to_unsigned(1, DEFAULT_WIDTH_BITS));
+        reset_dut(clk, rst);
+        expect_stable(shot_cfg1, '0', 1, "cfg1 delay1 pretrigger");
+        wait until falling_edge(clk);
+        assert_equal(shot_cfg1, '1', "cfg1 delay1 trigger");
+        expect_stable(shot_cfg1, '1', 20, "cfg1 delay1 latched");
+
+        set_test_name(test_name_display, "cfg1 runtime delay decrease before trigger");
+        delay_clks <= std_logic_vector(to_unsigned(20, DEFAULT_WIDTH_BITS));
+        reset_dut(clk, rst);
+        expect_stable(shot_cfg1, '0', 4, "cfg1 long-delay pretrigger");
+        delay_clks <= std_logic_vector(to_unsigned(6, DEFAULT_WIDTH_BITS));
+        wait until falling_edge(clk);
+        assert_equal(shot_cfg1, '0', "cfg1 still pretrigger on retune cycle");
+        wait until falling_edge(clk);
+        assert_equal(shot_cfg1, '0', "cfg1 still pretrigger one more cycle after retune");
+        wait until falling_edge(clk);
+        assert_equal(shot_cfg1, '1', "cfg1 triggers after shortened runtime delay");
+
+        set_test_name(test_name_display, "cfg2 delay=6 with rst high");
+        delay_clks <= std_logic_vector(to_unsigned(6, DEFAULT_WIDTH_BITS));
+        reset_dut(clk, rst);
+        wait until falling_edge(clk);
+        expect_stable(shot_cfg2, '0', 5, "cfg2 pretrigger");
+        wait until falling_edge(clk);
+        assert_equal(shot_cfg2, '1', "cfg2 trigger");
+        expect_stable(shot_cfg2, '1', 40, "cfg2 latched");
+
+        set_test_name(test_name_display, "cfg3 pretrigger-high behavior");
+        delay_clks <= std_logic_vector(to_unsigned(12, DEFAULT_WIDTH_BITS));
+        reset_dut(clk, rst);
+        wait until falling_edge(clk);
+        expect_stable(shot_cfg3, '1', 11, "cfg3 pretrigger");
+        wait until falling_edge(clk);
+        assert_equal(shot_cfg3, '0', "cfg3 trigger");
+        expect_stable(shot_cfg3, '0', 40, "cfg3 latched");
+
+        set_test_name(test_name_display, "cfg4 max delay and reset recovery");
+        delay_clks <= std_logic_vector(to_unsigned(MAX_DELAY_CYCLES, DEFAULT_WIDTH_BITS));
+        reset_dut(clk, rst);
+        expect_stable(shot_cfg4, '1', 200, "cfg4 early pretrigger");
+        reset_dut(clk, rst);
+        assert_equal(shot_cfg4, '1', "cfg4 reset recovery");
+
+        set_test_name(test_name_display, "Reset before trigger restarts countdown");
+        delay_clks <= std_logic_vector(to_unsigned(15, DEFAULT_WIDTH_BITS));
+        reset_dut(clk, rst);
+        expect_stable(shot_cfg1, '0', 10, "cfg1 pretrigger before reset");
+        rst <= '1';
+        wait until falling_edge(clk);
+        assert_equal(shot_cfg1, '0', "cfg1 reset while pretrigger");
+        rst <= '0';
+        expect_stable(shot_cfg1, '0', 15, "cfg1 restarted pretrigger");
+        wait until falling_edge(clk);
+        assert_equal(shot_cfg1, '1', "cfg1 retrigger after full restarted delay");
+
+        finish;
     end process;
 
     dut_cfg1 : entity work.VariableOneShotPorts

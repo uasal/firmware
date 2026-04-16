@@ -1,6 +1,3 @@
--- Same average rate as ClockDivider for the same CLOCK_DIVIDER, but a 0..DIV-1 counter is updated every cycle and the output is decoded from it
--- TODO (maybe) make it /2 like VariableClockDivider2X
-
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -24,40 +21,21 @@ architecture sim of ClockDivider2X_tb is
 	signal div_cfg5 : std_logic;
 	signal div_cfg6 : std_logic;
 	
-	signal test_name_display : string(1 to 40);
-	
-	procedure test_divider(
-		signal div : in std_logic;
-		signal rst_out : out std_logic;
-		constant name : string;
-		constant divider_value : natural;
-		constant rst_state : std_logic
+	signal test_name_display : string(1 to 80);
+
+	procedure expect_stable(
+		signal observed : in std_logic;
+		constant expected : std_logic;
+		constant cycles : natural;
+		constant check_name : string
 	) is
-		variable expected_div : std_logic := rst_state;
 	begin
-
-		wait until falling_edge(clk);
-		-- report COLOR_YELLOW & "Testing: " & name & COLOR_RESET;
-
-		rst_out <= '1';
-		wait until falling_edge(clk);
-		assert_equal(div, rst_state, "Reset state");
-		
-		rst_out <= '0';
-		expected_div := rst_state;
-		
-		for i in 1 to 128 loop
-			for k in 1 to (divider_value / 2) - 1 loop
+		for i in 0 to cycles loop
+			assert_equal(observed, expected, check_name & " cycle " & integer'image(i));
+			if (i < cycles) then
 				wait until falling_edge(clk);
-			end loop;
-			wait until falling_edge(clk);
-			expected_div := not expected_div;
-			assert_equal(div, expected_div, "Toggle " & integer'image(i));
+			end if;
 		end loop;
-		
-		rst_out <= '0';
-		wait for 50 ns;
-		
 	end procedure;
 
 begin
@@ -71,33 +49,92 @@ begin
 	end process;
 
 	test_process: process
+		variable expected : std_logic;
 	begin
-		
-		set_test_name(test_name_display, "Test 1: Standard Config (DIV=10, RST=0) ");
-		test_divider(div_cfg1, rst, test_name_display, 10, '0');
-		
-		set_test_name(test_name_display, "Test 2: Fast Divider (DIV=6, RST=0)     ");
-		test_divider(div_cfg2, rst, test_name_display, 6, '0');
-		
-		set_test_name(test_name_display, "Test 3: Inverted Reset (DIV=10, RST=1)  ");
-		test_divider(div_cfg3, rst, test_name_display, 10, '1');
-		
-		-- For now will not work with 0 divider
-		-- test_name_display <= "Test 4: Divider=0 (DIV=0, RST=0)        ";
-		-- test_divider(div_cfg4, rst, test_name_display, 0, '0');
-		
-		test_name_display <= "Test 5: Divider=1 (DIV=1, RST=0)        ";
-		for i in 1 to 128 loop
+		set_test_name(test_name_display, "Reset states");
+		reset_dut(clk, rst);
+		assert_equal(div_cfg1, '0', "cfg1 reset state");
+		assert_equal(div_cfg2, '0', "cfg2 reset state");
+		assert_equal(div_cfg3, '1', "cfg3 reset state");
+		assert_equal(div_cfg4, '0', "cfg4 reset state");
+		assert_equal(div_cfg5, '0', "cfg5 reset state");
+		assert_equal(div_cfg6, '0', "cfg6 reset state");
+
+		set_test_name(test_name_display, "cfg1 div10 decoded phase");
+		expected := '0';
+		for t in 1 to 36 loop
+			expect_stable(div_cfg1, expected, 4, "cfg1 hold");
 			wait until falling_edge(clk);
-			assert_equal(div_cfg5, '0', "Divider=1 should be 0");
+			expected := not expected;
+			assert_equal(div_cfg1, expected, "cfg1 toggle " & integer'image(t));
 		end loop;
+
+		set_test_name(test_name_display, "cfg2 div6 decoded phase");
+		reset_dut(clk, rst);
+		expected := '0';
+		for t in 1 to 54 loop
+			expect_stable(div_cfg2, expected, 2, "cfg2 hold");
+			wait until falling_edge(clk);
+			expected := not expected;
+			assert_equal(div_cfg2, expected, "cfg2 toggle " & integer'image(t));
+		end loop;
+
+		set_test_name(test_name_display, "cfg3 inverted reset behavior");
+		reset_dut(clk, rst);
+		expected := '1';
+		for t in 1 to 30 loop
+			expect_stable(div_cfg3, expected, 4, "cfg3 hold");
+			wait until falling_edge(clk);
+			expected := not expected;
+			assert_equal(div_cfg3, expected, "cfg3 toggle " & integer'image(t));
+		end loop;
+
+		-- Odd divider has a 3:2 duty cycle pattern, assuming this is not intended to be used for a clock output just verifying the pattern is consistent with the counter behavior
+		set_test_name(test_name_display, "cfg4 odd divider decoded duty");
+		reset_dut(clk, rst);
+		for t in 1 to 60 loop
+			wait until falling_edge(clk);
+			if ((t mod 5) = 1 or (t mod 5) = 0) then
+				assert_equal(div_cfg4, '0', "cfg4 odd pattern low " & integer'image(t));
+			else
+				assert_equal(div_cfg4, '1', "cfg4 odd pattern high " & integer'image(t));
+			end if;
+		end loop;
+
+		set_test_name(test_name_display, "cfg5 divider=1 remains reset state");
+		reset_dut(clk, rst);
+		expect_stable(div_cfg5, '0', 120, "cfg5 constant low");
+
+		set_test_name(test_name_display, "cfg6 divider=2 toggles each cycle");
+		reset_dut(clk, rst);
+		expected := '0';
+		for t in 1 to 80 loop
+			wait until falling_edge(clk);
+			expected := not expected;
+			assert_equal(div_cfg6, expected, "cfg6 toggle " & integer'image(t));
+		end loop;
+
+		set_test_name(test_name_display, "cfg1 reset recovery mid-run");
+		cycle_clock(clk, 3);
+		rst <= '1';
 		wait until falling_edge(clk);
-		assert_equal(div_cfg5, '0', "Divider=1 should be 0");
-		
-		set_test_name(test_name_display, "Test 6: Divider=2 (DIV=2, RST=0)        ");
+		assert_equal(div_cfg1, '0', "cfg1 reset asserted");
+		rst <= '0';
+		expect_stable(div_cfg1, '0', 4, "cfg1 restart low hold");
 		wait until falling_edge(clk);
-		test_divider(div_cfg6, rst, test_name_display, 2, '0');
-		
+		assert_equal(div_cfg1, '1', "cfg1 restart toggle");
+
+		set_test_name(test_name_display, "cfg2 long stress cadence");
+		reset_dut(clk, rst);
+		assert_equal(div_cfg2, '0', "cfg2 stress reset state");
+		expected := div_cfg2;
+		for t in 1 to 120 loop
+			expect_stable(div_cfg2, expected, 2, "cfg2 stress hold");
+			wait until falling_edge(clk);
+			expected := not expected;
+			assert_equal(div_cfg2, expected, "cfg2 stress toggle " & integer'image(t));
+		end loop;
+
 		finish;
 		
 	end process;
@@ -137,17 +174,18 @@ begin
 			div => div_cfg3
 		);
 		
-	-- For now will not work with 0 divider
-	-- dut_cfg4: entity work.ClockDivider2XPorts
-	-- 	generic map (
-	-- 		CLOCK_DIVIDER => 0,
-	-- 		DIVOUT_RST_STATE => '0'
-	-- 	)
-	-- 	port map (
-	-- 		clk => clk,
-	-- 		rst => rst,
-	-- 		div => div_cfg4
-	-- 	);
+	dut_cfg4: entity work.ClockDivider2XPorts
+		generic map (
+			CLOCK_DIVIDER => 5,
+			DIVOUT_RST_STATE => '0'
+		)
+		port map (
+			clk => clk,
+			rst => rst,
+			div => div_cfg4
+		);
+
+	-- Not testing divider = 0 because then out of bounds
 
 	dut_cfg5: entity work.ClockDivider2XPorts
 		generic map (
@@ -160,7 +198,7 @@ begin
 			div => div_cfg5
 		);
 
-		dut_cfg6: entity work.ClockDivider2XPorts
+	dut_cfg6: entity work.ClockDivider2XPorts
 		generic map (
 			CLOCK_DIVIDER => 2,
 			DIVOUT_RST_STATE => '0'

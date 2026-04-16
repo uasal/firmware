@@ -117,6 +117,15 @@ begin
         wait until falling_edge(clk);
         assert_equal(ByteOut, x"55", "Read should return 55 after writing address 30");
 
+        set_test_name(test_name_display, "Full address space");
+        for i in 0 to (2 ** PeekRamDepth - 1) loop
+            write_ram(WriteAddress, ByteIn, WriteReq, i, std_logic_vector(to_unsigned(i mod 256, 8)));
+        end loop;
+        for i in 0 to (2 ** PeekRamDepth - 1) loop
+            read_ram(ReadAddress, i);
+            assert_equal(ByteOut, std_logic_vector(to_unsigned(i mod 256, 8)), "Read should return " & to_string(i) & " from address " & to_string(i));
+        end loop;
+
         set_test_name(test_name_display, "Reset after writes");
         reset_dut(clk, rst);
         assert_equal(ByteOut, x"FF", "ByteOut should return to FF after reset");
