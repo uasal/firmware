@@ -39,7 +39,8 @@ use IEEE.NUMERIC_STD.all;
 
 entity CrcFifo is
 	generic (
-			DEPTH_BITS : natural := 10--;
+			DEPTH_BITS : natural := 10;
+			CRC_INIT_STATE : std_logic_vector(31 downto 0) := x"FFFFFFFF"--;
 	);
 	port (
 	
@@ -61,6 +62,9 @@ entity CrcFifo is
 architecture implementation of CrcFifo is
 
 	component CrcStream is
+	generic (
+		CRC_INIT_STATE : std_logic_vector(31 downto 0) := x"FFFFFFFF"
+	);
 	port (
 	
 		--Globals
@@ -83,6 +87,10 @@ architecture implementation of CrcFifo is
 begin
 
 	crcer : CrcStream
+	generic map
+	(
+		CRC_INIT_STATE => CRC_INIT_STATE
+	)
 	port map
 	(
 		clk => clk,
@@ -102,7 +110,7 @@ begin
 			LastStartCrc <= '0';
 			CrcComplete_i <= '1';
 			FifoPeekAddr_i <= FifoStartAddr;
-			Crc <= x"FFFFFFFF";
+			Crc <= CRC_INIT_STATE;
 					
 		else
 			
@@ -114,7 +122,7 @@ begin
 				
 					CrcComplete_i <= '0';
 					FifoPeekAddr_i <= FifoStartAddr;
-					Crc <= x"FFFFFFFF";
+					Crc <= CRC_INIT_STATE;
 			
 				else
 				
