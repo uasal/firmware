@@ -107,10 +107,8 @@ architecture implementation of UartRxFifoExtClk is
 
 	signal RxComplete_i : std_logic; --Just got a byte
 	signal RxData : std_logic_vector(7 downto 0); --The byte we just got		
-	signal ReadFifo_i : std_logic;
-	signal WriteFifo_i : std_logic;
-	-- signal WriteFifo_clean : std_logic;
-	-- signal ReadFifo_clean : std_logic;
+	signal ReadFifo_i : std_logic; --Sync ReadFifo to clock domain
+	signal WriteFifo_i : std_logic; --Sync WriteFifo to clock domain	
 
 begin
 
@@ -127,9 +125,7 @@ begin
 	Dbg1 <= WriteFifo_i;	
 	
 	ReadFifo_i <= ReadFifo;
-	-- WriteFifo_clean <= '1' when (WriteFifo_i = '1' and rst = '0') else '0';
-	-- ReadFifo_clean <= '1' when (ReadFifo_i = '1' and rst = '0') else '0';
-	
+
 	--The actual uart to grab data
 	Uart : UartRxExtClk
 	port map (						
