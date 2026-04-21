@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
-[*] Thu Apr  9 22:12:12 2026
+[*] Sun Apr 19 19:08:26 2026
 [*]
 [dumpfile] "/home/ellis/ant/firmware/include/fpga/testbenches/work/UartRxFifoExtClk_tb.ghw"
-[dumpfile_mtime] "Thu Apr  9 22:03:43 2026"
-[dumpfile_size] 71270
+[dumpfile_mtime] "Sun Apr 19 19:00:51 2026"
+[dumpfile_size] 83032
 [savefile] "/home/ellis/ant/firmware/include/fpga/testbenches/waves/UartRxFifoExtClk.gtkw"
 [timestart] 0
 [size] 1908 987
-[pos] -206 -90
-*-33.000000 8951822913 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -1 -1
+*-36.000000 325520833325 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.uartrxfifoextclk_tb.
 [treeopen] top.uartrxfifoextclk_tb.dut.
@@ -37,20 +37,18 @@ top.uartrxfifoextclk_tb.clk
 -
 -fifo
 @28
-top.uartrxfifoextclk_tb.dut.uartfifo.full_r
-top.uartrxfifoextclk_tb.dut.uartfifo.empty_r
-@420
-top.uartrxfifoextclk_tb.dut.uartfifo.counter_r
-@28
-top.uartrxfifoextclk_tb.dut.uartfifo.do_read
-top.uartrxfifoextclk_tb.dut.uartfifo.do_write
-top.uartrxfifoextclk_tb.dut.uartfifo.do_count
+top.uartrxfifoextclk_tb.dut.uartfifo.last_rone_i
+top.uartrxfifoextclk_tb.dut.uartfifo.last_wone_i
+top.uartrxfifoextclk_tb.dut.uartfifo.r_ack_i
+top.uartrxfifoextclk_tb.dut.uartfifo.re_i
+top.uartrxfifoextclk_tb.dut.uartfifo.we_i
 top.uartrxfifoextclk_tb.dut.uartfifo.r_ack
 top.uartrxfifoextclk_tb.dut.uartfifo.empty_o
 top.uartrxfifoextclk_tb.dut.uartfifo.full_o
-top.uartrxfifoextclk_tb.dut.uartfifo.re_i
-top.uartrxfifoextclk_tb.dut.uartfifo.we_i
+top.uartrxfifoextclk_tb.dut.uartfifo.rone_i
+top.uartrxfifoextclk_tb.dut.uartfifo.wone_i
 top.uartrxfifoextclk_tb.dut.uartfifo.rst
+@29
 top.uartrxfifoextclk_tb.dut.uartfifo.clk
 @200
 -
@@ -66,7 +64,7 @@ top.uartrxfifoextclk_tb.dut.uart.uclk
 @200
 -
 -clocksync
-@29
+@28
 top.uartrxfifoextclk_tb.dut.clksyncwrite.temp1
 top.uartrxfifoextclk_tb.dut.clksyncwrite.o
 top.uartrxfifoextclk_tb.dut.clksyncwrite.i

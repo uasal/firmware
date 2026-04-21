@@ -111,6 +111,8 @@ package body tb_utils_pkg is
 			copy_len := dst'length;
 		end if;
 		dst(1 to copy_len) <= src(src'low to src'low + integer(copy_len) - 1);
+		wait for 0 ns;
+		report COLOR_YELLOW & "TEST: " & src & COLOR_RESET;
 	end procedure;
 
 end package body tb_utils_pkg;

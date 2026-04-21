@@ -125,7 +125,8 @@ architecture implementation of UartRxFifoParity is
 	signal RxData : std_logic_vector(7 downto 0); --The byte we just got		
 	signal UartParityErr : std_logic;
 	signal ReadFifo_i : std_logic; --Sync ReadFifo to clock domain
-	signal WriteFifo_i : std_logic; --Sync WriteFifo to clock domain	
+	signal WriteFifo_i : std_logic; --Sync WriteFifo to clock domain
+	signal WriteFifoUart_i : std_logic; --Write pulse in uart clock domain after parity check
 	
 begin
 
@@ -173,13 +174,16 @@ begin
 		DataO => RxData,
 		ParityErr => UartParityErr
 	);
+
+	--Drop bytes that fail parity instead of writing them to the fifo
+	WriteFifoUart_i <= RxComplete and (not UartParityErr);
 	
 	--Just sync the fifo write from the usbclk to the MasterClock
 	ClkSyncWrite : IBufP2Ports
 	port map
 	(
 		clk => clk,
-		I => RxComplete,
+		I => WriteFifoUart_i,
 		O => WriteFifo_i
 	);
 	

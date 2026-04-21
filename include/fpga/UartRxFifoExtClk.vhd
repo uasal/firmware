@@ -74,7 +74,7 @@ architecture implementation of UartRxFifoExtClk is
 		);
 		end component;
 
-		component fifo is
+		component gated_fifo is
 		generic (
 			WIDTH_BITS : natural := 32;
 			DEPTH_BITS : natural := 9
@@ -82,9 +82,9 @@ architecture implementation of UartRxFifoExtClk is
 		port (
 			clk		: in std_logic;
 			rst		: in std_logic;
-			we_i	: in std_logic;
+			wone_i	: in std_logic;
 			data_i	: in std_logic_vector(WIDTH_BITS - 1 downto 0);
-			re_i	: in std_logic;
+			rone_i	: in std_logic;
 			full_o	: out std_logic;
 			empty_o	: out std_logic;
 			data_o	: out std_logic_vector(WIDTH_BITS - 1 downto 0);
@@ -153,7 +153,7 @@ begin
 	);
 	
 	--Fifo holds bytes after we get them
-	UartFifo : fifo
+	UartFifo : gated_fifo
 	generic map
 	(
 		WIDTH_BITS => 8,
@@ -162,9 +162,9 @@ begin
 	port map (
 		clk => clk,
 		rst => rst,
-		we_i => WriteFifo_i,
+		wone_i => WriteFifo_i,
 		data_i => RxData,
-		re_i => ReadFifo_i,
+		rone_i => ReadFifo_i,
 		full_o => FifoFull,
 		empty_o => FifoEmpty,
 		count_o => FifoCount,

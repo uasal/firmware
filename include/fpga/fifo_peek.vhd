@@ -41,6 +41,10 @@ entity fifo_peek is
 		peekaddr_i : in std_logic_vector(DEPTH_BITS - 1 downto 0);
 		--peek value: this is whatever's in the fifo at the peekaddr
 		peek_data_o	: out std_logic_vector(WIDTH_BITS - 1 downto 0);
+		--read pointer override: allows one to smash forward a big chunk after we're done digging around in the fifo
+		raddr_i : in std_logic_vector(DEPTH_BITS - 1 downto 0);
+		-- multipop_en: initiates the smash-forward
+		multipop_e_i	: in std_logic;
 		--allows one to wait until lastest data is read from ram:
 		r_ack : out std_logic--;
 	);
@@ -65,6 +69,7 @@ architecture rtl of fifo_peek is
 	signal empty_r			: std_logic;
 	signal full_r			: std_logic;
 	signal data_r			: std_logic_vector(WIDTH_BITS - 1 downto 0);
+	signal lastmultipop_e_i	: std_logic;
 begin
 	do_read <= re_i and not empty_r;
 	do_write <= we_i and not full_r;
@@ -87,6 +92,7 @@ begin
 			waddr_r <= (others => '0');
 			full_r <= '0';
 			empty_r <= '1';
+			lastmultipop_e_i <= '0';
 
 		elsif rising_edge(clk) then
 
@@ -104,8 +110,15 @@ begin
 				full_r <= '0';
 			end if;
 
+			lastmultipop_e_i <= multipop_e_i;
+
 			if do_read = '1' then
 				raddr_r <= std_logic_vector(unsigned(raddr_r) + 1);
+			else
+				if ((multipop_e_i = '1') and (lastmultipop_e_i = '0')) then --edge strobe
+					raddr_r <= raddr_i;
+					counter_r <= counter_r - (to_integer(unsigned(raddr_i)) - to_integer(unsigned(raddr_r)));
+				end if;
 			end if;
 
 			if do_write = '1' then

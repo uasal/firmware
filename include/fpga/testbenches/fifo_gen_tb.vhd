@@ -193,6 +193,96 @@ begin
         assert_equal(empty_o, '1', "FIFO should remain empty");
 
 
+        set_test_name(test_name_display, "Check r_ack timing");
+        reset_dut(clk, rst);
+        write_fifo(we_i, data_i, x"12345678");
+        assert_equal(r_ack, '0', "r_ack should stay low before read");
+        wait until falling_edge(clk);
+        re_i <= '1';
+        wait until falling_edge(clk);
+        assert_equal(r_ack, '1', "r_ack should be asserted for one cycle after read");
+        re_i <= '0';
+        wait until falling_edge(clk);
+        assert_equal(r_ack, '0', "r_ack should be deasserted after read");
+
+
+        set_test_name(test_name_display, "Check r_ack on back-to-back reads");
+        reset_dut(clk, rst);
+        write_fifo(we_i, data_i, x"11111111");
+        write_fifo(we_i, data_i, x"22222222");
+        wait until falling_edge(clk);
+        re_i <= '1';
+        wait until falling_edge(clk);
+        assert_equal(r_ack, '1', "r_ack should assert on first read");
+        wait until falling_edge(clk);
+        assert_equal(r_ack, '1', "r_ack should stay asserted while second read is accepted");
+        wait until falling_edge(clk);
+        assert_equal(r_ack, '0', "r_ack should drop once fifo is empty");
+        re_i <= '0';
+
+
+        set_test_name(test_name_display, "Reset while non-empty");
+        reset_dut(clk, rst);
+        for i in 0 to 7 loop
+            write_fifo(we_i, data_i, std_logic_vector(to_unsigned(i, WIDTH_BITS)));
+        end loop;
+        reset_dut(clk, rst);
+        assert_equal(count_o, std_logic_vector(to_unsigned(0, DEPTH_BITS)), "Count should be zero after reset");
+        assert_equal(empty_o, '1', "FIFO should be empty after reset");
+        assert_equal(full_o, '0', "FIFO should not be full after reset");
+
+
+        set_test_name(test_name_display, "Reset during active read/write");
+        reset_dut(clk, rst);
+        write_fifo(we_i, data_i, x"12345678");
+        we_i <= '1';
+        re_i <= '1';
+        wait until falling_edge(clk);
+        rst <= '1';
+        wait until falling_edge(clk);
+        rst <= '0';
+        we_i <= '0';
+        re_i <= '0';
+        assert_equal(count_o, std_logic_vector(to_unsigned(0, DEPTH_BITS)), "Count should be zero after reset");
+        assert_equal(empty_o, '1', "FIFO should be empty after reset");
+        assert_equal(full_o, '0', "FIFO should not be full after reset");
+
+
+        set_test_name(test_name_display, "Simultaneous read/write when empty");
+        reset_dut(clk, rst);
+        assert_equal(empty_o, '1', "FIFO should be empty");
+        we_i <= '1';
+        data_i <= x"CCCCCCCC";
+        re_i <= '1';
+        wait until falling_edge(clk);
+        we_i <= '0';
+        re_i <= '0';
+        wait until falling_edge(clk);
+        assert_equal(count_o, std_logic_vector(to_unsigned(1, DEPTH_BITS)), "Count should increment by 1 during simultaneous read/write when empty");
+        assert_equal(empty_o, '0', "FIFO should not be empty");
+        assert_equal(data_o, x"00000000", "Read should return default value during simultaneous read/write when empty");
+
+        read_fifo(re_i);
+        assert_equal(data_o, x"CCCCCCCC", "Simultaneous empty overlap should retain the written data");
+
+
+        set_test_name(test_name_display, "Simultaneous read/write with one item");
+        reset_dut(clk, rst);
+        write_fifo(we_i, data_i, x"AAAA0001");
+        we_i <= '1';
+        data_i <= x"AAAA0002";
+        re_i <= '1';
+        wait until falling_edge(clk);
+        we_i <= '0';
+        re_i <= '0';
+        wait until falling_edge(clk);
+        assert_equal(count_o, std_logic_vector(to_unsigned(1, DEPTH_BITS)), "Count should stay at 1 when reading and writing a single-item FIFO");
+        assert_equal(data_o, x"AAAA0001", "Simultaneous read/write should return the original single item");
+
+        read_fifo(re_i);
+        assert_equal(data_o, x"AAAA0002", "New write should be available after the simultaneous cycle");
+
+
         set_test_name(test_name_display, "Simultaneous read/write steady state");
         reset_dut(clk, rst);
         for i in 0 to ((2 ** DEPTH_BITS) / 2 - 1) loop
@@ -211,6 +301,25 @@ begin
         assert_equal(count_o, std_logic_vector(to_unsigned((2 ** DEPTH_BITS) / 2, DEPTH_BITS)), "Count should remain constant during steady state read/write");
 
 
+        set_test_name(test_name_display, "Simultaneous read/write near full");
+        reset_dut(clk, rst);
+        for i in 0 to ((2 ** DEPTH_BITS) - 2) loop
+            write_fifo(we_i, data_i, std_logic_vector(to_unsigned(i, WIDTH_BITS)));
+        end loop;
+        assert_equal(count_o, std_logic_vector(to_unsigned((2 ** DEPTH_BITS) - 1, DEPTH_BITS)), "Count should be DEPTH-1 before the overlap");
+        assert_equal(full_o, '0', "FIFO should not be full one slot before full");
+        we_i <= '1';
+        data_i <= x"BBBBBBBB";
+        re_i <= '1';
+        wait until falling_edge(clk);
+        we_i <= '0';
+        re_i <= '0';
+        wait until falling_edge(clk);
+        assert_equal(count_o, std_logic_vector(to_unsigned((2 ** DEPTH_BITS) - 1, DEPTH_BITS)), "Count should remain at DEPTH-1 during simultaneous read/write near full");
+        assert_equal(full_o, '0', "FIFO should still not be full after simultaneous read/write near full");
+        assert_equal(data_o, std_logic_vector(to_unsigned(0, WIDTH_BITS)), "Near-full overlap should read the oldest fifo item");
+
+
         set_test_name(test_name_display, "Simultaneous read/write when full");
         reset_dut(clk, rst);
         for i in 0 to ((2 ** DEPTH_BITS) - 1) loop
@@ -224,51 +333,9 @@ begin
         we_i <= '0';
         re_i <= '0';
         wait until falling_edge(clk);
-        assert_equal(count_o, std_logic_vector(to_unsigned((2 ** DEPTH_BITS) - 1, DEPTH_BITS)), "Count should remain full during simultaneous read/write when full");
-        assert_equal(full_o, '0', "FIFO should remain full");
-        -- !!!!! Might change with read write when full !!!!!!
-
-
-        set_test_name(test_name_display, "Simultaneous read/write when empty");
-        reset_dut(clk, rst);
-        assert_equal(empty_o, '1', "FIFO should be empty");
-        we_i <= '1';
-        data_i <= x"CCCCCCCC";
-        re_i <= '1';
-        wait until falling_edge(clk);
-        we_i <= '0';
-        re_i <= '0';
-        wait until falling_edge(clk);
-        assert_equal(count_o, std_logic_vector(to_unsigned(1, DEPTH_BITS)), "Count should increment by 1 during simultaneous read/write when empty");
-        assert_equal(empty_o, '0', "FIFO should not be empty");
-
-
-        set_test_name(test_name_display, "Check r_ack timing");
-        reset_dut(clk, rst);
-        write_fifo(we_i, data_i, x"12345678");
-        wait until falling_edge(clk);
-        re_i <= '1';
-        wait until falling_edge(clk);
-        assert_equal(r_ack, '1', "r_ack should be asserted for one cycle after read");
-        re_i <= '0';
-        wait until falling_edge(clk);
-        assert_equal(r_ack, '0', "r_ack should be deasserted after read");
-
-
-        set_test_name(test_name_display, "Reset during active read/write");
-        reset_dut(clk, rst);
-        write_fifo(we_i, data_i, x"12345678");
-        we_i <= '1';
-        re_i <= '1';
-        wait until falling_edge(clk);
-        rst <= '1';
-        wait until falling_edge(clk);
-        rst <= '0';
-        we_i <= '0';
-        re_i <= '0';
-        assert_equal(count_o, std_logic_vector(to_unsigned(0, DEPTH_BITS)), "Count should be zero after reset");
-        assert_equal(empty_o, '1', "FIFO should be empty after reset");
-        assert_equal(full_o, '0', "FIFO should not be full after reset");
+        assert_equal(count_o, std_logic_vector(to_unsigned((2 ** DEPTH_BITS) - 1, DEPTH_BITS)), "Count should remain unchanged across this overlap timing at full");
+        assert_equal(full_o, '0', "FIFO should no longer be full after overlapping read/write at full");
+        assert_equal(data_o, std_logic_vector(to_unsigned(0, WIDTH_BITS)), "Full overlap should read the oldest fifo item");
     
         finish;
 

@@ -27,7 +27,7 @@ architecture sim of UartRx_tb is
 
     signal test_name_display : string(1 to 80);
 
-    procedure send_byte_timed(
+    procedure send_byte(
         signal Rxd_o : out std_logic;
         constant b : in std_logic_vector(7 downto 0)
     ) is
@@ -79,26 +79,26 @@ begin
 
 
         set_test_name(test_name_display, "Test 1: Basic operation");
-        send_byte_timed(Rxd, x"55");
+        send_byte(Rxd, x"55");
         assert_equal(RxComplete, '1', "RxComplete should be 1 after byte");
         assert_equal(RxData, x"55", "RxData should be 0x55 after byte");
 
 
         set_test_name(test_name_display, "Back-to-back bytes");
-        send_byte_timed(Rxd, x"55");
-        send_byte_timed(Rxd, x"AA");
-        send_byte_timed(Rxd, x"FF");
-        send_byte_timed(Rxd, x"00");
+        send_byte(Rxd, x"55");
+        send_byte(Rxd, x"AA");
+        send_byte(Rxd, x"FF");
+        send_byte(Rxd, x"00");
 
 
         set_test_name(test_name_display, "Stress Test: All Byte Values");
         for i in 0 to 255 loop
-            send_byte_timed(Rxd, std_logic_vector(to_unsigned(i, 8)));
+            send_byte(Rxd, std_logic_vector(to_unsigned(i, 8)));
         end loop;
 
 
         set_test_name(test_name_display, "Hold old RxData until new byte completes");
-        send_byte_timed(Rxd, x"FF");
+        send_byte(Rxd, x"FF");
         assert_equal(RxData, x"FF", "RxData should hold previous byte");
         Rxd <= '0';
         wait until falling_edge(bit_clk);
@@ -142,7 +142,7 @@ begin
 
         set_test_name(test_name_display, "RxComplete should assert after byte");
         wait until falling_edge(bit_clk);
-        send_byte_timed(Rxd, x"55");
+        send_byte(Rxd, x"55");
         assert_equal(RxComplete, '1', "RxComplete should assert");
         wait until rising_edge(UartClk);
         assert_equal(RxComplete, '1', "RxComplete should still be 1 after byte");
