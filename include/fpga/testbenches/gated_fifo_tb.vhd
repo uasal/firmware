@@ -257,18 +257,18 @@ begin
         assert_equal(data_o, x"13572468", "FIFO order should remain intact after idle cycles");
 
 
-        -- set_test_name(test_name_display, "Write data sampled on delayed internal write");
-        -- reset_dut(clk, rst);
-        -- wait until falling_edge(clk);
-        -- data_i <= x"11111111";
-        -- wone_i <= '1';
-        -- wait until falling_edge(clk);
-        -- data_i <= x"22222222";
-        -- wone_i <= '0';
-        -- wait until falling_edge(clk);
-        -- assert_equal(count_o, std_logic_vector(to_unsigned(1, DEPTH_BITS)), "count should be 1 after one write edge");
-        -- read_fifo_edge(rone_i);
-        -- assert_equal(data_o, x"22222222", "Current gated wrapper behavior writes data present at delayed internal write clock");
+        set_test_name(test_name_display, "Write data sampled on delayed internal write");
+        reset_dut(clk, rst);
+        wait until falling_edge(clk);
+        data_i <= x"11111111";
+        wone_i <= '1';
+        wait until falling_edge(clk);
+        data_i <= x"22222222";
+        wone_i <= '0';
+        wait until falling_edge(clk);
+        assert_equal(count_o, std_logic_vector(to_unsigned(1, DEPTH_BITS)), "count should be 1 after one write edge");
+        read_fifo_edge(rone_i);
+        assert_equal(data_o, x"11111111", "Current gated wrapper behavior writes data present at delayed internal write clock");
 
 
         set_test_name(test_name_display, "Check r_ack behavior with edge reads");

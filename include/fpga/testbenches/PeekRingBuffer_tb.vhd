@@ -126,8 +126,8 @@ begin
         for i in 0 to DEPTH - 2 loop -- Only 2047 bytes, not 2048 (intentional?)
             write_strobe(ByteIn, WriteReq, x"00");
         end loop;
-        wait until falling_edge(clk);
-        wait until falling_edge(clk);
+        -- wait until falling_edge(clk);
+        -- wait until falling_edge(clk);
         assert_equal(Full, '1', "Full when WriteAddress is at depth - 1");
         assert_equal(Empty, '0', "Not empty when WriteAddress wraps at depth");
         assert_equal(Count, std_logic_vector(to_unsigned(DEPTH - 1, PeekRamDepth)), "Count is DEPTH when WriteAddress wraps at depth");
@@ -152,9 +152,9 @@ begin
         for i in 0 to DEPTH - 1 loop
             write_strobe(ByteIn, WriteReq, x"00");
         end loop;
-        wait until falling_edge(clk);
-        wait until falling_edge(clk);
-        wait until falling_edge(clk);
+        -- wait until falling_edge(clk);
+        -- wait until falling_edge(clk);
+        -- wait until falling_edge(clk);
         assert_equal(DataEndAddress, std_logic_vector(to_unsigned(0, PeekRamDepth)), "After DEPTH writes from 0, pointer wraps to 0");
         assert_equal(Full, '0', "Not full when WriteAddress wraps at depth");
         assert_equal(Empty, '1', "Empty when WriteAddress wraps at depth");

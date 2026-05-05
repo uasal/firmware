@@ -65,9 +65,13 @@ architecture implementation of UartTxFifoParity is
 	-- Component declarations
 			
 			component IBufP2Ports is
+			generic (
+				RESET_VALUE : std_logic := '0'
+			);
 			port 
 			(
 				clk : in std_logic;
+				rst : in std_logic;
 				I : in std_logic;
 				O : out std_logic--;
 			);
@@ -192,6 +196,7 @@ begin
 	port map
 	(
 		clk => BitClock,
+		rst => rst,
 		I => StartTx,
 		O => StartTx_i--,
 	);
@@ -215,6 +220,7 @@ begin
 	port map
 	(
 		clk => clk,
+		rst => rst,
 		I => TxInProgress_i_i,
 		O => TxInProgress_i--,
 	);
@@ -222,9 +228,14 @@ begin
 	TxInProgress <= TxInProgress_i;
 	
 	IBufCts : IBufP2Ports --cross the clk domain
+	generic map
+	(
+		RESET_VALUE => '1'
+	)
 	port map
 	(
 		clk => clk,
+		rst => rst,
 		I => Cts,
 		O => Cts_i--,
 	);

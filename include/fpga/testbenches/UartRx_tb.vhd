@@ -96,7 +96,6 @@ begin
             send_byte(Rxd, std_logic_vector(to_unsigned(i, 8)));
         end loop;
 
-
         set_test_name(test_name_display, "Hold old RxData until new byte completes");
         send_byte(Rxd, x"FF");
         assert_equal(RxData, x"FF", "RxData should hold previous byte");

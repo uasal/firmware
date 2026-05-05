@@ -222,15 +222,17 @@ begin
         assert_equal(FifoCount, std_logic_vector(to_unsigned(0, FIFO_BITS)), "FifoCount should be 0 after reset");
         assert_equal(FifoReadAck, '0', "FifoReadAck should be 0 after reset");
 
-        -- Broken because RxComplete is sticky level in uclk; IBufP2 + gated_fifo use it as a write qualifier
-        -- set_test_name(test_name_display, "Receive after mid reset");
-        -- send_byte(Rxd, x"99");
-        -- settle_after_uart;
-        -- read_fifo(ReadFifo, FifoReadAck);
-        -- assert_equal(FifoReadData, x"99", "FifoReadData should be 0x99 after post-reset read");
-        -- assert_equal(FifoEmpty, '1', "FifoEmpty should be 1 after post-reset read");
-        -- assert_equal(FifoFull, '0', "FifoFull should be 0 after post-reset read");
-        -- assert_equal(FifoCount, std_logic_vector(to_unsigned(0, FIFO_BITS)), "FifoCount should be 0 after post-reset read");
+        set_test_name(test_name_display, "Receive after mid reset");
+        send_byte(Rxd, x"99");
+        settle_after_uart;
+        read_fifo(ReadFifo, FifoReadAck);
+        assert_equal(FifoReadData, x"99", "FifoReadData should be 0x99 after post-reset read");
+        for i in 0 to 100 loop
+            wait until falling_edge(bit_clk);
+        end loop;
+        assert_equal(FifoEmpty, '1', "FifoEmpty should be 1 after post-reset read");
+        assert_equal(FifoFull, '0', "FifoFull should be 0 after post-reset read");
+        assert_equal(FifoCount, std_logic_vector(to_unsigned(0, FIFO_BITS)), "FifoCount should be 0 after post-reset read");
 
         set_test_name(test_name_display, "Fill FIFO to full then drain");
         reset_dut(bit_clk, rst);

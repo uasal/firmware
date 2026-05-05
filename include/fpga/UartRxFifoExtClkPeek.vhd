@@ -77,6 +77,7 @@ architecture implementation of UartRxFifoExtClkPeek is
 		port 
 		(
 			clk : in std_logic;
+			rst : in std_logic;
 			I : in std_logic;
 			O : out std_logic--;
 		);
@@ -166,6 +167,7 @@ begin
 	port map
 	(
 		clk => clk,
+		rst => rst,
 		I => RxComplete_i,
 		O => WriteFifo_i
 	);

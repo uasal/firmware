@@ -10,8 +10,7 @@ GHDL_FLAGS = --std=08 -fsynopsys -frelaxed --workdir=$(WORK_DIR)
 TB_FILES = $(notdir $(wildcard $(TB_DIR)/*_tb.vhd))
 TB_NAMES = $(patsubst %_tb.vhd,%,$(TB_FILES))
 
-PKG_FILES = $(RTL_DIR)/CGraphTypes.vhd
-RTL_FILES = $(filter-out $(PKG_FILES),$(patsubst %_tb.vhd,$(RTL_DIR)/%.vhd,$(TB_FILES)))
+RTL_FILES = $(patsubst %_tb.vhd,$(RTL_DIR)/%.vhd,$(TB_FILES))
 
 .PHONY: all build clean help rebuild
 
@@ -22,7 +21,7 @@ build: | $(WORK_DIR)
 	@rm -f *.cf 2>/dev/null || true
 	@set -e; \
 	ghdl -a $(GHDL_FLAGS) $(TB_DIR)/tb_utils_pkg.vhd; \
-	for f in $(PKG_FILES) $(RTL_FILES) $(TB_FILES:%=$(TB_DIR)/%); do \
+	for f in $(RTL_FILES) $(TB_FILES:%=$(TB_DIR)/%); do \
 		[ -f $$f ] && ghdl -a $(GHDL_FLAGS) $$f; \
 	done; \
 	for tb in $(TB_NAMES); do \
