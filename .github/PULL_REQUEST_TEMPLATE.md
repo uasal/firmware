@@ -6,6 +6,7 @@
 
 <!-- Link issues using closing keywords where applicable. -->
 <!-- e.g. Fixes #123  |  Related to #456 -->
+<!-- https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword -->
 
 ## Changes
 
