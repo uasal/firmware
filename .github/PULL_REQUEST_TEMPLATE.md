@@ -43,6 +43,7 @@
 - [ ] No new compiler warnings introduced
 - [ ] No merge conflicts with the target branch
 - [ ] `CONTRIBUTING.md` guidelines followed
+- [ ] [Pull Request Checklist](https://uasal.github.io/uasal_development_guide/git/pull_request_checklist.html) guidelines followed
 
 ## Breaking Changes
 
