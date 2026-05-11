@@ -1,7 +1,7 @@
--- Follows:
--- clears crc / resets crcstate (this clear pause might cause timing problems asp)
--- advances internal crc state + assumes fifopeekdata corresponds correctly
--- when current address = end address, crc is complete
+--! \brief Testbench for CrcFifo.vhd
+--! CRC over varied patterns (zeros, ones, PRNG, address slices).
+--! Full-range sweep plus back-to-back runs without reset.
+--! Reset handling is tested, including reset during active CRC computation.
 
 library ieee;
 use ieee.std_logic_1164.all;

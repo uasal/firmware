@@ -1,3 +1,8 @@
+--! \brief Testbench for fifo_gen.vhd
+--! Core FIFO baseline: reset, normal read/write, burst traffic, and boundaries.
+--! Simultaneous read/write is exercised across empty, steady-state, near-full, and full.
+--! r_ack timing and reset behavior during active traffic are checked.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

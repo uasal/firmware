@@ -1,3 +1,8 @@
+--! \brief Testbench for UartRxFifoExtClkPeek.vhd
+--! Adds peek + multipop coverage on top of RX FIFO behavior.
+--! Pop-to-empty/refill/full-to-empty sequences are included.
+--! Also checks simultaneous pop+write and skip/address edge cases.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

@@ -1,3 +1,6 @@
+--! \brief Testbench for CGraphTypes
+--! Checks PeekRamDepth=11, PeekRamType index range 0..(2**11)-1, and that assigning x"AB" to arr(0) reads back x"AB".
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

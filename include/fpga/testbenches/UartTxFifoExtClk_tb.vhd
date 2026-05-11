@@ -1,3 +1,8 @@
+--! \brief Testbench for UartTxFifoExtClk.vhd
+--! Covers FIFO fed TX flow from empty to queued multi-byte sends under external clk.
+--! Verifies CTS blocking/unblocking behavior and handoff timing.
+--! Includes full-queue boundaries and reset during queued/active transmission.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

@@ -1,3 +1,8 @@
+--! \brief Testbench for UartRxParity.vhd
+--! Parity mode matrix (odd/even), parity accumulation, and parity error signaling.
+--! Stop-bit timing and baud mismatch cases.
+--! Reset during active frame is covered too.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

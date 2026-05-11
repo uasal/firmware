@@ -1,3 +1,7 @@
+--! \brief Testbench for VariableOneShot.vhd
+--! Programmable delay values (small/normal/large).
+--! Covers delay changes before trigger, pretrigger variants, and reset recovery.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

@@ -1,7 +1,9 @@
--- documents current RTL behavior (ring buffer + partial packet hooks).
--- Not a full packet/CRC validator. See comments: no asserts on Count, HeaderFooterPayloadLenMatches,
--- or wrapped payload-length path (not there yet).
-
+--! \brief Testbench for PeekRingBuffer.vhd
+--! Exercises basic write/peek/pop interactions, including boundary conditions at empty/full and wrap.
+--! Also checks header/footer detection and payload length tracking.
+--! No CRC structure yet, TBD when added.
+--! No-write-when-disabled and reset-after-write behavior included.
+    
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

@@ -1,3 +1,9 @@
+--! \brief Testbench for fifo_peek.vhd
+--! Adds peek + multipop coverage on top of basic FIFO behavior.
+--! Tests wraparound (still a bit fishy), skip logic, and mixed read/write traffic.
+--! Includes overlap edge cases (empty, near full, full).
+--! Also re-checks behavior after resets.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

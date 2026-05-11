@@ -1,3 +1,7 @@
+--! \brief Testbench for UartTxFifoParity.vhd
+--! Parity FIFO TX flow under single/queued sends.
+--! CTS gating, queue boundaries, and reset during active transmission are all covered.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

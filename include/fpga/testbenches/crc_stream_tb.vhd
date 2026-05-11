@@ -1,3 +1,6 @@
+--! \brief Testbench for CrcStream.vhd
+--! Stream CRC checks over reset, zero stream, and simple text payload cases.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

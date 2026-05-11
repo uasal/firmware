@@ -1,3 +1,8 @@
+--! \brief Testbench for UartRx.vhd
+--! Basic decode, back-to-back bytes, and byte-range traffic.
+--! Reset-during-reception and break-condition handling.
+--! Checks completion signaling and output hold behavior.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

@@ -1,3 +1,7 @@
+--! \brief Testbench for gated_fifo.vhd
+--! FIFO boundary/read-write checks, but with edge-triggered strobes.
+--! Includes held-high strobe behavior and r_ack handling.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

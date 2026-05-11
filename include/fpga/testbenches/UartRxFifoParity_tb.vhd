@@ -1,3 +1,7 @@
+--! \brief Testbench for UartRxFifoParity.vhd
+--! Main check here: bad parity frames do not get written into FIFO.
+--! Includes good/bad mixed streams, read timing overlap, boundaries, and reset recovery.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

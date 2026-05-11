@@ -1,3 +1,7 @@
+--! \brief Testbench for PeekRam.vhd
+--! Straightforward RAM checks: write/read/overwrite/same-cycle interactions.
+--! No-write-when-disabled and reset-after-write behavior included.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

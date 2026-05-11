@@ -1,3 +1,7 @@
+--! \brief Testbench for IBufP2.vhd
+--! Checks reset behavior and that O1/O2 track I with the 2 cycle delay.
+--! Also confirms that reset clears the pipeline and sets outputs to the configured reset value.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

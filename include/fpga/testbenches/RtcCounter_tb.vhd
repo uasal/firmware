@@ -1,3 +1,8 @@
+--! \brief Testbench for RtcCounter.vhd
+--! Free-run ms/sec progression and rollover checks.
+--! PPS sync/grace timing, SetTime handling, and generated PPS behavior.
+
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

@@ -1,3 +1,8 @@
+--! \brief Testbench for UartTx.vhd
+--! Reset/idle and normal TX data transmission.
+--! Go/Busy interaction (no accidental retrigger while busy).
+--! Reset during transmission is covered.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

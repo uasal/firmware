@@ -1,3 +1,6 @@
+--! \brief Testbench for crc_byte.vhd
+--! Quick check that byte-wise CRC combinational logic matches reference vectors.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

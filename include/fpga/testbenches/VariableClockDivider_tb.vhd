@@ -1,3 +1,8 @@
+--! \brief Testbench for VariableClockDivider.vhd
+--! Programmable terminal count still behaves like the fixed divider.
+--! Retune-at-runtime cases are covered (no reset in between).
+--! Includes terminal-count edge cases.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

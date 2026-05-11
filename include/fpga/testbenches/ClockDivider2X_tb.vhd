@@ -1,3 +1,8 @@
+--! \brief Testbench for ClockDivider2X.vhd
+--! Reset polarity and initial state checks across configs.
+--! Confirms expected divide cadence div10 (low: 0,1,2,3,4, high: 5,6,7,8,9).
+--! Also tests mid-run reset recovery and a long stress cadence.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

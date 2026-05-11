@@ -1,3 +1,8 @@
+--! \brief Testbench for UartRxFifoExtClk.vhd
+--! FIFO integration after the interface swap.
+--! Single/burst/overlap traffic, read-while-write behavior, and drain ordering.
+--! Full/empty boundaries plus resets with buffered data and active frames.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

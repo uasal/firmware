@@ -1,3 +1,9 @@
+--! \brief Testbench for gated_fifo_peek.vhd
+--! FIFO boundary/read-write checks, but with edge-triggered strobes.
+--! Includes held-high strobe behavior and r_ack handling.
+--! peek/multipop behavior.
+--! Mainly to make sure gated strobes do not break skip/peek paths.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

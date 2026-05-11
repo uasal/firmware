@@ -1,3 +1,7 @@
+--! \brief Testbench for VariableClockDivider2X.vhd
+--! Same idea as VariableClockDivider_tb.vhd, applied to the 2X implementation.
+--! Checks dynamic terminal-count changes and reset recovery.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

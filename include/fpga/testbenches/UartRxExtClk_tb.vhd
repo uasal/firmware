@@ -1,3 +1,7 @@
+--! \brief Testbench for UartRxExtClk.vhd
+--! Same coverage style as UartRx_tb.vhd, but with external clocking.
+--! Also checks ext-clock-specific stop-bit timing thresholds.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

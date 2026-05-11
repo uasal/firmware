@@ -1,4 +1,4 @@
--- Helpful TB utils
+--! \brief Helpful utlity functions/procedures for testbenches
 
 library ieee;
 use ieee.std_logic_1164.all;

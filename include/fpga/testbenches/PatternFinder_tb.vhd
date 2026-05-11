@@ -1,3 +1,8 @@
+--! \brief Testbench for PatternFinder.vhd
+--! Steps through match/mismatch cases for the pattern detector.
+--! Makes sure it recovers correctly after a bad sequence.
+--! Also checks reset behavior mid-stream.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use std.env.all;

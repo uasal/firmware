@@ -1,3 +1,7 @@
+--! \brief Testbench for FieldLatcher.vhd
+--! Byte capture and shift sequencing checks across multi-byte fields.
+--! Also covers held write-request behavior and reset timing cases.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use std.env.all;

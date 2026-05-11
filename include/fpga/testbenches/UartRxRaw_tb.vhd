@@ -1,3 +1,8 @@
+--! \brief Testbench for UartRxRaw.vhd
+--! Make sure sampling/enable gating and stop-bit timing rules hold.
+--! Basic decode, full byte range, completion signals (normal behavior)
+--! Includes baud mismatch, back-to-back frames, and reset mid-frame.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

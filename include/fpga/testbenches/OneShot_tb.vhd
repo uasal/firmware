@@ -1,3 +1,8 @@
+--! \brief Testbench for OneShot.vhd
+--! Exercises multiple one-shot configurations with different delays and reset states.
+--! Checks that shots trigger at the expected delay and remain latched until reset.
+--! Also covers reset behavior during pre-trigger and post-trigger states.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

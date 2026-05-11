@@ -1,3 +1,8 @@
+--! \brief Testbench for UartTxParity.vhd
+--! Same core TX checks as UartTx_tb.vhd, with parity framing enabled.
+--! Mainly to confirm Busy-gated Go behavior stays solid with parity enabled.
+--! Sending correct Parity bit under heavy load.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
