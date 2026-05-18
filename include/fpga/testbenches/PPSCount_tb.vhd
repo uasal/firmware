@@ -257,7 +257,7 @@ begin
         PPS <= '1';
         wait until falling_edge(clk);
         wait until falling_edge(clk);
-        for i in 0 to 999 loop
+        for i in 1 to 999 loop
             PPS <= '0';
             cycle_clock(clk, i mod 1000);
             PPS <= '1';
