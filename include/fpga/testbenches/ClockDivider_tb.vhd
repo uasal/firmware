@@ -23,6 +23,7 @@ architecture sim of ClockDivider_tb is
 	signal div_cfg2 : std_logic;
 	signal div_cfg3 : std_logic;
 	signal div_cfg4 : std_logic;
+	signal div_stress : std_logic;
 
 	signal test_name_display : string(1 to 80);
 
@@ -61,7 +62,7 @@ begin
 		assert_equal(div_cfg3, '1', "cfg3 reset state");
 		assert_equal(div_cfg4, '0', "cfg4 reset state");
 
-		set_test_name(test_name_display, "cfg1 div10 toggles every 5 cycles");
+		set_test_name(test_name_display, "cfg1 div10 toggle period");
 		expected := '0';
 		for t in 1 to 40 loop
 			expect_stable(div_cfg1, expected, 4, "cfg1 hold before toggle");
@@ -70,7 +71,7 @@ begin
 			assert_equal(div_cfg1, expected, "cfg1 toggle " & integer'image(t));
 		end loop;
 
-		set_test_name(test_name_display, "cfg2 div6 toggles every 3 cycles");
+		set_test_name(test_name_display, "cfg2 div6 toggle period");
 		reset_dut(clk, rst);
 		expected := '0';
 		for t in 1 to 48 loop
@@ -80,7 +81,7 @@ begin
 			assert_equal(div_cfg2, expected, "cfg2 toggle " & integer'image(t));
 		end loop;
 
-		set_test_name(test_name_display, "cfg3 div10 with inverted reset");
+		set_test_name(test_name_display, "cfg3 div10 inverted reset");
 		reset_dut(clk, rst);
 		expected := '1';
 		for t in 1 to 30 loop
@@ -90,7 +91,7 @@ begin
 			assert_equal(div_cfg3, expected, "cfg3 toggle " & integer'image(t));
 		end loop;
 
-		set_test_name(test_name_display, "cfg4 div2 toggles every cycle");
+		set_test_name(test_name_display, "cfg4 div2 toggle period");
 		reset_dut(clk, rst);
 		expected := '0';
 		for t in 1 to 80 loop
@@ -99,7 +100,7 @@ begin
 			assert_equal(div_cfg4, expected, "cfg4 toggle " & integer'image(t));
 		end loop;
 
-		set_test_name(test_name_display, "Mid-run reset recovery from low phase");
+		set_test_name(test_name_display, "cfg1 mid-run reset from low phase");
 		cycle_clock(clk, 3);
 		rst <= '1';
 		wait until falling_edge(clk);
@@ -109,7 +110,7 @@ begin
 		wait until falling_edge(clk);
 		assert_equal(div_cfg1, '1', "cfg1 toggles after restart");
 
-		set_test_name(test_name_display, "Mid-run reset recovery from high phase");
+		set_test_name(test_name_display, "cfg1 mid-run reset from high phase");
 		cycle_clock(clk, 5);
 		rst <= '1';
 		wait until falling_edge(clk);
@@ -118,6 +119,17 @@ begin
 		expect_stable(div_cfg1, '0', 4, "cfg1 low hold after second reset");
 		wait until falling_edge(clk);
 		assert_equal(div_cfg1, '1', "cfg1 resumes cadence after second reset");
+
+		set_test_name(test_name_display, "cfg1 reset at counter terminal");
+		reset_dut(clk, rst);
+		expect_stable(div_cfg1, '0', 4, "cfg1 low phase before terminal");
+		rst <= '1';
+		wait until falling_edge(clk);
+		assert_equal(div_cfg1, '0', "cfg1 reset at terminal count");
+		rst <= '0';
+		expect_stable(div_cfg1, '0', 4, "cfg1 restarts after terminal reset");
+		wait until falling_edge(clk);
+		assert_equal(div_cfg1, '1', "cfg1 toggles after terminal reset");
 
 		set_test_name(test_name_display, "cfg1 long stress cadence");
 		expected := div_cfg1;
@@ -128,11 +140,18 @@ begin
 			assert_equal(div_cfg1, expected, "cfg1 stress toggle " & integer'image(t));
 		end loop;
 
+		set_test_name(test_name_display, "Large fixed divider count");
+		reset_dut(clk, rst);
+		expect_stable(div_stress, '0', 24999, "stress low half-period");
+		wait until falling_edge(clk);
+		assert_equal(div_stress, '1', "stress toggle after large count");
+		expect_stable(div_stress, '1', 24999, "stress high half-period");
+		wait until falling_edge(clk);
+		assert_equal(div_stress, '0', "stress second toggle after large count");
+
 		finish;
 	end process;
 
-	-- Clock Divider configurations, I can't easily parameterize the test procedure so making multiple, probably overkill
-	-- I'm sure there's a better way to do this but this works for now
 	dut_cfg1: entity work.ClockDividerPorts
 		generic map (
 			CLOCK_DIVIDER => 10,
@@ -143,7 +162,7 @@ begin
 			rst => rst,
 			div => div_cfg1
 		);
-	
+
 	dut_cfg2: entity work.ClockDividerPorts
 		generic map (
 			CLOCK_DIVIDER => 6,
@@ -154,7 +173,7 @@ begin
 			rst => rst,
 			div => div_cfg2
 		);
-	
+
 	dut_cfg3: entity work.ClockDividerPorts
 		generic map (
 			CLOCK_DIVIDER => 10,
@@ -178,6 +197,17 @@ begin
 			clk => clk,
 			rst => rst,
 			div => div_cfg4
+		);
+
+	dut_stress: entity work.ClockDividerPorts
+		generic map (
+			CLOCK_DIVIDER => 50000,
+			DIVOUT_RST_STATE => '0'
+		)
+		port map (
+			clk => clk,
+			rst => rst,
+			div => div_stress
 		);
 
 end architecture sim;

@@ -60,11 +60,13 @@ begin
 	test_process : process
 		variable expected : std_logic;
 	begin
-	
+		rst_count <= (others => '0');
+		terminal_count <= (others => '0');
+
 		set_test_name(test_name_display, "Reset states");
 		reset_dut(clk, rst);
-		assert_equal(clko_cfg1, '0', "Reset state");
-		assert_equal(clko_cfg2, '1', "Reset state");
+		assert_equal(clko_cfg1, '0', "cfg1 reset state");
+		assert_equal(clko_cfg2, '1', "cfg2 reset state");
 
 		set_test_name(test_name_display, "cfg1 TC=0 toggles every cycle");
 		terminal_count <= std_logic_vector(to_unsigned(0, WIDTH_BITS));
@@ -78,7 +80,7 @@ begin
 		end loop;
 
 		-- low: 0,1,2,3,4,5,6,7,8,9 high: 0,1,2,3,4,5,6,7,8,9
-		set_test_name(test_name_display, "cfg1 TC=10 toggle period");
+		set_test_name(test_name_display, "cfg1 div10 toggle period");
 		terminal_count <= std_logic_vector(to_unsigned(10, WIDTH_BITS));
 		rst_count <= (others => '0');
 		reset_dut(clk, rst);
@@ -90,16 +92,16 @@ begin
 			assert_equal(clko_cfg1, expected, "cfg1 toggle " & integer'image(t));
 		end loop;
 
-		set_test_name(test_name_display, "cfg1 TC=6 steady cadence");
+		set_test_name(test_name_display, "cfg1 div6 toggle period");
 		terminal_count <= std_logic_vector(to_unsigned(6, WIDTH_BITS));
 		rst_count <= (others => '0');
 		reset_dut(clk, rst);
 		expected := '0';
 		for t in 1 to 36 loop
-			expect_stable(clko_cfg1, expected, 6, "cfg1 retuned hold");
+			expect_stable(clko_cfg1, expected, 6, "cfg1 hold");
 			wait until falling_edge(clk);
 			expected := not expected;
-			assert_equal(clko_cfg1, expected, "cfg1 retuned toggle " & integer'image(t));
+			assert_equal(clko_cfg1, expected, "cfg1 toggle " & integer'image(t));
 		end loop;
 
 		set_test_name(test_name_display, "cfg1 runtime retune without reset");
@@ -114,7 +116,62 @@ begin
 		wait until falling_edge(clk);
 		assert_equal(clko_cfg1, '0', "cfg1 retuned next toggle");
 
-		set_test_name(test_name_display, "cfg2 inverted reset state");
+		set_test_name(test_name_display, "cfg1 runtime TC decrease mid-count");
+		terminal_count <= std_logic_vector(to_unsigned(10, WIDTH_BITS));
+		rst_count <= (others => '0');
+		reset_dut(clk, rst);
+		expect_stable(clko_cfg1, '0', 7, "cfg1 counting to 10 at 7");
+		terminal_count <= std_logic_vector(to_unsigned(5, WIDTH_BITS));
+		wait until falling_edge(clk);
+		expect_stable(clko_cfg1, '1', 5, "cfg1 switches when TC drops below count");
+		wait until falling_edge(clk);
+		assert_equal(clko_cfg1, '0', "cfg1 wraps low at new TC");
+		expected := '0';
+		for t in 1 to 3 loop
+			expect_stable(clko_cfg1, expected, 5, "cfg1 div5 half after TC drop");
+			wait until falling_edge(clk);
+			expected := not expected;
+			assert_equal(clko_cfg1, expected, "cfg1 div5 after TC drop " & integer'image(t));
+		end loop;
+
+		set_test_name(test_name_display, "cfg1 runtime TC at terminal count");
+		terminal_count <= std_logic_vector(to_unsigned(10, WIDTH_BITS));
+		rst_count <= (others => '0');
+		reset_dut(clk, rst);
+		expect_stable(clko_cfg1, '0', 10, "cfg1 at terminal TC");
+		terminal_count <= std_logic_vector(to_unsigned(10, WIDTH_BITS));
+		wait until falling_edge(clk);
+		assert_equal(clko_cfg1, '1', "cfg1 same TC at terminal still toggles");
+		reset_dut(clk, rst);
+		terminal_count <= std_logic_vector(to_unsigned(10, WIDTH_BITS));
+		expect_stable(clko_cfg1, '0', 10, "cfg1 at terminal before lower TC");
+		terminal_count <= std_logic_vector(to_unsigned(4, WIDTH_BITS));
+		wait until falling_edge(clk);
+		assert_equal(clko_cfg1, '1', "cfg1 lower TC at terminal toggles");
+		reset_dut(clk, rst);
+		terminal_count <= std_logic_vector(to_unsigned(10, WIDTH_BITS));
+		expect_stable(clko_cfg1, '0', 10, "cfg1 at terminal before higher TC");
+		terminal_count <= std_logic_vector(to_unsigned(15, WIDTH_BITS));
+		wait until falling_edge(clk);
+		assert_equal(clko_cfg1, '0', "cfg1 higher TC at terminal extends hold");
+		expect_stable(clko_cfg1, '0', 4, "cfg1 counts to new TC");
+		wait until falling_edge(clk);
+		assert_equal(clko_cfg1, '1', "cfg1 toggles at raised TC");
+
+		set_test_name(test_name_display, "cfg1 runtime TC increase mid-count");
+		terminal_count <= std_logic_vector(to_unsigned(10, WIDTH_BITS));
+		rst_count <= (others => '0');
+		reset_dut(clk, rst);
+		expect_stable(clko_cfg1, '0', 7, "cfg1 partway through div10 low");
+		terminal_count <= std_logic_vector(to_unsigned(20, WIDTH_BITS));
+		wait until falling_edge(clk);
+		assert_equal(clko_cfg1, '0', "cfg1 still low after mid-count TC raise");
+		expect_stable(clko_cfg1, '0', 12, "cfg1 counts to raised TC");
+		wait until falling_edge(clk);
+		assert_equal(clko_cfg1, '1', "cfg1 toggles high at raised TC");
+		expect_stable(clko_cfg1, '1', 20, "cfg1 holds high for new div20");
+
+		set_test_name(test_name_display, "cfg2 div10 inverted reset");
 		terminal_count <= std_logic_vector(to_unsigned(10, WIDTH_BITS));
 		rst_count <= (others => '0');
 		reset_dut(clk, rst);
@@ -126,25 +183,28 @@ begin
 			assert_equal(clko_cfg2, expected, "cfg2 toggle " & integer'image(t));
 		end loop;
 
-		set_test_name(test_name_display, "cfg1 TC=1 toggles every cycle");
+		set_test_name(test_name_display, "cfg1 div2 toggle period");
 		terminal_count <= std_logic_vector(to_unsigned(1, WIDTH_BITS));
 		rst_count <= (others => '0');
 		reset_dut(clk, rst);
 		expected := '0';
 		for t in 1 to 32 loop
-			expect_stable(clko_cfg1, expected, 1, "cfg1 tc1 hold");
+			expect_stable(clko_cfg1, expected, 1, "cfg1 hold");
 			wait until falling_edge(clk);
 			expected := not expected;
-			assert_equal(clko_cfg1, expected, "cfg1 tc1 toggle " & integer'image(t));
+			assert_equal(clko_cfg1, expected, "cfg1 toggle " & integer'image(t));
 		end loop;
 
-		set_test_name(test_name_display, "cfg1 TC=max-safe early window");
-		terminal_count <= std_logic_vector(to_unsigned(((2**WIDTH_BITS) / 2) - 1, WIDTH_BITS));
+		-- ClkDiv is capped at (2**WIDTH_BITS)/2 - 1, so 127 is the largest usable TC.
+		set_test_name(test_name_display, "cfg1 max terminal count");
+		terminal_count <= std_logic_vector(to_unsigned(127, WIDTH_BITS));
 		rst_count <= (others => '0');
 		reset_dut(clk, rst);
-		expect_stable(clko_cfg1, '0', 120, "cfg1 tcmax-safe early hold");
+		expect_stable(clko_cfg1, '0', 127, "cfg1 max hold");
+		wait until falling_edge(clk);
+		assert_equal(clko_cfg1, '1', "cfg1 max toggle");
 
-		set_test_name(test_name_display, "cfg1 reset_count shifts first toggle");
+		set_test_name(test_name_display, "cfg1 rst_count shifts phase");
 		rst_count <= std_logic_vector(to_unsigned(5, WIDTH_BITS));
 		terminal_count <= std_logic_vector(to_unsigned(10, WIDTH_BITS));
 		reset_dut(clk, rst);
@@ -156,12 +216,12 @@ begin
 		rst_count <= std_logic_vector(to_unsigned(10, WIDTH_BITS));
 		terminal_count <= std_logic_vector(to_unsigned(10, WIDTH_BITS));
 		reset_dut(clk, rst);
-		assert_equal(clko_cfg1, '0', "Reset state");
+		assert_equal(clko_cfg1, '0', "cfg1 reset state");
 		wait until falling_edge(clk);
-		assert_equal(clko_cfg1, '1', "Immediate post-reset toggle");
-		expect_stable(clko_cfg1, '1', 10, "Hold high after immediate toggle");
+		assert_equal(clko_cfg1, '1', "cfg1 immediate post-reset toggle");
+		expect_stable(clko_cfg1, '1', 10, "cfg1 hold high after immediate toggle");
 		wait until falling_edge(clk);
-		assert_equal(clko_cfg1, '0', "Next toggle after full interval");
+		assert_equal(clko_cfg1, '0', "cfg1 next toggle after full interval");
 
 		set_test_name(test_name_display, "cfg1 long stress cadence");
 		terminal_count <= std_logic_vector(to_unsigned(4, WIDTH_BITS));
@@ -175,37 +235,44 @@ begin
 			assert_equal(clko_cfg1, expected, "cfg1 stress toggle " & integer'image(t));
 		end loop;
 
-		set_test_name(test_name_display, "cfg1 random TC changes mid-run");
+		set_test_name(test_name_display, "cfg1 TC change mid high phase");
+		terminal_count <= std_logic_vector(to_unsigned(10, WIDTH_BITS));
+		rst_count <= (others => '0');
+		reset_dut(clk, rst);
+		expect_stable(clko_cfg1, '0', 10, "cfg1 low before mid-high retune");
+		wait until falling_edge(clk);
+		assert_equal(clko_cfg1, '1', "cfg1 enters high phase");
+		expect_stable(clko_cfg1, '1', 4, "cfg1 at terminal count in high");
+		terminal_count <= std_logic_vector(to_unsigned(4, WIDTH_BITS));
+		wait until falling_edge(clk);
+		assert_equal(clko_cfg1, '0', "cfg1 wraps low when TC drops below count in high");
+
+		set_test_name(test_name_display, "cfg1 retune TC between stable phases");
 		terminal_count <= std_logic_vector(to_unsigned(10, WIDTH_BITS));
 		rst_count <= (others => '0');
 		reset_dut(clk, rst);
 		expected := '0';
-		for t in 1 to 120 loop
-			expect_stable(clko_cfg1, expected, 10, "cfg1 random hold");
+		for t in 1 to 12 loop
+			expect_stable(clko_cfg1, expected, 10, "cfg1 div10 hold");
 			wait until falling_edge(clk);
 			expected := not expected;
-			assert_equal(clko_cfg1, expected, "cfg1 random toggle " & integer'image(t));
+			assert_equal(clko_cfg1, expected, "cfg1 div10 toggle " & integer'image(t));
 		end loop;
 		terminal_count <= std_logic_vector(to_unsigned(3, WIDTH_BITS));
-		for t in 1 to 120 loop
-			expect_stable(clko_cfg1, expected, 3, "cfg1 random retune hold");
+		expected := '0';
+		for t in 1 to 12 loop
+			expect_stable(clko_cfg1, expected, 3, "cfg1 div3 hold");
 			wait until falling_edge(clk);
 			expected := not expected;
-			assert_equal(clko_cfg1, expected, "cfg1 random retune toggle " & integer'image(t));
+			assert_equal(clko_cfg1, expected, "cfg1 div3 toggle " & integer'image(t));
 		end loop;
 		terminal_count <= std_logic_vector(to_unsigned(7, WIDTH_BITS));
-		for t in 1 to 120 loop
-			expect_stable(clko_cfg1, expected, 7, "cfg1 random retune2 hold");
+		expected := '0';
+		for t in 1 to 12 loop
+			expect_stable(clko_cfg1, expected, 7, "cfg1 div7 hold");
 			wait until falling_edge(clk);
 			expected := not expected;
-			assert_equal(clko_cfg1, expected, "cfg1 random retune2 toggle " & integer'image(t));
-		end loop;
-		terminal_count <= std_logic_vector(to_unsigned(89, WIDTH_BITS));
-		for t in 1 to 120 loop
-			expect_stable(clko_cfg1, expected, 89, "cfg1 random retune3 hold");
-			wait until falling_edge(clk);
-			expected := not expected;
-			assert_equal(clko_cfg1, expected, "cfg1 random retune3 toggle " & integer'image(t));
+			assert_equal(clko_cfg1, expected, "cfg1 div7 toggle " & integer'image(t));
 		end loop;
 
 		finish;

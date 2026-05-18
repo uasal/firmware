@@ -22,6 +22,7 @@ architecture sim of OneShot_tb is
     signal shot_cfg4 : std_logic;
     signal shot_cfg5 : std_logic;
     signal shot_cfg6 : std_logic;
+    signal shot_stress : std_logic;
     signal test_name_display : string(1 to 80);
     constant CLK_PERIOD : time := 10 ns;
 
@@ -139,6 +140,13 @@ begin
         reset_dut(clk, rst);
         assert_equal(shot_cfg1, '0', "cfg1 back to reset state");
 
+        set_test_name(test_name_display, "Large fixed delay count");
+        reset_dut(clk, rst);
+        expect_stable(shot_stress, '0', 49999, "stress pretrigger");
+        wait until falling_edge(clk);
+        assert_equal(shot_stress, '1', "stress shot at large delay");
+        expect_stable(shot_stress, '1', 32, "stress latched post trigger");
+
         finish;
 
     end process;
@@ -219,6 +227,19 @@ begin
             clk => clk,
             rst => rst,
             shot => shot_cfg6
+        );
+
+    dut_stress: entity work.OneShotPorts
+        generic map (
+            CLOCK_FREQHZ => 50000,
+            DELAY_SECONDS => 1.0,
+            SHOT_RST_STATE => '0',
+            SHOT_PRETRIGGER_STATE => '0'
+        )
+        port map (
+            clk => clk,
+            rst => rst,
+            shot => shot_stress
         );
 
 end architecture sim;
