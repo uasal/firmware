@@ -1,6 +1,5 @@
 --! \brief Testbench for PPSCount.vhd
---! Simple reset + nominal PPS counting checks.
---! To be reimplemented to be more comprehensive
+--! PPS/reset overlap, edge behavior, counter/accumulation, and PPSDetected.
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -22,74 +21,9 @@ architecture sim of PPSCount_tb is
     signal test_name_display : string(1 to 80);
     constant CLK_PERIOD : time := 10 ns;
 
-    procedure test_pps_count(
-        signal PPS_out : out std_logic;
-        signal rst_out : out std_logic;
-        signal PPSDetected_in : in std_logic;
-        signal PPSCounter_in : in std_logic_vector(31 downto 0);
-        signal PPSAccum_in : in std_logic_vector(31 downto 0);
-        constant name : string
-    ) is
-    begin
-        wait until falling_edge(clk);
-        report COLOR_YELLOW & "Testing: " & name & COLOR_RESET;
-        rst_out <= '1';
-        wait until falling_edge(clk);
-        assert_equal(PPSDetected_in, '0', "PPS Detected should be 0 after reset");
-        assert_equal(PPSCounter_in, x"00000000", "PPS Counter should be 0 after reset");
-        assert_equal(PPSAccum_in, x"00000000", "PPS Accum should be 0 after reset");
-        rst_out <= '0';
-        wait until falling_edge(clk);
-        report COLOR_YELLOW & "  First PPS edge (post-reset): PPSAccum must always be discarded" & COLOR_RESET;
-        PPS_out <= '1';
-        wait until falling_edge(clk);
-        assert_equal(PPSDetected_in, '1', "PPS Detected should be 1 after first PPS edge");
-        assert_equal(PPSCounter_in, x"00000000", "PPS Counter should reset to 0 on first rising edge");
-        wait until falling_edge(clk);
-        assert_equal(PPSAccum_in, x"00000000", "INVARIANT: PPSAccum always 0 after first post-reset edge");
-        assert_equal(PPSCounter_in, x"00000001", "PPS Counter should be 1 (one clock since rising edge)");
-        
-        report COLOR_YELLOW & "  PPS low period (10 clocks): counter accumulates, latch unchanged" & COLOR_RESET;
-        PPS_out <= '0';
-        -- Wait 10 clocks while PPS is low to allow counter to accumulate
-        for i in 1 to 10 loop
-            wait until falling_edge(clk);
-        end loop;
-        assert_equal(PPSDetected_in, '1', "PPS Detected should remain 1 (sticky) before reset");
-        assert_equal(PPSCounter_in, x"0000000A", "PPS Counter should have incremented to 10");
-        assert_equal(PPSAccum_in, x"00000000", "PPSAccum unchanged: only updates on rising PPS edge");
-
-        -- Second rising edge: InvalidatePPSCount is now '0', so this edge latches a real count
-        report COLOR_YELLOW & "  Second PPS edge: first valid latch (count + 2 compensation)" & COLOR_RESET;
-        PPS_out <= '1';
-        wait until falling_edge(clk);
-        assert_equal(PPSDetected_in, '1', "PPS Detected should be 1 after second PPS edge");
-        assert_equal(PPSCounter_in, x"00000000", "PPS Counter should reset to 0 after second rising edge");
-        
-        wait until falling_edge(clk);
-        assert_equal(PPSAccum_in, x"0000000C", "PPSAccum latches PPSAccum_i + 2 (10 clocks + 2 edge compensaton = 12)");
-        
-        PPS_out <= '0';
-        -- Wait 15 clocks while PPS is low
-        for i in 1 to 15 loop
-            wait until falling_edge(clk);
-        end loop;
-        assert_equal(PPSDetected_in, '1', "PPS Detected should remain 1 (sticky)");
-        assert_equal(PPSCounter_in, x"0000000F", "PPS Counter should have incremented to 15");
-        assert_equal(PPSAccum_in, x"0000000C", "PPS Accum should still hold previous latched value");
-
-        -- Reset to clear sticky PPSDetected flag
-        rst_out <= '1';
-        wait until falling_edge(clk);
-        assert_equal(PPSDetected_in, '0', "PPS Detected should be 0 after reset");
-        rst_out <= '0';
-        wait until falling_edge(clk);
-
-    end procedure;
-
 begin
 
-    clk_process: process
+    clk_process : process
     begin
         clk <= '0';
         wait for CLK_PERIOD / 2;
@@ -97,36 +31,251 @@ begin
         wait for CLK_PERIOD / 2;
     end process;
 
-    test_process: process
+    test_process : process
     begin
+        PPS <= '0';
 
-        set_test_name(test_name_display, "Reset Test");
-        report COLOR_YELLOW & "Testing: Reset Test" & COLOR_RESET;
+        set_test_name(test_name_display, "Reset defaults");
+        reset_dut(clk, rst);
+        assert_equal(PPSDetected, '0', "PPSDetected 0 after reset");
+        assert_equal(PPSCounter, x"00000000", "PPSCounter 0 after reset");
+        assert_equal(PPSAccum, x"00000000", "PPSAccum 0 after reset");
+
+        set_test_name(test_name_display, "Basic PPS count and interval latches");
+        reset_dut(clk, rst);
+        wait until falling_edge(clk);
+        PPS <= '1';
+        wait until falling_edge(clk);
+        assert_equal(PPSDetected, '1', "PPSDetected after first rising edge");
+        assert_equal(PPSCounter, x"00000000", "PPSCounter reset on first rising edge");
+        assert_equal(PPSAccum, x"00000000", "PPSAccum 0 after invalidated first rising edge");
+        wait until falling_edge(clk);
+        assert_equal(PPSCounter, x"00000001", "PPSCounter 1 one clock after rising edge");
+
+        PPS <= '0';
+        cycle_clock(clk, 10);
+        assert_equal(PPSCounter, x"0000000A", "PPSCounter 10 after 10 low clocks");
+        assert_equal(PPSAccum, x"00000000", "PPSAccum unchanged without rising edge");
+
+        PPS <= '1';
+        wait until falling_edge(clk);
+        assert_equal(PPSDetected, '1', "PPSDetected after second rising edge");
+        assert_equal(PPSCounter, x"00000000", "PPSCounter reset on second rising edge");
+        assert_equal(PPSAccum, x"0000000C", "PPSAccum 12 (10 + 2) on first valid latch");
+        wait until falling_edge(clk);
+
+        PPS <= '0';
+        cycle_clock(clk, 15);
+        assert_equal(PPSAccum, x"0000000C", "PPSAccum holds latched value");
+        assert_equal(PPSCounter, x"0000000F", "PPSCounter 15 during low interval");
+
+        PPS <= '1';
+        wait until falling_edge(clk);
+        assert_equal(PPSAccum, x"00000011", "PPSAccum 17 (15 + 2) on third rising edge");
+        wait until falling_edge(clk);
+
+        PPS <= '0';
+        cycle_clock(clk, 20);
+        PPS <= '1';
+        wait until falling_edge(clk);
+        assert_equal(PPSAccum, x"00000016", "PPSAccum 22 (20 + 2) on fourth rising edge");
+
+        set_test_name(test_name_display, "PPS and reset overlap");
+        PPS <= '0';
+        rst <= '1';
+        wait until falling_edge(clk);
+        PPS <= '1';
+        wait until falling_edge(clk);
+        assert_equal(PPSDetected, '0', "PPSDetected cleared while reset asserted");
+        rst <= '0';
+        wait until falling_edge(clk);
+        assert_equal(PPSDetected, '1', "Synthetic rising when PPS high before reset release");
+        assert_equal(PPSAccum, x"00000000", "PPSAccum discarded on synthetic rising edge");
+
+        PPS <= '1';
+        rst <= '1';
+        wait until falling_edge(clk);
+        PPS <= '0';
+        wait until falling_edge(clk);
+        rst <= '0';
+        cycle_clock(clk, 5);
+        assert_equal(PPSDetected, '0', "PPSDetected 0 after PPS falls during reset");
+        PPS <= '1';
+        wait until falling_edge(clk);
+        assert_equal(PPSDetected, '1', "PPSDetected on first edge after overlap");
+
         PPS <= '0';
         wait until falling_edge(clk);
         rst <= '1';
+        PPS <= '1';
         wait until falling_edge(clk);
-        assert_equal(PPSDetected, '0', "PPS Detected should be 0 after reset");
-        assert_equal(PPSCounter, x"00000000", "PPS Counter should be 0 after reset");
-        assert_equal(PPSAccum, x"00000000", "PPS Accum should be 0 after reset");
+        assert_equal(PPSDetected, '0', "Reset dominates when rst and PPS rise together");
         rst <= '0';
         wait until falling_edge(clk);
 
-        set_test_name(test_name_display, "Basic PPS Count Test");
-        test_pps_count(
-            PPS_out => PPS,
-            rst_out => rst,
-            PPSDetected_in => PPSDetected,
-            PPSCounter_in => PPSCounter,
-            PPSAccum_in => PPSAccum,
-            name => "Basic PPS Count Test"
-        );
+        rst <= '1';
+        PPS <= '1';
+        wait until falling_edge(clk);
+        rst <= '0';
+        PPS <= '0';
+        wait until falling_edge(clk);
+        cycle_clock(clk, 5);
+        assert_equal(PPSDetected, '0', "No false detect when rst and PPS fall together");
+
+        PPS <= '0';
+        wait until falling_edge(clk);
+        rst <= '1';
+        PPS <= '1';
+        wait until falling_edge(clk);
+        assert_equal(PPSAccum, x"00000000", "Reset wins on PPS rising edge, no valid latch");
+        rst <= '0';
+        wait until falling_edge(clk);
+
+        PPS <= '1';
+        reset_dut(clk, rst);
+        wait until falling_edge(clk);
+        assert_equal(PPSDetected, '1', "PPSDetected after reset release with PPS high");
+        assert_equal(PPSCounter, x"00000000", "PPSCounter reset after release with PPS high");
+
+        set_test_name(test_name_display, "Falling edge and PPS bounce"); -- Is this correct implementation, should it only be rising edge PPS
+        PPS <= '1';
+        reset_dut(clk, rst);
+        wait until falling_edge(clk);
+        PPS <= '0';
+        wait until falling_edge(clk);
+        assert_equal(PPSDetected, '1', "Falling edge sets PPSDetected");
+        assert_equal(PPSCounter, x"00000000", "Falling edge does not reset PPSCounter");
+        assert_equal(PPSAccum, x"00000000", "Falling edge does not update PPSAccum");
+        wait until falling_edge(clk);
+        assert_equal(PPSCounter, x"00000001", "Counter resumes after falling-edge pause");
+
+        reset_dut(clk, rst);
+        PPS <= '1';
+        wait until falling_edge(clk);
+        PPS <= '0';
+        wait until falling_edge(clk);
+        PPS <= '1';
+        wait until falling_edge(clk);
+        assert_equal(PPSAccum, x"00000002", "Bounce rise2 latches 0+2=2");
+        PPS <= '0';
+        wait until falling_edge(clk);
+        cycle_clock(clk, 1);
+        PPS <= '1';
+        wait until falling_edge(clk);
+        assert_equal(PPSAccum, x"00000003", "Bounce rise3 latches 1+2=3");
+
+        reset_dut(clk, rst);
+        PPS <= '1';
+        wait until falling_edge(clk);
+        PPS <= '0';
+        wait until falling_edge(clk);
+        assert_equal(PPSAccum, x"00000000", "Narrow high pulse: first rise discards latch");
+
+        reset_dut(clk, rst);
+        PPS <= '1';
+        wait until falling_edge(clk);
+        wait until falling_edge(clk);
+        cycle_clock(clk, 4);
+        PPS <= '0';
+        wait until falling_edge(clk);
+        PPS <= '1';
+        wait until falling_edge(clk);
+        assert_equal(PPSAccum, x"00000007", "Narrow low pulse: latch 5+2=7");
+
+        set_test_name(test_name_display, "Counter and PPSAccum behavior");
+        reset_dut(clk, rst);
+        PPS <= '1';
+        wait until falling_edge(clk);
+        cycle_clock(clk, 7);
+        assert_equal(PPSCounter, x"00000007", "PPSCounter increments while PPS high");
+        assert_equal(PPSAccum, x"00000000", "PPSAccum unchanged without rising edge");
+
+        reset_dut(clk, rst);
+        PPS <= '1';
+        wait until falling_edge(clk);
+        wait until falling_edge(clk);
+        PPS <= '0';
+        cycle_clock(clk, 7);
+        assert_equal(PPSCounter, x"00000007", "PPSCounter increments while PPS low");
+
+        reset_dut(clk, rst);
+        PPS <= '1';
+        wait until falling_edge(clk);
+        wait until falling_edge(clk);
+        PPS <= '0';
+        cycle_clock(clk, 10);
+        PPS <= '1';
+        wait until falling_edge(clk);
+        assert_equal(PPSAccum, x"0000000C", "PPSAccum latched at 12");
+        wait until falling_edge(clk);
+        cycle_clock(clk, 50);
+        assert_equal(PPSAccum, x"0000000C", "PPSAccum stable over 50 clocks");
+        assert_equal(PPSCounter, x"00000033", "PPSCounter still increments");
+
+        set_test_name(test_name_display, "PPSDetected sticky, only reset clears");
+        PPS <= '0';
+        reset_dut(clk, rst);
+        cycle_clock(clk, 5);
+        assert_equal(PPSDetected, '0', "PPSDetected 0 with no PPS transitions");
+
+        reset_dut(clk, rst);
+        PPS <= '1';
+        wait until falling_edge(clk);
+        wait until falling_edge(clk);
+        PPS <= '0';
+        cycle_clock(clk, 10);
+        PPS <= '1';
+        wait until falling_edge(clk);
+        assert_equal(PPSDetected, '1', "PPSDetected set after valid latch");
+        cycle_clock(clk, 10);
+        assert_equal(PPSDetected, '1', "PPSDetected sticky across edges");
+        reset_dut(clk, rst);
+        assert_equal(PPSDetected, '0', "Only reset clears PPSDetected");
+
+        set_test_name(test_name_display, "Variable run variable PPS intervals");
+        reset_dut(clk, rst);
+        PPS <= '1';
+        wait until falling_edge(clk);
+        wait until falling_edge(clk);
+        for i in 1 to 100 loop
+            PPS <= '0';
+            cycle_clock(clk, i mod 257);
+            PPS <= '1';
+            wait until falling_edge(clk);
+            assert_equal(
+                PPSAccum,
+                std_logic_vector(to_unsigned((i mod 257) + 2, 32)),
+                "Variable interval latch " & integer'image(i)
+            );
+            assert_equal(PPSDetected, '1', "PPSDetected sticky " & integer'image(i));
+            wait until falling_edge(clk);
+        end loop;
+        assert_equal(PPSCounter, x"00000001", "PPSCounter 1 after last rising edge");
+
+        set_test_name(test_name_display, "Long run variable PPS intervals");
+        reset_dut(clk, rst);
+        PPS <= '1';
+        wait until falling_edge(clk);
+        wait until falling_edge(clk);
+        for i in 0 to 999 loop
+            PPS <= '0';
+            cycle_clock(clk, i mod 1000);
+            PPS <= '1';
+            wait until falling_edge(clk);
+            assert_equal(
+                PPSAccum,
+                std_logic_vector(to_unsigned((i mod 1000) + 2, 32)),
+                "Variable interval latch " & integer'image(i)
+            );
+            assert_equal(PPSDetected, '1', "PPSDetected sticky " & integer'image(i));
+            wait until falling_edge(clk);
+        end loop;
+        assert_equal(PPSCounter, x"00000001", "PPSCounter 1 after last rising edge");
 
         finish;
-
     end process;
 
-    dut: entity work.PPSCountPorts
+    dut : entity work.PPSCountPorts
         port map (
             clk => clk,
             PPS => PPS,
@@ -136,4 +285,4 @@ begin
             PPSAccum => PPSAccum
         );
 
-    end architecture sim;
+end architecture sim;
