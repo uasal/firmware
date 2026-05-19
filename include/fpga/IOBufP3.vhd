@@ -26,8 +26,6 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.all;
-library UNISIM;
-use UNISIM.vcomponents.all;
 
 entity IOBufP3Ports is
 	port (
@@ -47,13 +45,8 @@ architecture IOBufP3 of IOBufP3Ports is
 	
 begin
 
-	IOBUF_i : IOBUF
-	port map (
-		O => Temp1,
-		IO => IO,
-		I => I,
-		T => T
-	);
+	IO <= I when (T = '1') else 'Z';
+	Temp1 <= IO;
 
 	process (clk)
 	begin
