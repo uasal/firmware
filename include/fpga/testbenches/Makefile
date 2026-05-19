@@ -73,6 +73,10 @@ rebuild: clean build
 clean:
 	rm -rf $(WORK_DIR) *.cf *.vcd *.ghw *.log
 
+install:
+	sudo apt-get update
+	sudo apt-get install -y ghdl gtkwave
+
 help:
 	@echo "Make targets:"
 	@echo "  make build      - Build all testbenches once"
