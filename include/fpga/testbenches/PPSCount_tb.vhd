@@ -46,7 +46,7 @@ begin
         wait until falling_edge(clk);
         PPS <= '1';
         wait until falling_edge(clk);
-        assert_equal(PPSDetected, '1', "PPSDetected after first rising edge");
+        assert_equal(PPSDetected, '0', "PPSDetected stays low until two PPS edges are seen");
         assert_equal(PPSCounter, x"00000000", "PPSCounter reset on first rising edge");
         assert_equal(PPSAccum, x"00000000", "PPSAccum 0 after invalidated first rising edge");
         wait until falling_edge(clk);
@@ -89,7 +89,7 @@ begin
         assert_equal(PPSDetected, '0', "PPSDetected cleared while reset asserted");
         rst <= '0';
         wait until falling_edge(clk);
-        assert_equal(PPSDetected, '1', "Synthetic rising when PPS high before reset release");
+        assert_equal(PPSDetected, '0', "Synthetic rising counts as first edge only");
         assert_equal(PPSAccum, x"00000000", "PPSAccum discarded on synthetic rising edge");
 
         PPS <= '1';
@@ -102,7 +102,7 @@ begin
         assert_equal(PPSDetected, '0', "PPSDetected 0 after PPS falls during reset");
         PPS <= '1';
         wait until falling_edge(clk);
-        assert_equal(PPSDetected, '1', "PPSDetected on first edge after overlap");
+        assert_equal(PPSDetected, '0', "PPSDetected stays low on first edge after overlap");
 
         PPS <= '0';
         wait until falling_edge(clk);
@@ -134,7 +134,7 @@ begin
         PPS <= '1';
         reset_dut(clk, rst);
         wait until falling_edge(clk);
-        assert_equal(PPSDetected, '1', "PPSDetected after reset release with PPS high");
+        assert_equal(PPSDetected, '0', "PPSDetected stays low after reset release with PPS high");
         assert_equal(PPSCounter, x"00000000", "PPSCounter reset after release with PPS high");
 
         set_test_name(test_name_display, "Falling edge and PPS bounce"); -- Is this correct implementation, should it only be rising edge PPS
@@ -271,6 +271,16 @@ begin
             wait until falling_edge(clk);
         end loop;
         assert_equal(PPSCounter, x"00000001", "PPSCounter 1 after last rising edge");
+
+        set_test_name(test_name_display, "PPSDetected takes two PPS edges to set");
+        reset_dut(clk, rst);
+        PPS <= '1';
+        wait until falling_edge(clk);
+        PPS <= '0';
+        assert_equal(PPSDetected, '0', "PPSDetected 0 after first rising edge");
+        wait until falling_edge(clk);
+        assert_equal(PPSDetected, '1', "PPSDetected 1 after second rising edge");
+
 
         finish;
     end process;
