@@ -49,6 +49,7 @@ end PPSCountPorts;
 architecture PPSCount of PPSCountPorts is
 
 	signal LastPPS : std_logic;
+	signal HavePPSEdge : std_logic;
 	signal InvalidatePPSCount : std_logic;
 	signal PPSAccum_i : std_logic_vector(31 downto 0);
 	signal PPSAccumCycles : natural range 0 to PPS_ACCUM_CYCLES;
@@ -68,6 +69,7 @@ begin
 			PPSAccumCycles <= 0;
 			PPSDetected <= '0';
 			LastPPS <= '0';
+			HavePPSEdge <= '0';
 			InvalidatePPSCount <= '0';
 			
 			--Reset latch
@@ -85,8 +87,15 @@ begin
 				if (PPS /= LastPPS) then 
 				
 					LastPPS <= PPS;
+					if (HavePPSEdge = '1') then
 					
-					PPSDetected <= '1';
+						PPSDetected <= '1';
+						
+					else
+					
+						HavePPSEdge <= '1';
+						
+					end if;
 					
 					if (PPS = '1') then
 					
