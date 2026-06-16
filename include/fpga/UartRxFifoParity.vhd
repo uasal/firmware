@@ -34,9 +34,7 @@ use IEEE.NUMERIC_STD.all;
 entity UartRxFifoParity is
 	generic 
 	(
-		UART_CLOCK_FREQHZ : natural := 14745600;
-		FIFO_BITS : natural := 10;
-		BAUDRATE : natural := 38400--;
+		FIFO_BITS : natural := 10--;
 	);
 	port 
 	(
@@ -75,20 +73,6 @@ architecture implementation of UartRxFifoParity is
 		);
 		end component;
 
-		component ClockDividerPorts is
-		generic 
-		(
-			CLOCK_DIVIDER : natural := 10;
-			DIVOUT_RST_STATE : std_logic := '0'--;
-		);
-		port 
-		(		
-			clk : in std_logic;
-			rst : in std_logic;
-			div : out std_logic
-		);
-		end component;
-		
 		component gated_fifo is
 		generic 
 		(
@@ -134,18 +118,7 @@ architecture implementation of UartRxFifoParity is
 	
 begin
 
-	--uart needs baud*16 for it to work, this just makes one...
-	UartClkDiv : ClockDividerPorts
-	generic map
-	(
-		CLOCK_DIVIDER => natural((real(UART_CLOCK_FREQHZ) / ( real(BAUDRATE) * 16.0)) + 0.5)
-	)
-	port map
-	(
-		clk => uclk,
-		rst => rst,
-		div => UartBaudClkx16
-	);
+	UartBaudClkx16 <= uclk;
 	
 	--Just sync the Txd to the UartClock
 	ClkSyncRxd : IBufP2Ports
@@ -155,7 +128,7 @@ begin
 	)
 	port map
 	(
-		clk => UartBaudClkx16,
+		clk => clk,
 		rst => rst,
 		I => Rxd,
 		O => Rxd_i
