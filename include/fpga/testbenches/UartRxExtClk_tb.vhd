@@ -1,6 +1,7 @@
 --! \brief Testbench for UartRxExtClk.vhd
 --! Same coverage style as UartRx_tb.vhd, but with external clocking.
 --! Also checks ext-clock-specific stop-bit timing thresholds.
+--! Latest baud result: Baud range of 115200: 109232 - 121969 baud (-5.549864035191298% / +5.4632451496476895%)
 
 library ieee;
 use ieee.std_logic_1164.all;

@@ -2,6 +2,7 @@
 --! Basic decode, back-to-back bytes, and byte-range traffic.
 --! Reset-during-reception and break-condition handling.
 --! Checks completion signaling and output hold behavior.
+--! Latest baud result: Baud range of 115200: 108828 - 121969 baud (-5.549864035191298% / +5.854925174715212%)
 
 library ieee;
 use ieee.std_logic_1164.all;

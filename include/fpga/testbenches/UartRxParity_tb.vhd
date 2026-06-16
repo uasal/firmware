@@ -2,6 +2,7 @@
 --! Parity mode matrix (odd/even), parity accumulation, and parity error signaling.
 --! Stop-bit timing and baud mismatch cases.
 --! Reset during active frame is covered too.
+--! Latest baud result: Baud range of 115200: 109232 - 121259 baud (-4.996903999801856% / +5.4632451496476895%)
 
 library ieee;
 use ieee.std_logic_1164.all;
