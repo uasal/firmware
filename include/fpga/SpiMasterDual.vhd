@@ -98,13 +98,11 @@ begin
 			Sck_i <= not(CPOL);
 			MosiA_i <= DataToMosiA((BYTE_WIDTH * 8) - 1); --get the first bit out there asap
 			MosiB_i <= DataToMosiB((BYTE_WIDTH * 8) - 1); --get the first bit out there asap
-			DataToMosiA_i <= std_logic_vector(to_unsigned(0, BYTE_WIDTH * 8));
-			DataToMosiB_i <= std_logic_vector(to_unsigned(0, BYTE_WIDTH * 8));
+			DataToMosiA_i <= DataToMosiA;
+			DataToMosiB_i <= DataToMosiB;
 			DataToMosiLatched <= '0';
-			DataFromMisoA((BYTE_WIDTH * 8) - 1) <= MisoA; --grab the first bit asap
-			DataFromMisoA((BYTE_WIDTH * 8) - 2 downto 0) <= std_logic_vector(to_unsigned(0, (BYTE_WIDTH * 8) - 1));
-			DataFromMisoB((BYTE_WIDTH * 8) - 1) <= MisoB; --grab the first bit asap
-			DataFromMisoB((BYTE_WIDTH * 8) - 2 downto 0) <= std_logic_vector(to_unsigned(0, (BYTE_WIDTH * 8) - 1));
+			DataFromMisoA <= std_logic_vector(to_unsigned(0, BYTE_WIDTH * 8));
+			DataFromMisoB <= std_logic_vector(to_unsigned(0, BYTE_WIDTH * 8));
 			XferComplete_i <= '0';
 			SpiBitPos <= (BYTE_WIDTH * 8);	--MSB first transfers; for LSB first, load "000" instead.
 			ClkDiv <= 0;
