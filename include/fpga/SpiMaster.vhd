@@ -90,10 +90,9 @@ begin
 
 			Sck_i <= not(CPOL);
 			Mosi_i <= DataToMosi((BYTE_WIDTH * 8) - 1); --get the first bit out there asap
-			DataToMosi_i <= std_logic_vector(to_unsigned(0, BYTE_WIDTH * 8));
+			DataToMosi_i <= DataToMosi;
 			DataToMosiLatched <= '0';
-			DataFromMiso((BYTE_WIDTH * 8) - 1) <= Miso; --grab the first bit asap
-			DataFromMiso((BYTE_WIDTH * 8) - 2 downto 0) <= std_logic_vector(to_unsigned(0, (BYTE_WIDTH * 8) - 1));
+			DataFromMiso <= std_logic_vector(to_unsigned(0, BYTE_WIDTH * 8));
 			XferComplete_i <= '0';
 			SpiBitPos <= (BYTE_WIDTH * 8);	--MSB first transfers; for LSB first, load "000" instead.
 			ClkDiv <= 0;
