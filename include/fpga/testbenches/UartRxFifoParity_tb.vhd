@@ -1,6 +1,7 @@
 --! \brief Testbench for UartRxFifoParity.vhd
 --! Main check here: bad parity frames do not get written into FIFO.
 --! Includes good/bad mixed streams, read timing overlap, boundaries, and reset recovery.
+--! Latest baud result: Baud range of 115200: 109030 - 121465 baud (-5.158184010123777% / +5.659085162181451%)
 
 library ieee;
 use ieee.std_logic_1164.all;

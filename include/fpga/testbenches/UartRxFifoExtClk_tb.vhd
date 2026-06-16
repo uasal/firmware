@@ -2,6 +2,7 @@
 --! FIFO integration after the interface swap.
 --! Single/burst/overlap traffic, read-while-write behavior, and drain ordering.
 --! Full/empty boundaries plus resets with buffered data and active frames.
+--! Latest baud result: Baud range of 115200: 109232 - 121969 baud (-5.549864035191298% / +5.4632451496476895%)
 
 library ieee;
 use ieee.std_logic_1164.all;

@@ -2,6 +2,7 @@
 --! Make sure sampling/enable gating and stop-bit timing rules hold.
 --! Basic decode, full byte range, completion signals (normal behavior)
 --! Includes baud mismatch, back-to-back frames, and reset mid-frame.
+--! Latest baud result: Baud range of 115200: 109232 - 121969 baud (-5.549864035191298% / +5.4632451496476895%)
 
 library ieee;
 use ieee.std_logic_1164.all;

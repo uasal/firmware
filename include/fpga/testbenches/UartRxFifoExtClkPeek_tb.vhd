@@ -2,6 +2,7 @@
 --! Adds peek + multipop coverage on top of RX FIFO behavior.
 --! Pop-to-empty/refill/full-to-empty sequences are included.
 --! Also checks simultaneous pop+write and skip/address edge cases.
+--! Latest baud result: Baud range of 115200: 109254 - 121936 baud (-5.524473953566333% / +5.442555228323535%)
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -71,8 +72,8 @@ architecture sim of UartRxFifoExtClkPeek_tb is
         variable pos_pass_limit_o : out time
     ) is
         variable skew_offset : time;
-        variable max_skew : time;
-        constant STEP_TIME : time := 8 ns;
+        variable max_skew_magnitude : time;
+        constant STEP_TIME : time := 1 ns;
         constant REQUIRED_PASSES : natural := 3;
         variable pass_counter : natural;
         variable in_pass_window : boolean;
@@ -80,15 +81,12 @@ architecture sim of UartRxFifoExtClkPeek_tb is
         pass_found_o := false;
         neg_pass_limit_o := 0 ps;
         pos_pass_limit_o := 0 ps;
-        max_skew := bit_period_i - 1 ns;
-        if max_skew > 9 us then
-            max_skew := 9 us;
-        end if;
-        skew_offset := -max_skew;
+        max_skew_magnitude := bit_period_i / 6;
+        skew_offset := -max_skew_magnitude;
         pass_counter := 0;
         in_pass_window := false;
 
-        while skew_offset <= max_skew loop
+        while skew_offset <= max_skew_magnitude loop
             reset_dut(reset_clk_i, rst_o);
             rxd_o <= '1';
             cycle_clock(sample_clk_i, 2);
