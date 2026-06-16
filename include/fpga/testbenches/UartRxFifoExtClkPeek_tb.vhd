@@ -2,7 +2,7 @@
 --! Adds peek + multipop coverage on top of RX FIFO behavior.
 --! Pop-to-empty/refill/full-to-empty sequences are included.
 --! Also checks simultaneous pop+write and skip/address edge cases.
---! Latest baud result: Baud range of 115200: 109254 - 121936 baud (-5.524473953566333% / +5.442555228323535%)
+--! Latest baud result: Baud range of 115200: 109232 - 121969 baud (-5.549864035191298% / +5.4632451496476895%)
 
 library ieee;
 use ieee.std_logic_1164.all;
