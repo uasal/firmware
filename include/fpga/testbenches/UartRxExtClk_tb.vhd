@@ -13,77 +13,40 @@ end UartRxExtClk_tb;
 
 architecture sim of UartRxExtClk_tb is
 
-    signal clk : std_logic;
-    signal bit_clk : std_logic;
     signal uclk : std_logic;
     signal rst : std_logic;
     signal UartClk : std_logic;
     signal Rxd : std_logic;
     signal RxComplete : std_logic;
     signal RxData : std_logic_vector(7 downto 0);
+    signal tb_unused_parityerr : std_logic := '0';
 
     signal test_name_display : string(1 to 80);
 
-    constant BAUDRATE : natural := 38400;
-    constant CLK_PERIOD : time := 1 sec / (BAUDRATE * 32);
-    constant BIT_CLK_PERIOD : time := 1 sec / BAUDRATE;
-    constant UCLK_PERIOD : time := 1 sec / (BAUDRATE * 16);
+    constant BAUDRATE : natural := 115200;
+    constant UART_FRAME_BITS : natural := 10;
     constant UART_SAMPLES_PER_BIT : natural := 16;
-
-    procedure send_byte(
-        signal Rxd_o : out std_logic;
-        constant b : in std_logic_vector(7 downto 0);
-        constant cycles_per_bit : in natural := UART_SAMPLES_PER_BIT;
-        constant pre_idle_cycles : in natural := UART_SAMPLES_PER_BIT;
-        constant stop_cycles : in natural := UART_SAMPLES_PER_BIT
-    ) is
-    begin
-        Rxd_o <= '1';
-        cycle_clock(uclk, pre_idle_cycles);
-        Rxd_o <= '0';
-        cycle_clock(uclk, cycles_per_bit);
-        assert_equal(RxComplete, '0', "RxComplete should be 0 after start bit");
-        for i in 0 to 7 loop
-            Rxd_o <= byte_bit(b, i);
-            cycle_clock(uclk, cycles_per_bit);
-        end loop;
-
-        assert_equal(RxComplete, '0', "RxComplete should be 0 after sending byte");
-        Rxd_o <= '1';
-        cycle_clock(uclk, stop_cycles);
-
-        assert_equal(RxComplete, '1', "RxComplete should be 1 after sending byte");
-        assert_equal(RxData, b, "RxData should be " & to_hstring(b) & " after sending byte");
-    end procedure;
-
+    constant BIT_PERIOD : time := 1 sec / BAUDRATE;
+    constant SAMPLE_CLK_PERIOD : time := BIT_PERIOD / UART_SAMPLES_PER_BIT;
+    constant BAUD_TOLERANCE_PCT : real := uart_baud_tolerance_pct(UART_FRAME_BITS);
+    constant PREDICTED_SKEW_ALLOWANCE : time := predicted_skew_allowance(BIT_PERIOD, BAUD_TOLERANCE_PCT);
 
 begin
-
-    clk_process : process
-    begin
-        clk <= '0';
-        wait for CLK_PERIOD / 2;
-        clk <= '1';
-        wait for CLK_PERIOD / 2;
-    end process;
-
-    bit_clk_process : process
-    begin
-        bit_clk <= '0';
-        wait for BIT_CLK_PERIOD / 2;
-        bit_clk <= '1';
-        wait for BIT_CLK_PERIOD / 2;
-    end process;
 
     uclk_process : process
     begin
         uclk <= '0';
-        wait for UCLK_PERIOD / 2;
+        wait for SAMPLE_CLK_PERIOD / 2;
         uclk <= '1';
-        wait for UCLK_PERIOD / 2;
+        wait for SAMPLE_CLK_PERIOD / 2;
     end process;
 
     test_process : process
+        variable pass_found : boolean;
+        variable neg_pass_limit : time;
+        variable pos_pass_limit : time;
+        variable worst_neg_pass_limit : time;
+        variable worst_pos_pass_limit : time;
     begin
         set_test_name(test_name_display, "Reset");
         Rxd <= '1';
@@ -93,26 +56,37 @@ begin
 
 
         set_test_name(test_name_display, "Test 1: Basic operation");
-        send_byte(Rxd, x"55");
+        uart_rx_byte_cycles(uclk, Rxd, x"55", UART_SAMPLES_PER_BIT, UART_SAMPLES_PER_BIT, UART_SAMPLES_PER_BIT);
         assert_equal(RxComplete, '1', "RxComplete should be 1 after byte");
         assert_equal(RxData, x"55", "RxData should be 0x55 after byte");
 
 
         set_test_name(test_name_display, "Back-to-back bytes");
-        send_byte(Rxd, x"55");
-        send_byte(Rxd, x"AA");
-        send_byte(Rxd, x"FF");
-        send_byte(Rxd, x"00");
+        uart_rx_byte_cycles(uclk, Rxd, x"55", UART_SAMPLES_PER_BIT, UART_SAMPLES_PER_BIT, UART_SAMPLES_PER_BIT);
+        assert_equal(RxComplete, '1', "RxComplete should be 1 after 0x55");
+        assert_equal(RxData, x"55", "RxData should be 0x55 after 0x55");
+        uart_rx_byte_cycles(uclk, Rxd, x"AA", UART_SAMPLES_PER_BIT, UART_SAMPLES_PER_BIT, UART_SAMPLES_PER_BIT);
+        assert_equal(RxComplete, '1', "RxComplete should be 1 after 0xAA");
+        assert_equal(RxData, x"AA", "RxData should be 0xAA after 0xAA");
+        uart_rx_byte_cycles(uclk, Rxd, x"FF", UART_SAMPLES_PER_BIT, UART_SAMPLES_PER_BIT, UART_SAMPLES_PER_BIT);
+        assert_equal(RxComplete, '1', "RxComplete should be 1 after 0xFF");
+        assert_equal(RxData, x"FF", "RxData should be 0xFF after 0xFF");
+        uart_rx_byte_cycles(uclk, Rxd, x"00", UART_SAMPLES_PER_BIT, UART_SAMPLES_PER_BIT, UART_SAMPLES_PER_BIT);
+        assert_equal(RxComplete, '1', "RxComplete should be 1 after 0x00");
+        assert_equal(RxData, x"00", "RxData should be 0x00 after 0x00");
 
 
         set_test_name(test_name_display, "Stress Test: All Byte Values");
         for i in 0 to 255 loop
-            send_byte(Rxd, std_logic_vector(to_unsigned(i, 8)));
+            uart_rx_byte_cycles(uclk, Rxd, std_logic_vector(to_unsigned(i, 8)), UART_SAMPLES_PER_BIT, UART_SAMPLES_PER_BIT, UART_SAMPLES_PER_BIT);
+            assert_equal(RxComplete, '1', "RxComplete should be 1 during stress test");
+            assert_equal(RxData, std_logic_vector(to_unsigned(i, 8)), "RxData should match stress-test byte");
         end loop;
 
 
         set_test_name(test_name_display, "Hold old RxData until new byte completes");
-        send_byte(Rxd, x"FF");
+        uart_rx_byte_cycles(uclk, Rxd, x"FF", UART_SAMPLES_PER_BIT, UART_SAMPLES_PER_BIT, UART_SAMPLES_PER_BIT);
+        assert_equal(RxComplete, '1', "RxComplete should be 1 after 0xFF");
         assert_equal(RxData, x"FF", "RxData should hold previous byte");
         Rxd <= '0';
         cycle_clock(uclk, UART_SAMPLES_PER_BIT);
@@ -178,6 +152,73 @@ begin
         assert_equal(RxComplete, '0', "RxComplete should stay 0 when stop bit is missing too long");
         assert_equal(RxData, x"00", "RxData should not update when stop bit is missing too long");
 
+        set_test_name(test_name_display, "Start phase 0 ps");
+        reset_dut(uclk, rst);
+        Rxd <= '1';
+        cycle_clock(uclk, 2);
+        uart_rx_byte_timed(uclk, Rxd, x"55", BIT_PERIOD, 0 ps, 0 ps);
+        wait for BIT_PERIOD;
+        assert_equal(RxData, x"55", "RxData = 0x55 with phase 0 ps");
+        assert_equal(RxComplete, '1', "RxComplete asserted with phase 0 ps");
+
+        set_test_name(test_name_display, "Start phase SAMPLE_CLK_PERIOD/2");
+        reset_dut(uclk, rst);
+        Rxd <= '1';
+        cycle_clock(uclk, 2);
+        uart_rx_byte_timed(uclk, Rxd, x"55", BIT_PERIOD, SAMPLE_CLK_PERIOD / 2, 0 ps);
+        wait for BIT_PERIOD;
+        assert_equal(RxData, x"55", "RxData = 0x55 with phase SAMPLE_CLK_PERIOD/2");
+        assert_equal(RxComplete, '1', "RxComplete asserted with phase SAMPLE_CLK_PERIOD/2");
+
+        set_test_name(test_name_display, "Start phase SAMPLE_CLK_PERIOD-1ns");
+        reset_dut(uclk, rst);
+        Rxd <= '1';
+        cycle_clock(uclk, 2);
+        uart_rx_byte_timed(uclk, Rxd, x"55", BIT_PERIOD, SAMPLE_CLK_PERIOD - 1 ns, 0 ps);
+        wait for BIT_PERIOD;
+        assert_equal(RxData, x"55", "RxData = 0x55 with phase SAMPLE_CLK_PERIOD-1ns");
+        assert_equal(RxComplete, '1', "RxComplete asserted with phase SAMPLE_CLK_PERIOD-1ns");
+
+        set_test_name(test_name_display, "Timed baud skew sweep early start phase");
+        uart_rx_sweep_baud_skew(uclk, uclk, rst, Rxd, RxComplete, RxData, tb_unused_parityerr, '0', BIT_PERIOD, 0 ps, x"55", pass_found, neg_pass_limit, pos_pass_limit);
+        assert_equal(pass_found, true, "Early start phase sweep should find at least one passing point");
+        assert_equal(neg_pass_limit <= -PREDICTED_SKEW_ALLOWANCE, true, "Early start phase negative skew should reach predicted allowance");
+        assert_equal(pos_pass_limit >= PREDICTED_SKEW_ALLOWANCE, true, "Early start phase positive skew should reach predicted allowance");
+        worst_neg_pass_limit := neg_pass_limit;
+        worst_pos_pass_limit := pos_pass_limit;
+
+        set_test_name(test_name_display, "Timed baud skew sweep balanced phase");
+        uart_rx_sweep_baud_skew(uclk, uclk, rst, Rxd, RxComplete, RxData, tb_unused_parityerr, '0', BIT_PERIOD, SAMPLE_CLK_PERIOD / 2, x"55", pass_found, neg_pass_limit, pos_pass_limit);
+        assert_equal(pass_found, true, "Balanced phase sweep should find at least one passing point");
+        assert_equal(neg_pass_limit <= -PREDICTED_SKEW_ALLOWANCE, true, "Balanced phase negative skew should reach predicted allowance");
+        assert_equal(pos_pass_limit >= PREDICTED_SKEW_ALLOWANCE, true, "Balanced phase positive skew should reach predicted allowance");
+        if neg_pass_limit > worst_neg_pass_limit then
+            worst_neg_pass_limit := neg_pass_limit;
+        end if;
+        if pos_pass_limit < worst_pos_pass_limit then
+            worst_pos_pass_limit := pos_pass_limit;
+        end if;
+
+        set_test_name(test_name_display, "Timed baud skew sweep late start phase");
+        uart_rx_sweep_baud_skew(uclk, uclk, rst, Rxd, RxComplete, RxData, tb_unused_parityerr, '0', BIT_PERIOD, SAMPLE_CLK_PERIOD - 1 ns, x"55", pass_found, neg_pass_limit, pos_pass_limit);
+        assert_equal(pass_found, true, "Late start phase sweep should find at least one passing point");
+        assert_equal(neg_pass_limit <= -PREDICTED_SKEW_ALLOWANCE, true, "Late start phase negative skew should reach predicted allowance");
+        assert_equal(pos_pass_limit >= PREDICTED_SKEW_ALLOWANCE, true, "Late start phase positive skew should reach predicted allowance");
+        if neg_pass_limit > worst_neg_pass_limit then
+            worst_neg_pass_limit := neg_pass_limit;
+        end if;
+        if pos_pass_limit < worst_pos_pass_limit then
+            worst_pos_pass_limit := pos_pass_limit;
+        end if;
+
+        report_baud_range_summary(
+            baud_from_period(BIT_PERIOD),
+            baud_from_skew(BIT_PERIOD, worst_pos_pass_limit),
+            baud_from_skew(BIT_PERIOD, worst_neg_pass_limit),
+            time_to_percent_of_bit(-worst_neg_pass_limit, BIT_PERIOD),
+            time_to_percent_of_bit(worst_pos_pass_limit, BIT_PERIOD)
+        );
+
         finish;
     end process;
 
@@ -192,4 +233,3 @@ begin
         );
 
 end architecture sim;
-
