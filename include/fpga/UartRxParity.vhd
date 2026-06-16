@@ -45,6 +45,7 @@ architecture Behaviour of UartRxParity is
   signal RReg    : std_logic_vector(7 downto 0); -- receive register  
   signal ParityBit : std_logic := '0';
   signal ParityErrFailed : std_logic := '0';
+  signal RxDPrev : std_logic := '1';
 
 begin
   
@@ -64,15 +65,27 @@ begin
       ParityErr <= '0';
       ParityBit <= '0';
       ParityErrFailed <= '0';
+      RxDPrev <= '1';
    elsif Rising_Edge(Clk) then
       if Enable = '1' then
          case BitPos is
             when 0 => -- idle
-               if RxD = '0' then -- Start Bit
+               if (RxDPrev = '1') and (RxD = '0') then -- Start bit falling edge
+                  RxAv <= '0';
                   SampleCnt := 0;
                   BitPos := 1;
                   ParityBit <= '0';
                   --~ Start <= '1';
+               end if;
+            when 1 => -- Start Bit
+               if SampleCnt = 7 then
+                  if RxD = '0' then
+                     null;
+                  else
+                     BitPos := 0; -- Glitch: abandon frame and return idle
+                  end if;
+               elsif SampleCnt = 15 then
+                  BitPos := 2;
                end if;
             when 10 => -- Parity
                --~ Samp <= '0';
@@ -120,6 +133,7 @@ begin
            else
               sampleCnt := SampleCnt + 1;
            end if;
+           RxDPrev <= RxD;
         end if;
      end if;
   end process;
