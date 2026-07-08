@@ -90,6 +90,10 @@ architecture SpiMasterQuad of SpiMasterQuadPorts is
 	signal DataToMosiC_i : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0); --register input data
 	signal DataToMosiD_i : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0); --register input data
 	signal DataToMosiLatched : std_logic;
+	signal ActiveDataToMosiA : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
+	signal ActiveDataToMosiB : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
+	signal ActiveDataToMosiC : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
+	signal ActiveDataToMosiD : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
 	
 	signal XferComplete_i : std_logic;
 
@@ -102,6 +106,10 @@ begin
 	MosiC <= MosiC_i;
 	MosiD <= MosiD_i;
 	XferComplete <= XferComplete_i;
+	ActiveDataToMosiA <= DataToMosiA when DataToMosiLatched = '0' else DataToMosiA_i;
+	ActiveDataToMosiB <= DataToMosiB when DataToMosiLatched = '0' else DataToMosiB_i;
+	ActiveDataToMosiC <= DataToMosiC when DataToMosiLatched = '0' else DataToMosiC_i;
+	ActiveDataToMosiD <= DataToMosiD when DataToMosiLatched = '0' else DataToMosiD_i;
 	
 	process (clk, rst, MisoA, MisoB, MisoC, MisoD, DataToMosiA, DataToMosiB, DataToMosiC, DataToMosiD)
 	begin
@@ -149,10 +157,10 @@ begin
 					ClkDiv <= ClkDiv + 1;
 					if (SpiBitPos = (BYTE_WIDTH * 8)) then 
 					
-						MosiA_i <= DataToMosiA((BYTE_WIDTH * 8) - 1); 
-						MosiB_i <= DataToMosiB((BYTE_WIDTH * 8) - 1); 
-						MosiC_i <= DataToMosiC((BYTE_WIDTH * 8) - 1); 
-						MosiD_i <= DataToMosiD((BYTE_WIDTH * 8) - 1); 
+						MosiA_i <= ActiveDataToMosiA((BYTE_WIDTH * 8) - 1); 
+						MosiB_i <= ActiveDataToMosiB((BYTE_WIDTH * 8) - 1); 
+						MosiC_i <= ActiveDataToMosiC((BYTE_WIDTH * 8) - 1); 
+						MosiD_i <= ActiveDataToMosiD((BYTE_WIDTH * 8) - 1); 
 						
 					end if; --still time to update the MSB for Mosi. GZHOU
 
@@ -170,10 +178,10 @@ begin
 						
 							if (SpiBitPos > 0) then 
 						
-								MosiA_i <= DataToMosiA_i(SpiBitPos - 1);
-								MosiB_i <= DataToMosiB_i(SpiBitPos - 1);
-								MosiC_i <= DataToMosiC_i(SpiBitPos - 1);
-								MosiD_i <= DataToMosiD_i(SpiBitPos - 1);
+								MosiA_i <= ActiveDataToMosiA(SpiBitPos - 1);
+								MosiB_i <= ActiveDataToMosiB(SpiBitPos - 1);
+								MosiC_i <= ActiveDataToMosiC(SpiBitPos - 1);
+								MosiD_i <= ActiveDataToMosiD(SpiBitPos - 1);
 							
 							end if;
 							
