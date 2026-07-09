@@ -114,6 +114,8 @@ architecture SpiDeviceDual of SpiDeviceDualPorts is
 	--~ signal DacClk : std_logic;
 	signal LastTransfer : std_logic;
 	signal TransferActuallyComplete : std_logic; --When we're done & we reset the spi bus it's version of this signal goes back to zero
+	signal WriteOutA_i : std_logic_vector(BIT_WIDTH - 1 downto 0);
+	signal WriteOutB_i : std_logic_vector(BIT_WIDTH - 1 downto 0);
 	signal ReadbackA_i : std_logic_vector(BIT_WIDTH - 1 downto 0);
 	signal ReadbackB_i : std_logic_vector(BIT_WIDTH - 1 downto 0);
 	
@@ -135,8 +137,8 @@ begin
 		Sck => Sck,
 		MisoA => MisoA,
 		MisoB => MisoB,
-		DataToMosiA => WriteOutA, --we don't actually send anything to the A/D
-		DataToMosiB => WriteOutB, --we don't actually send anything to the A/D
+		DataToMosiA => WriteOutA_i, --sample transmit data when the wrapper accepts Transfer
+		DataToMosiB => WriteOutB_i, --sample transmit data when the wrapper accepts Transfer
 		DataFromMisoA => ReadbackA_i,
 		DataFromMisoB => ReadbackB_i,
 		XferComplete => SpiXferComplete--,
@@ -157,7 +159,9 @@ begin
 			SpiRst <= '1';			
 			LastTransfer <= '0';
 			LastSpiXferComplete <= '0';
-			TransferActuallyComplete <= '0';		
+			TransferActuallyComplete <= '0';
+			WriteOutA_i <= (others => '0');
+			WriteOutB_i <= (others => '0');
 			ReadbackA <= (others => '0');
 			ReadbackB <= (others => '0');
 			
@@ -172,6 +176,9 @@ begin
 					
 					--Here we go...
 					if (Transfer = '1') then
+					
+						WriteOutA_i <= WriteOutA;
+						WriteOutB_i <= WriteOutB;
 					
 						--Initiate reading the data.
 						SpiRst <= '0';
