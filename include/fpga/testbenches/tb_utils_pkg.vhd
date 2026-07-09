@@ -53,6 +53,14 @@ package tb_utils_pkg is
 		constant cycles : natural
 	);
 
+	procedure wait_until_value(
+		signal clk : in std_logic;
+		signal observed : in std_logic;
+		constant expected : std_logic;
+		constant timeout_cycles : natural;
+		constant msg : string
+	);
+
 	procedure assert_equal(
 		constant actual : std_logic;
 		constant expected : std_logic;
@@ -263,6 +271,31 @@ package body tb_utils_pkg is
 		end loop;
 	end procedure;
 
+	procedure wait_until_value(
+		signal clk : in std_logic;
+		signal observed : in std_logic;
+		constant expected : std_logic;
+		constant timeout_cycles : natural;
+		constant msg : string
+	) is
+	begin
+		for i in 0 to timeout_cycles loop
+			if (observed = expected) then
+				return;
+			end if;
+
+			if (i < timeout_cycles) then
+				wait until rising_edge(clk);
+			end if;
+		end loop;
+
+		report COLOR_RED & "  FAIL: " & msg & " - timed out after " &
+			integer'image(timeout_cycles) & " rising edges waiting for '" &
+			std_logic'image(expected) & "', got '" & std_logic'image(observed) & "'" &
+			COLOR_RESET
+			severity error;
+	end procedure;
+
 	procedure assert_equal(
 		constant actual : std_logic;
 		constant expected : std_logic;
@@ -270,7 +303,7 @@ package body tb_utils_pkg is
 	) is
 	begin
 		if (actual = expected) then
-			report COLOR_GREEN & "  PASS: " & msg & COLOR_RESET;
+			report COLOR_GREEN & "  PASS: " & " - got '" & std_logic'image(actual) & "' " & msg & COLOR_RESET;
 		else
 			report COLOR_RED & "  FAIL: " & msg & " - got '" & std_logic'image(actual) & "' expected '" & std_logic'image(expected) & "'" & COLOR_RESET 
 				severity error;
@@ -284,7 +317,7 @@ package body tb_utils_pkg is
 	) is
 	begin
 		if (actual = expected) then
-			report COLOR_GREEN & "  PASS: " & msg & COLOR_RESET;
+			report COLOR_GREEN & "  PASS: " & " - got '" & to_hstring(actual) & "' " & msg & COLOR_RESET;
 		else
 			report COLOR_RED & "  FAIL: " & msg & " - got 0x" & to_hstring(actual) & " expected 0x" & to_hstring(expected) & COLOR_RESET
 				severity error;
@@ -298,7 +331,7 @@ package body tb_utils_pkg is
 	) is
 	begin
 		if (actual = expected) then
-			report COLOR_GREEN & "  PASS: " & msg & COLOR_RESET;
+			report COLOR_GREEN & "  PASS: " & " - got " & boolean'image(actual) & " " & msg & COLOR_RESET;
 		else
 			report COLOR_RED & "  FAIL: " & msg & " - got " & boolean'image(actual) & " expected " & boolean'image(expected) & COLOR_RESET
 				severity error;
@@ -312,7 +345,7 @@ package body tb_utils_pkg is
 	) is
 	begin
 		if (actual = expected) then
-			report COLOR_GREEN & "  PASS: " & msg & COLOR_RESET;
+			report COLOR_GREEN & "  PASS: " & " - got " & time'image(actual) & " " & msg & COLOR_RESET;
 		else
 			report COLOR_RED & "  FAIL: " & msg & " - got " & time'image(actual) & " expected " & time'image(expected) & COLOR_RESET
 				severity error;
