@@ -8,9 +8,15 @@ RUN_JOBS  ?= 8
 
 GHDL_FLAGS := --std=08 -fsynopsys -frelaxed --workdir=$(WORK_DIR)
 
+# We need these to build cgraph types first so other cgraph things can be built
+COMMON_RTL_FILES := \
+	$(RTL_DIR)/CGraphTypes.vhd \
+	$(RTL_DIR)/CGraphDmTypes.vhd
+
 TB_FILES := $(notdir $(wildcard $(TB_DIR)/*_tb.vhd))
 TB_NAMES := $(patsubst %_tb.vhd,%,$(TB_FILES))
-RTL_FILES := $(patsubst %_tb.vhd,$(RTL_DIR)/%.vhd,$(TB_FILES))
+RTL_FILES := $(filter-out $(COMMON_RTL_FILES),$(patsubst %_tb.vhd,$(RTL_DIR)/%.vhd,$(TB_FILES)))
+ALL_RTL_FILES := $(notdir $(wildcard $(RTL_DIR)/*.vhd))
 
 PASS := \033[0;32m
 FAIL := \033[0;31m
@@ -23,6 +29,9 @@ $(WORK_DIR):
 
 build: | $(WORK_DIR)
 	@ghdl -a $(GHDL_FLAGS) $(TB_DIR)/tb_utils_pkg.vhd
+	@for f in $(COMMON_RTL_FILES); do \
+		[ -f $$f ] && ghdl -a $(GHDL_FLAGS) $$f; \
+	done
 	@for f in $(RTL_FILES) $(TB_FILES:%=$(TB_DIR)/%); do \
 		[ -f $$f ] && ghdl -a $(GHDL_FLAGS) $$f; \
 	done
@@ -63,6 +72,24 @@ all: build
 		gtkwave $(WORK_DIR)/$*_tb.ghw & \
 	fi
 
+coverage:
+	@total_num=0; \
+	covered_num=0; \
+	for rtl in $(ALL_RTL_FILES); do \
+		total_num=$$((total_num + 1)); \
+		tb_name=$${rtl%.vhd}_tb.vhd; \
+		if [ -f "$(TB_DIR)/$$tb_name" ]; then \
+			covered_num=$$((covered_num + 1)); \
+		fi; \
+	done; \
+	if [ "$$total_num" -eq 0 ]; then \
+		covered_percent=0; \
+	else \
+		covered_percent=$$((covered_num * 100 / total_num)); \
+	fi; \
+	printf "Testbench coverage: %s%% (%s/%s RTL files have testbenches)\n" \
+		"$$covered_percent" "$$covered_num" "$$total_num"
+
 clean:
 	rm -rf $(WORK_DIR) *.cf *.vcd *.ghw *.log
 
@@ -75,5 +102,6 @@ help:
 	@printf "  make all        Build + run all in parallel ($(RUN_JOBS) jobs)\n"
 	@printf "  make <n>.sim    Build and run one testbench\n"
 	@printf "  make <n>.wav    Build and open waveform\n"
+	@printf "  make coverage   Show %% of RTL files with matching *_tb.vhd testbenches\n"
 	@printf "  make install    Install required dependencies\n"
 	@printf "  make clean      Remove build artifacts\n"
