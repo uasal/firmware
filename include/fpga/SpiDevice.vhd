@@ -106,6 +106,7 @@ architecture SpiDevice of SpiDevicePorts is
 	--~ signal DacClk : std_logic;
 	signal LastTransfer : std_logic;
 	signal TransferActuallyComplete : std_logic; --When we're done & we reset the spi bus it's version of this signal goes back to zero
+	signal WriteOut_i : std_logic_vector(BIT_WIDTH - 1 downto 0);
 	signal Readback_i : std_logic_vector(BIT_WIDTH - 1 downto 0);
 	
 begin
@@ -124,7 +125,7 @@ begin
 		Mosi => Mosi, --we don't actually send anything to the A/D, all it needs is the sample trigger/clock
 		Sck => Sck,
 		Miso => Miso,
-		DataToMosi => WriteOut, --we don't actually send anything to the A/D
+		DataToMosi => WriteOut_i, --sample transmit data when the wrapper accepts Transfer
 		DataFromMiso => Readback_i,
 		XferComplete => SpiXferComplete--,
 	);
@@ -144,7 +145,9 @@ begin
 			SpiRst <= '1';			
 			LastTransfer <= '0';
 			LastSpiXferComplete <= '0';
-			TransferActuallyComplete <= '0';			
+			TransferActuallyComplete <= '0';
+			WriteOut_i <= (others => '0');
+			Readback <= (others => '0');
 			
 		else
 			
@@ -157,6 +160,8 @@ begin
 					
 					--Here we go...
 					if (Transfer = '1') then
+					
+						WriteOut_i <= WriteOut;
 					
 						--Initiate reading the data.
 						SpiRst <= '0';
