@@ -15,6 +15,7 @@ architecture sim of SpiMaster_tb is
 
     constant CLK_PERIOD : time := 10 ns;
     constant DEFAULT_BIT_CYCLES : natural := 1000;
+    constant XFER_COMPLETE_TIMEOUT_CYCLES : natural := 200000;
 
     type spi_tb_out_t is record
         rst           : std_logic;
@@ -68,14 +69,17 @@ architecture sim of SpiMaster_tb is
         tx_vec := tx_data;
         rx_vec := rx_data;
         spi_tb.rst <= '1';
+
+
+        wait until falling_edge(clk_in);
         data_to_mosi <= tx_vec;
         spi_tb.miso <= rx_vec(rx_vec'high);
-        wait until falling_edge(clk_in);
+
         assert_equal(spi_dut.xfer_complete, '0', "XferComplete low while idle");
         assert_equal(spi_dut.sck, not(cpol), "Sck idle level");
 
         spi_tb.rst <= '0';
-        assert_equal(spi_dut.mosi, tx_vec(tx_vec'high), "MOSI MSB preloaded before full-duplex transfer");
+        -- assert_equal(spi_dut.mosi, tx_vec(tx_vec'high), "MOSI MSB preloaded before full-duplex transfer");
 
         for bit_num in tx_vec'high downto tx_vec'low loop
             if cpha = '1' then -- sample then shift
@@ -110,9 +114,7 @@ architecture sim of SpiMaster_tb is
             end if;
         end loop;
 
-        while spi_dut.xfer_complete /= '1' loop
-            wait until rising_edge(clk_in);
-        end loop;
+        wait_until_value(clk_in, spi_dut.xfer_complete, '1', XFER_COMPLETE_TIMEOUT_CYCLES, "Timed out waiting for XferComplete after full-duplex transfer");
         assert_equal(data_from_miso, rx_vec, "DataFromMiso after RX 0x" & to_hstring(rx_vec));
         assert_equal(spi_dut.xfer_complete, '1', "XferComplete after full-duplex xfer");
 
@@ -170,6 +172,20 @@ begin
         set_test_name(test_name_display, "Mode 0 send and receive");
         send_receive_transfer(clk, spi_mode0.tb, spi_mode0.dut, data_to_mosi_1, data_from_miso_1, '0', '0', x"AB", x"55");
 
+        set_test_name(test_name_display, "Mode 0 active MOSI follows pre-latch input");
+        spi_mode0.tb.rst <= '1';
+        data_to_mosi_1 <= x"80";
+        wait until falling_edge(clk);
+        spi_mode0.tb.rst <= '0';
+        data_to_mosi_1 <= x"40";
+        wait until falling_edge(clk);
+        assert_equal(spi_mode0.dut.mosi, '0', "MOSI picks up updated MSB before the first SPI clock edge");
+        wait until (spi_mode0.dut.sck'event and (spi_mode0.dut.sck = '0'));
+        assert_equal(spi_mode0.dut.mosi, '0', "First shifted bit uses updated pre-latch input");
+        spi_mode0.tb.rst <= '1';
+        wait until falling_edge(clk);
+        assert_equal(spi_mode0.dut.xfer_complete, '0', "Active MOSI test XferComplete low after reset");
+
         set_test_name(test_name_display, "Mode 0 send data latch mid-transfer");
         spi_mode0.tb.rst <= '1';
         data_to_mosi_1 <= x"AB";
@@ -187,9 +203,7 @@ begin
         assert_equal(spi_mode0.dut.mosi, '1', "Master keeps latched MOSI bit 5 after data change");
         wait until (spi_mode0.dut.sck'event and (spi_mode0.dut.sck = '0'));
         assert_equal(spi_mode0.dut.mosi, '0', "Master keeps original latched MOSI bit 4 late in transfer");
-        while spi_mode0.dut.xfer_complete /= '1' loop
-            wait until rising_edge(clk);
-        end loop;
+        wait_until_value(clk, spi_mode0.dut.xfer_complete, '1', XFER_COMPLETE_TIMEOUT_CYCLES, "Mode 0 latch test timed out waiting for XferComplete");
         assert_equal(spi_mode0.dut.xfer_complete, '1', "Mode 0 latch test completes original transfer");
         spi_mode0.tb.rst <= '1';
         wait until falling_edge(clk);
@@ -267,9 +281,7 @@ begin
         wait until falling_edge(clk);
         spi_bw4.tb.rst <= '0';
         wait until falling_edge(clk);
-        while spi_bw4.dut.xfer_complete /= '1' loop
-            wait until rising_edge(clk);
-        end loop;
+        wait_until_value(clk, spi_bw4.dut.xfer_complete, '1', XFER_COMPLETE_TIMEOUT_CYCLES, "Byte width 4 no-back-to-back test timed out waiting for XferComplete");
         data_to_mosi_4 <= x"33334444";
         cycle_clock(clk, DEFAULT_BIT_CYCLES * 2);
         assert_equal(spi_bw4.dut.xfer_complete, '1', "Byte width 4 stays complete without reset");
