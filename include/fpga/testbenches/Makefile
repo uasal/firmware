@@ -87,8 +87,22 @@ coverage:
 	else \
 		covered_percent=$$((covered_num * 100 / total_num)); \
 	fi; \
-	printf "Testbench coverage: %s%% (%s/%s RTL files have testbenches)\n" \
-		"$$covered_percent" "$$covered_num" "$$total_num"
+		printf "Testbench coverage: %s%% (%s/%s RTL files have testbenches)\n" \
+			"$$covered_percent" "$$covered_num" "$$total_num"; \
+		printf "Covered RTL files:\n"; \
+	for rtl in $(ALL_RTL_FILES); do \
+		tb_name=$${rtl%.vhd}_tb.vhd; \
+		if [ -f "$(TB_DIR)/$$tb_name" ]; then \
+			printf "  %s\n" "$$rtl"; \
+		fi; \
+	done; \
+	printf "Uncovered RTL files:\n"; \
+	for rtl in $(ALL_RTL_FILES); do \
+		tb_name=$${rtl%.vhd}_tb.vhd; \
+		if [ ! -f "$(TB_DIR)/$$tb_name" ]; then \
+			printf "  %s\n" "$$rtl"; \
+		fi; \
+	done
 
 clean:
 	rm -rf $(WORK_DIR) *.cf *.vcd *.ghw *.log
