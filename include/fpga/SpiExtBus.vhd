@@ -33,8 +33,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.all;
 
---For now, we're going to assume a D/A which is fine with a 1MHz clock.
---It's also 16-bit.
+-- Uses an 8-bit SPI transfer with the clock divider currently set to target 500 kHz.
+-- CPOL is held at '0' here; SpiMaster uses its default CPHA behavior.
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -101,6 +101,7 @@ architecture SpiExtBus of SpiExtBusPorts is
 		
 	signal SpiExtBusClk : std_logic;
 	signal LastWriteSpiExtBus : std_logic;
+	signal SpiExtBusWriteOut_i : std_logic_vector(7 downto 0);
 	signal SpiExtBusReadback_i : std_logic_vector(7 downto 0);
 	
 begin
@@ -123,7 +124,7 @@ begin
 		Mosi => Mosi, --we don't actually send anything to the A/D, all it needs is the sample trigger/clock
 		Sck => Sck,
 		Miso => Miso,
-		DataToMosi => SpiExtBusWriteOut, --we don't actually send anything to the A/D
+		DataToMosi => SpiExtBusWriteOut_i, --we don't actually send anything to the A/D
 		DataFromMiso => SpiExtBusReadback_i,
 		XferComplete => SpiXferComplete--,
 	);
@@ -143,6 +144,7 @@ begin
 			SpiRst <= '1';			
 			LastWriteSpiExtBus <= '0';
 			LastSpiXferComplete <= '0';
+			SpiExtBusWriteOut_i <= (others => '0');
 			
 		else
 			
@@ -157,6 +159,7 @@ begin
 					if (WriteSpiExtBus = '1') then
 					
 						SpiExtBusReadReady <= '0';
+						SpiExtBusWriteOut_i <= SpiExtBusWriteOut;
 					
 						--Initiate reading the data.
 						SpiRst <= '0';
