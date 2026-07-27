@@ -108,6 +108,7 @@ architecture SpiDac of SpiDacPorts is
 		
 	--~ signal DacClk : std_logic;
 	signal LastWriteDac : std_logic;
+	signal DacWriteOut_i : std_logic_vector(BIT_WIDTH - 1 downto 0);
 	signal DacReadback_i : std_logic_vector(BIT_WIDTH - 1 downto 0);
 	
 begin
@@ -126,7 +127,7 @@ begin
 		Mosi => Mosi, --we don't actually send anything to the A/D, all it needs is the sample trigger/clock
 		Sck => Sck,
 		Miso => Miso,
-		DataToMosi => DacWriteOut, --we don't actually send anything to the A/D
+		DataToMosi => DacWriteOut_i, --sample transmit data when the wrapper accepts WriteDac
 		DataFromMiso => DacReadback_i,
 		XferComplete => SpiXferComplete--,
 	);
@@ -148,6 +149,7 @@ begin
                   LastWriteDac <= '0';
                   LastSpiXferComplete <= '0';
                   TransferComplete <= '0';
+                  DacWriteOut_i <= (others => '0');
                   DacReadback <= (others => '0');
 			
 		else
@@ -168,6 +170,7 @@ begin
                     
                         --Here we go...
                         if (WriteDac = '1') then
+                          DacWriteOut_i <= DacWriteOut;
                           --Initiate reading the data.
                           SpiRst <= '0';
 						else
@@ -176,7 +179,7 @@ begin
 					
                       else
 				
-                        if (WriteDac = '0') then TransferComplete <= '0'; end if;
+						if (WriteDac = '0') then TransferComplete <= '0'; end if;
                      
 						--Wait for Spi xfer to complete, then grab the sample and we're done
                         if (SpiXferComplete /= LastSpiXferComplete) then

@@ -172,7 +172,7 @@ architecture sim of SpiDac_tb is
         set_test_name(test_name_sig, mode_label & " send only");
         send_receive_transaction(clk_in, spi_tb, spi_dut, dac_write_out_sig, dac_readback_in, cpol, cpha, x"A5", x"00");
 
-        set_test_name(test_name_sig, mode_label & " send reflects mid-transfer WriteOut change");
+        set_test_name(test_name_sig, mode_label & " send ignores mid-transfer WriteOut change");
         spi_tb.write_dac <= '0';
         spi_tb.miso <= '0';
         dac_write_out_sig <= x"A5";
@@ -182,24 +182,24 @@ architecture sim of SpiDac_tb is
         dac_write_out_sig <= x"5A";
 
         wait until(spi_dut.sck'event and (spi_dut.sck = not(cpol xor cpha)));
-        assert_equal(spi_dut.mosi, '0', mode_label & " sampled updated MOSI bit 7 after data change");
+        assert_equal(spi_dut.mosi, '1', mode_label & " sampled original MOSI bit 7 before data change");
         wait until(spi_dut.sck'event and (spi_dut.sck = not(cpol xor cpha)));
-        assert_equal(spi_dut.mosi, '1', mode_label & " sampled updated MOSI bit 6 after data change");
+        assert_equal(spi_dut.mosi, '0', mode_label & " sampled original MOSI bit 6 after data change");
         wait until(spi_dut.sck'event and (spi_dut.sck = not(cpol xor cpha)));
-        assert_equal(spi_dut.mosi, '0', mode_label & " sampled updated MOSI bit 5 after data change");
+        assert_equal(spi_dut.mosi, '1', mode_label & " kept latched MOSI bit 5 after data change");
         wait until(spi_dut.sck'event and (spi_dut.sck = not(cpol xor cpha)));
-        assert_equal(spi_dut.mosi, '1', mode_label & " sampled updated MOSI bit 4 after data change");
+        assert_equal(spi_dut.mosi, '0', mode_label & " kept latched MOSI bit 4 after data change");
         wait until(spi_dut.sck'event and (spi_dut.sck = not(cpol xor cpha)));
-        assert_equal(spi_dut.mosi, '1', mode_label & " sampled updated MOSI bit 3 after data change");
+        assert_equal(spi_dut.mosi, '0', mode_label & " kept latched MOSI bit 3 after data change");
         wait until(spi_dut.sck'event and (spi_dut.sck = not(cpol xor cpha)));
-        assert_equal(spi_dut.mosi, '0', mode_label & " sampled updated MOSI bit 2 after data change");
+        assert_equal(spi_dut.mosi, '1', mode_label & " kept latched MOSI bit 2 after data change");
         wait until(spi_dut.sck'event and (spi_dut.sck = not(cpol xor cpha)));
-        assert_equal(spi_dut.mosi, '1', mode_label & " sampled updated MOSI bit 1 after data change");
+        assert_equal(spi_dut.mosi, '0', mode_label & " kept latched MOSI bit 1 after data change");
         wait until(spi_dut.sck'event and (spi_dut.sck = not(cpol xor cpha)));
-        assert_equal(spi_dut.mosi, '0', mode_label & " sampled updated MOSI bit 0 after data change");
+        assert_equal(spi_dut.mosi, '1', mode_label & " kept latched MOSI bit 0 after data change");
 
         wait_until_value(clk_in, spi_dut.transfer_complete, '1', TRANSFER_COMPLETE_TIMEOUT_CYCLES, mode_label & " timed out waiting for completion after mid-transfer WriteOut change");
-        assert_equal(dac_readback_in, x"00", mode_label & " mid-transfer data change completed transaction");
+        assert_equal(dac_readback_in, x"00", mode_label & " mid-transfer data change kept transaction intact");
 
         set_test_name(test_name_sig, mode_label & " hold WriteDac high does not restart");
         cycle_clock(clk_in, 10);
