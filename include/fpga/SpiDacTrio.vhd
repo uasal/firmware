@@ -162,8 +162,6 @@ begin
 	nCsB <= SpiRst; --these concepts are synchronous in this design
 	nCsC <= SpiRst; --these concepts are synchronous in this design
 	
-	TransferComplete <= SpiRst; --these concepts are synchronous in this design
-		
 	--Read A/D:
 	process (clk, rst, WriteDac, SpiXferComplete)
 	begin
@@ -173,9 +171,13 @@ begin
 			SpiRst <= '1';			
 			LastWriteDac <= '0';
 			LastSpiXferComplete <= '0';
+			TransferComplete <= '0';
 			DacWriteOutA_i <= x"000000";
 			DacWriteOutB_i <= x"000000";
 			DacWriteOutC_i <= x"000000";
+			DacReadbackA <= x"000000";
+			DacReadbackB <= x"000000";
+			DacReadbackC <= x"000000";
 			
 		else
 			
@@ -194,10 +196,14 @@ begin
 						DacWriteOutB_i <= DacWriteOutB;
 						DacWriteOutC_i <= DacWriteOutC;
 						SpiRst <= '0';
+					else
+							TransferComplete <= '0';
 											
 					end if;
 					
 				else
+
+						if (WriteDac = '0') then TransferComplete <= '0'; end if;
 
 					--Wait for Spi xfer to complete, then grab the sample and we're done
 					if (SpiXferComplete /= LastSpiXferComplete) then
@@ -210,6 +216,7 @@ begin
 							DacReadbackA <= DacReadbackA_i;
 							DacReadbackB <= DacReadbackB_i;
 							DacReadbackC <= DacReadbackC_i;
+								TransferComplete <= '1';
 												
 							--turn off spi master bus
 							SpiRst <= '1';

@@ -84,6 +84,9 @@ architecture SpiMasterTrio of SpiMasterTrioPorts is
 	signal DataToMosiB_i : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0); --register input data
 	signal DataToMosiC_i : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0); --register input data
 	signal DataToMosiLatched : std_logic;
+	signal ActiveDataToMosiA : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
+	signal ActiveDataToMosiB : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
+	signal ActiveDataToMosiC : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
 	
 	signal XferComplete_i : std_logic;
 
@@ -95,6 +98,9 @@ begin
 	MosiB <= MosiB_i;
 	MosiC <= MosiC_i;
 	XferComplete <= XferComplete_i;
+	ActiveDataToMosiA <= DataToMosiA when DataToMosiLatched = '0' else DataToMosiA_i;
+	ActiveDataToMosiB <= DataToMosiB when DataToMosiLatched = '0' else DataToMosiB_i;
+	ActiveDataToMosiC <= DataToMosiC when DataToMosiLatched = '0' else DataToMosiC_i;
 	
 	process (clk, rst, MisoA, MisoB, MisoC, DataToMosiA, DataToMosiB, DataToMosiC)
 	begin
@@ -106,16 +112,13 @@ begin
 			MosiA_i <= DataToMosiA((BYTE_WIDTH * 8) - 1); --get the first bit out there asap
 			MosiB_i <= DataToMosiB((BYTE_WIDTH * 8) - 1); --get the first bit out there asap
 			MosiC_i <= DataToMosiC((BYTE_WIDTH * 8) - 1); --get the first bit out there asap
-			DataToMosiA_i <= std_logic_vector(to_unsigned(0, BYTE_WIDTH * 8));
-			DataToMosiB_i <= std_logic_vector(to_unsigned(0, BYTE_WIDTH * 8));
-			DataToMosiC_i <= std_logic_vector(to_unsigned(0, BYTE_WIDTH * 8));
+			DataToMosiA_i <= DataToMosiA;
+			DataToMosiB_i <= DataToMosiB;
+			DataToMosiC_i <= DataToMosiC;
 			DataToMosiLatched <= '0';
-			DataFromMisoA((BYTE_WIDTH * 8) - 1) <= MisoA; --grab the first bit asap
-			DataFromMisoA((BYTE_WIDTH * 8) - 2 downto 0) <= std_logic_vector(to_unsigned(0, (BYTE_WIDTH * 8) - 1));
-			DataFromMisoB((BYTE_WIDTH * 8) - 1) <= MisoB; --grab the first bit asap
-			DataFromMisoB((BYTE_WIDTH * 8) - 2 downto 0) <= std_logic_vector(to_unsigned(0, (BYTE_WIDTH * 8) - 1));
-			DataFromMisoC((BYTE_WIDTH * 8) - 1) <= MisoC; --grab the first bit asap
-			DataFromMisoC((BYTE_WIDTH * 8) - 2 downto 0) <= std_logic_vector(to_unsigned(0, (BYTE_WIDTH * 8) - 1));
+			DataFromMisoA <= std_logic_vector(to_unsigned(0, BYTE_WIDTH * 8));
+			DataFromMisoB <= std_logic_vector(to_unsigned(0, BYTE_WIDTH * 8));
+			DataFromMisoC <= std_logic_vector(to_unsigned(0, BYTE_WIDTH * 8));
 			XferComplete_i <= '0';
 			SpiBitPos <= (BYTE_WIDTH * 8);	--MSB first transfers; for LSB first, load "000" instead.
 			ClkDiv <= 0;
@@ -141,9 +144,9 @@ begin
 					ClkDiv <= ClkDiv + 1;
 					if (SpiBitPos = (BYTE_WIDTH * 8)) then 
 					
-						MosiA_i <= DataToMosiA((BYTE_WIDTH * 8) - 1); 
-						MosiB_i <= DataToMosiB((BYTE_WIDTH * 8) - 1); 
-						MosiC_i <= DataToMosiC((BYTE_WIDTH * 8) - 1); 
+						MosiA_i <= ActiveDataToMosiA((BYTE_WIDTH * 8) - 1); 
+						MosiB_i <= ActiveDataToMosiB((BYTE_WIDTH * 8) - 1); 
+						MosiC_i <= ActiveDataToMosiC((BYTE_WIDTH * 8) - 1); 
 						
 					end if; --still time to update the MSB for Mosi. GZHOU
 
@@ -161,9 +164,9 @@ begin
 						
 							if (SpiBitPos > 0) then 
 						
-								MosiA_i <= DataToMosiA_i(SpiBitPos - 1);
-								MosiB_i <= DataToMosiB_i(SpiBitPos - 1);
-								MosiC_i <= DataToMosiC_i(SpiBitPos - 1);
+								MosiA_i <= ActiveDataToMosiA(SpiBitPos - 1);
+								MosiB_i <= ActiveDataToMosiB(SpiBitPos - 1);
+								MosiC_i <= ActiveDataToMosiC(SpiBitPos - 1);
 							
 							end if;
 							

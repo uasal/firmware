@@ -77,6 +77,7 @@ architecture implementation of UartRxFifoExtClkPeek is
 		port 
 		(
 			clk : in std_logic;
+			rst : in std_logic;
 			I : in std_logic;
 			O : out std_logic--;
 		);
@@ -92,6 +93,10 @@ architecture implementation of UartRxFifoExtClkPeek is
 			DataEndAddress : out std_logic_vector(PeekRamDepth - 1 downto 0);
 			PeekAddress : in std_logic_vector(PeekRamDepth - 1 downto 0);
 			PopAddress : in std_logic_vector(PeekRamDepth - 1 downto 0);
+			LastHeaderEnd : out std_logic_vector(PeekRamDepth - 1 downto 0);
+			LastFooterEnd : out std_logic_vector(PeekRamDepth - 1 downto 0);
+			PayloadLen : out std_logic_vector(31 downto 0);
+			HeaderFooterPayloadLenMatches : out std_logic;
 			ByteIn : in std_logic_vector(7 downto 0);
 			ByteOut : out std_logic_vector(7 downto 0);
 			WriteReq : in std_logic;
@@ -120,7 +125,13 @@ architecture implementation of UartRxFifoExtClkPeek is
 	signal RxComplete_i : std_logic; --Just got a byte
 	signal RxData : std_logic_vector(7 downto 0); --The byte we just got		
 	signal ReadFifo_i : std_logic; --Sync ReadFifo to clock domain
-	signal WriteFifo_i : std_logic; --Sync WriteFifo to clock domain	
+	signal WriteFifo_i : std_logic; --Sync WriteFifo to clock domain
+
+	-- PeekRingBuffer packet-tracking outputs (not yet exposed on UartRxFifoExtClkPeek entity)
+	signal UnusedLastHeaderEnd : std_logic_vector(PeekRamDepth - 1 downto 0);
+	signal UnusedLastFooterEnd : std_logic_vector(PeekRamDepth - 1 downto 0);
+	signal UnusedPayloadLen : std_logic_vector(31 downto 0);
+	signal UnusedHeaderFooterPayloadLenMatches : std_logic;
 	
 begin
 
@@ -156,6 +167,7 @@ begin
 	port map
 	(
 		clk => clk,
+		rst => rst,
 		I => RxComplete_i,
 		O => WriteFifo_i
 	);
@@ -170,6 +182,10 @@ begin
 		DataEndAddress => FifoWriteAddr,
 		PeekAddress => FifoPeekAddr,
 		PopAddress => FifoMultiPopAddr,
+		LastHeaderEnd => UnusedLastHeaderEnd,
+		LastFooterEnd => UnusedLastFooterEnd,
+		PayloadLen => UnusedPayloadLen,
+		HeaderFooterPayloadLenMatches => UnusedHeaderFooterPayloadLenMatches,
 		ByteIn => RxData,
 		ByteOut => FifoPeekData,
 		WriteReq => WriteFifo_i,

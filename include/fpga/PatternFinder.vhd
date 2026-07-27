@@ -58,7 +58,7 @@ architecture PatternFinderImplemenatation of PatternFinder is
   	
     if (rst = '1') then
       
-		BytePos <= '00';
+		BytePos <= "00";
 		LastWriteReq <= '0';
 		Found <= '0';
 		
@@ -85,7 +85,11 @@ architecture PatternFinderImplemenatation of PatternFinder is
 					
 				when "11" =>
 				
-					if (ByteIn = Byte3) then Found <= "1"; else Found <= "0"; end if; BytePos <= "00";
+					if (ByteIn = Byte3) then Found <= '1'; else Found <= '0'; end if; BytePos <= "00";
+
+				when others =>
+					BytePos <= "00";
+					Found <= '0';
 
 			end case;
 			

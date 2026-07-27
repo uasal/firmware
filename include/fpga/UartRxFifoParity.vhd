@@ -34,9 +34,7 @@ use IEEE.NUMERIC_STD.all;
 entity UartRxFifoParity is
 	generic 
 	(
-		UART_CLOCK_FREQHZ : natural := 14745600;
-		FIFO_BITS : natural := 10;
-		BAUDRATE : natural := 38400--;
+		FIFO_BITS : natural := 10--;
 	);
 	port 
 	(
@@ -63,28 +61,18 @@ end UartRxFifoParity;
 architecture implementation of UartRxFifoParity is
 
 		component IBufP2Ports is
+	generic (
+		RESET_VALUE : std_logic := '0'
+	);
 		port 
 		(
 			clk : in std_logic;
+			rst : in std_logic;
 			I : in std_logic;
 			O : out std_logic--;
 		);
 		end component;
 
-		component ClockDividerPorts is
-		generic 
-		(
-			CLOCK_DIVIDER : natural := 10;
-			DIVOUT_RST_STATE : std_logic := '0'--;
-		);
-		port 
-		(		
-			clk : in std_logic;
-			rst : in std_logic;
-			div : out std_logic
-		);
-		end component;
-		
 		component gated_fifo is
 		generic 
 		(
@@ -114,7 +102,8 @@ architecture implementation of UartRxFifoParity is
 			Enable : in  std_logic;  -- Enable input
 			RxD    : in  std_logic;  -- RS-232 data input
 			RxAv   : out std_logic;  -- Byte available
-			DataO  : out std_logic_vector(7 downto 0)--; -- Byte received
+			DataO  : out std_logic_vector(7 downto 0); -- Byte received
+			ParityErr : out std_logic
 		);
 		end component;
 
@@ -122,29 +111,25 @@ architecture implementation of UartRxFifoParity is
 	signal Rxd_i : std_logic; --Sync Rxd to clock domain
 	signal RxComplete : std_logic; --Just got a byte
 	signal RxData : std_logic_vector(7 downto 0); --The byte we just got		
+	signal UartParityErr : std_logic;
 	signal ReadFifo_i : std_logic; --Sync ReadFifo to clock domain
-	signal WriteFifo_i : std_logic; --Sync WriteFifo to clock domain	
+	signal WriteFifo_i : std_logic; --Sync WriteFifo to clock domain
+	signal WriteFifoUart_i : std_logic; --Write pulse in uart clock domain after parity check
 	
 begin
 
-	--uart needs baud*16 for it to work, this just makes one...
-	UartClkDiv : ClockDividerPorts
-	generic map
-	(
-		CLOCK_DIVIDER => natural((real(UART_CLOCK_FREQHZ) / ( real(BAUDRATE) * 16.0)) + 0.5)
-	)
-	port map
-	(
-		clk => uclk,
-		rst => rst,
-		div => UartBaudClkx16
-	);
+	UartBaudClkx16 <= uclk;
 	
 	--Just sync the Txd to the UartClock
 	ClkSyncRxd : IBufP2Ports
+	generic map
+	(
+		RESET_VALUE => '1'
+	)
 	port map
 	(
-		clk => UartBaudClkx16,
+		clk => clk,
+		rst => rst,
 		I => Rxd,
 		O => Rxd_i
 	);
@@ -168,15 +153,20 @@ begin
 		Enable => '1',
 		RxD => Rxd_i,
 		RxAv  => RxComplete,
-		DataO => RxData--,
+		DataO => RxData,
+		ParityErr => UartParityErr
 	);
+
+	--Drop bytes that fail parity instead of writing them to the fifo
+	WriteFifoUart_i <= RxComplete and (not UartParityErr);
 	
 	--Just sync the fifo write from the usbclk to the MasterClock
 	ClkSyncWrite : IBufP2Ports
 	port map
 	(
 		clk => clk,
-		I => RxComplete,
+		rst => rst,
+		I => WriteFifoUart_i,
 		O => WriteFifo_i
 	);
 	

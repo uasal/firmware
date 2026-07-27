@@ -69,19 +69,18 @@ architecture implementation of UartRxFifoExtClk is
 		port 
 		(
 			clk : in std_logic;
+			rst : in std_logic;
 			I : in std_logic;
 			O : out std_logic--;
 		);
 		end component;
 
 		component gated_fifo is
-		generic 
-		(
+		generic (
 			WIDTH_BITS : natural := 32;
 			DEPTH_BITS : natural := 9
 		);
-		port 
-		(
+		port (
 			clk		: in std_logic;
 			rst		: in std_logic;
 			wone_i	: in std_logic;
@@ -91,7 +90,7 @@ architecture implementation of UartRxFifoExtClk is
 			empty_o	: out std_logic;
 			data_o	: out std_logic_vector(WIDTH_BITS - 1 downto 0);
 			count_o	: out std_logic_vector(DEPTH_BITS - 1 downto 0);
-			r_ack : out std_logic--;
+			r_ack	: out std_logic--;
 		);
 		end component;
 		
@@ -111,7 +110,7 @@ architecture implementation of UartRxFifoExtClk is
 	signal RxData : std_logic_vector(7 downto 0); --The byte we just got		
 	signal ReadFifo_i : std_logic; --Sync ReadFifo to clock domain
 	signal WriteFifo_i : std_logic; --Sync WriteFifo to clock domain	
-	
+
 begin
 
 	--~ --Just sync the Txd to the UartClock
@@ -127,7 +126,7 @@ begin
 	Dbg1 <= WriteFifo_i;	
 	
 	ReadFifo_i <= ReadFifo;
-	
+
 	--The actual uart to grab data
 	Uart : UartRxExtClk
 	port map (						
@@ -146,6 +145,7 @@ begin
 	port map
 	(
 		clk => clk,
+		rst => rst,
 		I => RxComplete_i,
 		O => WriteFifo_i
 	);
@@ -157,18 +157,17 @@ begin
 		WIDTH_BITS => 8,
 		DEPTH_BITS => FIFO_BITS--,
 	)
-	port map
-	(
+	port map (
 		clk => clk,
 		rst => rst,
 		wone_i => WriteFifo_i,
 		data_i => RxData,
+		rone_i => ReadFifo_i,
 		full_o => FifoFull,
 		empty_o => FifoEmpty,
 		count_o => FifoCount,
-		rone_i => ReadFifo_i,
 		r_ack => FifoReadAck,
 		data_o => FifoReadData--,
 	);
-	
+
 end implementation;
