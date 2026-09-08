@@ -27,7 +27,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.all;
 
-entity IOBufP2Ports is
+entity IOBufP1Ports is
 	port (
 			clk : in std_logic;
 			IO  : inout std_logic;
@@ -35,9 +35,9 @@ entity IOBufP2Ports is
 			I : in std_logic;
 			O : out std_logic--;
 	);
-end IOBufP2Ports;
+end IOBufP1Ports;
 
-architecture IOBufP2 of IOBufP2Ports is
+architecture IOBufP1 of IOBufP1Ports is
 
 	signal Temp1 : std_logic;
 	
@@ -56,4 +56,4 @@ begin
 
 	end process; --(clock)
 
-end IOBufP2;
+end IOBufP1;

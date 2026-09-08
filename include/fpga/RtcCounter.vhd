@@ -55,7 +55,7 @@ architecture RtcCounter of RtcCounterPorts is
 	--~ constant ClockDividerRollover : std_logic_vector(15 downto 0) := std_logic_vector(to_unsigned((CLOCK_FREQ / 1000) - 1, 16)); --51.2MHz / 51200 - 1 = 1kHz = 1 mS
 	constant ClockDividerRollover : natural := (CLOCK_FREQ / 1000) - 1; --51.2MHz / 51200 - 1 = 1kHz = 1 mS
 	--~ signal ClockDivider : std_logic_vector(15 downto 0);
-	signal ClockDivider : natural range 0 to ClockDividerRollover := 0;
+	signal ClockDivider : natural range 0 to ClockDividerRollover;
 
 	signal Milliseconds_i : std_logic_vector(9 downto 0);
 	signal Seconds_i : std_logic_vector(21 downto 0);
@@ -70,9 +70,8 @@ begin
 	Seconds <= Seconds_i;
 	MilliSeconds <= MilliSeconds_i;
 	PPSDetected <= HavePPS;
-	GeneratedPPS <= '1' when (MilliSeconds_i < 64) else '0';
 	
-	process (rst, clk, PPS, SetTime, Milliseconds_i)
+	process (rst, clk, PPS, SetTime)
 	begin
 	
 		if (rst = '1') then
@@ -83,10 +82,13 @@ begin
 			HavePPS <= '0';
 			LastPPS <= '1'; --pulled up by default in h/w, so must idle at 1; also makes it do both edges before acting on the first pps. Now, when the GPS pulls in, does it move a whole bunch and fubar our autosync?
 			TimeWasSet <= '0';
+			SetChangedTime <= '0';
+			GeneratedPPS <= '1';
 			
 		else
 			
 			if ( (clk'event) and (clk = '1') ) then
+				GeneratedPPS <= '1' when (MilliSeconds_i < 64) else '0';
 		
 				--Edge of PPS is sacred: resets everything...
 				if ( (LastPPS /= PPS) and (GeneratePPS = '0') ) then --the generatepps flag keeps us from listening when we are the source of pps instead of gps!

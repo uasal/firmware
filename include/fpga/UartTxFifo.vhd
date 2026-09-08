@@ -64,9 +64,13 @@ architecture implementation of UartTxFifo is
 	-- Component declarations
 			
 			component IBufP2Ports is
+			generic (
+				RESET_VALUE : std_logic := '0'
+			);
 			port 
 			(
 				clk : in std_logic;
+				rst : in std_logic;
 				I : in std_logic;
 				O : out std_logic--;
 			);
@@ -112,6 +116,7 @@ architecture implementation of UartTxFifo is
 				Go     : in  Std_Logic; --To initate a xfer, raise this bit and wait for busy to go high, then lower.
 				TxD    : out Std_Logic;
 				Busy   : out Std_Logic;
+				BitCountOut : out std_logic_vector(3 downto 0);
 				Data  : in  Std_Logic_Vector(7 downto 0)--; --not latched; must be held constant while busy is high
 			);
 			end component;
@@ -127,6 +132,7 @@ architecture implementation of UartTxFifo is
 			signal OutgoingTxByte : std_logic_vector(7 downto 0);
 			
 			signal BitClock : std_logic;
+			signal BitCountOut : std_logic_vector(3 downto 0);
 			signal StartTx : std_logic;
 			signal StartTx_i : std_logic; --same thing, uart clk domain
 			signal TxInProgress_i : std_logic; --internal readpack for output port
@@ -148,7 +154,7 @@ begin
 	--~ should run write & data out of slow domain, run fifo from master.
 	--~ also need to add useatomicclk flag to fpgacontrol register
 
-	UartTxFifo : gated_fifo
+	UartTxFifoInst : gated_fifo
 	generic map
 	(
 		WIDTH_BITS => 8,
@@ -187,6 +193,7 @@ begin
 	port map
 	(
 		clk => BitClock,
+		rst => rst,
 		I => StartTx,
 		O => StartTx_i--,
 	);
@@ -199,6 +206,7 @@ begin
 		Go => StartTx_i,
 		TxD => Txd,
 		Busy => TxInProgress_i_i,
+		BitCountOut => BitCountOut,
 		Data => OutgoingTxByte
 	);
 	
@@ -206,6 +214,7 @@ begin
 	port map
 	(
 		clk => clk,
+		rst => rst,
 		I => TxInProgress_i_i,
 		O => TxInProgress_i--,
 	);
@@ -213,9 +222,14 @@ begin
 	TxInProgress <= TxInProgress_i;
 	
 	IBufCts : IBufP2Ports --cross the clk domain
+	generic map
+	(
+		RESET_VALUE => '1'
+	)
 	port map
 	(
 		clk => clk,
+		rst => rst,
 		I => Cts,
 		O => Cts_i--,
 	);

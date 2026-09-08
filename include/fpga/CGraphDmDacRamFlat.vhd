@@ -56,19 +56,19 @@ architecture DmDacRamFlat of DmDacRamFlatPorts is
   begin
     if (rst = '1') then
       
-		DacSetpointOut <= x"000000"; --for synchronous read
+		  DacSetpointOut <= x"000000"; --for synchronous read
       
     else
       if ( (clk'event) and (clk = '1') ) then
-
-        DacSetpointOut <= DacSetpoints(ReadAddress); --for synchronous read
 		
         if (WriteReq = '1') then
             DacSetpoints(WriteAddress) := DacSetpointIn;
         end if;
+
+        DacSetpointOut <= DacSetpoints(ReadAddress); --for synchronous read
+
       end if;  
     end if;
   end process;
 
 end DmDacRamFlat;
-

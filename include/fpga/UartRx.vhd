@@ -27,9 +27,13 @@ end UartRx;
 architecture implementation of UartRx is
 
 		component IBufP2Ports is
+	generic (
+		RESET_VALUE : std_logic := '0'
+	);
 		port 
 		(
 			clk : in std_logic;
+			rst : in std_logic;
 			I : in std_logic;
 			O : out std_logic--;
 		);
@@ -84,9 +88,14 @@ begin
 	
 	--Just sync the Txd to the UartClock
 	ClkSyncRxd : IBufP2Ports
+	generic map
+	(
+		RESET_VALUE => '1'
+	)
 	port map
 	(
 		clk => UartBaudClkx16,
+		rst => rst,
 		I => Rxd,
 		O => Rxd_i
 	);

@@ -27,7 +27,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.all;
 
-entity VariableClockDividerPorts is
+entity VariableClockDivider2XPorts is
 	generic (
 		WIDTH_BITS : natural := 8;
 		DIVOUT_RST_STATE : std_logic := '0'--;
@@ -37,16 +37,14 @@ entity VariableClockDividerPorts is
 		clki : in std_logic;
 		rst : in std_logic;
 		rst_count : in std_logic_vector(WIDTH_BITS - 1 downto 0); --typically zero; if >= terminal_count, it will flip on the first clock after reset!
-		terminal_count : in std_logic_vector(WIDTH_BITS - 1 downto 0); --a t/c of zero results in clko = clki / 2
+		terminal_count : in std_logic_vector(WIDTH_BITS - 1 downto 0); --match ClockDivider2X when = CLOCK_DIVIDER-1; zero holds clko at DIVOUT_RST_STATE (no /2 behavior)
 		clko : out std_logic
 	);
-end VariableClockDividerPorts;
+end VariableClockDivider2XPorts;
 
-architecture VariableClockDivider of VariableClockDividerPorts is
-
-	signal ClkDiv : natural range 0 to ((2**WIDTH_BITS) - 1);
-	signal clko_i : std_logic;	
-
+architecture VariableClockDivider2X of VariableClockDivider2XPorts is
+    signal ClkDiv : natural range 0 to ((2**WIDTH_BITS) - 1);
+    signal clko_i : std_logic;
 begin
 
 	clko <= clko_i;
@@ -74,7 +72,8 @@ begin
 
 				end if;
 				
-				if (ClkDiv < ( (shift_right(unsigned(terminal_count),1)) - 1)) then
+				if (ClkDiv < ( (shift_right(unsigned(terminal_count),1)))) or 
+					(ClkDiv >= terminal_count) then
 						
 						clko_i <= DIVOUT_RST_STATE;
 						
@@ -88,6 +87,6 @@ begin
 			
 		end if;
 
-	end process;
+end process;
 
-end VariableClockDivider;
+end VariableClockDivider2X;
