@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('classPeekRingBuffer_1_1PeekRingBufferI
   <div class="summary">
 <a href="#Components">Components</a> &#124;
 <a href="#Instantiations">Instantiations</a> &#124;
+<a href="#Processes">Processes</a> &#124;
 <a href="#Signals">Signals</a>  </div>
   <div class="headertitle"><div class="title">PeekRingBuffer.PeekRingBufferImplemenatation Architecture Reference</div></div>
 </div><!--header-->
@@ -112,6 +113,11 @@ Collaboration diagram for PeekRingBuffer.PeekRingBufferImplemenatation:</div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <b>Architecture &gt;&gt; </b><a class="el" href="classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html">PeekRingBuffer::PeekRingBufferImplemenatation</a><br />
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="Processes" name="Processes"></a>
+Processes</h2></td></tr>
+ <tr class="memitem:ab0af8bc62bb1a0f399aadb93b1b0dedd" id="r_ab0af8bc62bb1a0f399aadb93b1b0dedd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#ab0af8bc62bb1a0f399aadb93b1b0dedd">PROCESS_30</a>&#160;</td><td class="memItemRight" valign="bottom"><b> ( <b><b><a class="el" href="classPeekRingBuffer.html#a50da91b765765ac486df1b41692e962f">clk</a></b> <span class="vhdlchar"> </span></b> , <b><b><a class="el" href="classPeekRingBuffer.html#ae106f17a2b73445119c8eb039d3e102e">rst</a></b> <span class="vhdlchar"> </span></b> )</b></td></tr>
+<tr class="memdesc:ab0af8bc62bb1a0f399aadb93b1b0dedd"><td class="mdescLeft">&#160;</td><td class="mdescRight">!!this calc is WRONG!!! Needs to WRAP correctly...  <a href="#ab0af8bc62bb1a0f399aadb93b1b0dedd"></a><br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="Components" name="Components"></a>
 Components</h2></td></tr>
  <tr class="memitem:a1a8ce50f9303b6ff2a0bb2b31edb9f0b" id="r_a1a8ce50f9303b6ff2a0bb2b31edb9f0b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#a1a8ce50f9303b6ff2a0bb2b31edb9f0b">PeekRam</a>&#160;</td><td class="memItemRight" valign="bottom">  <b></b>  <em><a class="el" href="classPeekRam.html">&lt;Entity PeekRam&gt; </a></em></td></tr>
@@ -134,11 +140,46 @@ Signals</h2></td></tr>
 Instantiations</h2></td></tr>
  <tr class="memitem:a395a8ddd35230b0fe4852a523b769047" id="r_a395a8ddd35230b0fe4852a523b769047"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#a395a8ddd35230b0fe4852a523b769047">peekram_i</a>&#160;</td><td class="memItemRight" valign="bottom">  <b>PeekRam</b>  <em><a class="el" href="classPeekRam.html">&lt;Entity PeekRam&gt;</a></em></td></tr>
 <tr class="memitem:a1cacea3af132ddf71ada40ecb10415fd" id="r_a1cacea3af132ddf71ada40ecb10415fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#a1cacea3af132ddf71ada40ecb10415fd">headerfinder</a>&#160;</td><td class="memItemRight" valign="bottom">  <b>PatternFinder</b>  <em><a class="el" href="classPatternFinder.html">&lt;Entity PatternFinder&gt;</a></em></td></tr>
+<tr class="memitem:ad4e3fdd85231dbe12a218ae6bab47781" id="r_ad4e3fdd85231dbe12a218ae6bab47781"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#ad4e3fdd85231dbe12a218ae6bab47781">footerfinder</a>&#160;</td><td class="memItemRight" valign="bottom">  <b>PatternFinder</b>  <em><a class="el" href="classPatternFinder.html">&lt;Entity PatternFinder&gt;</a></em></td></tr>
+<tr class="memitem:a4d7778428c02387a8c57dcd0a943923e" id="r_a4d7778428c02387a8c57dcd0a943923e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#a4d7778428c02387a8c57dcd0a943923e">payloadlenlatcher</a>&#160;</td><td class="memItemRight" valign="bottom">  <b>FieldLatcher</b>  <em><a class="el" href="classFieldLatcher.html">&lt;Entity FieldLatcher&gt;</a></em></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00060">60</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
+<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00059">59</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
+</div><h2 class="groupheader">Member Function/Procedure/Process Documentation</h2>
+<a id="ab0af8bc62bb1a0f399aadb93b1b0dedd" name="ab0af8bc62bb1a0f399aadb93b1b0dedd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0af8bc62bb1a0f399aadb93b1b0dedd">&#9670;&#160;</a></span>PROCESS_30()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PROCESS_30 </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>clk</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rst</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>!!this calc is WRONG!!! Needs to WRAP correctly... </p>
+
+<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00177">177</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
 <a id="a645d9c69fefd0ed1fe59b55e77279244" name="a645d9c69fefd0ed1fe59b55e77279244"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a645d9c69fefd0ed1fe59b55e77279244">&#9670;&#160;</a></span>DataStartAddress_i</h2>
 
@@ -159,7 +200,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00107">107</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00106">106</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
 
 </div>
 </div>
@@ -183,7 +224,31 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00094">94</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00093">93</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
+
+</div>
+</div>
+<a id="ad4e3fdd85231dbe12a218ae6bab47781" name="ad4e3fdd85231dbe12a218ae6bab47781"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4e3fdd85231dbe12a218ae6bab47781">&#9670;&#160;</a></span>footerfinder</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#ad4e3fdd85231dbe12a218ae6bab47781">footerfinder</a> <b><span class="vhdlchar">PatternFinder</span><span class="vhdlchar"> </span></b> </td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">Instantiation</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00165">165</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
 
 </div>
 </div>
@@ -207,7 +272,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00114">114</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00113">113</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
 
 </div>
 </div>
@@ -231,7 +296,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00141">141</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00148">148</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
 
 </div>
 </div>
@@ -255,7 +320,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00113">113</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00112">112</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
 
 </div>
 </div>
@@ -279,7 +344,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00116">116</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00115">115</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
 
 </div>
 </div>
@@ -303,7 +368,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00115">115</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00114">114</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
 
 </div>
 </div>
@@ -327,7 +392,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00110">110</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00109">109</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
 
 </div>
 </div>
@@ -351,7 +416,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00111">111</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00110">110</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
 
 </div>
 </div>
@@ -375,7 +440,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00118">118</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00117">117</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
 
 </div>
 </div>
@@ -399,7 +464,31 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00076">76</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00075">75</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
+
+</div>
+</div>
+<a id="a4d7778428c02387a8c57dcd0a943923e" name="a4d7778428c02387a8c57dcd0a943923e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d7778428c02387a8c57dcd0a943923e">&#9670;&#160;</a></span>payloadlenlatcher</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#a4d7778428c02387a8c57dcd0a943923e">payloadlenlatcher</a> <b><span class="vhdlchar">FieldLatcher</span><span class="vhdlchar"> </span></b> </td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">Instantiation</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00175">175</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
 
 </div>
 </div>
@@ -423,7 +512,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00062">62</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00061">61</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
 
 </div>
 </div>
@@ -447,7 +536,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00132">132</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00131">131</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
 
 </div>
 </div>
@@ -471,7 +560,7 @@ Instantiations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00108">108</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PeekRingBuffer_8vhd_source.html#l00107">107</a> of file <a class="el" href="PeekRingBuffer_8vhd_source.html">PeekRingBuffer.vhd</a>.</p>
 
 </div>
 </div>
@@ -484,7 +573,7 @@ Instantiations</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classPeekRingBuffer.html">PeekRingBuffer</a></li><li class="navelem"><a class="el" href="classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html">PeekRingBufferImplemenatation</a></li>
-    <li class="footer">Generated on Wed May 20 2026 23:34:30 for ESC FilterWheel Fpga Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Sep 8 2026 22:30:33 for ESC FilterWheel Fpga Source by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

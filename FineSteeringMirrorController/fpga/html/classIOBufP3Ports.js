@@ -9,7 +9,5 @@ var classIOBufP3Ports =
     [ "O", "classIOBufP3Ports.html#ab89355c345ee51203fa0ebedb3789df7", null ],
     [ "STD_LOGIC_1164", "classIOBufP3Ports.html#aa4b2b25246a821511120e3149b003563", null ],
     [ "STD_LOGIC_UNSIGNED", "classIOBufP3Ports.html#a241c3e72dd8024cc8ae831b1b2aed7db", null ],
-    [ "T", "classIOBufP3Ports.html#a2abe8a8ede57e42b31f3019a50ff054f", null ],
-    [ "UNISIM", "classIOBufP3Ports.html#afd13b50585152f6756d196bf3f1c52ac", null ],
-    [ "vcomponents", "classIOBufP3Ports.html#aa1cb22e959d47364391e5eb4ef86927c", null ]
+    [ "T", "classIOBufP3Ports.html#a2abe8a8ede57e42b31f3019a50ff054f", null ]
 ];

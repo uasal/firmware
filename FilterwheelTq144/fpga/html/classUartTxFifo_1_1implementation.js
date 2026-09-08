@@ -1,8 +1,9 @@
 var classUartTxFifo_1_1implementation =
 [
-    [ "PROCESS_45", "classUartTxFifo_1_1implementation.html#acdff87de1b320b21f64c0a5cf09d979f", null ],
+    [ "PROCESS_47", "classUartTxFifo_1_1implementation.html#aad0356a79001b338a8ca9fc69c294732", null ],
     [ "BitClock", "classUartTxFifo_1_1implementation.html#abc75b9d455bee6e20f7fc143689bdd1f", null ],
     [ "bitclockdiv", "classUartTxFifo_1_1implementation.html#a5f792ffccb969997421fbe0dc8b308a3", null ],
+    [ "BitCountOut", "classUartTxFifo_1_1implementation.html#a3c18d84673452c82286b0bf69fd2015e", null ],
     [ "ClockDividerPorts", "classUartTxFifo_1_1implementation.html#a40230d1eabbeb02dc89dc66911451995", null ],
     [ "Cts_i", "classUartTxFifo_1_1implementation.html#a8adcf9ff89125830c4d751e1aec82ac1", null ],
     [ "CurrentState", "classUartTxFifo_1_1implementation.html#a7c69e3de698d7cbc7418b532496727ba", null ],
@@ -22,6 +23,6 @@ var classUartTxFifo_1_1implementation =
     [ "TxInProgress_i", "classUartTxFifo_1_1implementation.html#a497cf152d7a456e8fa58a0e6e6f3c5af", null ],
     [ "TxInProgress_i_i", "classUartTxFifo_1_1implementation.html#a39f826c151aebe75fda16e75e364fb85", null ],
     [ "UartTx", "classUartTxFifo_1_1implementation.html#a5d75db2f7ea25396e0ec43cd176c0724", null ],
-    [ "uarttxfifo", "classUartTxFifo_1_1implementation.html#abd8368eb0cd59590ed1a2ef2f8e68a40", null ],
+    [ "uarttxfifoinst", "classUartTxFifo_1_1implementation.html#a8c80b49917bef9f88af715fdd5985a29", null ],
     [ "uarttxuart", "classUartTxFifo_1_1implementation.html#a180299fb129c25af87f3c5de1f316016", null ]
 ];

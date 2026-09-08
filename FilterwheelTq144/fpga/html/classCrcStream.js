@@ -3,6 +3,7 @@ var classCrcStream =
     [ "CrcStream.implementation", "classCrcStream_1_1implementation.html", "classCrcStream_1_1implementation" ],
     [ "clk", "classCrcStream.html#a50da91b765765ac486df1b41692e962f", null ],
     [ "crc", "classCrcStream.html#a6ecf177f404ac89dcfb4fc88e7eb1ee5", null ],
+    [ "CRC_INIT_STATE", "classCrcStream.html#a8eb5d66dc41c54c376b4825012f6d7ab", null ],
     [ "data", "classCrcStream.html#a75e1d6cd33a57fe6bcbf07b7e6308281", null ],
     [ "IEEE", "classCrcStream.html#ae4f03c286607f3181e16b9aa12d0c6d4", null ],
     [ "NUMERIC_STD", "classCrcStream.html#ae00f3f04545af57582ff10609eee23e2", null ],

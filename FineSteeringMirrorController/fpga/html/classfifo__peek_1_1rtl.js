@@ -1,18 +1,19 @@
 var classfifo__peek_1_1rtl =
 [
-    [ "dpram_porta", "classfifo__peek_1_1rtl.html#a48d658465dd42561eba81456f30b5c6d", null ],
-    [ "dpram_portb", "classfifo__peek_1_1rtl.html#ab30c1895e773435d0e4f06bfb6a58e4b", null ],
+    [ "dpram_porta", "classfifo__peek_1_1rtl.html#ac166b4796c11a73f072c9cc61476fb16", null ],
+    [ "dpram_portb", "classfifo__peek_1_1rtl.html#aaad7722fc2266a28e15fe601276a3fbb", null ],
     [ "update", "classfifo__peek_1_1rtl.html#afa2b40e1432d5b323438fc5267ea03e6", null ],
-    [ "counter_r", "classfifo__peek_1_1rtl.html#a2bdc6393b33e88ab9d3275d10e8be70a", null ],
-    [ "data_r", "classfifo__peek_1_1rtl.html#a08531460d883ecc7c9b652fea5e811ff", null ],
+    [ "counter_r", "classfifo__peek_1_1rtl.html#a27cf70fd0daf6fba07230f20f0db3444", null ],
+    [ "data_r", "classfifo__peek_1_1rtl.html#ac686a523563347205aaebaf8d2a09a4b", null ],
     [ "DEPTH", "classfifo__peek_1_1rtl.html#aec401eda53263069935d7b2bc9f64f59", null ],
-    [ "do_count", "classfifo__peek_1_1rtl.html#a474f4587796585a24b58331ae6852e4e", null ],
-    [ "do_write", "classfifo__peek_1_1rtl.html#af5ae1bcc8b80708dbfb1934ca248f46e", null ],
-    [ "empty_r", "classfifo__peek_1_1rtl.html#a41b7ec69c0f860db87bb18532164e00e", null ],
-    [ "full_r", "classfifo__peek_1_1rtl.html#ac01acd58594fe463f6e584f91d8ff763", null ],
-    [ "lastmultipop_e_i", "classfifo__peek_1_1rtl.html#ae11c750f70151c885754db4ff639b99b", null ],
-    [ "raddr_r", "classfifo__peek_1_1rtl.html#ac8d256b452f68c130ec47e771a87528c", null ],
+    [ "do_count", "classfifo__peek_1_1rtl.html#a661cec9a9ba55bc3432be64c40904aa7", null ],
+    [ "do_read", "classfifo__peek_1_1rtl.html#a7493d6721b885c711068580e75ca76b7", null ],
+    [ "do_write", "classfifo__peek_1_1rtl.html#a7803fcba092ea965c4a05b43fd260892", null ],
+    [ "empty_r", "classfifo__peek_1_1rtl.html#a6ccc25d35a0b3ee816b1ff8a2db292f5", null ],
+    [ "full_r", "classfifo__peek_1_1rtl.html#a83a7cab9057d8d84c0cbe002f80f3bda", null ],
+    [ "lastmultipop_e_i", "classfifo__peek_1_1rtl.html#a42c82eaac2a3764e2e74bf0d69cdc106", null ],
+    [ "raddr_r", "classfifo__peek_1_1rtl.html#a98e7c9ab3d99b4f8bb885b1c709d4cd9", null ],
     [ "RAM", "classfifo__peek_1_1rtl.html#a09666ed2c7709cf88b1f8efa6c7aa56a", null ],
     [ "ram_type", "classfifo__peek_1_1rtl.html#a037f935496b2d17a6b43bc749e5858b1", null ],
-    [ "waddr_r", "classfifo__peek_1_1rtl.html#ac0790eaefadb1f6b13b3a1573707befe", null ]
+    [ "waddr_r", "classfifo__peek_1_1rtl.html#a2b4bfae9d256534f55ac4bff12476882", null ]
 ];

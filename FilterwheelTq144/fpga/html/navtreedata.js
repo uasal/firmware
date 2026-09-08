@@ -47,16 +47,16 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "BuildNumber_8vhd.html",
-"classFieldLatcher.html#a62f3af5cff1ba971976e853e4c0ca086",
-"classLtc2378AccumTrioPorts_1_1Ltc2378AccumTrio.html#a11cddd149aee795596bcf7f5bcdd4893",
-"classMain_1_1architecture__Main.html#a5abbf51207f04d7f2fbd60b65d5b8414",
-"classPatternFinder.html#a3bce43fdb5a2fe563b48955d3785db8d",
-"classRegisterSpacePorts.html#a9f4c87cd6145d3274ced142f9131f7b0",
-"classSpiDacPorts.html#a883f3c3d337d4957b7516a6ccc1dcda2",
-"classSpiMasterDualPorts_1_1SpiMasterDual.html#a25446d46e01ca10d71451c2fb5416c7e",
-"classUartRxParity.html",
-"classads1258Ports.html#aa9069417b7a19854a866beb6fcc9f684",
-"classltc244xPorts.html#a06ab5d8ed6240ca85b1c0c96a38cc877"
+"classDmDacRamPorts.html#ae4f03c286607f3181e16b9aa12d0c6d4",
+"classLtc2378AccumTrioPorts.html#a2c4c12ecf6eb4315f8c3e5ec0d20b4f5",
+"classMain_1_1architecture__Main.html#a485b459ad90241516bd713c4a81946f5",
+"classOneShotPorts.html#ae4f03c286607f3181e16b9aa12d0c6d4",
+"classRegisterSpacePorts.html#a7958ce0a53dbffc5e6f1930226dc3aa7",
+"classRtcCounterPorts.html#a241c3e72dd8024cc8ae831b1b2aed7db",
+"classSpiExtBusPorts.html#ad36be2f2eb9047d720e4147155638bbd",
+"classUartRxFifoExtClkPeek_1_1implementation.html#ab9eac508b43a45014888101a181992df",
+"classUartTxParity_1_1Behaviour.html#ac7ca68ea8944fbfd3dff4d7788560ba0",
+"classgated__fifo__peek.html#aa897c9766be0e8a8f2bd64d8eb48030e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

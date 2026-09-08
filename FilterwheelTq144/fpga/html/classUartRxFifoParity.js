@@ -1,7 +1,6 @@
 var classUartRxFifoParity =
 [
     [ "UartRxFifoParity.implementation", "classUartRxFifoParity_1_1implementation.html", "classUartRxFifoParity_1_1implementation" ],
-    [ "BAUDRATE", "classUartRxFifoParity.html#a3dbb09c145cedf8af254668ddfb32c77", null ],
     [ "clk", "classUartRxFifoParity.html#a50da91b765765ac486df1b41692e962f", null ],
     [ "FIFO_BITS", "classUartRxFifoParity.html#a345e23b2e8ad6c56e4ce74436a8d8d12", null ],
     [ "FifoCount", "classUartRxFifoParity.html#a8cb749208284211073cfdcfcfc6c4f18", null ],
@@ -16,6 +15,5 @@ var classUartRxFifoParity =
     [ "Rxd", "classUartRxFifoParity.html#aa7cc00deb1e4ed71d2ab231d3463f9a7", null ],
     [ "STD_LOGIC_1164", "classUartRxFifoParity.html#aa4b2b25246a821511120e3149b003563", null ],
     [ "STD_LOGIC_UNSIGNED", "classUartRxFifoParity.html#a241c3e72dd8024cc8ae831b1b2aed7db", null ],
-    [ "UART_CLOCK_FREQHZ", "classUartRxFifoParity.html#a13532f1a9701a608b985c541521180e3", null ],
     [ "uclk", "classUartRxFifoParity.html#ad9bf1a9863005e8400f2f96516d444bd", null ]
 ];

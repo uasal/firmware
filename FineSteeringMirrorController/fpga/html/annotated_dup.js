@@ -3,6 +3,7 @@ var annotated_dup =
     [ "ads1258accumulatorPorts", "classads1258accumulatorPorts.html", "classads1258accumulatorPorts" ],
     [ "ads1258Ports", "classads1258Ports.html", "classads1258Ports" ],
     [ "BuildNumberPorts", "classBuildNumberPorts.html", "classBuildNumberPorts" ],
+    [ "ClockDivider2XPorts", "classClockDivider2XPorts.html", "classClockDivider2XPorts" ],
     [ "ClockDividerPorts", "classClockDividerPorts.html", "classClockDividerPorts" ],
     [ "crc_byte", "classcrc__byte.html", "classcrc__byte" ],
     [ "CrcFifo", "classCrcFifo.html", "classCrcFifo" ],
@@ -12,7 +13,6 @@ var annotated_dup =
     [ "DmDacRamPorts", "classDmDacRamPorts.html", "classDmDacRamPorts" ],
     [ "FieldLatcher", "classFieldLatcher.html", "classFieldLatcher" ],
     [ "fifo", "classfifo.html", "classfifo" ],
-    [ "fifo_gen_tb", "classfifo__gen__tb.html", "classfifo__gen__tb" ],
     [ "fifo_peek", "classfifo__peek.html", "classfifo__peek" ],
     [ "FourWireStepperMotorDriverPorts", "classFourWireStepperMotorDriverPorts.html", "classFourWireStepperMotorDriverPorts" ],
     [ "FourWireStepperMotorPorts", "classFourWireStepperMotorPorts.html", "classFourWireStepperMotorPorts" ],
@@ -21,6 +21,7 @@ var annotated_dup =
     [ "IBufP1Ports", "classIBufP1Ports.html", "classIBufP1Ports" ],
     [ "IBufP2Ports", "classIBufP2Ports.html", "classIBufP2Ports" ],
     [ "IBufP3Ports", "classIBufP3Ports.html", "classIBufP3Ports" ],
+    [ "IOBufP1Ports", "classIOBufP1Ports.html", "classIOBufP1Ports" ],
     [ "IOBufP2Ports", "classIOBufP2Ports.html", "classIOBufP2Ports" ],
     [ "IOBufP3Ports", "classIOBufP3Ports.html", "classIOBufP3Ports" ],
     [ "Ltc2378AccumQuadPorts", "classLtc2378AccumQuadPorts.html", "classLtc2378AccumQuadPorts" ],
@@ -61,6 +62,7 @@ var annotated_dup =
     [ "UartTxFifoExtClk", "classUartTxFifoExtClk.html", "classUartTxFifoExtClk" ],
     [ "UartTxFifoParity", "classUartTxFifoParity.html", "classUartTxFifoParity" ],
     [ "UartTxParity", "classUartTxParity.html", "classUartTxParity" ],
+    [ "VariableClockDivider2XPorts", "classVariableClockDivider2XPorts.html", "classVariableClockDivider2XPorts" ],
     [ "VariableClockDividerPorts", "classVariableClockDividerPorts.html", "classVariableClockDividerPorts" ],
     [ "VariableOneShotPorts", "classVariableOneShotPorts.html", "classVariableOneShotPorts" ]
 ];

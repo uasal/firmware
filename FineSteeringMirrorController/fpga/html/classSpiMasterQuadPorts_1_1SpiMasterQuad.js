@@ -1,6 +1,10 @@
 var classSpiMasterQuadPorts_1_1SpiMasterQuad =
 [
-    [ "PROCESS_42", "classSpiMasterQuadPorts_1_1SpiMasterQuad.html#ad5e7385740902bfb5f4015fb04d176b3", null ],
+    [ "PROCESS_44", "classSpiMasterQuadPorts_1_1SpiMasterQuad.html#a5fdc6453b6bdd6900e3793542ec8e4e6", null ],
+    [ "ActiveDataToMosiA", "classSpiMasterQuadPorts_1_1SpiMasterQuad.html#ac04486489a0c5c4773873d194d706e7c", null ],
+    [ "ActiveDataToMosiB", "classSpiMasterQuadPorts_1_1SpiMasterQuad.html#a9a0431851ec49cc172bc9fd34376b8c1", null ],
+    [ "ActiveDataToMosiC", "classSpiMasterQuadPorts_1_1SpiMasterQuad.html#a43a3fb40a68d465367412d6d7304c9be", null ],
+    [ "ActiveDataToMosiD", "classSpiMasterQuadPorts_1_1SpiMasterQuad.html#af4f5bac62ba818abf138baa854c84307", null ],
     [ "ClkDiv", "classSpiMasterQuadPorts_1_1SpiMasterQuad.html#a37436844059c7d73da7c03008811a87f", null ],
     [ "DataToMosiA_i", "classSpiMasterQuadPorts_1_1SpiMasterQuad.html#ae7eb9c46783190a34686290557f7c8ea", null ],
     [ "DataToMosiB_i", "classSpiMasterQuadPorts_1_1SpiMasterQuad.html#abf539c1a46911ba4a22a32d3d61d8d91", null ],

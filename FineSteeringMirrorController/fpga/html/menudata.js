@@ -58,7 +58,6 @@ var menudata={children:[
 {text:"z",url:"functions_z.html#index_z"}]},
 {text:"Functions/Procedures/Processes",url:"functions_func.html",children:[
 {text:"a",url:"functions_func.html#index_a"},
-{text:"c",url:"functions_func.html#index_c"},
 {text:"d",url:"functions_func.html#index_d"},
 {text:"l",url:"functions_func.html#index_l"},
 {text:"p",url:"functions_func.html#index_p"},

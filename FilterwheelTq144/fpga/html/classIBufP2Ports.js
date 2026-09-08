@@ -6,6 +6,8 @@ var classIBufP2Ports =
     [ "IEEE", "classIBufP2Ports.html#ae4f03c286607f3181e16b9aa12d0c6d4", null ],
     [ "NUMERIC_STD", "classIBufP2Ports.html#ae00f3f04545af57582ff10609eee23e2", null ],
     [ "O", "classIBufP2Ports.html#ab89355c345ee51203fa0ebedb3789df7", null ],
+    [ "RESET_VALUE", "classIBufP2Ports.html#ab43a30e2508525b3c5d5372331a5c597", null ],
+    [ "rst", "classIBufP2Ports.html#ae106f17a2b73445119c8eb039d3e102e", null ],
     [ "STD_LOGIC_1164", "classIBufP2Ports.html#aa4b2b25246a821511120e3149b003563", null ],
     [ "STD_LOGIC_UNSIGNED", "classIBufP2Ports.html#a241c3e72dd8024cc8ae831b1b2aed7db", null ]
 ];

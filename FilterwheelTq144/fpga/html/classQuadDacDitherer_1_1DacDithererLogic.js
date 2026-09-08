@@ -1,6 +1,6 @@
 var classQuadDacDitherer_1_1DacDithererLogic =
 [
-    [ "PROCESS_31", "classQuadDacDitherer_1_1DacDithererLogic.html#a7df64491cbb7f01fa4ee1dd099c3e275", null ],
+    [ "PROCESS_33", "classQuadDacDitherer_1_1DacDithererLogic.html#a66985bc31776faa814c9ead1c123790f", null ],
     [ "ClockDividerPorts", "classQuadDacDitherer_1_1DacDithererLogic.html#a40230d1eabbeb02dc89dc66911451995", null ],
     [ "DacMagnitudeOutA_i", "classQuadDacDitherer_1_1DacDithererLogic.html#a9e82333978f66f6a3bdac11c0d8ba640", null ],
     [ "DacMagnitudeOutB_i", "classQuadDacDitherer_1_1DacDithererLogic.html#a78d093438bbd3fe9563b0238f947ca58", null ],

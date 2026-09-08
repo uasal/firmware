@@ -3,6 +3,7 @@ var classCrcFifo =
     [ "CrcFifo.implementation", "classCrcFifo_1_1implementation.html", "classCrcFifo_1_1implementation" ],
     [ "clk", "classCrcFifo.html#a50da91b765765ac486df1b41692e962f", null ],
     [ "Crc", "classCrcFifo.html#a5285170096c474ec65094d42be31af97", null ],
+    [ "CRC_INIT_STATE", "classCrcFifo.html#a8eb5d66dc41c54c376b4825012f6d7ab", null ],
     [ "CrcComplete", "classCrcFifo.html#a15052269c4ef3b81ed625936a8bd968b", null ],
     [ "DEPTH_BITS", "classCrcFifo.html#a8dfa6f2d305601d1cdb20a70ab7e5370", null ],
     [ "FifoEndAddr", "classCrcFifo.html#a072a475c27773e9b96b70d033d41e78c", null ],

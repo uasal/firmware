@@ -1,7 +1,9 @@
 var classPeekRingBuffer_1_1PeekRingBufferImplemenatation =
 [
+    [ "PROCESS_30", "classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#ab0af8bc62bb1a0f399aadb93b1b0dedd", null ],
     [ "DataStartAddress_i", "classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#a645d9c69fefd0ed1fe59b55e77279244", null ],
     [ "FieldLatcher", "classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#a850b260af75781ab61be878d49f2dd8c", null ],
+    [ "footerfinder", "classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#ad4e3fdd85231dbe12a218ae6bab47781", null ],
     [ "FooterFound", "classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#afb2609b1b97be2c9d8a6505f431fb029", null ],
     [ "headerfinder", "classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#a1cacea3af132ddf71ada40ecb10415fd", null ],
     [ "HeaderFound", "classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#a0183ad316829391d53e6230fa70c01a5", null ],
@@ -11,6 +13,7 @@ var classPeekRingBuffer_1_1PeekRingBufferImplemenatation =
     [ "LastWriteReq", "classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#ac3691a02128295f1c3188aaf58367add", null ],
     [ "MaybePayloadLen", "classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#a66aebcbb9b736b326d6cab5fcf7a2ae8", null ],
     [ "PatternFinder", "classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#a949684fc38adfd9c7e49bfdf247170f7", null ],
+    [ "payloadlenlatcher", "classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#a4d7778428c02387a8c57dcd0a943923e", null ],
     [ "PeekRam", "classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#a1a8ce50f9303b6ff2a0bb2b31edb9f0b", null ],
     [ "peekram_i", "classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#a395a8ddd35230b0fe4852a523b769047", null ],
     [ "WriteAddress", "classPeekRingBuffer_1_1PeekRingBufferImplemenatation.html#a79a3abe648f8b0a717eaa8ba4d987b63", null ]

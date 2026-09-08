@@ -1,6 +1,6 @@
 var classSpiDevicePorts_1_1SpiDevice =
 [
-    [ "PROCESS_36", "classSpiDevicePorts_1_1SpiDevice.html#a21266d7d00d1672f6db71356b32383ab", null ],
+    [ "PROCESS_38", "classSpiDevicePorts_1_1SpiDevice.html#aa5d6d19ad7cb522b8828c19a66599d22", null ],
     [ "IBufP2Ports", "classSpiDevicePorts_1_1SpiDevice.html#ad60196fb461e8a9b57fe678f31b93b1e", null ],
     [ "LastSpiXferComplete", "classSpiDevicePorts_1_1SpiDevice.html#aea05eba3d1b6dd1132679b0320691b5a", null ],
     [ "LastTransfer", "classSpiDevicePorts_1_1SpiDevice.html#a7d61b711b70ba41469e34ed2a7cad7f4", null ],
@@ -9,5 +9,6 @@ var classSpiDevicePorts_1_1SpiDevice =
     [ "SpiMasterPorts", "classSpiDevicePorts_1_1SpiDevice.html#a75e9ff3b76b00f4b87755a5722d5345b", null ],
     [ "SpiRst", "classSpiDevicePorts_1_1SpiDevice.html#a95038c4007ce44e1ac1544ea92bd699e", null ],
     [ "SpiXferComplete", "classSpiDevicePorts_1_1SpiDevice.html#a897b2465f1a32397cfded503ea0617a4", null ],
-    [ "TransferActuallyComplete", "classSpiDevicePorts_1_1SpiDevice.html#a494e0fa4e4deaa9ad0ab7916934ae762", null ]
+    [ "TransferActuallyComplete", "classSpiDevicePorts_1_1SpiDevice.html#a494e0fa4e4deaa9ad0ab7916934ae762", null ],
+    [ "WriteOut_i", "classSpiDevicePorts_1_1SpiDevice.html#a6e76b9bc3ae0b60b343a01914affcae7", null ]
 ];

@@ -1,6 +1,8 @@
 var classSpiMasterDualPorts_1_1SpiMasterDual =
 [
-    [ "PROCESS_41", "classSpiMasterDualPorts_1_1SpiMasterDual.html#a3cd678c84126946c232f6ef9f06eb612", null ],
+    [ "PROCESS_43", "classSpiMasterDualPorts_1_1SpiMasterDual.html#ace2dec7e54f7df6288d2586d548043bd", null ],
+    [ "ActiveDataToMosiA", "classSpiMasterDualPorts_1_1SpiMasterDual.html#ac04486489a0c5c4773873d194d706e7c", null ],
+    [ "ActiveDataToMosiB", "classSpiMasterDualPorts_1_1SpiMasterDual.html#a9a0431851ec49cc172bc9fd34376b8c1", null ],
     [ "ClkDiv", "classSpiMasterDualPorts_1_1SpiMasterDual.html#a37436844059c7d73da7c03008811a87f", null ],
     [ "DataToMosiA_i", "classSpiMasterDualPorts_1_1SpiMasterDual.html#ae7eb9c46783190a34686290557f7c8ea", null ],
     [ "DataToMosiB_i", "classSpiMasterDualPorts_1_1SpiMasterDual.html#abf539c1a46911ba4a22a32d3d61d8d91", null ],

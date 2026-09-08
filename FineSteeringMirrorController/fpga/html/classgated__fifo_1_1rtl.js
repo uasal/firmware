@@ -1,6 +1,7 @@
 var classgated__fifo_1_1rtl =
 [
     [ "PROCESS_14", "classgated__fifo_1_1rtl.html#a287ff368ea76021c58d23248e92b053a", null ],
+    [ "data_i_r", "classgated__fifo_1_1rtl.html#a296b8cc3e0534c156b72a7efd2032052", null ],
     [ "fifo", "classgated__fifo_1_1rtl.html#a576cc2b7670fbb1753a2eb96fe3c0d1d", null ],
     [ "fifo_i", "classgated__fifo_1_1rtl.html#a90e723c2e62ee108cacf2a5a69b79620", null ],
     [ "Last_rone_i", "classgated__fifo_1_1rtl.html#a8438b17d62fd844141607b8d6e72c32c", null ],

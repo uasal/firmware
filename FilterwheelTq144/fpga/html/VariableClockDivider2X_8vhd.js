@@ -1,5 +1,5 @@
 var VariableClockDivider2X_8vhd =
 [
-    [ "VariableClockDividerPorts", "classVariableClockDividerPorts.html", "classVariableClockDividerPorts" ],
-    [ "VariableClockDividerPorts.VariableClockDivider", "classVariableClockDividerPorts_1_1VariableClockDivider.html", "classVariableClockDividerPorts_1_1VariableClockDivider" ]
+    [ "VariableClockDivider2XPorts", "classVariableClockDivider2XPorts.html", "classVariableClockDivider2XPorts" ],
+    [ "VariableClockDivider2XPorts.VariableClockDivider2X", "classVariableClockDivider2XPorts_1_1VariableClockDivider2X.html", "classVariableClockDivider2XPorts_1_1VariableClockDivider2X" ]
 ];

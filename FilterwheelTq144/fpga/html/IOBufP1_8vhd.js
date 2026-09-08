@@ -1,5 +1,5 @@
 var IOBufP1_8vhd =
 [
-    [ "IOBufP2Ports", "classIOBufP2Ports.html", "classIOBufP2Ports" ],
-    [ "IOBufP2Ports.IOBufP2", "classIOBufP2Ports_1_1IOBufP2.html", "classIOBufP2Ports_1_1IOBufP2" ]
+    [ "IOBufP1Ports", "classIOBufP1Ports.html", "classIOBufP1Ports" ],
+    [ "IOBufP1Ports.IOBufP1", "classIOBufP1Ports_1_1IOBufP1.html", "classIOBufP1Ports_1_1IOBufP1" ]
 ];

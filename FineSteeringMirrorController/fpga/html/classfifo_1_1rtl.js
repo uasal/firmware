@@ -1,7 +1,7 @@
 var classfifo_1_1rtl =
 [
     [ "dpram_porta", "classfifo_1_1rtl.html#a48d658465dd42561eba81456f30b5c6d", null ],
-    [ "dpram_portb", "classfifo_1_1rtl.html#a24510319cbd16efd87c691388613ebca", null ],
+    [ "dpram_portb", "classfifo_1_1rtl.html#aaad7722fc2266a28e15fe601276a3fbb", null ],
     [ "update", "classfifo_1_1rtl.html#afa2b40e1432d5b323438fc5267ea03e6", null ],
     [ "counter_r", "classfifo_1_1rtl.html#a27cf70fd0daf6fba07230f20f0db3444", null ],
     [ "data_r", "classfifo_1_1rtl.html#ac686a523563347205aaebaf8d2a09a4b", null ],

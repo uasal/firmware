@@ -9,5 +9,9 @@ var classUartRxFifoExtClkPeek_1_1implementation =
     [ "uart", "classUartRxFifoExtClkPeek_1_1implementation.html#a169d0b4cc1e83e6cfd48bb4d8fb324fd", null ],
     [ "uartfifo", "classUartRxFifoExtClkPeek_1_1implementation.html#aed2968b7907a470914ee4992aac4869d", null ],
     [ "UartRxExtClk", "classUartRxFifoExtClkPeek_1_1implementation.html#ab9eac508b43a45014888101a181992df", null ],
+    [ "UnusedHeaderFooterPayloadLenMatches", "classUartRxFifoExtClkPeek_1_1implementation.html#a075248e4d97f12b2a9cba754261c11d6", null ],
+    [ "UnusedLastFooterEnd", "classUartRxFifoExtClkPeek_1_1implementation.html#a729bda78449baf8c7f443d3979515f59", null ],
+    [ "UnusedLastHeaderEnd", "classUartRxFifoExtClkPeek_1_1implementation.html#a3900679997314ae4b1e07d71e8deceb1", null ],
+    [ "UnusedPayloadLen", "classUartRxFifoExtClkPeek_1_1implementation.html#afe79d566ce0bd598f1936ba4632e4b53", null ],
     [ "WriteFifo_i", "classUartRxFifoExtClkPeek_1_1implementation.html#ad51f79be7647d59b6bda38031e91d31f", null ]
 ];

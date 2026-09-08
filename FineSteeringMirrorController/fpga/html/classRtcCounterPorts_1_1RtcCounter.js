@@ -1,7 +1,7 @@
 var classRtcCounterPorts_1_1RtcCounter =
 [
-    [ "PROCESS_32", "classRtcCounterPorts_1_1RtcCounter.html#a0e8ec56e21b6b9664bc11a5afd17cac9", null ],
-    [ "ClockDivider", "classRtcCounterPorts_1_1RtcCounter.html#a1399a56698d2a90d752a16dc0a5247d6", null ],
+    [ "PROCESS_34", "classRtcCounterPorts_1_1RtcCounter.html#a144ee280907fc73775844f3798224e9b", null ],
+    [ "ClockDivider", "classRtcCounterPorts_1_1RtcCounter.html#a0cc32211c2bd9f4137dcd05e3d1606ec", null ],
     [ "ClockDividerRollover", "classRtcCounterPorts_1_1RtcCounter.html#a3312584227967cff6529ead62324abad", null ],
     [ "HavePPS", "classRtcCounterPorts_1_1RtcCounter.html#aacbce24159236973eef05aa0d658754d", null ],
     [ "LastPPS", "classRtcCounterPorts_1_1RtcCounter.html#a70e5b7c4c971ce7337f3062204a0de57", null ],
