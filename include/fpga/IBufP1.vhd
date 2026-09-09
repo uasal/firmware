@@ -28,8 +28,12 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.all;
 
 entity IBufP1Ports is
+	generic (
+		RESET_VALUE : std_logic := '0'
+	);
 	port (
 			clk : in std_logic;
+			rst : in std_logic;
 			I : in std_logic;
 			O : out std_logic--;
 	);
@@ -39,9 +43,11 @@ architecture IBufP1 of IBufP1Ports is
 begin
 	
 	-- Master clock drives most logic
-	process (clk)
+	process (clk, rst)
 	begin
-		if ( (clk'event) and (clk = '1') ) then
+		if (rst = '1') then
+			O <= RESET_VALUE;
+		elsif ( (clk'event) and (clk = '1') ) then
 		
 			O <= I; --
 

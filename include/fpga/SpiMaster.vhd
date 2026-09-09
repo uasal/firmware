@@ -72,6 +72,7 @@ architecture SpiMaster of SpiMasterPorts is
 	
 	signal DataToMosi_i : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0); --register input data
 	signal DataToMosiLatched : std_logic;
+	signal ActiveDataToMosi : std_logic_vector((BYTE_WIDTH * 8) - 1 downto 0);
 	
 	signal XferComplete_i : std_logic;
 
@@ -81,6 +82,7 @@ begin
 	Sck <= Sck_i; --Allow for Sck to be inverted
 	Mosi <= Mosi_i;
 	XferComplete <= XferComplete_i;
+	ActiveDataToMosi <= DataToMosi when DataToMosiLatched = '0' else DataToMosi_i;
 	
 	process (clk, rst, Miso, DataToMosi)
 	begin
@@ -90,10 +92,9 @@ begin
 
 			Sck_i <= not(CPOL);
 			Mosi_i <= DataToMosi((BYTE_WIDTH * 8) - 1); --get the first bit out there asap
-			DataToMosi_i <= std_logic_vector(to_unsigned(0, BYTE_WIDTH * 8));
+			DataToMosi_i <= DataToMosi;
 			DataToMosiLatched <= '0';
-			DataFromMiso((BYTE_WIDTH * 8) - 1) <= Miso; --grab the first bit asap
-			DataFromMiso((BYTE_WIDTH * 8) - 2 downto 0) <= std_logic_vector(to_unsigned(0, (BYTE_WIDTH * 8) - 1));
+			DataFromMiso <= std_logic_vector(to_unsigned(0, BYTE_WIDTH * 8));
 			XferComplete_i <= '0';
 			SpiBitPos <= (BYTE_WIDTH * 8);	--MSB first transfers; for LSB first, load "000" instead.
 			ClkDiv <= 0;
@@ -107,14 +108,13 @@ begin
 			
 					DataToMosi_i <= DataToMosi;
 					DataToMosiLatched <= '1';
-					
 				end if;
 			
 				--Run clock divider
 				if (ClkDiv < ((CLOCK_DIVIDER / 2) - 1)) then --Since we flop sck back & forth, run divider twice as fast...
 					
 					ClkDiv <= ClkDiv + 1;
-					if (SpiBitPos = (BYTE_WIDTH * 8)) then Mosi_i <= DataToMosi((BYTE_WIDTH * 8) - 1); end if; --still time to update the MSB for Mosi. GZHOU
+					if (SpiBitPos = (BYTE_WIDTH * 8)) then Mosi_i <= ActiveDataToMosi((BYTE_WIDTH * 8) - 1); end if; --still time to update the MSB for Mosi. GZHOU
 
 				
 				--Run bus
@@ -129,8 +129,7 @@ begin
 						if (Sck_i = ((not(CPOL)) xor CPHA)) then --transition mosi when SCK != CPOL
 						
 							if (SpiBitPos > 0) then 
-						
-								Mosi_i <= DataToMosi_i(SpiBitPos - 1);
+								Mosi_i <= ActiveDataToMosi(SpiBitPos - 1);
 							
 							end if;
 							

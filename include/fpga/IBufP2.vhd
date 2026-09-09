@@ -28,8 +28,12 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.all;
 
 entity IBufP2Ports is
+	generic (
+		RESET_VALUE : std_logic := '0'
+	);
 	port (
 			clk : in std_logic;
+			rst : in std_logic;
 			I : in std_logic;
 			O : out std_logic--;
 	);
@@ -42,9 +46,12 @@ architecture IBufP2 of IBufP2Ports is
 begin
 	
 	-- Master clock drives most logic
-	process (clk)
+	process (clk, rst)
 	begin
-		if ( (clk'event) and (clk = '1') ) then
+		if (rst = '1') then
+			Temp1 <= RESET_VALUE;
+			O <= RESET_VALUE;
+		elsif ( (clk'event) and (clk = '1') ) then
 		
 			Temp1 <= I; --first pipeline stage - temp1 signal
 			O <= Temp1; --second pipeline stage - O signal

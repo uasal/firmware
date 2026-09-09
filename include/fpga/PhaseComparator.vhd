@@ -24,7 +24,6 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.all;
 
 entity PhaseComparatorPorts is
@@ -45,8 +44,12 @@ end PhaseComparatorPorts;
 architecture PhaseComparatorr of PhaseComparatorPorts is
 
 	component IBufP3Ports is
+	generic (
+		RESET_VALUE : std_logic := '0'
+	);
 	port (
 		clk : in std_logic;
+		rst : in std_logic;
 		I : in std_logic;
 		O : out std_logic--;
 	);
@@ -54,20 +57,21 @@ architecture PhaseComparatorr of PhaseComparatorPorts is
 
 	signal InA_i : std_logic;
 	signal InB_i : std_logic;
-	signal Delta_i : std_logic_vector(MAX_CLOCK_BITS_DELTA - 1 downto 0);
+	signal Delta_i : signed(MAX_CLOCK_BITS_DELTA - 1 downto 0);
 	signal DeltaLatched : std_logic;
 	
 	--Constants of the right length...
-	constant One : std_logic_vector(MAX_CLOCK_BITS_DELTA - 1 downto 0) := std_logic_vector(to_unsigned(1, MAX_CLOCK_BITS_DELTA));
-	constant Zero : std_logic_vector(MAX_CLOCK_BITS_DELTA - 1 downto 0) := std_logic_vector(to_unsigned(0, MAX_CLOCK_BITS_DELTA));
-	--~ constant DeltaSaturated : std_logic_vector(MAX_CLOCK_BITS_DELTA - 1 downto 0) := std_logic_vector(to_unsigned((2 ** (MAX_CLOCK_BITS_DELTA - 1)) - 1, MAX_CLOCK_BITS_DELTA));
-	constant DeltaSaturated : std_logic_vector(MAX_CLOCK_BITS_DELTA - 1 downto 0) := (others => '1');
+	constant One : signed(MAX_CLOCK_BITS_DELTA - 1 downto 0) := to_signed(1, MAX_CLOCK_BITS_DELTA);
+	constant Zero : signed(MAX_CLOCK_BITS_DELTA - 1 downto 0) := to_signed(0, MAX_CLOCK_BITS_DELTA);
+	constant DeltaMaxPositive : signed(MAX_CLOCK_BITS_DELTA - 1 downto 0) := to_signed((2 ** (MAX_CLOCK_BITS_DELTA - 1)) - 1, MAX_CLOCK_BITS_DELTA);
+	constant DeltaMaxNegative : signed(MAX_CLOCK_BITS_DELTA - 1 downto 0) := to_signed(-(2 ** (MAX_CLOCK_BITS_DELTA - 1)), MAX_CLOCK_BITS_DELTA);
 	
 begin
 
 	IBUF_A : IBufP3Ports
 	port map (
 		clk => clk,
+		rst => rst,
 		I => InA,
 		O => InA_i
 	);
@@ -75,6 +79,7 @@ begin
 	IBUF_B : IBufP3Ports
 	port map (
 		clk => clk,
+		rst => rst,
 		I => InB,
 		O => InB_i
 	);
@@ -85,7 +90,8 @@ begin
 		if (rst = '1') then
 		
 			Delta_i <= Zero;
-			Delta <= Zero;
+			Delta <= std_logic_vector(Zero);
+			DeltaLatched <= '0';
 			
 		else
 		
@@ -100,11 +106,10 @@ begin
 					
 				end if;
 				
-				--If A preceeds B, we count down from 0
+				--If A preceeds B, count positively from 0.
 				if ( (InA_i = '1') and (InB_i = '0') ) then
 				
-					--saturate:
-					if (Delta_i < DeltaSaturated) then
+					if (Delta_i < DeltaMaxPositive) then
 						
 						Delta_i <= Delta_i + One;
 						
@@ -112,11 +117,10 @@ begin
 					
 				end if;
 				
-				--If B preceeds A, we count up from 0
+				--If B preceeds A, count negatively from 0.
 				if ( (InA_i = '0') and (InB_i = '1') ) then
 				
-					--saturate:
-					if ( (Delta_i > (DeltaSaturated + One)) or (Delta_i = Zero) ) then --signed logic in unsigned var =>big numbers are negative
+					if (Delta_i > DeltaMaxNegative) then
 					
 						Delta_i <= Delta_i - One;
 						
@@ -129,7 +133,7 @@ begin
 				
 					if (DeltaLatched = '0') then
 					
-						Delta <= Delta_i;
+						Delta <= std_logic_vector(Delta_i);
 						
 						DeltaLatched <= '1';
 						

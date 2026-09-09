@@ -77,13 +77,14 @@ architecture DmDacRam of DmDacRamPorts is
     else
       if ( (clk'event) and (clk = '1') ) then
 
-		DacSetpointOut <= DacSetpoints(ReadAddressController, ReadAddressDac, ReadAddressChannel); --for synchronous read
 		
 		if (WriteReq = '1') then
 		
 			DacSetpoints(WriteAddressController, WriteAddressDac, WriteAddressChannel) := DacSetpointIn;
 		
 		end if;
+
+		DacSetpointOut <= DacSetpoints(ReadAddressController, ReadAddressDac, ReadAddressChannel); --for synchronous read
 		
 	  end if;
 	  
