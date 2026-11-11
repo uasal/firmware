@@ -39,7 +39,8 @@ use IEEE.NUMERIC_STD.all;
 
 entity CrcStream is
 	generic (
-		CRC_INIT_STATE : std_logic_vector(31 downto 0) := x"FFFFFFFF"
+		CRC_INIT_STATE : std_logic_vector(31 downto 0) := x"FFFFFFFF";
+		CRC_FINAL_XOR : std_logic_vector(31 downto 0) := x"FFFFFFFF"
 	);
 	port (
 	
@@ -75,7 +76,7 @@ begin
 		crcOut => Crc_i--,
 	);
 	
-	crc <= Crc_i; --these concepts are synchronous in this design
+	crc <= Crc_i xor CRC_FINAL_XOR;
 		
 	process (clk, rst)
 	begin
@@ -86,7 +87,7 @@ begin
 					
 		else
 			
-			if ( (clk'event) and (clk = '1') ) then
+			if rising_edge(clk) then
 
 				CrcIn <= Crc_i;
 			

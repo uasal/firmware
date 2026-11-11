@@ -49,7 +49,8 @@ end PatternFinder;
 
 architecture PatternFinderImplemenatation of PatternFinder is
 	
-	signal BytePos : std_logic_vector(1 downto 0);
+	signal PreviousBytes : std_logic_vector(23 downto 0);
+	signal PreviousByteCount : natural range 0 to 3;
 	signal LastWriteReq : std_logic;
 	
   begin
@@ -58,7 +59,8 @@ architecture PatternFinderImplemenatation of PatternFinder is
   	
     if (rst = '1') then
       
-		BytePos <= "00";
+		PreviousBytes <= (others => '0');
+		PreviousByteCount <= 0;
 		LastWriteReq <= '0';
 		Found <= '0';
 		
@@ -68,35 +70,12 @@ architecture PatternFinderImplemenatation of PatternFinder is
 	    LastWriteReq <= WriteReq;
 	  
         if ( (LastWriteReq = '0') and (WriteReq = '1') ) then
-		
-			case BytePos is
-			
-				when "00" =>
-				
-					if (ByteIn = Byte0) then BytePos <= "01"; end if; Found <= '0';
-
-				when "01" =>
-				
-					if (ByteIn = Byte1) then BytePos <= "10"; else BytePos <= "00"; end if; Found <= '0';
-
-				when "10" =>
-				
-					if (ByteIn = Byte2) then BytePos <= "11"; else BytePos <= "00"; end if; Found <= '0';
-					
-				when "11" =>
-				
-					if (ByteIn = Byte3) then Found <= '1'; else Found <= '0'; end if; BytePos <= "00";
-
-				when others =>
-					BytePos <= "00";
-					Found <= '0';
-
-			end case;
-			
+			if (PreviousByteCount = 3) and (PreviousBytes = Byte0 & Byte1 & Byte2) and (ByteIn = Byte3) then Found <= '1'; else Found <= '0'; end if;
+			PreviousBytes <= PreviousBytes(15 downto 0) & ByteIn;
+			if (PreviousByteCount < 3) then PreviousByteCount <= PreviousByteCount + 1; end if;
 		end if;
   	  end if;  
     end if;
   end process;
 
 end PatternFinderImplemenatation;
-

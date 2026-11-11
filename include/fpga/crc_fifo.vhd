@@ -63,7 +63,8 @@ architecture implementation of CrcFifo is
 
 	component CrcStream is
 	generic (
-		CRC_INIT_STATE : std_logic_vector(31 downto 0) := x"FFFFFFFF"
+		CRC_INIT_STATE : std_logic_vector(31 downto 0) := x"FFFFFFFF";
+		CRC_FINAL_XOR : std_logic_vector(31 downto 0) := x"FFFFFFFF"
 	);
 	port (
 	
@@ -110,7 +111,7 @@ begin
 			LastStartCrc <= '0';
 			CrcComplete_i <= '1';
 			FifoPeekAddr_i <= FifoStartAddr;
-			Crc <= CRC_INIT_STATE;
+			Crc <= (others => '0');
 					
 		else
 			
@@ -122,13 +123,11 @@ begin
 				
 					CrcComplete_i <= '0';
 					FifoPeekAddr_i <= FifoStartAddr;
-					Crc <= CRC_INIT_STATE;
+					Crc <= (others => '0');
 			
 				else
 				
 					if (CrcComplete_i = '0') then
-					
-						--~ Crc <= CrcOut;
 
 						if (FifoPeekAddr_i /= FifoEndAddr) then
 						
